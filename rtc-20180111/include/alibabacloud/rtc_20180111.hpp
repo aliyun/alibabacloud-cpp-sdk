@@ -27362,6 +27362,193 @@ public:
 
   virtual ~StartCloudRecordRequestRegionColor() = default;
 };
+class StartCloudRecordRequestSingleStreamingRecordSpecifiedStreams : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> ids{};
+  shared_ptr<string> streamType{};
+  shared_ptr<string> type{};
+
+  StartCloudRecordRequestSingleStreamingRecordSpecifiedStreams() {}
+
+  explicit StartCloudRecordRequestSingleStreamingRecordSpecifiedStreams(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ids) {
+      res["Ids"] = boost::any(*ids);
+    }
+    if (streamType) {
+      res["StreamType"] = boost::any(*streamType);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ids") != m.end() && !m["Ids"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Ids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ids = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("StreamType") != m.end() && !m["StreamType"].empty()) {
+      streamType = make_shared<string>(boost::any_cast<string>(m["StreamType"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordRequestSingleStreamingRecordSpecifiedStreams() = default;
+};
+class StartCloudRecordRequestSingleStreamingRecordTranscodingParametersAudio : public Darabonba::Model {
+public:
+  shared_ptr<long> bitrate{};
+  shared_ptr<string> codec{};
+  shared_ptr<long> sampleRate{};
+
+  StartCloudRecordRequestSingleStreamingRecordTranscodingParametersAudio() {}
+
+  explicit StartCloudRecordRequestSingleStreamingRecordTranscodingParametersAudio(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bitrate) {
+      res["Bitrate"] = boost::any(*bitrate);
+    }
+    if (codec) {
+      res["Codec"] = boost::any(*codec);
+    }
+    if (sampleRate) {
+      res["SampleRate"] = boost::any(*sampleRate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bitrate") != m.end() && !m["Bitrate"].empty()) {
+      bitrate = make_shared<long>(boost::any_cast<long>(m["Bitrate"]));
+    }
+    if (m.find("Codec") != m.end() && !m["Codec"].empty()) {
+      codec = make_shared<string>(boost::any_cast<string>(m["Codec"]));
+    }
+    if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
+      sampleRate = make_shared<long>(boost::any_cast<long>(m["SampleRate"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordRequestSingleStreamingRecordTranscodingParametersAudio() = default;
+};
+class StartCloudRecordRequestSingleStreamingRecordTranscodingParameters : public Darabonba::Model {
+public:
+  shared_ptr<StartCloudRecordRequestSingleStreamingRecordTranscodingParametersAudio> audio{};
+  shared_ptr<string> container{};
+
+  StartCloudRecordRequestSingleStreamingRecordTranscodingParameters() {}
+
+  explicit StartCloudRecordRequestSingleStreamingRecordTranscodingParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (audio) {
+      res["Audio"] = audio ? boost::any(audio->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (container) {
+      res["Container"] = boost::any(*container);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Audio") != m.end() && !m["Audio"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Audio"].type()) {
+        StartCloudRecordRequestSingleStreamingRecordTranscodingParametersAudio model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Audio"]));
+        audio = make_shared<StartCloudRecordRequestSingleStreamingRecordTranscodingParametersAudio>(model1);
+      }
+    }
+    if (m.find("Container") != m.end() && !m["Container"].empty()) {
+      container = make_shared<string>(boost::any_cast<string>(m["Container"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordRequestSingleStreamingRecordTranscodingParameters() = default;
+};
+class StartCloudRecordRequestSingleStreamingRecord : public Darabonba::Model {
+public:
+  shared_ptr<vector<StartCloudRecordRequestSingleStreamingRecordSpecifiedStreams>> specifiedStreams{};
+  shared_ptr<StartCloudRecordRequestSingleStreamingRecordTranscodingParameters> transcodingParameters{};
+
+  StartCloudRecordRequestSingleStreamingRecord() {}
+
+  explicit StartCloudRecordRequestSingleStreamingRecord(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (specifiedStreams) {
+      vector<boost::any> temp1;
+      for(auto item1:*specifiedStreams){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SpecifiedStreams"] = boost::any(temp1);
+    }
+    if (transcodingParameters) {
+      res["TranscodingParameters"] = transcodingParameters ? boost::any(transcodingParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SpecifiedStreams") != m.end() && !m["SpecifiedStreams"].empty()) {
+      if (typeid(vector<boost::any>) == m["SpecifiedStreams"].type()) {
+        vector<StartCloudRecordRequestSingleStreamingRecordSpecifiedStreams> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SpecifiedStreams"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StartCloudRecordRequestSingleStreamingRecordSpecifiedStreams model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        specifiedStreams = make_shared<vector<StartCloudRecordRequestSingleStreamingRecordSpecifiedStreams>>(expect1);
+      }
+    }
+    if (m.find("TranscodingParameters") != m.end() && !m["TranscodingParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TranscodingParameters"].type()) {
+        StartCloudRecordRequestSingleStreamingRecordTranscodingParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TranscodingParameters"]));
+        transcodingParameters = make_shared<StartCloudRecordRequestSingleStreamingRecordTranscodingParameters>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartCloudRecordRequestSingleStreamingRecord() = default;
+};
 class StartCloudRecordRequestStorageConfig : public Darabonba::Model {
 public:
   shared_ptr<string> accessKey{};
@@ -27628,6 +27815,7 @@ public:
 };
 class StartCloudRecordRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> annotation{};
   shared_ptr<string> appId{};
   shared_ptr<vector<StartCloudRecordRequestBackgrounds>> backgrounds{};
   shared_ptr<StartCloudRecordRequestBgColor> bgColor{};
@@ -27637,9 +27825,13 @@ public:
   shared_ptr<vector<StartCloudRecordRequestImages>> images{};
   shared_ptr<StartCloudRecordRequestLayoutSpecifiedUsers> layoutSpecifiedUsers{};
   shared_ptr<vector<StartCloudRecordRequestPanes>> panes{};
+  shared_ptr<long> recordMode{};
   shared_ptr<StartCloudRecordRequestRegionColor> regionColor{};
   shared_ptr<bool> reservePaneForNoCameraUser{};
   shared_ptr<bool> showDefaultBackgroundOnMute{};
+  shared_ptr<StartCloudRecordRequestSingleStreamingRecord> singleStreamingRecord{};
+  shared_ptr<bool> startWithoutChannel{};
+  shared_ptr<long> startWithoutChannelWaitTime{};
   shared_ptr<StartCloudRecordRequestStorageConfig> storageConfig{};
   shared_ptr<bool> subHighResolutionStream{};
   shared_ptr<string> taskId{};
@@ -27656,6 +27848,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (annotation) {
+      res["Annotation"] = boost::any(*annotation);
+    }
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
@@ -27699,6 +27894,9 @@ public:
       }
       res["Panes"] = boost::any(temp1);
     }
+    if (recordMode) {
+      res["RecordMode"] = boost::any(*recordMode);
+    }
     if (regionColor) {
       res["RegionColor"] = regionColor ? boost::any(regionColor->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -27707,6 +27905,15 @@ public:
     }
     if (showDefaultBackgroundOnMute) {
       res["ShowDefaultBackgroundOnMute"] = boost::any(*showDefaultBackgroundOnMute);
+    }
+    if (singleStreamingRecord) {
+      res["SingleStreamingRecord"] = singleStreamingRecord ? boost::any(singleStreamingRecord->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (startWithoutChannel) {
+      res["StartWithoutChannel"] = boost::any(*startWithoutChannel);
+    }
+    if (startWithoutChannelWaitTime) {
+      res["StartWithoutChannelWaitTime"] = boost::any(*startWithoutChannelWaitTime);
     }
     if (storageConfig) {
       res["StorageConfig"] = storageConfig ? boost::any(storageConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -27731,6 +27938,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Annotation") != m.end() && !m["Annotation"].empty()) {
+      annotation = make_shared<string>(boost::any_cast<string>(m["Annotation"]));
+    }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
@@ -27806,6 +28016,9 @@ public:
         panes = make_shared<vector<StartCloudRecordRequestPanes>>(expect1);
       }
     }
+    if (m.find("RecordMode") != m.end() && !m["RecordMode"].empty()) {
+      recordMode = make_shared<long>(boost::any_cast<long>(m["RecordMode"]));
+    }
     if (m.find("RegionColor") != m.end() && !m["RegionColor"].empty()) {
       if (typeid(map<string, boost::any>) == m["RegionColor"].type()) {
         StartCloudRecordRequestRegionColor model1;
@@ -27818,6 +28031,19 @@ public:
     }
     if (m.find("ShowDefaultBackgroundOnMute") != m.end() && !m["ShowDefaultBackgroundOnMute"].empty()) {
       showDefaultBackgroundOnMute = make_shared<bool>(boost::any_cast<bool>(m["ShowDefaultBackgroundOnMute"]));
+    }
+    if (m.find("SingleStreamingRecord") != m.end() && !m["SingleStreamingRecord"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SingleStreamingRecord"].type()) {
+        StartCloudRecordRequestSingleStreamingRecord model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SingleStreamingRecord"]));
+        singleStreamingRecord = make_shared<StartCloudRecordRequestSingleStreamingRecord>(model1);
+      }
+    }
+    if (m.find("StartWithoutChannel") != m.end() && !m["StartWithoutChannel"].empty()) {
+      startWithoutChannel = make_shared<bool>(boost::any_cast<bool>(m["StartWithoutChannel"]));
+    }
+    if (m.find("StartWithoutChannelWaitTime") != m.end() && !m["StartWithoutChannelWaitTime"].empty()) {
+      startWithoutChannelWaitTime = make_shared<long>(boost::any_cast<long>(m["StartWithoutChannelWaitTime"]));
     }
     if (m.find("StorageConfig") != m.end() && !m["StorageConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["StorageConfig"].type()) {
@@ -29105,6 +29331,7 @@ public:
 };
 class StartCloudRecordShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> annotation{};
   shared_ptr<string> appId{};
   shared_ptr<vector<StartCloudRecordShrinkRequestBackgrounds>> backgrounds{};
   shared_ptr<StartCloudRecordShrinkRequestBgColor> bgColor{};
@@ -29114,9 +29341,13 @@ public:
   shared_ptr<vector<StartCloudRecordShrinkRequestImages>> images{};
   shared_ptr<string> layoutSpecifiedUsersShrink{};
   shared_ptr<vector<StartCloudRecordShrinkRequestPanes>> panes{};
+  shared_ptr<long> recordMode{};
   shared_ptr<StartCloudRecordShrinkRequestRegionColor> regionColor{};
   shared_ptr<bool> reservePaneForNoCameraUser{};
   shared_ptr<bool> showDefaultBackgroundOnMute{};
+  shared_ptr<string> singleStreamingRecordShrink{};
+  shared_ptr<bool> startWithoutChannel{};
+  shared_ptr<long> startWithoutChannelWaitTime{};
   shared_ptr<StartCloudRecordShrinkRequestStorageConfig> storageConfig{};
   shared_ptr<bool> subHighResolutionStream{};
   shared_ptr<string> taskId{};
@@ -29133,6 +29364,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (annotation) {
+      res["Annotation"] = boost::any(*annotation);
+    }
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
@@ -29176,6 +29410,9 @@ public:
       }
       res["Panes"] = boost::any(temp1);
     }
+    if (recordMode) {
+      res["RecordMode"] = boost::any(*recordMode);
+    }
     if (regionColor) {
       res["RegionColor"] = regionColor ? boost::any(regionColor->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -29184,6 +29421,15 @@ public:
     }
     if (showDefaultBackgroundOnMute) {
       res["ShowDefaultBackgroundOnMute"] = boost::any(*showDefaultBackgroundOnMute);
+    }
+    if (singleStreamingRecordShrink) {
+      res["SingleStreamingRecord"] = boost::any(*singleStreamingRecordShrink);
+    }
+    if (startWithoutChannel) {
+      res["StartWithoutChannel"] = boost::any(*startWithoutChannel);
+    }
+    if (startWithoutChannelWaitTime) {
+      res["StartWithoutChannelWaitTime"] = boost::any(*startWithoutChannelWaitTime);
     }
     if (storageConfig) {
       res["StorageConfig"] = storageConfig ? boost::any(storageConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -29208,6 +29454,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Annotation") != m.end() && !m["Annotation"].empty()) {
+      annotation = make_shared<string>(boost::any_cast<string>(m["Annotation"]));
+    }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
@@ -29279,6 +29528,9 @@ public:
         panes = make_shared<vector<StartCloudRecordShrinkRequestPanes>>(expect1);
       }
     }
+    if (m.find("RecordMode") != m.end() && !m["RecordMode"].empty()) {
+      recordMode = make_shared<long>(boost::any_cast<long>(m["RecordMode"]));
+    }
     if (m.find("RegionColor") != m.end() && !m["RegionColor"].empty()) {
       if (typeid(map<string, boost::any>) == m["RegionColor"].type()) {
         StartCloudRecordShrinkRequestRegionColor model1;
@@ -29291,6 +29543,15 @@ public:
     }
     if (m.find("ShowDefaultBackgroundOnMute") != m.end() && !m["ShowDefaultBackgroundOnMute"].empty()) {
       showDefaultBackgroundOnMute = make_shared<bool>(boost::any_cast<bool>(m["ShowDefaultBackgroundOnMute"]));
+    }
+    if (m.find("SingleStreamingRecord") != m.end() && !m["SingleStreamingRecord"].empty()) {
+      singleStreamingRecordShrink = make_shared<string>(boost::any_cast<string>(m["SingleStreamingRecord"]));
+    }
+    if (m.find("StartWithoutChannel") != m.end() && !m["StartWithoutChannel"].empty()) {
+      startWithoutChannel = make_shared<bool>(boost::any_cast<bool>(m["StartWithoutChannel"]));
+    }
+    if (m.find("StartWithoutChannelWaitTime") != m.end() && !m["StartWithoutChannelWaitTime"].empty()) {
+      startWithoutChannelWaitTime = make_shared<long>(boost::any_cast<long>(m["StartWithoutChannelWaitTime"]));
     }
     if (m.find("StorageConfig") != m.end() && !m["StorageConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["StorageConfig"].type()) {
@@ -32174,6 +32435,7 @@ public:
 };
 class StartStreamingOutRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> annotation{};
   shared_ptr<string> appId{};
   shared_ptr<vector<StartStreamingOutRequestBackgrounds>> backgrounds{};
   shared_ptr<StartStreamingOutRequestBgColor> bgColor{};
@@ -32186,6 +32448,7 @@ public:
   shared_ptr<StartStreamingOutRequestRegionColor> regionColor{};
   shared_ptr<bool> reservePaneForNoCameraUser{};
   shared_ptr<bool> showDefaultBackgroundOnMute{};
+  shared_ptr<vector<string>> specMixedUserList{};
   shared_ptr<bool> startWithoutChannel{};
   shared_ptr<long> startWithoutChannelWaitTime{};
   shared_ptr<bool> subHighResolutionStream{};
@@ -32204,6 +32467,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (annotation) {
+      res["Annotation"] = boost::any(*annotation);
+    }
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
@@ -32256,6 +32522,9 @@ public:
     if (showDefaultBackgroundOnMute) {
       res["ShowDefaultBackgroundOnMute"] = boost::any(*showDefaultBackgroundOnMute);
     }
+    if (specMixedUserList) {
+      res["SpecMixedUserList"] = boost::any(*specMixedUserList);
+    }
     if (startWithoutChannel) {
       res["StartWithoutChannel"] = boost::any(*startWithoutChannel);
     }
@@ -32285,6 +32554,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Annotation") != m.end() && !m["Annotation"].empty()) {
+      annotation = make_shared<string>(boost::any_cast<string>(m["Annotation"]));
+    }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
@@ -32372,6 +32644,16 @@ public:
     }
     if (m.find("ShowDefaultBackgroundOnMute") != m.end() && !m["ShowDefaultBackgroundOnMute"].empty()) {
       showDefaultBackgroundOnMute = make_shared<bool>(boost::any_cast<bool>(m["ShowDefaultBackgroundOnMute"]));
+    }
+    if (m.find("SpecMixedUserList") != m.end() && !m["SpecMixedUserList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SpecMixedUserList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SpecMixedUserList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      specMixedUserList = make_shared<vector<string>>(toVec1);
     }
     if (m.find("StartWithoutChannel") != m.end() && !m["StartWithoutChannel"].empty()) {
       startWithoutChannel = make_shared<bool>(boost::any_cast<bool>(m["StartWithoutChannel"]));
@@ -33597,6 +33879,7 @@ public:
 };
 class StartStreamingOutShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> annotation{};
   shared_ptr<string> appId{};
   shared_ptr<vector<StartStreamingOutShrinkRequestBackgrounds>> backgrounds{};
   shared_ptr<StartStreamingOutShrinkRequestBgColor> bgColor{};
@@ -33609,6 +33892,7 @@ public:
   shared_ptr<StartStreamingOutShrinkRequestRegionColor> regionColor{};
   shared_ptr<bool> reservePaneForNoCameraUser{};
   shared_ptr<bool> showDefaultBackgroundOnMute{};
+  shared_ptr<vector<string>> specMixedUserList{};
   shared_ptr<bool> startWithoutChannel{};
   shared_ptr<long> startWithoutChannelWaitTime{};
   shared_ptr<bool> subHighResolutionStream{};
@@ -33627,6 +33911,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (annotation) {
+      res["Annotation"] = boost::any(*annotation);
+    }
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
@@ -33679,6 +33966,9 @@ public:
     if (showDefaultBackgroundOnMute) {
       res["ShowDefaultBackgroundOnMute"] = boost::any(*showDefaultBackgroundOnMute);
     }
+    if (specMixedUserList) {
+      res["SpecMixedUserList"] = boost::any(*specMixedUserList);
+    }
     if (startWithoutChannel) {
       res["StartWithoutChannel"] = boost::any(*startWithoutChannel);
     }
@@ -33708,6 +33998,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Annotation") != m.end() && !m["Annotation"].empty()) {
+      annotation = make_shared<string>(boost::any_cast<string>(m["Annotation"]));
+    }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
@@ -33791,6 +34084,16 @@ public:
     }
     if (m.find("ShowDefaultBackgroundOnMute") != m.end() && !m["ShowDefaultBackgroundOnMute"].empty()) {
       showDefaultBackgroundOnMute = make_shared<bool>(boost::any_cast<bool>(m["ShowDefaultBackgroundOnMute"]));
+    }
+    if (m.find("SpecMixedUserList") != m.end() && !m["SpecMixedUserList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SpecMixedUserList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SpecMixedUserList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      specMixedUserList = make_shared<vector<string>>(toVec1);
     }
     if (m.find("StartWithoutChannel") != m.end() && !m["StartWithoutChannel"].empty()) {
       startWithoutChannel = make_shared<bool>(boost::any_cast<bool>(m["StartWithoutChannel"]));
@@ -41223,6 +41526,7 @@ public:
   shared_ptr<UpdateStreamingOutRequestLayoutSpecifiedUsers> layoutSpecifiedUsers{};
   shared_ptr<vector<UpdateStreamingOutRequestPanes>> panes{};
   shared_ptr<UpdateStreamingOutRequestRegionColor> regionColor{};
+  shared_ptr<vector<string>> specMixedUserList{};
   shared_ptr<string> taskId{};
   shared_ptr<string> templateId{};
   shared_ptr<vector<UpdateStreamingOutRequestTexts>> texts{};
@@ -41282,6 +41586,9 @@ public:
     }
     if (regionColor) {
       res["RegionColor"] = regionColor ? boost::any(regionColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (specMixedUserList) {
+      res["SpecMixedUserList"] = boost::any(*specMixedUserList);
     }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
@@ -41381,6 +41688,16 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RegionColor"]));
         regionColor = make_shared<UpdateStreamingOutRequestRegionColor>(model1);
       }
+    }
+    if (m.find("SpecMixedUserList") != m.end() && !m["SpecMixedUserList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SpecMixedUserList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SpecMixedUserList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      specMixedUserList = make_shared<vector<string>>(toVec1);
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
@@ -42604,6 +42921,7 @@ public:
   shared_ptr<string> layoutSpecifiedUsersShrink{};
   shared_ptr<vector<UpdateStreamingOutShrinkRequestPanes>> panes{};
   shared_ptr<UpdateStreamingOutShrinkRequestRegionColor> regionColor{};
+  shared_ptr<vector<string>> specMixedUserList{};
   shared_ptr<string> taskId{};
   shared_ptr<string> templateId{};
   shared_ptr<vector<UpdateStreamingOutShrinkRequestTexts>> texts{};
@@ -42663,6 +42981,9 @@ public:
     }
     if (regionColor) {
       res["RegionColor"] = regionColor ? boost::any(regionColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (specMixedUserList) {
+      res["SpecMixedUserList"] = boost::any(*specMixedUserList);
     }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
@@ -42758,6 +43079,16 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RegionColor"]));
         regionColor = make_shared<UpdateStreamingOutShrinkRequestRegionColor>(model1);
       }
+    }
+    if (m.find("SpecMixedUserList") != m.end() && !m["SpecMixedUserList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SpecMixedUserList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SpecMixedUserList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      specMixedUserList = make_shared<vector<string>>(toVec1);
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));

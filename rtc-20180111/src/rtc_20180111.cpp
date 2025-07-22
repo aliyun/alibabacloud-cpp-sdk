@@ -3847,7 +3847,13 @@ StartCloudRecordResponse Alibabacloud_Rtc20180111::Client::startCloudRecordWithO
   if (!Darabonba_Util::Client::isUnset<StartCloudRecordRequestLayoutSpecifiedUsers>(tmpReq->layoutSpecifiedUsers)) {
     request->layoutSpecifiedUsersShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->layoutSpecifiedUsers, make_shared<string>("LayoutSpecifiedUsers"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<StartCloudRecordRequestSingleStreamingRecord>(tmpReq->singleStreamingRecord)) {
+    request->singleStreamingRecordShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->singleStreamingRecord, make_shared<string>("SingleStreamingRecord"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->annotation)) {
+    query->insert(pair<string, string>("Annotation", *request->annotation));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     query->insert(pair<string, string>("AppId", *request->appId));
   }
@@ -3875,6 +3881,9 @@ StartCloudRecordResponse Alibabacloud_Rtc20180111::Client::startCloudRecordWithO
   if (!Darabonba_Util::Client::isUnset<vector<StartCloudRecordShrinkRequestPanes>>(request->panes)) {
     query->insert(pair<string, vector<StartCloudRecordShrinkRequestPanes>>("Panes", *request->panes));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->recordMode)) {
+    query->insert(pair<string, long>("RecordMode", *request->recordMode));
+  }
   if (!Darabonba_Util::Client::isUnset<StartCloudRecordShrinkRequestRegionColor>(request->regionColor)) {
     query->insert(pair<string, StartCloudRecordShrinkRequestRegionColor>("RegionColor", *request->regionColor));
   }
@@ -3883,6 +3892,15 @@ StartCloudRecordResponse Alibabacloud_Rtc20180111::Client::startCloudRecordWithO
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->showDefaultBackgroundOnMute)) {
     query->insert(pair<string, bool>("ShowDefaultBackgroundOnMute", *request->showDefaultBackgroundOnMute));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->singleStreamingRecordShrink)) {
+    query->insert(pair<string, string>("SingleStreamingRecord", *request->singleStreamingRecordShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->startWithoutChannel)) {
+    query->insert(pair<string, bool>("StartWithoutChannel", *request->startWithoutChannel));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startWithoutChannelWaitTime)) {
+    query->insert(pair<string, long>("StartWithoutChannelWaitTime", *request->startWithoutChannelWaitTime));
   }
   if (!Darabonba_Util::Client::isUnset<StartCloudRecordShrinkRequestStorageConfig>(request->storageConfig)) {
     query->insert(pair<string, StartCloudRecordShrinkRequestStorageConfig>("StorageConfig", *request->storageConfig));
@@ -4133,6 +4151,9 @@ StartStreamingOutResponse Alibabacloud_Rtc20180111::Client::startStreamingOutWit
     request->layoutSpecifiedUsersShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->layoutSpecifiedUsers, make_shared<string>("LayoutSpecifiedUsers"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->annotation)) {
+    query->insert(pair<string, string>("Annotation", *request->annotation));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     query->insert(pair<string, string>("AppId", *request->appId));
   }
@@ -4168,6 +4189,9 @@ StartStreamingOutResponse Alibabacloud_Rtc20180111::Client::startStreamingOutWit
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->showDefaultBackgroundOnMute)) {
     query->insert(pair<string, bool>("ShowDefaultBackgroundOnMute", *request->showDefaultBackgroundOnMute));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->specMixedUserList)) {
+    query->insert(pair<string, vector<string>>("SpecMixedUserList", *request->specMixedUserList));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->startWithoutChannel)) {
     query->insert(pair<string, bool>("StartWithoutChannel", *request->startWithoutChannel));
@@ -4926,6 +4950,9 @@ UpdateStreamingOutResponse Alibabacloud_Rtc20180111::Client::updateStreamingOutW
   }
   if (!Darabonba_Util::Client::isUnset<UpdateStreamingOutShrinkRequestRegionColor>(request->regionColor)) {
     query->insert(pair<string, UpdateStreamingOutShrinkRequestRegionColor>("RegionColor", *request->regionColor));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->specMixedUserList)) {
+    query->insert(pair<string, vector<string>>("SpecMixedUserList", *request->specMixedUserList));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
     query->insert(pair<string, string>("TaskId", *request->taskId));
