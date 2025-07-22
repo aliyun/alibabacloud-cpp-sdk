@@ -4589,6 +4589,7 @@ public:
   shared_ptr<string> productId{};
   shared_ptr<string> publishTime{};
   shared_ptr<string> regDate{};
+  shared_ptr<string> registrar{};
   shared_ptr<double> renewPrice{};
   shared_ptr<bool> reserved{};
   shared_ptr<double> rmbPrice{};
@@ -4696,6 +4697,9 @@ public:
     }
     if (regDate) {
       res["RegDate"] = boost::any(*regDate);
+    }
+    if (registrar) {
+      res["Registrar"] = boost::any(*registrar);
     }
     if (renewPrice) {
       res["RenewPrice"] = boost::any(*renewPrice);
@@ -4823,6 +4827,9 @@ public:
     }
     if (m.find("RegDate") != m.end() && !m["RegDate"].empty()) {
       regDate = make_shared<string>(boost::any_cast<string>(m["RegDate"]));
+    }
+    if (m.find("Registrar") != m.end() && !m["Registrar"].empty()) {
+      registrar = make_shared<string>(boost::any_cast<string>(m["Registrar"]));
     }
     if (m.find("RenewPrice") != m.end() && !m["RenewPrice"].empty()) {
       renewPrice = make_shared<double>(boost::any_cast<double>(m["RenewPrice"]));
