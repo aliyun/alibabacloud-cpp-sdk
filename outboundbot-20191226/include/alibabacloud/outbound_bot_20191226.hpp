@@ -374,6 +374,250 @@ public:
 
   virtual ~AssignJobsResponse() = default;
 };
+class AssignJobsAsyncRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> callingNumber{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> jobGroupId{};
+  shared_ptr<vector<string>> jobsJson{};
+  shared_ptr<string> strategyJson{};
+
+  AssignJobsAsyncRequest() {}
+
+  explicit AssignJobsAsyncRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (callingNumber) {
+      res["CallingNumber"] = boost::any(*callingNumber);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (jobGroupId) {
+      res["JobGroupId"] = boost::any(*jobGroupId);
+    }
+    if (jobsJson) {
+      res["JobsJson"] = boost::any(*jobsJson);
+    }
+    if (strategyJson) {
+      res["StrategyJson"] = boost::any(*strategyJson);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CallingNumber") != m.end() && !m["CallingNumber"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CallingNumber"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CallingNumber"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      callingNumber = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("JobGroupId") != m.end() && !m["JobGroupId"].empty()) {
+      jobGroupId = make_shared<string>(boost::any_cast<string>(m["JobGroupId"]));
+    }
+    if (m.find("JobsJson") != m.end() && !m["JobsJson"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["JobsJson"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["JobsJson"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      jobsJson = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("StrategyJson") != m.end() && !m["StrategyJson"].empty()) {
+      strategyJson = make_shared<string>(boost::any_cast<string>(m["StrategyJson"]));
+    }
+  }
+
+
+  virtual ~AssignJobsAsyncRequest() = default;
+};
+class AssignJobsAsyncShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> callingNumberShrink{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> jobGroupId{};
+  shared_ptr<string> jobsJsonShrink{};
+  shared_ptr<string> strategyJson{};
+
+  AssignJobsAsyncShrinkRequest() {}
+
+  explicit AssignJobsAsyncShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (callingNumberShrink) {
+      res["CallingNumber"] = boost::any(*callingNumberShrink);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (jobGroupId) {
+      res["JobGroupId"] = boost::any(*jobGroupId);
+    }
+    if (jobsJsonShrink) {
+      res["JobsJson"] = boost::any(*jobsJsonShrink);
+    }
+    if (strategyJson) {
+      res["StrategyJson"] = boost::any(*strategyJson);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CallingNumber") != m.end() && !m["CallingNumber"].empty()) {
+      callingNumberShrink = make_shared<string>(boost::any_cast<string>(m["CallingNumber"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("JobGroupId") != m.end() && !m["JobGroupId"].empty()) {
+      jobGroupId = make_shared<string>(boost::any_cast<string>(m["JobGroupId"]));
+    }
+    if (m.find("JobsJson") != m.end() && !m["JobsJson"].empty()) {
+      jobsJsonShrink = make_shared<string>(boost::any_cast<string>(m["JobsJson"]));
+    }
+    if (m.find("StrategyJson") != m.end() && !m["StrategyJson"].empty()) {
+      strategyJson = make_shared<string>(boost::any_cast<string>(m["StrategyJson"]));
+    }
+  }
+
+
+  virtual ~AssignJobsAsyncShrinkRequest() = default;
+};
+class AssignJobsAsyncResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> asyncTaskId{};
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  AssignJobsAsyncResponseBody() {}
+
+  explicit AssignJobsAsyncResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (asyncTaskId) {
+      res["AsyncTaskId"] = boost::any(*asyncTaskId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AsyncTaskId") != m.end() && !m["AsyncTaskId"].empty()) {
+      asyncTaskId = make_shared<string>(boost::any_cast<string>(m["AsyncTaskId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~AssignJobsAsyncResponseBody() = default;
+};
+class AssignJobsAsyncResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AssignJobsAsyncResponseBody> body{};
+
+  AssignJobsAsyncResponse() {}
+
+  explicit AssignJobsAsyncResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AssignJobsAsyncResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AssignJobsAsyncResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AssignJobsAsyncResponse() = default;
+};
 class CancelJobsRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> all{};
@@ -14245,6 +14489,7 @@ public:
   shared_ptr<string> fcFunction{};
   shared_ptr<string> fcHttpTriggerUrl{};
   shared_ptr<string> fcRegion{};
+  shared_ptr<bool> supportBeebotPrompts{};
 
   DescribeScriptResponseBodyScriptNluProfile() {}
 
@@ -14265,6 +14510,9 @@ public:
     if (fcRegion) {
       res["FcRegion"] = boost::any(*fcRegion);
     }
+    if (supportBeebotPrompts) {
+      res["SupportBeebotPrompts"] = boost::any(*supportBeebotPrompts);
+    }
     return res;
   }
 
@@ -14277,6 +14525,9 @@ public:
     }
     if (m.find("FcRegion") != m.end() && !m["FcRegion"].empty()) {
       fcRegion = make_shared<string>(boost::any_cast<string>(m["FcRegion"]));
+    }
+    if (m.find("SupportBeebotPrompts") != m.end() && !m["SupportBeebotPrompts"].empty()) {
+      supportBeebotPrompts = make_shared<bool>(boost::any_cast<bool>(m["SupportBeebotPrompts"]));
     }
   }
 
@@ -18784,6 +19035,179 @@ public:
 
 
   virtual ~GetAsrServerInfoResponse() = default;
+};
+class GetAssignJobsAsyncResultRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> asyncTaskId{};
+
+  GetAssignJobsAsyncResultRequest() {}
+
+  explicit GetAssignJobsAsyncResultRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (asyncTaskId) {
+      res["AsyncTaskId"] = boost::any(*asyncTaskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AsyncTaskId") != m.end() && !m["AsyncTaskId"].empty()) {
+      asyncTaskId = make_shared<string>(boost::any_cast<string>(m["AsyncTaskId"]));
+    }
+  }
+
+
+  virtual ~GetAssignJobsAsyncResultRequest() = default;
+};
+class GetAssignJobsAsyncResultResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> jobGroupId{};
+  shared_ptr<vector<string>> jobsId{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<bool> timeout{};
+  shared_ptr<bool> valid{};
+
+  GetAssignJobsAsyncResultResponseBody() {}
+
+  explicit GetAssignJobsAsyncResultResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (jobGroupId) {
+      res["JobGroupId"] = boost::any(*jobGroupId);
+    }
+    if (jobsId) {
+      res["JobsId"] = boost::any(*jobsId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (timeout) {
+      res["Timeout"] = boost::any(*timeout);
+    }
+    if (valid) {
+      res["Valid"] = boost::any(*valid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("JobGroupId") != m.end() && !m["JobGroupId"].empty()) {
+      jobGroupId = make_shared<string>(boost::any_cast<string>(m["JobGroupId"]));
+    }
+    if (m.find("JobsId") != m.end() && !m["JobsId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["JobsId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["JobsId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      jobsId = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Timeout") != m.end() && !m["Timeout"].empty()) {
+      timeout = make_shared<bool>(boost::any_cast<bool>(m["Timeout"]));
+    }
+    if (m.find("Valid") != m.end() && !m["Valid"].empty()) {
+      valid = make_shared<bool>(boost::any_cast<bool>(m["Valid"]));
+    }
+  }
+
+
+  virtual ~GetAssignJobsAsyncResultResponseBody() = default;
+};
+class GetAssignJobsAsyncResultResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetAssignJobsAsyncResultResponseBody> body{};
+
+  GetAssignJobsAsyncResultResponse() {}
+
+  explicit GetAssignJobsAsyncResultResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetAssignJobsAsyncResultResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetAssignJobsAsyncResultResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAssignJobsAsyncResultResponse() = default;
 };
 class GetBaseStrategyPeriodRequest : public Darabonba::Model {
 public:
@@ -47062,6 +47486,8 @@ public:
   ApplyNumberDistrictInfoParsingResultResponse applyNumberDistrictInfoParsingResult(shared_ptr<ApplyNumberDistrictInfoParsingResultRequest> request);
   AssignJobsResponse assignJobsWithOptions(shared_ptr<AssignJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AssignJobsResponse assignJobs(shared_ptr<AssignJobsRequest> request);
+  AssignJobsAsyncResponse assignJobsAsyncWithOptions(shared_ptr<AssignJobsAsyncRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AssignJobsAsyncResponse assignJobsAsync(shared_ptr<AssignJobsAsyncRequest> request);
   CancelJobsResponse cancelJobsWithOptions(shared_ptr<CancelJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CancelJobsResponse cancelJobs(shared_ptr<CancelJobsRequest> request);
   ChangeResourceGroupResponse changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -47208,6 +47634,8 @@ public:
   GetAnnotationMissionTagInfoListResponse getAnnotationMissionTagInfoList(shared_ptr<GetAnnotationMissionTagInfoListRequest> request);
   GetAsrServerInfoResponse getAsrServerInfoWithOptions(shared_ptr<GetAsrServerInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAsrServerInfoResponse getAsrServerInfo(shared_ptr<GetAsrServerInfoRequest> request);
+  GetAssignJobsAsyncResultResponse getAssignJobsAsyncResultWithOptions(shared_ptr<GetAssignJobsAsyncResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAssignJobsAsyncResultResponse getAssignJobsAsyncResult(shared_ptr<GetAssignJobsAsyncResultRequest> request);
   GetBaseStrategyPeriodResponse getBaseStrategyPeriodWithOptions(shared_ptr<GetBaseStrategyPeriodRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetBaseStrategyPeriodResponse getBaseStrategyPeriod(shared_ptr<GetBaseStrategyPeriodRequest> request);
   GetConcurrentConversationQuotaResponse getConcurrentConversationQuotaWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

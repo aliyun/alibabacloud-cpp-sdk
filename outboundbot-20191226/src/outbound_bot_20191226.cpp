@@ -114,6 +114,54 @@ AssignJobsResponse Alibabacloud_OutboundBot20191226::Client::assignJobs(shared_p
   return assignJobsWithOptions(request, runtime);
 }
 
+AssignJobsAsyncResponse Alibabacloud_OutboundBot20191226::Client::assignJobsAsyncWithOptions(shared_ptr<AssignJobsAsyncRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<AssignJobsAsyncShrinkRequest> request = make_shared<AssignJobsAsyncShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->callingNumber)) {
+    request->callingNumberShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->callingNumber, make_shared<string>("CallingNumber"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->jobsJson)) {
+    request->jobsJsonShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->jobsJson, make_shared<string>("JobsJson"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->callingNumberShrink)) {
+    body->insert(pair<string, string>("CallingNumber", *request->callingNumberShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobGroupId)) {
+    body->insert(pair<string, string>("JobGroupId", *request->jobGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobsJsonShrink)) {
+    body->insert(pair<string, string>("JobsJson", *request->jobsJsonShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->strategyJson)) {
+    body->insert(pair<string, string>("StrategyJson", *request->strategyJson));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AssignJobsAsync"))},
+    {"version", boost::any(string("2019-12-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AssignJobsAsyncResponse(callApi(params, req, runtime));
+}
+
+AssignJobsAsyncResponse Alibabacloud_OutboundBot20191226::Client::assignJobsAsync(shared_ptr<AssignJobsAsyncRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return assignJobsAsyncWithOptions(request, runtime);
+}
+
 CancelJobsResponse Alibabacloud_OutboundBot20191226::Client::cancelJobsWithOptions(shared_ptr<CancelJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2800,6 +2848,34 @@ GetAsrServerInfoResponse Alibabacloud_OutboundBot20191226::Client::getAsrServerI
 GetAsrServerInfoResponse Alibabacloud_OutboundBot20191226::Client::getAsrServerInfo(shared_ptr<GetAsrServerInfoRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getAsrServerInfoWithOptions(request, runtime);
+}
+
+GetAssignJobsAsyncResultResponse Alibabacloud_OutboundBot20191226::Client::getAssignJobsAsyncResultWithOptions(shared_ptr<GetAssignJobsAsyncResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->asyncTaskId)) {
+    query->insert(pair<string, string>("AsyncTaskId", *request->asyncTaskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAssignJobsAsyncResult"))},
+    {"version", boost::any(string("2019-12-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAssignJobsAsyncResultResponse(callApi(params, req, runtime));
+}
+
+GetAssignJobsAsyncResultResponse Alibabacloud_OutboundBot20191226::Client::getAssignJobsAsyncResult(shared_ptr<GetAssignJobsAsyncResultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getAssignJobsAsyncResultWithOptions(request, runtime);
 }
 
 GetBaseStrategyPeriodResponse Alibabacloud_OutboundBot20191226::Client::getBaseStrategyPeriodWithOptions(shared_ptr<GetBaseStrategyPeriodRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
