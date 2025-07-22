@@ -19377,6 +19377,7 @@ public:
   shared_ptr<long> latancy{};
   shared_ptr<long> lockTime{};
   shared_ptr<long> logicRead{};
+  shared_ptr<string> nodeId{};
   shared_ptr<string> originTime{};
   shared_ptr<long> physicAsyncRead{};
   shared_ptr<long> physicSyncRead{};
@@ -19422,6 +19423,9 @@ public:
     }
     if (logicRead) {
       res["LogicRead"] = boost::any(*logicRead);
+    }
+    if (nodeId) {
+      res["NodeId"] = boost::any(*nodeId);
     }
     if (originTime) {
       res["OriginTime"] = boost::any(*originTime);
@@ -19483,6 +19487,9 @@ public:
     }
     if (m.find("LogicRead") != m.end() && !m["LogicRead"].empty()) {
       logicRead = make_shared<long>(boost::any_cast<long>(m["LogicRead"]));
+    }
+    if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
     }
     if (m.find("OriginTime") != m.end() && !m["OriginTime"].empty()) {
       originTime = make_shared<string>(boost::any_cast<string>(m["OriginTime"]));
