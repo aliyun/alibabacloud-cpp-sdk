@@ -55358,6 +55358,7 @@ public:
   shared_ptr<vector<string>> desktopId{};
   shared_ptr<string> orderId{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
 
   ModifyDesktopChargeTypeResponseBody() {}
 
@@ -55378,6 +55379,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
     return res;
   }
 
@@ -55397,6 +55401,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
   }
 
