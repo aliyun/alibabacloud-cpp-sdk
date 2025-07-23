@@ -266,6 +266,42 @@ public:
 
   virtual ~AuthorizeEndpointAclResponse() = default;
 };
+class CreateEventRuleRequestEndpoint : public Darabonba::Model {
+public:
+  shared_ptr<string> endpointType{};
+  shared_ptr<string> endpointValue{};
+
+  CreateEventRuleRequestEndpoint() {}
+
+  explicit CreateEventRuleRequestEndpoint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpointType) {
+      res["EndpointType"] = boost::any(*endpointType);
+    }
+    if (endpointValue) {
+      res["EndpointValue"] = boost::any(*endpointValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndpointType") != m.end() && !m["EndpointType"].empty()) {
+      endpointType = make_shared<string>(boost::any_cast<string>(m["EndpointType"]));
+    }
+    if (m.find("EndpointValue") != m.end() && !m["EndpointValue"].empty()) {
+      endpointValue = make_shared<string>(boost::any_cast<string>(m["EndpointValue"]));
+    }
+  }
+
+
+  virtual ~CreateEventRuleRequestEndpoint() = default;
+};
 class CreateEventRuleRequestEndpoints : public Darabonba::Model {
 public:
   shared_ptr<string> endpointType{};
@@ -306,6 +342,7 @@ class CreateEventRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> deliveryMode{};
+  shared_ptr<CreateEventRuleRequestEndpoint> endpoint{};
   shared_ptr<vector<CreateEventRuleRequestEndpoints>> endpoints{};
   shared_ptr<vector<string>> eventTypes{};
   shared_ptr<vector<vector<EventMatchRule>>> matchRules{};
@@ -327,6 +364,9 @@ public:
     }
     if (deliveryMode) {
       res["DeliveryMode"] = boost::any(*deliveryMode);
+    }
+    if (endpoint) {
+      res["Endpoint"] = endpoint ? boost::any(endpoint->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (endpoints) {
       vector<boost::any> temp1;
@@ -364,6 +404,13 @@ public:
     }
     if (m.find("DeliveryMode") != m.end() && !m["DeliveryMode"].empty()) {
       deliveryMode = make_shared<string>(boost::any_cast<string>(m["DeliveryMode"]));
+    }
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Endpoint"].type()) {
+        CreateEventRuleRequestEndpoint model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Endpoint"]));
+        endpoint = make_shared<CreateEventRuleRequestEndpoint>(model1);
+      }
     }
     if (m.find("Endpoints") != m.end() && !m["Endpoints"].empty()) {
       if (typeid(vector<boost::any>) == m["Endpoints"].type()) {
@@ -422,6 +469,7 @@ class CreateEventRuleShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> deliveryMode{};
+  shared_ptr<string> endpointShrink{};
   shared_ptr<string> endpointsShrink{};
   shared_ptr<string> eventTypesShrink{};
   shared_ptr<string> matchRulesShrink{};
@@ -443,6 +491,9 @@ public:
     }
     if (deliveryMode) {
       res["DeliveryMode"] = boost::any(*deliveryMode);
+    }
+    if (endpointShrink) {
+      res["Endpoint"] = boost::any(*endpointShrink);
     }
     if (endpointsShrink) {
       res["Endpoints"] = boost::any(*endpointsShrink);
@@ -468,6 +519,9 @@ public:
     }
     if (m.find("DeliveryMode") != m.end() && !m["DeliveryMode"].empty()) {
       deliveryMode = make_shared<string>(boost::any_cast<string>(m["DeliveryMode"]));
+    }
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpointShrink = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
     }
     if (m.find("Endpoints") != m.end() && !m["Endpoints"].empty()) {
       endpointsShrink = make_shared<string>(boost::any_cast<string>(m["Endpoints"]));

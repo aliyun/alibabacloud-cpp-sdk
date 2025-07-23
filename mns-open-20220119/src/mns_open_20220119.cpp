@@ -80,6 +80,9 @@ CreateEventRuleResponse Alibabacloud_Mns-open20220119::Client::createEventRuleWi
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateEventRuleShrinkRequest> request = make_shared<CreateEventRuleShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateEventRuleRequestEndpoint>(tmpReq->endpoint)) {
+    request->endpointShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->endpoint, make_shared<string>("Endpoint"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreateEventRuleRequestEndpoints>>(tmpReq->endpoints)) {
     request->endpointsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->endpoints, make_shared<string>("Endpoints"), make_shared<string>("json")));
   }
@@ -95,6 +98,9 @@ CreateEventRuleResponse Alibabacloud_Mns-open20220119::Client::createEventRuleWi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->deliveryMode)) {
     query->insert(pair<string, string>("DeliveryMode", *request->deliveryMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointShrink)) {
+    query->insert(pair<string, string>("Endpoint", *request->endpointShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->endpointsShrink)) {
     query->insert(pair<string, string>("Endpoints", *request->endpointsShrink));
