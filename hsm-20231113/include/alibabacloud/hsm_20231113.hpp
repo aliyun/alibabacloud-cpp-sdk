@@ -2947,13 +2947,16 @@ public:
 };
 class GetClusterResponseBodyCluster : public Darabonba::Model {
 public:
+  shared_ptr<bool> certManaged{};
   shared_ptr<string> clusterCertificate{};
   shared_ptr<string> clusterCsr{};
   shared_ptr<string> clusterId{};
+  shared_ptr<long> clusterMode{};
   shared_ptr<string> clusterName{};
   shared_ptr<string> clusterOwnerCertificate{};
   shared_ptr<long> createTime{};
   shared_ptr<string> deviceType{};
+  shared_ptr<string> entityCertExpireTime{};
   shared_ptr<vector<GetClusterResponseBodyClusterInstances>> instances{};
   shared_ptr<string> regionId{};
   shared_ptr<long> size{};
@@ -2972,6 +2975,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (certManaged) {
+      res["CertManaged"] = boost::any(*certManaged);
+    }
     if (clusterCertificate) {
       res["ClusterCertificate"] = boost::any(*clusterCertificate);
     }
@@ -2980,6 +2986,9 @@ public:
     }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (clusterMode) {
+      res["ClusterMode"] = boost::any(*clusterMode);
     }
     if (clusterName) {
       res["ClusterName"] = boost::any(*clusterName);
@@ -2992,6 +3001,9 @@ public:
     }
     if (deviceType) {
       res["DeviceType"] = boost::any(*deviceType);
+    }
+    if (entityCertExpireTime) {
+      res["EntityCertExpireTime"] = boost::any(*entityCertExpireTime);
     }
     if (instances) {
       vector<boost::any> temp1;
@@ -3026,6 +3038,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertManaged") != m.end() && !m["CertManaged"].empty()) {
+      certManaged = make_shared<bool>(boost::any_cast<bool>(m["CertManaged"]));
+    }
     if (m.find("ClusterCertificate") != m.end() && !m["ClusterCertificate"].empty()) {
       clusterCertificate = make_shared<string>(boost::any_cast<string>(m["ClusterCertificate"]));
     }
@@ -3034,6 +3049,9 @@ public:
     }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("ClusterMode") != m.end() && !m["ClusterMode"].empty()) {
+      clusterMode = make_shared<long>(boost::any_cast<long>(m["ClusterMode"]));
     }
     if (m.find("ClusterName") != m.end() && !m["ClusterName"].empty()) {
       clusterName = make_shared<string>(boost::any_cast<string>(m["ClusterName"]));
@@ -3046,6 +3064,9 @@ public:
     }
     if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
       deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
+    }
+    if (m.find("EntityCertExpireTime") != m.end() && !m["EntityCertExpireTime"].empty()) {
+      entityCertExpireTime = make_shared<string>(boost::any_cast<string>(m["EntityCertExpireTime"]));
     }
     if (m.find("Instances") != m.end() && !m["Instances"].empty()) {
       if (typeid(vector<boost::any>) == m["Instances"].type()) {
