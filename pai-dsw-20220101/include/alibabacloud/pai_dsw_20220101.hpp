@@ -5189,6 +5189,7 @@ public:
   shared_ptr<string> reasonCode{};
   shared_ptr<string> reasonMessage{};
   shared_ptr<string> gmtCreateTime{};
+  shared_ptr<string> gmtEndTime{};
 
   GetLifecycleResponseBodyLifecycle() {}
 
@@ -5212,6 +5213,9 @@ public:
     if (gmtCreateTime) {
       res["GmtCreateTime"] = boost::any(*gmtCreateTime);
     }
+    if (gmtEndTime) {
+      res["GmtEndTime"] = boost::any(*gmtEndTime);
+    }
     return res;
   }
 
@@ -5227,6 +5231,9 @@ public:
     }
     if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
       gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
+    }
+    if (m.find("GmtEndTime") != m.end() && !m["GmtEndTime"].empty()) {
+      gmtEndTime = make_shared<string>(boost::any_cast<string>(m["GmtEndTime"]));
     }
   }
 
