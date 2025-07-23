@@ -341,6 +341,33 @@ GetEntityStoreDataResponse Alibabacloud_Cms20240330::Client::getEntityStoreData(
   return getEntityStoreDataWithOptions(workspace, request, headers, runtime);
 }
 
+GetServiceObservabilityResponse Alibabacloud_Cms20240330::Client::getServiceObservabilityWithOptions(shared_ptr<string> workspace,
+                                                                                                     shared_ptr<string> type,
+                                                                                                     shared_ptr<map<string, string>> headers,
+                                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetServiceObservability"))},
+    {"version", boost::any(string("2024-03-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/workspace/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspace)) + string("/service-observability/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(type)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetServiceObservabilityResponse(callApi(params, req, runtime));
+}
+
+GetServiceObservabilityResponse Alibabacloud_Cms20240330::Client::getServiceObservability(shared_ptr<string> workspace, shared_ptr<string> type) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getServiceObservabilityWithOptions(workspace, type, headers, runtime);
+}
+
 GetUmodelResponse Alibabacloud_Cms20240330::Client::getUmodelWithOptions(shared_ptr<string> workspace, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
