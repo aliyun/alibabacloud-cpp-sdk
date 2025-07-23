@@ -3792,6 +3792,7 @@ class GetTemplateResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
   shared_ptr<string> description{};
+  shared_ptr<string> documentUrl{};
   shared_ptr<string> imageURL{};
   shared_ptr<string> name{};
   shared_ptr<string> resourceGroupId{};
@@ -3813,6 +3814,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (documentUrl) {
+      res["DocumentUrl"] = boost::any(*documentUrl);
     }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
@@ -3842,6 +3846,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DocumentUrl") != m.end() && !m["DocumentUrl"].empty()) {
+      documentUrl = make_shared<string>(boost::any_cast<string>(m["DocumentUrl"]));
     }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
@@ -5254,12 +5261,51 @@ public:
 
   virtual ~ListTemplateShrinkRequest() = default;
 };
+class ListTemplateResponseBodyDataTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListTemplateResponseBodyDataTag() {}
+
+  explicit ListTemplateResponseBodyDataTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListTemplateResponseBodyDataTag() = default;
+};
 class ListTemplateResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
+  shared_ptr<string> description{};
+  shared_ptr<string> documentUrl{};
   shared_ptr<string> imageURL{};
   shared_ptr<string> name{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<vector<ListTemplateResponseBodyDataTag>> tag{};
   shared_ptr<long> tagId{};
   shared_ptr<string> tagName{};
   shared_ptr<string> templateId{};
@@ -5277,6 +5323,12 @@ public:
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (documentUrl) {
+      res["DocumentUrl"] = boost::any(*documentUrl);
+    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -5285,6 +5337,13 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (tagId) {
       res["TagId"] = boost::any(*tagId);
@@ -5302,6 +5361,12 @@ public:
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DocumentUrl") != m.end() && !m["DocumentUrl"].empty()) {
+      documentUrl = make_shared<string>(boost::any_cast<string>(m["DocumentUrl"]));
+    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -5310,6 +5375,19 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListTemplateResponseBodyDataTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTemplateResponseBodyDataTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListTemplateResponseBodyDataTag>>(expect1);
+      }
     }
     if (m.find("TagId") != m.end() && !m["TagId"].empty()) {
       tagId = make_shared<long>(boost::any_cast<long>(m["TagId"]));
