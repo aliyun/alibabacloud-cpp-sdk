@@ -66,12 +66,7 @@ ActivateLicenseResponse Alibabacloud_Brain-industrial20200920::Client::activateL
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ActivateLicenseResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ActivateLicenseResponse(execute(params, req, runtime));
-  }
+  return ActivateLicenseResponse(callApi(params, req, runtime));
 }
 
 ActivateLicenseResponse Alibabacloud_Brain-industrial20200920::Client::activateLicense(shared_ptr<ActivateLicenseRequest> request) {
@@ -115,12 +110,7 @@ AicsOpenApiInvokeResponse Alibabacloud_Brain-industrial20200920::Client::aicsOpe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return AicsOpenApiInvokeResponse(callApi(params, req, runtime));
-  }
-  else {
-    return AicsOpenApiInvokeResponse(execute(params, req, runtime));
-  }
+  return AicsOpenApiInvokeResponse(callApi(params, req, runtime));
 }
 
 AicsOpenApiInvokeResponse Alibabacloud_Brain-industrial20200920::Client::aicsOpenApiInvoke(shared_ptr<AicsOpenApiInvokeRequest> request) {
@@ -145,6 +135,9 @@ CreateEssOptJobResponse Alibabacloud_Brain-industrial20200920::Client::createEss
     request->systemDataShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->systemData, make_shared<string>("SystemData"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->businessKey)) {
+    body->insert(pair<string, string>("BusinessKey", *request->businessKey));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->duration)) {
     body->insert(pair<string, long>("Duration", *request->duration));
   }
@@ -189,12 +182,7 @@ CreateEssOptJobResponse Alibabacloud_Brain-industrial20200920::Client::createEss
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateEssOptJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateEssOptJobResponse(execute(params, req, runtime));
-  }
+  return CreateEssOptJobResponse(callApi(params, req, runtime));
 }
 
 CreateEssOptJobResponse Alibabacloud_Brain-industrial20200920::Client::createEssOptJob(shared_ptr<CreateEssOptJobRequest> request) {
@@ -210,6 +198,9 @@ CreateLoadForecastJobResponse Alibabacloud_Brain-industrial20200920::Client::cre
     request->historyDataShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->historyData, make_shared<string>("HistoryData"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->businessKey)) {
+    body->insert(pair<string, string>("BusinessKey", *request->businessKey));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->deviceType)) {
     body->insert(pair<string, string>("DeviceType", *request->deviceType));
   }
@@ -248,12 +239,7 @@ CreateLoadForecastJobResponse Alibabacloud_Brain-industrial20200920::Client::cre
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreateLoadForecastJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreateLoadForecastJobResponse(execute(params, req, runtime));
-  }
+  return CreateLoadForecastJobResponse(callApi(params, req, runtime));
 }
 
 CreateLoadForecastJobResponse Alibabacloud_Brain-industrial20200920::Client::createLoadForecastJob(shared_ptr<CreateLoadForecastJobRequest> request) {
@@ -272,6 +258,9 @@ CreatePowerForecastJobResponse Alibabacloud_Brain-industrial20200920::Client::cr
     request->locationShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->location, make_shared<string>("Location"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->businessKey)) {
+    body->insert(pair<string, string>("BusinessKey", *request->businessKey));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->deviceType)) {
     body->insert(pair<string, string>("DeviceType", *request->deviceType));
   }
@@ -313,12 +302,7 @@ CreatePowerForecastJobResponse Alibabacloud_Brain-industrial20200920::Client::cr
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return CreatePowerForecastJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return CreatePowerForecastJobResponse(execute(params, req, runtime));
-  }
+  return CreatePowerForecastJobResponse(callApi(params, req, runtime));
 }
 
 CreatePowerForecastJobResponse Alibabacloud_Brain-industrial20200920::Client::createPowerForecastJob(shared_ptr<CreatePowerForecastJobRequest> request) {
@@ -346,12 +330,7 @@ GetAivppAlgoJobResponse Alibabacloud_Brain-industrial20200920::Client::getAivppA
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetAivppAlgoJobResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetAivppAlgoJobResponse(execute(params, req, runtime));
-  }
+  return GetAivppAlgoJobResponse(callApi(params, req, runtime));
 }
 
 GetAivppAlgoJobResponse Alibabacloud_Brain-industrial20200920::Client::getAivppAlgoJob(shared_ptr<GetAivppAlgoJobRequest> request) {
@@ -382,12 +361,7 @@ GetLicenseResponse Alibabacloud_Brain-industrial20200920::Client::getLicenseWith
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return GetLicenseResponse(callApi(params, req, runtime));
-  }
-  else {
-    return GetLicenseResponse(execute(params, req, runtime));
-  }
+  return GetLicenseResponse(callApi(params, req, runtime));
 }
 
 GetLicenseResponse Alibabacloud_Brain-industrial20200920::Client::getLicense(shared_ptr<GetLicenseRequest> request) {
@@ -418,12 +392,7 @@ ListAivppResourcesResponse Alibabacloud_Brain-industrial20200920::Client::listAi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListAivppResourcesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListAivppResourcesResponse(execute(params, req, runtime));
-  }
+  return ListAivppResourcesResponse(callApi(params, req, runtime));
 }
 
 ListAivppResourcesResponse Alibabacloud_Brain-industrial20200920::Client::listAivppResources(shared_ptr<ListAivppResourcesRequest> request) {
@@ -457,12 +426,7 @@ ListLicensesResponse Alibabacloud_Brain-industrial20200920::Client::listLicenses
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListLicensesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListLicensesResponse(execute(params, req, runtime));
-  }
+  return ListLicensesResponse(callApi(params, req, runtime));
 }
 
 ListLicensesResponse Alibabacloud_Brain-industrial20200920::Client::listLicenses(shared_ptr<ListLicensesRequest> request) {
@@ -490,12 +454,7 @@ ListUserResourcesResponse Alibabacloud_Brain-industrial20200920::Client::listUse
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return ListUserResourcesResponse(callApi(params, req, runtime));
-  }
-  else {
-    return ListUserResourcesResponse(execute(params, req, runtime));
-  }
+  return ListUserResourcesResponse(callApi(params, req, runtime));
 }
 
 ListUserResourcesResponse Alibabacloud_Brain-industrial20200920::Client::listUserResources(shared_ptr<ListUserResourcesRequest> request) {
@@ -526,12 +485,7 @@ UpdateLicenseDescriptionResponse Alibabacloud_Brain-industrial20200920::Client::
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
-    return UpdateLicenseDescriptionResponse(callApi(params, req, runtime));
-  }
-  else {
-    return UpdateLicenseDescriptionResponse(execute(params, req, runtime));
-  }
+  return UpdateLicenseDescriptionResponse(callApi(params, req, runtime));
 }
 
 UpdateLicenseDescriptionResponse Alibabacloud_Brain-industrial20200920::Client::updateLicenseDescription(shared_ptr<UpdateLicenseDescriptionRequest> request) {

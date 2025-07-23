@@ -822,6 +822,7 @@ public:
 };
 class CreateEssOptJobRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> businessKey{};
   shared_ptr<long> duration{};
   shared_ptr<vector<CreateEssOptJobRequestElecPrice>> elecPrice{};
   shared_ptr<string> freq{};
@@ -843,6 +844,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (businessKey) {
+      res["BusinessKey"] = boost::any(*businessKey);
+    }
     if (duration) {
       res["Duration"] = boost::any(*duration);
     }
@@ -889,6 +893,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessKey") != m.end() && !m["BusinessKey"].empty()) {
+      businessKey = make_shared<string>(boost::any_cast<string>(m["BusinessKey"]));
+    }
     if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
       duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
     }
@@ -960,6 +967,7 @@ public:
 };
 class CreateEssOptJobShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> businessKey{};
   shared_ptr<long> duration{};
   shared_ptr<string> elecPriceShrink{};
   shared_ptr<string> freq{};
@@ -981,6 +989,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (businessKey) {
+      res["BusinessKey"] = boost::any(*businessKey);
+    }
     if (duration) {
       res["Duration"] = boost::any(*duration);
     }
@@ -1015,6 +1026,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessKey") != m.end() && !m["BusinessKey"].empty()) {
+      businessKey = make_shared<string>(boost::any_cast<string>(m["BusinessKey"]));
+    }
     if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
       duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
     }
@@ -1319,6 +1333,7 @@ public:
 };
 class CreateLoadForecastJobRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> businessKey{};
   shared_ptr<string> deviceType{};
   shared_ptr<long> duration{};
   shared_ptr<string> freq{};
@@ -1338,6 +1353,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (businessKey) {
+      res["BusinessKey"] = boost::any(*businessKey);
+    }
     if (deviceType) {
       res["DeviceType"] = boost::any(*deviceType);
     }
@@ -1370,6 +1388,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessKey") != m.end() && !m["BusinessKey"].empty()) {
+      businessKey = make_shared<string>(boost::any_cast<string>(m["BusinessKey"]));
+    }
     if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
       deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
     }
@@ -1411,6 +1432,7 @@ public:
 };
 class CreateLoadForecastJobShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> businessKey{};
   shared_ptr<string> deviceType{};
   shared_ptr<long> duration{};
   shared_ptr<string> freq{};
@@ -1430,6 +1452,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (businessKey) {
+      res["BusinessKey"] = boost::any(*businessKey);
+    }
     if (deviceType) {
       res["DeviceType"] = boost::any(*deviceType);
     }
@@ -1458,6 +1483,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessKey") != m.end() && !m["BusinessKey"].empty()) {
+      businessKey = make_shared<string>(boost::any_cast<string>(m["BusinessKey"]));
+    }
     if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
       deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
     }
@@ -1799,6 +1827,7 @@ public:
 };
 class CreatePowerForecastJobRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> businessKey{};
   shared_ptr<string> deviceType{};
   shared_ptr<long> duration{};
   shared_ptr<string> freq{};
@@ -1819,6 +1848,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (businessKey) {
+      res["BusinessKey"] = boost::any(*businessKey);
+    }
     if (deviceType) {
       res["DeviceType"] = boost::any(*deviceType);
     }
@@ -1854,6 +1886,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessKey") != m.end() && !m["BusinessKey"].empty()) {
+      businessKey = make_shared<string>(boost::any_cast<string>(m["BusinessKey"]));
+    }
     if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
       deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
     }
@@ -1902,6 +1937,7 @@ public:
 };
 class CreatePowerForecastJobShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> businessKey{};
   shared_ptr<string> deviceType{};
   shared_ptr<long> duration{};
   shared_ptr<string> freq{};
@@ -1922,6 +1958,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (businessKey) {
+      res["BusinessKey"] = boost::any(*businessKey);
+    }
     if (deviceType) {
       res["DeviceType"] = boost::any(*deviceType);
     }
@@ -1953,6 +1992,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessKey") != m.end() && !m["BusinessKey"].empty()) {
+      businessKey = make_shared<string>(boost::any_cast<string>(m["BusinessKey"]));
+    }
     if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
       deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
     }
