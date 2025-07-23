@@ -2057,6 +2057,7 @@ public:
 };
 class DescribeCertificateStateResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> certId{};
   shared_ptr<string> certificate{};
   shared_ptr<string> content{};
   shared_ptr<string> domain{};
@@ -2079,6 +2080,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (certId) {
+      res["CertId"] = boost::any(*certId);
+    }
     if (certificate) {
       res["Certificate"] = boost::any(*certificate);
     }
@@ -2116,6 +2120,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertId") != m.end() && !m["CertId"].empty()) {
+      certId = make_shared<string>(boost::any_cast<string>(m["CertId"]));
+    }
     if (m.find("Certificate") != m.end() && !m["Certificate"].empty()) {
       certificate = make_shared<string>(boost::any_cast<string>(m["Certificate"]));
     }
