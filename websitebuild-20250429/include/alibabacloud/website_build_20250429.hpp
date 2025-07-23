@@ -654,6 +654,480 @@ public:
 
   virtual ~OperateAppServiceForPartnerResponse() = default;
 };
+class SyncAppInstanceForPartnerRequestAppInstanceProfile : public Darabonba::Model {
+public:
+  shared_ptr<string> deployArea{};
+  shared_ptr<string> lxInstanceId{};
+  shared_ptr<string> orderId{};
+  shared_ptr<string> siteVersion{};
+  shared_ptr<string> templateEtag{};
+  shared_ptr<string> templateId{};
+
+  SyncAppInstanceForPartnerRequestAppInstanceProfile() {}
+
+  explicit SyncAppInstanceForPartnerRequestAppInstanceProfile(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deployArea) {
+      res["DeployArea"] = boost::any(*deployArea);
+    }
+    if (lxInstanceId) {
+      res["LxInstanceId"] = boost::any(*lxInstanceId);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (siteVersion) {
+      res["SiteVersion"] = boost::any(*siteVersion);
+    }
+    if (templateEtag) {
+      res["TemplateEtag"] = boost::any(*templateEtag);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeployArea") != m.end() && !m["DeployArea"].empty()) {
+      deployArea = make_shared<string>(boost::any_cast<string>(m["DeployArea"]));
+    }
+    if (m.find("LxInstanceId") != m.end() && !m["LxInstanceId"].empty()) {
+      lxInstanceId = make_shared<string>(boost::any_cast<string>(m["LxInstanceId"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("SiteVersion") != m.end() && !m["SiteVersion"].empty()) {
+      siteVersion = make_shared<string>(boost::any_cast<string>(m["SiteVersion"]));
+    }
+    if (m.find("TemplateEtag") != m.end() && !m["TemplateEtag"].empty()) {
+      templateEtag = make_shared<string>(boost::any_cast<string>(m["TemplateEtag"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+  }
+
+
+  virtual ~SyncAppInstanceForPartnerRequestAppInstanceProfile() = default;
+};
+class SyncAppInstanceForPartnerRequestAppInstance : public Darabonba::Model {
+public:
+  shared_ptr<string> appType{};
+  shared_ptr<string> bizId{};
+  shared_ptr<string> deleted{};
+  shared_ptr<string> domain{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> gmtDelete{};
+  shared_ptr<string> gmtPublish{};
+  shared_ptr<string> iconUrl{};
+  shared_ptr<string> name{};
+  shared_ptr<SyncAppInstanceForPartnerRequestAppInstanceProfile> profile{};
+  shared_ptr<string> siteHost{};
+  shared_ptr<string> slug{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> status{};
+  shared_ptr<string> thumbnailUrl{};
+  shared_ptr<string> userId{};
+
+  SyncAppInstanceForPartnerRequestAppInstance() {}
+
+  explicit SyncAppInstanceForPartnerRequestAppInstance(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appType) {
+      res["AppType"] = boost::any(*appType);
+    }
+    if (bizId) {
+      res["BizId"] = boost::any(*bizId);
+    }
+    if (deleted) {
+      res["Deleted"] = boost::any(*deleted);
+    }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (gmtDelete) {
+      res["GmtDelete"] = boost::any(*gmtDelete);
+    }
+    if (gmtPublish) {
+      res["GmtPublish"] = boost::any(*gmtPublish);
+    }
+    if (iconUrl) {
+      res["IconUrl"] = boost::any(*iconUrl);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (profile) {
+      res["Profile"] = profile ? boost::any(profile->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (siteHost) {
+      res["SiteHost"] = boost::any(*siteHost);
+    }
+    if (slug) {
+      res["Slug"] = boost::any(*slug);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (thumbnailUrl) {
+      res["ThumbnailUrl"] = boost::any(*thumbnailUrl);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppType") != m.end() && !m["AppType"].empty()) {
+      appType = make_shared<string>(boost::any_cast<string>(m["AppType"]));
+    }
+    if (m.find("BizId") != m.end() && !m["BizId"].empty()) {
+      bizId = make_shared<string>(boost::any_cast<string>(m["BizId"]));
+    }
+    if (m.find("Deleted") != m.end() && !m["Deleted"].empty()) {
+      deleted = make_shared<string>(boost::any_cast<string>(m["Deleted"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("GmtDelete") != m.end() && !m["GmtDelete"].empty()) {
+      gmtDelete = make_shared<string>(boost::any_cast<string>(m["GmtDelete"]));
+    }
+    if (m.find("GmtPublish") != m.end() && !m["GmtPublish"].empty()) {
+      gmtPublish = make_shared<string>(boost::any_cast<string>(m["GmtPublish"]));
+    }
+    if (m.find("IconUrl") != m.end() && !m["IconUrl"].empty()) {
+      iconUrl = make_shared<string>(boost::any_cast<string>(m["IconUrl"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Profile") != m.end() && !m["Profile"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Profile"].type()) {
+        SyncAppInstanceForPartnerRequestAppInstanceProfile model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Profile"]));
+        profile = make_shared<SyncAppInstanceForPartnerRequestAppInstanceProfile>(model1);
+      }
+    }
+    if (m.find("SiteHost") != m.end() && !m["SiteHost"].empty()) {
+      siteHost = make_shared<string>(boost::any_cast<string>(m["SiteHost"]));
+    }
+    if (m.find("Slug") != m.end() && !m["Slug"].empty()) {
+      slug = make_shared<string>(boost::any_cast<string>(m["Slug"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("ThumbnailUrl") != m.end() && !m["ThumbnailUrl"].empty()) {
+      thumbnailUrl = make_shared<string>(boost::any_cast<string>(m["ThumbnailUrl"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~SyncAppInstanceForPartnerRequestAppInstance() = default;
+};
+class SyncAppInstanceForPartnerRequest : public Darabonba::Model {
+public:
+  shared_ptr<SyncAppInstanceForPartnerRequestAppInstance> appInstance{};
+  shared_ptr<string> eventType{};
+  shared_ptr<string> operator_{};
+  shared_ptr<string> sourceBizId{};
+  shared_ptr<string> sourceType{};
+
+  SyncAppInstanceForPartnerRequest() {}
+
+  explicit SyncAppInstanceForPartnerRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appInstance) {
+      res["AppInstance"] = appInstance ? boost::any(appInstance->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (eventType) {
+      res["EventType"] = boost::any(*eventType);
+    }
+    if (operator_) {
+      res["Operator"] = boost::any(*operator_);
+    }
+    if (sourceBizId) {
+      res["SourceBizId"] = boost::any(*sourceBizId);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppInstance") != m.end() && !m["AppInstance"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AppInstance"].type()) {
+        SyncAppInstanceForPartnerRequestAppInstance model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AppInstance"]));
+        appInstance = make_shared<SyncAppInstanceForPartnerRequestAppInstance>(model1);
+      }
+    }
+    if (m.find("EventType") != m.end() && !m["EventType"].empty()) {
+      eventType = make_shared<string>(boost::any_cast<string>(m["EventType"]));
+    }
+    if (m.find("Operator") != m.end() && !m["Operator"].empty()) {
+      operator_ = make_shared<string>(boost::any_cast<string>(m["Operator"]));
+    }
+    if (m.find("SourceBizId") != m.end() && !m["SourceBizId"].empty()) {
+      sourceBizId = make_shared<string>(boost::any_cast<string>(m["SourceBizId"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+  }
+
+
+  virtual ~SyncAppInstanceForPartnerRequest() = default;
+};
+class SyncAppInstanceForPartnerShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appInstanceShrink{};
+  shared_ptr<string> eventType{};
+  shared_ptr<string> operator_{};
+  shared_ptr<string> sourceBizId{};
+  shared_ptr<string> sourceType{};
+
+  SyncAppInstanceForPartnerShrinkRequest() {}
+
+  explicit SyncAppInstanceForPartnerShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appInstanceShrink) {
+      res["AppInstance"] = boost::any(*appInstanceShrink);
+    }
+    if (eventType) {
+      res["EventType"] = boost::any(*eventType);
+    }
+    if (operator_) {
+      res["Operator"] = boost::any(*operator_);
+    }
+    if (sourceBizId) {
+      res["SourceBizId"] = boost::any(*sourceBizId);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppInstance") != m.end() && !m["AppInstance"].empty()) {
+      appInstanceShrink = make_shared<string>(boost::any_cast<string>(m["AppInstance"]));
+    }
+    if (m.find("EventType") != m.end() && !m["EventType"].empty()) {
+      eventType = make_shared<string>(boost::any_cast<string>(m["EventType"]));
+    }
+    if (m.find("Operator") != m.end() && !m["Operator"].empty()) {
+      operator_ = make_shared<string>(boost::any_cast<string>(m["Operator"]));
+    }
+    if (m.find("SourceBizId") != m.end() && !m["SourceBizId"].empty()) {
+      sourceBizId = make_shared<string>(boost::any_cast<string>(m["SourceBizId"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+  }
+
+
+  virtual ~SyncAppInstanceForPartnerShrinkRequest() = default;
+};
+class SyncAppInstanceForPartnerResponseBodyDataAppInstance : public Darabonba::Model {
+public:
+  shared_ptr<string> bizId{};
+
+  SyncAppInstanceForPartnerResponseBodyDataAppInstance() {}
+
+  explicit SyncAppInstanceForPartnerResponseBodyDataAppInstance(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizId) {
+      res["BizId"] = boost::any(*bizId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizId") != m.end() && !m["BizId"].empty()) {
+      bizId = make_shared<string>(boost::any_cast<string>(m["BizId"]));
+    }
+  }
+
+
+  virtual ~SyncAppInstanceForPartnerResponseBodyDataAppInstance() = default;
+};
+class SyncAppInstanceForPartnerResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<SyncAppInstanceForPartnerResponseBodyDataAppInstance> appInstance{};
+
+  SyncAppInstanceForPartnerResponseBodyData() {}
+
+  explicit SyncAppInstanceForPartnerResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appInstance) {
+      res["AppInstance"] = appInstance ? boost::any(appInstance->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppInstance") != m.end() && !m["AppInstance"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AppInstance"].type()) {
+        SyncAppInstanceForPartnerResponseBodyDataAppInstance model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AppInstance"]));
+        appInstance = make_shared<SyncAppInstanceForPartnerResponseBodyDataAppInstance>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SyncAppInstanceForPartnerResponseBodyData() = default;
+};
+class SyncAppInstanceForPartnerResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<SyncAppInstanceForPartnerResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  SyncAppInstanceForPartnerResponseBody() {}
+
+  explicit SyncAppInstanceForPartnerResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        SyncAppInstanceForPartnerResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<SyncAppInstanceForPartnerResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SyncAppInstanceForPartnerResponseBody() = default;
+};
+class SyncAppInstanceForPartnerResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SyncAppInstanceForPartnerResponseBody> body{};
+
+  SyncAppInstanceForPartnerResponse() {}
+
+  explicit SyncAppInstanceForPartnerResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SyncAppInstanceForPartnerResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SyncAppInstanceForPartnerResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SyncAppInstanceForPartnerResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -672,6 +1146,8 @@ public:
   OperateAppInstanceForPartnerResponse operateAppInstanceForPartner(shared_ptr<OperateAppInstanceForPartnerRequest> request);
   OperateAppServiceForPartnerResponse operateAppServiceForPartnerWithOptions(shared_ptr<OperateAppServiceForPartnerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   OperateAppServiceForPartnerResponse operateAppServiceForPartner(shared_ptr<OperateAppServiceForPartnerRequest> request);
+  SyncAppInstanceForPartnerResponse syncAppInstanceForPartnerWithOptions(shared_ptr<SyncAppInstanceForPartnerRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SyncAppInstanceForPartnerResponse syncAppInstanceForPartner(shared_ptr<SyncAppInstanceForPartnerRequest> request);
 
   virtual ~Client() = default;
 };
