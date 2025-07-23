@@ -51191,7 +51191,9 @@ public:
 class UpdateAppModeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<string> appIds{};
   shared_ptr<bool> enableIdle{};
+  shared_ptr<string> namespaceId{};
 
   UpdateAppModeRequest() {}
 
@@ -51206,8 +51208,14 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (appIds) {
+      res["AppIds"] = boost::any(*appIds);
+    }
     if (enableIdle) {
       res["EnableIdle"] = boost::any(*enableIdle);
+    }
+    if (namespaceId) {
+      res["NamespaceId"] = boost::any(*namespaceId);
     }
     return res;
   }
@@ -51216,8 +51224,14 @@ public:
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
+    if (m.find("AppIds") != m.end() && !m["AppIds"].empty()) {
+      appIds = make_shared<string>(boost::any_cast<string>(m["AppIds"]));
+    }
     if (m.find("EnableIdle") != m.end() && !m["EnableIdle"].empty()) {
       enableIdle = make_shared<bool>(boost::any_cast<bool>(m["EnableIdle"]));
+    }
+    if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
+      namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
     }
   }
 
