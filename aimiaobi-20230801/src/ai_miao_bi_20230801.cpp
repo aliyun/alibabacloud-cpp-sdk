@@ -179,6 +179,15 @@ AsyncCreateClipsTaskResponse Alibabacloud_AiMiaoBi20230801::Client::asyncCreateC
 AsyncCreateClipsTimeLineResponse Alibabacloud_AiMiaoBi20230801::Client::asyncCreateClipsTimeLineWithOptions(shared_ptr<AsyncCreateClipsTimeLineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->additionalContent)) {
+    body->insert(pair<string, string>("AdditionalContent", *request->additionalContent));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customContent)) {
+    body->insert(pair<string, string>("CustomContent", *request->customContent));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->noRefVideo)) {
+    body->insert(pair<string, bool>("NoRefVideo", *request->noRefVideo));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->processPrompt)) {
     body->insert(pair<string, string>("ProcessPrompt", *request->processPrompt));
   }
@@ -256,6 +265,9 @@ AsyncUploadVideoResponse Alibabacloud_AiMiaoBi20230801::Client::asyncUploadVideo
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<AsyncUploadVideoShrinkRequest> request = make_shared<AsyncUploadVideoShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<AsyncUploadVideoRequestReferenceVideo>(tmpReq->referenceVideo)) {
+    request->referenceVideoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->referenceVideo, make_shared<string>("ReferenceVideo"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<AsyncUploadVideoRequestSourceVideos>>(tmpReq->sourceVideos)) {
     request->sourceVideosShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sourceVideos, make_shared<string>("SourceVideos"), make_shared<string>("json")));
   }
@@ -263,8 +275,14 @@ AsyncUploadVideoResponse Alibabacloud_AiMiaoBi20230801::Client::asyncUploadVideo
   if (!Darabonba_Util::Client::isUnset<string>(request->anlysisPrompt)) {
     body->insert(pair<string, string>("AnlysisPrompt", *request->anlysisPrompt));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->referenceVideoShrink)) {
+    body->insert(pair<string, string>("ReferenceVideo", *request->referenceVideoShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceVideosShrink)) {
     body->insert(pair<string, string>("SourceVideos", *request->sourceVideosShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->splitInterval)) {
+    body->insert(pair<string, long>("SplitInterval", *request->splitInterval));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
     body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));

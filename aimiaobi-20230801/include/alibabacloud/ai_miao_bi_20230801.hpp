@@ -1417,6 +1417,9 @@ public:
 };
 class AsyncCreateClipsTimeLineRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> additionalContent{};
+  shared_ptr<string> customContent{};
+  shared_ptr<bool> noRefVideo{};
   shared_ptr<string> processPrompt{};
   shared_ptr<string> taskId{};
   shared_ptr<string> workspaceId{};
@@ -1431,6 +1434,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (additionalContent) {
+      res["AdditionalContent"] = boost::any(*additionalContent);
+    }
+    if (customContent) {
+      res["CustomContent"] = boost::any(*customContent);
+    }
+    if (noRefVideo) {
+      res["NoRefVideo"] = boost::any(*noRefVideo);
+    }
     if (processPrompt) {
       res["ProcessPrompt"] = boost::any(*processPrompt);
     }
@@ -1444,6 +1456,15 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdditionalContent") != m.end() && !m["AdditionalContent"].empty()) {
+      additionalContent = make_shared<string>(boost::any_cast<string>(m["AdditionalContent"]));
+    }
+    if (m.find("CustomContent") != m.end() && !m["CustomContent"].empty()) {
+      customContent = make_shared<string>(boost::any_cast<string>(m["CustomContent"]));
+    }
+    if (m.find("NoRefVideo") != m.end() && !m["NoRefVideo"].empty()) {
+      noRefVideo = make_shared<bool>(boost::any_cast<bool>(m["NoRefVideo"]));
+    }
     if (m.find("ProcessPrompt") != m.end() && !m["ProcessPrompt"].empty()) {
       processPrompt = make_shared<string>(boost::any_cast<string>(m["ProcessPrompt"]));
     }
@@ -1591,7 +1612,9 @@ public:
   shared_ptr<string> clipId{};
   shared_ptr<string> contentInner{};
   shared_ptr<long> in{};
+  shared_ptr<double> inEx{};
   shared_ptr<long> out{};
+  shared_ptr<double> outEx{};
   shared_ptr<string> videoId{};
   shared_ptr<string> videoName{};
 
@@ -1614,8 +1637,14 @@ public:
     if (in) {
       res["In"] = boost::any(*in);
     }
+    if (inEx) {
+      res["InEx"] = boost::any(*inEx);
+    }
     if (out) {
       res["Out"] = boost::any(*out);
+    }
+    if (outEx) {
+      res["OutEx"] = boost::any(*outEx);
     }
     if (videoId) {
       res["VideoId"] = boost::any(*videoId);
@@ -1636,8 +1665,14 @@ public:
     if (m.find("In") != m.end() && !m["In"].empty()) {
       in = make_shared<long>(boost::any_cast<long>(m["In"]));
     }
+    if (m.find("InEx") != m.end() && !m["InEx"].empty()) {
+      inEx = make_shared<double>(boost::any_cast<double>(m["InEx"]));
+    }
     if (m.find("Out") != m.end() && !m["Out"].empty()) {
       out = make_shared<long>(boost::any_cast<long>(m["Out"]));
+    }
+    if (m.find("OutEx") != m.end() && !m["OutEx"].empty()) {
+      outEx = make_shared<double>(boost::any_cast<double>(m["OutEx"]));
     }
     if (m.find("VideoId") != m.end() && !m["VideoId"].empty()) {
       videoId = make_shared<string>(boost::any_cast<string>(m["VideoId"]));
@@ -1949,6 +1984,49 @@ public:
 
   virtual ~AsyncEditTimelineResponse() = default;
 };
+class AsyncUploadVideoRequestReferenceVideo : public Darabonba::Model {
+public:
+  shared_ptr<string> videoExtraInfo{};
+  shared_ptr<string> videoName{};
+  shared_ptr<string> videoUrl{};
+
+  AsyncUploadVideoRequestReferenceVideo() {}
+
+  explicit AsyncUploadVideoRequestReferenceVideo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (videoExtraInfo) {
+      res["VideoExtraInfo"] = boost::any(*videoExtraInfo);
+    }
+    if (videoName) {
+      res["VideoName"] = boost::any(*videoName);
+    }
+    if (videoUrl) {
+      res["VideoUrl"] = boost::any(*videoUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("VideoExtraInfo") != m.end() && !m["VideoExtraInfo"].empty()) {
+      videoExtraInfo = make_shared<string>(boost::any_cast<string>(m["VideoExtraInfo"]));
+    }
+    if (m.find("VideoName") != m.end() && !m["VideoName"].empty()) {
+      videoName = make_shared<string>(boost::any_cast<string>(m["VideoName"]));
+    }
+    if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
+      videoUrl = make_shared<string>(boost::any_cast<string>(m["VideoUrl"]));
+    }
+  }
+
+
+  virtual ~AsyncUploadVideoRequestReferenceVideo() = default;
+};
 class AsyncUploadVideoRequestSourceVideos : public Darabonba::Model {
 public:
   shared_ptr<string> videoExtraInfo{};
@@ -1995,7 +2073,9 @@ public:
 class AsyncUploadVideoRequest : public Darabonba::Model {
 public:
   shared_ptr<string> anlysisPrompt{};
+  shared_ptr<AsyncUploadVideoRequestReferenceVideo> referenceVideo{};
   shared_ptr<vector<AsyncUploadVideoRequestSourceVideos>> sourceVideos{};
+  shared_ptr<long> splitInterval{};
   shared_ptr<string> workspaceId{};
 
   AsyncUploadVideoRequest() {}
@@ -2011,12 +2091,18 @@ public:
     if (anlysisPrompt) {
       res["AnlysisPrompt"] = boost::any(*anlysisPrompt);
     }
+    if (referenceVideo) {
+      res["ReferenceVideo"] = referenceVideo ? boost::any(referenceVideo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (sourceVideos) {
       vector<boost::any> temp1;
       for(auto item1:*sourceVideos){
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["SourceVideos"] = boost::any(temp1);
+    }
+    if (splitInterval) {
+      res["SplitInterval"] = boost::any(*splitInterval);
     }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
@@ -2027,6 +2113,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AnlysisPrompt") != m.end() && !m["AnlysisPrompt"].empty()) {
       anlysisPrompt = make_shared<string>(boost::any_cast<string>(m["AnlysisPrompt"]));
+    }
+    if (m.find("ReferenceVideo") != m.end() && !m["ReferenceVideo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ReferenceVideo"].type()) {
+        AsyncUploadVideoRequestReferenceVideo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ReferenceVideo"]));
+        referenceVideo = make_shared<AsyncUploadVideoRequestReferenceVideo>(model1);
+      }
     }
     if (m.find("SourceVideos") != m.end() && !m["SourceVideos"].empty()) {
       if (typeid(vector<boost::any>) == m["SourceVideos"].type()) {
@@ -2041,6 +2134,9 @@ public:
         sourceVideos = make_shared<vector<AsyncUploadVideoRequestSourceVideos>>(expect1);
       }
     }
+    if (m.find("SplitInterval") != m.end() && !m["SplitInterval"].empty()) {
+      splitInterval = make_shared<long>(boost::any_cast<long>(m["SplitInterval"]));
+    }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
@@ -2052,7 +2148,9 @@ public:
 class AsyncUploadVideoShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> anlysisPrompt{};
+  shared_ptr<string> referenceVideoShrink{};
   shared_ptr<string> sourceVideosShrink{};
+  shared_ptr<long> splitInterval{};
   shared_ptr<string> workspaceId{};
 
   AsyncUploadVideoShrinkRequest() {}
@@ -2068,8 +2166,14 @@ public:
     if (anlysisPrompt) {
       res["AnlysisPrompt"] = boost::any(*anlysisPrompt);
     }
+    if (referenceVideoShrink) {
+      res["ReferenceVideo"] = boost::any(*referenceVideoShrink);
+    }
     if (sourceVideosShrink) {
       res["SourceVideos"] = boost::any(*sourceVideosShrink);
+    }
+    if (splitInterval) {
+      res["SplitInterval"] = boost::any(*splitInterval);
     }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
@@ -2081,8 +2185,14 @@ public:
     if (m.find("AnlysisPrompt") != m.end() && !m["AnlysisPrompt"].empty()) {
       anlysisPrompt = make_shared<string>(boost::any_cast<string>(m["AnlysisPrompt"]));
     }
+    if (m.find("ReferenceVideo") != m.end() && !m["ReferenceVideo"].empty()) {
+      referenceVideoShrink = make_shared<string>(boost::any_cast<string>(m["ReferenceVideo"]));
+    }
     if (m.find("SourceVideos") != m.end() && !m["SourceVideos"].empty()) {
       sourceVideosShrink = make_shared<string>(boost::any_cast<string>(m["SourceVideos"]));
+    }
+    if (m.find("SplitInterval") != m.end() && !m["SplitInterval"].empty()) {
+      splitInterval = make_shared<long>(boost::any_cast<long>(m["SplitInterval"]));
     }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
@@ -10153,7 +10263,9 @@ public:
   shared_ptr<string> clipId{};
   shared_ptr<string> contentInner{};
   shared_ptr<long> in{};
+  shared_ptr<double> inEx{};
   shared_ptr<long> out{};
+  shared_ptr<double> outEx{};
   shared_ptr<string> videoId{};
   shared_ptr<string> videoName{};
 
@@ -10176,8 +10288,14 @@ public:
     if (in) {
       res["In"] = boost::any(*in);
     }
+    if (inEx) {
+      res["InEx"] = boost::any(*inEx);
+    }
     if (out) {
       res["Out"] = boost::any(*out);
+    }
+    if (outEx) {
+      res["OutEx"] = boost::any(*outEx);
     }
     if (videoId) {
       res["VideoId"] = boost::any(*videoId);
@@ -10198,8 +10316,14 @@ public:
     if (m.find("In") != m.end() && !m["In"].empty()) {
       in = make_shared<long>(boost::any_cast<long>(m["In"]));
     }
+    if (m.find("InEx") != m.end() && !m["InEx"].empty()) {
+      inEx = make_shared<double>(boost::any_cast<double>(m["InEx"]));
+    }
     if (m.find("Out") != m.end() && !m["Out"].empty()) {
       out = make_shared<long>(boost::any_cast<long>(m["Out"]));
+    }
+    if (m.find("OutEx") != m.end() && !m["OutEx"].empty()) {
+      outEx = make_shared<double>(boost::any_cast<double>(m["OutEx"]));
     }
     if (m.find("VideoId") != m.end() && !m["VideoId"].empty()) {
       videoId = make_shared<string>(boost::any_cast<string>(m["VideoId"]));
@@ -10273,6 +10397,7 @@ class GetAutoClipsTaskInfoResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<vector<GetAutoClipsTaskInfoResponseBodyDataColorWords>> colorWords{};
   shared_ptr<string> content{};
+  shared_ptr<string> errorMessage{};
   shared_ptr<string> mediaCloudTimeline{};
   shared_ptr<string> musicStyle{};
   shared_ptr<string> musicUrl{};
@@ -10305,6 +10430,9 @@ public:
     }
     if (content) {
       res["Content"] = boost::any(*content);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
     }
     if (mediaCloudTimeline) {
       res["MediaCloudTimeline"] = boost::any(*mediaCloudTimeline);
@@ -10365,6 +10493,9 @@ public:
     }
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
     if (m.find("MediaCloudTimeline") != m.end() && !m["MediaCloudTimeline"].empty()) {
       mediaCloudTimeline = make_shared<string>(boost::any_cast<string>(m["MediaCloudTimeline"]));
