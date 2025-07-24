@@ -1498,6 +1498,9 @@ AssociateVpcCidrBlockResponse Alibabacloud_Vpc20160428::Client::associateVpcCidr
   if (!Darabonba_Util::Client::isUnset<string>(request->ipamPoolId)) {
     query->insert(pair<string, string>("IpamPoolId", *request->ipamPoolId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ipv6CidrMask)) {
+    query->insert(pair<string, long>("Ipv6CidrMask", *request->ipv6CidrMask));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ipv6Isp)) {
     query->insert(pair<string, string>("Ipv6Isp", *request->ipv6Isp));
   }
@@ -5450,6 +5453,12 @@ CreateVpcResponse Alibabacloud_Vpc20160428::Client::createVpcWithOptions(shared_
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ipv6CidrBlock)) {
     query->insert(pair<string, string>("Ipv6CidrBlock", *request->ipv6CidrBlock));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ipv6CidrMask)) {
+    query->insert(pair<string, long>("Ipv6CidrMask", *request->ipv6CidrMask));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipv6IpamPoolId)) {
+    query->insert(pair<string, string>("Ipv6IpamPoolId", *request->ipv6IpamPoolId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ipv6Isp)) {
     query->insert(pair<string, string>("Ipv6Isp", *request->ipv6Isp));

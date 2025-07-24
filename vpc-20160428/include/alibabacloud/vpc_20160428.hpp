@@ -4756,6 +4756,7 @@ public:
   shared_ptr<string> IPv6CidrBlock{};
   shared_ptr<string> ipVersion{};
   shared_ptr<string> ipamPoolId{};
+  shared_ptr<long> ipv6CidrMask{};
   shared_ptr<string> ipv6Isp{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -4784,6 +4785,9 @@ public:
     }
     if (ipamPoolId) {
       res["IpamPoolId"] = boost::any(*ipamPoolId);
+    }
+    if (ipv6CidrMask) {
+      res["Ipv6CidrMask"] = boost::any(*ipv6CidrMask);
     }
     if (ipv6Isp) {
       res["Ipv6Isp"] = boost::any(*ipv6Isp);
@@ -4824,6 +4828,9 @@ public:
     }
     if (m.find("IpamPoolId") != m.end() && !m["IpamPoolId"].empty()) {
       ipamPoolId = make_shared<string>(boost::any_cast<string>(m["IpamPoolId"]));
+    }
+    if (m.find("Ipv6CidrMask") != m.end() && !m["Ipv6CidrMask"].empty()) {
+      ipv6CidrMask = make_shared<long>(boost::any_cast<long>(m["Ipv6CidrMask"]));
     }
     if (m.find("Ipv6Isp") != m.end() && !m["Ipv6Isp"].empty()) {
       ipv6Isp = make_shared<string>(boost::any_cast<string>(m["Ipv6Isp"]));
@@ -20284,6 +20291,8 @@ public:
   shared_ptr<long> ipv4CidrMask{};
   shared_ptr<string> ipv4IpamPoolId{};
   shared_ptr<string> ipv6CidrBlock{};
+  shared_ptr<long> ipv6CidrMask{};
+  shared_ptr<string> ipv6IpamPoolId{};
   shared_ptr<string> ipv6Isp{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -20331,6 +20340,12 @@ public:
     }
     if (ipv6CidrBlock) {
       res["Ipv6CidrBlock"] = boost::any(*ipv6CidrBlock);
+    }
+    if (ipv6CidrMask) {
+      res["Ipv6CidrMask"] = boost::any(*ipv6CidrMask);
+    }
+    if (ipv6IpamPoolId) {
+      res["Ipv6IpamPoolId"] = boost::any(*ipv6IpamPoolId);
     }
     if (ipv6Isp) {
       res["Ipv6Isp"] = boost::any(*ipv6Isp);
@@ -20396,6 +20411,12 @@ public:
     }
     if (m.find("Ipv6CidrBlock") != m.end() && !m["Ipv6CidrBlock"].empty()) {
       ipv6CidrBlock = make_shared<string>(boost::any_cast<string>(m["Ipv6CidrBlock"]));
+    }
+    if (m.find("Ipv6CidrMask") != m.end() && !m["Ipv6CidrMask"].empty()) {
+      ipv6CidrMask = make_shared<long>(boost::any_cast<long>(m["Ipv6CidrMask"]));
+    }
+    if (m.find("Ipv6IpamPoolId") != m.end() && !m["Ipv6IpamPoolId"].empty()) {
+      ipv6IpamPoolId = make_shared<string>(boost::any_cast<string>(m["Ipv6IpamPoolId"]));
     }
     if (m.find("Ipv6Isp") != m.end() && !m["Ipv6Isp"].empty()) {
       ipv6Isp = make_shared<string>(boost::any_cast<string>(m["Ipv6Isp"]));
