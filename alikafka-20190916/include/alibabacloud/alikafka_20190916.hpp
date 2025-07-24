@@ -7984,6 +7984,7 @@ public:
   shared_ptr<long> msgRetain{};
   shared_ptr<string> name{};
   shared_ptr<long> paidType{};
+  shared_ptr<long> recommendedPartitionCount{};
   shared_ptr<string> regionId{};
   shared_ptr<long> reservedPublishCapacity{};
   shared_ptr<long> reservedSubscribeCapacity{};
@@ -8089,6 +8090,9 @@ public:
     }
     if (paidType) {
       res["PaidType"] = boost::any(*paidType);
+    }
+    if (recommendedPartitionCount) {
+      res["RecommendedPartitionCount"] = boost::any(*recommendedPartitionCount);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -8244,6 +8248,9 @@ public:
     }
     if (m.find("PaidType") != m.end() && !m["PaidType"].empty()) {
       paidType = make_shared<long>(boost::any_cast<long>(m["PaidType"]));
+    }
+    if (m.find("RecommendedPartitionCount") != m.end() && !m["RecommendedPartitionCount"].empty()) {
+      recommendedPartitionCount = make_shared<long>(boost::any_cast<long>(m["RecommendedPartitionCount"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
