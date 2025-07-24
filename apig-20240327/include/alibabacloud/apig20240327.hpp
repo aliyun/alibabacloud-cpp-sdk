@@ -7590,7 +7590,9 @@ public:
 class CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceIdentifier : public Darabonba::Model {
 public:
   shared_ptr<string> environmentId{};
+  shared_ptr<string> parentResourceId{};
   shared_ptr<string> resourceId{};
+  shared_ptr<vector<string>> resources{};
 
   CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceIdentifier() {}
 
@@ -7605,8 +7607,14 @@ public:
     if (environmentId) {
       res["environmentId"] = boost::any(*environmentId);
     }
+    if (parentResourceId) {
+      res["parentResourceId"] = boost::any(*parentResourceId);
+    }
     if (resourceId) {
       res["resourceId"] = boost::any(*resourceId);
+    }
+    if (resources) {
+      res["resources"] = boost::any(*resources);
     }
     return res;
   }
@@ -7615,8 +7623,21 @@ public:
     if (m.find("environmentId") != m.end() && !m["environmentId"].empty()) {
       environmentId = make_shared<string>(boost::any_cast<string>(m["environmentId"]));
     }
+    if (m.find("parentResourceId") != m.end() && !m["parentResourceId"].empty()) {
+      parentResourceId = make_shared<string>(boost::any_cast<string>(m["parentResourceId"]));
+    }
     if (m.find("resourceId") != m.end() && !m["resourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["resourceId"]));
+    }
+    if (m.find("resources") != m.end() && !m["resources"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["resources"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["resources"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resources = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -9497,6 +9518,7 @@ public:
 class CreateHttpApiRouteRequestMcpRouteConfig : public Darabonba::Model {
 public:
   shared_ptr<string> exposedUriPath{};
+  shared_ptr<bool> mcpStatisticsEnable{};
   shared_ptr<string> protocol{};
 
   CreateHttpApiRouteRequestMcpRouteConfig() {}
@@ -9512,6 +9534,9 @@ public:
     if (exposedUriPath) {
       res["exposedUriPath"] = boost::any(*exposedUriPath);
     }
+    if (mcpStatisticsEnable) {
+      res["mcpStatisticsEnable"] = boost::any(*mcpStatisticsEnable);
+    }
     if (protocol) {
       res["protocol"] = boost::any(*protocol);
     }
@@ -9521,6 +9546,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("exposedUriPath") != m.end() && !m["exposedUriPath"].empty()) {
       exposedUriPath = make_shared<string>(boost::any_cast<string>(m["exposedUriPath"]));
+    }
+    if (m.find("mcpStatisticsEnable") != m.end() && !m["mcpStatisticsEnable"].empty()) {
+      mcpStatisticsEnable = make_shared<bool>(boost::any_cast<bool>(m["mcpStatisticsEnable"]));
     }
     if (m.find("protocol") != m.end() && !m["protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["protocol"]));
@@ -12891,6 +12919,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> pluginClassId{};
   shared_ptr<string> pluginId{};
+  shared_ptr<string> routeId{};
   shared_ptr<string> source{};
   shared_ptr<string> upstreamCluster{};
 
@@ -12921,6 +12950,9 @@ public:
     }
     if (pluginId) {
       res["pluginId"] = boost::any(*pluginId);
+    }
+    if (routeId) {
+      res["routeId"] = boost::any(*routeId);
     }
     if (source) {
       res["source"] = boost::any(*source);
@@ -12954,6 +12986,9 @@ public:
     if (m.find("pluginId") != m.end() && !m["pluginId"].empty()) {
       pluginId = make_shared<string>(boost::any_cast<string>(m["pluginId"]));
     }
+    if (m.find("routeId") != m.end() && !m["routeId"].empty()) {
+      routeId = make_shared<string>(boost::any_cast<string>(m["routeId"]));
+    }
     if (m.find("source") != m.end() && !m["source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["source"]));
     }
@@ -12973,6 +13008,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> pluginClassId{};
   shared_ptr<string> pluginId{};
+  shared_ptr<string> routeId{};
   shared_ptr<string> source{};
   shared_ptr<string> upstreamCluster{};
 
@@ -13004,6 +13040,9 @@ public:
     if (pluginId) {
       res["pluginId"] = boost::any(*pluginId);
     }
+    if (routeId) {
+      res["routeId"] = boost::any(*routeId);
+    }
     if (source) {
       res["source"] = boost::any(*source);
     }
@@ -13031,6 +13070,9 @@ public:
     }
     if (m.find("pluginId") != m.end() && !m["pluginId"].empty()) {
       pluginId = make_shared<string>(boost::any_cast<string>(m["pluginId"]));
+    }
+    if (m.find("routeId") != m.end() && !m["routeId"].empty()) {
+      routeId = make_shared<string>(boost::any_cast<string>(m["routeId"]));
     }
     if (m.find("source") != m.end() && !m["source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["source"]));
@@ -20988,6 +21030,7 @@ public:
   shared_ptr<string> parentResourceId{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceType{};
+  shared_ptr<string> resourceTypes{};
 
   QueryConsumerAuthorizationRulesRequest() {}
 
@@ -21029,6 +21072,9 @@ public:
     if (resourceType) {
       res["resourceType"] = boost::any(*resourceType);
     }
+    if (resourceTypes) {
+      res["resourceTypes"] = boost::any(*resourceTypes);
+    }
     return res;
   }
 
@@ -21062,6 +21108,9 @@ public:
     }
     if (m.find("resourceType") != m.end() && !m["resourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["resourceType"]));
+    }
+    if (m.find("resourceTypes") != m.end() && !m["resourceTypes"].empty()) {
+      resourceTypes = make_shared<string>(boost::any_cast<string>(m["resourceTypes"]));
     }
   }
 
@@ -23240,6 +23289,49 @@ public:
 
   virtual ~UpdateHttpApiRouteRequestBackendConfig() = default;
 };
+class UpdateHttpApiRouteRequestMcpRouteConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> exposedUriPath{};
+  shared_ptr<bool> mcpStatisticsEnable{};
+  shared_ptr<string> protocol{};
+
+  UpdateHttpApiRouteRequestMcpRouteConfig() {}
+
+  explicit UpdateHttpApiRouteRequestMcpRouteConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (exposedUriPath) {
+      res["exposedUriPath"] = boost::any(*exposedUriPath);
+    }
+    if (mcpStatisticsEnable) {
+      res["mcpStatisticsEnable"] = boost::any(*mcpStatisticsEnable);
+    }
+    if (protocol) {
+      res["protocol"] = boost::any(*protocol);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("exposedUriPath") != m.end() && !m["exposedUriPath"].empty()) {
+      exposedUriPath = make_shared<string>(boost::any_cast<string>(m["exposedUriPath"]));
+    }
+    if (m.find("mcpStatisticsEnable") != m.end() && !m["mcpStatisticsEnable"].empty()) {
+      mcpStatisticsEnable = make_shared<bool>(boost::any_cast<bool>(m["mcpStatisticsEnable"]));
+    }
+    if (m.find("protocol") != m.end() && !m["protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["protocol"]));
+    }
+  }
+
+
+  virtual ~UpdateHttpApiRouteRequestMcpRouteConfig() = default;
+};
 class UpdateHttpApiRouteRequest : public Darabonba::Model {
 public:
   shared_ptr<UpdateHttpApiRouteRequestBackendConfig> backendConfig{};
@@ -23248,6 +23340,8 @@ public:
   shared_ptr<vector<string>> domainIds{};
   shared_ptr<string> environmentId{};
   shared_ptr<HttpRouteMatch> match{};
+  shared_ptr<UpdateHttpApiRouteRequestMcpRouteConfig> mcpRouteConfig{};
+  shared_ptr<string> name{};
 
   UpdateHttpApiRouteRequest() {}
 
@@ -23280,6 +23374,12 @@ public:
     }
     if (match) {
       res["match"] = match ? boost::any(match->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (mcpRouteConfig) {
+      res["mcpRouteConfig"] = mcpRouteConfig ? boost::any(mcpRouteConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
     }
     return res;
   }
@@ -23327,6 +23427,16 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["match"]));
         match = make_shared<HttpRouteMatch>(model1);
       }
+    }
+    if (m.find("mcpRouteConfig") != m.end() && !m["mcpRouteConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["mcpRouteConfig"].type()) {
+        UpdateHttpApiRouteRequestMcpRouteConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["mcpRouteConfig"]));
+        mcpRouteConfig = make_shared<UpdateHttpApiRouteRequestMcpRouteConfig>(model1);
+      }
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
   }
 

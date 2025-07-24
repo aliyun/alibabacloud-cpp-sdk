@@ -1234,6 +1234,9 @@ GetDashboardResponse Alibabacloud_APIG20240327::Client::getDashboardWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->pluginId)) {
     query->insert(pair<string, string>("pluginId", *request->pluginId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->routeId)) {
+    query->insert(pair<string, string>("routeId", *request->routeId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
     query->insert(pair<string, string>("source", *request->source));
   }
@@ -2361,6 +2364,9 @@ QueryConsumerAuthorizationRulesResponse Alibabacloud_APIG20240327::Client::query
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
     query->insert(pair<string, string>("resourceType", *request->resourceType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceTypes)) {
+    query->insert(pair<string, string>("resourceTypes", *request->resourceTypes));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2847,6 +2853,12 @@ UpdateHttpApiRouteResponse Alibabacloud_APIG20240327::Client::updateHttpApiRoute
   }
   if (!Darabonba_Util::Client::isUnset<HttpRouteMatch>(request->match)) {
     body->insert(pair<string, HttpRouteMatch>("match", *request->match));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpdateHttpApiRouteRequestMcpRouteConfig>(request->mcpRouteConfig)) {
+    body->insert(pair<string, UpdateHttpApiRouteRequestMcpRouteConfig>("mcpRouteConfig", *request->mcpRouteConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("name", *request->name));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
