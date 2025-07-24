@@ -124,6 +124,57 @@ CreatePrometheusInstanceResponse Alibabacloud_Cms20240330::Client::createPrometh
   return createPrometheusInstanceWithOptions(request, headers, runtime);
 }
 
+CreateServiceResponse Alibabacloud_Cms20240330::Client::createServiceWithOptions(shared_ptr<string> workspace,
+                                                                                 shared_ptr<CreateServiceRequest> request,
+                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->attributes)) {
+    body->insert(pair<string, string>("attributes", *request->attributes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->displayName)) {
+    body->insert(pair<string, string>("displayName", *request->displayName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pid)) {
+    body->insert(pair<string, string>("pid", *request->pid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceName)) {
+    body->insert(pair<string, string>("serviceName", *request->serviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceStatus)) {
+    body->insert(pair<string, string>("serviceStatus", *request->serviceStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceType)) {
+    body->insert(pair<string, string>("serviceType", *request->serviceType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateService"))},
+    {"version", boost::any(string("2024-03-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/workspace/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspace)) + string("/service"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateServiceResponse(callApi(params, req, runtime));
+}
+
+CreateServiceResponse Alibabacloud_Cms20240330::Client::createService(shared_ptr<string> workspace, shared_ptr<CreateServiceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createServiceWithOptions(workspace, request, headers, runtime);
+}
+
 CreateUmodelResponse Alibabacloud_Cms20240330::Client::createUmodelWithOptions(shared_ptr<string> workspace,
                                                                                shared_ptr<CreateUmodelRequest> request,
                                                                                shared_ptr<map<string, string>> headers,
@@ -182,6 +233,33 @@ DeleteEntityStoreResponse Alibabacloud_Cms20240330::Client::deleteEntityStore(sh
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return deleteEntityStoreWithOptions(workspaceName, headers, runtime);
+}
+
+DeleteServiceResponse Alibabacloud_Cms20240330::Client::deleteServiceWithOptions(shared_ptr<string> workspace,
+                                                                                 shared_ptr<string> serviceId,
+                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteService"))},
+    {"version", boost::any(string("2024-03-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/workspace/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspace)) + string("/service/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceId)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteServiceResponse(callApi(params, req, runtime));
+}
+
+DeleteServiceResponse Alibabacloud_Cms20240330::Client::deleteService(shared_ptr<string> workspace, shared_ptr<string> serviceId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteServiceWithOptions(workspace, serviceId, headers, runtime);
 }
 
 DeleteUmodelResponse Alibabacloud_Cms20240330::Client::deleteUmodelWithOptions(shared_ptr<string> workspace, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -339,6 +417,33 @@ GetEntityStoreDataResponse Alibabacloud_Cms20240330::Client::getEntityStoreData(
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<GetEntityStoreDataHeaders> headers = make_shared<GetEntityStoreDataHeaders>();
   return getEntityStoreDataWithOptions(workspace, request, headers, runtime);
+}
+
+GetServiceResponse Alibabacloud_Cms20240330::Client::getServiceWithOptions(shared_ptr<string> workspace,
+                                                                           shared_ptr<string> serviceId,
+                                                                           shared_ptr<map<string, string>> headers,
+                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetService"))},
+    {"version", boost::any(string("2024-03-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/workspace/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspace)) + string("/service/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetServiceResponse(callApi(params, req, runtime));
+}
+
+GetServiceResponse Alibabacloud_Cms20240330::Client::getService(shared_ptr<string> workspace, shared_ptr<string> serviceId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getServiceWithOptions(workspace, serviceId, headers, runtime);
 }
 
 GetServiceObservabilityResponse Alibabacloud_Cms20240330::Client::getServiceObservabilityWithOptions(shared_ptr<string> workspace,
@@ -501,6 +606,45 @@ ListAlertActionsResponse Alibabacloud_Cms20240330::Client::listAlertActions(shar
   return listAlertActionsWithOptions(request, headers, runtime);
 }
 
+ListServicesResponse Alibabacloud_Cms20240330::Client::listServicesWithOptions(shared_ptr<string> workspace,
+                                                                               shared_ptr<ListServicesRequest> request,
+                                                                               shared_ptr<map<string, string>> headers,
+                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("maxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("nextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceType)) {
+    query->insert(pair<string, string>("serviceType", *request->serviceType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListServices"))},
+    {"version", boost::any(string("2024-03-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/workspace/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspace)) + string("/services"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListServicesResponse(callApi(params, req, runtime));
+}
+
+ListServicesResponse Alibabacloud_Cms20240330::Client::listServices(shared_ptr<string> workspace, shared_ptr<ListServicesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listServicesWithOptions(workspace, request, headers, runtime);
+}
+
 ListWorkspacesResponse Alibabacloud_Cms20240330::Client::listWorkspacesWithOptions(shared_ptr<ListWorkspacesRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<ListWorkspacesShrinkRequest> request = make_shared<ListWorkspacesShrinkRequest>();
@@ -585,6 +729,49 @@ PutWorkspaceResponse Alibabacloud_Cms20240330::Client::putWorkspace(shared_ptr<s
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return putWorkspaceWithOptions(workspaceName, request, headers, runtime);
+}
+
+UpdateServiceResponse Alibabacloud_Cms20240330::Client::updateServiceWithOptions(shared_ptr<string> workspace,
+                                                                                 shared_ptr<string> serviceId,
+                                                                                 shared_ptr<UpdateServiceRequest> request,
+                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->attributes)) {
+    body->insert(pair<string, string>("attributes", *request->attributes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->displayName)) {
+    body->insert(pair<string, string>("displayName", *request->displayName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceStatus)) {
+    body->insert(pair<string, string>("serviceStatus", *request->serviceStatus));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateService"))},
+    {"version", boost::any(string("2024-03-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/workspace/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspace)) + string("/service/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceId)))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateServiceResponse(callApi(params, req, runtime));
+}
+
+UpdateServiceResponse Alibabacloud_Cms20240330::Client::updateService(shared_ptr<string> workspace, shared_ptr<string> serviceId, shared_ptr<UpdateServiceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateServiceWithOptions(workspace, serviceId, request, headers, runtime);
 }
 
 UpdateUmodelResponse Alibabacloud_Cms20240330::Client::updateUmodelWithOptions(shared_ptr<string> workspace,
