@@ -8469,6 +8469,7 @@ public:
   shared_ptr<string> applicationName{};
   shared_ptr<double> cuHours{};
   shared_ptr<string> endTime{};
+  shared_ptr<string> latestSqlStatementStatus{};
   shared_ptr<long> mbSeconds{};
   shared_ptr<string> resourceQueueId{};
   shared_ptr<string> startTime{};
@@ -8497,6 +8498,9 @@ public:
     }
     if (endTime) {
       res["endTime"] = boost::any(*endTime);
+    }
+    if (latestSqlStatementStatus) {
+      res["latestSqlStatementStatus"] = boost::any(*latestSqlStatementStatus);
     }
     if (mbSeconds) {
       res["mbSeconds"] = boost::any(*mbSeconds);
@@ -8531,6 +8535,9 @@ public:
     }
     if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["endTime"]));
+    }
+    if (m.find("latestSqlStatementStatus") != m.end() && !m["latestSqlStatementStatus"].empty()) {
+      latestSqlStatementStatus = make_shared<string>(boost::any_cast<string>(m["latestSqlStatementStatus"]));
     }
     if (m.find("mbSeconds") != m.end() && !m["mbSeconds"].empty()) {
       mbSeconds = make_shared<long>(boost::any_cast<long>(m["mbSeconds"]));
@@ -10152,6 +10159,7 @@ public:
   shared_ptr<vector<ListSessionClustersResponseBodySessionClustersApplicationConfigs>> applicationConfigs{};
   shared_ptr<ListSessionClustersResponseBodySessionClustersAutoStartConfiguration> autoStartConfiguration{};
   shared_ptr<ListSessionClustersResponseBodySessionClustersAutoStopConfiguration> autoStopConfiguration{};
+  shared_ptr<string> connectionToken{};
   shared_ptr<string> displayReleaseVersion{};
   shared_ptr<string> domain{};
   shared_ptr<string> domainInner{};
@@ -10195,6 +10203,9 @@ public:
     }
     if (autoStopConfiguration) {
       res["autoStopConfiguration"] = autoStopConfiguration ? boost::any(autoStopConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (connectionToken) {
+      res["connectionToken"] = boost::any(*connectionToken);
     }
     if (displayReleaseVersion) {
       res["displayReleaseVersion"] = boost::any(*displayReleaseVersion);
@@ -10286,6 +10297,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["autoStopConfiguration"]));
         autoStopConfiguration = make_shared<ListSessionClustersResponseBodySessionClustersAutoStopConfiguration>(model1);
       }
+    }
+    if (m.find("connectionToken") != m.end() && !m["connectionToken"].empty()) {
+      connectionToken = make_shared<string>(boost::any_cast<string>(m["connectionToken"]));
     }
     if (m.find("displayReleaseVersion") != m.end() && !m["displayReleaseVersion"].empty()) {
       displayReleaseVersion = make_shared<string>(boost::any_cast<string>(m["displayReleaseVersion"]));
