@@ -1097,6 +1097,112 @@ public:
 
   virtual ~ApplicationConfigParam() = default;
 };
+class ApplicationConfigurationFile : public Darabonba::Model {
+public:
+  shared_ptr<string> applicationName{};
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> configFileFormat{};
+  shared_ptr<string> configFileGroup{};
+  shared_ptr<string> configFileLink{};
+  shared_ptr<string> configFileMode{};
+  shared_ptr<string> configFileName{};
+  shared_ptr<string> configFileOwner{};
+  shared_ptr<string> configFilePath{};
+  shared_ptr<string> description{};
+  shared_ptr<string> nodeGroupId{};
+  shared_ptr<string> nodeId{};
+
+  ApplicationConfigurationFile() {}
+
+  explicit ApplicationConfigurationFile(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationName) {
+      res["ApplicationName"] = boost::any(*applicationName);
+    }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (configFileFormat) {
+      res["ConfigFileFormat"] = boost::any(*configFileFormat);
+    }
+    if (configFileGroup) {
+      res["ConfigFileGroup"] = boost::any(*configFileGroup);
+    }
+    if (configFileLink) {
+      res["ConfigFileLink"] = boost::any(*configFileLink);
+    }
+    if (configFileMode) {
+      res["ConfigFileMode"] = boost::any(*configFileMode);
+    }
+    if (configFileName) {
+      res["ConfigFileName"] = boost::any(*configFileName);
+    }
+    if (configFileOwner) {
+      res["ConfigFileOwner"] = boost::any(*configFileOwner);
+    }
+    if (configFilePath) {
+      res["ConfigFilePath"] = boost::any(*configFilePath);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (nodeGroupId) {
+      res["NodeGroupId"] = boost::any(*nodeGroupId);
+    }
+    if (nodeId) {
+      res["NodeId"] = boost::any(*nodeId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationName") != m.end() && !m["ApplicationName"].empty()) {
+      applicationName = make_shared<string>(boost::any_cast<string>(m["ApplicationName"]));
+    }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("ConfigFileFormat") != m.end() && !m["ConfigFileFormat"].empty()) {
+      configFileFormat = make_shared<string>(boost::any_cast<string>(m["ConfigFileFormat"]));
+    }
+    if (m.find("ConfigFileGroup") != m.end() && !m["ConfigFileGroup"].empty()) {
+      configFileGroup = make_shared<string>(boost::any_cast<string>(m["ConfigFileGroup"]));
+    }
+    if (m.find("ConfigFileLink") != m.end() && !m["ConfigFileLink"].empty()) {
+      configFileLink = make_shared<string>(boost::any_cast<string>(m["ConfigFileLink"]));
+    }
+    if (m.find("ConfigFileMode") != m.end() && !m["ConfigFileMode"].empty()) {
+      configFileMode = make_shared<string>(boost::any_cast<string>(m["ConfigFileMode"]));
+    }
+    if (m.find("ConfigFileName") != m.end() && !m["ConfigFileName"].empty()) {
+      configFileName = make_shared<string>(boost::any_cast<string>(m["ConfigFileName"]));
+    }
+    if (m.find("ConfigFileOwner") != m.end() && !m["ConfigFileOwner"].empty()) {
+      configFileOwner = make_shared<string>(boost::any_cast<string>(m["ConfigFileOwner"]));
+    }
+    if (m.find("ConfigFilePath") != m.end() && !m["ConfigFilePath"].empty()) {
+      configFilePath = make_shared<string>(boost::any_cast<string>(m["ConfigFilePath"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("NodeGroupId") != m.end() && !m["NodeGroupId"].empty()) {
+      nodeGroupId = make_shared<string>(boost::any_cast<string>(m["NodeGroupId"]));
+    }
+    if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
+    }
+  }
+
+
+  virtual ~ApplicationConfigurationFile() = default;
+};
 class Attribute : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -32245,6 +32351,224 @@ public:
 
   virtual ~GetDoctorReportComponentSummaryResponse() = default;
 };
+class GetManagedScalingPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> regionId{};
+
+  GetManagedScalingPolicyRequest() {}
+
+  explicit GetManagedScalingPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~GetManagedScalingPolicyRequest() = default;
+};
+class GetManagedScalingPolicyResponseBodyScalingPolicyConstraints : public Darabonba::Model {
+public:
+  shared_ptr<long> maxCapacity{};
+  shared_ptr<long> maxOnDemandCapacity{};
+  shared_ptr<long> minCapacity{};
+
+  GetManagedScalingPolicyResponseBodyScalingPolicyConstraints() {}
+
+  explicit GetManagedScalingPolicyResponseBodyScalingPolicyConstraints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxCapacity) {
+      res["MaxCapacity"] = boost::any(*maxCapacity);
+    }
+    if (maxOnDemandCapacity) {
+      res["MaxOnDemandCapacity"] = boost::any(*maxOnDemandCapacity);
+    }
+    if (minCapacity) {
+      res["MinCapacity"] = boost::any(*minCapacity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxCapacity") != m.end() && !m["MaxCapacity"].empty()) {
+      maxCapacity = make_shared<long>(boost::any_cast<long>(m["MaxCapacity"]));
+    }
+    if (m.find("MaxOnDemandCapacity") != m.end() && !m["MaxOnDemandCapacity"].empty()) {
+      maxOnDemandCapacity = make_shared<long>(boost::any_cast<long>(m["MaxOnDemandCapacity"]));
+    }
+    if (m.find("MinCapacity") != m.end() && !m["MinCapacity"].empty()) {
+      minCapacity = make_shared<long>(boost::any_cast<long>(m["MinCapacity"]));
+    }
+  }
+
+
+  virtual ~GetManagedScalingPolicyResponseBodyScalingPolicyConstraints() = default;
+};
+class GetManagedScalingPolicyResponseBodyScalingPolicy : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<GetManagedScalingPolicyResponseBodyScalingPolicyConstraints> constraints{};
+  shared_ptr<string> scalingPolicyId{};
+
+  GetManagedScalingPolicyResponseBodyScalingPolicy() {}
+
+  explicit GetManagedScalingPolicyResponseBodyScalingPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (constraints) {
+      res["Constraints"] = constraints ? boost::any(constraints->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (scalingPolicyId) {
+      res["ScalingPolicyId"] = boost::any(*scalingPolicyId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("Constraints") != m.end() && !m["Constraints"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Constraints"].type()) {
+        GetManagedScalingPolicyResponseBodyScalingPolicyConstraints model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Constraints"]));
+        constraints = make_shared<GetManagedScalingPolicyResponseBodyScalingPolicyConstraints>(model1);
+      }
+    }
+    if (m.find("ScalingPolicyId") != m.end() && !m["ScalingPolicyId"].empty()) {
+      scalingPolicyId = make_shared<string>(boost::any_cast<string>(m["ScalingPolicyId"]));
+    }
+  }
+
+
+  virtual ~GetManagedScalingPolicyResponseBodyScalingPolicy() = default;
+};
+class GetManagedScalingPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<GetManagedScalingPolicyResponseBodyScalingPolicy> scalingPolicy{};
+
+  GetManagedScalingPolicyResponseBody() {}
+
+  explicit GetManagedScalingPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (scalingPolicy) {
+      res["ScalingPolicy"] = scalingPolicy ? boost::any(scalingPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ScalingPolicy") != m.end() && !m["ScalingPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ScalingPolicy"].type()) {
+        GetManagedScalingPolicyResponseBodyScalingPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ScalingPolicy"]));
+        scalingPolicy = make_shared<GetManagedScalingPolicyResponseBodyScalingPolicy>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetManagedScalingPolicyResponseBody() = default;
+};
+class GetManagedScalingPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetManagedScalingPolicyResponseBody> body{};
+
+  GetManagedScalingPolicyResponse() {}
+
+  explicit GetManagedScalingPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetManagedScalingPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetManagedScalingPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetManagedScalingPolicyResponse() = default;
+};
 class GetNodeGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
@@ -53637,6 +53961,8 @@ public:
   GetDoctorJobResponse getDoctorJob(shared_ptr<GetDoctorJobRequest> request);
   GetDoctorReportComponentSummaryResponse getDoctorReportComponentSummaryWithOptions(shared_ptr<GetDoctorReportComponentSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDoctorReportComponentSummaryResponse getDoctorReportComponentSummary(shared_ptr<GetDoctorReportComponentSummaryRequest> request);
+  GetManagedScalingPolicyResponse getManagedScalingPolicyWithOptions(shared_ptr<GetManagedScalingPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetManagedScalingPolicyResponse getManagedScalingPolicy(shared_ptr<GetManagedScalingPolicyRequest> request);
   GetNodeGroupResponse getNodeGroupWithOptions(shared_ptr<GetNodeGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetNodeGroupResponse getNodeGroup(shared_ptr<GetNodeGroupRequest> request);
   GetOperationResponse getOperationWithOptions(shared_ptr<GetOperationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
