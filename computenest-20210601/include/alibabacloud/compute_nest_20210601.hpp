@@ -1187,6 +1187,7 @@ public:
   shared_ptr<string> couponId{};
   shared_ptr<long> payPeriod{};
   shared_ptr<string> payPeriodUnit{};
+  shared_ptr<string> quotationId{};
 
   CreateServiceInstanceRequestCommodity() {}
 
@@ -1213,6 +1214,9 @@ public:
     if (payPeriodUnit) {
       res["PayPeriodUnit"] = boost::any(*payPeriodUnit);
     }
+    if (quotationId) {
+      res["QuotationId"] = boost::any(*quotationId);
+    }
     return res;
   }
 
@@ -1231,6 +1235,9 @@ public:
     }
     if (m.find("PayPeriodUnit") != m.end() && !m["PayPeriodUnit"].empty()) {
       payPeriodUnit = make_shared<string>(boost::any_cast<string>(m["PayPeriodUnit"]));
+    }
+    if (m.find("QuotationId") != m.end() && !m["QuotationId"].empty()) {
+      quotationId = make_shared<string>(boost::any_cast<string>(m["QuotationId"]));
     }
   }
 
@@ -1526,6 +1533,7 @@ public:
   shared_ptr<string> couponId{};
   shared_ptr<long> payPeriod{};
   shared_ptr<string> payPeriodUnit{};
+  shared_ptr<string> quotationId{};
 
   CreateServiceInstanceShrinkRequestCommodity() {}
 
@@ -1552,6 +1560,9 @@ public:
     if (payPeriodUnit) {
       res["PayPeriodUnit"] = boost::any(*payPeriodUnit);
     }
+    if (quotationId) {
+      res["QuotationId"] = boost::any(*quotationId);
+    }
     return res;
   }
 
@@ -1570,6 +1581,9 @@ public:
     }
     if (m.find("PayPeriodUnit") != m.end() && !m["PayPeriodUnit"].empty()) {
       payPeriodUnit = make_shared<string>(boost::any_cast<string>(m["PayPeriodUnit"]));
+    }
+    if (m.find("QuotationId") != m.end() && !m["QuotationId"].empty()) {
+      quotationId = make_shared<string>(boost::any_cast<string>(m["QuotationId"]));
     }
   }
 
@@ -3977,6 +3991,7 @@ public:
   shared_ptr<string> couponId{};
   shared_ptr<long> payPeriod{};
   shared_ptr<string> payPeriodUnit{};
+  shared_ptr<string> quotationId{};
 
   GetServiceEstimateCostRequestCommodity() {}
 
@@ -3997,6 +4012,9 @@ public:
     if (payPeriodUnit) {
       res["PayPeriodUnit"] = boost::any(*payPeriodUnit);
     }
+    if (quotationId) {
+      res["QuotationId"] = boost::any(*quotationId);
+    }
     return res;
   }
 
@@ -4009,6 +4027,9 @@ public:
     }
     if (m.find("PayPeriodUnit") != m.end() && !m["PayPeriodUnit"].empty()) {
       payPeriodUnit = make_shared<string>(boost::any_cast<string>(m["PayPeriodUnit"]));
+    }
+    if (m.find("QuotationId") != m.end() && !m["QuotationId"].empty()) {
+      quotationId = make_shared<string>(boost::any_cast<string>(m["QuotationId"]));
     }
   }
 
