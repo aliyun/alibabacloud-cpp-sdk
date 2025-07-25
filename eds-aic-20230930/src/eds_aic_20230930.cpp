@@ -1232,8 +1232,14 @@ DescribeDisplayConfigResponse Alibabacloud_Eds-aic20230930::Client::describeDisp
 DescribeImageListResponse Alibabacloud_Eds-aic20230930::Client::describeImageListWithOptions(shared_ptr<DescribeImageListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeImageListRequestImageBizTags>>(request->imageBizTags)) {
+    query->insert(pair<string, vector<DescribeImageListRequestImageBizTags>>("ImageBizTags", *request->imageBizTags));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->imagePackageType)) {
     query->insert(pair<string, string>("ImagePackageType", *request->imagePackageType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
+    query->insert(pair<string, string>("InstanceType", *request->instanceType));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
