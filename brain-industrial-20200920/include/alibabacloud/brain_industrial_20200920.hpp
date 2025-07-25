@@ -1295,6 +1295,336 @@ public:
 
   virtual ~CreateEssOptJobResponse() = default;
 };
+class CreateLoadForecastByFileUrlJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> businessKey{};
+  shared_ptr<string> deviceType{};
+  shared_ptr<long> duration{};
+  shared_ptr<string> freq{};
+  shared_ptr<string> historyUrl{};
+  shared_ptr<string> modelVersion{};
+  shared_ptr<string> runDate{};
+  shared_ptr<string> systemType{};
+  shared_ptr<string> timeColumn{};
+  shared_ptr<string> timeZone{};
+  shared_ptr<string> valueColumn{};
+
+  CreateLoadForecastByFileUrlJobRequest() {}
+
+  explicit CreateLoadForecastByFileUrlJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessKey) {
+      res["BusinessKey"] = boost::any(*businessKey);
+    }
+    if (deviceType) {
+      res["DeviceType"] = boost::any(*deviceType);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (freq) {
+      res["Freq"] = boost::any(*freq);
+    }
+    if (historyUrl) {
+      res["HistoryUrl"] = boost::any(*historyUrl);
+    }
+    if (modelVersion) {
+      res["ModelVersion"] = boost::any(*modelVersion);
+    }
+    if (runDate) {
+      res["RunDate"] = boost::any(*runDate);
+    }
+    if (systemType) {
+      res["SystemType"] = boost::any(*systemType);
+    }
+    if (timeColumn) {
+      res["TimeColumn"] = boost::any(*timeColumn);
+    }
+    if (timeZone) {
+      res["TimeZone"] = boost::any(*timeZone);
+    }
+    if (valueColumn) {
+      res["ValueColumn"] = boost::any(*valueColumn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessKey") != m.end() && !m["BusinessKey"].empty()) {
+      businessKey = make_shared<string>(boost::any_cast<string>(m["BusinessKey"]));
+    }
+    if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
+      deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
+    }
+    if (m.find("Freq") != m.end() && !m["Freq"].empty()) {
+      freq = make_shared<string>(boost::any_cast<string>(m["Freq"]));
+    }
+    if (m.find("HistoryUrl") != m.end() && !m["HistoryUrl"].empty()) {
+      historyUrl = make_shared<string>(boost::any_cast<string>(m["HistoryUrl"]));
+    }
+    if (m.find("ModelVersion") != m.end() && !m["ModelVersion"].empty()) {
+      modelVersion = make_shared<string>(boost::any_cast<string>(m["ModelVersion"]));
+    }
+    if (m.find("RunDate") != m.end() && !m["RunDate"].empty()) {
+      runDate = make_shared<string>(boost::any_cast<string>(m["RunDate"]));
+    }
+    if (m.find("SystemType") != m.end() && !m["SystemType"].empty()) {
+      systemType = make_shared<string>(boost::any_cast<string>(m["SystemType"]));
+    }
+    if (m.find("TimeColumn") != m.end() && !m["TimeColumn"].empty()) {
+      timeColumn = make_shared<string>(boost::any_cast<string>(m["TimeColumn"]));
+    }
+    if (m.find("TimeZone") != m.end() && !m["TimeZone"].empty()) {
+      timeZone = make_shared<string>(boost::any_cast<string>(m["TimeZone"]));
+    }
+    if (m.find("ValueColumn") != m.end() && !m["ValueColumn"].empty()) {
+      valueColumn = make_shared<string>(boost::any_cast<string>(m["ValueColumn"]));
+    }
+  }
+
+
+  virtual ~CreateLoadForecastByFileUrlJobRequest() = default;
+};
+class CreateLoadForecastByFileUrlJobResponseBodyDataResponse : public Darabonba::Model {
+public:
+  shared_ptr<boost::any> debugInfo{};
+  shared_ptr<string> jobType{};
+  shared_ptr<boost::any> result{};
+
+  CreateLoadForecastByFileUrlJobResponseBodyDataResponse() {}
+
+  explicit CreateLoadForecastByFileUrlJobResponseBodyDataResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (debugInfo) {
+      res["DebugInfo"] = boost::any(*debugInfo);
+    }
+    if (jobType) {
+      res["JobType"] = boost::any(*jobType);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DebugInfo") != m.end() && !m["DebugInfo"].empty()) {
+      debugInfo = make_shared<boost::any>(boost::any_cast<boost::any>(m["DebugInfo"]));
+    }
+    if (m.find("JobType") != m.end() && !m["JobType"].empty()) {
+      jobType = make_shared<string>(boost::any_cast<string>(m["JobType"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<boost::any>(boost::any_cast<boost::any>(m["Result"]));
+    }
+  }
+
+
+  virtual ~CreateLoadForecastByFileUrlJobResponseBodyDataResponse() = default;
+};
+class CreateLoadForecastByFileUrlJobResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<bool> completed{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> error{};
+  shared_ptr<string> jobId{};
+  shared_ptr<long> progress{};
+  shared_ptr<CreateLoadForecastByFileUrlJobResponseBodyDataResponse> response{};
+  shared_ptr<string> status{};
+
+  CreateLoadForecastByFileUrlJobResponseBodyData() {}
+
+  explicit CreateLoadForecastByFileUrlJobResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (completed) {
+      res["Completed"] = boost::any(*completed);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (error) {
+      res["Error"] = boost::any(*error);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (progress) {
+      res["Progress"] = boost::any(*progress);
+    }
+    if (response) {
+      res["Response"] = response ? boost::any(response->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Completed") != m.end() && !m["Completed"].empty()) {
+      completed = make_shared<bool>(boost::any_cast<bool>(m["Completed"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Error") != m.end() && !m["Error"].empty()) {
+      error = make_shared<string>(boost::any_cast<string>(m["Error"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
+      progress = make_shared<long>(boost::any_cast<long>(m["Progress"]));
+    }
+    if (m.find("Response") != m.end() && !m["Response"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Response"].type()) {
+        CreateLoadForecastByFileUrlJobResponseBodyDataResponse model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Response"]));
+        response = make_shared<CreateLoadForecastByFileUrlJobResponseBodyDataResponse>(model1);
+      }
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~CreateLoadForecastByFileUrlJobResponseBodyData() = default;
+};
+class CreateLoadForecastByFileUrlJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<CreateLoadForecastByFileUrlJobResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  CreateLoadForecastByFileUrlJobResponseBody() {}
+
+  explicit CreateLoadForecastByFileUrlJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CreateLoadForecastByFileUrlJobResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CreateLoadForecastByFileUrlJobResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateLoadForecastByFileUrlJobResponseBody() = default;
+};
+class CreateLoadForecastByFileUrlJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateLoadForecastByFileUrlJobResponseBody> body{};
+
+  CreateLoadForecastByFileUrlJobResponse() {}
+
+  explicit CreateLoadForecastByFileUrlJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateLoadForecastByFileUrlJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateLoadForecastByFileUrlJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateLoadForecastByFileUrlJobResponse() = default;
+};
 class CreateLoadForecastJobRequestHistoryData : public Darabonba::Model {
 public:
   shared_ptr<string> runTime{};
@@ -1745,6 +2075,496 @@ public:
 
 
   virtual ~CreateLoadForecastJobResponse() = default;
+};
+class CreatePowerForecastByFileUrlJobRequestLocation : public Darabonba::Model {
+public:
+  shared_ptr<double> altitude{};
+  shared_ptr<double> latitude{};
+  shared_ptr<double> longitude{};
+
+  CreatePowerForecastByFileUrlJobRequestLocation() {}
+
+  explicit CreatePowerForecastByFileUrlJobRequestLocation(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (altitude) {
+      res["Altitude"] = boost::any(*altitude);
+    }
+    if (latitude) {
+      res["Latitude"] = boost::any(*latitude);
+    }
+    if (longitude) {
+      res["Longitude"] = boost::any(*longitude);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Altitude") != m.end() && !m["Altitude"].empty()) {
+      altitude = make_shared<double>(boost::any_cast<double>(m["Altitude"]));
+    }
+    if (m.find("Latitude") != m.end() && !m["Latitude"].empty()) {
+      latitude = make_shared<double>(boost::any_cast<double>(m["Latitude"]));
+    }
+    if (m.find("Longitude") != m.end() && !m["Longitude"].empty()) {
+      longitude = make_shared<double>(boost::any_cast<double>(m["Longitude"]));
+    }
+  }
+
+
+  virtual ~CreatePowerForecastByFileUrlJobRequestLocation() = default;
+};
+class CreatePowerForecastByFileUrlJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> businessKey{};
+  shared_ptr<string> deviceType{};
+  shared_ptr<long> duration{};
+  shared_ptr<string> freq{};
+  shared_ptr<string> historyUrl{};
+  shared_ptr<CreatePowerForecastByFileUrlJobRequestLocation> location{};
+  shared_ptr<string> modelVersion{};
+  shared_ptr<string> runDate{};
+  shared_ptr<string> systemType{};
+  shared_ptr<string> timeColumn{};
+  shared_ptr<string> timeZone{};
+  shared_ptr<string> valueColumn{};
+
+  CreatePowerForecastByFileUrlJobRequest() {}
+
+  explicit CreatePowerForecastByFileUrlJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessKey) {
+      res["BusinessKey"] = boost::any(*businessKey);
+    }
+    if (deviceType) {
+      res["DeviceType"] = boost::any(*deviceType);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (freq) {
+      res["Freq"] = boost::any(*freq);
+    }
+    if (historyUrl) {
+      res["HistoryUrl"] = boost::any(*historyUrl);
+    }
+    if (location) {
+      res["Location"] = location ? boost::any(location->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (modelVersion) {
+      res["ModelVersion"] = boost::any(*modelVersion);
+    }
+    if (runDate) {
+      res["RunDate"] = boost::any(*runDate);
+    }
+    if (systemType) {
+      res["SystemType"] = boost::any(*systemType);
+    }
+    if (timeColumn) {
+      res["TimeColumn"] = boost::any(*timeColumn);
+    }
+    if (timeZone) {
+      res["TimeZone"] = boost::any(*timeZone);
+    }
+    if (valueColumn) {
+      res["ValueColumn"] = boost::any(*valueColumn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessKey") != m.end() && !m["BusinessKey"].empty()) {
+      businessKey = make_shared<string>(boost::any_cast<string>(m["BusinessKey"]));
+    }
+    if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
+      deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
+    }
+    if (m.find("Freq") != m.end() && !m["Freq"].empty()) {
+      freq = make_shared<string>(boost::any_cast<string>(m["Freq"]));
+    }
+    if (m.find("HistoryUrl") != m.end() && !m["HistoryUrl"].empty()) {
+      historyUrl = make_shared<string>(boost::any_cast<string>(m["HistoryUrl"]));
+    }
+    if (m.find("Location") != m.end() && !m["Location"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Location"].type()) {
+        CreatePowerForecastByFileUrlJobRequestLocation model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Location"]));
+        location = make_shared<CreatePowerForecastByFileUrlJobRequestLocation>(model1);
+      }
+    }
+    if (m.find("ModelVersion") != m.end() && !m["ModelVersion"].empty()) {
+      modelVersion = make_shared<string>(boost::any_cast<string>(m["ModelVersion"]));
+    }
+    if (m.find("RunDate") != m.end() && !m["RunDate"].empty()) {
+      runDate = make_shared<string>(boost::any_cast<string>(m["RunDate"]));
+    }
+    if (m.find("SystemType") != m.end() && !m["SystemType"].empty()) {
+      systemType = make_shared<string>(boost::any_cast<string>(m["SystemType"]));
+    }
+    if (m.find("TimeColumn") != m.end() && !m["TimeColumn"].empty()) {
+      timeColumn = make_shared<string>(boost::any_cast<string>(m["TimeColumn"]));
+    }
+    if (m.find("TimeZone") != m.end() && !m["TimeZone"].empty()) {
+      timeZone = make_shared<string>(boost::any_cast<string>(m["TimeZone"]));
+    }
+    if (m.find("ValueColumn") != m.end() && !m["ValueColumn"].empty()) {
+      valueColumn = make_shared<string>(boost::any_cast<string>(m["ValueColumn"]));
+    }
+  }
+
+
+  virtual ~CreatePowerForecastByFileUrlJobRequest() = default;
+};
+class CreatePowerForecastByFileUrlJobShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> businessKey{};
+  shared_ptr<string> deviceType{};
+  shared_ptr<long> duration{};
+  shared_ptr<string> freq{};
+  shared_ptr<string> historyUrl{};
+  shared_ptr<string> locationShrink{};
+  shared_ptr<string> modelVersion{};
+  shared_ptr<string> runDate{};
+  shared_ptr<string> systemType{};
+  shared_ptr<string> timeColumn{};
+  shared_ptr<string> timeZone{};
+  shared_ptr<string> valueColumn{};
+
+  CreatePowerForecastByFileUrlJobShrinkRequest() {}
+
+  explicit CreatePowerForecastByFileUrlJobShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessKey) {
+      res["BusinessKey"] = boost::any(*businessKey);
+    }
+    if (deviceType) {
+      res["DeviceType"] = boost::any(*deviceType);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (freq) {
+      res["Freq"] = boost::any(*freq);
+    }
+    if (historyUrl) {
+      res["HistoryUrl"] = boost::any(*historyUrl);
+    }
+    if (locationShrink) {
+      res["Location"] = boost::any(*locationShrink);
+    }
+    if (modelVersion) {
+      res["ModelVersion"] = boost::any(*modelVersion);
+    }
+    if (runDate) {
+      res["RunDate"] = boost::any(*runDate);
+    }
+    if (systemType) {
+      res["SystemType"] = boost::any(*systemType);
+    }
+    if (timeColumn) {
+      res["TimeColumn"] = boost::any(*timeColumn);
+    }
+    if (timeZone) {
+      res["TimeZone"] = boost::any(*timeZone);
+    }
+    if (valueColumn) {
+      res["ValueColumn"] = boost::any(*valueColumn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessKey") != m.end() && !m["BusinessKey"].empty()) {
+      businessKey = make_shared<string>(boost::any_cast<string>(m["BusinessKey"]));
+    }
+    if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
+      deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
+    }
+    if (m.find("Freq") != m.end() && !m["Freq"].empty()) {
+      freq = make_shared<string>(boost::any_cast<string>(m["Freq"]));
+    }
+    if (m.find("HistoryUrl") != m.end() && !m["HistoryUrl"].empty()) {
+      historyUrl = make_shared<string>(boost::any_cast<string>(m["HistoryUrl"]));
+    }
+    if (m.find("Location") != m.end() && !m["Location"].empty()) {
+      locationShrink = make_shared<string>(boost::any_cast<string>(m["Location"]));
+    }
+    if (m.find("ModelVersion") != m.end() && !m["ModelVersion"].empty()) {
+      modelVersion = make_shared<string>(boost::any_cast<string>(m["ModelVersion"]));
+    }
+    if (m.find("RunDate") != m.end() && !m["RunDate"].empty()) {
+      runDate = make_shared<string>(boost::any_cast<string>(m["RunDate"]));
+    }
+    if (m.find("SystemType") != m.end() && !m["SystemType"].empty()) {
+      systemType = make_shared<string>(boost::any_cast<string>(m["SystemType"]));
+    }
+    if (m.find("TimeColumn") != m.end() && !m["TimeColumn"].empty()) {
+      timeColumn = make_shared<string>(boost::any_cast<string>(m["TimeColumn"]));
+    }
+    if (m.find("TimeZone") != m.end() && !m["TimeZone"].empty()) {
+      timeZone = make_shared<string>(boost::any_cast<string>(m["TimeZone"]));
+    }
+    if (m.find("ValueColumn") != m.end() && !m["ValueColumn"].empty()) {
+      valueColumn = make_shared<string>(boost::any_cast<string>(m["ValueColumn"]));
+    }
+  }
+
+
+  virtual ~CreatePowerForecastByFileUrlJobShrinkRequest() = default;
+};
+class CreatePowerForecastByFileUrlJobResponseBodyDataResponse : public Darabonba::Model {
+public:
+  shared_ptr<boost::any> debugInfo{};
+  shared_ptr<string> jobType{};
+  shared_ptr<boost::any> result{};
+
+  CreatePowerForecastByFileUrlJobResponseBodyDataResponse() {}
+
+  explicit CreatePowerForecastByFileUrlJobResponseBodyDataResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (debugInfo) {
+      res["DebugInfo"] = boost::any(*debugInfo);
+    }
+    if (jobType) {
+      res["JobType"] = boost::any(*jobType);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DebugInfo") != m.end() && !m["DebugInfo"].empty()) {
+      debugInfo = make_shared<boost::any>(boost::any_cast<boost::any>(m["DebugInfo"]));
+    }
+    if (m.find("JobType") != m.end() && !m["JobType"].empty()) {
+      jobType = make_shared<string>(boost::any_cast<string>(m["JobType"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<boost::any>(boost::any_cast<boost::any>(m["Result"]));
+    }
+  }
+
+
+  virtual ~CreatePowerForecastByFileUrlJobResponseBodyDataResponse() = default;
+};
+class CreatePowerForecastByFileUrlJobResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<bool> completed{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> error{};
+  shared_ptr<string> jobId{};
+  shared_ptr<long> progress{};
+  shared_ptr<CreatePowerForecastByFileUrlJobResponseBodyDataResponse> response{};
+  shared_ptr<string> status{};
+
+  CreatePowerForecastByFileUrlJobResponseBodyData() {}
+
+  explicit CreatePowerForecastByFileUrlJobResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (completed) {
+      res["Completed"] = boost::any(*completed);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (error) {
+      res["Error"] = boost::any(*error);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (progress) {
+      res["Progress"] = boost::any(*progress);
+    }
+    if (response) {
+      res["Response"] = response ? boost::any(response->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Completed") != m.end() && !m["Completed"].empty()) {
+      completed = make_shared<bool>(boost::any_cast<bool>(m["Completed"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Error") != m.end() && !m["Error"].empty()) {
+      error = make_shared<string>(boost::any_cast<string>(m["Error"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
+      progress = make_shared<long>(boost::any_cast<long>(m["Progress"]));
+    }
+    if (m.find("Response") != m.end() && !m["Response"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Response"].type()) {
+        CreatePowerForecastByFileUrlJobResponseBodyDataResponse model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Response"]));
+        response = make_shared<CreatePowerForecastByFileUrlJobResponseBodyDataResponse>(model1);
+      }
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~CreatePowerForecastByFileUrlJobResponseBodyData() = default;
+};
+class CreatePowerForecastByFileUrlJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<CreatePowerForecastByFileUrlJobResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  CreatePowerForecastByFileUrlJobResponseBody() {}
+
+  explicit CreatePowerForecastByFileUrlJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CreatePowerForecastByFileUrlJobResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CreatePowerForecastByFileUrlJobResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreatePowerForecastByFileUrlJobResponseBody() = default;
+};
+class CreatePowerForecastByFileUrlJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreatePowerForecastByFileUrlJobResponseBody> body{};
+
+  CreatePowerForecastByFileUrlJobResponse() {}
+
+  explicit CreatePowerForecastByFileUrlJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreatePowerForecastByFileUrlJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreatePowerForecastByFileUrlJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreatePowerForecastByFileUrlJobResponse() = default;
 };
 class CreatePowerForecastJobRequestHistoryData : public Darabonba::Model {
 public:
@@ -3989,8 +4809,12 @@ public:
   AicsOpenApiInvokeResponse aicsOpenApiInvoke(shared_ptr<AicsOpenApiInvokeRequest> request);
   CreateEssOptJobResponse createEssOptJobWithOptions(shared_ptr<CreateEssOptJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateEssOptJobResponse createEssOptJob(shared_ptr<CreateEssOptJobRequest> request);
+  CreateLoadForecastByFileUrlJobResponse createLoadForecastByFileUrlJobWithOptions(shared_ptr<CreateLoadForecastByFileUrlJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateLoadForecastByFileUrlJobResponse createLoadForecastByFileUrlJob(shared_ptr<CreateLoadForecastByFileUrlJobRequest> request);
   CreateLoadForecastJobResponse createLoadForecastJobWithOptions(shared_ptr<CreateLoadForecastJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateLoadForecastJobResponse createLoadForecastJob(shared_ptr<CreateLoadForecastJobRequest> request);
+  CreatePowerForecastByFileUrlJobResponse createPowerForecastByFileUrlJobWithOptions(shared_ptr<CreatePowerForecastByFileUrlJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreatePowerForecastByFileUrlJobResponse createPowerForecastByFileUrlJob(shared_ptr<CreatePowerForecastByFileUrlJobRequest> request);
   CreatePowerForecastJobResponse createPowerForecastJobWithOptions(shared_ptr<CreatePowerForecastJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePowerForecastJobResponse createPowerForecastJob(shared_ptr<CreatePowerForecastJobRequest> request);
   GetAivppAlgoJobResponse getAivppAlgoJobWithOptions(shared_ptr<GetAivppAlgoJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

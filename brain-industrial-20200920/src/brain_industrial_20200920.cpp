@@ -190,6 +190,64 @@ CreateEssOptJobResponse Alibabacloud_Brain-industrial20200920::Client::createEss
   return createEssOptJobWithOptions(request, runtime);
 }
 
+CreateLoadForecastByFileUrlJobResponse Alibabacloud_Brain-industrial20200920::Client::createLoadForecastByFileUrlJobWithOptions(shared_ptr<CreateLoadForecastByFileUrlJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->businessKey)) {
+    body->insert(pair<string, string>("BusinessKey", *request->businessKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceType)) {
+    body->insert(pair<string, string>("DeviceType", *request->deviceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->duration)) {
+    body->insert(pair<string, long>("Duration", *request->duration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->freq)) {
+    body->insert(pair<string, string>("Freq", *request->freq));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->historyUrl)) {
+    body->insert(pair<string, string>("HistoryUrl", *request->historyUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelVersion)) {
+    body->insert(pair<string, string>("ModelVersion", *request->modelVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->runDate)) {
+    body->insert(pair<string, string>("RunDate", *request->runDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->systemType)) {
+    body->insert(pair<string, string>("SystemType", *request->systemType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timeColumn)) {
+    body->insert(pair<string, string>("TimeColumn", *request->timeColumn));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timeZone)) {
+    body->insert(pair<string, string>("TimeZone", *request->timeZone));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->valueColumn)) {
+    body->insert(pair<string, string>("ValueColumn", *request->valueColumn));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateLoadForecastByFileUrlJob"))},
+    {"version", boost::any(string("2020-09-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateLoadForecastByFileUrlJobResponse(callApi(params, req, runtime));
+}
+
+CreateLoadForecastByFileUrlJobResponse Alibabacloud_Brain-industrial20200920::Client::createLoadForecastByFileUrlJob(shared_ptr<CreateLoadForecastByFileUrlJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createLoadForecastByFileUrlJobWithOptions(request, runtime);
+}
+
 CreateLoadForecastJobResponse Alibabacloud_Brain-industrial20200920::Client::createLoadForecastJobWithOptions(shared_ptr<CreateLoadForecastJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateLoadForecastJobShrinkRequest> request = make_shared<CreateLoadForecastJobShrinkRequest>();
@@ -245,6 +303,72 @@ CreateLoadForecastJobResponse Alibabacloud_Brain-industrial20200920::Client::cre
 CreateLoadForecastJobResponse Alibabacloud_Brain-industrial20200920::Client::createLoadForecastJob(shared_ptr<CreateLoadForecastJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createLoadForecastJobWithOptions(request, runtime);
+}
+
+CreatePowerForecastByFileUrlJobResponse Alibabacloud_Brain-industrial20200920::Client::createPowerForecastByFileUrlJobWithOptions(shared_ptr<CreatePowerForecastByFileUrlJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreatePowerForecastByFileUrlJobShrinkRequest> request = make_shared<CreatePowerForecastByFileUrlJobShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreatePowerForecastByFileUrlJobRequestLocation>(tmpReq->location)) {
+    request->locationShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->location, make_shared<string>("Location"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->businessKey)) {
+    body->insert(pair<string, string>("BusinessKey", *request->businessKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceType)) {
+    body->insert(pair<string, string>("DeviceType", *request->deviceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->duration)) {
+    body->insert(pair<string, long>("Duration", *request->duration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->freq)) {
+    body->insert(pair<string, string>("Freq", *request->freq));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->historyUrl)) {
+    body->insert(pair<string, string>("HistoryUrl", *request->historyUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->locationShrink)) {
+    body->insert(pair<string, string>("Location", *request->locationShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelVersion)) {
+    body->insert(pair<string, string>("ModelVersion", *request->modelVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->runDate)) {
+    body->insert(pair<string, string>("RunDate", *request->runDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->systemType)) {
+    body->insert(pair<string, string>("SystemType", *request->systemType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timeColumn)) {
+    body->insert(pair<string, string>("TimeColumn", *request->timeColumn));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timeZone)) {
+    body->insert(pair<string, string>("TimeZone", *request->timeZone));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->valueColumn)) {
+    body->insert(pair<string, string>("ValueColumn", *request->valueColumn));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreatePowerForecastByFileUrlJob"))},
+    {"version", boost::any(string("2020-09-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreatePowerForecastByFileUrlJobResponse(callApi(params, req, runtime));
+}
+
+CreatePowerForecastByFileUrlJobResponse Alibabacloud_Brain-industrial20200920::Client::createPowerForecastByFileUrlJob(shared_ptr<CreatePowerForecastByFileUrlJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createPowerForecastByFileUrlJobWithOptions(request, runtime);
 }
 
 CreatePowerForecastJobResponse Alibabacloud_Brain-industrial20200920::Client::createPowerForecastJobWithOptions(shared_ptr<CreatePowerForecastJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
