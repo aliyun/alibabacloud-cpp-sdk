@@ -4150,6 +4150,9 @@ GetAlertRulesResponse Alibabacloud_ARMS20190808::Client::getAlertRulesWithOption
   if (!Darabonba_Util::Client::isUnset<string>(request->alertType)) {
     query->insert(pair<string, string>("AlertType", *request->alertType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizRegionId)) {
+    query->insert(pair<string, string>("BizRegionId", *request->bizRegionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("ClusterId", *request->clusterId));
   }

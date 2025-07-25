@@ -27274,6 +27274,7 @@ public:
   shared_ptr<string> alertNames{};
   shared_ptr<string> alertStatus{};
   shared_ptr<string> alertType{};
+  shared_ptr<string> bizRegionId{};
   shared_ptr<string> clusterId{};
   shared_ptr<long> page{};
   shared_ptr<string> productCode{};
@@ -27302,6 +27303,9 @@ public:
     }
     if (alertType) {
       res["AlertType"] = boost::any(*alertType);
+    }
+    if (bizRegionId) {
+      res["BizRegionId"] = boost::any(*bizRegionId);
     }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
@@ -27340,6 +27344,9 @@ public:
     }
     if (m.find("AlertType") != m.end() && !m["AlertType"].empty()) {
       alertType = make_shared<string>(boost::any_cast<string>(m["AlertType"]));
+    }
+    if (m.find("BizRegionId") != m.end() && !m["BizRegionId"].empty()) {
+      bizRegionId = make_shared<string>(boost::any_cast<string>(m["BizRegionId"]));
     }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
