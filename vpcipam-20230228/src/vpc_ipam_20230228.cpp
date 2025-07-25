@@ -52,6 +52,9 @@ AddIpamPoolCidrResponse Alibabacloud_VpcIpam20230228::Client::addIpamPoolCidrWit
   if (!Darabonba_Util::Client::isUnset<string>(request->ipamPoolId)) {
     query->insert(pair<string, string>("IpamPoolId", *request->ipamPoolId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->netmaskLength)) {
+    query->insert(pair<string, long>("NetmaskLength", *request->netmaskLength));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -271,6 +274,9 @@ CreateIpamPoolResponse Alibabacloud_VpcIpam20230228::Client::createIpamPoolWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ipamScopeId)) {
     query->insert(pair<string, string>("IpamScopeId", *request->ipamScopeId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipv6Isp)) {
+    query->insert(pair<string, string>("Ipv6Isp", *request->ipv6Isp));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
@@ -1045,6 +1051,9 @@ ListIpamPoolCidrsResponse Alibabacloud_VpcIpam20230228::Client::listIpamPoolCidr
 ListIpamPoolsResponse Alibabacloud_VpcIpam20230228::Client::listIpamPoolsWithOptions(shared_ptr<ListIpamPoolsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipVersion)) {
+    query->insert(pair<string, string>("IpVersion", *request->ipVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->ipamPoolIds)) {
     query->insert(pair<string, vector<string>>("IpamPoolIds", *request->ipamPoolIds));
   }
@@ -1053,6 +1062,9 @@ ListIpamPoolsResponse Alibabacloud_VpcIpam20230228::Client::listIpamPoolsWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ipamScopeId)) {
     query->insert(pair<string, string>("IpamScopeId", *request->ipamScopeId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipv6Isp)) {
+    query->insert(pair<string, string>("Ipv6Isp", *request->ipv6Isp));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->isShared)) {
     query->insert(pair<string, bool>("IsShared", *request->isShared));

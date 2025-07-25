@@ -19,6 +19,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> ipamPoolId{};
+  shared_ptr<long> netmaskLength{};
   shared_ptr<string> regionId{};
 
   AddIpamPoolCidrRequest() {}
@@ -43,6 +44,9 @@ public:
     if (ipamPoolId) {
       res["IpamPoolId"] = boost::any(*ipamPoolId);
     }
+    if (netmaskLength) {
+      res["NetmaskLength"] = boost::any(*netmaskLength);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -62,6 +66,9 @@ public:
     if (m.find("IpamPoolId") != m.end() && !m["IpamPoolId"].empty()) {
       ipamPoolId = make_shared<string>(boost::any_cast<string>(m["IpamPoolId"]));
     }
+    if (m.find("NetmaskLength") != m.end() && !m["NetmaskLength"].empty()) {
+      netmaskLength = make_shared<long>(boost::any_cast<long>(m["NetmaskLength"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -72,6 +79,7 @@ public:
 };
 class AddIpamPoolCidrResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> cidr{};
   shared_ptr<string> requestId{};
 
   AddIpamPoolCidrResponseBody() {}
@@ -84,6 +92,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (cidr) {
+      res["Cidr"] = boost::any(*cidr);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -91,6 +102,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cidr") != m.end() && !m["Cidr"].empty()) {
+      cidr = make_shared<string>(boost::any_cast<string>(m["Cidr"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -810,6 +824,7 @@ public:
   shared_ptr<string> ipamPoolDescription{};
   shared_ptr<string> ipamPoolName{};
   shared_ptr<string> ipamScopeId{};
+  shared_ptr<string> ipv6Isp{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> poolRegionId{};
@@ -859,6 +874,9 @@ public:
     }
     if (ipamScopeId) {
       res["IpamScopeId"] = boost::any(*ipamScopeId);
+    }
+    if (ipv6Isp) {
+      res["Ipv6Isp"] = boost::any(*ipv6Isp);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -924,6 +942,9 @@ public:
     }
     if (m.find("IpamScopeId") != m.end() && !m["IpamScopeId"].empty()) {
       ipamScopeId = make_shared<string>(boost::any_cast<string>(m["IpamScopeId"]));
+    }
+    if (m.find("Ipv6Isp") != m.end() && !m["Ipv6Isp"].empty()) {
+      ipv6Isp = make_shared<string>(boost::any_cast<string>(m["Ipv6Isp"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -4249,9 +4270,11 @@ public:
 };
 class ListIpamPoolsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> ipVersion{};
   shared_ptr<vector<string>> ipamPoolIds{};
   shared_ptr<string> ipamPoolName{};
   shared_ptr<string> ipamScopeId{};
+  shared_ptr<string> ipv6Isp{};
   shared_ptr<bool> isShared{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -4275,6 +4298,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ipVersion) {
+      res["IpVersion"] = boost::any(*ipVersion);
+    }
     if (ipamPoolIds) {
       res["IpamPoolIds"] = boost::any(*ipamPoolIds);
     }
@@ -4283,6 +4309,9 @@ public:
     }
     if (ipamScopeId) {
       res["IpamScopeId"] = boost::any(*ipamScopeId);
+    }
+    if (ipv6Isp) {
+      res["Ipv6Isp"] = boost::any(*ipv6Isp);
     }
     if (isShared) {
       res["IsShared"] = boost::any(*isShared);
@@ -4328,6 +4357,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpVersion") != m.end() && !m["IpVersion"].empty()) {
+      ipVersion = make_shared<string>(boost::any_cast<string>(m["IpVersion"]));
+    }
     if (m.find("IpamPoolIds") != m.end() && !m["IpamPoolIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["IpamPoolIds"].type()) {
@@ -4343,6 +4375,9 @@ public:
     }
     if (m.find("IpamScopeId") != m.end() && !m["IpamScopeId"].empty()) {
       ipamScopeId = make_shared<string>(boost::any_cast<string>(m["IpamScopeId"]));
+    }
+    if (m.find("Ipv6Isp") != m.end() && !m["Ipv6Isp"].empty()) {
+      ipv6Isp = make_shared<string>(boost::any_cast<string>(m["Ipv6Isp"]));
     }
     if (m.find("IsShared") != m.end() && !m["IsShared"].empty()) {
       isShared = make_shared<bool>(boost::any_cast<bool>(m["IsShared"]));
@@ -4447,6 +4482,7 @@ public:
   shared_ptr<string> ipamRegionId{};
   shared_ptr<string> ipamScopeId{};
   shared_ptr<string> ipamScopeType{};
+  shared_ptr<string> ipv6Isp{};
   shared_ptr<bool> isShared{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> poolDepth{};
@@ -4508,6 +4544,9 @@ public:
     }
     if (ipamScopeType) {
       res["IpamScopeType"] = boost::any(*ipamScopeType);
+    }
+    if (ipv6Isp) {
+      res["Ipv6Isp"] = boost::any(*ipv6Isp);
     }
     if (isShared) {
       res["IsShared"] = boost::any(*isShared);
@@ -4585,6 +4624,9 @@ public:
     }
     if (m.find("IpamScopeType") != m.end() && !m["IpamScopeType"].empty()) {
       ipamScopeType = make_shared<string>(boost::any_cast<string>(m["IpamScopeType"]));
+    }
+    if (m.find("Ipv6Isp") != m.end() && !m["Ipv6Isp"].empty()) {
+      ipv6Isp = make_shared<string>(boost::any_cast<string>(m["Ipv6Isp"]));
     }
     if (m.find("IsShared") != m.end() && !m["IsShared"].empty()) {
       isShared = make_shared<bool>(boost::any_cast<bool>(m["IsShared"]));
