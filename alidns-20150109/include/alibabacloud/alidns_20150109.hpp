@@ -21708,6 +21708,7 @@ class DescribeDomainRecordsResponseBodyDomainRecordsRecord : public Darabonba::M
 public:
   shared_ptr<long> createTimestamp{};
   shared_ptr<string> domainName{};
+  shared_ptr<bool> lbaStatus{};
   shared_ptr<string> line{};
   shared_ptr<bool> locked{};
   shared_ptr<long> priority{};
@@ -21736,6 +21737,9 @@ public:
     }
     if (domainName) {
       res["DomainName"] = boost::any(*domainName);
+    }
+    if (lbaStatus) {
+      res["LbaStatus"] = boost::any(*lbaStatus);
     }
     if (line) {
       res["Line"] = boost::any(*line);
@@ -21782,6 +21786,9 @@ public:
     }
     if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
       domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("LbaStatus") != m.end() && !m["LbaStatus"].empty()) {
+      lbaStatus = make_shared<bool>(boost::any_cast<bool>(m["LbaStatus"]));
     }
     if (m.find("Line") != m.end() && !m["Line"].empty()) {
       line = make_shared<string>(boost::any_cast<string>(m["Line"]));
