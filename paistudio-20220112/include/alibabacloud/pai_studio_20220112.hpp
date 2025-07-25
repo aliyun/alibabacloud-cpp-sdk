@@ -14208,6 +14208,7 @@ public:
 };
 class ListQuotasRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> hasResource{};
   shared_ptr<string> labels{};
   shared_ptr<string> layoutMode{};
   shared_ptr<string> order{};
@@ -14233,6 +14234,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (hasResource) {
+      res["HasResource"] = boost::any(*hasResource);
+    }
     if (labels) {
       res["Labels"] = boost::any(*labels);
     }
@@ -14279,6 +14283,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("HasResource") != m.end() && !m["HasResource"].empty()) {
+      hasResource = make_shared<string>(boost::any_cast<string>(m["HasResource"]));
+    }
     if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
       labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
     }
@@ -14660,6 +14667,7 @@ public:
 class ListResourceGroupsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> computingResourceProvider{};
+  shared_ptr<bool> hasResource{};
   shared_ptr<string> name{};
   shared_ptr<string> order{};
   shared_ptr<long> pageNumber{};
@@ -14682,6 +14690,9 @@ public:
     map<string, boost::any> res;
     if (computingResourceProvider) {
       res["ComputingResourceProvider"] = boost::any(*computingResourceProvider);
+    }
+    if (hasResource) {
+      res["HasResource"] = boost::any(*hasResource);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -14716,6 +14727,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ComputingResourceProvider") != m.end() && !m["ComputingResourceProvider"].empty()) {
       computingResourceProvider = make_shared<string>(boost::any_cast<string>(m["ComputingResourceProvider"]));
+    }
+    if (m.find("HasResource") != m.end() && !m["HasResource"].empty()) {
+      hasResource = make_shared<bool>(boost::any_cast<bool>(m["HasResource"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));

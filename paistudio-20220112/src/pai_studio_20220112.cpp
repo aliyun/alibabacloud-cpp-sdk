@@ -1362,6 +1362,9 @@ ListQuotaWorkloadsResponse Alibabacloud_PaiStudio20220112::Client::listQuotaWork
 ListQuotasResponse Alibabacloud_PaiStudio20220112::Client::listQuotasWithOptions(shared_ptr<ListQuotasRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->hasResource)) {
+    query->insert(pair<string, string>("HasResource", *request->hasResource));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->labels)) {
     query->insert(pair<string, string>("Labels", *request->labels));
   }
@@ -1502,6 +1505,9 @@ ListResourceGroupsResponse Alibabacloud_PaiStudio20220112::Client::listResourceG
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->computingResourceProvider)) {
     query->insert(pair<string, string>("ComputingResourceProvider", *request->computingResourceProvider));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->hasResource)) {
+    query->insert(pair<string, bool>("HasResource", *request->hasResource));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
