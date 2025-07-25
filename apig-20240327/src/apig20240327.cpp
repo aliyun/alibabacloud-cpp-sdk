@@ -2181,11 +2181,17 @@ ListPluginsResponse Alibabacloud_APIG20240327::Client::listPlugins(shared_ptr<Li
 ListPolicyClassesResponse Alibabacloud_APIG20240327::Client::listPolicyClassesWithOptions(shared_ptr<ListPolicyClassesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->attachResourceId)) {
+    query->insert(pair<string, string>("attachResourceId", *request->attachResourceId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->attachResourceType)) {
     query->insert(pair<string, string>("attachResourceType", *request->attachResourceType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->direction)) {
     query->insert(pair<string, string>("direction", *request->direction));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayId)) {
+    query->insert(pair<string, string>("gatewayId", *request->gatewayId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("pageNumber", *request->pageNumber));

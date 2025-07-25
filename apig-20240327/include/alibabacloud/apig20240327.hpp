@@ -20147,8 +20147,10 @@ public:
 };
 class ListPolicyClassesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> attachResourceId{};
   shared_ptr<string> attachResourceType{};
   shared_ptr<string> direction{};
+  shared_ptr<string> gatewayId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> type{};
@@ -20163,11 +20165,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (attachResourceId) {
+      res["attachResourceId"] = boost::any(*attachResourceId);
+    }
     if (attachResourceType) {
       res["attachResourceType"] = boost::any(*attachResourceType);
     }
     if (direction) {
       res["direction"] = boost::any(*direction);
+    }
+    if (gatewayId) {
+      res["gatewayId"] = boost::any(*gatewayId);
     }
     if (pageNumber) {
       res["pageNumber"] = boost::any(*pageNumber);
@@ -20182,11 +20190,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("attachResourceId") != m.end() && !m["attachResourceId"].empty()) {
+      attachResourceId = make_shared<string>(boost::any_cast<string>(m["attachResourceId"]));
+    }
     if (m.find("attachResourceType") != m.end() && !m["attachResourceType"].empty()) {
       attachResourceType = make_shared<string>(boost::any_cast<string>(m["attachResourceType"]));
     }
     if (m.find("direction") != m.end() && !m["direction"].empty()) {
       direction = make_shared<string>(boost::any_cast<string>(m["direction"]));
+    }
+    if (m.find("gatewayId") != m.end() && !m["gatewayId"].empty()) {
+      gatewayId = make_shared<string>(boost::any_cast<string>(m["gatewayId"]));
     }
     if (m.find("pageNumber") != m.end() && !m["pageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["pageNumber"]));
