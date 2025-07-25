@@ -37875,6 +37875,7 @@ public:
   shared_ptr<vector<ScaleWithAdjustmentRequestOverridesContainerOverrides>> containerOverrides{};
   shared_ptr<double> cpu{};
   shared_ptr<double> memory{};
+  shared_ptr<string> userData{};
 
   ScaleWithAdjustmentRequestOverrides() {}
 
@@ -37899,6 +37900,9 @@ public:
     if (memory) {
       res["Memory"] = boost::any(*memory);
     }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
     return res;
   }
 
@@ -37921,6 +37925,9 @@ public:
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<double>(boost::any_cast<double>(m["Memory"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
     }
   }
 
