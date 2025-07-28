@@ -2246,6 +2246,7 @@ public:
   shared_ptr<long> streamMode{};
   shared_ptr<vector<CreateCloudPhoneNodeRequestTag>> tag{};
   shared_ptr<long> upBandwidthLimit{};
+  shared_ptr<string> useTemplate{};
   shared_ptr<string> vSwitchId{};
 
   CreateCloudPhoneNodeRequest() {}
@@ -2339,6 +2340,9 @@ public:
     }
     if (upBandwidthLimit) {
       res["UpBandwidthLimit"] = boost::any(*upBandwidthLimit);
+    }
+    if (useTemplate) {
+      res["UseTemplate"] = boost::any(*useTemplate);
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
@@ -2443,6 +2447,9 @@ public:
     if (m.find("UpBandwidthLimit") != m.end() && !m["UpBandwidthLimit"].empty()) {
       upBandwidthLimit = make_shared<long>(boost::any_cast<long>(m["UpBandwidthLimit"]));
     }
+    if (m.find("UseTemplate") != m.end() && !m["UseTemplate"].empty()) {
+      useTemplate = make_shared<string>(boost::any_cast<string>(m["UseTemplate"]));
+    }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
     }
@@ -2515,6 +2522,7 @@ public:
   shared_ptr<long> streamMode{};
   shared_ptr<vector<CreateCloudPhoneNodeShrinkRequestTag>> tag{};
   shared_ptr<long> upBandwidthLimit{};
+  shared_ptr<string> useTemplate{};
   shared_ptr<string> vSwitchId{};
 
   CreateCloudPhoneNodeShrinkRequest() {}
@@ -2608,6 +2616,9 @@ public:
     }
     if (upBandwidthLimit) {
       res["UpBandwidthLimit"] = boost::any(*upBandwidthLimit);
+    }
+    if (useTemplate) {
+      res["UseTemplate"] = boost::any(*useTemplate);
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
@@ -2703,6 +2714,9 @@ public:
     }
     if (m.find("UpBandwidthLimit") != m.end() && !m["UpBandwidthLimit"].empty()) {
       upBandwidthLimit = make_shared<long>(boost::any_cast<long>(m["UpBandwidthLimit"]));
+    }
+    if (m.find("UseTemplate") != m.end() && !m["UseTemplate"].empty()) {
+      useTemplate = make_shared<string>(boost::any_cast<string>(m["UseTemplate"]));
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
@@ -3901,6 +3915,382 @@ public:
 
   virtual ~CreateScreenshotResponse() = default;
 };
+class CreateSystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> propertyName{};
+  shared_ptr<string> propertyValue{};
+
+  CreateSystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos() {}
+
+  explicit CreateSystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (propertyName) {
+      res["PropertyName"] = boost::any(*propertyName);
+    }
+    if (propertyValue) {
+      res["PropertyValue"] = boost::any(*propertyValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PropertyName") != m.end() && !m["PropertyName"].empty()) {
+      propertyName = make_shared<string>(boost::any_cast<string>(m["PropertyName"]));
+    }
+    if (m.find("PropertyValue") != m.end() && !m["PropertyValue"].empty()) {
+      propertyValue = make_shared<string>(boost::any_cast<string>(m["PropertyValue"]));
+    }
+  }
+
+
+  virtual ~CreateSystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos() = default;
+};
+class CreateSystemPropertyTemplateRequestSystemPropertyInfo : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateSystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos>> customPropertyInfos{};
+  shared_ptr<string> roBootloader{};
+  shared_ptr<string> roBuildDisplayId{};
+  shared_ptr<string> roBuildFingerprint{};
+  shared_ptr<string> roBuildHost{};
+  shared_ptr<string> roBuildId{};
+  shared_ptr<string> roBuildProduct{};
+  shared_ptr<string> roBuildTags{};
+  shared_ptr<string> roBuildType{};
+  shared_ptr<string> roBuildUser{};
+  shared_ptr<string> roProductBoard{};
+  shared_ptr<string> roProductBrand{};
+  shared_ptr<string> roProductDevice{};
+  shared_ptr<string> roProductManufacturer{};
+  shared_ptr<string> roProductModel{};
+  shared_ptr<string> rwRoSerialNo{};
+
+  CreateSystemPropertyTemplateRequestSystemPropertyInfo() {}
+
+  explicit CreateSystemPropertyTemplateRequestSystemPropertyInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customPropertyInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*customPropertyInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CustomPropertyInfos"] = boost::any(temp1);
+    }
+    if (roBootloader) {
+      res["RoBootloader"] = boost::any(*roBootloader);
+    }
+    if (roBuildDisplayId) {
+      res["RoBuildDisplayId"] = boost::any(*roBuildDisplayId);
+    }
+    if (roBuildFingerprint) {
+      res["RoBuildFingerprint"] = boost::any(*roBuildFingerprint);
+    }
+    if (roBuildHost) {
+      res["RoBuildHost"] = boost::any(*roBuildHost);
+    }
+    if (roBuildId) {
+      res["RoBuildId"] = boost::any(*roBuildId);
+    }
+    if (roBuildProduct) {
+      res["RoBuildProduct"] = boost::any(*roBuildProduct);
+    }
+    if (roBuildTags) {
+      res["RoBuildTags"] = boost::any(*roBuildTags);
+    }
+    if (roBuildType) {
+      res["RoBuildType"] = boost::any(*roBuildType);
+    }
+    if (roBuildUser) {
+      res["RoBuildUser"] = boost::any(*roBuildUser);
+    }
+    if (roProductBoard) {
+      res["RoProductBoard"] = boost::any(*roProductBoard);
+    }
+    if (roProductBrand) {
+      res["RoProductBrand"] = boost::any(*roProductBrand);
+    }
+    if (roProductDevice) {
+      res["RoProductDevice"] = boost::any(*roProductDevice);
+    }
+    if (roProductManufacturer) {
+      res["RoProductManufacturer"] = boost::any(*roProductManufacturer);
+    }
+    if (roProductModel) {
+      res["RoProductModel"] = boost::any(*roProductModel);
+    }
+    if (rwRoSerialNo) {
+      res["RwRoSerialNo"] = boost::any(*rwRoSerialNo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomPropertyInfos") != m.end() && !m["CustomPropertyInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["CustomPropertyInfos"].type()) {
+        vector<CreateSystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CustomPropertyInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        customPropertyInfos = make_shared<vector<CreateSystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos>>(expect1);
+      }
+    }
+    if (m.find("RoBootloader") != m.end() && !m["RoBootloader"].empty()) {
+      roBootloader = make_shared<string>(boost::any_cast<string>(m["RoBootloader"]));
+    }
+    if (m.find("RoBuildDisplayId") != m.end() && !m["RoBuildDisplayId"].empty()) {
+      roBuildDisplayId = make_shared<string>(boost::any_cast<string>(m["RoBuildDisplayId"]));
+    }
+    if (m.find("RoBuildFingerprint") != m.end() && !m["RoBuildFingerprint"].empty()) {
+      roBuildFingerprint = make_shared<string>(boost::any_cast<string>(m["RoBuildFingerprint"]));
+    }
+    if (m.find("RoBuildHost") != m.end() && !m["RoBuildHost"].empty()) {
+      roBuildHost = make_shared<string>(boost::any_cast<string>(m["RoBuildHost"]));
+    }
+    if (m.find("RoBuildId") != m.end() && !m["RoBuildId"].empty()) {
+      roBuildId = make_shared<string>(boost::any_cast<string>(m["RoBuildId"]));
+    }
+    if (m.find("RoBuildProduct") != m.end() && !m["RoBuildProduct"].empty()) {
+      roBuildProduct = make_shared<string>(boost::any_cast<string>(m["RoBuildProduct"]));
+    }
+    if (m.find("RoBuildTags") != m.end() && !m["RoBuildTags"].empty()) {
+      roBuildTags = make_shared<string>(boost::any_cast<string>(m["RoBuildTags"]));
+    }
+    if (m.find("RoBuildType") != m.end() && !m["RoBuildType"].empty()) {
+      roBuildType = make_shared<string>(boost::any_cast<string>(m["RoBuildType"]));
+    }
+    if (m.find("RoBuildUser") != m.end() && !m["RoBuildUser"].empty()) {
+      roBuildUser = make_shared<string>(boost::any_cast<string>(m["RoBuildUser"]));
+    }
+    if (m.find("RoProductBoard") != m.end() && !m["RoProductBoard"].empty()) {
+      roProductBoard = make_shared<string>(boost::any_cast<string>(m["RoProductBoard"]));
+    }
+    if (m.find("RoProductBrand") != m.end() && !m["RoProductBrand"].empty()) {
+      roProductBrand = make_shared<string>(boost::any_cast<string>(m["RoProductBrand"]));
+    }
+    if (m.find("RoProductDevice") != m.end() && !m["RoProductDevice"].empty()) {
+      roProductDevice = make_shared<string>(boost::any_cast<string>(m["RoProductDevice"]));
+    }
+    if (m.find("RoProductManufacturer") != m.end() && !m["RoProductManufacturer"].empty()) {
+      roProductManufacturer = make_shared<string>(boost::any_cast<string>(m["RoProductManufacturer"]));
+    }
+    if (m.find("RoProductModel") != m.end() && !m["RoProductModel"].empty()) {
+      roProductModel = make_shared<string>(boost::any_cast<string>(m["RoProductModel"]));
+    }
+    if (m.find("RwRoSerialNo") != m.end() && !m["RwRoSerialNo"].empty()) {
+      rwRoSerialNo = make_shared<string>(boost::any_cast<string>(m["RwRoSerialNo"]));
+    }
+  }
+
+
+  virtual ~CreateSystemPropertyTemplateRequestSystemPropertyInfo() = default;
+};
+class CreateSystemPropertyTemplateRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableAuto{};
+  shared_ptr<string> filePath{};
+  shared_ptr<CreateSystemPropertyTemplateRequestSystemPropertyInfo> systemPropertyInfo{};
+  shared_ptr<string> templateName{};
+
+  CreateSystemPropertyTemplateRequest() {}
+
+  explicit CreateSystemPropertyTemplateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableAuto) {
+      res["EnableAuto"] = boost::any(*enableAuto);
+    }
+    if (filePath) {
+      res["FilePath"] = boost::any(*filePath);
+    }
+    if (systemPropertyInfo) {
+      res["SystemPropertyInfo"] = systemPropertyInfo ? boost::any(systemPropertyInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableAuto") != m.end() && !m["EnableAuto"].empty()) {
+      enableAuto = make_shared<bool>(boost::any_cast<bool>(m["EnableAuto"]));
+    }
+    if (m.find("FilePath") != m.end() && !m["FilePath"].empty()) {
+      filePath = make_shared<string>(boost::any_cast<string>(m["FilePath"]));
+    }
+    if (m.find("SystemPropertyInfo") != m.end() && !m["SystemPropertyInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SystemPropertyInfo"].type()) {
+        CreateSystemPropertyTemplateRequestSystemPropertyInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SystemPropertyInfo"]));
+        systemPropertyInfo = make_shared<CreateSystemPropertyTemplateRequestSystemPropertyInfo>(model1);
+      }
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+  }
+
+
+  virtual ~CreateSystemPropertyTemplateRequest() = default;
+};
+class CreateSystemPropertyTemplateShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableAuto{};
+  shared_ptr<string> filePath{};
+  shared_ptr<string> systemPropertyInfoShrink{};
+  shared_ptr<string> templateName{};
+
+  CreateSystemPropertyTemplateShrinkRequest() {}
+
+  explicit CreateSystemPropertyTemplateShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableAuto) {
+      res["EnableAuto"] = boost::any(*enableAuto);
+    }
+    if (filePath) {
+      res["FilePath"] = boost::any(*filePath);
+    }
+    if (systemPropertyInfoShrink) {
+      res["SystemPropertyInfo"] = boost::any(*systemPropertyInfoShrink);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableAuto") != m.end() && !m["EnableAuto"].empty()) {
+      enableAuto = make_shared<bool>(boost::any_cast<bool>(m["EnableAuto"]));
+    }
+    if (m.find("FilePath") != m.end() && !m["FilePath"].empty()) {
+      filePath = make_shared<string>(boost::any_cast<string>(m["FilePath"]));
+    }
+    if (m.find("SystemPropertyInfo") != m.end() && !m["SystemPropertyInfo"].empty()) {
+      systemPropertyInfoShrink = make_shared<string>(boost::any_cast<string>(m["SystemPropertyInfo"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+  }
+
+
+  virtual ~CreateSystemPropertyTemplateShrinkRequest() = default;
+};
+class CreateSystemPropertyTemplateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> templateId{};
+
+  CreateSystemPropertyTemplateResponseBody() {}
+
+  explicit CreateSystemPropertyTemplateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+  }
+
+
+  virtual ~CreateSystemPropertyTemplateResponseBody() = default;
+};
+class CreateSystemPropertyTemplateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateSystemPropertyTemplateResponseBody> body{};
+
+  CreateSystemPropertyTemplateResponse() {}
+
+  explicit CreateSystemPropertyTemplateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateSystemPropertyTemplateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateSystemPropertyTemplateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateSystemPropertyTemplateResponse() = default;
+};
 class DeleteAndroidInstanceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> instanceGroupIds{};
@@ -4809,6 +5199,137 @@ public:
 
 
   virtual ~DeletePolicyGroupResponse() = default;
+};
+class DeleteSystemPropertyTemplatesRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> templateIds{};
+
+  DeleteSystemPropertyTemplatesRequest() {}
+
+  explicit DeleteSystemPropertyTemplatesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (templateIds) {
+      res["TemplateIds"] = boost::any(*templateIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TemplateIds") != m.end() && !m["TemplateIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TemplateIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TemplateIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      templateIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DeleteSystemPropertyTemplatesRequest() = default;
+};
+class DeleteSystemPropertyTemplatesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  DeleteSystemPropertyTemplatesResponseBody() {}
+
+  explicit DeleteSystemPropertyTemplatesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteSystemPropertyTemplatesResponseBody() = default;
+};
+class DeleteSystemPropertyTemplatesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteSystemPropertyTemplatesResponseBody> body{};
+
+  DeleteSystemPropertyTemplatesResponse() {}
+
+  explicit DeleteSystemPropertyTemplatesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteSystemPropertyTemplatesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteSystemPropertyTemplatesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteSystemPropertyTemplatesResponse() = default;
 };
 class DescribeAndroidInstanceGroupsRequest : public Darabonba::Model {
 public:
@@ -9618,6 +10139,333 @@ public:
 
   virtual ~DescribeSpecResponse() = default;
 };
+class DescribeSystemPropertyTemplatesRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<vector<string>> templateIds{};
+  shared_ptr<string> templateName{};
+
+  DescribeSystemPropertyTemplatesRequest() {}
+
+  explicit DescribeSystemPropertyTemplatesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (templateIds) {
+      res["TemplateIds"] = boost::any(*templateIds);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("TemplateIds") != m.end() && !m["TemplateIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TemplateIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TemplateIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      templateIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+  }
+
+
+  virtual ~DescribeSystemPropertyTemplatesRequest() = default;
+};
+class DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModelSystemPropertyInfoCustomPropertyInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> propertyName{};
+  shared_ptr<string> propertyValue{};
+
+  DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModelSystemPropertyInfoCustomPropertyInfos() {}
+
+  explicit DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModelSystemPropertyInfoCustomPropertyInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (propertyName) {
+      res["PropertyName"] = boost::any(*propertyName);
+    }
+    if (propertyValue) {
+      res["PropertyValue"] = boost::any(*propertyValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PropertyName") != m.end() && !m["PropertyName"].empty()) {
+      propertyName = make_shared<string>(boost::any_cast<string>(m["PropertyName"]));
+    }
+    if (m.find("PropertyValue") != m.end() && !m["PropertyValue"].empty()) {
+      propertyValue = make_shared<string>(boost::any_cast<string>(m["PropertyValue"]));
+    }
+  }
+
+
+  virtual ~DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModelSystemPropertyInfoCustomPropertyInfos() = default;
+};
+class DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModelSystemPropertyInfo : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModelSystemPropertyInfoCustomPropertyInfos>> customPropertyInfos{};
+  shared_ptr<string> roProductDevice{};
+
+  DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModelSystemPropertyInfo() {}
+
+  explicit DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModelSystemPropertyInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customPropertyInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*customPropertyInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CustomPropertyInfos"] = boost::any(temp1);
+    }
+    if (roProductDevice) {
+      res["RoProductDevice"] = boost::any(*roProductDevice);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomPropertyInfos") != m.end() && !m["CustomPropertyInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["CustomPropertyInfos"].type()) {
+        vector<DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModelSystemPropertyInfoCustomPropertyInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CustomPropertyInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModelSystemPropertyInfoCustomPropertyInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        customPropertyInfos = make_shared<vector<DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModelSystemPropertyInfoCustomPropertyInfos>>(expect1);
+      }
+    }
+    if (m.find("RoProductDevice") != m.end() && !m["RoProductDevice"].empty()) {
+      roProductDevice = make_shared<string>(boost::any_cast<string>(m["RoProductDevice"]));
+    }
+  }
+
+
+  virtual ~DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModelSystemPropertyInfo() = default;
+};
+class DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModel : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableAuto{};
+  shared_ptr<string> filePath{};
+  shared_ptr<string> status{};
+  shared_ptr<DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModelSystemPropertyInfo> systemPropertyInfo{};
+  shared_ptr<string> templateId{};
+  shared_ptr<string> templateName{};
+
+  DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModel() {}
+
+  explicit DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableAuto) {
+      res["EnableAuto"] = boost::any(*enableAuto);
+    }
+    if (filePath) {
+      res["FilePath"] = boost::any(*filePath);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (systemPropertyInfo) {
+      res["SystemPropertyInfo"] = systemPropertyInfo ? boost::any(systemPropertyInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableAuto") != m.end() && !m["EnableAuto"].empty()) {
+      enableAuto = make_shared<bool>(boost::any_cast<bool>(m["EnableAuto"]));
+    }
+    if (m.find("FilePath") != m.end() && !m["FilePath"].empty()) {
+      filePath = make_shared<string>(boost::any_cast<string>(m["FilePath"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SystemPropertyInfo") != m.end() && !m["SystemPropertyInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SystemPropertyInfo"].type()) {
+        DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModelSystemPropertyInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SystemPropertyInfo"]));
+        systemPropertyInfo = make_shared<DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModelSystemPropertyInfo>(model1);
+      }
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+  }
+
+
+  virtual ~DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModel() = default;
+};
+class DescribeSystemPropertyTemplatesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModel>> systemPropertyTemplateModel{};
+  shared_ptr<long> totalCount{};
+
+  DescribeSystemPropertyTemplatesResponseBody() {}
+
+  explicit DescribeSystemPropertyTemplatesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (systemPropertyTemplateModel) {
+      vector<boost::any> temp1;
+      for(auto item1:*systemPropertyTemplateModel){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SystemPropertyTemplateModel"] = boost::any(temp1);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SystemPropertyTemplateModel") != m.end() && !m["SystemPropertyTemplateModel"].empty()) {
+      if (typeid(vector<boost::any>) == m["SystemPropertyTemplateModel"].type()) {
+        vector<DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModel> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SystemPropertyTemplateModel"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModel model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        systemPropertyTemplateModel = make_shared<vector<DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModel>>(expect1);
+      }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeSystemPropertyTemplatesResponseBody() = default;
+};
+class DescribeSystemPropertyTemplatesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeSystemPropertyTemplatesResponseBody> body{};
+
+  DescribeSystemPropertyTemplatesResponse() {}
+
+  explicit DescribeSystemPropertyTemplatesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeSystemPropertyTemplatesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeSystemPropertyTemplatesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSystemPropertyTemplatesResponse() = default;
+};
 class DescribeTasksRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -11237,6 +12085,156 @@ public:
 
 
   virtual ~GenerateCoordinationCodeResponse() = default;
+};
+class GetInstancePropertiesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  GetInstancePropertiesRequest() {}
+
+  explicit GetInstancePropertiesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~GetInstancePropertiesRequest() = default;
+};
+class GetInstancePropertiesResponseBodyPropertyTemplateModel : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+
+  GetInstancePropertiesResponseBodyPropertyTemplateModel() {}
+
+  explicit GetInstancePropertiesResponseBodyPropertyTemplateModel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+  }
+
+
+  virtual ~GetInstancePropertiesResponseBodyPropertyTemplateModel() = default;
+};
+class GetInstancePropertiesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetInstancePropertiesResponseBodyPropertyTemplateModel> propertyTemplateModel{};
+  shared_ptr<string> requestId{};
+
+  GetInstancePropertiesResponseBody() {}
+
+  explicit GetInstancePropertiesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (propertyTemplateModel) {
+      res["PropertyTemplateModel"] = propertyTemplateModel ? boost::any(propertyTemplateModel->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PropertyTemplateModel") != m.end() && !m["PropertyTemplateModel"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PropertyTemplateModel"].type()) {
+        GetInstancePropertiesResponseBodyPropertyTemplateModel model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PropertyTemplateModel"]));
+        propertyTemplateModel = make_shared<GetInstancePropertiesResponseBodyPropertyTemplateModel>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetInstancePropertiesResponseBody() = default;
+};
+class GetInstancePropertiesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetInstancePropertiesResponseBody> body{};
+
+  GetInstancePropertiesResponse() {}
+
+  explicit GetInstancePropertiesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetInstancePropertiesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetInstancePropertiesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetInstancePropertiesResponse() = default;
 };
 class ImportKeyPairRequest : public Darabonba::Model {
 public:
@@ -13643,6 +14641,396 @@ public:
 
   virtual ~ModifyPolicyGroupResponse() = default;
 };
+class ModifySystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> propertyName{};
+  shared_ptr<string> propertyValue{};
+
+  ModifySystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos() {}
+
+  explicit ModifySystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (propertyName) {
+      res["PropertyName"] = boost::any(*propertyName);
+    }
+    if (propertyValue) {
+      res["PropertyValue"] = boost::any(*propertyValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PropertyName") != m.end() && !m["PropertyName"].empty()) {
+      propertyName = make_shared<string>(boost::any_cast<string>(m["PropertyName"]));
+    }
+    if (m.find("PropertyValue") != m.end() && !m["PropertyValue"].empty()) {
+      propertyValue = make_shared<string>(boost::any_cast<string>(m["PropertyValue"]));
+    }
+  }
+
+
+  virtual ~ModifySystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos() = default;
+};
+class ModifySystemPropertyTemplateRequestSystemPropertyInfo : public Darabonba::Model {
+public:
+  shared_ptr<vector<ModifySystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos>> customPropertyInfos{};
+  shared_ptr<string> roBootloader{};
+  shared_ptr<string> roBuildDisplayId{};
+  shared_ptr<string> roBuildFingerprint{};
+  shared_ptr<string> roBuildHost{};
+  shared_ptr<string> roBuildId{};
+  shared_ptr<string> roBuildProduct{};
+  shared_ptr<string> roBuildTags{};
+  shared_ptr<string> roBuildType{};
+  shared_ptr<string> roBuildUser{};
+  shared_ptr<string> roProductBoard{};
+  shared_ptr<string> roProductBrand{};
+  shared_ptr<string> roProductDevice{};
+  shared_ptr<string> roProductManufacturer{};
+  shared_ptr<string> roProductModel{};
+  shared_ptr<string> rwRoSerialNo{};
+
+  ModifySystemPropertyTemplateRequestSystemPropertyInfo() {}
+
+  explicit ModifySystemPropertyTemplateRequestSystemPropertyInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customPropertyInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*customPropertyInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CustomPropertyInfos"] = boost::any(temp1);
+    }
+    if (roBootloader) {
+      res["RoBootloader"] = boost::any(*roBootloader);
+    }
+    if (roBuildDisplayId) {
+      res["RoBuildDisplayId"] = boost::any(*roBuildDisplayId);
+    }
+    if (roBuildFingerprint) {
+      res["RoBuildFingerprint"] = boost::any(*roBuildFingerprint);
+    }
+    if (roBuildHost) {
+      res["RoBuildHost"] = boost::any(*roBuildHost);
+    }
+    if (roBuildId) {
+      res["RoBuildId"] = boost::any(*roBuildId);
+    }
+    if (roBuildProduct) {
+      res["RoBuildProduct"] = boost::any(*roBuildProduct);
+    }
+    if (roBuildTags) {
+      res["RoBuildTags"] = boost::any(*roBuildTags);
+    }
+    if (roBuildType) {
+      res["RoBuildType"] = boost::any(*roBuildType);
+    }
+    if (roBuildUser) {
+      res["RoBuildUser"] = boost::any(*roBuildUser);
+    }
+    if (roProductBoard) {
+      res["RoProductBoard"] = boost::any(*roProductBoard);
+    }
+    if (roProductBrand) {
+      res["RoProductBrand"] = boost::any(*roProductBrand);
+    }
+    if (roProductDevice) {
+      res["RoProductDevice"] = boost::any(*roProductDevice);
+    }
+    if (roProductManufacturer) {
+      res["RoProductManufacturer"] = boost::any(*roProductManufacturer);
+    }
+    if (roProductModel) {
+      res["RoProductModel"] = boost::any(*roProductModel);
+    }
+    if (rwRoSerialNo) {
+      res["RwRoSerialNo"] = boost::any(*rwRoSerialNo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomPropertyInfos") != m.end() && !m["CustomPropertyInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["CustomPropertyInfos"].type()) {
+        vector<ModifySystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CustomPropertyInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifySystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        customPropertyInfos = make_shared<vector<ModifySystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos>>(expect1);
+      }
+    }
+    if (m.find("RoBootloader") != m.end() && !m["RoBootloader"].empty()) {
+      roBootloader = make_shared<string>(boost::any_cast<string>(m["RoBootloader"]));
+    }
+    if (m.find("RoBuildDisplayId") != m.end() && !m["RoBuildDisplayId"].empty()) {
+      roBuildDisplayId = make_shared<string>(boost::any_cast<string>(m["RoBuildDisplayId"]));
+    }
+    if (m.find("RoBuildFingerprint") != m.end() && !m["RoBuildFingerprint"].empty()) {
+      roBuildFingerprint = make_shared<string>(boost::any_cast<string>(m["RoBuildFingerprint"]));
+    }
+    if (m.find("RoBuildHost") != m.end() && !m["RoBuildHost"].empty()) {
+      roBuildHost = make_shared<string>(boost::any_cast<string>(m["RoBuildHost"]));
+    }
+    if (m.find("RoBuildId") != m.end() && !m["RoBuildId"].empty()) {
+      roBuildId = make_shared<string>(boost::any_cast<string>(m["RoBuildId"]));
+    }
+    if (m.find("RoBuildProduct") != m.end() && !m["RoBuildProduct"].empty()) {
+      roBuildProduct = make_shared<string>(boost::any_cast<string>(m["RoBuildProduct"]));
+    }
+    if (m.find("RoBuildTags") != m.end() && !m["RoBuildTags"].empty()) {
+      roBuildTags = make_shared<string>(boost::any_cast<string>(m["RoBuildTags"]));
+    }
+    if (m.find("RoBuildType") != m.end() && !m["RoBuildType"].empty()) {
+      roBuildType = make_shared<string>(boost::any_cast<string>(m["RoBuildType"]));
+    }
+    if (m.find("RoBuildUser") != m.end() && !m["RoBuildUser"].empty()) {
+      roBuildUser = make_shared<string>(boost::any_cast<string>(m["RoBuildUser"]));
+    }
+    if (m.find("RoProductBoard") != m.end() && !m["RoProductBoard"].empty()) {
+      roProductBoard = make_shared<string>(boost::any_cast<string>(m["RoProductBoard"]));
+    }
+    if (m.find("RoProductBrand") != m.end() && !m["RoProductBrand"].empty()) {
+      roProductBrand = make_shared<string>(boost::any_cast<string>(m["RoProductBrand"]));
+    }
+    if (m.find("RoProductDevice") != m.end() && !m["RoProductDevice"].empty()) {
+      roProductDevice = make_shared<string>(boost::any_cast<string>(m["RoProductDevice"]));
+    }
+    if (m.find("RoProductManufacturer") != m.end() && !m["RoProductManufacturer"].empty()) {
+      roProductManufacturer = make_shared<string>(boost::any_cast<string>(m["RoProductManufacturer"]));
+    }
+    if (m.find("RoProductModel") != m.end() && !m["RoProductModel"].empty()) {
+      roProductModel = make_shared<string>(boost::any_cast<string>(m["RoProductModel"]));
+    }
+    if (m.find("RwRoSerialNo") != m.end() && !m["RwRoSerialNo"].empty()) {
+      rwRoSerialNo = make_shared<string>(boost::any_cast<string>(m["RwRoSerialNo"]));
+    }
+  }
+
+
+  virtual ~ModifySystemPropertyTemplateRequestSystemPropertyInfo() = default;
+};
+class ModifySystemPropertyTemplateRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableAuto{};
+  shared_ptr<string> filePath{};
+  shared_ptr<ModifySystemPropertyTemplateRequestSystemPropertyInfo> systemPropertyInfo{};
+  shared_ptr<string> templateId{};
+  shared_ptr<string> templateName{};
+
+  ModifySystemPropertyTemplateRequest() {}
+
+  explicit ModifySystemPropertyTemplateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableAuto) {
+      res["EnableAuto"] = boost::any(*enableAuto);
+    }
+    if (filePath) {
+      res["FilePath"] = boost::any(*filePath);
+    }
+    if (systemPropertyInfo) {
+      res["SystemPropertyInfo"] = systemPropertyInfo ? boost::any(systemPropertyInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableAuto") != m.end() && !m["EnableAuto"].empty()) {
+      enableAuto = make_shared<bool>(boost::any_cast<bool>(m["EnableAuto"]));
+    }
+    if (m.find("FilePath") != m.end() && !m["FilePath"].empty()) {
+      filePath = make_shared<string>(boost::any_cast<string>(m["FilePath"]));
+    }
+    if (m.find("SystemPropertyInfo") != m.end() && !m["SystemPropertyInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SystemPropertyInfo"].type()) {
+        ModifySystemPropertyTemplateRequestSystemPropertyInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SystemPropertyInfo"]));
+        systemPropertyInfo = make_shared<ModifySystemPropertyTemplateRequestSystemPropertyInfo>(model1);
+      }
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+  }
+
+
+  virtual ~ModifySystemPropertyTemplateRequest() = default;
+};
+class ModifySystemPropertyTemplateShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableAuto{};
+  shared_ptr<string> filePath{};
+  shared_ptr<string> systemPropertyInfoShrink{};
+  shared_ptr<string> templateId{};
+  shared_ptr<string> templateName{};
+
+  ModifySystemPropertyTemplateShrinkRequest() {}
+
+  explicit ModifySystemPropertyTemplateShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableAuto) {
+      res["EnableAuto"] = boost::any(*enableAuto);
+    }
+    if (filePath) {
+      res["FilePath"] = boost::any(*filePath);
+    }
+    if (systemPropertyInfoShrink) {
+      res["SystemPropertyInfo"] = boost::any(*systemPropertyInfoShrink);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableAuto") != m.end() && !m["EnableAuto"].empty()) {
+      enableAuto = make_shared<bool>(boost::any_cast<bool>(m["EnableAuto"]));
+    }
+    if (m.find("FilePath") != m.end() && !m["FilePath"].empty()) {
+      filePath = make_shared<string>(boost::any_cast<string>(m["FilePath"]));
+    }
+    if (m.find("SystemPropertyInfo") != m.end() && !m["SystemPropertyInfo"].empty()) {
+      systemPropertyInfoShrink = make_shared<string>(boost::any_cast<string>(m["SystemPropertyInfo"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+  }
+
+
+  virtual ~ModifySystemPropertyTemplateShrinkRequest() = default;
+};
+class ModifySystemPropertyTemplateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> templateId{};
+
+  ModifySystemPropertyTemplateResponseBody() {}
+
+  explicit ModifySystemPropertyTemplateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+  }
+
+
+  virtual ~ModifySystemPropertyTemplateResponseBody() = default;
+};
+class ModifySystemPropertyTemplateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifySystemPropertyTemplateResponseBody> body{};
+
+  ModifySystemPropertyTemplateResponse() {}
+
+  explicit ModifySystemPropertyTemplateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifySystemPropertyTemplateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifySystemPropertyTemplateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifySystemPropertyTemplateResponse() = default;
+};
 class OperateAppRequest : public Darabonba::Model {
 public:
   shared_ptr<long> appId{};
@@ -14924,6 +16312,144 @@ public:
 
   virtual ~SendFileResponse() = default;
 };
+class SendSystemPropertyTemplateRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> androidInstanceIds{};
+  shared_ptr<string> templateId{};
+  shared_ptr<vector<string>> templateIds{};
+
+  SendSystemPropertyTemplateRequest() {}
+
+  explicit SendSystemPropertyTemplateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (androidInstanceIds) {
+      res["AndroidInstanceIds"] = boost::any(*androidInstanceIds);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (templateIds) {
+      res["TemplateIds"] = boost::any(*templateIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AndroidInstanceIds") != m.end() && !m["AndroidInstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AndroidInstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AndroidInstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      androidInstanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("TemplateIds") != m.end() && !m["TemplateIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TemplateIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TemplateIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      templateIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~SendSystemPropertyTemplateRequest() = default;
+};
+class SendSystemPropertyTemplateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  SendSystemPropertyTemplateResponseBody() {}
+
+  explicit SendSystemPropertyTemplateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SendSystemPropertyTemplateResponseBody() = default;
+};
+class SendSystemPropertyTemplateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SendSystemPropertyTemplateResponseBody> body{};
+
+  SendSystemPropertyTemplateResponse() {}
+
+  explicit SendSystemPropertyTemplateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SendSystemPropertyTemplateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SendSystemPropertyTemplateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SendSystemPropertyTemplateResponse() = default;
+};
 class SetAdbSecureRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> instanceIds{};
@@ -16062,6 +17588,8 @@ public:
   CreatePolicyGroupResponse createPolicyGroup(shared_ptr<CreatePolicyGroupRequest> request);
   CreateScreenshotResponse createScreenshotWithOptions(shared_ptr<CreateScreenshotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateScreenshotResponse createScreenshot(shared_ptr<CreateScreenshotRequest> request);
+  CreateSystemPropertyTemplateResponse createSystemPropertyTemplateWithOptions(shared_ptr<CreateSystemPropertyTemplateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateSystemPropertyTemplateResponse createSystemPropertyTemplate(shared_ptr<CreateSystemPropertyTemplateRequest> request);
   DeleteAndroidInstanceGroupResponse deleteAndroidInstanceGroupWithOptions(shared_ptr<DeleteAndroidInstanceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteAndroidInstanceGroupResponse deleteAndroidInstanceGroup(shared_ptr<DeleteAndroidInstanceGroupRequest> request);
   DeleteAppsResponse deleteAppsWithOptions(shared_ptr<DeleteAppsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -16076,6 +17604,8 @@ public:
   DeleteKeyPairsResponse deleteKeyPairs(shared_ptr<DeleteKeyPairsRequest> request);
   DeletePolicyGroupResponse deletePolicyGroupWithOptions(shared_ptr<DeletePolicyGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeletePolicyGroupResponse deletePolicyGroup(shared_ptr<DeletePolicyGroupRequest> request);
+  DeleteSystemPropertyTemplatesResponse deleteSystemPropertyTemplatesWithOptions(shared_ptr<DeleteSystemPropertyTemplatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteSystemPropertyTemplatesResponse deleteSystemPropertyTemplates(shared_ptr<DeleteSystemPropertyTemplatesRequest> request);
   DescribeAndroidInstanceGroupsResponse describeAndroidInstanceGroupsWithOptions(shared_ptr<DescribeAndroidInstanceGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAndroidInstanceGroupsResponse describeAndroidInstanceGroups(shared_ptr<DescribeAndroidInstanceGroupsRequest> request);
   DescribeAndroidInstancesResponse describeAndroidInstancesWithOptions(shared_ptr<DescribeAndroidInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -16100,6 +17630,8 @@ public:
   DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
   DescribeSpecResponse describeSpecWithOptions(shared_ptr<DescribeSpecRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSpecResponse describeSpec(shared_ptr<DescribeSpecRequest> request);
+  DescribeSystemPropertyTemplatesResponse describeSystemPropertyTemplatesWithOptions(shared_ptr<DescribeSystemPropertyTemplatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeSystemPropertyTemplatesResponse describeSystemPropertyTemplates(shared_ptr<DescribeSystemPropertyTemplatesRequest> request);
   DescribeTasksResponse describeTasksWithOptions(shared_ptr<DescribeTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeTasksResponse describeTasks(shared_ptr<DescribeTasksRequest> request);
   DetachKeyPairResponse detachKeyPairWithOptions(shared_ptr<DetachKeyPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -16118,6 +17650,8 @@ public:
   FetchFileResponse fetchFile(shared_ptr<FetchFileRequest> request);
   GenerateCoordinationCodeResponse generateCoordinationCodeWithOptions(shared_ptr<GenerateCoordinationCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GenerateCoordinationCodeResponse generateCoordinationCode(shared_ptr<GenerateCoordinationCodeRequest> request);
+  GetInstancePropertiesResponse getInstancePropertiesWithOptions(shared_ptr<GetInstancePropertiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetInstancePropertiesResponse getInstanceProperties(shared_ptr<GetInstancePropertiesRequest> request);
   ImportKeyPairResponse importKeyPairWithOptions(shared_ptr<ImportKeyPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ImportKeyPairResponse importKeyPair(shared_ptr<ImportKeyPairRequest> request);
   InstallAppResponse installAppWithOptions(shared_ptr<InstallAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -16140,6 +17674,8 @@ public:
   ModifyKeyPairNameResponse modifyKeyPairName(shared_ptr<ModifyKeyPairNameRequest> request);
   ModifyPolicyGroupResponse modifyPolicyGroupWithOptions(shared_ptr<ModifyPolicyGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyPolicyGroupResponse modifyPolicyGroup(shared_ptr<ModifyPolicyGroupRequest> request);
+  ModifySystemPropertyTemplateResponse modifySystemPropertyTemplateWithOptions(shared_ptr<ModifySystemPropertyTemplateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifySystemPropertyTemplateResponse modifySystemPropertyTemplate(shared_ptr<ModifySystemPropertyTemplateRequest> request);
   OperateAppResponse operateAppWithOptions(shared_ptr<OperateAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   OperateAppResponse operateApp(shared_ptr<OperateAppRequest> request);
   RebootAndroidInstancesInGroupResponse rebootAndroidInstancesInGroupWithOptions(shared_ptr<RebootAndroidInstancesInGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -16156,6 +17692,8 @@ public:
   RunCommandResponse runCommand(shared_ptr<RunCommandRequest> request);
   SendFileResponse sendFileWithOptions(shared_ptr<SendFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SendFileResponse sendFile(shared_ptr<SendFileRequest> request);
+  SendSystemPropertyTemplateResponse sendSystemPropertyTemplateWithOptions(shared_ptr<SendSystemPropertyTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SendSystemPropertyTemplateResponse sendSystemPropertyTemplate(shared_ptr<SendSystemPropertyTemplateRequest> request);
   SetAdbSecureResponse setAdbSecureWithOptions(shared_ptr<SetAdbSecureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetAdbSecureResponse setAdbSecure(shared_ptr<SetAdbSecureRequest> request);
   StartAndroidInstanceResponse startAndroidInstanceWithOptions(shared_ptr<StartAndroidInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
