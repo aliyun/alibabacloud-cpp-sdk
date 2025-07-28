@@ -5474,6 +5474,9 @@ DescribeDesktopsResponse Alibabacloud_Ecd20200930::Client::describeDesktopsWithO
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->imageId)) {
     query->insert(pair<string, vector<string>>("ImageId", *request->imageId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->includeAutoSnapshotPolicy)) {
+    query->insert(pair<string, bool>("IncludeAutoSnapshotPolicy", *request->includeAutoSnapshotPolicy));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->managementFlag)) {
     query->insert(pair<string, string>("ManagementFlag", *request->managementFlag));
   }

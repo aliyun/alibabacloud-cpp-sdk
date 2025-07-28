@@ -27199,6 +27199,7 @@ public:
   shared_ptr<string> gpuInstanceGroupId{};
   shared_ptr<string> groupId{};
   shared_ptr<vector<string>> imageId{};
+  shared_ptr<bool> includeAutoSnapshotPolicy{};
   shared_ptr<string> managementFlag{};
   shared_ptr<long> maxResults{};
   shared_ptr<bool> multiResource{};
@@ -27277,6 +27278,9 @@ public:
     }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
+    }
+    if (includeAutoSnapshotPolicy) {
+      res["IncludeAutoSnapshotPolicy"] = boost::any(*includeAutoSnapshotPolicy);
     }
     if (managementFlag) {
       res["ManagementFlag"] = boost::any(*managementFlag);
@@ -27428,6 +27432,9 @@ public:
         }
       }
       imageId = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IncludeAutoSnapshotPolicy") != m.end() && !m["IncludeAutoSnapshotPolicy"].empty()) {
+      includeAutoSnapshotPolicy = make_shared<bool>(boost::any_cast<bool>(m["IncludeAutoSnapshotPolicy"]));
     }
     if (m.find("ManagementFlag") != m.end() && !m["ManagementFlag"].empty()) {
       managementFlag = make_shared<string>(boost::any_cast<string>(m["ManagementFlag"]));
