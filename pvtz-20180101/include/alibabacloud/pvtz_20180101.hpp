@@ -3023,6 +3023,7 @@ public:
   shared_ptr<string> creator{};
   shared_ptr<string> creatorSubType{};
   shared_ptr<string> creatorType{};
+  shared_ptr<string> dnscategory{};
   shared_ptr<vector<string>> ipv4s{};
   shared_ptr<string> lineId{};
   shared_ptr<string> name{};
@@ -3054,6 +3055,9 @@ public:
     }
     if (creatorType) {
       res["CreatorType"] = boost::any(*creatorType);
+    }
+    if (dnscategory) {
+      res["Dnscategory"] = boost::any(*dnscategory);
     }
     if (ipv4s) {
       res["Ipv4s"] = boost::any(*ipv4s);
@@ -3091,6 +3095,9 @@ public:
     }
     if (m.find("CreatorType") != m.end() && !m["CreatorType"].empty()) {
       creatorType = make_shared<string>(boost::any_cast<string>(m["CreatorType"]));
+    }
+    if (m.find("Dnscategory") != m.end() && !m["Dnscategory"].empty()) {
+      dnscategory = make_shared<string>(boost::any_cast<string>(m["Dnscategory"]));
     }
     if (m.find("Ipv4s") != m.end() && !m["Ipv4s"].empty()) {
       vector<string> toVec1;
@@ -3260,6 +3267,7 @@ public:
   shared_ptr<string> creator{};
   shared_ptr<string> creatorSubType{};
   shared_ptr<string> creatorType{};
+  shared_ptr<string> dnsCategory{};
   shared_ptr<DescribeCustomLinesResponseBodyCustomLinesCustomLineIpv4s> ipv4s{};
   shared_ptr<string> lineId{};
   shared_ptr<string> name{};
@@ -3290,6 +3298,9 @@ public:
     }
     if (creatorType) {
       res["CreatorType"] = boost::any(*creatorType);
+    }
+    if (dnsCategory) {
+      res["DnsCategory"] = boost::any(*dnsCategory);
     }
     if (ipv4s) {
       res["Ipv4s"] = ipv4s ? boost::any(ipv4s->toMap()) : boost::any(map<string,boost::any>({}));
@@ -3324,6 +3335,9 @@ public:
     }
     if (m.find("CreatorType") != m.end() && !m["CreatorType"].empty()) {
       creatorType = make_shared<string>(boost::any_cast<string>(m["CreatorType"]));
+    }
+    if (m.find("DnsCategory") != m.end() && !m["DnsCategory"].empty()) {
+      dnsCategory = make_shared<string>(boost::any_cast<string>(m["DnsCategory"]));
     }
     if (m.find("Ipv4s") != m.end() && !m["Ipv4s"].empty()) {
       if (typeid(map<string, boost::any>) == m["Ipv4s"].type()) {
@@ -9510,6 +9524,7 @@ public:
   shared_ptr<string> creator{};
   shared_ptr<string> creatorSubType{};
   shared_ptr<string> creatorType{};
+  shared_ptr<string> dnsCategory{};
   shared_ptr<SearchCustomLinesResponseBodyCustomLinesCustomLineIpv4s> ipv4s{};
   shared_ptr<string> lineId{};
   shared_ptr<string> name{};
@@ -9540,6 +9555,9 @@ public:
     }
     if (creatorType) {
       res["CreatorType"] = boost::any(*creatorType);
+    }
+    if (dnsCategory) {
+      res["DnsCategory"] = boost::any(*dnsCategory);
     }
     if (ipv4s) {
       res["Ipv4s"] = ipv4s ? boost::any(ipv4s->toMap()) : boost::any(map<string,boost::any>({}));
@@ -9574,6 +9592,9 @@ public:
     }
     if (m.find("CreatorType") != m.end() && !m["CreatorType"].empty()) {
       creatorType = make_shared<string>(boost::any_cast<string>(m["CreatorType"]));
+    }
+    if (m.find("DnsCategory") != m.end() && !m["DnsCategory"].empty()) {
+      dnsCategory = make_shared<string>(boost::any_cast<string>(m["DnsCategory"]));
     }
     if (m.find("Ipv4s") != m.end() && !m["Ipv4s"].empty()) {
       if (typeid(map<string, boost::any>) == m["Ipv4s"].type()) {
@@ -10408,6 +10429,7 @@ public:
 };
 class UpdateCustomLineRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> dnsCategory{};
   shared_ptr<vector<string>> ipv4s{};
   shared_ptr<string> lang{};
   shared_ptr<string> lineId{};
@@ -10423,6 +10445,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dnsCategory) {
+      res["DnsCategory"] = boost::any(*dnsCategory);
+    }
     if (ipv4s) {
       res["Ipv4s"] = boost::any(*ipv4s);
     }
@@ -10439,6 +10464,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DnsCategory") != m.end() && !m["DnsCategory"].empty()) {
+      dnsCategory = make_shared<string>(boost::any_cast<string>(m["DnsCategory"]));
+    }
     if (m.find("Ipv4s") != m.end() && !m["Ipv4s"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["Ipv4s"].type()) {
