@@ -15111,6 +15111,7 @@ public:
   shared_ptr<string> config{};
   shared_ptr<string> defenseOrigin{};
   shared_ptr<string> defenseScene{};
+  shared_ptr<string> defenseType{};
   shared_ptr<long> gmtModified{};
   shared_ptr<string> resource{};
   shared_ptr<long> ruleId{};
@@ -15136,6 +15137,9 @@ public:
     }
     if (defenseScene) {
       res["DefenseScene"] = boost::any(*defenseScene);
+    }
+    if (defenseType) {
+      res["DefenseType"] = boost::any(*defenseType);
     }
     if (gmtModified) {
       res["GmtModified"] = boost::any(*gmtModified);
@@ -15167,6 +15171,9 @@ public:
     }
     if (m.find("DefenseScene") != m.end() && !m["DefenseScene"].empty()) {
       defenseScene = make_shared<string>(boost::any_cast<string>(m["DefenseScene"]));
+    }
+    if (m.find("DefenseType") != m.end() && !m["DefenseType"].empty()) {
+      defenseType = make_shared<string>(boost::any_cast<string>(m["DefenseType"]));
     }
     if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
       gmtModified = make_shared<long>(boost::any_cast<long>(m["GmtModified"]));
@@ -15367,6 +15374,7 @@ public:
   shared_ptr<string> config{};
   shared_ptr<string> defenseOrigin{};
   shared_ptr<string> defenseScene{};
+  shared_ptr<string> defenseType{};
   shared_ptr<string> description{};
   shared_ptr<string> detailRuleIds{};
   shared_ptr<string> externalInfo{};
@@ -15400,6 +15408,9 @@ public:
     }
     if (defenseScene) {
       res["DefenseScene"] = boost::any(*defenseScene);
+    }
+    if (defenseType) {
+      res["DefenseType"] = boost::any(*defenseType);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -15449,6 +15460,9 @@ public:
     }
     if (m.find("DefenseScene") != m.end() && !m["DefenseScene"].empty()) {
       defenseScene = make_shared<string>(boost::any_cast<string>(m["DefenseScene"]));
+    }
+    if (m.find("DefenseType") != m.end() && !m["DefenseType"].empty()) {
+      defenseType = make_shared<string>(boost::any_cast<string>(m["DefenseType"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -32067,6 +32081,7 @@ public:
   shared_ptr<string> nextToken{};
   shared_ptr<string> requestId{};
   shared_ptr<vector<string>> resources{};
+  shared_ptr<long> templateId{};
   shared_ptr<long> totalCount{};
 
   DescribeTemplateResourcesResponseBody() {}
@@ -32090,6 +32105,9 @@ public:
     }
     if (resources) {
       res["Resources"] = boost::any(*resources);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
     }
     if (totalCount) {
       res["TotalCount"] = boost::any(*totalCount);
@@ -32116,6 +32134,9 @@ public:
         }
       }
       resources = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<long>(boost::any_cast<long>(m["TemplateId"]));
     }
     if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
       totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
@@ -37370,6 +37391,7 @@ public:
 };
 class ModifyDefenseRuleStatusRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> defenseType{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceManagerResourceGroupId{};
@@ -37387,6 +37409,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (defenseType) {
+      res["DefenseType"] = boost::any(*defenseType);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -37409,6 +37434,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefenseType") != m.end() && !m["DefenseType"].empty()) {
+      defenseType = make_shared<string>(boost::any_cast<string>(m["DefenseType"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
