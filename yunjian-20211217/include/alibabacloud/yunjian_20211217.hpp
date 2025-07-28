@@ -2508,6 +2508,464 @@ public:
 
   virtual ~GetUrgentDemandPlanListResponse() = default;
 };
+class PageDemandPlanWithDemandInfoHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> yunUserId{};
+
+  PageDemandPlanWithDemandInfoHeaders() {}
+
+  explicit PageDemandPlanWithDemandInfoHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (yunUserId) {
+      res["Yun-User-Id"] = boost::any(*yunUserId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Yun-User-Id") != m.end() && !m["Yun-User-Id"].empty()) {
+      yunUserId = make_shared<string>(boost::any_cast<string>(m["Yun-User-Id"]));
+    }
+  }
+
+
+  virtual ~PageDemandPlanWithDemandInfoHeaders() = default;
+};
+class PageDemandPlanWithDemandInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> approvalStatus{};
+  shared_ptr<string> createTimeEnd{};
+  shared_ptr<string> createTimeStart{};
+  shared_ptr<string> creatorStaffId{};
+  shared_ptr<string> demandDeliveryStatus{};
+  shared_ptr<vector<long>> demandId{};
+  shared_ptr<vector<long>> demandPlanId{};
+  shared_ptr<string> demandPlanStatus{};
+  shared_ptr<string> operator_{};
+  shared_ptr<long> pageNum{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> roCode{};
+
+  PageDemandPlanWithDemandInfoRequest() {}
+
+  explicit PageDemandPlanWithDemandInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (approvalStatus) {
+      res["approvalStatus"] = boost::any(*approvalStatus);
+    }
+    if (createTimeEnd) {
+      res["createTimeEnd"] = boost::any(*createTimeEnd);
+    }
+    if (createTimeStart) {
+      res["createTimeStart"] = boost::any(*createTimeStart);
+    }
+    if (creatorStaffId) {
+      res["creatorStaffId"] = boost::any(*creatorStaffId);
+    }
+    if (demandDeliveryStatus) {
+      res["demandDeliveryStatus"] = boost::any(*demandDeliveryStatus);
+    }
+    if (demandId) {
+      res["demandId"] = boost::any(*demandId);
+    }
+    if (demandPlanId) {
+      res["demandPlanId"] = boost::any(*demandPlanId);
+    }
+    if (demandPlanStatus) {
+      res["demandPlanStatus"] = boost::any(*demandPlanStatus);
+    }
+    if (operator_) {
+      res["operator"] = boost::any(*operator_);
+    }
+    if (pageNum) {
+      res["pageNum"] = boost::any(*pageNum);
+    }
+    if (pageSize) {
+      res["pageSize"] = boost::any(*pageSize);
+    }
+    if (roCode) {
+      res["roCode"] = boost::any(*roCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("approvalStatus") != m.end() && !m["approvalStatus"].empty()) {
+      approvalStatus = make_shared<string>(boost::any_cast<string>(m["approvalStatus"]));
+    }
+    if (m.find("createTimeEnd") != m.end() && !m["createTimeEnd"].empty()) {
+      createTimeEnd = make_shared<string>(boost::any_cast<string>(m["createTimeEnd"]));
+    }
+    if (m.find("createTimeStart") != m.end() && !m["createTimeStart"].empty()) {
+      createTimeStart = make_shared<string>(boost::any_cast<string>(m["createTimeStart"]));
+    }
+    if (m.find("creatorStaffId") != m.end() && !m["creatorStaffId"].empty()) {
+      creatorStaffId = make_shared<string>(boost::any_cast<string>(m["creatorStaffId"]));
+    }
+    if (m.find("demandDeliveryStatus") != m.end() && !m["demandDeliveryStatus"].empty()) {
+      demandDeliveryStatus = make_shared<string>(boost::any_cast<string>(m["demandDeliveryStatus"]));
+    }
+    if (m.find("demandId") != m.end() && !m["demandId"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["demandId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["demandId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      demandId = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("demandPlanId") != m.end() && !m["demandPlanId"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["demandPlanId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["demandPlanId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      demandPlanId = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("demandPlanStatus") != m.end() && !m["demandPlanStatus"].empty()) {
+      demandPlanStatus = make_shared<string>(boost::any_cast<string>(m["demandPlanStatus"]));
+    }
+    if (m.find("operator") != m.end() && !m["operator"].empty()) {
+      operator_ = make_shared<string>(boost::any_cast<string>(m["operator"]));
+    }
+    if (m.find("pageNum") != m.end() && !m["pageNum"].empty()) {
+      pageNum = make_shared<long>(boost::any_cast<long>(m["pageNum"]));
+    }
+    if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
+    }
+    if (m.find("roCode") != m.end() && !m["roCode"].empty()) {
+      roCode = make_shared<string>(boost::any_cast<string>(m["roCode"]));
+    }
+  }
+
+
+  virtual ~PageDemandPlanWithDemandInfoRequest() = default;
+};
+class PageDemandPlanWithDemandInfoResponseBodyDataData : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+  shared_ptr<string> accountName{};
+  shared_ptr<string> approvalNodeStatus{};
+  shared_ptr<string> approvalStatus{};
+  shared_ptr<string> creator{};
+  shared_ptr<string> deliveryPlanId{};
+  shared_ptr<string> deliveryStatus{};
+  shared_ptr<string> demandDesc{};
+  shared_ptr<long> demandId{};
+  shared_ptr<string> demandName{};
+  shared_ptr<double> demandPlanId{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<string> modifier{};
+  shared_ptr<string> requirementObjectCode{};
+  shared_ptr<long> uid{};
+
+  PageDemandPlanWithDemandInfoResponseBodyDataData() {}
+
+  explicit PageDemandPlanWithDemandInfoResponseBodyDataData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    if (accountName) {
+      res["accountName"] = boost::any(*accountName);
+    }
+    if (approvalNodeStatus) {
+      res["approvalNodeStatus"] = boost::any(*approvalNodeStatus);
+    }
+    if (approvalStatus) {
+      res["approvalStatus"] = boost::any(*approvalStatus);
+    }
+    if (creator) {
+      res["creator"] = boost::any(*creator);
+    }
+    if (deliveryPlanId) {
+      res["deliveryPlanId"] = boost::any(*deliveryPlanId);
+    }
+    if (deliveryStatus) {
+      res["deliveryStatus"] = boost::any(*deliveryStatus);
+    }
+    if (demandDesc) {
+      res["demandDesc"] = boost::any(*demandDesc);
+    }
+    if (demandId) {
+      res["demandId"] = boost::any(*demandId);
+    }
+    if (demandName) {
+      res["demandName"] = boost::any(*demandName);
+    }
+    if (demandPlanId) {
+      res["demandPlanId"] = boost::any(*demandPlanId);
+    }
+    if (gmtCreate) {
+      res["gmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["gmtModified"] = boost::any(*gmtModified);
+    }
+    if (modifier) {
+      res["modifier"] = boost::any(*modifier);
+    }
+    if (requirementObjectCode) {
+      res["requirementObjectCode"] = boost::any(*requirementObjectCode);
+    }
+    if (uid) {
+      res["uid"] = boost::any(*uid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+    if (m.find("accountName") != m.end() && !m["accountName"].empty()) {
+      accountName = make_shared<string>(boost::any_cast<string>(m["accountName"]));
+    }
+    if (m.find("approvalNodeStatus") != m.end() && !m["approvalNodeStatus"].empty()) {
+      approvalNodeStatus = make_shared<string>(boost::any_cast<string>(m["approvalNodeStatus"]));
+    }
+    if (m.find("approvalStatus") != m.end() && !m["approvalStatus"].empty()) {
+      approvalStatus = make_shared<string>(boost::any_cast<string>(m["approvalStatus"]));
+    }
+    if (m.find("creator") != m.end() && !m["creator"].empty()) {
+      creator = make_shared<string>(boost::any_cast<string>(m["creator"]));
+    }
+    if (m.find("deliveryPlanId") != m.end() && !m["deliveryPlanId"].empty()) {
+      deliveryPlanId = make_shared<string>(boost::any_cast<string>(m["deliveryPlanId"]));
+    }
+    if (m.find("deliveryStatus") != m.end() && !m["deliveryStatus"].empty()) {
+      deliveryStatus = make_shared<string>(boost::any_cast<string>(m["deliveryStatus"]));
+    }
+    if (m.find("demandDesc") != m.end() && !m["demandDesc"].empty()) {
+      demandDesc = make_shared<string>(boost::any_cast<string>(m["demandDesc"]));
+    }
+    if (m.find("demandId") != m.end() && !m["demandId"].empty()) {
+      demandId = make_shared<long>(boost::any_cast<long>(m["demandId"]));
+    }
+    if (m.find("demandName") != m.end() && !m["demandName"].empty()) {
+      demandName = make_shared<string>(boost::any_cast<string>(m["demandName"]));
+    }
+    if (m.find("demandPlanId") != m.end() && !m["demandPlanId"].empty()) {
+      demandPlanId = make_shared<double>(boost::any_cast<double>(m["demandPlanId"]));
+    }
+    if (m.find("gmtCreate") != m.end() && !m["gmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["gmtCreate"]));
+    }
+    if (m.find("gmtModified") != m.end() && !m["gmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["gmtModified"]));
+    }
+    if (m.find("modifier") != m.end() && !m["modifier"].empty()) {
+      modifier = make_shared<string>(boost::any_cast<string>(m["modifier"]));
+    }
+    if (m.find("requirementObjectCode") != m.end() && !m["requirementObjectCode"].empty()) {
+      requirementObjectCode = make_shared<string>(boost::any_cast<string>(m["requirementObjectCode"]));
+    }
+    if (m.find("uid") != m.end() && !m["uid"].empty()) {
+      uid = make_shared<long>(boost::any_cast<long>(m["uid"]));
+    }
+  }
+
+
+  virtual ~PageDemandPlanWithDemandInfoResponseBodyDataData() = default;
+};
+class PageDemandPlanWithDemandInfoResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<PageDemandPlanWithDemandInfoResponseBodyDataData>> data{};
+  shared_ptr<long> pageNum{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> total{};
+
+  PageDemandPlanWithDemandInfoResponseBodyData() {}
+
+  explicit PageDemandPlanWithDemandInfoResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["data"] = boost::any(temp1);
+    }
+    if (pageNum) {
+      res["pageNum"] = boost::any(*pageNum);
+    }
+    if (pageSize) {
+      res["pageSize"] = boost::any(*pageSize);
+    }
+    if (total) {
+      res["total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(vector<boost::any>) == m["data"].type()) {
+        vector<PageDemandPlanWithDemandInfoResponseBodyDataData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PageDemandPlanWithDemandInfoResponseBodyDataData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<PageDemandPlanWithDemandInfoResponseBodyDataData>>(expect1);
+      }
+    }
+    if (m.find("pageNum") != m.end() && !m["pageNum"].empty()) {
+      pageNum = make_shared<long>(boost::any_cast<long>(m["pageNum"]));
+    }
+    if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
+    }
+    if (m.find("total") != m.end() && !m["total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["total"]));
+    }
+  }
+
+
+  virtual ~PageDemandPlanWithDemandInfoResponseBodyData() = default;
+};
+class PageDemandPlanWithDemandInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<PageDemandPlanWithDemandInfoResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> traceId{};
+
+  PageDemandPlanWithDemandInfoResponseBody() {}
+
+  explicit PageDemandPlanWithDemandInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        PageDemandPlanWithDemandInfoResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<PageDemandPlanWithDemandInfoResponseBodyData>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~PageDemandPlanWithDemandInfoResponseBody() = default;
+};
+class PageDemandPlanWithDemandInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<PageDemandPlanWithDemandInfoResponseBody> body{};
+
+  PageDemandPlanWithDemandInfoResponse() {}
+
+  explicit PageDemandPlanWithDemandInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        PageDemandPlanWithDemandInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PageDemandPlanWithDemandInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PageDemandPlanWithDemandInfoResponse() = default;
+};
 class PushResourcePlanHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -4103,6 +4561,8 @@ public:
   GetUrgentDemandPlanDetailResponse getUrgentDemandPlanDetail(shared_ptr<GetUrgentDemandPlanDetailRequest> request);
   GetUrgentDemandPlanListResponse getUrgentDemandPlanListWithOptions(shared_ptr<GetUrgentDemandPlanListRequest> request, shared_ptr<GetUrgentDemandPlanListHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetUrgentDemandPlanListResponse getUrgentDemandPlanList(shared_ptr<GetUrgentDemandPlanListRequest> request);
+  PageDemandPlanWithDemandInfoResponse pageDemandPlanWithDemandInfoWithOptions(shared_ptr<PageDemandPlanWithDemandInfoRequest> request, shared_ptr<PageDemandPlanWithDemandInfoHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PageDemandPlanWithDemandInfoResponse pageDemandPlanWithDemandInfo(shared_ptr<PageDemandPlanWithDemandInfoRequest> request);
   PushResourcePlanResponse pushResourcePlanWithOptions(shared_ptr<PushResourcePlanRequest> request, shared_ptr<PushResourcePlanHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PushResourcePlanResponse pushResourcePlan(shared_ptr<PushResourcePlanRequest> request);
   QueryDeliveredSupplyItemsResponse queryDeliveredSupplyItemsWithOptions(shared_ptr<QueryDeliveredSupplyItemsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

@@ -421,6 +421,76 @@ GetUrgentDemandPlanListResponse Alibabacloud_Yunjian20211217::Client::getUrgentD
   return getUrgentDemandPlanListWithOptions(request, headers, runtime);
 }
 
+PageDemandPlanWithDemandInfoResponse Alibabacloud_Yunjian20211217::Client::pageDemandPlanWithDemandInfoWithOptions(shared_ptr<PageDemandPlanWithDemandInfoRequest> request, shared_ptr<PageDemandPlanWithDemandInfoHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->approvalStatus)) {
+    body->insert(pair<string, string>("approvalStatus", *request->approvalStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->createTimeEnd)) {
+    body->insert(pair<string, string>("createTimeEnd", *request->createTimeEnd));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->createTimeStart)) {
+    body->insert(pair<string, string>("createTimeStart", *request->createTimeStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->creatorStaffId)) {
+    body->insert(pair<string, string>("creatorStaffId", *request->creatorStaffId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->demandDeliveryStatus)) {
+    body->insert(pair<string, string>("demandDeliveryStatus", *request->demandDeliveryStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->demandId)) {
+    body->insert(pair<string, vector<long>>("demandId", *request->demandId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->demandPlanId)) {
+    body->insert(pair<string, vector<long>>("demandPlanId", *request->demandPlanId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->demandPlanStatus)) {
+    body->insert(pair<string, string>("demandPlanStatus", *request->demandPlanStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operator_)) {
+    body->insert(pair<string, string>("operator_", *request->operator_));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNum)) {
+    body->insert(pair<string, long>("pageNum", *request->pageNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    body->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roCode)) {
+    body->insert(pair<string, string>("roCode", *request->roCode));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->yunUserId)) {
+    realHeaders->insert(pair<string, string>("Yun-User-Id", Darabonba_Util::Client::toJSONString(headers->yunUserId)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PageDemandPlanWithDemandInfo"))},
+    {"version", boost::any(string("2021-12-17"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/demand/getDemandPlanList"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return PageDemandPlanWithDemandInfoResponse(callApi(params, req, runtime));
+}
+
+PageDemandPlanWithDemandInfoResponse Alibabacloud_Yunjian20211217::Client::pageDemandPlanWithDemandInfo(shared_ptr<PageDemandPlanWithDemandInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<PageDemandPlanWithDemandInfoHeaders> headers = make_shared<PageDemandPlanWithDemandInfoHeaders>();
+  return pageDemandPlanWithDemandInfoWithOptions(request, headers, runtime);
+}
+
 PushResourcePlanResponse Alibabacloud_Yunjian20211217::Client::pushResourcePlanWithOptions(shared_ptr<PushResourcePlanRequest> request, shared_ptr<PushResourcePlanHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
