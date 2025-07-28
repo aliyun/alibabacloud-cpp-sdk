@@ -512,6 +512,257 @@ public:
 
   virtual ~CreateInstanceResponse() = default;
 };
+class CreateVCUInstanceRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateVCUInstanceRequestTags() {}
+
+  explicit CreateVCUInstanceRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateVCUInstanceRequestTags() = default;
+};
+class CreateVCUInstanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aliasName{};
+  shared_ptr<long> autoRenewPeriodInMonth{};
+  shared_ptr<string> clusterType{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<bool> enableAutoRenew{};
+  shared_ptr<bool> enableElasticVCU{};
+  shared_ptr<string> instanceDescription{};
+  shared_ptr<long> periodInMonth{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<vector<CreateVCUInstanceRequestTags>> tags{};
+  shared_ptr<long> VCU{};
+
+  CreateVCUInstanceRequest() {}
+
+  explicit CreateVCUInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliasName) {
+      res["AliasName"] = boost::any(*aliasName);
+    }
+    if (autoRenewPeriodInMonth) {
+      res["AutoRenewPeriodInMonth"] = boost::any(*autoRenewPeriodInMonth);
+    }
+    if (clusterType) {
+      res["ClusterType"] = boost::any(*clusterType);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (enableAutoRenew) {
+      res["EnableAutoRenew"] = boost::any(*enableAutoRenew);
+    }
+    if (enableElasticVCU) {
+      res["EnableElasticVCU"] = boost::any(*enableElasticVCU);
+    }
+    if (instanceDescription) {
+      res["InstanceDescription"] = boost::any(*instanceDescription);
+    }
+    if (periodInMonth) {
+      res["PeriodInMonth"] = boost::any(*periodInMonth);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
+    if (VCU) {
+      res["VCU"] = boost::any(*VCU);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliasName") != m.end() && !m["AliasName"].empty()) {
+      aliasName = make_shared<string>(boost::any_cast<string>(m["AliasName"]));
+    }
+    if (m.find("AutoRenewPeriodInMonth") != m.end() && !m["AutoRenewPeriodInMonth"].empty()) {
+      autoRenewPeriodInMonth = make_shared<long>(boost::any_cast<long>(m["AutoRenewPeriodInMonth"]));
+    }
+    if (m.find("ClusterType") != m.end() && !m["ClusterType"].empty()) {
+      clusterType = make_shared<string>(boost::any_cast<string>(m["ClusterType"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EnableAutoRenew") != m.end() && !m["EnableAutoRenew"].empty()) {
+      enableAutoRenew = make_shared<bool>(boost::any_cast<bool>(m["EnableAutoRenew"]));
+    }
+    if (m.find("EnableElasticVCU") != m.end() && !m["EnableElasticVCU"].empty()) {
+      enableElasticVCU = make_shared<bool>(boost::any_cast<bool>(m["EnableElasticVCU"]));
+    }
+    if (m.find("InstanceDescription") != m.end() && !m["InstanceDescription"].empty()) {
+      instanceDescription = make_shared<string>(boost::any_cast<string>(m["InstanceDescription"]));
+    }
+    if (m.find("PeriodInMonth") != m.end() && !m["PeriodInMonth"].empty()) {
+      periodInMonth = make_shared<long>(boost::any_cast<long>(m["PeriodInMonth"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<CreateVCUInstanceRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateVCUInstanceRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreateVCUInstanceRequestTags>>(expect1);
+      }
+    }
+    if (m.find("VCU") != m.end() && !m["VCU"].empty()) {
+      VCU = make_shared<long>(boost::any_cast<long>(m["VCU"]));
+    }
+  }
+
+
+  virtual ~CreateVCUInstanceRequest() = default;
+};
+class CreateVCUInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> instanceName{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  CreateVCUInstanceResponseBody() {}
+
+  explicit CreateVCUInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateVCUInstanceResponseBody() = default;
+};
+class CreateVCUInstanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateVCUInstanceResponseBody> body{};
+
+  CreateVCUInstanceResponse() {}
+
+  explicit CreateVCUInstanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateVCUInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateVCUInstanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateVCUInstanceResponse() = default;
+};
 class DeleteInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceName{};
@@ -2790,6 +3041,8 @@ public:
   CheckInstancePolicyResponse checkInstancePolicy(shared_ptr<CheckInstancePolicyRequest> request);
   CreateInstanceResponse createInstanceWithOptions(shared_ptr<CreateInstanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateInstanceResponse createInstance(shared_ptr<CreateInstanceRequest> request);
+  CreateVCUInstanceResponse createVCUInstanceWithOptions(shared_ptr<CreateVCUInstanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateVCUInstanceResponse createVCUInstance(shared_ptr<CreateVCUInstanceRequest> request);
   DeleteInstanceResponse deleteInstanceWithOptions(shared_ptr<DeleteInstanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteInstanceResponse deleteInstance(shared_ptr<DeleteInstanceRequest> request);
   DeleteInstancePolicyResponse deleteInstancePolicyWithOptions(shared_ptr<DeleteInstancePolicyRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
