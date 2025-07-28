@@ -3982,6 +3982,7 @@ public:
   shared_ptr<long> dayuStatus{};
   shared_ptr<long> domains{};
   shared_ptr<long> enableTimes{};
+  shared_ptr<string> ipChannelType{};
   shared_ptr<long> mailAddresses{};
   shared_ptr<long> maxQuotaLevel{};
   shared_ptr<long> monthQuota{};
@@ -4020,6 +4021,9 @@ public:
     }
     if (enableTimes) {
       res["EnableTimes"] = boost::any(*enableTimes);
+    }
+    if (ipChannelType) {
+      res["IpChannelType"] = boost::any(*ipChannelType);
     }
     if (mailAddresses) {
       res["MailAddresses"] = boost::any(*mailAddresses);
@@ -4078,6 +4082,9 @@ public:
     }
     if (m.find("EnableTimes") != m.end() && !m["EnableTimes"].empty()) {
       enableTimes = make_shared<long>(boost::any_cast<long>(m["EnableTimes"]));
+    }
+    if (m.find("IpChannelType") != m.end() && !m["IpChannelType"].empty()) {
+      ipChannelType = make_shared<string>(boost::any_cast<string>(m["IpChannelType"]));
     }
     if (m.find("MailAddresses") != m.end() && !m["MailAddresses"].empty()) {
       mailAddresses = make_shared<long>(boost::any_cast<long>(m["MailAddresses"]));
@@ -5946,6 +5953,250 @@ public:
 
 
   virtual ~GetUserResponse() = default;
+};
+class ListBlockSendingRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> beginTime{};
+  shared_ptr<string> blockEmail{};
+  shared_ptr<string> blockType{};
+  shared_ptr<long> endTime{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> senderEmail{};
+
+  ListBlockSendingRequest() {}
+
+  explicit ListBlockSendingRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (blockEmail) {
+      res["BlockEmail"] = boost::any(*blockEmail);
+    }
+    if (blockType) {
+      res["BlockType"] = boost::any(*blockType);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (senderEmail) {
+      res["SenderEmail"] = boost::any(*senderEmail);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
+    }
+    if (m.find("BlockEmail") != m.end() && !m["BlockEmail"].empty()) {
+      blockEmail = make_shared<string>(boost::any_cast<string>(m["BlockEmail"]));
+    }
+    if (m.find("BlockType") != m.end() && !m["BlockType"].empty()) {
+      blockType = make_shared<string>(boost::any_cast<string>(m["BlockType"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("SenderEmail") != m.end() && !m["SenderEmail"].empty()) {
+      senderEmail = make_shared<string>(boost::any_cast<string>(m["SenderEmail"]));
+    }
+  }
+
+
+  virtual ~ListBlockSendingRequest() = default;
+};
+class ListBlockSendingResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> blockEmail{};
+  shared_ptr<long> blockTime{};
+  shared_ptr<long> reason{};
+  shared_ptr<long> sendTime{};
+  shared_ptr<string> senderEmail{};
+
+  ListBlockSendingResponseBodyData() {}
+
+  explicit ListBlockSendingResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blockEmail) {
+      res["BlockEmail"] = boost::any(*blockEmail);
+    }
+    if (blockTime) {
+      res["BlockTime"] = boost::any(*blockTime);
+    }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
+    }
+    if (sendTime) {
+      res["SendTime"] = boost::any(*sendTime);
+    }
+    if (senderEmail) {
+      res["SenderEmail"] = boost::any(*senderEmail);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlockEmail") != m.end() && !m["BlockEmail"].empty()) {
+      blockEmail = make_shared<string>(boost::any_cast<string>(m["BlockEmail"]));
+    }
+    if (m.find("BlockTime") != m.end() && !m["BlockTime"].empty()) {
+      blockTime = make_shared<long>(boost::any_cast<long>(m["BlockTime"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<long>(boost::any_cast<long>(m["Reason"]));
+    }
+    if (m.find("SendTime") != m.end() && !m["SendTime"].empty()) {
+      sendTime = make_shared<long>(boost::any_cast<long>(m["SendTime"]));
+    }
+    if (m.find("SenderEmail") != m.end() && !m["SenderEmail"].empty()) {
+      senderEmail = make_shared<string>(boost::any_cast<string>(m["SenderEmail"]));
+    }
+  }
+
+
+  virtual ~ListBlockSendingResponseBodyData() = default;
+};
+class ListBlockSendingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListBlockSendingResponseBodyData>> data{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+
+  ListBlockSendingResponseBody() {}
+
+  explicit ListBlockSendingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<ListBlockSendingResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListBlockSendingResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<ListBlockSendingResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListBlockSendingResponseBody() = default;
+};
+class ListBlockSendingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListBlockSendingResponseBody> body{};
+
+  ListBlockSendingResponse() {}
+
+  explicit ListBlockSendingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListBlockSendingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListBlockSendingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListBlockSendingResponse() = default;
 };
 class ListUserSuppressionRequest : public Darabonba::Model {
 public:
@@ -11127,6 +11378,8 @@ public:
   GetTrackListByMailFromAndTagNameResponse getTrackListByMailFromAndTagName(shared_ptr<GetTrackListByMailFromAndTagNameRequest> request);
   GetUserResponse getUserWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetUserResponse getUser();
+  ListBlockSendingResponse listBlockSendingWithOptions(shared_ptr<ListBlockSendingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListBlockSendingResponse listBlockSending(shared_ptr<ListBlockSendingRequest> request);
   ListUserSuppressionResponse listUserSuppressionWithOptions(shared_ptr<ListUserSuppressionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListUserSuppressionResponse listUserSuppression(shared_ptr<ListUserSuppressionRequest> request);
   ModifyMailAddressResponse modifyMailAddressWithOptions(shared_ptr<ModifyMailAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

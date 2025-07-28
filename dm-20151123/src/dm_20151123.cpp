@@ -1397,6 +1397,52 @@ GetUserResponse Alibabacloud_Dm20151123::Client::getUser() {
   return getUserWithOptions(runtime);
 }
 
+ListBlockSendingResponse Alibabacloud_Dm20151123::Client::listBlockSendingWithOptions(shared_ptr<ListBlockSendingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->beginTime)) {
+    query->insert(pair<string, long>("BeginTime", *request->beginTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->blockEmail)) {
+    query->insert(pair<string, string>("BlockEmail", *request->blockEmail));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->blockType)) {
+    query->insert(pair<string, string>("BlockType", *request->blockType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    query->insert(pair<string, long>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->senderEmail)) {
+    query->insert(pair<string, string>("SenderEmail", *request->senderEmail));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListBlockSending"))},
+    {"version", boost::any(string("2015-11-23"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListBlockSendingResponse(callApi(params, req, runtime));
+}
+
+ListBlockSendingResponse Alibabacloud_Dm20151123::Client::listBlockSending(shared_ptr<ListBlockSendingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listBlockSendingWithOptions(request, runtime);
+}
+
 ListUserSuppressionResponse Alibabacloud_Dm20151123::Client::listUserSuppressionWithOptions(shared_ptr<ListUserSuppressionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
