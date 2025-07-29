@@ -26161,7 +26161,7 @@ public:
   shared_ptr<string> lastModified{};
   shared_ptr<long> normType{};
   shared_ptr<string> purchaseTime{};
-  shared_ptr<long> resourceGroupId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> startTime{};
   shared_ptr<long> status{};
   shared_ptr<DescribeCastersResponseBodyCasterListCasterTags> tags{};
@@ -26265,7 +26265,7 @@ public:
       purchaseTime = make_shared<string>(boost::any_cast<string>(m["PurchaseTime"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
-      resourceGroupId = make_shared<long>(boost::any_cast<long>(m["ResourceGroupId"]));
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -58599,6 +58599,404 @@ public:
 
 
   virtual ~DescribeLiveUserDomainsResponse() = default;
+};
+class DescribeLiveUserStreamMetricDataRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appName{};
+  shared_ptr<string> domainName{};
+  shared_ptr<string> endTime{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> streamName{};
+
+  DescribeLiveUserStreamMetricDataRequest() {}
+
+  explicit DescribeLiveUserStreamMetricDataRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (streamName) {
+      res["StreamName"] = boost::any(*streamName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("StreamName") != m.end() && !m["StreamName"].empty()) {
+      streamName = make_shared<string>(boost::any_cast<string>(m["StreamName"]));
+    }
+  }
+
+
+  virtual ~DescribeLiveUserStreamMetricDataRequest() = default;
+};
+class DescribeLiveUserStreamMetricDataResponseBodyStreamDetailData : public Darabonba::Model {
+public:
+  shared_ptr<string> appName{};
+  shared_ptr<double> bps{};
+  shared_ptr<long> count{};
+  shared_ptr<double> flvBps{};
+  shared_ptr<long> flvCount{};
+  shared_ptr<double> flvTraffic{};
+  shared_ptr<double> hlsBps{};
+  shared_ptr<long> hlsCount{};
+  shared_ptr<double> hlsTraffic{};
+  shared_ptr<long> newConns{};
+  shared_ptr<double> p2pBps{};
+  shared_ptr<long> p2pCount{};
+  shared_ptr<double> p2pTraffic{};
+  shared_ptr<double> rtmpBps{};
+  shared_ptr<long> rtmpCount{};
+  shared_ptr<double> rtmpTraffic{};
+  shared_ptr<double> rtsBps{};
+  shared_ptr<long> rtsCount{};
+  shared_ptr<double> rtsTraffic{};
+  shared_ptr<string> streamName{};
+  shared_ptr<string> timeStamp{};
+  shared_ptr<double> traffic{};
+
+  DescribeLiveUserStreamMetricDataResponseBodyStreamDetailData() {}
+
+  explicit DescribeLiveUserStreamMetricDataResponseBodyStreamDetailData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (bps) {
+      res["Bps"] = boost::any(*bps);
+    }
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (flvBps) {
+      res["FlvBps"] = boost::any(*flvBps);
+    }
+    if (flvCount) {
+      res["FlvCount"] = boost::any(*flvCount);
+    }
+    if (flvTraffic) {
+      res["FlvTraffic"] = boost::any(*flvTraffic);
+    }
+    if (hlsBps) {
+      res["HlsBps"] = boost::any(*hlsBps);
+    }
+    if (hlsCount) {
+      res["HlsCount"] = boost::any(*hlsCount);
+    }
+    if (hlsTraffic) {
+      res["HlsTraffic"] = boost::any(*hlsTraffic);
+    }
+    if (newConns) {
+      res["NewConns"] = boost::any(*newConns);
+    }
+    if (p2pBps) {
+      res["P2pBps"] = boost::any(*p2pBps);
+    }
+    if (p2pCount) {
+      res["P2pCount"] = boost::any(*p2pCount);
+    }
+    if (p2pTraffic) {
+      res["P2pTraffic"] = boost::any(*p2pTraffic);
+    }
+    if (rtmpBps) {
+      res["RtmpBps"] = boost::any(*rtmpBps);
+    }
+    if (rtmpCount) {
+      res["RtmpCount"] = boost::any(*rtmpCount);
+    }
+    if (rtmpTraffic) {
+      res["RtmpTraffic"] = boost::any(*rtmpTraffic);
+    }
+    if (rtsBps) {
+      res["RtsBps"] = boost::any(*rtsBps);
+    }
+    if (rtsCount) {
+      res["RtsCount"] = boost::any(*rtsCount);
+    }
+    if (rtsTraffic) {
+      res["RtsTraffic"] = boost::any(*rtsTraffic);
+    }
+    if (streamName) {
+      res["StreamName"] = boost::any(*streamName);
+    }
+    if (timeStamp) {
+      res["TimeStamp"] = boost::any(*timeStamp);
+    }
+    if (traffic) {
+      res["Traffic"] = boost::any(*traffic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("Bps") != m.end() && !m["Bps"].empty()) {
+      bps = make_shared<double>(boost::any_cast<double>(m["Bps"]));
+    }
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("FlvBps") != m.end() && !m["FlvBps"].empty()) {
+      flvBps = make_shared<double>(boost::any_cast<double>(m["FlvBps"]));
+    }
+    if (m.find("FlvCount") != m.end() && !m["FlvCount"].empty()) {
+      flvCount = make_shared<long>(boost::any_cast<long>(m["FlvCount"]));
+    }
+    if (m.find("FlvTraffic") != m.end() && !m["FlvTraffic"].empty()) {
+      flvTraffic = make_shared<double>(boost::any_cast<double>(m["FlvTraffic"]));
+    }
+    if (m.find("HlsBps") != m.end() && !m["HlsBps"].empty()) {
+      hlsBps = make_shared<double>(boost::any_cast<double>(m["HlsBps"]));
+    }
+    if (m.find("HlsCount") != m.end() && !m["HlsCount"].empty()) {
+      hlsCount = make_shared<long>(boost::any_cast<long>(m["HlsCount"]));
+    }
+    if (m.find("HlsTraffic") != m.end() && !m["HlsTraffic"].empty()) {
+      hlsTraffic = make_shared<double>(boost::any_cast<double>(m["HlsTraffic"]));
+    }
+    if (m.find("NewConns") != m.end() && !m["NewConns"].empty()) {
+      newConns = make_shared<long>(boost::any_cast<long>(m["NewConns"]));
+    }
+    if (m.find("P2pBps") != m.end() && !m["P2pBps"].empty()) {
+      p2pBps = make_shared<double>(boost::any_cast<double>(m["P2pBps"]));
+    }
+    if (m.find("P2pCount") != m.end() && !m["P2pCount"].empty()) {
+      p2pCount = make_shared<long>(boost::any_cast<long>(m["P2pCount"]));
+    }
+    if (m.find("P2pTraffic") != m.end() && !m["P2pTraffic"].empty()) {
+      p2pTraffic = make_shared<double>(boost::any_cast<double>(m["P2pTraffic"]));
+    }
+    if (m.find("RtmpBps") != m.end() && !m["RtmpBps"].empty()) {
+      rtmpBps = make_shared<double>(boost::any_cast<double>(m["RtmpBps"]));
+    }
+    if (m.find("RtmpCount") != m.end() && !m["RtmpCount"].empty()) {
+      rtmpCount = make_shared<long>(boost::any_cast<long>(m["RtmpCount"]));
+    }
+    if (m.find("RtmpTraffic") != m.end() && !m["RtmpTraffic"].empty()) {
+      rtmpTraffic = make_shared<double>(boost::any_cast<double>(m["RtmpTraffic"]));
+    }
+    if (m.find("RtsBps") != m.end() && !m["RtsBps"].empty()) {
+      rtsBps = make_shared<double>(boost::any_cast<double>(m["RtsBps"]));
+    }
+    if (m.find("RtsCount") != m.end() && !m["RtsCount"].empty()) {
+      rtsCount = make_shared<long>(boost::any_cast<long>(m["RtsCount"]));
+    }
+    if (m.find("RtsTraffic") != m.end() && !m["RtsTraffic"].empty()) {
+      rtsTraffic = make_shared<double>(boost::any_cast<double>(m["RtsTraffic"]));
+    }
+    if (m.find("StreamName") != m.end() && !m["StreamName"].empty()) {
+      streamName = make_shared<string>(boost::any_cast<string>(m["StreamName"]));
+    }
+    if (m.find("TimeStamp") != m.end() && !m["TimeStamp"].empty()) {
+      timeStamp = make_shared<string>(boost::any_cast<string>(m["TimeStamp"]));
+    }
+    if (m.find("Traffic") != m.end() && !m["Traffic"].empty()) {
+      traffic = make_shared<double>(boost::any_cast<double>(m["Traffic"]));
+    }
+  }
+
+
+  virtual ~DescribeLiveUserStreamMetricDataResponseBodyStreamDetailData() = default;
+};
+class DescribeLiveUserStreamMetricDataResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> domainName{};
+  shared_ptr<string> endTime{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> startTime{};
+  shared_ptr<vector<DescribeLiveUserStreamMetricDataResponseBodyStreamDetailData>> streamDetailData{};
+  shared_ptr<long> totalCount{};
+
+  DescribeLiveUserStreamMetricDataResponseBody() {}
+
+  explicit DescribeLiveUserStreamMetricDataResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (streamDetailData) {
+      vector<boost::any> temp1;
+      for(auto item1:*streamDetailData){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["StreamDetailData"] = boost::any(temp1);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("StreamDetailData") != m.end() && !m["StreamDetailData"].empty()) {
+      if (typeid(vector<boost::any>) == m["StreamDetailData"].type()) {
+        vector<DescribeLiveUserStreamMetricDataResponseBodyStreamDetailData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["StreamDetailData"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeLiveUserStreamMetricDataResponseBodyStreamDetailData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        streamDetailData = make_shared<vector<DescribeLiveUserStreamMetricDataResponseBodyStreamDetailData>>(expect1);
+      }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeLiveUserStreamMetricDataResponseBody() = default;
+};
+class DescribeLiveUserStreamMetricDataResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeLiveUserStreamMetricDataResponseBody> body{};
+
+  DescribeLiveUserStreamMetricDataResponse() {}
+
+  explicit DescribeLiveUserStreamMetricDataResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeLiveUserStreamMetricDataResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeLiveUserStreamMetricDataResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeLiveUserStreamMetricDataResponse() = default;
 };
 class DescribeLiveUserTagsRequest : public Darabonba::Model {
 public:
@@ -98846,6 +99244,8 @@ public:
   DescribeLiveUserBillPredictionResponse describeLiveUserBillPrediction(shared_ptr<DescribeLiveUserBillPredictionRequest> request);
   DescribeLiveUserDomainsResponse describeLiveUserDomainsWithOptions(shared_ptr<DescribeLiveUserDomainsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeLiveUserDomainsResponse describeLiveUserDomains(shared_ptr<DescribeLiveUserDomainsRequest> request);
+  DescribeLiveUserStreamMetricDataResponse describeLiveUserStreamMetricDataWithOptions(shared_ptr<DescribeLiveUserStreamMetricDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeLiveUserStreamMetricDataResponse describeLiveUserStreamMetricData(shared_ptr<DescribeLiveUserStreamMetricDataRequest> request);
   DescribeLiveUserTagsResponse describeLiveUserTagsWithOptions(shared_ptr<DescribeLiveUserTagsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeLiveUserTagsResponse describeLiveUserTags(shared_ptr<DescribeLiveUserTagsRequest> request);
   DescribeLiveUserTrafficLogResponse describeLiveUserTrafficLogWithOptions(shared_ptr<DescribeLiveUserTrafficLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
