@@ -1634,6 +1634,7 @@ public:
   shared_ptr<string> imageId{};
   shared_ptr<string> imageType{};
   shared_ptr<string> instanceChargeType{};
+  shared_ptr<InstanceMetadataOptions> instanceMetadataOptions{};
   shared_ptr<vector<string>> instanceTypes{};
   shared_ptr<string> internetChargeType{};
   shared_ptr<long> internetMaxBandwidthOut{};
@@ -1708,6 +1709,9 @@ public:
     }
     if (instanceChargeType) {
       res["instance_charge_type"] = boost::any(*instanceChargeType);
+    }
+    if (instanceMetadataOptions) {
+      res["instance_metadata_options"] = instanceMetadataOptions ? boost::any(instanceMetadataOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (instanceTypes) {
       res["instance_types"] = boost::any(*instanceTypes);
@@ -1856,6 +1860,13 @@ public:
     }
     if (m.find("instance_charge_type") != m.end() && !m["instance_charge_type"].empty()) {
       instanceChargeType = make_shared<string>(boost::any_cast<string>(m["instance_charge_type"]));
+    }
+    if (m.find("instance_metadata_options") != m.end() && !m["instance_metadata_options"].empty()) {
+      if (typeid(map<string, boost::any>) == m["instance_metadata_options"].type()) {
+        InstanceMetadataOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["instance_metadata_options"]));
+        instanceMetadataOptions = make_shared<InstanceMetadataOptions>(model1);
+      }
     }
     if (m.find("instance_types") != m.end() && !m["instance_types"].empty()) {
       vector<string> toVec1;
@@ -3834,6 +3845,7 @@ public:
   shared_ptr<string> deploymentsetId{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageType{};
+  shared_ptr<InstanceMetadataOptions> instanceMetadataOptions{};
   shared_ptr<vector<string>> instanceTypes{};
   shared_ptr<string> keyPair{};
   shared_ptr<string> loginPassword{};
@@ -3884,6 +3896,9 @@ public:
     }
     if (imageType) {
       res["image_type"] = boost::any(*imageType);
+    }
+    if (instanceMetadataOptions) {
+      res["instance_metadata_options"] = instanceMetadataOptions ? boost::any(instanceMetadataOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (instanceTypes) {
       res["instance_types"] = boost::any(*instanceTypes);
@@ -3960,6 +3975,13 @@ public:
     }
     if (m.find("image_type") != m.end() && !m["image_type"].empty()) {
       imageType = make_shared<string>(boost::any_cast<string>(m["image_type"]));
+    }
+    if (m.find("instance_metadata_options") != m.end() && !m["instance_metadata_options"].empty()) {
+      if (typeid(map<string, boost::any>) == m["instance_metadata_options"].type()) {
+        InstanceMetadataOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["instance_metadata_options"]));
+        instanceMetadataOptions = make_shared<InstanceMetadataOptions>(model1);
+      }
     }
     if (m.find("instance_types") != m.end() && !m["instance_types"].empty()) {
       vector<string> toVec1;
@@ -6224,6 +6246,7 @@ public:
   shared_ptr<string> imageId{};
   shared_ptr<string> imageType{};
   shared_ptr<string> instanceChargeType{};
+  shared_ptr<InstanceMetadataOptions> instanceMetadataOptions{};
   shared_ptr<vector<InstancePatterns>> instancePatterns{};
   shared_ptr<vector<string>> instanceTypes{};
   shared_ptr<string> internetChargeType{};
@@ -6304,6 +6327,9 @@ public:
     }
     if (instanceChargeType) {
       res["instance_charge_type"] = boost::any(*instanceChargeType);
+    }
+    if (instanceMetadataOptions) {
+      res["instance_metadata_options"] = instanceMetadataOptions ? boost::any(instanceMetadataOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (instancePatterns) {
       vector<boost::any> temp1;
@@ -6468,6 +6494,13 @@ public:
     }
     if (m.find("instance_charge_type") != m.end() && !m["instance_charge_type"].empty()) {
       instanceChargeType = make_shared<string>(boost::any_cast<string>(m["instance_charge_type"]));
+    }
+    if (m.find("instance_metadata_options") != m.end() && !m["instance_metadata_options"].empty()) {
+      if (typeid(map<string, boost::any>) == m["instance_metadata_options"].type()) {
+        InstanceMetadataOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["instance_metadata_options"]));
+        instanceMetadataOptions = make_shared<InstanceMetadataOptions>(model1);
+      }
     }
     if (m.find("instance_patterns") != m.end() && !m["instance_patterns"].empty()) {
       if (typeid(vector<boost::any>) == m["instance_patterns"].type()) {
@@ -10096,6 +10129,7 @@ public:
   shared_ptr<string> deploymentsetId{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageType{};
+  shared_ptr<InstanceMetadataOptions> instanceMetadataOptions{};
   shared_ptr<vector<string>> instanceTypes{};
   shared_ptr<string> keyPair{};
   shared_ptr<string> nodePortRange{};
@@ -10145,6 +10179,9 @@ public:
     }
     if (imageType) {
       res["image_type"] = boost::any(*imageType);
+    }
+    if (instanceMetadataOptions) {
+      res["instance_metadata_options"] = instanceMetadataOptions ? boost::any(instanceMetadataOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (instanceTypes) {
       res["instance_types"] = boost::any(*instanceTypes);
@@ -10218,6 +10255,13 @@ public:
     }
     if (m.find("image_type") != m.end() && !m["image_type"].empty()) {
       imageType = make_shared<string>(boost::any_cast<string>(m["image_type"]));
+    }
+    if (m.find("instance_metadata_options") != m.end() && !m["instance_metadata_options"].empty()) {
+      if (typeid(map<string, boost::any>) == m["instance_metadata_options"].type()) {
+        InstanceMetadataOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["instance_metadata_options"]));
+        instanceMetadataOptions = make_shared<InstanceMetadataOptions>(model1);
+      }
     }
     if (m.find("instance_types") != m.end() && !m["instance_types"].empty()) {
       vector<string> toVec1;
@@ -11894,6 +11938,7 @@ public:
   shared_ptr<string> imageId{};
   shared_ptr<string> imageType{};
   shared_ptr<string> instanceChargeType{};
+  shared_ptr<InstanceMetadataOptions> instanceMetadataOptions{};
   shared_ptr<vector<InstancePatterns>> instancePatterns{};
   shared_ptr<vector<string>> instanceTypes{};
   shared_ptr<string> internetChargeType{};
@@ -11976,6 +12021,9 @@ public:
     }
     if (instanceChargeType) {
       res["instance_charge_type"] = boost::any(*instanceChargeType);
+    }
+    if (instanceMetadataOptions) {
+      res["instance_metadata_options"] = instanceMetadataOptions ? boost::any(instanceMetadataOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (instancePatterns) {
       vector<boost::any> temp1;
@@ -12146,6 +12194,13 @@ public:
     }
     if (m.find("instance_charge_type") != m.end() && !m["instance_charge_type"].empty()) {
       instanceChargeType = make_shared<string>(boost::any_cast<string>(m["instance_charge_type"]));
+    }
+    if (m.find("instance_metadata_options") != m.end() && !m["instance_metadata_options"].empty()) {
+      if (typeid(map<string, boost::any>) == m["instance_metadata_options"].type()) {
+        InstanceMetadataOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["instance_metadata_options"]));
+        instanceMetadataOptions = make_shared<InstanceMetadataOptions>(model1);
+      }
     }
     if (m.find("instance_patterns") != m.end() && !m["instance_patterns"].empty()) {
       if (typeid(vector<boost::any>) == m["instance_patterns"].type()) {
