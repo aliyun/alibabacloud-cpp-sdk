@@ -2058,6 +2058,9 @@ DescribeApisecRulesResponse Alibabacloud_Waf-openapi20211001::Client::describeAp
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->level)) {
     query->insert(pair<string, string>("Level", *request->level));
   }
@@ -2245,6 +2248,9 @@ DescribeApisecStatisticsResponse Alibabacloud_Waf-openapi20211001::Client::descr
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("ClusterId", *request->clusterId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    query->insert(pair<string, long>("EndTime", *request->endTime));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
@@ -2254,8 +2260,14 @@ DescribeApisecStatisticsResponse Alibabacloud_Waf-openapi20211001::Client::descr
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceManagerResourceGroupId)) {
     query->insert(pair<string, string>("ResourceManagerResourceGroupId", *request->resourceManagerResourceGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    query->insert(pair<string, long>("StartTime", *request->startTime));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     query->insert(pair<string, string>("Type", *request->type));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->userStatusList)) {
+    query->insert(pair<string, vector<string>>("UserStatusList", *request->userStatusList));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -5854,6 +5866,9 @@ DescribeUserAbnormalTypeResponse Alibabacloud_Waf-openapi20211001::Client::descr
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     query->insert(pair<string, long>("StartTime", *request->startTime));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->userStatusList)) {
+    query->insert(pair<string, vector<string>>("UserStatusList", *request->userStatusList));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -6025,6 +6040,9 @@ DescribeUserEventTypeResponse Alibabacloud_Waf-openapi20211001::Client::describe
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     query->insert(pair<string, long>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->userStatusList)) {
+    query->insert(pair<string, vector<string>>("UserStatusList", *request->userStatusList));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

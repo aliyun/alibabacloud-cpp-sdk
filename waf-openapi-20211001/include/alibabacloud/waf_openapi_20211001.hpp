@@ -9370,6 +9370,7 @@ public:
 class DescribeApisecRulesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
+  shared_ptr<string> lang{};
   shared_ptr<string> level{};
   shared_ptr<string> name{};
   shared_ptr<string> origin{};
@@ -9392,6 +9393,9 @@ public:
     map<string, boost::any> res;
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
     }
     if (level) {
       res["Level"] = boost::any(*level);
@@ -9426,6 +9430,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
     }
     if (m.find("Level") != m.end() && !m["Level"].empty()) {
       level = make_shared<string>(boost::any_cast<string>(m["Level"]));
@@ -10183,10 +10190,13 @@ public:
 class DescribeApisecStatisticsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
+  shared_ptr<long> endTime{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceManagerResourceGroupId{};
+  shared_ptr<long> startTime{};
   shared_ptr<string> type{};
+  shared_ptr<vector<string>> userStatusList{};
 
   DescribeApisecStatisticsRequest() {}
 
@@ -10201,6 +10211,9 @@ public:
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -10210,8 +10223,14 @@ public:
     if (resourceManagerResourceGroupId) {
       res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
     }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
+    }
+    if (userStatusList) {
+      res["UserStatusList"] = boost::any(*userStatusList);
     }
     return res;
   }
@@ -10219,6 +10238,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
@@ -10229,8 +10251,21 @@ public:
     if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
       resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
     }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("UserStatusList") != m.end() && !m["UserStatusList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["UserStatusList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["UserStatusList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      userStatusList = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -10248,8 +10283,11 @@ public:
   shared_ptr<long> ignore{};
   shared_ptr<long> low{};
   shared_ptr<long> medium{};
+  shared_ptr<long> notFixed{};
+  shared_ptr<long> systemFixed{};
   shared_ptr<long> toBeConfirmed{};
   shared_ptr<long> toBeFixed{};
+  shared_ptr<long> toBeVerified{};
   shared_ptr<string> todayHigh{};
   shared_ptr<long> todayLow{};
   shared_ptr<string> todayMedium{};
@@ -10293,11 +10331,20 @@ public:
     if (medium) {
       res["Medium"] = boost::any(*medium);
     }
+    if (notFixed) {
+      res["NotFixed"] = boost::any(*notFixed);
+    }
+    if (systemFixed) {
+      res["SystemFixed"] = boost::any(*systemFixed);
+    }
     if (toBeConfirmed) {
       res["ToBeConfirmed"] = boost::any(*toBeConfirmed);
     }
     if (toBeFixed) {
       res["ToBeFixed"] = boost::any(*toBeFixed);
+    }
+    if (toBeVerified) {
+      res["ToBeVerified"] = boost::any(*toBeVerified);
     }
     if (todayHigh) {
       res["TodayHigh"] = boost::any(*todayHigh);
@@ -10345,11 +10392,20 @@ public:
     if (m.find("Medium") != m.end() && !m["Medium"].empty()) {
       medium = make_shared<long>(boost::any_cast<long>(m["Medium"]));
     }
+    if (m.find("NotFixed") != m.end() && !m["NotFixed"].empty()) {
+      notFixed = make_shared<long>(boost::any_cast<long>(m["NotFixed"]));
+    }
+    if (m.find("SystemFixed") != m.end() && !m["SystemFixed"].empty()) {
+      systemFixed = make_shared<long>(boost::any_cast<long>(m["SystemFixed"]));
+    }
     if (m.find("ToBeConfirmed") != m.end() && !m["ToBeConfirmed"].empty()) {
       toBeConfirmed = make_shared<long>(boost::any_cast<long>(m["ToBeConfirmed"]));
     }
     if (m.find("ToBeFixed") != m.end() && !m["ToBeFixed"].empty()) {
       toBeFixed = make_shared<long>(boost::any_cast<long>(m["ToBeFixed"]));
+    }
+    if (m.find("ToBeVerified") != m.end() && !m["ToBeVerified"].empty()) {
+      toBeVerified = make_shared<long>(boost::any_cast<long>(m["ToBeVerified"]));
     }
     if (m.find("TodayHigh") != m.end() && !m["TodayHigh"].empty()) {
       todayHigh = make_shared<string>(boost::any_cast<string>(m["TodayHigh"]));
@@ -10748,6 +10804,7 @@ public:
   shared_ptr<string> fromStatus{};
   shared_ptr<string> note{};
   shared_ptr<string> objectId{};
+  shared_ptr<string> operationSource{};
   shared_ptr<long> time{};
   shared_ptr<string> toStatus{};
   shared_ptr<string> type{};
@@ -10771,6 +10828,9 @@ public:
     }
     if (objectId) {
       res["ObjectId"] = boost::any(*objectId);
+    }
+    if (operationSource) {
+      res["OperationSource"] = boost::any(*operationSource);
     }
     if (time) {
       res["Time"] = boost::any(*time);
@@ -10796,6 +10856,9 @@ public:
     }
     if (m.find("ObjectId") != m.end() && !m["ObjectId"].empty()) {
       objectId = make_shared<string>(boost::any_cast<string>(m["ObjectId"]));
+    }
+    if (m.find("OperationSource") != m.end() && !m["OperationSource"].empty()) {
+      operationSource = make_shared<string>(boost::any_cast<string>(m["OperationSource"]));
     }
     if (m.find("Time") != m.end() && !m["Time"].empty()) {
       time = make_shared<long>(boost::any_cast<long>(m["Time"]));
@@ -32415,6 +32478,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceManagerResourceGroupId{};
   shared_ptr<long> startTime{};
+  shared_ptr<vector<string>> userStatusList{};
 
   DescribeUserAbnormalTypeRequest() {}
 
@@ -32444,6 +32508,9 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
+    if (userStatusList) {
+      res["UserStatusList"] = boost::any(*userStatusList);
+    }
     return res;
   }
 
@@ -32465,6 +32532,16 @@ public:
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("UserStatusList") != m.end() && !m["UserStatusList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["UserStatusList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["UserStatusList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      userStatusList = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -33258,6 +33335,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceManagerResourceGroupId{};
   shared_ptr<long> startTime{};
+  shared_ptr<vector<string>> userStatusList{};
 
   DescribeUserEventTypeRequest() {}
 
@@ -33287,6 +33365,9 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
+    if (userStatusList) {
+      res["UserStatusList"] = boost::any(*userStatusList);
+    }
     return res;
   }
 
@@ -33308,6 +33389,16 @@ public:
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("UserStatusList") != m.end() && !m["UserStatusList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["UserStatusList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["UserStatusList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      userStatusList = make_shared<vector<string>>(toVec1);
     }
   }
 
