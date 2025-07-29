@@ -92,6 +92,9 @@ CreateJobResponse Alibabacloud_EhpcInstant20230701::Client::createJobWithOptions
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateJobShrinkRequest> request = make_shared<CreateJobShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateJobRequestDependencyPolicy>(tmpReq->dependencyPolicy)) {
+    request->dependencyPolicyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->dependencyPolicy, make_shared<string>("DependencyPolicy"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<CreateJobRequestDeploymentPolicy>(tmpReq->deploymentPolicy)) {
     request->deploymentPolicyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->deploymentPolicy, make_shared<string>("DeploymentPolicy"), make_shared<string>("json")));
   }
@@ -102,6 +105,9 @@ CreateJobResponse Alibabacloud_EhpcInstant20230701::Client::createJobWithOptions
     request->tasksShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tasks, make_shared<string>("Tasks"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dependencyPolicyShrink)) {
+    query->insert(pair<string, string>("DependencyPolicy", *request->dependencyPolicyShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->deploymentPolicyShrink)) {
     query->insert(pair<string, string>("DeploymentPolicy", *request->deploymentPolicyShrink));
   }

@@ -377,6 +377,85 @@ public:
 
   virtual ~AddImageResponse() = default;
 };
+class CreateJobRequestDependencyPolicyJobDependency : public Darabonba::Model {
+public:
+  shared_ptr<string> jobId{};
+  shared_ptr<string> type{};
+
+  CreateJobRequestDependencyPolicyJobDependency() {}
+
+  explicit CreateJobRequestDependencyPolicyJobDependency(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreateJobRequestDependencyPolicyJobDependency() = default;
+};
+class CreateJobRequestDependencyPolicy : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateJobRequestDependencyPolicyJobDependency>> jobDependency{};
+
+  CreateJobRequestDependencyPolicy() {}
+
+  explicit CreateJobRequestDependencyPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobDependency) {
+      vector<boost::any> temp1;
+      for(auto item1:*jobDependency){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["JobDependency"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobDependency") != m.end() && !m["JobDependency"].empty()) {
+      if (typeid(vector<boost::any>) == m["JobDependency"].type()) {
+        vector<CreateJobRequestDependencyPolicyJobDependency> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["JobDependency"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateJobRequestDependencyPolicyJobDependency model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        jobDependency = make_shared<vector<CreateJobRequestDependencyPolicyJobDependency>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateJobRequestDependencyPolicy() = default;
+};
 class CreateJobRequestDeploymentPolicyNetwork : public Darabonba::Model {
 public:
   shared_ptr<bool> enableExternalIpAddress{};
@@ -797,6 +876,92 @@ public:
 
   virtual ~CreateJobRequestTasksTaskSpecResource() = default;
 };
+class CreateJobRequestTasksTaskSpecRetryPolicyExitCodeActions : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<long> exitCode{};
+
+  CreateJobRequestTasksTaskSpecRetryPolicyExitCodeActions() {}
+
+  explicit CreateJobRequestTasksTaskSpecRetryPolicyExitCodeActions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (exitCode) {
+      res["ExitCode"] = boost::any(*exitCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ExitCode") != m.end() && !m["ExitCode"].empty()) {
+      exitCode = make_shared<long>(boost::any_cast<long>(m["ExitCode"]));
+    }
+  }
+
+
+  virtual ~CreateJobRequestTasksTaskSpecRetryPolicyExitCodeActions() = default;
+};
+class CreateJobRequestTasksTaskSpecRetryPolicy : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateJobRequestTasksTaskSpecRetryPolicyExitCodeActions>> exitCodeActions{};
+  shared_ptr<long> retryCount{};
+
+  CreateJobRequestTasksTaskSpecRetryPolicy() {}
+
+  explicit CreateJobRequestTasksTaskSpecRetryPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (exitCodeActions) {
+      vector<boost::any> temp1;
+      for(auto item1:*exitCodeActions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExitCodeActions"] = boost::any(temp1);
+    }
+    if (retryCount) {
+      res["RetryCount"] = boost::any(*retryCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExitCodeActions") != m.end() && !m["ExitCodeActions"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExitCodeActions"].type()) {
+        vector<CreateJobRequestTasksTaskSpecRetryPolicyExitCodeActions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExitCodeActions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateJobRequestTasksTaskSpecRetryPolicyExitCodeActions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        exitCodeActions = make_shared<vector<CreateJobRequestTasksTaskSpecRetryPolicyExitCodeActions>>(expect1);
+      }
+    }
+    if (m.find("RetryCount") != m.end() && !m["RetryCount"].empty()) {
+      retryCount = make_shared<long>(boost::any_cast<long>(m["RetryCount"]));
+    }
+  }
+
+
+  virtual ~CreateJobRequestTasksTaskSpecRetryPolicy() = default;
+};
 class CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -1079,6 +1244,7 @@ public:
 class CreateJobRequestTasksTaskSpec : public Darabonba::Model {
 public:
   shared_ptr<CreateJobRequestTasksTaskSpecResource> resource{};
+  shared_ptr<CreateJobRequestTasksTaskSpecRetryPolicy> retryPolicy{};
   shared_ptr<vector<CreateJobRequestTasksTaskSpecTaskExecutor>> taskExecutor{};
   shared_ptr<vector<CreateJobRequestTasksTaskSpecVolumeMount>> volumeMount{};
 
@@ -1094,6 +1260,9 @@ public:
     map<string, boost::any> res;
     if (resource) {
       res["Resource"] = resource ? boost::any(resource->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (retryPolicy) {
+      res["RetryPolicy"] = retryPolicy ? boost::any(retryPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (taskExecutor) {
       vector<boost::any> temp1;
@@ -1118,6 +1287,13 @@ public:
         CreateJobRequestTasksTaskSpecResource model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Resource"]));
         resource = make_shared<CreateJobRequestTasksTaskSpecResource>(model1);
+      }
+    }
+    if (m.find("RetryPolicy") != m.end() && !m["RetryPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RetryPolicy"].type()) {
+        CreateJobRequestTasksTaskSpecRetryPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RetryPolicy"]));
+        retryPolicy = make_shared<CreateJobRequestTasksTaskSpecRetryPolicy>(model1);
       }
     }
     if (m.find("TaskExecutor") != m.end() && !m["TaskExecutor"].empty()) {
@@ -1211,6 +1387,7 @@ public:
 };
 class CreateJobRequest : public Darabonba::Model {
 public:
+  shared_ptr<CreateJobRequestDependencyPolicy> dependencyPolicy{};
   shared_ptr<CreateJobRequestDeploymentPolicy> deploymentPolicy{};
   shared_ptr<string> jobDescription{};
   shared_ptr<string> jobName{};
@@ -1228,6 +1405,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dependencyPolicy) {
+      res["DependencyPolicy"] = dependencyPolicy ? boost::any(dependencyPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (deploymentPolicy) {
       res["DeploymentPolicy"] = deploymentPolicy ? boost::any(deploymentPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -1254,6 +1434,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DependencyPolicy") != m.end() && !m["DependencyPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DependencyPolicy"].type()) {
+        CreateJobRequestDependencyPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DependencyPolicy"]));
+        dependencyPolicy = make_shared<CreateJobRequestDependencyPolicy>(model1);
+      }
+    }
     if (m.find("DeploymentPolicy") != m.end() && !m["DeploymentPolicy"].empty()) {
       if (typeid(map<string, boost::any>) == m["DeploymentPolicy"].type()) {
         CreateJobRequestDeploymentPolicy model1;
@@ -1297,6 +1484,7 @@ public:
 };
 class CreateJobShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> dependencyPolicyShrink{};
   shared_ptr<string> deploymentPolicyShrink{};
   shared_ptr<string> jobDescription{};
   shared_ptr<string> jobName{};
@@ -1314,6 +1502,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dependencyPolicyShrink) {
+      res["DependencyPolicy"] = boost::any(*dependencyPolicyShrink);
+    }
     if (deploymentPolicyShrink) {
       res["DeploymentPolicy"] = boost::any(*deploymentPolicyShrink);
     }
@@ -1336,6 +1527,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DependencyPolicy") != m.end() && !m["DependencyPolicy"].empty()) {
+      dependencyPolicyShrink = make_shared<string>(boost::any_cast<string>(m["DependencyPolicy"]));
+    }
     if (m.find("DeploymentPolicy") != m.end() && !m["DeploymentPolicy"].empty()) {
       deploymentPolicyShrink = make_shared<string>(boost::any_cast<string>(m["DeploymentPolicy"]));
     }
@@ -3400,6 +3594,85 @@ public:
 
   virtual ~GetJobRequest() = default;
 };
+class GetJobResponseBodyJobInfoDependencyPolicyJobDependency : public Darabonba::Model {
+public:
+  shared_ptr<string> jobId{};
+  shared_ptr<string> type{};
+
+  GetJobResponseBodyJobInfoDependencyPolicyJobDependency() {}
+
+  explicit GetJobResponseBodyJobInfoDependencyPolicyJobDependency(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~GetJobResponseBodyJobInfoDependencyPolicyJobDependency() = default;
+};
+class GetJobResponseBodyJobInfoDependencyPolicy : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetJobResponseBodyJobInfoDependencyPolicyJobDependency>> jobDependency{};
+
+  GetJobResponseBodyJobInfoDependencyPolicy() {}
+
+  explicit GetJobResponseBodyJobInfoDependencyPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobDependency) {
+      vector<boost::any> temp1;
+      for(auto item1:*jobDependency){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["JobDependency"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobDependency") != m.end() && !m["JobDependency"].empty()) {
+      if (typeid(vector<boost::any>) == m["JobDependency"].type()) {
+        vector<GetJobResponseBodyJobInfoDependencyPolicyJobDependency> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["JobDependency"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetJobResponseBodyJobInfoDependencyPolicyJobDependency model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        jobDependency = make_shared<vector<GetJobResponseBodyJobInfoDependencyPolicyJobDependency>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetJobResponseBodyJobInfoDependencyPolicy() = default;
+};
 class GetJobResponseBodyJobInfoDeploymentPolicyNetwork : public Darabonba::Model {
 public:
   shared_ptr<bool> enableENIMapping{};
@@ -3808,6 +4081,92 @@ public:
 
   virtual ~GetJobResponseBodyJobInfoTasksTaskSpecResource() = default;
 };
+class GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicyExitCodeActions : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<long> exitCode{};
+
+  GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicyExitCodeActions() {}
+
+  explicit GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicyExitCodeActions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (exitCode) {
+      res["ExitCode"] = boost::any(*exitCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ExitCode") != m.end() && !m["ExitCode"].empty()) {
+      exitCode = make_shared<long>(boost::any_cast<long>(m["ExitCode"]));
+    }
+  }
+
+
+  virtual ~GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicyExitCodeActions() = default;
+};
+class GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicy : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicyExitCodeActions>> exitCodeActions{};
+  shared_ptr<long> retryCount{};
+
+  GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicy() {}
+
+  explicit GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (exitCodeActions) {
+      vector<boost::any> temp1;
+      for(auto item1:*exitCodeActions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExitCodeActions"] = boost::any(temp1);
+    }
+    if (retryCount) {
+      res["RetryCount"] = boost::any(*retryCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExitCodeActions") != m.end() && !m["ExitCodeActions"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExitCodeActions"].type()) {
+        vector<GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicyExitCodeActions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExitCodeActions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicyExitCodeActions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        exitCodeActions = make_shared<vector<GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicyExitCodeActions>>(expect1);
+      }
+    }
+    if (m.find("RetryCount") != m.end() && !m["RetryCount"].empty()) {
+      retryCount = make_shared<long>(boost::any_cast<long>(m["RetryCount"]));
+    }
+  }
+
+
+  virtual ~GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicy() = default;
+};
 class GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutorVM : public Darabonba::Model {
 public:
   shared_ptr<string> image{};
@@ -3894,6 +4253,7 @@ public:
 class GetJobResponseBodyJobInfoTasksTaskSpec : public Darabonba::Model {
 public:
   shared_ptr<GetJobResponseBodyJobInfoTasksTaskSpecResource> resource{};
+  shared_ptr<GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicy> retryPolicy{};
   shared_ptr<vector<GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutor>> taskExecutor{};
 
   GetJobResponseBodyJobInfoTasksTaskSpec() {}
@@ -3908,6 +4268,9 @@ public:
     map<string, boost::any> res;
     if (resource) {
       res["Resource"] = resource ? boost::any(resource->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (retryPolicy) {
+      res["RetryPolicy"] = retryPolicy ? boost::any(retryPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (taskExecutor) {
       vector<boost::any> temp1;
@@ -3925,6 +4288,13 @@ public:
         GetJobResponseBodyJobInfoTasksTaskSpecResource model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Resource"]));
         resource = make_shared<GetJobResponseBodyJobInfoTasksTaskSpecResource>(model1);
+      }
+    }
+    if (m.find("RetryPolicy") != m.end() && !m["RetryPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RetryPolicy"].type()) {
+        GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RetryPolicy"]));
+        retryPolicy = make_shared<GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicy>(model1);
       }
     }
     if (m.find("TaskExecutor") != m.end() && !m["TaskExecutor"].empty()) {
@@ -4028,6 +4398,7 @@ class GetJobResponseBodyJobInfo : public Darabonba::Model {
 public:
   shared_ptr<string> appExtraInfo{};
   shared_ptr<string> createTime{};
+  shared_ptr<GetJobResponseBodyJobInfoDependencyPolicy> dependencyPolicy{};
   shared_ptr<GetJobResponseBodyJobInfoDeploymentPolicy> deploymentPolicy{};
   shared_ptr<string> endTime{};
   shared_ptr<string> jobDescription{};
@@ -4053,6 +4424,9 @@ public:
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (dependencyPolicy) {
+      res["DependencyPolicy"] = dependencyPolicy ? boost::any(dependencyPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (deploymentPolicy) {
       res["DeploymentPolicy"] = deploymentPolicy ? boost::any(deploymentPolicy->toMap()) : boost::any(map<string,boost::any>({}));
@@ -4094,6 +4468,13 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("DependencyPolicy") != m.end() && !m["DependencyPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DependencyPolicy"].type()) {
+        GetJobResponseBodyJobInfoDependencyPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DependencyPolicy"]));
+        dependencyPolicy = make_shared<GetJobResponseBodyJobInfoDependencyPolicy>(model1);
+      }
     }
     if (m.find("DeploymentPolicy") != m.end() && !m["DeploymentPolicy"].empty()) {
       if (typeid(map<string, boost::any>) == m["DeploymentPolicy"].type()) {
