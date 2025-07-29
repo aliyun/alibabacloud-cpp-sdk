@@ -14216,6 +14216,7 @@ public:
   shared_ptr<bool> enableSidecarResourceIsolated{};
   shared_ptr<string> envs{};
   shared_ptr<string> gpuConfig{};
+  shared_ptr<string> html{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
   shared_ptr<vector<InitContainerConfig>> initContainersConfig{};
@@ -14354,6 +14355,9 @@ public:
     }
     if (gpuConfig) {
       res["GpuConfig"] = boost::any(*gpuConfig);
+    }
+    if (html) {
+      res["Html"] = boost::any(*html);
     }
     if (imagePullSecrets) {
       res["ImagePullSecrets"] = boost::any(*imagePullSecrets);
@@ -14601,6 +14605,9 @@ public:
     if (m.find("GpuConfig") != m.end() && !m["GpuConfig"].empty()) {
       gpuConfig = make_shared<string>(boost::any_cast<string>(m["GpuConfig"]));
     }
+    if (m.find("Html") != m.end() && !m["Html"].empty()) {
+      html = make_shared<string>(boost::any_cast<string>(m["Html"]));
+    }
     if (m.find("ImagePullSecrets") != m.end() && !m["ImagePullSecrets"].empty()) {
       imagePullSecrets = make_shared<string>(boost::any_cast<string>(m["ImagePullSecrets"]));
     }
@@ -14812,6 +14819,7 @@ public:
   shared_ptr<bool> enableSidecarResourceIsolated{};
   shared_ptr<string> envs{};
   shared_ptr<string> gpuConfig{};
+  shared_ptr<string> html{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
   shared_ptr<string> initContainersConfigShrink{};
@@ -14950,6 +14958,9 @@ public:
     }
     if (gpuConfig) {
       res["GpuConfig"] = boost::any(*gpuConfig);
+    }
+    if (html) {
+      res["Html"] = boost::any(*html);
     }
     if (imagePullSecrets) {
       res["ImagePullSecrets"] = boost::any(*imagePullSecrets);
@@ -15188,6 +15199,9 @@ public:
     }
     if (m.find("GpuConfig") != m.end() && !m["GpuConfig"].empty()) {
       gpuConfig = make_shared<string>(boost::any_cast<string>(m["GpuConfig"]));
+    }
+    if (m.find("Html") != m.end() && !m["Html"].empty()) {
+      html = make_shared<string>(boost::any_cast<string>(m["Html"]));
     }
     if (m.find("ImagePullSecrets") != m.end() && !m["ImagePullSecrets"].empty()) {
       imagePullSecrets = make_shared<string>(boost::any_cast<string>(m["ImagePullSecrets"]));
@@ -21184,6 +21198,7 @@ public:
   shared_ptr<bool> enableSidecarResourceIsolated{};
   shared_ptr<string> envs{};
   shared_ptr<string> gpuConfig{};
+  shared_ptr<string> html{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
   shared_ptr<vector<InitContainerConfig>> initContainersConfig{};
@@ -21317,6 +21332,9 @@ public:
     }
     if (gpuConfig) {
       res["GpuConfig"] = boost::any(*gpuConfig);
+    }
+    if (html) {
+      res["Html"] = boost::any(*html);
     }
     if (imagePullSecrets) {
       res["ImagePullSecrets"] = boost::any(*imagePullSecrets);
@@ -21555,6 +21573,9 @@ public:
     if (m.find("GpuConfig") != m.end() && !m["GpuConfig"].empty()) {
       gpuConfig = make_shared<string>(boost::any_cast<string>(m["GpuConfig"]));
     }
+    if (m.find("Html") != m.end() && !m["Html"].empty()) {
+      html = make_shared<string>(boost::any_cast<string>(m["Html"]));
+    }
     if (m.find("ImagePullSecrets") != m.end() && !m["ImagePullSecrets"].empty()) {
       imagePullSecrets = make_shared<string>(boost::any_cast<string>(m["ImagePullSecrets"]));
     }
@@ -21759,6 +21780,7 @@ public:
   shared_ptr<bool> enableSidecarResourceIsolated{};
   shared_ptr<string> envs{};
   shared_ptr<string> gpuConfig{};
+  shared_ptr<string> html{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
   shared_ptr<string> initContainersConfigShrink{};
@@ -21892,6 +21914,9 @@ public:
     }
     if (gpuConfig) {
       res["GpuConfig"] = boost::any(*gpuConfig);
+    }
+    if (html) {
+      res["Html"] = boost::any(*html);
     }
     if (imagePullSecrets) {
       res["ImagePullSecrets"] = boost::any(*imagePullSecrets);
@@ -22121,6 +22146,9 @@ public:
     }
     if (m.find("GpuConfig") != m.end() && !m["GpuConfig"].empty()) {
       gpuConfig = make_shared<string>(boost::any_cast<string>(m["GpuConfig"]));
+    }
+    if (m.find("Html") != m.end() && !m["Html"].empty()) {
+      html = make_shared<string>(boost::any_cast<string>(m["Html"]));
     }
     if (m.find("ImagePullSecrets") != m.end() && !m["ImagePullSecrets"].empty()) {
       imagePullSecrets = make_shared<string>(boost::any_cast<string>(m["ImagePullSecrets"]));
@@ -23586,6 +23614,7 @@ public:
   shared_ptr<string> envs{};
   shared_ptr<string> gpuCount{};
   shared_ptr<string> gpuType{};
+  shared_ptr<string> html{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
   shared_ptr<vector<DescribeApplicationConfigResponseBodyDataInitContainersConfig>> initContainersConfig{};
@@ -23744,6 +23773,9 @@ public:
     }
     if (gpuType) {
       res["GpuType"] = boost::any(*gpuType);
+    }
+    if (html) {
+      res["Html"] = boost::any(*html);
     }
     if (imagePullSecrets) {
       res["ImagePullSecrets"] = boost::any(*imagePullSecrets);
@@ -24046,6 +24078,9 @@ public:
     }
     if (m.find("GpuType") != m.end() && !m["GpuType"].empty()) {
       gpuType = make_shared<string>(boost::any_cast<string>(m["GpuType"]));
+    }
+    if (m.find("Html") != m.end() && !m["Html"].empty()) {
+      html = make_shared<string>(boost::any_cast<string>(m["Html"]));
     }
     if (m.find("ImagePullSecrets") != m.end() && !m["ImagePullSecrets"].empty()) {
       imagePullSecrets = make_shared<string>(boost::any_cast<string>(m["ImagePullSecrets"]));

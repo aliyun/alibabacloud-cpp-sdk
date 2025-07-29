@@ -366,6 +366,9 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   if (!Darabonba_Util::Client::isUnset<string>(request->gpuConfig)) {
     query->insert(pair<string, string>("GpuConfig", *request->gpuConfig));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->html)) {
+    query->insert(pair<string, string>("Html", *request->html));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->imagePullSecrets)) {
     query->insert(pair<string, string>("ImagePullSecrets", *request->imagePullSecrets));
   }
@@ -1773,6 +1776,9 @@ DeployApplicationResponse Alibabacloud_Sae20190506::Client::deployApplicationWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gpuConfig)) {
     query->insert(pair<string, string>("GpuConfig", *request->gpuConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->html)) {
+    query->insert(pair<string, string>("Html", *request->html));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->imagePullSecrets)) {
     query->insert(pair<string, string>("ImagePullSecrets", *request->imagePullSecrets));
