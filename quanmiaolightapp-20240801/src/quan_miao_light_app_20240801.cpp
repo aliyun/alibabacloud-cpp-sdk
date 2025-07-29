@@ -1215,6 +1215,9 @@ RunVideoAnalysisResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runVideo
     request->videoRolesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->videoRoles, make_shared<string>("videoRoles"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->autoRoleRecognitionVideoUrl)) {
+    body->insert(pair<string, string>("autoRoleRecognitionVideoUrl", *request->autoRoleRecognitionVideoUrl));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->excludeGenerateOptionsShrink)) {
     body->insert(pair<string, string>("excludeGenerateOptions", *request->excludeGenerateOptionsShrink));
   }
@@ -1520,6 +1523,9 @@ SubmitVideoAnalysisTaskResponse Alibabacloud_QuanMiaoLightApp20240801::Client::s
     request->videoRolesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->videoRoles, make_shared<string>("videoRoles"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->autoRoleRecognitionVideoUrl)) {
+    body->insert(pair<string, string>("autoRoleRecognitionVideoUrl", *request->autoRoleRecognitionVideoUrl));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->deduplicationId)) {
     body->insert(pair<string, string>("deduplicationId", *request->deduplicationId));
   }

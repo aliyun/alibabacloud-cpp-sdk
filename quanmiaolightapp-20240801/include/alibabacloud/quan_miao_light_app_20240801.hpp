@@ -3185,6 +3185,170 @@ public:
 
   virtual ~GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResult() = default;
 };
+class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResultVideoRolesTimeIntervals : public Darabonba::Model {
+public:
+  shared_ptr<long> endTime{};
+  shared_ptr<long> startTime{};
+  shared_ptr<long> timestamp{};
+  shared_ptr<string> url{};
+
+  GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResultVideoRolesTimeIntervals() {}
+
+  explicit GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResultVideoRolesTimeIntervals(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    if (timestamp) {
+      res["timestamp"] = boost::any(*timestamp);
+    }
+    if (url) {
+      res["url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["endTime"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["startTime"]));
+    }
+    if (m.find("timestamp") != m.end() && !m["timestamp"].empty()) {
+      timestamp = make_shared<long>(boost::any_cast<long>(m["timestamp"]));
+    }
+    if (m.find("url") != m.end() && !m["url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["url"]));
+    }
+  }
+
+
+  virtual ~GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResultVideoRolesTimeIntervals() = default;
+};
+class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResultVideoRoles : public Darabonba::Model {
+public:
+  shared_ptr<bool> isAutoRecognition{};
+  shared_ptr<double> ratio{};
+  shared_ptr<string> roleInfo{};
+  shared_ptr<string> roleName{};
+  shared_ptr<vector<GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResultVideoRolesTimeIntervals>> timeIntervals{};
+
+  GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResultVideoRoles() {}
+
+  explicit GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResultVideoRoles(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (isAutoRecognition) {
+      res["isAutoRecognition"] = boost::any(*isAutoRecognition);
+    }
+    if (ratio) {
+      res["ratio"] = boost::any(*ratio);
+    }
+    if (roleInfo) {
+      res["roleInfo"] = boost::any(*roleInfo);
+    }
+    if (roleName) {
+      res["roleName"] = boost::any(*roleName);
+    }
+    if (timeIntervals) {
+      vector<boost::any> temp1;
+      for(auto item1:*timeIntervals){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["timeIntervals"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("isAutoRecognition") != m.end() && !m["isAutoRecognition"].empty()) {
+      isAutoRecognition = make_shared<bool>(boost::any_cast<bool>(m["isAutoRecognition"]));
+    }
+    if (m.find("ratio") != m.end() && !m["ratio"].empty()) {
+      ratio = make_shared<double>(boost::any_cast<double>(m["ratio"]));
+    }
+    if (m.find("roleInfo") != m.end() && !m["roleInfo"].empty()) {
+      roleInfo = make_shared<string>(boost::any_cast<string>(m["roleInfo"]));
+    }
+    if (m.find("roleName") != m.end() && !m["roleName"].empty()) {
+      roleName = make_shared<string>(boost::any_cast<string>(m["roleName"]));
+    }
+    if (m.find("timeIntervals") != m.end() && !m["timeIntervals"].empty()) {
+      if (typeid(vector<boost::any>) == m["timeIntervals"].type()) {
+        vector<GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResultVideoRolesTimeIntervals> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["timeIntervals"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResultVideoRolesTimeIntervals model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        timeIntervals = make_shared<vector<GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResultVideoRolesTimeIntervals>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResultVideoRoles() = default;
+};
+class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResult : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResultVideoRoles>> videoRoles{};
+
+  GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResult() {}
+
+  explicit GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (videoRoles) {
+      vector<boost::any> temp1;
+      for(auto item1:*videoRoles){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["videoRoles"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("videoRoles") != m.end() && !m["videoRoles"].empty()) {
+      if (typeid(vector<boost::any>) == m["videoRoles"].type()) {
+        vector<GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResultVideoRoles> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["videoRoles"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResultVideoRoles model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        videoRoles = make_shared<vector<GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResultVideoRoles>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResult() = default;
+};
 class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoTitleGenerateResultUsage : public Darabonba::Model {
 public:
   shared_ptr<long> inputTokens{};
@@ -3283,6 +3447,7 @@ public:
   shared_ptr<GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResult> videoGenerateResult{};
   shared_ptr<vector<GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResults>> videoGenerateResults{};
   shared_ptr<GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResult> videoMindMappingGenerateResult{};
+  shared_ptr<GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResult> videoRoleRecognitionResult{};
   shared_ptr<GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoTitleGenerateResult> videoTitleGenerateResult{};
 
   GetVideoAnalysisTaskResponseBodyDataPayloadOutput() {}
@@ -3316,6 +3481,9 @@ public:
     }
     if (videoMindMappingGenerateResult) {
       res["videoMindMappingGenerateResult"] = videoMindMappingGenerateResult ? boost::any(videoMindMappingGenerateResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (videoRoleRecognitionResult) {
+      res["videoRoleRecognitionResult"] = videoRoleRecognitionResult ? boost::any(videoRoleRecognitionResult->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (videoTitleGenerateResult) {
       res["videoTitleGenerateResult"] = videoTitleGenerateResult ? boost::any(videoTitleGenerateResult->toMap()) : boost::any(map<string,boost::any>({}));
@@ -3366,6 +3534,13 @@ public:
         GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResult model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["videoMindMappingGenerateResult"]));
         videoMindMappingGenerateResult = make_shared<GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResult>(model1);
+      }
+    }
+    if (m.find("videoRoleRecognitionResult") != m.end() && !m["videoRoleRecognitionResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["videoRoleRecognitionResult"].type()) {
+        GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["videoRoleRecognitionResult"]));
+        videoRoleRecognitionResult = make_shared<GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResult>(model1);
       }
     }
     if (m.find("videoTitleGenerateResult") != m.end() && !m["videoTitleGenerateResult"].empty()) {
@@ -11404,10 +11579,48 @@ public:
 
   virtual ~RunVideoAnalysisRequestVideoCaptionInfo() = default;
 };
+class RunVideoAnalysisRequestVideoRolesTimeIntervals : public Darabonba::Model {
+public:
+  shared_ptr<long> endTime{};
+  shared_ptr<long> startTime{};
+
+  RunVideoAnalysisRequestVideoRolesTimeIntervals() {}
+
+  explicit RunVideoAnalysisRequestVideoRolesTimeIntervals(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["endTime"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["startTime"]));
+    }
+  }
+
+
+  virtual ~RunVideoAnalysisRequestVideoRolesTimeIntervals() = default;
+};
 class RunVideoAnalysisRequestVideoRoles : public Darabonba::Model {
 public:
+  shared_ptr<bool> isAutoRecognition{};
   shared_ptr<string> roleInfo{};
   shared_ptr<string> roleName{};
+  shared_ptr<vector<RunVideoAnalysisRequestVideoRolesTimeIntervals>> timeIntervals{};
   shared_ptr<vector<string>> urls{};
 
   RunVideoAnalysisRequestVideoRoles() {}
@@ -11420,11 +11633,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (isAutoRecognition) {
+      res["isAutoRecognition"] = boost::any(*isAutoRecognition);
+    }
     if (roleInfo) {
       res["roleInfo"] = boost::any(*roleInfo);
     }
     if (roleName) {
       res["roleName"] = boost::any(*roleName);
+    }
+    if (timeIntervals) {
+      vector<boost::any> temp1;
+      for(auto item1:*timeIntervals){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["timeIntervals"] = boost::any(temp1);
     }
     if (urls) {
       res["urls"] = boost::any(*urls);
@@ -11433,11 +11656,27 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("isAutoRecognition") != m.end() && !m["isAutoRecognition"].empty()) {
+      isAutoRecognition = make_shared<bool>(boost::any_cast<bool>(m["isAutoRecognition"]));
+    }
     if (m.find("roleInfo") != m.end() && !m["roleInfo"].empty()) {
       roleInfo = make_shared<string>(boost::any_cast<string>(m["roleInfo"]));
     }
     if (m.find("roleName") != m.end() && !m["roleName"].empty()) {
       roleName = make_shared<string>(boost::any_cast<string>(m["roleName"]));
+    }
+    if (m.find("timeIntervals") != m.end() && !m["timeIntervals"].empty()) {
+      if (typeid(vector<boost::any>) == m["timeIntervals"].type()) {
+        vector<RunVideoAnalysisRequestVideoRolesTimeIntervals> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["timeIntervals"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunVideoAnalysisRequestVideoRolesTimeIntervals model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        timeIntervals = make_shared<vector<RunVideoAnalysisRequestVideoRolesTimeIntervals>>(expect1);
+      }
     }
     if (m.find("urls") != m.end() && !m["urls"].empty()) {
       vector<string> toVec1;
@@ -11456,6 +11695,7 @@ public:
 };
 class RunVideoAnalysisRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> autoRoleRecognitionVideoUrl{};
   shared_ptr<vector<string>> excludeGenerateOptions{};
   shared_ptr<double> faceIdentitySimilarityMinScore{};
   shared_ptr<RunVideoAnalysisRequestFrameSampleMethod> frameSampleMethod{};
@@ -11487,6 +11727,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoRoleRecognitionVideoUrl) {
+      res["autoRoleRecognitionVideoUrl"] = boost::any(*autoRoleRecognitionVideoUrl);
+    }
     if (excludeGenerateOptions) {
       res["excludeGenerateOptions"] = boost::any(*excludeGenerateOptions);
     }
@@ -11559,6 +11802,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("autoRoleRecognitionVideoUrl") != m.end() && !m["autoRoleRecognitionVideoUrl"].empty()) {
+      autoRoleRecognitionVideoUrl = make_shared<string>(boost::any_cast<string>(m["autoRoleRecognitionVideoUrl"]));
+    }
     if (m.find("excludeGenerateOptions") != m.end() && !m["excludeGenerateOptions"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["excludeGenerateOptions"].type()) {
@@ -11668,6 +11914,7 @@ public:
 };
 class RunVideoAnalysisShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> autoRoleRecognitionVideoUrl{};
   shared_ptr<string> excludeGenerateOptionsShrink{};
   shared_ptr<double> faceIdentitySimilarityMinScore{};
   shared_ptr<string> frameSampleMethodShrink{};
@@ -11699,6 +11946,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoRoleRecognitionVideoUrl) {
+      res["autoRoleRecognitionVideoUrl"] = boost::any(*autoRoleRecognitionVideoUrl);
+    }
     if (excludeGenerateOptionsShrink) {
       res["excludeGenerateOptions"] = boost::any(*excludeGenerateOptionsShrink);
     }
@@ -11763,6 +12013,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("autoRoleRecognitionVideoUrl") != m.end() && !m["autoRoleRecognitionVideoUrl"].empty()) {
+      autoRoleRecognitionVideoUrl = make_shared<string>(boost::any_cast<string>(m["autoRoleRecognitionVideoUrl"]));
+    }
     if (m.find("excludeGenerateOptions") != m.end() && !m["excludeGenerateOptions"].empty()) {
       excludeGenerateOptionsShrink = make_shared<string>(boost::any_cast<string>(m["excludeGenerateOptions"]));
     }
@@ -12657,6 +12910,170 @@ public:
 
   virtual ~RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResult() = default;
 };
+class RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRolesTimeIntervals : public Darabonba::Model {
+public:
+  shared_ptr<long> endTime{};
+  shared_ptr<long> startTime{};
+  shared_ptr<long> timestamp{};
+  shared_ptr<string> url{};
+
+  RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRolesTimeIntervals() {}
+
+  explicit RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRolesTimeIntervals(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    if (timestamp) {
+      res["timestamp"] = boost::any(*timestamp);
+    }
+    if (url) {
+      res["url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["endTime"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["startTime"]));
+    }
+    if (m.find("timestamp") != m.end() && !m["timestamp"].empty()) {
+      timestamp = make_shared<long>(boost::any_cast<long>(m["timestamp"]));
+    }
+    if (m.find("url") != m.end() && !m["url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["url"]));
+    }
+  }
+
+
+  virtual ~RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRolesTimeIntervals() = default;
+};
+class RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRoles : public Darabonba::Model {
+public:
+  shared_ptr<bool> isAutoRecognition{};
+  shared_ptr<double> ratio{};
+  shared_ptr<string> roleInfo{};
+  shared_ptr<string> roleName{};
+  shared_ptr<vector<RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRolesTimeIntervals>> timeIntervals{};
+
+  RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRoles() {}
+
+  explicit RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRoles(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (isAutoRecognition) {
+      res["isAutoRecognition"] = boost::any(*isAutoRecognition);
+    }
+    if (ratio) {
+      res["ratio"] = boost::any(*ratio);
+    }
+    if (roleInfo) {
+      res["roleInfo"] = boost::any(*roleInfo);
+    }
+    if (roleName) {
+      res["roleName"] = boost::any(*roleName);
+    }
+    if (timeIntervals) {
+      vector<boost::any> temp1;
+      for(auto item1:*timeIntervals){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["timeIntervals"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("isAutoRecognition") != m.end() && !m["isAutoRecognition"].empty()) {
+      isAutoRecognition = make_shared<bool>(boost::any_cast<bool>(m["isAutoRecognition"]));
+    }
+    if (m.find("ratio") != m.end() && !m["ratio"].empty()) {
+      ratio = make_shared<double>(boost::any_cast<double>(m["ratio"]));
+    }
+    if (m.find("roleInfo") != m.end() && !m["roleInfo"].empty()) {
+      roleInfo = make_shared<string>(boost::any_cast<string>(m["roleInfo"]));
+    }
+    if (m.find("roleName") != m.end() && !m["roleName"].empty()) {
+      roleName = make_shared<string>(boost::any_cast<string>(m["roleName"]));
+    }
+    if (m.find("timeIntervals") != m.end() && !m["timeIntervals"].empty()) {
+      if (typeid(vector<boost::any>) == m["timeIntervals"].type()) {
+        vector<RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRolesTimeIntervals> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["timeIntervals"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRolesTimeIntervals model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        timeIntervals = make_shared<vector<RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRolesTimeIntervals>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRoles() = default;
+};
+class RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResult : public Darabonba::Model {
+public:
+  shared_ptr<vector<RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRoles>> videoRoles{};
+
+  RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResult() {}
+
+  explicit RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (videoRoles) {
+      vector<boost::any> temp1;
+      for(auto item1:*videoRoles){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["videoRoles"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("videoRoles") != m.end() && !m["videoRoles"].empty()) {
+      if (typeid(vector<boost::any>) == m["videoRoles"].type()) {
+        vector<RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRoles> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["videoRoles"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRoles model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        videoRoles = make_shared<vector<RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRoles>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResult() = default;
+};
 class RunVideoAnalysisResponseBodyPayloadOutputVideoShotSnapshotResultVideoShotsVideoSnapshots : public Darabonba::Model {
 public:
   shared_ptr<string> url{};
@@ -12912,6 +13329,7 @@ public:
   shared_ptr<RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResult> videoGenerateResult{};
   shared_ptr<vector<RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResults>> videoGenerateResults{};
   shared_ptr<RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResult> videoMindMappingGenerateResult{};
+  shared_ptr<RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResult> videoRoleRecognitionResult{};
   shared_ptr<RunVideoAnalysisResponseBodyPayloadOutputVideoShotSnapshotResult> videoShotSnapshotResult{};
   shared_ptr<RunVideoAnalysisResponseBodyPayloadOutputVideoTitleGenerateResult> videoTitleGenerateResult{};
 
@@ -12946,6 +13364,9 @@ public:
     }
     if (videoMindMappingGenerateResult) {
       res["videoMindMappingGenerateResult"] = videoMindMappingGenerateResult ? boost::any(videoMindMappingGenerateResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (videoRoleRecognitionResult) {
+      res["videoRoleRecognitionResult"] = videoRoleRecognitionResult ? boost::any(videoRoleRecognitionResult->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (videoShotSnapshotResult) {
       res["videoShotSnapshotResult"] = videoShotSnapshotResult ? boost::any(videoShotSnapshotResult->toMap()) : boost::any(map<string,boost::any>({}));
@@ -12999,6 +13420,13 @@ public:
         RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResult model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["videoMindMappingGenerateResult"]));
         videoMindMappingGenerateResult = make_shared<RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResult>(model1);
+      }
+    }
+    if (m.find("videoRoleRecognitionResult") != m.end() && !m["videoRoleRecognitionResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["videoRoleRecognitionResult"].type()) {
+        RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["videoRoleRecognitionResult"]));
+        videoRoleRecognitionResult = make_shared<RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResult>(model1);
       }
     }
     if (m.find("videoShotSnapshotResult") != m.end() && !m["videoShotSnapshotResult"].empty()) {
@@ -14638,10 +15066,48 @@ public:
 
   virtual ~SubmitVideoAnalysisTaskRequestVideoCaptionInfo() = default;
 };
+class SubmitVideoAnalysisTaskRequestVideoRolesTimeIntervals : public Darabonba::Model {
+public:
+  shared_ptr<long> endTime{};
+  shared_ptr<long> startTime{};
+
+  SubmitVideoAnalysisTaskRequestVideoRolesTimeIntervals() {}
+
+  explicit SubmitVideoAnalysisTaskRequestVideoRolesTimeIntervals(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["endTime"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["startTime"]));
+    }
+  }
+
+
+  virtual ~SubmitVideoAnalysisTaskRequestVideoRolesTimeIntervals() = default;
+};
 class SubmitVideoAnalysisTaskRequestVideoRoles : public Darabonba::Model {
 public:
+  shared_ptr<bool> isAutoRecognition{};
   shared_ptr<string> roleInfo{};
   shared_ptr<string> roleName{};
+  shared_ptr<vector<SubmitVideoAnalysisTaskRequestVideoRolesTimeIntervals>> timeIntervals{};
   shared_ptr<vector<string>> urls{};
 
   SubmitVideoAnalysisTaskRequestVideoRoles() {}
@@ -14654,11 +15120,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (isAutoRecognition) {
+      res["isAutoRecognition"] = boost::any(*isAutoRecognition);
+    }
     if (roleInfo) {
       res["roleInfo"] = boost::any(*roleInfo);
     }
     if (roleName) {
       res["roleName"] = boost::any(*roleName);
+    }
+    if (timeIntervals) {
+      vector<boost::any> temp1;
+      for(auto item1:*timeIntervals){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["timeIntervals"] = boost::any(temp1);
     }
     if (urls) {
       res["urls"] = boost::any(*urls);
@@ -14667,11 +15143,27 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("isAutoRecognition") != m.end() && !m["isAutoRecognition"].empty()) {
+      isAutoRecognition = make_shared<bool>(boost::any_cast<bool>(m["isAutoRecognition"]));
+    }
     if (m.find("roleInfo") != m.end() && !m["roleInfo"].empty()) {
       roleInfo = make_shared<string>(boost::any_cast<string>(m["roleInfo"]));
     }
     if (m.find("roleName") != m.end() && !m["roleName"].empty()) {
       roleName = make_shared<string>(boost::any_cast<string>(m["roleName"]));
+    }
+    if (m.find("timeIntervals") != m.end() && !m["timeIntervals"].empty()) {
+      if (typeid(vector<boost::any>) == m["timeIntervals"].type()) {
+        vector<SubmitVideoAnalysisTaskRequestVideoRolesTimeIntervals> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["timeIntervals"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SubmitVideoAnalysisTaskRequestVideoRolesTimeIntervals model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        timeIntervals = make_shared<vector<SubmitVideoAnalysisTaskRequestVideoRolesTimeIntervals>>(expect1);
+      }
     }
     if (m.find("urls") != m.end() && !m["urls"].empty()) {
       vector<string> toVec1;
@@ -14690,6 +15182,7 @@ public:
 };
 class SubmitVideoAnalysisTaskRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> autoRoleRecognitionVideoUrl{};
   shared_ptr<string> deduplicationId{};
   shared_ptr<vector<string>> excludeGenerateOptions{};
   shared_ptr<double> faceIdentitySimilarityMinScore{};
@@ -14720,6 +15213,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoRoleRecognitionVideoUrl) {
+      res["autoRoleRecognitionVideoUrl"] = boost::any(*autoRoleRecognitionVideoUrl);
+    }
     if (deduplicationId) {
       res["deduplicationId"] = boost::any(*deduplicationId);
     }
@@ -14789,6 +15285,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("autoRoleRecognitionVideoUrl") != m.end() && !m["autoRoleRecognitionVideoUrl"].empty()) {
+      autoRoleRecognitionVideoUrl = make_shared<string>(boost::any_cast<string>(m["autoRoleRecognitionVideoUrl"]));
+    }
     if (m.find("deduplicationId") != m.end() && !m["deduplicationId"].empty()) {
       deduplicationId = make_shared<string>(boost::any_cast<string>(m["deduplicationId"]));
     }
@@ -14895,6 +15394,7 @@ public:
 };
 class SubmitVideoAnalysisTaskShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> autoRoleRecognitionVideoUrl{};
   shared_ptr<string> deduplicationId{};
   shared_ptr<string> excludeGenerateOptionsShrink{};
   shared_ptr<double> faceIdentitySimilarityMinScore{};
@@ -14925,6 +15425,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoRoleRecognitionVideoUrl) {
+      res["autoRoleRecognitionVideoUrl"] = boost::any(*autoRoleRecognitionVideoUrl);
+    }
     if (deduplicationId) {
       res["deduplicationId"] = boost::any(*deduplicationId);
     }
@@ -14986,6 +15489,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("autoRoleRecognitionVideoUrl") != m.end() && !m["autoRoleRecognitionVideoUrl"].empty()) {
+      autoRoleRecognitionVideoUrl = make_shared<string>(boost::any_cast<string>(m["autoRoleRecognitionVideoUrl"]));
+    }
     if (m.find("deduplicationId") != m.end() && !m["deduplicationId"].empty()) {
       deduplicationId = make_shared<string>(boost::any_cast<string>(m["deduplicationId"]));
     }
