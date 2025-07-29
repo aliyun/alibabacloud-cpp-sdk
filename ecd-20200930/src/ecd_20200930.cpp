@@ -6329,6 +6329,9 @@ DescribeModificationPriceResponse Alibabacloud_Ecd20200930::Client::describeModi
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
     query->insert(pair<string, string>("InstanceType", *request->instanceType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->promotionId)) {
+    query->insert(pair<string, string>("PromotionId", *request->promotionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -6923,6 +6926,9 @@ DescribeRenewalPriceResponse Alibabacloud_Ecd20200930::Client::describeRenewalPr
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->periodUnit)) {
     query->insert(pair<string, string>("PeriodUnit", *request->periodUnit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->promotionId)) {
+    query->insert(pair<string, string>("PromotionId", *request->promotionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));

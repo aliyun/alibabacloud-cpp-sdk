@@ -34226,6 +34226,7 @@ public:
   shared_ptr<long> bandwidth{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceType{};
+  shared_ptr<string> promotionId{};
   shared_ptr<string> regionId{};
   shared_ptr<long> resellerOwnerUid{};
   shared_ptr<vector<DescribeModificationPriceRequestResourceSpecs>> resourceSpecs{};
@@ -34251,6 +34252,9 @@ public:
     }
     if (instanceType) {
       res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (promotionId) {
+      res["PromotionId"] = boost::any(*promotionId);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -34286,6 +34290,9 @@ public:
     }
     if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("PromotionId") != m.end() && !m["PromotionId"].empty()) {
+      promotionId = make_shared<string>(boost::any_cast<string>(m["PromotionId"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -39926,6 +39933,7 @@ public:
   shared_ptr<vector<string>> instanceIds{};
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
+  shared_ptr<string> promotionId{};
   shared_ptr<string> regionId{};
   shared_ptr<long> resellerOwnerUid{};
   shared_ptr<string> resourceType{};
@@ -39951,6 +39959,9 @@ public:
     }
     if (periodUnit) {
       res["PeriodUnit"] = boost::any(*periodUnit);
+    }
+    if (promotionId) {
+      res["PromotionId"] = boost::any(*promotionId);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -39983,6 +39994,9 @@ public:
     }
     if (m.find("PeriodUnit") != m.end() && !m["PeriodUnit"].empty()) {
       periodUnit = make_shared<string>(boost::any_cast<string>(m["PeriodUnit"]));
+    }
+    if (m.find("PromotionId") != m.end() && !m["PromotionId"].empty()) {
+      promotionId = make_shared<string>(boost::any_cast<string>(m["PromotionId"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
