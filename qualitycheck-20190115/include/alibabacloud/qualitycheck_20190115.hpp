@@ -4413,6 +4413,212 @@ public:
 
   virtual ~CreateCheckTypeToSchemeResponse() = default;
 };
+class CreateMiningTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> baseMeAgentId{};
+  shared_ptr<string> callbackUrl{};
+  shared_ptr<string> filePath{};
+  shared_ptr<string> param{};
+  shared_ptr<string> taskType{};
+
+  CreateMiningTaskRequest() {}
+
+  explicit CreateMiningTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseMeAgentId) {
+      res["BaseMeAgentId"] = boost::any(*baseMeAgentId);
+    }
+    if (callbackUrl) {
+      res["CallbackUrl"] = boost::any(*callbackUrl);
+    }
+    if (filePath) {
+      res["FilePath"] = boost::any(*filePath);
+    }
+    if (param) {
+      res["Param"] = boost::any(*param);
+    }
+    if (taskType) {
+      res["TaskType"] = boost::any(*taskType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseMeAgentId") != m.end() && !m["BaseMeAgentId"].empty()) {
+      baseMeAgentId = make_shared<long>(boost::any_cast<long>(m["BaseMeAgentId"]));
+    }
+    if (m.find("CallbackUrl") != m.end() && !m["CallbackUrl"].empty()) {
+      callbackUrl = make_shared<string>(boost::any_cast<string>(m["CallbackUrl"]));
+    }
+    if (m.find("FilePath") != m.end() && !m["FilePath"].empty()) {
+      filePath = make_shared<string>(boost::any_cast<string>(m["FilePath"]));
+    }
+    if (m.find("Param") != m.end() && !m["Param"].empty()) {
+      param = make_shared<string>(boost::any_cast<string>(m["Param"]));
+    }
+    if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
+      taskType = make_shared<string>(boost::any_cast<string>(m["TaskType"]));
+    }
+  }
+
+
+  virtual ~CreateMiningTaskRequest() = default;
+};
+class CreateMiningTaskResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> taskId{};
+
+  CreateMiningTaskResponseBodyData() {}
+
+  explicit CreateMiningTaskResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~CreateMiningTaskResponseBodyData() = default;
+};
+class CreateMiningTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<CreateMiningTaskResponseBodyData> data{};
+  shared_ptr<string> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  CreateMiningTaskResponseBody() {}
+
+  explicit CreateMiningTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CreateMiningTaskResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CreateMiningTaskResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<string>(boost::any_cast<string>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateMiningTaskResponseBody() = default;
+};
+class CreateMiningTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateMiningTaskResponseBody> body{};
+
+  CreateMiningTaskResponse() {}
+
+  explicit CreateMiningTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateMiningTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateMiningTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateMiningTaskResponse() = default;
+};
 class CreateQualityCheckSchemeRequest : public Darabonba::Model {
 public:
   shared_ptr<long> baseMeAgentId{};
@@ -8566,6 +8772,205 @@ public:
 
 
   virtual ~GetCustomizationConfigListResponse() = default;
+};
+class GetMiningTaskResultRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> baseMeAgentId{};
+  shared_ptr<string> taskId{};
+
+  GetMiningTaskResultRequest() {}
+
+  explicit GetMiningTaskResultRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseMeAgentId) {
+      res["BaseMeAgentId"] = boost::any(*baseMeAgentId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseMeAgentId") != m.end() && !m["BaseMeAgentId"].empty()) {
+      baseMeAgentId = make_shared<long>(boost::any_cast<long>(m["BaseMeAgentId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~GetMiningTaskResultRequest() = default;
+};
+class GetMiningTaskResultResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> filePath{};
+  shared_ptr<string> filePathMd{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> taskStatus{};
+
+  GetMiningTaskResultResponseBodyData() {}
+
+  explicit GetMiningTaskResultResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filePath) {
+      res["FilePath"] = boost::any(*filePath);
+    }
+    if (filePathMd) {
+      res["FilePathMd"] = boost::any(*filePathMd);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (taskStatus) {
+      res["TaskStatus"] = boost::any(*taskStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FilePath") != m.end() && !m["FilePath"].empty()) {
+      filePath = make_shared<string>(boost::any_cast<string>(m["FilePath"]));
+    }
+    if (m.find("FilePathMd") != m.end() && !m["FilePathMd"].empty()) {
+      filePathMd = make_shared<string>(boost::any_cast<string>(m["FilePathMd"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TaskStatus") != m.end() && !m["TaskStatus"].empty()) {
+      taskStatus = make_shared<string>(boost::any_cast<string>(m["TaskStatus"]));
+    }
+  }
+
+
+  virtual ~GetMiningTaskResultResponseBodyData() = default;
+};
+class GetMiningTaskResultResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<GetMiningTaskResultResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  GetMiningTaskResultResponseBody() {}
+
+  explicit GetMiningTaskResultResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetMiningTaskResultResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetMiningTaskResultResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetMiningTaskResultResponseBody() = default;
+};
+class GetMiningTaskResultResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetMiningTaskResultResponseBody> body{};
+
+  GetMiningTaskResultResponse() {}
+
+  explicit GetMiningTaskResultResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetMiningTaskResultResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetMiningTaskResultResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetMiningTaskResultResponse() = default;
 };
 class GetNextResultToVerifyRequest : public Darabonba::Model {
 public:
@@ -34113,6 +34518,8 @@ public:
   CreateAsrVocabResponse createAsrVocab(shared_ptr<CreateAsrVocabRequest> request);
   CreateCheckTypeToSchemeResponse createCheckTypeToSchemeWithOptions(shared_ptr<CreateCheckTypeToSchemeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateCheckTypeToSchemeResponse createCheckTypeToScheme(shared_ptr<CreateCheckTypeToSchemeRequest> request);
+  CreateMiningTaskResponse createMiningTaskWithOptions(shared_ptr<CreateMiningTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateMiningTaskResponse createMiningTask(shared_ptr<CreateMiningTaskRequest> request);
   CreateQualityCheckSchemeResponse createQualityCheckSchemeWithOptions(shared_ptr<CreateQualityCheckSchemeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateQualityCheckSchemeResponse createQualityCheckScheme(shared_ptr<CreateQualityCheckSchemeRequest> request);
   CreateSchemeTaskConfigResponse createSchemeTaskConfigWithOptions(shared_ptr<CreateSchemeTaskConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -34161,6 +34568,8 @@ public:
   GetBusinessCategoryListResponse getBusinessCategoryList(shared_ptr<GetBusinessCategoryListRequest> request);
   GetCustomizationConfigListResponse getCustomizationConfigListWithOptions(shared_ptr<GetCustomizationConfigListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetCustomizationConfigListResponse getCustomizationConfigList(shared_ptr<GetCustomizationConfigListRequest> request);
+  GetMiningTaskResultResponse getMiningTaskResultWithOptions(shared_ptr<GetMiningTaskResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetMiningTaskResultResponse getMiningTaskResult(shared_ptr<GetMiningTaskResultRequest> request);
   GetNextResultToVerifyResponse getNextResultToVerifyWithOptions(shared_ptr<GetNextResultToVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetNextResultToVerifyResponse getNextResultToVerify(shared_ptr<GetNextResultToVerifyRequest> request);
   GetPrecisionTaskResponse getPrecisionTaskWithOptions(shared_ptr<GetPrecisionTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

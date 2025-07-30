@@ -321,6 +321,48 @@ CreateCheckTypeToSchemeResponse Alibabacloud_Qualitycheck20190115::Client::creat
   return createCheckTypeToSchemeWithOptions(request, runtime);
 }
 
+CreateMiningTaskResponse Alibabacloud_Qualitycheck20190115::Client::createMiningTaskWithOptions(shared_ptr<CreateMiningTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->callbackUrl)) {
+    body->insert(pair<string, string>("CallbackUrl", *request->callbackUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filePath)) {
+    body->insert(pair<string, string>("FilePath", *request->filePath));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->param)) {
+    body->insert(pair<string, string>("Param", *request->param));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskType)) {
+    body->insert(pair<string, string>("TaskType", *request->taskType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateMiningTask"))},
+    {"version", boost::any(string("2019-01-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateMiningTaskResponse(callApi(params, req, runtime));
+}
+
+CreateMiningTaskResponse Alibabacloud_Qualitycheck20190115::Client::createMiningTask(shared_ptr<CreateMiningTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createMiningTaskWithOptions(request, runtime);
+}
+
 CreateQualityCheckSchemeResponse Alibabacloud_Qualitycheck20190115::Client::createQualityCheckSchemeWithOptions(shared_ptr<CreateQualityCheckSchemeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1076,6 +1118,37 @@ GetCustomizationConfigListResponse Alibabacloud_Qualitycheck20190115::Client::ge
 GetCustomizationConfigListResponse Alibabacloud_Qualitycheck20190115::Client::getCustomizationConfigList(shared_ptr<GetCustomizationConfigListRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getCustomizationConfigListWithOptions(request, runtime);
+}
+
+GetMiningTaskResultResponse Alibabacloud_Qualitycheck20190115::Client::getMiningTaskResultWithOptions(shared_ptr<GetMiningTaskResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    query->insert(pair<string, string>("TaskId", *request->taskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetMiningTaskResult"))},
+    {"version", boost::any(string("2019-01-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetMiningTaskResultResponse(callApi(params, req, runtime));
+}
+
+GetMiningTaskResultResponse Alibabacloud_Qualitycheck20190115::Client::getMiningTaskResult(shared_ptr<GetMiningTaskResultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getMiningTaskResultWithOptions(request, runtime);
 }
 
 GetNextResultToVerifyResponse Alibabacloud_Qualitycheck20190115::Client::getNextResultToVerifyWithOptions(shared_ptr<GetNextResultToVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
