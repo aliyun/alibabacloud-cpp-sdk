@@ -14216,6 +14216,7 @@ public:
   shared_ptr<bool> enableSidecarResourceIsolated{};
   shared_ptr<string> envs{};
   shared_ptr<string> gpuConfig{};
+  shared_ptr<string> headlessPvtzDiscoverySvc{};
   shared_ptr<string> html{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
@@ -14355,6 +14356,9 @@ public:
     }
     if (gpuConfig) {
       res["GpuConfig"] = boost::any(*gpuConfig);
+    }
+    if (headlessPvtzDiscoverySvc) {
+      res["HeadlessPvtzDiscoverySvc"] = boost::any(*headlessPvtzDiscoverySvc);
     }
     if (html) {
       res["Html"] = boost::any(*html);
@@ -14605,6 +14609,9 @@ public:
     if (m.find("GpuConfig") != m.end() && !m["GpuConfig"].empty()) {
       gpuConfig = make_shared<string>(boost::any_cast<string>(m["GpuConfig"]));
     }
+    if (m.find("HeadlessPvtzDiscoverySvc") != m.end() && !m["HeadlessPvtzDiscoverySvc"].empty()) {
+      headlessPvtzDiscoverySvc = make_shared<string>(boost::any_cast<string>(m["HeadlessPvtzDiscoverySvc"]));
+    }
     if (m.find("Html") != m.end() && !m["Html"].empty()) {
       html = make_shared<string>(boost::any_cast<string>(m["Html"]));
     }
@@ -14819,6 +14826,7 @@ public:
   shared_ptr<bool> enableSidecarResourceIsolated{};
   shared_ptr<string> envs{};
   shared_ptr<string> gpuConfig{};
+  shared_ptr<string> headlessPvtzDiscoverySvc{};
   shared_ptr<string> html{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
@@ -14958,6 +14966,9 @@ public:
     }
     if (gpuConfig) {
       res["GpuConfig"] = boost::any(*gpuConfig);
+    }
+    if (headlessPvtzDiscoverySvc) {
+      res["HeadlessPvtzDiscoverySvc"] = boost::any(*headlessPvtzDiscoverySvc);
     }
     if (html) {
       res["Html"] = boost::any(*html);
@@ -15199,6 +15210,9 @@ public:
     }
     if (m.find("GpuConfig") != m.end() && !m["GpuConfig"].empty()) {
       gpuConfig = make_shared<string>(boost::any_cast<string>(m["GpuConfig"]));
+    }
+    if (m.find("HeadlessPvtzDiscoverySvc") != m.end() && !m["HeadlessPvtzDiscoverySvc"].empty()) {
+      headlessPvtzDiscoverySvc = make_shared<string>(boost::any_cast<string>(m["HeadlessPvtzDiscoverySvc"]));
     }
     if (m.find("Html") != m.end() && !m["Html"].empty()) {
       html = make_shared<string>(boost::any_cast<string>(m["Html"]));
@@ -23596,6 +23610,7 @@ public:
   shared_ptr<string> baseAppId{};
   shared_ptr<long> batchWaitTime{};
   shared_ptr<string> clusterId{};
+  shared_ptr<string> cmsServiceId{};
   shared_ptr<string> command{};
   shared_ptr<string> commandArgs{};
   shared_ptr<vector<DescribeApplicationConfigResponseBodyDataConfigMapMountDesc>> configMapMountDesc{};
@@ -23614,6 +23629,7 @@ public:
   shared_ptr<string> envs{};
   shared_ptr<string> gpuCount{};
   shared_ptr<string> gpuType{};
+  shared_ptr<string> headlessPvtzDiscovery{};
   shared_ptr<string> html{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
@@ -23716,6 +23732,9 @@ public:
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
+    if (cmsServiceId) {
+      res["CmsServiceId"] = boost::any(*cmsServiceId);
+    }
     if (command) {
       res["Command"] = boost::any(*command);
     }
@@ -23773,6 +23792,9 @@ public:
     }
     if (gpuType) {
       res["GpuType"] = boost::any(*gpuType);
+    }
+    if (headlessPvtzDiscovery) {
+      res["HeadlessPvtzDiscovery"] = boost::any(*headlessPvtzDiscovery);
     }
     if (html) {
       res["Html"] = boost::any(*html);
@@ -24015,6 +24037,9 @@ public:
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
     }
+    if (m.find("CmsServiceId") != m.end() && !m["CmsServiceId"].empty()) {
+      cmsServiceId = make_shared<string>(boost::any_cast<string>(m["CmsServiceId"]));
+    }
     if (m.find("Command") != m.end() && !m["Command"].empty()) {
       command = make_shared<string>(boost::any_cast<string>(m["Command"]));
     }
@@ -24078,6 +24103,9 @@ public:
     }
     if (m.find("GpuType") != m.end() && !m["GpuType"].empty()) {
       gpuType = make_shared<string>(boost::any_cast<string>(m["GpuType"]));
+    }
+    if (m.find("HeadlessPvtzDiscovery") != m.end() && !m["HeadlessPvtzDiscovery"].empty()) {
+      headlessPvtzDiscovery = make_shared<string>(boost::any_cast<string>(m["HeadlessPvtzDiscovery"]));
     }
     if (m.find("Html") != m.end() && !m["Html"].empty()) {
       html = make_shared<string>(boost::any_cast<string>(m["Html"]));
