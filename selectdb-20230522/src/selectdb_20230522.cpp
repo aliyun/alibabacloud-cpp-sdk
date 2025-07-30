@@ -193,6 +193,12 @@ CreateDBClusterResponse Alibabacloud_Selectdb20230522::Client::createDBClusterWi
   if (!Darabonba_Util::Client::isUnset<string>(request->chargeType)) {
     query->insert(pair<string, string>("ChargeType", *request->chargeType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->clusterNodeCount)) {
+    query->insert(pair<string, long>("ClusterNodeCount", *request->clusterNodeCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterNodeType)) {
+    query->insert(pair<string, string>("ClusterNodeType", *request->clusterNodeType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterClass)) {
     query->insert(pair<string, string>("DBClusterClass", *request->DBClusterClass));
   }
@@ -213,6 +219,12 @@ CreateDBClusterResponse Alibabacloud_Selectdb20230522::Client::createDBClusterWi
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->scaleMax)) {
+    query->insert(pair<string, double>("ScaleMax", *request->scaleMax));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->scaleMin)) {
+    query->insert(pair<string, double>("ScaleMin", *request->scaleMin));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->usedTime)) {
     query->insert(pair<string, string>("UsedTime", *request->usedTime));
@@ -313,6 +325,12 @@ CreateDBInstanceResponse Alibabacloud_Selectdb20230522::Client::createDBInstance
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->clusterNodeCount)) {
+    query->insert(pair<string, long>("ClusterNodeCount", *request->clusterNodeCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterNodeType)) {
+    query->insert(pair<string, string>("ClusterNodeType", *request->clusterNodeType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->connectionString)) {
     query->insert(pair<string, string>("ConnectionString", *request->connectionString));
   }
@@ -342,6 +360,12 @@ CreateDBInstanceResponse Alibabacloud_Selectdb20230522::Client::createDBInstance
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->scaleMax)) {
+    query->insert(pair<string, double>("ScaleMax", *request->scaleMax));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->scaleMin)) {
+    query->insert(pair<string, double>("ScaleMin", *request->scaleMin));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityIPList)) {
     query->insert(pair<string, string>("SecurityIPList", *request->securityIPList));
@@ -1085,6 +1109,12 @@ ModifyDBClusterResponse Alibabacloud_Selectdb20230522::Client::modifyDBClusterWi
   if (!Darabonba_Util::Client::isUnset<string>(request->cacheSize)) {
     query->insert(pair<string, string>("CacheSize", *request->cacheSize));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->clusterNodeCount)) {
+    query->insert(pair<string, long>("ClusterNodeCount", *request->clusterNodeCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterNodeType)) {
+    query->insert(pair<string, string>("ClusterNodeType", *request->clusterNodeType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterClass)) {
     query->insert(pair<string, string>("DBClusterClass", *request->DBClusterClass));
   }
@@ -1102,6 +1132,12 @@ ModifyDBClusterResponse Alibabacloud_Selectdb20230522::Client::modifyDBClusterWi
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->scaleMax)) {
+    query->insert(pair<string, double>("ScaleMax", *request->scaleMax));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->scaleMin)) {
+    query->insert(pair<string, double>("ScaleMin", *request->scaleMin));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

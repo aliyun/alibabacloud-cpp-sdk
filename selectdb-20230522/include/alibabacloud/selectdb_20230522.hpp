@@ -515,6 +515,8 @@ class CreateDBClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cacheSize{};
   shared_ptr<string> chargeType{};
+  shared_ptr<long> clusterNodeCount{};
+  shared_ptr<string> clusterNodeType{};
   shared_ptr<string> DBClusterClass{};
   shared_ptr<string> DBClusterDescription{};
   shared_ptr<string> DBInstanceId{};
@@ -523,6 +525,8 @@ public:
   shared_ptr<string> period{};
   shared_ptr<string> regionId{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<double> scaleMax{};
+  shared_ptr<double> scaleMin{};
   shared_ptr<string> usedTime{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
@@ -543,6 +547,12 @@ public:
     }
     if (chargeType) {
       res["ChargeType"] = boost::any(*chargeType);
+    }
+    if (clusterNodeCount) {
+      res["ClusterNodeCount"] = boost::any(*clusterNodeCount);
+    }
+    if (clusterNodeType) {
+      res["ClusterNodeType"] = boost::any(*clusterNodeType);
     }
     if (DBClusterClass) {
       res["DBClusterClass"] = boost::any(*DBClusterClass);
@@ -568,6 +578,12 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (scaleMax) {
+      res["ScaleMax"] = boost::any(*scaleMax);
+    }
+    if (scaleMin) {
+      res["ScaleMin"] = boost::any(*scaleMin);
+    }
     if (usedTime) {
       res["UsedTime"] = boost::any(*usedTime);
     }
@@ -589,6 +605,12 @@ public:
     }
     if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
       chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
+    }
+    if (m.find("ClusterNodeCount") != m.end() && !m["ClusterNodeCount"].empty()) {
+      clusterNodeCount = make_shared<long>(boost::any_cast<long>(m["ClusterNodeCount"]));
+    }
+    if (m.find("ClusterNodeType") != m.end() && !m["ClusterNodeType"].empty()) {
+      clusterNodeType = make_shared<string>(boost::any_cast<string>(m["ClusterNodeType"]));
     }
     if (m.find("DBClusterClass") != m.end() && !m["DBClusterClass"].empty()) {
       DBClusterClass = make_shared<string>(boost::any_cast<string>(m["DBClusterClass"]));
@@ -613,6 +635,12 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("ScaleMax") != m.end() && !m["ScaleMax"].empty()) {
+      scaleMax = make_shared<double>(boost::any_cast<double>(m["ScaleMax"]));
+    }
+    if (m.find("ScaleMin") != m.end() && !m["ScaleMin"].empty()) {
+      scaleMin = make_shared<double>(boost::any_cast<double>(m["ScaleMin"]));
     }
     if (m.find("UsedTime") != m.end() && !m["UsedTime"].empty()) {
       usedTime = make_shared<string>(boost::any_cast<string>(m["UsedTime"]));
@@ -1036,6 +1064,8 @@ public:
   shared_ptr<long> cacheSize{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> clientToken{};
+  shared_ptr<long> clusterNodeCount{};
+  shared_ptr<string> clusterNodeType{};
   shared_ptr<string> connectionString{};
   shared_ptr<string> DBInstanceClass{};
   shared_ptr<string> DBInstanceDescription{};
@@ -1047,6 +1077,8 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<double> scaleMax{};
+  shared_ptr<double> scaleMin{};
   shared_ptr<string> securityIPList{};
   shared_ptr<vector<CreateDBInstanceRequestTag>> tag{};
   shared_ptr<long> usedTime{};
@@ -1075,6 +1107,12 @@ public:
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (clusterNodeCount) {
+      res["ClusterNodeCount"] = boost::any(*clusterNodeCount);
+    }
+    if (clusterNodeType) {
+      res["ClusterNodeType"] = boost::any(*clusterNodeType);
     }
     if (connectionString) {
       res["ConnectionString"] = boost::any(*connectionString);
@@ -1113,6 +1151,12 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (scaleMax) {
+      res["ScaleMax"] = boost::any(*scaleMax);
+    }
+    if (scaleMin) {
+      res["ScaleMin"] = boost::any(*scaleMin);
+    }
     if (securityIPList) {
       res["SecurityIPList"] = boost::any(*securityIPList);
     }
@@ -1150,6 +1194,12 @@ public:
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("ClusterNodeCount") != m.end() && !m["ClusterNodeCount"].empty()) {
+      clusterNodeCount = make_shared<long>(boost::any_cast<long>(m["ClusterNodeCount"]));
+    }
+    if (m.find("ClusterNodeType") != m.end() && !m["ClusterNodeType"].empty()) {
+      clusterNodeType = make_shared<string>(boost::any_cast<string>(m["ClusterNodeType"]));
     }
     if (m.find("ConnectionString") != m.end() && !m["ConnectionString"].empty()) {
       connectionString = make_shared<string>(boost::any_cast<string>(m["ConnectionString"]));
@@ -1194,6 +1244,12 @@ public:
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
+    if (m.find("ScaleMax") != m.end() && !m["ScaleMax"].empty()) {
+      scaleMax = make_shared<double>(boost::any_cast<double>(m["ScaleMax"]));
+    }
+    if (m.find("ScaleMin") != m.end() && !m["ScaleMin"].empty()) {
+      scaleMin = make_shared<double>(boost::any_cast<double>(m["ScaleMin"]));
+    }
     if (m.find("SecurityIPList") != m.end() && !m["SecurityIPList"].empty()) {
       securityIPList = make_shared<string>(boost::any_cast<string>(m["SecurityIPList"]));
     }
@@ -1233,6 +1289,8 @@ public:
   shared_ptr<long> cacheSize{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> clientToken{};
+  shared_ptr<long> clusterNodeCount{};
+  shared_ptr<string> clusterNodeType{};
   shared_ptr<string> connectionString{};
   shared_ptr<string> DBInstanceClass{};
   shared_ptr<string> DBInstanceDescription{};
@@ -1244,6 +1302,8 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<double> scaleMax{};
+  shared_ptr<double> scaleMin{};
   shared_ptr<string> securityIPList{};
   shared_ptr<string> tagShrink{};
   shared_ptr<long> usedTime{};
@@ -1272,6 +1332,12 @@ public:
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (clusterNodeCount) {
+      res["ClusterNodeCount"] = boost::any(*clusterNodeCount);
+    }
+    if (clusterNodeType) {
+      res["ClusterNodeType"] = boost::any(*clusterNodeType);
     }
     if (connectionString) {
       res["ConnectionString"] = boost::any(*connectionString);
@@ -1305,6 +1371,12 @@ public:
     }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (scaleMax) {
+      res["ScaleMax"] = boost::any(*scaleMax);
+    }
+    if (scaleMin) {
+      res["ScaleMin"] = boost::any(*scaleMin);
     }
     if (securityIPList) {
       res["SecurityIPList"] = boost::any(*securityIPList);
@@ -1340,6 +1412,12 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("ClusterNodeCount") != m.end() && !m["ClusterNodeCount"].empty()) {
+      clusterNodeCount = make_shared<long>(boost::any_cast<long>(m["ClusterNodeCount"]));
+    }
+    if (m.find("ClusterNodeType") != m.end() && !m["ClusterNodeType"].empty()) {
+      clusterNodeType = make_shared<string>(boost::any_cast<string>(m["ClusterNodeType"]));
+    }
     if (m.find("ConnectionString") != m.end() && !m["ConnectionString"].empty()) {
       connectionString = make_shared<string>(boost::any_cast<string>(m["ConnectionString"]));
     }
@@ -1372,6 +1450,12 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("ScaleMax") != m.end() && !m["ScaleMax"].empty()) {
+      scaleMax = make_shared<double>(boost::any_cast<double>(m["ScaleMax"]));
+    }
+    if (m.find("ScaleMin") != m.end() && !m["ScaleMin"].empty()) {
+      scaleMin = make_shared<double>(boost::any_cast<double>(m["ScaleMin"]));
     }
     if (m.find("SecurityIPList") != m.end() && !m["SecurityIPList"].empty()) {
       securityIPList = make_shared<string>(boost::any_cast<string>(m["SecurityIPList"]));
@@ -3349,6 +3433,8 @@ public:
   shared_ptr<string> cacheStorageType{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> clusterBinding{};
+  shared_ptr<long> clusterNodeCount{};
+  shared_ptr<string> clusterNodeType{};
   shared_ptr<long> cpuCores{};
   shared_ptr<string> createdTime{};
   shared_ptr<string> dbClusterClass{};
@@ -3358,6 +3444,8 @@ public:
   shared_ptr<long> memory{};
   shared_ptr<string> modifiedTime{};
   shared_ptr<string> performanceLevel{};
+  shared_ptr<double> scaleMax{};
+  shared_ptr<double> scaleMin{};
   shared_ptr<bool> scalingRulesEnable{};
   shared_ptr<string> startTime{};
   shared_ptr<string> status{};
@@ -3387,6 +3475,12 @@ public:
     if (clusterBinding) {
       res["ClusterBinding"] = boost::any(*clusterBinding);
     }
+    if (clusterNodeCount) {
+      res["ClusterNodeCount"] = boost::any(*clusterNodeCount);
+    }
+    if (clusterNodeType) {
+      res["ClusterNodeType"] = boost::any(*clusterNodeType);
+    }
     if (cpuCores) {
       res["CpuCores"] = boost::any(*cpuCores);
     }
@@ -3413,6 +3507,12 @@ public:
     }
     if (performanceLevel) {
       res["PerformanceLevel"] = boost::any(*performanceLevel);
+    }
+    if (scaleMax) {
+      res["ScaleMax"] = boost::any(*scaleMax);
+    }
+    if (scaleMin) {
+      res["ScaleMin"] = boost::any(*scaleMin);
     }
     if (scalingRulesEnable) {
       res["ScalingRulesEnable"] = boost::any(*scalingRulesEnable);
@@ -3448,6 +3548,12 @@ public:
     if (m.find("ClusterBinding") != m.end() && !m["ClusterBinding"].empty()) {
       clusterBinding = make_shared<string>(boost::any_cast<string>(m["ClusterBinding"]));
     }
+    if (m.find("ClusterNodeCount") != m.end() && !m["ClusterNodeCount"].empty()) {
+      clusterNodeCount = make_shared<long>(boost::any_cast<long>(m["ClusterNodeCount"]));
+    }
+    if (m.find("ClusterNodeType") != m.end() && !m["ClusterNodeType"].empty()) {
+      clusterNodeType = make_shared<string>(boost::any_cast<string>(m["ClusterNodeType"]));
+    }
     if (m.find("CpuCores") != m.end() && !m["CpuCores"].empty()) {
       cpuCores = make_shared<long>(boost::any_cast<long>(m["CpuCores"]));
     }
@@ -3474,6 +3580,12 @@ public:
     }
     if (m.find("PerformanceLevel") != m.end() && !m["PerformanceLevel"].empty()) {
       performanceLevel = make_shared<string>(boost::any_cast<string>(m["PerformanceLevel"]));
+    }
+    if (m.find("ScaleMax") != m.end() && !m["ScaleMax"].empty()) {
+      scaleMax = make_shared<double>(boost::any_cast<double>(m["ScaleMax"]));
+    }
+    if (m.find("ScaleMin") != m.end() && !m["ScaleMin"].empty()) {
+      scaleMin = make_shared<double>(boost::any_cast<double>(m["ScaleMin"]));
     }
     if (m.find("ScalingRulesEnable") != m.end() && !m["ScalingRulesEnable"].empty()) {
       scalingRulesEnable = make_shared<bool>(boost::any_cast<bool>(m["ScalingRulesEnable"]));
@@ -3615,6 +3727,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<long> resourceCpu{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<bool> serverless{};
   shared_ptr<string> status{};
   shared_ptr<long> storageSize{};
   shared_ptr<string> subDomain{};
@@ -3706,6 +3819,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (serverless) {
+      res["Serverless"] = boost::any(*serverless);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -3828,6 +3944,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("Serverless") != m.end() && !m["Serverless"].empty()) {
+      serverless = make_shared<bool>(boost::any_cast<bool>(m["Serverless"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -4684,6 +4803,7 @@ public:
   shared_ptr<long> scaleMax{};
   shared_ptr<long> scaleMin{};
   shared_ptr<long> scaleReplica{};
+  shared_ptr<bool> serverless{};
   shared_ptr<string> status{};
   shared_ptr<long> storageSize{};
   shared_ptr<string> storageType{};
@@ -4799,6 +4919,9 @@ public:
     }
     if (scaleReplica) {
       res["ScaleReplica"] = boost::any(*scaleReplica);
+    }
+    if (serverless) {
+      res["Serverless"] = boost::any(*serverless);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -4940,6 +5063,9 @@ public:
     }
     if (m.find("ScaleReplica") != m.end() && !m["ScaleReplica"].empty()) {
       scaleReplica = make_shared<long>(boost::any_cast<long>(m["ScaleReplica"]));
+    }
+    if (m.find("Serverless") != m.end() && !m["Serverless"].empty()) {
+      serverless = make_shared<bool>(boost::any_cast<bool>(m["Serverless"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -6144,6 +6270,7 @@ public:
 class GetCreateBEClusterInquiryResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> currency{};
+  shared_ptr<map<string, string>> pricingRules{};
   shared_ptr<string> tradeAmount{};
 
   GetCreateBEClusterInquiryResponseBodyData() {}
@@ -6159,6 +6286,9 @@ public:
     if (currency) {
       res["Currency"] = boost::any(*currency);
     }
+    if (pricingRules) {
+      res["PricingRules"] = boost::any(*pricingRules);
+    }
     if (tradeAmount) {
       res["TradeAmount"] = boost::any(*tradeAmount);
     }
@@ -6168,6 +6298,14 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
       currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
+    }
+    if (m.find("PricingRules") != m.end() && !m["PricingRules"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["PricingRules"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      pricingRules = make_shared<map<string, string>>(toMap1);
     }
     if (m.find("TradeAmount") != m.end() && !m["TradeAmount"].empty()) {
       tradeAmount = make_shared<string>(boost::any_cast<string>(m["TradeAmount"]));
@@ -6385,6 +6523,7 @@ public:
 class GetModifyBEClusterInquiryResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> currency{};
+  shared_ptr<map<string, string>> pricingRules{};
   shared_ptr<string> refundAmount{};
   shared_ptr<string> tradeAmount{};
 
@@ -6401,6 +6540,9 @@ public:
     if (currency) {
       res["Currency"] = boost::any(*currency);
     }
+    if (pricingRules) {
+      res["PricingRules"] = boost::any(*pricingRules);
+    }
     if (refundAmount) {
       res["RefundAmount"] = boost::any(*refundAmount);
     }
@@ -6413,6 +6555,14 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
       currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
+    }
+    if (m.find("PricingRules") != m.end() && !m["PricingRules"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["PricingRules"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      pricingRules = make_shared<map<string, string>>(toMap1);
     }
     if (m.find("RefundAmount") != m.end() && !m["RefundAmount"].empty()) {
       refundAmount = make_shared<string>(boost::any_cast<string>(m["RefundAmount"]));
@@ -6665,12 +6815,16 @@ public:
 class ModifyDBClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cacheSize{};
+  shared_ptr<long> clusterNodeCount{};
+  shared_ptr<string> clusterNodeType{};
   shared_ptr<string> DBClusterClass{};
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> DBInstanceId{};
   shared_ptr<string> engine{};
   shared_ptr<string> regionId{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<double> scaleMax{};
+  shared_ptr<double> scaleMin{};
 
   ModifyDBClusterRequest() {}
 
@@ -6684,6 +6838,12 @@ public:
     map<string, boost::any> res;
     if (cacheSize) {
       res["CacheSize"] = boost::any(*cacheSize);
+    }
+    if (clusterNodeCount) {
+      res["ClusterNodeCount"] = boost::any(*clusterNodeCount);
+    }
+    if (clusterNodeType) {
+      res["ClusterNodeType"] = boost::any(*clusterNodeType);
     }
     if (DBClusterClass) {
       res["DBClusterClass"] = boost::any(*DBClusterClass);
@@ -6703,12 +6863,24 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (scaleMax) {
+      res["ScaleMax"] = boost::any(*scaleMax);
+    }
+    if (scaleMin) {
+      res["ScaleMin"] = boost::any(*scaleMin);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CacheSize") != m.end() && !m["CacheSize"].empty()) {
       cacheSize = make_shared<string>(boost::any_cast<string>(m["CacheSize"]));
+    }
+    if (m.find("ClusterNodeCount") != m.end() && !m["ClusterNodeCount"].empty()) {
+      clusterNodeCount = make_shared<long>(boost::any_cast<long>(m["ClusterNodeCount"]));
+    }
+    if (m.find("ClusterNodeType") != m.end() && !m["ClusterNodeType"].empty()) {
+      clusterNodeType = make_shared<string>(boost::any_cast<string>(m["ClusterNodeType"]));
     }
     if (m.find("DBClusterClass") != m.end() && !m["DBClusterClass"].empty()) {
       DBClusterClass = make_shared<string>(boost::any_cast<string>(m["DBClusterClass"]));
@@ -6727,6 +6899,12 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("ScaleMax") != m.end() && !m["ScaleMax"].empty()) {
+      scaleMax = make_shared<double>(boost::any_cast<double>(m["ScaleMax"]));
+    }
+    if (m.find("ScaleMin") != m.end() && !m["ScaleMin"].empty()) {
+      scaleMin = make_shared<double>(boost::any_cast<double>(m["ScaleMin"]));
     }
   }
 
