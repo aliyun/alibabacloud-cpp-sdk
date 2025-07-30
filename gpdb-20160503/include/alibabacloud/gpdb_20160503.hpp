@@ -19142,6 +19142,7 @@ public:
   shared_ptr<string> chunkFileUrl{};
   shared_ptr<long> docsCount{};
   shared_ptr<string> documentLoader{};
+  shared_ptr<string> documentLoaderResultFileUrl{};
   shared_ptr<string> fileExt{};
   shared_ptr<string> fileMd5{};
   shared_ptr<string> fileMtime{};
@@ -19174,6 +19175,9 @@ public:
     }
     if (documentLoader) {
       res["DocumentLoader"] = boost::any(*documentLoader);
+    }
+    if (documentLoaderResultFileUrl) {
+      res["DocumentLoaderResultFileUrl"] = boost::any(*documentLoaderResultFileUrl);
     }
     if (fileExt) {
       res["FileExt"] = boost::any(*fileExt);
@@ -19226,6 +19230,9 @@ public:
     }
     if (m.find("DocumentLoader") != m.end() && !m["DocumentLoader"].empty()) {
       documentLoader = make_shared<string>(boost::any_cast<string>(m["DocumentLoader"]));
+    }
+    if (m.find("DocumentLoaderResultFileUrl") != m.end() && !m["DocumentLoaderResultFileUrl"].empty()) {
+      documentLoaderResultFileUrl = make_shared<string>(boost::any_cast<string>(m["DocumentLoaderResultFileUrl"]));
     }
     if (m.find("FileExt") != m.end() && !m["FileExt"].empty()) {
       fileExt = make_shared<string>(boost::any_cast<string>(m["FileExt"]));
@@ -29693,6 +29700,7 @@ public:
 class GetUploadDocumentJobResponseBodyChunkResult : public Darabonba::Model {
 public:
   shared_ptr<string> chunkFileUrl{};
+  shared_ptr<string> documentLoaderResultFileUrl{};
   shared_ptr<string> plainChunkFileUrl{};
 
   GetUploadDocumentJobResponseBodyChunkResult() {}
@@ -29708,6 +29716,9 @@ public:
     if (chunkFileUrl) {
       res["ChunkFileUrl"] = boost::any(*chunkFileUrl);
     }
+    if (documentLoaderResultFileUrl) {
+      res["DocumentLoaderResultFileUrl"] = boost::any(*documentLoaderResultFileUrl);
+    }
     if (plainChunkFileUrl) {
       res["PlainChunkFileUrl"] = boost::any(*plainChunkFileUrl);
     }
@@ -29717,6 +29728,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ChunkFileUrl") != m.end() && !m["ChunkFileUrl"].empty()) {
       chunkFileUrl = make_shared<string>(boost::any_cast<string>(m["ChunkFileUrl"]));
+    }
+    if (m.find("DocumentLoaderResultFileUrl") != m.end() && !m["DocumentLoaderResultFileUrl"].empty()) {
+      documentLoaderResultFileUrl = make_shared<string>(boost::any_cast<string>(m["DocumentLoaderResultFileUrl"]));
     }
     if (m.find("PlainChunkFileUrl") != m.end() && !m["PlainChunkFileUrl"].empty()) {
       plainChunkFileUrl = make_shared<string>(boost::any_cast<string>(m["PlainChunkFileUrl"]));
