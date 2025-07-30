@@ -323,6 +323,9 @@ CreateRootCACertificateResponse Alibabacloud_Cas20200630::Client::createRootCACe
   if (!Darabonba_Util::Client::isUnset<string>(request->algorithm)) {
     query->insert(pair<string, string>("Algorithm", *request->algorithm));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->commonName)) {
     query->insert(pair<string, string>("CommonName", *request->commonName));
   }
@@ -940,6 +943,9 @@ ListRevokeCertificateResponse Alibabacloud_Cas20200630::Client::listRevokeCertif
 UpdateCACertificateStatusResponse Alibabacloud_Cas20200630::Client::updateCACertificateStatusWithOptions(shared_ptr<UpdateCACertificateStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->identifier)) {
     query->insert(pair<string, string>("Identifier", *request->identifier));
   }

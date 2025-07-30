@@ -1192,6 +1192,7 @@ public:
 class CreateRootCACertificateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> algorithm{};
+  shared_ptr<string> clientToken{};
   shared_ptr<string> commonName{};
   shared_ptr<string> countryCode{};
   shared_ptr<string> locality{};
@@ -1212,6 +1213,9 @@ public:
     map<string, boost::any> res;
     if (algorithm) {
       res["Algorithm"] = boost::any(*algorithm);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
     }
     if (commonName) {
       res["CommonName"] = boost::any(*commonName);
@@ -1240,6 +1244,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Algorithm") != m.end() && !m["Algorithm"].empty()) {
       algorithm = make_shared<string>(boost::any_cast<string>(m["Algorithm"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
     if (m.find("CommonName") != m.end() && !m["CommonName"].empty()) {
       commonName = make_shared<string>(boost::any_cast<string>(m["CommonName"]));
@@ -2238,7 +2245,9 @@ public:
   shared_ptr<long> crlDay{};
   shared_ptr<string> crlStatus{};
   shared_ptr<string> crlUrl{};
+  shared_ptr<string> fullAlgorithm{};
   shared_ptr<string> identifier{};
+  shared_ptr<string> issuerType{};
   shared_ptr<long> keySize{};
   shared_ptr<string> locality{};
   shared_ptr<string> md5{};
@@ -2253,6 +2262,7 @@ public:
   shared_ptr<string> status{};
   shared_ptr<string> subjectDN{};
   shared_ptr<string> x509Certificate{};
+  shared_ptr<long> years{};
 
   DescribeCACertificateResponseBodyCertificate() {}
 
@@ -2303,8 +2313,14 @@ public:
     if (crlUrl) {
       res["CrlUrl"] = boost::any(*crlUrl);
     }
+    if (fullAlgorithm) {
+      res["FullAlgorithm"] = boost::any(*fullAlgorithm);
+    }
     if (identifier) {
       res["Identifier"] = boost::any(*identifier);
+    }
+    if (issuerType) {
+      res["IssuerType"] = boost::any(*issuerType);
     }
     if (keySize) {
       res["KeySize"] = boost::any(*keySize);
@@ -2347,6 +2363,9 @@ public:
     }
     if (x509Certificate) {
       res["X509Certificate"] = boost::any(*x509Certificate);
+    }
+    if (years) {
+      res["Years"] = boost::any(*years);
     }
     return res;
   }
@@ -2391,8 +2410,14 @@ public:
     if (m.find("CrlUrl") != m.end() && !m["CrlUrl"].empty()) {
       crlUrl = make_shared<string>(boost::any_cast<string>(m["CrlUrl"]));
     }
+    if (m.find("FullAlgorithm") != m.end() && !m["FullAlgorithm"].empty()) {
+      fullAlgorithm = make_shared<string>(boost::any_cast<string>(m["FullAlgorithm"]));
+    }
     if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
       identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
+    }
+    if (m.find("IssuerType") != m.end() && !m["IssuerType"].empty()) {
+      issuerType = make_shared<string>(boost::any_cast<string>(m["IssuerType"]));
     }
     if (m.find("KeySize") != m.end() && !m["KeySize"].empty()) {
       keySize = make_shared<long>(boost::any_cast<long>(m["KeySize"]));
@@ -2435,6 +2460,9 @@ public:
     }
     if (m.find("X509Certificate") != m.end() && !m["X509Certificate"].empty()) {
       x509Certificate = make_shared<string>(boost::any_cast<string>(m["X509Certificate"]));
+    }
+    if (m.find("Years") != m.end() && !m["Years"].empty()) {
+      years = make_shared<long>(boost::any_cast<long>(m["Years"]));
     }
   }
 
@@ -4914,6 +4942,7 @@ public:
 };
 class UpdateCACertificateStatusRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
   shared_ptr<string> identifier{};
   shared_ptr<string> status{};
 
@@ -4927,6 +4956,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
     if (identifier) {
       res["Identifier"] = boost::any(*identifier);
     }
@@ -4937,6 +4969,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
     if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
       identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
     }
