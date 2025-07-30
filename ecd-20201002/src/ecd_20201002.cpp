@@ -708,11 +708,19 @@ GetConnectionTicketResponse Alibabacloud_Ecd20201002::Client::getConnectionTicke
   return getConnectionTicketWithOptions(request, runtime);
 }
 
-GetLoginTokenResponse Alibabacloud_Ecd20201002::Client::getLoginTokenWithOptions(shared_ptr<GetLoginTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+GetLoginTokenResponse Alibabacloud_Ecd20201002::Client::getLoginTokenWithOptions(shared_ptr<GetLoginTokenRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetLoginTokenShrinkRequest> request = make_shared<GetLoginTokenShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(tmpReq->availableFeatures)) {
+    request->availableFeaturesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->availableFeatures, make_shared<string>("AvailableFeatures"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->authenticationCode)) {
     query->insert(pair<string, string>("AuthenticationCode", *request->authenticationCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->availableFeaturesShrink)) {
+    query->insert(pair<string, string>("AvailableFeatures", *request->availableFeaturesShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientId)) {
     query->insert(pair<string, string>("ClientId", *request->clientId));

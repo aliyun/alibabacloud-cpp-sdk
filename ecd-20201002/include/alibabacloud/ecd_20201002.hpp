@@ -4571,6 +4571,7 @@ public:
 class GetLoginTokenRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authenticationCode{};
+  shared_ptr<map<string, string>> availableFeatures{};
   shared_ptr<string> clientId{};
   shared_ptr<string> clientOS{};
   shared_ptr<string> clientType{};
@@ -4601,6 +4602,9 @@ public:
     map<string, boost::any> res;
     if (authenticationCode) {
       res["AuthenticationCode"] = boost::any(*authenticationCode);
+    }
+    if (availableFeatures) {
+      res["AvailableFeatures"] = boost::any(*availableFeatures);
     }
     if (clientId) {
       res["ClientId"] = boost::any(*clientId);
@@ -4660,6 +4664,14 @@ public:
     if (m.find("AuthenticationCode") != m.end() && !m["AuthenticationCode"].empty()) {
       authenticationCode = make_shared<string>(boost::any_cast<string>(m["AuthenticationCode"]));
     }
+    if (m.find("AvailableFeatures") != m.end() && !m["AvailableFeatures"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["AvailableFeatures"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      availableFeatures = make_shared<map<string, string>>(toMap1);
+    }
     if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
       clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
     }
@@ -4715,6 +4727,161 @@ public:
 
 
   virtual ~GetLoginTokenRequest() = default;
+};
+class GetLoginTokenShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> authenticationCode{};
+  shared_ptr<string> availableFeaturesShrink{};
+  shared_ptr<string> clientId{};
+  shared_ptr<string> clientOS{};
+  shared_ptr<string> clientType{};
+  shared_ptr<string> clientVersion{};
+  shared_ptr<string> currentStage{};
+  shared_ptr<string> directoryId{};
+  shared_ptr<string> endUserId{};
+  shared_ptr<bool> keepAlive{};
+  shared_ptr<string> keepAliveToken{};
+  shared_ptr<string> newPassword{};
+  shared_ptr<string> officeSiteId{};
+  shared_ptr<string> oldPassword{};
+  shared_ptr<string> password{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> sessionId{};
+  shared_ptr<string> tokenCode{};
+  shared_ptr<string> uuid{};
+
+  GetLoginTokenShrinkRequest() {}
+
+  explicit GetLoginTokenShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authenticationCode) {
+      res["AuthenticationCode"] = boost::any(*authenticationCode);
+    }
+    if (availableFeaturesShrink) {
+      res["AvailableFeatures"] = boost::any(*availableFeaturesShrink);
+    }
+    if (clientId) {
+      res["ClientId"] = boost::any(*clientId);
+    }
+    if (clientOS) {
+      res["ClientOS"] = boost::any(*clientOS);
+    }
+    if (clientType) {
+      res["ClientType"] = boost::any(*clientType);
+    }
+    if (clientVersion) {
+      res["ClientVersion"] = boost::any(*clientVersion);
+    }
+    if (currentStage) {
+      res["CurrentStage"] = boost::any(*currentStage);
+    }
+    if (directoryId) {
+      res["DirectoryId"] = boost::any(*directoryId);
+    }
+    if (endUserId) {
+      res["EndUserId"] = boost::any(*endUserId);
+    }
+    if (keepAlive) {
+      res["KeepAlive"] = boost::any(*keepAlive);
+    }
+    if (keepAliveToken) {
+      res["KeepAliveToken"] = boost::any(*keepAliveToken);
+    }
+    if (newPassword) {
+      res["NewPassword"] = boost::any(*newPassword);
+    }
+    if (officeSiteId) {
+      res["OfficeSiteId"] = boost::any(*officeSiteId);
+    }
+    if (oldPassword) {
+      res["OldPassword"] = boost::any(*oldPassword);
+    }
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (sessionId) {
+      res["SessionId"] = boost::any(*sessionId);
+    }
+    if (tokenCode) {
+      res["TokenCode"] = boost::any(*tokenCode);
+    }
+    if (uuid) {
+      res["Uuid"] = boost::any(*uuid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthenticationCode") != m.end() && !m["AuthenticationCode"].empty()) {
+      authenticationCode = make_shared<string>(boost::any_cast<string>(m["AuthenticationCode"]));
+    }
+    if (m.find("AvailableFeatures") != m.end() && !m["AvailableFeatures"].empty()) {
+      availableFeaturesShrink = make_shared<string>(boost::any_cast<string>(m["AvailableFeatures"]));
+    }
+    if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("ClientOS") != m.end() && !m["ClientOS"].empty()) {
+      clientOS = make_shared<string>(boost::any_cast<string>(m["ClientOS"]));
+    }
+    if (m.find("ClientType") != m.end() && !m["ClientType"].empty()) {
+      clientType = make_shared<string>(boost::any_cast<string>(m["ClientType"]));
+    }
+    if (m.find("ClientVersion") != m.end() && !m["ClientVersion"].empty()) {
+      clientVersion = make_shared<string>(boost::any_cast<string>(m["ClientVersion"]));
+    }
+    if (m.find("CurrentStage") != m.end() && !m["CurrentStage"].empty()) {
+      currentStage = make_shared<string>(boost::any_cast<string>(m["CurrentStage"]));
+    }
+    if (m.find("DirectoryId") != m.end() && !m["DirectoryId"].empty()) {
+      directoryId = make_shared<string>(boost::any_cast<string>(m["DirectoryId"]));
+    }
+    if (m.find("EndUserId") != m.end() && !m["EndUserId"].empty()) {
+      endUserId = make_shared<string>(boost::any_cast<string>(m["EndUserId"]));
+    }
+    if (m.find("KeepAlive") != m.end() && !m["KeepAlive"].empty()) {
+      keepAlive = make_shared<bool>(boost::any_cast<bool>(m["KeepAlive"]));
+    }
+    if (m.find("KeepAliveToken") != m.end() && !m["KeepAliveToken"].empty()) {
+      keepAliveToken = make_shared<string>(boost::any_cast<string>(m["KeepAliveToken"]));
+    }
+    if (m.find("NewPassword") != m.end() && !m["NewPassword"].empty()) {
+      newPassword = make_shared<string>(boost::any_cast<string>(m["NewPassword"]));
+    }
+    if (m.find("OfficeSiteId") != m.end() && !m["OfficeSiteId"].empty()) {
+      officeSiteId = make_shared<string>(boost::any_cast<string>(m["OfficeSiteId"]));
+    }
+    if (m.find("OldPassword") != m.end() && !m["OldPassword"].empty()) {
+      oldPassword = make_shared<string>(boost::any_cast<string>(m["OldPassword"]));
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
+    }
+    if (m.find("TokenCode") != m.end() && !m["TokenCode"].empty()) {
+      tokenCode = make_shared<string>(boost::any_cast<string>(m["TokenCode"]));
+    }
+    if (m.find("Uuid") != m.end() && !m["Uuid"].empty()) {
+      uuid = make_shared<string>(boost::any_cast<string>(m["Uuid"]));
+    }
+  }
+
+
+  virtual ~GetLoginTokenShrinkRequest() = default;
 };
 class GetLoginTokenResponseBodyPasswordStrategy : public Darabonba::Model {
 public:
@@ -7780,7 +7947,7 @@ public:
   GetCloudDriveServiceMountTokenResponse getCloudDriveServiceMountToken(shared_ptr<GetCloudDriveServiceMountTokenRequest> request);
   GetConnectionTicketResponse getConnectionTicketWithOptions(shared_ptr<GetConnectionTicketRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetConnectionTicketResponse getConnectionTicket(shared_ptr<GetConnectionTicketRequest> request);
-  GetLoginTokenResponse getLoginTokenWithOptions(shared_ptr<GetLoginTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetLoginTokenResponse getLoginTokenWithOptions(shared_ptr<GetLoginTokenRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetLoginTokenResponse getLoginToken(shared_ptr<GetLoginTokenRequest> request);
   IsKeepAliveResponse isKeepAliveWithOptions(shared_ptr<IsKeepAliveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   IsKeepAliveResponse isKeepAlive(shared_ptr<IsKeepAliveRequest> request);
