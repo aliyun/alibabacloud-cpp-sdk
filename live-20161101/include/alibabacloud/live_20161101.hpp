@@ -5712,6 +5712,8 @@ public:
   shared_ptr<string> inAppName2{};
   shared_ptr<string> inStreamName1{};
   shared_ptr<string> inStreamName2{};
+  shared_ptr<string> liveMerger{};
+  shared_ptr<string> mergeParameters{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> protocol{};
   shared_ptr<string> regionId{};
@@ -5748,6 +5750,12 @@ public:
     }
     if (inStreamName2) {
       res["InStreamName2"] = boost::any(*inStreamName2);
+    }
+    if (liveMerger) {
+      res["LiveMerger"] = boost::any(*liveMerger);
+    }
+    if (mergeParameters) {
+      res["MergeParameters"] = boost::any(*mergeParameters);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -5789,6 +5797,12 @@ public:
     if (m.find("InStreamName2") != m.end() && !m["InStreamName2"].empty()) {
       inStreamName2 = make_shared<string>(boost::any_cast<string>(m["InStreamName2"]));
     }
+    if (m.find("LiveMerger") != m.end() && !m["LiveMerger"].empty()) {
+      liveMerger = make_shared<string>(boost::any_cast<string>(m["LiveMerger"]));
+    }
+    if (m.find("MergeParameters") != m.end() && !m["MergeParameters"].empty()) {
+      mergeParameters = make_shared<string>(boost::any_cast<string>(m["MergeParameters"]));
+    }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
     }
@@ -5811,6 +5825,7 @@ public:
 };
 class AddLiveStreamMergeResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   AddLiveStreamMergeResponseBody() {}
@@ -5823,6 +5838,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -5830,6 +5848,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -49055,6 +49076,8 @@ public:
   shared_ptr<string> inAppName2{};
   shared_ptr<string> inStreamName1{};
   shared_ptr<string> inStreamName2{};
+  shared_ptr<string> liveMerger{};
+  shared_ptr<string> mergeParameters{};
   shared_ptr<string> protocol{};
   shared_ptr<string> startTime{};
   shared_ptr<string> streamName{};
@@ -49096,6 +49119,12 @@ public:
     }
     if (inStreamName2) {
       res["InStreamName2"] = boost::any(*inStreamName2);
+    }
+    if (liveMerger) {
+      res["LiveMerger"] = boost::any(*liveMerger);
+    }
+    if (mergeParameters) {
+      res["MergeParameters"] = boost::any(*mergeParameters);
     }
     if (protocol) {
       res["Protocol"] = boost::any(*protocol);
@@ -49139,6 +49168,12 @@ public:
     }
     if (m.find("InStreamName2") != m.end() && !m["InStreamName2"].empty()) {
       inStreamName2 = make_shared<string>(boost::any_cast<string>(m["InStreamName2"]));
+    }
+    if (m.find("LiveMerger") != m.end() && !m["LiveMerger"].empty()) {
+      liveMerger = make_shared<string>(boost::any_cast<string>(m["LiveMerger"]));
+    }
+    if (m.find("MergeParameters") != m.end() && !m["MergeParameters"].empty()) {
+      mergeParameters = make_shared<string>(boost::any_cast<string>(m["MergeParameters"]));
     }
     if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));

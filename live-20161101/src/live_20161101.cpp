@@ -1504,6 +1504,12 @@ AddLiveStreamMergeResponse Alibabacloud_Live20161101::Client::addLiveStreamMerge
   if (!Darabonba_Util::Client::isUnset<string>(request->inStreamName2)) {
     query->insert(pair<string, string>("InStreamName2", *request->inStreamName2));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->liveMerger)) {
+    query->insert(pair<string, string>("LiveMerger", *request->liveMerger));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mergeParameters)) {
+    query->insert(pair<string, string>("MergeParameters", *request->mergeParameters));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
