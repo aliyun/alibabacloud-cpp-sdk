@@ -1836,6 +1836,9 @@ CreateWorkflowInstancesResponse Alibabacloud_Dataworks-public20240518::Client::c
   if (!Darabonba_Util::Client::isUnset<CreateWorkflowInstancesRequestPeriods>(tmpReq->periods)) {
     request->periodsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->periods, make_shared<string>("Periods"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateWorkflowInstancesRequestTags>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoStartEnabled)) {
     body->insert(pair<string, bool>("AutoStartEnabled", *request->autoStartEnabled));
@@ -1857,6 +1860,12 @@ CreateWorkflowInstancesResponse Alibabacloud_Dataworks-public20240518::Client::c
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
     body->insert(pair<string, long>("ProjectId", *request->projectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagCreationPolicy)) {
+    body->insert(pair<string, string>("TagCreationPolicy", *request->tagCreationPolicy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
+    body->insert(pair<string, string>("Tags", *request->tagsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskParameters)) {
     body->insert(pair<string, string>("TaskParameters", *request->taskParameters));

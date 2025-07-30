@@ -13695,6 +13695,42 @@ public:
 
   virtual ~CreateWorkflowInstancesRequestPeriods() = default;
 };
+class CreateWorkflowInstancesRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateWorkflowInstancesRequestTags() {}
+
+  explicit CreateWorkflowInstancesRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateWorkflowInstancesRequestTags() = default;
+};
 class CreateWorkflowInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoStartEnabled{};
@@ -13704,6 +13740,8 @@ public:
   shared_ptr<string> name{};
   shared_ptr<CreateWorkflowInstancesRequestPeriods> periods{};
   shared_ptr<long> projectId{};
+  shared_ptr<string> tagCreationPolicy{};
+  shared_ptr<vector<CreateWorkflowInstancesRequestTags>> tags{};
   shared_ptr<string> taskParameters{};
   shared_ptr<string> type{};
   shared_ptr<long> workflowId{};
@@ -13739,6 +13777,16 @@ public:
     }
     if (projectId) {
       res["ProjectId"] = boost::any(*projectId);
+    }
+    if (tagCreationPolicy) {
+      res["TagCreationPolicy"] = boost::any(*tagCreationPolicy);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (taskParameters) {
       res["TaskParameters"] = boost::any(*taskParameters);
@@ -13785,6 +13833,22 @@ public:
     if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
       projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
     }
+    if (m.find("TagCreationPolicy") != m.end() && !m["TagCreationPolicy"].empty()) {
+      tagCreationPolicy = make_shared<string>(boost::any_cast<string>(m["TagCreationPolicy"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<CreateWorkflowInstancesRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateWorkflowInstancesRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreateWorkflowInstancesRequestTags>>(expect1);
+      }
+    }
     if (m.find("TaskParameters") != m.end() && !m["TaskParameters"].empty()) {
       taskParameters = make_shared<string>(boost::any_cast<string>(m["TaskParameters"]));
     }
@@ -13811,6 +13875,8 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> periodsShrink{};
   shared_ptr<long> projectId{};
+  shared_ptr<string> tagCreationPolicy{};
+  shared_ptr<string> tagsShrink{};
   shared_ptr<string> taskParameters{};
   shared_ptr<string> type{};
   shared_ptr<long> workflowId{};
@@ -13846,6 +13912,12 @@ public:
     }
     if (projectId) {
       res["ProjectId"] = boost::any(*projectId);
+    }
+    if (tagCreationPolicy) {
+      res["TagCreationPolicy"] = boost::any(*tagCreationPolicy);
+    }
+    if (tagsShrink) {
+      res["Tags"] = boost::any(*tagsShrink);
     }
     if (taskParameters) {
       res["TaskParameters"] = boost::any(*taskParameters);
@@ -13883,6 +13955,12 @@ public:
     }
     if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
       projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
+    }
+    if (m.find("TagCreationPolicy") != m.end() && !m["TagCreationPolicy"].empty()) {
+      tagCreationPolicy = make_shared<string>(boost::any_cast<string>(m["TagCreationPolicy"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
     }
     if (m.find("TaskParameters") != m.end() && !m["TaskParameters"].empty()) {
       taskParameters = make_shared<string>(boost::any_cast<string>(m["TaskParameters"]));
