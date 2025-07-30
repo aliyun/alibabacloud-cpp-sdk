@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_cio_market_pop_20250709Targets.cmake")
+check_required_components("alibabacloud_cio_market_pop_20250709")
