@@ -165,6 +165,9 @@ CreateGroupResponse Alibabacloud_Eds-user20210308::Client::createGroupWithOption
   if (!Darabonba_Util::Client::isUnset<string>(request->bizType)) {
     query->insert(pair<string, string>("BizType", *request->bizType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupName)) {
     query->insert(pair<string, string>("GroupName", *request->groupName));
   }
@@ -405,8 +408,17 @@ DescribeGroupUserResponse Alibabacloud_Eds-user20210308::Client::describeGroupUs
   if (!Darabonba_Util::Client::isUnset<string>(request->bizType)) {
     query->insert(pair<string, string>("BizType", *request->bizType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
+    query->insert(pair<string, string>("Filter", *request->filter));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
     query->insert(pair<string, string>("GroupId", *request->groupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->solutionId)) {
     query->insert(pair<string, string>("SolutionId", *request->solutionId));
@@ -445,8 +457,17 @@ DescribeGroupsResponse Alibabacloud_Eds-user20210308::Client::describeGroupsWith
   if (!Darabonba_Util::Client::isUnset<string>(request->groupName)) {
     query->insert(pair<string, string>("GroupName", *request->groupName));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->solutionId)) {
     query->insert(pair<string, string>("SolutionId", *request->solutionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->transferFileNeedApproval)) {
+    query->insert(pair<string, bool>("TransferFileNeedApproval", *request->transferFileNeedApproval));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -638,17 +659,11 @@ DescribeUsersResponse Alibabacloud_Eds-user20210308::Client::describeUsersWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
     query->insert(pair<string, string>("Filter", *request->filter));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->filterWithAssignedResourceShrink)) {
-    query->insert(pair<string, string>("FilterWithAssignedResource", *request->filterWithAssignedResourceShrink));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
     query->insert(pair<string, string>("NextToken", *request->nextToken));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
-    query->insert(pair<string, long>("Status", *request->status));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->bizType)) {
@@ -659,6 +674,12 @@ DescribeUsersResponse Alibabacloud_Eds-user20210308::Client::describeUsersWithOp
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->excludeEndUserIds)) {
     body->insert(pair<string, vector<string>>("ExcludeEndUserIds", *request->excludeEndUserIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->excludeGroupId)) {
+    body->insert(pair<string, string>("ExcludeGroupId", *request->excludeGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filterWithAssignedResourceShrink)) {
+    body->insert(pair<string, string>("FilterWithAssignedResource", *request->filterWithAssignedResourceShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->filterWithAssignedResourcesShrink)) {
     body->insert(pair<string, string>("FilterWithAssignedResources", *request->filterWithAssignedResourcesShrink));
@@ -677,6 +698,9 @@ DescribeUsersResponse Alibabacloud_Eds-user20210308::Client::describeUsersWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->solutionId)) {
     body->insert(pair<string, string>("SolutionId", *request->solutionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
+    body->insert(pair<string, long>("Status", *request->status));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
@@ -941,6 +965,9 @@ LockUsersResponse Alibabacloud_Eds-user20210308::Client::lockUsers(shared_ptr<Lo
 ModifyGroupResponse Alibabacloud_Eds-user20210308::Client::modifyGroupWithOptions(shared_ptr<ModifyGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
     query->insert(pair<string, string>("GroupId", *request->groupId));
   }
@@ -1122,6 +1149,9 @@ RemoveGroupResponse Alibabacloud_Eds-user20210308::Client::removeGroupWithOption
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
     query->insert(pair<string, string>("GroupId", *request->groupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->groupIds)) {
+    query->insert(pair<string, vector<string>>("GroupIds", *request->groupIds));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

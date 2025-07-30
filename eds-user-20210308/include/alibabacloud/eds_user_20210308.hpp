@@ -919,6 +919,7 @@ public:
 class CreateGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bizType{};
+  shared_ptr<string> description{};
   shared_ptr<string> groupName{};
   shared_ptr<string> parentGroupId{};
   shared_ptr<string> solutionId{};
@@ -936,6 +937,9 @@ public:
     if (bizType) {
       res["BizType"] = boost::any(*bizType);
     }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
     }
@@ -951,6 +955,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("BizType") != m.end() && !m["BizType"].empty()) {
       bizType = make_shared<string>(boost::any_cast<string>(m["BizType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
@@ -2318,7 +2325,10 @@ public:
 class DescribeGroupUserRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bizType{};
+  shared_ptr<string> filter{};
   shared_ptr<string> groupId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
   shared_ptr<string> solutionId{};
 
   DescribeGroupUserRequest() {}
@@ -2334,8 +2344,17 @@ public:
     if (bizType) {
       res["BizType"] = boost::any(*bizType);
     }
+    if (filter) {
+      res["Filter"] = boost::any(*filter);
+    }
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
     }
     if (solutionId) {
       res["SolutionId"] = boost::any(*solutionId);
@@ -2347,8 +2366,17 @@ public:
     if (m.find("BizType") != m.end() && !m["BizType"].empty()) {
       bizType = make_shared<string>(boost::any_cast<string>(m["BizType"]));
     }
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
     if (m.find("SolutionId") != m.end() && !m["SolutionId"].empty()) {
       solutionId = make_shared<string>(boost::any_cast<string>(m["SolutionId"]));
@@ -2412,6 +2440,7 @@ public:
   shared_ptr<string> jobNumber{};
   shared_ptr<string> nickName{};
   shared_ptr<string> phone{};
+  shared_ptr<string> remark{};
 
   DescribeGroupUserResponseBodyUsers() {}
 
@@ -2450,6 +2479,9 @@ public:
     if (phone) {
       res["Phone"] = boost::any(*phone);
     }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
     return res;
   }
 
@@ -2481,6 +2513,9 @@ public:
     if (m.find("Phone") != m.end() && !m["Phone"].empty()) {
       phone = make_shared<string>(boost::any_cast<string>(m["Phone"]));
     }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
   }
 
 
@@ -2489,6 +2524,7 @@ public:
 class DescribeGroupUserResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<DescribeGroupUserResponseBodyGroups>> groups{};
+  shared_ptr<string> nextToken{};
   shared_ptr<string> requestId{};
   shared_ptr<vector<DescribeGroupUserResponseBodyUsers>> users{};
 
@@ -2508,6 +2544,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Groups"] = boost::any(temp1);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -2535,6 +2574,9 @@ public:
         }
         groups = make_shared<vector<DescribeGroupUserResponseBodyGroups>>(expect1);
       }
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -2614,7 +2656,10 @@ public:
   shared_ptr<string> bizType{};
   shared_ptr<string> groupId{};
   shared_ptr<string> groupName{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> solutionId{};
+  shared_ptr<bool> transferFileNeedApproval{};
 
   DescribeGroupsRequest() {}
 
@@ -2635,8 +2680,17 @@ public:
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
     }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
     if (solutionId) {
       res["SolutionId"] = boost::any(*solutionId);
+    }
+    if (transferFileNeedApproval) {
+      res["TransferFileNeedApproval"] = boost::any(*transferFileNeedApproval);
     }
     return res;
   }
@@ -2651,8 +2705,17 @@ public:
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
     }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
     if (m.find("SolutionId") != m.end() && !m["SolutionId"].empty()) {
       solutionId = make_shared<string>(boost::any_cast<string>(m["SolutionId"]));
+    }
+    if (m.find("TransferFileNeedApproval") != m.end() && !m["TransferFileNeedApproval"].empty()) {
+      transferFileNeedApproval = make_shared<bool>(boost::any_cast<bool>(m["TransferFileNeedApproval"]));
     }
   }
 
@@ -2661,8 +2724,13 @@ public:
 };
 class DescribeGroupsResponseBodyGroups : public Darabonba::Model {
 public:
+  shared_ptr<map<string, string>> authedResources{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> description{};
   shared_ptr<string> groupId{};
   shared_ptr<string> groupName{};
+  shared_ptr<bool> transferFileNeedApproval{};
+  shared_ptr<long> userCount{};
 
   DescribeGroupsResponseBodyGroups() {}
 
@@ -2674,21 +2742,56 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (authedResources) {
+      res["AuthedResources"] = boost::any(*authedResources);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
     }
+    if (transferFileNeedApproval) {
+      res["TransferFileNeedApproval"] = boost::any(*transferFileNeedApproval);
+    }
+    if (userCount) {
+      res["UserCount"] = boost::any(*userCount);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthedResources") != m.end() && !m["AuthedResources"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["AuthedResources"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      authedResources = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("TransferFileNeedApproval") != m.end() && !m["TransferFileNeedApproval"].empty()) {
+      transferFileNeedApproval = make_shared<bool>(boost::any_cast<bool>(m["TransferFileNeedApproval"]));
+    }
+    if (m.find("UserCount") != m.end() && !m["UserCount"].empty()) {
+      userCount = make_shared<long>(boost::any_cast<long>(m["UserCount"]));
     }
   }
 
@@ -2697,6 +2800,7 @@ public:
 };
 class DescribeGroupsResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> count{};
   shared_ptr<vector<DescribeGroupsResponseBodyGroups>> groups{};
   shared_ptr<string> requestId{};
 
@@ -2710,6 +2814,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
     if (groups) {
       vector<boost::any> temp1;
       for(auto item1:*groups){
@@ -2724,6 +2831,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
     if (m.find("Groups") != m.end() && !m["Groups"].empty()) {
       if (typeid(vector<boost::any>) == m["Groups"].type()) {
         vector<DescribeGroupsResponseBodyGroups> expect1;
@@ -3886,6 +3996,7 @@ public:
   shared_ptr<string> bizType{};
   shared_ptr<vector<string>> endUserIds{};
   shared_ptr<vector<string>> excludeEndUserIds{};
+  shared_ptr<string> excludeGroupId{};
   shared_ptr<string> filter{};
   shared_ptr<map<string, string>> filterWithAssignedResource{};
   shared_ptr<map<string, bool>> filterWithAssignedResources{};
@@ -3916,6 +4027,9 @@ public:
     }
     if (excludeEndUserIds) {
       res["ExcludeEndUserIds"] = boost::any(*excludeEndUserIds);
+    }
+    if (excludeGroupId) {
+      res["ExcludeGroupId"] = boost::any(*excludeGroupId);
     }
     if (filter) {
       res["Filter"] = boost::any(*filter);
@@ -3977,6 +4091,9 @@ public:
       }
       excludeEndUserIds = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("ExcludeGroupId") != m.end() && !m["ExcludeGroupId"].empty()) {
+      excludeGroupId = make_shared<string>(boost::any_cast<string>(m["ExcludeGroupId"]));
+    }
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
     }
@@ -4035,6 +4152,7 @@ public:
   shared_ptr<string> bizType{};
   shared_ptr<vector<string>> endUserIds{};
   shared_ptr<vector<string>> excludeEndUserIds{};
+  shared_ptr<string> excludeGroupId{};
   shared_ptr<string> filter{};
   shared_ptr<string> filterWithAssignedResourceShrink{};
   shared_ptr<string> filterWithAssignedResourcesShrink{};
@@ -4065,6 +4183,9 @@ public:
     }
     if (excludeEndUserIds) {
       res["ExcludeEndUserIds"] = boost::any(*excludeEndUserIds);
+    }
+    if (excludeGroupId) {
+      res["ExcludeGroupId"] = boost::any(*excludeGroupId);
     }
     if (filter) {
       res["Filter"] = boost::any(*filter);
@@ -4125,6 +4246,9 @@ public:
         }
       }
       excludeEndUserIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ExcludeGroupId") != m.end() && !m["ExcludeGroupId"].empty()) {
+      excludeGroupId = make_shared<string>(boost::any_cast<string>(m["ExcludeGroupId"]));
     }
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
@@ -4318,6 +4442,7 @@ public:
   shared_ptr<string> address{};
   shared_ptr<string> avatar{};
   shared_ptr<string> email{};
+  shared_ptr<bool> enableAdminAccess{};
   shared_ptr<string> endUserId{};
   shared_ptr<string> externalName{};
   shared_ptr<DescribeUsersResponseBodyUsersExtras> extras{};
@@ -4354,6 +4479,9 @@ public:
     }
     if (email) {
       res["Email"] = boost::any(*email);
+    }
+    if (enableAdminAccess) {
+      res["EnableAdminAccess"] = boost::any(*enableAdminAccess);
     }
     if (endUserId) {
       res["EndUserId"] = boost::any(*endUserId);
@@ -4430,6 +4558,9 @@ public:
     }
     if (m.find("Email") != m.end() && !m["Email"].empty()) {
       email = make_shared<string>(boost::any_cast<string>(m["Email"]));
+    }
+    if (m.find("EnableAdminAccess") != m.end() && !m["EnableAdminAccess"].empty()) {
+      enableAdminAccess = make_shared<bool>(boost::any_cast<bool>(m["EnableAdminAccess"]));
     }
     if (m.find("EndUserId") != m.end() && !m["EndUserId"].empty()) {
       endUserId = make_shared<string>(boost::any_cast<string>(m["EndUserId"]));
@@ -6694,6 +6825,7 @@ public:
 };
 class ModifyGroupRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> description{};
   shared_ptr<string> groupId{};
   shared_ptr<string> newGroupName{};
 
@@ -6707,6 +6839,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
@@ -6717,6 +6852,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
     }
@@ -7499,6 +7637,7 @@ public:
 class RemoveGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> groupId{};
+  shared_ptr<vector<string>> groupIds{};
 
   RemoveGroupRequest() {}
 
@@ -7513,12 +7652,25 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (groupIds) {
+      res["GroupIds"] = boost::any(*groupIds);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("GroupIds") != m.end() && !m["GroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["GroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["GroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      groupIds = make_shared<vector<string>>(toVec1);
     }
   }
 
