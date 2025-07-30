@@ -2413,7 +2413,7 @@ public:
 class ServiceSpec : public Darabonba::Model {
 public:
   shared_ptr<long> defaultPort{};
-  shared_ptr<long> extraPorts{};
+  shared_ptr<vector<long>> extraPorts{};
   shared_ptr<string> serviceMode{};
 
   ServiceSpec() {}
@@ -2443,7 +2443,14 @@ public:
       defaultPort = make_shared<long>(boost::any_cast<long>(m["DefaultPort"]));
     }
     if (m.find("ExtraPorts") != m.end() && !m["ExtraPorts"].empty()) {
-      extraPorts = make_shared<long>(boost::any_cast<long>(m["ExtraPorts"]));
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["ExtraPorts"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExtraPorts"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      extraPorts = make_shared<vector<long>>(toVec1);
     }
     if (m.find("ServiceMode") != m.end() && !m["ServiceMode"].empty()) {
       serviceMode = make_shared<string>(boost::any_cast<string>(m["ServiceMode"]));
@@ -4966,6 +4973,7 @@ class CreateJobRequestDataSources : public Darabonba::Model {
 public:
   shared_ptr<string> dataSourceId{};
   shared_ptr<string> dataSourceVersion{};
+  shared_ptr<bool> enableCache{};
   shared_ptr<string> mountAccess{};
   shared_ptr<string> mountPath{};
   shared_ptr<string> options{};
@@ -4986,6 +4994,9 @@ public:
     }
     if (dataSourceVersion) {
       res["DataSourceVersion"] = boost::any(*dataSourceVersion);
+    }
+    if (enableCache) {
+      res["EnableCache"] = boost::any(*enableCache);
     }
     if (mountAccess) {
       res["MountAccess"] = boost::any(*mountAccess);
@@ -5008,6 +5019,9 @@ public:
     }
     if (m.find("DataSourceVersion") != m.end() && !m["DataSourceVersion"].empty()) {
       dataSourceVersion = make_shared<string>(boost::any_cast<string>(m["DataSourceVersion"]));
+    }
+    if (m.find("EnableCache") != m.end() && !m["EnableCache"].empty()) {
+      enableCache = make_shared<bool>(boost::any_cast<bool>(m["EnableCache"]));
     }
     if (m.find("MountAccess") != m.end() && !m["MountAccess"].empty()) {
       mountAccess = make_shared<string>(boost::any_cast<string>(m["MountAccess"]));
