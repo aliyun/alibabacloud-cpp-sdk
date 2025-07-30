@@ -303,6 +303,9 @@ CreateIndexResponse Alibabacloud_Bailian20231229::Client::createIndexWithOptions
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->documentIds)) {
     request->documentIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->documentIds, make_shared<string>("DocumentIds"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->tableIds)) {
+    request->tableIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tableIds, make_shared<string>("TableIds"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreateIndexRequestMetaExtractColumns>>(tmpReq->metaExtractColumns)) {
     request->metaExtractColumnsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->metaExtractColumns, make_shared<string>("metaExtractColumns"), make_shared<string>("json")));
   }
@@ -316,6 +319,9 @@ CreateIndexResponse Alibabacloud_Bailian20231229::Client::createIndexWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->columnsShrink)) {
     query->insert(pair<string, string>("Columns", *request->columnsShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->createIndexType)) {
+    query->insert(pair<string, string>("CreateIndexType", *request->createIndexType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->dataSourceShrink)) {
     query->insert(pair<string, string>("DataSource", *request->dataSourceShrink));
   }
@@ -327,6 +333,9 @@ CreateIndexResponse Alibabacloud_Bailian20231229::Client::createIndexWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->embeddingModelName)) {
     query->insert(pair<string, string>("EmbeddingModelName", *request->embeddingModelName));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableRewrite)) {
+    query->insert(pair<string, bool>("EnableRewrite", *request->enableRewrite));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
@@ -357,6 +366,9 @@ CreateIndexResponse Alibabacloud_Bailian20231229::Client::createIndexWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->structureType)) {
     query->insert(pair<string, string>("StructureType", *request->structureType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tableIdsShrink)) {
+    query->insert(pair<string, string>("TableIds", *request->tableIdsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->chunkMode)) {
     query->insert(pair<string, string>("chunkMode", *request->chunkMode));
@@ -1396,6 +1408,9 @@ SubmitIndexAddDocumentsJobResponse Alibabacloud_Bailian20231229::Client::submitI
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->documentIdsShrink)) {
     query->insert(pair<string, string>("DocumentIds", *request->documentIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableHeaders)) {
+    query->insert(pair<string, bool>("EnableHeaders", *request->enableHeaders));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->indexId)) {
     query->insert(pair<string, string>("IndexId", *request->indexId));

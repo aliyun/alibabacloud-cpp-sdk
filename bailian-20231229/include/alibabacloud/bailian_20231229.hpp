@@ -2123,10 +2123,12 @@ public:
   shared_ptr<vector<string>> categoryIds{};
   shared_ptr<long> chunkSize{};
   shared_ptr<vector<CreateIndexRequestColumns>> columns{};
+  shared_ptr<string> createIndexType{};
   shared_ptr<CreateIndexRequestDataSource> dataSource{};
   shared_ptr<string> description{};
   shared_ptr<vector<string>> documentIds{};
   shared_ptr<string> embeddingModelName{};
+  shared_ptr<bool> enableRewrite{};
   shared_ptr<string> name{};
   shared_ptr<long> overlapSize{};
   shared_ptr<double> rerankMinScore{};
@@ -2137,6 +2139,7 @@ public:
   shared_ptr<string> sinkType{};
   shared_ptr<string> sourceType{};
   shared_ptr<string> structureType{};
+  shared_ptr<vector<string>> tableIds{};
   shared_ptr<string> chunkMode{};
   shared_ptr<bool> enableHeaders{};
   shared_ptr<vector<CreateIndexRequestMetaExtractColumns>> metaExtractColumns{};
@@ -2164,6 +2167,9 @@ public:
       }
       res["Columns"] = boost::any(temp1);
     }
+    if (createIndexType) {
+      res["CreateIndexType"] = boost::any(*createIndexType);
+    }
     if (dataSource) {
       res["DataSource"] = dataSource ? boost::any(dataSource->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -2175,6 +2181,9 @@ public:
     }
     if (embeddingModelName) {
       res["EmbeddingModelName"] = boost::any(*embeddingModelName);
+    }
+    if (enableRewrite) {
+      res["EnableRewrite"] = boost::any(*enableRewrite);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -2205,6 +2214,9 @@ public:
     }
     if (structureType) {
       res["StructureType"] = boost::any(*structureType);
+    }
+    if (tableIds) {
+      res["TableIds"] = boost::any(*tableIds);
     }
     if (chunkMode) {
       res["chunkMode"] = boost::any(*chunkMode);
@@ -2249,6 +2261,9 @@ public:
         columns = make_shared<vector<CreateIndexRequestColumns>>(expect1);
       }
     }
+    if (m.find("CreateIndexType") != m.end() && !m["CreateIndexType"].empty()) {
+      createIndexType = make_shared<string>(boost::any_cast<string>(m["CreateIndexType"]));
+    }
     if (m.find("DataSource") != m.end() && !m["DataSource"].empty()) {
       if (typeid(map<string, boost::any>) == m["DataSource"].type()) {
         CreateIndexRequestDataSource model1;
@@ -2271,6 +2286,9 @@ public:
     }
     if (m.find("EmbeddingModelName") != m.end() && !m["EmbeddingModelName"].empty()) {
       embeddingModelName = make_shared<string>(boost::any_cast<string>(m["EmbeddingModelName"]));
+    }
+    if (m.find("EnableRewrite") != m.end() && !m["EnableRewrite"].empty()) {
+      enableRewrite = make_shared<bool>(boost::any_cast<bool>(m["EnableRewrite"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -2302,6 +2320,16 @@ public:
     if (m.find("StructureType") != m.end() && !m["StructureType"].empty()) {
       structureType = make_shared<string>(boost::any_cast<string>(m["StructureType"]));
     }
+    if (m.find("TableIds") != m.end() && !m["TableIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TableIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TableIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tableIds = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("chunkMode") != m.end() && !m["chunkMode"].empty()) {
       chunkMode = make_shared<string>(boost::any_cast<string>(m["chunkMode"]));
     }
@@ -2331,10 +2359,12 @@ public:
   shared_ptr<string> categoryIdsShrink{};
   shared_ptr<long> chunkSize{};
   shared_ptr<string> columnsShrink{};
+  shared_ptr<string> createIndexType{};
   shared_ptr<string> dataSourceShrink{};
   shared_ptr<string> description{};
   shared_ptr<string> documentIdsShrink{};
   shared_ptr<string> embeddingModelName{};
+  shared_ptr<bool> enableRewrite{};
   shared_ptr<string> name{};
   shared_ptr<long> overlapSize{};
   shared_ptr<double> rerankMinScore{};
@@ -2345,6 +2375,7 @@ public:
   shared_ptr<string> sinkType{};
   shared_ptr<string> sourceType{};
   shared_ptr<string> structureType{};
+  shared_ptr<string> tableIdsShrink{};
   shared_ptr<string> chunkMode{};
   shared_ptr<bool> enableHeaders{};
   shared_ptr<string> metaExtractColumnsShrink{};
@@ -2368,6 +2399,9 @@ public:
     if (columnsShrink) {
       res["Columns"] = boost::any(*columnsShrink);
     }
+    if (createIndexType) {
+      res["CreateIndexType"] = boost::any(*createIndexType);
+    }
     if (dataSourceShrink) {
       res["DataSource"] = boost::any(*dataSourceShrink);
     }
@@ -2379,6 +2413,9 @@ public:
     }
     if (embeddingModelName) {
       res["EmbeddingModelName"] = boost::any(*embeddingModelName);
+    }
+    if (enableRewrite) {
+      res["EnableRewrite"] = boost::any(*enableRewrite);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -2410,6 +2447,9 @@ public:
     if (structureType) {
       res["StructureType"] = boost::any(*structureType);
     }
+    if (tableIdsShrink) {
+      res["TableIds"] = boost::any(*tableIdsShrink);
+    }
     if (chunkMode) {
       res["chunkMode"] = boost::any(*chunkMode);
     }
@@ -2432,6 +2472,9 @@ public:
     if (m.find("Columns") != m.end() && !m["Columns"].empty()) {
       columnsShrink = make_shared<string>(boost::any_cast<string>(m["Columns"]));
     }
+    if (m.find("CreateIndexType") != m.end() && !m["CreateIndexType"].empty()) {
+      createIndexType = make_shared<string>(boost::any_cast<string>(m["CreateIndexType"]));
+    }
     if (m.find("DataSource") != m.end() && !m["DataSource"].empty()) {
       dataSourceShrink = make_shared<string>(boost::any_cast<string>(m["DataSource"]));
     }
@@ -2443,6 +2486,9 @@ public:
     }
     if (m.find("EmbeddingModelName") != m.end() && !m["EmbeddingModelName"].empty()) {
       embeddingModelName = make_shared<string>(boost::any_cast<string>(m["EmbeddingModelName"]));
+    }
+    if (m.find("EnableRewrite") != m.end() && !m["EnableRewrite"].empty()) {
+      enableRewrite = make_shared<bool>(boost::any_cast<bool>(m["EnableRewrite"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -2473,6 +2519,9 @@ public:
     }
     if (m.find("StructureType") != m.end() && !m["StructureType"].empty()) {
       structureType = make_shared<string>(boost::any_cast<string>(m["StructureType"]));
+    }
+    if (m.find("TableIds") != m.end() && !m["TableIds"].empty()) {
+      tableIdsShrink = make_shared<string>(boost::any_cast<string>(m["TableIds"]));
     }
     if (m.find("chunkMode") != m.end() && !m["chunkMode"].empty()) {
       chunkMode = make_shared<string>(boost::any_cast<string>(m["chunkMode"]));
@@ -6743,9 +6792,11 @@ public:
 class ListIndicesResponseBodyDataIndices : public Darabonba::Model {
 public:
   shared_ptr<long> chunkSize{};
+  shared_ptr<string> confgModel{};
   shared_ptr<string> description{};
   shared_ptr<vector<string>> documentIds{};
   shared_ptr<string> embeddingModelName{};
+  shared_ptr<bool> enableRewrite{};
   shared_ptr<string> id{};
   shared_ptr<string> name{};
   shared_ptr<long> overlapSize{};
@@ -6771,6 +6822,9 @@ public:
     if (chunkSize) {
       res["ChunkSize"] = boost::any(*chunkSize);
     }
+    if (confgModel) {
+      res["ConfgModel"] = boost::any(*confgModel);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
@@ -6779,6 +6833,9 @@ public:
     }
     if (embeddingModelName) {
       res["EmbeddingModelName"] = boost::any(*embeddingModelName);
+    }
+    if (enableRewrite) {
+      res["EnableRewrite"] = boost::any(*enableRewrite);
     }
     if (id) {
       res["Id"] = boost::any(*id);
@@ -6820,6 +6877,9 @@ public:
     if (m.find("ChunkSize") != m.end() && !m["ChunkSize"].empty()) {
       chunkSize = make_shared<long>(boost::any_cast<long>(m["ChunkSize"]));
     }
+    if (m.find("ConfgModel") != m.end() && !m["ConfgModel"].empty()) {
+      confgModel = make_shared<string>(boost::any_cast<string>(m["ConfgModel"]));
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
@@ -6835,6 +6895,9 @@ public:
     }
     if (m.find("EmbeddingModelName") != m.end() && !m["EmbeddingModelName"].empty()) {
       embeddingModelName = make_shared<string>(boost::any_cast<string>(m["EmbeddingModelName"]));
+    }
+    if (m.find("EnableRewrite") != m.end() && !m["EnableRewrite"].empty()) {
+      enableRewrite = make_shared<bool>(boost::any_cast<bool>(m["EnableRewrite"]));
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
@@ -8979,6 +9042,7 @@ public:
   shared_ptr<string> chunkMode{};
   shared_ptr<long> chunkSize{};
   shared_ptr<vector<string>> documentIds{};
+  shared_ptr<bool> enableHeaders{};
   shared_ptr<string> indexId{};
   shared_ptr<long> overlapSize{};
   shared_ptr<string> separator{};
@@ -9005,6 +9069,9 @@ public:
     }
     if (documentIds) {
       res["DocumentIds"] = boost::any(*documentIds);
+    }
+    if (enableHeaders) {
+      res["EnableHeaders"] = boost::any(*enableHeaders);
     }
     if (indexId) {
       res["IndexId"] = boost::any(*indexId);
@@ -9048,6 +9115,9 @@ public:
       }
       documentIds = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("EnableHeaders") != m.end() && !m["EnableHeaders"].empty()) {
+      enableHeaders = make_shared<bool>(boost::any_cast<bool>(m["EnableHeaders"]));
+    }
     if (m.find("IndexId") != m.end() && !m["IndexId"].empty()) {
       indexId = make_shared<string>(boost::any_cast<string>(m["IndexId"]));
     }
@@ -9071,6 +9141,7 @@ public:
   shared_ptr<string> chunkMode{};
   shared_ptr<long> chunkSize{};
   shared_ptr<string> documentIdsShrink{};
+  shared_ptr<bool> enableHeaders{};
   shared_ptr<string> indexId{};
   shared_ptr<long> overlapSize{};
   shared_ptr<string> separator{};
@@ -9097,6 +9168,9 @@ public:
     }
     if (documentIdsShrink) {
       res["DocumentIds"] = boost::any(*documentIdsShrink);
+    }
+    if (enableHeaders) {
+      res["EnableHeaders"] = boost::any(*enableHeaders);
     }
     if (indexId) {
       res["IndexId"] = boost::any(*indexId);
@@ -9125,6 +9199,9 @@ public:
     }
     if (m.find("DocumentIds") != m.end() && !m["DocumentIds"].empty()) {
       documentIdsShrink = make_shared<string>(boost::any_cast<string>(m["DocumentIds"]));
+    }
+    if (m.find("EnableHeaders") != m.end() && !m["EnableHeaders"].empty()) {
+      enableHeaders = make_shared<bool>(boost::any_cast<bool>(m["EnableHeaders"]));
     }
     if (m.find("IndexId") != m.end() && !m["IndexId"].empty()) {
       indexId = make_shared<string>(boost::any_cast<string>(m["IndexId"]));
