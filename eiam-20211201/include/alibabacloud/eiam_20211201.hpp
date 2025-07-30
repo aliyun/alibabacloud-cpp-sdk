@@ -2158,6 +2158,8 @@ public:
   shared_ptr<string> appSecret{};
   shared_ptr<string> corpId{};
   shared_ptr<string> dingtalkVersion{};
+  shared_ptr<string> encryptKey{};
+  shared_ptr<string> verificationToken{};
 
   CreateIdentityProviderRequestDingtalkAppConfig() {}
 
@@ -2181,6 +2183,12 @@ public:
     if (dingtalkVersion) {
       res["DingtalkVersion"] = boost::any(*dingtalkVersion);
     }
+    if (encryptKey) {
+      res["EncryptKey"] = boost::any(*encryptKey);
+    }
+    if (verificationToken) {
+      res["VerificationToken"] = boost::any(*verificationToken);
+    }
     return res;
   }
 
@@ -2196,6 +2204,12 @@ public:
     }
     if (m.find("DingtalkVersion") != m.end() && !m["DingtalkVersion"].empty()) {
       dingtalkVersion = make_shared<string>(boost::any_cast<string>(m["DingtalkVersion"]));
+    }
+    if (m.find("EncryptKey") != m.end() && !m["EncryptKey"].empty()) {
+      encryptKey = make_shared<string>(boost::any_cast<string>(m["EncryptKey"]));
+    }
+    if (m.find("VerificationToken") != m.end() && !m["VerificationToken"].empty()) {
+      verificationToken = make_shared<string>(boost::any_cast<string>(m["VerificationToken"]));
     }
   }
 
@@ -2893,6 +2907,7 @@ public:
   shared_ptr<CreateIdentityProviderRequestAutoCreateUserConfig> autoCreateUserConfig{};
   shared_ptr<CreateIdentityProviderRequestAutoUpdateUserConfig> autoUpdateUserConfig{};
   shared_ptr<CreateIdentityProviderRequestBindingConfig> bindingConfig{};
+  shared_ptr<string> clientToken{};
   shared_ptr<CreateIdentityProviderRequestDingtalkAppConfig> dingtalkAppConfig{};
   shared_ptr<string> identityProviderName{};
   shared_ptr<string> identityProviderType{};
@@ -2927,6 +2942,9 @@ public:
     }
     if (bindingConfig) {
       res["BindingConfig"] = bindingConfig ? boost::any(bindingConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
     }
     if (dingtalkAppConfig) {
       res["DingtalkAppConfig"] = dingtalkAppConfig ? boost::any(dingtalkAppConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2995,6 +3013,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BindingConfig"]));
         bindingConfig = make_shared<CreateIdentityProviderRequestBindingConfig>(model1);
       }
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
     if (m.find("DingtalkAppConfig") != m.end() && !m["DingtalkAppConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["DingtalkAppConfig"].type()) {
@@ -3669,6 +3690,7 @@ public:
 };
 class CreateUserRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
   shared_ptr<vector<CreateUserRequestCustomFields>> customFields{};
   shared_ptr<string> description{};
   shared_ptr<string> displayName{};
@@ -3695,6 +3717,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
     if (customFields) {
       vector<boost::any> temp1;
       for(auto item1:*customFields){
@@ -3748,6 +3773,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
     if (m.find("CustomFields") != m.end() && !m["CustomFields"].empty()) {
       if (typeid(vector<boost::any>) == m["CustomFields"].type()) {
         vector<CreateUserRequestCustomFields> expect1;
@@ -7719,6 +7747,7 @@ public:
   shared_ptr<string> authorizationType{};
   shared_ptr<string> clientId{};
   shared_ptr<long> createTime{};
+  shared_ptr<string> customSubjectStatus{};
   shared_ptr<string> description{};
   shared_ptr<string> features{};
   shared_ptr<string> instanceId{};
@@ -7768,6 +7797,9 @@ public:
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (customSubjectStatus) {
+      res["CustomSubjectStatus"] = boost::any(*customSubjectStatus);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -7842,6 +7874,9 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("CustomSubjectStatus") != m.end() && !m["CustomSubjectStatus"].empty()) {
+      customSubjectStatus = make_shared<string>(boost::any_cast<string>(m["CustomSubjectStatus"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -10927,6 +10962,8 @@ public:
   shared_ptr<string> appSecret{};
   shared_ptr<string> corpId{};
   shared_ptr<string> dingtalkVersion{};
+  shared_ptr<string> encryptKey{};
+  shared_ptr<string> verificationToken{};
 
   GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppConfig() {}
 
@@ -10950,6 +10987,12 @@ public:
     if (dingtalkVersion) {
       res["DingtalkVersion"] = boost::any(*dingtalkVersion);
     }
+    if (encryptKey) {
+      res["EncryptKey"] = boost::any(*encryptKey);
+    }
+    if (verificationToken) {
+      res["VerificationToken"] = boost::any(*verificationToken);
+    }
     return res;
   }
 
@@ -10965,6 +11008,12 @@ public:
     }
     if (m.find("DingtalkVersion") != m.end() && !m["DingtalkVersion"].empty()) {
       dingtalkVersion = make_shared<string>(boost::any_cast<string>(m["DingtalkVersion"]));
+    }
+    if (m.find("EncryptKey") != m.end() && !m["EncryptKey"].empty()) {
+      encryptKey = make_shared<string>(boost::any_cast<string>(m["EncryptKey"]));
+    }
+    if (m.find("VerificationToken") != m.end() && !m["VerificationToken"].empty()) {
+      verificationToken = make_shared<string>(boost::any_cast<string>(m["VerificationToken"]));
     }
   }
 
@@ -17032,10 +17081,7 @@ public:
   shared_ptr<string> features{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> logoUrl{};
-  shared_ptr<string> m2MClientStatus{};
   shared_ptr<string> managedServiceCode{};
-  shared_ptr<string> resourceServerIdentifier{};
-  shared_ptr<string> resourceServerStatus{};
   shared_ptr<bool> serviceManaged{};
   shared_ptr<string> ssoType{};
   shared_ptr<string> status{};
@@ -17081,17 +17127,8 @@ public:
     if (logoUrl) {
       res["LogoUrl"] = boost::any(*logoUrl);
     }
-    if (m2MClientStatus) {
-      res["M2MClientStatus"] = boost::any(*m2MClientStatus);
-    }
     if (managedServiceCode) {
       res["ManagedServiceCode"] = boost::any(*managedServiceCode);
-    }
-    if (resourceServerIdentifier) {
-      res["ResourceServerIdentifier"] = boost::any(*resourceServerIdentifier);
-    }
-    if (resourceServerStatus) {
-      res["ResourceServerStatus"] = boost::any(*resourceServerStatus);
     }
     if (serviceManaged) {
       res["ServiceManaged"] = boost::any(*serviceManaged);
@@ -17139,17 +17176,8 @@ public:
     if (m.find("LogoUrl") != m.end() && !m["LogoUrl"].empty()) {
       logoUrl = make_shared<string>(boost::any_cast<string>(m["LogoUrl"]));
     }
-    if (m.find("M2MClientStatus") != m.end() && !m["M2MClientStatus"].empty()) {
-      m2MClientStatus = make_shared<string>(boost::any_cast<string>(m["M2MClientStatus"]));
-    }
     if (m.find("ManagedServiceCode") != m.end() && !m["ManagedServiceCode"].empty()) {
       managedServiceCode = make_shared<string>(boost::any_cast<string>(m["ManagedServiceCode"]));
-    }
-    if (m.find("ResourceServerIdentifier") != m.end() && !m["ResourceServerIdentifier"].empty()) {
-      resourceServerIdentifier = make_shared<string>(boost::any_cast<string>(m["ResourceServerIdentifier"]));
-    }
-    if (m.find("ResourceServerStatus") != m.end() && !m["ResourceServerStatus"].empty()) {
-      resourceServerStatus = make_shared<string>(boost::any_cast<string>(m["ResourceServerStatus"]));
     }
     if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
       serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
@@ -30130,6 +30158,7 @@ public:
 };
 class UpdateConditionalAccessPolicyRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
   shared_ptr<string> conditionalAccessPolicyId{};
   shared_ptr<string> conditionalAccessPolicyName{};
   shared_ptr<UpdateConditionalAccessPolicyRequestConditionsConfig> conditionsConfig{};
@@ -30148,6 +30177,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
     if (conditionalAccessPolicyId) {
       res["ConditionalAccessPolicyId"] = boost::any(*conditionalAccessPolicyId);
     }
@@ -30173,6 +30205,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
     if (m.find("ConditionalAccessPolicyId") != m.end() && !m["ConditionalAccessPolicyId"].empty()) {
       conditionalAccessPolicyId = make_shared<string>(boost::any_cast<string>(m["ConditionalAccessPolicyId"]));
     }
@@ -30290,6 +30325,7 @@ public:
 };
 class UpdateConditionalAccessPolicyDescriptionRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
   shared_ptr<string> conditionalAccessPolicyId{};
   shared_ptr<string> description{};
   shared_ptr<string> instanceId{};
@@ -30304,6 +30340,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
     if (conditionalAccessPolicyId) {
       res["ConditionalAccessPolicyId"] = boost::any(*conditionalAccessPolicyId);
     }
@@ -30317,6 +30356,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
     if (m.find("ConditionalAccessPolicyId") != m.end() && !m["ConditionalAccessPolicyId"].empty()) {
       conditionalAccessPolicyId = make_shared<string>(boost::any_cast<string>(m["ConditionalAccessPolicyId"]));
     }
@@ -30671,6 +30713,8 @@ class UpdateIdentityProviderRequestDingtalkAppConfig : public Darabonba::Model {
 public:
   shared_ptr<string> appKey{};
   shared_ptr<string> appSecret{};
+  shared_ptr<string> encryptKey{};
+  shared_ptr<string> verificationToken{};
 
   UpdateIdentityProviderRequestDingtalkAppConfig() {}
 
@@ -30688,6 +30732,12 @@ public:
     if (appSecret) {
       res["AppSecret"] = boost::any(*appSecret);
     }
+    if (encryptKey) {
+      res["EncryptKey"] = boost::any(*encryptKey);
+    }
+    if (verificationToken) {
+      res["VerificationToken"] = boost::any(*verificationToken);
+    }
     return res;
   }
 
@@ -30697,6 +30747,12 @@ public:
     }
     if (m.find("AppSecret") != m.end() && !m["AppSecret"].empty()) {
       appSecret = make_shared<string>(boost::any_cast<string>(m["AppSecret"]));
+    }
+    if (m.find("EncryptKey") != m.end() && !m["EncryptKey"].empty()) {
+      encryptKey = make_shared<string>(boost::any_cast<string>(m["EncryptKey"]));
+    }
+    if (m.find("VerificationToken") != m.end() && !m["VerificationToken"].empty()) {
+      verificationToken = make_shared<string>(boost::any_cast<string>(m["VerificationToken"]));
     }
   }
 
@@ -31062,6 +31118,7 @@ public:
 };
 class UpdateIdentityProviderRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
   shared_ptr<UpdateIdentityProviderRequestDingtalkAppConfig> dingtalkAppConfig{};
   shared_ptr<string> identityProviderId{};
   shared_ptr<string> identityProviderName{};
@@ -31083,6 +31140,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
     if (dingtalkAppConfig) {
       res["DingtalkAppConfig"] = dingtalkAppConfig ? boost::any(dingtalkAppConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -31117,6 +31177,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
     if (m.find("DingtalkAppConfig") != m.end() && !m["DingtalkAppConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["DingtalkAppConfig"].type()) {
         UpdateIdentityProviderRequestDingtalkAppConfig model1;
