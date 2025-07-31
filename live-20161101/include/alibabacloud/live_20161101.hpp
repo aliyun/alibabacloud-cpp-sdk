@@ -54480,6 +54480,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> domainName{};
   shared_ptr<string> notifyContent{};
+  shared_ptr<string> notifyResponse{};
   shared_ptr<string> notifyResult{};
   shared_ptr<string> notifyTime{};
   shared_ptr<string> notifyType{};
@@ -54507,6 +54508,9 @@ public:
     }
     if (notifyContent) {
       res["NotifyContent"] = boost::any(*notifyContent);
+    }
+    if (notifyResponse) {
+      res["NotifyResponse"] = boost::any(*notifyResponse);
     }
     if (notifyResult) {
       res["NotifyResult"] = boost::any(*notifyResult);
@@ -54538,6 +54542,9 @@ public:
     }
     if (m.find("NotifyContent") != m.end() && !m["NotifyContent"].empty()) {
       notifyContent = make_shared<string>(boost::any_cast<string>(m["NotifyContent"]));
+    }
+    if (m.find("NotifyResponse") != m.end() && !m["NotifyResponse"].empty()) {
+      notifyResponse = make_shared<string>(boost::any_cast<string>(m["NotifyResponse"]));
     }
     if (m.find("NotifyResult") != m.end() && !m["NotifyResult"].empty()) {
       notifyResult = make_shared<string>(boost::any_cast<string>(m["NotifyResult"]));
