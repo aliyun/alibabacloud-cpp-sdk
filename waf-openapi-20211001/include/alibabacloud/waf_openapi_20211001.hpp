@@ -29161,6 +29161,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceManagerResourceGroupId{};
   shared_ptr<long> startTime{};
+  shared_ptr<string> type{};
 
   DescribeSensitiveApiStatisticRequest() {}
 
@@ -29199,6 +29200,9 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     return res;
   }
 
@@ -29229,6 +29233,9 @@ public:
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
   }
 
