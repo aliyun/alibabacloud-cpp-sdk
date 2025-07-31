@@ -3819,60 +3819,69 @@ SendChatappMassMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMas
   if (!Darabonba_Util::Client::isUnset<vector<SendChatappMassMessageRequestSenderList>>(tmpReq->senderList)) {
     request->senderListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->senderList, make_shared<string>("SenderList"), make_shared<string>("json")));
   }
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->channelType)) {
-    body->insert(pair<string, string>("ChannelType", *request->channelType));
+    query->insert(pair<string, string>("ChannelType", *request->channelType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->custSpaceId)) {
-    body->insert(pair<string, string>("CustSpaceId", *request->custSpaceId));
+    query->insert(pair<string, string>("CustSpaceId", *request->custSpaceId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->custWabaId)) {
-    body->insert(pair<string, string>("CustWabaId", *request->custWabaId));
+    query->insert(pair<string, string>("CustWabaId", *request->custWabaId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->fallBackContent)) {
-    body->insert(pair<string, string>("FallBackContent", *request->fallBackContent));
+    query->insert(pair<string, string>("FallBackContent", *request->fallBackContent));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->fallBackDuration)) {
-    body->insert(pair<string, long>("FallBackDuration", *request->fallBackDuration));
+    query->insert(pair<string, long>("FallBackDuration", *request->fallBackDuration));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->fallBackId)) {
-    body->insert(pair<string, string>("FallBackId", *request->fallBackId));
+    query->insert(pair<string, string>("FallBackId", *request->fallBackId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->fallBackRule)) {
-    body->insert(pair<string, string>("FallBackRule", *request->fallBackRule));
+    query->insert(pair<string, string>("FallBackRule", *request->fallBackRule));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->from)) {
-    body->insert(pair<string, string>("From", *request->from));
+    query->insert(pair<string, string>("From", *request->from));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->isvCode)) {
-    body->insert(pair<string, string>("IsvCode", *request->isvCode));
+    query->insert(pair<string, string>("IsvCode", *request->isvCode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->label)) {
-    body->insert(pair<string, string>("Label", *request->label));
+    query->insert(pair<string, string>("Label", *request->label));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
-    body->insert(pair<string, string>("Language", *request->language));
+    query->insert(pair<string, string>("Language", *request->language));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->senderListShrink)) {
-    body->insert(pair<string, string>("SenderList", *request->senderListShrink));
+    query->insert(pair<string, string>("SenderList", *request->senderListShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tag)) {
-    body->insert(pair<string, string>("Tag", *request->tag));
+    query->insert(pair<string, string>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
-    body->insert(pair<string, string>("TaskId", *request->taskId));
+    query->insert(pair<string, string>("TaskId", *request->taskId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
-    body->insert(pair<string, string>("TemplateCode", *request->templateCode));
+    query->insert(pair<string, string>("TemplateCode", *request->templateCode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateName)) {
-    body->insert(pair<string, string>("TemplateName", *request->templateName));
+    query->insert(pair<string, string>("TemplateName", *request->templateName));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ttl)) {
-    body->insert(pair<string, long>("Ttl", *request->ttl));
+    query->insert(pair<string, long>("Ttl", *request->ttl));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SendChatappMassMessage"))},
@@ -3910,91 +3919,98 @@ SendChatappMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMessage
     request->templateParamsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->templateParams, make_shared<string>("TemplateParams"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->channelType)) {
+    query->insert(pair<string, string>("ChannelType", *request->channelType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
     query->insert(pair<string, string>("Content", *request->content));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->contextMessageId)) {
+    query->insert(pair<string, string>("ContextMessageId", *request->contextMessageId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->custSpaceId)) {
+    query->insert(pair<string, string>("CustSpaceId", *request->custSpaceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->custWabaId)) {
+    query->insert(pair<string, string>("CustWabaId", *request->custWabaId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fallBackContent)) {
+    query->insert(pair<string, string>("FallBackContent", *request->fallBackContent));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->fallBackDuration)) {
+    query->insert(pair<string, long>("FallBackDuration", *request->fallBackDuration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fallBackId)) {
+    query->insert(pair<string, string>("FallBackId", *request->fallBackId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fallBackRule)) {
+    query->insert(pair<string, string>("FallBackRule", *request->fallBackRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->flowActionShrink)) {
+    query->insert(pair<string, string>("FlowAction", *request->flowActionShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->from)) {
+    query->insert(pair<string, string>("From", *request->from));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->isvCode)) {
+    query->insert(pair<string, string>("IsvCode", *request->isvCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->label)) {
+    query->insert(pair<string, string>("Label", *request->label));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    query->insert(pair<string, string>("Language", *request->language));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->messageType)) {
+    query->insert(pair<string, string>("MessageType", *request->messageType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->payloadShrink)) {
     query->insert(pair<string, string>("Payload", *request->payloadShrink));
   }
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->channelType)) {
-    body->insert(pair<string, string>("ChannelType", *request->channelType));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->contextMessageId)) {
-    body->insert(pair<string, string>("ContextMessageId", *request->contextMessageId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->custSpaceId)) {
-    body->insert(pair<string, string>("CustSpaceId", *request->custSpaceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->custWabaId)) {
-    body->insert(pair<string, string>("CustWabaId", *request->custWabaId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->fallBackContent)) {
-    body->insert(pair<string, string>("FallBackContent", *request->fallBackContent));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->fallBackDuration)) {
-    body->insert(pair<string, long>("FallBackDuration", *request->fallBackDuration));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->fallBackId)) {
-    body->insert(pair<string, string>("FallBackId", *request->fallBackId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->fallBackRule)) {
-    body->insert(pair<string, string>("FallBackRule", *request->fallBackRule));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->flowActionShrink)) {
-    body->insert(pair<string, string>("FlowAction", *request->flowActionShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->from)) {
-    body->insert(pair<string, string>("From", *request->from));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->isvCode)) {
-    body->insert(pair<string, string>("IsvCode", *request->isvCode));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->label)) {
-    body->insert(pair<string, string>("Label", *request->label));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
-    body->insert(pair<string, string>("Language", *request->language));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->messageType)) {
-    body->insert(pair<string, string>("MessageType", *request->messageType));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->productActionShrink)) {
-    body->insert(pair<string, string>("ProductAction", *request->productActionShrink));
+    query->insert(pair<string, string>("ProductAction", *request->productActionShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->recipientType)) {
-    body->insert(pair<string, string>("RecipientType", *request->recipientType));
+    query->insert(pair<string, string>("RecipientType", *request->recipientType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tag)) {
-    body->insert(pair<string, string>("Tag", *request->tag));
+    query->insert(pair<string, string>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
-    body->insert(pair<string, string>("TaskId", *request->taskId));
+    query->insert(pair<string, string>("TaskId", *request->taskId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
-    body->insert(pair<string, string>("TemplateCode", *request->templateCode));
+    query->insert(pair<string, string>("TemplateCode", *request->templateCode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateName)) {
-    body->insert(pair<string, string>("TemplateName", *request->templateName));
+    query->insert(pair<string, string>("TemplateName", *request->templateName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateParamsShrink)) {
-    body->insert(pair<string, string>("TemplateParams", *request->templateParamsShrink));
+    query->insert(pair<string, string>("TemplateParams", *request->templateParamsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->to)) {
-    body->insert(pair<string, string>("To", *request->to));
+    query->insert(pair<string, string>("To", *request->to));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->trackingData)) {
-    body->insert(pair<string, string>("TrackingData", *request->trackingData));
+    query->insert(pair<string, string>("TrackingData", *request->trackingData));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ttl)) {
-    body->insert(pair<string, long>("Ttl", *request->ttl));
+    query->insert(pair<string, long>("Ttl", *request->ttl));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
-    body->insert(pair<string, string>("Type", *request->type));
+    query->insert(pair<string, string>("Type", *request->type));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SendChatappMessage"))},

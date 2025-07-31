@@ -22210,6 +22210,9 @@ public:
   shared_ptr<string> isvCode{};
   shared_ptr<string> label{};
   shared_ptr<string> language{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
   shared_ptr<vector<SendChatappMassMessageRequestSenderList>> senderList{};
   shared_ptr<string> tag{};
   shared_ptr<string> taskId{};
@@ -22259,6 +22262,15 @@ public:
     }
     if (language) {
       res["Language"] = boost::any(*language);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
     if (senderList) {
       vector<boost::any> temp1;
@@ -22319,6 +22331,15 @@ public:
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
     }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
     if (m.find("SenderList") != m.end() && !m["SenderList"].empty()) {
       if (typeid(vector<boost::any>) == m["SenderList"].type()) {
         vector<SendChatappMassMessageRequestSenderList> expect1;
@@ -22365,6 +22386,9 @@ public:
   shared_ptr<string> isvCode{};
   shared_ptr<string> label{};
   shared_ptr<string> language{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> senderListShrink{};
   shared_ptr<string> tag{};
   shared_ptr<string> taskId{};
@@ -22414,6 +22438,15 @@ public:
     }
     if (language) {
       res["Language"] = boost::any(*language);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
     if (senderListShrink) {
       res["SenderList"] = boost::any(*senderListShrink);
@@ -22469,6 +22502,15 @@ public:
     }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
     if (m.find("SenderList") != m.end() && !m["SenderList"].empty()) {
       senderListShrink = make_shared<string>(boost::any_cast<string>(m["SenderList"]));
@@ -22789,9 +22831,12 @@ public:
   shared_ptr<string> label{};
   shared_ptr<string> language{};
   shared_ptr<string> messageType{};
+  shared_ptr<long> ownerId{};
   shared_ptr<vector<string>> payload{};
   shared_ptr<SendChatappMessageRequestProductAction> productAction{};
   shared_ptr<string> recipientType{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> tag{};
   shared_ptr<string> taskId{};
   shared_ptr<string> templateCode{};
@@ -22857,6 +22902,9 @@ public:
     if (messageType) {
       res["MessageType"] = boost::any(*messageType);
     }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
     if (payload) {
       res["Payload"] = boost::any(*payload);
     }
@@ -22865,6 +22913,12 @@ public:
     }
     if (recipientType) {
       res["RecipientType"] = boost::any(*recipientType);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
     if (tag) {
       res["Tag"] = boost::any(*tag);
@@ -22946,6 +23000,9 @@ public:
     if (m.find("MessageType") != m.end() && !m["MessageType"].empty()) {
       messageType = make_shared<string>(boost::any_cast<string>(m["MessageType"]));
     }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
     if (m.find("Payload") != m.end() && !m["Payload"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["Payload"].type()) {
@@ -22965,6 +23022,12 @@ public:
     }
     if (m.find("RecipientType") != m.end() && !m["RecipientType"].empty()) {
       recipientType = make_shared<string>(boost::any_cast<string>(m["RecipientType"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
@@ -23020,9 +23083,12 @@ public:
   shared_ptr<string> label{};
   shared_ptr<string> language{};
   shared_ptr<string> messageType{};
+  shared_ptr<long> ownerId{};
   shared_ptr<string> payloadShrink{};
   shared_ptr<string> productActionShrink{};
   shared_ptr<string> recipientType{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> tag{};
   shared_ptr<string> taskId{};
   shared_ptr<string> templateCode{};
@@ -23088,6 +23154,9 @@ public:
     if (messageType) {
       res["MessageType"] = boost::any(*messageType);
     }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
     if (payloadShrink) {
       res["Payload"] = boost::any(*payloadShrink);
     }
@@ -23096,6 +23165,12 @@ public:
     }
     if (recipientType) {
       res["RecipientType"] = boost::any(*recipientType);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
     if (tag) {
       res["Tag"] = boost::any(*tag);
@@ -23173,6 +23248,9 @@ public:
     if (m.find("MessageType") != m.end() && !m["MessageType"].empty()) {
       messageType = make_shared<string>(boost::any_cast<string>(m["MessageType"]));
     }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
     if (m.find("Payload") != m.end() && !m["Payload"].empty()) {
       payloadShrink = make_shared<string>(boost::any_cast<string>(m["Payload"]));
     }
@@ -23181,6 +23259,12 @@ public:
     }
     if (m.find("RecipientType") != m.end() && !m["RecipientType"].empty()) {
       recipientType = make_shared<string>(boost::any_cast<string>(m["RecipientType"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
@@ -23216,6 +23300,7 @@ public:
 };
 class SendChatappMessageResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> messageId{};
@@ -23231,6 +23316,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -23247,6 +23335,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
