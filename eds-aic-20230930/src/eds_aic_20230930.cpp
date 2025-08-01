@@ -2016,6 +2016,37 @@ InstallAppResponse Alibabacloud_Eds-aic20230930::Client::installApp(shared_ptr<I
   return installAppWithOptions(request, runtime);
 }
 
+InstallMonitorAgentResponse Alibabacloud_Eds-aic20230930::Client::installMonitorAgentWithOptions(shared_ptr<InstallMonitorAgentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->androidInstanceIds)) {
+    body->insert(pair<string, vector<string>>("AndroidInstanceIds", *request->androidInstanceIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->saleMode)) {
+    body->insert(pair<string, string>("SaleMode", *request->saleMode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("InstallMonitorAgent"))},
+    {"version", boost::any(string("2023-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return InstallMonitorAgentResponse(callApi(params, req, runtime));
+}
+
+InstallMonitorAgentResponse Alibabacloud_Eds-aic20230930::Client::installMonitorAgent(shared_ptr<InstallMonitorAgentRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return installMonitorAgentWithOptions(request, runtime);
+}
+
 ListPolicyGroupsResponse Alibabacloud_Eds-aic20230930::Client::listPolicyGroupsWithOptions(shared_ptr<ListPolicyGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2689,6 +2720,9 @@ SendFileResponse Alibabacloud_Eds-aic20230930::Client::sendFileWithOptions(share
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->androidInstanceIdList)) {
     query->insert(pair<string, vector<string>>("AndroidInstanceIdList", *request->androidInstanceIdList));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoInstall)) {
+    query->insert(pair<string, bool>("AutoInstall", *request->autoInstall));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceFilePath)) {
     query->insert(pair<string, string>("SourceFilePath", *request->sourceFilePath));
   }
@@ -2890,6 +2924,37 @@ UninstallAppResponse Alibabacloud_Eds-aic20230930::Client::uninstallAppWithOptio
 UninstallAppResponse Alibabacloud_Eds-aic20230930::Client::uninstallApp(shared_ptr<UninstallAppRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return uninstallAppWithOptions(request, runtime);
+}
+
+UninstallMonitorAgentResponse Alibabacloud_Eds-aic20230930::Client::uninstallMonitorAgentWithOptions(shared_ptr<UninstallMonitorAgentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->androidInstanceIds)) {
+    body->insert(pair<string, vector<string>>("AndroidInstanceIds", *request->androidInstanceIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->saleMode)) {
+    body->insert(pair<string, string>("SaleMode", *request->saleMode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UninstallMonitorAgent"))},
+    {"version", boost::any(string("2023-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UninstallMonitorAgentResponse(callApi(params, req, runtime));
+}
+
+UninstallMonitorAgentResponse Alibabacloud_Eds-aic20230930::Client::uninstallMonitorAgent(shared_ptr<UninstallMonitorAgentRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return uninstallMonitorAgentWithOptions(request, runtime);
 }
 
 UpdateCustomImageNameResponse Alibabacloud_Eds-aic20230930::Client::updateCustomImageNameWithOptions(shared_ptr<UpdateCustomImageNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

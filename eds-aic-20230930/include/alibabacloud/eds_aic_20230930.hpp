@@ -12559,6 +12559,130 @@ public:
 
   virtual ~InstallAppResponse() = default;
 };
+class InstallMonitorAgentRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> androidInstanceIds{};
+  shared_ptr<string> saleMode{};
+
+  InstallMonitorAgentRequest() {}
+
+  explicit InstallMonitorAgentRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (androidInstanceIds) {
+      res["AndroidInstanceIds"] = boost::any(*androidInstanceIds);
+    }
+    if (saleMode) {
+      res["SaleMode"] = boost::any(*saleMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AndroidInstanceIds") != m.end() && !m["AndroidInstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AndroidInstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AndroidInstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      androidInstanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SaleMode") != m.end() && !m["SaleMode"].empty()) {
+      saleMode = make_shared<string>(boost::any_cast<string>(m["SaleMode"]));
+    }
+  }
+
+
+  virtual ~InstallMonitorAgentRequest() = default;
+};
+class InstallMonitorAgentResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  InstallMonitorAgentResponseBody() {}
+
+  explicit InstallMonitorAgentResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~InstallMonitorAgentResponseBody() = default;
+};
+class InstallMonitorAgentResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<InstallMonitorAgentResponseBody> body{};
+
+  InstallMonitorAgentResponse() {}
+
+  explicit InstallMonitorAgentResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        InstallMonitorAgentResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<InstallMonitorAgentResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~InstallMonitorAgentResponse() = default;
+};
 class ListPolicyGroupsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> maxResults{};
@@ -16099,6 +16223,7 @@ public:
 class SendFileRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> androidInstanceIdList{};
+  shared_ptr<bool> autoInstall{};
   shared_ptr<string> sourceFilePath{};
   shared_ptr<string> targetFileName{};
   shared_ptr<string> uploadEndpoint{};
@@ -16117,6 +16242,9 @@ public:
     map<string, boost::any> res;
     if (androidInstanceIdList) {
       res["AndroidInstanceIdList"] = boost::any(*androidInstanceIdList);
+    }
+    if (autoInstall) {
+      res["AutoInstall"] = boost::any(*autoInstall);
     }
     if (sourceFilePath) {
       res["SourceFilePath"] = boost::any(*sourceFilePath);
@@ -16146,6 +16274,9 @@ public:
         }
       }
       androidInstanceIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AutoInstall") != m.end() && !m["AutoInstall"].empty()) {
+      autoInstall = make_shared<bool>(boost::any_cast<bool>(m["AutoInstall"]));
     }
     if (m.find("SourceFilePath") != m.end() && !m["SourceFilePath"].empty()) {
       sourceFilePath = make_shared<string>(boost::any_cast<string>(m["SourceFilePath"]));
@@ -17042,6 +17173,130 @@ public:
 
   virtual ~UninstallAppResponse() = default;
 };
+class UninstallMonitorAgentRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> androidInstanceIds{};
+  shared_ptr<string> saleMode{};
+
+  UninstallMonitorAgentRequest() {}
+
+  explicit UninstallMonitorAgentRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (androidInstanceIds) {
+      res["AndroidInstanceIds"] = boost::any(*androidInstanceIds);
+    }
+    if (saleMode) {
+      res["SaleMode"] = boost::any(*saleMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AndroidInstanceIds") != m.end() && !m["AndroidInstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AndroidInstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AndroidInstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      androidInstanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SaleMode") != m.end() && !m["SaleMode"].empty()) {
+      saleMode = make_shared<string>(boost::any_cast<string>(m["SaleMode"]));
+    }
+  }
+
+
+  virtual ~UninstallMonitorAgentRequest() = default;
+};
+class UninstallMonitorAgentResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UninstallMonitorAgentResponseBody() {}
+
+  explicit UninstallMonitorAgentResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UninstallMonitorAgentResponseBody() = default;
+};
+class UninstallMonitorAgentResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UninstallMonitorAgentResponseBody> body{};
+
+  UninstallMonitorAgentResponse() {}
+
+  explicit UninstallMonitorAgentResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UninstallMonitorAgentResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UninstallMonitorAgentResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UninstallMonitorAgentResponse() = default;
+};
 class UpdateCustomImageNameRequest : public Darabonba::Model {
 public:
   shared_ptr<string> imageId{};
@@ -17656,6 +17911,8 @@ public:
   ImportKeyPairResponse importKeyPair(shared_ptr<ImportKeyPairRequest> request);
   InstallAppResponse installAppWithOptions(shared_ptr<InstallAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   InstallAppResponse installApp(shared_ptr<InstallAppRequest> request);
+  InstallMonitorAgentResponse installMonitorAgentWithOptions(shared_ptr<InstallMonitorAgentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  InstallMonitorAgentResponse installMonitorAgent(shared_ptr<InstallMonitorAgentRequest> request);
   ListPolicyGroupsResponse listPolicyGroupsWithOptions(shared_ptr<ListPolicyGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListPolicyGroupsResponse listPolicyGroups(shared_ptr<ListPolicyGroupsRequest> request);
   ModifyAndroidInstanceResponse modifyAndroidInstanceWithOptions(shared_ptr<ModifyAndroidInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -17702,6 +17959,8 @@ public:
   StopAndroidInstanceResponse stopAndroidInstance(shared_ptr<StopAndroidInstanceRequest> request);
   UninstallAppResponse uninstallAppWithOptions(shared_ptr<UninstallAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UninstallAppResponse uninstallApp(shared_ptr<UninstallAppRequest> request);
+  UninstallMonitorAgentResponse uninstallMonitorAgentWithOptions(shared_ptr<UninstallMonitorAgentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UninstallMonitorAgentResponse uninstallMonitorAgent(shared_ptr<UninstallMonitorAgentRequest> request);
   UpdateCustomImageNameResponse updateCustomImageNameWithOptions(shared_ptr<UpdateCustomImageNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateCustomImageNameResponse updateCustomImageName(shared_ptr<UpdateCustomImageNameRequest> request);
   UpdateInstanceGroupImageResponse updateInstanceGroupImageWithOptions(shared_ptr<UpdateInstanceGroupImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
