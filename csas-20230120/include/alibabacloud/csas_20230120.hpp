@@ -6665,10 +6665,62 @@ public:
 
   virtual ~CreateUserGroupResponse() = default;
 };
+class CreateWmBaseImageRequestImageControlLogoVisibleControlMargin : public Darabonba::Model {
+public:
+  shared_ptr<double> bottom{};
+  shared_ptr<double> left{};
+  shared_ptr<double> right{};
+  shared_ptr<double> top{};
+
+  CreateWmBaseImageRequestImageControlLogoVisibleControlMargin() {}
+
+  explicit CreateWmBaseImageRequestImageControlLogoVisibleControlMargin(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bottom) {
+      res["Bottom"] = boost::any(*bottom);
+    }
+    if (left) {
+      res["Left"] = boost::any(*left);
+    }
+    if (right) {
+      res["Right"] = boost::any(*right);
+    }
+    if (top) {
+      res["Top"] = boost::any(*top);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bottom") != m.end() && !m["Bottom"].empty()) {
+      bottom = make_shared<double>(boost::any_cast<double>(m["Bottom"]));
+    }
+    if (m.find("Left") != m.end() && !m["Left"].empty()) {
+      left = make_shared<double>(boost::any_cast<double>(m["Left"]));
+    }
+    if (m.find("Right") != m.end() && !m["Right"].empty()) {
+      right = make_shared<double>(boost::any_cast<double>(m["Right"]));
+    }
+    if (m.find("Top") != m.end() && !m["Top"].empty()) {
+      top = make_shared<double>(boost::any_cast<double>(m["Top"]));
+    }
+  }
+
+
+  virtual ~CreateWmBaseImageRequestImageControlLogoVisibleControlMargin() = default;
+};
 class CreateWmBaseImageRequestImageControlLogoVisibleControl : public Darabonba::Model {
 public:
   shared_ptr<long> angle{};
+  shared_ptr<bool> enhance{};
   shared_ptr<string> logoBase64{};
+  shared_ptr<CreateWmBaseImageRequestImageControlLogoVisibleControlMargin> margin{};
   shared_ptr<string> mode{};
   shared_ptr<long> opacity{};
   shared_ptr<double> posAx{};
@@ -6692,8 +6744,14 @@ public:
     if (angle) {
       res["Angle"] = boost::any(*angle);
     }
+    if (enhance) {
+      res["Enhance"] = boost::any(*enhance);
+    }
     if (logoBase64) {
       res["LogoBase64"] = boost::any(*logoBase64);
+    }
+    if (margin) {
+      res["Margin"] = margin ? boost::any(margin->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (mode) {
       res["Mode"] = boost::any(*mode);
@@ -6729,8 +6787,18 @@ public:
     if (m.find("Angle") != m.end() && !m["Angle"].empty()) {
       angle = make_shared<long>(boost::any_cast<long>(m["Angle"]));
     }
+    if (m.find("Enhance") != m.end() && !m["Enhance"].empty()) {
+      enhance = make_shared<bool>(boost::any_cast<bool>(m["Enhance"]));
+    }
     if (m.find("LogoBase64") != m.end() && !m["LogoBase64"].empty()) {
       logoBase64 = make_shared<string>(boost::any_cast<string>(m["LogoBase64"]));
+    }
+    if (m.find("Margin") != m.end() && !m["Margin"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Margin"].type()) {
+        CreateWmBaseImageRequestImageControlLogoVisibleControlMargin model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Margin"]));
+        margin = make_shared<CreateWmBaseImageRequestImageControlLogoVisibleControlMargin>(model1);
+      }
     }
     if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
       mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
@@ -6764,11 +6832,62 @@ public:
 
   virtual ~CreateWmBaseImageRequestImageControlLogoVisibleControl() = default;
 };
+class CreateWmBaseImageRequestImageControlTextVisibleControlMargin : public Darabonba::Model {
+public:
+  shared_ptr<double> bottom{};
+  shared_ptr<double> left{};
+  shared_ptr<double> right{};
+  shared_ptr<double> top{};
+
+  CreateWmBaseImageRequestImageControlTextVisibleControlMargin() {}
+
+  explicit CreateWmBaseImageRequestImageControlTextVisibleControlMargin(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bottom) {
+      res["Bottom"] = boost::any(*bottom);
+    }
+    if (left) {
+      res["Left"] = boost::any(*left);
+    }
+    if (right) {
+      res["Right"] = boost::any(*right);
+    }
+    if (top) {
+      res["Top"] = boost::any(*top);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bottom") != m.end() && !m["Bottom"].empty()) {
+      bottom = make_shared<double>(boost::any_cast<double>(m["Bottom"]));
+    }
+    if (m.find("Left") != m.end() && !m["Left"].empty()) {
+      left = make_shared<double>(boost::any_cast<double>(m["Left"]));
+    }
+    if (m.find("Right") != m.end() && !m["Right"].empty()) {
+      right = make_shared<double>(boost::any_cast<double>(m["Right"]));
+    }
+    if (m.find("Top") != m.end() && !m["Top"].empty()) {
+      top = make_shared<double>(boost::any_cast<double>(m["Top"]));
+    }
+  }
+
+
+  virtual ~CreateWmBaseImageRequestImageControlTextVisibleControlMargin() = default;
+};
 class CreateWmBaseImageRequestImageControlTextVisibleControl : public Darabonba::Model {
 public:
   shared_ptr<long> angle{};
   shared_ptr<string> fontColor{};
   shared_ptr<long> fontSize{};
+  shared_ptr<CreateWmBaseImageRequestImageControlTextVisibleControlMargin> margin{};
   shared_ptr<string> mode{};
   shared_ptr<long> opacity{};
   shared_ptr<double> posAx{};
@@ -6798,6 +6917,9 @@ public:
     }
     if (fontSize) {
       res["FontSize"] = boost::any(*fontSize);
+    }
+    if (margin) {
+      res["Margin"] = margin ? boost::any(margin->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (mode) {
       res["Mode"] = boost::any(*mode);
@@ -6841,6 +6963,13 @@ public:
     }
     if (m.find("FontSize") != m.end() && !m["FontSize"].empty()) {
       fontSize = make_shared<long>(boost::any_cast<long>(m["FontSize"]));
+    }
+    if (m.find("Margin") != m.end() && !m["Margin"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Margin"].type()) {
+        CreateWmBaseImageRequestImageControlTextVisibleControlMargin model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Margin"]));
+        margin = make_shared<CreateWmBaseImageRequestImageControlTextVisibleControlMargin>(model1);
+      }
     }
     if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
       mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
@@ -6932,6 +7061,7 @@ public:
   shared_ptr<long> wmInfoSize{};
   shared_ptr<string> wmInfoUint{};
   shared_ptr<string> wmType{};
+  shared_ptr<string> comment{};
 
   CreateWmBaseImageRequest() {}
 
@@ -6970,6 +7100,9 @@ public:
     if (wmType) {
       res["WmType"] = boost::any(*wmType);
     }
+    if (comment) {
+      res["comment"] = boost::any(*comment);
+    }
     return res;
   }
 
@@ -7005,6 +7138,9 @@ public:
     if (m.find("WmType") != m.end() && !m["WmType"].empty()) {
       wmType = make_shared<string>(boost::any_cast<string>(m["WmType"]));
     }
+    if (m.find("comment") != m.end() && !m["comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["comment"]));
+    }
   }
 
 
@@ -7021,6 +7157,7 @@ public:
   shared_ptr<long> wmInfoSize{};
   shared_ptr<string> wmInfoUint{};
   shared_ptr<string> wmType{};
+  shared_ptr<string> comment{};
 
   CreateWmBaseImageShrinkRequest() {}
 
@@ -7059,6 +7196,9 @@ public:
     if (wmType) {
       res["WmType"] = boost::any(*wmType);
     }
+    if (comment) {
+      res["comment"] = boost::any(*comment);
+    }
     return res;
   }
 
@@ -7089,6 +7229,9 @@ public:
     }
     if (m.find("WmType") != m.end() && !m["WmType"].empty()) {
       wmType = make_shared<string>(boost::any_cast<string>(m["WmType"]));
+    }
+    if (m.find("comment") != m.end() && !m["comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["comment"]));
     }
   }
 
@@ -7932,12 +8075,42 @@ public:
 
   virtual ~CreateWmExtractTaskRequestCsvControl() = default;
 };
+class CreateWmExtractTaskRequestImageExtractParamsOpenApi : public Darabonba::Model {
+public:
+  shared_ptr<string> srcLogoBase64{};
+
+  CreateWmExtractTaskRequestImageExtractParamsOpenApi() {}
+
+  explicit CreateWmExtractTaskRequestImageExtractParamsOpenApi(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (srcLogoBase64) {
+      res["SrcLogoBase64"] = boost::any(*srcLogoBase64);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SrcLogoBase64") != m.end() && !m["SrcLogoBase64"].empty()) {
+      srcLogoBase64 = make_shared<string>(boost::any_cast<string>(m["SrcLogoBase64"]));
+    }
+  }
+
+
+  virtual ~CreateWmExtractTaskRequestImageExtractParamsOpenApi() = default;
+};
 class CreateWmExtractTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<CreateWmExtractTaskRequestCsvControl> csvControl{};
   shared_ptr<bool> documentIsCapture{};
   shared_ptr<string> fileUrl{};
   shared_ptr<string> filename{};
+  shared_ptr<CreateWmExtractTaskRequestImageExtractParamsOpenApi> imageExtractParamsOpenApi{};
   shared_ptr<bool> isClientEmbed{};
   shared_ptr<bool> videoIsLong{};
   shared_ptr<string> videoSpeed{};
@@ -7965,6 +8138,9 @@ public:
     }
     if (filename) {
       res["Filename"] = boost::any(*filename);
+    }
+    if (imageExtractParamsOpenApi) {
+      res["ImageExtractParamsOpenApi"] = imageExtractParamsOpenApi ? boost::any(imageExtractParamsOpenApi->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (isClientEmbed) {
       res["IsClientEmbed"] = boost::any(*isClientEmbed);
@@ -8001,6 +8177,13 @@ public:
     if (m.find("Filename") != m.end() && !m["Filename"].empty()) {
       filename = make_shared<string>(boost::any_cast<string>(m["Filename"]));
     }
+    if (m.find("ImageExtractParamsOpenApi") != m.end() && !m["ImageExtractParamsOpenApi"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ImageExtractParamsOpenApi"].type()) {
+        CreateWmExtractTaskRequestImageExtractParamsOpenApi model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ImageExtractParamsOpenApi"]));
+        imageExtractParamsOpenApi = make_shared<CreateWmExtractTaskRequestImageExtractParamsOpenApi>(model1);
+      }
+    }
     if (m.find("IsClientEmbed") != m.end() && !m["IsClientEmbed"].empty()) {
       isClientEmbed = make_shared<bool>(boost::any_cast<bool>(m["IsClientEmbed"]));
     }
@@ -8027,6 +8210,7 @@ public:
   shared_ptr<bool> documentIsCapture{};
   shared_ptr<string> fileUrl{};
   shared_ptr<string> filename{};
+  shared_ptr<string> imageExtractParamsOpenApiShrink{};
   shared_ptr<bool> isClientEmbed{};
   shared_ptr<bool> videoIsLong{};
   shared_ptr<string> videoSpeed{};
@@ -8054,6 +8238,9 @@ public:
     }
     if (filename) {
       res["Filename"] = boost::any(*filename);
+    }
+    if (imageExtractParamsOpenApiShrink) {
+      res["ImageExtractParamsOpenApi"] = boost::any(*imageExtractParamsOpenApiShrink);
     }
     if (isClientEmbed) {
       res["IsClientEmbed"] = boost::any(*isClientEmbed);
@@ -8085,6 +8272,9 @@ public:
     }
     if (m.find("Filename") != m.end() && !m["Filename"].empty()) {
       filename = make_shared<string>(boost::any_cast<string>(m["Filename"]));
+    }
+    if (m.find("ImageExtractParamsOpenApi") != m.end() && !m["ImageExtractParamsOpenApi"].empty()) {
+      imageExtractParamsOpenApiShrink = make_shared<string>(boost::any_cast<string>(m["ImageExtractParamsOpenApi"]));
     }
     if (m.find("IsClientEmbed") != m.end() && !m["IsClientEmbed"].empty()) {
       isClientEmbed = make_shared<bool>(boost::any_cast<bool>(m["IsClientEmbed"]));

@@ -655,6 +655,10 @@ CreateWmBaseImageResponse Alibabacloud_Csas20230120::Client::createWmBaseImageWi
   if (!Darabonba_Util::Client::isUnset<CreateWmBaseImageRequestImageControl>(tmpReq->imageControl)) {
     request->imageControlShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->imageControl, make_shared<string>("ImageControl"), make_shared<string>("json")));
   }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->comment)) {
+    query->insert(pair<string, string>("comment", *request->comment));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->height)) {
     body->insert(pair<string, long>("Height", *request->height));
@@ -684,6 +688,7 @@ CreateWmBaseImageResponse Alibabacloud_Csas20230120::Client::createWmBaseImageWi
     body->insert(pair<string, string>("WmType", *request->wmType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -783,9 +788,15 @@ CreateWmExtractTaskResponse Alibabacloud_Csas20230120::Client::createWmExtractTa
   if (!Darabonba_Util::Client::isUnset<CreateWmExtractTaskRequestCsvControl>(tmpReq->csvControl)) {
     request->csvControlShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->csvControl, make_shared<string>("CsvControl"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateWmExtractTaskRequestImageExtractParamsOpenApi>(tmpReq->imageExtractParamsOpenApi)) {
+    request->imageExtractParamsOpenApiShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->imageExtractParamsOpenApi, make_shared<string>("ImageExtractParamsOpenApi"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->csvControlShrink)) {
     query->insert(pair<string, string>("CsvControl", *request->csvControlShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageExtractParamsOpenApiShrink)) {
+    query->insert(pair<string, string>("ImageExtractParamsOpenApi", *request->imageExtractParamsOpenApiShrink));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->isClientEmbed)) {
     query->insert(pair<string, bool>("IsClientEmbed", *request->isClientEmbed));
