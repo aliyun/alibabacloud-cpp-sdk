@@ -47,6 +47,9 @@ CreateDemandPlanResponse Alibabacloud_Yunjian20211217::Client::createDemandPlanW
   if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
     body->insert(pair<string, string>("accountId", *request->accountId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->demandType)) {
+    body->insert(pair<string, string>("demandType", *request->demandType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("description", *request->description));
   }
@@ -106,6 +109,9 @@ CreateDemandPlanV2Response Alibabacloud_Yunjian20211217::Client::createDemandPla
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
     body->insert(pair<string, string>("accountId", *request->accountId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->demandType)) {
+    body->insert(pair<string, string>("demandType", *request->demandType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("description", *request->description));

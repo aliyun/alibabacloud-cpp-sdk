@@ -58,6 +58,7 @@ public:
 class CreateDemandPlanRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
+  shared_ptr<string> demandType{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
   shared_ptr<string> period{};
@@ -78,6 +79,9 @@ public:
     map<string, boost::any> res;
     if (accountId) {
       res["accountId"] = boost::any(*accountId);
+    }
+    if (demandType) {
+      res["demandType"] = boost::any(*demandType);
     }
     if (description) {
       res["description"] = boost::any(*description);
@@ -106,6 +110,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
       accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+    if (m.find("demandType") != m.end() && !m["demandType"].empty()) {
+      demandType = make_shared<string>(boost::any_cast<string>(m["demandType"]));
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
@@ -286,6 +293,7 @@ public:
 class CreateDemandPlanV2Request : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
+  shared_ptr<string> demandType{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
   shared_ptr<string> productType{};
@@ -305,6 +313,9 @@ public:
     map<string, boost::any> res;
     if (accountId) {
       res["accountId"] = boost::any(*accountId);
+    }
+    if (demandType) {
+      res["demandType"] = boost::any(*demandType);
     }
     if (description) {
       res["description"] = boost::any(*description);
@@ -330,6 +341,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
       accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+    if (m.find("demandType") != m.end() && !m["demandType"].empty()) {
+      demandType = make_shared<string>(boost::any_cast<string>(m["demandType"]));
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
