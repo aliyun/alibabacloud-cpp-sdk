@@ -6347,6 +6347,7 @@ public:
   shared_ptr<long> rate{};
   shared_ptr<string> regionId{};
   shared_ptr<string> renderingType{};
+  shared_ptr<string> serverStatus{};
   shared_ptr<string> serverType{};
   shared_ptr<string> sessionStatus{};
   shared_ptr<long> streamMode{};
@@ -6492,6 +6493,9 @@ public:
     }
     if (renderingType) {
       res["RenderingType"] = boost::any(*renderingType);
+    }
+    if (serverStatus) {
+      res["ServerStatus"] = boost::any(*serverStatus);
     }
     if (serverType) {
       res["ServerType"] = boost::any(*serverType);
@@ -6673,6 +6677,9 @@ public:
     }
     if (m.find("RenderingType") != m.end() && !m["RenderingType"].empty()) {
       renderingType = make_shared<string>(boost::any_cast<string>(m["RenderingType"]));
+    }
+    if (m.find("ServerStatus") != m.end() && !m["ServerStatus"].empty()) {
+      serverStatus = make_shared<string>(boost::any_cast<string>(m["ServerStatus"]));
     }
     if (m.find("ServerType") != m.end() && !m["ServerType"].empty()) {
       serverType = make_shared<string>(boost::any_cast<string>(m["ServerType"]));
