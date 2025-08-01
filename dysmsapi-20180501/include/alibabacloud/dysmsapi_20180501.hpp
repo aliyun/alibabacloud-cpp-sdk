@@ -578,6 +578,7 @@ public:
   shared_ptr<string> message{};
   shared_ptr<string> taskId{};
   shared_ptr<string> to{};
+  shared_ptr<string> type{};
   shared_ptr<long> validityPeriod{};
 
   SendMessageToGlobeRequest() {}
@@ -605,6 +606,9 @@ public:
     if (to) {
       res["To"] = boost::any(*to);
     }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     if (validityPeriod) {
       res["ValidityPeriod"] = boost::any(*validityPeriod);
     }
@@ -626,6 +630,9 @@ public:
     }
     if (m.find("To") != m.end() && !m["To"].empty()) {
       to = make_shared<string>(boost::any_cast<string>(m["To"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
     if (m.find("ValidityPeriod") != m.end() && !m["ValidityPeriod"].empty()) {
       validityPeriod = make_shared<long>(boost::any_cast<long>(m["ValidityPeriod"]));

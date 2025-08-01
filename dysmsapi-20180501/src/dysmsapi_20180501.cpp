@@ -168,6 +168,9 @@ SendMessageToGlobeResponse Alibabacloud_Dysmsapi20180501::Client::sendMessageToG
   if (!Darabonba_Util::Client::isUnset<string>(request->to)) {
     query->insert(pair<string, string>("To", *request->to));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->validityPeriod)) {
     query->insert(pair<string, long>("ValidityPeriod", *request->validityPeriod));
   }
