@@ -936,6 +936,9 @@ InitialSysomResponse Alibabacloud_SysOM20231230::Client::initialSysomWithOptions
   if (!Darabonba_Util::Client::isUnset<bool>(request->checkOnly)) {
     body->insert(pair<string, bool>("check_only", *request->checkOnly));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    body->insert(pair<string, string>("source", *request->source));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}

@@ -5335,6 +5335,7 @@ public:
 class InitialSysomRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> checkOnly{};
+  shared_ptr<string> source{};
 
   InitialSysomRequest() {}
 
@@ -5349,12 +5350,18 @@ public:
     if (checkOnly) {
       res["check_only"] = boost::any(*checkOnly);
     }
+    if (source) {
+      res["source"] = boost::any(*source);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("check_only") != m.end() && !m["check_only"].empty()) {
       checkOnly = make_shared<bool>(boost::any_cast<bool>(m["check_only"]));
+    }
+    if (m.find("source") != m.end() && !m["source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["source"]));
     }
   }
 
