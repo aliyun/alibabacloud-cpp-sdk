@@ -404,6 +404,37 @@ ClearIntervenesResponse Alibabacloud_AiMiaoBi20230801::Client::clearIntervenes(s
   return clearIntervenesWithOptions(request, runtime);
 }
 
+ConfirmAndPostProcessAuditNoteResponse Alibabacloud_AiMiaoBi20230801::Client::confirmAndPostProcessAuditNoteWithOptions(shared_ptr<ConfirmAndPostProcessAuditNoteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    body->insert(pair<string, string>("TaskId", *request->taskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ConfirmAndPostProcessAuditNote"))},
+    {"version", boost::any(string("2023-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ConfirmAndPostProcessAuditNoteResponse(callApi(params, req, runtime));
+}
+
+ConfirmAndPostProcessAuditNoteResponse Alibabacloud_AiMiaoBi20230801::Client::confirmAndPostProcessAuditNote(shared_ptr<ConfirmAndPostProcessAuditNoteRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return confirmAndPostProcessAuditNoteWithOptions(request, runtime);
+}
+
 CreateDatasetResponse Alibabacloud_AiMiaoBi20230801::Client::createDatasetWithOptions(shared_ptr<CreateDatasetRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateDatasetShrinkRequest> request = make_shared<CreateDatasetShrinkRequest>();
@@ -546,6 +577,34 @@ CreateTokenResponse Alibabacloud_AiMiaoBi20230801::Client::createTokenWithOption
 CreateTokenResponse Alibabacloud_AiMiaoBi20230801::Client::createToken(shared_ptr<CreateTokenRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createTokenWithOptions(request, runtime);
+}
+
+DeleteAuditNoteResponse Alibabacloud_AiMiaoBi20230801::Client::deleteAuditNoteWithOptions(shared_ptr<DeleteAuditNoteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteAuditNote"))},
+    {"version", boost::any(string("2023-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteAuditNoteResponse(callApi(params, req, runtime));
+}
+
+DeleteAuditNoteResponse Alibabacloud_AiMiaoBi20230801::Client::deleteAuditNote(shared_ptr<DeleteAuditNoteRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteAuditNoteWithOptions(request, runtime);
 }
 
 DeleteAuditTermsResponse Alibabacloud_AiMiaoBi20230801::Client::deleteAuditTermsWithOptions(shared_ptr<DeleteAuditTermsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -964,6 +1023,37 @@ DocumentExtractionResponse Alibabacloud_AiMiaoBi20230801::Client::documentExtrac
 DocumentExtractionResponse Alibabacloud_AiMiaoBi20230801::Client::documentExtraction(shared_ptr<DocumentExtractionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return documentExtractionWithOptions(request, runtime);
+}
+
+DownloadAuditNoteResponse Alibabacloud_AiMiaoBi20230801::Client::downloadAuditNoteWithOptions(shared_ptr<DownloadAuditNoteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    body->insert(pair<string, string>("TaskId", *request->taskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DownloadAuditNote"))},
+    {"version", boost::any(string("2023-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DownloadAuditNoteResponse(callApi(params, req, runtime));
+}
+
+DownloadAuditNoteResponse Alibabacloud_AiMiaoBi20230801::Client::downloadAuditNote(shared_ptr<DownloadAuditNoteRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return downloadAuditNoteWithOptions(request, runtime);
 }
 
 EditAuditTermsResponse Alibabacloud_AiMiaoBi20230801::Client::editAuditTermsWithOptions(shared_ptr<EditAuditTermsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1606,6 +1696,68 @@ GenerateViewPointResponse Alibabacloud_AiMiaoBi20230801::Client::generateViewPoi
   return generateViewPointWithOptions(request, runtime);
 }
 
+GetAuditNotePostProcessingStatusResponse Alibabacloud_AiMiaoBi20230801::Client::getAuditNotePostProcessingStatusWithOptions(shared_ptr<GetAuditNotePostProcessingStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    body->insert(pair<string, string>("TaskId", *request->taskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAuditNotePostProcessingStatus"))},
+    {"version", boost::any(string("2023-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAuditNotePostProcessingStatusResponse(callApi(params, req, runtime));
+}
+
+GetAuditNotePostProcessingStatusResponse Alibabacloud_AiMiaoBi20230801::Client::getAuditNotePostProcessingStatus(shared_ptr<GetAuditNotePostProcessingStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getAuditNotePostProcessingStatusWithOptions(request, runtime);
+}
+
+GetAuditNoteProcessingStatusResponse Alibabacloud_AiMiaoBi20230801::Client::getAuditNoteProcessingStatusWithOptions(shared_ptr<GetAuditNoteProcessingStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    body->insert(pair<string, string>("TaskId", *request->taskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAuditNoteProcessingStatus"))},
+    {"version", boost::any(string("2023-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAuditNoteProcessingStatusResponse(callApi(params, req, runtime));
+}
+
+GetAuditNoteProcessingStatusResponse Alibabacloud_AiMiaoBi20230801::Client::getAuditNoteProcessingStatus(shared_ptr<GetAuditNoteProcessingStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getAuditNoteProcessingStatusWithOptions(request, runtime);
+}
+
 GetAutoClipsTaskInfoResponse Alibabacloud_AiMiaoBi20230801::Client::getAutoClipsTaskInfoWithOptions(shared_ptr<GetAutoClipsTaskInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1635,6 +1787,34 @@ GetAutoClipsTaskInfoResponse Alibabacloud_AiMiaoBi20230801::Client::getAutoClips
 GetAutoClipsTaskInfoResponse Alibabacloud_AiMiaoBi20230801::Client::getAutoClipsTaskInfo(shared_ptr<GetAutoClipsTaskInfoRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getAutoClipsTaskInfoWithOptions(request, runtime);
+}
+
+GetAvailableAuditNotesResponse Alibabacloud_AiMiaoBi20230801::Client::getAvailableAuditNotesWithOptions(shared_ptr<GetAvailableAuditNotesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAvailableAuditNotes"))},
+    {"version", boost::any(string("2023-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAvailableAuditNotesResponse(callApi(params, req, runtime));
+}
+
+GetAvailableAuditNotesResponse Alibabacloud_AiMiaoBi20230801::Client::getAvailableAuditNotes(shared_ptr<GetAvailableAuditNotesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getAvailableAuditNotesWithOptions(request, runtime);
 }
 
 GetCategoriesByTaskIdResponse Alibabacloud_AiMiaoBi20230801::Client::getCategoriesByTaskIdWithOptions(shared_ptr<GetCategoriesByTaskIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -6064,6 +6244,37 @@ SubmitAsyncTaskResponse Alibabacloud_AiMiaoBi20230801::Client::submitAsyncTaskWi
 SubmitAsyncTaskResponse Alibabacloud_AiMiaoBi20230801::Client::submitAsyncTask(shared_ptr<SubmitAsyncTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return submitAsyncTaskWithOptions(request, runtime);
+}
+
+SubmitAuditNoteResponse Alibabacloud_AiMiaoBi20230801::Client::submitAuditNoteWithOptions(shared_ptr<SubmitAuditNoteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileKey)) {
+    body->insert(pair<string, string>("FileKey", *request->fileKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitAuditNote"))},
+    {"version", boost::any(string("2023-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitAuditNoteResponse(callApi(params, req, runtime));
+}
+
+SubmitAuditNoteResponse Alibabacloud_AiMiaoBi20230801::Client::submitAuditNote(shared_ptr<SubmitAuditNoteRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitAuditNoteWithOptions(request, runtime);
 }
 
 SubmitAuditTaskResponse Alibabacloud_AiMiaoBi20230801::Client::submitAuditTaskWithOptions(shared_ptr<SubmitAuditTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
