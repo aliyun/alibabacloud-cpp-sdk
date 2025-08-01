@@ -476,8 +476,13 @@ AddGatewayAuthConsumerResponse Alibabacloud_Mse20190531::Client::addGatewayAuthC
   return addGatewayAuthConsumerWithOptions(request, runtime);
 }
 
-AddGatewayDomainResponse Alibabacloud_Mse20190531::Client::addGatewayDomainWithOptions(shared_ptr<AddGatewayDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+AddGatewayDomainResponse Alibabacloud_Mse20190531::Client::addGatewayDomainWithOptions(shared_ptr<AddGatewayDomainRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<AddGatewayDomainShrinkRequest> request = make_shared<AddGatewayDomainShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<AddGatewayDomainRequestTlsCipherSuitesConfigJSON>(tmpReq->tlsCipherSuitesConfigJSON)) {
+    request->tlsCipherSuitesConfigJSONShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tlsCipherSuitesConfigJSON, make_shared<string>("TlsCipherSuitesConfigJSON"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
@@ -499,6 +504,9 @@ AddGatewayDomainResponse Alibabacloud_Mse20190531::Client::addGatewayDomainWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->protocol)) {
     query->insert(pair<string, string>("Protocol", *request->protocol));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tlsCipherSuitesConfigJSONShrink)) {
+    query->insert(pair<string, string>("TlsCipherSuitesConfigJSON", *request->tlsCipherSuitesConfigJSONShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tlsMax)) {
     query->insert(pair<string, string>("TlsMax", *request->tlsMax));
@@ -2293,6 +2301,64 @@ CreatePluginConfigResponse Alibabacloud_Mse20190531::Client::createPluginConfigW
 CreatePluginConfigResponse Alibabacloud_Mse20190531::Client::createPluginConfig(shared_ptr<CreatePluginConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createPluginConfigWithOptions(request, runtime);
+}
+
+CreateSentinelBlockFallbackDefinitionResponse Alibabacloud_Mse20190531::Client::createSentinelBlockFallbackDefinitionWithOptions(shared_ptr<CreateSentinelBlockFallbackDefinitionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
+    query->insert(pair<string, string>("AppName", *request->appName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fallbackBehavior)) {
+    query->insert(pair<string, string>("FallbackBehavior", *request->fallbackBehavior));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    query->insert(pair<string, string>("Language", *request->language));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceClassification)) {
+    query->insert(pair<string, long>("ResourceClassification", *request->resourceClassification));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scenario)) {
+    query->insert(pair<string, string>("Scenario", *request->scenario));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateSentinelBlockFallbackDefinition"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateSentinelBlockFallbackDefinitionResponse(callApi(params, req, runtime));
+}
+
+CreateSentinelBlockFallbackDefinitionResponse Alibabacloud_Mse20190531::Client::createSentinelBlockFallbackDefinition(shared_ptr<CreateSentinelBlockFallbackDefinitionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createSentinelBlockFallbackDefinitionWithOptions(request, runtime);
 }
 
 CreateWebFlowRuleResponse Alibabacloud_Mse20190531::Client::createWebFlowRuleWithOptions(shared_ptr<CreateWebFlowRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -9212,8 +9278,13 @@ UpdateGatewayConfigResponse Alibabacloud_Mse20190531::Client::updateGatewayConfi
   return updateGatewayConfigWithOptions(request, runtime);
 }
 
-UpdateGatewayDomainResponse Alibabacloud_Mse20190531::Client::updateGatewayDomainWithOptions(shared_ptr<UpdateGatewayDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+UpdateGatewayDomainResponse Alibabacloud_Mse20190531::Client::updateGatewayDomainWithOptions(shared_ptr<UpdateGatewayDomainRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateGatewayDomainShrinkRequest> request = make_shared<UpdateGatewayDomainShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<UpdateGatewayDomainRequestTlsCipherSuitesConfigJSON>(tmpReq->tlsCipherSuitesConfigJSON)) {
+    request->tlsCipherSuitesConfigJSONShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tlsCipherSuitesConfigJSON, make_shared<string>("TlsCipherSuitesConfigJSON"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
@@ -9235,6 +9306,9 @@ UpdateGatewayDomainResponse Alibabacloud_Mse20190531::Client::updateGatewayDomai
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->protocol)) {
     query->insert(pair<string, string>("Protocol", *request->protocol));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tlsCipherSuitesConfigJSONShrink)) {
+    query->insert(pair<string, string>("TlsCipherSuitesConfigJSON", *request->tlsCipherSuitesConfigJSONShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tlsMax)) {
     query->insert(pair<string, string>("TlsMax", *request->tlsMax));

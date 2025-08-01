@@ -3626,6 +3626,49 @@ public:
 
   virtual ~AddGatewayAuthConsumerResponse() = default;
 };
+class AddGatewayDomainRequestTlsCipherSuitesConfigJSON : public Darabonba::Model {
+public:
+  shared_ptr<string> configType{};
+  shared_ptr<vector<string>> tlsCipherSuites{};
+
+  AddGatewayDomainRequestTlsCipherSuitesConfigJSON() {}
+
+  explicit AddGatewayDomainRequestTlsCipherSuitesConfigJSON(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configType) {
+      res["ConfigType"] = boost::any(*configType);
+    }
+    if (tlsCipherSuites) {
+      res["TlsCipherSuites"] = boost::any(*tlsCipherSuites);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigType") != m.end() && !m["ConfigType"].empty()) {
+      configType = make_shared<string>(boost::any_cast<string>(m["ConfigType"]));
+    }
+    if (m.find("TlsCipherSuites") != m.end() && !m["TlsCipherSuites"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TlsCipherSuites"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TlsCipherSuites"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tlsCipherSuites = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~AddGatewayDomainRequestTlsCipherSuitesConfigJSON() = default;
+};
 class AddGatewayDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -3635,6 +3678,7 @@ public:
   shared_ptr<bool> mustHttps{};
   shared_ptr<string> name{};
   shared_ptr<string> protocol{};
+  shared_ptr<AddGatewayDomainRequestTlsCipherSuitesConfigJSON> tlsCipherSuitesConfigJSON{};
   shared_ptr<string> tlsMax{};
   shared_ptr<string> tlsMin{};
 
@@ -3669,6 +3713,9 @@ public:
     if (protocol) {
       res["Protocol"] = boost::any(*protocol);
     }
+    if (tlsCipherSuitesConfigJSON) {
+      res["TlsCipherSuitesConfigJSON"] = tlsCipherSuitesConfigJSON ? boost::any(tlsCipherSuitesConfigJSON->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (tlsMax) {
       res["TlsMax"] = boost::any(*tlsMax);
     }
@@ -3700,6 +3747,13 @@ public:
     if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
     }
+    if (m.find("TlsCipherSuitesConfigJSON") != m.end() && !m["TlsCipherSuitesConfigJSON"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TlsCipherSuitesConfigJSON"].type()) {
+        AddGatewayDomainRequestTlsCipherSuitesConfigJSON model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TlsCipherSuitesConfigJSON"]));
+        tlsCipherSuitesConfigJSON = make_shared<AddGatewayDomainRequestTlsCipherSuitesConfigJSON>(model1);
+      }
+    }
     if (m.find("TlsMax") != m.end() && !m["TlsMax"].empty()) {
       tlsMax = make_shared<string>(boost::any_cast<string>(m["TlsMax"]));
     }
@@ -3710,6 +3764,98 @@ public:
 
 
   virtual ~AddGatewayDomainRequest() = default;
+};
+class AddGatewayDomainShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> certIdentifier{};
+  shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<string> http2{};
+  shared_ptr<bool> mustHttps{};
+  shared_ptr<string> name{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> tlsCipherSuitesConfigJSONShrink{};
+  shared_ptr<string> tlsMax{};
+  shared_ptr<string> tlsMin{};
+
+  AddGatewayDomainShrinkRequest() {}
+
+  explicit AddGatewayDomainShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (certIdentifier) {
+      res["CertIdentifier"] = boost::any(*certIdentifier);
+    }
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
+    if (http2) {
+      res["Http2"] = boost::any(*http2);
+    }
+    if (mustHttps) {
+      res["MustHttps"] = boost::any(*mustHttps);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (tlsCipherSuitesConfigJSONShrink) {
+      res["TlsCipherSuitesConfigJSON"] = boost::any(*tlsCipherSuitesConfigJSONShrink);
+    }
+    if (tlsMax) {
+      res["TlsMax"] = boost::any(*tlsMax);
+    }
+    if (tlsMin) {
+      res["TlsMin"] = boost::any(*tlsMin);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("CertIdentifier") != m.end() && !m["CertIdentifier"].empty()) {
+      certIdentifier = make_shared<string>(boost::any_cast<string>(m["CertIdentifier"]));
+    }
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("Http2") != m.end() && !m["Http2"].empty()) {
+      http2 = make_shared<string>(boost::any_cast<string>(m["Http2"]));
+    }
+    if (m.find("MustHttps") != m.end() && !m["MustHttps"].empty()) {
+      mustHttps = make_shared<bool>(boost::any_cast<bool>(m["MustHttps"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("TlsCipherSuitesConfigJSON") != m.end() && !m["TlsCipherSuitesConfigJSON"].empty()) {
+      tlsCipherSuitesConfigJSONShrink = make_shared<string>(boost::any_cast<string>(m["TlsCipherSuitesConfigJSON"]));
+    }
+    if (m.find("TlsMax") != m.end() && !m["TlsMax"].empty()) {
+      tlsMax = make_shared<string>(boost::any_cast<string>(m["TlsMax"]));
+    }
+    if (m.find("TlsMin") != m.end() && !m["TlsMin"].empty()) {
+      tlsMin = make_shared<string>(boost::any_cast<string>(m["TlsMin"]));
+    }
+  }
+
+
+  virtual ~AddGatewayDomainShrinkRequest() = default;
 };
 class AddGatewayDomainResponseBody : public Darabonba::Model {
 public:
@@ -14143,6 +14289,296 @@ public:
 
 
   virtual ~CreatePluginConfigResponse() = default;
+};
+class CreateSentinelBlockFallbackDefinitionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> appId{};
+  shared_ptr<string> appName{};
+  shared_ptr<string> fallbackBehavior{};
+  shared_ptr<string> language{};
+  shared_ptr<string> name{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> resourceClassification{};
+  shared_ptr<string> scenario{};
+  shared_ptr<string> source{};
+
+  CreateSentinelBlockFallbackDefinitionRequest() {}
+
+  explicit CreateSentinelBlockFallbackDefinitionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (fallbackBehavior) {
+      res["FallbackBehavior"] = boost::any(*fallbackBehavior);
+    }
+    if (language) {
+      res["Language"] = boost::any(*language);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceClassification) {
+      res["ResourceClassification"] = boost::any(*resourceClassification);
+    }
+    if (scenario) {
+      res["Scenario"] = boost::any(*scenario);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("FallbackBehavior") != m.end() && !m["FallbackBehavior"].empty()) {
+      fallbackBehavior = make_shared<string>(boost::any_cast<string>(m["FallbackBehavior"]));
+    }
+    if (m.find("Language") != m.end() && !m["Language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceClassification") != m.end() && !m["ResourceClassification"].empty()) {
+      resourceClassification = make_shared<long>(boost::any_cast<long>(m["ResourceClassification"]));
+    }
+    if (m.find("Scenario") != m.end() && !m["Scenario"].empty()) {
+      scenario = make_shared<string>(boost::any_cast<string>(m["Scenario"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+  }
+
+
+  virtual ~CreateSentinelBlockFallbackDefinitionRequest() = default;
+};
+class CreateSentinelBlockFallbackDefinitionResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> appName{};
+  shared_ptr<string> fallbackBehavior{};
+  shared_ptr<long> id{};
+  shared_ptr<string> name{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<long> resourceClassification{};
+  shared_ptr<string> userId{};
+
+  CreateSentinelBlockFallbackDefinitionResponseBodyData() {}
+
+  explicit CreateSentinelBlockFallbackDefinitionResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (fallbackBehavior) {
+      res["FallbackBehavior"] = boost::any(*fallbackBehavior);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (resourceClassification) {
+      res["ResourceClassification"] = boost::any(*resourceClassification);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("FallbackBehavior") != m.end() && !m["FallbackBehavior"].empty()) {
+      fallbackBehavior = make_shared<string>(boost::any_cast<string>(m["FallbackBehavior"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("ResourceClassification") != m.end() && !m["ResourceClassification"].empty()) {
+      resourceClassification = make_shared<long>(boost::any_cast<long>(m["ResourceClassification"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~CreateSentinelBlockFallbackDefinitionResponseBodyData() = default;
+};
+class CreateSentinelBlockFallbackDefinitionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<CreateSentinelBlockFallbackDefinitionResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  CreateSentinelBlockFallbackDefinitionResponseBody() {}
+
+  explicit CreateSentinelBlockFallbackDefinitionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CreateSentinelBlockFallbackDefinitionResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CreateSentinelBlockFallbackDefinitionResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateSentinelBlockFallbackDefinitionResponseBody() = default;
+};
+class CreateSentinelBlockFallbackDefinitionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateSentinelBlockFallbackDefinitionResponseBody> body{};
+
+  CreateSentinelBlockFallbackDefinitionResponse() {}
+
+  explicit CreateSentinelBlockFallbackDefinitionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateSentinelBlockFallbackDefinitionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateSentinelBlockFallbackDefinitionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateSentinelBlockFallbackDefinitionResponse() = default;
 };
 class CreateWebFlowRuleRequest : public Darabonba::Model {
 public:
@@ -26236,6 +26672,49 @@ public:
 
   virtual ~GetGatewayDomainDetailRequest() = default;
 };
+class GetGatewayDomainDetailResponseBodyDataTlsCipherSuitesConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> configType{};
+  shared_ptr<vector<string>> tlsCipherSuites{};
+
+  GetGatewayDomainDetailResponseBodyDataTlsCipherSuitesConfig() {}
+
+  explicit GetGatewayDomainDetailResponseBodyDataTlsCipherSuitesConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configType) {
+      res["ConfigType"] = boost::any(*configType);
+    }
+    if (tlsCipherSuites) {
+      res["TlsCipherSuites"] = boost::any(*tlsCipherSuites);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigType") != m.end() && !m["ConfigType"].empty()) {
+      configType = make_shared<string>(boost::any_cast<string>(m["ConfigType"]));
+    }
+    if (m.find("TlsCipherSuites") != m.end() && !m["TlsCipherSuites"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TlsCipherSuites"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TlsCipherSuites"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tlsCipherSuites = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetGatewayDomainDetailResponseBodyDataTlsCipherSuitesConfig() = default;
+};
 class GetGatewayDomainDetailResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<long> afterDate{};
@@ -26258,6 +26737,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> protocol{};
   shared_ptr<string> sans{};
+  shared_ptr<GetGatewayDomainDetailResponseBodyDataTlsCipherSuitesConfig> tlsCipherSuitesConfig{};
   shared_ptr<string> tlsMax{};
   shared_ptr<string> tlsMin{};
 
@@ -26331,6 +26811,9 @@ public:
     if (sans) {
       res["Sans"] = boost::any(*sans);
     }
+    if (tlsCipherSuitesConfig) {
+      res["TlsCipherSuitesConfig"] = tlsCipherSuitesConfig ? boost::any(tlsCipherSuitesConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (tlsMax) {
       res["TlsMax"] = boost::any(*tlsMax);
     }
@@ -26400,6 +26883,13 @@ public:
     }
     if (m.find("Sans") != m.end() && !m["Sans"].empty()) {
       sans = make_shared<string>(boost::any_cast<string>(m["Sans"]));
+    }
+    if (m.find("TlsCipherSuitesConfig") != m.end() && !m["TlsCipherSuitesConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TlsCipherSuitesConfig"].type()) {
+        GetGatewayDomainDetailResponseBodyDataTlsCipherSuitesConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TlsCipherSuitesConfig"]));
+        tlsCipherSuitesConfig = make_shared<GetGatewayDomainDetailResponseBodyDataTlsCipherSuitesConfig>(model1);
+      }
     }
     if (m.find("TlsMax") != m.end() && !m["TlsMax"].empty()) {
       tlsMax = make_shared<string>(boost::any_cast<string>(m["TlsMax"]));
@@ -45201,6 +45691,49 @@ public:
 
   virtual ~ListGatewayDomainResponseBodyDataComment() = default;
 };
+class ListGatewayDomainResponseBodyDataTlsCipherSuitesConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> configType{};
+  shared_ptr<vector<string>> tlsCipherSuites{};
+
+  ListGatewayDomainResponseBodyDataTlsCipherSuitesConfig() {}
+
+  explicit ListGatewayDomainResponseBodyDataTlsCipherSuitesConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configType) {
+      res["ConfigType"] = boost::any(*configType);
+    }
+    if (tlsCipherSuites) {
+      res["TlsCipherSuites"] = boost::any(*tlsCipherSuites);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigType") != m.end() && !m["ConfigType"].empty()) {
+      configType = make_shared<string>(boost::any_cast<string>(m["ConfigType"]));
+    }
+    if (m.find("TlsCipherSuites") != m.end() && !m["TlsCipherSuites"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TlsCipherSuites"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TlsCipherSuites"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tlsCipherSuites = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListGatewayDomainResponseBodyDataTlsCipherSuitesConfig() = default;
+};
 class ListGatewayDomainResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> certBeforeDate{};
@@ -45216,6 +45749,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> protocol{};
   shared_ptr<long> status{};
+  shared_ptr<ListGatewayDomainResponseBodyDataTlsCipherSuitesConfig> tlsCipherSuitesConfig{};
   shared_ptr<string> tlsMax{};
   shared_ptr<string> tlsMin{};
   shared_ptr<string> type{};
@@ -45268,6 +45802,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tlsCipherSuitesConfig) {
+      res["TlsCipherSuitesConfig"] = tlsCipherSuitesConfig ? boost::any(tlsCipherSuitesConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (tlsMax) {
       res["TlsMax"] = boost::any(*tlsMax);
@@ -45324,6 +45861,13 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("TlsCipherSuitesConfig") != m.end() && !m["TlsCipherSuitesConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TlsCipherSuitesConfig"].type()) {
+        ListGatewayDomainResponseBodyDataTlsCipherSuitesConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TlsCipherSuitesConfig"]));
+        tlsCipherSuitesConfig = make_shared<ListGatewayDomainResponseBodyDataTlsCipherSuitesConfig>(model1);
+      }
     }
     if (m.find("TlsMax") != m.end() && !m["TlsMax"].empty()) {
       tlsMax = make_shared<string>(boost::any_cast<string>(m["TlsMax"]));
@@ -67633,6 +68177,49 @@ public:
 
   virtual ~UpdateGatewayConfigResponse() = default;
 };
+class UpdateGatewayDomainRequestTlsCipherSuitesConfigJSON : public Darabonba::Model {
+public:
+  shared_ptr<string> configType{};
+  shared_ptr<vector<string>> tlsCipherSuites{};
+
+  UpdateGatewayDomainRequestTlsCipherSuitesConfigJSON() {}
+
+  explicit UpdateGatewayDomainRequestTlsCipherSuitesConfigJSON(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configType) {
+      res["ConfigType"] = boost::any(*configType);
+    }
+    if (tlsCipherSuites) {
+      res["TlsCipherSuites"] = boost::any(*tlsCipherSuites);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigType") != m.end() && !m["ConfigType"].empty()) {
+      configType = make_shared<string>(boost::any_cast<string>(m["ConfigType"]));
+    }
+    if (m.find("TlsCipherSuites") != m.end() && !m["TlsCipherSuites"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TlsCipherSuites"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TlsCipherSuites"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tlsCipherSuites = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateGatewayDomainRequestTlsCipherSuitesConfigJSON() = default;
+};
 class UpdateGatewayDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -67642,6 +68229,7 @@ public:
   shared_ptr<long> id{};
   shared_ptr<bool> mustHttps{};
   shared_ptr<string> protocol{};
+  shared_ptr<UpdateGatewayDomainRequestTlsCipherSuitesConfigJSON> tlsCipherSuitesConfigJSON{};
   shared_ptr<string> tlsMax{};
   shared_ptr<string> tlsMin{};
 
@@ -67676,6 +68264,9 @@ public:
     if (protocol) {
       res["Protocol"] = boost::any(*protocol);
     }
+    if (tlsCipherSuitesConfigJSON) {
+      res["TlsCipherSuitesConfigJSON"] = tlsCipherSuitesConfigJSON ? boost::any(tlsCipherSuitesConfigJSON->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (tlsMax) {
       res["TlsMax"] = boost::any(*tlsMax);
     }
@@ -67707,6 +68298,13 @@ public:
     if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
     }
+    if (m.find("TlsCipherSuitesConfigJSON") != m.end() && !m["TlsCipherSuitesConfigJSON"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TlsCipherSuitesConfigJSON"].type()) {
+        UpdateGatewayDomainRequestTlsCipherSuitesConfigJSON model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TlsCipherSuitesConfigJSON"]));
+        tlsCipherSuitesConfigJSON = make_shared<UpdateGatewayDomainRequestTlsCipherSuitesConfigJSON>(model1);
+      }
+    }
     if (m.find("TlsMax") != m.end() && !m["TlsMax"].empty()) {
       tlsMax = make_shared<string>(boost::any_cast<string>(m["TlsMax"]));
     }
@@ -67717,6 +68315,98 @@ public:
 
 
   virtual ~UpdateGatewayDomainRequest() = default;
+};
+class UpdateGatewayDomainShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> certIdentifier{};
+  shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<string> http2{};
+  shared_ptr<long> id{};
+  shared_ptr<bool> mustHttps{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> tlsCipherSuitesConfigJSONShrink{};
+  shared_ptr<string> tlsMax{};
+  shared_ptr<string> tlsMin{};
+
+  UpdateGatewayDomainShrinkRequest() {}
+
+  explicit UpdateGatewayDomainShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (certIdentifier) {
+      res["CertIdentifier"] = boost::any(*certIdentifier);
+    }
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
+    if (http2) {
+      res["Http2"] = boost::any(*http2);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (mustHttps) {
+      res["MustHttps"] = boost::any(*mustHttps);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (tlsCipherSuitesConfigJSONShrink) {
+      res["TlsCipherSuitesConfigJSON"] = boost::any(*tlsCipherSuitesConfigJSONShrink);
+    }
+    if (tlsMax) {
+      res["TlsMax"] = boost::any(*tlsMax);
+    }
+    if (tlsMin) {
+      res["TlsMin"] = boost::any(*tlsMin);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("CertIdentifier") != m.end() && !m["CertIdentifier"].empty()) {
+      certIdentifier = make_shared<string>(boost::any_cast<string>(m["CertIdentifier"]));
+    }
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("Http2") != m.end() && !m["Http2"].empty()) {
+      http2 = make_shared<string>(boost::any_cast<string>(m["Http2"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("MustHttps") != m.end() && !m["MustHttps"].empty()) {
+      mustHttps = make_shared<bool>(boost::any_cast<bool>(m["MustHttps"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("TlsCipherSuitesConfigJSON") != m.end() && !m["TlsCipherSuitesConfigJSON"].empty()) {
+      tlsCipherSuitesConfigJSONShrink = make_shared<string>(boost::any_cast<string>(m["TlsCipherSuitesConfigJSON"]));
+    }
+    if (m.find("TlsMax") != m.end() && !m["TlsMax"].empty()) {
+      tlsMax = make_shared<string>(boost::any_cast<string>(m["TlsMax"]));
+    }
+    if (m.find("TlsMin") != m.end() && !m["TlsMin"].empty()) {
+      tlsMin = make_shared<string>(boost::any_cast<string>(m["TlsMin"]));
+    }
+  }
+
+
+  virtual ~UpdateGatewayDomainShrinkRequest() = default;
 };
 class UpdateGatewayDomainResponseBody : public Darabonba::Model {
 public:
@@ -77753,7 +78443,7 @@ public:
   AddGatewayAuthResponse addGatewayAuth(shared_ptr<AddGatewayAuthRequest> request);
   AddGatewayAuthConsumerResponse addGatewayAuthConsumerWithOptions(shared_ptr<AddGatewayAuthConsumerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddGatewayAuthConsumerResponse addGatewayAuthConsumer(shared_ptr<AddGatewayAuthConsumerRequest> request);
-  AddGatewayDomainResponse addGatewayDomainWithOptions(shared_ptr<AddGatewayDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddGatewayDomainResponse addGatewayDomainWithOptions(shared_ptr<AddGatewayDomainRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddGatewayDomainResponse addGatewayDomain(shared_ptr<AddGatewayDomainRequest> request);
   AddGatewayRouteResponse addGatewayRouteWithOptions(shared_ptr<AddGatewayRouteRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddGatewayRouteResponse addGatewayRoute(shared_ptr<AddGatewayRouteRequest> request);
@@ -77817,6 +78507,8 @@ public:
   CreateOrUpdateSwimmingLaneGroupResponse createOrUpdateSwimmingLaneGroup(shared_ptr<CreateOrUpdateSwimmingLaneGroupRequest> request);
   CreatePluginConfigResponse createPluginConfigWithOptions(shared_ptr<CreatePluginConfigRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePluginConfigResponse createPluginConfig(shared_ptr<CreatePluginConfigRequest> request);
+  CreateSentinelBlockFallbackDefinitionResponse createSentinelBlockFallbackDefinitionWithOptions(shared_ptr<CreateSentinelBlockFallbackDefinitionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateSentinelBlockFallbackDefinitionResponse createSentinelBlockFallbackDefinition(shared_ptr<CreateSentinelBlockFallbackDefinitionRequest> request);
   CreateWebFlowRuleResponse createWebFlowRuleWithOptions(shared_ptr<CreateWebFlowRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateWebFlowRuleResponse createWebFlowRule(shared_ptr<CreateWebFlowRuleRequest> request);
   CreateZnodeResponse createZnodeWithOptions(shared_ptr<CreateZnodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -78155,7 +78847,7 @@ public:
   UpdateGatewayCircuitBreakerRuleResponse updateGatewayCircuitBreakerRule(shared_ptr<UpdateGatewayCircuitBreakerRuleRequest> request);
   UpdateGatewayConfigResponse updateGatewayConfigWithOptions(shared_ptr<UpdateGatewayConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateGatewayConfigResponse updateGatewayConfig(shared_ptr<UpdateGatewayConfigRequest> request);
-  UpdateGatewayDomainResponse updateGatewayDomainWithOptions(shared_ptr<UpdateGatewayDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateGatewayDomainResponse updateGatewayDomainWithOptions(shared_ptr<UpdateGatewayDomainRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateGatewayDomainResponse updateGatewayDomain(shared_ptr<UpdateGatewayDomainRequest> request);
   UpdateGatewayFlowRuleResponse updateGatewayFlowRuleWithOptions(shared_ptr<UpdateGatewayFlowRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateGatewayFlowRuleResponse updateGatewayFlowRule(shared_ptr<UpdateGatewayFlowRuleRequest> request);
