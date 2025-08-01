@@ -170,6 +170,81 @@ OperateAppServiceForPartnerResponse Alibabacloud_WebsiteBuild20250429::Client::o
   return operateAppServiceForPartnerWithOptions(request, runtime);
 }
 
+SearchImageResponse Alibabacloud_WebsiteBuild20250429::Client::searchImageWithOptions(shared_ptr<SearchImageRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SearchImageShrinkRequest> request = make_shared<SearchImageShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("simple")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->colorHex)) {
+    query->insert(pair<string, string>("ColorHex", *request->colorHex));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->hasPerson)) {
+    query->insert(pair<string, bool>("HasPerson", *request->hasPerson));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageCategory)) {
+    query->insert(pair<string, string>("ImageCategory", *request->imageCategory));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageRatio)) {
+    query->insert(pair<string, string>("ImageRatio", *request->imageRatio));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxHeight)) {
+    query->insert(pair<string, long>("MaxHeight", *request->maxHeight));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxWidth)) {
+    query->insert(pair<string, long>("MaxWidth", *request->maxWidth));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->minHeight)) {
+    query->insert(pair<string, long>("MinHeight", *request->minHeight));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->minWidth)) {
+    query->insert(pair<string, long>("MinWidth", *request->minWidth));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ossKey)) {
+    query->insert(pair<string, string>("OssKey", *request->ossKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->size)) {
+    query->insert(pair<string, long>("Size", *request->size));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->start)) {
+    query->insert(pair<string, long>("Start", *request->start));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
+    query->insert(pair<string, string>("Tags", *request->tagsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->text)) {
+    query->insert(pair<string, string>("Text", *request->text));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SearchImage"))},
+    {"version", boost::any(string("2025-04-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SearchImageResponse(callApi(params, req, runtime));
+}
+
+SearchImageResponse Alibabacloud_WebsiteBuild20250429::Client::searchImage(shared_ptr<SearchImageRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return searchImageWithOptions(request, runtime);
+}
+
 SyncAppInstanceForPartnerResponse Alibabacloud_WebsiteBuild20250429::Client::syncAppInstanceForPartnerWithOptions(shared_ptr<SyncAppInstanceForPartnerRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<SyncAppInstanceForPartnerShrinkRequest> request = make_shared<SyncAppInstanceForPartnerShrinkRequest>();
