@@ -269,6 +269,143 @@ public:
 
   virtual ~ModelConfig() = default;
 };
+class QuestionAnswerAnswer : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> contexts{};
+  shared_ptr<string> text{};
+
+  QuestionAnswerAnswer() {}
+
+  explicit QuestionAnswerAnswer(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (contexts) {
+      res["Contexts"] = boost::any(*contexts);
+    }
+    if (text) {
+      res["Text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Contexts") != m.end() && !m["Contexts"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Contexts"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Contexts"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      contexts = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Text") != m.end() && !m["Text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+  }
+
+
+  virtual ~QuestionAnswerAnswer() = default;
+};
+class QuestionAnswerGroundTruth : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> contexts{};
+  shared_ptr<string> text{};
+
+  QuestionAnswerGroundTruth() {}
+
+  explicit QuestionAnswerGroundTruth(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (contexts) {
+      res["Contexts"] = boost::any(*contexts);
+    }
+    if (text) {
+      res["Text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Contexts") != m.end() && !m["Contexts"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Contexts"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Contexts"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      contexts = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Text") != m.end() && !m["Text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+  }
+
+
+  virtual ~QuestionAnswerGroundTruth() = default;
+};
+class QuestionAnswer : public Darabonba::Model {
+public:
+  shared_ptr<QuestionAnswerAnswer> answer{};
+  shared_ptr<QuestionAnswerGroundTruth> groundTruth{};
+  shared_ptr<string> question{};
+
+  QuestionAnswer() {}
+
+  explicit QuestionAnswer(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (answer) {
+      res["Answer"] = answer ? boost::any(answer->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (groundTruth) {
+      res["GroundTruth"] = groundTruth ? boost::any(groundTruth->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (question) {
+      res["Question"] = boost::any(*question);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Answer") != m.end() && !m["Answer"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Answer"].type()) {
+        QuestionAnswerAnswer model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Answer"]));
+        answer = make_shared<QuestionAnswerAnswer>(model1);
+      }
+    }
+    if (m.find("GroundTruth") != m.end() && !m["GroundTruth"].empty()) {
+      if (typeid(map<string, boost::any>) == m["GroundTruth"].type()) {
+        QuestionAnswerGroundTruth model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["GroundTruth"]));
+        groundTruth = make_shared<QuestionAnswerGroundTruth>(model1);
+      }
+    }
+    if (m.find("Question") != m.end() && !m["Question"].empty()) {
+      question = make_shared<string>(boost::any_cast<string>(m["Question"]));
+    }
+  }
+
+
+  virtual ~QuestionAnswer() = default;
+};
 class CreateOnlineEvalTaskRequestBodyFilters : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -2123,6 +2260,8 @@ public:
   shared_ptr<string> minTime{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> sortBy{};
+  shared_ptr<string> sortOrder{};
 
   ListOnlineEvalTasksRequest() {}
 
@@ -2149,6 +2288,12 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (sortBy) {
+      res["SortBy"] = boost::any(*sortBy);
+    }
+    if (sortOrder) {
+      res["SortOrder"] = boost::any(*sortOrder);
+    }
     return res;
   }
 
@@ -2167,6 +2312,12 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
+      sortBy = make_shared<string>(boost::any_cast<string>(m["SortBy"]));
+    }
+    if (m.find("SortOrder") != m.end() && !m["SortOrder"].empty()) {
+      sortOrder = make_shared<string>(boost::any_cast<string>(m["SortOrder"]));
     }
   }
 
@@ -2221,6 +2372,7 @@ public:
   shared_ptr<string> aliyunUid{};
   shared_ptr<string> appName{};
   shared_ptr<string> description{};
+  shared_ptr<string> evalResults{};
   shared_ptr<EvaluationConfig> evaluationConfig{};
   shared_ptr<vector<ListOnlineEvalTasksResponseBodyTasksFilters>> filters{};
   shared_ptr<string> gmtCreateTime{};
@@ -2229,6 +2381,7 @@ public:
   shared_ptr<string> id{};
   shared_ptr<ModelConfig> modelConfig{};
   shared_ptr<string> name{};
+  shared_ptr<long> recordCount{};
   shared_ptr<long> samplingFrequencyMinutes{};
   shared_ptr<long> samplingRatio{};
   shared_ptr<string> status{};
@@ -2252,6 +2405,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (evalResults) {
+      res["EvalResults"] = boost::any(*evalResults);
     }
     if (evaluationConfig) {
       res["EvaluationConfig"] = evaluationConfig ? boost::any(evaluationConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2281,6 +2437,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (recordCount) {
+      res["RecordCount"] = boost::any(*recordCount);
+    }
     if (samplingFrequencyMinutes) {
       res["SamplingFrequencyMinutes"] = boost::any(*samplingFrequencyMinutes);
     }
@@ -2305,6 +2464,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EvalResults") != m.end() && !m["EvalResults"].empty()) {
+      evalResults = make_shared<string>(boost::any_cast<string>(m["EvalResults"]));
     }
     if (m.find("EvaluationConfig") != m.end() && !m["EvaluationConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["EvaluationConfig"].type()) {
@@ -2347,6 +2509,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RecordCount") != m.end() && !m["RecordCount"].empty()) {
+      recordCount = make_shared<long>(boost::any_cast<long>(m["RecordCount"]));
     }
     if (m.find("SamplingFrequencyMinutes") != m.end() && !m["SamplingFrequencyMinutes"].empty()) {
       samplingFrequencyMinutes = make_shared<long>(boost::any_cast<long>(m["SamplingFrequencyMinutes"]));
