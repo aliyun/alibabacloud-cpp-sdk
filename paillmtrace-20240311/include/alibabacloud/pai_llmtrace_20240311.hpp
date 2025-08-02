@@ -2255,6 +2255,7 @@ public:
 };
 class ListOnlineEvalTasksRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> appName{};
   shared_ptr<string> keyword{};
   shared_ptr<string> maxTime{};
   shared_ptr<string> minTime{};
@@ -2262,6 +2263,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> sortBy{};
   shared_ptr<string> sortOrder{};
+  shared_ptr<string> status{};
 
   ListOnlineEvalTasksRequest() {}
 
@@ -2273,6 +2275,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
     if (keyword) {
       res["Keyword"] = boost::any(*keyword);
     }
@@ -2294,10 +2299,16 @@ public:
     if (sortOrder) {
       res["SortOrder"] = boost::any(*sortOrder);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
     if (m.find("Keyword") != m.end() && !m["Keyword"].empty()) {
       keyword = make_shared<string>(boost::any_cast<string>(m["Keyword"]));
     }
@@ -2318,6 +2329,9 @@ public:
     }
     if (m.find("SortOrder") != m.end() && !m["SortOrder"].empty()) {
       sortOrder = make_shared<string>(boost::any_cast<string>(m["SortOrder"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
   }
 

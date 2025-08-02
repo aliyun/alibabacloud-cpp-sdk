@@ -361,6 +361,9 @@ ListOnlineEvalTaskResultsResponse Alibabacloud_PaiLLMTrace20240311::Client::list
 ListOnlineEvalTasksResponse Alibabacloud_PaiLLMTrace20240311::Client::listOnlineEvalTasksWithOptions(shared_ptr<ListOnlineEvalTasksRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
+    query->insert(pair<string, string>("AppName", *request->appName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
     query->insert(pair<string, string>("Keyword", *request->keyword));
   }
@@ -381,6 +384,9 @@ ListOnlineEvalTasksResponse Alibabacloud_PaiLLMTrace20240311::Client::listOnline
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sortOrder)) {
     query->insert(pair<string, string>("SortOrder", *request->sortOrder));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
