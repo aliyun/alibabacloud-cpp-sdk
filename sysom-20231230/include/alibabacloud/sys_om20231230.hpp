@@ -809,6 +809,7 @@ public:
   shared_ptr<string> cluster{};
   shared_ptr<double> end{};
   shared_ptr<string> instance{};
+  shared_ptr<string> level{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> pod{};
   shared_ptr<long> showPod{};
@@ -832,6 +833,9 @@ public:
     }
     if (instance) {
       res["instance"] = boost::any(*instance);
+    }
+    if (level) {
+      res["level"] = boost::any(*level);
     }
     if (namespace_) {
       res["namespace"] = boost::any(*namespace_);
@@ -858,6 +862,9 @@ public:
     if (m.find("instance") != m.end() && !m["instance"].empty()) {
       instance = make_shared<string>(boost::any_cast<string>(m["instance"]));
     }
+    if (m.find("level") != m.end() && !m["level"].empty()) {
+      level = make_shared<string>(boost::any_cast<string>(m["level"]));
+    }
     if (m.find("namespace") != m.end() && !m["namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["namespace"]));
     }
@@ -877,6 +884,7 @@ public:
 };
 class GetAbnormalEventsCountResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> eventList{};
   shared_ptr<string> type{};
   shared_ptr<long> value{};
 
@@ -890,6 +898,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (eventList) {
+      res["eventList"] = boost::any(*eventList);
+    }
     if (type) {
       res["type"] = boost::any(*type);
     }
@@ -900,6 +911,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("eventList") != m.end() && !m["eventList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["eventList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["eventList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      eventList = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["type"]));
     }
@@ -6237,6 +6258,7 @@ public:
   shared_ptr<string> cluster{};
   shared_ptr<long> current{};
   shared_ptr<double> end{};
+  shared_ptr<string> event{};
   shared_ptr<string> instance{};
   shared_ptr<string> level{};
   shared_ptr<string> namespace_{};
@@ -6263,6 +6285,9 @@ public:
     }
     if (end) {
       res["end"] = boost::any(*end);
+    }
+    if (event) {
+      res["event"] = boost::any(*event);
     }
     if (instance) {
       res["instance"] = boost::any(*instance);
@@ -6297,6 +6322,9 @@ public:
     }
     if (m.find("end") != m.end() && !m["end"].empty()) {
       end = make_shared<double>(boost::any_cast<double>(m["end"]));
+    }
+    if (m.find("event") != m.end() && !m["event"].empty()) {
+      event = make_shared<string>(boost::any_cast<string>(m["event"]));
     }
     if (m.find("instance") != m.end() && !m["instance"].empty()) {
       instance = make_shared<string>(boost::any_cast<string>(m["instance"]));

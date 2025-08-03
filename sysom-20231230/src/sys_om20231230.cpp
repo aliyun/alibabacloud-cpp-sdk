@@ -208,6 +208,9 @@ GetAbnormalEventsCountResponse Alibabacloud_SysOM20231230::Client::getAbnormalEv
   if (!Darabonba_Util::Client::isUnset<string>(request->instance)) {
     query->insert(pair<string, string>("instance", *request->instance));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->level)) {
+    query->insert(pair<string, string>("level", *request->level));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
     query->insert(pair<string, string>("namespace_", *request->namespace_));
   }
@@ -1121,6 +1124,9 @@ ListAbnormalyEventsResponse Alibabacloud_SysOM20231230::Client::listAbnormalyEve
   }
   if (!Darabonba_Util::Client::isUnset<double>(request->end)) {
     query->insert(pair<string, double>("end", *request->end));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->event)) {
+    query->insert(pair<string, string>("event", *request->event));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instance)) {
     query->insert(pair<string, string>("instance", *request->instance));
