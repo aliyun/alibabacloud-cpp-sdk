@@ -1,0 +1,78 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBEAPPAGENTTEMPLATESRESPONSEBODYTEMPLATESAGENTSILENCECONFIG_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBEAPPAGENTTEMPLATESRESPONSEBODYTEMPLATESAGENTSILENCECONFIG_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Rtc20180111
+{
+namespace Models
+{
+  class DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig& obj) { 
+      DARABONBA_PTR_TO_JSON(AlertTimeout, alertTimeout_);
+      DARABONBA_PTR_TO_JSON(Content, content_);
+      DARABONBA_PTR_TO_JSON(Strategy, strategy_);
+      DARABONBA_PTR_TO_JSON(WebhookTriggerTimeout, webhookTriggerTimeout_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig& obj) { 
+      DARABONBA_PTR_FROM_JSON(AlertTimeout, alertTimeout_);
+      DARABONBA_PTR_FROM_JSON(Content, content_);
+      DARABONBA_PTR_FROM_JSON(Strategy, strategy_);
+      DARABONBA_PTR_FROM_JSON(WebhookTriggerTimeout, webhookTriggerTimeout_);
+    };
+    DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig() = default ;
+    DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig(const DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig &) = default ;
+    DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig(DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig &&) = default ;
+    DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig() = default ;
+    DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig& operator=(const DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig &) = default ;
+    DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig& operator=(DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->alertTimeout_ != nullptr
+        && this->content_ != nullptr && this->strategy_ != nullptr && this->webhookTriggerTimeout_ != nullptr; };
+    // alertTimeout Field Functions 
+    bool hasAlertTimeout() const { return this->alertTimeout_ != nullptr;};
+    void deleteAlertTimeout() { this->alertTimeout_ = nullptr;};
+    inline int32_t alertTimeout() const { DARABONBA_PTR_GET_DEFAULT(alertTimeout_, 0) };
+    inline DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig& setAlertTimeout(int32_t alertTimeout) { DARABONBA_PTR_SET_VALUE(alertTimeout_, alertTimeout) };
+
+
+    // content Field Functions 
+    bool hasContent() const { return this->content_ != nullptr;};
+    void deleteContent() { this->content_ = nullptr;};
+    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+    // strategy Field Functions 
+    bool hasStrategy() const { return this->strategy_ != nullptr;};
+    void deleteStrategy() { this->strategy_ = nullptr;};
+    inline int32_t strategy() const { DARABONBA_PTR_GET_DEFAULT(strategy_, 0) };
+    inline DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig& setStrategy(int32_t strategy) { DARABONBA_PTR_SET_VALUE(strategy_, strategy) };
+
+
+    // webhookTriggerTimeout Field Functions 
+    bool hasWebhookTriggerTimeout() const { return this->webhookTriggerTimeout_ != nullptr;};
+    void deleteWebhookTriggerTimeout() { this->webhookTriggerTimeout_ = nullptr;};
+    inline int32_t webhookTriggerTimeout() const { DARABONBA_PTR_GET_DEFAULT(webhookTriggerTimeout_, 0) };
+    inline DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig& setWebhookTriggerTimeout(int32_t webhookTriggerTimeout) { DARABONBA_PTR_SET_VALUE(webhookTriggerTimeout_, webhookTriggerTimeout) };
+
+
+  protected:
+    std::shared_ptr<int32_t> alertTimeout_ = nullptr;
+    std::shared_ptr<string> content_ = nullptr;
+    std::shared_ptr<int32_t> strategy_ = nullptr;
+    std::shared_ptr<int32_t> webhookTriggerTimeout_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Rtc20180111
+#endif
