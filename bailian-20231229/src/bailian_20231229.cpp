@@ -1104,6 +1104,54 @@ ListIndexDocumentsResponse Alibabacloud_Bailian20231229::Client::listIndexDocume
   return listIndexDocumentsWithOptions(WorkspaceId, request, headers, runtime);
 }
 
+ListIndexFileDetailsResponse Alibabacloud_Bailian20231229::Client::listIndexFileDetailsWithOptions(shared_ptr<string> WorkspaceId,
+                                                                                                   shared_ptr<ListIndexFileDetailsRequest> request,
+                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->documentName)) {
+    query->insert(pair<string, string>("DocumentName", *request->documentName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->documentStatus)) {
+    query->insert(pair<string, string>("DocumentStatus", *request->documentStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->enableNameLike)) {
+    query->insert(pair<string, string>("EnableNameLike", *request->enableNameLike));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->indexId)) {
+    query->insert(pair<string, string>("IndexId", *request->indexId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListIndexFileDetails"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(WorkspaceId)) + string("/index/list_index_file_detail"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListIndexFileDetailsResponse(callApi(params, req, runtime));
+}
+
+ListIndexFileDetailsResponse Alibabacloud_Bailian20231229::Client::listIndexFileDetails(shared_ptr<string> WorkspaceId, shared_ptr<ListIndexFileDetailsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listIndexFileDetailsWithOptions(WorkspaceId, request, headers, runtime);
+}
+
 ListIndicesResponse Alibabacloud_Bailian20231229::Client::listIndicesWithOptions(shared_ptr<string> WorkspaceId,
                                                                                  shared_ptr<ListIndicesRequest> request,
                                                                                  shared_ptr<map<string, string>> headers,
@@ -1587,6 +1635,54 @@ UpdateAndPublishAgentSelectiveResponse Alibabacloud_Bailian20231229::Client::upd
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return updateAndPublishAgentSelectiveWithOptions(workspaceId, appCode, request, headers, runtime);
+}
+
+UpdateChunkResponse Alibabacloud_Bailian20231229::Client::updateChunkWithOptions(shared_ptr<string> WorkspaceId,
+                                                                                 shared_ptr<UpdateChunkRequest> request,
+                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->chunkId)) {
+    query->insert(pair<string, string>("ChunkId", *request->chunkId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataId)) {
+    query->insert(pair<string, string>("DataId", *request->dataId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isDisplayedChunkContent)) {
+    query->insert(pair<string, bool>("IsDisplayedChunkContent", *request->isDisplayedChunkContent));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pipelineId)) {
+    query->insert(pair<string, string>("PipelineId", *request->pipelineId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
+    query->insert(pair<string, string>("content", *request->content));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->title)) {
+    query->insert(pair<string, string>("title", *request->title));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateChunk"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(WorkspaceId)) + string("/chunk/update"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateChunkResponse(callApi(params, req, runtime));
+}
+
+UpdateChunkResponse Alibabacloud_Bailian20231229::Client::updateChunk(shared_ptr<string> WorkspaceId, shared_ptr<UpdateChunkRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateChunkWithOptions(WorkspaceId, request, headers, runtime);
 }
 
 UpdateFileTagResponse Alibabacloud_Bailian20231229::Client::updateFileTagWithOptions(shared_ptr<string> WorkspaceId,
