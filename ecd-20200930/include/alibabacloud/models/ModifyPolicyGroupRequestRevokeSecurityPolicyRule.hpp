@@ -1,0 +1,141 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_MODIFYPOLICYGROUPREQUESTREVOKESECURITYPOLICYRULE_HPP_
+#define ALIBABACLOUD_MODELS_MODIFYPOLICYGROUPREQUESTREVOKESECURITYPOLICYRULE_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Ecd20200930
+{
+namespace Models
+{
+  class ModifyPolicyGroupRequestRevokeSecurityPolicyRule : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ModifyPolicyGroupRequestRevokeSecurityPolicyRule& obj) { 
+      DARABONBA_PTR_TO_JSON(CidrIp, cidrIp_);
+      DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(IpProtocol, ipProtocol_);
+      DARABONBA_PTR_TO_JSON(Policy, policy_);
+      DARABONBA_PTR_TO_JSON(PortRange, portRange_);
+      DARABONBA_PTR_TO_JSON(Priority, priority_);
+      DARABONBA_PTR_TO_JSON(Type, type_);
+    };
+    friend void from_json(const Darabonba::Json& j, ModifyPolicyGroupRequestRevokeSecurityPolicyRule& obj) { 
+      DARABONBA_PTR_FROM_JSON(CidrIp, cidrIp_);
+      DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(IpProtocol, ipProtocol_);
+      DARABONBA_PTR_FROM_JSON(Policy, policy_);
+      DARABONBA_PTR_FROM_JSON(PortRange, portRange_);
+      DARABONBA_PTR_FROM_JSON(Priority, priority_);
+      DARABONBA_PTR_FROM_JSON(Type, type_);
+    };
+    ModifyPolicyGroupRequestRevokeSecurityPolicyRule() = default ;
+    ModifyPolicyGroupRequestRevokeSecurityPolicyRule(const ModifyPolicyGroupRequestRevokeSecurityPolicyRule &) = default ;
+    ModifyPolicyGroupRequestRevokeSecurityPolicyRule(ModifyPolicyGroupRequestRevokeSecurityPolicyRule &&) = default ;
+    ModifyPolicyGroupRequestRevokeSecurityPolicyRule(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ModifyPolicyGroupRequestRevokeSecurityPolicyRule() = default ;
+    ModifyPolicyGroupRequestRevokeSecurityPolicyRule& operator=(const ModifyPolicyGroupRequestRevokeSecurityPolicyRule &) = default ;
+    ModifyPolicyGroupRequestRevokeSecurityPolicyRule& operator=(ModifyPolicyGroupRequestRevokeSecurityPolicyRule &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->cidrIp_ != nullptr
+        && this->description_ != nullptr && this->ipProtocol_ != nullptr && this->policy_ != nullptr && this->portRange_ != nullptr && this->priority_ != nullptr
+        && this->type_ != nullptr; };
+    // cidrIp Field Functions 
+    bool hasCidrIp() const { return this->cidrIp_ != nullptr;};
+    void deleteCidrIp() { this->cidrIp_ = nullptr;};
+    inline string cidrIp() const { DARABONBA_PTR_GET_DEFAULT(cidrIp_, "") };
+    inline ModifyPolicyGroupRequestRevokeSecurityPolicyRule& setCidrIp(string cidrIp) { DARABONBA_PTR_SET_VALUE(cidrIp_, cidrIp) };
+
+
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline ModifyPolicyGroupRequestRevokeSecurityPolicyRule& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // ipProtocol Field Functions 
+    bool hasIpProtocol() const { return this->ipProtocol_ != nullptr;};
+    void deleteIpProtocol() { this->ipProtocol_ = nullptr;};
+    inline string ipProtocol() const { DARABONBA_PTR_GET_DEFAULT(ipProtocol_, "") };
+    inline ModifyPolicyGroupRequestRevokeSecurityPolicyRule& setIpProtocol(string ipProtocol) { DARABONBA_PTR_SET_VALUE(ipProtocol_, ipProtocol) };
+
+
+    // policy Field Functions 
+    bool hasPolicy() const { return this->policy_ != nullptr;};
+    void deletePolicy() { this->policy_ = nullptr;};
+    inline string policy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
+    inline ModifyPolicyGroupRequestRevokeSecurityPolicyRule& setPolicy(string policy) { DARABONBA_PTR_SET_VALUE(policy_, policy) };
+
+
+    // portRange Field Functions 
+    bool hasPortRange() const { return this->portRange_ != nullptr;};
+    void deletePortRange() { this->portRange_ = nullptr;};
+    inline string portRange() const { DARABONBA_PTR_GET_DEFAULT(portRange_, "") };
+    inline ModifyPolicyGroupRequestRevokeSecurityPolicyRule& setPortRange(string portRange) { DARABONBA_PTR_SET_VALUE(portRange_, portRange) };
+
+
+    // priority Field Functions 
+    bool hasPriority() const { return this->priority_ != nullptr;};
+    void deletePriority() { this->priority_ = nullptr;};
+    inline string priority() const { DARABONBA_PTR_GET_DEFAULT(priority_, "") };
+    inline ModifyPolicyGroupRequestRevokeSecurityPolicyRule& setPriority(string priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
+
+
+    // type Field Functions 
+    bool hasType() const { return this->type_ != nullptr;};
+    void deleteType() { this->type_ = nullptr;};
+    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline ModifyPolicyGroupRequestRevokeSecurityPolicyRule& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+  protected:
+    // The object of the security group rule that you want to delete. The value is an IPv4 CIDR block.
+    std::shared_ptr<string> cidrIp_ = nullptr;
+    // The description of the security group rule that you want to delete.
+    std::shared_ptr<string> description_ = nullptr;
+    // The protocol type of the security group rule that you want to delete.
+    // 
+    // Valid values:
+    // 
+    // *   TCP
+    // *   UDP
+    // *   ALL
+    // *   GRE
+    // *   ICMP
+    std::shared_ptr<string> ipProtocol_ = nullptr;
+    // The authorization of the security group rule that you want to delete.
+    // 
+    // Valid values:
+    // 
+    // *   drop: denies all access requests. If no messages of access denied are returned, the requests timed out or failed.
+    // *   accept (default): accepts all requests.
+    std::shared_ptr<string> policy_ = nullptr;
+    // The port range of the security group rule that you want to delete. The value range of this parameter varies based on the value of the IpProtocol parameter.
+    // 
+    // *   If the IpProtocol parameter is set to TCP or UDP, the port range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
+    // *   If the IpProtocol parameter is set to ICMP, set the value to -1/-1.
+    // *   If the IpProtocol parameter is set to GRE, set the value to -1/-1.
+    // *   If the IpProtocol parameter is set to ALL, set the value to -1/-1.
+    // 
+    // For more information about the common ports applied in EDS, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
+    std::shared_ptr<string> portRange_ = nullptr;
+    // The priority of the security group rule that you want to delete. A smaller value indicates a higher priority. Valid values: 1 to 60. Default value: 1.
+    std::shared_ptr<string> priority_ = nullptr;
+    // The direction of the security group rule that you want to delete.
+    // 
+    // Valid values:
+    // 
+    // *   outflow: outbound
+    // *   inflow: inbound
+    std::shared_ptr<string> type_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Ecd20200930
+#endif
