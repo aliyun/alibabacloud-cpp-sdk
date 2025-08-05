@@ -1,0 +1,71 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_GETGATEWAYRESPONSEBODYDATAENVIRONMENTS_HPP_
+#define ALIBABACLOUD_MODELS_GETGATEWAYRESPONSEBODYDATAENVIRONMENTS_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace APIG20240327
+{
+namespace Models
+{
+  class GetGatewayResponseBodyDataEnvironments : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const GetGatewayResponseBodyDataEnvironments& obj) { 
+      DARABONBA_PTR_TO_JSON(alias, alias_);
+      DARABONBA_PTR_TO_JSON(environmentId, environmentId_);
+      DARABONBA_PTR_TO_JSON(name, name_);
+    };
+    friend void from_json(const Darabonba::Json& j, GetGatewayResponseBodyDataEnvironments& obj) { 
+      DARABONBA_PTR_FROM_JSON(alias, alias_);
+      DARABONBA_PTR_FROM_JSON(environmentId, environmentId_);
+      DARABONBA_PTR_FROM_JSON(name, name_);
+    };
+    GetGatewayResponseBodyDataEnvironments() = default ;
+    GetGatewayResponseBodyDataEnvironments(const GetGatewayResponseBodyDataEnvironments &) = default ;
+    GetGatewayResponseBodyDataEnvironments(GetGatewayResponseBodyDataEnvironments &&) = default ;
+    GetGatewayResponseBodyDataEnvironments(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetGatewayResponseBodyDataEnvironments() = default ;
+    GetGatewayResponseBodyDataEnvironments& operator=(const GetGatewayResponseBodyDataEnvironments &) = default ;
+    GetGatewayResponseBodyDataEnvironments& operator=(GetGatewayResponseBodyDataEnvironments &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->alias_ != nullptr
+        && this->environmentId_ != nullptr && this->name_ != nullptr; };
+    // alias Field Functions 
+    bool hasAlias() const { return this->alias_ != nullptr;};
+    void deleteAlias() { this->alias_ = nullptr;};
+    inline string alias() const { DARABONBA_PTR_GET_DEFAULT(alias_, "") };
+    inline GetGatewayResponseBodyDataEnvironments& setAlias(string alias) { DARABONBA_PTR_SET_VALUE(alias_, alias) };
+
+
+    // environmentId Field Functions 
+    bool hasEnvironmentId() const { return this->environmentId_ != nullptr;};
+    void deleteEnvironmentId() { this->environmentId_ = nullptr;};
+    inline string environmentId() const { DARABONBA_PTR_GET_DEFAULT(environmentId_, "") };
+    inline GetGatewayResponseBodyDataEnvironments& setEnvironmentId(string environmentId) { DARABONBA_PTR_SET_VALUE(environmentId_, environmentId) };
+
+
+    // name Field Functions 
+    bool hasName() const { return this->name_ != nullptr;};
+    void deleteName() { this->name_ = nullptr;};
+    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline GetGatewayResponseBodyDataEnvironments& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+  protected:
+    // The environment alias.
+    std::shared_ptr<string> alias_ = nullptr;
+    // The environment ID.
+    std::shared_ptr<string> environmentId_ = nullptr;
+    // The environment name.
+    std::shared_ptr<string> name_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace APIG20240327
+#endif
