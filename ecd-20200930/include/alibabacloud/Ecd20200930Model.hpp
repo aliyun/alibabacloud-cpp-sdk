@@ -1032,6 +1032,7 @@
 #include <alibabacloud/models/ModifyPolicyGroupRequestRevokeSecurityPolicyRule.hpp>
 #include <alibabacloud/models/ModifyPolicyGroupRequestUsbSupplyRedirectRule.hpp>
 #include <alibabacloud/models/ModifyResourceCenterPolicyResponseBodyModifyResults.hpp>
+#include <alibabacloud/models/ModifyTemplateRequestDataDiskList.hpp>
 #include <alibabacloud/models/ModifyTemplateRequestRegionConfigList.hpp>
 #include <alibabacloud/models/ModifyTemplateRequestResourceTagList.hpp>
 #include <alibabacloud/models/ModifyTemplateRequestSiteConfigList.hpp>

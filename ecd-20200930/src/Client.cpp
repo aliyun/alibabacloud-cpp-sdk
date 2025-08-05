@@ -15940,6 +15940,11 @@ ModifyTemplateResponse Client::modifyTemplateWithOptions(const ModifyTemplateReq
     body["ChargeType"] = request.chargeType();
   }
 
+  json bodyFlat = {};
+  if (!!request.hasDataDiskList()) {
+    bodyFlat["DataDiskList"] = request.dataDiskList();
+  }
+
   if (!!request.hasDefaultLanguage()) {
     body["DefaultLanguage"] = request.defaultLanguage();
   }
@@ -15968,7 +15973,6 @@ ModifyTemplateResponse Client::modifyTemplateWithOptions(const ModifyTemplateReq
     body["PostPaidAfterUsedUp"] = request.postPaidAfterUsedUp();
   }
 
-  json bodyFlat = {};
   if (!!request.hasRegionConfigList()) {
     bodyFlat["RegionConfigList"] = request.regionConfigList();
   }

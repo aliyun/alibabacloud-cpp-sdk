@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYTEMPLATEREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/ModifyTemplateRequestDataDiskList.hpp>
 #include <alibabacloud/models/ModifyTemplateRequestRegionConfigList.hpp>
 #include <alibabacloud/models/ModifyTemplateRequestResourceTagList.hpp>
 #include <alibabacloud/models/ModifyTemplateRequestSiteConfigList.hpp>
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
+      DARABONBA_PTR_TO_JSON(DataDiskList, dataDiskList_);
       DARABONBA_PTR_TO_JSON(DefaultLanguage, defaultLanguage_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
@@ -42,6 +44,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
+      DARABONBA_PTR_FROM_JSON(DataDiskList, dataDiskList_);
       DARABONBA_PTR_FROM_JSON(DefaultLanguage, defaultLanguage_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
@@ -72,10 +75,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->autoPay_ != nullptr
-        && this->autoRenew_ != nullptr && this->chargeType_ != nullptr && this->defaultLanguage_ != nullptr && this->description_ != nullptr && this->imageId_ != nullptr
-        && this->period_ != nullptr && this->periodUnit_ != nullptr && this->policyGroupId_ != nullptr && this->postPaidAfterUsedUp_ != nullptr && this->regionConfigList_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->resourceTagList_ != nullptr && this->siteConfigList_ != nullptr && this->systemDiskPerformanceLevel_ != nullptr && this->systemDiskSize_ != nullptr
-        && this->templateId_ != nullptr && this->templateName_ != nullptr && this->timerGroupId_ != nullptr && this->userDuration_ != nullptr; };
+        && this->autoRenew_ != nullptr && this->chargeType_ != nullptr && this->dataDiskList_ != nullptr && this->defaultLanguage_ != nullptr && this->description_ != nullptr
+        && this->imageId_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr && this->policyGroupId_ != nullptr && this->postPaidAfterUsedUp_ != nullptr
+        && this->regionConfigList_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceTagList_ != nullptr && this->siteConfigList_ != nullptr && this->systemDiskPerformanceLevel_ != nullptr
+        && this->systemDiskSize_ != nullptr && this->templateId_ != nullptr && this->templateName_ != nullptr && this->timerGroupId_ != nullptr && this->userDuration_ != nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -95,6 +98,15 @@ namespace Models
     void deleteChargeType() { this->chargeType_ = nullptr;};
     inline string chargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
     inline ModifyTemplateRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
+
+
+    // dataDiskList Field Functions 
+    bool hasDataDiskList() const { return this->dataDiskList_ != nullptr;};
+    void deleteDataDiskList() { this->dataDiskList_ = nullptr;};
+    inline const vector<ModifyTemplateRequestDataDiskList> & dataDiskList() const { DARABONBA_PTR_GET_CONST(dataDiskList_, vector<ModifyTemplateRequestDataDiskList>) };
+    inline vector<ModifyTemplateRequestDataDiskList> dataDiskList() { DARABONBA_PTR_GET(dataDiskList_, vector<ModifyTemplateRequestDataDiskList>) };
+    inline ModifyTemplateRequest& setDataDiskList(const vector<ModifyTemplateRequestDataDiskList> & dataDiskList) { DARABONBA_PTR_SET_VALUE(dataDiskList_, dataDiskList) };
+    inline ModifyTemplateRequest& setDataDiskList(vector<ModifyTemplateRequestDataDiskList> && dataDiskList) { DARABONBA_PTR_SET_RVALUE(dataDiskList_, dataDiskList) };
 
 
     // defaultLanguage Field Functions 
@@ -226,6 +238,7 @@ namespace Models
     std::shared_ptr<bool> autoPay_ = nullptr;
     std::shared_ptr<bool> autoRenew_ = nullptr;
     std::shared_ptr<string> chargeType_ = nullptr;
+    std::shared_ptr<vector<ModifyTemplateRequestDataDiskList>> dataDiskList_ = nullptr;
     std::shared_ptr<string> defaultLanguage_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<string> imageId_ = nullptr;
