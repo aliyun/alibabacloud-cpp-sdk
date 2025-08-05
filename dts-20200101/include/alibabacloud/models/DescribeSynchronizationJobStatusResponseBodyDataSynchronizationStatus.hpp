@@ -1,0 +1,109 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBESYNCHRONIZATIONJOBSTATUSRESPONSEBODYDATASYNCHRONIZATIONSTATUS_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBESYNCHRONIZATIONJOBSTATUSRESPONSEBODYDATASYNCHRONIZATIONSTATUS_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Dts20200101
+{
+namespace Models
+{
+  class DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus& obj) { 
+      DARABONBA_PTR_TO_JSON(Checkpoint, checkpoint_);
+      DARABONBA_PTR_TO_JSON(Delay, delay_);
+      DARABONBA_PTR_TO_JSON(DelayMillis, delayMillis_);
+      DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
+      DARABONBA_PTR_TO_JSON(Percent, percent_);
+      DARABONBA_PTR_TO_JSON(Status, status_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus& obj) { 
+      DARABONBA_PTR_FROM_JSON(Checkpoint, checkpoint_);
+      DARABONBA_PTR_FROM_JSON(Delay, delay_);
+      DARABONBA_PTR_FROM_JSON(DelayMillis, delayMillis_);
+      DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
+      DARABONBA_PTR_FROM_JSON(Percent, percent_);
+      DARABONBA_PTR_FROM_JSON(Status, status_);
+    };
+    DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus() = default ;
+    DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus(const DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus &) = default ;
+    DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus(DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus &&) = default ;
+    DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus() = default ;
+    DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus& operator=(const DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus &) = default ;
+    DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus& operator=(DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->checkpoint_ != nullptr
+        && this->delay_ != nullptr && this->delayMillis_ != nullptr && this->errorMessage_ != nullptr && this->percent_ != nullptr && this->status_ != nullptr; };
+    // checkpoint Field Functions 
+    bool hasCheckpoint() const { return this->checkpoint_ != nullptr;};
+    void deleteCheckpoint() { this->checkpoint_ = nullptr;};
+    inline string checkpoint() const { DARABONBA_PTR_GET_DEFAULT(checkpoint_, "") };
+    inline DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus& setCheckpoint(string checkpoint) { DARABONBA_PTR_SET_VALUE(checkpoint_, checkpoint) };
+
+
+    // delay Field Functions 
+    bool hasDelay() const { return this->delay_ != nullptr;};
+    void deleteDelay() { this->delay_ = nullptr;};
+    inline string delay() const { DARABONBA_PTR_GET_DEFAULT(delay_, "") };
+    inline DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus& setDelay(string delay) { DARABONBA_PTR_SET_VALUE(delay_, delay) };
+
+
+    // delayMillis Field Functions 
+    bool hasDelayMillis() const { return this->delayMillis_ != nullptr;};
+    void deleteDelayMillis() { this->delayMillis_ = nullptr;};
+    inline int64_t delayMillis() const { DARABONBA_PTR_GET_DEFAULT(delayMillis_, 0L) };
+    inline DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus& setDelayMillis(int64_t delayMillis) { DARABONBA_PTR_SET_VALUE(delayMillis_, delayMillis) };
+
+
+    // errorMessage Field Functions 
+    bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
+    void deleteErrorMessage() { this->errorMessage_ = nullptr;};
+    inline string errorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+    inline DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
+
+
+    // percent Field Functions 
+    bool hasPercent() const { return this->percent_ != nullptr;};
+    void deletePercent() { this->percent_ = nullptr;};
+    inline string percent() const { DARABONBA_PTR_GET_DEFAULT(percent_, "") };
+    inline DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus& setPercent(string percent) { DARABONBA_PTR_SET_VALUE(percent_, percent) };
+
+
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+  protected:
+    // The UNIX timestamp generated when the latest data record was synchronized.
+    std::shared_ptr<string> checkpoint_ = nullptr;
+    // The synchronization latency, in seconds.
+    std::shared_ptr<string> delay_ = nullptr;
+    // The synchronization latency, in milliseconds.
+    std::shared_ptr<int64_t> delayMillis_ = nullptr;
+    // The error message returned if incremental data synchronization failed.
+    std::shared_ptr<string> errorMessage_ = nullptr;
+    // The progress of incremental data synchronization. Unit: %.
+    std::shared_ptr<string> percent_ = nullptr;
+    // The status of incremental data synchronization. Valid values:
+    // 
+    // *   **NotStarted**: Incremental data synchronization is not started.
+    // *   **Migrating**: Incremental data synchronization is in progress.
+    // *   **Failed**: Incremental data synchronization failed.
+    // *   **Finished**: Incremental data synchronization is completed.
+    std::shared_ptr<string> status_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Dts20200101
+#endif
