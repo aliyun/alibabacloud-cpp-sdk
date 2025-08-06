@@ -1,0 +1,59 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_CLEARRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_CLEARRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Aliding20230426
+{
+namespace Models
+{
+  class ClearResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ClearResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(a1Notation, a1Notation_);
+      DARABONBA_PTR_TO_JSON(requestId, requestId_);
+    };
+    friend void from_json(const Darabonba::Json& j, ClearResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(a1Notation, a1Notation_);
+      DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+    };
+    ClearResponseBody() = default ;
+    ClearResponseBody(const ClearResponseBody &) = default ;
+    ClearResponseBody(ClearResponseBody &&) = default ;
+    ClearResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ClearResponseBody() = default ;
+    ClearResponseBody& operator=(const ClearResponseBody &) = default ;
+    ClearResponseBody& operator=(ClearResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->a1Notation_ != nullptr
+        && this->requestId_ != nullptr; };
+    // a1Notation Field Functions 
+    bool hasA1Notation() const { return this->a1Notation_ != nullptr;};
+    void deleteA1Notation() { this->a1Notation_ = nullptr;};
+    inline string a1Notation() const { DARABONBA_PTR_GET_DEFAULT(a1Notation_, "") };
+    inline ClearResponseBody& setA1Notation(string a1Notation) { DARABONBA_PTR_SET_VALUE(a1Notation_, a1Notation) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline ClearResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+  protected:
+    std::shared_ptr<string> a1Notation_ = nullptr;
+    // requestId
+    std::shared_ptr<string> requestId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Aliding20230426
+#endif
