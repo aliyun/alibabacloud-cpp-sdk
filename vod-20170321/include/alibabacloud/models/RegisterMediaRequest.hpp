@@ -1,0 +1,98 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_REGISTERMEDIAREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_REGISTERMEDIAREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Vod20170321
+{
+namespace Models
+{
+  class RegisterMediaRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const RegisterMediaRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(RegisterMetadatas, registerMetadatas_);
+      DARABONBA_PTR_TO_JSON(TemplateGroupId, templateGroupId_);
+      DARABONBA_PTR_TO_JSON(UserData, userData_);
+      DARABONBA_PTR_TO_JSON(WorkflowId, workflowId_);
+    };
+    friend void from_json(const Darabonba::Json& j, RegisterMediaRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(RegisterMetadatas, registerMetadatas_);
+      DARABONBA_PTR_FROM_JSON(TemplateGroupId, templateGroupId_);
+      DARABONBA_PTR_FROM_JSON(UserData, userData_);
+      DARABONBA_PTR_FROM_JSON(WorkflowId, workflowId_);
+    };
+    RegisterMediaRequest() = default ;
+    RegisterMediaRequest(const RegisterMediaRequest &) = default ;
+    RegisterMediaRequest(RegisterMediaRequest &&) = default ;
+    RegisterMediaRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~RegisterMediaRequest() = default ;
+    RegisterMediaRequest& operator=(const RegisterMediaRequest &) = default ;
+    RegisterMediaRequest& operator=(RegisterMediaRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->registerMetadatas_ != nullptr
+        && this->templateGroupId_ != nullptr && this->userData_ != nullptr && this->workflowId_ != nullptr; };
+    // registerMetadatas Field Functions 
+    bool hasRegisterMetadatas() const { return this->registerMetadatas_ != nullptr;};
+    void deleteRegisterMetadatas() { this->registerMetadatas_ = nullptr;};
+    inline string registerMetadatas() const { DARABONBA_PTR_GET_DEFAULT(registerMetadatas_, "") };
+    inline RegisterMediaRequest& setRegisterMetadatas(string registerMetadatas) { DARABONBA_PTR_SET_VALUE(registerMetadatas_, registerMetadatas) };
+
+
+    // templateGroupId Field Functions 
+    bool hasTemplateGroupId() const { return this->templateGroupId_ != nullptr;};
+    void deleteTemplateGroupId() { this->templateGroupId_ = nullptr;};
+    inline string templateGroupId() const { DARABONBA_PTR_GET_DEFAULT(templateGroupId_, "") };
+    inline RegisterMediaRequest& setTemplateGroupId(string templateGroupId) { DARABONBA_PTR_SET_VALUE(templateGroupId_, templateGroupId) };
+
+
+    // userData Field Functions 
+    bool hasUserData() const { return this->userData_ != nullptr;};
+    void deleteUserData() { this->userData_ = nullptr;};
+    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline RegisterMediaRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
+
+
+    // workflowId Field Functions 
+    bool hasWorkflowId() const { return this->workflowId_ != nullptr;};
+    void deleteWorkflowId() { this->workflowId_ = nullptr;};
+    inline string workflowId() const { DARABONBA_PTR_GET_DEFAULT(workflowId_, "") };
+    inline RegisterMediaRequest& setWorkflowId(string workflowId) { DARABONBA_PTR_SET_VALUE(workflowId_, workflowId) };
+
+
+  protected:
+    // The metadata of the media files. The value must be a JSON string. You can specify the metadata for up to 10 media files at a time. For more information about the metadata of media files, see the **RegisterMetadata** section of this topic.
+    // 
+    // This parameter is required.
+    std::shared_ptr<string> registerMetadatas_ = nullptr;
+    // The ID of the transcoding template group. You can use one of the following methods to obtain the ID:
+    // 
+    // *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Processing** > **Transcoding Template Groups**. On the Transcoding Template Groups page, you can view the ID of the transcoding template group.
+    // *   Obtain the value of the TranscodeTemplateGroupId parameter from the response to the [AddTranscodeTemplateGroup](https://help.aliyun.com/document_detail/102665.html) operation that you called to create a transcoding template group.
+    // *   Obtain the value of the TranscodeTemplateGroupId parameter from the response to the [ListTranscodeTemplateGroup](https://help.aliyun.com/document_detail/102669.html) operation that you called to query transcoding template groups.
+    // 
+    // > 
+    // 
+    // *   If you do not need to transcode media files, set the TemplateGroupId parameter to VOD_NO_TRANSCODE. If you do not specify this configuration, errors occur on your files. If you need to transcode media files, specify the ID of the transcoding template group.
+    // 
+    // *   If you specify both WorkflowId and TemplateGroupId, the value of the WorkflowId parameter takes effect. For more information, see [Workflows](https://help.aliyun.com/document_detail/115347.html).
+    std::shared_ptr<string> templateGroupId_ = nullptr;
+    // The custom settings. The value must be a JSON string. You can configure settings such as message callbacks. For more information, see [UserData](~~86952#section_6fg_qll_v3w~~).
+    // 
+    // >  You cannot configure callbacks for this operation. No callback message is returned after the media files are registered even if you configure callback settings for this parameter. If you configure callback settings for the UserData parameter when you create media processing jobs such as transcoding and snapshot capture jobs for the media file, the callback URL that you specified is used. If you do not configure callback settings when you create media processing jobs, the callback URL that you specified for the UserData parameter when you register the media file is used.
+    std::shared_ptr<string> userData_ = nullptr;
+    // The ID of the workflow. To view the workflow ID, perform the following steps: Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Processing** > **Workflows**.
+    // 
+    // >  If you specify both WorkflowId and TemplateGroupId, the value of WorkflowId parameter takes effect. For more information, see [Workflows](https://help.aliyun.com/document_detail/115347.html).
+    std::shared_ptr<string> workflowId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Vod20170321
+#endif
