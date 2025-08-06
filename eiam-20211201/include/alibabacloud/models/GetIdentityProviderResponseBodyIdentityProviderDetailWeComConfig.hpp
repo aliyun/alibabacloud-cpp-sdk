@@ -1,0 +1,93 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_GETIDENTITYPROVIDERRESPONSEBODYIDENTITYPROVIDERDETAILWECOMCONFIG_HPP_
+#define ALIBABACLOUD_MODELS_GETIDENTITYPROVIDERRESPONSEBODYIDENTITYPROVIDERDETAILWECOMCONFIG_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Eiam20211201
+{
+namespace Models
+{
+  class GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig& obj) { 
+      DARABONBA_PTR_TO_JSON(AgentId, agentId_);
+      DARABONBA_PTR_TO_JSON(AuthorizeCallbackDomain, authorizeCallbackDomain_);
+      DARABONBA_PTR_TO_JSON(CorpId, corpId_);
+      DARABONBA_PTR_TO_JSON(CorpSecret, corpSecret_);
+      DARABONBA_PTR_TO_JSON(TrustableDomain, trustableDomain_);
+    };
+    friend void from_json(const Darabonba::Json& j, GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig& obj) { 
+      DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
+      DARABONBA_PTR_FROM_JSON(AuthorizeCallbackDomain, authorizeCallbackDomain_);
+      DARABONBA_PTR_FROM_JSON(CorpId, corpId_);
+      DARABONBA_PTR_FROM_JSON(CorpSecret, corpSecret_);
+      DARABONBA_PTR_FROM_JSON(TrustableDomain, trustableDomain_);
+    };
+    GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig() = default ;
+    GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig(const GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig &) = default ;
+    GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig(GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig &&) = default ;
+    GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig() = default ;
+    GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig& operator=(const GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig &) = default ;
+    GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig& operator=(GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->agentId_ != nullptr
+        && this->authorizeCallbackDomain_ != nullptr && this->corpId_ != nullptr && this->corpSecret_ != nullptr && this->trustableDomain_ != nullptr; };
+    // agentId Field Functions 
+    bool hasAgentId() const { return this->agentId_ != nullptr;};
+    void deleteAgentId() { this->agentId_ = nullptr;};
+    inline string agentId() const { DARABONBA_PTR_GET_DEFAULT(agentId_, "") };
+    inline GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig& setAgentId(string agentId) { DARABONBA_PTR_SET_VALUE(agentId_, agentId) };
+
+
+    // authorizeCallbackDomain Field Functions 
+    bool hasAuthorizeCallbackDomain() const { return this->authorizeCallbackDomain_ != nullptr;};
+    void deleteAuthorizeCallbackDomain() { this->authorizeCallbackDomain_ = nullptr;};
+    inline string authorizeCallbackDomain() const { DARABONBA_PTR_GET_DEFAULT(authorizeCallbackDomain_, "") };
+    inline GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig& setAuthorizeCallbackDomain(string authorizeCallbackDomain) { DARABONBA_PTR_SET_VALUE(authorizeCallbackDomain_, authorizeCallbackDomain) };
+
+
+    // corpId Field Functions 
+    bool hasCorpId() const { return this->corpId_ != nullptr;};
+    void deleteCorpId() { this->corpId_ = nullptr;};
+    inline string corpId() const { DARABONBA_PTR_GET_DEFAULT(corpId_, "") };
+    inline GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig& setCorpId(string corpId) { DARABONBA_PTR_SET_VALUE(corpId_, corpId) };
+
+
+    // corpSecret Field Functions 
+    bool hasCorpSecret() const { return this->corpSecret_ != nullptr;};
+    void deleteCorpSecret() { this->corpSecret_ = nullptr;};
+    inline string corpSecret() const { DARABONBA_PTR_GET_DEFAULT(corpSecret_, "") };
+    inline GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig& setCorpSecret(string corpSecret) { DARABONBA_PTR_SET_VALUE(corpSecret_, corpSecret) };
+
+
+    // trustableDomain Field Functions 
+    bool hasTrustableDomain() const { return this->trustableDomain_ != nullptr;};
+    void deleteTrustableDomain() { this->trustableDomain_ = nullptr;};
+    inline string trustableDomain() const { DARABONBA_PTR_GET_DEFAULT(trustableDomain_, "") };
+    inline GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig& setTrustableDomain(string trustableDomain) { DARABONBA_PTR_SET_VALUE(trustableDomain_, trustableDomain) };
+
+
+  protected:
+    // The ID of the load generator. This parameter is disabled.
+    std::shared_ptr<string> agentId_ = nullptr;
+    // Authorization callback domain.
+    std::shared_ptr<string> authorizeCallbackDomain_ = nullptr;
+    // CorpId.
+    std::shared_ptr<string> corpId_ = nullptr;
+    // Corp secret.
+    std::shared_ptr<string> corpSecret_ = nullptr;
+    // Trusted domain.
+    std::shared_ptr<string> trustableDomain_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Eiam20211201
+#endif
