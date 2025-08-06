@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DedicatedIpPoolListResponseBodyIpPoolsIps& obj) { 
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(Ip, ip_);
+      DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
     };
     friend void from_json(const Darabonba::Json& j, DedicatedIpPoolListResponseBodyIpPoolsIps& obj) { 
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(Ip, ip_);
+      DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
     };
     DedicatedIpPoolListResponseBodyIpPoolsIps() = default ;
     DedicatedIpPoolListResponseBodyIpPoolsIps(const DedicatedIpPoolListResponseBodyIpPoolsIps &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->id_ != nullptr
-        && this->ip_ != nullptr; };
+        && this->ip_ != nullptr && this->zoneId_ != nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -47,11 +49,19 @@ namespace Models
     inline DedicatedIpPoolListResponseBodyIpPoolsIps& setIp(string ip) { DARABONBA_PTR_SET_VALUE(ip_, ip) };
 
 
+    // zoneId Field Functions 
+    bool hasZoneId() const { return this->zoneId_ != nullptr;};
+    void deleteZoneId() { this->zoneId_ = nullptr;};
+    inline string zoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline DedicatedIpPoolListResponseBodyIpPoolsIps& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
+
+
   protected:
     // Instance purchase ID
     std::shared_ptr<string> id_ = nullptr;
     // IP address
     std::shared_ptr<string> ip_ = nullptr;
+    std::shared_ptr<string> zoneId_ = nullptr;
   };
 
   } // namespace Models
