@@ -1,4 +1,0 @@
-@PACKAGE_INIT@
-
-include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_eds_aic_20230930Targets.cmake")
-check_required_components("alibabacloud_eds_aic_20230930")
