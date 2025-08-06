@@ -970,6 +970,23 @@ namespace Eventbridge20200401
       Models::UpdateEventStreamingResponse updateEventStreaming(const Models::UpdateEventStreamingRequest &request);
 
       /**
+       * @summary 查询事件流
+       *
+       * @param request UpdateEventStreamingBusinessOptionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateEventStreamingBusinessOptionResponse
+       */
+      Models::UpdateEventStreamingBusinessOptionResponse updateEventStreamingBusinessOptionWithOptions(const Models::UpdateEventStreamingBusinessOptionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询事件流
+       *
+       * @param request UpdateEventStreamingBusinessOptionRequest
+       * @return UpdateEventStreamingBusinessOptionResponse
+       */
+      Models::UpdateEventStreamingBusinessOptionResponse updateEventStreamingBusinessOption(const Models::UpdateEventStreamingBusinessOptionRequest &request);
+
+      /**
        * @summary Updates the configurations of an event rule.
        *
        * @description You can call this API operation to update the configurations of an event rule.

@@ -2713,6 +2713,60 @@ UpdateEventStreamingResponse Client::updateEventStreaming(const UpdateEventStrea
 }
 
 /**
+ * @summary 查询事件流
+ *
+ * @param request UpdateEventStreamingBusinessOptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateEventStreamingBusinessOptionResponse
+ */
+UpdateEventStreamingBusinessOptionResponse Client::updateEventStreamingBusinessOptionWithOptions(const UpdateEventStreamingBusinessOptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBusinessMode()) {
+    body["BusinessMode"] = request.businessMode();
+  }
+
+  if (!!request.hasEventStreamingName()) {
+    body["EventStreamingName"] = request.eventStreamingName();
+  }
+
+  if (!!request.hasMaxCapacityUnitCount()) {
+    body["MaxCapacityUnitCount"] = request.maxCapacityUnitCount();
+  }
+
+  if (!!request.hasMinCapacityUnitCount()) {
+    body["MinCapacityUnitCount"] = request.minCapacityUnitCount();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateEventStreamingBusinessOption"},
+    {"version" , "2020-04-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }));
+  return json(callApi(params, req, runtime)).get<UpdateEventStreamingBusinessOptionResponse>();
+}
+
+/**
+ * @summary 查询事件流
+ *
+ * @param request UpdateEventStreamingBusinessOptionRequest
+ * @return UpdateEventStreamingBusinessOptionResponse
+ */
+UpdateEventStreamingBusinessOptionResponse Client::updateEventStreamingBusinessOption(const UpdateEventStreamingBusinessOptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateEventStreamingBusinessOptionWithOptions(request, runtime);
+}
+
+/**
  * @summary Updates the configurations of an event rule.
  *
  * @description You can call this API operation to update the configurations of an event rule.

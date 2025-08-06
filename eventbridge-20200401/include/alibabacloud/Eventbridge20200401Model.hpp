@@ -155,6 +155,9 @@
 #include <alibabacloud/models/UpdateEventStreamingShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateEventStreamingResponseBody.hpp>
 #include <alibabacloud/models/UpdateEventStreamingResponse.hpp>
+#include <alibabacloud/models/UpdateEventStreamingBusinessOptionRequest.hpp>
+#include <alibabacloud/models/UpdateEventStreamingBusinessOptionResponseBody.hpp>
+#include <alibabacloud/models/UpdateEventStreamingBusinessOptionResponse.hpp>
 #include <alibabacloud/models/UpdateRuleRequest.hpp>
 #include <alibabacloud/models/UpdateRuleResponseBody.hpp>
 #include <alibabacloud/models/UpdateRuleResponse.hpp>
