@@ -16,7 +16,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
       DARABONBA_PTR_TO_JSON(createdBy, createdBy_);
       DARABONBA_PTR_TO_JSON(databaseName, databaseName_);
-      DARABONBA_PTR_TO_JSON(shareId, shareId_);
       DARABONBA_PTR_TO_JSON(shareType, shareType_);
       DARABONBA_PTR_TO_JSON(tableName, tableName_);
       DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
@@ -26,7 +25,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
       DARABONBA_PTR_FROM_JSON(createdBy, createdBy_);
       DARABONBA_PTR_FROM_JSON(databaseName, databaseName_);
-      DARABONBA_PTR_FROM_JSON(shareId, shareId_);
       DARABONBA_PTR_FROM_JSON(shareType, shareType_);
       DARABONBA_PTR_FROM_JSON(tableName, tableName_);
       DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
@@ -44,8 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->createdAt_ != nullptr
-        && this->createdBy_ != nullptr && this->databaseName_ != nullptr && this->shareId_ != nullptr && this->shareType_ != nullptr && this->tableName_ != nullptr
-        && this->updatedAt_ != nullptr && this->updatedBy_ != nullptr; };
+        && this->createdBy_ != nullptr && this->databaseName_ != nullptr && this->shareType_ != nullptr && this->tableName_ != nullptr && this->updatedAt_ != nullptr
+        && this->updatedBy_ != nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -65,13 +63,6 @@ namespace Models
     void deleteDatabaseName() { this->databaseName_ = nullptr;};
     inline string databaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
     inline ShareResource& setDatabaseName(string databaseName) { DARABONBA_PTR_SET_VALUE(databaseName_, databaseName) };
-
-
-    // shareId Field Functions 
-    bool hasShareId() const { return this->shareId_ != nullptr;};
-    void deleteShareId() { this->shareId_ = nullptr;};
-    inline string shareId() const { DARABONBA_PTR_GET_DEFAULT(shareId_, "") };
-    inline ShareResource& setShareId(string shareId) { DARABONBA_PTR_SET_VALUE(shareId_, shareId) };
 
 
     // shareType Field Functions 
@@ -106,7 +97,6 @@ namespace Models
     std::shared_ptr<int64_t> createdAt_ = nullptr;
     std::shared_ptr<string> createdBy_ = nullptr;
     std::shared_ptr<string> databaseName_ = nullptr;
-    std::shared_ptr<string> shareId_ = nullptr;
     std::shared_ptr<string> shareType_ = nullptr;
     std::shared_ptr<string> tableName_ = nullptr;
     std::shared_ptr<int64_t> updatedAt_ = nullptr;
