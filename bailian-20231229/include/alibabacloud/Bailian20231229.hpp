@@ -1,0 +1,911 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_BAILIAN20231229_HPP_
+#define ALIBABACLOUD_BAILIAN20231229_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/Bailian20231229Model.hpp>
+#include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/Utils.hpp>
+#include <map>
+#include <alibabacloud/Bailian20231229.hpp>
+#include <darabonba/Runtime.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Bailian20231229
+{
+  class Client : public AlibabaCloud::OpenApi::Client {
+    public:
+
+      Client(AlibabaCloud::OpenApi::Utils::Models::Config &config);
+      string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
+
+      /**
+       * @summary 添加类目
+       *
+       * @param request AddCategoryRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddCategoryResponse
+       */
+      Models::AddCategoryResponse addCategoryWithOptions(const string &WorkspaceId, const Models::AddCategoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加类目
+       *
+       * @param request AddCategoryRequest
+       * @return AddCategoryResponse
+       */
+      Models::AddCategoryResponse addCategory(const string &WorkspaceId, const Models::AddCategoryRequest &request);
+
+      /**
+       * @summary Imports an unstructured document stored in the temporary storage space to Data Management. You cannot use the API to import structured documents. Use the console instead.
+       *
+       * @description *   Before you call this operation, make sure that you have obtained the lease and uploaded the document to the temporary storage space by using the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. For more information, see [Upload files by calling API](https://www.alibabacloud.com/help/en/model-studio/developer-reference/upload-files-by-calling-api).
+       * >  After you call this operation, the used lease ID expires immediately. Do not use the same lease ID to submit new requests.
+       * *   You must call this operation within 12 hours after you call the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. Otherwise, the lease expires and the request fails.
+       * *   After you call this operation, the system parses and imports your document. The process takes some time.
+       * *   This interface is not idempotent.
+       *
+       * @param tmpReq AddFileRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddFileResponse
+       */
+      Models::AddFileResponse addFileWithOptions(const string &WorkspaceId, const Models::AddFileRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Imports an unstructured document stored in the temporary storage space to Data Management. You cannot use the API to import structured documents. Use the console instead.
+       *
+       * @description *   Before you call this operation, make sure that you have obtained the lease and uploaded the document to the temporary storage space by using the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. For more information, see [Upload files by calling API](https://www.alibabacloud.com/help/en/model-studio/developer-reference/upload-files-by-calling-api).
+       * >  After you call this operation, the used lease ID expires immediately. Do not use the same lease ID to submit new requests.
+       * *   You must call this operation within 12 hours after you call the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. Otherwise, the lease expires and the request fails.
+       * *   After you call this operation, the system parses and imports your document. The process takes some time.
+       * *   This interface is not idempotent.
+       *
+       * @param request AddFileRequest
+       * @return AddFileResponse
+       */
+      Models::AddFileResponse addFile(const string &WorkspaceId, const Models::AddFileRequest &request);
+
+      /**
+       * @summary 将已授权OSS Bucket中的文件添加到百炼应用数据
+       *
+       * @param tmpReq AddFilesFromAuthorizedOssRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddFilesFromAuthorizedOssResponse
+       */
+      Models::AddFilesFromAuthorizedOssResponse addFilesFromAuthorizedOssWithOptions(const string &WorkspaceId, const Models::AddFilesFromAuthorizedOssRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 将已授权OSS Bucket中的文件添加到百炼应用数据
+       *
+       * @param request AddFilesFromAuthorizedOssRequest
+       * @return AddFilesFromAuthorizedOssResponse
+       */
+      Models::AddFilesFromAuthorizedOssResponse addFilesFromAuthorizedOss(const string &WorkspaceId, const Models::AddFilesFromAuthorizedOssRequest &request);
+
+      /**
+       * @summary Applies for a document upload lease to upload a document.
+       *
+       * @description *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
+       * *   The HTTP URL returned by this operation is valid only for minutes. Upload the document before the URL expires.
+       * *   After you apply for a lease and upload a document, the document is stored in a temporary storage space for 12 hours. 
+       * *   This interface is not idempotent.
+       *
+       * @param request ApplyFileUploadLeaseRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ApplyFileUploadLeaseResponse
+       */
+      Models::ApplyFileUploadLeaseResponse applyFileUploadLeaseWithOptions(const string &CategoryId, const string &WorkspaceId, const Models::ApplyFileUploadLeaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Applies for a document upload lease to upload a document.
+       *
+       * @description *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
+       * *   The HTTP URL returned by this operation is valid only for minutes. Upload the document before the URL expires.
+       * *   After you apply for a lease and upload a document, the document is stored in a temporary storage space for 12 hours. 
+       * *   This interface is not idempotent.
+       *
+       * @param request ApplyFileUploadLeaseRequest
+       * @return ApplyFileUploadLeaseResponse
+       */
+      Models::ApplyFileUploadLeaseResponse applyFileUploadLease(const string &CategoryId, const string &WorkspaceId, const Models::ApplyFileUploadLeaseRequest &request);
+
+      /**
+       * @summary 创建并发布智能体应用
+       *
+       * @param tmpReq CreateAndPulishAgentRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAndPulishAgentResponse
+       */
+      Models::CreateAndPulishAgentResponse createAndPulishAgentWithOptions(const string &workspaceId, const Models::CreateAndPulishAgentRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建并发布智能体应用
+       *
+       * @param request CreateAndPulishAgentRequest
+       * @return CreateAndPulishAgentResponse
+       */
+      Models::CreateAndPulishAgentResponse createAndPulishAgent(const string &workspaceId, const Models::CreateAndPulishAgentRequest &request);
+
+      /**
+       * @summary Creates an unstructured knowledge base and imports one or more parsed documents into the knowledge base. You cannot create a structured knowledge base by calling an API operation. Use the console instead.
+       *
+       * @description 1.  You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
+       * 2.  This operation only initializes a knowledge base creation job. You must also call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to complete the job.
+       * 3.  This interface is not idempotent.
+       *
+       * @param tmpReq CreateIndexRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateIndexResponse
+       */
+      Models::CreateIndexResponse createIndexWithOptions(const string &WorkspaceId, const Models::CreateIndexRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an unstructured knowledge base and imports one or more parsed documents into the knowledge base. You cannot create a structured knowledge base by calling an API operation. Use the console instead.
+       *
+       * @description 1.  You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
+       * 2.  This operation only initializes a knowledge base creation job. You must also call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to complete the job.
+       * 3.  This interface is not idempotent.
+       *
+       * @param request CreateIndexRequest
+       * @return CreateIndexResponse
+       */
+      Models::CreateIndexResponse createIndex(const string &WorkspaceId, const Models::CreateIndexRequest &request);
+
+      /**
+       * @summary 创建Memory
+       *
+       * @param request CreateMemoryRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMemoryResponse
+       */
+      Models::CreateMemoryResponse createMemoryWithOptions(const string &workspaceId, const Models::CreateMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建Memory
+       *
+       * @param request CreateMemoryRequest
+       * @return CreateMemoryResponse
+       */
+      Models::CreateMemoryResponse createMemory(const string &workspaceId, const Models::CreateMemoryRequest &request);
+
+      /**
+       * @summary 创建记忆Node
+       *
+       * @param request CreateMemoryNodeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMemoryNodeResponse
+       */
+      Models::CreateMemoryNodeResponse createMemoryNodeWithOptions(const string &workspaceId, const string &memoryId, const Models::CreateMemoryNodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建记忆Node
+       *
+       * @param request CreateMemoryNodeRequest
+       * @return CreateMemoryNodeResponse
+       */
+      Models::CreateMemoryNodeResponse createMemoryNode(const string &workspaceId, const string &memoryId, const Models::CreateMemoryNodeRequest &request);
+
+      /**
+       * @summary Creates a prompt template.
+       *
+       * @param request CreatePromptTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePromptTemplateResponse
+       */
+      Models::CreatePromptTemplateResponse createPromptTemplateWithOptions(const string &workspaceId, const Models::CreatePromptTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a prompt template.
+       *
+       * @param request CreatePromptTemplateRequest
+       * @return CreatePromptTemplateResponse
+       */
+      Models::CreatePromptTemplateResponse createPromptTemplate(const string &workspaceId, const Models::CreatePromptTemplateRequest &request);
+
+      /**
+       * @summary 删除智能体
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAgentResponse
+       */
+      Models::DeleteAgentResponse deleteAgentWithOptions(const string &workspaceId, const string &appCode, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除智能体
+       *
+       * @return DeleteAgentResponse
+       */
+      Models::DeleteAgentResponse deleteAgent(const string &workspaceId, const string &appCode);
+
+      /**
+       * @summary 删除类目
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCategoryResponse
+       */
+      Models::DeleteCategoryResponse deleteCategoryWithOptions(const string &CategoryId, const string &WorkspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除类目
+       *
+       * @return DeleteCategoryResponse
+       */
+      Models::DeleteCategoryResponse deleteCategory(const string &CategoryId, const string &WorkspaceId);
+
+      /**
+       * @summary 删除切片信息
+       *
+       * @param tmpReq DeleteChunkRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteChunkResponse
+       */
+      Models::DeleteChunkResponse deleteChunkWithOptions(const string &WorkspaceId, const Models::DeleteChunkRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除切片信息
+       *
+       * @param request DeleteChunkRequest
+       * @return DeleteChunkResponse
+       */
+      Models::DeleteChunkResponse deleteChunk(const string &WorkspaceId, const Models::DeleteChunkRequest &request);
+
+      /**
+       * @summary 删除文档
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteFileResponse
+       */
+      Models::DeleteFileResponse deleteFileWithOptions(const string &FileId, const string &WorkspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除文档
+       *
+       * @return DeleteFileResponse
+       */
+      Models::DeleteFileResponse deleteFile(const string &FileId, const string &WorkspaceId);
+
+      /**
+       * @summary Deletes a specified knowledge base permanently.
+       *
+       * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+       * *   If a knowledge base is being called by an application, disassociate the knowledge base before you can delete it. To disassociate the knowledge base, you must use the console. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base).
+       * *   After you delete a knowledge base, it cannot be recovered. We recommend that you proceed with caution.
+       * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
+       * *   This interface is idempotent.
+       *
+       * @param request DeleteIndexRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteIndexResponse
+       */
+      Models::DeleteIndexResponse deleteIndexWithOptions(const string &WorkspaceId, const Models::DeleteIndexRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a specified knowledge base permanently.
+       *
+       * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+       * *   If a knowledge base is being called by an application, disassociate the knowledge base before you can delete it. To disassociate the knowledge base, you must use the console. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base).
+       * *   After you delete a knowledge base, it cannot be recovered. We recommend that you proceed with caution.
+       * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
+       * *   This interface is idempotent.
+       *
+       * @param request DeleteIndexRequest
+       * @return DeleteIndexResponse
+       */
+      Models::DeleteIndexResponse deleteIndex(const string &WorkspaceId, const Models::DeleteIndexRequest &request);
+
+      /**
+       * @summary Deletes one or more documents from a specified unstructured knowledge base permanently.
+       *
+       * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+       * *   Only documents with the INSERT_ERROR and FINISH states can be deleted. To query the status of documents in a specified knowledge base, call the [ListIndexDocuments](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-listindexdocuments) operation.
+       * *   After you delete a document, it cannot be recovered and the [Retrieve](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-retrieve) operation cannot query information about the document. We recommend that you proceed with caution.
+       * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
+       * *   This interface is idempotent.
+       *
+       * @param tmpReq DeleteIndexDocumentRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteIndexDocumentResponse
+       */
+      Models::DeleteIndexDocumentResponse deleteIndexDocumentWithOptions(const string &WorkspaceId, const Models::DeleteIndexDocumentRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes one or more documents from a specified unstructured knowledge base permanently.
+       *
+       * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+       * *   Only documents with the INSERT_ERROR and FINISH states can be deleted. To query the status of documents in a specified knowledge base, call the [ListIndexDocuments](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-listindexdocuments) operation.
+       * *   After you delete a document, it cannot be recovered and the [Retrieve](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-retrieve) operation cannot query information about the document. We recommend that you proceed with caution.
+       * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
+       * *   This interface is idempotent.
+       *
+       * @param request DeleteIndexDocumentRequest
+       * @return DeleteIndexDocumentResponse
+       */
+      Models::DeleteIndexDocumentResponse deleteIndexDocument(const string &WorkspaceId, const Models::DeleteIndexDocumentRequest &request);
+
+      /**
+       * @summary 删除memory
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMemoryResponse
+       */
+      Models::DeleteMemoryResponse deleteMemoryWithOptions(const string &workspaceId, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除memory
+       *
+       * @return DeleteMemoryResponse
+       */
+      Models::DeleteMemoryResponse deleteMemory(const string &workspaceId, const string &memoryId);
+
+      /**
+       * @summary 删除记忆Node
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMemoryNodeResponse
+       */
+      Models::DeleteMemoryNodeResponse deleteMemoryNodeWithOptions(const string &workspaceId, const string &memoryId, const string &memoryNodeId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除记忆Node
+       *
+       * @return DeleteMemoryNodeResponse
+       */
+      Models::DeleteMemoryNodeResponse deleteMemoryNode(const string &workspaceId, const string &memoryId, const string &memoryNodeId);
+
+      /**
+       * @summary Deletes a prompt template based on the template ID.
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeletePromptTemplateResponse
+       */
+      Models::DeletePromptTemplateResponse deletePromptTemplateWithOptions(const string &workspaceId, const string &promptTemplateId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a prompt template based on the template ID.
+       *
+       * @return DeletePromptTemplateResponse
+       */
+      Models::DeletePromptTemplateResponse deletePromptTemplate(const string &workspaceId, const string &promptTemplateId);
+
+      /**
+       * @summary Queries the details of an unstructured document.
+       *
+       * @description Before you call this API, make sure that your document is uploaded to the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page of Alibaba Cloud Model Studio.
+       * *   You can also call this operation to query unstructured documents that you upload on the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page.
+       * *   This operation is idempotent.
+       * **Throttling:** Make sure that the interval between the two queries is at least 15 seconds. Otherwise, you may trigger system throttling. If throttling is triggered, try again later.
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeFileResponse
+       */
+      Models::DescribeFileResponse describeFileWithOptions(const string &WorkspaceId, const string &FileId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of an unstructured document.
+       *
+       * @description Before you call this API, make sure that your document is uploaded to the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page of Alibaba Cloud Model Studio.
+       * *   You can also call this operation to query unstructured documents that you upload on the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page.
+       * *   This operation is idempotent.
+       * **Throttling:** Make sure that the interval between the two queries is at least 15 seconds. Otherwise, you may trigger system throttling. If throttling is triggered, try again later.
+       *
+       * @return DescribeFileResponse
+       */
+      Models::DescribeFileResponse describeFile(const string &WorkspaceId, const string &FileId);
+
+      /**
+       * @summary Queries the current status of a specified knowledge base creation or add document job.
+       *
+       * @description 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
+       * 2.  We recommend that you call this operation at intervals of more than 5 seconds.
+       * 3.  This interface is idempotent.
+       *
+       * @param request GetIndexJobStatusRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetIndexJobStatusResponse
+       */
+      Models::GetIndexJobStatusResponse getIndexJobStatusWithOptions(const string &WorkspaceId, const Models::GetIndexJobStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the current status of a specified knowledge base creation or add document job.
+       *
+       * @description 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
+       * 2.  We recommend that you call this operation at intervals of more than 5 seconds.
+       * 3.  This interface is idempotent.
+       *
+       * @param request GetIndexJobStatusRequest
+       * @return GetIndexJobStatusResponse
+       */
+      Models::GetIndexJobStatusResponse getIndexJobStatus(const string &WorkspaceId, const Models::GetIndexJobStatusRequest &request);
+
+      /**
+       * @summary 获取memory
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMemoryResponse
+       */
+      Models::GetMemoryResponse getMemoryWithOptions(const string &workspaceId, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取memory
+       *
+       * @return GetMemoryResponse
+       */
+      Models::GetMemoryResponse getMemory(const string &workspaceId, const string &memoryId);
+
+      /**
+       * @summary 获取记忆Node
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMemoryNodeResponse
+       */
+      Models::GetMemoryNodeResponse getMemoryNodeWithOptions(const string &workspaceId, const string &memoryId, const string &memoryNodeId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取记忆Node
+       *
+       * @return GetMemoryNodeResponse
+       */
+      Models::GetMemoryNodeResponse getMemoryNode(const string &workspaceId, const string &memoryId, const string &memoryNodeId);
+
+      /**
+       * @summary Obtains a prompt template based on the template ID.
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPromptTemplateResponse
+       */
+      Models::GetPromptTemplateResponse getPromptTemplateWithOptions(const string &workspaceId, const string &promptTemplateId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Obtains a prompt template based on the template ID.
+       *
+       * @return GetPromptTemplateResponse
+       */
+      Models::GetPromptTemplateResponse getPromptTemplate(const string &workspaceId, const string &promptTemplateId);
+
+      /**
+       * @summary 获取发布态智能体应用
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPublishedAgentResponse
+       */
+      Models::GetPublishedAgentResponse getPublishedAgentWithOptions(const string &workspaceId, const string &appCode, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取发布态智能体应用
+       *
+       * @return GetPublishedAgentResponse
+       */
+      Models::GetPublishedAgentResponse getPublishedAgent(const string &workspaceId, const string &appCode);
+
+      /**
+       * @summary ListCategory
+       *
+       * @param request ListCategoryRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCategoryResponse
+       */
+      Models::ListCategoryResponse listCategoryWithOptions(const string &WorkspaceId, const Models::ListCategoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListCategory
+       *
+       * @param request ListCategoryRequest
+       * @return ListCategoryResponse
+       */
+      Models::ListCategoryResponse listCategory(const string &WorkspaceId, const Models::ListCategoryRequest &request);
+
+      /**
+       * @summary For unstructured knowledge base, obtains the details of all chunks of a specified document; for structured knowledge base, obtains the details of all chunks.
+       *
+       * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+       * *   This interface is idempotent.
+       *
+       * @param request ListChunksRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListChunksResponse
+       */
+      Models::ListChunksResponse listChunksWithOptions(const string &WorkspaceId, const Models::ListChunksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary For unstructured knowledge base, obtains the details of all chunks of a specified document; for structured knowledge base, obtains the details of all chunks.
+       *
+       * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+       * *   This interface is idempotent.
+       *
+       * @param request ListChunksRequest
+       * @return ListChunksResponse
+       */
+      Models::ListChunksResponse listChunks(const string &WorkspaceId, const Models::ListChunksRequest &request);
+
+      /**
+       * @summary 获取文档列表
+       *
+       * @param request ListFileRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListFileResponse
+       */
+      Models::ListFileResponse listFileWithOptions(const string &WorkspaceId, const Models::ListFileRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取文档列表
+       *
+       * @param request ListFileRequest
+       * @return ListFileResponse
+       */
+      Models::ListFileResponse listFile(const string &WorkspaceId, const Models::ListFileRequest &request);
+
+      /**
+       * @summary Queries the details of one or more documents in a specified knowledge base.
+       *
+       * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+       * *   This interface is idempotent.
+       *
+       * @param request ListIndexDocumentsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListIndexDocumentsResponse
+       */
+      Models::ListIndexDocumentsResponse listIndexDocumentsWithOptions(const string &WorkspaceId, const Models::ListIndexDocumentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of one or more documents in a specified knowledge base.
+       *
+       * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+       * *   This interface is idempotent.
+       *
+       * @param request ListIndexDocumentsRequest
+       * @return ListIndexDocumentsResponse
+       */
+      Models::ListIndexDocumentsResponse listIndexDocuments(const string &WorkspaceId, const Models::ListIndexDocumentsRequest &request);
+
+      /**
+       * @summary 查询Index文件详情
+       *
+       * @param request ListIndexFileDetailsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListIndexFileDetailsResponse
+       */
+      Models::ListIndexFileDetailsResponse listIndexFileDetailsWithOptions(const string &WorkspaceId, const Models::ListIndexFileDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Index文件详情
+       *
+       * @param request ListIndexFileDetailsRequest
+       * @return ListIndexFileDetailsResponse
+       */
+      Models::ListIndexFileDetailsResponse listIndexFileDetails(const string &WorkspaceId, const Models::ListIndexFileDetailsRequest &request);
+
+      /**
+       * @summary Lists knowledge bases in a specified workspace.
+       *
+       * @description This interface is idempotent.
+       *
+       * @param request ListIndicesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListIndicesResponse
+       */
+      Models::ListIndicesResponse listIndicesWithOptions(const string &WorkspaceId, const Models::ListIndicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists knowledge bases in a specified workspace.
+       *
+       * @description This interface is idempotent.
+       *
+       * @param request ListIndicesRequest
+       * @return ListIndicesResponse
+       */
+      Models::ListIndicesResponse listIndices(const string &WorkspaceId, const Models::ListIndicesRequest &request);
+
+      /**
+       * @summary 获取memory
+       *
+       * @param request ListMemoriesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMemoriesResponse
+       */
+      Models::ListMemoriesResponse listMemoriesWithOptions(const string &workspaceId, const Models::ListMemoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取memory
+       *
+       * @param request ListMemoriesRequest
+       * @return ListMemoriesResponse
+       */
+      Models::ListMemoriesResponse listMemories(const string &workspaceId, const Models::ListMemoriesRequest &request);
+
+      /**
+       * @summary 获取记忆Node列表
+       *
+       * @param request ListMemoryNodesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMemoryNodesResponse
+       */
+      Models::ListMemoryNodesResponse listMemoryNodesWithOptions(const string &workspaceId, const string &memoryId, const Models::ListMemoryNodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取记忆Node列表
+       *
+       * @param request ListMemoryNodesRequest
+       * @return ListMemoryNodesResponse
+       */
+      Models::ListMemoryNodesResponse listMemoryNodes(const string &workspaceId, const string &memoryId, const Models::ListMemoryNodesRequest &request);
+
+      /**
+       * @summary Obtains a list of prompt templates.
+       *
+       * @param request ListPromptTemplatesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPromptTemplatesResponse
+       */
+      Models::ListPromptTemplatesResponse listPromptTemplatesWithOptions(const string &workspaceId, const Models::ListPromptTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Obtains a list of prompt templates.
+       *
+       * @param request ListPromptTemplatesRequest
+       * @return ListPromptTemplatesResponse
+       */
+      Models::ListPromptTemplatesResponse listPromptTemplates(const string &workspaceId, const Models::ListPromptTemplatesRequest &request);
+
+      /**
+       * @summary 查询已发布的智能体应用列表
+       *
+       * @param request ListPublishedAgentRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPublishedAgentResponse
+       */
+      Models::ListPublishedAgentResponse listPublishedAgentWithOptions(const string &workspaceId, const Models::ListPublishedAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询已发布的智能体应用列表
+       *
+       * @param request ListPublishedAgentRequest
+       * @return ListPublishedAgentResponse
+       */
+      Models::ListPublishedAgentResponse listPublishedAgent(const string &workspaceId, const Models::ListPublishedAgentRequest &request);
+
+      /**
+       * @summary Queries information from a specified knowledge base.
+       *
+       * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+       * *   The response time may be long because this operation involves complex retrieval and matching. We recommend that you set appropriate timeout and retry policy for requests.
+       * *   This interface is idempotent.
+       *
+       * @param tmpReq RetrieveRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RetrieveResponse
+       */
+      Models::RetrieveResponse retrieveWithOptions(const string &WorkspaceId, const Models::RetrieveRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries information from a specified knowledge base.
+       *
+       * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+       * *   The response time may be long because this operation involves complex retrieval and matching. We recommend that you set appropriate timeout and retry policy for requests.
+       * *   This interface is idempotent.
+       *
+       * @param request RetrieveRequest
+       * @return RetrieveResponse
+       */
+      Models::RetrieveResponse retrieve(const string &WorkspaceId, const Models::RetrieveRequest &request);
+
+      /**
+       * @summary Adds parsed documents to an unstructured knowledge base.
+       *
+       * @description *   You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
+       * *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+       * *   After you call this operation, you can call the [GetIndexJobStatus](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation to query the status of the job. More than 20 calls to the GetIndexJobStatus operation per minute may trigger throttling.
+       * *   Execution takes a period of time after this operation is called. Do not make new request before the request is returned. This interface is not idempotent.
+       *
+       * @param tmpReq SubmitIndexAddDocumentsJobRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitIndexAddDocumentsJobResponse
+       */
+      Models::SubmitIndexAddDocumentsJobResponse submitIndexAddDocumentsJobWithOptions(const string &WorkspaceId, const Models::SubmitIndexAddDocumentsJobRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Adds parsed documents to an unstructured knowledge base.
+       *
+       * @description *   You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
+       * *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+       * *   After you call this operation, you can call the [GetIndexJobStatus](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation to query the status of the job. More than 20 calls to the GetIndexJobStatus operation per minute may trigger throttling.
+       * *   Execution takes a period of time after this operation is called. Do not make new request before the request is returned. This interface is not idempotent.
+       *
+       * @param request SubmitIndexAddDocumentsJobRequest
+       * @return SubmitIndexAddDocumentsJobResponse
+       */
+      Models::SubmitIndexAddDocumentsJobResponse submitIndexAddDocumentsJob(const string &WorkspaceId, const Models::SubmitIndexAddDocumentsJobRequest &request);
+
+      /**
+       * @summary Submits a specified CreateIndex job to complete knowledge base creation.
+       *
+       * @description 1.  Before you call this operation, you must call the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation and obtain the `IndexId`.
+       * 2.  Execution takes a period of time after this operation is called. Do not make new request before the request is returned.
+       * 3.  If you want to query the execution status of the job after you call this operation, call the [GetIndexJobStatus](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
+       * 4.  This interface is not idempotent.
+       *
+       * @param request SubmitIndexJobRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitIndexJobResponse
+       */
+      Models::SubmitIndexJobResponse submitIndexJobWithOptions(const string &WorkspaceId, const Models::SubmitIndexJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Submits a specified CreateIndex job to complete knowledge base creation.
+       *
+       * @description 1.  Before you call this operation, you must call the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation and obtain the `IndexId`.
+       * 2.  Execution takes a period of time after this operation is called. Do not make new request before the request is returned.
+       * 3.  If you want to query the execution status of the job after you call this operation, call the [GetIndexJobStatus](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
+       * 4.  This interface is not idempotent.
+       *
+       * @param request SubmitIndexJobRequest
+       * @return SubmitIndexJobResponse
+       */
+      Models::SubmitIndexJobResponse submitIndexJob(const string &WorkspaceId, const Models::SubmitIndexJobRequest &request);
+
+      /**
+       * @summary 更新并发布智能体应用
+       *
+       * @param tmpReq UpdateAndPublishAgentRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAndPublishAgentResponse
+       */
+      Models::UpdateAndPublishAgentResponse updateAndPublishAgentWithOptions(const string &workspaceId, const string &appCode, const Models::UpdateAndPublishAgentRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新并发布智能体应用
+       *
+       * @param request UpdateAndPublishAgentRequest
+       * @return UpdateAndPublishAgentResponse
+       */
+      Models::UpdateAndPublishAgentResponse updateAndPublishAgent(const string &workspaceId, const string &appCode, const Models::UpdateAndPublishAgentRequest &request);
+
+      /**
+       * @summary 选择更新并发布智能体应用
+       *
+       * @param tmpReq UpdateAndPublishAgentSelectiveRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAndPublishAgentSelectiveResponse
+       */
+      Models::UpdateAndPublishAgentSelectiveResponse updateAndPublishAgentSelectiveWithOptions(const string &workspaceId, const string &appCode, const Models::UpdateAndPublishAgentSelectiveRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 选择更新并发布智能体应用
+       *
+       * @param request UpdateAndPublishAgentSelectiveRequest
+       * @return UpdateAndPublishAgentSelectiveResponse
+       */
+      Models::UpdateAndPublishAgentSelectiveResponse updateAndPublishAgentSelective(const string &workspaceId, const string &appCode, const Models::UpdateAndPublishAgentSelectiveRequest &request);
+
+      /**
+       * @summary 更新切片信息
+       *
+       * @param request UpdateChunkRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateChunkResponse
+       */
+      Models::UpdateChunkResponse updateChunkWithOptions(const string &WorkspaceId, const Models::UpdateChunkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新切片信息
+       *
+       * @param request UpdateChunkRequest
+       * @return UpdateChunkResponse
+       */
+      Models::UpdateChunkResponse updateChunk(const string &WorkspaceId, const Models::UpdateChunkRequest &request);
+
+      /**
+       * @summary 更新文档Tag
+       *
+       * @param tmpReq UpdateFileTagRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateFileTagResponse
+       */
+      Models::UpdateFileTagResponse updateFileTagWithOptions(const string &WorkspaceId, const string &FileId, const Models::UpdateFileTagRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新文档Tag
+       *
+       * @param request UpdateFileTagRequest
+       * @return UpdateFileTagResponse
+       */
+      Models::UpdateFileTagResponse updateFileTag(const string &WorkspaceId, const string &FileId, const Models::UpdateFileTagRequest &request);
+
+      /**
+       * @summary 更新memory
+       *
+       * @param request UpdateMemoryRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMemoryResponse
+       */
+      Models::UpdateMemoryResponse updateMemoryWithOptions(const string &workspaceId, const string &memoryId, const Models::UpdateMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新memory
+       *
+       * @param request UpdateMemoryRequest
+       * @return UpdateMemoryResponse
+       */
+      Models::UpdateMemoryResponse updateMemory(const string &workspaceId, const string &memoryId, const Models::UpdateMemoryRequest &request);
+
+      /**
+       * @summary 更新记忆Node
+       *
+       * @param request UpdateMemoryNodeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMemoryNodeResponse
+       */
+      Models::UpdateMemoryNodeResponse updateMemoryNodeWithOptions(const string &workspaceId, const string &memoryId, const string &memoryNodeId, const Models::UpdateMemoryNodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新记忆Node
+       *
+       * @param request UpdateMemoryNodeRequest
+       * @return UpdateMemoryNodeResponse
+       */
+      Models::UpdateMemoryNodeResponse updateMemoryNode(const string &workspaceId, const string &memoryId, const string &memoryNodeId, const Models::UpdateMemoryNodeRequest &request);
+
+      /**
+       * @summary Updates a prompt template based on the template ID.
+       *
+       * @param request UpdatePromptTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePromptTemplateResponse
+       */
+      Models::UpdatePromptTemplateResponse updatePromptTemplateWithOptions(const string &workspaceId, const string &promptTemplateId, const Models::UpdatePromptTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates a prompt template based on the template ID.
+       *
+       * @param request UpdatePromptTemplateRequest
+       * @return UpdatePromptTemplateResponse
+       */
+      Models::UpdatePromptTemplateResponse updatePromptTemplate(const string &workspaceId, const string &promptTemplateId, const Models::UpdatePromptTemplateRequest &request);
+  };
+} // namespace AlibabaCloud
+} // namespace Bailian20231229
+#endif
