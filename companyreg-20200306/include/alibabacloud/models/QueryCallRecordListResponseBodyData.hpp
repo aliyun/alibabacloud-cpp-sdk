@@ -13,14 +13,18 @@ namespace Models
   class QueryCallRecordListResponseBodyData : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const QueryCallRecordListResponseBodyData& obj) { 
+      DARABONBA_PTR_TO_JSON(ContactDisposition, contactDisposition_);
       DARABONBA_PTR_TO_JSON(Duration, duration_);
       DARABONBA_PTR_TO_JSON(SignatureUrl, signatureUrl_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+      DARABONBA_PTR_TO_JSON(taskId, taskId_);
     };
     friend void from_json(const Darabonba::Json& j, QueryCallRecordListResponseBodyData& obj) { 
+      DARABONBA_PTR_FROM_JSON(ContactDisposition, contactDisposition_);
       DARABONBA_PTR_FROM_JSON(Duration, duration_);
       DARABONBA_PTR_FROM_JSON(SignatureUrl, signatureUrl_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+      DARABONBA_PTR_FROM_JSON(taskId, taskId_);
     };
     QueryCallRecordListResponseBodyData() = default ;
     QueryCallRecordListResponseBodyData(const QueryCallRecordListResponseBodyData &) = default ;
@@ -33,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->duration_ != nullptr
-        && this->signatureUrl_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { this->contactDisposition_ != nullptr
+        && this->duration_ != nullptr && this->signatureUrl_ != nullptr && this->startTime_ != nullptr && this->taskId_ != nullptr; };
+    // contactDisposition Field Functions 
+    bool hasContactDisposition() const { return this->contactDisposition_ != nullptr;};
+    void deleteContactDisposition() { this->contactDisposition_ = nullptr;};
+    inline string contactDisposition() const { DARABONBA_PTR_GET_DEFAULT(contactDisposition_, "") };
+    inline QueryCallRecordListResponseBodyData& setContactDisposition(string contactDisposition) { DARABONBA_PTR_SET_VALUE(contactDisposition_, contactDisposition) };
+
+
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
@@ -56,10 +67,19 @@ namespace Models
     inline QueryCallRecordListResponseBodyData& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
+    // taskId Field Functions 
+    bool hasTaskId() const { return this->taskId_ != nullptr;};
+    void deleteTaskId() { this->taskId_ = nullptr;};
+    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline QueryCallRecordListResponseBodyData& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
+
+
   protected:
+    std::shared_ptr<string> contactDisposition_ = nullptr;
     std::shared_ptr<int32_t> duration_ = nullptr;
     std::shared_ptr<string> signatureUrl_ = nullptr;
     std::shared_ptr<int64_t> startTime_ = nullptr;
+    std::shared_ptr<string> taskId_ = nullptr;
   };
 
   } // namespace Models
