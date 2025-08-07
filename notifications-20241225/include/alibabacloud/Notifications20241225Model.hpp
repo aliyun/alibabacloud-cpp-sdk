@@ -1,0 +1,46 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_NOTIFICATIONS20241225MODEL_HPP_
+#define ALIBABACLOUD_NOTIFICATIONS20241225MODEL_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/models/DelMessageRequest.hpp>
+#include <alibabacloud/models/DelMessageResponseBody.hpp>
+#include <alibabacloud/models/DelMessageResponse.hpp>
+#include <alibabacloud/models/DeleteAllMessageRequest.hpp>
+#include <alibabacloud/models/DeleteAllMessageResponseBody.hpp>
+#include <alibabacloud/models/DeleteAllMessageResponse.hpp>
+#include <alibabacloud/models/ReadAllMessageRequest.hpp>
+#include <alibabacloud/models/ReadAllMessageResponseBody.hpp>
+#include <alibabacloud/models/ReadAllMessageResponse.hpp>
+#include <alibabacloud/models/ReadClassNameRequest.hpp>
+#include <alibabacloud/models/ReadClassNameResponseBody.hpp>
+#include <alibabacloud/models/ReadClassNameResponse.hpp>
+#include <alibabacloud/models/ReadMessageRequest.hpp>
+#include <alibabacloud/models/ReadMessageResponseBody.hpp>
+#include <alibabacloud/models/ReadMessageResponse.hpp>
+#include <alibabacloud/models/ReadMessageContentRequest.hpp>
+#include <alibabacloud/models/ReadMessageContentResponseBody.hpp>
+#include <alibabacloud/models/ReadMessageContentResponse.hpp>
+#include <alibabacloud/models/ReadMessageListRequest.hpp>
+#include <alibabacloud/models/ReadMessageListResponseBody.hpp>
+#include <alibabacloud/models/ReadMessageListResponse.hpp>
+#include <alibabacloud/models/ReadMessageNewTotalRequest.hpp>
+#include <alibabacloud/models/ReadMessageNewTotalResponseBody.hpp>
+#include <alibabacloud/models/ReadMessageNewTotalResponse.hpp>
+#include <alibabacloud/models/ReadNumGroupByClassRequest.hpp>
+#include <alibabacloud/models/ReadNumGroupByClassResponseBody.hpp>
+#include <alibabacloud/models/ReadNumGroupByClassResponse.hpp>
+#include <alibabacloud/models/ReadNumGroupTotalRequest.hpp>
+#include <alibabacloud/models/ReadNumGroupTotalResponseBody.hpp>
+#include <alibabacloud/models/ReadNumGroupTotalResponse.hpp>
+#include <alibabacloud/models/ReadClassNameResponseBodyData.hpp>
+#include <alibabacloud/models/ReadMessageContentResponseBodyDataDatasItem.hpp>
+#include <alibabacloud/models/ReadMessageContentResponseBodyDataDatasLastItem.hpp>
+#include <alibabacloud/models/ReadMessageContentResponseBodyDataDatasNextItem.hpp>
+#include <alibabacloud/models/ReadMessageContentResponseBodyDataDatas.hpp>
+#include <alibabacloud/models/ReadMessageContentResponseBodyData.hpp>
+#include <alibabacloud/models/ReadMessageListResponseBodyDataRows.hpp>
+#include <alibabacloud/models/ReadMessageListResponseBodyData.hpp>
+#include <alibabacloud/models/ReadNumGroupByClassResponseBodyData.hpp>
+#include <alibabacloud/models/ReadNumGroupTotalResponseBodyData.hpp>
+
+#endif
