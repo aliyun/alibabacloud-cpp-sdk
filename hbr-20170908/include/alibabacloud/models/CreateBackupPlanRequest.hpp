@@ -337,8 +337,6 @@ namespace Models
 
   protected:
     // Backup type. Value: **COMPLETE**, indicating a full backup.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> backupType_ = nullptr;
     // This parameter is required when **SourceType** is set to **OSS**. It represents the OSS bucket name.
     std::shared_ptr<string> bucket_ = nullptr;
@@ -398,8 +396,6 @@ namespace Models
     // Backup paths.
     std::shared_ptr<vector<string>> path_ = nullptr;
     // Name of the backup plan. 1 to 64 characters. The name must be unique for each data source type within a single backup vault.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> planName_ = nullptr;
     // This parameter is required when **SourceType** is set to **OSS**. It represents the backup prefix. When specified, only objects matching the prefix are backed up.
     std::shared_ptr<string> prefix_ = nullptr;
@@ -411,8 +407,6 @@ namespace Models
     // 
     // - **startTime**: Start time of the backup, in UNIX timestamp, in seconds.
     // - **interval**: ISO8601 time interval. For example, PT1H indicates an interval of one hour, and P1D indicates an interval of one day.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> schedule_ = nullptr;
     // The type of the data source. Valid values:
     // 
