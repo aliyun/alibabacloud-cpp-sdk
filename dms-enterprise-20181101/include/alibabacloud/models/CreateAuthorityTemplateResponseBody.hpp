@@ -1,0 +1,110 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_CREATEAUTHORITYTEMPLATERESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_CREATEAUTHORITYTEMPLATERESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/models/CreateAuthorityTemplateResponseBodyAuthorityTemplateView.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace DmsEnterprise20181101
+{
+namespace Models
+{
+  class CreateAuthorityTemplateResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const CreateAuthorityTemplateResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AuthorityTemplateView, authorityTemplateView_);
+      DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
+      DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(Success, success_);
+      DARABONBA_PTR_TO_JSON(Tid, tid_);
+    };
+    friend void from_json(const Darabonba::Json& j, CreateAuthorityTemplateResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AuthorityTemplateView, authorityTemplateView_);
+      DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
+      DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(Success, success_);
+      DARABONBA_PTR_FROM_JSON(Tid, tid_);
+    };
+    CreateAuthorityTemplateResponseBody() = default ;
+    CreateAuthorityTemplateResponseBody(const CreateAuthorityTemplateResponseBody &) = default ;
+    CreateAuthorityTemplateResponseBody(CreateAuthorityTemplateResponseBody &&) = default ;
+    CreateAuthorityTemplateResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateAuthorityTemplateResponseBody() = default ;
+    CreateAuthorityTemplateResponseBody& operator=(const CreateAuthorityTemplateResponseBody &) = default ;
+    CreateAuthorityTemplateResponseBody& operator=(CreateAuthorityTemplateResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->authorityTemplateView_ != nullptr
+        && this->errorCode_ != nullptr && this->errorMessage_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr && this->tid_ != nullptr; };
+    // authorityTemplateView Field Functions 
+    bool hasAuthorityTemplateView() const { return this->authorityTemplateView_ != nullptr;};
+    void deleteAuthorityTemplateView() { this->authorityTemplateView_ = nullptr;};
+    inline const CreateAuthorityTemplateResponseBodyAuthorityTemplateView & authorityTemplateView() const { DARABONBA_PTR_GET_CONST(authorityTemplateView_, CreateAuthorityTemplateResponseBodyAuthorityTemplateView) };
+    inline CreateAuthorityTemplateResponseBodyAuthorityTemplateView authorityTemplateView() { DARABONBA_PTR_GET(authorityTemplateView_, CreateAuthorityTemplateResponseBodyAuthorityTemplateView) };
+    inline CreateAuthorityTemplateResponseBody& setAuthorityTemplateView(const CreateAuthorityTemplateResponseBodyAuthorityTemplateView & authorityTemplateView) { DARABONBA_PTR_SET_VALUE(authorityTemplateView_, authorityTemplateView) };
+    inline CreateAuthorityTemplateResponseBody& setAuthorityTemplateView(CreateAuthorityTemplateResponseBodyAuthorityTemplateView && authorityTemplateView) { DARABONBA_PTR_SET_RVALUE(authorityTemplateView_, authorityTemplateView) };
+
+
+    // errorCode Field Functions 
+    bool hasErrorCode() const { return this->errorCode_ != nullptr;};
+    void deleteErrorCode() { this->errorCode_ = nullptr;};
+    inline string errorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+    inline CreateAuthorityTemplateResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
+
+
+    // errorMessage Field Functions 
+    bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
+    void deleteErrorMessage() { this->errorMessage_ = nullptr;};
+    inline string errorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+    inline CreateAuthorityTemplateResponseBody& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline CreateAuthorityTemplateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // success Field Functions 
+    bool hasSuccess() const { return this->success_ != nullptr;};
+    void deleteSuccess() { this->success_ = nullptr;};
+    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline CreateAuthorityTemplateResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
+    // tid Field Functions 
+    bool hasTid() const { return this->tid_ != nullptr;};
+    void deleteTid() { this->tid_ = nullptr;};
+    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline CreateAuthorityTemplateResponseBody& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
+
+
+  protected:
+    // The details of the permission template.
+    std::shared_ptr<CreateAuthorityTemplateResponseBodyAuthorityTemplateView> authorityTemplateView_ = nullptr;
+    // The error code.
+    std::shared_ptr<string> errorCode_ = nullptr;
+    // The error message.
+    std::shared_ptr<string> errorMessage_ = nullptr;
+    // The ID of the request.
+    std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // *   **true**: The request was successful.
+    // *   **false**: The request failed.
+    std::shared_ptr<bool> success_ = nullptr;
+    // The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
+    std::shared_ptr<int64_t> tid_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace DmsEnterprise20181101
+#endif

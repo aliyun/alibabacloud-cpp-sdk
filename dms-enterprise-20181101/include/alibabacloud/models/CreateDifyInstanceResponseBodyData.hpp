@@ -1,0 +1,129 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_CREATEDIFYINSTANCERESPONSEBODYDATA_HPP_
+#define ALIBABACLOUD_MODELS_CREATEDIFYINSTANCERESPONSEBODYDATA_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace DmsEnterprise20181101
+{
+namespace Models
+{
+  class CreateDifyInstanceResponseBodyData : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const CreateDifyInstanceResponseBodyData& obj) { 
+      DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(Replicas, replicas_);
+      DARABONBA_PTR_TO_JSON(ResourceQuota, resourceQuota_);
+      DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
+      DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
+      DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
+      DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
+    };
+    friend void from_json(const Darabonba::Json& j, CreateDifyInstanceResponseBodyData& obj) { 
+      DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(Replicas, replicas_);
+      DARABONBA_PTR_FROM_JSON(ResourceQuota, resourceQuota_);
+      DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
+      DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
+      DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
+      DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
+    };
+    CreateDifyInstanceResponseBodyData() = default ;
+    CreateDifyInstanceResponseBodyData(const CreateDifyInstanceResponseBodyData &) = default ;
+    CreateDifyInstanceResponseBodyData(CreateDifyInstanceResponseBodyData &&) = default ;
+    CreateDifyInstanceResponseBodyData(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateDifyInstanceResponseBodyData() = default ;
+    CreateDifyInstanceResponseBodyData& operator=(const CreateDifyInstanceResponseBodyData &) = default ;
+    CreateDifyInstanceResponseBodyData& operator=(CreateDifyInstanceResponseBodyData &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->instanceId_ != nullptr
+        && this->replicas_ != nullptr && this->resourceQuota_ != nullptr && this->securityGroupId_ != nullptr && this->status_ != nullptr && this->vSwitchId_ != nullptr
+        && this->vpcId_ != nullptr && this->workspaceId_ != nullptr && this->zoneId_ != nullptr; };
+    // instanceId Field Functions 
+    bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+    void deleteInstanceId() { this->instanceId_ = nullptr;};
+    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline CreateDifyInstanceResponseBodyData& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // replicas Field Functions 
+    bool hasReplicas() const { return this->replicas_ != nullptr;};
+    void deleteReplicas() { this->replicas_ = nullptr;};
+    inline int32_t replicas() const { DARABONBA_PTR_GET_DEFAULT(replicas_, 0) };
+    inline CreateDifyInstanceResponseBodyData& setReplicas(int32_t replicas) { DARABONBA_PTR_SET_VALUE(replicas_, replicas) };
+
+
+    // resourceQuota Field Functions 
+    bool hasResourceQuota() const { return this->resourceQuota_ != nullptr;};
+    void deleteResourceQuota() { this->resourceQuota_ = nullptr;};
+    inline string resourceQuota() const { DARABONBA_PTR_GET_DEFAULT(resourceQuota_, "") };
+    inline CreateDifyInstanceResponseBodyData& setResourceQuota(string resourceQuota) { DARABONBA_PTR_SET_VALUE(resourceQuota_, resourceQuota) };
+
+
+    // securityGroupId Field Functions 
+    bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
+    void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
+    inline string securityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
+    inline CreateDifyInstanceResponseBodyData& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
+
+
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline CreateDifyInstanceResponseBodyData& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    // vSwitchId Field Functions 
+    bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
+    void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
+    inline string vSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+    inline CreateDifyInstanceResponseBodyData& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
+
+
+    // vpcId Field Functions 
+    bool hasVpcId() const { return this->vpcId_ != nullptr;};
+    void deleteVpcId() { this->vpcId_ = nullptr;};
+    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline CreateDifyInstanceResponseBodyData& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
+
+
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline CreateDifyInstanceResponseBodyData& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
+    // zoneId Field Functions 
+    bool hasZoneId() const { return this->zoneId_ != nullptr;};
+    void deleteZoneId() { this->zoneId_ = nullptr;};
+    inline string zoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline CreateDifyInstanceResponseBodyData& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
+
+
+  protected:
+    std::shared_ptr<string> instanceId_ = nullptr;
+    std::shared_ptr<int32_t> replicas_ = nullptr;
+    std::shared_ptr<string> resourceQuota_ = nullptr;
+    std::shared_ptr<string> securityGroupId_ = nullptr;
+    std::shared_ptr<string> status_ = nullptr;
+    std::shared_ptr<string> vSwitchId_ = nullptr;
+    std::shared_ptr<string> vpcId_ = nullptr;
+    std::shared_ptr<string> workspaceId_ = nullptr;
+    std::shared_ptr<string> zoneId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace DmsEnterprise20181101
+#endif
