@@ -18,6 +18,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeCloudPhoneNodesResponseBodyNodeModel& obj) { 
       DARABONBA_PTR_TO_JSON(BandwidthPackageId, bandwidthPackageId_);
+      DARABONBA_PTR_TO_JSON(BandwidthPackageStatus, bandwidthPackageStatus_);
       DARABONBA_PTR_TO_JSON(BandwidthPackageType, bandwidthPackageType_);
       DARABONBA_PTR_TO_JSON(BizTags, bizTags_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
@@ -44,6 +45,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeCloudPhoneNodesResponseBodyNodeModel& obj) { 
       DARABONBA_PTR_FROM_JSON(BandwidthPackageId, bandwidthPackageId_);
+      DARABONBA_PTR_FROM_JSON(BandwidthPackageStatus, bandwidthPackageStatus_);
       DARABONBA_PTR_FROM_JSON(BandwidthPackageType, bandwidthPackageType_);
       DARABONBA_PTR_FROM_JSON(BizTags, bizTags_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
@@ -80,16 +82,23 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->bandwidthPackageId_ != nullptr
-        && this->bandwidthPackageType_ != nullptr && this->bizTags_ != nullptr && this->chargeType_ != nullptr && this->cpu_ != nullptr && this->gmtCreate_ != nullptr
-        && this->gmtExpired_ != nullptr && this->gmtModified_ != nullptr && this->instanceType_ != nullptr && this->memory_ != nullptr && this->networkId_ != nullptr
-        && this->networkInfos_ != nullptr && this->networkType_ != nullptr && this->nodeId_ != nullptr && this->nodeName_ != nullptr && this->phoneCount_ != nullptr
-        && this->phoneDataInfo_ != nullptr && this->regionId_ != nullptr && this->resolutionHeight_ != nullptr && this->resolutionWidth_ != nullptr && this->serverType_ != nullptr
-        && this->shareDataVolume_ != nullptr && this->status_ != nullptr && this->vSwitchId_ != nullptr; };
+        && this->bandwidthPackageStatus_ != nullptr && this->bandwidthPackageType_ != nullptr && this->bizTags_ != nullptr && this->chargeType_ != nullptr && this->cpu_ != nullptr
+        && this->gmtCreate_ != nullptr && this->gmtExpired_ != nullptr && this->gmtModified_ != nullptr && this->instanceType_ != nullptr && this->memory_ != nullptr
+        && this->networkId_ != nullptr && this->networkInfos_ != nullptr && this->networkType_ != nullptr && this->nodeId_ != nullptr && this->nodeName_ != nullptr
+        && this->phoneCount_ != nullptr && this->phoneDataInfo_ != nullptr && this->regionId_ != nullptr && this->resolutionHeight_ != nullptr && this->resolutionWidth_ != nullptr
+        && this->serverType_ != nullptr && this->shareDataVolume_ != nullptr && this->status_ != nullptr && this->vSwitchId_ != nullptr; };
     // bandwidthPackageId Field Functions 
     bool hasBandwidthPackageId() const { return this->bandwidthPackageId_ != nullptr;};
     void deleteBandwidthPackageId() { this->bandwidthPackageId_ = nullptr;};
     inline string bandwidthPackageId() const { DARABONBA_PTR_GET_DEFAULT(bandwidthPackageId_, "") };
     inline DescribeCloudPhoneNodesResponseBodyNodeModel& setBandwidthPackageId(string bandwidthPackageId) { DARABONBA_PTR_SET_VALUE(bandwidthPackageId_, bandwidthPackageId) };
+
+
+    // bandwidthPackageStatus Field Functions 
+    bool hasBandwidthPackageStatus() const { return this->bandwidthPackageStatus_ != nullptr;};
+    void deleteBandwidthPackageStatus() { this->bandwidthPackageStatus_ = nullptr;};
+    inline string bandwidthPackageStatus() const { DARABONBA_PTR_GET_DEFAULT(bandwidthPackageStatus_, "") };
+    inline DescribeCloudPhoneNodesResponseBodyNodeModel& setBandwidthPackageStatus(string bandwidthPackageStatus) { DARABONBA_PTR_SET_VALUE(bandwidthPackageStatus_, bandwidthPackageStatus) };
 
 
     // bandwidthPackageType Field Functions 
@@ -261,6 +270,7 @@ namespace Models
 
   protected:
     std::shared_ptr<string> bandwidthPackageId_ = nullptr;
+    std::shared_ptr<string> bandwidthPackageStatus_ = nullptr;
     std::shared_ptr<string> bandwidthPackageType_ = nullptr;
     std::shared_ptr<vector<Models::DescribeCloudPhoneNodesResponseBodyNodeModelBizTags>> bizTags_ = nullptr;
     // The billing method.

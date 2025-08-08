@@ -976,6 +976,23 @@ namespace EdsAic20230930
       Models::ListPolicyGroupsResponse listPolicyGroups(const Models::ListPolicyGroupsRequest &request);
 
       /**
+       * @summary 查询资源标签
+       *
+       * @param request ListTagResourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTagResourcesResponse
+       */
+      Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询资源标签
+       *
+       * @param request ListTagResourcesRequest
+       * @return ListTagResourcesResponse
+       */
+      Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
+
+      /**
        * @summary Modifies attributes of a cloud phone instance. Currently, this operation allows you to modify only the name of a cloud phone instance.
        *
        * @param request ModifyAndroidInstanceRequest
@@ -1365,6 +1382,23 @@ namespace EdsAic20230930
       Models::StopAndroidInstanceResponse stopAndroidInstance(const Models::StopAndroidInstanceRequest &request);
 
       /**
+       * @summary 给资源打标签
+       *
+       * @param request TagResourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TagResourcesResponse
+       */
+      Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 给资源打标签
+       *
+       * @param request TagResourcesRequest
+       * @return TagResourcesResponse
+       */
+      Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
+
+      /**
        * @summary Uninstalls an app from multiple cloud phone instances.
        *
        * @description This operation runs asynchronously. To check the operation result, you can visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
@@ -1401,6 +1435,23 @@ namespace EdsAic20230930
        * @return UninstallMonitorAgentResponse
        */
       Models::UninstallMonitorAgentResponse uninstallMonitorAgent(const Models::UninstallMonitorAgentRequest &request);
+
+      /**
+       * @summary 删除资源标签
+       *
+       * @param request UntagResourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UntagResourcesResponse
+       */
+      Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除资源标签
+       *
+       * @param request UntagResourcesRequest
+       * @return UntagResourcesResponse
+       */
+      Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
        * @summary Updates the name of a custom image.

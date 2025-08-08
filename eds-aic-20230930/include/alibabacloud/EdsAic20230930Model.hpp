@@ -155,6 +155,9 @@
 #include <alibabacloud/models/ListPolicyGroupsRequest.hpp>
 #include <alibabacloud/models/ListPolicyGroupsResponseBody.hpp>
 #include <alibabacloud/models/ListPolicyGroupsResponse.hpp>
+#include <alibabacloud/models/ListTagResourcesRequest.hpp>
+#include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
+#include <alibabacloud/models/ListTagResourcesResponse.hpp>
 #include <alibabacloud/models/ModifyAndroidInstanceRequest.hpp>
 #include <alibabacloud/models/ModifyAndroidInstanceResponseBody.hpp>
 #include <alibabacloud/models/ModifyAndroidInstanceResponse.hpp>
@@ -221,12 +224,18 @@
 #include <alibabacloud/models/StopAndroidInstanceRequest.hpp>
 #include <alibabacloud/models/StopAndroidInstanceResponseBody.hpp>
 #include <alibabacloud/models/StopAndroidInstanceResponse.hpp>
+#include <alibabacloud/models/TagResourcesRequest.hpp>
+#include <alibabacloud/models/TagResourcesResponseBody.hpp>
+#include <alibabacloud/models/TagResourcesResponse.hpp>
 #include <alibabacloud/models/UninstallAppRequest.hpp>
 #include <alibabacloud/models/UninstallAppResponseBody.hpp>
 #include <alibabacloud/models/UninstallAppResponse.hpp>
 #include <alibabacloud/models/UninstallMonitorAgentRequest.hpp>
 #include <alibabacloud/models/UninstallMonitorAgentResponseBody.hpp>
 #include <alibabacloud/models/UninstallMonitorAgentResponse.hpp>
+#include <alibabacloud/models/UntagResourcesRequest.hpp>
+#include <alibabacloud/models/UntagResourcesResponseBody.hpp>
+#include <alibabacloud/models/UntagResourcesResponse.hpp>
 #include <alibabacloud/models/UpdateCustomImageNameRequest.hpp>
 #include <alibabacloud/models/UpdateCustomImageNameResponseBody.hpp>
 #include <alibabacloud/models/UpdateCustomImageNameResponse.hpp>
@@ -304,6 +313,8 @@
 #include <alibabacloud/models/ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources.hpp>
 #include <alibabacloud/models/ListPolicyGroupsResponseBodyPolicyGroupModelWatermark.hpp>
 #include <alibabacloud/models/ListPolicyGroupsResponseBodyPolicyGroupModel.hpp>
+#include <alibabacloud/models/ListTagResourcesRequestTag.hpp>
+#include <alibabacloud/models/ListTagResourcesResponseBodyTagResources.hpp>
 #include <alibabacloud/models/ModifyDisplayConfigRequestDisplayConfig.hpp>
 #include <alibabacloud/models/ModifyPolicyGroupRequestNetRedirectPolicyRules.hpp>
 #include <alibabacloud/models/ModifyPolicyGroupRequestNetRedirectPolicy.hpp>
@@ -313,5 +324,6 @@
 #include <alibabacloud/models/RecoveryFileResponseBodyData.hpp>
 #include <alibabacloud/models/SendFileResponseBodyData.hpp>
 #include <alibabacloud/models/SetAdbSecureResponseBodyData.hpp>
+#include <alibabacloud/models/TagResourcesRequestTag.hpp>
 
 #endif

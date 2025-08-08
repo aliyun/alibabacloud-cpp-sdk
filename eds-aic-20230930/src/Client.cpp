@@ -286,6 +286,14 @@ BatchGetAcpConnectionTicketResponse Client::batchGetAcpConnectionTicket(const Ba
 ChangeCloudPhoneNodeResponse Client::changeCloudPhoneNodeWithOptions(const ChangeCloudPhoneNodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAutoPay()) {
+    query["AutoPay"] = request.autoPay();
+  }
+
+  if (!!request.hasDownBandwidthLimit()) {
+    query["DownBandwidthLimit"] = request.downBandwidthLimit();
+  }
+
   if (!!request.hasInstanceType()) {
     query["InstanceType"] = request.instanceType();
   }
@@ -296,6 +304,14 @@ ChangeCloudPhoneNodeResponse Client::changeCloudPhoneNodeWithOptions(const Chang
 
   if (!!request.hasPhoneCount()) {
     query["PhoneCount"] = request.phoneCount();
+  }
+
+  if (!!request.hasPhoneDataVolume()) {
+    query["PhoneDataVolume"] = request.phoneDataVolume();
+  }
+
+  if (!!request.hasUpBandwidthLimit()) {
+    query["UpBandwidthLimit"] = request.upBandwidthLimit();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2720,6 +2736,10 @@ ExpandDataVolumeResponse Client::expandDataVolumeWithOptions(const ExpandDataVol
     query["NodeIds"] = request.nodeIds();
   }
 
+  if (!!request.hasPhoneDataVolume()) {
+    query["PhoneDataVolume"] = request.phoneDataVolume();
+  }
+
   if (!!request.hasShareDataVolume()) {
     query["ShareDataVolume"] = request.shareDataVolume();
   }
@@ -3112,6 +3132,68 @@ ListPolicyGroupsResponse Client::listPolicyGroupsWithOptions(const ListPolicyGro
 ListPolicyGroupsResponse Client::listPolicyGroups(const ListPolicyGroupsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listPolicyGroupsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询资源标签
+ *
+ * @param request ListTagResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTagResourcesResponse
+ */
+ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.resourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.resourceType();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.tag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListTagResources"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }));
+  return json(callApi(params, req, runtime)).get<ListTagResourcesResponse>();
+}
+
+/**
+ * @summary 查询资源标签
+ *
+ * @param request ListTagResourcesRequest
+ * @return ListTagResourcesResponse
+ */
+ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listTagResourcesWithOptions(request, runtime);
 }
 
 /**
@@ -4315,6 +4397,56 @@ StopAndroidInstanceResponse Client::stopAndroidInstance(const StopAndroidInstanc
 }
 
 /**
+ * @summary 给资源打标签
+ *
+ * @param request TagResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TagResourcesResponse
+ */
+TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.resourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.resourceType();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.tag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }));
+  Params params = Params(json({
+    {"action" , "TagResources"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }));
+  return json(callApi(params, req, runtime)).get<TagResourcesResponse>();
+}
+
+/**
+ * @summary 给资源打标签
+ *
+ * @param request TagResourcesRequest
+ * @return TagResourcesResponse
+ */
+TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return tagResourcesWithOptions(request, runtime);
+}
+
+/**
  * @summary Uninstalls an app from multiple cloud phone instances.
  *
  * @description This operation runs asynchronously. To check the operation result, you can visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
@@ -4412,6 +4544,60 @@ UninstallMonitorAgentResponse Client::uninstallMonitorAgentWithOptions(const Uni
 UninstallMonitorAgentResponse Client::uninstallMonitorAgent(const UninstallMonitorAgentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return uninstallMonitorAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除资源标签
+ *
+ * @param request UntagResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UntagResourcesResponse
+ */
+UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAll()) {
+    query["All"] = request.all();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.resourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.resourceType();
+  }
+
+  if (!!request.hasTagKey()) {
+    query["TagKey"] = request.tagKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }));
+  Params params = Params(json({
+    {"action" , "UntagResources"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }));
+  return json(callApi(params, req, runtime)).get<UntagResourcesResponse>();
+}
+
+/**
+ * @summary 删除资源标签
+ *
+ * @param request UntagResourcesRequest
+ * @return UntagResourcesResponse
+ */
+UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return untagResourcesWithOptions(request, runtime);
 }
 
 /**

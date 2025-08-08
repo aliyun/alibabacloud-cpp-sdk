@@ -16,10 +16,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ChangeCloudPhoneNodeResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(NodeInfos, nodeInfos_);
+      DARABONBA_PTR_TO_JSON(OrderId, orderId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, ChangeCloudPhoneNodeResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(NodeInfos, nodeInfos_);
+      DARABONBA_PTR_FROM_JSON(OrderId, orderId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
     ChangeCloudPhoneNodeResponseBody() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->nodeInfos_ != nullptr
-        && this->requestId_ != nullptr; };
+        && this->orderId_ != nullptr && this->requestId_ != nullptr; };
     // nodeInfos Field Functions 
     bool hasNodeInfos() const { return this->nodeInfos_ != nullptr;};
     void deleteNodeInfos() { this->nodeInfos_ = nullptr;};
@@ -42,6 +44,13 @@ namespace Models
     inline vector<ChangeCloudPhoneNodeResponseBodyNodeInfos> nodeInfos() { DARABONBA_PTR_GET(nodeInfos_, vector<ChangeCloudPhoneNodeResponseBodyNodeInfos>) };
     inline ChangeCloudPhoneNodeResponseBody& setNodeInfos(const vector<ChangeCloudPhoneNodeResponseBodyNodeInfos> & nodeInfos) { DARABONBA_PTR_SET_VALUE(nodeInfos_, nodeInfos) };
     inline ChangeCloudPhoneNodeResponseBody& setNodeInfos(vector<ChangeCloudPhoneNodeResponseBodyNodeInfos> && nodeInfos) { DARABONBA_PTR_SET_RVALUE(nodeInfos_, nodeInfos) };
+
+
+    // orderId Field Functions 
+    bool hasOrderId() const { return this->orderId_ != nullptr;};
+    void deleteOrderId() { this->orderId_ = nullptr;};
+    inline string orderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
+    inline ChangeCloudPhoneNodeResponseBody& setOrderId(string orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
 
 
     // requestId Field Functions 
@@ -53,6 +62,7 @@ namespace Models
 
   protected:
     std::shared_ptr<vector<ChangeCloudPhoneNodeResponseBodyNodeInfos>> nodeInfos_ = nullptr;
+    std::shared_ptr<string> orderId_ = nullptr;
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

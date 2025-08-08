@@ -17,10 +17,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ChangeCloudPhoneNodeResponseBodyNodeInfos& obj) { 
       DARABONBA_PTR_TO_JSON(InstanceInfos, instanceInfos_);
       DARABONBA_PTR_TO_JSON(NodeId, nodeId_);
+      DARABONBA_PTR_TO_JSON(ShareDataVolume, shareDataVolume_);
     };
     friend void from_json(const Darabonba::Json& j, ChangeCloudPhoneNodeResponseBodyNodeInfos& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceInfos, instanceInfos_);
       DARABONBA_PTR_FROM_JSON(NodeId, nodeId_);
+      DARABONBA_PTR_FROM_JSON(ShareDataVolume, shareDataVolume_);
     };
     ChangeCloudPhoneNodeResponseBodyNodeInfos() = default ;
     ChangeCloudPhoneNodeResponseBodyNodeInfos(const ChangeCloudPhoneNodeResponseBodyNodeInfos &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->instanceInfos_ != nullptr
-        && this->nodeId_ != nullptr; };
+        && this->nodeId_ != nullptr && this->shareDataVolume_ != nullptr; };
     // instanceInfos Field Functions 
     bool hasInstanceInfos() const { return this->instanceInfos_ != nullptr;};
     void deleteInstanceInfos() { this->instanceInfos_ = nullptr;};
@@ -51,9 +53,17 @@ namespace Models
     inline ChangeCloudPhoneNodeResponseBodyNodeInfos& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
+    // shareDataVolume Field Functions 
+    bool hasShareDataVolume() const { return this->shareDataVolume_ != nullptr;};
+    void deleteShareDataVolume() { this->shareDataVolume_ = nullptr;};
+    inline int32_t shareDataVolume() const { DARABONBA_PTR_GET_DEFAULT(shareDataVolume_, 0) };
+    inline ChangeCloudPhoneNodeResponseBodyNodeInfos& setShareDataVolume(int32_t shareDataVolume) { DARABONBA_PTR_SET_VALUE(shareDataVolume_, shareDataVolume) };
+
+
   protected:
     std::shared_ptr<vector<Models::ChangeCloudPhoneNodeResponseBodyNodeInfosInstanceInfos>> instanceInfos_ = nullptr;
     std::shared_ptr<string> nodeId_ = nullptr;
+    std::shared_ptr<int32_t> shareDataVolume_ = nullptr;
   };
 
   } // namespace Models
