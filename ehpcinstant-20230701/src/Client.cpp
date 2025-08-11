@@ -1078,6 +1078,58 @@ RemoveImageResponse Client::removeImage(const RemoveImageRequest &request) {
 }
 
 /**
+ * @summary 应用跨地域同步
+ *
+ * @param tmpReq SynchronizeAppRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SynchronizeAppResponse
+ */
+SynchronizeAppResponse Client::synchronizeAppWithOptions(const SynchronizeAppRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SynchronizeAppShrinkRequest request = SynchronizeAppShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTargetRegionIds()) {
+    request.setTargetRegionIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.targetRegionIds(), "TargetRegionIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasTargetRegionIdsShrink()) {
+    query["TargetRegionIds"] = request.targetRegionIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }));
+  Params params = Params(json({
+    {"action" , "SynchronizeApp"},
+    {"version" , "2023-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }));
+  return json(callApi(params, req, runtime)).get<SynchronizeAppResponse>();
+}
+
+/**
+ * @summary 应用跨地域同步
+ *
+ * @param request SynchronizeAppRequest
+ * @return SynchronizeAppResponse
+ */
+SynchronizeAppResponse Client::synchronizeApp(const SynchronizeAppRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return synchronizeAppWithOptions(request, runtime);
+}
+
+/**
  * @summary 为指定的资源列表统一创建并绑定标签
  *
  * @param request TagResourcesRequest

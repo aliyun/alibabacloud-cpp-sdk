@@ -327,6 +327,23 @@ namespace EhpcInstant20230701
       Models::RemoveImageResponse removeImage(const Models::RemoveImageRequest &request);
 
       /**
+       * @summary 应用跨地域同步
+       *
+       * @param tmpReq SynchronizeAppRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SynchronizeAppResponse
+       */
+      Models::SynchronizeAppResponse synchronizeAppWithOptions(const Models::SynchronizeAppRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 应用跨地域同步
+       *
+       * @param request SynchronizeAppRequest
+       * @return SynchronizeAppResponse
+       */
+      Models::SynchronizeAppResponse synchronizeApp(const Models::SynchronizeAppRequest &request);
+
+      /**
        * @summary 为指定的资源列表统一创建并绑定标签
        *
        * @param request TagResourcesRequest

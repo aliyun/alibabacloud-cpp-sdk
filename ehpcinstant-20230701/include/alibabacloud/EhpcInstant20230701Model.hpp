@@ -67,6 +67,10 @@
 #include <alibabacloud/models/RemoveImageRequest.hpp>
 #include <alibabacloud/models/RemoveImageResponseBody.hpp>
 #include <alibabacloud/models/RemoveImageResponse.hpp>
+#include <alibabacloud/models/SynchronizeAppRequest.hpp>
+#include <alibabacloud/models/SynchronizeAppShrinkRequest.hpp>
+#include <alibabacloud/models/SynchronizeAppResponseBody.hpp>
+#include <alibabacloud/models/SynchronizeAppResponse.hpp>
 #include <alibabacloud/models/TagResourcesRequest.hpp>
 #include <alibabacloud/models/TagResourcesResponseBody.hpp>
 #include <alibabacloud/models/TagResourcesResponse.hpp>
