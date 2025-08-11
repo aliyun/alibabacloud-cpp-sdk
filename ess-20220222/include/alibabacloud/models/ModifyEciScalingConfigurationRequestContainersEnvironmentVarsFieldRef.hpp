@@ -1,0 +1,47 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_MODIFYECISCALINGCONFIGURATIONREQUESTCONTAINERSENVIRONMENTVARSFIELDREF_HPP_
+#define ALIBABACLOUD_MODELS_MODIFYECISCALINGCONFIGURATIONREQUESTCONTAINERSENVIRONMENTVARSFIELDREF_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Ess20220222
+{
+namespace Models
+{
+  class ModifyEciScalingConfigurationRequestContainersEnvironmentVarsFieldRef : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ModifyEciScalingConfigurationRequestContainersEnvironmentVarsFieldRef& obj) { 
+      DARABONBA_PTR_TO_JSON(FieldPath, fieldPath_);
+    };
+    friend void from_json(const Darabonba::Json& j, ModifyEciScalingConfigurationRequestContainersEnvironmentVarsFieldRef& obj) { 
+      DARABONBA_PTR_FROM_JSON(FieldPath, fieldPath_);
+    };
+    ModifyEciScalingConfigurationRequestContainersEnvironmentVarsFieldRef() = default ;
+    ModifyEciScalingConfigurationRequestContainersEnvironmentVarsFieldRef(const ModifyEciScalingConfigurationRequestContainersEnvironmentVarsFieldRef &) = default ;
+    ModifyEciScalingConfigurationRequestContainersEnvironmentVarsFieldRef(ModifyEciScalingConfigurationRequestContainersEnvironmentVarsFieldRef &&) = default ;
+    ModifyEciScalingConfigurationRequestContainersEnvironmentVarsFieldRef(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ModifyEciScalingConfigurationRequestContainersEnvironmentVarsFieldRef() = default ;
+    ModifyEciScalingConfigurationRequestContainersEnvironmentVarsFieldRef& operator=(const ModifyEciScalingConfigurationRequestContainersEnvironmentVarsFieldRef &) = default ;
+    ModifyEciScalingConfigurationRequestContainersEnvironmentVarsFieldRef& operator=(ModifyEciScalingConfigurationRequestContainersEnvironmentVarsFieldRef &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->fieldPath_ != nullptr; };
+    // fieldPath Field Functions 
+    bool hasFieldPath() const { return this->fieldPath_ != nullptr;};
+    void deleteFieldPath() { this->fieldPath_ = nullptr;};
+    inline string fieldPath() const { DARABONBA_PTR_GET_DEFAULT(fieldPath_, "") };
+    inline ModifyEciScalingConfigurationRequestContainersEnvironmentVarsFieldRef& setFieldPath(string fieldPath) { DARABONBA_PTR_SET_VALUE(fieldPath_, fieldPath) };
+
+
+  protected:
+    std::shared_ptr<string> fieldPath_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Ess20220222
+#endif
