@@ -664,6 +664,10 @@ ListTracesDatasResponse Client::listTracesDatasWithOptions(const ListTracesDatas
     query["PageSize"] = request.pageSize();
   }
 
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.sessionId();
+  }
+
   if (!!request.hasSortBy()) {
     query["SortBy"] = request.sortBy();
   }

@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OwnerSubId, ownerSubId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
       DARABONBA_PTR_TO_JSON(SortOrder, sortOrder_);
       DARABONBA_PTR_TO_JSON(SpanIds, spanIdsShrink_);
@@ -49,6 +50,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OwnerSubId, ownerSubId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
       DARABONBA_PTR_FROM_JSON(SortOrder, sortOrder_);
       DARABONBA_PTR_FROM_JSON(SpanIds, spanIdsShrink_);
@@ -70,8 +72,8 @@ namespace Models
     virtual bool empty() const override { this->endUserId_ != nullptr
         && this->filtersShrink_ != nullptr && this->hasEvents_ != nullptr && this->hasStatusMessage_ != nullptr && this->llmAppName_ != nullptr && this->maxDuration_ != nullptr
         && this->maxTime_ != nullptr && this->minDuration_ != nullptr && this->minTime_ != nullptr && this->opentelemetryCompatible_ != nullptr && this->ownerId_ != nullptr
-        && this->ownerSubId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->sortBy_ != nullptr && this->sortOrder_ != nullptr
-        && this->spanIdsShrink_ != nullptr && this->spanName_ != nullptr && this->traceIdsShrink_ != nullptr && this->traceReduceMethod_ != nullptr; };
+        && this->ownerSubId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->sessionId_ != nullptr && this->sortBy_ != nullptr
+        && this->sortOrder_ != nullptr && this->spanIdsShrink_ != nullptr && this->spanName_ != nullptr && this->traceIdsShrink_ != nullptr && this->traceReduceMethod_ != nullptr; };
     // endUserId Field Functions 
     bool hasEndUserId() const { return this->endUserId_ != nullptr;};
     void deleteEndUserId() { this->endUserId_ = nullptr;};
@@ -170,6 +172,13 @@ namespace Models
     inline ListTracesDatasShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // sessionId Field Functions 
+    bool hasSessionId() const { return this->sessionId_ != nullptr;};
+    void deleteSessionId() { this->sessionId_ = nullptr;};
+    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline ListTracesDatasShrinkRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
+
+
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
@@ -240,6 +249,7 @@ namespace Models
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
     // The number of entries per page. Default value: 20. Maximum value: 100.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    std::shared_ptr<string> sessionId_ = nullptr;
     // The field used to sort the returned results. Valid values: StartTime and Duration.
     std::shared_ptr<string> sortBy_ = nullptr;
     // The sorting order. Valid values:
