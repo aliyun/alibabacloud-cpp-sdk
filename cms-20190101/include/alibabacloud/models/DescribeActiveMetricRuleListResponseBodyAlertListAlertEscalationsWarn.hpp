@@ -1,0 +1,96 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBEACTIVEMETRICRULELISTRESPONSEBODYALERTLISTALERTESCALATIONSWARN_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBEACTIVEMETRICRULELISTRESPONSEBODYALERTLISTALERTESCALATIONSWARN_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Cms20190101
+{
+namespace Models
+{
+  class DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsWarn : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsWarn& obj) { 
+      DARABONBA_PTR_TO_JSON(ComparisonOperator, comparisonOperator_);
+      DARABONBA_PTR_TO_JSON(Statistics, statistics_);
+      DARABONBA_PTR_TO_JSON(Threshold, threshold_);
+      DARABONBA_PTR_TO_JSON(Times, times_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsWarn& obj) { 
+      DARABONBA_PTR_FROM_JSON(ComparisonOperator, comparisonOperator_);
+      DARABONBA_PTR_FROM_JSON(Statistics, statistics_);
+      DARABONBA_PTR_FROM_JSON(Threshold, threshold_);
+      DARABONBA_PTR_FROM_JSON(Times, times_);
+    };
+    DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsWarn() = default ;
+    DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsWarn(const DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsWarn &) = default ;
+    DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsWarn(DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsWarn &&) = default ;
+    DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsWarn(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsWarn() = default ;
+    DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsWarn& operator=(const DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsWarn &) = default ;
+    DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsWarn& operator=(DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsWarn &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->comparisonOperator_ != nullptr
+        && this->statistics_ != nullptr && this->threshold_ != nullptr && this->times_ != nullptr; };
+    // comparisonOperator Field Functions 
+    bool hasComparisonOperator() const { return this->comparisonOperator_ != nullptr;};
+    void deleteComparisonOperator() { this->comparisonOperator_ = nullptr;};
+    inline string comparisonOperator() const { DARABONBA_PTR_GET_DEFAULT(comparisonOperator_, "") };
+    inline DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsWarn& setComparisonOperator(string comparisonOperator) { DARABONBA_PTR_SET_VALUE(comparisonOperator_, comparisonOperator) };
+
+
+    // statistics Field Functions 
+    bool hasStatistics() const { return this->statistics_ != nullptr;};
+    void deleteStatistics() { this->statistics_ = nullptr;};
+    inline string statistics() const { DARABONBA_PTR_GET_DEFAULT(statistics_, "") };
+    inline DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsWarn& setStatistics(string statistics) { DARABONBA_PTR_SET_VALUE(statistics_, statistics) };
+
+
+    // threshold Field Functions 
+    bool hasThreshold() const { return this->threshold_ != nullptr;};
+    void deleteThreshold() { this->threshold_ = nullptr;};
+    inline string threshold() const { DARABONBA_PTR_GET_DEFAULT(threshold_, "") };
+    inline DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsWarn& setThreshold(string threshold) { DARABONBA_PTR_SET_VALUE(threshold_, threshold) };
+
+
+    // times Field Functions 
+    bool hasTimes() const { return this->times_ != nullptr;};
+    void deleteTimes() { this->times_ = nullptr;};
+    inline string times() const { DARABONBA_PTR_GET_DEFAULT(times_, "") };
+    inline DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsWarn& setTimes(string times) { DARABONBA_PTR_SET_VALUE(times_, times) };
+
+
+  protected:
+    // The operator that is used to compare the metric value with the threshold for Warn-level alerts. Valid values:
+    // 
+    // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+    // *   GreaterThanThreshold: greater than the threshold
+    // *   LessThanOrEqualToThreshold: less than or equal to the threshold
+    // *   LessThanThreshold: less than the threshold
+    // *   NotEqualToThreshold: not equal to the threshold
+    // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
+    // *   LessThanYesterday: less than the metric value at the same time yesterday
+    // *   GreaterThanLastWeek: greater than the metric value at the same time last week
+    // *   LessThanLastWeek: less than the metric value at the same time last week
+    // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+    // *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+    std::shared_ptr<string> comparisonOperator_ = nullptr;
+    // The statistical methods for Warn-level alerts.
+    std::shared_ptr<string> statistics_ = nullptr;
+    // The threshold for Warn-level alerts.
+    std::shared_ptr<string> threshold_ = nullptr;
+    // The consecutive number of times
+    // 
+    // for which the metric value meets the alert condition before a Warn-level alert is triggered.
+    std::shared_ptr<string> times_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Cms20190101
+#endif
