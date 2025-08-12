@@ -16,6 +16,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const SetApplicationSsoConfigRequestOidcSsoConfig& obj) { 
       DARABONBA_PTR_TO_JSON(AccessTokenEffectiveTime, accessTokenEffectiveTime_);
+      DARABONBA_PTR_TO_JSON(AllowedPublicClient, allowedPublicClient_);
       DARABONBA_PTR_TO_JSON(CodeEffectiveTime, codeEffectiveTime_);
       DARABONBA_PTR_TO_JSON(CustomClaims, customClaims_);
       DARABONBA_PTR_TO_JSON(GrantScopes, grantScopes_);
@@ -33,6 +34,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, SetApplicationSsoConfigRequestOidcSsoConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessTokenEffectiveTime, accessTokenEffectiveTime_);
+      DARABONBA_PTR_FROM_JSON(AllowedPublicClient, allowedPublicClient_);
       DARABONBA_PTR_FROM_JSON(CodeEffectiveTime, codeEffectiveTime_);
       DARABONBA_PTR_FROM_JSON(CustomClaims, customClaims_);
       DARABONBA_PTR_FROM_JSON(GrantScopes, grantScopes_);
@@ -60,14 +62,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->accessTokenEffectiveTime_ != nullptr
-        && this->codeEffectiveTime_ != nullptr && this->customClaims_ != nullptr && this->grantScopes_ != nullptr && this->grantTypes_ != nullptr && this->idTokenEffectiveTime_ != nullptr
-        && this->passwordAuthenticationSourceId_ != nullptr && this->passwordTotpMfaRequired_ != nullptr && this->pkceChallengeMethods_ != nullptr && this->pkceRequired_ != nullptr && this->postLogoutRedirectUris_ != nullptr
-        && this->redirectUris_ != nullptr && this->refreshTokenEffective_ != nullptr && this->responseTypes_ != nullptr && this->subjectIdExpression_ != nullptr; };
+        && this->allowedPublicClient_ != nullptr && this->codeEffectiveTime_ != nullptr && this->customClaims_ != nullptr && this->grantScopes_ != nullptr && this->grantTypes_ != nullptr
+        && this->idTokenEffectiveTime_ != nullptr && this->passwordAuthenticationSourceId_ != nullptr && this->passwordTotpMfaRequired_ != nullptr && this->pkceChallengeMethods_ != nullptr && this->pkceRequired_ != nullptr
+        && this->postLogoutRedirectUris_ != nullptr && this->redirectUris_ != nullptr && this->refreshTokenEffective_ != nullptr && this->responseTypes_ != nullptr && this->subjectIdExpression_ != nullptr; };
     // accessTokenEffectiveTime Field Functions 
     bool hasAccessTokenEffectiveTime() const { return this->accessTokenEffectiveTime_ != nullptr;};
     void deleteAccessTokenEffectiveTime() { this->accessTokenEffectiveTime_ = nullptr;};
     inline int64_t accessTokenEffectiveTime() const { DARABONBA_PTR_GET_DEFAULT(accessTokenEffectiveTime_, 0L) };
     inline SetApplicationSsoConfigRequestOidcSsoConfig& setAccessTokenEffectiveTime(int64_t accessTokenEffectiveTime) { DARABONBA_PTR_SET_VALUE(accessTokenEffectiveTime_, accessTokenEffectiveTime) };
+
+
+    // allowedPublicClient Field Functions 
+    bool hasAllowedPublicClient() const { return this->allowedPublicClient_ != nullptr;};
+    void deleteAllowedPublicClient() { this->allowedPublicClient_ = nullptr;};
+    inline bool allowedPublicClient() const { DARABONBA_PTR_GET_DEFAULT(allowedPublicClient_, false) };
+    inline SetApplicationSsoConfigRequestOidcSsoConfig& setAllowedPublicClient(bool allowedPublicClient) { DARABONBA_PTR_SET_VALUE(allowedPublicClient_, allowedPublicClient) };
 
 
     // codeEffectiveTime Field Functions 
@@ -185,6 +194,7 @@ namespace Models
   protected:
     // The validity period of the issued access token. Unit: seconds. Default value: 1200.
     std::shared_ptr<int64_t> accessTokenEffectiveTime_ = nullptr;
+    std::shared_ptr<bool> allowedPublicClient_ = nullptr;
     // The validity period of the issued code. Unit: seconds. Default value: 60.
     std::shared_ptr<int64_t> codeEffectiveTime_ = nullptr;
     // The custom claims that are returned for the ID token.

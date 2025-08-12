@@ -369,6 +369,10 @@ CreateApplicationClientSecretResponse Client::createApplicationClientSecretWithO
     query["ApplicationId"] = request.applicationId();
   }
 
+  if (!!request.hasExpirationTime()) {
+    query["ExpirationTime"] = request.expirationTime();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.instanceId();
   }

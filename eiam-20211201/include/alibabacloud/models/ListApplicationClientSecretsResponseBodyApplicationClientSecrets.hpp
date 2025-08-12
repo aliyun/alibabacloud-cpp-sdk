@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_TO_JSON(ClientId, clientId_);
       DARABONBA_PTR_TO_JSON(ClientSecret, clientSecret_);
+      DARABONBA_PTR_TO_JSON(ExpirationTime, expirationTime_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(LastUsedTime, lastUsedTime_);
       DARABONBA_PTR_TO_JSON(SecretId, secretId_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_FROM_JSON(ClientId, clientId_);
       DARABONBA_PTR_FROM_JSON(ClientSecret, clientSecret_);
+      DARABONBA_PTR_FROM_JSON(ExpirationTime, expirationTime_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(LastUsedTime, lastUsedTime_);
       DARABONBA_PTR_FROM_JSON(SecretId, secretId_);
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->applicationId_ != nullptr
-        && this->clientId_ != nullptr && this->clientSecret_ != nullptr && this->instanceId_ != nullptr && this->lastUsedTime_ != nullptr && this->secretId_ != nullptr
-        && this->status_ != nullptr; };
+        && this->clientId_ != nullptr && this->clientSecret_ != nullptr && this->expirationTime_ != nullptr && this->instanceId_ != nullptr && this->lastUsedTime_ != nullptr
+        && this->secretId_ != nullptr && this->status_ != nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -63,6 +65,13 @@ namespace Models
     void deleteClientSecret() { this->clientSecret_ = nullptr;};
     inline string clientSecret() const { DARABONBA_PTR_GET_DEFAULT(clientSecret_, "") };
     inline ListApplicationClientSecretsResponseBodyApplicationClientSecrets& setClientSecret(string clientSecret) { DARABONBA_PTR_SET_VALUE(clientSecret_, clientSecret) };
+
+
+    // expirationTime Field Functions 
+    bool hasExpirationTime() const { return this->expirationTime_ != nullptr;};
+    void deleteExpirationTime() { this->expirationTime_ = nullptr;};
+    inline int64_t expirationTime() const { DARABONBA_PTR_GET_DEFAULT(expirationTime_, 0L) };
+    inline ListApplicationClientSecretsResponseBodyApplicationClientSecrets& setExpirationTime(int64_t expirationTime) { DARABONBA_PTR_SET_VALUE(expirationTime_, expirationTime) };
 
 
     // instanceId Field Functions 
@@ -100,6 +109,7 @@ namespace Models
     std::shared_ptr<string> clientId_ = nullptr;
     // The client key secret of the application. The value is not masked.
     std::shared_ptr<string> clientSecret_ = nullptr;
+    std::shared_ptr<int64_t> expirationTime_ = nullptr;
     // The ID of the instance.
     std::shared_ptr<string> instanceId_ = nullptr;
     // The time when the client key was last used. The value is a UNIX timestamp. Unit: milliseconds.
