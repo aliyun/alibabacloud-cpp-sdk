@@ -413,6 +413,42 @@ namespace Bailian20231229
       Models::DescribeFileResponse describeFile(const string &WorkspaceId, const string &FileId);
 
       /**
+       * @summary 查询支付宝打赏状态
+       *
+       * @param request GetAlipayTransferStatusRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAlipayTransferStatusResponse
+       */
+      Models::GetAlipayTransferStatusResponse getAlipayTransferStatusWithOptions(const Models::GetAlipayTransferStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询支付宝打赏状态
+       *
+       * @param request GetAlipayTransferStatusRequest
+       * @return GetAlipayTransferStatusResponse
+       */
+      Models::GetAlipayTransferStatusResponse getAlipayTransferStatus(const Models::GetAlipayTransferStatusRequest &request);
+
+      /**
+       * @summary 支付宝打赏链接
+       *
+       * @param request GetAlipayUrlRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAlipayUrlResponse
+       */
+      Models::GetAlipayUrlResponse getAlipayUrlWithOptions(const Models::GetAlipayUrlRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 支付宝打赏链接
+       *
+       * @param request GetAlipayUrlRequest
+       * @return GetAlipayUrlResponse
+       */
+      Models::GetAlipayUrlResponse getAlipayUrl(const Models::GetAlipayUrlRequest &request);
+
+      /**
        * @summary Queries the current status of a specified knowledge base creation or add document job.
        *
        * @description 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.

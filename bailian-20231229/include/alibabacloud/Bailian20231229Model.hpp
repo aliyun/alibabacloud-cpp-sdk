@@ -58,6 +58,12 @@
 #include <alibabacloud/models/DeletePromptTemplateResponse.hpp>
 #include <alibabacloud/models/DescribeFileResponseBody.hpp>
 #include <alibabacloud/models/DescribeFileResponse.hpp>
+#include <alibabacloud/models/GetAlipayTransferStatusRequest.hpp>
+#include <alibabacloud/models/GetAlipayTransferStatusResponseBody.hpp>
+#include <alibabacloud/models/GetAlipayTransferStatusResponse.hpp>
+#include <alibabacloud/models/GetAlipayUrlRequest.hpp>
+#include <alibabacloud/models/GetAlipayUrlResponseBody.hpp>
+#include <alibabacloud/models/GetAlipayUrlResponse.hpp>
 #include <alibabacloud/models/GetIndexJobStatusRequest.hpp>
 #include <alibabacloud/models/GetIndexJobStatusResponseBody.hpp>
 #include <alibabacloud/models/GetIndexJobStatusResponse.hpp>
@@ -158,6 +164,8 @@
 #include <alibabacloud/models/DeleteFileResponseBodyData.hpp>
 #include <alibabacloud/models/DeleteIndexDocumentResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeFileResponseBodyData.hpp>
+#include <alibabacloud/models/GetAlipayTransferStatusResponseBodyData.hpp>
+#include <alibabacloud/models/GetAlipayUrlResponseBodyData.hpp>
 #include <alibabacloud/models/GetIndexJobStatusResponseBodyDataDocuments.hpp>
 #include <alibabacloud/models/GetIndexJobStatusResponseBodyData.hpp>
 #include <alibabacloud/models/GetPublishedAgentResponseBodyDataApplicationConfigHistoryConfig.hpp>

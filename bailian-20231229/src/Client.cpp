@@ -1137,6 +1137,104 @@ DescribeFileResponse Client::describeFile(const string &WorkspaceId, const strin
 }
 
 /**
+ * @summary 查询支付宝打赏状态
+ *
+ * @param request GetAlipayTransferStatusRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAlipayTransferStatusResponse
+ */
+GetAlipayTransferStatusResponse Client::getAlipayTransferStatusWithOptions(const GetAlipayTransferStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCode()) {
+    query["code"] = request.code();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["workspace_id"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetAlipayTransferStatus"},
+    {"version" , "2023-12-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/alipay/transfer/status")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }));
+  return json(callApi(params, req, runtime)).get<GetAlipayTransferStatusResponse>();
+}
+
+/**
+ * @summary 查询支付宝打赏状态
+ *
+ * @param request GetAlipayTransferStatusRequest
+ * @return GetAlipayTransferStatusResponse
+ */
+GetAlipayTransferStatusResponse Client::getAlipayTransferStatus(const GetAlipayTransferStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAlipayTransferStatusWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 支付宝打赏链接
+ *
+ * @param request GetAlipayUrlRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAlipayUrlResponse
+ */
+GetAlipayUrlResponse Client::getAlipayUrlWithOptions(const GetAlipayUrlRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["app_id"] = request.appId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["workspace_id"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetAlipayUrl"},
+    {"version" , "2023-12-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/alipay/transfer/url")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }));
+  return json(callApi(params, req, runtime)).get<GetAlipayUrlResponse>();
+}
+
+/**
+ * @summary 支付宝打赏链接
+ *
+ * @param request GetAlipayUrlRequest
+ * @return GetAlipayUrlResponse
+ */
+GetAlipayUrlResponse Client::getAlipayUrl(const GetAlipayUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAlipayUrlWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries the current status of a specified knowledge base creation or add document job.
  *
  * @description 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
