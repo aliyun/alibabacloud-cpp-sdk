@@ -1,0 +1,68 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTSERVICESREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_LISTSERVICESREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Cms20240330
+{
+namespace Models
+{
+  class ListServicesRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListServicesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(serviceType, serviceType_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListServicesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(serviceType, serviceType_);
+    };
+    ListServicesRequest() = default ;
+    ListServicesRequest(const ListServicesRequest &) = default ;
+    ListServicesRequest(ListServicesRequest &&) = default ;
+    ListServicesRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListServicesRequest() = default ;
+    ListServicesRequest& operator=(const ListServicesRequest &) = default ;
+    ListServicesRequest& operator=(ListServicesRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->maxResults_ != nullptr
+        && this->nextToken_ != nullptr && this->serviceType_ != nullptr; };
+    // maxResults Field Functions 
+    bool hasMaxResults() const { return this->maxResults_ != nullptr;};
+    void deleteMaxResults() { this->maxResults_ = nullptr;};
+    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline ListServicesRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline ListServicesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
+    // serviceType Field Functions 
+    bool hasServiceType() const { return this->serviceType_ != nullptr;};
+    void deleteServiceType() { this->serviceType_ = nullptr;};
+    inline string serviceType() const { DARABONBA_PTR_GET_DEFAULT(serviceType_, "") };
+    inline ListServicesRequest& setServiceType(string serviceType) { DARABONBA_PTR_SET_VALUE(serviceType_, serviceType) };
+
+
+  protected:
+    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    std::shared_ptr<string> nextToken_ = nullptr;
+    std::shared_ptr<string> serviceType_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Cms20240330
+#endif
