@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEFAILEDNOTIFICATIONSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeFailedNotificationsResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

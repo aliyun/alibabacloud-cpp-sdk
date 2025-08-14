@@ -19,6 +19,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(OrderType, orderType_);
       DARABONBA_PTR_TO_JSON(OutBizId, outBizId_);
+      DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
+      DARABONBA_PTR_TO_JSON(ProductName, productName_);
+      DARABONBA_PTR_TO_JSON(RealAliyunId, realAliyunId_);
       DARABONBA_PTR_TO_JSON(RealAliyunPk, realAliyunPk_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeInvoiceForIsvResponseBodyResultEvaluateList& obj) { 
@@ -28,6 +31,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(OrderType, orderType_);
       DARABONBA_PTR_FROM_JSON(OutBizId, outBizId_);
+      DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
+      DARABONBA_PTR_FROM_JSON(ProductName, productName_);
+      DARABONBA_PTR_FROM_JSON(RealAliyunId, realAliyunId_);
       DARABONBA_PTR_FROM_JSON(RealAliyunPk, realAliyunPk_);
     };
     DescribeInvoiceForIsvResponseBodyResultEvaluateList() = default ;
@@ -43,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->agent_ != nullptr
         && this->amount_ != nullptr && this->bizTimeStr_ != nullptr && this->id_ != nullptr && this->orderType_ != nullptr && this->outBizId_ != nullptr
-        && this->realAliyunPk_ != nullptr; };
+        && this->productCode_ != nullptr && this->productName_ != nullptr && this->realAliyunId_ != nullptr && this->realAliyunPk_ != nullptr; };
     // agent Field Functions 
     bool hasAgent() const { return this->agent_ != nullptr;};
     void deleteAgent() { this->agent_ = nullptr;};
@@ -86,6 +92,27 @@ namespace Models
     inline DescribeInvoiceForIsvResponseBodyResultEvaluateList& setOutBizId(string outBizId) { DARABONBA_PTR_SET_VALUE(outBizId_, outBizId) };
 
 
+    // productCode Field Functions 
+    bool hasProductCode() const { return this->productCode_ != nullptr;};
+    void deleteProductCode() { this->productCode_ = nullptr;};
+    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline DescribeInvoiceForIsvResponseBodyResultEvaluateList& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
+
+
+    // productName Field Functions 
+    bool hasProductName() const { return this->productName_ != nullptr;};
+    void deleteProductName() { this->productName_ = nullptr;};
+    inline string productName() const { DARABONBA_PTR_GET_DEFAULT(productName_, "") };
+    inline DescribeInvoiceForIsvResponseBodyResultEvaluateList& setProductName(string productName) { DARABONBA_PTR_SET_VALUE(productName_, productName) };
+
+
+    // realAliyunId Field Functions 
+    bool hasRealAliyunId() const { return this->realAliyunId_ != nullptr;};
+    void deleteRealAliyunId() { this->realAliyunId_ = nullptr;};
+    inline string realAliyunId() const { DARABONBA_PTR_GET_DEFAULT(realAliyunId_, "") };
+    inline DescribeInvoiceForIsvResponseBodyResultEvaluateList& setRealAliyunId(string realAliyunId) { DARABONBA_PTR_SET_VALUE(realAliyunId_, realAliyunId) };
+
+
     // realAliyunPk Field Functions 
     bool hasRealAliyunPk() const { return this->realAliyunPk_ != nullptr;};
     void deleteRealAliyunPk() { this->realAliyunPk_ = nullptr;};
@@ -100,6 +127,9 @@ namespace Models
     std::shared_ptr<string> id_ = nullptr;
     std::shared_ptr<string> orderType_ = nullptr;
     std::shared_ptr<string> outBizId_ = nullptr;
+    std::shared_ptr<string> productCode_ = nullptr;
+    std::shared_ptr<string> productName_ = nullptr;
+    std::shared_ptr<string> realAliyunId_ = nullptr;
     std::shared_ptr<string> realAliyunPk_ = nullptr;
   };
 

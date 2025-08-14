@@ -19,6 +19,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeInvoiceForIsvResponseBodyResult& obj) { 
       DARABONBA_PTR_TO_JSON(AliyunPk, aliyunPk_);
+      DARABONBA_PTR_TO_JSON(CheckNotice, checkNotice_);
       DARABONBA_PTR_TO_JSON(CreateTimeStr, createTimeStr_);
       DARABONBA_PTR_TO_JSON(EvaluateList, evaluateList_);
       DARABONBA_PTR_TO_JSON(Id, id_);
@@ -33,9 +34,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Title, title_);
       DARABONBA_PTR_TO_JSON(Type, type_);
       DARABONBA_PTR_TO_JSON(UserAddressDto, userAddressDto_);
+      DARABONBA_PTR_TO_JSON(UserNotice, userNotice_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeInvoiceForIsvResponseBodyResult& obj) { 
       DARABONBA_PTR_FROM_JSON(AliyunPk, aliyunPk_);
+      DARABONBA_PTR_FROM_JSON(CheckNotice, checkNotice_);
       DARABONBA_PTR_FROM_JSON(CreateTimeStr, createTimeStr_);
       DARABONBA_PTR_FROM_JSON(EvaluateList, evaluateList_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
@@ -50,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Title, title_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
       DARABONBA_PTR_FROM_JSON(UserAddressDto, userAddressDto_);
+      DARABONBA_PTR_FROM_JSON(UserNotice, userNotice_);
     };
     DescribeInvoiceForIsvResponseBodyResult() = default ;
     DescribeInvoiceForIsvResponseBodyResult(const DescribeInvoiceForIsvResponseBodyResult &) = default ;
@@ -63,14 +67,22 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->aliyunPk_ != nullptr
-        && this->createTimeStr_ != nullptr && this->evaluateList_ != nullptr && this->id_ != nullptr && this->invoiceId_ != nullptr && this->invoiceList_ != nullptr
-        && this->materialType_ != nullptr && this->modifiedTime_ != nullptr && this->modifiedTimeStr_ != nullptr && this->price_ != nullptr && this->receiptUserInfoDto_ != nullptr
-        && this->status_ != nullptr && this->title_ != nullptr && this->type_ != nullptr && this->userAddressDto_ != nullptr; };
+        && this->checkNotice_ != nullptr && this->createTimeStr_ != nullptr && this->evaluateList_ != nullptr && this->id_ != nullptr && this->invoiceId_ != nullptr
+        && this->invoiceList_ != nullptr && this->materialType_ != nullptr && this->modifiedTime_ != nullptr && this->modifiedTimeStr_ != nullptr && this->price_ != nullptr
+        && this->receiptUserInfoDto_ != nullptr && this->status_ != nullptr && this->title_ != nullptr && this->type_ != nullptr && this->userAddressDto_ != nullptr
+        && this->userNotice_ != nullptr; };
     // aliyunPk Field Functions 
     bool hasAliyunPk() const { return this->aliyunPk_ != nullptr;};
     void deleteAliyunPk() { this->aliyunPk_ = nullptr;};
     inline string aliyunPk() const { DARABONBA_PTR_GET_DEFAULT(aliyunPk_, "") };
     inline DescribeInvoiceForIsvResponseBodyResult& setAliyunPk(string aliyunPk) { DARABONBA_PTR_SET_VALUE(aliyunPk_, aliyunPk) };
+
+
+    // checkNotice Field Functions 
+    bool hasCheckNotice() const { return this->checkNotice_ != nullptr;};
+    void deleteCheckNotice() { this->checkNotice_ = nullptr;};
+    inline string checkNotice() const { DARABONBA_PTR_GET_DEFAULT(checkNotice_, "") };
+    inline DescribeInvoiceForIsvResponseBodyResult& setCheckNotice(string checkNotice) { DARABONBA_PTR_SET_VALUE(checkNotice_, checkNotice) };
 
 
     // createTimeStr Field Functions 
@@ -179,8 +191,16 @@ namespace Models
     inline DescribeInvoiceForIsvResponseBodyResult& setUserAddressDto(Models::DescribeInvoiceForIsvResponseBodyResultUserAddressDto && userAddressDto) { DARABONBA_PTR_SET_RVALUE(userAddressDto_, userAddressDto) };
 
 
+    // userNotice Field Functions 
+    bool hasUserNotice() const { return this->userNotice_ != nullptr;};
+    void deleteUserNotice() { this->userNotice_ = nullptr;};
+    inline string userNotice() const { DARABONBA_PTR_GET_DEFAULT(userNotice_, "") };
+    inline DescribeInvoiceForIsvResponseBodyResult& setUserNotice(string userNotice) { DARABONBA_PTR_SET_VALUE(userNotice_, userNotice) };
+
+
   protected:
     std::shared_ptr<string> aliyunPk_ = nullptr;
+    std::shared_ptr<string> checkNotice_ = nullptr;
     std::shared_ptr<string> createTimeStr_ = nullptr;
     std::shared_ptr<vector<Models::DescribeInvoiceForIsvResponseBodyResultEvaluateList>> evaluateList_ = nullptr;
     std::shared_ptr<string> id_ = nullptr;
@@ -195,6 +215,7 @@ namespace Models
     std::shared_ptr<string> title_ = nullptr;
     std::shared_ptr<string> type_ = nullptr;
     std::shared_ptr<Models::DescribeInvoiceForIsvResponseBodyResultUserAddressDto> userAddressDto_ = nullptr;
+    std::shared_ptr<string> userNotice_ = nullptr;
   };
 
   } // namespace Models
