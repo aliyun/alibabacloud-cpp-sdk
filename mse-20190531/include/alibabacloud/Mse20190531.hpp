@@ -602,6 +602,23 @@ namespace Mse20190531
       Models::CreateNacosInstanceResponse createNacosInstance(const Models::CreateNacosInstanceRequest &request);
 
       /**
+       * @summary 创建一个MCP Server
+       *
+       * @param request CreateNacosMcpServerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateNacosMcpServerResponse
+       */
+      Models::CreateNacosMcpServerResponse createNacosMcpServerWithOptions(const Models::CreateNacosMcpServerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建一个MCP Server
+       *
+       * @param request CreateNacosMcpServerRequest
+       * @return CreateNacosMcpServerResponse
+       */
+      Models::CreateNacosMcpServerResponse createNacosMcpServer(const Models::CreateNacosMcpServerRequest &request);
+
+      /**
        * @summary Creates a Nacos service.
        *
        * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
@@ -1109,6 +1126,23 @@ namespace Mse20190531
        * @return DeleteNacosInstanceResponse
        */
       Models::DeleteNacosInstanceResponse deleteNacosInstance(const Models::DeleteNacosInstanceRequest &request);
+
+      /**
+       * @summary 删除一个MCP Server
+       *
+       * @param request DeleteNacosMcpServerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteNacosMcpServerResponse
+       */
+      Models::DeleteNacosMcpServerResponse deleteNacosMcpServerWithOptions(const Models::DeleteNacosMcpServerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除一个MCP Server
+       *
+       * @param request DeleteNacosMcpServerRequest
+       * @return DeleteNacosMcpServerResponse
+       */
+      Models::DeleteNacosMcpServerResponse deleteNacosMcpServer(const Models::DeleteNacosMcpServerRequest &request);
 
       /**
        * @summary Deletes a Nacos service.
@@ -1795,6 +1829,23 @@ namespace Mse20190531
        * @return GetNacosHistoryConfigResponse
        */
       Models::GetNacosHistoryConfigResponse getNacosHistoryConfig(const Models::GetNacosHistoryConfigRequest &request);
+
+      /**
+       * @summary 获取MCP Server的详情
+       *
+       * @param request GetNacosMcpServerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetNacosMcpServerResponse
+       */
+      Models::GetNacosMcpServerResponse getNacosMcpServerWithOptions(const Models::GetNacosMcpServerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取MCP Server的详情
+       *
+       * @param request GetNacosMcpServerRequest
+       * @return GetNacosMcpServerResponse
+       */
+      Models::GetNacosMcpServerResponse getNacosMcpServer(const Models::GetNacosMcpServerRequest &request);
 
       /**
        * @summary Queries information about service governance.
@@ -2706,6 +2757,23 @@ namespace Mse20190531
        * @return ListNacosHistoryConfigsResponse
        */
       Models::ListNacosHistoryConfigsResponse listNacosHistoryConfigs(const Models::ListNacosHistoryConfigsRequest &request);
+
+      /**
+       * @summary 获取McpServer列表
+       *
+       * @param request ListNacosMcpServersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListNacosMcpServersResponse
+       */
+      Models::ListNacosMcpServersResponse listNacosMcpServersWithOptions(const Models::ListNacosMcpServersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取McpServer列表
+       *
+       * @param request ListNacosMcpServersRequest
+       * @return ListNacosMcpServersResponse
+       */
+      Models::ListNacosMcpServersResponse listNacosMcpServers(const Models::ListNacosMcpServersRequest &request);
 
       /**
        * @summary 展示命名空间列表

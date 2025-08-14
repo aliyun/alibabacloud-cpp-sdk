@@ -7,6 +7,7 @@
 #include <alibabacloud/models/GatewayService.hpp>
 #include <alibabacloud/models/TrafficPolicy.hpp>
 #include <alibabacloud/models/RulesValue.hpp>
+#include <alibabacloud/models/DataToolSpecToolsMetaValue.hpp>
 #include <alibabacloud/models/DataValue.hpp>
 #include <alibabacloud/models/AddAuthPolicyRequest.hpp>
 #include <alibabacloud/models/AddAuthPolicyResponseBody.hpp>
@@ -116,6 +117,9 @@
 #include <alibabacloud/models/CreateNacosInstanceRequest.hpp>
 #include <alibabacloud/models/CreateNacosInstanceResponseBody.hpp>
 #include <alibabacloud/models/CreateNacosInstanceResponse.hpp>
+#include <alibabacloud/models/CreateNacosMcpServerRequest.hpp>
+#include <alibabacloud/models/CreateNacosMcpServerResponseBody.hpp>
+#include <alibabacloud/models/CreateNacosMcpServerResponse.hpp>
 #include <alibabacloud/models/CreateNacosServiceRequest.hpp>
 #include <alibabacloud/models/CreateNacosServiceResponseBody.hpp>
 #include <alibabacloud/models/CreateNacosServiceResponse.hpp>
@@ -210,6 +214,9 @@
 #include <alibabacloud/models/DeleteNacosInstanceRequest.hpp>
 #include <alibabacloud/models/DeleteNacosInstanceResponseBody.hpp>
 #include <alibabacloud/models/DeleteNacosInstanceResponse.hpp>
+#include <alibabacloud/models/DeleteNacosMcpServerRequest.hpp>
+#include <alibabacloud/models/DeleteNacosMcpServerResponseBody.hpp>
+#include <alibabacloud/models/DeleteNacosMcpServerResponse.hpp>
 #include <alibabacloud/models/DeleteNacosServiceRequest.hpp>
 #include <alibabacloud/models/DeleteNacosServiceResponseBody.hpp>
 #include <alibabacloud/models/DeleteNacosServiceResponse.hpp>
@@ -326,6 +333,9 @@
 #include <alibabacloud/models/GetNacosHistoryConfigRequest.hpp>
 #include <alibabacloud/models/GetNacosHistoryConfigResponseBody.hpp>
 #include <alibabacloud/models/GetNacosHistoryConfigResponse.hpp>
+#include <alibabacloud/models/GetNacosMcpServerRequest.hpp>
+#include <alibabacloud/models/GetNacosMcpServerResponseBody.hpp>
+#include <alibabacloud/models/GetNacosMcpServerResponse.hpp>
 #include <alibabacloud/models/GetOverviewRequest.hpp>
 #include <alibabacloud/models/GetOverviewResponseBody.hpp>
 #include <alibabacloud/models/GetOverviewResponse.hpp>
@@ -485,6 +495,9 @@
 #include <alibabacloud/models/ListNacosHistoryConfigsRequest.hpp>
 #include <alibabacloud/models/ListNacosHistoryConfigsResponseBody.hpp>
 #include <alibabacloud/models/ListNacosHistoryConfigsResponse.hpp>
+#include <alibabacloud/models/ListNacosMcpServersRequest.hpp>
+#include <alibabacloud/models/ListNacosMcpServersResponseBody.hpp>
+#include <alibabacloud/models/ListNacosMcpServersResponse.hpp>
 #include <alibabacloud/models/ListNamespacesRequest.hpp>
 #include <alibabacloud/models/ListNamespacesShrinkRequest.hpp>
 #include <alibabacloud/models/ListNamespacesResponseBody.hpp>
@@ -916,6 +929,14 @@
 #include <alibabacloud/models/GetNacosConfigResponseBodyConfigurationGrayVersions.hpp>
 #include <alibabacloud/models/GetNacosConfigResponseBodyConfiguration.hpp>
 #include <alibabacloud/models/GetNacosHistoryConfigResponseBodyConfiguration.hpp>
+#include <alibabacloud/models/GetNacosMcpServerResponseBodyDataAllVersions.hpp>
+#include <alibabacloud/models/GetNacosMcpServerResponseBodyDataBackendEndpoints.hpp>
+#include <alibabacloud/models/GetNacosMcpServerResponseBodyDataRemoteServerConfigServiceRef.hpp>
+#include <alibabacloud/models/GetNacosMcpServerResponseBodyDataRemoteServerConfig.hpp>
+#include <alibabacloud/models/GetNacosMcpServerResponseBodyDataToolSpecTools.hpp>
+#include <alibabacloud/models/GetNacosMcpServerResponseBodyDataToolSpec.hpp>
+#include <alibabacloud/models/GetNacosMcpServerResponseBodyDataVersionDetail.hpp>
+#include <alibabacloud/models/GetNacosMcpServerResponseBodyData.hpp>
 #include <alibabacloud/models/GetPluginConfigResponseBodyDataGatewayConfigListResourceList.hpp>
 #include <alibabacloud/models/GetPluginConfigResponseBodyDataGatewayConfigList.hpp>
 #include <alibabacloud/models/GetPluginConfigResponseBodyData.hpp>
@@ -1035,6 +1056,9 @@
 #include <alibabacloud/models/ListMigrationTaskResponseBodyData.hpp>
 #include <alibabacloud/models/ListNacosConfigsResponseBodyConfigurations.hpp>
 #include <alibabacloud/models/ListNacosHistoryConfigsResponseBodyHistoryItems.hpp>
+#include <alibabacloud/models/ListNacosMcpServersResponseBodyDataPageItemsVersionDetail.hpp>
+#include <alibabacloud/models/ListNacosMcpServersResponseBodyDataPageItems.hpp>
+#include <alibabacloud/models/ListNacosMcpServersResponseBodyData.hpp>
 #include <alibabacloud/models/ListNamespacesRequestTag.hpp>
 #include <alibabacloud/models/ListNamespacesResponseBodyDataResult.hpp>
 #include <alibabacloud/models/ListNamespacesResponseBodyDataResults.hpp>

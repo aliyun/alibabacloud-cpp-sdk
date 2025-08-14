@@ -2829,6 +2829,78 @@ CreateNacosInstanceResponse Client::createNacosInstance(const CreateNacosInstanc
 }
 
 /**
+ * @summary 创建一个MCP Server
+ *
+ * @param request CreateNacosMcpServerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateNacosMcpServerResponse
+ */
+CreateNacosMcpServerResponse Client::createNacosMcpServerWithOptions(const CreateNacosMcpServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAcceptLanguage()) {
+    query["AcceptLanguage"] = request.acceptLanguage();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasNamespaceId()) {
+    query["NamespaceId"] = request.namespaceId();
+  }
+
+  if (!!request.hasServerName()) {
+    query["ServerName"] = request.serverName();
+  }
+
+  json body = {};
+  if (!!request.hasEndpointSpecification()) {
+    body["EndpointSpecification"] = request.endpointSpecification();
+  }
+
+  if (!!request.hasServerSpecification()) {
+    body["ServerSpecification"] = request.serverSpecification();
+  }
+
+  if (!!request.hasToolSpecification()) {
+    body["ToolSpecification"] = request.toolSpecification();
+  }
+
+  if (!!request.hasYamlConfig()) {
+    body["YamlConfig"] = request.yamlConfig();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateNacosMcpServer"},
+    {"version" , "2019-05-31"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateNacosMcpServerResponse>();
+}
+
+/**
+ * @summary 创建一个MCP Server
+ *
+ * @param request CreateNacosMcpServerRequest
+ * @return CreateNacosMcpServerResponse
+ */
+CreateNacosMcpServerResponse Client::createNacosMcpServer(const CreateNacosMcpServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createNacosMcpServerWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a Nacos service.
  *
  * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
@@ -4646,6 +4718,60 @@ DeleteNacosInstanceResponse Client::deleteNacosInstanceWithOptions(const DeleteN
 DeleteNacosInstanceResponse Client::deleteNacosInstance(const DeleteNacosInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteNacosInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除一个MCP Server
+ *
+ * @param request DeleteNacosMcpServerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteNacosMcpServerResponse
+ */
+DeleteNacosMcpServerResponse Client::deleteNacosMcpServerWithOptions(const DeleteNacosMcpServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAcceptLanguage()) {
+    query["AcceptLanguage"] = request.acceptLanguage();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMcpServerId()) {
+    query["McpServerId"] = request.mcpServerId();
+  }
+
+  if (!!request.hasNamespaceId()) {
+    query["NamespaceId"] = request.namespaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteNacosMcpServer"},
+    {"version" , "2019-05-31"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteNacosMcpServerResponse>();
+}
+
+/**
+ * @summary 删除一个MCP Server
+ *
+ * @param request DeleteNacosMcpServerRequest
+ * @return DeleteNacosMcpServerResponse
+ */
+DeleteNacosMcpServerResponse Client::deleteNacosMcpServer(const DeleteNacosMcpServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteNacosMcpServerWithOptions(request, runtime);
 }
 
 /**
@@ -6794,6 +6920,64 @@ GetNacosHistoryConfigResponse Client::getNacosHistoryConfigWithOptions(const Get
 GetNacosHistoryConfigResponse Client::getNacosHistoryConfig(const GetNacosHistoryConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getNacosHistoryConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取MCP Server的详情
+ *
+ * @param request GetNacosMcpServerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetNacosMcpServerResponse
+ */
+GetNacosMcpServerResponse Client::getNacosMcpServerWithOptions(const GetNacosMcpServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAcceptLanguage()) {
+    query["AcceptLanguage"] = request.acceptLanguage();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMcpServerId()) {
+    query["McpServerId"] = request.mcpServerId();
+  }
+
+  if (!!request.hasMcpServerVersion()) {
+    query["McpServerVersion"] = request.mcpServerVersion();
+  }
+
+  if (!!request.hasNamespaceId()) {
+    query["NamespaceId"] = request.namespaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetNacosMcpServer"},
+    {"version" , "2019-05-31"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetNacosMcpServerResponse>();
+}
+
+/**
+ * @summary 获取MCP Server的详情
+ *
+ * @param request GetNacosMcpServerRequest
+ * @return GetNacosMcpServerResponse
+ */
+GetNacosMcpServerResponse Client::getNacosMcpServer(const GetNacosMcpServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getNacosMcpServerWithOptions(request, runtime);
 }
 
 /**
@@ -9960,6 +10144,72 @@ ListNacosHistoryConfigsResponse Client::listNacosHistoryConfigsWithOptions(const
 ListNacosHistoryConfigsResponse Client::listNacosHistoryConfigs(const ListNacosHistoryConfigsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listNacosHistoryConfigsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取McpServer列表
+ *
+ * @param request ListNacosMcpServersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListNacosMcpServersResponse
+ */
+ListNacosMcpServersResponse Client::listNacosMcpServersWithOptions(const ListNacosMcpServersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAcceptLanguage()) {
+    query["AcceptLanguage"] = request.acceptLanguage();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.name();
+  }
+
+  if (!!request.hasNamespaceId()) {
+    query["NamespaceId"] = request.namespaceId();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.pageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasSearch()) {
+    query["Search"] = request.search();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListNacosMcpServers"},
+    {"version" , "2019-05-31"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListNacosMcpServersResponse>();
+}
+
+/**
+ * @summary 获取McpServer列表
+ *
+ * @param request ListNacosMcpServersRequest
+ * @return ListNacosMcpServersResponse
+ */
+ListNacosMcpServersResponse Client::listNacosMcpServers(const ListNacosMcpServersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listNacosMcpServersWithOptions(request, runtime);
 }
 
 /**
