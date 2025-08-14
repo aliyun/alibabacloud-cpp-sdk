@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYMASKINGRULESRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ModifyMaskingRulesResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

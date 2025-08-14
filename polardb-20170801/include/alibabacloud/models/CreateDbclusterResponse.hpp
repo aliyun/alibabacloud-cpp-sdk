@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATEDBCLUSTERRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateDBClusterResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

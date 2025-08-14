@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBELOGBACKUPPOLICYRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBELOGBACKUPPOLICYRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/DescribeLogBackupPolicyResponseBodyAdvancedLogPolicies.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -13,6 +14,7 @@ namespace Models
   class DescribeLogBackupPolicyResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeLogBackupPolicyResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AdvancedLogPolicies, advancedLogPolicies_);
       DARABONBA_PTR_TO_JSON(EnableBackupLog, enableBackupLog_);
       DARABONBA_PTR_TO_JSON(LogBackupAnotherRegionRegion, logBackupAnotherRegionRegion_);
       DARABONBA_PTR_TO_JSON(LogBackupAnotherRegionRetentionPeriod, logBackupAnotherRegionRetentionPeriod_);
@@ -20,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeLogBackupPolicyResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AdvancedLogPolicies, advancedLogPolicies_);
       DARABONBA_PTR_FROM_JSON(EnableBackupLog, enableBackupLog_);
       DARABONBA_PTR_FROM_JSON(LogBackupAnotherRegionRegion, logBackupAnotherRegionRegion_);
       DARABONBA_PTR_FROM_JSON(LogBackupAnotherRegionRetentionPeriod, logBackupAnotherRegionRetentionPeriod_);
@@ -37,8 +40,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableBackupLog_ != nullptr
-        && this->logBackupAnotherRegionRegion_ != nullptr && this->logBackupAnotherRegionRetentionPeriod_ != nullptr && this->logBackupRetentionPeriod_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { this->advancedLogPolicies_ != nullptr
+        && this->enableBackupLog_ != nullptr && this->logBackupAnotherRegionRegion_ != nullptr && this->logBackupAnotherRegionRetentionPeriod_ != nullptr && this->logBackupRetentionPeriod_ != nullptr && this->requestId_ != nullptr; };
+    // advancedLogPolicies Field Functions 
+    bool hasAdvancedLogPolicies() const { return this->advancedLogPolicies_ != nullptr;};
+    void deleteAdvancedLogPolicies() { this->advancedLogPolicies_ = nullptr;};
+    inline const DescribeLogBackupPolicyResponseBodyAdvancedLogPolicies & advancedLogPolicies() const { DARABONBA_PTR_GET_CONST(advancedLogPolicies_, DescribeLogBackupPolicyResponseBodyAdvancedLogPolicies) };
+    inline DescribeLogBackupPolicyResponseBodyAdvancedLogPolicies advancedLogPolicies() { DARABONBA_PTR_GET(advancedLogPolicies_, DescribeLogBackupPolicyResponseBodyAdvancedLogPolicies) };
+    inline DescribeLogBackupPolicyResponseBody& setAdvancedLogPolicies(const DescribeLogBackupPolicyResponseBodyAdvancedLogPolicies & advancedLogPolicies) { DARABONBA_PTR_SET_VALUE(advancedLogPolicies_, advancedLogPolicies) };
+    inline DescribeLogBackupPolicyResponseBody& setAdvancedLogPolicies(DescribeLogBackupPolicyResponseBodyAdvancedLogPolicies && advancedLogPolicies) { DARABONBA_PTR_SET_RVALUE(advancedLogPolicies_, advancedLogPolicies) };
+
+
     // enableBackupLog Field Functions 
     bool hasEnableBackupLog() const { return this->enableBackupLog_ != nullptr;};
     void deleteEnableBackupLog() { this->enableBackupLog_ = nullptr;};
@@ -75,6 +87,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<DescribeLogBackupPolicyResponseBodyAdvancedLogPolicies> advancedLogPolicies_ = nullptr;
     // Indicates whether the log backup feature is enabled. Valid values:
     // 
     // *   0: The log backup feature is disabled.

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEDBNODEPERFORMANCERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeDBNodePerformanceResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

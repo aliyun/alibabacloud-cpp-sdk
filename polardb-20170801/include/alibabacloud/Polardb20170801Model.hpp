@@ -342,6 +342,7 @@
 #include <alibabacloud/models/ModifyAutoRenewAttributeResponseBody.hpp>
 #include <alibabacloud/models/ModifyAutoRenewAttributeResponse.hpp>
 #include <alibabacloud/models/ModifyBackupPolicyRequest.hpp>
+#include <alibabacloud/models/ModifyBackupPolicyShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyBackupPolicyResponseBody.hpp>
 #include <alibabacloud/models/ModifyBackupPolicyResponse.hpp>
 #include <alibabacloud/models/ModifyDbclusterRequest.hpp>
@@ -504,6 +505,8 @@
 #include <alibabacloud/models/DescribeAutoRenewAttributeResponseBodyItems.hpp>
 #include <alibabacloud/models/DescribeBackupLogsResponseBodyItemsBackupLog.hpp>
 #include <alibabacloud/models/DescribeBackupLogsResponseBodyItems.hpp>
+#include <alibabacloud/models/DescribeBackupPolicyResponseBodyAdvancedDataPoliciesAdvancedDataPolicy.hpp>
+#include <alibabacloud/models/DescribeBackupPolicyResponseBodyAdvancedDataPolicies.hpp>
 #include <alibabacloud/models/DescribeBackupTasksResponseBodyItemsBackupJob.hpp>
 #include <alibabacloud/models/DescribeBackupTasksResponseBodyItems.hpp>
 #include <alibabacloud/models/DescribeBackupsResponseBodyItemsBackup.hpp>
@@ -582,6 +585,8 @@
 #include <alibabacloud/models/DescribeHalogsResponseBodyHaLogItems.hpp>
 #include <alibabacloud/models/DescribeHistoryTasksResponseBodyItems.hpp>
 #include <alibabacloud/models/DescribeLicenseOrdersResponseBodyItems.hpp>
+#include <alibabacloud/models/DescribeLogBackupPolicyResponseBodyAdvancedLogPoliciesAdvancedLogPolicy.hpp>
+#include <alibabacloud/models/DescribeLogBackupPolicyResponseBodyAdvancedLogPolicies.hpp>
 #include <alibabacloud/models/DescribeMaskingRulesResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeMetaListResponseBodyItems.hpp>
 #include <alibabacloud/models/DescribeParameterGroupResponseBodyParameterGroupParameterDetail.hpp>
@@ -607,6 +612,7 @@
 #include <alibabacloud/models/ListTagResourcesRequestTag.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBodyTagResourcesTagResource.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBodyTagResources.hpp>
+#include <alibabacloud/models/ModifyBackupPolicyRequestAdvancedDataPolicies.hpp>
 #include <alibabacloud/models/ModifyDbnodesClassRequestDbnode.hpp>
 #include <alibabacloud/models/ModifyGlobalSecurityIpgroupResponseBodyGlobalSecurityIpgroup.hpp>
 #include <alibabacloud/models/ModifyGlobalSecurityIpgroupNameResponseBodyGlobalSecurityIpgroup.hpp>

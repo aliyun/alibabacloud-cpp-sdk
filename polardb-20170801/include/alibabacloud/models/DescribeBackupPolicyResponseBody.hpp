@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEBACKUPPOLICYRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEBACKUPPOLICYRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/DescribeBackupPolicyResponseBodyAdvancedDataPolicies.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -13,7 +14,10 @@ namespace Models
   class DescribeBackupPolicyResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeBackupPolicyResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AdvancedDataPolicies, advancedDataPolicies_);
+      DARABONBA_PTR_TO_JSON(AdvancedPolicyOption, advancedPolicyOption_);
       DARABONBA_PTR_TO_JSON(BackupFrequency, backupFrequency_);
+      DARABONBA_PTR_TO_JSON(BackupPolicyLevel, backupPolicyLevel_);
       DARABONBA_PTR_TO_JSON(BackupRetentionPolicyOnClusterDeletion, backupRetentionPolicyOnClusterDeletion_);
       DARABONBA_PTR_TO_JSON(DataLevel1BackupFrequency, dataLevel1BackupFrequency_);
       DARABONBA_PTR_TO_JSON(DataLevel1BackupPeriod, dataLevel1BackupPeriod_);
@@ -29,7 +33,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeBackupPolicyResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AdvancedDataPolicies, advancedDataPolicies_);
+      DARABONBA_PTR_FROM_JSON(AdvancedPolicyOption, advancedPolicyOption_);
       DARABONBA_PTR_FROM_JSON(BackupFrequency, backupFrequency_);
+      DARABONBA_PTR_FROM_JSON(BackupPolicyLevel, backupPolicyLevel_);
       DARABONBA_PTR_FROM_JSON(BackupRetentionPolicyOnClusterDeletion, backupRetentionPolicyOnClusterDeletion_);
       DARABONBA_PTR_FROM_JSON(DataLevel1BackupFrequency, dataLevel1BackupFrequency_);
       DARABONBA_PTR_FROM_JSON(DataLevel1BackupPeriod, dataLevel1BackupPeriod_);
@@ -55,15 +62,39 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backupFrequency_ != nullptr
-        && this->backupRetentionPolicyOnClusterDeletion_ != nullptr && this->dataLevel1BackupFrequency_ != nullptr && this->dataLevel1BackupPeriod_ != nullptr && this->dataLevel1BackupRetentionPeriod_ != nullptr && this->dataLevel1BackupTime_ != nullptr
-        && this->dataLevel2BackupAnotherRegionRegion_ != nullptr && this->dataLevel2BackupAnotherRegionRetentionPeriod_ != nullptr && this->dataLevel2BackupPeriod_ != nullptr && this->dataLevel2BackupRetentionPeriod_ != nullptr && this->preferredBackupPeriod_ != nullptr
-        && this->preferredBackupTime_ != nullptr && this->preferredNextBackupTime_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { this->advancedDataPolicies_ != nullptr
+        && this->advancedPolicyOption_ != nullptr && this->backupFrequency_ != nullptr && this->backupPolicyLevel_ != nullptr && this->backupRetentionPolicyOnClusterDeletion_ != nullptr && this->dataLevel1BackupFrequency_ != nullptr
+        && this->dataLevel1BackupPeriod_ != nullptr && this->dataLevel1BackupRetentionPeriod_ != nullptr && this->dataLevel1BackupTime_ != nullptr && this->dataLevel2BackupAnotherRegionRegion_ != nullptr && this->dataLevel2BackupAnotherRegionRetentionPeriod_ != nullptr
+        && this->dataLevel2BackupPeriod_ != nullptr && this->dataLevel2BackupRetentionPeriod_ != nullptr && this->preferredBackupPeriod_ != nullptr && this->preferredBackupTime_ != nullptr && this->preferredNextBackupTime_ != nullptr
+        && this->requestId_ != nullptr; };
+    // advancedDataPolicies Field Functions 
+    bool hasAdvancedDataPolicies() const { return this->advancedDataPolicies_ != nullptr;};
+    void deleteAdvancedDataPolicies() { this->advancedDataPolicies_ = nullptr;};
+    inline const DescribeBackupPolicyResponseBodyAdvancedDataPolicies & advancedDataPolicies() const { DARABONBA_PTR_GET_CONST(advancedDataPolicies_, DescribeBackupPolicyResponseBodyAdvancedDataPolicies) };
+    inline DescribeBackupPolicyResponseBodyAdvancedDataPolicies advancedDataPolicies() { DARABONBA_PTR_GET(advancedDataPolicies_, DescribeBackupPolicyResponseBodyAdvancedDataPolicies) };
+    inline DescribeBackupPolicyResponseBody& setAdvancedDataPolicies(const DescribeBackupPolicyResponseBodyAdvancedDataPolicies & advancedDataPolicies) { DARABONBA_PTR_SET_VALUE(advancedDataPolicies_, advancedDataPolicies) };
+    inline DescribeBackupPolicyResponseBody& setAdvancedDataPolicies(DescribeBackupPolicyResponseBodyAdvancedDataPolicies && advancedDataPolicies) { DARABONBA_PTR_SET_RVALUE(advancedDataPolicies_, advancedDataPolicies) };
+
+
+    // advancedPolicyOption Field Functions 
+    bool hasAdvancedPolicyOption() const { return this->advancedPolicyOption_ != nullptr;};
+    void deleteAdvancedPolicyOption() { this->advancedPolicyOption_ = nullptr;};
+    inline string advancedPolicyOption() const { DARABONBA_PTR_GET_DEFAULT(advancedPolicyOption_, "") };
+    inline DescribeBackupPolicyResponseBody& setAdvancedPolicyOption(string advancedPolicyOption) { DARABONBA_PTR_SET_VALUE(advancedPolicyOption_, advancedPolicyOption) };
+
+
     // backupFrequency Field Functions 
     bool hasBackupFrequency() const { return this->backupFrequency_ != nullptr;};
     void deleteBackupFrequency() { this->backupFrequency_ = nullptr;};
     inline string backupFrequency() const { DARABONBA_PTR_GET_DEFAULT(backupFrequency_, "") };
     inline DescribeBackupPolicyResponseBody& setBackupFrequency(string backupFrequency) { DARABONBA_PTR_SET_VALUE(backupFrequency_, backupFrequency) };
+
+
+    // backupPolicyLevel Field Functions 
+    bool hasBackupPolicyLevel() const { return this->backupPolicyLevel_ != nullptr;};
+    void deleteBackupPolicyLevel() { this->backupPolicyLevel_ = nullptr;};
+    inline string backupPolicyLevel() const { DARABONBA_PTR_GET_DEFAULT(backupPolicyLevel_, "") };
+    inline DescribeBackupPolicyResponseBody& setBackupPolicyLevel(string backupPolicyLevel) { DARABONBA_PTR_SET_VALUE(backupPolicyLevel_, backupPolicyLevel) };
 
 
     // backupRetentionPolicyOnClusterDeletion Field Functions 
@@ -158,6 +189,8 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<DescribeBackupPolicyResponseBodyAdvancedDataPolicies> advancedDataPolicies_ = nullptr;
+    std::shared_ptr<string> advancedPolicyOption_ = nullptr;
     // The backup frequency. Default value: Normal. Valid values:
     // 
     // *   **Normal**: standard backup. The system backs up data once a day.
@@ -168,6 +201,7 @@ namespace Models
     // > - If enhanced backup is enabled, all backups are retained for 24 hours. Backups are automatically deleted when the retention period ends. However, the system permanently retains the first backup that is created after 00:00 every day.
     // >-  If enhanced backup is enabled, **PreferredBackupPeriod** is automatically set to all days in a week (from Monday to Sunday).
     std::shared_ptr<string> backupFrequency_ = nullptr;
+    std::shared_ptr<string> backupPolicyLevel_ = nullptr;
     // Indicates whether backups are retained when you delete a cluster. Valid values:
     // 
     // *   **ALL**: permanently retains all backups.

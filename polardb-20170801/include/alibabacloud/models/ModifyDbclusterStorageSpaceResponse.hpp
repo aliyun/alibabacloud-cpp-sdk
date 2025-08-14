@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYDBCLUSTERSTORAGESPACERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ModifyDBClusterStorageSpaceResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

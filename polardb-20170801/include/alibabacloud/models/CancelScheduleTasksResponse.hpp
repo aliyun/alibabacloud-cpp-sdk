@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CANCELSCHEDULETASKSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CancelScheduleTasksResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

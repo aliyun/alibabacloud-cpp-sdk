@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYPENDINGMAINTENANCEACTIONRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ModifyPendingMaintenanceActionResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

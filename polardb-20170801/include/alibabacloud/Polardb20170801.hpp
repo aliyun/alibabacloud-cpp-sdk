@@ -2144,11 +2144,11 @@ namespace Polardb20170801
        *
        * @description > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
        *
-       * @param request ModifyBackupPolicyRequest
+       * @param tmpReq ModifyBackupPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyBackupPolicyResponse
        */
-      Models::ModifyBackupPolicyResponse modifyBackupPolicyWithOptions(const Models::ModifyBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::ModifyBackupPolicyResponse modifyBackupPolicyWithOptions(const Models::ModifyBackupPolicyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Modifies the automatic backup policy of a PolarDB cluster.

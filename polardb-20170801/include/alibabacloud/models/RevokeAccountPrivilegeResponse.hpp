@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_REVOKEACCOUNTPRIVILEGERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/RevokeAccountPrivilegeResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

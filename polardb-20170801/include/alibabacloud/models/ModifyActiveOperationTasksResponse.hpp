@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYACTIVEOPERATIONTASKSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ModifyActiveOperationTasksResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

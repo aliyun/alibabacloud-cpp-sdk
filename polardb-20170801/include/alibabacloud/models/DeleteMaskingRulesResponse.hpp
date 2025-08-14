@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DELETEMASKINGRULESRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DeleteMaskingRulesResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
