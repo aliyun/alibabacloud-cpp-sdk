@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBERULEHITSTOPURLRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeRuleHitsTopUrlResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

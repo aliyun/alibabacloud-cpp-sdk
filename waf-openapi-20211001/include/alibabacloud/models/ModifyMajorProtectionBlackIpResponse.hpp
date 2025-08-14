@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYMAJORPROTECTIONBLACKIPRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ModifyMajorProtectionBlackIpResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEDEFENSETEMPLATEVALIDGROUPSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeDefenseTemplateValidGroupsResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

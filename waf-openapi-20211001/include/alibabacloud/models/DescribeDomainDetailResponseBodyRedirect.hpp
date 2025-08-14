@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEDOMAINDETAILRESPONSEBODYREDIRECT_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/DescribeDomainDetailResponseBodyRedirectBackendPorts.hpp>
 #include <alibabacloud/models/DescribeDomainDetailResponseBodyRedirectBackends.hpp>
 #include <alibabacloud/models/DescribeDomainDetailResponseBodyRedirectBackupBackends.hpp>
 #include <alibabacloud/models/DescribeDomainDetailResponseBodyRedirectRequestHeaders.hpp>
@@ -19,6 +20,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeDomainDetailResponseBodyRedirect& obj) { 
       DARABONBA_PTR_TO_JSON(BackUpBackendList, backUpBackendList_);
       DARABONBA_PTR_TO_JSON(BackendList, backendList_);
+      DARABONBA_PTR_TO_JSON(BackendPorts, backendPorts_);
       DARABONBA_PTR_TO_JSON(Backends, backends_);
       DARABONBA_PTR_TO_JSON(BackupBackends, backupBackends_);
       DARABONBA_PTR_TO_JSON(ConnectTimeout, connectTimeout_);
@@ -38,6 +40,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeDomainDetailResponseBodyRedirect& obj) { 
       DARABONBA_PTR_FROM_JSON(BackUpBackendList, backUpBackendList_);
       DARABONBA_PTR_FROM_JSON(BackendList, backendList_);
+      DARABONBA_PTR_FROM_JSON(BackendPorts, backendPorts_);
       DARABONBA_PTR_FROM_JSON(Backends, backends_);
       DARABONBA_PTR_FROM_JSON(BackupBackends, backupBackends_);
       DARABONBA_PTR_FROM_JSON(ConnectTimeout, connectTimeout_);
@@ -66,10 +69,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->backUpBackendList_ != nullptr
-        && this->backendList_ != nullptr && this->backends_ != nullptr && this->backupBackends_ != nullptr && this->connectTimeout_ != nullptr && this->focusHttpBackend_ != nullptr
-        && this->keepalive_ != nullptr && this->keepaliveRequests_ != nullptr && this->keepaliveTimeout_ != nullptr && this->loadbalance_ != nullptr && this->readTimeout_ != nullptr
-        && this->requestHeaders_ != nullptr && this->retry_ != nullptr && this->sniEnabled_ != nullptr && this->sniHost_ != nullptr && this->writeTimeout_ != nullptr
-        && this->xffProto_ != nullptr; };
+        && this->backendList_ != nullptr && this->backendPorts_ != nullptr && this->backends_ != nullptr && this->backupBackends_ != nullptr && this->connectTimeout_ != nullptr
+        && this->focusHttpBackend_ != nullptr && this->keepalive_ != nullptr && this->keepaliveRequests_ != nullptr && this->keepaliveTimeout_ != nullptr && this->loadbalance_ != nullptr
+        && this->readTimeout_ != nullptr && this->requestHeaders_ != nullptr && this->retry_ != nullptr && this->sniEnabled_ != nullptr && this->sniHost_ != nullptr
+        && this->writeTimeout_ != nullptr && this->xffProto_ != nullptr; };
     // backUpBackendList Field Functions 
     bool hasBackUpBackendList() const { return this->backUpBackendList_ != nullptr;};
     void deleteBackUpBackendList() { this->backUpBackendList_ = nullptr;};
@@ -86,6 +89,15 @@ namespace Models
     inline vector<string> backendList() { DARABONBA_PTR_GET(backendList_, vector<string>) };
     inline DescribeDomainDetailResponseBodyRedirect& setBackendList(const vector<string> & backendList) { DARABONBA_PTR_SET_VALUE(backendList_, backendList) };
     inline DescribeDomainDetailResponseBodyRedirect& setBackendList(vector<string> && backendList) { DARABONBA_PTR_SET_RVALUE(backendList_, backendList) };
+
+
+    // backendPorts Field Functions 
+    bool hasBackendPorts() const { return this->backendPorts_ != nullptr;};
+    void deleteBackendPorts() { this->backendPorts_ = nullptr;};
+    inline const vector<Models::DescribeDomainDetailResponseBodyRedirectBackendPorts> & backendPorts() const { DARABONBA_PTR_GET_CONST(backendPorts_, vector<Models::DescribeDomainDetailResponseBodyRedirectBackendPorts>) };
+    inline vector<Models::DescribeDomainDetailResponseBodyRedirectBackendPorts> backendPorts() { DARABONBA_PTR_GET(backendPorts_, vector<Models::DescribeDomainDetailResponseBodyRedirectBackendPorts>) };
+    inline DescribeDomainDetailResponseBodyRedirect& setBackendPorts(const vector<Models::DescribeDomainDetailResponseBodyRedirectBackendPorts> & backendPorts) { DARABONBA_PTR_SET_VALUE(backendPorts_, backendPorts) };
+    inline DescribeDomainDetailResponseBodyRedirect& setBackendPorts(vector<Models::DescribeDomainDetailResponseBodyRedirectBackendPorts> && backendPorts) { DARABONBA_PTR_SET_RVALUE(backendPorts_, backendPorts) };
 
 
     // backends Field Functions 
@@ -202,6 +214,7 @@ namespace Models
   protected:
     std::shared_ptr<vector<string>> backUpBackendList_ = nullptr;
     std::shared_ptr<vector<string>> backendList_ = nullptr;
+    std::shared_ptr<vector<Models::DescribeDomainDetailResponseBodyRedirectBackendPorts>> backendPorts_ = nullptr;
     // An array of addresses of origin servers.
     std::shared_ptr<vector<Models::DescribeDomainDetailResponseBodyRedirectBackends>> backends_ = nullptr;
     // An array of HTTPS listener ports.

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYDOMAINREQUESTREDIRECT_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/ModifyDomainRequestRedirectBackendPorts.hpp>
 #include <alibabacloud/models/ModifyDomainRequestRedirectRequestHeaders.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -15,6 +16,7 @@ namespace Models
   class ModifyDomainRequestRedirect : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyDomainRequestRedirect& obj) { 
+      DARABONBA_PTR_TO_JSON(BackendPorts, backendPorts_);
       DARABONBA_PTR_TO_JSON(Backends, backends_);
       DARABONBA_PTR_TO_JSON(BackupBackends, backupBackends_);
       DARABONBA_PTR_TO_JSON(CnameEnabled, cnameEnabled_);
@@ -34,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(XffProto, xffProto_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDomainRequestRedirect& obj) { 
+      DARABONBA_PTR_FROM_JSON(BackendPorts, backendPorts_);
       DARABONBA_PTR_FROM_JSON(Backends, backends_);
       DARABONBA_PTR_FROM_JSON(BackupBackends, backupBackends_);
       DARABONBA_PTR_FROM_JSON(CnameEnabled, cnameEnabled_);
@@ -63,11 +66,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backends_ != nullptr
-        && this->backupBackends_ != nullptr && this->cnameEnabled_ != nullptr && this->connectTimeout_ != nullptr && this->focusHttpBackend_ != nullptr && this->keepalive_ != nullptr
-        && this->keepaliveRequests_ != nullptr && this->keepaliveTimeout_ != nullptr && this->loadbalance_ != nullptr && this->readTimeout_ != nullptr && this->requestHeaders_ != nullptr
-        && this->retry_ != nullptr && this->routingRules_ != nullptr && this->sniEnabled_ != nullptr && this->sniHost_ != nullptr && this->writeTimeout_ != nullptr
-        && this->xffProto_ != nullptr; };
+    virtual bool empty() const override { this->backendPorts_ != nullptr
+        && this->backends_ != nullptr && this->backupBackends_ != nullptr && this->cnameEnabled_ != nullptr && this->connectTimeout_ != nullptr && this->focusHttpBackend_ != nullptr
+        && this->keepalive_ != nullptr && this->keepaliveRequests_ != nullptr && this->keepaliveTimeout_ != nullptr && this->loadbalance_ != nullptr && this->readTimeout_ != nullptr
+        && this->requestHeaders_ != nullptr && this->retry_ != nullptr && this->routingRules_ != nullptr && this->sniEnabled_ != nullptr && this->sniHost_ != nullptr
+        && this->writeTimeout_ != nullptr && this->xffProto_ != nullptr; };
+    // backendPorts Field Functions 
+    bool hasBackendPorts() const { return this->backendPorts_ != nullptr;};
+    void deleteBackendPorts() { this->backendPorts_ = nullptr;};
+    inline const vector<Models::ModifyDomainRequestRedirectBackendPorts> & backendPorts() const { DARABONBA_PTR_GET_CONST(backendPorts_, vector<Models::ModifyDomainRequestRedirectBackendPorts>) };
+    inline vector<Models::ModifyDomainRequestRedirectBackendPorts> backendPorts() { DARABONBA_PTR_GET(backendPorts_, vector<Models::ModifyDomainRequestRedirectBackendPorts>) };
+    inline ModifyDomainRequestRedirect& setBackendPorts(const vector<Models::ModifyDomainRequestRedirectBackendPorts> & backendPorts) { DARABONBA_PTR_SET_VALUE(backendPorts_, backendPorts) };
+    inline ModifyDomainRequestRedirect& setBackendPorts(vector<Models::ModifyDomainRequestRedirectBackendPorts> && backendPorts) { DARABONBA_PTR_SET_RVALUE(backendPorts_, backendPorts) };
+
+
     // backends Field Functions 
     bool hasBackends() const { return this->backends_ != nullptr;};
     void deleteBackends() { this->backends_ = nullptr;};
@@ -194,6 +206,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<vector<Models::ModifyDomainRequestRedirectBackendPorts>> backendPorts_ = nullptr;
     // The IP addresses or domain names of the origin server. You cannot specify both IP addresses and domain names. If you specify domain names, the domain names can be resolved only to IPv4 addresses.
     // 
     // *   If you specify IP addresses, specify the value in the **["ip1","ip2",...]** format. You can enter up to 20 IP addresses.

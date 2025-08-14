@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEHYBRIDCLOUDCLUSTERRULERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeHybridCloudClusterRuleResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

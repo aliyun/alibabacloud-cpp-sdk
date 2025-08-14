@@ -558,6 +558,7 @@
 #include <alibabacloud/models/CreateDefenseResourceRequestTag.hpp>
 #include <alibabacloud/models/CreateDefenseResourceShrinkRequestTag.hpp>
 #include <alibabacloud/models/CreateDomainRequestListen.hpp>
+#include <alibabacloud/models/CreateDomainRequestRedirectBackendPorts.hpp>
 #include <alibabacloud/models/CreateDomainRequestRedirectRequestHeaders.hpp>
 #include <alibabacloud/models/CreateDomainRequestRedirect.hpp>
 #include <alibabacloud/models/CreateDomainRequestTag.hpp>
@@ -606,6 +607,7 @@
 #include <alibabacloud/models/DescribeDefenseTemplatesResponseBodyTemplates.hpp>
 #include <alibabacloud/models/DescribeDomainDetailResponseBodyCertDetail.hpp>
 #include <alibabacloud/models/DescribeDomainDetailResponseBodyListen.hpp>
+#include <alibabacloud/models/DescribeDomainDetailResponseBodyRedirectBackendPorts.hpp>
 #include <alibabacloud/models/DescribeDomainDetailResponseBodyRedirectBackends.hpp>
 #include <alibabacloud/models/DescribeDomainDetailResponseBodyRedirectBackupBackends.hpp>
 #include <alibabacloud/models/DescribeDomainDetailResponseBodyRedirectRequestHeaders.hpp>
@@ -716,6 +718,7 @@
 #include <alibabacloud/models/ModifyCloudResourceRequestRedirect.hpp>
 #include <alibabacloud/models/ModifyDefenseResourceXffRequestResponseHeaders.hpp>
 #include <alibabacloud/models/ModifyDomainRequestListen.hpp>
+#include <alibabacloud/models/ModifyDomainRequestRedirectBackendPorts.hpp>
 #include <alibabacloud/models/ModifyDomainRequestRedirectRequestHeaders.hpp>
 #include <alibabacloud/models/ModifyDomainRequestRedirect.hpp>
 #include <alibabacloud/models/ModifyDomainResponseBodyDomainInfo.hpp>

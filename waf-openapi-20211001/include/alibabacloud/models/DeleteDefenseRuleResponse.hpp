@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DELETEDEFENSERULERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DeleteDefenseRuleResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

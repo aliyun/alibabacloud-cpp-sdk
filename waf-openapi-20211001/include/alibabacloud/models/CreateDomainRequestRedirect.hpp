@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATEDOMAINREQUESTREDIRECT_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/CreateDomainRequestRedirectBackendPorts.hpp>
 #include <alibabacloud/models/CreateDomainRequestRedirectRequestHeaders.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -15,6 +16,7 @@ namespace Models
   class CreateDomainRequestRedirect : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateDomainRequestRedirect& obj) { 
+      DARABONBA_PTR_TO_JSON(BackendPorts, backendPorts_);
       DARABONBA_PTR_TO_JSON(Backends, backends_);
       DARABONBA_PTR_TO_JSON(BackupBackends, backupBackends_);
       DARABONBA_PTR_TO_JSON(CnameEnabled, cnameEnabled_);
@@ -34,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(XffProto, xffProto_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDomainRequestRedirect& obj) { 
+      DARABONBA_PTR_FROM_JSON(BackendPorts, backendPorts_);
       DARABONBA_PTR_FROM_JSON(Backends, backends_);
       DARABONBA_PTR_FROM_JSON(BackupBackends, backupBackends_);
       DARABONBA_PTR_FROM_JSON(CnameEnabled, cnameEnabled_);
@@ -63,11 +66,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backends_ != nullptr
-        && this->backupBackends_ != nullptr && this->cnameEnabled_ != nullptr && this->connectTimeout_ != nullptr && this->focusHttpBackend_ != nullptr && this->keepalive_ != nullptr
-        && this->keepaliveRequests_ != nullptr && this->keepaliveTimeout_ != nullptr && this->loadbalance_ != nullptr && this->readTimeout_ != nullptr && this->requestHeaders_ != nullptr
-        && this->retry_ != nullptr && this->routingRules_ != nullptr && this->sniEnabled_ != nullptr && this->sniHost_ != nullptr && this->writeTimeout_ != nullptr
-        && this->xffProto_ != nullptr; };
+    virtual bool empty() const override { this->backendPorts_ != nullptr
+        && this->backends_ != nullptr && this->backupBackends_ != nullptr && this->cnameEnabled_ != nullptr && this->connectTimeout_ != nullptr && this->focusHttpBackend_ != nullptr
+        && this->keepalive_ != nullptr && this->keepaliveRequests_ != nullptr && this->keepaliveTimeout_ != nullptr && this->loadbalance_ != nullptr && this->readTimeout_ != nullptr
+        && this->requestHeaders_ != nullptr && this->retry_ != nullptr && this->routingRules_ != nullptr && this->sniEnabled_ != nullptr && this->sniHost_ != nullptr
+        && this->writeTimeout_ != nullptr && this->xffProto_ != nullptr; };
+    // backendPorts Field Functions 
+    bool hasBackendPorts() const { return this->backendPorts_ != nullptr;};
+    void deleteBackendPorts() { this->backendPorts_ = nullptr;};
+    inline const vector<Models::CreateDomainRequestRedirectBackendPorts> & backendPorts() const { DARABONBA_PTR_GET_CONST(backendPorts_, vector<Models::CreateDomainRequestRedirectBackendPorts>) };
+    inline vector<Models::CreateDomainRequestRedirectBackendPorts> backendPorts() { DARABONBA_PTR_GET(backendPorts_, vector<Models::CreateDomainRequestRedirectBackendPorts>) };
+    inline CreateDomainRequestRedirect& setBackendPorts(const vector<Models::CreateDomainRequestRedirectBackendPorts> & backendPorts) { DARABONBA_PTR_SET_VALUE(backendPorts_, backendPorts) };
+    inline CreateDomainRequestRedirect& setBackendPorts(vector<Models::CreateDomainRequestRedirectBackendPorts> && backendPorts) { DARABONBA_PTR_SET_RVALUE(backendPorts_, backendPorts) };
+
+
     // backends Field Functions 
     bool hasBackends() const { return this->backends_ != nullptr;};
     void deleteBackends() { this->backends_ = nullptr;};
@@ -194,6 +206,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<vector<Models::CreateDomainRequestRedirectBackendPorts>> backendPorts_ = nullptr;
     // The IP addresses or domain names of the origin server.
     std::shared_ptr<vector<string>> backends_ = nullptr;
     // The secondary IP addresses or domain names of the origin server.

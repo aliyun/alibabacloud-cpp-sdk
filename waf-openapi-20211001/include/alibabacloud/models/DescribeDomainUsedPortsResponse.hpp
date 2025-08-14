@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEDOMAINUSEDPORTSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeDomainUsedPortsResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

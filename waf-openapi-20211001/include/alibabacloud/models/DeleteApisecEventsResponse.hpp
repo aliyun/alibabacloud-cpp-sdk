@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DELETEAPISECEVENTSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DeleteApisecEventsResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

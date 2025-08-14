@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEAPISECSLSLOGSTORESRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeApisecSlsLogStoresResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

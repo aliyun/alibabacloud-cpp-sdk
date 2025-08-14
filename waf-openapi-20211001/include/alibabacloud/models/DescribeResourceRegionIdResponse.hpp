@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBERESOURCEREGIONIDRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeResourceRegionIdResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

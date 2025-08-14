@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEDEFENSERESOURCENAMESRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeDefenseResourceNamesResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

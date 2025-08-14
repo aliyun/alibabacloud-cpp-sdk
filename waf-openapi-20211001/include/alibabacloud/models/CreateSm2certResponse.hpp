@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATESM2CERTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateSM2CertResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
