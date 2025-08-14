@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEASSETRISKLISTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeAssetRiskListResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATETRFIREWALLV2RESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateTrFirewallV2ResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

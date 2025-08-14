@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_PUTDISABLEALLFWSWITCHRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/PutDisableAllFwSwitchResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

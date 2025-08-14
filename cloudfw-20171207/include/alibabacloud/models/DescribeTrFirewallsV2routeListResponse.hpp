@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBETRFIREWALLSV2ROUTELISTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeTrFirewallsV2RouteListResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

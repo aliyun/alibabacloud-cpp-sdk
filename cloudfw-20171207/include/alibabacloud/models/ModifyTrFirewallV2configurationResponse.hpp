@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYTRFIREWALLV2CONFIGURATIONRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ModifyTrFirewallV2ConfigurationResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

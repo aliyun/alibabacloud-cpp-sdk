@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEASSETSTATISTICRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeAssetStatisticResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

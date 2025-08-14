@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYVPCFIREWALLDEFAULTIPSCONFIGRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ModifyVpcFirewallDefaultIPSConfigResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

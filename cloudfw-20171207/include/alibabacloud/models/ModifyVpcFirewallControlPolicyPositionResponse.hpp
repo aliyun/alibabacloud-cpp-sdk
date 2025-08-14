@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYVPCFIREWALLCONTROLPOLICYPOSITIONRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ModifyVpcFirewallControlPolicyPositionResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

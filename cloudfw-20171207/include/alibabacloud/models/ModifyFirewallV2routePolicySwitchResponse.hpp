@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYFIREWALLV2ROUTEPOLICYSWITCHRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ModifyFirewallV2RoutePolicySwitchResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

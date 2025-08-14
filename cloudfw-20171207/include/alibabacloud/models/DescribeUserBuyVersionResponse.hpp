@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEUSERBUYVERSIONRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeUserBuyVersionResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

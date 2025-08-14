@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DeleteSecurityProxyRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(ProxyId, proxyId_);
+      DARABONBA_PTR_TO_JSON(trimSql, trimSql_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteSecurityProxyRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(ProxyId, proxyId_);
+      DARABONBA_PTR_FROM_JSON(trimSql, trimSql_);
     };
     DeleteSecurityProxyRequest() = default ;
     DeleteSecurityProxyRequest(const DeleteSecurityProxyRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->lang_ != nullptr
-        && this->proxyId_ != nullptr; };
+        && this->proxyId_ != nullptr && this->trimSql_ != nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
@@ -47,6 +49,13 @@ namespace Models
     inline DeleteSecurityProxyRequest& setProxyId(string proxyId) { DARABONBA_PTR_SET_VALUE(proxyId_, proxyId) };
 
 
+    // trimSql Field Functions 
+    bool hasTrimSql() const { return this->trimSql_ != nullptr;};
+    void deleteTrimSql() { this->trimSql_ = nullptr;};
+    inline string trimSql() const { DARABONBA_PTR_GET_DEFAULT(trimSql_, "") };
+    inline DeleteSecurityProxyRequest& setTrimSql(string trimSql) { DARABONBA_PTR_SET_VALUE(trimSql_, trimSql) };
+
+
   protected:
     // The language of the content within the response. Valid values:
     // 
@@ -57,6 +66,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> proxyId_ = nullptr;
+    std::shared_ptr<string> trimSql_ = nullptr;
   };
 
   } // namespace Models
