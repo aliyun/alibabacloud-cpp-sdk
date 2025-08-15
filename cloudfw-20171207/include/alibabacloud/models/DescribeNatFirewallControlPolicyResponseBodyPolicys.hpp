@@ -239,8 +239,8 @@ namespace Models
     // hitTimes Field Functions 
     bool hasHitTimes() const { return this->hitTimes_ != nullptr;};
     void deleteHitTimes() { this->hitTimes_ = nullptr;};
-    inline int32_t hitTimes() const { DARABONBA_PTR_GET_DEFAULT(hitTimes_, 0) };
-    inline DescribeNatFirewallControlPolicyResponseBodyPolicys& setHitTimes(int32_t hitTimes) { DARABONBA_PTR_SET_VALUE(hitTimes_, hitTimes) };
+    inline int64_t hitTimes() const { DARABONBA_PTR_GET_DEFAULT(hitTimes_, 0L) };
+    inline DescribeNatFirewallControlPolicyResponseBodyPolicys& setHitTimes(int64_t hitTimes) { DARABONBA_PTR_SET_VALUE(hitTimes_, hitTimes) };
 
 
     // modifyTime Field Functions 
@@ -416,7 +416,7 @@ namespace Models
     // The time when the access control policy was last hit. The value is a UNIX timestamp. Unit: seconds.
     std::shared_ptr<int64_t> hitLastTime_ = nullptr;
     // The number of hits for the access control policy.
-    std::shared_ptr<int32_t> hitTimes_ = nullptr;
+    std::shared_ptr<int64_t> hitTimes_ = nullptr;
     // The time when the access control policy was modified.
     std::shared_ptr<int64_t> modifyTime_ = nullptr;
     // The ID of the NAT gateway.

@@ -2095,10 +2095,6 @@ DeleteSecurityProxyResponse Client::deleteSecurityProxyWithOptions(const DeleteS
     query["ProxyId"] = request.proxyId();
   }
 
-  if (!!request.hasTrimSql()) {
-    query["trimSql"] = request.trimSql();
-  }
-
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
