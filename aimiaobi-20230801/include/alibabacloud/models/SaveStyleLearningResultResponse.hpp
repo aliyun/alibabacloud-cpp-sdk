@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_SAVESTYLELEARNINGRESULTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/SaveStyleLearningResultResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

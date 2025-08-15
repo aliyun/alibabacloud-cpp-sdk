@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETTOPICBYIDRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetTopicByIdResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GENERATEFILEURLBYKEYRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GenerateFileUrlByKeyResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

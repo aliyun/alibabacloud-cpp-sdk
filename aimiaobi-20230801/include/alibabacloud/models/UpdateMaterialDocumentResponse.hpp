@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_UPDATEMATERIALDOCUMENTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/UpdateMaterialDocumentResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

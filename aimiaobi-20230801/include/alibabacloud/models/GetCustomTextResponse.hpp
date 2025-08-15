@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETCUSTOMTEXTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetCustomTextResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

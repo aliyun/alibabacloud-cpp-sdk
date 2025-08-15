@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTWRITINGSTYLESRESPONSEBODYDATA_HPP_
 #define ALIBABACLOUD_MODELS_LISTWRITINGSTYLESRESPONSEBODYDATA_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/WritingStyleTemplateDefine.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

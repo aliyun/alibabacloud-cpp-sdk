@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATETOKENRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateTokenResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

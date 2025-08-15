@@ -8,6 +8,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 using namespace AlibabaCloud::AiMiaoBi20230801::Models;
@@ -38,13 +39,23 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 /**
  * @summary 添加审核自定义词库记录
  *
- * @param request AddAuditTermsRequest
+ * @param tmpReq AddAuditTermsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddAuditTermsResponse
  */
-AddAuditTermsResponse Client::addAuditTermsWithOptions(const AddAuditTermsRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+AddAuditTermsResponse Client::addAuditTermsWithOptions(const AddAuditTermsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AddAuditTermsShrinkRequest request = AddAuditTermsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasExceptionWord()) {
+    request.setExceptionWordShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.exceptionWord(), "ExceptionWord", "json"));
+  }
+
   json body = {};
+  if (!!request.hasExceptionWordShrink()) {
+    body["ExceptionWord"] = request.exceptionWordShrink();
+  }
+
   if (!!request.hasKeyword()) {
     body["Keyword"] = request.keyword();
   }
@@ -63,7 +74,7 @@ AddAuditTermsResponse Client::addAuditTermsWithOptions(const AddAuditTermsReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "AddAuditTerms"},
     {"version" , "2023-08-01"},
@@ -74,7 +85,7 @@ AddAuditTermsResponse Client::addAuditTermsWithOptions(const AddAuditTermsReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddAuditTermsResponse>();
 }
 
@@ -123,7 +134,7 @@ AddDatasetDocumentResponse Client::addDatasetDocumentWithOptions(const AddDatase
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "AddDatasetDocument"},
     {"version" , "2023-08-01"},
@@ -134,7 +145,7 @@ AddDatasetDocumentResponse Client::addDatasetDocumentWithOptions(const AddDatase
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddDatasetDocumentResponse>();
 }
 
@@ -207,7 +218,7 @@ AsyncCreateClipsTaskResponse Client::asyncCreateClipsTaskWithOptions(const Async
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "AsyncCreateClipsTask"},
     {"version" , "2023-08-01"},
@@ -218,7 +229,7 @@ AsyncCreateClipsTaskResponse Client::asyncCreateClipsTaskWithOptions(const Async
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AsyncCreateClipsTaskResponse>();
 }
 
@@ -269,7 +280,7 @@ AsyncCreateClipsTimeLineResponse Client::asyncCreateClipsTimeLineWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "AsyncCreateClipsTimeLine"},
     {"version" , "2023-08-01"},
@@ -280,7 +291,7 @@ AsyncCreateClipsTimeLineResponse Client::asyncCreateClipsTimeLineWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AsyncCreateClipsTimeLineResponse>();
 }
 
@@ -329,7 +340,7 @@ AsyncEditTimelineResponse Client::asyncEditTimelineWithOptions(const AsyncEditTi
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "AsyncEditTimeline"},
     {"version" , "2023-08-01"},
@@ -340,7 +351,7 @@ AsyncEditTimelineResponse Client::asyncEditTimelineWithOptions(const AsyncEditTi
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AsyncEditTimelineResponse>();
 }
 
@@ -397,7 +408,7 @@ AsyncUploadVideoResponse Client::asyncUploadVideoWithOptions(const AsyncUploadVi
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "AsyncUploadVideo"},
     {"version" , "2023-08-01"},
@@ -408,7 +419,7 @@ AsyncUploadVideoResponse Client::asyncUploadVideoWithOptions(const AsyncUploadVi
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AsyncUploadVideoResponse>();
 }
 
@@ -456,7 +467,7 @@ CancelAsyncTaskResponse Client::cancelAsyncTaskWithOptions(const CancelAsyncTask
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CancelAsyncTaskResponse>();
 }
 
@@ -495,7 +506,7 @@ CancelAuditTaskResponse Client::cancelAuditTaskWithOptions(const CancelAuditTask
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CancelAuditTask"},
     {"version" , "2023-08-01"},
@@ -506,7 +517,7 @@ CancelAuditTaskResponse Client::cancelAuditTaskWithOptions(const CancelAuditTask
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CancelAuditTaskResponse>();
 }
 
@@ -537,7 +548,7 @@ ClearIntervenesResponse Client::clearIntervenesWithOptions(const ClearIntervenes
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ClearIntervenes"},
     {"version" , "2023-08-01"},
@@ -548,7 +559,7 @@ ClearIntervenesResponse Client::clearIntervenesWithOptions(const ClearIntervenes
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ClearIntervenesResponse>();
 }
 
@@ -583,7 +594,7 @@ ConfirmAndPostProcessAuditNoteResponse Client::confirmAndPostProcessAuditNoteWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ConfirmAndPostProcessAuditNote"},
     {"version" , "2023-08-01"},
@@ -594,7 +605,7 @@ ConfirmAndPostProcessAuditNoteResponse Client::confirmAndPostProcessAuditNoteWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ConfirmAndPostProcessAuditNoteResponse>();
 }
 
@@ -663,7 +674,7 @@ CreateDatasetResponse Client::createDatasetWithOptions(const CreateDatasetReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateDataset"},
     {"version" , "2023-08-01"},
@@ -674,7 +685,7 @@ CreateDatasetResponse Client::createDatasetWithOptions(const CreateDatasetReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateDatasetResponse>();
 }
 
@@ -756,7 +767,7 @@ CreateGeneratedContentResponse Client::createGeneratedContentWithOptions(const C
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateGeneratedContentResponse>();
 }
 
@@ -787,7 +798,7 @@ CreateTokenResponse Client::createTokenWithOptions(const CreateTokenRequest &req
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateToken"},
     {"version" , "2023-08-01"},
@@ -798,7 +809,7 @@ CreateTokenResponse Client::createTokenWithOptions(const CreateTokenRequest &req
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateTokenResponse>();
 }
 
@@ -829,7 +840,7 @@ DeleteAuditNoteResponse Client::deleteAuditNoteWithOptions(const DeleteAuditNote
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteAuditNote"},
     {"version" , "2023-08-01"},
@@ -840,7 +851,7 @@ DeleteAuditNoteResponse Client::deleteAuditNoteWithOptions(const DeleteAuditNote
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteAuditNoteResponse>();
 }
 
@@ -881,7 +892,7 @@ DeleteAuditTermsResponse Client::deleteAuditTermsWithOptions(const DeleteAuditTe
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteAuditTerms"},
     {"version" , "2023-08-01"},
@@ -892,7 +903,7 @@ DeleteAuditTermsResponse Client::deleteAuditTermsWithOptions(const DeleteAuditTe
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteAuditTermsResponse>();
 }
 
@@ -944,7 +955,7 @@ DeleteCustomTextResponse Client::deleteCustomTextWithOptions(const DeleteCustomT
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteCustomTextResponse>();
 }
 
@@ -992,7 +1003,7 @@ DeleteCustomTopicByTopicResponse Client::deleteCustomTopicByTopicWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteCustomTopicByTopicResponse>();
 }
 
@@ -1040,7 +1051,7 @@ DeleteCustomTopicViewPointByIdResponse Client::deleteCustomTopicViewPointByIdWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteCustomTopicViewPointByIdResponse>();
 }
 
@@ -1075,7 +1086,7 @@ DeleteDatasetResponse Client::deleteDatasetWithOptions(const DeleteDatasetReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteDataset"},
     {"version" , "2023-08-01"},
@@ -1086,7 +1097,7 @@ DeleteDatasetResponse Client::deleteDatasetWithOptions(const DeleteDatasetReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteDatasetResponse>();
 }
 
@@ -1133,7 +1144,7 @@ DeleteDatasetDocumentResponse Client::deleteDatasetDocumentWithOptions(const Del
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteDatasetDocument"},
     {"version" , "2023-08-01"},
@@ -1144,7 +1155,7 @@ DeleteDatasetDocumentResponse Client::deleteDatasetDocumentWithOptions(const Del
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteDatasetDocumentResponse>();
 }
 
@@ -1185,7 +1196,7 @@ DeleteDocsResponse Client::deleteDocsWithOptions(const DeleteDocsRequest &tmpReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteDocs"},
     {"version" , "2023-08-01"},
@@ -1196,7 +1207,7 @@ DeleteDocsResponse Client::deleteDocsWithOptions(const DeleteDocsRequest &tmpReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteDocsResponse>();
 }
 
@@ -1209,6 +1220,52 @@ DeleteDocsResponse Client::deleteDocsWithOptions(const DeleteDocsRequest &tmpReq
 DeleteDocsResponse Client::deleteDocs(const DeleteDocsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteDocsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除指定的用于事实性审核的 URL。
+ *
+ * @param request DeleteFactAuditUrlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteFactAuditUrlResponse
+ */
+DeleteFactAuditUrlResponse Client::deleteFactAuditUrlWithOptions(const DeleteFactAuditUrlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasUrl()) {
+    body["Url"] = request.url();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteFactAuditUrl"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteFactAuditUrlResponse>();
+}
+
+/**
+ * @summary 删除指定的用于事实性审核的 URL。
+ *
+ * @param request DeleteFactAuditUrlRequest
+ * @return DeleteFactAuditUrlResponse
+ */
+DeleteFactAuditUrlResponse Client::deleteFactAuditUrl(const DeleteFactAuditUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteFactAuditUrlWithOptions(request, runtime);
 }
 
 /**
@@ -1248,7 +1305,7 @@ DeleteGeneratedContentResponse Client::deleteGeneratedContentWithOptions(const D
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteGeneratedContentResponse>();
 }
 
@@ -1296,7 +1353,7 @@ DeleteInterveneRuleResponse Client::deleteInterveneRuleWithOptions(const DeleteI
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteInterveneRuleResponse>();
 }
 
@@ -1344,7 +1401,7 @@ DeleteMaterialByIdResponse Client::deleteMaterialByIdWithOptions(const DeleteMat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMaterialByIdResponse>();
 }
 
@@ -1392,7 +1449,7 @@ DeleteStyleLearningResultResponse Client::deleteStyleLearningResultWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteStyleLearningResultResponse>();
 }
 
@@ -1446,7 +1503,7 @@ DocumentExtractionResponse Client::documentExtractionWithOptions(const DocumentE
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DocumentExtractionResponse>();
 }
 
@@ -1481,7 +1538,7 @@ DownloadAuditNoteResponse Client::downloadAuditNoteWithOptions(const DownloadAud
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DownloadAuditNote"},
     {"version" , "2023-08-01"},
@@ -1492,7 +1549,7 @@ DownloadAuditNoteResponse Client::downloadAuditNoteWithOptions(const DownloadAud
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DownloadAuditNoteResponse>();
 }
 
@@ -1510,13 +1567,23 @@ DownloadAuditNoteResponse Client::downloadAuditNote(const DownloadAuditNoteReque
 /**
  * @summary 编辑审核自定义词库记录
  *
- * @param request EditAuditTermsRequest
+ * @param tmpReq EditAuditTermsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return EditAuditTermsResponse
  */
-EditAuditTermsResponse Client::editAuditTermsWithOptions(const EditAuditTermsRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+EditAuditTermsResponse Client::editAuditTermsWithOptions(const EditAuditTermsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  EditAuditTermsShrinkRequest request = EditAuditTermsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasExceptionWord()) {
+    request.setExceptionWordShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.exceptionWord(), "ExceptionWord", "json"));
+  }
+
   json body = {};
+  if (!!request.hasExceptionWordShrink()) {
+    body["ExceptionWord"] = request.exceptionWordShrink();
+  }
+
   if (!!request.hasId()) {
     body["Id"] = request.id();
   }
@@ -1539,7 +1606,7 @@ EditAuditTermsResponse Client::editAuditTermsWithOptions(const EditAuditTermsReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "EditAuditTerms"},
     {"version" , "2023-08-01"},
@@ -1550,7 +1617,7 @@ EditAuditTermsResponse Client::editAuditTermsWithOptions(const EditAuditTermsReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<EditAuditTermsResponse>();
 }
 
@@ -1595,7 +1662,7 @@ ExportAnalysisTagDetailByTaskIdResponse Client::exportAnalysisTagDetailByTaskIdW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ExportAnalysisTagDetailByTaskId"},
     {"version" , "2023-08-01"},
@@ -1606,7 +1673,7 @@ ExportAnalysisTagDetailByTaskIdResponse Client::exportAnalysisTagDetailByTaskIdW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ExportAnalysisTagDetailByTaskIdResponse>();
 }
 
@@ -1641,7 +1708,7 @@ ExportAuditContentResultResponse Client::exportAuditContentResultWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ExportAuditContentResult"},
     {"version" , "2023-08-01"},
@@ -1652,7 +1719,7 @@ ExportAuditContentResultResponse Client::exportAuditContentResultWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ExportAuditContentResultResponse>();
 }
 
@@ -1687,7 +1754,7 @@ ExportCustomSourceAnalysisTaskResponse Client::exportCustomSourceAnalysisTaskWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ExportCustomSourceAnalysisTask"},
     {"version" , "2023-08-01"},
@@ -1698,7 +1765,7 @@ ExportCustomSourceAnalysisTaskResponse Client::exportCustomSourceAnalysisTaskWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ExportCustomSourceAnalysisTaskResponse>();
 }
 
@@ -1746,7 +1813,7 @@ ExportGeneratedContentResponse Client::exportGeneratedContentWithOptions(const E
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ExportGeneratedContentResponse>();
 }
 
@@ -1824,7 +1891,7 @@ ExportHotTopicPlanningProposalsResponse Client::exportHotTopicPlanningProposalsW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ExportHotTopicPlanningProposalsResponse>();
 }
 
@@ -1855,7 +1922,7 @@ ExportIntervenesResponse Client::exportIntervenesWithOptions(const ExportInterve
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ExportIntervenes"},
     {"version" , "2023-08-01"},
@@ -1866,7 +1933,7 @@ ExportIntervenesResponse Client::exportIntervenesWithOptions(const ExportInterve
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ExportIntervenesResponse>();
 }
 
@@ -1944,7 +2011,7 @@ FeedbackDialogueResponse Client::feedbackDialogueWithOptions(const FeedbackDialo
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<FeedbackDialogueResponse>();
 }
 
@@ -1979,7 +2046,7 @@ FetchExportTermsTaskResponse Client::fetchExportTermsTaskWithOptions(const Fetch
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "FetchExportTermsTask"},
     {"version" , "2023-08-01"},
@@ -1990,7 +2057,7 @@ FetchExportTermsTaskResponse Client::fetchExportTermsTaskWithOptions(const Fetch
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<FetchExportTermsTaskResponse>();
 }
 
@@ -2038,7 +2105,7 @@ FetchExportWordTaskResponse Client::fetchExportWordTaskWithOptions(const FetchEx
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<FetchExportWordTaskResponse>();
 }
 
@@ -2096,7 +2163,7 @@ FetchImageTaskResponse Client::fetchImageTaskWithOptions(const FetchImageTaskReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<FetchImageTaskResponse>();
 }
 
@@ -2131,7 +2198,7 @@ FetchImportTermsTaskResponse Client::fetchImportTermsTaskWithOptions(const Fetch
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "FetchImportTermsTask"},
     {"version" , "2023-08-01"},
@@ -2142,7 +2209,7 @@ FetchImportTermsTaskResponse Client::fetchImportTermsTaskWithOptions(const Fetch
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<FetchImportTermsTaskResponse>();
 }
 
@@ -2190,7 +2257,7 @@ GenerateExportWordTaskResponse Client::generateExportWordTaskWithOptions(const G
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GenerateExportWordTaskResponse>();
 }
 
@@ -2242,7 +2309,7 @@ GenerateFileUrlByKeyResponse Client::generateFileUrlByKeyWithOptions(const Gener
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GenerateFileUrlByKeyResponse>();
 }
 
@@ -2308,7 +2375,7 @@ GenerateImageTaskResponse Client::generateImageTaskWithOptions(const GenerateIma
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GenerateImageTaskResponse>();
 }
 
@@ -2360,7 +2427,7 @@ GenerateUploadConfigResponse Client::generateUploadConfigWithOptions(const Gener
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GenerateUploadConfigResponse>();
 }
 
@@ -2414,7 +2481,7 @@ GenerateViewPointResponse Client::generateViewPointWithOptions(const GenerateVie
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GenerateViewPointResponse>();
 }
 
@@ -2449,7 +2516,7 @@ GetAuditNotePostProcessingStatusResponse Client::getAuditNotePostProcessingStatu
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetAuditNotePostProcessingStatus"},
     {"version" , "2023-08-01"},
@@ -2460,7 +2527,7 @@ GetAuditNotePostProcessingStatusResponse Client::getAuditNotePostProcessingStatu
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetAuditNotePostProcessingStatusResponse>();
 }
 
@@ -2495,7 +2562,7 @@ GetAuditNoteProcessingStatusResponse Client::getAuditNoteProcessingStatusWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetAuditNoteProcessingStatus"},
     {"version" , "2023-08-01"},
@@ -2506,7 +2573,7 @@ GetAuditNoteProcessingStatusResponse Client::getAuditNoteProcessingStatusWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetAuditNoteProcessingStatusResponse>();
 }
 
@@ -2541,7 +2608,7 @@ GetAutoClipsTaskInfoResponse Client::getAutoClipsTaskInfoWithOptions(const GetAu
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetAutoClipsTaskInfo"},
     {"version" , "2023-08-01"},
@@ -2552,7 +2619,7 @@ GetAutoClipsTaskInfoResponse Client::getAutoClipsTaskInfoWithOptions(const GetAu
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetAutoClipsTaskInfoResponse>();
 }
 
@@ -2583,7 +2650,7 @@ GetAvailableAuditNotesResponse Client::getAvailableAuditNotesWithOptions(const G
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetAvailableAuditNotes"},
     {"version" , "2023-08-01"},
@@ -2594,7 +2661,7 @@ GetAvailableAuditNotesResponse Client::getAvailableAuditNotesWithOptions(const G
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetAvailableAuditNotesResponse>();
 }
 
@@ -2629,7 +2696,7 @@ GetCategoriesByTaskIdResponse Client::getCategoriesByTaskIdWithOptions(const Get
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetCategoriesByTaskId"},
     {"version" , "2023-08-01"},
@@ -2640,7 +2707,7 @@ GetCategoriesByTaskIdResponse Client::getCategoriesByTaskIdWithOptions(const Get
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetCategoriesByTaskIdResponse>();
 }
 
@@ -2675,7 +2742,7 @@ GetCustomHotTopicBroadcastJobResponse Client::getCustomHotTopicBroadcastJobWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetCustomHotTopicBroadcastJob"},
     {"version" , "2023-08-01"},
@@ -2686,7 +2753,7 @@ GetCustomHotTopicBroadcastJobResponse Client::getCustomHotTopicBroadcastJobWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetCustomHotTopicBroadcastJobResponse>();
 }
 
@@ -2721,7 +2788,7 @@ GetCustomSourceTopicAnalysisTaskResponse Client::getCustomSourceTopicAnalysisTas
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetCustomSourceTopicAnalysisTask"},
     {"version" , "2023-08-01"},
@@ -2732,7 +2799,7 @@ GetCustomSourceTopicAnalysisTaskResponse Client::getCustomSourceTopicAnalysisTas
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetCustomSourceTopicAnalysisTaskResponse>();
 }
 
@@ -2784,7 +2851,7 @@ GetCustomTextResponse Client::getCustomTextWithOptions(const GetCustomTextReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetCustomTextResponse>();
 }
 
@@ -2832,7 +2899,7 @@ GetCustomTopicSelectionPerspectiveAnalysisTaskResponse Client::getCustomTopicSel
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetCustomTopicSelectionPerspectiveAnalysisTaskResponse>();
 }
 
@@ -2884,7 +2951,7 @@ GetDataSourceOrderConfigResponse Client::getDataSourceOrderConfigWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetDataSourceOrderConfigResponse>();
 }
 
@@ -2923,7 +2990,7 @@ GetDatasetResponse Client::getDatasetWithOptions(const GetDatasetRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetDataset"},
     {"version" , "2023-08-01"},
@@ -2934,7 +3001,7 @@ GetDatasetResponse Client::getDatasetWithOptions(const GetDatasetRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetDatasetResponse>();
 }
 
@@ -2981,7 +3048,7 @@ GetDatasetDocumentResponse Client::getDatasetDocumentWithOptions(const GetDatase
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetDatasetDocument"},
     {"version" , "2023-08-01"},
@@ -2992,7 +3059,7 @@ GetDatasetDocumentResponse Client::getDatasetDocumentWithOptions(const GetDatase
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetDatasetDocumentResponse>();
 }
 
@@ -3040,7 +3107,7 @@ GetDocClusterTaskResponse Client::getDocClusterTaskWithOptions(const GetDocClust
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetDocClusterTaskResponse>();
 }
 
@@ -3079,7 +3146,7 @@ GetDocInfoResponse Client::getDocInfoWithOptions(const GetDocInfoRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetDocInfo"},
     {"version" , "2023-08-01"},
@@ -3090,7 +3157,7 @@ GetDocInfoResponse Client::getDocInfoWithOptions(const GetDocInfoRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetDocInfoResponse>();
 }
 
@@ -3125,7 +3192,7 @@ GetEnterpriseVocAnalysisTaskResponse Client::getEnterpriseVocAnalysisTaskWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetEnterpriseVocAnalysisTask"},
     {"version" , "2023-08-01"},
@@ -3136,7 +3203,7 @@ GetEnterpriseVocAnalysisTaskResponse Client::getEnterpriseVocAnalysisTaskWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetEnterpriseVocAnalysisTaskResponse>();
 }
 
@@ -3149,6 +3216,48 @@ GetEnterpriseVocAnalysisTaskResponse Client::getEnterpriseVocAnalysisTaskWithOpt
 GetEnterpriseVocAnalysisTaskResponse Client::getEnterpriseVocAnalysisTask(const GetEnterpriseVocAnalysisTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getEnterpriseVocAnalysisTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取当前正用于事实性审核的信源 URL。
+ *
+ * @param request GetFactAuditUrlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetFactAuditUrlResponse
+ */
+GetFactAuditUrlResponse Client::getFactAuditUrlWithOptions(const GetFactAuditUrlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetFactAuditUrl"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetFactAuditUrlResponse>();
+}
+
+/**
+ * @summary 获取当前正用于事实性审核的信源 URL。
+ *
+ * @param request GetFactAuditUrlRequest
+ * @return GetFactAuditUrlResponse
+ */
+GetFactAuditUrlResponse Client::getFactAuditUrl(const GetFactAuditUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getFactAuditUrlWithOptions(request, runtime);
 }
 
 /**
@@ -3175,7 +3284,7 @@ GetFileContentLengthResponse Client::getFileContentLengthWithOptions(const GetFi
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetFileContentLength"},
     {"version" , "2023-08-01"},
@@ -3186,7 +3295,7 @@ GetFileContentLengthResponse Client::getFileContentLengthWithOptions(const GetFi
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetFileContentLengthResponse>();
 }
 
@@ -3234,7 +3343,7 @@ GetGeneratedContentResponse Client::getGeneratedContentWithOptions(const GetGene
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetGeneratedContentResponse>();
 }
 
@@ -3327,7 +3436,7 @@ GetHotTopicBroadcastResponse Client::getHotTopicBroadcastWithOptions(const GetHo
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetHotTopicBroadcast"},
     {"version" , "2023-08-01"},
@@ -3338,7 +3447,7 @@ GetHotTopicBroadcastResponse Client::getHotTopicBroadcastWithOptions(const GetHo
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetHotTopicBroadcastResponse>();
 }
 
@@ -3369,7 +3478,7 @@ GetInterveneGlobalReplyResponse Client::getInterveneGlobalReplyWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetInterveneGlobalReply"},
     {"version" , "2023-08-01"},
@@ -3380,7 +3489,7 @@ GetInterveneGlobalReplyResponse Client::getInterveneGlobalReplyWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetInterveneGlobalReplyResponse>();
 }
 
@@ -3428,7 +3537,7 @@ GetInterveneImportTaskInfoResponse Client::getInterveneImportTaskInfoWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetInterveneImportTaskInfoResponse>();
 }
 
@@ -3476,7 +3585,7 @@ GetInterveneRuleDetailResponse Client::getInterveneRuleDetailWithOptions(const G
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetInterveneRuleDetailResponse>();
 }
 
@@ -3507,7 +3616,7 @@ GetInterveneTemplateFileUrlResponse Client::getInterveneTemplateFileUrlWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetInterveneTemplateFileUrl"},
     {"version" , "2023-08-01"},
@@ -3518,7 +3627,7 @@ GetInterveneTemplateFileUrlResponse Client::getInterveneTemplateFileUrlWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetInterveneTemplateFileUrlResponse>();
 }
 
@@ -3566,7 +3675,7 @@ GetMaterialByIdResponse Client::getMaterialByIdWithOptions(const GetMaterialById
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMaterialByIdResponse>();
 }
 
@@ -3597,7 +3706,7 @@ GetPropertiesResponse Client::getPropertiesWithOptions(const GetPropertiesReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetProperties"},
     {"version" , "2023-08-01"},
@@ -3608,7 +3717,7 @@ GetPropertiesResponse Client::getPropertiesWithOptions(const GetPropertiesReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetPropertiesResponse>();
 }
 
@@ -3643,7 +3752,7 @@ GetSmartAuditResultResponse Client::getSmartAuditResultWithOptions(const GetSmar
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetSmartAuditResult"},
     {"version" , "2023-08-01"},
@@ -3654,7 +3763,7 @@ GetSmartAuditResultResponse Client::getSmartAuditResultWithOptions(const GetSmar
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetSmartAuditResultResponse>();
 }
 
@@ -3689,7 +3798,7 @@ GetSmartClipTaskResponse Client::getSmartClipTaskWithOptions(const GetSmartClipT
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetSmartClipTask"},
     {"version" , "2023-08-01"},
@@ -3700,7 +3809,7 @@ GetSmartClipTaskResponse Client::getSmartClipTaskWithOptions(const GetSmartClipT
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetSmartClipTaskResponse>();
 }
 
@@ -3748,7 +3857,7 @@ GetStyleLearningResultResponse Client::getStyleLearningResultWithOptions(const G
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetStyleLearningResultResponse>();
 }
 
@@ -3796,7 +3905,7 @@ GetTopicByIdResponse Client::getTopicByIdWithOptions(const GetTopicByIdRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetTopicByIdResponse>();
 }
 
@@ -3844,7 +3953,7 @@ GetTopicSelectionPerspectiveAnalysisTaskResponse Client::getTopicSelectionPerspe
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetTopicSelectionPerspectiveAnalysisTaskResponse>();
 }
 
@@ -3900,7 +4009,7 @@ ImportInterveneFileResponse Client::importInterveneFileWithOptions(const ImportI
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ImportInterveneFileResponse>();
 }
 
@@ -3956,7 +4065,7 @@ ImportInterveneFileAsyncResponse Client::importInterveneFileAsyncWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ImportInterveneFileAsyncResponse>();
 }
 
@@ -4010,7 +4119,7 @@ InsertInterveneGlobalReplyResponse Client::insertInterveneGlobalReplyWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<InsertInterveneGlobalReplyResponse>();
 }
 
@@ -4064,7 +4173,7 @@ InsertInterveneRuleResponse Client::insertInterveneRuleWithOptions(const InsertI
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<InsertInterveneRuleResponse>();
 }
 
@@ -4125,7 +4234,7 @@ ListAnalysisTagDetailByTaskIdResponse Client::listAnalysisTagDetailByTaskIdWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListAnalysisTagDetailByTaskId"},
     {"version" , "2023-08-01"},
@@ -4136,7 +4245,7 @@ ListAnalysisTagDetailByTaskIdResponse Client::listAnalysisTagDetailByTaskIdWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListAnalysisTagDetailByTaskIdResponse>();
 }
 
@@ -4230,7 +4339,7 @@ ListAsyncTasksResponse Client::listAsyncTasksWithOptions(const ListAsyncTasksReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListAsyncTasksResponse>();
 }
 
@@ -4269,7 +4378,7 @@ ListAuditContentErrorTypesResponse Client::listAuditContentErrorTypesWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListAuditContentErrorTypes"},
     {"version" , "2023-08-01"},
@@ -4280,7 +4389,7 @@ ListAuditContentErrorTypesResponse Client::listAuditContentErrorTypesWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListAuditContentErrorTypesResponse>();
 }
 
@@ -4319,7 +4428,7 @@ ListAuditTermsResponse Client::listAuditTermsWithOptions(const ListAuditTermsReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListAuditTerms"},
     {"version" , "2023-08-01"},
@@ -4330,7 +4439,7 @@ ListAuditTermsResponse Client::listAuditTermsWithOptions(const ListAuditTermsReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListAuditTermsResponse>();
 }
 
@@ -4382,7 +4491,7 @@ ListBuildConfigsResponse Client::listBuildConfigsWithOptions(const ListBuildConf
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListBuildConfigsResponse>();
 }
 
@@ -4430,7 +4539,7 @@ ListCustomTextResponse Client::listCustomTextWithOptions(const ListCustomTextReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListCustomTextResponse>();
 }
 
@@ -4516,7 +4625,7 @@ ListCustomViewPointsResponse Client::listCustomViewPointsWithOptions(const ListC
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListCustomViewPointsResponse>();
 }
 
@@ -4597,7 +4706,7 @@ ListDatasetDocumentsResponse Client::listDatasetDocumentsWithOptions(const ListD
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListDatasetDocuments"},
     {"version" , "2023-08-01"},
@@ -4608,7 +4717,7 @@ ListDatasetDocumentsResponse Client::listDatasetDocumentsWithOptions(const ListD
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListDatasetDocumentsResponse>();
 }
 
@@ -4675,7 +4784,7 @@ ListDatasetsResponse Client::listDatasetsWithOptions(const ListDatasetsRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListDatasets"},
     {"version" , "2023-08-01"},
@@ -4686,7 +4795,7 @@ ListDatasetsResponse Client::listDatasetsWithOptions(const ListDatasetsRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListDatasetsResponse>();
 }
 
@@ -4754,7 +4863,7 @@ ListDialoguesResponse Client::listDialoguesWithOptions(const ListDialoguesReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListDialoguesResponse>();
 }
 
@@ -4819,7 +4928,7 @@ ListDocsResponse Client::listDocsWithOptions(const ListDocsRequest &tmpReq, cons
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListDocs"},
     {"version" , "2023-08-01"},
@@ -4830,7 +4939,7 @@ ListDocsResponse Client::listDocsWithOptions(const ListDocsRequest &tmpReq, cons
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListDocsResponse>();
 }
 
@@ -4890,7 +4999,7 @@ ListFreshViewPointsResponse Client::listFreshViewPointsWithOptions(const ListFre
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListFreshViewPointsResponse>();
 }
 
@@ -4970,7 +5079,7 @@ ListGeneratedContentsResponse Client::listGeneratedContentsWithOptions(const Lis
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListGeneratedContentsResponse>();
 }
 
@@ -5036,7 +5145,7 @@ ListHotNewsWithTypeResponse Client::listHotNewsWithTypeWithOptions(const ListHot
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListHotNewsWithTypeResponse>();
 }
 
@@ -5088,7 +5197,7 @@ ListHotSourcesResponse Client::listHotSourcesWithOptions(const ListHotSourcesReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListHotSourcesResponse>();
 }
 
@@ -5174,7 +5283,7 @@ ListHotTopicsResponse Client::listHotTopicsWithOptions(const ListHotTopicsReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListHotTopicsResponse>();
 }
 
@@ -5234,7 +5343,7 @@ ListHotViewPointsResponse Client::listHotViewPointsWithOptions(const ListHotView
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListHotViewPointsResponse>();
 }
 
@@ -5286,7 +5395,7 @@ ListInterveneCntResponse Client::listInterveneCntWithOptions(const ListIntervene
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListInterveneCntResponse>();
 }
 
@@ -5338,7 +5447,7 @@ ListInterveneImportTasksResponse Client::listInterveneImportTasksWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListInterveneImportTasksResponse>();
 }
 
@@ -5390,7 +5499,7 @@ ListInterveneRulesResponse Client::listInterveneRulesWithOptions(const ListInter
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListInterveneRulesResponse>();
 }
 
@@ -5454,7 +5563,7 @@ ListIntervenesResponse Client::listIntervenesWithOptions(const ListIntervenesReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListIntervenesResponse>();
 }
 
@@ -5568,7 +5677,7 @@ ListMaterialDocumentsResponse Client::listMaterialDocumentsWithOptions(const Lis
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMaterialDocumentsResponse>();
 }
 
@@ -5658,7 +5767,7 @@ ListPlanningProposalResponse Client::listPlanningProposalWithOptions(const ListP
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListPlanningProposalResponse>();
 }
 
@@ -5729,7 +5838,7 @@ ListSearchTaskDialogueDatasResponse Client::listSearchTaskDialogueDatasWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListSearchTaskDialogueDatas"},
     {"version" , "2023-08-01"},
@@ -5740,7 +5849,7 @@ ListSearchTaskDialogueDatasResponse Client::listSearchTaskDialogueDatasWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListSearchTaskDialogueDatasResponse>();
 }
 
@@ -5783,7 +5892,7 @@ ListSearchTaskDialoguesResponse Client::listSearchTaskDialoguesWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListSearchTaskDialogues"},
     {"version" , "2023-08-01"},
@@ -5794,7 +5903,7 @@ ListSearchTaskDialoguesResponse Client::listSearchTaskDialoguesWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListSearchTaskDialoguesResponse>();
 }
 
@@ -5843,7 +5952,7 @@ ListSearchTasksResponse Client::listSearchTasksWithOptions(const ListSearchTasks
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListSearchTasks"},
     {"version" , "2023-08-01"},
@@ -5854,7 +5963,7 @@ ListSearchTasksResponse Client::listSearchTasksWithOptions(const ListSearchTasks
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListSearchTasksResponse>();
 }
 
@@ -5906,7 +6015,7 @@ ListStyleLearningResultResponse Client::listStyleLearningResultWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListStyleLearningResultResponse>();
 }
 
@@ -5966,7 +6075,7 @@ ListTimedViewAttitudeResponse Client::listTimedViewAttitudeWithOptions(const Lis
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTimedViewAttitudeResponse>();
 }
 
@@ -6018,7 +6127,7 @@ ListTopicRecommendEventListResponse Client::listTopicRecommendEventListWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTopicRecommendEventListResponse>();
 }
 
@@ -6074,7 +6183,7 @@ ListTopicViewPointRecommendEventListResponse Client::listTopicViewPointRecommend
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTopicViewPointRecommendEventListResponse>();
 }
 
@@ -6105,7 +6214,7 @@ ListVersionsResponse Client::listVersionsWithOptions(const ListVersionsRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListVersions"},
     {"version" , "2023-08-01"},
@@ -6116,7 +6225,7 @@ ListVersionsResponse Client::listVersionsWithOptions(const ListVersionsRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListVersionsResponse>();
 }
 
@@ -6176,7 +6285,7 @@ ListWebReviewPointsResponse Client::listWebReviewPointsWithOptions(const ListWeb
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListWebReviewPointsResponse>();
 }
 
@@ -6232,7 +6341,7 @@ ListWritingStylesResponse Client::listWritingStylesWithOptions(const ListWriting
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListWritingStylesResponse>();
 }
 
@@ -6280,7 +6389,7 @@ QueryAsyncTaskResponse Client::queryAsyncTaskWithOptions(const QueryAsyncTaskReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryAsyncTaskResponse>();
 }
 
@@ -6319,7 +6428,7 @@ QueryAuditTaskResponse Client::queryAuditTaskWithOptions(const QueryAuditTaskReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "QueryAuditTask"},
     {"version" , "2023-08-01"},
@@ -6330,7 +6439,7 @@ QueryAuditTaskResponse Client::queryAuditTaskWithOptions(const QueryAuditTaskReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryAuditTaskResponse>();
 }
 
@@ -6343,6 +6452,57 @@ QueryAuditTaskResponse Client::queryAuditTaskWithOptions(const QueryAuditTaskReq
 QueryAuditTaskResponse Client::queryAuditTask(const QueryAuditTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return queryAuditTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 内容缩写
+ *
+ * @param request RunAbbreviationContentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunAbbreviationContentResponse
+ */
+FutrueGenerator<RunAbbreviationContentResponse> Client::runAbbreviationContentWithSSE(const RunAbbreviationContentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasContent()) {
+    body["Content"] = request.content();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunAbbreviationContent"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunAbbreviationContentResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -6369,7 +6529,7 @@ RunAbbreviationContentResponse Client::runAbbreviationContentWithOptions(const R
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunAbbreviationContent"},
     {"version" , "2023-08-01"},
@@ -6380,7 +6540,7 @@ RunAbbreviationContentResponse Client::runAbbreviationContentWithOptions(const R
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunAbbreviationContentResponse>();
 }
 
@@ -6393,6 +6553,73 @@ RunAbbreviationContentResponse Client::runAbbreviationContentWithOptions(const R
 RunAbbreviationContentResponse Client::runAbbreviationContent(const RunAbbreviationContentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runAbbreviationContentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 妙读生成书籍脑图
+ *
+ * @param request RunBookBrainmapRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunBookBrainmapResponse
+ */
+FutrueGenerator<RunBookBrainmapResponse> Client::runBookBrainmapWithSSE(const RunBookBrainmapRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCleanCache()) {
+    body["CleanCache"] = request.cleanCache();
+  }
+
+  if (!!request.hasDocId()) {
+    body["DocId"] = request.docId();
+  }
+
+  if (!!request.hasNodeNumber()) {
+    body["NodeNumber"] = request.nodeNumber();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasWordNumber()) {
+    body["WordNumber"] = request.wordNumber();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunBookBrainmap"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunBookBrainmapResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -6435,7 +6662,7 @@ RunBookBrainmapResponse Client::runBookBrainmapWithOptions(const RunBookBrainmap
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunBookBrainmap"},
     {"version" , "2023-08-01"},
@@ -6446,7 +6673,7 @@ RunBookBrainmapResponse Client::runBookBrainmapWithOptions(const RunBookBrainmap
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunBookBrainmapResponse>();
 }
 
@@ -6459,6 +6686,65 @@ RunBookBrainmapResponse Client::runBookBrainmapWithOptions(const RunBookBrainmap
 RunBookBrainmapResponse Client::runBookBrainmap(const RunBookBrainmapRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runBookBrainmapWithOptions(request, runtime);
+}
+
+/**
+ * @summary 书籍导读接口
+ *
+ * @param request RunBookIntroductionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunBookIntroductionResponse
+ */
+FutrueGenerator<RunBookIntroductionResponse> Client::runBookIntroductionWithSSE(const RunBookIntroductionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDocId()) {
+    body["DocId"] = request.docId();
+  }
+
+  if (!!request.hasKeyPointPrompt()) {
+    body["KeyPointPrompt"] = request.keyPointPrompt();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasSummaryPrompt()) {
+    body["SummaryPrompt"] = request.summaryPrompt();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunBookIntroduction"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunBookIntroductionResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -6493,7 +6779,7 @@ RunBookIntroductionResponse Client::runBookIntroductionWithOptions(const RunBook
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunBookIntroduction"},
     {"version" , "2023-08-01"},
@@ -6504,7 +6790,7 @@ RunBookIntroductionResponse Client::runBookIntroductionWithOptions(const RunBook
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunBookIntroductionResponse>();
 }
 
@@ -6517,6 +6803,57 @@ RunBookIntroductionResponse Client::runBookIntroductionWithOptions(const RunBook
 RunBookIntroductionResponse Client::runBookIntroduction(const RunBookIntroductionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runBookIntroductionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 书籍智能卡片接口
+ *
+ * @param request RunBookSmartCardRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunBookSmartCardResponse
+ */
+FutrueGenerator<RunBookSmartCardResponse> Client::runBookSmartCardWithSSE(const RunBookSmartCardRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDocId()) {
+    body["DocId"] = request.docId();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunBookSmartCard"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunBookSmartCardResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -6543,7 +6880,7 @@ RunBookSmartCardResponse Client::runBookSmartCardWithOptions(const RunBookSmartC
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunBookSmartCard"},
     {"version" , "2023-08-01"},
@@ -6554,7 +6891,7 @@ RunBookSmartCardResponse Client::runBookSmartCardWithOptions(const RunBookSmartC
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunBookSmartCardResponse>();
 }
 
@@ -6567,6 +6904,107 @@ RunBookSmartCardResponse Client::runBookSmartCardWithOptions(const RunBookSmartC
 RunBookSmartCardResponse Client::runBookSmartCard(const RunBookSmartCardRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runBookSmartCardWithOptions(request, runtime);
+}
+
+/**
+ * @summary 客户之声预测
+ *
+ * @param tmpReq RunCommentGenerationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunCommentGenerationResponse
+ */
+FutrueGenerator<RunCommentGenerationResponse> Client::runCommentGenerationWithSSE(const RunCommentGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunCommentGenerationShrinkRequest request = RunCommentGenerationShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasLengthRange()) {
+    request.setLengthRangeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.lengthRange(), "LengthRange", "json"));
+  }
+
+  if (!!tmpReq.hasSentiment()) {
+    request.setSentimentShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sentiment(), "Sentiment", "json"));
+  }
+
+  if (!!tmpReq.hasType()) {
+    request.setTypeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.type(), "Type", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAllowEmoji()) {
+    body["AllowEmoji"] = request.allowEmoji();
+  }
+
+  if (!!request.hasExtraInfo()) {
+    body["ExtraInfo"] = request.extraInfo();
+  }
+
+  if (!!request.hasLength()) {
+    body["Length"] = request.length();
+  }
+
+  if (!!request.hasLengthRangeShrink()) {
+    body["LengthRange"] = request.lengthRangeShrink();
+  }
+
+  if (!!request.hasModelId()) {
+    body["ModelId"] = request.modelId();
+  }
+
+  if (!!request.hasNumComments()) {
+    body["NumComments"] = request.numComments();
+  }
+
+  if (!!request.hasSentimentShrink()) {
+    body["Sentiment"] = request.sentimentShrink();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasSourceMaterial()) {
+    body["SourceMaterial"] = request.sourceMaterial();
+  }
+
+  if (!!request.hasStyle()) {
+    body["Style"] = request.style();
+  }
+
+  if (!!request.hasTypeShrink()) {
+    body["Type"] = request.typeShrink();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunCommentGeneration"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunCommentGenerationResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -6643,7 +7081,7 @@ RunCommentGenerationResponse Client::runCommentGenerationWithOptions(const RunCo
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunCommentGeneration"},
     {"version" , "2023-08-01"},
@@ -6654,7 +7092,7 @@ RunCommentGenerationResponse Client::runCommentGenerationWithOptions(const RunCo
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunCommentGenerationResponse>();
 }
 
@@ -6667,6 +7105,53 @@ RunCommentGenerationResponse Client::runCommentGenerationWithOptions(const RunCo
 RunCommentGenerationResponse Client::runCommentGeneration(const RunCommentGenerationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runCommentGenerationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 内容续写
+ *
+ * @param request RunContinueContentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunContinueContentResponse
+ */
+FutrueGenerator<RunContinueContentResponse> Client::runContinueContentWithSSE(const RunContinueContentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasContent()) {
+    body["Content"] = request.content();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunContinueContent"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunContinueContentResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -6689,7 +7174,7 @@ RunContinueContentResponse Client::runContinueContentWithOptions(const RunContin
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunContinueContent"},
     {"version" , "2023-08-01"},
@@ -6700,7 +7185,7 @@ RunContinueContentResponse Client::runContinueContentWithOptions(const RunContin
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunContinueContentResponse>();
 }
 
@@ -6713,6 +7198,73 @@ RunContinueContentResponse Client::runContinueContentWithOptions(const RunContin
 RunContinueContentResponse Client::runContinueContent(const RunContinueContentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runContinueContentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 自定义热点话题分析
+ *
+ * @param request RunCustomHotTopicAnalysisRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunCustomHotTopicAnalysisResponse
+ */
+FutrueGenerator<RunCustomHotTopicAnalysisResponse> Client::runCustomHotTopicAnalysisWithSSE(const RunCustomHotTopicAnalysisRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAskUser()) {
+    body["AskUser"] = request.askUser();
+  }
+
+  if (!!request.hasForceAnalysisExistsTopic()) {
+    body["ForceAnalysisExistsTopic"] = request.forceAnalysisExistsTopic();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasUserBack()) {
+    body["UserBack"] = request.userBack();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunCustomHotTopicAnalysis"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunCustomHotTopicAnalysisResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -6755,7 +7307,7 @@ RunCustomHotTopicAnalysisResponse Client::runCustomHotTopicAnalysisWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunCustomHotTopicAnalysis"},
     {"version" , "2023-08-01"},
@@ -6766,7 +7318,7 @@ RunCustomHotTopicAnalysisResponse Client::runCustomHotTopicAnalysisWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunCustomHotTopicAnalysisResponse>();
 }
 
@@ -6779,6 +7331,85 @@ RunCustomHotTopicAnalysisResponse Client::runCustomHotTopicAnalysisWithOptions(c
 RunCustomHotTopicAnalysisResponse Client::runCustomHotTopicAnalysis(const RunCustomHotTopicAnalysisRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runCustomHotTopicAnalysisWithOptions(request, runtime);
+}
+
+/**
+ * @summary 自定义选题视角分析
+ *
+ * @param request RunCustomHotTopicViewPointAnalysisRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunCustomHotTopicViewPointAnalysisResponse
+ */
+FutrueGenerator<RunCustomHotTopicViewPointAnalysisResponse> Client::runCustomHotTopicViewPointAnalysisWithSSE(const RunCustomHotTopicViewPointAnalysisRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAskUser()) {
+    body["AskUser"] = request.askUser();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasSearchQuery()) {
+    body["SearchQuery"] = request.searchQuery();
+  }
+
+  if (!!request.hasSkipAskUser()) {
+    body["SkipAskUser"] = request.skipAskUser();
+  }
+
+  if (!!request.hasTopic()) {
+    body["Topic"] = request.topic();
+  }
+
+  if (!!request.hasTopicId()) {
+    body["TopicId"] = request.topicId();
+  }
+
+  if (!!request.hasTopicSource()) {
+    body["TopicSource"] = request.topicSource();
+  }
+
+  if (!!request.hasTopicVersion()) {
+    body["TopicVersion"] = request.topicVersion();
+  }
+
+  if (!!request.hasUserBack()) {
+    body["UserBack"] = request.userBack();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunCustomHotTopicViewPointAnalysis"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunCustomHotTopicViewPointAnalysisResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -6833,7 +7464,7 @@ RunCustomHotTopicViewPointAnalysisResponse Client::runCustomHotTopicViewPointAna
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunCustomHotTopicViewPointAnalysis"},
     {"version" , "2023-08-01"},
@@ -6844,7 +7475,7 @@ RunCustomHotTopicViewPointAnalysisResponse Client::runCustomHotTopicViewPointAna
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunCustomHotTopicViewPointAnalysisResponse>();
 }
 
@@ -6857,6 +7488,81 @@ RunCustomHotTopicViewPointAnalysisResponse Client::runCustomHotTopicViewPointAna
 RunCustomHotTopicViewPointAnalysisResponse Client::runCustomHotTopicViewPointAnalysis(const RunCustomHotTopicViewPointAnalysisRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runCustomHotTopicViewPointAnalysisWithOptions(request, runtime);
+}
+
+/**
+ * @summary 妙读脑图生成接口
+ *
+ * @param request RunDocBrainmapRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunDocBrainmapResponse
+ */
+FutrueGenerator<RunDocBrainmapResponse> Client::runDocBrainmapWithSSE(const RunDocBrainmapRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCleanCache()) {
+    body["CleanCache"] = request.cleanCache();
+  }
+
+  if (!!request.hasDocId()) {
+    body["DocId"] = request.docId();
+  }
+
+  if (!!request.hasModelName()) {
+    body["ModelName"] = request.modelName();
+  }
+
+  if (!!request.hasNodeNumber()) {
+    body["NodeNumber"] = request.nodeNumber();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasWordNumber()) {
+    body["WordNumber"] = request.wordNumber();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  if (!!request.hasReferenceContent()) {
+    body["referenceContent"] = request.referenceContent();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunDocBrainmap"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunDocBrainmapResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -6907,7 +7613,7 @@ RunDocBrainmapResponse Client::runDocBrainmapWithOptions(const RunDocBrainmapReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunDocBrainmap"},
     {"version" , "2023-08-01"},
@@ -6918,7 +7624,7 @@ RunDocBrainmapResponse Client::runDocBrainmapWithOptions(const RunDocBrainmapReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunDocBrainmapResponse>();
 }
 
@@ -6931,6 +7637,81 @@ RunDocBrainmapResponse Client::runDocBrainmapWithOptions(const RunDocBrainmapReq
 RunDocBrainmapResponse Client::runDocBrainmap(const RunDocBrainmapRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runDocBrainmapWithOptions(request, runtime);
+}
+
+/**
+ * @summary 妙读文档导读接口
+ *
+ * @param request RunDocIntroductionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunDocIntroductionResponse
+ */
+FutrueGenerator<RunDocIntroductionResponse> Client::runDocIntroductionWithSSE(const RunDocIntroductionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCleanCache()) {
+    body["CleanCache"] = request.cleanCache();
+  }
+
+  if (!!request.hasDocId()) {
+    body["DocId"] = request.docId();
+  }
+
+  if (!!request.hasIntroductionPrompt()) {
+    body["IntroductionPrompt"] = request.introductionPrompt();
+  }
+
+  if (!!request.hasKeyPointPrompt()) {
+    body["KeyPointPrompt"] = request.keyPointPrompt();
+  }
+
+  if (!!request.hasModelName()) {
+    body["ModelName"] = request.modelName();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasSummaryPrompt()) {
+    body["SummaryPrompt"] = request.summaryPrompt();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  if (!!request.hasReferenceContent()) {
+    body["referenceContent"] = request.referenceContent();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunDocIntroduction"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunDocIntroductionResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -6981,7 +7762,7 @@ RunDocIntroductionResponse Client::runDocIntroductionWithOptions(const RunDocInt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunDocIntroduction"},
     {"version" , "2023-08-01"},
@@ -6992,7 +7773,7 @@ RunDocIntroductionResponse Client::runDocIntroductionWithOptions(const RunDocInt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunDocIntroductionResponse>();
 }
 
@@ -7005,6 +7786,95 @@ RunDocIntroductionResponse Client::runDocIntroductionWithOptions(const RunDocInt
 RunDocIntroductionResponse Client::runDocIntroduction(const RunDocIntroductionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runDocIntroductionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 妙读问答接口
+ *
+ * @param tmpReq RunDocQaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunDocQaResponse
+ */
+FutrueGenerator<RunDocQaResponse> Client::runDocQaWithSSE(const RunDocQaRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunDocQaShrinkRequest request = RunDocQaShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCategoryIds()) {
+    request.setCategoryIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.categoryIds(), "CategoryIds", "json"));
+  }
+
+  if (!!tmpReq.hasConversationContexts()) {
+    request.setConversationContextsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.conversationContexts(), "ConversationContexts", "json"));
+  }
+
+  if (!!tmpReq.hasDocIds()) {
+    request.setDocIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.docIds(), "DocIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasCategoryIdsShrink()) {
+    body["CategoryIds"] = request.categoryIdsShrink();
+  }
+
+  if (!!request.hasConversationContextsShrink()) {
+    body["ConversationContexts"] = request.conversationContextsShrink();
+  }
+
+  if (!!request.hasDocIdsShrink()) {
+    body["DocIds"] = request.docIdsShrink();
+  }
+
+  if (!!request.hasModelName()) {
+    body["ModelName"] = request.modelName();
+  }
+
+  if (!!request.hasQuery()) {
+    body["Query"] = request.query();
+  }
+
+  if (!!request.hasReferenceContent()) {
+    body["ReferenceContent"] = request.referenceContent();
+  }
+
+  if (!!request.hasSearchSource()) {
+    body["SearchSource"] = request.searchSource();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunDocQa"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunDocQaResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -7069,7 +7939,7 @@ RunDocQaResponse Client::runDocQaWithOptions(const RunDocQaRequest &tmpReq, cons
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunDocQa"},
     {"version" , "2023-08-01"},
@@ -7080,7 +7950,7 @@ RunDocQaResponse Client::runDocQaWithOptions(const RunDocQaRequest &tmpReq, cons
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunDocQaResponse>();
 }
 
@@ -7093,6 +7963,65 @@ RunDocQaResponse Client::runDocQaWithOptions(const RunDocQaRequest &tmpReq, cons
 RunDocQaResponse Client::runDocQa(const RunDocQaRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runDocQaWithOptions(request, runtime);
+}
+
+/**
+ * @summary 文档智能卡片接口
+ *
+ * @param request RunDocSmartCardRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunDocSmartCardResponse
+ */
+FutrueGenerator<RunDocSmartCardResponse> Client::runDocSmartCardWithSSE(const RunDocSmartCardRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDocId()) {
+    body["DocId"] = request.docId();
+  }
+
+  if (!!request.hasModelName()) {
+    body["ModelName"] = request.modelName();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunDocSmartCard"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunDocSmartCardResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -7127,7 +8056,7 @@ RunDocSmartCardResponse Client::runDocSmartCardWithOptions(const RunDocSmartCard
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunDocSmartCard"},
     {"version" , "2023-08-01"},
@@ -7138,7 +8067,7 @@ RunDocSmartCardResponse Client::runDocSmartCardWithOptions(const RunDocSmartCard
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunDocSmartCardResponse>();
 }
 
@@ -7151,6 +8080,73 @@ RunDocSmartCardResponse Client::runDocSmartCardWithOptions(const RunDocSmartCard
 RunDocSmartCardResponse Client::runDocSmartCard(const RunDocSmartCardRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runDocSmartCardWithOptions(request, runtime);
+}
+
+/**
+ * @summary 妙读文档总结摘要接口
+ *
+ * @param request RunDocSummaryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunDocSummaryResponse
+ */
+FutrueGenerator<RunDocSummaryResponse> Client::runDocSummaryWithSSE(const RunDocSummaryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCleanCache()) {
+    body["CleanCache"] = request.cleanCache();
+  }
+
+  if (!!request.hasDocId()) {
+    body["DocId"] = request.docId();
+  }
+
+  if (!!request.hasModelName()) {
+    body["ModelName"] = request.modelName();
+  }
+
+  if (!!request.hasQuery()) {
+    body["Query"] = request.query();
+  }
+
+  if (!!request.hasRecommendContent()) {
+    body["RecommendContent"] = request.recommendContent();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunDocSummary"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunDocSummaryResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -7193,7 +8189,7 @@ RunDocSummaryResponse Client::runDocSummaryWithOptions(const RunDocSummaryReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunDocSummary"},
     {"version" , "2023-08-01"},
@@ -7204,7 +8200,7 @@ RunDocSummaryResponse Client::runDocSummaryWithOptions(const RunDocSummaryReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunDocSummaryResponse>();
 }
 
@@ -7217,6 +8213,73 @@ RunDocSummaryResponse Client::runDocSummaryWithOptions(const RunDocSummaryReques
 RunDocSummaryResponse Client::runDocSummary(const RunDocSummaryRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runDocSummaryWithOptions(request, runtime);
+}
+
+/**
+ * @summary 妙读文档翻译接口
+ *
+ * @param request RunDocTranslationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunDocTranslationResponse
+ */
+FutrueGenerator<RunDocTranslationResponse> Client::runDocTranslationWithSSE(const RunDocTranslationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCleanCache()) {
+    body["CleanCache"] = request.cleanCache();
+  }
+
+  if (!!request.hasDocId()) {
+    body["DocId"] = request.docId();
+  }
+
+  if (!!request.hasModelName()) {
+    body["ModelName"] = request.modelName();
+  }
+
+  if (!!request.hasRecommendContent()) {
+    body["RecommendContent"] = request.recommendContent();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasTransType()) {
+    body["TransType"] = request.transType();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunDocTranslation"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunDocTranslationResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -7259,7 +8322,7 @@ RunDocTranslationResponse Client::runDocTranslationWithOptions(const RunDocTrans
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunDocTranslation"},
     {"version" , "2023-08-01"},
@@ -7270,7 +8333,7 @@ RunDocTranslationResponse Client::runDocTranslationWithOptions(const RunDocTrans
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunDocTranslationResponse>();
 }
 
@@ -7283,6 +8346,81 @@ RunDocTranslationResponse Client::runDocTranslationWithOptions(const RunDocTrans
 RunDocTranslationResponse Client::runDocTranslation(const RunDocTranslationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runDocTranslationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 文档改写
+ *
+ * @param request RunDocWashingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunDocWashingResponse
+ */
+FutrueGenerator<RunDocWashingResponse> Client::runDocWashingWithSSE(const RunDocWashingRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasModelId()) {
+    body["ModelId"] = request.modelId();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasReferenceContent()) {
+    body["ReferenceContent"] = request.referenceContent();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasTopic()) {
+    body["Topic"] = request.topic();
+  }
+
+  if (!!request.hasWordNumber()) {
+    body["WordNumber"] = request.wordNumber();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  if (!!request.hasWritingTypeName()) {
+    body["WritingTypeName"] = request.writingTypeName();
+  }
+
+  if (!!request.hasWritingTypeRefDoc()) {
+    body["WritingTypeRefDoc"] = request.writingTypeRefDoc();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunDocWashing"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunDocWashingResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -7333,7 +8471,7 @@ RunDocWashingResponse Client::runDocWashingWithOptions(const RunDocWashingReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunDocWashing"},
     {"version" , "2023-08-01"},
@@ -7344,7 +8482,7 @@ RunDocWashingResponse Client::runDocWashingWithOptions(const RunDocWashingReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunDocWashingResponse>();
 }
 
@@ -7357,6 +8495,57 @@ RunDocWashingResponse Client::runDocWashingWithOptions(const RunDocWashingReques
 RunDocWashingResponse Client::runDocWashing(const RunDocWashingRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runDocWashingWithOptions(request, runtime);
+}
+
+/**
+ * @summary 内容扩写
+ *
+ * @param request RunExpandContentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunExpandContentResponse
+ */
+FutrueGenerator<RunExpandContentResponse> Client::runExpandContentWithSSE(const RunExpandContentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasContent()) {
+    body["Content"] = request.content();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunExpandContent"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunExpandContentResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -7383,7 +8572,7 @@ RunExpandContentResponse Client::runExpandContentWithOptions(const RunExpandCont
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunExpandContent"},
     {"version" , "2023-08-01"},
@@ -7394,7 +8583,7 @@ RunExpandContentResponse Client::runExpandContentWithOptions(const RunExpandCont
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunExpandContentResponse>();
 }
 
@@ -7407,6 +8596,65 @@ RunExpandContentResponse Client::runExpandContentWithOptions(const RunExpandCont
 RunExpandContentResponse Client::runExpandContent(const RunExpandContentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runExpandContentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 妙读猜你想问接口
+ *
+ * @param request RunGenerateQuestionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunGenerateQuestionsResponse
+ */
+FutrueGenerator<RunGenerateQuestionsResponse> Client::runGenerateQuestionsWithSSE(const RunGenerateQuestionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDocId()) {
+    body["DocId"] = request.docId();
+  }
+
+  if (!!request.hasModelName()) {
+    body["ModelName"] = request.modelName();
+  }
+
+  if (!!request.hasReferenceContent()) {
+    body["ReferenceContent"] = request.referenceContent();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunGenerateQuestions"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunGenerateQuestionsResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -7441,7 +8689,7 @@ RunGenerateQuestionsResponse Client::runGenerateQuestionsWithOptions(const RunGe
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunGenerateQuestions"},
     {"version" , "2023-08-01"},
@@ -7452,7 +8700,7 @@ RunGenerateQuestionsResponse Client::runGenerateQuestionsWithOptions(const RunGe
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunGenerateQuestionsResponse>();
 }
 
@@ -7465,6 +8713,69 @@ RunGenerateQuestionsResponse Client::runGenerateQuestionsWithOptions(const RunGe
 RunGenerateQuestionsResponse Client::runGenerateQuestions(const RunGenerateQuestionsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runGenerateQuestionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 妙读文档关键词抽取接口
+ *
+ * @param request RunHotwordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunHotwordResponse
+ */
+FutrueGenerator<RunHotwordResponse> Client::runHotwordWithSSE(const RunHotwordRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDocId()) {
+    body["DocId"] = request.docId();
+  }
+
+  if (!!request.hasModelName()) {
+    body["ModelName"] = request.modelName();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasReferenceContent()) {
+    body["ReferenceContent"] = request.referenceContent();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunHotword"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunHotwordResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -7503,7 +8814,7 @@ RunHotwordResponse Client::runHotwordWithOptions(const RunHotwordRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunHotword"},
     {"version" , "2023-08-01"},
@@ -7514,7 +8825,7 @@ RunHotwordResponse Client::runHotwordWithOptions(const RunHotwordRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunHotwordResponse>();
 }
 
@@ -7527,6 +8838,67 @@ RunHotwordResponse Client::runHotwordWithOptions(const RunHotwordRequest &reques
 RunHotwordResponse Client::runHotword(const RunHotwordRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runHotwordWithOptions(request, runtime);
+}
+
+/**
+ * @summary AI妙笔-创作-抽取关键词
+ *
+ * @param tmpReq RunKeywordsExtractionGenerationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunKeywordsExtractionGenerationResponse
+ */
+FutrueGenerator<RunKeywordsExtractionGenerationResponse> Client::runKeywordsExtractionGenerationWithSSE(const RunKeywordsExtractionGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunKeywordsExtractionGenerationShrinkRequest request = RunKeywordsExtractionGenerationShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasReferenceData()) {
+    request.setReferenceDataShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.referenceData(), "ReferenceData", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasReferenceDataShrink()) {
+    body["ReferenceData"] = request.referenceDataShrink();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunKeywordsExtractionGeneration"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunKeywordsExtractionGenerationResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -7563,7 +8935,7 @@ RunKeywordsExtractionGenerationResponse Client::runKeywordsExtractionGenerationW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunKeywordsExtractionGeneration"},
     {"version" , "2023-08-01"},
@@ -7574,7 +8946,7 @@ RunKeywordsExtractionGenerationResponse Client::runKeywordsExtractionGenerationW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunKeywordsExtractionGenerationResponse>();
 }
 
@@ -7587,6 +8959,75 @@ RunKeywordsExtractionGenerationResponse Client::runKeywordsExtractionGenerationW
 RunKeywordsExtractionGenerationResponse Client::runKeywordsExtractionGeneration(const RunKeywordsExtractionGenerationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runKeywordsExtractionGenerationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 文档批量导读
+ *
+ * @param tmpReq RunMultiDocIntroductionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunMultiDocIntroductionResponse
+ */
+FutrueGenerator<RunMultiDocIntroductionResponse> Client::runMultiDocIntroductionWithSSE(const RunMultiDocIntroductionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunMultiDocIntroductionShrinkRequest request = RunMultiDocIntroductionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDocIds()) {
+    request.setDocIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.docIds(), "DocIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasDocIdsShrink()) {
+    body["DocIds"] = request.docIdsShrink();
+  }
+
+  if (!!request.hasKeyPointPrompt()) {
+    body["KeyPointPrompt"] = request.keyPointPrompt();
+  }
+
+  if (!!request.hasModelName()) {
+    body["ModelName"] = request.modelName();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasSummaryPrompt()) {
+    body["SummaryPrompt"] = request.summaryPrompt();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunMultiDocIntroduction"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunMultiDocIntroductionResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -7631,7 +9072,7 @@ RunMultiDocIntroductionResponse Client::runMultiDocIntroductionWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunMultiDocIntroduction"},
     {"version" , "2023-08-01"},
@@ -7642,7 +9083,7 @@ RunMultiDocIntroductionResponse Client::runMultiDocIntroductionWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunMultiDocIntroductionResponse>();
 }
 
@@ -7655,6 +9096,83 @@ RunMultiDocIntroductionResponse Client::runMultiDocIntroductionWithOptions(const
 RunMultiDocIntroductionResponse Client::runMultiDocIntroduction(const RunMultiDocIntroductionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runMultiDocIntroductionWithOptions(request, runtime);
+}
+
+/**
+ * @summary AI妙搜-智能搜索生成
+ *
+ * @param tmpReq RunSearchGenerationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunSearchGenerationResponse
+ */
+FutrueGenerator<RunSearchGenerationResponse> Client::runSearchGenerationWithSSE(const RunSearchGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunSearchGenerationShrinkRequest request = RunSearchGenerationShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAgentContext()) {
+    request.setAgentContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.agentContext(), "AgentContext", "json"));
+  }
+
+  if (!!tmpReq.hasChatConfig()) {
+    request.setChatConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.chatConfig(), "ChatConfig", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAgentContextShrink()) {
+    body["AgentContext"] = request.agentContextShrink();
+  }
+
+  if (!!request.hasChatConfigShrink()) {
+    body["ChatConfig"] = request.chatConfigShrink();
+  }
+
+  if (!!request.hasModelId()) {
+    body["ModelId"] = request.modelId();
+  }
+
+  if (!!request.hasOriginalSessionId()) {
+    body["OriginalSessionId"] = request.originalSessionId();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunSearchGeneration"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunSearchGenerationResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -7707,7 +9225,7 @@ RunSearchGenerationResponse Client::runSearchGenerationWithOptions(const RunSear
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunSearchGeneration"},
     {"version" , "2023-08-01"},
@@ -7718,7 +9236,7 @@ RunSearchGenerationResponse Client::runSearchGenerationWithOptions(const RunSear
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunSearchGenerationResponse>();
 }
 
@@ -7731,6 +9249,71 @@ RunSearchGenerationResponse Client::runSearchGenerationWithOptions(const RunSear
 RunSearchGenerationResponse Client::runSearchGeneration(const RunSearchGenerationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runSearchGenerationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 妙搜-文搜文
+ *
+ * @param tmpReq RunSearchSimilarArticlesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunSearchSimilarArticlesResponse
+ */
+FutrueGenerator<RunSearchSimilarArticlesResponse> Client::runSearchSimilarArticlesWithSSE(const RunSearchSimilarArticlesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunSearchSimilarArticlesShrinkRequest request = RunSearchSimilarArticlesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasChatConfig()) {
+    request.setChatConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.chatConfig(), "ChatConfig", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasChatConfigShrink()) {
+    body["ChatConfig"] = request.chatConfigShrink();
+  }
+
+  if (!!request.hasDocType()) {
+    body["DocType"] = request.docType();
+  }
+
+  if (!!request.hasTitle()) {
+    body["Title"] = request.title();
+  }
+
+  if (!!request.hasUrl()) {
+    body["Url"] = request.url();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunSearchSimilarArticles"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunSearchSimilarArticlesResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -7771,7 +9354,7 @@ RunSearchSimilarArticlesResponse Client::runSearchSimilarArticlesWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunSearchSimilarArticles"},
     {"version" , "2023-08-01"},
@@ -7782,7 +9365,7 @@ RunSearchSimilarArticlesResponse Client::runSearchSimilarArticlesWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunSearchSimilarArticlesResponse>();
 }
 
@@ -7795,6 +9378,83 @@ RunSearchSimilarArticlesResponse Client::runSearchSimilarArticlesWithOptions(con
 RunSearchSimilarArticlesResponse Client::runSearchSimilarArticles(const RunSearchSimilarArticlesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runSearchSimilarArticlesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创作-分步骤写作
+ *
+ * @param tmpReq RunStepByStepWritingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunStepByStepWritingResponse
+ */
+FutrueGenerator<RunStepByStepWritingResponse> Client::runStepByStepWritingWithSSE(const RunStepByStepWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunStepByStepWritingShrinkRequest request = RunStepByStepWritingShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasReferenceData()) {
+    request.setReferenceDataShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.referenceData(), "ReferenceData", "json"));
+  }
+
+  if (!!tmpReq.hasWritingConfig()) {
+    request.setWritingConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.writingConfig(), "WritingConfig", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasOriginSessionId()) {
+    body["OriginSessionId"] = request.originSessionId();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasReferenceDataShrink()) {
+    body["ReferenceData"] = request.referenceDataShrink();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  if (!!request.hasWritingConfigShrink()) {
+    body["WritingConfig"] = request.writingConfigShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunStepByStepWriting"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunStepByStepWritingResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -7847,7 +9507,7 @@ RunStepByStepWritingResponse Client::runStepByStepWritingWithOptions(const RunSt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunStepByStepWriting"},
     {"version" , "2023-08-01"},
@@ -7858,7 +9518,7 @@ RunStepByStepWritingResponse Client::runStepByStepWritingWithOptions(const RunSt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunStepByStepWritingResponse>();
 }
 
@@ -7871,6 +9531,67 @@ RunStepByStepWritingResponse Client::runStepByStepWritingWithOptions(const RunSt
 RunStepByStepWritingResponse Client::runStepByStepWriting(const RunStepByStepWritingRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runStepByStepWritingWithOptions(request, runtime);
+}
+
+/**
+ * @summary 内容特点分析
+ *
+ * @param tmpReq RunStyleFeatureAnalysisRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunStyleFeatureAnalysisResponse
+ */
+FutrueGenerator<RunStyleFeatureAnalysisResponse> Client::runStyleFeatureAnalysisWithSSE(const RunStyleFeatureAnalysisRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunStyleFeatureAnalysisShrinkRequest request = RunStyleFeatureAnalysisShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContents()) {
+    request.setContentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.contents(), "Contents", "json"));
+  }
+
+  if (!!tmpReq.hasMaterialIds()) {
+    request.setMaterialIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.materialIds(), "MaterialIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasContentsShrink()) {
+    body["Contents"] = request.contentsShrink();
+  }
+
+  if (!!request.hasMaterialIdsShrink()) {
+    body["MaterialIds"] = request.materialIdsShrink();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunStyleFeatureAnalysis"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunStyleFeatureAnalysisResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -7907,7 +9628,7 @@ RunStyleFeatureAnalysisResponse Client::runStyleFeatureAnalysisWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunStyleFeatureAnalysis"},
     {"version" , "2023-08-01"},
@@ -7918,7 +9639,7 @@ RunStyleFeatureAnalysisResponse Client::runStyleFeatureAnalysisWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunStyleFeatureAnalysisResponse>();
 }
 
@@ -7931,6 +9652,57 @@ RunStyleFeatureAnalysisResponse Client::runStyleFeatureAnalysisWithOptions(const
 RunStyleFeatureAnalysisResponse Client::runStyleFeatureAnalysis(const RunStyleFeatureAnalysisRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runStyleFeatureAnalysisWithOptions(request, runtime);
+}
+
+/**
+ * @summary 内容摘要生成
+ *
+ * @param request RunSummaryGenerateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunSummaryGenerateResponse
+ */
+FutrueGenerator<RunSummaryGenerateResponse> Client::runSummaryGenerateWithSSE(const RunSummaryGenerateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasContent()) {
+    body["Content"] = request.content();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunSummaryGenerate"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunSummaryGenerateResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -7957,7 +9729,7 @@ RunSummaryGenerateResponse Client::runSummaryGenerateWithOptions(const RunSummar
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunSummaryGenerate"},
     {"version" , "2023-08-01"},
@@ -7968,7 +9740,7 @@ RunSummaryGenerateResponse Client::runSummaryGenerateWithOptions(const RunSummar
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunSummaryGenerateResponse>();
 }
 
@@ -7981,6 +9753,57 @@ RunSummaryGenerateResponse Client::runSummaryGenerateWithOptions(const RunSummar
 RunSummaryGenerateResponse Client::runSummaryGenerate(const RunSummaryGenerateRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runSummaryGenerateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创作-文本润色
+ *
+ * @param request RunTextPolishingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunTextPolishingResponse
+ */
+FutrueGenerator<RunTextPolishingResponse> Client::runTextPolishingWithSSE(const RunTextPolishingRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasContent()) {
+    body["Content"] = request.content();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunTextPolishing"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunTextPolishingResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -8007,7 +9830,7 @@ RunTextPolishingResponse Client::runTextPolishingWithOptions(const RunTextPolish
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunTextPolishing"},
     {"version" , "2023-08-01"},
@@ -8018,7 +9841,7 @@ RunTextPolishingResponse Client::runTextPolishingWithOptions(const RunTextPolish
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunTextPolishingResponse>();
 }
 
@@ -8031,6 +9854,75 @@ RunTextPolishingResponse Client::runTextPolishingWithOptions(const RunTextPolish
 RunTextPolishingResponse Client::runTextPolishing(const RunTextPolishingRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runTextPolishingWithOptions(request, runtime);
+}
+
+/**
+ * @summary 妙笔：标题生成
+ *
+ * @param tmpReq RunTitleGenerationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunTitleGenerationResponse
+ */
+FutrueGenerator<RunTitleGenerationResponse> Client::runTitleGenerationWithSSE(const RunTitleGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunTitleGenerationShrinkRequest request = RunTitleGenerationShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDeduplicatedTitles()) {
+    request.setDeduplicatedTitlesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deduplicatedTitles(), "DeduplicatedTitles", "json"));
+  }
+
+  if (!!tmpReq.hasReferenceData()) {
+    request.setReferenceDataShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.referenceData(), "ReferenceData", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasDeduplicatedTitlesShrink()) {
+    body["DeduplicatedTitles"] = request.deduplicatedTitlesShrink();
+  }
+
+  if (!!request.hasReferenceDataShrink()) {
+    body["ReferenceData"] = request.referenceDataShrink();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasTitleCount()) {
+    body["TitleCount"] = request.titleCount();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunTitleGeneration"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunTitleGenerationResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -8075,7 +9967,7 @@ RunTitleGenerationResponse Client::runTitleGenerationWithOptions(const RunTitleG
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunTitleGeneration"},
     {"version" , "2023-08-01"},
@@ -8086,7 +9978,7 @@ RunTitleGenerationResponse Client::runTitleGenerationWithOptions(const RunTitleG
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunTitleGenerationResponse>();
 }
 
@@ -8099,6 +9991,67 @@ RunTitleGenerationResponse Client::runTitleGenerationWithOptions(const RunTitleG
 RunTitleGenerationResponse Client::runTitleGeneration(const RunTitleGenerationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runTitleGenerationWithOptions(request, runtime);
+}
+
+/**
+ * @summary AI妙笔-创作-中英文翻译
+ *
+ * @param tmpReq RunTranslateGenerationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunTranslateGenerationResponse
+ */
+FutrueGenerator<RunTranslateGenerationResponse> Client::runTranslateGenerationWithSSE(const RunTranslateGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunTranslateGenerationShrinkRequest request = RunTranslateGenerationShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasReferenceData()) {
+    request.setReferenceDataShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.referenceData(), "ReferenceData", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasReferenceDataShrink()) {
+    body["ReferenceData"] = request.referenceDataShrink();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunTranslateGeneration"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunTranslateGenerationResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -8135,7 +10088,7 @@ RunTranslateGenerationResponse Client::runTranslateGenerationWithOptions(const R
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunTranslateGeneration"},
     {"version" , "2023-08-01"},
@@ -8146,7 +10099,7 @@ RunTranslateGenerationResponse Client::runTranslateGenerationWithOptions(const R
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunTranslateGenerationResponse>();
 }
 
@@ -8159,6 +10112,67 @@ RunTranslateGenerationResponse Client::runTranslateGenerationWithOptions(const R
 RunTranslateGenerationResponse Client::runTranslateGeneration(const RunTranslateGenerationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runTranslateGenerationWithOptions(request, runtime);
+}
+
+/**
+ * @summary AI妙笔-创作-文风改写
+ *
+ * @param tmpReq RunWriteToneGenerationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunWriteToneGenerationResponse
+ */
+FutrueGenerator<RunWriteToneGenerationResponse> Client::runWriteToneGenerationWithSSE(const RunWriteToneGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunWriteToneGenerationShrinkRequest request = RunWriteToneGenerationShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasReferenceData()) {
+    request.setReferenceDataShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.referenceData(), "ReferenceData", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasReferenceDataShrink()) {
+    body["ReferenceData"] = request.referenceDataShrink();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunWriteToneGeneration"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunWriteToneGenerationResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -8195,7 +10209,7 @@ RunWriteToneGenerationResponse Client::runWriteToneGenerationWithOptions(const R
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunWriteToneGeneration"},
     {"version" , "2023-08-01"},
@@ -8206,7 +10220,7 @@ RunWriteToneGenerationResponse Client::runWriteToneGenerationWithOptions(const R
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunWriteToneGenerationResponse>();
 }
 
@@ -8219,6 +10233,83 @@ RunWriteToneGenerationResponse Client::runWriteToneGenerationWithOptions(const R
 RunWriteToneGenerationResponse Client::runWriteToneGeneration(const RunWriteToneGenerationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runWriteToneGenerationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 直接写作
+ *
+ * @param tmpReq RunWritingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunWritingResponse
+ */
+FutrueGenerator<RunWritingResponse> Client::runWritingWithSSE(const RunWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunWritingShrinkRequest request = RunWritingShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasReferenceData()) {
+    request.setReferenceDataShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.referenceData(), "ReferenceData", "json"));
+  }
+
+  if (!!tmpReq.hasWritingConfig()) {
+    request.setWritingConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.writingConfig(), "WritingConfig", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasOriginSessionId()) {
+    body["OriginSessionId"] = request.originSessionId();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasReferenceDataShrink()) {
+    body["ReferenceData"] = request.referenceDataShrink();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  if (!!request.hasWritingConfigShrink()) {
+    body["WritingConfig"] = request.writingConfigShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunWriting"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunWritingResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -8271,7 +10362,7 @@ RunWritingResponse Client::runWritingWithOptions(const RunWritingRequest &tmpReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunWriting"},
     {"version" , "2023-08-01"},
@@ -8282,7 +10373,7 @@ RunWritingResponse Client::runWritingWithOptions(const RunWritingRequest &tmpReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunWritingResponse>();
 }
 
@@ -8295,6 +10386,155 @@ RunWritingResponse Client::runWritingWithOptions(const RunWritingRequest &tmpReq
 RunWritingResponse Client::runWriting(const RunWritingRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runWritingWithOptions(request, runtime);
+}
+
+/**
+ * @summary 直接写作
+ *
+ * @param tmpReq RunWritingV2Request
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunWritingV2Response
+ */
+FutrueGenerator<RunWritingV2Response> Client::runWritingV2WithSSE(const RunWritingV2Request &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunWritingV2ShrinkRequest request = RunWritingV2ShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasArticles()) {
+    request.setArticlesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.articles(), "Articles", "json"));
+  }
+
+  if (!!tmpReq.hasKeywords()) {
+    request.setKeywordsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.keywords(), "Keywords", "json"));
+  }
+
+  if (!!tmpReq.hasMiniDocs()) {
+    request.setMiniDocsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.miniDocs(), "MiniDocs", "json"));
+  }
+
+  if (!!tmpReq.hasOutlines()) {
+    request.setOutlinesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.outlines(), "Outlines", "json"));
+  }
+
+  if (!!tmpReq.hasSearchSources()) {
+    request.setSearchSourcesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.searchSources(), "SearchSources", "json"));
+  }
+
+  if (!!tmpReq.hasSummarization()) {
+    request.setSummarizationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.summarization(), "Summarization", "json"));
+  }
+
+  if (!!tmpReq.hasWritingParams()) {
+    request.setWritingParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.writingParams(), "WritingParams", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasArticlesShrink()) {
+    body["Articles"] = request.articlesShrink();
+  }
+
+  if (!!request.hasDistributeWriting()) {
+    body["DistributeWriting"] = request.distributeWriting();
+  }
+
+  if (!!request.hasGcNumberSize()) {
+    body["GcNumberSize"] = request.gcNumberSize();
+  }
+
+  if (!!request.hasGcNumberSizeTag()) {
+    body["GcNumberSizeTag"] = request.gcNumberSizeTag();
+  }
+
+  if (!!request.hasKeywordsShrink()) {
+    body["Keywords"] = request.keywordsShrink();
+  }
+
+  if (!!request.hasLanguage()) {
+    body["Language"] = request.language();
+  }
+
+  if (!!request.hasMiniDocsShrink()) {
+    body["MiniDocs"] = request.miniDocsShrink();
+  }
+
+  if (!!request.hasOutlinesShrink()) {
+    body["Outlines"] = request.outlinesShrink();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasPromptMode()) {
+    body["PromptMode"] = request.promptMode();
+  }
+
+  if (!!request.hasSearchSourcesShrink()) {
+    body["SearchSources"] = request.searchSourcesShrink();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasStep()) {
+    body["Step"] = request.step();
+  }
+
+  if (!!request.hasSummarizationShrink()) {
+    body["Summarization"] = request.summarizationShrink();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasUseSearch()) {
+    body["UseSearch"] = request.useSearch();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  if (!!request.hasWritingParamsShrink()) {
+    body["WritingParams"] = request.writingParamsShrink();
+  }
+
+  if (!!request.hasWritingScene()) {
+    body["WritingScene"] = request.writingScene();
+  }
+
+  if (!!request.hasWritingStyle()) {
+    body["WritingStyle"] = request.writingStyle();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunWritingV2"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunWritingV2Response>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -8419,7 +10659,7 @@ RunWritingV2Response Client::runWritingV2WithOptions(const RunWritingV2Request &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunWritingV2"},
     {"version" , "2023-08-01"},
@@ -8430,7 +10670,7 @@ RunWritingV2Response Client::runWritingV2WithOptions(const RunWritingV2Request &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunWritingV2Response>();
 }
 
@@ -8486,7 +10726,7 @@ SaveCustomTextResponse Client::saveCustomTextWithOptions(const SaveCustomTextReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SaveCustomTextResponse>();
 }
 
@@ -8548,7 +10788,7 @@ SaveDataSourceOrderConfigResponse Client::saveDataSourceOrderConfigWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SaveDataSourceOrderConfigResponse>();
 }
 
@@ -8650,7 +10890,7 @@ SaveMaterialDocumentResponse Client::saveMaterialDocumentWithOptions(const SaveM
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SaveMaterialDocumentResponse>();
 }
 
@@ -8715,7 +10955,7 @@ SaveStyleLearningResultResponse Client::saveStyleLearningResultWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "SaveStyleLearningResult"},
     {"version" , "2023-08-01"},
@@ -8726,7 +10966,7 @@ SaveStyleLearningResultResponse Client::saveStyleLearningResultWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SaveStyleLearningResultResponse>();
 }
 
@@ -8781,7 +11021,7 @@ SearchDatasetDocumentsResponse Client::searchDatasetDocumentsWithOptions(const S
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "SearchDatasetDocuments"},
     {"version" , "2023-08-01"},
@@ -8792,7 +11032,7 @@ SearchDatasetDocumentsResponse Client::searchDatasetDocumentsWithOptions(const S
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SearchDatasetDocumentsResponse>();
 }
 
@@ -8866,7 +11106,7 @@ SearchNewsResponse Client::searchNewsWithOptions(const SearchNewsRequest &tmpReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SearchNewsResponse>();
 }
 
@@ -8926,7 +11166,7 @@ SubmitAsyncTaskResponse Client::submitAsyncTaskWithOptions(const SubmitAsyncTask
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SubmitAsyncTaskResponse>();
 }
 
@@ -8961,7 +11201,7 @@ SubmitAuditNoteResponse Client::submitAuditNoteWithOptions(const SubmitAuditNote
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "SubmitAuditNote"},
     {"version" , "2023-08-01"},
@@ -8972,7 +11212,7 @@ SubmitAuditNoteResponse Client::submitAuditNoteWithOptions(const SubmitAuditNote
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SubmitAuditNoteResponse>();
 }
 
@@ -9019,7 +11259,7 @@ SubmitAuditTaskResponse Client::submitAuditTaskWithOptions(const SubmitAuditTask
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "SubmitAuditTask"},
     {"version" , "2023-08-01"},
@@ -9030,7 +11270,7 @@ SubmitAuditTaskResponse Client::submitAuditTaskWithOptions(const SubmitAuditTask
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SubmitAuditTaskResponse>();
 }
 
@@ -9083,7 +11323,7 @@ SubmitCustomHotTopicBroadcastJobResponse Client::submitCustomHotTopicBroadcastJo
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "SubmitCustomHotTopicBroadcastJob"},
     {"version" , "2023-08-01"},
@@ -9094,7 +11334,7 @@ SubmitCustomHotTopicBroadcastJobResponse Client::submitCustomHotTopicBroadcastJo
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SubmitCustomHotTopicBroadcastJobResponse>();
 }
 
@@ -9155,7 +11395,7 @@ SubmitCustomSourceTopicAnalysisResponse Client::submitCustomSourceTopicAnalysisW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "SubmitCustomSourceTopicAnalysis"},
     {"version" , "2023-08-01"},
@@ -9166,7 +11406,7 @@ SubmitCustomSourceTopicAnalysisResponse Client::submitCustomSourceTopicAnalysisW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SubmitCustomSourceTopicAnalysisResponse>();
 }
 
@@ -9228,7 +11468,7 @@ SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse Client::submitCustomTo
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse>();
 }
 
@@ -9294,7 +11534,7 @@ SubmitDocClusterTaskResponse Client::submitDocClusterTaskWithOptions(const Submi
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SubmitDocClusterTaskResponse>();
 }
 
@@ -9379,7 +11619,7 @@ SubmitEnterpriseVocAnalysisTaskResponse Client::submitEnterpriseVocAnalysisTaskW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "SubmitEnterpriseVocAnalysisTask"},
     {"version" , "2023-08-01"},
@@ -9390,7 +11630,7 @@ SubmitEnterpriseVocAnalysisTaskResponse Client::submitEnterpriseVocAnalysisTaskW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SubmitEnterpriseVocAnalysisTaskResponse>();
 }
 
@@ -9421,7 +11661,7 @@ SubmitExportTermsTaskResponse Client::submitExportTermsTaskWithOptions(const Sub
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "SubmitExportTermsTask"},
     {"version" , "2023-08-01"},
@@ -9432,7 +11672,7 @@ SubmitExportTermsTaskResponse Client::submitExportTermsTaskWithOptions(const Sub
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SubmitExportTermsTaskResponse>();
 }
 
@@ -9445,6 +11685,52 @@ SubmitExportTermsTaskResponse Client::submitExportTermsTaskWithOptions(const Sub
 SubmitExportTermsTaskResponse Client::submitExportTermsTask(const SubmitExportTermsTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitExportTermsTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 妙笔为您提供了新的事实性审核能力，在联网搜索并判断正误的前提下，还支持用户自定义配置搜索来源 URL。
+ *
+ * @param request SubmitFactAuditUrlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitFactAuditUrlResponse
+ */
+SubmitFactAuditUrlResponse Client::submitFactAuditUrlWithOptions(const SubmitFactAuditUrlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasUrl()) {
+    body["Url"] = request.url();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "SubmitFactAuditUrl"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitFactAuditUrlResponse>();
+}
+
+/**
+ * @summary 妙笔为您提供了新的事实性审核能力，在联网搜索并判断正误的前提下，还支持用户自定义配置搜索来源 URL。
+ *
+ * @param request SubmitFactAuditUrlRequest
+ * @return SubmitFactAuditUrlResponse
+ */
+SubmitFactAuditUrlResponse Client::submitFactAuditUrl(const SubmitFactAuditUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitFactAuditUrlWithOptions(request, runtime);
 }
 
 /**
@@ -9467,7 +11753,7 @@ SubmitImportTermsTaskResponse Client::submitImportTermsTaskWithOptions(const Sub
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "SubmitImportTermsTask"},
     {"version" , "2023-08-01"},
@@ -9478,7 +11764,7 @@ SubmitImportTermsTaskResponse Client::submitImportTermsTaskWithOptions(const Sub
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SubmitImportTermsTaskResponse>();
 }
 
@@ -9539,7 +11825,7 @@ SubmitSmartAuditResponse Client::submitSmartAuditWithOptions(const SubmitSmartAu
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "SubmitSmartAudit"},
     {"version" , "2023-08-01"},
@@ -9550,7 +11836,7 @@ SubmitSmartAuditResponse Client::submitSmartAuditWithOptions(const SubmitSmartAu
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SubmitSmartAuditResponse>();
 }
 
@@ -9611,7 +11897,7 @@ SubmitSmartClipTaskResponse Client::submitSmartClipTaskWithOptions(const SubmitS
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "SubmitSmartClipTask"},
     {"version" , "2023-08-01"},
@@ -9622,7 +11908,7 @@ SubmitSmartClipTaskResponse Client::submitSmartClipTaskWithOptions(const SubmitS
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SubmitSmartClipTaskResponse>();
 }
 
@@ -9688,7 +11974,7 @@ SubmitTopicSelectionPerspectiveAnalysisTaskResponse Client::submitTopicSelection
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SubmitTopicSelectionPerspectiveAnalysisTaskResponse>();
 }
 
@@ -9748,7 +12034,7 @@ UpdateCustomTextResponse Client::updateCustomTextWithOptions(const UpdateCustomT
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateCustomTextResponse>();
 }
 
@@ -9801,7 +12087,7 @@ UpdateDatasetResponse Client::updateDatasetWithOptions(const UpdateDatasetReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UpdateDataset"},
     {"version" , "2023-08-01"},
@@ -9812,7 +12098,7 @@ UpdateDatasetResponse Client::updateDatasetWithOptions(const UpdateDatasetReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateDatasetResponse>();
 }
 
@@ -9861,7 +12147,7 @@ UpdateDatasetDocumentResponse Client::updateDatasetDocumentWithOptions(const Upd
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UpdateDatasetDocument"},
     {"version" , "2023-08-01"},
@@ -9872,7 +12158,7 @@ UpdateDatasetDocumentResponse Client::updateDatasetDocumentWithOptions(const Upd
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateDatasetDocumentResponse>();
 }
 
@@ -9946,7 +12232,7 @@ UpdateGeneratedContentResponse Client::updateGeneratedContentWithOptions(const U
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateGeneratedContentResponse>();
 }
 
@@ -10052,7 +12338,7 @@ UpdateMaterialDocumentResponse Client::updateMaterialDocumentWithOptions(const U
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateMaterialDocumentResponse>();
 }
 
@@ -10097,7 +12383,7 @@ UploadBookResponse Client::uploadBookWithOptions(const UploadBookRequest &tmpReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UploadBook"},
     {"version" , "2023-08-01"},
@@ -10108,7 +12394,7 @@ UploadBookResponse Client::uploadBookWithOptions(const UploadBookRequest &tmpReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UploadBookResponse>();
 }
 
@@ -10153,7 +12439,7 @@ UploadDocResponse Client::uploadDocWithOptions(const UploadDocRequest &tmpReq, c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UploadDoc"},
     {"version" , "2023-08-01"},
@@ -10164,7 +12450,7 @@ UploadDocResponse Client::uploadDocWithOptions(const UploadDocRequest &tmpReq, c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UploadDocResponse>();
 }
 
@@ -10207,7 +12493,7 @@ ValidateUploadTemplateResponse Client::validateUploadTemplateWithOptions(const V
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ValidateUploadTemplate"},
     {"version" , "2023-08-01"},
@@ -10218,7 +12504,7 @@ ValidateUploadTemplateResponse Client::validateUploadTemplateWithOptions(const V
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ValidateUploadTemplateResponse>();
 }
 

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_EDITAUDITTERMSREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_EDITAUDITTERMSREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -13,6 +14,7 @@ namespace Models
   class EditAuditTermsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const EditAuditTermsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ExceptionWord, exceptionWord_);
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(Keyword, keyword_);
       DARABONBA_PTR_TO_JSON(SuggestWord, suggestWord_);
@@ -20,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, EditAuditTermsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ExceptionWord, exceptionWord_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(Keyword, keyword_);
       DARABONBA_PTR_FROM_JSON(SuggestWord, suggestWord_);
@@ -37,8 +40,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->id_ != nullptr
-        && this->keyword_ != nullptr && this->suggestWord_ != nullptr && this->termsDesc_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { this->exceptionWord_ != nullptr
+        && this->id_ != nullptr && this->keyword_ != nullptr && this->suggestWord_ != nullptr && this->termsDesc_ != nullptr && this->workspaceId_ != nullptr; };
+    // exceptionWord Field Functions 
+    bool hasExceptionWord() const { return this->exceptionWord_ != nullptr;};
+    void deleteExceptionWord() { this->exceptionWord_ = nullptr;};
+    inline const vector<string> & exceptionWord() const { DARABONBA_PTR_GET_CONST(exceptionWord_, vector<string>) };
+    inline vector<string> exceptionWord() { DARABONBA_PTR_GET(exceptionWord_, vector<string>) };
+    inline EditAuditTermsRequest& setExceptionWord(const vector<string> & exceptionWord) { DARABONBA_PTR_SET_VALUE(exceptionWord_, exceptionWord) };
+    inline EditAuditTermsRequest& setExceptionWord(vector<string> && exceptionWord) { DARABONBA_PTR_SET_RVALUE(exceptionWord_, exceptionWord) };
+
+
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -75,6 +87,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<vector<string>> exceptionWord_ = nullptr;
     std::shared_ptr<string> id_ = nullptr;
     std::shared_ptr<string> keyword_ = nullptr;
     std::shared_ptr<string> suggestWord_ = nullptr;

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETINTERVENEIMPORTTASKINFORESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetInterveneImportTaskInfoResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_VALIDATEUPLOADTEMPLATERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ValidateUploadTemplateResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

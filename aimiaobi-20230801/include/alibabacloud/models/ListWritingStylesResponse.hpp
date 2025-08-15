@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTWRITINGSTYLESRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ListWritingStylesResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

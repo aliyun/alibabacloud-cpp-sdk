@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETINTERVENERULEDETAILRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetInterveneRuleDetailResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

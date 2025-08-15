@@ -5,6 +5,7 @@
 #include <alibabacloud/models/WritingStyleTemplateDefine.hpp>
 #include <alibabacloud/models/WritingStyleTemplateField.hpp>
 #include <alibabacloud/models/AddAuditTermsRequest.hpp>
+#include <alibabacloud/models/AddAuditTermsShrinkRequest.hpp>
 #include <alibabacloud/models/AddAuditTermsResponseBody.hpp>
 #include <alibabacloud/models/AddAuditTermsResponse.hpp>
 #include <alibabacloud/models/AddDatasetDocumentRequest.hpp>
@@ -75,6 +76,9 @@
 #include <alibabacloud/models/DeleteDocsShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteDocsResponseBody.hpp>
 #include <alibabacloud/models/DeleteDocsResponse.hpp>
+#include <alibabacloud/models/DeleteFactAuditUrlRequest.hpp>
+#include <alibabacloud/models/DeleteFactAuditUrlResponseBody.hpp>
+#include <alibabacloud/models/DeleteFactAuditUrlResponse.hpp>
 #include <alibabacloud/models/DeleteGeneratedContentRequest.hpp>
 #include <alibabacloud/models/DeleteGeneratedContentResponseBody.hpp>
 #include <alibabacloud/models/DeleteGeneratedContentResponse.hpp>
@@ -95,6 +99,7 @@
 #include <alibabacloud/models/DownloadAuditNoteResponseBody.hpp>
 #include <alibabacloud/models/DownloadAuditNoteResponse.hpp>
 #include <alibabacloud/models/EditAuditTermsRequest.hpp>
+#include <alibabacloud/models/EditAuditTermsShrinkRequest.hpp>
 #include <alibabacloud/models/EditAuditTermsResponseBody.hpp>
 #include <alibabacloud/models/EditAuditTermsResponse.hpp>
 #include <alibabacloud/models/ExportAnalysisTagDetailByTaskIdRequest.hpp>
@@ -196,6 +201,9 @@
 #include <alibabacloud/models/GetEnterpriseVocAnalysisTaskRequest.hpp>
 #include <alibabacloud/models/GetEnterpriseVocAnalysisTaskResponseBody.hpp>
 #include <alibabacloud/models/GetEnterpriseVocAnalysisTaskResponse.hpp>
+#include <alibabacloud/models/GetFactAuditUrlRequest.hpp>
+#include <alibabacloud/models/GetFactAuditUrlResponseBody.hpp>
+#include <alibabacloud/models/GetFactAuditUrlResponse.hpp>
 #include <alibabacloud/models/GetFileContentLengthRequest.hpp>
 #include <alibabacloud/models/GetFileContentLengthResponseBody.hpp>
 #include <alibabacloud/models/GetFileContentLengthResponse.hpp>
@@ -528,6 +536,9 @@
 #include <alibabacloud/models/SubmitExportTermsTaskRequest.hpp>
 #include <alibabacloud/models/SubmitExportTermsTaskResponseBody.hpp>
 #include <alibabacloud/models/SubmitExportTermsTaskResponse.hpp>
+#include <alibabacloud/models/SubmitFactAuditUrlRequest.hpp>
+#include <alibabacloud/models/SubmitFactAuditUrlResponseBody.hpp>
+#include <alibabacloud/models/SubmitFactAuditUrlResponse.hpp>
 #include <alibabacloud/models/SubmitImportTermsTaskRequest.hpp>
 #include <alibabacloud/models/SubmitImportTermsTaskResponseBody.hpp>
 #include <alibabacloud/models/SubmitImportTermsTaskResponse.hpp>

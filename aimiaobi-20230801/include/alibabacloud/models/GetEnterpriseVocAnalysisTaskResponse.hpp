@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETENTERPRISEVOCANALYSISTASKRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetEnterpriseVocAnalysisTaskResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

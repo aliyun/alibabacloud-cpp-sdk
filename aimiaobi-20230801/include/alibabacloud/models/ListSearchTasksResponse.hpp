@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTSEARCHTASKSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ListSearchTasksResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

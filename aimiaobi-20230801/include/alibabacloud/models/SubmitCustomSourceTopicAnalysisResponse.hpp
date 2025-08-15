@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_SUBMITCUSTOMSOURCETOPICANALYSISRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/SubmitCustomSourceTopicAnalysisResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_WRITINGSTYLETEMPLATEFIELD_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/AiMiaoBi20230801.hpp>
+#include <alibabacloud/models/WritingStyleTemplateField.hpp>
 #include <alibabacloud/models/WritingStyleTemplateFieldEnums.hpp>
 #include <alibabacloud/models/WritingStyleTemplateFieldStyle.hpp>
 using namespace std;

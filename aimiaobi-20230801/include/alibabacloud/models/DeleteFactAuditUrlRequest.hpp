@@ -1,0 +1,60 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DELETEFACTAUDITURLREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_DELETEFACTAUDITURLREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace AiMiaoBi20230801
+{
+namespace Models
+{
+  class DeleteFactAuditUrlRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DeleteFactAuditUrlRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Url, url_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
+    };
+    friend void from_json(const Darabonba::Json& j, DeleteFactAuditUrlRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Url, url_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
+    };
+    DeleteFactAuditUrlRequest() = default ;
+    DeleteFactAuditUrlRequest(const DeleteFactAuditUrlRequest &) = default ;
+    DeleteFactAuditUrlRequest(DeleteFactAuditUrlRequest &&) = default ;
+    DeleteFactAuditUrlRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DeleteFactAuditUrlRequest() = default ;
+    DeleteFactAuditUrlRequest& operator=(const DeleteFactAuditUrlRequest &) = default ;
+    DeleteFactAuditUrlRequest& operator=(DeleteFactAuditUrlRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->url_ != nullptr
+        && this->workspaceId_ != nullptr; };
+    // url Field Functions 
+    bool hasUrl() const { return this->url_ != nullptr;};
+    void deleteUrl() { this->url_ = nullptr;};
+    inline string url() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+    inline DeleteFactAuditUrlRequest& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
+
+
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline DeleteFactAuditUrlRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
+  protected:
+    // This parameter is required.
+    std::shared_ptr<string> url_ = nullptr;
+    // This parameter is required.
+    std::shared_ptr<string> workspaceId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace AiMiaoBi20230801
+#endif

@@ -4,7 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/WritingStyleTemplateDefineExample.hpp>
-#include <alibabacloud/AiMiaoBi20230801.hpp>
+#include <alibabacloud/models/WritingStyleTemplateField.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

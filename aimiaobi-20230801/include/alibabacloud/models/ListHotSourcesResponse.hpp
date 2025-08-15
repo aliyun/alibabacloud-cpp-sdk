@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTHOTSOURCESRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ListHotSourcesResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
