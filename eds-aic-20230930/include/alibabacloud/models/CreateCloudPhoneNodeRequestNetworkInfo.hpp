@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IpRatio, ipRatio_);
       DARABONBA_PTR_TO_JSON(Isp, isp_);
       DARABONBA_PTR_TO_JSON(LimitedBandwidth, limitedBandwidth_);
+      DARABONBA_PTR_TO_JSON(PayType, payType_);
     };
     friend void from_json(const Darabonba::Json& j, CreateCloudPhoneNodeRequestNetworkInfo& obj) { 
       DARABONBA_PTR_FROM_JSON(BandwidthPackageName, bandwidthPackageName_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IpRatio, ipRatio_);
       DARABONBA_PTR_FROM_JSON(Isp, isp_);
       DARABONBA_PTR_FROM_JSON(LimitedBandwidth, limitedBandwidth_);
+      DARABONBA_PTR_FROM_JSON(PayType, payType_);
     };
     CreateCloudPhoneNodeRequestNetworkInfo() = default ;
     CreateCloudPhoneNodeRequestNetworkInfo(const CreateCloudPhoneNodeRequestNetworkInfo &) = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->bandwidthPackageName_ != nullptr
-        && this->cidrBlock_ != nullptr && this->internetChargeType_ != nullptr && this->ipRatio_ != nullptr && this->isp_ != nullptr && this->limitedBandwidth_ != nullptr; };
+        && this->cidrBlock_ != nullptr && this->internetChargeType_ != nullptr && this->ipRatio_ != nullptr && this->isp_ != nullptr && this->limitedBandwidth_ != nullptr
+        && this->payType_ != nullptr; };
     // bandwidthPackageName Field Functions 
     bool hasBandwidthPackageName() const { return this->bandwidthPackageName_ != nullptr;};
     void deleteBandwidthPackageName() { this->bandwidthPackageName_ = nullptr;};
@@ -83,6 +86,13 @@ namespace Models
     inline CreateCloudPhoneNodeRequestNetworkInfo& setLimitedBandwidth(int32_t limitedBandwidth) { DARABONBA_PTR_SET_VALUE(limitedBandwidth_, limitedBandwidth) };
 
 
+    // payType Field Functions 
+    bool hasPayType() const { return this->payType_ != nullptr;};
+    void deletePayType() { this->payType_ = nullptr;};
+    inline string payType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
+    inline CreateCloudPhoneNodeRequestNetworkInfo& setPayType(string payType) { DARABONBA_PTR_SET_VALUE(payType_, payType) };
+
+
   protected:
     std::shared_ptr<string> bandwidthPackageName_ = nullptr;
     std::shared_ptr<string> cidrBlock_ = nullptr;
@@ -90,6 +100,7 @@ namespace Models
     std::shared_ptr<int32_t> ipRatio_ = nullptr;
     std::shared_ptr<string> isp_ = nullptr;
     std::shared_ptr<int32_t> limitedBandwidth_ = nullptr;
+    std::shared_ptr<string> payType_ = nullptr;
   };
 
   } // namespace Models
