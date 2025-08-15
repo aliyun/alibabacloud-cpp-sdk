@@ -36,6 +36,68 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 创建云市场订单
+ *
+ * @param request CreateOrderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateOrderResponse
+ */
+CreateOrderResponse Client::createOrderWithOptions(const CreateOrderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasCommodity()) {
+    query["Commodity"] = request.commodity();
+  }
+
+  if (!!request.hasOrderSouce()) {
+    query["OrderSouce"] = request.orderSouce();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.orderType();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPaymentType()) {
+    query["PaymentType"] = request.paymentType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateOrder"},
+    {"version" , "2025-08-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateOrderResponse>();
+}
+
+/**
+ * @summary 创建云市场订单
+ *
+ * @param request CreateOrderRequest
+ * @return CreateOrderResponse
+ */
+CreateOrderResponse Client::createOrder(const CreateOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createOrderWithOptions(request, runtime);
+}
+
+/**
  * @summary 询价
  *
  * @param request DescribePriceRequest

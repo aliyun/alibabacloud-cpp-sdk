@@ -2,6 +2,9 @@
 #ifndef ALIBABACLOUD_INTLMARKET20250812MODEL_HPP_
 #define ALIBABACLOUD_INTLMARKET20250812MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/CreateOrderRequest.hpp>
+#include <alibabacloud/models/CreateOrderResponseBody.hpp>
+#include <alibabacloud/models/CreateOrderResponse.hpp>
 #include <alibabacloud/models/DescribePriceRequest.hpp>
 #include <alibabacloud/models/DescribePriceResponseBody.hpp>
 #include <alibabacloud/models/DescribePriceResponse.hpp>
