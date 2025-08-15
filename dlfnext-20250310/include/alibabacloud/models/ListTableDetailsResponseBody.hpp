@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTTABLEDETAILSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/DlfNext20250310.hpp>
+#include <alibabacloud/models/Table.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

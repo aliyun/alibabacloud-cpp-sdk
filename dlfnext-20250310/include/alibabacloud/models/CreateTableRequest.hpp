@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_CREATETABLEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATETABLEREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/Identifier.hpp>
+#include <alibabacloud/models/Schema.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

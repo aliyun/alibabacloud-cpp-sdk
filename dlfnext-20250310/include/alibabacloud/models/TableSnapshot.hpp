@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_TABLESNAPSHOT_HPP_
 #define ALIBABACLOUD_MODELS_TABLESNAPSHOT_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/Snapshot.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

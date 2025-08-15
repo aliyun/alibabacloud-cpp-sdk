@@ -1067,6 +1067,22 @@ namespace DlfNext20250310
       Models::ListUsersResponse listUsers(const Models::ListUsersRequest &request);
 
       /**
+       * @summary 刷新用户同步
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RefreshUserSyncResponse
+       */
+      Models::RefreshUserSyncResponse refreshUserSyncWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 刷新用户同步
+       *
+       * @return RefreshUserSyncResponse
+       */
+      Models::RefreshUserSyncResponse refreshUserSync();
+
+      /**
        * @summary 批量取消授予角色权限给用户
        *
        * @param request RevokeRoleFromUsersRequest

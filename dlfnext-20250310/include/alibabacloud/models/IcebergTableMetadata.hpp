@@ -2,8 +2,10 @@
 #ifndef ALIBABACLOUD_MODELS_ICEBERGTABLEMETADATA_HPP_
 #define ALIBABACLOUD_MODELS_ICEBERGTABLEMETADATA_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/IcebergSnapshot.hpp>
 #include <vector>
-#include <alibabacloud/DlfNext20250310.hpp>
+#include <alibabacloud/models/IcebergNestedField.hpp>
+#include <alibabacloud/models/IcebergPartitionField.hpp>
 #include <map>
 using namespace std;
 using json = nlohmann::json;

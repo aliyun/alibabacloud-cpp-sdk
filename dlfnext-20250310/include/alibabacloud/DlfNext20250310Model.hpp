@@ -168,6 +168,7 @@
 #include <alibabacloud/models/ListUsersRequest.hpp>
 #include <alibabacloud/models/ListUsersResponseBody.hpp>
 #include <alibabacloud/models/ListUsersResponse.hpp>
+#include <alibabacloud/models/RefreshUserSyncResponse.hpp>
 #include <alibabacloud/models/RevokeRoleFromUsersRequest.hpp>
 #include <alibabacloud/models/RevokeRoleFromUsersResponse.hpp>
 #include <alibabacloud/models/RollbackTableRequest.hpp>

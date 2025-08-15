@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_CATALOGSUMMARYTREND_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/DlfNext20250310.hpp>
+#include <alibabacloud/models/DateSummary.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

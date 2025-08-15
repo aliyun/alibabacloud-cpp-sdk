@@ -2,7 +2,9 @@
 #ifndef ALIBABACLOUD_MODELS_FULLSCHEMACHANGE_HPP_
 #define ALIBABACLOUD_MODELS_FULLSCHEMACHANGE_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/FullDataType.hpp>
 #include <vector>
+#include <alibabacloud/models/Move.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

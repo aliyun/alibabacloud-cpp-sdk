@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTICEBERGSNAPSHOTSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/DlfNext20250310.hpp>
+#include <alibabacloud/models/IcebergSnapshot.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

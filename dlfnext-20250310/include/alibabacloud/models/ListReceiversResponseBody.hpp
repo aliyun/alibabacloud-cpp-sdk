@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTRECEIVERSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/DlfNext20250310.hpp>
+#include <alibabacloud/models/Receiver.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

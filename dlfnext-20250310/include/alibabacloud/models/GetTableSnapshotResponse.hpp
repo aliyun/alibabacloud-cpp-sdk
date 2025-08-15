@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETTABLESNAPSHOTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/TableSnapshot.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

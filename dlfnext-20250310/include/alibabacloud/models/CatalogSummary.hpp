@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CATALOGSUMMARY_HPP_
 #define ALIBABACLOUD_MODELS_CATALOGSUMMARY_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/MoMValues.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

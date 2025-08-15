@@ -69,7 +69,7 @@ AlterCatalogResponse Client::alterCatalogWithOptions(const string &catalog, cons
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AlterCatalogResponse>();
 }
 
@@ -118,7 +118,7 @@ AlterDatabaseResponse Client::alterDatabaseWithOptions(const string &catalogId, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AlterDatabaseResponse>();
 }
 
@@ -167,7 +167,7 @@ AlterReceiverResponse Client::alterReceiverWithOptions(const string &receiver, c
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AlterReceiverResponse>();
 }
 
@@ -216,7 +216,7 @@ AlterShareResponse Client::alterShareWithOptions(const string &share, const Alte
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AlterShareResponse>();
 }
 
@@ -265,7 +265,7 @@ AlterShareReceiversResponse Client::alterShareReceiversWithOptions(const string 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AlterShareReceiversResponse>();
 }
 
@@ -314,7 +314,7 @@ AlterShareResourcesResponse Client::alterShareResourcesWithOptions(const string 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AlterShareResourcesResponse>();
 }
 
@@ -359,7 +359,7 @@ AlterTableResponse Client::alterTableWithOptions(const string &catalogId, const 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AlterTableResponse>();
 }
 
@@ -404,7 +404,7 @@ BatchGrantPermissionsResponse Client::batchGrantPermissionsWithOptions(const str
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<BatchGrantPermissionsResponse>();
 }
 
@@ -449,7 +449,7 @@ BatchRevokePermissionsResponse Client::batchRevokePermissionsWithOptions(const s
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<BatchRevokePermissionsResponse>();
 }
 
@@ -510,7 +510,7 @@ CreateCatalogResponse Client::createCatalogWithOptions(const CreateCatalogReques
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateCatalogResponse>();
 }
 
@@ -559,7 +559,7 @@ CreateDatabaseResponse Client::createDatabaseWithOptions(const string &catalogId
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateDatabaseResponse>();
 }
 
@@ -612,7 +612,7 @@ CreateReceiverResponse Client::createReceiverWithOptions(const CreateReceiverReq
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateReceiverResponse>();
 }
 
@@ -665,7 +665,7 @@ CreateRoleResponse Client::createRoleWithOptions(const CreateRoleRequest &reques
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateRoleResponse>();
 }
 
@@ -714,7 +714,7 @@ CreateShareResponse Client::createShareWithOptions(const CreateShareRequest &req
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateShareResponse>();
 }
 
@@ -763,7 +763,7 @@ CreateTableResponse Client::createTableWithOptions(const string &catalogId, cons
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateTableResponse>();
 }
 
@@ -797,7 +797,7 @@ DeleteRoleResponse Client::deleteRoleWithOptions(const DeleteRoleRequest &reques
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteRole"},
     {"version" , "2025-03-10"},
@@ -808,7 +808,7 @@ DeleteRoleResponse Client::deleteRoleWithOptions(const DeleteRoleRequest &reques
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteRoleResponse>();
 }
 
@@ -834,7 +834,7 @@ DeleteRoleResponse Client::deleteRole(const DeleteRoleRequest &request) {
 DescribeRegionsResponse Client::describeRegionsWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeRegions"},
     {"version" , "2025-03-10"},
@@ -845,7 +845,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const map<string, str
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeRegionsResponse>();
 }
 
@@ -870,7 +870,7 @@ DescribeRegionsResponse Client::describeRegions() {
 DropCatalogResponse Client::dropCatalogWithOptions(const string &catalog, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DropCatalog"},
     {"version" , "2025-03-10"},
@@ -881,7 +881,7 @@ DropCatalogResponse Client::dropCatalogWithOptions(const string &catalog, const 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DropCatalogResponse>();
 }
 
@@ -906,7 +906,7 @@ DropCatalogResponse Client::dropCatalog(const string &catalog) {
 DropDatabaseResponse Client::dropDatabaseWithOptions(const string &catalogId, const string &database, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DropDatabase"},
     {"version" , "2025-03-10"},
@@ -917,7 +917,7 @@ DropDatabaseResponse Client::dropDatabaseWithOptions(const string &catalogId, co
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DropDatabaseResponse>();
 }
 
@@ -942,7 +942,7 @@ DropDatabaseResponse Client::dropDatabase(const string &catalogId, const string 
 DropReceiverResponse Client::dropReceiverWithOptions(const string &receiver, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DropReceiver"},
     {"version" , "2025-03-10"},
@@ -953,7 +953,7 @@ DropReceiverResponse Client::dropReceiverWithOptions(const string &receiver, con
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DropReceiverResponse>();
 }
 
@@ -978,7 +978,7 @@ DropReceiverResponse Client::dropReceiver(const string &receiver) {
 DropShareResponse Client::dropShareWithOptions(const string &share, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DropShare"},
     {"version" , "2025-03-10"},
@@ -989,7 +989,7 @@ DropShareResponse Client::dropShareWithOptions(const string &share, const map<st
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DropShareResponse>();
 }
 
@@ -1014,7 +1014,7 @@ DropShareResponse Client::dropShare(const string &share) {
 DropTableResponse Client::dropTableWithOptions(const string &catalogId, const string &database, const string &table, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DropTable"},
     {"version" , "2025-03-10"},
@@ -1025,7 +1025,7 @@ DropTableResponse Client::dropTableWithOptions(const string &catalogId, const st
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DropTableResponse>();
 }
 
@@ -1050,7 +1050,7 @@ DropTableResponse Client::dropTable(const string &catalogId, const string &datab
 GetCatalogResponse Client::getCatalogWithOptions(const string &catalog, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetCatalog"},
     {"version" , "2025-03-10"},
@@ -1061,7 +1061,7 @@ GetCatalogResponse Client::getCatalogWithOptions(const string &catalog, const ma
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetCatalogResponse>();
 }
 
@@ -1086,7 +1086,7 @@ GetCatalogResponse Client::getCatalog(const string &catalog) {
 GetCatalogByIdResponse Client::getCatalogByIdWithOptions(const string &id, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetCatalogById"},
     {"version" , "2025-03-10"},
@@ -1097,7 +1097,7 @@ GetCatalogByIdResponse Client::getCatalogByIdWithOptions(const string &id, const
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetCatalogByIdResponse>();
 }
 
@@ -1130,7 +1130,7 @@ GetCatalogSummaryResponse Client::getCatalogSummaryWithOptions(const string &cat
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetCatalogSummary"},
     {"version" , "2025-03-10"},
@@ -1141,7 +1141,7 @@ GetCatalogSummaryResponse Client::getCatalogSummaryWithOptions(const string &cat
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetCatalogSummaryResponse>();
 }
 
@@ -1179,7 +1179,7 @@ GetCatalogSummaryTrendResponse Client::getCatalogSummaryTrendWithOptions(const s
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetCatalogSummaryTrend"},
     {"version" , "2025-03-10"},
@@ -1190,7 +1190,7 @@ GetCatalogSummaryTrendResponse Client::getCatalogSummaryTrendWithOptions(const s
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetCatalogSummaryTrendResponse>();
 }
 
@@ -1216,7 +1216,7 @@ GetCatalogSummaryTrendResponse Client::getCatalogSummaryTrend(const string &cata
 GetCatalogTokenResponse Client::getCatalogTokenWithOptions(const string &catalog, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetCatalogToken"},
     {"version" , "2025-03-10"},
@@ -1227,7 +1227,7 @@ GetCatalogTokenResponse Client::getCatalogTokenWithOptions(const string &catalog
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetCatalogTokenResponse>();
 }
 
@@ -1252,7 +1252,7 @@ GetCatalogTokenResponse Client::getCatalogToken(const string &catalog) {
 GetDatabaseResponse Client::getDatabaseWithOptions(const string &catalogId, const string &database, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetDatabase"},
     {"version" , "2025-03-10"},
@@ -1263,7 +1263,7 @@ GetDatabaseResponse Client::getDatabaseWithOptions(const string &catalogId, cons
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetDatabaseResponse>();
 }
 
@@ -1296,7 +1296,7 @@ GetDatabaseSummaryResponse Client::getDatabaseSummaryWithOptions(const string &c
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetDatabaseSummary"},
     {"version" , "2025-03-10"},
@@ -1307,7 +1307,7 @@ GetDatabaseSummaryResponse Client::getDatabaseSummaryWithOptions(const string &c
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetDatabaseSummaryResponse>();
 }
 
@@ -1333,7 +1333,7 @@ GetDatabaseSummaryResponse Client::getDatabaseSummary(const string &catalogId, c
 GetIcebergNamespaceResponse Client::getIcebergNamespaceWithOptions(const string &catalogId, const string &namespace, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetIcebergNamespace"},
     {"version" , "2025-03-10"},
@@ -1344,7 +1344,7 @@ GetIcebergNamespaceResponse Client::getIcebergNamespaceWithOptions(const string 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetIcebergNamespaceResponse>();
 }
 
@@ -1369,7 +1369,7 @@ GetIcebergNamespaceResponse Client::getIcebergNamespace(const string &catalogId,
 GetIcebergTableResponse Client::getIcebergTableWithOptions(const string &catalogId, const string &namespace, const string &table, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetIcebergTable"},
     {"version" , "2025-03-10"},
@@ -1380,7 +1380,7 @@ GetIcebergTableResponse Client::getIcebergTableWithOptions(const string &catalog
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetIcebergTableResponse>();
 }
 
@@ -1405,7 +1405,7 @@ GetIcebergTableResponse Client::getIcebergTable(const string &catalogId, const s
 GetReceiverResponse Client::getReceiverWithOptions(const string &receiver, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetReceiver"},
     {"version" , "2025-03-10"},
@@ -1416,7 +1416,7 @@ GetReceiverResponse Client::getReceiverWithOptions(const string &receiver, const
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetReceiverResponse>();
 }
 
@@ -1441,7 +1441,7 @@ GetReceiverResponse Client::getReceiver(const string &receiver) {
 GetRegionStatusResponse Client::getRegionStatusWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetRegionStatus"},
     {"version" , "2025-03-10"},
@@ -1452,7 +1452,7 @@ GetRegionStatusResponse Client::getRegionStatusWithOptions(const map<string, str
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetRegionStatusResponse>();
 }
 
@@ -1485,7 +1485,7 @@ GetRoleResponse Client::getRoleWithOptions(const GetRoleRequest &request, const 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetRole"},
     {"version" , "2025-03-10"},
@@ -1496,7 +1496,7 @@ GetRoleResponse Client::getRoleWithOptions(const GetRoleRequest &request, const 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetRoleResponse>();
 }
 
@@ -1522,7 +1522,7 @@ GetRoleResponse Client::getRole(const GetRoleRequest &request) {
 GetShareResponse Client::getShareWithOptions(const string &share, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetShare"},
     {"version" , "2025-03-10"},
@@ -1533,7 +1533,7 @@ GetShareResponse Client::getShareWithOptions(const string &share, const map<stri
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetShareResponse>();
 }
 
@@ -1558,7 +1558,7 @@ GetShareResponse Client::getShare(const string &share) {
 GetTableResponse Client::getTableWithOptions(const string &catalogId, const string &database, const string &table, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetTable"},
     {"version" , "2025-03-10"},
@@ -1569,7 +1569,7 @@ GetTableResponse Client::getTableWithOptions(const string &catalogId, const stri
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetTableResponse>();
 }
 
@@ -1594,7 +1594,7 @@ GetTableResponse Client::getTable(const string &catalogId, const string &databas
 GetTableSnapshotResponse Client::getTableSnapshotWithOptions(const string &catalogId, const string &database, const string &table, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetTableSnapshot"},
     {"version" , "2025-03-10"},
@@ -1605,7 +1605,7 @@ GetTableSnapshotResponse Client::getTableSnapshotWithOptions(const string &catal
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetTableSnapshotResponse>();
 }
 
@@ -1638,7 +1638,7 @@ GetTableSummaryResponse Client::getTableSummaryWithOptions(const string &catalog
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetTableSummary"},
     {"version" , "2025-03-10"},
@@ -1649,7 +1649,7 @@ GetTableSummaryResponse Client::getTableSummaryWithOptions(const string &catalog
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetTableSummaryResponse>();
 }
 
@@ -1683,7 +1683,7 @@ GetUserResponse Client::getUserWithOptions(const GetUserRequest &request, const 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetUser"},
     {"version" , "2025-03-10"},
@@ -1694,7 +1694,7 @@ GetUserResponse Client::getUserWithOptions(const GetUserRequest &request, const 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetUserResponse>();
 }
 
@@ -1743,7 +1743,7 @@ GrantRoleToUsersResponse Client::grantRoleToUsersWithOptions(const GrantRoleToUs
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GrantRoleToUsersResponse>();
 }
 
@@ -1785,7 +1785,7 @@ ListCatalogsResponse Client::listCatalogsWithOptions(const ListCatalogsRequest &
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListCatalogs"},
     {"version" , "2025-03-10"},
@@ -1796,7 +1796,7 @@ ListCatalogsResponse Client::listCatalogsWithOptions(const ListCatalogsRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListCatalogsResponse>();
 }
 
@@ -1838,7 +1838,7 @@ ListDatabaseDetailsResponse Client::listDatabaseDetailsWithOptions(const string 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListDatabaseDetails"},
     {"version" , "2025-03-10"},
@@ -1849,7 +1849,7 @@ ListDatabaseDetailsResponse Client::listDatabaseDetailsWithOptions(const string 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListDatabaseDetailsResponse>();
 }
 
@@ -1891,7 +1891,7 @@ ListDatabasesResponse Client::listDatabasesWithOptions(const string &catalogId, 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListDatabases"},
     {"version" , "2025-03-10"},
@@ -1902,7 +1902,7 @@ ListDatabasesResponse Client::listDatabasesWithOptions(const string &catalogId, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListDatabasesResponse>();
 }
 
@@ -1944,7 +1944,7 @@ ListIcebergNamespaceDetailsResponse Client::listIcebergNamespaceDetailsWithOptio
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListIcebergNamespaceDetails"},
     {"version" , "2025-03-10"},
@@ -1955,7 +1955,7 @@ ListIcebergNamespaceDetailsResponse Client::listIcebergNamespaceDetailsWithOptio
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListIcebergNamespaceDetailsResponse>();
 }
 
@@ -1993,7 +1993,7 @@ ListIcebergSnapshotsResponse Client::listIcebergSnapshotsWithOptions(const strin
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListIcebergSnapshots"},
     {"version" , "2025-03-10"},
@@ -2004,7 +2004,7 @@ ListIcebergSnapshotsResponse Client::listIcebergSnapshotsWithOptions(const strin
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListIcebergSnapshotsResponse>();
 }
 
@@ -2046,7 +2046,7 @@ ListIcebergTableDetailsResponse Client::listIcebergTableDetailsWithOptions(const
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListIcebergTableDetails"},
     {"version" , "2025-03-10"},
@@ -2057,7 +2057,7 @@ ListIcebergTableDetailsResponse Client::listIcebergTableDetailsWithOptions(const
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListIcebergTableDetailsResponse>();
 }
 
@@ -2099,7 +2099,7 @@ ListPartitionSummariesResponse Client::listPartitionSummariesWithOptions(const s
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListPartitionSummaries"},
     {"version" , "2025-03-10"},
@@ -2110,7 +2110,7 @@ ListPartitionSummariesResponse Client::listPartitionSummariesWithOptions(const s
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListPartitionSummariesResponse>();
 }
 
@@ -2172,7 +2172,7 @@ ListPermissionsResponse Client::listPermissionsWithOptions(const string &catalog
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListPermissions"},
     {"version" , "2025-03-10"},
@@ -2183,7 +2183,7 @@ ListPermissionsResponse Client::listPermissionsWithOptions(const string &catalog
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListPermissionsResponse>();
 }
 
@@ -2221,7 +2221,7 @@ ListProvidedSharesResponse Client::listProvidedSharesWithOptions(const ListProvi
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListProvidedShares"},
     {"version" , "2025-03-10"},
@@ -2232,7 +2232,7 @@ ListProvidedSharesResponse Client::listProvidedSharesWithOptions(const ListProvi
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListProvidedSharesResponse>();
 }
 
@@ -2270,7 +2270,7 @@ ListReceivedSharesResponse Client::listReceivedSharesWithOptions(const ListRecei
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListReceivedShares"},
     {"version" , "2025-03-10"},
@@ -2281,7 +2281,7 @@ ListReceivedSharesResponse Client::listReceivedSharesWithOptions(const ListRecei
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListReceivedSharesResponse>();
 }
 
@@ -2323,7 +2323,7 @@ ListReceiversResponse Client::listReceiversWithOptions(const ListReceiversReques
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListReceivers"},
     {"version" , "2025-03-10"},
@@ -2334,7 +2334,7 @@ ListReceiversResponse Client::listReceiversWithOptions(const ListReceiversReques
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListReceiversResponse>();
 }
 
@@ -2376,7 +2376,7 @@ ListRoleUsersResponse Client::listRoleUsersWithOptions(const ListRoleUsersReques
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListRoleUsers"},
     {"version" , "2025-03-10"},
@@ -2387,7 +2387,7 @@ ListRoleUsersResponse Client::listRoleUsersWithOptions(const ListRoleUsersReques
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListRoleUsersResponse>();
 }
 
@@ -2429,7 +2429,7 @@ ListRolesResponse Client::listRolesWithOptions(const ListRolesRequest &request, 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListRoles"},
     {"version" , "2025-03-10"},
@@ -2440,7 +2440,7 @@ ListRolesResponse Client::listRolesWithOptions(const ListRolesRequest &request, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListRolesResponse>();
 }
 
@@ -2478,7 +2478,7 @@ ListShareReceiversResponse Client::listShareReceiversWithOptions(const string &s
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListShareReceivers"},
     {"version" , "2025-03-10"},
@@ -2489,7 +2489,7 @@ ListShareReceiversResponse Client::listShareReceiversWithOptions(const string &s
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListShareReceiversResponse>();
 }
 
@@ -2527,7 +2527,7 @@ ListShareResourcesResponse Client::listShareResourcesWithOptions(const string &s
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListShareResources"},
     {"version" , "2025-03-10"},
@@ -2538,7 +2538,7 @@ ListShareResourcesResponse Client::listShareResourcesWithOptions(const string &s
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListShareResourcesResponse>();
 }
 
@@ -2576,7 +2576,7 @@ ListSnapshotsResponse Client::listSnapshotsWithOptions(const string &catalogId, 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListSnapshots"},
     {"version" , "2025-03-10"},
@@ -2587,7 +2587,7 @@ ListSnapshotsResponse Client::listSnapshotsWithOptions(const string &catalogId, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListSnapshotsResponse>();
 }
 
@@ -2629,7 +2629,7 @@ ListTableDetailsResponse Client::listTableDetailsWithOptions(const string &catal
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListTableDetails"},
     {"version" , "2025-03-10"},
@@ -2640,7 +2640,7 @@ ListTableDetailsResponse Client::listTableDetailsWithOptions(const string &catal
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTableDetailsResponse>();
 }
 
@@ -2682,7 +2682,7 @@ ListTablesResponse Client::listTablesWithOptions(const string &catalogId, const 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListTables"},
     {"version" , "2025-03-10"},
@@ -2693,7 +2693,7 @@ ListTablesResponse Client::listTablesWithOptions(const string &catalogId, const 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTablesResponse>();
 }
 
@@ -2735,7 +2735,7 @@ ListUserRolesResponse Client::listUserRolesWithOptions(const ListUserRolesReques
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListUserRoles"},
     {"version" , "2025-03-10"},
@@ -2746,7 +2746,7 @@ ListUserRolesResponse Client::listUserRolesWithOptions(const ListUserRolesReques
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListUserRolesResponse>();
 }
 
@@ -2792,7 +2792,7 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListUsers"},
     {"version" , "2025-03-10"},
@@ -2803,7 +2803,7 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListUsersResponse>();
 }
 
@@ -2817,6 +2817,42 @@ ListUsersResponse Client::listUsers(const ListUsersRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listUsersWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 刷新用户同步
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RefreshUserSyncResponse
+ */
+RefreshUserSyncResponse Client::refreshUserSyncWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RefreshUserSync"},
+    {"version" , "2025-03-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/auth/usersync")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "none"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RefreshUserSyncResponse>();
+}
+
+/**
+ * @summary 刷新用户同步
+ *
+ * @return RefreshUserSyncResponse
+ */
+RefreshUserSyncResponse Client::refreshUserSync() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return refreshUserSyncWithOptions(headers, runtime);
 }
 
 /**
@@ -2852,7 +2888,7 @@ RevokeRoleFromUsersResponse Client::revokeRoleFromUsersWithOptions(const RevokeR
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RevokeRoleFromUsersResponse>();
 }
 
@@ -2897,7 +2933,7 @@ RollbackTableResponse Client::rollbackTableWithOptions(const string &catalogId, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RollbackTableResponse>();
 }
 
@@ -2923,7 +2959,7 @@ RollbackTableResponse Client::rollbackTable(const string &catalogId, const strin
 SubscribeResponse Client::subscribeWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "Subscribe"},
     {"version" , "2025-03-10"},
@@ -2934,7 +2970,7 @@ SubscribeResponse Client::subscribeWithOptions(const map<string, string> &header
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SubscribeResponse>();
 }
 
@@ -2986,7 +3022,7 @@ UpdateRoleResponse Client::updateRoleWithOptions(const UpdateRoleRequest &reques
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateRoleResponse>();
 }
 
@@ -3035,7 +3071,7 @@ UpdateRoleUsersResponse Client::updateRoleUsersWithOptions(const UpdateRoleUsers
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "none"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateRoleUsersResponse>();
 }
 
