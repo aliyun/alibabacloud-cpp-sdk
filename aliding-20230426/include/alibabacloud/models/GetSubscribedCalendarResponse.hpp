@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETSUBSCRIBEDCALENDARRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetSubscribedCalendarResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

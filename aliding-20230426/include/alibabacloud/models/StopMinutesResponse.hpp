@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_STOPMINUTESRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/StopMinutesResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

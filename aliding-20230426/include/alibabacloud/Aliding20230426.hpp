@@ -780,6 +780,16 @@ namespace Aliding20230426
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateRunResponse
        */
+      FutrueGenerator<Models::CreateRunResponse> createRunWithSSE(const Models::CreateRunRequest &request, const Models::CreateRunHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建运行
+       *
+       * @param request CreateRunRequest
+       * @param headers CreateRunHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRunResponse
+       */
       Models::CreateRunResponse createRunWithOptions(const Models::CreateRunRequest &request, const Models::CreateRunHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
@@ -2758,6 +2768,16 @@ namespace Aliding20230426
        * @param runtime runtime options for this request RuntimeOptions
        * @return InvokeAssistantResponse
        */
+      FutrueGenerator<Models::InvokeAssistantResponse> invokeAssistantWithSSE(const Models::InvokeAssistantRequest &request, const Models::InvokeAssistantHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 调用助理
+       *
+       * @param request InvokeAssistantRequest
+       * @param headers InvokeAssistantHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InvokeAssistantResponse
+       */
       Models::InvokeAssistantResponse invokeAssistantWithOptions(const Models::InvokeAssistantRequest &request, const Models::InvokeAssistantHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
@@ -2767,6 +2787,16 @@ namespace Aliding20230426
        * @return InvokeAssistantResponse
        */
       Models::InvokeAssistantResponse invokeAssistant(const Models::InvokeAssistantRequest &request);
+
+      /**
+       * @summary 调用AI技能
+       *
+       * @param tmpReq InvokeSkillRequest
+       * @param tmpHeader InvokeSkillHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InvokeSkillResponse
+       */
+      FutrueGenerator<Models::InvokeSkillResponse> invokeSkillWithSSE(const Models::InvokeSkillRequest &tmpReq, const Models::InvokeSkillHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 调用AI技能

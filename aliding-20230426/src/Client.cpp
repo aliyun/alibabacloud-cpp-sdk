@@ -9,6 +9,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 using namespace AlibabaCloud::Aliding20230426::Models;
@@ -102,7 +103,7 @@ AddAttendeeResponse Client::addAttendeeWithOptions(const AddAttendeeRequest &tmp
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddAttendeeResponse>();
 }
 
@@ -172,7 +173,7 @@ AddDriveSpaceResponse Client::addDriveSpaceWithOptions(const AddDriveSpaceReques
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddDriveSpaceResponse>();
 }
 
@@ -258,7 +259,7 @@ AddFolderResponse Client::addFolderWithOptions(const AddFolderRequest &tmpReq, c
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddFolderResponse>();
 }
 
@@ -332,7 +333,7 @@ AddMeetingRoomsResponse Client::addMeetingRoomsWithOptions(const AddMeetingRooms
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddMeetingRoomsResponse>();
 }
 
@@ -414,7 +415,7 @@ AddMultiDimTableResponse Client::addMultiDimTableWithOptions(const AddMultiDimTa
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddMultiDimTableResponse>();
 }
 
@@ -504,7 +505,7 @@ AddPermissionResponse Client::addPermissionWithOptions(const AddPermissionReques
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddPermissionResponse>();
 }
 
@@ -582,7 +583,7 @@ AddRecordPermissionResponse Client::addRecordPermissionWithOptions(const AddReco
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddRecordPermissionResponse>();
 }
 
@@ -646,7 +647,7 @@ AddScenegroupMemberResponse Client::addScenegroupMemberWithOptions(const AddScen
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddScenegroupMemberResponse>();
 }
 
@@ -728,7 +729,7 @@ AddTicketMemoResponse Client::addTicketMemoWithOptions(const AddTicketMemoReques
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddTicketMemoResponse>();
 }
 
@@ -806,7 +807,7 @@ AddWorkspaceResponse Client::addWorkspaceWithOptions(const AddWorkspaceRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddWorkspaceResponse>();
 }
 
@@ -888,7 +889,7 @@ AddWorkspaceDocMembersResponse Client::addWorkspaceDocMembersWithOptions(const A
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddWorkspaceDocMembersResponse>();
 }
 
@@ -966,7 +967,7 @@ AddWorkspaceMembersResponse Client::addWorkspaceMembersWithOptions(const AddWork
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddWorkspaceMembersResponse>();
 }
 
@@ -1064,7 +1065,7 @@ AssignTicketResponse Client::assignTicketWithOptions(const AssignTicketRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AssignTicketResponse>();
 }
 
@@ -1130,7 +1131,7 @@ AuthorizeSkillResponse Client::authorizeSkillWithOptions(const AuthorizeSkillReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AuthorizeSkillResponse>();
 }
 
@@ -1212,7 +1213,7 @@ BatchGetFormDataByIdListResponse Client::batchGetFormDataByIdListWithOptions(con
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<BatchGetFormDataByIdListResponse>();
 }
 
@@ -1298,7 +1299,7 @@ BatchRemovalByFormInstanceIdListResponse Client::batchRemovalByFormInstanceIdLis
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<BatchRemovalByFormInstanceIdListResponse>();
 }
 
@@ -1388,7 +1389,7 @@ BatchSaveFormDataResponse Client::batchSaveFormDataWithOptions(const BatchSaveFo
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<BatchSaveFormDataResponse>();
 }
 
@@ -1486,7 +1487,7 @@ BatchUpdateFormDataByInstanceIdResponse Client::batchUpdateFormDataByInstanceIdW
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<BatchUpdateFormDataByInstanceIdResponse>();
 }
 
@@ -1580,7 +1581,7 @@ BatchUpdateFormDataByInstanceMapResponse Client::batchUpdateFormDataByInstanceMa
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<BatchUpdateFormDataByInstanceMapResponse>();
 }
 
@@ -1650,7 +1651,7 @@ CancelScheduleConferenceResponse Client::cancelScheduleConferenceWithOptions(con
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CancelScheduleConferenceResponse>();
 }
 
@@ -1720,7 +1721,7 @@ ChangeDingTalkIdResponse Client::changeDingTalkIdWithOptions(const ChangeDingTal
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ChangeDingTalkIdResponse>();
 }
 
@@ -1790,7 +1791,7 @@ CheckAlibabaStaffResponse Client::checkAlibabaStaffWithOptions(const CheckAlibab
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CheckAlibabaStaffResponse>();
 }
 
@@ -1850,7 +1851,7 @@ CheckUserIsGroupMemberResponse Client::checkUserIsGroupMemberWithOptions(const C
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CheckUserIsGroupMemberResponse>();
 }
 
@@ -1928,7 +1929,7 @@ ClearResponse Client::clearWithOptions(const ClearRequest &tmpReq, const ClearHe
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ClearResponse>();
 }
 
@@ -2006,7 +2007,7 @@ ClearDataResponse Client::clearDataWithOptions(const ClearDataRequest &tmpReq, c
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ClearDataResponse>();
 }
 
@@ -2076,7 +2077,7 @@ CloseVideoConferenceResponse Client::closeVideoConferenceWithOptions(const Close
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CloseVideoConferenceResponse>();
 }
 
@@ -2154,7 +2155,7 @@ CommentListReportResponse Client::commentListReportWithOptions(const CommentList
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CommentListReportResponse>();
 }
 
@@ -2240,7 +2241,7 @@ CommitFileResponse Client::commitFileWithOptions(const CommitFileRequest &tmpReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CommitFileResponse>();
 }
 
@@ -2334,7 +2335,7 @@ CopyDentryResponse Client::copyDentryWithOptions(const CopyDentryRequest &tmpReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CopyDentryResponse>();
 }
 
@@ -2446,7 +2447,7 @@ CreateAlidingAssistantResponse Client::createAlidingAssistantWithOptions(const C
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateAlidingAssistantResponse>();
 }
 
@@ -2538,7 +2539,7 @@ CreateDeliveryPlanResponse Client::createDeliveryPlanWithOptions(const CreateDel
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateDeliveryPlanResponse>();
 }
 
@@ -2644,7 +2645,7 @@ CreateDingtalkPersonalTodoTaskResponse Client::createDingtalkPersonalTodoTaskWit
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateDingtalkPersonalTodoTaskResponse>();
 }
 
@@ -2806,7 +2807,7 @@ CreateEventResponse Client::createEventWithOptions(const CreateEventRequest &tmp
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateEventResponse>();
 }
 
@@ -2896,7 +2897,7 @@ CreateLiveResponse Client::createLiveWithOptions(const CreateLiveRequest &tmpReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateLiveResponse>();
 }
 
@@ -3014,7 +3015,7 @@ CreateMeetingRoomResponse Client::createMeetingRoomWithOptions(const CreateMeeti
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMeetingRoomResponse>();
 }
 
@@ -3088,7 +3089,7 @@ CreateMeetingRoomGroupResponse Client::createMeetingRoomGroupWithOptions(const C
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMeetingRoomGroupResponse>();
 }
 
@@ -3162,7 +3163,7 @@ CreateMessageResponse Client::createMessageWithOptions(const CreateMessageReques
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMessageResponse>();
 }
 
@@ -3252,7 +3253,7 @@ CreateMultiDimTableFieldResponse Client::createMultiDimTableFieldWithOptions(con
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMultiDimTableFieldResponse>();
 }
 
@@ -3336,7 +3337,7 @@ CreateOrUpdateFormDataResponse Client::createOrUpdateFormDataWithOptions(const C
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateOrUpdateFormDataResponse>();
 }
 
@@ -3430,7 +3431,7 @@ CreateOrgHonorTemplateResponse Client::createOrgHonorTemplateWithOptions(const C
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateOrgHonorTemplateResponse>();
 }
 
@@ -3536,7 +3537,7 @@ CreatePersonalTodoTaskResponse Client::createPersonalTodoTaskWithOptions(const C
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreatePersonalTodoTaskResponse>();
 }
 
@@ -3638,7 +3639,7 @@ CreateReportResponse Client::createReportWithOptions(const CreateReportRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateReportResponse>();
 }
 
@@ -3652,6 +3653,84 @@ CreateReportResponse Client::createReport(const CreateReportRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   CreateReportHeaders headers = CreateReportHeaders();
   return createReportWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建运行
+ *
+ * @param request CreateRunRequest
+ * @param headers CreateRunHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateRunResponse
+ */
+FutrueGenerator<CreateRunResponse> Client::createRunWithSSE(const CreateRunRequest &request, const CreateRunHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAllowStructViewContent()) {
+    body["allowStructViewContent"] = request.allowStructViewContent();
+  }
+
+  if (!!request.hasAssistantId()) {
+    body["assistantId"] = request.assistantId();
+  }
+
+  if (!!request.hasOriginalAssistantId()) {
+    body["originalAssistantId"] = request.originalAssistantId();
+  }
+
+  if (!!request.hasSourceIdOfOriginalAssistantId()) {
+    body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId();
+  }
+
+  if (!!request.hasSourceTypeOfOriginalAssistantId()) {
+    body["sourceTypeOfOriginalAssistantId"] = request.sourceTypeOfOriginalAssistantId();
+  }
+
+  if (!!request.hasStream()) {
+    body["stream"] = request.stream();
+  }
+
+  if (!!request.hasThreadId()) {
+    body["threadId"] = request.threadId();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.commonHeaders();
+  }
+
+  if (!!headers.hasAccountId()) {
+    realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.accountId());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateRun"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/ai/v1/assistant/createRun")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<CreateRunResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -3716,7 +3795,7 @@ CreateRunResponse Client::createRunWithOptions(const CreateRunRequest &request, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateRunResponse>();
 }
 
@@ -3852,7 +3931,7 @@ CreateScenegroupResponse Client::createScenegroupWithOptions(const CreateScenegr
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateScenegroupResponse>();
 }
 
@@ -3938,7 +4017,7 @@ CreateScheduleConferenceResponse Client::createScheduleConferenceWithOptions(con
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateScheduleConferenceResponse>();
 }
 
@@ -4028,7 +4107,7 @@ CreateSearchDomeResponse Client::createSearchDomeWithOptions(const CreateSearchD
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateSearchDomeResponse>();
 }
 
@@ -4118,7 +4197,7 @@ CreateSearchKeywordResponse Client::createSearchKeywordWithOptions(const CreateS
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateSearchKeywordResponse>();
 }
 
@@ -4192,7 +4271,7 @@ CreateSheetResponse Client::createSheetWithOptions(const CreateSheetRequest &tmp
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateSheetResponse>();
 }
 
@@ -4274,7 +4353,7 @@ CreateSubscribedCalendarResponse Client::createSubscribedCalendarWithOptions(con
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateSubscribedCalendarResponse>();
 }
 
@@ -4340,7 +4419,7 @@ CreateThreadResponse Client::createThreadWithOptions(const CreateThreadRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateThreadResponse>();
 }
 
@@ -4450,7 +4529,7 @@ CreateTicketResponse Client::createTicketWithOptions(const CreateTicketRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateTicketResponse>();
 }
 
@@ -4610,7 +4689,7 @@ CreateTodoTaskResponse Client::createTodoTaskWithOptions(const CreateTodoTaskReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateTodoTaskResponse>();
 }
 
@@ -4684,7 +4763,7 @@ CreateVideoConferenceResponse Client::createVideoConferenceWithOptions(const Cre
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateVideoConferenceResponse>();
 }
 
@@ -4758,7 +4837,7 @@ CreateWorkspaceResponse Client::createWorkspaceWithOptions(const CreateWorkspace
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateWorkspaceResponse>();
 }
 
@@ -4848,7 +4927,7 @@ CreateWorkspaceDocResponse Client::createWorkspaceDocWithOptions(const CreateWor
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateWorkspaceDocResponse>();
 }
 
@@ -4916,7 +4995,7 @@ DeleteAlidingAssistantResponse Client::deleteAlidingAssistantWithOptions(const D
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteAlidingAssistantResponse>();
 }
 
@@ -4996,7 +5075,7 @@ DeleteColumnsResponse Client::deleteColumnsWithOptions(const DeleteColumnsReques
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteColumnsResponse>();
 }
 
@@ -5074,7 +5153,7 @@ DeleteDentryResponse Client::deleteDentryWithOptions(const DeleteDentryRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteDentryResponse>();
 }
 
@@ -5144,7 +5223,7 @@ DeleteDriveSpaceResponse Client::deleteDriveSpaceWithOptions(const DeleteDriveSp
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteDriveSpaceResponse>();
 }
 
@@ -5212,7 +5291,7 @@ DeleteEventResponse Client::deleteEventWithOptions(const DeleteEventRequest &req
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteEventResponse>();
 }
 
@@ -5284,7 +5363,7 @@ DeleteFormDataResponse Client::deleteFormDataWithOptions(const DeleteFormDataReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteFormDataResponse>();
 }
 
@@ -5354,7 +5433,7 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const DeleteInstanceReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteInstanceResponse>();
 }
 
@@ -5422,7 +5501,7 @@ DeleteLiveResponse Client::deleteLiveWithOptions(const DeleteLiveRequest &tmpReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveResponse>();
 }
 
@@ -5492,7 +5571,7 @@ DeleteMeetingRoomResponse Client::deleteMeetingRoomWithOptions(const DeleteMeeti
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMeetingRoomResponse>();
 }
 
@@ -5562,7 +5641,7 @@ DeleteMeetingRoomGroupResponse Client::deleteMeetingRoomGroupWithOptions(const D
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMeetingRoomGroupResponse>();
 }
 
@@ -5640,7 +5719,7 @@ DeleteMultiDimTableFieldResponse Client::deleteMultiDimTableFieldWithOptions(con
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMultiDimTableFieldResponse>();
 }
 
@@ -5722,7 +5801,7 @@ DeleteMultiDimTableRecordsResponse Client::deleteMultiDimTableRecordsWithOptions
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMultiDimTableRecordsResponse>();
 }
 
@@ -5804,7 +5883,7 @@ DeletePermissionResponse Client::deletePermissionWithOptions(const DeletePermiss
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeletePermissionResponse>();
 }
 
@@ -5886,7 +5965,7 @@ DeleteRowsResponse Client::deleteRowsWithOptions(const DeleteRowsRequest &tmpReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteRowsResponse>();
 }
 
@@ -5950,7 +6029,7 @@ DeleteScenegroupMemberResponse Client::deleteScenegroupMemberWithOptions(const D
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteScenegroupMemberResponse>();
 }
 
@@ -6024,7 +6103,7 @@ DeleteSheetResponse Client::deleteSheetWithOptions(const DeleteSheetRequest &tmp
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteSheetResponse>();
 }
 
@@ -6084,7 +6163,7 @@ DeleteSubscribedCalendarResponse Client::deleteSubscribedCalendarWithOptions(con
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteSubscribedCalendarResponse>();
 }
 
@@ -6158,7 +6237,7 @@ DeleteTodoTaskResponse Client::deleteTodoTaskWithOptions(const DeleteTodoTaskReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteTodoTaskResponse>();
 }
 
@@ -6240,7 +6319,7 @@ DeleteWorkspaceDocMembersResponse Client::deleteWorkspaceDocMembersWithOptions(c
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteWorkspaceDocMembersResponse>();
 }
 
@@ -6318,7 +6397,7 @@ DeleteWorkspaceMembersResponse Client::deleteWorkspaceMembersWithOptions(const D
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteWorkspaceMembersResponse>();
 }
 
@@ -6400,7 +6479,7 @@ DocBlocksQueryResponse Client::docBlocksQueryWithOptions(const DocBlocksQueryReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DocBlocksQueryResponse>();
 }
 
@@ -6478,7 +6557,7 @@ DocUpdateContentResponse Client::docUpdateContentWithOptions(const DocUpdateCont
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DocUpdateContentResponse>();
 }
 
@@ -6554,7 +6633,7 @@ ExecuteBatchTaskResponse Client::executeBatchTaskWithOptions(const ExecuteBatchT
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ExecuteBatchTaskResponse>();
 }
 
@@ -6642,7 +6721,7 @@ ExecutePlatformTaskResponse Client::executePlatformTaskWithOptions(const Execute
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ExecutePlatformTaskResponse>();
 }
 
@@ -6738,7 +6817,7 @@ ExecuteTaskResponse Client::executeTaskWithOptions(const ExecuteTaskRequest &req
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ExecuteTaskResponse>();
 }
 
@@ -6808,7 +6887,7 @@ ExpandGroupCapacityResponse Client::expandGroupCapacityWithOptions(const ExpandG
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ExpandGroupCapacityResponse>();
 }
 
@@ -6898,7 +6977,7 @@ FinishTicketResponse Client::finishTicketWithOptions(const FinishTicketRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<FinishTicketResponse>();
 }
 
@@ -6970,7 +7049,7 @@ GetActivityListResponse Client::getActivityListWithOptions(const GetActivityList
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetActivityListResponse>();
 }
 
@@ -7040,7 +7119,7 @@ GetAlidingAssistantInfoResponse Client::getAlidingAssistantInfoWithOptions(const
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetAlidingAssistantInfoResponse>();
 }
 
@@ -7110,7 +7189,7 @@ GetAllSheetsResponse Client::getAllSheetsWithOptions(const GetAllSheetsRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetAllSheetsResponse>();
 }
 
@@ -7192,7 +7271,7 @@ GetAssistantCapabilityResponse Client::getAssistantCapabilityWithOptions(const G
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetAssistantCapabilityResponse>();
 }
 
@@ -7260,7 +7339,7 @@ GetCardTemplateResponse Client::getCardTemplateWithOptions(const GetCardTemplate
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetCardTemplateResponse>();
 }
 
@@ -7328,7 +7407,7 @@ GetConversaionSpaceResponse Client::getConversaionSpaceWithOptions(const GetConv
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetConversaionSpaceResponse>();
 }
 
@@ -7424,7 +7503,7 @@ GetCorpAccomplishmentTasksResponse Client::getCorpAccomplishmentTasksWithOptions
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetCorpAccomplishmentTasksResponse>();
 }
 
@@ -7520,7 +7599,7 @@ GetCorpTasksResponse Client::getCorpTasksWithOptions(const GetCorpTasksRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetCorpTasksResponse>();
 }
 
@@ -7588,7 +7667,7 @@ GetDeptNoResponse Client::getDeptNoWithOptions(const GetDeptNoRequest &tmpReq, c
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetDeptNoResponse>();
 }
 
@@ -7664,7 +7743,7 @@ GetDocContentResponse Client::getDocContentWithOptions(const GetDocContentReques
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetDocContentResponse>();
 }
 
@@ -7742,7 +7821,7 @@ GetDocContentTakIdResponse Client::getDocContentTakIdWithOptions(const GetDocCon
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetDocContentTakIdResponse>();
 }
 
@@ -7812,7 +7891,7 @@ GetEventResponse Client::getEventWithOptions(const GetEventRequest &request, con
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetEventResponse>();
 }
 
@@ -7880,7 +7959,7 @@ GetFieldDefByUuidResponse Client::getFieldDefByUuidWithOptions(const GetFieldDef
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetFieldDefByUuidResponse>();
 }
 
@@ -7962,7 +8041,7 @@ GetFileDownloadInfoResponse Client::getFileDownloadInfoWithOptions(const GetFile
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetFileDownloadInfoResponse>();
 }
 
@@ -8044,7 +8123,7 @@ GetFileUploadInfoResponse Client::getFileUploadInfoWithOptions(const GetFileUplo
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetFileUploadInfoResponse>();
 }
 
@@ -8116,7 +8195,7 @@ GetFormComponentDefinitionListResponse Client::getFormComponentDefinitionListWit
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetFormComponentDefinitionListResponse>();
 }
 
@@ -8188,7 +8267,7 @@ GetFormDataByIDResponse Client::getFormDataByIDWithOptions(const GetFormDataByID
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetFormDataByIDResponse>();
 }
 
@@ -8264,7 +8343,7 @@ GetFormListInAppResponse Client::getFormListInAppWithOptions(const GetFormListIn
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetFormListInAppResponse>();
 }
 
@@ -8342,7 +8421,7 @@ GetGroupLiveListResponse Client::getGroupLiveListWithOptions(const GetGroupLiveL
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetGroupLiveListResponse>();
 }
 
@@ -8410,7 +8489,7 @@ GetInnerGroupMembersResponse Client::getInnerGroupMembersWithOptions(const GetIn
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetInnerGroupMembersResponse>();
 }
 
@@ -8482,7 +8561,7 @@ GetInstanceByIdResponse Client::getInstanceByIdWithOptions(const GetInstanceById
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetInstanceByIdResponse>();
 }
 
@@ -8598,7 +8677,7 @@ GetInstanceIdListResponse Client::getInstanceIdListWithOptions(const GetInstance
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetInstanceIdListResponse>();
 }
 
@@ -8718,7 +8797,7 @@ GetInstancesResponse Client::getInstancesWithOptions(const GetInstancesRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetInstancesResponse>();
 }
 
@@ -8790,7 +8869,7 @@ GetInstancesByIdListResponse Client::getInstancesByIdListWithOptions(const GetIn
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetInstancesByIdListResponse>();
 }
 
@@ -8860,7 +8939,7 @@ GetLiveReplayUrlResponse Client::getLiveReplayUrlWithOptions(const GetLiveReplay
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetLiveReplayUrlResponse>();
 }
 
@@ -8956,7 +9035,7 @@ GetMeCorpSubmissionResponse Client::getMeCorpSubmissionWithOptions(const GetMeCo
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMeCorpSubmissionResponse>();
 }
 
@@ -9030,7 +9109,7 @@ GetMeetingRoomsScheduleResponse Client::getMeetingRoomsScheduleWithOptions(const
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMeetingRoomsScheduleResponse>();
 }
 
@@ -9104,7 +9183,7 @@ GetMineWorkspaceResponse Client::getMineWorkspaceWithOptions(const GetMineWorksp
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMineWorkspaceResponse>();
 }
 
@@ -9178,7 +9257,7 @@ GetMultiDimTableAllFieldsResponse Client::getMultiDimTableAllFieldsWithOptions(c
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMultiDimTableAllFieldsResponse>();
 }
 
@@ -9248,7 +9327,7 @@ GetMultiDimTableAllSheetsResponse Client::getMultiDimTableAllSheetsWithOptions(c
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMultiDimTableAllSheetsResponse>();
 }
 
@@ -9326,7 +9405,7 @@ GetMultiDimTableRecordResponse Client::getMultiDimTableRecordWithOptions(const G
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMultiDimTableRecordResponse>();
 }
 
@@ -9400,7 +9479,7 @@ GetMultiDimTableSheetResponse Client::getMultiDimTableSheetWithOptions(const Get
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMultiDimTableSheetResponse>();
 }
 
@@ -9486,7 +9565,7 @@ GetMultipartFileUploadInfosResponse Client::getMultipartFileUploadInfosWithOptio
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMultipartFileUploadInfosResponse>();
 }
 
@@ -9552,7 +9631,7 @@ GetNewestInnerGroupsResponse Client::getNewestInnerGroupsWithOptions(const GetNe
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetNewestInnerGroupsResponse>();
 }
 
@@ -9630,7 +9709,7 @@ GetNodeResponse Client::getNodeWithOptions(const GetNodeRequest &tmpReq, const G
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetNodeResponse>();
 }
 
@@ -9708,7 +9787,7 @@ GetNodeByUrlResponse Client::getNodeByUrlWithOptions(const GetNodeByUrlRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetNodeByUrlResponse>();
 }
 
@@ -9790,7 +9869,7 @@ GetNodesResponse Client::getNodesWithOptions(const GetNodesRequest &tmpReq, cons
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetNodesResponse>();
 }
 
@@ -9894,7 +9973,7 @@ GetNotifyMeResponse Client::getNotifyMeWithOptions(const GetNotifyMeRequest &req
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetNotifyMeResponse>();
 }
 
@@ -9970,7 +10049,7 @@ GetOpenUrlResponse Client::getOpenUrlWithOptions(const GetOpenUrlRequest &reques
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetOpenUrlResponse>();
 }
 
@@ -10042,7 +10121,7 @@ GetOperationRecordsResponse Client::getOperationRecordsWithOptions(const GetOper
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetOperationRecordsResponse>();
 }
 
@@ -10130,7 +10209,7 @@ GetOrgLiveListResponse Client::getOrgLiveListWithOptions(const GetOrgLiveListReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetOrgLiveListResponse>();
 }
 
@@ -10210,7 +10289,7 @@ GetOrgOrWebOpenDocContentTaskIdResponse Client::getOrgOrWebOpenDocContentTaskIdW
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetOrgOrWebOpenDocContentTaskIdResponse>();
 }
 
@@ -10302,7 +10381,7 @@ GetProcessDefinitionResponse Client::getProcessDefinitionWithOptions(const GetPr
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetProcessDefinitionResponse>();
 }
 
@@ -10384,7 +10463,7 @@ GetRangeResponse Client::getRangeWithOptions(const GetRangeRequest &tmpReq, cons
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetRangeResponse>();
 }
 
@@ -10454,7 +10533,7 @@ GetRelatedWorkspacesResponse Client::getRelatedWorkspacesWithOptions(const GetRe
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetRelatedWorkspacesResponse>();
 }
 
@@ -10524,7 +10603,7 @@ GetReportTemplateByNameResponse Client::getReportTemplateByNameWithOptions(const
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetReportTemplateByNameResponse>();
 }
 
@@ -10598,7 +10677,7 @@ GetReportUnReadCountResponse Client::getReportUnReadCountWithOptions(const GetRe
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetReportUnReadCountResponse>();
 }
 
@@ -10674,7 +10753,7 @@ GetRunningTasksResponse Client::getRunningTasksWithOptions(const GetRunningTasks
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetRunningTasksResponse>();
 }
 
@@ -10756,7 +10835,7 @@ GetScheduleResponse Client::getScheduleWithOptions(const GetScheduleRequest &tmp
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetScheduleResponse>();
 }
 
@@ -10830,7 +10909,7 @@ GetSheetResponse Client::getSheetWithOptions(const GetSheetRequest &tmpReq, cons
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetSheetResponse>();
 }
 
@@ -10904,7 +10983,7 @@ GetSheetContentJobIdResponse Client::getSheetContentJobIdWithOptions(const GetSh
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetSheetContentJobIdResponse>();
 }
 
@@ -10986,7 +11065,7 @@ GetSpaceDirectoriesResponse Client::getSpaceDirectoriesWithOptions(const GetSpac
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetSpaceDirectoriesResponse>();
 }
 
@@ -11046,7 +11125,7 @@ GetSubscribedCalendarResponse Client::getSubscribedCalendarWithOptions(const Get
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetSubscribedCalendarResponse>();
 }
 
@@ -11138,7 +11217,7 @@ GetTaskCopiesResponse Client::getTaskCopiesWithOptions(const GetTaskCopiesReques
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetTaskCopiesResponse>();
 }
 
@@ -11212,7 +11291,7 @@ GetTemplateListByUserIdResponse Client::getTemplateListByUserIdWithOptions(const
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetTemplateListByUserIdResponse>();
 }
 
@@ -11286,7 +11365,7 @@ GetTicketResponse Client::getTicketWithOptions(const GetTicketRequest &tmpReq, c
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetTicketResponse>();
 }
 
@@ -11356,7 +11435,7 @@ GetTodoTaskResponse Client::getTodoTaskWithOptions(const GetTodoTaskRequest &tmp
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetTodoTaskResponse>();
 }
 
@@ -11426,7 +11505,7 @@ GetUserResponse Client::getUserWithOptions(const GetUserRequest &tmpReq, const G
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetUserResponse>();
 }
 
@@ -11496,7 +11575,7 @@ GetUserIdResponse Client::getUserIdWithOptions(const GetUserIdRequest &tmpReq, c
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetUserIdResponse>();
 }
 
@@ -11566,7 +11645,7 @@ GetUserIdByOrgIdAndStaffIdResponse Client::getUserIdByOrgIdAndStaffIdWithOptions
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetUserIdByOrgIdAndStaffIdResponse>();
 }
 
@@ -11632,7 +11711,7 @@ GetUserLatestPlanResponse Client::getUserLatestPlanWithOptions(const GetUserLate
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetUserLatestPlanResponse>();
 }
 
@@ -11706,7 +11785,7 @@ GetWorkspaceResponse Client::getWorkspaceWithOptions(const GetWorkspaceRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetWorkspaceResponse>();
 }
 
@@ -11788,7 +11867,7 @@ GetWorkspacesResponse Client::getWorkspacesWithOptions(const GetWorkspacesReques
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetWorkspacesResponse>();
 }
 
@@ -11902,7 +11981,7 @@ GrantHonorResponse Client::grantHonorWithOptions(const GrantHonorRequest &tmpReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GrantHonorResponse>();
 }
 
@@ -11980,7 +12059,7 @@ InitMultipartFileUploadResponse Client::initMultipartFileUploadWithOptions(const
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<InitMultipartFileUploadResponse>();
 }
 
@@ -12062,7 +12141,7 @@ InsertColumnsBeforeResponse Client::insertColumnsBeforeWithOptions(const InsertC
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<InsertColumnsBeforeResponse>();
 }
 
@@ -12152,7 +12231,7 @@ InsertContentWithOptionsResponse Client::insertContentWithOptionsWithOptions(con
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<InsertContentWithOptionsResponse>();
 }
 
@@ -12238,7 +12317,7 @@ InsertDropDownListResponse Client::insertDropDownListWithOptions(const InsertDro
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<InsertDropDownListResponse>();
 }
 
@@ -12320,7 +12399,7 @@ InsertMultiDimTableRecordResponse Client::insertMultiDimTableRecordWithOptions(c
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<InsertMultiDimTableRecordResponse>();
 }
 
@@ -12402,7 +12481,7 @@ InsertRowsBeforeResponse Client::insertRowsBeforeWithOptions(const InsertRowsBef
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<InsertRowsBeforeResponse>();
 }
 
@@ -12488,7 +12567,7 @@ InviteUsersResponse Client::inviteUsersWithOptions(const InviteUsersRequest &tmp
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<InviteUsersResponse>();
 }
 
@@ -12502,6 +12581,84 @@ InviteUsersResponse Client::inviteUsers(const InviteUsersRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   InviteUsersHeaders headers = InviteUsersHeaders();
   return inviteUsersWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 调用助理
+ *
+ * @param request InvokeAssistantRequest
+ * @param headers InvokeAssistantHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InvokeAssistantResponse
+ */
+FutrueGenerator<InvokeAssistantResponse> Client::invokeAssistantWithSSE(const InvokeAssistantRequest &request, const InvokeAssistantHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAssistantId()) {
+    body["assistantId"] = request.assistantId();
+  }
+
+  if (!!request.hasMessages()) {
+    body["messages"] = request.messages();
+  }
+
+  if (!!request.hasOriginalAssistantId()) {
+    body["originalAssistantId"] = request.originalAssistantId();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["sessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasSourceIdOfOriginalAssistantId()) {
+    body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId();
+  }
+
+  if (!!request.hasSourceTypeOfOriginalAssistantId()) {
+    body["sourceTypeOfOriginalAssistantId"] = request.sourceTypeOfOriginalAssistantId();
+  }
+
+  if (!!request.hasStream()) {
+    body["stream"] = request.stream();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.commonHeaders();
+  }
+
+  if (!!headers.hasAccountId()) {
+    realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.accountId());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "InvokeAssistant"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/ai/v1/assistant/invokeAssistant")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<InvokeAssistantResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -12566,7 +12723,7 @@ InvokeAssistantResponse Client::invokeAssistantWithOptions(const InvokeAssistant
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<InvokeAssistantResponse>();
 }
 
@@ -12580,6 +12737,80 @@ InvokeAssistantResponse Client::invokeAssistant(const InvokeAssistantRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   InvokeAssistantHeaders headers = InvokeAssistantHeaders();
   return invokeAssistantWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 调用AI技能
+ *
+ * @param tmpReq InvokeSkillRequest
+ * @param tmpHeader InvokeSkillHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InvokeSkillResponse
+ */
+FutrueGenerator<InvokeSkillResponse> Client::invokeSkillWithSSE(const InvokeSkillRequest &tmpReq, const InvokeSkillHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  InvokeSkillShrinkRequest request = InvokeSkillShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  InvokeSkillShrinkHeaders headers = InvokeSkillShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasParams()) {
+    request.setParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.params(), "Params", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasParamsShrink()) {
+    body["Params"] = request.paramsShrink();
+  }
+
+  if (!!request.hasSkillId()) {
+    body["SkillId"] = request.skillId();
+  }
+
+  if (!!request.hasStream()) {
+    body["Stream"] = request.stream();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.commonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "InvokeSkill"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/ai/v1/skill/invoke")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<InvokeSkillResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -12640,7 +12871,7 @@ InvokeSkillResponse Client::invokeSkillWithOptions(const InvokeSkillRequest &tmp
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<InvokeSkillResponse>();
 }
 
@@ -12720,7 +12951,7 @@ ListApplicationResponse Client::listApplicationWithOptions(const ListApplication
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListApplicationResponse>();
 }
 
@@ -12786,7 +13017,7 @@ ListCalendarsResponse Client::listCalendarsWithOptions(const ListCalendarsReques
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListCalendarsResponse>();
 }
 
@@ -12880,7 +13111,7 @@ ListDentriesResponse Client::listDentriesWithOptions(const ListDentriesRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListDentriesResponse>();
 }
 
@@ -12958,7 +13189,7 @@ ListDriveSpacesResponse Client::listDriveSpacesWithOptions(const ListDriveSpaces
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListDriveSpacesResponse>();
 }
 
@@ -13050,7 +13281,7 @@ ListEventsResponse Client::listEventsWithOptions(const ListEventsRequest &reques
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListEventsResponse>();
 }
 
@@ -13130,7 +13361,7 @@ ListEventsViewResponse Client::listEventsViewWithOptions(const ListEventsViewReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListEventsViewResponse>();
 }
 
@@ -13208,7 +13439,7 @@ ListFormRemarksResponse Client::listFormRemarksWithOptions(const ListFormRemarks
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListFormRemarksResponse>();
 }
 
@@ -13290,7 +13521,7 @@ ListMessageResponse Client::listMessageWithOptions(const ListMessageRequest &req
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMessageResponse>();
 }
 
@@ -13380,7 +13611,7 @@ ListMultiDimTableRecordsResponse Client::listMultiDimTableRecordsWithOptions(con
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMultiDimTableRecordsResponse>();
 }
 
@@ -13452,7 +13683,7 @@ ListNavigationByFormTypeResponse Client::listNavigationByFormTypeWithOptions(con
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListNavigationByFormTypeResponse>();
 }
 
@@ -13534,7 +13765,7 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &tmpReq, c
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListNodesResponse>();
 }
 
@@ -13612,7 +13843,7 @@ ListPermissionsResponse Client::listPermissionsWithOptions(const ListPermissions
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListPermissionsResponse>();
 }
 
@@ -13706,7 +13937,7 @@ ListReportResponse Client::listReportWithOptions(const ListReportRequest &tmpReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListReportResponse>();
 }
 
@@ -13766,7 +13997,7 @@ ListSkillResponse Client::listSkillWithOptions(const ListSkillRequest &request, 
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListSkillResponse>();
 }
 
@@ -13850,7 +14081,7 @@ ListTableDataByFormInstanceIdTableIdResponse Client::listTableDataByFormInstance
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTableDataByFormInstanceIdTableIdResponse>();
 }
 
@@ -13924,7 +14155,7 @@ ListTeamsResponse Client::listTeamsWithOptions(const ListTeamsRequest &tmpReq, c
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTeamsResponse>();
 }
 
@@ -14006,7 +14237,7 @@ ListTemplateResponse Client::listTemplateWithOptions(const ListTemplateRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTemplateResponse>();
 }
 
@@ -14080,7 +14311,7 @@ ListTicketOperateRecordResponse Client::listTicketOperateRecordWithOptions(const
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTicketOperateRecordResponse>();
 }
 
@@ -14166,7 +14397,7 @@ ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListWorkspacesResponse>();
 }
 
@@ -14308,7 +14539,7 @@ PatchEventResponse Client::patchEventWithOptions(const PatchEventRequest &tmpReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PatchEventResponse>();
 }
 
@@ -14394,7 +14625,7 @@ QueryCloudRecordTextResponse Client::queryCloudRecordTextWithOptions(const Query
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryCloudRecordTextResponse>();
 }
 
@@ -14464,7 +14695,7 @@ QueryCloudRecordVideoResponse Client::queryCloudRecordVideoWithOptions(const Que
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryCloudRecordVideoResponse>();
 }
 
@@ -14542,7 +14773,7 @@ QueryCloudRecordVideoPlayInfoResponse Client::queryCloudRecordVideoPlayInfoWithO
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryCloudRecordVideoPlayInfoResponse>();
 }
 
@@ -14602,7 +14833,7 @@ QueryConferenceInfoResponse Client::queryConferenceInfoWithOptions(const QueryCo
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryConferenceInfoResponse>();
 }
 
@@ -14680,7 +14911,7 @@ QueryConferenceInfoByRoomCodeResponse Client::queryConferenceInfoByRoomCodeWithO
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryConferenceInfoByRoomCodeResponse>();
 }
 
@@ -14758,7 +14989,7 @@ QueryConferenceMembersResponse Client::queryConferenceMembersWithOptions(const Q
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryConferenceMembersResponse>();
 }
 
@@ -14848,7 +15079,7 @@ QueryDentriesInfoResponse Client::queryDentriesInfoWithOptions(const QueryDentri
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryDentriesInfoResponse>();
 }
 
@@ -14926,7 +15157,7 @@ QueryDentryResponse Client::queryDentryWithOptions(const QueryDentryRequest &tmp
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryDentryResponse>();
 }
 
@@ -15000,7 +15231,7 @@ QueryGroupLiveInfoResponse Client::queryGroupLiveInfoWithOptions(const QueryGrou
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryGroupLiveInfoResponse>();
 }
 
@@ -15070,7 +15301,7 @@ QueryLiveInfoResponse Client::queryLiveInfoWithOptions(const QueryLiveInfoReques
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryLiveInfoResponse>();
 }
 
@@ -15140,7 +15371,7 @@ QueryLiveWatchDetailResponse Client::queryLiveWatchDetailWithOptions(const Query
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryLiveWatchDetailResponse>();
 }
 
@@ -15218,7 +15449,7 @@ QueryLiveWatchUserListResponse Client::queryLiveWatchUserListWithOptions(const Q
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryLiveWatchUserListResponse>();
 }
 
@@ -15288,7 +15519,7 @@ QueryMeetingRoomResponse Client::queryMeetingRoomWithOptions(const QueryMeetingR
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryMeetingRoomResponse>();
 }
 
@@ -15358,7 +15589,7 @@ QueryMeetingRoomGroupResponse Client::queryMeetingRoomGroupWithOptions(const Que
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryMeetingRoomGroupResponse>();
 }
 
@@ -15432,7 +15663,7 @@ QueryMeetingRoomGroupListResponse Client::queryMeetingRoomGroupListWithOptions(c
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryMeetingRoomGroupListResponse>();
 }
 
@@ -15506,7 +15737,7 @@ QueryMeetingRoomListResponse Client::queryMeetingRoomListWithOptions(const Query
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryMeetingRoomListResponse>();
 }
 
@@ -15576,7 +15807,7 @@ QueryMinutesResponse Client::queryMinutesWithOptions(const QueryMinutesRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryMinutesResponse>();
 }
 
@@ -15654,7 +15885,7 @@ QueryMinutesSummaryResponse Client::queryMinutesSummaryWithOptions(const QueryMi
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryMinutesSummaryResponse>();
 }
 
@@ -15736,7 +15967,7 @@ QueryMinutesTextResponse Client::queryMinutesTextWithOptions(const QueryMinutesT
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryMinutesTextResponse>();
 }
 
@@ -15814,7 +16045,7 @@ QueryOrgHonorsResponse Client::queryOrgHonorsWithOptions(const QueryOrgHonorsReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryOrgHonorsResponse>();
 }
 
@@ -15888,7 +16119,7 @@ QueryOrgTodoTasksResponse Client::queryOrgTodoTasksWithOptions(const QueryOrgTod
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryOrgTodoTasksResponse>();
 }
 
@@ -15962,7 +16193,7 @@ QueryRecordMinutesUrlResponse Client::queryRecordMinutesUrlWithOptions(const Que
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryRecordMinutesUrlResponse>();
 }
 
@@ -16032,7 +16263,7 @@ QueryReportDetailResponse Client::queryReportDetailWithOptions(const QueryReport
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryReportDetailResponse>();
 }
 
@@ -16102,7 +16333,7 @@ QueryScheduleConferenceResponse Client::queryScheduleConferenceWithOptions(const
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryScheduleConferenceResponse>();
 }
 
@@ -16180,7 +16411,7 @@ QueryScheduleConferenceInfoResponse Client::queryScheduleConferenceInfoWithOptio
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryScheduleConferenceInfoResponse>();
 }
 
@@ -16262,7 +16493,7 @@ QueryUserHonorsResponse Client::queryUserHonorsWithOptions(const QueryUserHonors
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryUserHonorsResponse>();
 }
 
@@ -16340,7 +16571,7 @@ RecallHonorResponse Client::recallHonorWithOptions(const RecallHonorRequest &tmp
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RecallHonorResponse>();
 }
 
@@ -16418,7 +16649,7 @@ ReceiverListReportResponse Client::receiverListReportWithOptions(const ReceiverL
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ReceiverListReportResponse>();
 }
 
@@ -16506,7 +16737,7 @@ RedirectTaskResponse Client::redirectTaskWithOptions(const RedirectTaskRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RedirectTaskResponse>();
 }
 
@@ -16580,7 +16811,7 @@ RemoveAttendeeResponse Client::removeAttendeeWithOptions(const RemoveAttendeeReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RemoveAttendeeResponse>();
 }
 
@@ -16654,7 +16885,7 @@ RemoveMeetingRoomsResponse Client::removeMeetingRoomsWithOptions(const RemoveMee
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RemoveMeetingRoomsResponse>();
 }
 
@@ -16732,7 +16963,7 @@ RespondEventResponse Client::respondEventWithOptions(const RespondEventRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RespondEventResponse>();
 }
 
@@ -16802,7 +17033,7 @@ RetrieveRunResponse Client::retrieveRunWithOptions(const RetrieveRunRequest &req
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RetrieveRunResponse>();
 }
 
@@ -16884,7 +17115,7 @@ SaveContentResponse Client::saveContentWithOptions(const SaveContentRequest &tmp
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SaveContentResponse>();
 }
 
@@ -16960,7 +17191,7 @@ SaveFormDataResponse Client::saveFormDataWithOptions(const SaveFormDataRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SaveFormDataResponse>();
 }
 
@@ -17044,7 +17275,7 @@ SaveFormRemarkResponse Client::saveFormRemarkWithOptions(const SaveFormRemarkReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SaveFormRemarkResponse>();
 }
 
@@ -17144,7 +17375,7 @@ SearchEmployeeFieldValuesResponse Client::searchEmployeeFieldValuesWithOptions(c
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SearchEmployeeFieldValuesResponse>();
 }
 
@@ -17248,7 +17479,7 @@ SearchFormDataIdListResponse Client::searchFormDataIdListWithOptions(const Searc
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SearchFormDataIdListResponse>();
 }
 
@@ -17352,7 +17583,7 @@ SearchFormDataSecondGenerationResponse Client::searchFormDataSecondGenerationWit
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SearchFormDataSecondGenerationResponse>();
 }
 
@@ -17456,7 +17687,7 @@ SearchFormDataSecondGenerationNoTableFieldResponse Client::searchFormDataSecondG
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SearchFormDataSecondGenerationNoTableFieldResponse>();
 }
 
@@ -17564,7 +17795,7 @@ SearchFormDatasResponse Client::searchFormDatasWithOptions(const SearchFormDatas
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SearchFormDatasResponse>();
 }
 
@@ -17628,7 +17859,7 @@ SearchInnerGroupsResponse Client::searchInnerGroupsWithOptions(const SearchInner
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SearchInnerGroupsResponse>();
 }
 
@@ -17710,7 +17941,7 @@ SendBannerResponse Client::sendBannerWithOptions(const SendBannerRequest &tmpReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SendBannerResponse>();
 }
 
@@ -17792,7 +18023,7 @@ SendPopupResponse Client::sendPopupWithOptions(const SendPopupRequest &tmpReq, c
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SendPopupResponse>();
 }
 
@@ -17874,7 +18105,7 @@ SendSearchShadeResponse Client::sendSearchShadeWithOptions(const SendSearchShade
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SendSearchShadeResponse>();
 }
 
@@ -17960,7 +18191,7 @@ SetColumnsVisibilityResponse Client::setColumnsVisibilityWithOptions(const SetCo
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetColumnsVisibilityResponse>();
 }
 
@@ -18042,7 +18273,7 @@ SetConferenceHostsResponse Client::setConferenceHostsWithOptions(const SetConfer
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetConferenceHostsResponse>();
 }
 
@@ -18128,7 +18359,7 @@ SetRowsVisibilityResponse Client::setRowsVisibilityWithOptions(const SetRowsVisi
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetRowsVisibilityResponse>();
 }
 
@@ -18214,7 +18445,7 @@ SimpleListReportResponse Client::simpleListReportWithOptions(const SimpleListRep
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SimpleListReportResponse>();
 }
 
@@ -18292,7 +18523,7 @@ StartCloudRecordResponse Client::startCloudRecordWithOptions(const StartCloudRec
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StartCloudRecordResponse>();
 }
 
@@ -18380,7 +18611,7 @@ StartInstanceResponse Client::startInstanceWithOptions(const StartInstanceReques
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StartInstanceResponse>();
 }
 
@@ -18458,7 +18689,7 @@ StartMinutesResponse Client::startMinutesWithOptions(const StartMinutesRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StartMinutesResponse>();
 }
 
@@ -18540,7 +18771,7 @@ StatisticsListByTypeReportResponse Client::statisticsListByTypeReportWithOptions
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StatisticsListByTypeReportResponse>();
 }
 
@@ -18610,7 +18841,7 @@ StatisticsReportResponse Client::statisticsReportWithOptions(const StatisticsRep
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StatisticsReportResponse>();
 }
 
@@ -18680,7 +18911,7 @@ StopCloudRecordResponse Client::stopCloudRecordWithOptions(const StopCloudRecord
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StopCloudRecordResponse>();
 }
 
@@ -18750,7 +18981,7 @@ StopMinutesResponse Client::stopMinutesWithOptions(const StopMinutesRequest &tmp
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StopMinutesResponse>();
 }
 
@@ -18810,7 +19041,7 @@ SubscribeCalendarResponse Client::subscribeCalendarWithOptions(const SubscribeCa
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SubscribeCalendarResponse>();
 }
 
@@ -18884,7 +19115,7 @@ SubscribeEventResponse Client::subscribeEventWithOptions(const SubscribeEventReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SubscribeEventResponse>();
 }
 
@@ -18952,7 +19183,7 @@ SwitchMainOrgResponse Client::switchMainOrgWithOptions(const SwitchMainOrgReques
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SwitchMainOrgResponse>();
 }
 
@@ -19032,7 +19263,7 @@ SyncDingTypeResponse Client::syncDingTypeWithOptions(const SyncDingTypeRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SyncDingTypeResponse>();
 }
 
@@ -19104,7 +19335,7 @@ TerminateInstanceResponse Client::terminateInstanceWithOptions(const TerminateIn
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<TerminateInstanceResponse>();
 }
 
@@ -19202,7 +19433,7 @@ TransferTicketResponse Client::transferTicketWithOptions(const TransferTicketReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<TransferTicketResponse>();
 }
 
@@ -19262,7 +19493,7 @@ UnsubscribeCalendarResponse Client::unsubscribeCalendarWithOptions(const Unsubsc
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UnsubscribeCalendarResponse>();
 }
 
@@ -19336,7 +19567,7 @@ UnsubscribeEventResponse Client::unsubscribeEventWithOptions(const UnsubscribeEv
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UnsubscribeEventResponse>();
 }
 
@@ -19452,7 +19683,7 @@ UpdateAlidingAssistantResponse Client::updateAlidingAssistantWithOptions(const U
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateAlidingAssistantResponse>();
 }
 
@@ -19534,7 +19765,7 @@ UpdateConvExtensionResponse Client::updateConvExtensionWithOptions(const UpdateC
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateConvExtensionResponse>();
 }
 
@@ -19612,7 +19843,7 @@ UpdateFormDataResponse Client::updateFormDataWithOptions(const UpdateFormDataReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateFormDataResponse>();
 }
 
@@ -19688,7 +19919,7 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const UpdateInstanceReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateInstanceResponse>();
 }
 
@@ -19778,7 +20009,7 @@ UpdateLiveResponse Client::updateLiveWithOptions(const UpdateLiveRequest &tmpReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLiveResponse>();
 }
 
@@ -19900,7 +20131,7 @@ UpdateMeetingRoomResponse Client::updateMeetingRoomWithOptions(const UpdateMeeti
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateMeetingRoomResponse>();
 }
 
@@ -19974,7 +20205,7 @@ UpdateMeetingRoomGroupResponse Client::updateMeetingRoomGroupWithOptions(const U
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateMeetingRoomGroupResponse>();
 }
 
@@ -20052,7 +20283,7 @@ UpdateMultiDimTableResponse Client::updateMultiDimTableWithOptions(const UpdateM
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateMultiDimTableResponse>();
 }
 
@@ -20142,7 +20373,7 @@ UpdateMultiDimTableFieldResponse Client::updateMultiDimTableFieldWithOptions(con
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateMultiDimTableFieldResponse>();
 }
 
@@ -20224,7 +20455,7 @@ UpdateMultiDimTableRecordsResponse Client::updateMultiDimTableRecordsWithOptions
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateMultiDimTableRecordsResponse>();
 }
 
@@ -20314,7 +20545,7 @@ UpdatePermissionResponse Client::updatePermissionWithOptions(const UpdatePermiss
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdatePermissionResponse>();
 }
 
@@ -20420,7 +20651,7 @@ UpdateRangeResponse Client::updateRangeWithOptions(const UpdateRangeRequest &tmp
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateRangeResponse>();
 }
 
@@ -20498,7 +20729,7 @@ UpdateScheduleConfSettingsResponse Client::updateScheduleConfSettingsWithOptions
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateScheduleConfSettingsResponse>();
 }
 
@@ -20580,7 +20811,7 @@ UpdateScheduleConferenceResponse Client::updateScheduleConferenceWithOptions(con
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateScheduleConferenceResponse>();
 }
 
@@ -20666,7 +20897,7 @@ UpdateStatusResponse Client::updateStatusWithOptions(const UpdateStatusRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateStatusResponse>();
 }
 
@@ -20752,7 +20983,7 @@ UpdateSubscribedCalendarsResponse Client::updateSubscribedCalendarsWithOptions(c
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateSubscribedCalendarsResponse>();
 }
 
@@ -20854,7 +21085,7 @@ UpdateTodoTaskResponse Client::updateTodoTaskWithOptions(const UpdateTodoTaskReq
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateTodoTaskResponse>();
 }
 
@@ -20936,7 +21167,7 @@ UpdateTodoTaskExecutorStatusResponse Client::updateTodoTaskExecutorStatusWithOpt
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateTodoTaskExecutorStatusResponse>();
 }
 
@@ -20996,7 +21227,7 @@ UpdateUserAvatarResponse Client::updateUserAvatarWithOptions(const UpdateUserAva
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateUserAvatarResponse>();
 }
 
@@ -21090,7 +21321,7 @@ UpdateVideoConferenceSettingResponse Client::updateVideoConferenceSettingWithOpt
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateVideoConferenceSettingResponse>();
 }
 
@@ -21172,7 +21403,7 @@ UpdateWorkspaceDocMembersResponse Client::updateWorkspaceDocMembersWithOptions(c
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateWorkspaceDocMembersResponse>();
 }
 
@@ -21250,7 +21481,7 @@ UpdateWorkspaceMembersResponse Client::updateWorkspaceMembersWithOptions(const U
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateWorkspaceMembersResponse>();
 }
 
@@ -21332,7 +21563,7 @@ UploadMediaResponse Client::uploadMediaWithOptions(const UploadMediaRequest &tmp
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UploadMediaResponse>();
 }
 
@@ -21414,7 +21645,7 @@ WearOrgHonorResponse Client::wearOrgHonorWithOptions(const WearOrgHonorRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<WearOrgHonorResponse>();
 }
 

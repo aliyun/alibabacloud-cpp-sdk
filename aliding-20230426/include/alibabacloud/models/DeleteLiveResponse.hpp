@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DELETELIVERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DeleteLiveResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_EXECUTEBATCHTASKRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ExecuteBatchTaskResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

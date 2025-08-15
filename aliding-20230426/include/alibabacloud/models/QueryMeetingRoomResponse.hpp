@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_QUERYMEETINGROOMRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/QueryMeetingRoomResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

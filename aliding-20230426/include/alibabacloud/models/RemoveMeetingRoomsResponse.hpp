@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_REMOVEMEETINGROOMSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/RemoveMeetingRoomsResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

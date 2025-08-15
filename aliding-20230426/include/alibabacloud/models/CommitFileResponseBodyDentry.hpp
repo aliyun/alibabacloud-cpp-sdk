@@ -3,7 +3,8 @@
 #define ALIBABACLOUD_MODELS_COMMITFILERESPONSEBODYDENTRY_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
-#include <alibabacloud/Aliding20230426.hpp>
+#include <vector>
+#include <alibabacloud/models/DentryAppPropertiesValue.hpp>
 #include <alibabacloud/models/CommitFileResponseBodyDentryProperties.hpp>
 #include <alibabacloud/models/CommitFileResponseBodyDentryThumbnail.hpp>
 using namespace std;

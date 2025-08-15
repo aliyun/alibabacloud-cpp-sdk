@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATEORGHONORTEMPLATERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateOrgHonorTemplateResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

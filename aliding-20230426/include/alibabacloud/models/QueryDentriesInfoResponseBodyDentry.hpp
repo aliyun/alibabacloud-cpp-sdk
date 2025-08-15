@@ -3,7 +3,8 @@
 #define ALIBABACLOUD_MODELS_QUERYDENTRIESINFORESPONSEBODYDENTRY_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
-#include <alibabacloud/Aliding20230426.hpp>
+#include <vector>
+#include <alibabacloud/models/DentryAppPropertiesValue.hpp>
 #include <alibabacloud/models/QueryDentriesInfoResponseBodyDentryProperties.hpp>
 #include <alibabacloud/models/QueryDentriesInfoResponseBodyDentryThumbnail.hpp>
 using namespace std;

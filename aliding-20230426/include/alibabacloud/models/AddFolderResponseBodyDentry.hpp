@@ -3,7 +3,8 @@
 #define ALIBABACLOUD_MODELS_ADDFOLDERRESPONSEBODYDENTRY_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
-#include <alibabacloud/Aliding20230426.hpp>
+#include <vector>
+#include <alibabacloud/models/DentryAppPropertiesValue.hpp>
 #include <alibabacloud/models/AddFolderResponseBodyDentryProperties.hpp>
 using namespace std;
 using json = nlohmann::json;

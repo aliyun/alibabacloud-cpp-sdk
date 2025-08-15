@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_ADDDRIVESPACERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/AddDriveSpaceResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

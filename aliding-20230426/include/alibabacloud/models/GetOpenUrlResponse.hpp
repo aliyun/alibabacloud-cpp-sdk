@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETOPENURLRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetOpenUrlResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

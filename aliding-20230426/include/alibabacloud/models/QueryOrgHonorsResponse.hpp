@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_QUERYORGHONORSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/QueryOrgHonorsResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETFILEUPLOADINFORESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetFileUploadInfoResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

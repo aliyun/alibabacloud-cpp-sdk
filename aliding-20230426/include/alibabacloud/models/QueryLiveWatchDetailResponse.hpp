@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_QUERYLIVEWATCHDETAILRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/QueryLiveWatchDetailResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

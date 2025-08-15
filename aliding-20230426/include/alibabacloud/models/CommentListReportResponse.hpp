@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_COMMENTLISTREPORTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CommentListReportResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
