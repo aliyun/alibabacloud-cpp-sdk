@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_UPDATEINSTANCEIMAGERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/UpdateInstanceImageResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

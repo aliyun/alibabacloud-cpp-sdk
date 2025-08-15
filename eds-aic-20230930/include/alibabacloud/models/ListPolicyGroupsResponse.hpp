@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTPOLICYGROUPSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ListPolicyGroupsResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

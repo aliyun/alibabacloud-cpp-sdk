@@ -5,7 +5,7 @@
 #include <vector>
 #include <alibabacloud/models/DescribeImageListResponseBodyDataImageBizTags.hpp>
 #include <map>
-#include <alibabacloud/EdsAic20230930.hpp>
+#include <alibabacloud/models/DataImageRegionDistributeMapValue.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
