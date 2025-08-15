@@ -1,0 +1,103 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTWORKSPACESSHRINKREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_LISTWORKSPACESSHRINKREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace EmrServerlessSpark20230808
+{
+namespace Models
+{
+  class ListWorkspacesShrinkRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListWorkspacesShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(name, name_);
+      DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(regionId, regionId_);
+      DARABONBA_PTR_TO_JSON(state, state_);
+      DARABONBA_PTR_TO_JSON(tag, tagShrink_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListWorkspacesShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(name, name_);
+      DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(regionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(state, state_);
+      DARABONBA_PTR_FROM_JSON(tag, tagShrink_);
+    };
+    ListWorkspacesShrinkRequest() = default ;
+    ListWorkspacesShrinkRequest(const ListWorkspacesShrinkRequest &) = default ;
+    ListWorkspacesShrinkRequest(ListWorkspacesShrinkRequest &&) = default ;
+    ListWorkspacesShrinkRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListWorkspacesShrinkRequest() = default ;
+    ListWorkspacesShrinkRequest& operator=(const ListWorkspacesShrinkRequest &) = default ;
+    ListWorkspacesShrinkRequest& operator=(ListWorkspacesShrinkRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->maxResults_ != nullptr
+        && this->name_ != nullptr && this->nextToken_ != nullptr && this->regionId_ != nullptr && this->state_ != nullptr && this->tagShrink_ != nullptr; };
+    // maxResults Field Functions 
+    bool hasMaxResults() const { return this->maxResults_ != nullptr;};
+    void deleteMaxResults() { this->maxResults_ = nullptr;};
+    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline ListWorkspacesShrinkRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // name Field Functions 
+    bool hasName() const { return this->name_ != nullptr;};
+    void deleteName() { this->name_ = nullptr;};
+    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline ListWorkspacesShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline ListWorkspacesShrinkRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
+    // regionId Field Functions 
+    bool hasRegionId() const { return this->regionId_ != nullptr;};
+    void deleteRegionId() { this->regionId_ = nullptr;};
+    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline ListWorkspacesShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+    // state Field Functions 
+    bool hasState() const { return this->state_ != nullptr;};
+    void deleteState() { this->state_ = nullptr;};
+    inline string state() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
+    inline ListWorkspacesShrinkRequest& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
+
+
+    // tagShrink Field Functions 
+    bool hasTagShrink() const { return this->tagShrink_ != nullptr;};
+    void deleteTagShrink() { this->tagShrink_ = nullptr;};
+    inline string tagShrink() const { DARABONBA_PTR_GET_DEFAULT(tagShrink_, "") };
+    inline ListWorkspacesShrinkRequest& setTagShrink(string tagShrink) { DARABONBA_PTR_SET_VALUE(tagShrink_, tagShrink) };
+
+
+  protected:
+    // The maximum number of entries returned.
+    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // The name of the workspace. Fuzzy match is supported.
+    std::shared_ptr<string> name_ = nullptr;
+    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    std::shared_ptr<string> nextToken_ = nullptr;
+    // The region ID.
+    std::shared_ptr<string> regionId_ = nullptr;
+    // The state of the workspace.
+    std::shared_ptr<string> state_ = nullptr;
+    std::shared_ptr<string> tagShrink_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace EmrServerlessSpark20230808
+#endif
