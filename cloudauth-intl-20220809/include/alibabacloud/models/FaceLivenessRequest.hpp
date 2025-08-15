@@ -1,0 +1,119 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_FACELIVENESSREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_FACELIVENESSREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace CloudauthIntl20220809
+{
+namespace Models
+{
+  class FaceLivenessRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const FaceLivenessRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Crop, crop_);
+      DARABONBA_PTR_TO_JSON(FacePictureBase64, facePictureBase64_);
+      DARABONBA_PTR_TO_JSON(FacePictureUrl, facePictureUrl_);
+      DARABONBA_PTR_TO_JSON(FaceQuality, faceQuality_);
+      DARABONBA_PTR_TO_JSON(MerchantBizId, merchantBizId_);
+      DARABONBA_PTR_TO_JSON(MerchantUserId, merchantUserId_);
+      DARABONBA_PTR_TO_JSON(Occlusion, occlusion_);
+      DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
+    };
+    friend void from_json(const Darabonba::Json& j, FaceLivenessRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Crop, crop_);
+      DARABONBA_PTR_FROM_JSON(FacePictureBase64, facePictureBase64_);
+      DARABONBA_PTR_FROM_JSON(FacePictureUrl, facePictureUrl_);
+      DARABONBA_PTR_FROM_JSON(FaceQuality, faceQuality_);
+      DARABONBA_PTR_FROM_JSON(MerchantBizId, merchantBizId_);
+      DARABONBA_PTR_FROM_JSON(MerchantUserId, merchantUserId_);
+      DARABONBA_PTR_FROM_JSON(Occlusion, occlusion_);
+      DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
+    };
+    FaceLivenessRequest() = default ;
+    FaceLivenessRequest(const FaceLivenessRequest &) = default ;
+    FaceLivenessRequest(FaceLivenessRequest &&) = default ;
+    FaceLivenessRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~FaceLivenessRequest() = default ;
+    FaceLivenessRequest& operator=(const FaceLivenessRequest &) = default ;
+    FaceLivenessRequest& operator=(FaceLivenessRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->crop_ != nullptr
+        && this->facePictureBase64_ != nullptr && this->facePictureUrl_ != nullptr && this->faceQuality_ != nullptr && this->merchantBizId_ != nullptr && this->merchantUserId_ != nullptr
+        && this->occlusion_ != nullptr && this->productCode_ != nullptr; };
+    // crop Field Functions 
+    bool hasCrop() const { return this->crop_ != nullptr;};
+    void deleteCrop() { this->crop_ = nullptr;};
+    inline string crop() const { DARABONBA_PTR_GET_DEFAULT(crop_, "") };
+    inline FaceLivenessRequest& setCrop(string crop) { DARABONBA_PTR_SET_VALUE(crop_, crop) };
+
+
+    // facePictureBase64 Field Functions 
+    bool hasFacePictureBase64() const { return this->facePictureBase64_ != nullptr;};
+    void deleteFacePictureBase64() { this->facePictureBase64_ = nullptr;};
+    inline string facePictureBase64() const { DARABONBA_PTR_GET_DEFAULT(facePictureBase64_, "") };
+    inline FaceLivenessRequest& setFacePictureBase64(string facePictureBase64) { DARABONBA_PTR_SET_VALUE(facePictureBase64_, facePictureBase64) };
+
+
+    // facePictureUrl Field Functions 
+    bool hasFacePictureUrl() const { return this->facePictureUrl_ != nullptr;};
+    void deleteFacePictureUrl() { this->facePictureUrl_ = nullptr;};
+    inline string facePictureUrl() const { DARABONBA_PTR_GET_DEFAULT(facePictureUrl_, "") };
+    inline FaceLivenessRequest& setFacePictureUrl(string facePictureUrl) { DARABONBA_PTR_SET_VALUE(facePictureUrl_, facePictureUrl) };
+
+
+    // faceQuality Field Functions 
+    bool hasFaceQuality() const { return this->faceQuality_ != nullptr;};
+    void deleteFaceQuality() { this->faceQuality_ = nullptr;};
+    inline string faceQuality() const { DARABONBA_PTR_GET_DEFAULT(faceQuality_, "") };
+    inline FaceLivenessRequest& setFaceQuality(string faceQuality) { DARABONBA_PTR_SET_VALUE(faceQuality_, faceQuality) };
+
+
+    // merchantBizId Field Functions 
+    bool hasMerchantBizId() const { return this->merchantBizId_ != nullptr;};
+    void deleteMerchantBizId() { this->merchantBizId_ = nullptr;};
+    inline string merchantBizId() const { DARABONBA_PTR_GET_DEFAULT(merchantBizId_, "") };
+    inline FaceLivenessRequest& setMerchantBizId(string merchantBizId) { DARABONBA_PTR_SET_VALUE(merchantBizId_, merchantBizId) };
+
+
+    // merchantUserId Field Functions 
+    bool hasMerchantUserId() const { return this->merchantUserId_ != nullptr;};
+    void deleteMerchantUserId() { this->merchantUserId_ = nullptr;};
+    inline string merchantUserId() const { DARABONBA_PTR_GET_DEFAULT(merchantUserId_, "") };
+    inline FaceLivenessRequest& setMerchantUserId(string merchantUserId) { DARABONBA_PTR_SET_VALUE(merchantUserId_, merchantUserId) };
+
+
+    // occlusion Field Functions 
+    bool hasOcclusion() const { return this->occlusion_ != nullptr;};
+    void deleteOcclusion() { this->occlusion_ = nullptr;};
+    inline string occlusion() const { DARABONBA_PTR_GET_DEFAULT(occlusion_, "") };
+    inline FaceLivenessRequest& setOcclusion(string occlusion) { DARABONBA_PTR_SET_VALUE(occlusion_, occlusion) };
+
+
+    // productCode Field Functions 
+    bool hasProductCode() const { return this->productCode_ != nullptr;};
+    void deleteProductCode() { this->productCode_ = nullptr;};
+    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline FaceLivenessRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
+
+
+  protected:
+    std::shared_ptr<string> crop_ = nullptr;
+    std::shared_ptr<string> facePictureBase64_ = nullptr;
+    std::shared_ptr<string> facePictureUrl_ = nullptr;
+    std::shared_ptr<string> faceQuality_ = nullptr;
+    std::shared_ptr<string> merchantBizId_ = nullptr;
+    std::shared_ptr<string> merchantUserId_ = nullptr;
+    std::shared_ptr<string> occlusion_ = nullptr;
+    std::shared_ptr<string> productCode_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace CloudauthIntl20220809
+#endif
