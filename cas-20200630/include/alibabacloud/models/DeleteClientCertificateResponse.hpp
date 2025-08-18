@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DELETECLIENTCERTIFICATERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DeleteClientCertificateResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

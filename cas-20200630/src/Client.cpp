@@ -70,7 +70,7 @@ AlibabaCloud::Cas20200630::Client::Client(Config &config): OpenApiClient(config)
     {"rus-west-1-pop" , "cas.aliyuncs.com"},
     {"us-east-1" , "cas.aliyuncs.com"},
     {"us-west-1" , "cas.aliyuncs.com"}
-  });
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("cas", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -172,7 +172,7 @@ CreateClientCertificateResponse Client::createClientCertificateWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateClientCertificate"},
     {"version" , "2020-06-30"},
@@ -183,7 +183,7 @@ CreateClientCertificateResponse Client::createClientCertificateWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateClientCertificateResponse>();
 }
 
@@ -290,7 +290,7 @@ CreateClientCertificateWithCsrResponse Client::createClientCertificateWithCsrWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateClientCertificateWithCsr"},
     {"version" , "2020-06-30"},
@@ -301,7 +301,7 @@ CreateClientCertificateWithCsrResponse Client::createClientCertificateWithCsrWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateClientCertificateWithCsrResponse>();
 }
 
@@ -372,7 +372,7 @@ CreateCustomCertificateResponse Client::createCustomCertificateWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateCustomCertificate"},
     {"version" , "2020-06-30"},
@@ -383,7 +383,7 @@ CreateCustomCertificateResponse Client::createCustomCertificateWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateCustomCertificateResponse>();
 }
 
@@ -435,7 +435,7 @@ CreateRevokeClientCertificateResponse Client::createRevokeClientCertificateWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateRevokeClientCertificate"},
     {"version" , "2020-06-30"},
@@ -446,7 +446,7 @@ CreateRevokeClientCertificateResponse Client::createRevokeClientCertificateWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateRevokeClientCertificateResponse>();
 }
 
@@ -519,7 +519,7 @@ CreateRootCACertificateResponse Client::createRootCACertificateWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateRootCACertificate"},
     {"version" , "2020-06-30"},
@@ -530,7 +530,7 @@ CreateRootCACertificateResponse Client::createRootCACertificateWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateRootCACertificateResponse>();
 }
 
@@ -630,7 +630,7 @@ CreateServerCertificateResponse Client::createServerCertificateWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateServerCertificate"},
     {"version" , "2020-06-30"},
@@ -641,7 +641,7 @@ CreateServerCertificateResponse Client::createServerCertificateWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateServerCertificateResponse>();
 }
 
@@ -743,7 +743,7 @@ CreateServerCertificateWithCsrResponse Client::createServerCertificateWithCsrWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateServerCertificateWithCsr"},
     {"version" , "2020-06-30"},
@@ -754,7 +754,7 @@ CreateServerCertificateWithCsrResponse Client::createServerCertificateWithCsrWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateServerCertificateWithCsrResponse>();
 }
 
@@ -841,7 +841,7 @@ CreateSubCACertificateResponse Client::createSubCACertificateWithOptions(const C
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateSubCACertificate"},
     {"version" , "2020-06-30"},
@@ -852,7 +852,7 @@ CreateSubCACertificateResponse Client::createSubCACertificateWithOptions(const C
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateSubCACertificateResponse>();
 }
 
@@ -892,7 +892,7 @@ DeleteClientCertificateResponse Client::deleteClientCertificateWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteClientCertificate"},
     {"version" , "2020-06-30"},
@@ -903,7 +903,7 @@ DeleteClientCertificateResponse Client::deleteClientCertificateWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteClientCertificateResponse>();
 }
 
@@ -943,7 +943,7 @@ DescribeCACertificateResponse Client::describeCACertificateWithOptions(const Des
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeCACertificate"},
     {"version" , "2020-06-30"},
@@ -954,7 +954,7 @@ DescribeCACertificateResponse Client::describeCACertificateWithOptions(const Des
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeCACertificateResponse>();
 }
 
@@ -997,7 +997,7 @@ DescribeCACertificateCountResponse Client::describeCACertificateCountWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeCACertificateCountResponse>();
 }
 
@@ -1059,7 +1059,7 @@ DescribeCACertificateListResponse Client::describeCACertificateListWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeCACertificateList"},
     {"version" , "2020-06-30"},
@@ -1070,7 +1070,7 @@ DescribeCACertificateListResponse Client::describeCACertificateListWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeCACertificateListResponse>();
 }
 
@@ -1121,7 +1121,7 @@ DescribeCertificatePrivateKeyResponse Client::describeCertificatePrivateKeyWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeCertificatePrivateKey"},
     {"version" , "2020-06-30"},
@@ -1132,7 +1132,7 @@ DescribeCertificatePrivateKeyResponse Client::describeCertificatePrivateKeyWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeCertificatePrivateKeyResponse>();
 }
 
@@ -1186,7 +1186,7 @@ DescribeClientCertificateResponse Client::describeClientCertificateWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeClientCertificate"},
     {"version" , "2020-06-30"},
@@ -1197,7 +1197,7 @@ DescribeClientCertificateResponse Client::describeClientCertificateWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeClientCertificateResponse>();
 }
 
@@ -1243,7 +1243,7 @@ DescribeClientCertificateStatusResponse Client::describeClientCertificateStatusW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeClientCertificateStatus"},
     {"version" , "2020-06-30"},
@@ -1254,7 +1254,7 @@ DescribeClientCertificateStatusResponse Client::describeClientCertificateStatusW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeClientCertificateStatusResponse>();
 }
 
@@ -1297,7 +1297,7 @@ GetCAInstanceStatusResponse Client::getCAInstanceStatusWithOptions(const GetCAIn
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetCAInstanceStatus"},
     {"version" , "2020-06-30"},
@@ -1308,7 +1308,7 @@ GetCAInstanceStatusResponse Client::getCAInstanceStatusWithOptions(const GetCAIn
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetCAInstanceStatusResponse>();
 }
 
@@ -1375,7 +1375,7 @@ ListCertResponse Client::listCertWithOptions(const ListCertRequest &request, con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListCert"},
     {"version" , "2020-06-30"},
@@ -1386,7 +1386,7 @@ ListCertResponse Client::listCertWithOptions(const ListCertRequest &request, con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListCertResponse>();
 }
 
@@ -1429,7 +1429,7 @@ ListClientCertificateResponse Client::listClientCertificateWithOptions(const Lis
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListClientCertificate"},
     {"version" , "2020-06-30"},
@@ -1440,7 +1440,7 @@ ListClientCertificateResponse Client::listClientCertificateWithOptions(const Lis
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListClientCertificateResponse>();
 }
 
@@ -1483,7 +1483,7 @@ ListRevokeCertificateResponse Client::listRevokeCertificateWithOptions(const Lis
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListRevokeCertificate"},
     {"version" , "2020-06-30"},
@@ -1494,7 +1494,7 @@ ListRevokeCertificateResponse Client::listRevokeCertificateWithOptions(const Lis
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListRevokeCertificateResponse>();
 }
 
@@ -1542,7 +1542,7 @@ UpdateCACertificateStatusResponse Client::updateCACertificateStatusWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateCACertificateStatus"},
     {"version" , "2020-06-30"},
@@ -1553,7 +1553,7 @@ UpdateCACertificateStatusResponse Client::updateCACertificateStatusWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateCACertificateStatusResponse>();
 }
 
@@ -1589,7 +1589,7 @@ UploadPcaCertToCasResponse Client::uploadPcaCertToCasWithOptions(const UploadPca
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UploadPcaCertToCas"},
     {"version" , "2020-06-30"},
@@ -1600,7 +1600,7 @@ UploadPcaCertToCasResponse Client::uploadPcaCertToCasWithOptions(const UploadPca
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UploadPcaCertToCasResponse>();
 }
 

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETCAINSTANCESTATUSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetCAInstanceStatusResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

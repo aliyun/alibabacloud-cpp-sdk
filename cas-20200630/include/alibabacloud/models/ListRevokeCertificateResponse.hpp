@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTREVOKECERTIFICATERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ListRevokeCertificateResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
