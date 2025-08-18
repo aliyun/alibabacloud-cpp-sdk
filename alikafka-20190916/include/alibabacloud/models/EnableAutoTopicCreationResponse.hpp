@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_ENABLEAUTOTOPICCREATIONRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/EnableAutoTopicCreationResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -73,6 +73,9 @@
 #include <alibabacloud/models/EnableAutoTopicCreationRequest.hpp>
 #include <alibabacloud/models/EnableAutoTopicCreationResponseBody.hpp>
 #include <alibabacloud/models/EnableAutoTopicCreationResponse.hpp>
+#include <alibabacloud/models/FailoverTestRequest.hpp>
+#include <alibabacloud/models/FailoverTestResponseBody.hpp>
+#include <alibabacloud/models/FailoverTestResponse.hpp>
 #include <alibabacloud/models/GetAllInstanceIdListRequest.hpp>
 #include <alibabacloud/models/GetAllInstanceIdListResponseBody.hpp>
 #include <alibabacloud/models/GetAllInstanceIdListResponse.hpp>

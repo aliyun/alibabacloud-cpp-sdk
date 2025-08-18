@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_UPDATETOPICCONFIGRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/UpdateTopicConfigResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

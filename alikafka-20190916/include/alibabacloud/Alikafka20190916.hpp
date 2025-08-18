@@ -419,6 +419,23 @@ namespace Alikafka20190916
       Models::EnableAutoTopicCreationResponse enableAutoTopicCreation(const Models::EnableAutoTopicCreationRequest &request);
 
       /**
+       * @summary 故障演练
+       *
+       * @param request FailoverTestRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return FailoverTestResponse
+       */
+      Models::FailoverTestResponse failoverTestWithOptions(const Models::FailoverTestRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 故障演练
+       *
+       * @param request FailoverTestRequest
+       * @return FailoverTestResponse
+       */
+      Models::FailoverTestResponse failoverTest(const Models::FailoverTestRequest &request);
+
+      /**
        * @summary Queries the IDs of all instances in the current account.
        *
        * @param request GetAllInstanceIdListRequest
