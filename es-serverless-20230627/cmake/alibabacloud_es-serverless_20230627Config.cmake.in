@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_es-serverless_20230627Targets.cmake")
+check_required_components("alibabacloud_es-serverless_20230627")
