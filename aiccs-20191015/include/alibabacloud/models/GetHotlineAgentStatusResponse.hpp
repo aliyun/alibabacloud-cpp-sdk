@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETHOTLINEAGENTSTATUSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetHotlineAgentStatusResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -814,6 +814,23 @@ namespace Aiccs20191015
       Models::GetAllDepartmentResponse getAllDepartment(const Models::GetAllDepartmentRequest &request);
 
       /**
+       * @summary 查询对话内容
+       *
+       * @param request GetCallDialogContentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCallDialogContentResponse
+       */
+      Models::GetCallDialogContentResponse getCallDialogContentWithOptions(const Models::GetCallDialogContentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询对话内容
+       *
+       * @param request GetCallDialogContentRequest
+       * @return GetCallDialogContentResponse
+       */
+      Models::GetCallDialogContentResponse getCallDialogContent(const Models::GetCallDialogContentRequest &request);
+
+      /**
        * @summary 获取通话录音文件
        *
        * @param request GetCallSoundRecordRequest

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETQUALITYPROJECTLISTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetQualityProjectListResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

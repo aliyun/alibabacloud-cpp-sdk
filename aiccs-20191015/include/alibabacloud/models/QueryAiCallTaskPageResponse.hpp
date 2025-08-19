@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_QUERYAICALLTASKPAGERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/QueryAiCallTaskPageResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

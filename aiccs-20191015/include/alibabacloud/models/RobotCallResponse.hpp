@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_ROBOTCALLRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/RobotCallResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

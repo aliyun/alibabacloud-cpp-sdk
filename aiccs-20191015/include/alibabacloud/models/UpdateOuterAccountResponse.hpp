@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_UPDATEOUTERACCOUNTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/UpdateOuterAccountResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

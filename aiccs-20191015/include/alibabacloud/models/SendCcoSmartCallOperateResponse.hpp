@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_SENDCCOSMARTCALLOPERATERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/SendCcoSmartCallOperateResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

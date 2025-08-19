@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_EDITQUALITYRULETAGRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/EditQualityRuleTagResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

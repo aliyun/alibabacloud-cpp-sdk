@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_REMOVESKILLGROUPRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/RemoveSkillGroupResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

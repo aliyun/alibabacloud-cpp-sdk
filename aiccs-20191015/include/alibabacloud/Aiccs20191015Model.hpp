@@ -169,6 +169,9 @@
 #include <alibabacloud/models/GetAllDepartmentRequest.hpp>
 #include <alibabacloud/models/GetAllDepartmentResponseBody.hpp>
 #include <alibabacloud/models/GetAllDepartmentResponse.hpp>
+#include <alibabacloud/models/GetCallDialogContentRequest.hpp>
+#include <alibabacloud/models/GetCallDialogContentResponseBody.hpp>
+#include <alibabacloud/models/GetCallDialogContentResponse.hpp>
 #include <alibabacloud/models/GetCallSoundRecordRequest.hpp>
 #include <alibabacloud/models/GetCallSoundRecordResponseBody.hpp>
 #include <alibabacloud/models/GetCallSoundRecordResponse.hpp>
@@ -542,6 +545,7 @@
 #include <alibabacloud/models/GetAiOutboundTaskProgressResponseBodyDataTaskProgress.hpp>
 #include <alibabacloud/models/GetAiOutboundTaskProgressResponseBodyData.hpp>
 #include <alibabacloud/models/GetAllDepartmentResponseBodyData.hpp>
+#include <alibabacloud/models/GetCallDialogContentResponseBodyData.hpp>
 #include <alibabacloud/models/GetCustomerInfoResponseBodyData.hpp>
 #include <alibabacloud/models/GetDepGroupTreeDataResponseBodyDataGroupDtos.hpp>
 #include <alibabacloud/models/GetDepGroupTreeDataResponseBodyData.hpp>

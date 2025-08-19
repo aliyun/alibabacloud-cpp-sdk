@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_RESTARTOUTBOUNDTASKRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/RestartOutboundTaskResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

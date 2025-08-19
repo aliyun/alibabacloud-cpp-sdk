@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_TERMINATEAIOUTBOUNDTASKRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/TerminateAiOutboundTaskResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_ADDHOTLINENUMBERRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/AddHotlineNumberResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
