@@ -13,6 +13,7 @@ namespace Models
   class SubmitDocParserJobAdvanceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SubmitDocParserJobAdvanceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(EnhancementMode, enhancementMode_);
       DARABONBA_PTR_TO_JSON(FileName, fileName_);
       DARABONBA_PTR_TO_JSON(FileNameExtension, fileNameExtension_);
       DARABONBA_TO_JSON(FileUrl, fileUrlObject_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageIndex, pageIndex_);
     };
     friend void from_json(const Darabonba::Json& j, SubmitDocParserJobAdvanceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(EnhancementMode, enhancementMode_);
       DARABONBA_PTR_FROM_JSON(FileName, fileName_);
       DARABONBA_PTR_FROM_JSON(FileNameExtension, fileNameExtension_);
       DARABONBA_FROM_JSON(FileUrl, fileUrlObject_);
@@ -47,9 +49,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fileName_ != nullptr
-        && this->fileNameExtension_ != nullptr && this->fileUrlObject_ != nullptr && this->formulaEnhancement_ != nullptr && this->llmEnhancement_ != nullptr && this->option_ != nullptr
-        && this->ossBucket_ != nullptr && this->ossEndpoint_ != nullptr && this->outputHtmlTable_ != nullptr && this->pageIndex_ != nullptr; };
+    virtual bool empty() const override { this->enhancementMode_ != nullptr
+        && this->fileName_ != nullptr && this->fileNameExtension_ != nullptr && this->fileUrlObject_ != nullptr && this->formulaEnhancement_ != nullptr && this->llmEnhancement_ != nullptr
+        && this->option_ != nullptr && this->ossBucket_ != nullptr && this->ossEndpoint_ != nullptr && this->outputHtmlTable_ != nullptr && this->pageIndex_ != nullptr; };
+    // enhancementMode Field Functions 
+    bool hasEnhancementMode() const { return this->enhancementMode_ != nullptr;};
+    void deleteEnhancementMode() { this->enhancementMode_ = nullptr;};
+    inline string enhancementMode() const { DARABONBA_PTR_GET_DEFAULT(enhancementMode_, "") };
+    inline SubmitDocParserJobAdvanceRequest& setEnhancementMode(string enhancementMode) { DARABONBA_PTR_SET_VALUE(enhancementMode_, enhancementMode) };
+
+
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
@@ -121,6 +130,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> enhancementMode_ = nullptr;
     std::shared_ptr<string> fileName_ = nullptr;
     std::shared_ptr<string> fileNameExtension_ = nullptr;
     shared_ptr<Darabonba::IStream> fileUrlObject_ = nullptr;

@@ -1583,6 +1583,10 @@ SubmitDigitalDocStructureJobResponse Client::submitDigitalDocStructureJobAdvance
 SubmitDocParserJobResponse Client::submitDocParserJobWithOptions(const SubmitDocParserJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasEnhancementMode()) {
+    query["EnhancementMode"] = request.enhancementMode();
+  }
+
   if (!!request.hasFileName()) {
     query["FileName"] = request.fileName();
   }
