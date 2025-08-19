@@ -17,7 +17,6 @@ namespace ICE20201109
 {
 
 AlibabaCloud::ICE20201109::Client::Client(Config &config): OpenApiClient(config){
-  this->_signatureAlgorithm = "v2";
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"ap-northeast-1" , "ice.aliyuncs.com"},
@@ -8197,7 +8196,7 @@ GetPublicMediaInfoResponse Client::getPublicMediaInfoWithOptions(const GetPublic
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<GetPublicMediaInfoResponse>();
+  return json(doRPCRequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.bodyType(), req, runtime)).get<GetPublicMediaInfoResponse>();
 }
 
 /**
@@ -9475,7 +9474,7 @@ ListAllPublicMediaTagsResponse Client::listAllPublicMediaTagsWithOptions(const L
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<ListAllPublicMediaTagsResponse>();
+  return json(doRPCRequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.bodyType(), req, runtime)).get<ListAllPublicMediaTagsResponse>();
 }
 
 /**
@@ -11631,7 +11630,7 @@ ListPublicMediaBasicInfosResponse Client::listPublicMediaBasicInfosWithOptions(c
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<ListPublicMediaBasicInfosResponse>();
+  return json(doRPCRequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.bodyType(), req, runtime)).get<ListPublicMediaBasicInfosResponse>();
 }
 
 /**
@@ -13747,6 +13746,10 @@ RegisterMediaStreamResponse Client::registerMediaStreamWithOptions(const Registe
 
   if (!!request.hasMediaId()) {
     query["MediaId"] = request.mediaId();
+  }
+
+  if (!!request.hasStreamTags()) {
+    query["StreamTags"] = request.streamTags();
   }
 
   if (!!request.hasUserData()) {

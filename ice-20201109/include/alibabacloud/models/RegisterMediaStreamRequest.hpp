@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const RegisterMediaStreamRequest& obj) { 
       DARABONBA_PTR_TO_JSON(InputURL, inputURL_);
       DARABONBA_PTR_TO_JSON(MediaId, mediaId_);
+      DARABONBA_PTR_TO_JSON(StreamTags, streamTags_);
       DARABONBA_PTR_TO_JSON(UserData, userData_);
     };
     friend void from_json(const Darabonba::Json& j, RegisterMediaStreamRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InputURL, inputURL_);
       DARABONBA_PTR_FROM_JSON(MediaId, mediaId_);
+      DARABONBA_PTR_FROM_JSON(StreamTags, streamTags_);
       DARABONBA_PTR_FROM_JSON(UserData, userData_);
     };
     RegisterMediaStreamRequest() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->inputURL_ != nullptr
-        && this->mediaId_ != nullptr && this->userData_ != nullptr; };
+        && this->mediaId_ != nullptr && this->streamTags_ != nullptr && this->userData_ != nullptr; };
     // inputURL Field Functions 
     bool hasInputURL() const { return this->inputURL_ != nullptr;};
     void deleteInputURL() { this->inputURL_ = nullptr;};
@@ -47,6 +49,13 @@ namespace Models
     void deleteMediaId() { this->mediaId_ = nullptr;};
     inline string mediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
     inline RegisterMediaStreamRequest& setMediaId(string mediaId) { DARABONBA_PTR_SET_VALUE(mediaId_, mediaId) };
+
+
+    // streamTags Field Functions 
+    bool hasStreamTags() const { return this->streamTags_ != nullptr;};
+    void deleteStreamTags() { this->streamTags_ = nullptr;};
+    inline string streamTags() const { DARABONBA_PTR_GET_DEFAULT(streamTags_, "") };
+    inline RegisterMediaStreamRequest& setStreamTags(string streamTags) { DARABONBA_PTR_SET_VALUE(streamTags_, streamTags) };
 
 
     // userData Field Functions 
@@ -67,6 +76,7 @@ namespace Models
     std::shared_ptr<string> inputURL_ = nullptr;
     // The ID of the media asset.
     std::shared_ptr<string> mediaId_ = nullptr;
+    std::shared_ptr<string> streamTags_ = nullptr;
     // The user data.
     std::shared_ptr<string> userData_ = nullptr;
   };
