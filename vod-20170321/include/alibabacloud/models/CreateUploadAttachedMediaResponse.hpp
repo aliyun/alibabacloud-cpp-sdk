@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATEUPLOADATTACHEDMEDIARESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateUploadAttachedMediaResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEVODDOMAINREQHITRATEDATARESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeVodDomainReqHitRateDataResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

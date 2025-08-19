@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_SUBMITWORKFLOWJOBRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/SubmitWorkflowJobResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

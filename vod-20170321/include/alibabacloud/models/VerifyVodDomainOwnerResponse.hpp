@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_VERIFYVODDOMAINOWNERRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/VerifyVodDomainOwnerResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

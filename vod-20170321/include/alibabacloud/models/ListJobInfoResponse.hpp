@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTJOBINFORESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ListJobInfoResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

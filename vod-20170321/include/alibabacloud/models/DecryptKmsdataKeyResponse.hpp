@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DECRYPTKMSDATAKEYRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DecryptKMSDataKeyResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -67,23 +67,6 @@ namespace Vod20170321
       Models::AddCategoryResponse addCategory(const Models::AddCategoryRequest &request);
 
       /**
-       * @summary 创建模版
-       *
-       * @param request AddCustomTemplateAndGroupConsoleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return AddCustomTemplateAndGroupConsoleResponse
-       */
-      Models::AddCustomTemplateAndGroupConsoleResponse addCustomTemplateAndGroupConsoleWithOptions(const Models::AddCustomTemplateAndGroupConsoleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 创建模版
-       *
-       * @param request AddCustomTemplateAndGroupConsoleRequest
-       * @return AddCustomTemplateAndGroupConsoleResponse
-       */
-      Models::AddCustomTemplateAndGroupConsoleResponse addCustomTemplateAndGroupConsole(const Models::AddCustomTemplateAndGroupConsoleRequest &request);
-
-      /**
        * @summary Creates an online editing project.
        *
        * @description *   For more information about the online editing feature, see [Overview](https://help.aliyun.com/document_detail/95482.html).
@@ -120,91 +103,6 @@ namespace Vod20170321
        * @return AddEditingProjectMaterialsResponse
        */
       Models::AddEditingProjectMaterialsResponse addEditingProjectMaterials(const Models::AddEditingProjectMaterialsRequest &request);
-
-      /**
-       * @summary 添加过滤条件
-       *
-       * @param request AddFilterConfigsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return AddFilterConfigsResponse
-       */
-      Models::AddFilterConfigsResponse addFilterConfigsWithOptions(const Models::AddFilterConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 添加过滤条件
-       *
-       * @param request AddFilterConfigsRequest
-       * @return AddFilterConfigsResponse
-       */
-      Models::AddFilterConfigsResponse addFilterConfigs(const Models::AddFilterConfigsRequest &request);
-
-      /**
-       * @summary 新增免费license
-       *
-       * @param request AddFreeLicenseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return AddFreeLicenseResponse
-       */
-      Models::AddFreeLicenseResponse addFreeLicenseWithOptions(const Models::AddFreeLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 新增免费license
-       *
-       * @param request AddFreeLicenseRequest
-       * @return AddFreeLicenseResponse
-       */
-      Models::AddFreeLicenseResponse addFreeLicense(const Models::AddFreeLicenseRequest &request);
-
-      /**
-       * @summary 新增license
-       *
-       * @param request AddLicenseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return AddLicenseResponse
-       */
-      Models::AddLicenseResponse addLicenseWithOptions(const Models::AddLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 新增license
-       *
-       * @param request AddLicenseRequest
-       * @return AddLicenseResponse
-       */
-      Models::AddLicenseResponse addLicense(const Models::AddLicenseRequest &request);
-
-      /**
-       * @summary 添加媒资序列
-       *
-       * @param request AddMediaSequencesRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return AddMediaSequencesResponse
-       */
-      Models::AddMediaSequencesResponse addMediaSequencesWithOptions(const Models::AddMediaSequencesRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 添加媒资序列
-       *
-       * @param request AddMediaSequencesRequest
-       * @return AddMediaSequencesResponse
-       */
-      Models::AddMediaSequencesResponse addMediaSequences(const Models::AddMediaSequencesRequest &request);
-
-      /**
-       * @summary 新增存储
-       *
-       * @param request AddStorageRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return AddStorageResponse
-       */
-      Models::AddStorageResponse addStorageWithOptions(const Models::AddStorageRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 新增存储
-       *
-       * @param request AddStorageRequest
-       * @return AddStorageResponse
-       */
-      Models::AddStorageResponse addStorage(const Models::AddStorageRequest &request);
 
       /**
        * @summary Creates a transcoding template group or adds transcoding templates to a transcoding template group.
@@ -340,109 +238,6 @@ namespace Vod20170321
       Models::AddWatermarkResponse addWatermark(const Models::AddWatermarkRequest &request);
 
       /**
-       * @summary 添加水印
-       *
-       * @param request AddWatermarkConsoleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return AddWatermarkConsoleResponse
-       */
-      Models::AddWatermarkConsoleResponse addWatermarkConsoleWithOptions(const Models::AddWatermarkConsoleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 添加水印
-       *
-       * @param request AddWatermarkConsoleRequest
-       * @return AddWatermarkConsoleResponse
-       */
-      Models::AddWatermarkConsoleResponse addWatermarkConsole(const Models::AddWatermarkConsoleRequest &request);
-
-      /**
-       * @summary 添加工作流
-       *
-       * @param request AddWorkflowRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return AddWorkflowResponse
-       */
-      Models::AddWorkflowResponse addWorkflowWithOptions(const Models::AddWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 添加工作流
-       *
-       * @param request AddWorkflowRequest
-       * @return AddWorkflowResponse
-       */
-      Models::AddWorkflowResponse addWorkflow(const Models::AddWorkflowRequest &request);
-
-      /**
-       * @summary 为用户绑定点播生产账号ID
-       *
-       * @param request AssignProductAccountIdRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return AssignProductAccountIdResponse
-       */
-      Models::AssignProductAccountIdResponse assignProductAccountIdWithOptions(const Models::AssignProductAccountIdRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 为用户绑定点播生产账号ID
-       *
-       * @param request AssignProductAccountIdRequest
-       * @return AssignProductAccountIdResponse
-       */
-      Models::AssignProductAccountIdResponse assignProductAccountId(const Models::AssignProductAccountIdRequest &request);
-
-      /**
-       * @param request AssumeExperienceRoleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return AssumeExperienceRoleResponse
-       */
-      Models::AssumeExperienceRoleResponse assumeExperienceRoleWithOptions(const Models::AssumeExperienceRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @param request AssumeExperienceRoleRequest
-       * @return AssumeExperienceRoleResponse
-       */
-      Models::AssumeExperienceRoleResponse assumeExperienceRole(const Models::AssumeExperienceRoleRequest &request);
-
-      /**
-       * @param request AssumeOssRoleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return AssumeOssRoleResponse
-       */
-      Models::AssumeOssRoleResponse assumeOssRoleWithOptions(const Models::AssumeOssRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @param request AssumeOssRoleRequest
-       * @return AssumeOssRoleResponse
-       */
-      Models::AssumeOssRoleResponse assumeOssRole(const Models::AssumeOssRoleRequest &request);
-
-      /**
-       * @param request AssumeSlsRoleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return AssumeSlsRoleResponse
-       */
-      Models::AssumeSlsRoleResponse assumeSlsRoleWithOptions(const Models::AssumeSlsRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @param request AssumeSlsRoleRequest
-       * @return AssumeSlsRoleResponse
-       */
-      Models::AssumeSlsRoleResponse assumeSlsRole(const Models::AssumeSlsRoleRequest &request);
-
-      /**
-       * @param request AssumeSlsRoleV2Request
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return AssumeSlsRoleV2Response
-       */
-      Models::AssumeSlsRoleV2Response assumeSlsRoleV2WithOptions(const Models::AssumeSlsRoleV2Request &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @param request AssumeSlsRoleV2Request
-       * @return AssumeSlsRoleV2Response
-       */
-      Models::AssumeSlsRoleV2Response assumeSlsRoleV2(const Models::AssumeSlsRoleV2Request &request);
-
-      /**
        * @summary Grants a RAM user or RAM role permissions to access ApsaraVideo VOD applications.
        *
        * @description > You can grant a RAM user or RAM role permissions to access up to 10 applications.
@@ -554,57 +349,6 @@ namespace Vod20170321
       Models::BatchStopVodDomainResponse batchStopVodDomain(const Models::BatchStopVodDomainRequest &request);
 
       /**
-       * @summary 屏蔽缓存
-       *
-       * @param request BlockVodObjectCachesRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return BlockVodObjectCachesResponse
-       */
-      Models::BlockVodObjectCachesResponse blockVodObjectCachesWithOptions(const Models::BlockVodObjectCachesRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 屏蔽缓存
-       *
-       * @param request BlockVodObjectCachesRequest
-       * @return BlockVodObjectCachesResponse
-       */
-      Models::BlockVodObjectCachesResponse blockVodObjectCaches(const Models::BlockVodObjectCachesRequest &request);
-
-      /**
-       * @summary 取消系统存储冗余类型转换任务
-       *
-       * @param request CancelBucketRedundancyTransitionRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CancelBucketRedundancyTransitionResponse
-       */
-      Models::CancelBucketRedundancyTransitionResponse cancelBucketRedundancyTransitionWithOptions(const Models::CancelBucketRedundancyTransitionRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 取消系统存储冗余类型转换任务
-       *
-       * @param request CancelBucketRedundancyTransitionRequest
-       * @return CancelBucketRedundancyTransitionResponse
-       */
-      Models::CancelBucketRedundancyTransitionResponse cancelBucketRedundancyTransition(const Models::CancelBucketRedundancyTransitionRequest &request);
-
-      /**
-       * @summary 取消媒资导出任务
-       *
-       * @param request CancelMediaExportJobsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CancelMediaExportJobsResponse
-       */
-      Models::CancelMediaExportJobsResponse cancelMediaExportJobsWithOptions(const Models::CancelMediaExportJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 取消媒资导出任务
-       *
-       * @param request CancelMediaExportJobsRequest
-       * @return CancelMediaExportJobsResponse
-       */
-      Models::CancelMediaExportJobsResponse cancelMediaExportJobs(const Models::CancelMediaExportJobsRequest &request);
-
-      /**
        * @summary Cancels URL-based upload jobs in the queue.
        *
        * @description *   You can cancel only URL-based upload jobs in the **Pending** state. You can query the status of a URL-based upload job by calling the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation.
@@ -647,53 +391,6 @@ namespace Vod20170321
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
-       * @param request CheckLicenseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CheckLicenseResponse
-       */
-      Models::CheckLicenseResponse checkLicenseWithOptions(const Models::CheckLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @param request CheckLicenseRequest
-       * @return CheckLicenseResponse
-       */
-      Models::CheckLicenseResponse checkLicense(const Models::CheckLicenseRequest &request);
-
-      /**
-       * @summary 检查用户是否授权 AliyunVODDefaultRole 系统角色
-       *
-       * @param request CheckVodDefaultRoleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CheckVodDefaultRoleResponse
-       */
-      Models::CheckVodDefaultRoleResponse checkVodDefaultRoleWithOptions(const Models::CheckVodDefaultRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 检查用户是否授权 AliyunVODDefaultRole 系统角色
-       *
-       * @param request CheckVodDefaultRoleRequest
-       * @return CheckVodDefaultRoleResponse
-       */
-      Models::CheckVodDefaultRoleResponse checkVodDefaultRole(const Models::CheckVodDefaultRoleRequest &request);
-
-      /**
-       * @summary app开通
-       *
-       * @param request ControlVodAppServiceRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ControlVodAppServiceResponse
-       */
-      Models::ControlVodAppServiceResponse controlVodAppServiceWithOptions(const Models::ControlVodAppServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary app开通
-       *
-       * @param request ControlVodAppServiceRequest
-       * @return ControlVodAppServiceResponse
-       */
-      Models::ControlVodAppServiceResponse controlVodAppService(const Models::ControlVodAppServiceRequest &request);
-
-      /**
        * @summary Creates an application.
        *
        * @description You can create up to 10 applications within an Alibaba Cloud account. For more information, see [Multi-application service](https://help.aliyun.com/document_detail/113600.html).
@@ -719,23 +416,6 @@ namespace Vod20170321
       Models::CreateAppInfoResponse createAppInfo(const Models::CreateAppInfoRequest &request);
 
       /**
-       * @summary 创建app策略
-       *
-       * @param request CreateAppPolicyRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CreateAppPolicyResponse
-       */
-      Models::CreateAppPolicyResponse createAppPolicyWithOptions(const Models::CreateAppPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 创建app策略
-       *
-       * @param request CreateAppPolicyRequest
-       * @return CreateAppPolicyResponse
-       */
-      Models::CreateAppPolicyResponse createAppPolicy(const Models::CreateAppPolicyRequest &request);
-
-      /**
        * @summary Performs manual review on media files, such as audio and video files.
        *
        * @param request CreateAuditRequest
@@ -751,159 +431,6 @@ namespace Vod20170321
        * @return CreateAuditResponse
        */
       Models::CreateAuditResponse createAudit(const Models::CreateAuditRequest &request);
-
-      /**
-       * @summary 创建DNA
-       *
-       * @param request CreateDNADBRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CreateDNADBResponse
-       */
-      Models::CreateDNADBResponse createDNADBWithOptions(const Models::CreateDNADBRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 创建DNA
-       *
-       * @param request CreateDNADBRequest
-       * @return CreateDNADBResponse
-       */
-      Models::CreateDNADBResponse createDNADB(const Models::CreateDNADBRequest &request);
-
-      /**
-       * @summary 创建智能策略
-       *
-       * @param request CreateIntelligentStrategyRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CreateIntelligentStrategyResponse
-       */
-      Models::CreateIntelligentStrategyResponse createIntelligentStrategyWithOptions(const Models::CreateIntelligentStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 创建智能策略
-       *
-       * @param request CreateIntelligentStrategyRequest
-       * @return CreateIntelligentStrategyResponse
-       */
-      Models::CreateIntelligentStrategyResponse createIntelligentStrategy(const Models::CreateIntelligentStrategyRequest &request);
-
-      /**
-       * @summary 创建kmsKey
-       *
-       * @param request CreateKMSServiceKeyRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CreateKMSServiceKeyResponse
-       */
-      Models::CreateKMSServiceKeyResponse createKMSServiceKeyWithOptions(const Models::CreateKMSServiceKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 创建kmsKey
-       *
-       * @param request CreateKMSServiceKeyRequest
-       * @return CreateKMSServiceKeyResponse
-       */
-      Models::CreateKMSServiceKeyResponse createKMSServiceKey(const Models::CreateKMSServiceKeyRequest &request);
-
-      /**
-       * @summary 创建license
-       *
-       * @param request CreateLicenseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CreateLicenseResponse
-       */
-      Models::CreateLicenseResponse createLicenseWithOptions(const Models::CreateLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 创建license
-       *
-       * @param request CreateLicenseRequest
-       * @return CreateLicenseResponse
-       */
-      Models::CreateLicenseResponse createLicense(const Models::CreateLicenseRequest &request);
-
-      /**
-       * @summary 创建DNA
-       *
-       * @param request CreateMediaDNALibRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CreateMediaDNALibResponse
-       */
-      Models::CreateMediaDNALibResponse createMediaDNALibWithOptions(const Models::CreateMediaDNALibRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 创建DNA
-       *
-       * @param request CreateMediaDNALibRequest
-       * @return CreateMediaDNALibResponse
-       */
-      Models::CreateMediaDNALibResponse createMediaDNALib(const Models::CreateMediaDNALibRequest &request);
-
-      /**
-       * @summary 创建生命周期
-       *
-       * @param request CreateMediaLifecycleRuleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CreateMediaLifecycleRuleResponse
-       */
-      Models::CreateMediaLifecycleRuleResponse createMediaLifecycleRuleWithOptions(const Models::CreateMediaLifecycleRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 创建生命周期
-       *
-       * @param request CreateMediaLifecycleRuleRequest
-       * @return CreateMediaLifecycleRuleResponse
-       */
-      Models::CreateMediaLifecycleRuleResponse createMediaLifecycleRule(const Models::CreateMediaLifecycleRuleRequest &request);
-
-      /**
-       * @summary 组合下单
-       *
-       * @param request CreateMultiOrderForLicenseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CreateMultiOrderForLicenseResponse
-       */
-      Models::CreateMultiOrderForLicenseResponse createMultiOrderForLicenseWithOptions(const Models::CreateMultiOrderForLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 组合下单
-       *
-       * @param request CreateMultiOrderForLicenseRequest
-       * @return CreateMultiOrderForLicenseResponse
-       */
-      Models::CreateMultiOrderForLicenseResponse createMultiOrderForLicense(const Models::CreateMultiOrderForLicenseRequest &request);
-
-      /**
-       * @summary 下单
-       *
-       * @param request CreateOrderRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CreateOrderResponse
-       */
-      Models::CreateOrderResponse createOrderWithOptions(const Models::CreateOrderRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 下单
-       *
-       * @param request CreateOrderRequest
-       * @return CreateOrderResponse
-       */
-      Models::CreateOrderResponse createOrder(const Models::CreateOrderRequest &request);
-
-      /**
-       * @summary 创建订单
-       *
-       * @param request CreateOrderForLicenseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CreateOrderForLicenseResponse
-       */
-      Models::CreateOrderForLicenseResponse createOrderForLicenseWithOptions(const Models::CreateOrderForLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 创建订单
-       *
-       * @param request CreateOrderForLicenseRequest
-       * @return CreateOrderForLicenseResponse
-       */
-      Models::CreateOrderForLicenseResponse createOrderForLicense(const Models::CreateOrderForLicenseRequest &request);
 
       /**
        * @summary Obtains an upload URL and an upload credential for an auxiliary media asset such as a watermark image, subtitle file, or material and generates the media ID. ApsaraVideo VOD issues upload URLs and credentials to perform authorization and ensure security. This prevents unauthorized users from uploading media files. ApsaraVideo VOD generates media IDs together with upload URLs and credentials. Media IDs are used in lifecycle management and media processing.
@@ -997,40 +524,6 @@ namespace Vod20170321
       Models::CreateUploadVideoResponse createUploadVideo(const Models::CreateUploadVideoRequest &request);
 
       /**
-       * @summary 创建日志
-       *
-       * @param request CreateVodRealTimeLogDeliveryRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CreateVodRealTimeLogDeliveryResponse
-       */
-      Models::CreateVodRealTimeLogDeliveryResponse createVodRealTimeLogDeliveryWithOptions(const Models::CreateVodRealTimeLogDeliveryRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 创建日志
-       *
-       * @param request CreateVodRealTimeLogDeliveryRequest
-       * @return CreateVodRealTimeLogDeliveryResponse
-       */
-      Models::CreateVodRealTimeLogDeliveryResponse createVodRealTimeLogDelivery(const Models::CreateVodRealTimeLogDeliveryRequest &request);
-
-      /**
-       * @summary 创建用量导出任务
-       *
-       * @param request CreateVodUserUsageDetailDataExportTaskRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CreateVodUserUsageDetailDataExportTaskResponse
-       */
-      Models::CreateVodUserUsageDetailDataExportTaskResponse createVodUserUsageDetailDataExportTaskWithOptions(const Models::CreateVodUserUsageDetailDataExportTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 创建用量导出任务
-       *
-       * @param request CreateVodUserUsageDetailDataExportTaskRequest
-       * @return CreateVodUserUsageDetailDataExportTaskResponse
-       */
-      Models::CreateVodUserUsageDetailDataExportTaskResponse createVodUserUsageDetailDataExportTask(const Models::CreateVodUserUsageDetailDataExportTaskRequest &request);
-
-      /**
        * @summary Decrypts the ciphertext specified by CiphertextBlob in the Key Management Service (KMS) data key.
        *
        * @param request DecryptKMSDataKeyRequest
@@ -1046,40 +539,6 @@ namespace Vod20170321
        * @return DecryptKMSDataKeyResponse
        */
       Models::DecryptKMSDataKeyResponse decryptKMSDataKey(const Models::DecryptKMSDataKeyRequest &request);
-
-      /**
-       * @summary 删除app
-       *
-       * @param request DelAppRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DelAppResponse
-       */
-      Models::DelAppResponse delAppWithOptions(const Models::DelAppRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 删除app
-       *
-       * @param request DelAppRequest
-       * @return DelAppResponse
-       */
-      Models::DelAppResponse delApp(const Models::DelAppRequest &request);
-
-      /**
-       * @summary 删除免费license
-       *
-       * @param request DelFreeLicenseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DelFreeLicenseResponse
-       */
-      Models::DelFreeLicenseResponse delFreeLicenseWithOptions(const Models::DelFreeLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 删除免费license
-       *
-       * @param request DelFreeLicenseRequest
-       * @return DelFreeLicenseResponse
-       */
-      Models::DelFreeLicenseResponse delFreeLicense(const Models::DelFreeLicenseRequest &request);
 
       /**
        * @summary Deletes the information about one or more images that are submitted for AI processing.
@@ -1149,40 +608,6 @@ namespace Vod20170321
       Models::DeleteAppInfoResponse deleteAppInfo(const Models::DeleteAppInfoRequest &request);
 
       /**
-       * @summary 删除应用授权
-       *
-       * @param request DeleteAppLicenseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteAppLicenseResponse
-       */
-      Models::DeleteAppLicenseResponse deleteAppLicenseWithOptions(const Models::DeleteAppLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 删除应用授权
-       *
-       * @param request DeleteAppLicenseRequest
-       * @return DeleteAppLicenseResponse
-       */
-      Models::DeleteAppLicenseResponse deleteAppLicense(const Models::DeleteAppLicenseRequest &request);
-
-      /**
-       * @summary 删除App策略
-       *
-       * @param request DeleteAppPolicyRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteAppPolicyResponse
-       */
-      Models::DeleteAppPolicyResponse deleteAppPolicyWithOptions(const Models::DeleteAppPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 删除App策略
-       *
-       * @param request DeleteAppPolicyRequest
-       * @return DeleteAppPolicyResponse
-       */
-      Models::DeleteAppPolicyResponse deleteAppPolicy(const Models::DeleteAppPolicyRequest &request);
-
-      /**
        * @summary Deletes auxiliary media assets from ApsaraVideo VOD. You can delete multiple auxiliary media assets such as watermark images, subtitle files, and materials in a batch.
        *
        * @description *   **This operation physically deletes auxiliary media assets. You cannot recover the auxiliary media assets that you deleted. Exercise caution when you call this operation.**
@@ -1227,57 +652,6 @@ namespace Vod20170321
        * @return DeleteCategoryResponse
        */
       Models::DeleteCategoryResponse deleteCategory(const Models::DeleteCategoryRequest &request);
-
-      /**
-       * @summary 删除模版
-       *
-       * @param request DeleteCustomTemplateConsoleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteCustomTemplateConsoleResponse
-       */
-      Models::DeleteCustomTemplateConsoleResponse deleteCustomTemplateConsoleWithOptions(const Models::DeleteCustomTemplateConsoleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 删除模版
-       *
-       * @param request DeleteCustomTemplateConsoleRequest
-       * @return DeleteCustomTemplateConsoleResponse
-       */
-      Models::DeleteCustomTemplateConsoleResponse deleteCustomTemplateConsole(const Models::DeleteCustomTemplateConsoleRequest &request);
-
-      /**
-       * @summary 删除DNA
-       *
-       * @param request DeleteDNADBRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteDNADBResponse
-       */
-      Models::DeleteDNADBResponse deleteDNADBWithOptions(const Models::DeleteDNADBRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 删除DNA
-       *
-       * @param request DeleteDNADBRequest
-       * @return DeleteDNADBResponse
-       */
-      Models::DeleteDNADBResponse deleteDNADB(const Models::DeleteDNADBRequest &request);
-
-      /**
-       * @summary 删除drm证书
-       *
-       * @param request DeleteDRMCertInfoRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteDRMCertInfoResponse
-       */
-      Models::DeleteDRMCertInfoResponse deleteDRMCertInfoWithOptions(const Models::DeleteDRMCertInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 删除drm证书
-       *
-       * @param request DeleteDRMCertInfoRequest
-       * @return DeleteDRMCertInfoResponse
-       */
-      Models::DeleteDRMCertInfoResponse deleteDRMCertInfo(const Models::DeleteDRMCertInfoRequest &request);
 
       /**
        * @summary Deletes the information about animated stickers.
@@ -1339,40 +713,6 @@ namespace Vod20170321
       Models::DeleteEditingProjectMaterialsResponse deleteEditingProjectMaterials(const Models::DeleteEditingProjectMaterialsRequest &request);
 
       /**
-       * @summary 删除过滤条件
-       *
-       * @param request DeleteFilterConfigsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteFilterConfigsResponse
-       */
-      Models::DeleteFilterConfigsResponse deleteFilterConfigsWithOptions(const Models::DeleteFilterConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 删除过滤条件
-       *
-       * @param request DeleteFilterConfigsRequest
-       * @return DeleteFilterConfigsResponse
-       */
-      Models::DeleteFilterConfigsResponse deleteFilterConfigs(const Models::DeleteFilterConfigsRequest &request);
-
-      /**
-       * @summary 删除免费license
-       *
-       * @param request DeleteFreeLicenseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteFreeLicenseResponse
-       */
-      Models::DeleteFreeLicenseResponse deleteFreeLicenseWithOptions(const Models::DeleteFreeLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 删除免费license
-       *
-       * @param request DeleteFreeLicenseRequest
-       * @return DeleteFreeLicenseResponse
-       */
-      Models::DeleteFreeLicenseResponse deleteFreeLicense(const Models::DeleteFreeLicenseRequest &request);
-
-      /**
        * @summary Deletes uploaded images and video snapshots that are automatically captured.
        *
        * @description *   **After you call this operation to delete an image, the source file is permanently deleted and cannot be recovered. Exercise caution when you call this operation.**
@@ -1398,57 +738,6 @@ namespace Vod20170321
       Models::DeleteImageResponse deleteImage(const Models::DeleteImageRequest &request);
 
       /**
-       * @summary 删除智能策略信息
-       *
-       * @param request DeleteIntelligentStrategyRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteIntelligentStrategyResponse
-       */
-      Models::DeleteIntelligentStrategyResponse deleteIntelligentStrategyWithOptions(const Models::DeleteIntelligentStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 删除智能策略信息
-       *
-       * @param request DeleteIntelligentStrategyRequest
-       * @return DeleteIntelligentStrategyResponse
-       */
-      Models::DeleteIntelligentStrategyResponse deleteIntelligentStrategy(const Models::DeleteIntelligentStrategyRequest &request);
-
-      /**
-       * @summary 删除媒资导出任务
-       *
-       * @param request DeleteMediaExportJobsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteMediaExportJobsResponse
-       */
-      Models::DeleteMediaExportJobsResponse deleteMediaExportJobsWithOptions(const Models::DeleteMediaExportJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 删除媒资导出任务
-       *
-       * @param request DeleteMediaExportJobsRequest
-       * @return DeleteMediaExportJobsResponse
-       */
-      Models::DeleteMediaExportJobsResponse deleteMediaExportJobs(const Models::DeleteMediaExportJobsRequest &request);
-
-      /**
-       * @summary 删除生命周期
-       *
-       * @param request DeleteMediaLifecycleRuleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteMediaLifecycleRuleResponse
-       */
-      Models::DeleteMediaLifecycleRuleResponse deleteMediaLifecycleRuleWithOptions(const Models::DeleteMediaLifecycleRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 删除生命周期
-       *
-       * @param request DeleteMediaLifecycleRuleRequest
-       * @return DeleteMediaLifecycleRuleResponse
-       */
-      Models::DeleteMediaLifecycleRuleResponse deleteMediaLifecycleRule(const Models::DeleteMediaLifecycleRuleRequest &request);
-
-      /**
        * @summary Deletes the callback method, callback URL, and event type of an event notification.
        *
        * @description > For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
@@ -1468,23 +757,6 @@ namespace Vod20170321
        * @return DeleteMessageCallbackResponse
        */
       Models::DeleteMessageCallbackResponse deleteMessageCallback(const Models::DeleteMessageCallbackRequest &request);
-
-      /**
-       * @summary 删除云监控配置
-       *
-       * @param request DeleteMessageCloudMonitorConfigRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteMessageCloudMonitorConfigResponse
-       */
-      Models::DeleteMessageCloudMonitorConfigResponse deleteMessageCloudMonitorConfigWithOptions(const Models::DeleteMessageCloudMonitorConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 删除云监控配置
-       *
-       * @param request DeleteMessageCloudMonitorConfigRequest
-       * @return DeleteMessageCloudMonitorConfigResponse
-       */
-      Models::DeleteMessageCloudMonitorConfigResponse deleteMessageCloudMonitorConfig(const Models::DeleteMessageCloudMonitorConfigRequest &request);
 
       /**
        * @summary Deletes one or more source files at a time.
@@ -1533,23 +805,6 @@ namespace Vod20170321
       Models::DeleteMultipartUploadResponse deleteMultipartUpload(const Models::DeleteMultipartUploadRequest &request);
 
       /**
-       * @summary 删除存储信息
-       *
-       * @param request DeleteStorageRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteStorageResponse
-       */
-      Models::DeleteStorageResponse deleteStorageWithOptions(const Models::DeleteStorageRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 删除存储信息
-       *
-       * @param request DeleteStorageRequest
-       * @return DeleteStorageResponse
-       */
-      Models::DeleteStorageResponse deleteStorage(const Models::DeleteStorageRequest &request);
-
-      /**
        * @summary Deletes one or more video or audio streams and their storage files at a time.
        *
        * @param request DeleteStreamRequest
@@ -1565,23 +820,6 @@ namespace Vod20170321
        * @return DeleteStreamResponse
        */
       Models::DeleteStreamResponse deleteStream(const Models::DeleteStreamRequest &request);
-
-      /**
-       * @summary 删除模版
-       *
-       * @param request DeleteTemplateGroupConsoleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteTemplateGroupConsoleResponse
-       */
-      Models::DeleteTemplateGroupConsoleResponse deleteTemplateGroupConsoleWithOptions(const Models::DeleteTemplateGroupConsoleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 删除模版
-       *
-       * @param request DeleteTemplateGroupConsoleRequest
-       * @return DeleteTemplateGroupConsoleResponse
-       */
-      Models::DeleteTemplateGroupConsoleResponse deleteTemplateGroupConsole(const Models::DeleteTemplateGroupConsoleRequest &request);
 
       /**
        * @summary Deletes one or more transcoding templates from a transcoding template group or forcibly deletes a transcoding template group.
@@ -1605,23 +843,6 @@ namespace Vod20170321
        * @return DeleteTranscodeTemplateGroupResponse
        */
       Models::DeleteTranscodeTemplateGroupResponse deleteTranscodeTemplateGroup(const Models::DeleteTranscodeTemplateGroupRequest &request);
-
-      /**
-       * @summary 删除模版
-       *
-       * @param request DeleteTranscodeTemplatesRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteTranscodeTemplatesResponse
-       */
-      Models::DeleteTranscodeTemplatesResponse deleteTranscodeTemplatesWithOptions(const Models::DeleteTranscodeTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 删除模版
-       *
-       * @param request DeleteTranscodeTemplatesRequest
-       * @return DeleteTranscodeTemplatesResponse
-       */
-      Models::DeleteTranscodeTemplatesResponse deleteTranscodeTemplates(const Models::DeleteTranscodeTemplatesRequest &request);
 
       /**
        * @summary Deletes one or more videos at a time, including their mezzanine files, transcoded stream files, and thumbnail snapshots.
@@ -1672,40 +893,6 @@ namespace Vod20170321
        * @return DeleteVodDomainResponse
        */
       Models::DeleteVodDomainResponse deleteVodDomain(const Models::DeleteVodDomainRequest &request);
-
-      /**
-       * @summary 删除实时日志LogStore
-       *
-       * @param request DeleteVodRealTimeLogLogstoreRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteVodRealTimeLogLogstoreResponse
-       */
-      Models::DeleteVodRealTimeLogLogstoreResponse deleteVodRealTimeLogLogstoreWithOptions(const Models::DeleteVodRealTimeLogLogstoreRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 删除实时日志LogStore
-       *
-       * @param request DeleteVodRealTimeLogLogstoreRequest
-       * @return DeleteVodRealTimeLogLogstoreResponse
-       */
-      Models::DeleteVodRealTimeLogLogstoreResponse deleteVodRealTimeLogLogstore(const Models::DeleteVodRealTimeLogLogstoreRequest &request);
-
-      /**
-       * @summary 删除实时日志
-       *
-       * @param request DeleteVodRealtimeLogDeliveryRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteVodRealtimeLogDeliveryResponse
-       */
-      Models::DeleteVodRealtimeLogDeliveryResponse deleteVodRealtimeLogDeliveryWithOptions(const Models::DeleteVodRealtimeLogDeliveryRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 删除实时日志
-       *
-       * @param request DeleteVodRealtimeLogDeliveryRequest
-       * @return DeleteVodRealtimeLogDeliveryResponse
-       */
-      Models::DeleteVodRealtimeLogDeliveryResponse deleteVodRealtimeLogDelivery(const Models::DeleteVodRealtimeLogDeliveryRequest &request);
 
       /**
        * @summary Deletes the configurations of a domain name for CDN.
@@ -1775,176 +962,6 @@ namespace Vod20170321
       Models::DeleteWatermarkResponse deleteWatermark(const Models::DeleteWatermarkRequest &request);
 
       /**
-       * @summary 删除水印
-       *
-       * @param request DeleteWatermarkConsoleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteWatermarkConsoleResponse
-       */
-      Models::DeleteWatermarkConsoleResponse deleteWatermarkConsoleWithOptions(const Models::DeleteWatermarkConsoleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 删除水印
-       *
-       * @param request DeleteWatermarkConsoleRequest
-       * @return DeleteWatermarkConsoleResponse
-       */
-      Models::DeleteWatermarkConsoleResponse deleteWatermarkConsole(const Models::DeleteWatermarkConsoleRequest &request);
-
-      /**
-       * @summary 删除工作流
-       *
-       * @param request DeleteWorkflowRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteWorkflowResponse
-       */
-      Models::DeleteWorkflowResponse deleteWorkflowWithOptions(const Models::DeleteWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 删除工作流
-       *
-       * @param request DeleteWorkflowRequest
-       * @return DeleteWorkflowResponse
-       */
-      Models::DeleteWorkflowResponse deleteWorkflow(const Models::DeleteWorkflowRequest &request);
-
-      /**
-       * @summary 查询用户付费类型
-       *
-       * @param request DescribeBizUserTypeRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeBizUserTypeResponse
-       */
-      Models::DescribeBizUserTypeResponse describeBizUserTypeWithOptions(const Models::DescribeBizUserTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 查询用户付费类型
-       *
-       * @param request DescribeBizUserTypeRequest
-       * @return DescribeBizUserTypeResponse
-       */
-      Models::DescribeBizUserTypeResponse describeBizUserType(const Models::DescribeBizUserTypeRequest &request);
-
-      /**
-       * @summary 获取日志
-       *
-       * @param request DescribeCdnDomainLogsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeCdnDomainLogsResponse
-       */
-      Models::DescribeCdnDomainLogsResponse describeCdnDomainLogsWithOptions(const Models::DescribeCdnDomainLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取日志
-       *
-       * @param request DescribeCdnDomainLogsRequest
-       * @return DescribeCdnDomainLogsResponse
-       */
-      Models::DescribeCdnDomainLogsResponse describeCdnDomainLogs(const Models::DescribeCdnDomainLogsRequest &request);
-
-      /**
-       * @summary 异步任务管理能力建设
-       *
-       * @param request DescribeDailyAsyncJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeDailyAsyncJobResponse
-       */
-      Models::DescribeDailyAsyncJobResponse describeDailyAsyncJobWithOptions(const Models::DescribeDailyAsyncJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 异步任务管理能力建设
-       *
-       * @param request DescribeDailyAsyncJobRequest
-       * @return DescribeDailyAsyncJobResponse
-       */
-      Models::DescribeDailyAsyncJobResponse describeDailyAsyncJob(const Models::DescribeDailyAsyncJobRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeDomainBpsDataRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeDomainBpsDataResponse
-       */
-      Models::DescribeDomainBpsDataResponse describeDomainBpsDataWithOptions(const Models::DescribeDomainBpsDataRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeDomainBpsDataRequest
-       * @return DescribeDomainBpsDataResponse
-       */
-      Models::DescribeDomainBpsDataResponse describeDomainBpsData(const Models::DescribeDomainBpsDataRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeDomainFlowDataRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeDomainFlowDataResponse
-       */
-      Models::DescribeDomainFlowDataResponse describeDomainFlowDataWithOptions(const Models::DescribeDomainFlowDataRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeDomainFlowDataRequest
-       * @return DescribeDomainFlowDataResponse
-       */
-      Models::DescribeDomainFlowDataResponse describeDomainFlowData(const Models::DescribeDomainFlowDataRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeFileIdPlayStatisByEdgeRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeFileIdPlayStatisByEdgeResponse
-       */
-      Models::DescribeFileIdPlayStatisByEdgeResponse describeFileIdPlayStatisByEdgeWithOptions(const Models::DescribeFileIdPlayStatisByEdgeRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeFileIdPlayStatisByEdgeRequest
-       * @return DescribeFileIdPlayStatisByEdgeResponse
-       */
-      Models::DescribeFileIdPlayStatisByEdgeResponse describeFileIdPlayStatisByEdge(const Models::DescribeFileIdPlayStatisByEdgeRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeFileIdPlayStatisByOriginRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeFileIdPlayStatisByOriginResponse
-       */
-      Models::DescribeFileIdPlayStatisByOriginResponse describeFileIdPlayStatisByOriginWithOptions(const Models::DescribeFileIdPlayStatisByOriginRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeFileIdPlayStatisByOriginRequest
-       * @return DescribeFileIdPlayStatisByOriginResponse
-       */
-      Models::DescribeFileIdPlayStatisByOriginResponse describeFileIdPlayStatisByOrigin(const Models::DescribeFileIdPlayStatisByOriginRequest &request);
-
-      /**
-       * @summary 查询已保存的筛选过滤条件
-       *
-       * @param request DescribeFilterConfigsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeFilterConfigsResponse
-       */
-      Models::DescribeFilterConfigsResponse describeFilterConfigsWithOptions(const Models::DescribeFilterConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 查询已保存的筛选过滤条件
-       *
-       * @param request DescribeFilterConfigsRequest
-       * @return DescribeFilterConfigsResponse
-       */
-      Models::DescribeFilterConfigsResponse describeFilterConfigs(const Models::DescribeFilterConfigsRequest &request);
-
-      /**
        * @summary Queries the distribution of media asset data by time. The maximum time range to query is 6 months.
        *
        * @description *   This operation is available only in the China (Shanghai) region.
@@ -1966,159 +983,6 @@ namespace Vod20170321
        * @return DescribeMediaDistributionResponse
        */
       Models::DescribeMediaDistributionResponse describeMediaDistribution(const Models::DescribeMediaDistributionRequest &request);
-
-      /**
-       * @summary 订单询价
-       *
-       * @param request DescribeMultiPriceForLicenseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeMultiPriceForLicenseResponse
-       */
-      Models::DescribeMultiPriceForLicenseResponse describeMultiPriceForLicenseWithOptions(const Models::DescribeMultiPriceForLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 订单询价
-       *
-       * @param request DescribeMultiPriceForLicenseRequest
-       * @return DescribeMultiPriceForLicenseResponse
-       */
-      Models::DescribeMultiPriceForLicenseResponse describeMultiPriceForLicense(const Models::DescribeMultiPriceForLicenseRequest &request);
-
-      /**
-       * @summary 获取客户播放详情信息
-       *
-       * @param request DescribePlayDetailRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribePlayDetailResponse
-       */
-      Models::DescribePlayDetailResponse describePlayDetailWithOptions(const Models::DescribePlayDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取客户播放详情信息
-       *
-       * @param request DescribePlayDetailRequest
-       * @return DescribePlayDetailResponse
-       */
-      Models::DescribePlayDetailResponse describePlayDetail(const Models::DescribePlayDetailRequest &request);
-
-      /**
-       * @summary 获取客户播放事件列表
-       *
-       * @param request DescribePlayEventListRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribePlayEventListResponse
-       */
-      Models::DescribePlayEventListResponse describePlayEventListWithOptions(const Models::DescribePlayEventListRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取客户播放事件列表
-       *
-       * @param request DescribePlayEventListRequest
-       * @return DescribePlayEventListResponse
-       */
-      Models::DescribePlayEventListResponse describePlayEventList(const Models::DescribePlayEventListRequest &request);
-
-      /**
-       * @summary 获取单点首帧耗时数据
-       *
-       * @param request DescribePlayFirstFrameDurationMetricDataRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribePlayFirstFrameDurationMetricDataResponse
-       */
-      Models::DescribePlayFirstFrameDurationMetricDataResponse describePlayFirstFrameDurationMetricDataWithOptions(const Models::DescribePlayFirstFrameDurationMetricDataRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取单点首帧耗时数据
-       *
-       * @param request DescribePlayFirstFrameDurationMetricDataRequest
-       * @return DescribePlayFirstFrameDurationMetricDataResponse
-       */
-      Models::DescribePlayFirstFrameDurationMetricDataResponse describePlayFirstFrameDurationMetricData(const Models::DescribePlayFirstFrameDurationMetricDataRequest &request);
-
-      /**
-       * @summary 获取播放信息列表
-       *
-       * @param request DescribePlayListRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribePlayListResponse
-       */
-      Models::DescribePlayListResponse describePlayListWithOptions(const Models::DescribePlayListRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取播放信息列表
-       *
-       * @param request DescribePlayListRequest
-       * @return DescribePlayListResponse
-       */
-      Models::DescribePlayListResponse describePlayList(const Models::DescribePlayListRequest &request);
-
-      /**
-       * @summary 查询用户能够查询的数据指标
-       *
-       * @param request DescribePlayMetricAuthRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribePlayMetricAuthResponse
-       */
-      Models::DescribePlayMetricAuthResponse describePlayMetricAuthWithOptions(const Models::DescribePlayMetricAuthRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 查询用户能够查询的数据指标
-       *
-       * @param request DescribePlayMetricAuthRequest
-       * @return DescribePlayMetricAuthResponse
-       */
-      Models::DescribePlayMetricAuthResponse describePlayMetricAuth(const Models::DescribePlayMetricAuthRequest &request);
-
-      /**
-       * @summary 查询播放器指标数据
-       *
-       * @param request DescribePlayMetricDataRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribePlayMetricDataResponse
-       */
-      Models::DescribePlayMetricDataResponse describePlayMetricDataWithOptions(const Models::DescribePlayMetricDataRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 查询播放器指标数据
-       *
-       * @param request DescribePlayMetricDataRequest
-       * @return DescribePlayMetricDataResponse
-       */
-      Models::DescribePlayMetricDataResponse describePlayMetricData(const Models::DescribePlayMetricDataRequest &request);
-
-      /**
-       * @summary 获取Ooe播放信息列表
-       *
-       * @param tmpReq DescribePlayQoeListRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribePlayQoeListResponse
-       */
-      Models::DescribePlayQoeListResponse describePlayQoeListWithOptions(const Models::DescribePlayQoeListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取Ooe播放信息列表
-       *
-       * @param request DescribePlayQoeListRequest
-       * @return DescribePlayQoeListResponse
-       */
-      Models::DescribePlayQoeListResponse describePlayQoeList(const Models::DescribePlayQoeListRequest &request);
-
-      /**
-       * @summary 获取Oos播放信息列表
-       *
-       * @param tmpReq DescribePlayQosListRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribePlayQosListResponse
-       */
-      Models::DescribePlayQosListResponse describePlayQosListWithOptions(const Models::DescribePlayQosListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取Oos播放信息列表
-       *
-       * @param request DescribePlayQosListRequest
-       * @return DescribePlayQosListResponse
-       */
-      Models::DescribePlayQosListResponse describePlayQosList(const Models::DescribePlayQosListRequest &request);
 
       /**
        * @summary Queries daily playback statistics on top videos, including video views, unique visitors, and total playback duration.
@@ -2231,74 +1095,6 @@ namespace Vod20170321
       Models::DescribePlayVideoStatisResponse describePlayVideoStatis(const Models::DescribePlayVideoStatisRequest &request);
 
       /**
-       * @summary 获取查询条件信息
-       *
-       * @param request DescribeQueryConfigsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeQueryConfigsResponse
-       */
-      Models::DescribeQueryConfigsResponse describeQueryConfigsWithOptions(const Models::DescribeQueryConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取查询条件信息
-       *
-       * @param request DescribeQueryConfigsRequest
-       * @return DescribeQueryConfigsResponse
-       */
-      Models::DescribeQueryConfigsResponse describeQueryConfigs(const Models::DescribeQueryConfigsRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeRefreshQuotaRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeRefreshQuotaResponse
-       */
-      Models::DescribeRefreshQuotaResponse describeRefreshQuotaWithOptions(const Models::DescribeRefreshQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeRefreshQuotaRequest
-       * @return DescribeRefreshQuotaResponse
-       */
-      Models::DescribeRefreshQuotaResponse describeRefreshQuota(const Models::DescribeRefreshQuotaRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeRefreshTasksRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeRefreshTasksResponse
-       */
-      Models::DescribeRefreshTasksResponse describeRefreshTasksWithOptions(const Models::DescribeRefreshTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeRefreshTasksRequest
-       * @return DescribeRefreshTasksResponse
-       */
-      Models::DescribeRefreshTasksResponse describeRefreshTasks(const Models::DescribeRefreshTasksRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeUserVodStatusRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeUserVodStatusResponse
-       */
-      Models::DescribeUserVodStatusResponse describeUserVodStatusWithOptions(const Models::DescribeUserVodStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeUserVodStatusRequest
-       * @return DescribeUserVodStatusResponse
-       */
-      Models::DescribeUserVodStatusResponse describeUserVodStatus(const Models::DescribeUserVodStatusRequest &request);
-
-      /**
        * @summary Queries the statistics on video AI of different types, such as automated review and media fingerprinting.
        *
        * @description > *   This operation is available only in the **China (Shanghai)** region.
@@ -2320,57 +1116,6 @@ namespace Vod20170321
        * @return DescribeVodAIDataResponse
        */
       Models::DescribeVodAIDataResponse describeVodAIData(const Models::DescribeVodAIDataRequest &request);
-
-      /**
-       * @summary 查询App Name
-       *
-       * @param request DescribeVodAppNameRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodAppNameResponse
-       */
-      Models::DescribeVodAppNameResponse describeVodAppNameWithOptions(const Models::DescribeVodAppNameRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 查询App Name
-       *
-       * @param request DescribeVodAppNameRequest
-       * @return DescribeVodAppNameResponse
-       */
-      Models::DescribeVodAppNameResponse describeVodAppName(const Models::DescribeVodAppNameRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodCertificateDetailRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodCertificateDetailResponse
-       */
-      Models::DescribeVodCertificateDetailResponse describeVodCertificateDetailWithOptions(const Models::DescribeVodCertificateDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodCertificateDetailRequest
-       * @return DescribeVodCertificateDetailResponse
-       */
-      Models::DescribeVodCertificateDetailResponse describeVodCertificateDetail(const Models::DescribeVodCertificateDetailRequest &request);
-
-      /**
-       * @summary 查询证书详情
-       *
-       * @param request DescribeVodCertificateDetailByIdRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodCertificateDetailByIdResponse
-       */
-      Models::DescribeVodCertificateDetailByIdResponse describeVodCertificateDetailByIdWithOptions(const Models::DescribeVodCertificateDetailByIdRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 查询证书详情
-       *
-       * @param request DescribeVodCertificateDetailByIdRequest
-       * @return DescribeVodCertificateDetailByIdResponse
-       */
-      Models::DescribeVodCertificateDetailByIdResponse describeVodCertificateDetailById(const Models::DescribeVodCertificateDetailByIdRequest &request);
 
       /**
        * @summary Queries the certificates of a specified domain name for CDN or all the domain names for CDN within your Alibaba Cloud account.
@@ -2469,23 +1214,6 @@ namespace Vod20170321
       Models::DescribeVodDomainCertificateInfoResponse describeVodDomainCertificateInfo(const Models::DescribeVodDomainCertificateInfoRequest &request);
 
       /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainCnameRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodDomainCnameResponse
-       */
-      Models::DescribeVodDomainCnameResponse describeVodDomainCnameWithOptions(const Models::DescribeVodDomainCnameRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainCnameRequest
-       * @return DescribeVodDomainCnameResponse
-       */
-      Models::DescribeVodDomainCnameResponse describeVodDomainCname(const Models::DescribeVodDomainCnameRequest &request);
-
-      /**
        * @summary Queries the configurations of a domain name for CDN. You can query the configurations of multiple features at a time.
        *
        * @description > This operation is available only in the **China (Shanghai)** region.
@@ -2567,40 +1295,6 @@ namespace Vod20170321
       Models::DescribeVodDomainHitRateDataResponse describeVodDomainHitRateData(const Models::DescribeVodDomainHitRateDataRequest &request);
 
       /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainHttpCodeDataRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodDomainHttpCodeDataResponse
-       */
-      Models::DescribeVodDomainHttpCodeDataResponse describeVodDomainHttpCodeDataWithOptions(const Models::DescribeVodDomainHttpCodeDataRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainHttpCodeDataRequest
-       * @return DescribeVodDomainHttpCodeDataResponse
-       */
-      Models::DescribeVodDomainHttpCodeDataResponse describeVodDomainHttpCodeData(const Models::DescribeVodDomainHttpCodeDataRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainISPDataRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodDomainISPDataResponse
-       */
-      Models::DescribeVodDomainISPDataResponse describeVodDomainISPDataWithOptions(const Models::DescribeVodDomainISPDataRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainISPDataRequest
-       * @return DescribeVodDomainISPDataResponse
-       */
-      Models::DescribeVodDomainISPDataResponse describeVodDomainISPData(const Models::DescribeVodDomainISPDataRequest &request);
-
-      /**
        * @summary Queries the information about the CDN access logs for a domain name, including the log path.
        *
        * @description *   This operation is available only in the **China (Shanghai)** region.
@@ -2643,23 +1337,6 @@ namespace Vod20170321
        * @return DescribeVodDomainMax95BpsDataResponse
        */
       Models::DescribeVodDomainMax95BpsDataResponse describeVodDomainMax95BpsData(const Models::DescribeVodDomainMax95BpsDataRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainPvDataRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodDomainPvDataResponse
-       */
-      Models::DescribeVodDomainPvDataResponse describeVodDomainPvDataWithOptions(const Models::DescribeVodDomainPvDataRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainPvDataRequest
-       * @return DescribeVodDomainPvDataResponse
-       */
-      Models::DescribeVodDomainPvDataResponse describeVodDomainPvData(const Models::DescribeVodDomainPvDataRequest &request);
 
       /**
        * @summary Queries the number of queries per second (QPS) for one or more accelerated domain names. Data is collected every 5 minutes. You can query data collected in the last 90 days.
@@ -2921,40 +1598,6 @@ namespace Vod20170321
       Models::DescribeVodDomainRealTimeReqHitRateDataResponse describeVodDomainRealTimeReqHitRateData(const Models::DescribeVodDomainRealTimeReqHitRateDataRequest &request);
 
       /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainRealTimeSrcBpsDataRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodDomainRealTimeSrcBpsDataResponse
-       */
-      Models::DescribeVodDomainRealTimeSrcBpsDataResponse describeVodDomainRealTimeSrcBpsDataWithOptions(const Models::DescribeVodDomainRealTimeSrcBpsDataRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainRealTimeSrcBpsDataRequest
-       * @return DescribeVodDomainRealTimeSrcBpsDataResponse
-       */
-      Models::DescribeVodDomainRealTimeSrcBpsDataResponse describeVodDomainRealTimeSrcBpsData(const Models::DescribeVodDomainRealTimeSrcBpsDataRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainRealTimeSrcTrafficDataRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodDomainRealTimeSrcTrafficDataResponse
-       */
-      Models::DescribeVodDomainRealTimeSrcTrafficDataResponse describeVodDomainRealTimeSrcTrafficDataWithOptions(const Models::DescribeVodDomainRealTimeSrcTrafficDataRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainRealTimeSrcTrafficDataRequest
-       * @return DescribeVodDomainRealTimeSrcTrafficDataResponse
-       */
-      Models::DescribeVodDomainRealTimeSrcTrafficDataResponse describeVodDomainRealTimeSrcTrafficData(const Models::DescribeVodDomainRealTimeSrcTrafficDataRequest &request);
-
-      /**
        * @summary Queries the traffic data for one or more accelerated domains. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days. Compared with the DescribeVodDomainTrafficData operation, this operation provides a smaller time granularity, lower data latency, and allows you to query historical data within a shorter time period.
        *
        * @description * This operation is supported only in the **China (Shanghai)** region.
@@ -2992,40 +1635,6 @@ namespace Vod20170321
        * @return DescribeVodDomainRealTimeTrafficDataResponse
        */
       Models::DescribeVodDomainRealTimeTrafficDataResponse describeVodDomainRealTimeTrafficData(const Models::DescribeVodDomainRealTimeTrafficDataRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainRealtimeLogDeliveryRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodDomainRealtimeLogDeliveryResponse
-       */
-      Models::DescribeVodDomainRealtimeLogDeliveryResponse describeVodDomainRealtimeLogDeliveryWithOptions(const Models::DescribeVodDomainRealtimeLogDeliveryRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainRealtimeLogDeliveryRequest
-       * @return DescribeVodDomainRealtimeLogDeliveryResponse
-       */
-      Models::DescribeVodDomainRealtimeLogDeliveryResponse describeVodDomainRealtimeLogDelivery(const Models::DescribeVodDomainRealtimeLogDeliveryRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainRegionDataRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodDomainRegionDataResponse
-       */
-      Models::DescribeVodDomainRegionDataResponse describeVodDomainRegionDataWithOptions(const Models::DescribeVodDomainRegionDataRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainRegionDataRequest
-       * @return DescribeVodDomainRegionDataResponse
-       */
-      Models::DescribeVodDomainRegionDataResponse describeVodDomainRegionData(const Models::DescribeVodDomainRegionDataRequest &request);
 
       /**
        * @summary Queries the byte hit ratio for one or more accelerated domains. Request hit ratios are measured in percentage.
@@ -3147,57 +1756,6 @@ namespace Vod20170321
       Models::DescribeVodDomainSrcTrafficDataResponse describeVodDomainSrcTrafficData(const Models::DescribeVodDomainSrcTrafficDataRequest &request);
 
       /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainStagingConfigRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodDomainStagingConfigResponse
-       */
-      Models::DescribeVodDomainStagingConfigResponse describeVodDomainStagingConfigWithOptions(const Models::DescribeVodDomainStagingConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainStagingConfigRequest
-       * @return DescribeVodDomainStagingConfigResponse
-       */
-      Models::DescribeVodDomainStagingConfigResponse describeVodDomainStagingConfig(const Models::DescribeVodDomainStagingConfigRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainTopReferVisitRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodDomainTopReferVisitResponse
-       */
-      Models::DescribeVodDomainTopReferVisitResponse describeVodDomainTopReferVisitWithOptions(const Models::DescribeVodDomainTopReferVisitRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainTopReferVisitRequest
-       * @return DescribeVodDomainTopReferVisitResponse
-       */
-      Models::DescribeVodDomainTopReferVisitResponse describeVodDomainTopReferVisit(const Models::DescribeVodDomainTopReferVisitRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainTopUrlVisitRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodDomainTopUrlVisitResponse
-       */
-      Models::DescribeVodDomainTopUrlVisitResponse describeVodDomainTopUrlVisitWithOptions(const Models::DescribeVodDomainTopUrlVisitRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainTopUrlVisitRequest
-       * @return DescribeVodDomainTopUrlVisitResponse
-       */
-      Models::DescribeVodDomainTopUrlVisitResponse describeVodDomainTopUrlVisit(const Models::DescribeVodDomainTopUrlVisitRequest &request);
-
-      /**
        * @summary Queries the traffic data for one or more accelerated domains. The minimum time granularity is 5 minutes. You can query data in the last 366 days. Compared with the DescribeVodDomainRealTimeTrafficData operation, this operation provides a greater time granularity, higher data latency, but allows you to query historical data within a longer time period.
        *
        * @description * This operation is supported only in the **China (Shanghai)** region.
@@ -3262,40 +1820,6 @@ namespace Vod20170321
       Models::DescribeVodDomainUsageDataResponse describeVodDomainUsageData(const Models::DescribeVodDomainUsageDataRequest &request);
 
       /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainUvDataRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodDomainUvDataResponse
-       */
-      Models::DescribeVodDomainUvDataResponse describeVodDomainUvDataWithOptions(const Models::DescribeVodDomainUvDataRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainUvDataRequest
-       * @return DescribeVodDomainUvDataResponse
-       */
-      Models::DescribeVodDomainUvDataResponse describeVodDomainUvData(const Models::DescribeVodDomainUvDataRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainsUsageByDayRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodDomainsUsageByDayResponse
-       */
-      Models::DescribeVodDomainsUsageByDayResponse describeVodDomainsUsageByDayWithOptions(const Models::DescribeVodDomainsUsageByDayRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodDomainsUsageByDayRequest
-       * @return DescribeVodDomainsUsageByDayResponse
-       */
-      Models::DescribeVodDomainsUsageByDayResponse describeVodDomainsUsageByDay(const Models::DescribeVodDomainsUsageByDayRequest &request);
-
-      /**
        * @summary 点播云剪辑用量查询
        *
        * @param request DescribeVodEditingUsageDataRequest
@@ -3356,23 +1880,6 @@ namespace Vod20170321
       Models::DescribeVodMediaPlayDataResponse describeVodMediaPlayData(const Models::DescribeVodMediaPlayDataRequest &request);
 
       /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodMultiUsageDataRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodMultiUsageDataResponse
-       */
-      Models::DescribeVodMultiUsageDataResponse describeVodMultiUsageDataWithOptions(const Models::DescribeVodMultiUsageDataRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodMultiUsageDataRequest
-       * @return DescribeVodMultiUsageDataResponse
-       */
-      Models::DescribeVodMultiUsageDataResponse describeVodMultiUsageData(const Models::DescribeVodMultiUsageDataRequest &request);
-
-      /**
        * @summary 查询播放器指标数据
        *
        * @param request DescribeVodPlayerCollectDataRequest
@@ -3388,23 +1895,6 @@ namespace Vod20170321
        * @return DescribeVodPlayerCollectDataResponse
        */
       Models::DescribeVodPlayerCollectDataResponse describeVodPlayerCollectData(const Models::DescribeVodPlayerCollectDataRequest &request);
-
-      /**
-       * @summary 查询播放器指标数据
-       *
-       * @param request DescribeVodPlayerCollectDataDemoRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodPlayerCollectDataDemoResponse
-       */
-      Models::DescribeVodPlayerCollectDataDemoResponse describeVodPlayerCollectDataDemoWithOptions(const Models::DescribeVodPlayerCollectDataDemoRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 查询播放器指标数据
-       *
-       * @param request DescribeVodPlayerCollectDataDemoRequest
-       * @return DescribeVodPlayerCollectDataDemoResponse
-       */
-      Models::DescribeVodPlayerCollectDataDemoResponse describeVodPlayerCollectDataDemo(const Models::DescribeVodPlayerCollectDataDemoRequest &request);
 
       /**
        * @summary 查询播放器指标数据
@@ -3426,23 +1916,6 @@ namespace Vod20170321
       /**
        * @summary 查询播放器指标数据
        *
-       * @param request DescribeVodPlayerDimensionDataDemoRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodPlayerDimensionDataDemoResponse
-       */
-      Models::DescribeVodPlayerDimensionDataDemoResponse describeVodPlayerDimensionDataDemoWithOptions(const Models::DescribeVodPlayerDimensionDataDemoRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 查询播放器指标数据
-       *
-       * @param request DescribeVodPlayerDimensionDataDemoRequest
-       * @return DescribeVodPlayerDimensionDataDemoResponse
-       */
-      Models::DescribeVodPlayerDimensionDataDemoResponse describeVodPlayerDimensionDataDemo(const Models::DescribeVodPlayerDimensionDataDemoRequest &request);
-
-      /**
-       * @summary 查询播放器指标数据
-       *
        * @param request DescribeVodPlayerMetricDataRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeVodPlayerMetricDataResponse
@@ -3456,23 +1929,6 @@ namespace Vod20170321
        * @return DescribeVodPlayerMetricDataResponse
        */
       Models::DescribeVodPlayerMetricDataResponse describeVodPlayerMetricData(const Models::DescribeVodPlayerMetricDataRequest &request);
-
-      /**
-       * @summary 查询播放器指标数据
-       *
-       * @param request DescribeVodPlayerMetricDataDemoRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodPlayerMetricDataDemoResponse
-       */
-      Models::DescribeVodPlayerMetricDataDemoResponse describeVodPlayerMetricDataDemoWithOptions(const Models::DescribeVodPlayerMetricDataDemoRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 查询播放器指标数据
-       *
-       * @param request DescribeVodPlayerMetricDataDemoRequest
-       * @return DescribeVodPlayerMetricDataDemoResponse
-       */
-      Models::DescribeVodPlayerMetricDataDemoResponse describeVodPlayerMetricDataDemo(const Models::DescribeVodPlayerMetricDataDemoRequest &request);
 
       /**
        * @summary Queries the bandwidth data by Internet service provider (ISP) and region.
@@ -3502,40 +1958,6 @@ namespace Vod20170321
        * @return DescribeVodRangeDataByLocateAndIspServiceResponse
        */
       Models::DescribeVodRangeDataByLocateAndIspServiceResponse describeVodRangeDataByLocateAndIspService(const Models::DescribeVodRangeDataByLocateAndIspServiceRequest &request);
-
-      /**
-       * @summary Queries the number of real-time log deliveries.
-       *
-       * @param request DescribeVodRealtimeDeliveryAccRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodRealtimeDeliveryAccResponse
-       */
-      Models::DescribeVodRealtimeDeliveryAccResponse describeVodRealtimeDeliveryAccWithOptions(const Models::DescribeVodRealtimeDeliveryAccRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Queries the number of real-time log deliveries.
-       *
-       * @param request DescribeVodRealtimeDeliveryAccRequest
-       * @return DescribeVodRealtimeDeliveryAccResponse
-       */
-      Models::DescribeVodRealtimeDeliveryAccResponse describeVodRealtimeDeliveryAcc(const Models::DescribeVodRealtimeDeliveryAccRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodRealtimeLogAuthorizedRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodRealtimeLogAuthorizedResponse
-       */
-      Models::DescribeVodRealtimeLogAuthorizedResponse describeVodRealtimeLogAuthorizedWithOptions(const Models::DescribeVodRealtimeLogAuthorizedRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodRealtimeLogAuthorizedRequest
-       * @return DescribeVodRealtimeLogAuthorizedResponse
-       */
-      Models::DescribeVodRealtimeLogAuthorizedResponse describeVodRealtimeLogAuthorized(const Models::DescribeVodRealtimeLogAuthorizedRequest &request);
 
       /**
        * @summary Queries the maximum number and remaining number of requests to refresh or prefetch files on the current day. You can prefetch files based on URLs and refresh files based on URLs or directories.
@@ -3601,40 +2023,6 @@ namespace Vod20170321
       Models::DescribeVodSSLCertificateListResponse describeVodSSLCertificateList(const Models::DescribeVodSSLCertificateListRequest &request);
 
       /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodServiceRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodServiceResponse
-       */
-      Models::DescribeVodServiceResponse describeVodServiceWithOptions(const Models::DescribeVodServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodServiceRequest
-       * @return DescribeVodServiceResponse
-       */
-      Models::DescribeVodServiceResponse describeVodService(const Models::DescribeVodServiceRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodStatisRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodStatisResponse
-       */
-      Models::DescribeVodStatisResponse describeVodStatisWithOptions(const Models::DescribeVodStatisRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodStatisRequest
-       * @return DescribeVodStatisResponse
-       */
-      Models::DescribeVodStatisResponse describeVodStatis(const Models::DescribeVodStatisRequest &request);
-
-      /**
        * @summary Queries the usage of storage-related resources, including the storage volume and outbound traffic.
        *
        * @description > *   This operation is available only in the **China (Shanghai)** region.
@@ -3656,23 +2044,6 @@ namespace Vod20170321
        * @return DescribeVodStorageDataResponse
        */
       Models::DescribeVodStorageDataResponse describeVodStorageData(const Models::DescribeVodStorageDataRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodTagResourcesRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodTagResourcesResponse
-       */
-      Models::DescribeVodTagResourcesResponse describeVodTagResourcesWithOptions(const Models::DescribeVodTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodTagResourcesRequest
-       * @return DescribeVodTagResourcesResponse
-       */
-      Models::DescribeVodTagResourcesResponse describeVodTagResources(const Models::DescribeVodTagResourcesRequest &request);
 
       /**
        * @summary Queries the usage of tiered storage for media assets.
@@ -3721,23 +2092,6 @@ namespace Vod20170321
       Models::DescribeVodTieringStorageRetrievalDataResponse describeVodTieringStorageRetrievalData(const Models::DescribeVodTieringStorageRetrievalDataRequest &request);
 
       /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodTopDomainsByFlowRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodTopDomainsByFlowResponse
-       */
-      Models::DescribeVodTopDomainsByFlowResponse describeVodTopDomainsByFlowWithOptions(const Models::DescribeVodTopDomainsByFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodTopDomainsByFlowRequest
-       * @return DescribeVodTopDomainsByFlowResponse
-       */
-      Models::DescribeVodTopDomainsByFlowResponse describeVodTopDomainsByFlow(const Models::DescribeVodTopDomainsByFlowRequest &request);
-
-      /**
        * @summary Queries the transcoding statistics.
        *
        * @description *   This operation is available only in the **China (Shanghai)** region.
@@ -3761,23 +2115,6 @@ namespace Vod20170321
       Models::DescribeVodTranscodeDataResponse describeVodTranscodeData(const Models::DescribeVodTranscodeDataRequest &request);
 
       /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodUserBillPredictionRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodUserBillPredictionResponse
-       */
-      Models::DescribeVodUserBillPredictionResponse describeVodUserBillPredictionWithOptions(const Models::DescribeVodUserBillPredictionRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodUserBillPredictionRequest
-       * @return DescribeVodUserBillPredictionResponse
-       */
-      Models::DescribeVodUserBillPredictionResponse describeVodUserBillPrediction(const Models::DescribeVodUserBillPredictionRequest &request);
-
-      /**
        * @summary Queries the domain names for CDN within your Alibaba Cloud account.
        *
        * @description *   You can filter domain names by name and status. Fuzzy match is supported for domain name-based query.
@@ -3799,74 +2136,6 @@ namespace Vod20170321
        * @return DescribeVodUserDomainsResponse
        */
       Models::DescribeVodUserDomainsResponse describeVodUserDomains(const Models::DescribeVodUserDomainsRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodUserQuotaRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodUserQuotaResponse
-       */
-      Models::DescribeVodUserQuotaResponse describeVodUserQuotaWithOptions(const Models::DescribeVodUserQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodUserQuotaRequest
-       * @return DescribeVodUserQuotaResponse
-       */
-      Models::DescribeVodUserQuotaResponse describeVodUserQuota(const Models::DescribeVodUserQuotaRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodUserResourcePackageRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodUserResourcePackageResponse
-       */
-      Models::DescribeVodUserResourcePackageResponse describeVodUserResourcePackageWithOptions(const Models::DescribeVodUserResourcePackageRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodUserResourcePackageRequest
-       * @return DescribeVodUserResourcePackageResponse
-       */
-      Models::DescribeVodUserResourcePackageResponse describeVodUserResourcePackage(const Models::DescribeVodUserResourcePackageRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodUserTagsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodUserTagsResponse
-       */
-      Models::DescribeVodUserTagsResponse describeVodUserTagsWithOptions(const Models::DescribeVodUserTagsRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodUserTagsRequest
-       * @return DescribeVodUserTagsResponse
-       */
-      Models::DescribeVodUserTagsResponse describeVodUserTags(const Models::DescribeVodUserTagsRequest &request);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodUserUsageDetailDataExportTaskRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeVodUserUsageDetailDataExportTaskResponse
-       */
-      Models::DescribeVodUserUsageDetailDataExportTaskResponse describeVodUserUsageDetailDataExportTaskWithOptions(const Models::DescribeVodUserUsageDetailDataExportTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用量查询接口
-       *
-       * @param request DescribeVodUserUsageDetailDataExportTaskRequest
-       * @return DescribeVodUserUsageDetailDataExportTaskResponse
-       */
-      Models::DescribeVodUserUsageDetailDataExportTaskResponse describeVodUserUsageDetailDataExportTask(const Models::DescribeVodUserUsageDetailDataExportTaskRequest &request);
 
       /**
        * @summary Queries the ownership verification content.
@@ -3911,108 +2180,6 @@ namespace Vod20170321
       Models::DetachAppPolicyFromIdentityResponse detachAppPolicyFromIdentity(const Models::DetachAppPolicyFromIdentityRequest &request);
 
       /**
-       * @summary 停用实时日志
-       *
-       * @param request DisableVodRealtimeLogDeliveryRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DisableVodRealtimeLogDeliveryResponse
-       */
-      Models::DisableVodRealtimeLogDeliveryResponse disableVodRealtimeLogDeliveryWithOptions(const Models::DisableVodRealtimeLogDeliveryRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 停用实时日志
-       *
-       * @param request DisableVodRealtimeLogDeliveryRequest
-       * @return DisableVodRealtimeLogDeliveryResponse
-       */
-      Models::DisableVodRealtimeLogDeliveryResponse disableVodRealtimeLogDelivery(const Models::DisableVodRealtimeLogDeliveryRequest &request);
-
-      /**
-       * @summary 获取AI审核开关
-       *
-       * @param request DisplayAIAuditSwitchRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DisplayAIAuditSwitchResponse
-       */
-      Models::DisplayAIAuditSwitchResponse displayAIAuditSwitchWithOptions(const Models::DisplayAIAuditSwitchRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取AI审核开关
-       *
-       * @param request DisplayAIAuditSwitchRequest
-       * @return DisplayAIAuditSwitchResponse
-       */
-      Models::DisplayAIAuditSwitchResponse displayAIAuditSwitch(const Models::DisplayAIAuditSwitchRequest &request);
-
-      /**
-       * @summary 编辑应用信息
-       *
-       * @param tmpReq EditAppInfoRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return EditAppInfoResponse
-       */
-      Models::EditAppInfoResponse editAppInfoWithOptions(const Models::EditAppInfoRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 编辑应用信息
-       *
-       * @param request EditAppInfoRequest
-       * @return EditAppInfoResponse
-       */
-      Models::EditAppInfoResponse editAppInfo(const Models::EditAppInfoRequest &request);
-
-      /**
-       * @summary 编辑证书
-       *
-       * @param request EditLicenseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return EditLicenseResponse
-       */
-      Models::EditLicenseResponse editLicenseWithOptions(const Models::EditLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 编辑证书
-       *
-       * @param request EditLicenseRequest
-       * @return EditLicenseResponse
-       */
-      Models::EditLicenseResponse editLicense(const Models::EditLicenseRequest &request);
-
-      /**
-       * @summary 启用实时日志
-       *
-       * @param request EnableVodRealtimeLogDeliveryRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return EnableVodRealtimeLogDeliveryResponse
-       */
-      Models::EnableVodRealtimeLogDeliveryResponse enableVodRealtimeLogDeliveryWithOptions(const Models::EnableVodRealtimeLogDeliveryRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 启用实时日志
-       *
-       * @param request EnableVodRealtimeLogDeliveryRequest
-       * @return EnableVodRealtimeLogDeliveryResponse
-       */
-      Models::EnableVodRealtimeLogDeliveryResponse enableVodRealtimeLogDelivery(const Models::EnableVodRealtimeLogDeliveryRequest &request);
-
-      /**
-       * @summary 人脸注册
-       *
-       * @param request FaceRegistrationRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return FaceRegistrationResponse
-       */
-      Models::FaceRegistrationResponse faceRegistrationWithOptions(const Models::FaceRegistrationRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 人脸注册
-       *
-       * @param request FaceRegistrationRequest
-       * @return FaceRegistrationResponse
-       */
-      Models::FaceRegistrationResponse faceRegistration(const Models::FaceRegistrationRequest &request);
-
-      /**
        * @summary Generates a key for secure download. ApsaraVideo Player SDK provides the secure download feature. Videos that are downloaded to your local device in this mode are encrypted. You can play the encrypted videos only by using the key file generated from the app that you specified. Secure download protects your videos from malicious playback or distribution.
        *
        * @description *   To use the secure download feature, you must enable the download feature in the ApsaraVideo VOD console and set the download method to secure download. For more information, see [Configure download settings](https://help.aliyun.com/document_detail/86107.html).
@@ -4051,23 +2218,6 @@ namespace Vod20170321
        * @return GenerateKMSDataKeyResponse
        */
       Models::GenerateKMSDataKeyResponse generateKMSDataKey(const Models::GenerateKMSDataKeyRequest &request);
-
-      /**
-       * @summary 获取标题提取任务
-       *
-       * @param request GetAICaptionExtractionJobsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetAICaptionExtractionJobsResponse
-       */
-      Models::GetAICaptionExtractionJobsResponse getAICaptionExtractionJobsWithOptions(const Models::GetAICaptionExtractionJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取标题提取任务
-       *
-       * @param request GetAICaptionExtractionJobsRequest
-       * @return GetAICaptionExtractionJobsResponse
-       */
-      Models::GetAICaptionExtractionJobsResponse getAICaptionExtractionJobs(const Models::GetAICaptionExtractionJobsRequest &request);
 
       /**
        * @summary Queries jobs of image AI processing.
@@ -4114,40 +2264,6 @@ namespace Vod20170321
        * @return GetAIMediaAuditJobResponse
        */
       Models::GetAIMediaAuditJobResponse getAIMediaAuditJob(const Models::GetAIMediaAuditJobRequest &request);
-
-      /**
-       * @summary 获取AI服务状态
-       *
-       * @param request GetAIServiceRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetAIServiceResponse
-       */
-      Models::GetAIServiceResponse getAIServiceWithOptions(const Models::GetAIServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取AI服务状态
-       *
-       * @param request GetAIServiceRequest
-       * @return GetAIServiceResponse
-       */
-      Models::GetAIServiceResponse getAIService(const Models::GetAIServiceRequest &request);
-
-      /**
-       * @summary 获取AI统计信息
-       *
-       * @param request GetAIStatisRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetAIStatisResponse
-       */
-      Models::GetAIStatisResponse getAIStatisWithOptions(const Models::GetAIStatisRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取AI统计信息
-       *
-       * @param request GetAIStatisRequest
-       * @return GetAIStatisResponse
-       */
-      Models::GetAIStatisResponse getAIStatis(const Models::GetAIStatisRequest &request);
 
       /**
        * @summary Queries the details of an AI template.
@@ -4217,23 +2333,6 @@ namespace Vod20170321
       Models::GetAppInfosResponse getAppInfos(const Models::GetAppInfosRequest &request);
 
       /**
-       * @summary 获取App策略
-       *
-       * @param request GetAppPoliciesRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetAppPoliciesResponse
-       */
-      Models::GetAppPoliciesResponse getAppPoliciesWithOptions(const Models::GetAppPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取App策略
-       *
-       * @param request GetAppPoliciesRequest
-       * @return GetAppPoliciesResponse
-       */
-      Models::GetAppPoliciesResponse getAppPolicies(const Models::GetAppPoliciesRequest &request);
-
-      /**
        * @summary Queries the URL and basic information about one or more auxiliary media assets such as watermark images, subtitle files, and materials based on IDs.
        *
        * @description You can query information about up to 20 auxiliary media assets in a request.
@@ -4272,91 +2371,6 @@ namespace Vod20170321
       Models::GetAuditHistoryResponse getAuditHistory(const Models::GetAuditHistoryRequest &request);
 
       /**
-       * @summary 获取审核结果
-       *
-       * @param request GetAuditResultRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetAuditResultResponse
-       */
-      Models::GetAuditResultResponse getAuditResultWithOptions(const Models::GetAuditResultRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取审核结果
-       *
-       * @param request GetAuditResultRequest
-       * @return GetAuditResultResponse
-       */
-      Models::GetAuditResultResponse getAuditResult(const Models::GetAuditResultRequest &request);
-
-      /**
-       * @summary 获取审核结果详情
-       *
-       * @param request GetAuditResultDetailRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetAuditResultDetailResponse
-       */
-      Models::GetAuditResultDetailResponse getAuditResultDetailWithOptions(const Models::GetAuditResultDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取审核结果详情
-       *
-       * @param request GetAuditResultDetailRequest
-       * @return GetAuditResultDetailResponse
-       */
-      Models::GetAuditResultDetailResponse getAuditResultDetail(const Models::GetAuditResultDetailRequest &request);
-
-      /**
-       * @summary 查询bucket删除任务信息
-       *
-       * @param request GetBucketDeleteTaskRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetBucketDeleteTaskResponse
-       */
-      Models::GetBucketDeleteTaskResponse getBucketDeleteTaskWithOptions(const Models::GetBucketDeleteTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 查询bucket删除任务信息
-       *
-       * @param request GetBucketDeleteTaskRequest
-       * @return GetBucketDeleteTaskResponse
-       */
-      Models::GetBucketDeleteTaskResponse getBucketDeleteTask(const Models::GetBucketDeleteTaskRequest &request);
-
-      /**
-       * @summary 获取CDN统计数据
-       *
-       * @param request GetCDNStatisRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetCDNStatisResponse
-       */
-      Models::GetCDNStatisResponse getCDNStatisWithOptions(const Models::GetCDNStatisRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取CDN统计数据
-       *
-       * @param request GetCDNStatisRequest
-       * @return GetCDNStatisResponse
-       */
-      Models::GetCDNStatisResponse getCDNStatis(const Models::GetCDNStatisRequest &request);
-
-      /**
-       * @summary 获取CDN统计和
-       *
-       * @param request GetCDNStatisSumRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetCDNStatisSumResponse
-       */
-      Models::GetCDNStatisSumResponse getCDNStatisSumWithOptions(const Models::GetCDNStatisSumRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取CDN统计和
-       *
-       * @param request GetCDNStatisSumRequest
-       * @return GetCDNStatisSumResponse
-       */
-      Models::GetCDNStatisSumResponse getCDNStatisSum(const Models::GetCDNStatisSumRequest &request);
-
-      /**
        * @summary Queries the information about a specific category and its subcategories based on the ID or type of the category.
        *
        * @param request GetCategoriesRequest
@@ -4374,104 +2388,6 @@ namespace Vod20170321
       Models::GetCategoriesResponse getCategories(const Models::GetCategoriesRequest &request);
 
       /**
-       * @summary 获取通道
-       *
-       * @param request GetCheckChannelRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetCheckChannelResponse
-       */
-      Models::GetCheckChannelResponse getCheckChannelWithOptions(const Models::GetCheckChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取通道
-       *
-       * @param request GetCheckChannelRequest
-       * @return GetCheckChannelResponse
-       */
-      Models::GetCheckChannelResponse getCheckChannel(const Models::GetCheckChannelRequest &request);
-
-      /**
-       * @param request GetClientConfigRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetClientConfigResponse
-       */
-      Models::GetClientConfigResponse getClientConfigWithOptions(const Models::GetClientConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @param request GetClientConfigRequest
-       * @return GetClientConfigResponse
-       */
-      Models::GetClientConfigResponse getClientConfig(const Models::GetClientConfigRequest &request);
-
-      /**
-       * @summary 获取用户配置
-       *
-       * @param request GetCustomerConfigRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetCustomerConfigResponse
-       */
-      Models::GetCustomerConfigResponse getCustomerConfigWithOptions(const Models::GetCustomerConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取用户配置
-       *
-       * @param request GetCustomerConfigRequest
-       * @return GetCustomerConfigResponse
-       */
-      Models::GetCustomerConfigResponse getCustomerConfig(const Models::GetCustomerConfigRequest &request);
-
-      /**
-       * @summary 获取DNADB
-       *
-       * @param request GetDNADBRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetDNADBResponse
-       */
-      Models::GetDNADBResponse getDNADBWithOptions(const Models::GetDNADBRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取DNADB
-       *
-       * @param request GetDNADBRequest
-       * @return GetDNADBResponse
-       */
-      Models::GetDNADBResponse getDNADB(const Models::GetDNADBRequest &request);
-
-      /**
-       * @summary 获取DRM证书信息
-       *
-       * @param request GetDRMCertInfoRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetDRMCertInfoResponse
-       */
-      Models::GetDRMCertInfoResponse getDRMCertInfoWithOptions(const Models::GetDRMCertInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取DRM证书信息
-       *
-       * @param request GetDRMCertInfoRequest
-       * @return GetDRMCertInfoResponse
-       */
-      Models::GetDRMCertInfoResponse getDRMCertInfo(const Models::GetDRMCertInfoRequest &request);
-
-      /**
-       * @summary 获取DRM证书
-       *
-       * @param request GetDRMLicenseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetDRMLicenseResponse
-       */
-      Models::GetDRMLicenseResponse getDRMLicenseWithOptions(const Models::GetDRMLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取DRM证书
-       *
-       * @param request GetDRMLicenseRequest
-       * @return GetDRMLicenseResponse
-       */
-      Models::GetDRMLicenseResponse getDRMLicense(const Models::GetDRMLicenseRequest &request);
-
-      /**
        * @summary 支持区域化媒资ID级别播放数据查询
        *
        * @param request GetDailyPlayRegionStatisRequest
@@ -4487,23 +2403,6 @@ namespace Vod20170321
        * @return GetDailyPlayRegionStatisResponse
        */
       Models::GetDailyPlayRegionStatisResponse getDailyPlayRegionStatis(const Models::GetDailyPlayRegionStatisRequest &request);
-
-      /**
-       * @summary 支持媒资ID级别播放数据查询
-       *
-       * @param request GetDailyPlayStatisRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetDailyPlayStatisResponse
-       */
-      Models::GetDailyPlayStatisResponse getDailyPlayStatisWithOptions(const Models::GetDailyPlayStatisRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 支持媒资ID级别播放数据查询
-       *
-       * @param request GetDailyPlayStatisRequest
-       * @return GetDailyPlayStatisResponse
-       */
-      Models::GetDailyPlayStatisResponse getDailyPlayStatis(const Models::GetDailyPlayStatisRequest &request);
 
       /**
        * @summary Queries information about the default AI template.
@@ -4634,23 +2533,6 @@ namespace Vod20170321
       Models::GetImageInfosResponse getImageInfos(const Models::GetImageInfosRequest &request);
 
       /**
-       * @summary 获取单个智能策略信息
-       *
-       * @param request GetIntelligentStrategyRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetIntelligentStrategyResponse
-       */
-      Models::GetIntelligentStrategyResponse getIntelligentStrategyWithOptions(const Models::GetIntelligentStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取单个智能策略信息
-       *
-       * @param request GetIntelligentStrategyRequest
-       * @return GetIntelligentStrategyResponse
-       */
-      Models::GetIntelligentStrategyResponse getIntelligentStrategy(const Models::GetIntelligentStrategyRequest &request);
-
-      /**
        * @summary Queries the details of an asynchronous task based on jobId.
        *
        * @description ****
@@ -4676,108 +2558,6 @@ namespace Vod20170321
        * @return GetJobDetailResponse
        */
       Models::GetJobDetailResponse getJobDetail(const Models::GetJobDetailRequest &request);
-
-      /**
-       * @summary GetKMSServiceKey
-       *
-       * @param request GetKMSServiceKeyRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetKMSServiceKeyResponse
-       */
-      Models::GetKMSServiceKeyResponse getKMSServiceKeyWithOptions(const Models::GetKMSServiceKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary GetKMSServiceKey
-       *
-       * @param request GetKMSServiceKeyRequest
-       * @return GetKMSServiceKeyResponse
-       */
-      Models::GetKMSServiceKeyResponse getKMSServiceKey(const Models::GetKMSServiceKeyRequest &request);
-
-      /**
-       * @summary 获取License证书信息
-       *
-       * @param request GetLicenseInfoRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetLicenseInfoResponse
-       */
-      Models::GetLicenseInfoResponse getLicenseInfoWithOptions(const Models::GetLicenseInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取License证书信息
-       *
-       * @param request GetLicenseInfoRequest
-       * @return GetLicenseInfoResponse
-       */
-      Models::GetLicenseInfoResponse getLicenseInfo(const Models::GetLicenseInfoRequest &request);
-
-      /**
-       * @summary 获取LicenseKey
-       *
-       * @param request GetLicenseKeyRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetLicenseKeyResponse
-       */
-      Models::GetLicenseKeyResponse getLicenseKeyWithOptions(const Models::GetLicenseKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取LicenseKey
-       *
-       * @param request GetLicenseKeyRequest
-       * @return GetLicenseKeyResponse
-       */
-      Models::GetLicenseKeyResponse getLicenseKey(const Models::GetLicenseKeyRequest &request);
-
-      /**
-       * @summary 获取License支付状态
-       *
-       * @param request GetLicensePurchaseStatusRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetLicensePurchaseStatusResponse
-       */
-      Models::GetLicensePurchaseStatusResponse getLicensePurchaseStatusWithOptions(const Models::GetLicensePurchaseStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取License支付状态
-       *
-       * @param request GetLicensePurchaseStatusRequest
-       * @return GetLicensePurchaseStatusResponse
-       */
-      Models::GetLicensePurchaseStatusResponse getLicensePurchaseStatus(const Models::GetLicensePurchaseStatusRequest &request);
-
-      /**
-       * @summary 查询license列表
-       *
-       * @param request GetLicensesRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetLicensesResponse
-       */
-      Models::GetLicensesResponse getLicensesWithOptions(const Models::GetLicensesRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 查询license列表
-       *
-       * @param request GetLicensesRequest
-       * @return GetLicensesResponse
-       */
-      Models::GetLicensesResponse getLicenses(const Models::GetLicensesRequest &request);
-
-      /**
-       * @summary 获取MTS统计数据
-       *
-       * @param request GetMTSStatisRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetMTSStatisResponse
-       */
-      Models::GetMTSStatisResponse getMTSStatisWithOptions(const Models::GetMTSStatisRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取MTS统计数据
-       *
-       * @param request GetMTSStatisRequest
-       * @return GetMTSStatisResponse
-       */
-      Models::GetMTSStatisResponse getMTSStatis(const Models::GetMTSStatisRequest &request);
 
       /**
        * @summary Queries the details of audio review results.
@@ -4887,40 +2667,6 @@ namespace Vod20170321
       Models::GetMediaDNAResultResponse getMediaDNAResult(const Models::GetMediaDNAResultRequest &request);
 
       /**
-       * @summary 获取媒资导出任务
-       *
-       * @param request GetMediaExportJobsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetMediaExportJobsResponse
-       */
-      Models::GetMediaExportJobsResponse getMediaExportJobsWithOptions(const Models::GetMediaExportJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取媒资导出任务
-       *
-       * @param request GetMediaExportJobsRequest
-       * @return GetMediaExportJobsResponse
-       */
-      Models::GetMediaExportJobsResponse getMediaExportJobs(const Models::GetMediaExportJobsRequest &request);
-
-      /**
-       * @summary 获取生命周期规则
-       *
-       * @param request GetMediaLifecycleRuleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetMediaLifecycleRuleResponse
-       */
-      Models::GetMediaLifecycleRuleResponse getMediaLifecycleRuleWithOptions(const Models::GetMediaLifecycleRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取生命周期规则
-       *
-       * @param request GetMediaLifecycleRuleRequest
-       * @return GetMediaLifecycleRuleResponse
-       */
-      Models::GetMediaLifecycleRuleResponse getMediaLifecycleRule(const Models::GetMediaLifecycleRuleRequest &request);
-
-      /**
        * @summary Queries the information about media refresh or prefetch jobs, such as the job status and filtering conditions.
        *
        * @description You can query the information about all media files or a specific media file in a refresh or prefetch job.
@@ -4967,57 +2713,6 @@ namespace Vod20170321
       Models::GetMessageCallbackResponse getMessageCallback(const Models::GetMessageCallbackRequest &request);
 
       /**
-       * @summary 获取回调事件列表
-       *
-       * @param request GetMessageCallbackEventListRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetMessageCallbackEventListResponse
-       */
-      Models::GetMessageCallbackEventListResponse getMessageCallbackEventListWithOptions(const Models::GetMessageCallbackEventListRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取回调事件列表
-       *
-       * @param request GetMessageCallbackEventListRequest
-       * @return GetMessageCallbackEventListResponse
-       */
-      Models::GetMessageCallbackEventListResponse getMessageCallbackEventList(const Models::GetMessageCallbackEventListRequest &request);
-
-      /**
-       * @summary 获取云监控配置
-       *
-       * @param request GetMessageCloudMonitorConfigRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetMessageCloudMonitorConfigResponse
-       */
-      Models::GetMessageCloudMonitorConfigResponse getMessageCloudMonitorConfigWithOptions(const Models::GetMessageCloudMonitorConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取云监控配置
-       *
-       * @param request GetMessageCloudMonitorConfigRequest
-       * @return GetMessageCloudMonitorConfigResponse
-       */
-      Models::GetMessageCloudMonitorConfigResponse getMessageCloudMonitorConfig(const Models::GetMessageCloudMonitorConfigRequest &request);
-
-      /**
-       * @summary 获取云监控事件列表
-       *
-       * @param request GetMessageCloudMonitorEventListRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetMessageCloudMonitorEventListResponse
-       */
-      Models::GetMessageCloudMonitorEventListResponse getMessageCloudMonitorEventListWithOptions(const Models::GetMessageCloudMonitorEventListRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取云监控事件列表
-       *
-       * @param request GetMessageCloudMonitorEventListRequest
-       * @return GetMessageCloudMonitorEventListResponse
-       */
-      Models::GetMessageCloudMonitorEventListResponse getMessageCloudMonitorEventList(const Models::GetMessageCloudMonitorEventListRequest &request);
-
-      /**
        * @summary Queries the information about the mezzanine file of an audio or video. The information includes the mezzanine file URL, resolution, and bitrate of the audio or video.
        *
        * @description You can obtain complete information about the source file only after a stream is transcoded.
@@ -5037,125 +2732,6 @@ namespace Vod20170321
        * @return GetMezzanineInfoResponse
        */
       Models::GetMezzanineInfoResponse getMezzanineInfo(const Models::GetMezzanineInfoRequest &request);
-
-      /**
-       * @summary 获取OSS流量统计
-       *
-       * @param request GetOSSFlowStatisRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetOSSFlowStatisResponse
-       */
-      Models::GetOSSFlowStatisResponse getOSSFlowStatisWithOptions(const Models::GetOSSFlowStatisRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取OSS流量统计
-       *
-       * @param request GetOSSFlowStatisRequest
-       * @return GetOSSFlowStatisResponse
-       */
-      Models::GetOSSFlowStatisResponse getOSSFlowStatis(const Models::GetOSSFlowStatisRequest &request);
-
-      /**
-       * @summary 获取OSS统计
-       *
-       * @param request GetOSSStatisRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetOSSStatisResponse
-       */
-      Models::GetOSSStatisResponse getOSSStatisWithOptions(const Models::GetOSSStatisRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取OSS统计
-       *
-       * @param request GetOSSStatisRequest
-       * @return GetOSSStatisResponse
-       */
-      Models::GetOSSStatisResponse getOSSStatis(const Models::GetOSSStatisRequest &request);
-
-      /**
-       * @summary 分页获取应用信息列表
-       *
-       * @param request GetPageByCondAppInfoRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetPageByCondAppInfoResponse
-       */
-      Models::GetPageByCondAppInfoResponse getPageByCondAppInfoWithOptions(const Models::GetPageByCondAppInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 分页获取应用信息列表
-       *
-       * @param request GetPageByCondAppInfoRequest
-       * @return GetPageByCondAppInfoResponse
-       */
-      Models::GetPageByCondAppInfoResponse getPageByCondAppInfo(const Models::GetPageByCondAppInfoRequest &request);
-
-      /**
-       * @summary 分页获取实例信息列表
-       *
-       * @param request GetPageByCondLicenseInstanceRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetPageByCondLicenseInstanceResponse
-       */
-      Models::GetPageByCondLicenseInstanceResponse getPageByCondLicenseInstanceWithOptions(const Models::GetPageByCondLicenseInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 分页获取实例信息列表
-       *
-       * @param request GetPageByCondLicenseInstanceRequest
-       * @return GetPageByCondLicenseInstanceResponse
-       */
-      Models::GetPageByCondLicenseInstanceResponse getPageByCondLicenseInstance(const Models::GetPageByCondLicenseInstanceRequest &request);
-
-      /**
-       * @summary 获取自有存储列表
-       *
-       * @param request GetPersonalStorageListRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetPersonalStorageListResponse
-       */
-      Models::GetPersonalStorageListResponse getPersonalStorageListWithOptions(const Models::GetPersonalStorageListRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取自有存储列表
-       *
-       * @param request GetPersonalStorageListRequest
-       * @return GetPersonalStorageListResponse
-       */
-      Models::GetPersonalStorageListResponse getPersonalStorageList(const Models::GetPersonalStorageListRequest &request);
-
-      /**
-       * @summary 查询套餐规格
-       *
-       * @param request GetPlanSpecificationForLicenseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetPlanSpecificationForLicenseResponse
-       */
-      Models::GetPlanSpecificationForLicenseResponse getPlanSpecificationForLicenseWithOptions(const Models::GetPlanSpecificationForLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 查询套餐规格
-       *
-       * @param request GetPlanSpecificationForLicenseRequest
-       * @return GetPlanSpecificationForLicenseResponse
-       */
-      Models::GetPlanSpecificationForLicenseResponse getPlanSpecificationForLicense(const Models::GetPlanSpecificationForLicenseRequest &request);
-
-      /**
-       * @summary 获取播放配置信息
-       *
-       * @param request GetPlayConfigRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetPlayConfigResponse
-       */
-      Models::GetPlayConfigResponse getPlayConfigWithOptions(const Models::GetPlayConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取播放配置信息
-       *
-       * @param request GetPlayConfigRequest
-       * @return GetPlayConfigResponse
-       */
-      Models::GetPlayConfigResponse getPlayConfig(const Models::GetPlayConfigRequest &request);
 
       /**
        * @summary Obtains the playback URL by the audio or video ID. Then, you can use ApsaraVideo Player or a third-party player, such as a system player, open source player, orself-developed player, to play the audio or video.
@@ -5181,176 +2757,6 @@ namespace Vod20170321
        * @return GetPlayInfoResponse
        */
       Models::GetPlayInfoResponse getPlayInfo(const Models::GetPlayInfoRequest &request);
-
-      /**
-       * @summary 获取播放配置
-       *
-       * @param request GetPlayerConfigRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetPlayerConfigResponse
-       */
-      Models::GetPlayerConfigResponse getPlayerConfigWithOptions(const Models::GetPlayerConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取播放配置
-       *
-       * @param request GetPlayerConfigRequest
-       * @return GetPlayerConfigResponse
-       */
-      Models::GetPlayerConfigResponse getPlayerConfig(const Models::GetPlayerConfigRequest &request);
-
-      /**
-       * @summary 获取SDK接入
-       *
-       * @param request GetSdkIntegrationRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetSdkIntegrationResponse
-       */
-      Models::GetSdkIntegrationResponse getSdkIntegrationWithOptions(const Models::GetSdkIntegrationRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取SDK接入
-       *
-       * @param request GetSdkIntegrationRequest
-       * @return GetSdkIntegrationResponse
-       */
-      Models::GetSdkIntegrationResponse getSdkIntegration(const Models::GetSdkIntegrationRequest &request);
-
-      /**
-       * @summary 获取sdk列表
-       *
-       * @param request GetSdkListRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetSdkListResponse
-       */
-      Models::GetSdkListResponse getSdkListWithOptions(const Models::GetSdkListRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取sdk列表
-       *
-       * @param request GetSdkListRequest
-       * @return GetSdkListResponse
-       */
-      Models::GetSdkListResponse getSdkList(const Models::GetSdkListRequest &request);
-
-      /**
-       * @summary 获取商品完整的规格对象
-       *
-       * @param request GetSpecificationsForLicenseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetSpecificationsForLicenseResponse
-       */
-      Models::GetSpecificationsForLicenseResponse getSpecificationsForLicenseWithOptions(const Models::GetSpecificationsForLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取商品完整的规格对象
-       *
-       * @param request GetSpecificationsForLicenseRequest
-       * @return GetSpecificationsForLicenseResponse
-       */
-      Models::GetSpecificationsForLicenseResponse getSpecificationsForLicense(const Models::GetSpecificationsForLicenseRequest &request);
-
-      /**
-       * @summary 获取客户的存储信息
-       *
-       * @param request GetStorageInfoRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetStorageInfoResponse
-       */
-      Models::GetStorageInfoResponse getStorageInfoWithOptions(const Models::GetStorageInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取客户的存储信息
-       *
-       * @param request GetStorageInfoRequest
-       * @return GetStorageInfoResponse
-       */
-      Models::GetStorageInfoResponse getStorageInfo(const Models::GetStorageInfoRequest &request);
-
-      /**
-       * @summary 获取存储列表
-       *
-       * @param request GetStorageListRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetStorageListResponse
-       */
-      Models::GetStorageListResponse getStorageListWithOptions(const Models::GetStorageListRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取存储列表
-       *
-       * @param request GetStorageListRequest
-       * @return GetStorageListResponse
-       */
-      Models::GetStorageListResponse getStorageList(const Models::GetStorageListRequest &request);
-
-      /**
-       * @summary 获取存储通知配置
-       *
-       * @param request GetStorageNotifyConfigRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetStorageNotifyConfigResponse
-       */
-      Models::GetStorageNotifyConfigResponse getStorageNotifyConfigWithOptions(const Models::GetStorageNotifyConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取存储通知配置
-       *
-       * @param request GetStorageNotifyConfigRequest
-       * @return GetStorageNotifyConfigResponse
-       */
-      Models::GetStorageNotifyConfigResponse getStorageNotifyConfig(const Models::GetStorageNotifyConfigRequest &request);
-
-      /**
-       * @summary 获取存储区域列表
-       *
-       * @param request GetStorageRegionListRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetStorageRegionListResponse
-       */
-      Models::GetStorageRegionListResponse getStorageRegionListWithOptions(const Models::GetStorageRegionListRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取存储区域列表
-       *
-       * @param request GetStorageRegionListRequest
-       * @return GetStorageRegionListResponse
-       */
-      Models::GetStorageRegionListResponse getStorageRegionList(const Models::GetStorageRegionListRequest &request);
-
-      /**
-       * @summary 获取模版组
-       *
-       * @param request GetTemplateGroupConsoleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetTemplateGroupConsoleResponse
-       */
-      Models::GetTemplateGroupConsoleResponse getTemplateGroupConsoleWithOptions(const Models::GetTemplateGroupConsoleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取模版组
-       *
-       * @param request GetTemplateGroupConsoleRequest
-       * @return GetTemplateGroupConsoleResponse
-       */
-      Models::GetTemplateGroupConsoleResponse getTemplateGroupConsole(const Models::GetTemplateGroupConsoleRequest &request);
-
-      /**
-       * @summary 获取全部统计数据
-       *
-       * @param request GetTotalStatisRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetTotalStatisResponse
-       */
-      Models::GetTotalStatisResponse getTotalStatisWithOptions(const Models::GetTotalStatisRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取全部统计数据
-       *
-       * @param request GetTotalStatisRequest
-       * @return GetTotalStatisResponse
-       */
-      Models::GetTotalStatisResponse getTotalStatis(const Models::GetTotalStatisRequest &request);
 
       /**
        * @summary Queries transcoding summaries of audio and video files based on the file ID. A transcoding summary includes the status and progress of transcoding.
@@ -5445,22 +2851,6 @@ namespace Vod20170321
       Models::GetURLUploadInfosResponse getURLUploadInfos(const Models::GetURLUploadInfosRequest &request);
 
       /**
-       * @summary 查询未核销license订单信息
-       *
-       * @param request GetUnactivatedLicenseOrderRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetUnactivatedLicenseOrderResponse
-       */
-      Models::GetUnactivatedLicenseOrderResponse getUnactivatedLicenseOrderWithOptions(const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 查询未核销license订单信息
-       *
-       * @return GetUnactivatedLicenseOrderResponse
-       */
-      Models::GetUnactivatedLicenseOrderResponse getUnactivatedLicenseOrder();
-
-      /**
        * @summary Queries the upload details, such as the upload time, upload ratio, and upload source, about one or more media files based on the media IDs.
        *
        * @description *   You can call this operation to obtain the upload details only about audio and video files.
@@ -5496,57 +2886,6 @@ namespace Vod20170321
        * @return GetUploadDetailsResponse
        */
       Models::GetUploadDetailsResponse getUploadDetails(const Models::GetUploadDetailsRequest &request);
-
-      /**
-       * @summary 获取上传进度
-       *
-       * @param request GetUploadProgressRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetUploadProgressResponse
-       */
-      Models::GetUploadProgressResponse getUploadProgressWithOptions(const Models::GetUploadProgressRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取上传进度
-       *
-       * @param request GetUploadProgressRequest
-       * @return GetUploadProgressResponse
-       */
-      Models::GetUploadProgressResponse getUploadProgress(const Models::GetUploadProgressRequest &request);
-
-      /**
-       * @summary 获取视频配置
-       *
-       * @param request GetVideoConfigRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetVideoConfigResponse
-       */
-      Models::GetVideoConfigResponse getVideoConfigWithOptions(const Models::GetVideoConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取视频配置
-       *
-       * @param request GetVideoConfigRequest
-       * @return GetVideoConfigResponse
-       */
-      Models::GetVideoConfigResponse getVideoConfig(const Models::GetVideoConfigRequest &request);
-
-      /**
-       * @summary 获取视频DNA结果
-       *
-       * @param request GetVideoDNAResultRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetVideoDNAResultResponse
-       */
-      Models::GetVideoDNAResultResponse getVideoDNAResultWithOptions(const Models::GetVideoDNAResultRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取视频DNA结果
-       *
-       * @param request GetVideoDNAResultRequest
-       * @return GetVideoDNAResultResponse
-       */
-      Models::GetVideoDNAResultResponse getVideoDNAResult(const Models::GetVideoDNAResultRequest &request);
 
       /**
        * @summary Obtains the title, description, duration, thumbnail URL, status, creation time, size, snapshots, category, and tags of a media file based on the file ID.
@@ -5637,40 +2976,6 @@ namespace Vod20170321
       Models::GetVideoPlayAuthResponse getVideoPlayAuth(const Models::GetVideoPlayAuthRequest &request);
 
       /**
-       * @summary 获取视频播放信息
-       *
-       * @param request GetVideoPlayInfoRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetVideoPlayInfoResponse
-       */
-      Models::GetVideoPlayInfoResponse getVideoPlayInfoWithOptions(const Models::GetVideoPlayInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取视频播放信息
-       *
-       * @param request GetVideoPlayInfoRequest
-       * @return GetVideoPlayInfoResponse
-       */
-      Models::GetVideoPlayInfoResponse getVideoPlayInfo(const Models::GetVideoPlayInfoRequest &request);
-
-      /**
-       * @summary 获取点播服务区域
-       *
-       * @param request GetVodServiceRegionRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetVodServiceRegionResponse
-       */
-      Models::GetVodServiceRegionResponse getVodServiceRegionWithOptions(const Models::GetVodServiceRegionRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取点播服务区域
-       *
-       * @param request GetVodServiceRegionRequest
-       * @return GetVodServiceRegionResponse
-       */
-      Models::GetVodServiceRegionResponse getVodServiceRegion(const Models::GetVodServiceRegionRequest &request);
-
-      /**
        * @summary Queries a single snapshot template.
        *
        * @param request GetVodTemplateRequest
@@ -5703,108 +3008,6 @@ namespace Vod20170321
        * @return GetWatermarkResponse
        */
       Models::GetWatermarkResponse getWatermark(const Models::GetWatermarkRequest &request);
-
-      /**
-       * @summary 获取水印
-       *
-       * @param request GetWatermarkConsoleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetWatermarkConsoleResponse
-       */
-      Models::GetWatermarkConsoleResponse getWatermarkConsoleWithOptions(const Models::GetWatermarkConsoleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取水印
-       *
-       * @param request GetWatermarkConsoleRequest
-       * @return GetWatermarkConsoleResponse
-       */
-      Models::GetWatermarkConsoleResponse getWatermarkConsole(const Models::GetWatermarkConsoleRequest &request);
-
-      /**
-       * @summary 获取水印
-       *
-       * @param request GetWatermarksConsoleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetWatermarksConsoleResponse
-       */
-      Models::GetWatermarksConsoleResponse getWatermarksConsoleWithOptions(const Models::GetWatermarksConsoleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取水印
-       *
-       * @param request GetWatermarksConsoleRequest
-       * @return GetWatermarksConsoleResponse
-       */
-      Models::GetWatermarksConsoleResponse getWatermarksConsole(const Models::GetWatermarksConsoleRequest &request);
-
-      /**
-       * @summary 获取工作流信息
-       *
-       * @param request GetWorkflowRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetWorkflowResponse
-       */
-      Models::GetWorkflowResponse getWorkflowWithOptions(const Models::GetWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取工作流信息
-       *
-       * @param request GetWorkflowRequest
-       * @return GetWorkflowResponse
-       */
-      Models::GetWorkflowResponse getWorkflow(const Models::GetWorkflowRequest &request);
-
-      /**
-       * @summary 测试HTTP请求
-       *
-       * @param tmpReq HttpRequestVodTestToolRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return HttpRequestVodTestToolResponse
-       */
-      Models::HttpRequestVodTestToolResponse httpRequestVodTestToolWithOptions(const Models::HttpRequestVodTestToolRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 测试HTTP请求
-       *
-       * @param request HttpRequestVodTestToolRequest
-       * @return HttpRequestVodTestToolResponse
-       */
-      Models::HttpRequestVodTestToolResponse httpRequestVodTestTool(const Models::HttpRequestVodTestToolRequest &request);
-
-      /**
-       * @summary 初始化转码配置
-       *
-       * @param request InitialTranscodeConfigRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return InitialTranscodeConfigResponse
-       */
-      Models::InitialTranscodeConfigResponse initialTranscodeConfigWithOptions(const Models::InitialTranscodeConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 初始化转码配置
-       *
-       * @param request InitialTranscodeConfigRequest
-       * @return InitialTranscodeConfigResponse
-       */
-      Models::InitialTranscodeConfigResponse initialTranscodeConfig(const Models::InitialTranscodeConfigRequest &request);
-
-      /**
-       * @summary 列举AIASR任务
-       *
-       * @param request ListAIASRJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListAIASRJobResponse
-       */
-      Models::ListAIASRJobResponse listAIASRJobWithOptions(const Models::ListAIASRJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举AIASR任务
-       *
-       * @param request ListAIASRJobRequest
-       * @return ListAIASRJobResponse
-       */
-      Models::ListAIASRJobResponse listAIASRJob(const Models::ListAIASRJobRequest &request);
 
       /**
        * @summary Queries the AI processing results about the images of a specified video.
@@ -5853,23 +3056,6 @@ namespace Vod20170321
       Models::ListAIJobResponse listAIJob(const Models::ListAIJobRequest &request);
 
       /**
-       * @summary 列举AI统计类型
-       *
-       * @param request ListAIStatisTypeRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListAIStatisTypeResponse
-       */
-      Models::ListAIStatisTypeResponse listAIStatisTypeWithOptions(const Models::ListAIStatisTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举AI统计类型
-       *
-       * @param request ListAIStatisTypeRequest
-       * @return ListAIStatisTypeResponse
-       */
-      Models::ListAIStatisTypeResponse listAIStatisType(const Models::ListAIStatisTypeRequest &request);
-
-      /**
        * @summary Queries AI templates.
        *
        * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
@@ -5891,142 +3077,6 @@ namespace Vod20170321
        * @return ListAITemplateResponse
        */
       Models::ListAITemplateResponse listAITemplate(const Models::ListAITemplateRequest &request);
-
-      /**
-       * @summary 列举AI智能分类任务
-       *
-       * @param request ListAIVideoCategoryJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListAIVideoCategoryJobResponse
-       */
-      Models::ListAIVideoCategoryJobResponse listAIVideoCategoryJobWithOptions(const Models::ListAIVideoCategoryJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举AI智能分类任务
-       *
-       * @param request ListAIVideoCategoryJobRequest
-       * @return ListAIVideoCategoryJobResponse
-       */
-      Models::ListAIVideoCategoryJobResponse listAIVideoCategoryJob(const Models::ListAIVideoCategoryJobRequest &request);
-
-      /**
-       * @summary 列举视频审核任务
-       *
-       * @param request ListAIVideoCensorJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListAIVideoCensorJobResponse
-       */
-      Models::ListAIVideoCensorJobResponse listAIVideoCensorJobWithOptions(const Models::ListAIVideoCensorJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举视频审核任务
-       *
-       * @param request ListAIVideoCensorJobRequest
-       * @return ListAIVideoCensorJobResponse
-       */
-      Models::ListAIVideoCensorJobResponse listAIVideoCensorJob(const Models::ListAIVideoCensorJobRequest &request);
-
-      /**
-       * @summary 列举AI封面任务
-       *
-       * @param request ListAIVideoCoverJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListAIVideoCoverJobResponse
-       */
-      Models::ListAIVideoCoverJobResponse listAIVideoCoverJobWithOptions(const Models::ListAIVideoCoverJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举AI封面任务
-       *
-       * @param request ListAIVideoCoverJobRequest
-       * @return ListAIVideoCoverJobResponse
-       */
-      Models::ListAIVideoCoverJobResponse listAIVideoCoverJob(const Models::ListAIVideoCoverJobRequest &request);
-
-      /**
-       * @summary 列举AI人脸识别任务
-       *
-       * @param request ListAIVideoFaceRecogJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListAIVideoFaceRecogJobResponse
-       */
-      Models::ListAIVideoFaceRecogJobResponse listAIVideoFaceRecogJobWithOptions(const Models::ListAIVideoFaceRecogJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举AI人脸识别任务
-       *
-       * @param request ListAIVideoFaceRecogJobRequest
-       * @return ListAIVideoFaceRecogJobResponse
-       */
-      Models::ListAIVideoFaceRecogJobResponse listAIVideoFaceRecogJob(const Models::ListAIVideoFaceRecogJobRequest &request);
-
-      /**
-       * @summary 列举AI审核任务
-       *
-       * @param request ListAIVideoPornRecogJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListAIVideoPornRecogJobResponse
-       */
-      Models::ListAIVideoPornRecogJobResponse listAIVideoPornRecogJobWithOptions(const Models::ListAIVideoPornRecogJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举AI审核任务
-       *
-       * @param request ListAIVideoPornRecogJobRequest
-       * @return ListAIVideoPornRecogJobResponse
-       */
-      Models::ListAIVideoPornRecogJobResponse listAIVideoPornRecogJob(const Models::ListAIVideoPornRecogJobRequest &request);
-
-      /**
-       * @summary 列举AI智能摘要任务
-       *
-       * @param request ListAIVideoSummaryJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListAIVideoSummaryJobResponse
-       */
-      Models::ListAIVideoSummaryJobResponse listAIVideoSummaryJobWithOptions(const Models::ListAIVideoSummaryJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举AI智能摘要任务
-       *
-       * @param request ListAIVideoSummaryJobRequest
-       * @return ListAIVideoSummaryJobResponse
-       */
-      Models::ListAIVideoSummaryJobResponse listAIVideoSummaryJob(const Models::ListAIVideoSummaryJobRequest &request);
-
-      /**
-       * @summary 列举AI智能标签任务
-       *
-       * @param request ListAIVideoTagJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListAIVideoTagJobResponse
-       */
-      Models::ListAIVideoTagJobResponse listAIVideoTagJobWithOptions(const Models::ListAIVideoTagJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举AI智能标签任务
-       *
-       * @param request ListAIVideoTagJobRequest
-       * @return ListAIVideoTagJobResponse
-       */
-      Models::ListAIVideoTagJobResponse listAIVideoTagJob(const Models::ListAIVideoTagJobRequest &request);
-
-      /**
-       * @summary 列举AI暴力审核任务
-       *
-       * @param request ListAIVideoTerrorismRecogJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListAIVideoTerrorismRecogJobResponse
-       */
-      Models::ListAIVideoTerrorismRecogJobResponse listAIVideoTerrorismRecogJobWithOptions(const Models::ListAIVideoTerrorismRecogJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举AI暴力审核任务
-       *
-       * @param request ListAIVideoTerrorismRecogJobRequest
-       * @return ListAIVideoTerrorismRecogJobResponse
-       */
-      Models::ListAIVideoTerrorismRecogJobResponse listAIVideoTerrorismRecogJob(const Models::ListAIVideoTerrorismRecogJobRequest &request);
 
       /**
        * @summary Queries the applications that you are authorized to manage based on query conditions.
@@ -6077,23 +3127,6 @@ namespace Vod20170321
       Models::ListAppPoliciesForIdentityResponse listAppPoliciesForIdentity(const Models::ListAppPoliciesForIdentityRequest &request);
 
       /**
-       * @summary 列举应用策略
-       *
-       * @param request ListAppPolicyRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListAppPolicyResponse
-       */
-      Models::ListAppPolicyResponse listAppPolicyWithOptions(const Models::ListAppPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举应用策略
-       *
-       * @param request ListAppPolicyRequest
-       * @return ListAppPolicyResponse
-       */
-      Models::ListAppPolicyResponse listAppPolicy(const Models::ListAppPolicyRequest &request);
-
-      /**
        * @summary Queries the IP addresses in a review security group.
        *
        * @param request ListAuditSecurityIpRequest
@@ -6111,57 +3144,6 @@ namespace Vod20170321
       Models::ListAuditSecurityIpResponse listAuditSecurityIp(const Models::ListAuditSecurityIpRequest &request);
 
       /**
-       * @summary 查询系统存储冗余类型转换任务
-       *
-       * @param request ListBucketRedundancyTransitionRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListBucketRedundancyTransitionResponse
-       */
-      Models::ListBucketRedundancyTransitionResponse listBucketRedundancyTransitionWithOptions(const Models::ListBucketRedundancyTransitionRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 查询系统存储冗余类型转换任务
-       *
-       * @param request ListBucketRedundancyTransitionRequest
-       * @return ListBucketRedundancyTransitionResponse
-       */
-      Models::ListBucketRedundancyTransitionResponse listBucketRedundancyTransition(const Models::ListBucketRedundancyTransitionRequest &request);
-
-      /**
-       * @summary 列举DNADB
-       *
-       * @param request ListDNADBRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListDNADBResponse
-       */
-      Models::ListDNADBResponse listDNADBWithOptions(const Models::ListDNADBRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举DNADB
-       *
-       * @param request ListDNADBRequest
-       * @return ListDNADBResponse
-       */
-      Models::ListDNADBResponse listDNADB(const Models::ListDNADBRequest &request);
-
-      /**
-       * @summary 列举DRM证书信息
-       *
-       * @param request ListDRMCertInfoRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListDRMCertInfoResponse
-       */
-      Models::ListDRMCertInfoResponse listDRMCertInfoWithOptions(const Models::ListDRMCertInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举DRM证书信息
-       *
-       * @param request ListDRMCertInfoRequest
-       * @return ListDRMCertInfoResponse
-       */
-      Models::ListDRMCertInfoResponse listDRMCertInfo(const Models::ListDRMCertInfoRequest &request);
-
-      /**
        * @summary Queries the information about animated stickers of a video based on the video ID.
        *
        * @param request ListDynamicImageRequest
@@ -6177,23 +3159,6 @@ namespace Vod20170321
        * @return ListDynamicImageResponse
        */
       Models::ListDynamicImageResponse listDynamicImage(const Models::ListDynamicImageRequest &request);
-
-      /**
-       * @summary 获取智能策略信息列表
-       *
-       * @param request ListIntelligentStrategyRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListIntelligentStrategyResponse
-       */
-      Models::ListIntelligentStrategyResponse listIntelligentStrategyWithOptions(const Models::ListIntelligentStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取智能策略信息列表
-       *
-       * @param request ListIntelligentStrategyRequest
-       * @return ListIntelligentStrategyResponse
-       */
-      Models::ListIntelligentStrategyResponse listIntelligentStrategy(const Models::ListIntelligentStrategyRequest &request);
 
       /**
        * @summary Queries historical tasks based on the media asset ID.
@@ -6225,40 +3190,6 @@ namespace Vod20170321
       Models::ListJobInfoResponse listJobInfo(const Models::ListJobInfoRequest &request);
 
       /**
-       * @summary 列举证书信息
-       *
-       * @param request ListLicenseInfosRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListLicenseInfosResponse
-       */
-      Models::ListLicenseInfosResponse listLicenseInfosWithOptions(const Models::ListLicenseInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举证书信息
-       *
-       * @param request ListLicenseInfosRequest
-       * @return ListLicenseInfosResponse
-       */
-      Models::ListLicenseInfosResponse listLicenseInfos(const Models::ListLicenseInfosRequest &request);
-
-      /**
-       * @summary 列举证书
-       *
-       * @param request ListLicensesRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListLicensesResponse
-       */
-      Models::ListLicensesResponse listLicensesWithOptions(const Models::ListLicensesRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举证书
-       *
-       * @param request ListLicensesRequest
-       * @return ListLicensesResponse
-       */
-      Models::ListLicensesResponse listLicenses(const Models::ListLicensesRequest &request);
-
-      /**
        * @summary Queries live-to-VOD videos.
        *
        * @description You can query up to 5,000 videos based on the specified filter condition.
@@ -6280,74 +3211,6 @@ namespace Vod20170321
       Models::ListLiveRecordVideoResponse listLiveRecordVideo(const Models::ListLiveRecordVideoRequest &request);
 
       /**
-       * @summary 列举媒资DNA删除任务
-       *
-       * @param request ListMediaDNADeleteJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListMediaDNADeleteJobResponse
-       */
-      Models::ListMediaDNADeleteJobResponse listMediaDNADeleteJobWithOptions(const Models::ListMediaDNADeleteJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举媒资DNA删除任务
-       *
-       * @param request ListMediaDNADeleteJobRequest
-       * @return ListMediaDNADeleteJobResponse
-       */
-      Models::ListMediaDNADeleteJobResponse listMediaDNADeleteJob(const Models::ListMediaDNADeleteJobRequest &request);
-
-      /**
-       * @summary 列举媒资DNALibs
-       *
-       * @param request ListMediaDNALibsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListMediaDNALibsResponse
-       */
-      Models::ListMediaDNALibsResponse listMediaDNALibsWithOptions(const Models::ListMediaDNALibsRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举媒资DNALibs
-       *
-       * @param request ListMediaDNALibsRequest
-       * @return ListMediaDNALibsResponse
-       */
-      Models::ListMediaDNALibsResponse listMediaDNALibs(const Models::ListMediaDNALibsRequest &request);
-
-      /**
-       * @summary 列举媒资导出任务
-       *
-       * @param request ListMediaExportJobsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListMediaExportJobsResponse
-       */
-      Models::ListMediaExportJobsResponse listMediaExportJobsWithOptions(const Models::ListMediaExportJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举媒资导出任务
-       *
-       * @param request ListMediaExportJobsRequest
-       * @return ListMediaExportJobsResponse
-       */
-      Models::ListMediaExportJobsResponse listMediaExportJobs(const Models::ListMediaExportJobsRequest &request);
-
-      /**
-       * @summary 列举媒资生命周期规则
-       *
-       * @param request ListMediaLifecycleRuleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListMediaLifecycleRuleResponse
-       */
-      Models::ListMediaLifecycleRuleResponse listMediaLifecycleRuleWithOptions(const Models::ListMediaLifecycleRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举媒资生命周期规则
-       *
-       * @param request ListMediaLifecycleRuleRequest
-       * @return ListMediaLifecycleRuleResponse
-       */
-      Models::ListMediaLifecycleRuleResponse listMediaLifecycleRule(const Models::ListMediaLifecycleRuleRequest &request);
-
-      /**
        * @summary Queries the snapshots that are captured by submitting snapshot jobs or snapshots that are generated by the system when you upload the video.
        *
        * @description If multiple snapshots exist for a video, you can call this operation to query information about the latest snapshot.
@@ -6367,74 +3230,6 @@ namespace Vod20170321
        * @return ListSnapshotsResponse
        */
       Models::ListSnapshotsResponse listSnapshots(const Models::ListSnapshotsRequest &request);
-
-      /**
-       * @summary 获取智能策略执行记录列表
-       *
-       * @param request ListStrategyExecutionRecordRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListStrategyExecutionRecordResponse
-       */
-      Models::ListStrategyExecutionRecordResponse listStrategyExecutionRecordWithOptions(const Models::ListStrategyExecutionRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 获取智能策略执行记录列表
-       *
-       * @param request ListStrategyExecutionRecordRequest
-       * @return ListStrategyExecutionRecordResponse
-       */
-      Models::ListStrategyExecutionRecordResponse listStrategyExecutionRecord(const Models::ListStrategyExecutionRecordRequest &request);
-
-      /**
-       * @summary 查询资源标签
-       *
-       * @param request ListTagResourcesRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListTagResourcesResponse
-       */
-      Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 查询资源标签
-       *
-       * @param request ListTagResourcesRequest
-       * @return ListTagResourcesResponse
-       */
-      Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
-
-      /**
-       * @summary 列举模版组
-       *
-       * @param request ListTemplateGroupRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListTemplateGroupResponse
-       */
-      Models::ListTemplateGroupResponse listTemplateGroupWithOptions(const Models::ListTemplateGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举模版组
-       *
-       * @param request ListTemplateGroupRequest
-       * @return ListTemplateGroupResponse
-       */
-      Models::ListTemplateGroupResponse listTemplateGroup(const Models::ListTemplateGroupRequest &request);
-
-      /**
-       * @summary 列举模版组
-       *
-       * @param request ListTemplateGroupConsoleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListTemplateGroupConsoleResponse
-       */
-      Models::ListTemplateGroupConsoleResponse listTemplateGroupConsoleWithOptions(const Models::ListTemplateGroupConsoleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举模版组
-       *
-       * @param request ListTemplateGroupConsoleRequest
-       * @return ListTemplateGroupConsoleResponse
-       */
-      Models::ListTemplateGroupConsoleResponse listTemplateGroupConsole(const Models::ListTemplateGroupConsoleRequest &request);
 
       /**
        * @summary Queries transcoding tasks based on the media ID. This operation does not return specific job information.
@@ -6481,91 +3276,6 @@ namespace Vod20170321
       Models::ListTranscodeTemplateGroupResponse listTranscodeTemplateGroup(const Models::ListTranscodeTemplateGroupRequest &request);
 
       /**
-       * @summary 列举ES模版
-       *
-       * @param request ListVodEsTemplateInfoRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListVodEsTemplateInfoResponse
-       */
-      Models::ListVodEsTemplateInfoResponse listVodEsTemplateInfoWithOptions(const Models::ListVodEsTemplateInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举ES模版
-       *
-       * @param request ListVodEsTemplateInfoRequest
-       * @return ListVodEsTemplateInfoResponse
-       */
-      Models::ListVodEsTemplateInfoResponse listVodEsTemplateInfo(const Models::ListVodEsTemplateInfoRequest &request);
-
-      /**
-       * @summary 列举实时日志
-       *
-       * @param request ListVodRealtimeLogDeliveryRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListVodRealtimeLogDeliveryResponse
-       */
-      Models::ListVodRealtimeLogDeliveryResponse listVodRealtimeLogDeliveryWithOptions(const Models::ListVodRealtimeLogDeliveryRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举实时日志
-       *
-       * @param request ListVodRealtimeLogDeliveryRequest
-       * @return ListVodRealtimeLogDeliveryResponse
-       */
-      Models::ListVodRealtimeLogDeliveryResponse listVodRealtimeLogDelivery(const Models::ListVodRealtimeLogDeliveryRequest &request);
-
-      /**
-       * @summary 列举实时日志域名
-       *
-       * @param request ListVodRealtimeLogDeliveryDomainsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListVodRealtimeLogDeliveryDomainsResponse
-       */
-      Models::ListVodRealtimeLogDeliveryDomainsResponse listVodRealtimeLogDeliveryDomainsWithOptions(const Models::ListVodRealtimeLogDeliveryDomainsRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举实时日志域名
-       *
-       * @param request ListVodRealtimeLogDeliveryDomainsRequest
-       * @return ListVodRealtimeLogDeliveryDomainsResponse
-       */
-      Models::ListVodRealtimeLogDeliveryDomainsResponse listVodRealtimeLogDeliveryDomains(const Models::ListVodRealtimeLogDeliveryDomainsRequest &request);
-
-      /**
-       * @summary 列举实时日志转存信息
-       *
-       * @param request ListVodRealtimeLogDeliveryInfosRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListVodRealtimeLogDeliveryInfosResponse
-       */
-      Models::ListVodRealtimeLogDeliveryInfosResponse listVodRealtimeLogDeliveryInfosWithOptions(const Models::ListVodRealtimeLogDeliveryInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举实时日志转存信息
-       *
-       * @param request ListVodRealtimeLogDeliveryInfosRequest
-       * @return ListVodRealtimeLogDeliveryInfosResponse
-       */
-      Models::ListVodRealtimeLogDeliveryInfosResponse listVodRealtimeLogDeliveryInfos(const Models::ListVodRealtimeLogDeliveryInfosRequest &request);
-
-      /**
-       * @summary 列举VOD域名标签
-       *
-       * @param request ListVodTagResourcesRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListVodTagResourcesResponse
-       */
-      Models::ListVodTagResourcesResponse listVodTagResourcesWithOptions(const Models::ListVodTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举VOD域名标签
-       *
-       * @param request ListVodTagResourcesRequest
-       * @return ListVodTagResourcesResponse
-       */
-      Models::ListVodTagResourcesResponse listVodTagResources(const Models::ListVodTagResourcesRequest &request);
-
-      /**
        * @summary Queries snapshot templates.
        *
        * @param request ListVodTemplateRequest
@@ -6600,74 +3310,6 @@ namespace Vod20170321
       Models::ListWatermarkResponse listWatermark(const Models::ListWatermarkRequest &request);
 
       /**
-       * @summary 列举工作流
-       *
-       * @param request ListWorkflowRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListWorkflowResponse
-       */
-      Models::ListWorkflowResponse listWorkflowWithOptions(const Models::ListWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 列举工作流
-       *
-       * @param request ListWorkflowRequest
-       * @return ListWorkflowResponse
-       */
-      Models::ListWorkflowResponse listWorkflow(const Models::ListWorkflowRequest &request);
-
-      /**
-       * @summary 修改license
-       *
-       * @param request ModifyLicenseInfoRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ModifyLicenseInfoResponse
-       */
-      Models::ModifyLicenseInfoResponse modifyLicenseInfoWithOptions(const Models::ModifyLicenseInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 修改license
-       *
-       * @param request ModifyLicenseInfoRequest
-       * @return ModifyLicenseInfoResponse
-       */
-      Models::ModifyLicenseInfoResponse modifyLicenseInfo(const Models::ModifyLicenseInfoRequest &request);
-
-      /**
-       * @summary 修改域名配置
-       *
-       * @param request ModifyVodDomainSchdmByPropertyRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ModifyVodDomainSchdmByPropertyResponse
-       */
-      Models::ModifyVodDomainSchdmByPropertyResponse modifyVodDomainSchdmByPropertyWithOptions(const Models::ModifyVodDomainSchdmByPropertyRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 修改域名配置
-       *
-       * @param request ModifyVodDomainSchdmByPropertyRequest
-       * @return ModifyVodDomainSchdmByPropertyResponse
-       */
-      Models::ModifyVodDomainSchdmByPropertyResponse modifyVodDomainSchdmByProperty(const Models::ModifyVodDomainSchdmByPropertyRequest &request);
-
-      /**
-       * @summary 修改Vod服务配置
-       *
-       * @param request ModifyVodServiceRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ModifyVodServiceResponse
-       */
-      Models::ModifyVodServiceResponse modifyVodServiceWithOptions(const Models::ModifyVodServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 修改Vod服务配置
-       *
-       * @param request ModifyVodServiceRequest
-       * @return ModifyVodServiceResponse
-       */
-      Models::ModifyVodServiceResponse modifyVodService(const Models::ModifyVodServiceRequest &request);
-
-      /**
        * @summary Migrates resources between applications. The application administrator can directly migrate resources between applications. Resource Access Management (RAM) users or RAM roles must obtain the write permissions on the source and destination applications before they migrate resources between applications. Multiple resources can be migrated at a time.
        *
        * @param request MoveAppResourceRequest
@@ -6683,40 +3325,6 @@ namespace Vod20170321
        * @return MoveAppResourceResponse
        */
       Models::MoveAppResourceResponse moveAppResource(const Models::MoveAppResourceRequest &request);
-
-      /**
-       * @summary 开通Vod服务
-       *
-       * @param request OpenVodServiceRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return OpenVodServiceResponse
-       */
-      Models::OpenVodServiceResponse openVodServiceWithOptions(const Models::OpenVodServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 开通Vod服务
-       *
-       * @param request OpenVodServiceRequest
-       * @return OpenVodServiceResponse
-       */
-      Models::OpenVodServiceResponse openVodService(const Models::OpenVodServiceRequest &request);
-
-      /**
-       * @summary 预加载播放设备能力数据到缓存
-       *
-       * @param request PreloadPlayDeviceAbilityRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return PreloadPlayDeviceAbilityResponse
-       */
-      Models::PreloadPlayDeviceAbilityResponse preloadPlayDeviceAbilityWithOptions(const Models::PreloadPlayDeviceAbilityRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 预加载播放设备能力数据到缓存
-       *
-       * @param request PreloadPlayDeviceAbilityRequest
-       * @return PreloadPlayDeviceAbilityResponse
-       */
-      Models::PreloadPlayDeviceAbilityResponse preloadPlayDeviceAbility(const Models::PreloadPlayDeviceAbilityRequest &request);
 
       /**
        * @summary Prefetches resources from an origin server to L2 nodes. Users can directly hit the cache upon their first visits. This way, workloads on the origin server can be reduced.
@@ -6797,57 +3405,6 @@ namespace Vod20170321
       Models::ProduceEditingProjectVideoResponse produceEditingProjectVideo(const Models::ProduceEditingProjectVideoRequest &request);
 
       /**
-       * @summary 发布灰度配置到生产
-       *
-       * @param request PublishVodStagingConfigToProductionRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return PublishVodStagingConfigToProductionResponse
-       */
-      Models::PublishVodStagingConfigToProductionResponse publishVodStagingConfigToProductionWithOptions(const Models::PublishVodStagingConfigToProductionRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 发布灰度配置到生产
-       *
-       * @param request PublishVodStagingConfigToProductionRequest
-       * @return PublishVodStagingConfigToProductionResponse
-       */
-      Models::PublishVodStagingConfigToProductionResponse publishVodStagingConfigToProduction(const Models::PublishVodStagingConfigToProductionRequest &request);
-
-      /**
-       * @summary 推送缓存
-       *
-       * @param request PushObjectCacheRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return PushObjectCacheResponse
-       */
-      Models::PushObjectCacheResponse pushObjectCacheWithOptions(const Models::PushObjectCacheRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 推送缓存
-       *
-       * @param request PushObjectCacheRequest
-       * @return PushObjectCacheResponse
-       */
-      Models::PushObjectCacheResponse pushObjectCache(const Models::PushObjectCacheRequest &request);
-
-      /**
-       * @summary 下单询价流量询价
-       *
-       * @param request QueryCssOrderForLicenseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return QueryCssOrderForLicenseResponse
-       */
-      Models::QueryCssOrderForLicenseResponse queryCssOrderForLicenseWithOptions(const Models::QueryCssOrderForLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 下单询价流量询价
-       *
-       * @param request QueryCssOrderForLicenseRequest
-       * @return QueryCssOrderForLicenseResponse
-       */
-      Models::QueryCssOrderForLicenseResponse queryCssOrderForLicense(const Models::QueryCssOrderForLicenseRequest &request);
-
-      /**
        * @summary Submits media refresh or prefetch tasks based on the media IDs.
        *
        * @description *   ApsaraVideo VOD allows you to purge and prefetch resources. The purge feature forces the point of presence (POP) to clear cached resources and retrieve the latest resources from origin servers. The prefetch feature allows the POP to retrieve frequently accessed resources from origin servers during off-peak hours. This increases the cache hit ratio.
@@ -6871,23 +3428,6 @@ namespace Vod20170321
        * @return RefreshMediaPlayUrlsResponse
        */
       Models::RefreshMediaPlayUrlsResponse refreshMediaPlayUrls(const Models::RefreshMediaPlayUrlsRequest &request);
-
-      /**
-       * @summary 刷新缓存
-       *
-       * @param request RefreshObjectCachesRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return RefreshObjectCachesResponse
-       */
-      Models::RefreshObjectCachesResponse refreshObjectCachesWithOptions(const Models::RefreshObjectCachesRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 刷新缓存
-       *
-       * @param request RefreshObjectCachesRequest
-       * @return RefreshObjectCachesResponse
-       */
-      Models::RefreshObjectCachesResponse refreshObjectCaches(const Models::RefreshObjectCachesRequest &request);
 
       /**
        * @summary Obtains a new upload credential after a file failed to be uploaded.
@@ -6936,23 +3476,6 @@ namespace Vod20170321
       Models::RefreshVodObjectCachesResponse refreshVodObjectCaches(const Models::RefreshVodObjectCachesRequest &request);
 
       /**
-       * @summary 注册DRM证书
-       *
-       * @param request RegistDRMCertInfoRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return RegistDRMCertInfoResponse
-       */
-      Models::RegistDRMCertInfoResponse registDRMCertInfoWithOptions(const Models::RegistDRMCertInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 注册DRM证书
-       *
-       * @param request RegistDRMCertInfoRequest
-       * @return RegistDRMCertInfoResponse
-       */
-      Models::RegistDRMCertInfoResponse registDRMCertInfo(const Models::RegistDRMCertInfoRequest &request);
-
-      /**
        * @summary Registers media files. After you add an Object Storage Service (OSS) bucket to ApsaraVideo VOD, you must register the media files in the bucket to generate the required information before you use features such as transcoding and snapshot capture on the media files.
        *
        * @description *   After you add an OSS bucket to ApsaraVideo VOD, you must register media files in the OSS bucket to generate the required information. Then, you can use media IDs for features such as transcoding, snapshot capture, and AI processing.use features such as xxx on media files by specifying their IDs?
@@ -6982,57 +3505,6 @@ namespace Vod20170321
       Models::RegisterMediaResponse registerMedia(const Models::RegisterMediaRequest &request);
 
       /**
-       * @summary 更新AppLicense
-       *
-       * @param request RenewAppLicenseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return RenewAppLicenseResponse
-       */
-      Models::RenewAppLicenseResponse renewAppLicenseWithOptions(const Models::RenewAppLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 更新AppLicense
-       *
-       * @param request RenewAppLicenseRequest
-       * @return RenewAppLicenseResponse
-       */
-      Models::RenewAppLicenseResponse renewAppLicense(const Models::RenewAppLicenseRequest &request);
-
-      /**
-       * @summary 续费免费license
-       *
-       * @param request RenewFreeLicenseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return RenewFreeLicenseResponse
-       */
-      Models::RenewFreeLicenseResponse renewFreeLicenseWithOptions(const Models::RenewFreeLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 续费免费license
-       *
-       * @param request RenewFreeLicenseRequest
-       * @return RenewFreeLicenseResponse
-       */
-      Models::RenewFreeLicenseResponse renewFreeLicense(const Models::RenewFreeLicenseRequest &request);
-
-      /**
-       * @summary 报告上传进度
-       *
-       * @param request ReportUploadProgressRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ReportUploadProgressResponse
-       */
-      Models::ReportUploadProgressResponse reportUploadProgressWithOptions(const Models::ReportUploadProgressRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 报告上传进度
-       *
-       * @param request ReportUploadProgressRequest
-       * @return ReportUploadProgressResponse
-       */
-      Models::ReportUploadProgressResponse reportUploadProgress(const Models::ReportUploadProgressRequest &request);
-
-      /**
        * @summary Restores media assets.
        *
        * @description You can call this operation to restore only Archive and Cold Archive audio and video files. You can access the audio and video files after the files are restored. You cannot change the storage class of an audio or video file that is being restored. You are charged for the retrieval traffic generated during restoration. After a Cold Archive audio or video file is restored, a Standard replica of the file is generated for access. You are charged for the storage of the replica before the file returns to the frozen state.
@@ -7052,23 +3524,6 @@ namespace Vod20170321
        * @return RestoreMediaResponse
        */
       Models::RestoreMediaResponse restoreMedia(const Models::RestoreMediaRequest &request);
-
-      /**
-       * @summary 回滚灰度配置
-       *
-       * @param request RollbackVodStagingConfigRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return RollbackVodStagingConfigResponse
-       */
-      Models::RollbackVodStagingConfigResponse rollbackVodStagingConfigWithOptions(const Models::RollbackVodStagingConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 回滚灰度配置
-       *
-       * @param request RollbackVodStagingConfigRequest
-       * @return RollbackVodStagingConfigResponse
-       */
-      Models::RollbackVodStagingConfigResponse rollbackVodStagingConfig(const Models::RollbackVodStagingConfigRequest &request);
 
       /**
        * @summary Queries online editing projects.
@@ -7123,23 +3578,6 @@ namespace Vod20170321
       Models::SearchMediaResponse searchMedia(const Models::SearchMediaRequest &request);
 
       /**
-       * @summary 设置AI服务
-       *
-       * @param request SetAIServiceRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SetAIServiceResponse
-       */
-      Models::SetAIServiceResponse setAIServiceWithOptions(const Models::SetAIServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 设置AI服务
-       *
-       * @param request SetAIServiceRequest
-       * @return SetAIServiceResponse
-       */
-      Models::SetAIServiceResponse setAIService(const Models::SetAIServiceRequest &request);
-
-      /**
        * @summary Manages the IP addresses in review security groups.
        *
        * @description You can play videos in the Checking or Blocked state only from the IP addresses that are added to review security groups.
@@ -7159,23 +3597,6 @@ namespace Vod20170321
        * @return SetAuditSecurityIpResponse
        */
       Models::SetAuditSecurityIpResponse setAuditSecurityIp(const Models::SetAuditSecurityIpRequest &request);
-
-      /**
-       * @summary 设置检查通道
-       *
-       * @param request SetCheckChannelRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SetCheckChannelResponse
-       */
-      Models::SetCheckChannelResponse setCheckChannelWithOptions(const Models::SetCheckChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 设置检查通道
-       *
-       * @param request SetCheckChannelRequest
-       * @return SetCheckChannelResponse
-       */
-      Models::SetCheckChannelResponse setCheckChannel(const Models::SetCheckChannelRequest &request);
 
       /**
        * @summary Updates the cross-domain policy file crossdomain.xml.
@@ -7199,23 +3620,6 @@ namespace Vod20170321
       Models::SetCrossdomainContentResponse setCrossdomainContent(const Models::SetCrossdomainContentRequest &request);
 
       /**
-       * @summary 设置用户配置
-       *
-       * @param request SetCustomerConfigRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SetCustomerConfigResponse
-       */
-      Models::SetCustomerConfigResponse setCustomerConfigWithOptions(const Models::SetCustomerConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 设置用户配置
-       *
-       * @param request SetCustomerConfigRequest
-       * @return SetCustomerConfigResponse
-       */
-      Models::SetCustomerConfigResponse setCustomerConfig(const Models::SetCustomerConfigRequest &request);
-
-      /**
        * @summary Specifies an AI template as the default template.
        *
        * @description Specifies an AI template as the default template.
@@ -7237,40 +3641,6 @@ namespace Vod20170321
       Models::SetDefaultAITemplateResponse setDefaultAITemplate(const Models::SetDefaultAITemplateRequest &request);
 
       /**
-       * @summary 设置默认播放域名
-       *
-       * @param request SetDefaultPlayDomainRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SetDefaultPlayDomainResponse
-       */
-      Models::SetDefaultPlayDomainResponse setDefaultPlayDomainWithOptions(const Models::SetDefaultPlayDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 设置默认播放域名
-       *
-       * @param request SetDefaultPlayDomainRequest
-       * @return SetDefaultPlayDomainResponse
-       */
-      Models::SetDefaultPlayDomainResponse setDefaultPlayDomain(const Models::SetDefaultPlayDomainRequest &request);
-
-      /**
-       * @summary 设置默认转码模版组
-       *
-       * @param request SetDefaultTemplateGroupConsoleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SetDefaultTemplateGroupConsoleResponse
-       */
-      Models::SetDefaultTemplateGroupConsoleResponse setDefaultTemplateGroupConsoleWithOptions(const Models::SetDefaultTemplateGroupConsoleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 设置默认转码模版组
-       *
-       * @param request SetDefaultTemplateGroupConsoleRequest
-       * @return SetDefaultTemplateGroupConsoleResponse
-       */
-      Models::SetDefaultTemplateGroupConsoleResponse setDefaultTemplateGroupConsole(const Models::SetDefaultTemplateGroupConsoleRequest &request);
-
-      /**
        * @summary Specifies a transcoding template group as the default one.
        *
        * @param request SetDefaultTranscodeTemplateGroupRequest
@@ -7286,40 +3656,6 @@ namespace Vod20170321
        * @return SetDefaultTranscodeTemplateGroupResponse
        */
       Models::SetDefaultTranscodeTemplateGroupResponse setDefaultTranscodeTemplateGroup(const Models::SetDefaultTranscodeTemplateGroupRequest &request);
-
-      /**
-       * @summary 设置默认存储
-       *
-       * @param request SetDefaultUploadStorageRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SetDefaultUploadStorageResponse
-       */
-      Models::SetDefaultUploadStorageResponse setDefaultUploadStorageWithOptions(const Models::SetDefaultUploadStorageRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 设置默认存储
-       *
-       * @param request SetDefaultUploadStorageRequest
-       * @return SetDefaultUploadStorageResponse
-       */
-      Models::SetDefaultUploadStorageResponse setDefaultUploadStorage(const Models::SetDefaultUploadStorageRequest &request);
-
-      /**
-       * @summary 设置默认模版
-       *
-       * @param request SetDefaultVodTemplateRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SetDefaultVodTemplateResponse
-       */
-      Models::SetDefaultVodTemplateResponse setDefaultVodTemplateWithOptions(const Models::SetDefaultVodTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 设置默认模版
-       *
-       * @param request SetDefaultVodTemplateRequest
-       * @return SetDefaultVodTemplateResponse
-       */
-      Models::SetDefaultVodTemplateResponse setDefaultVodTemplate(const Models::SetDefaultVodTemplateRequest &request);
 
       /**
        * @summary Sets a watermark template as the default one.
@@ -7339,23 +3675,6 @@ namespace Vod20170321
       Models::SetDefaultWatermarkResponse setDefaultWatermark(const Models::SetDefaultWatermarkRequest &request);
 
       /**
-       * @summary 设置默认水印
-       *
-       * @param request SetDefaultWatermarkConsoleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SetDefaultWatermarkConsoleResponse
-       */
-      Models::SetDefaultWatermarkConsoleResponse setDefaultWatermarkConsoleWithOptions(const Models::SetDefaultWatermarkConsoleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 设置默认水印
-       *
-       * @param request SetDefaultWatermarkConsoleRequest
-       * @return SetDefaultWatermarkConsoleResponse
-       */
-      Models::SetDefaultWatermarkConsoleResponse setDefaultWatermarkConsole(const Models::SetDefaultWatermarkConsoleRequest &request);
-
-      /**
        * @summary Specifies the media assets that you want to edit in an online editing project.
        *
        * @param request SetEditingProjectMaterialsRequest
@@ -7371,23 +3690,6 @@ namespace Vod20170321
        * @return SetEditingProjectMaterialsResponse
        */
       Models::SetEditingProjectMaterialsResponse setEditingProjectMaterials(const Models::SetEditingProjectMaterialsRequest &request);
-
-      /**
-       * @summary 设置L2OssKey配置
-       *
-       * @param request SetL2OssKeyConfigRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SetL2OssKeyConfigResponse
-       */
-      Models::SetL2OssKeyConfigResponse setL2OssKeyConfigWithOptions(const Models::SetL2OssKeyConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 设置L2OssKey配置
-       *
-       * @param request SetL2OssKeyConfigRequest
-       * @return SetL2OssKeyConfigResponse
-       */
-      Models::SetL2OssKeyConfigResponse setL2OssKeyConfig(const Models::SetL2OssKeyConfigRequest &request);
 
       /**
        * @summary Sets the callback method, callback URL, and event type of an event notification.
@@ -7409,40 +3711,6 @@ namespace Vod20170321
        * @return SetMessageCallbackResponse
        */
       Models::SetMessageCallbackResponse setMessageCallback(const Models::SetMessageCallbackRequest &request);
-
-      /**
-       * @summary 设置云监控配置
-       *
-       * @param request SetMessageCloudMonitorConfigRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SetMessageCloudMonitorConfigResponse
-       */
-      Models::SetMessageCloudMonitorConfigResponse setMessageCloudMonitorConfigWithOptions(const Models::SetMessageCloudMonitorConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 设置云监控配置
-       *
-       * @param request SetMessageCloudMonitorConfigRequest
-       * @return SetMessageCloudMonitorConfigResponse
-       */
-      Models::SetMessageCloudMonitorConfigResponse setMessageCloudMonitorConfig(const Models::SetMessageCloudMonitorConfigRequest &request);
-
-      /**
-       * @summary 设置存储ACL
-       *
-       * @param request SetStorageACLRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SetStorageACLResponse
-       */
-      Models::SetStorageACLResponse setStorageACLWithOptions(const Models::SetStorageACLRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 设置存储ACL
-       *
-       * @param request SetStorageACLRequest
-       * @return SetStorageACLResponse
-       */
-      Models::SetStorageACLResponse setStorageACL(const Models::SetStorageACLRequest &request);
 
       /**
        * @summary Enables or disables the certificate of a domain name and modifies the certificate information.
@@ -7481,91 +3749,6 @@ namespace Vod20170321
        * @return SetVodDomainSSLCertificateResponse
        */
       Models::SetVodDomainSSLCertificateResponse setVodDomainSSLCertificate(const Models::SetVodDomainSSLCertificateRequest &request);
-
-      /**
-       * @summary 设置VOD域名灰度配置
-       *
-       * @param request SetVodDomainStagingConfigRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SetVodDomainStagingConfigResponse
-       */
-      Models::SetVodDomainStagingConfigResponse setVodDomainStagingConfigWithOptions(const Models::SetVodDomainStagingConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 设置VOD域名灰度配置
-       *
-       * @param request SetVodDomainStagingConfigRequest
-       * @return SetVodDomainStagingConfigResponse
-       */
-      Models::SetVodDomainStagingConfigResponse setVodDomainStagingConfig(const Models::SetVodDomainStagingConfigRequest &request);
-
-      /**
-       * @summary 开启VOD域名
-       *
-       * @param request StartVodDomainRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return StartVodDomainResponse
-       */
-      Models::StartVodDomainResponse startVodDomainWithOptions(const Models::StartVodDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 开启VOD域名
-       *
-       * @param request StartVodDomainRequest
-       * @return StartVodDomainResponse
-       */
-      Models::StartVodDomainResponse startVodDomain(const Models::StartVodDomainRequest &request);
-
-      /**
-       * @summary 停止VOD域名
-       *
-       * @param request StopVodDomainRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return StopVodDomainResponse
-       */
-      Models::StopVodDomainResponse stopVodDomainWithOptions(const Models::StopVodDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 停止VOD域名
-       *
-       * @param request StopVodDomainRequest
-       * @return StopVodDomainResponse
-       */
-      Models::StopVodDomainResponse stopVodDomain(const Models::StopVodDomainRequest &request);
-
-      /**
-       * @summary 提交AIASR任务
-       *
-       * @param request SubmitAIASRJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SubmitAIASRJobResponse
-       */
-      Models::SubmitAIASRJobResponse submitAIASRJobWithOptions(const Models::SubmitAIASRJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 提交AIASR任务
-       *
-       * @param request SubmitAIASRJobRequest
-       * @return SubmitAIASRJobResponse
-       */
-      Models::SubmitAIASRJobResponse submitAIASRJob(const Models::SubmitAIASRJobRequest &request);
-
-      /**
-       * @summary 提交标题提取任务
-       *
-       * @param request SubmitAICaptionExtractionJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SubmitAICaptionExtractionJobResponse
-       */
-      Models::SubmitAICaptionExtractionJobResponse submitAICaptionExtractionJobWithOptions(const Models::SubmitAICaptionExtractionJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 提交标题提取任务
-       *
-       * @param request SubmitAICaptionExtractionJobRequest
-       * @return SubmitAICaptionExtractionJobResponse
-       */
-      Models::SubmitAICaptionExtractionJobResponse submitAICaptionExtractionJob(const Models::SubmitAICaptionExtractionJobRequest &request);
 
       /**
        * @summary Submits an automated review job for an image. After the job is submitted, the job is processed in an asynchronous manner. The operation may return a response before the job is complete.
@@ -7668,193 +3851,6 @@ namespace Vod20170321
       Models::SubmitAIMediaAuditJobResponse submitAIMediaAuditJob(const Models::SubmitAIMediaAuditJobRequest &request);
 
       /**
-       * @summary 提交AI智能分类任务
-       *
-       * @param request SubmitAIVideoCategoryJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SubmitAIVideoCategoryJobResponse
-       */
-      Models::SubmitAIVideoCategoryJobResponse submitAIVideoCategoryJobWithOptions(const Models::SubmitAIVideoCategoryJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 提交AI智能分类任务
-       *
-       * @param request SubmitAIVideoCategoryJobRequest
-       * @return SubmitAIVideoCategoryJobResponse
-       */
-      Models::SubmitAIVideoCategoryJobResponse submitAIVideoCategoryJob(const Models::SubmitAIVideoCategoryJobRequest &request);
-
-      /**
-       * @summary 提交视频审核任务
-       *
-       * @param request SubmitAIVideoCensorJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SubmitAIVideoCensorJobResponse
-       */
-      Models::SubmitAIVideoCensorJobResponse submitAIVideoCensorJobWithOptions(const Models::SubmitAIVideoCensorJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 提交视频审核任务
-       *
-       * @param request SubmitAIVideoCensorJobRequest
-       * @return SubmitAIVideoCensorJobResponse
-       */
-      Models::SubmitAIVideoCensorJobResponse submitAIVideoCensorJob(const Models::SubmitAIVideoCensorJobRequest &request);
-
-      /**
-       * @summary 提交智能封面任务
-       *
-       * @param request SubmitAIVideoCoverJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SubmitAIVideoCoverJobResponse
-       */
-      Models::SubmitAIVideoCoverJobResponse submitAIVideoCoverJobWithOptions(const Models::SubmitAIVideoCoverJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 提交智能封面任务
-       *
-       * @param request SubmitAIVideoCoverJobRequest
-       * @return SubmitAIVideoCoverJobResponse
-       */
-      Models::SubmitAIVideoCoverJobResponse submitAIVideoCoverJob(const Models::SubmitAIVideoCoverJobRequest &request);
-
-      /**
-       * @summary 提交AI人脸识别任务
-       *
-       * @param request SubmitAIVideoFaceRecogJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SubmitAIVideoFaceRecogJobResponse
-       */
-      Models::SubmitAIVideoFaceRecogJobResponse submitAIVideoFaceRecogJobWithOptions(const Models::SubmitAIVideoFaceRecogJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 提交AI人脸识别任务
-       *
-       * @param request SubmitAIVideoFaceRecogJobRequest
-       * @return SubmitAIVideoFaceRecogJobResponse
-       */
-      Models::SubmitAIVideoFaceRecogJobResponse submitAIVideoFaceRecogJob(const Models::SubmitAIVideoFaceRecogJobRequest &request);
-
-      /**
-       * @summary 提交AI视频色情识别任务
-       *
-       * @param request SubmitAIVideoPornRecogJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SubmitAIVideoPornRecogJobResponse
-       */
-      Models::SubmitAIVideoPornRecogJobResponse submitAIVideoPornRecogJobWithOptions(const Models::SubmitAIVideoPornRecogJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 提交AI视频色情识别任务
-       *
-       * @param request SubmitAIVideoPornRecogJobRequest
-       * @return SubmitAIVideoPornRecogJobResponse
-       */
-      Models::SubmitAIVideoPornRecogJobResponse submitAIVideoPornRecogJob(const Models::SubmitAIVideoPornRecogJobRequest &request);
-
-      /**
-       * @summary 提交AI摘要任务
-       *
-       * @param request SubmitAIVideoSummaryJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SubmitAIVideoSummaryJobResponse
-       */
-      Models::SubmitAIVideoSummaryJobResponse submitAIVideoSummaryJobWithOptions(const Models::SubmitAIVideoSummaryJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 提交AI摘要任务
-       *
-       * @param request SubmitAIVideoSummaryJobRequest
-       * @return SubmitAIVideoSummaryJobResponse
-       */
-      Models::SubmitAIVideoSummaryJobResponse submitAIVideoSummaryJob(const Models::SubmitAIVideoSummaryJobRequest &request);
-
-      /**
-       * @summary 提交智能标签任务
-       *
-       * @param request SubmitAIVideoTagJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SubmitAIVideoTagJobResponse
-       */
-      Models::SubmitAIVideoTagJobResponse submitAIVideoTagJobWithOptions(const Models::SubmitAIVideoTagJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 提交智能标签任务
-       *
-       * @param request SubmitAIVideoTagJobRequest
-       * @return SubmitAIVideoTagJobResponse
-       */
-      Models::SubmitAIVideoTagJobResponse submitAIVideoTagJob(const Models::SubmitAIVideoTagJobRequest &request);
-
-      /**
-       * @summary 提交暴力识别任务
-       *
-       * @param request SubmitAIVideoTerrorismRecogJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SubmitAIVideoTerrorismRecogJobResponse
-       */
-      Models::SubmitAIVideoTerrorismRecogJobResponse submitAIVideoTerrorismRecogJobWithOptions(const Models::SubmitAIVideoTerrorismRecogJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 提交暴力识别任务
-       *
-       * @param request SubmitAIVideoTerrorismRecogJobRequest
-       * @return SubmitAIVideoTerrorismRecogJobResponse
-       */
-      Models::SubmitAIVideoTerrorismRecogJobResponse submitAIVideoTerrorismRecogJob(const Models::SubmitAIVideoTerrorismRecogJobRequest &request);
-
-      /**
-       * @summary 提交bucket删除任务
-       *
-       * @param request SubmitBucketDeleteTaskRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SubmitBucketDeleteTaskResponse
-       */
-      Models::SubmitBucketDeleteTaskResponse submitBucketDeleteTaskWithOptions(const Models::SubmitBucketDeleteTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 提交bucket删除任务
-       *
-       * @param request SubmitBucketDeleteTaskRequest
-       * @return SubmitBucketDeleteTaskResponse
-       */
-      Models::SubmitBucketDeleteTaskResponse submitBucketDeleteTask(const Models::SubmitBucketDeleteTaskRequest &request);
-
-      /**
-       * @summary 修改系统存储冗余类型
-       *
-       * @param request SubmitBucketRedundancyTransitionRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SubmitBucketRedundancyTransitionResponse
-       */
-      Models::SubmitBucketRedundancyTransitionResponse submitBucketRedundancyTransitionWithOptions(const Models::SubmitBucketRedundancyTransitionRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 修改系统存储冗余类型
-       *
-       * @param request SubmitBucketRedundancyTransitionRequest
-       * @return SubmitBucketRedundancyTransitionResponse
-       */
-      Models::SubmitBucketRedundancyTransitionResponse submitBucketRedundancyTransition(const Models::SubmitBucketRedundancyTransitionRequest &request);
-
-      /**
-       * @summary 提交DNA初始化任务
-       *
-       * @param request SubmitDNAInitializationJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SubmitDNAInitializationJobResponse
-       */
-      Models::SubmitDNAInitializationJobResponse submitDNAInitializationJobWithOptions(const Models::SubmitDNAInitializationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 提交DNA初始化任务
-       *
-       * @param request SubmitDNAInitializationJobRequest
-       * @return SubmitDNAInitializationJobResponse
-       */
-      Models::SubmitDNAInitializationJobResponse submitDNAInitializationJob(const Models::SubmitDNAInitializationJobRequest &request);
-
-      /**
        * @summary Submits a digital watermark extraction job. You can call this operation to asynchronously extract a copyright watermark or user-tracing watermark.
        *
        * @description *   **Make sure that you understand the billing methods and price of ApsaraVideo VOD before you call this operation. You are charged for generating and extracting digital watermarks. For more information, see [Billing](~~188310#62b9c940403se~~).**
@@ -7911,23 +3907,6 @@ namespace Vod20170321
       Models::SubmitDynamicImageJobResponse submitDynamicImageJob(const Models::SubmitDynamicImageJobRequest &request);
 
       /**
-       * @summary 直播剪辑
-       *
-       * @param request SubmitLiveEditingRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SubmitLiveEditingResponse
-       */
-      Models::SubmitLiveEditingResponse submitLiveEditingWithOptions(const Models::SubmitLiveEditingRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 直播剪辑
-       *
-       * @param request SubmitLiveEditingRequest
-       * @return SubmitLiveEditingResponse
-       */
-      Models::SubmitLiveEditingResponse submitLiveEditing(const Models::SubmitLiveEditingRequest &request);
-
-      /**
        * @summary Deletes a video fingerprinting job.
        *
        * @description Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
@@ -7947,23 +3926,6 @@ namespace Vod20170321
        * @return SubmitMediaDNADeleteJobResponse
        */
       Models::SubmitMediaDNADeleteJobResponse submitMediaDNADeleteJob(const Models::SubmitMediaDNADeleteJobRequest &request);
-
-      /**
-       * @summary 提交媒资导出任务
-       *
-       * @param request SubmitMediaExportJobRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SubmitMediaExportJobResponse
-       */
-      Models::SubmitMediaExportJobResponse submitMediaExportJobWithOptions(const Models::SubmitMediaExportJobRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 提交媒资导出任务
-       *
-       * @param request SubmitMediaExportJobRequest
-       * @return SubmitMediaExportJobResponse
-       */
-      Models::SubmitMediaExportJobResponse submitMediaExportJob(const Models::SubmitMediaExportJobRequest &request);
 
       /**
        * @summary Transcodes a video by using the production studio.
@@ -7987,23 +3949,6 @@ namespace Vod20170321
        * @return SubmitPreprocessJobsResponse
        */
       Models::SubmitPreprocessJobsResponse submitPreprocessJobs(const Models::SubmitPreprocessJobsRequest &request);
-
-      /**
-       * @summary 提交预处理任务
-       *
-       * @param request SubmitPreprocessJobsConsoleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SubmitPreprocessJobsConsoleResponse
-       */
-      Models::SubmitPreprocessJobsConsoleResponse submitPreprocessJobsConsoleWithOptions(const Models::SubmitPreprocessJobsConsoleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 提交预处理任务
-       *
-       * @param request SubmitPreprocessJobsConsoleRequest
-       * @return SubmitPreprocessJobsConsoleResponse
-       */
-      Models::SubmitPreprocessJobsConsoleResponse submitPreprocessJobsConsole(const Models::SubmitPreprocessJobsConsoleRequest &request);
 
       /**
        * @summary Submits a snapshot job for a video and starts asynchronous snapshot processing.
@@ -8085,108 +4030,6 @@ namespace Vod20170321
       Models::SubmitWorkflowJobResponse submitWorkflowJob(const Models::SubmitWorkflowJobRequest &request);
 
       /**
-       * @summary 同步老用户生产账号映射信息并订阅自有bucketoss消息
-       *
-       * @param request SyncUserProdAccountAndBucketRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SyncUserProdAccountAndBucketResponse
-       */
-      Models::SyncUserProdAccountAndBucketResponse syncUserProdAccountAndBucketWithOptions(const Models::SyncUserProdAccountAndBucketRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 同步老用户生产账号映射信息并订阅自有bucketoss消息
-       *
-       * @param request SyncUserProdAccountAndBucketRequest
-       * @return SyncUserProdAccountAndBucketResponse
-       */
-      Models::SyncUserProdAccountAndBucketResponse syncUserProdAccountAndBucket(const Models::SyncUserProdAccountAndBucketRequest &request);
-
-      /**
-       * @summary 资源打用户标签
-       *
-       * @param request TagResourcesRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return TagResourcesResponse
-       */
-      Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 资源打用户标签
-       *
-       * @param request TagResourcesRequest
-       * @return TagResourcesResponse
-       */
-      Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
-
-      /**
-       * @summary 打标签
-       *
-       * @param request TagVodResourcesRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return TagVodResourcesResponse
-       */
-      Models::TagVodResourcesResponse tagVodResourcesWithOptions(const Models::TagVodResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 打标签
-       *
-       * @param request TagVodResourcesRequest
-       * @return TagVodResourcesResponse
-       */
-      Models::TagVodResourcesResponse tagVodResources(const Models::TagVodResourcesRequest &request);
-
-      /**
-       * @summary 中止bucket删除任务
-       *
-       * @param request TerminateBucketDeleteTaskRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return TerminateBucketDeleteTaskResponse
-       */
-      Models::TerminateBucketDeleteTaskResponse terminateBucketDeleteTaskWithOptions(const Models::TerminateBucketDeleteTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 中止bucket删除任务
-       *
-       * @param request TerminateBucketDeleteTaskRequest
-       * @return TerminateBucketDeleteTaskResponse
-       */
-      Models::TerminateBucketDeleteTaskResponse terminateBucketDeleteTask(const Models::TerminateBucketDeleteTaskRequest &request);
-
-      /**
-       * @summary 去除标签
-       *
-       * @param request UnTagVodResourcesRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return UnTagVodResourcesResponse
-       */
-      Models::UnTagVodResourcesResponse unTagVodResourcesWithOptions(const Models::UnTagVodResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 去除标签
-       *
-       * @param request UnTagVodResourcesRequest
-       * @return UnTagVodResourcesResponse
-       */
-      Models::UnTagVodResourcesResponse unTagVodResources(const Models::UnTagVodResourcesRequest &request);
-
-      /**
-       * @summary 资源去除用户标签
-       *
-       * @param request UntagResourcesRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return UntagResourcesResponse
-       */
-      Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 资源去除用户标签
-       *
-       * @param request UntagResourcesRequest
-       * @return UntagResourcesResponse
-       */
-      Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
-
-      /**
        * @summary Modifies an AI template.
        *
        * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
@@ -8233,23 +4076,6 @@ namespace Vod20170321
       Models::UpdateAppInfoResponse updateAppInfo(const Models::UpdateAppInfoRequest &request);
 
       /**
-       * @summary 更新App策略
-       *
-       * @param request UpdateAppPolicyRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return UpdateAppPolicyResponse
-       */
-      Models::UpdateAppPolicyResponse updateAppPolicyWithOptions(const Models::UpdateAppPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 更新App策略
-       *
-       * @param request UpdateAppPolicyRequest
-       * @return UpdateAppPolicyResponse
-       */
-      Models::UpdateAppPolicyResponse updateAppPolicy(const Models::UpdateAppPolicyRequest &request);
-
-      /**
        * @summary Modifies the information about multiple auxiliary media assets such as watermark images, subtitle files, and materials in a batch based on IDs. You can modify information such as the title, description, tags, and category.
        *
        * @description You can modify the information about up to 20 auxiliary media assets at a time.
@@ -8292,40 +4118,6 @@ namespace Vod20170321
       Models::UpdateCategoryResponse updateCategory(const Models::UpdateCategoryRequest &request);
 
       /**
-       * @summary 更新模版组
-       *
-       * @param request UpdateCustomTemplateAndGroupConsoleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return UpdateCustomTemplateAndGroupConsoleResponse
-       */
-      Models::UpdateCustomTemplateAndGroupConsoleResponse updateCustomTemplateAndGroupConsoleWithOptions(const Models::UpdateCustomTemplateAndGroupConsoleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 更新模版组
-       *
-       * @param request UpdateCustomTemplateAndGroupConsoleRequest
-       * @return UpdateCustomTemplateAndGroupConsoleResponse
-       */
-      Models::UpdateCustomTemplateAndGroupConsoleResponse updateCustomTemplateAndGroupConsole(const Models::UpdateCustomTemplateAndGroupConsoleRequest &request);
-
-      /**
-       * @summary 更新视频DNADB
-       *
-       * @param request UpdateDNADBRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return UpdateDNADBResponse
-       */
-      Models::UpdateDNADBResponse updateDNADBWithOptions(const Models::UpdateDNADBRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 更新视频DNADB
-       *
-       * @param request UpdateDNADBRequest
-       * @return UpdateDNADBResponse
-       */
-      Models::UpdateDNADBResponse updateDNADB(const Models::UpdateDNADBRequest &request);
-
-      /**
        * @summary Modifies an online editing project.
        *
        * @param request UpdateEditingProjectRequest
@@ -8366,40 +4158,6 @@ namespace Vod20170321
       Models::UpdateImageInfosResponse updateImageInfos(const Models::UpdateImageInfosRequest &request);
 
       /**
-       * @summary 修改智能策略信息
-       *
-       * @param request UpdateIntelligentStrategyRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return UpdateIntelligentStrategyResponse
-       */
-      Models::UpdateIntelligentStrategyResponse updateIntelligentStrategyWithOptions(const Models::UpdateIntelligentStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 修改智能策略信息
-       *
-       * @param request UpdateIntelligentStrategyRequest
-       * @return UpdateIntelligentStrategyResponse
-       */
-      Models::UpdateIntelligentStrategyResponse updateIntelligentStrategy(const Models::UpdateIntelligentStrategyRequest &request);
-
-      /**
-       * @summary 更新媒资生命周期规则
-       *
-       * @param request UpdateMediaLifecycleRuleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return UpdateMediaLifecycleRuleResponse
-       */
-      Models::UpdateMediaLifecycleRuleResponse updateMediaLifecycleRuleWithOptions(const Models::UpdateMediaLifecycleRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 更新媒资生命周期规则
-       *
-       * @param request UpdateMediaLifecycleRuleRequest
-       * @return UpdateMediaLifecycleRuleResponse
-       */
-      Models::UpdateMediaLifecycleRuleResponse updateMediaLifecycleRule(const Models::UpdateMediaLifecycleRuleRequest &request);
-
-      /**
        * @summary Modifies the storage classes of media assets.
        *
        * @description *   This operation is an asynchronous operation. You can call this operation to modify the storage classes of media assets. After the storage class is modified, a callback notification is sent.
@@ -8425,23 +4183,6 @@ namespace Vod20170321
        * @return UpdateMediaStorageClassResponse
        */
       Models::UpdateMediaStorageClassResponse updateMediaStorageClass(const Models::UpdateMediaStorageClassRequest &request);
-
-      /**
-       * @summary 更新视频流清晰度与HDR信息
-       *
-       * @param request UpdateStreamInfoRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return UpdateStreamInfoResponse
-       */
-      Models::UpdateStreamInfoResponse updateStreamInfoWithOptions(const Models::UpdateStreamInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 更新视频流清晰度与HDR信息
-       *
-       * @param request UpdateStreamInfoRequest
-       * @return UpdateStreamInfoResponse
-       */
-      Models::UpdateStreamInfoResponse updateStreamInfo(const Models::UpdateStreamInfoRequest &request);
 
       /**
        * @summary Modifies the configurations of a transcoding template group or configurations of transcoding templates in the transcoding template group.
@@ -8574,40 +4315,6 @@ namespace Vod20170321
       Models::UpdateWatermarkResponse updateWatermark(const Models::UpdateWatermarkRequest &request);
 
       /**
-       * @summary 更新水印
-       *
-       * @param request UpdateWatermarkConsoleRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return UpdateWatermarkConsoleResponse
-       */
-      Models::UpdateWatermarkConsoleResponse updateWatermarkConsoleWithOptions(const Models::UpdateWatermarkConsoleRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 更新水印
-       *
-       * @param request UpdateWatermarkConsoleRequest
-       * @return UpdateWatermarkConsoleResponse
-       */
-      Models::UpdateWatermarkConsoleResponse updateWatermarkConsole(const Models::UpdateWatermarkConsoleRequest &request);
-
-      /**
-       * @summary 更新工作流
-       *
-       * @param request UpdateWorkflowRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return UpdateWorkflowResponse
-       */
-      Models::UpdateWorkflowResponse updateWorkflowWithOptions(const Models::UpdateWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 更新工作流
-       *
-       * @param request UpdateWorkflowRequest
-       * @return UpdateWorkflowResponse
-       */
-      Models::UpdateWorkflowResponse updateWorkflow(const Models::UpdateWorkflowRequest &request);
-
-      /**
        * @summary Uploads media files based on URLs.
        *
        * @description *   You can call this operation to upload media files that are not stored on a local server or device and must be uploaded based on URLs over the Internet.
@@ -8664,23 +4371,6 @@ namespace Vod20170321
        * @return UploadStreamByURLResponse
        */
       Models::UploadStreamByURLResponse uploadStreamByURL(const Models::UploadStreamByURLRequest &request);
-
-      /**
-       * @summary 检查CDN播放URL鉴权
-       *
-       * @param request ValidateCdnUrlAuthRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ValidateCdnUrlAuthResponse
-       */
-      Models::ValidateCdnUrlAuthResponse validateCdnUrlAuthWithOptions(const Models::ValidateCdnUrlAuthRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 检查CDN播放URL鉴权
-       *
-       * @param request ValidateCdnUrlAuthRequest
-       * @return ValidateCdnUrlAuthResponse
-       */
-      Models::ValidateCdnUrlAuthResponse validateCdnUrlAuth(const Models::ValidateCdnUrlAuthRequest &request);
 
       /**
        * @summary Verifies the ownership of a specified domain name.

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_SETCROSSDOMAINCONTENTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/SetCrossdomainContentResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

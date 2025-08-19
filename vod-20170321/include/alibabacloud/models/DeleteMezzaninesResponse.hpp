@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DELETEMEZZANINESRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DeleteMezzaninesResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

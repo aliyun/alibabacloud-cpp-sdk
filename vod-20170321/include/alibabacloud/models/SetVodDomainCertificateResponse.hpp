@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_SETVODDOMAINCERTIFICATERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/SetVodDomainCertificateResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

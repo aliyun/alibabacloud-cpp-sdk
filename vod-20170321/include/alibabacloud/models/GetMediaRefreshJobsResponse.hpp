@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETMEDIAREFRESHJOBSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetMediaRefreshJobsResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
