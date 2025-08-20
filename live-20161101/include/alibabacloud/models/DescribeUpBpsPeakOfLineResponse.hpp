@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEUPBPSPEAKOFLINERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeUpBpsPeakOfLineResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

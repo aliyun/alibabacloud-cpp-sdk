@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATELIVEPULLTOPUSHRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateLivePullToPushResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

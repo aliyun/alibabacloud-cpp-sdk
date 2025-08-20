@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_UPDATELIVEPULLSTREAMINFOCONFIGRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/UpdateLivePullStreamInfoConfigResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

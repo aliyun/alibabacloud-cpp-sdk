@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DELETELIVESTREAMTRANSCODERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DeleteLiveStreamTranscodeResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

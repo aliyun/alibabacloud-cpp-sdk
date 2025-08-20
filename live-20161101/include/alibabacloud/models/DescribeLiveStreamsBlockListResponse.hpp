@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBELIVESTREAMSBLOCKLISTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeLiveStreamsBlockListResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

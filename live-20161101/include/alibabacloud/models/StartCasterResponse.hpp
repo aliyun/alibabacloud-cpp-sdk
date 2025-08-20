@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_STARTCASTERRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/StartCasterResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

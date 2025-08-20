@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATELIVEAISTUDIORESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateLiveAIStudioResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

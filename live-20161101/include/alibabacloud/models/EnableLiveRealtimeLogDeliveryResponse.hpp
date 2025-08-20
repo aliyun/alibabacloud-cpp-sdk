@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_ENABLELIVEREALTIMELOGDELIVERYRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/EnableLiveRealtimeLogDeliveryResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

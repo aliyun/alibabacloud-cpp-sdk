@@ -76,7 +76,7 @@ AlibabaCloud::Live20161101::Client::Client(Config &config): OpenApiClient(config
     {"rus-west-1-pop" , "live.aliyuncs.com"},
     {"us-east-1" , "live.aliyuncs.com"},
     {"us-west-1" , "live.aliyuncs.com"}
-  });
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("live", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -162,7 +162,7 @@ AddCasterComponentResponse Client::addCasterComponentWithOptions(const AddCaster
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddCasterComponent"},
     {"version" , "2016-11-01"},
@@ -173,7 +173,7 @@ AddCasterComponentResponse Client::addCasterComponentWithOptions(const AddCaster
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddCasterComponentResponse>();
 }
 
@@ -251,7 +251,7 @@ AddCasterEpisodeResponse Client::addCasterEpisodeWithOptions(const AddCasterEpis
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddCasterEpisode"},
     {"version" , "2016-11-01"},
@@ -262,7 +262,7 @@ AddCasterEpisodeResponse Client::addCasterEpisodeWithOptions(const AddCasterEpis
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddCasterEpisodeResponse>();
 }
 
@@ -336,7 +336,7 @@ AddCasterEpisodeGroupResponse Client::addCasterEpisodeGroupWithOptions(const Add
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddCasterEpisodeGroup"},
     {"version" , "2016-11-01"},
@@ -347,7 +347,7 @@ AddCasterEpisodeGroupResponse Client::addCasterEpisodeGroupWithOptions(const Add
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddCasterEpisodeGroupResponse>();
 }
 
@@ -398,7 +398,7 @@ AddCasterEpisodeGroupContentResponse Client::addCasterEpisodeGroupContentWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddCasterEpisodeGroupContent"},
     {"version" , "2016-11-01"},
@@ -409,7 +409,7 @@ AddCasterEpisodeGroupContentResponse Client::addCasterEpisodeGroupContentWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddCasterEpisodeGroupContentResponse>();
 }
 
@@ -472,7 +472,7 @@ AddCasterLayoutResponse Client::addCasterLayoutWithOptions(const AddCasterLayout
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddCasterLayout"},
     {"version" , "2016-11-01"},
@@ -483,7 +483,7 @@ AddCasterLayoutResponse Client::addCasterLayoutWithOptions(const AddCasterLayout
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddCasterLayoutResponse>();
 }
 
@@ -534,7 +534,7 @@ AddCasterProgramResponse Client::addCasterProgramWithOptions(const AddCasterProg
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddCasterProgram"},
     {"version" , "2016-11-01"},
@@ -545,7 +545,7 @@ AddCasterProgramResponse Client::addCasterProgramWithOptions(const AddCasterProg
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddCasterProgramResponse>();
 }
 
@@ -641,7 +641,7 @@ AddCasterVideoResourceResponse Client::addCasterVideoResourceWithOptions(const A
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddCasterVideoResource"},
     {"version" , "2016-11-01"},
@@ -652,7 +652,7 @@ AddCasterVideoResourceResponse Client::addCasterVideoResourceWithOptions(const A
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddCasterVideoResourceResponse>();
 }
 
@@ -797,7 +797,7 @@ AddCustomLiveStreamTranscodeResponse Client::addCustomLiveStreamTranscodeWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddCustomLiveStreamTranscode"},
     {"version" , "2016-11-01"},
@@ -808,7 +808,7 @@ AddCustomLiveStreamTranscodeResponse Client::addCustomLiveStreamTranscodeWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddCustomLiveStreamTranscodeResponse>();
 }
 
@@ -893,7 +893,7 @@ AddLiveAIProduceRulesResponse Client::addLiveAIProduceRulesWithOptions(const Add
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLiveAIProduceRules"},
     {"version" , "2016-11-01"},
@@ -904,7 +904,7 @@ AddLiveAIProduceRulesResponse Client::addLiveAIProduceRulesWithOptions(const Add
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLiveAIProduceRulesResponse>();
 }
 
@@ -1030,7 +1030,7 @@ AddLiveAISubtitleResponse Client::addLiveAISubtitleWithOptions(const AddLiveAISu
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLiveAISubtitle"},
     {"version" , "2016-11-01"},
@@ -1041,7 +1041,7 @@ AddLiveAISubtitleResponse Client::addLiveAISubtitleWithOptions(const AddLiveAISu
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLiveAISubtitleResponse>();
 }
 
@@ -1137,7 +1137,7 @@ AddLiveAppRecordConfigResponse Client::addLiveAppRecordConfigWithOptions(const A
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLiveAppRecordConfig"},
     {"version" , "2016-11-01"},
@@ -1148,7 +1148,7 @@ AddLiveAppRecordConfigResponse Client::addLiveAppRecordConfigWithOptions(const A
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLiveAppRecordConfigResponse>();
 }
 
@@ -1227,7 +1227,7 @@ AddLiveAppSnapshotConfigResponse Client::addLiveAppSnapshotConfigWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLiveAppSnapshotConfig"},
     {"version" , "2016-11-01"},
@@ -1238,7 +1238,7 @@ AddLiveAppSnapshotConfigResponse Client::addLiveAppSnapshotConfigWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLiveAppSnapshotConfigResponse>();
 }
 
@@ -1313,7 +1313,7 @@ AddLiveAudioAuditConfigResponse Client::addLiveAudioAuditConfigWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLiveAudioAuditConfig"},
     {"version" , "2016-11-01"},
@@ -1324,7 +1324,7 @@ AddLiveAudioAuditConfigResponse Client::addLiveAudioAuditConfigWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLiveAudioAuditConfigResponse>();
 }
 
@@ -1381,7 +1381,7 @@ AddLiveAudioAuditNotifyConfigResponse Client::addLiveAudioAuditNotifyConfigWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLiveAudioAuditNotifyConfig"},
     {"version" , "2016-11-01"},
@@ -1392,7 +1392,7 @@ AddLiveAudioAuditNotifyConfigResponse Client::addLiveAudioAuditNotifyConfigWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLiveAudioAuditNotifyConfigResponse>();
 }
 
@@ -1462,7 +1462,7 @@ AddLiveCenterTransferResponse Client::addLiveCenterTransferWithOptions(const Add
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLiveCenterTransfer"},
     {"version" , "2016-11-01"},
@@ -1473,7 +1473,7 @@ AddLiveCenterTransferResponse Client::addLiveCenterTransferWithOptions(const Add
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLiveCenterTransferResponse>();
 }
 
@@ -1523,7 +1523,7 @@ AddLiveDetectNotifyConfigResponse Client::addLiveDetectNotifyConfigWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLiveDetectNotifyConfig"},
     {"version" , "2016-11-01"},
@@ -1534,7 +1534,7 @@ AddLiveDetectNotifyConfigResponse Client::addLiveDetectNotifyConfigWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLiveDetectNotifyConfigResponse>();
 }
 
@@ -1619,7 +1619,7 @@ AddLiveDomainResponse Client::addLiveDomainWithOptions(const AddLiveDomainReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLiveDomain"},
     {"version" , "2016-11-01"},
@@ -1630,7 +1630,7 @@ AddLiveDomainResponse Client::addLiveDomainWithOptions(const AddLiveDomainReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLiveDomainResponse>();
 }
 
@@ -1686,7 +1686,7 @@ AddLiveDomainMappingResponse Client::addLiveDomainMappingWithOptions(const AddLi
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLiveDomainMapping"},
     {"version" , "2016-11-01"},
@@ -1697,7 +1697,7 @@ AddLiveDomainMappingResponse Client::addLiveDomainMappingWithOptions(const AddLi
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLiveDomainMappingResponse>();
 }
 
@@ -1748,7 +1748,7 @@ AddLiveDomainPlayMappingResponse Client::addLiveDomainPlayMappingWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLiveDomainPlayMapping"},
     {"version" , "2016-11-01"},
@@ -1759,7 +1759,7 @@ AddLiveDomainPlayMappingResponse Client::addLiveDomainPlayMappingWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLiveDomainPlayMappingResponse>();
 }
 
@@ -1816,7 +1816,7 @@ AddLiveMessageGroupBandResponse Client::addLiveMessageGroupBandWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLiveMessageGroupBand"},
     {"version" , "2016-11-01"},
@@ -1827,7 +1827,7 @@ AddLiveMessageGroupBandResponse Client::addLiveMessageGroupBandWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLiveMessageGroupBandResponse>();
 }
 
@@ -1904,7 +1904,7 @@ AddLivePackageConfigResponse Client::addLivePackageConfigWithOptions(const AddLi
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLivePackageConfig"},
     {"version" , "2016-11-01"},
@@ -1915,7 +1915,7 @@ AddLivePackageConfigResponse Client::addLivePackageConfigWithOptions(const AddLi
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLivePackageConfigResponse>();
 }
 
@@ -1989,7 +1989,7 @@ AddLivePullStreamInfoConfigResponse Client::addLivePullStreamInfoConfigWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLivePullStreamInfoConfig"},
     {"version" , "2016-11-01"},
@@ -2000,7 +2000,7 @@ AddLivePullStreamInfoConfigResponse Client::addLivePullStreamInfoConfigWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLivePullStreamInfoConfigResponse>();
 }
 
@@ -2064,7 +2064,7 @@ AddLiveRecordNotifyConfigResponse Client::addLiveRecordNotifyConfigWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLiveRecordNotifyConfig"},
     {"version" , "2016-11-01"},
@@ -2075,7 +2075,7 @@ AddLiveRecordNotifyConfigResponse Client::addLiveRecordNotifyConfigWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLiveRecordNotifyConfigResponse>();
 }
 
@@ -2155,7 +2155,7 @@ AddLiveRecordVodConfigResponse Client::addLiveRecordVodConfigWithOptions(const A
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLiveRecordVodConfig"},
     {"version" , "2016-11-01"},
@@ -2166,7 +2166,7 @@ AddLiveRecordVodConfigResponse Client::addLiveRecordVodConfigWithOptions(const A
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLiveRecordVodConfigResponse>();
 }
 
@@ -2239,7 +2239,7 @@ AddLiveSnapshotDetectPornConfigResponse Client::addLiveSnapshotDetectPornConfigW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLiveSnapshotDetectPornConfig"},
     {"version" , "2016-11-01"},
@@ -2250,7 +2250,7 @@ AddLiveSnapshotDetectPornConfigResponse Client::addLiveSnapshotDetectPornConfigW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLiveSnapshotDetectPornConfigResponse>();
 }
 
@@ -2309,7 +2309,7 @@ AddLiveSnapshotNotifyConfigResponse Client::addLiveSnapshotNotifyConfigWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLiveSnapshotNotifyConfig"},
     {"version" , "2016-11-01"},
@@ -2320,7 +2320,7 @@ AddLiveSnapshotNotifyConfigResponse Client::addLiveSnapshotNotifyConfigWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLiveSnapshotNotifyConfigResponse>();
 }
 
@@ -2408,7 +2408,7 @@ AddLiveStreamMergeResponse Client::addLiveStreamMergeWithOptions(const AddLiveSt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLiveStreamMerge"},
     {"version" , "2016-11-01"},
@@ -2419,7 +2419,7 @@ AddLiveStreamMergeResponse Client::addLiveStreamMergeWithOptions(const AddLiveSt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLiveStreamMergeResponse>();
 }
 
@@ -2480,7 +2480,7 @@ AddLiveStreamTranscodeResponse Client::addLiveStreamTranscodeWithOptions(const A
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLiveStreamTranscode"},
     {"version" , "2016-11-01"},
@@ -2491,7 +2491,7 @@ AddLiveStreamTranscodeResponse Client::addLiveStreamTranscodeWithOptions(const A
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLiveStreamTranscodeResponse>();
 }
 
@@ -2583,7 +2583,7 @@ AddLiveStreamWatermarkResponse Client::addLiveStreamWatermarkWithOptions(const A
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLiveStreamWatermark"},
     {"version" , "2016-11-01"},
@@ -2594,7 +2594,7 @@ AddLiveStreamWatermarkResponse Client::addLiveStreamWatermarkWithOptions(const A
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLiveStreamWatermarkResponse>();
 }
 
@@ -2662,7 +2662,7 @@ AddLiveStreamWatermarkRuleResponse Client::addLiveStreamWatermarkRuleWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddLiveStreamWatermarkRule"},
     {"version" , "2016-11-01"},
@@ -2673,7 +2673,7 @@ AddLiveStreamWatermarkRuleResponse Client::addLiveStreamWatermarkRuleWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddLiveStreamWatermarkRuleResponse>();
 }
 
@@ -2732,7 +2732,7 @@ AddPlaylistItemsResponse Client::addPlaylistItemsWithOptions(const AddPlaylistIt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddPlaylistItems"},
     {"version" , "2016-11-01"},
@@ -2743,7 +2743,7 @@ AddPlaylistItemsResponse Client::addPlaylistItemsWithOptions(const AddPlaylistIt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddPlaylistItemsResponse>();
 }
 
@@ -2858,7 +2858,7 @@ AddRtsLiveStreamTranscodeResponse Client::addRtsLiveStreamTranscodeWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddRtsLiveStreamTranscode"},
     {"version" , "2016-11-01"},
@@ -2869,7 +2869,7 @@ AddRtsLiveStreamTranscodeResponse Client::addRtsLiveStreamTranscodeWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddRtsLiveStreamTranscodeResponse>();
 }
 
@@ -2960,7 +2960,7 @@ AddShowIntoShowListResponse Client::addShowIntoShowListWithOptions(const AddShow
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddShowIntoShowList"},
     {"version" , "2016-11-01"},
@@ -2971,7 +2971,7 @@ AddShowIntoShowListResponse Client::addShowIntoShowListWithOptions(const AddShow
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddShowIntoShowListResponse>();
 }
 
@@ -3050,7 +3050,7 @@ AddStudioLayoutResponse Client::addStudioLayoutWithOptions(const AddStudioLayout
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddStudioLayout"},
     {"version" , "2016-11-01"},
@@ -3061,7 +3061,7 @@ AddStudioLayoutResponse Client::addStudioLayoutWithOptions(const AddStudioLayout
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddStudioLayoutResponse>();
 }
 
@@ -3132,7 +3132,7 @@ AddTrancodeSEIResponse Client::addTrancodeSEIWithOptions(const AddTrancodeSEIReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddTrancodeSEI"},
     {"version" , "2016-11-01"},
@@ -3143,7 +3143,7 @@ AddTrancodeSEIResponse Client::addTrancodeSEIWithOptions(const AddTrancodeSEIReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddTrancodeSEIResponse>();
 }
 
@@ -3200,7 +3200,7 @@ BanLiveMessageGroupResponse Client::banLiveMessageGroupWithOptions(const BanLive
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "BanLiveMessageGroup"},
     {"version" , "2016-11-01"},
@@ -3211,7 +3211,7 @@ BanLiveMessageGroupResponse Client::banLiveMessageGroupWithOptions(const BanLive
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<BanLiveMessageGroupResponse>();
 }
 
@@ -3266,7 +3266,7 @@ BatchDeleteLiveDomainConfigsResponse Client::batchDeleteLiveDomainConfigsWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "BatchDeleteLiveDomainConfigs"},
     {"version" , "2016-11-01"},
@@ -3277,7 +3277,7 @@ BatchDeleteLiveDomainConfigsResponse Client::batchDeleteLiveDomainConfigsWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<BatchDeleteLiveDomainConfigsResponse>();
 }
 
@@ -3325,7 +3325,7 @@ BatchGetOnlineUsersResponse Client::batchGetOnlineUsersWithOptions(const BatchGe
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "BatchGetOnlineUsers"},
     {"version" , "2016-11-01"},
@@ -3336,7 +3336,7 @@ BatchGetOnlineUsersResponse Client::batchGetOnlineUsersWithOptions(const BatchGe
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<BatchGetOnlineUsersResponse>();
 }
 
@@ -3392,7 +3392,7 @@ BatchSetLiveDomainConfigsResponse Client::batchSetLiveDomainConfigsWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "BatchSetLiveDomainConfigs"},
     {"version" , "2016-11-01"},
@@ -3403,7 +3403,7 @@ BatchSetLiveDomainConfigsResponse Client::batchSetLiveDomainConfigsWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<BatchSetLiveDomainConfigsResponse>();
 }
 
@@ -3453,7 +3453,7 @@ CancelMuteAllGroupUserResponse Client::cancelMuteAllGroupUserWithOptions(const C
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CancelMuteAllGroupUser"},
     {"version" , "2016-11-01"},
@@ -3464,7 +3464,7 @@ CancelMuteAllGroupUserResponse Client::cancelMuteAllGroupUserWithOptions(const C
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CancelMuteAllGroupUserResponse>();
 }
 
@@ -3523,7 +3523,7 @@ CancelMuteGroupUserResponse Client::cancelMuteGroupUserWithOptions(const CancelM
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CancelMuteGroupUser"},
     {"version" , "2016-11-01"},
@@ -3534,7 +3534,7 @@ CancelMuteGroupUserResponse Client::cancelMuteGroupUserWithOptions(const CancelM
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CancelMuteGroupUserResponse>();
 }
 
@@ -3582,7 +3582,7 @@ ChangeLiveDomainResourceGroupResponse Client::changeLiveDomainResourceGroupWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ChangeLiveDomainResourceGroup"},
     {"version" , "2016-11-01"},
@@ -3593,7 +3593,7 @@ ChangeLiveDomainResourceGroupResponse Client::changeLiveDomainResourceGroupWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ChangeLiveDomainResourceGroupResponse>();
 }
 
@@ -3648,7 +3648,7 @@ CheckLiveMessageUsersInGroupResponse Client::checkLiveMessageUsersInGroupWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CheckLiveMessageUsersInGroup"},
     {"version" , "2016-11-01"},
@@ -3659,7 +3659,7 @@ CheckLiveMessageUsersInGroupResponse Client::checkLiveMessageUsersInGroupWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CheckLiveMessageUsersInGroupResponse>();
 }
 
@@ -3710,7 +3710,7 @@ CheckLiveMessageUsersOnlineResponse Client::checkLiveMessageUsersOnlineWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CheckLiveMessageUsersOnline"},
     {"version" , "2016-11-01"},
@@ -3721,7 +3721,7 @@ CheckLiveMessageUsersOnlineResponse Client::checkLiveMessageUsersOnlineWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CheckLiveMessageUsersOnlineResponse>();
 }
 
@@ -3774,7 +3774,7 @@ CloseLiveShiftResponse Client::closeLiveShiftWithOptions(const CloseLiveShiftReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CloseLiveShift"},
     {"version" , "2016-11-01"},
@@ -3785,7 +3785,7 @@ CloseLiveShiftResponse Client::closeLiveShiftWithOptions(const CloseLiveShiftReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CloseLiveShiftResponse>();
 }
 
@@ -3840,7 +3840,7 @@ CopyCasterResponse Client::copyCasterWithOptions(const CopyCasterRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CopyCaster"},
     {"version" , "2016-11-01"},
@@ -3851,7 +3851,7 @@ CopyCasterResponse Client::copyCasterWithOptions(const CopyCasterRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CopyCasterResponse>();
 }
 
@@ -3908,7 +3908,7 @@ CopyCasterSceneConfigResponse Client::copyCasterSceneConfigWithOptions(const Cop
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CopyCasterSceneConfig"},
     {"version" , "2016-11-01"},
@@ -3919,7 +3919,7 @@ CopyCasterSceneConfigResponse Client::copyCasterSceneConfigWithOptions(const Cop
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CopyCasterSceneConfigResponse>();
 }
 
@@ -4001,7 +4001,7 @@ CreateCasterResponse Client::createCasterWithOptions(const CreateCasterRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateCaster"},
     {"version" , "2016-11-01"},
@@ -4012,7 +4012,7 @@ CreateCasterResponse Client::createCasterWithOptions(const CreateCasterRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateCasterResponse>();
 }
 
@@ -4064,7 +4064,7 @@ CreateCustomTemplateResponse Client::createCustomTemplateWithOptions(const Creat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateCustomTemplate"},
     {"version" , "2016-11-01"},
@@ -4075,7 +4075,7 @@ CreateCustomTemplateResponse Client::createCustomTemplateWithOptions(const Creat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateCustomTemplateResponse>();
 }
 
@@ -4139,7 +4139,7 @@ CreateEdgeTranscodeJobResponse Client::createEdgeTranscodeJobWithOptions(const C
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateEdgeTranscodeJob"},
     {"version" , "2016-11-01"},
@@ -4150,7 +4150,7 @@ CreateEdgeTranscodeJobResponse Client::createEdgeTranscodeJobWithOptions(const C
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateEdgeTranscodeJobResponse>();
 }
 
@@ -4206,7 +4206,7 @@ CreateEventSubResponse Client::createEventSubWithOptions(const CreateEventSubReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateEventSub"},
     {"version" , "2016-11-01"},
@@ -4217,7 +4217,7 @@ CreateEventSubResponse Client::createEventSubWithOptions(const CreateEventSubReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateEventSubResponse>();
 }
 
@@ -4320,7 +4320,7 @@ CreateLiveAIStudioResponse Client::createLiveAIStudioWithOptions(const CreateLiv
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateLiveAIStudio"},
     {"version" , "2016-11-01"},
@@ -4331,7 +4331,7 @@ CreateLiveAIStudioResponse Client::createLiveAIStudioWithOptions(const CreateLiv
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateLiveAIStudioResponse>();
 }
 
@@ -4392,7 +4392,7 @@ CreateLiveDelayConfigResponse Client::createLiveDelayConfigWithOptions(const Cre
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateLiveDelayConfig"},
     {"version" , "2016-11-01"},
@@ -4403,7 +4403,7 @@ CreateLiveDelayConfigResponse Client::createLiveDelayConfigWithOptions(const Cre
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateLiveDelayConfigResponse>();
 }
 
@@ -4463,7 +4463,7 @@ CreateLiveMessageAppResponse Client::createLiveMessageAppWithOptions(const Creat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateLiveMessageApp"},
     {"version" , "2016-11-01"},
@@ -4474,7 +4474,7 @@ CreateLiveMessageAppResponse Client::createLiveMessageAppWithOptions(const Creat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateLiveMessageAppResponse>();
 }
 
@@ -4545,7 +4545,7 @@ CreateLiveMessageGroupResponse Client::createLiveMessageGroupWithOptions(const C
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateLiveMessageGroup"},
     {"version" , "2016-11-01"},
@@ -4556,7 +4556,7 @@ CreateLiveMessageGroupResponse Client::createLiveMessageGroupWithOptions(const C
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateLiveMessageGroupResponse>();
 }
 
@@ -4637,7 +4637,7 @@ CreateLivePrivateLineResponse Client::createLivePrivateLineWithOptions(const Cre
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateLivePrivateLine"},
     {"version" , "2016-11-01"},
@@ -4648,7 +4648,7 @@ CreateLivePrivateLineResponse Client::createLivePrivateLineWithOptions(const Cre
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateLivePrivateLineResponse>();
 }
 
@@ -4759,7 +4759,7 @@ CreateLivePullToPushResponse Client::createLivePullToPushWithOptions(const Creat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateLivePullToPush"},
     {"version" , "2016-11-01"},
@@ -4770,7 +4770,7 @@ CreateLivePullToPushResponse Client::createLivePullToPushWithOptions(const Creat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateLivePullToPushResponse>();
 }
 
@@ -4812,7 +4812,7 @@ CreateLiveRealTimeLogDeliveryResponse Client::createLiveRealTimeLogDeliveryWithO
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateLiveRealTimeLogDelivery"},
     {"version" , "2016-11-01"},
@@ -4823,7 +4823,7 @@ CreateLiveRealTimeLogDeliveryResponse Client::createLiveRealTimeLogDeliveryWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateLiveRealTimeLogDeliveryResponse>();
 }
 
@@ -4904,7 +4904,7 @@ CreateLiveStreamMonitorResponse Client::createLiveStreamMonitorWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateLiveStreamMonitor"},
     {"version" , "2016-11-01"},
@@ -4915,7 +4915,7 @@ CreateLiveStreamMonitorResponse Client::createLiveStreamMonitorWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateLiveStreamMonitorResponse>();
 }
 
@@ -5001,7 +5001,7 @@ CreateLiveStreamRecordIndexFilesResponse Client::createLiveStreamRecordIndexFile
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateLiveStreamRecordIndexFiles"},
     {"version" , "2016-11-01"},
@@ -5012,7 +5012,7 @@ CreateLiveStreamRecordIndexFilesResponse Client::createLiveStreamRecordIndexFile
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateLiveStreamRecordIndexFilesResponse>();
 }
 
@@ -5075,7 +5075,7 @@ CreateMessageAppResponse Client::createMessageAppWithOptions(const CreateMessage
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateMessageApp"},
     {"version" , "2016-11-01"},
@@ -5086,7 +5086,7 @@ CreateMessageAppResponse Client::createMessageAppWithOptions(const CreateMessage
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMessageAppResponse>();
 }
 
@@ -5137,7 +5137,7 @@ CreateMessageGroupResponse Client::createMessageGroupWithOptions(const CreateMes
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateMessageGroup"},
     {"version" , "2016-11-01"},
@@ -5148,7 +5148,7 @@ CreateMessageGroupResponse Client::createMessageGroupWithOptions(const CreateMes
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMessageGroupResponse>();
 }
 
@@ -5211,7 +5211,7 @@ CreateMixStreamResponse Client::createMixStreamWithOptions(const CreateMixStream
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateMixStream"},
     {"version" , "2016-11-01"},
@@ -5222,7 +5222,7 @@ CreateMixStreamResponse Client::createMixStreamWithOptions(const CreateMixStream
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMixStreamResponse>();
 }
 
@@ -5278,7 +5278,7 @@ CreateRTCWhipStreamAddressResponse Client::createRTCWhipStreamAddressWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateRTCWhipStreamAddress"},
     {"version" , "2016-11-01"},
@@ -5289,7 +5289,7 @@ CreateRTCWhipStreamAddressResponse Client::createRTCWhipStreamAddressWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateRTCWhipStreamAddressResponse>();
 }
 
@@ -5328,7 +5328,7 @@ CreateRoomRealTimeStreamAddressResponse Client::createRoomRealTimeStreamAddressW
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateRoomRealTimeStreamAddress"},
     {"version" , "2016-11-01"},
@@ -5339,7 +5339,7 @@ CreateRoomRealTimeStreamAddressResponse Client::createRoomRealTimeStreamAddressW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateRoomRealTimeStreamAddressResponse>();
 }
 
@@ -5442,7 +5442,7 @@ CreateRtcAsrTaskResponse Client::createRtcAsrTaskWithOptions(const CreateRtcAsrT
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateRtcAsrTask"},
     {"version" , "2016-11-01"},
@@ -5453,7 +5453,7 @@ CreateRtcAsrTaskResponse Client::createRtcAsrTaskWithOptions(const CreateRtcAsrT
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateRtcAsrTaskResponse>();
 }
 
@@ -5500,7 +5500,7 @@ CreateRtcMPUEventSubResponse Client::createRtcMPUEventSubWithOptions(const Creat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateRtcMPUEventSub"},
     {"version" , "2016-11-01"},
@@ -5511,7 +5511,7 @@ CreateRtcMPUEventSubResponse Client::createRtcMPUEventSubWithOptions(const Creat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateRtcMPUEventSubResponse>();
 }
 
@@ -5560,7 +5560,7 @@ DeleteCasterResponse Client::deleteCasterWithOptions(const DeleteCasterRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteCaster"},
     {"version" , "2016-11-01"},
@@ -5571,7 +5571,7 @@ DeleteCasterResponse Client::deleteCasterWithOptions(const DeleteCasterRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteCasterResponse>();
 }
 
@@ -5624,7 +5624,7 @@ DeleteCasterComponentResponse Client::deleteCasterComponentWithOptions(const Del
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteCasterComponent"},
     {"version" , "2016-11-01"},
@@ -5635,7 +5635,7 @@ DeleteCasterComponentResponse Client::deleteCasterComponentWithOptions(const Del
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteCasterComponentResponse>();
 }
 
@@ -5686,7 +5686,7 @@ DeleteCasterEpisodeResponse Client::deleteCasterEpisodeWithOptions(const DeleteC
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteCasterEpisode"},
     {"version" , "2016-11-01"},
@@ -5697,7 +5697,7 @@ DeleteCasterEpisodeResponse Client::deleteCasterEpisodeWithOptions(const DeleteC
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteCasterEpisodeResponse>();
 }
 
@@ -5744,7 +5744,7 @@ DeleteCasterEpisodeGroupResponse Client::deleteCasterEpisodeGroupWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteCasterEpisodeGroup"},
     {"version" , "2016-11-01"},
@@ -5755,7 +5755,7 @@ DeleteCasterEpisodeGroupResponse Client::deleteCasterEpisodeGroupWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteCasterEpisodeGroupResponse>();
 }
 
@@ -5806,7 +5806,7 @@ DeleteCasterLayoutResponse Client::deleteCasterLayoutWithOptions(const DeleteCas
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteCasterLayout"},
     {"version" , "2016-11-01"},
@@ -5817,7 +5817,7 @@ DeleteCasterLayoutResponse Client::deleteCasterLayoutWithOptions(const DeleteCas
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteCasterLayoutResponse>();
 }
 
@@ -5864,7 +5864,7 @@ DeleteCasterProgramResponse Client::deleteCasterProgramWithOptions(const DeleteC
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteCasterProgram"},
     {"version" , "2016-11-01"},
@@ -5875,7 +5875,7 @@ DeleteCasterProgramResponse Client::deleteCasterProgramWithOptions(const DeleteC
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteCasterProgramResponse>();
 }
 
@@ -5930,7 +5930,7 @@ DeleteCasterSceneConfigResponse Client::deleteCasterSceneConfigWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteCasterSceneConfig"},
     {"version" , "2016-11-01"},
@@ -5941,7 +5941,7 @@ DeleteCasterSceneConfigResponse Client::deleteCasterSceneConfigWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteCasterSceneConfigResponse>();
 }
 
@@ -5992,7 +5992,7 @@ DeleteCasterVideoResourceResponse Client::deleteCasterVideoResourceWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteCasterVideoResource"},
     {"version" , "2016-11-01"},
@@ -6003,7 +6003,7 @@ DeleteCasterVideoResourceResponse Client::deleteCasterVideoResourceWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteCasterVideoResourceResponse>();
 }
 
@@ -6045,7 +6045,7 @@ DeleteChannelResponse Client::deleteChannelWithOptions(const DeleteChannelReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteChannel"},
     {"version" , "2016-11-01"},
@@ -6056,7 +6056,7 @@ DeleteChannelResponse Client::deleteChannelWithOptions(const DeleteChannelReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteChannelResponse>();
 }
 
@@ -6102,7 +6102,7 @@ DeleteCustomTemplateResponse Client::deleteCustomTemplateWithOptions(const Delet
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteCustomTemplate"},
     {"version" , "2016-11-01"},
@@ -6113,7 +6113,7 @@ DeleteCustomTemplateResponse Client::deleteCustomTemplateWithOptions(const Delet
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteCustomTemplateResponse>();
 }
 
@@ -6165,7 +6165,7 @@ DeleteEdgeTranscodeJobResponse Client::deleteEdgeTranscodeJobWithOptions(const D
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteEdgeTranscodeJob"},
     {"version" , "2016-11-01"},
@@ -6176,7 +6176,7 @@ DeleteEdgeTranscodeJobResponse Client::deleteEdgeTranscodeJobWithOptions(const D
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteEdgeTranscodeJobResponse>();
 }
 
@@ -6220,7 +6220,7 @@ DeleteEventSubResponse Client::deleteEventSubWithOptions(const DeleteEventSubReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteEventSub"},
     {"version" , "2016-11-01"},
@@ -6231,7 +6231,7 @@ DeleteEventSubResponse Client::deleteEventSubWithOptions(const DeleteEventSubReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteEventSubResponse>();
 }
 
@@ -6291,7 +6291,7 @@ DeleteLiveAIProduceRulesResponse Client::deleteLiveAIProduceRulesWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveAIProduceRules"},
     {"version" , "2016-11-01"},
@@ -6302,7 +6302,7 @@ DeleteLiveAIProduceRulesResponse Client::deleteLiveAIProduceRulesWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveAIProduceRulesResponse>();
 }
 
@@ -6349,7 +6349,7 @@ DeleteLiveAIStudioResponse Client::deleteLiveAIStudioWithOptions(const DeleteLiv
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveAIStudio"},
     {"version" , "2016-11-01"},
@@ -6360,7 +6360,7 @@ DeleteLiveAIStudioResponse Client::deleteLiveAIStudioWithOptions(const DeleteLiv
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveAIStudioResponse>();
 }
 
@@ -6411,7 +6411,7 @@ DeleteLiveAISubtitleResponse Client::deleteLiveAISubtitleWithOptions(const Delet
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveAISubtitle"},
     {"version" , "2016-11-01"},
@@ -6422,7 +6422,7 @@ DeleteLiveAISubtitleResponse Client::deleteLiveAISubtitleWithOptions(const Delet
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveAISubtitleResponse>();
 }
 
@@ -6478,7 +6478,7 @@ DeleteLiveAppRecordConfigResponse Client::deleteLiveAppRecordConfigWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveAppRecordConfig"},
     {"version" , "2016-11-01"},
@@ -6489,7 +6489,7 @@ DeleteLiveAppRecordConfigResponse Client::deleteLiveAppRecordConfigWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveAppRecordConfigResponse>();
 }
 
@@ -6540,7 +6540,7 @@ DeleteLiveAppSnapshotConfigResponse Client::deleteLiveAppSnapshotConfigWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveAppSnapshotConfig"},
     {"version" , "2016-11-01"},
@@ -6551,7 +6551,7 @@ DeleteLiveAppSnapshotConfigResponse Client::deleteLiveAppSnapshotConfigWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveAppSnapshotConfigResponse>();
 }
 
@@ -6607,7 +6607,7 @@ DeleteLiveAudioAuditConfigResponse Client::deleteLiveAudioAuditConfigWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveAudioAuditConfig"},
     {"version" , "2016-11-01"},
@@ -6618,7 +6618,7 @@ DeleteLiveAudioAuditConfigResponse Client::deleteLiveAudioAuditConfigWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveAudioAuditConfigResponse>();
 }
 
@@ -6667,7 +6667,7 @@ DeleteLiveAudioAuditNotifyConfigResponse Client::deleteLiveAudioAuditNotifyConfi
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveAudioAuditNotifyConfig"},
     {"version" , "2016-11-01"},
@@ -6678,7 +6678,7 @@ DeleteLiveAudioAuditNotifyConfigResponse Client::deleteLiveAudioAuditNotifyConfi
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveAudioAuditNotifyConfigResponse>();
 }
 
@@ -6736,7 +6736,7 @@ DeleteLiveCenterTransferResponse Client::deleteLiveCenterTransferWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveCenterTransfer"},
     {"version" , "2016-11-01"},
@@ -6747,7 +6747,7 @@ DeleteLiveCenterTransferResponse Client::deleteLiveCenterTransferWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveCenterTransferResponse>();
 }
 
@@ -6798,7 +6798,7 @@ DeleteLiveDelayConfigResponse Client::deleteLiveDelayConfigWithOptions(const Del
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveDelayConfig"},
     {"version" , "2016-11-01"},
@@ -6809,7 +6809,7 @@ DeleteLiveDelayConfigResponse Client::deleteLiveDelayConfigWithOptions(const Del
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveDelayConfigResponse>();
 }
 
@@ -6856,7 +6856,7 @@ DeleteLiveDetectNotifyConfigResponse Client::deleteLiveDetectNotifyConfigWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveDetectNotifyConfig"},
     {"version" , "2016-11-01"},
@@ -6867,7 +6867,7 @@ DeleteLiveDetectNotifyConfigResponse Client::deleteLiveDetectNotifyConfigWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveDetectNotifyConfigResponse>();
 }
 
@@ -6922,7 +6922,7 @@ DeleteLiveDomainResponse Client::deleteLiveDomainWithOptions(const DeleteLiveDom
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveDomain"},
     {"version" , "2016-11-01"},
@@ -6933,7 +6933,7 @@ DeleteLiveDomainResponse Client::deleteLiveDomainWithOptions(const DeleteLiveDom
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveDomainResponse>();
 }
 
@@ -6986,7 +6986,7 @@ DeleteLiveDomainMappingResponse Client::deleteLiveDomainMappingWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveDomainMapping"},
     {"version" , "2016-11-01"},
@@ -6997,7 +6997,7 @@ DeleteLiveDomainMappingResponse Client::deleteLiveDomainMappingWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveDomainMappingResponse>();
 }
 
@@ -7048,7 +7048,7 @@ DeleteLiveDomainPlayMappingResponse Client::deleteLiveDomainPlayMappingWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveDomainPlayMapping"},
     {"version" , "2016-11-01"},
@@ -7059,7 +7059,7 @@ DeleteLiveDomainPlayMappingResponse Client::deleteLiveDomainPlayMappingWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveDomainPlayMappingResponse>();
 }
 
@@ -7111,7 +7111,7 @@ DeleteLiveEdgeTransferResponse Client::deleteLiveEdgeTransferWithOptions(const D
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveEdgeTransfer"},
     {"version" , "2016-11-01"},
@@ -7122,7 +7122,7 @@ DeleteLiveEdgeTransferResponse Client::deleteLiveEdgeTransferWithOptions(const D
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveEdgeTransferResponse>();
 }
 
@@ -7178,7 +7178,7 @@ DeleteLiveLazyPullStreamInfoConfigResponse Client::deleteLiveLazyPullStreamInfoC
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveLazyPullStreamInfoConfig"},
     {"version" , "2016-11-01"},
@@ -7189,7 +7189,7 @@ DeleteLiveLazyPullStreamInfoConfigResponse Client::deleteLiveLazyPullStreamInfoC
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveLazyPullStreamInfoConfigResponse>();
 }
 
@@ -7242,7 +7242,7 @@ DeleteLiveMessageGroupResponse Client::deleteLiveMessageGroupWithOptions(const D
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveMessageGroup"},
     {"version" , "2016-11-01"},
@@ -7253,7 +7253,7 @@ DeleteLiveMessageGroupResponse Client::deleteLiveMessageGroupWithOptions(const D
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveMessageGroupResponse>();
 }
 
@@ -7312,7 +7312,7 @@ DeleteLiveMessageGroupMessageResponse Client::deleteLiveMessageGroupMessageWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveMessageGroupMessage"},
     {"version" , "2016-11-01"},
@@ -7323,7 +7323,7 @@ DeleteLiveMessageGroupMessageResponse Client::deleteLiveMessageGroupMessageWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveMessageGroupMessageResponse>();
 }
 
@@ -7379,7 +7379,7 @@ DeleteLiveMessageUserMessageResponse Client::deleteLiveMessageUserMessageWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveMessageUserMessage"},
     {"version" , "2016-11-01"},
@@ -7390,7 +7390,7 @@ DeleteLiveMessageUserMessageResponse Client::deleteLiveMessageUserMessageWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveMessageUserMessageResponse>();
 }
 
@@ -7442,7 +7442,7 @@ DeleteLivePackageConfigResponse Client::deleteLivePackageConfigWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLivePackageConfig"},
     {"version" , "2016-11-01"},
@@ -7453,7 +7453,7 @@ DeleteLivePackageConfigResponse Client::deleteLivePackageConfigWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLivePackageConfigResponse>();
 }
 
@@ -7510,7 +7510,7 @@ DeleteLivePrivateLineResponse Client::deleteLivePrivateLineWithOptions(const Del
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLivePrivateLine"},
     {"version" , "2016-11-01"},
@@ -7521,7 +7521,7 @@ DeleteLivePrivateLineResponse Client::deleteLivePrivateLineWithOptions(const Del
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLivePrivateLineResponse>();
 }
 
@@ -7576,7 +7576,7 @@ DeleteLivePullStreamInfoConfigResponse Client::deleteLivePullStreamInfoConfigWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLivePullStreamInfoConfig"},
     {"version" , "2016-11-01"},
@@ -7587,7 +7587,7 @@ DeleteLivePullStreamInfoConfigResponse Client::deleteLivePullStreamInfoConfigWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLivePullStreamInfoConfigResponse>();
 }
 
@@ -7623,7 +7623,7 @@ DeleteLivePullToPushResponse Client::deleteLivePullToPushWithOptions(const Delet
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLivePullToPush"},
     {"version" , "2016-11-01"},
@@ -7634,7 +7634,7 @@ DeleteLivePullToPushResponse Client::deleteLivePullToPushWithOptions(const Delet
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLivePullToPushResponse>();
 }
 
@@ -7671,7 +7671,7 @@ DeleteLiveRealTimeLogLogstoreResponse Client::deleteLiveRealTimeLogLogstoreWithO
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveRealTimeLogLogstore"},
     {"version" , "2016-11-01"},
@@ -7682,7 +7682,7 @@ DeleteLiveRealTimeLogLogstoreResponse Client::deleteLiveRealTimeLogLogstoreWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveRealTimeLogLogstoreResponse>();
 }
 
@@ -7720,7 +7720,7 @@ DeleteLiveRealtimeLogDeliveryResponse Client::deleteLiveRealtimeLogDeliveryWithO
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveRealtimeLogDelivery"},
     {"version" , "2016-11-01"},
@@ -7731,7 +7731,7 @@ DeleteLiveRealtimeLogDeliveryResponse Client::deleteLiveRealtimeLogDeliveryWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveRealtimeLogDeliveryResponse>();
 }
 
@@ -7780,7 +7780,7 @@ DeleteLiveRecordNotifyConfigResponse Client::deleteLiveRecordNotifyConfigWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveRecordNotifyConfig"},
     {"version" , "2016-11-01"},
@@ -7791,7 +7791,7 @@ DeleteLiveRecordNotifyConfigResponse Client::deleteLiveRecordNotifyConfigWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveRecordNotifyConfigResponse>();
 }
 
@@ -7846,7 +7846,7 @@ DeleteLiveRecordVodConfigResponse Client::deleteLiveRecordVodConfigWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveRecordVodConfig"},
     {"version" , "2016-11-01"},
@@ -7857,7 +7857,7 @@ DeleteLiveRecordVodConfigResponse Client::deleteLiveRecordVodConfigWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveRecordVodConfigResponse>();
 }
 
@@ -7909,7 +7909,7 @@ DeleteLiveSnapshotDetectPornConfigResponse Client::deleteLiveSnapshotDetectPornC
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveSnapshotDetectPornConfig"},
     {"version" , "2016-11-01"},
@@ -7920,7 +7920,7 @@ DeleteLiveSnapshotDetectPornConfigResponse Client::deleteLiveSnapshotDetectPornC
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveSnapshotDetectPornConfigResponse>();
 }
 
@@ -7966,7 +7966,7 @@ DeleteLiveSnapshotNotifyConfigResponse Client::deleteLiveSnapshotNotifyConfigWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveSnapshotNotifyConfig"},
     {"version" , "2016-11-01"},
@@ -7977,7 +7977,7 @@ DeleteLiveSnapshotNotifyConfigResponse Client::deleteLiveSnapshotNotifyConfigWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveSnapshotNotifyConfigResponse>();
 }
 
@@ -8027,7 +8027,7 @@ DeleteLiveSpecificStagingConfigResponse Client::deleteLiveSpecificStagingConfigW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveSpecificStagingConfig"},
     {"version" , "2016-11-01"},
@@ -8038,7 +8038,7 @@ DeleteLiveSpecificStagingConfigResponse Client::deleteLiveSpecificStagingConfigW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveSpecificStagingConfigResponse>();
 }
 
@@ -8094,7 +8094,7 @@ DeleteLiveStreamBlockResponse Client::deleteLiveStreamBlockWithOptions(const Del
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveStreamBlock"},
     {"version" , "2016-11-01"},
@@ -8105,7 +8105,7 @@ DeleteLiveStreamBlockResponse Client::deleteLiveStreamBlockWithOptions(const Del
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveStreamBlockResponse>();
 }
 
@@ -8158,7 +8158,7 @@ DeleteLiveStreamMergeResponse Client::deleteLiveStreamMergeWithOptions(const Del
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveStreamMerge"},
     {"version" , "2016-11-01"},
@@ -8169,7 +8169,7 @@ DeleteLiveStreamMergeResponse Client::deleteLiveStreamMergeWithOptions(const Del
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveStreamMergeResponse>();
 }
 
@@ -8215,7 +8215,7 @@ DeleteLiveStreamMonitorResponse Client::deleteLiveStreamMonitorWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveStreamMonitor"},
     {"version" , "2016-11-01"},
@@ -8226,7 +8226,7 @@ DeleteLiveStreamMonitorResponse Client::deleteLiveStreamMonitorWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveStreamMonitorResponse>();
 }
 
@@ -8288,7 +8288,7 @@ DeleteLiveStreamRecordIndexFilesResponse Client::deleteLiveStreamRecordIndexFile
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveStreamRecordIndexFiles"},
     {"version" , "2016-11-01"},
@@ -8299,7 +8299,7 @@ DeleteLiveStreamRecordIndexFilesResponse Client::deleteLiveStreamRecordIndexFile
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveStreamRecordIndexFilesResponse>();
 }
 
@@ -8352,7 +8352,7 @@ DeleteLiveStreamTranscodeResponse Client::deleteLiveStreamTranscodeWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveStreamTranscode"},
     {"version" , "2016-11-01"},
@@ -8363,7 +8363,7 @@ DeleteLiveStreamTranscodeResponse Client::deleteLiveStreamTranscodeWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveStreamTranscodeResponse>();
 }
 
@@ -8410,7 +8410,7 @@ DeleteLiveStreamWatermarkResponse Client::deleteLiveStreamWatermarkWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveStreamWatermark"},
     {"version" , "2016-11-01"},
@@ -8421,7 +8421,7 @@ DeleteLiveStreamWatermarkResponse Client::deleteLiveStreamWatermarkWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveStreamWatermarkResponse>();
 }
 
@@ -8480,7 +8480,7 @@ DeleteLiveStreamWatermarkRuleResponse Client::deleteLiveStreamWatermarkRuleWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveStreamWatermarkRule"},
     {"version" , "2016-11-01"},
@@ -8491,7 +8491,7 @@ DeleteLiveStreamWatermarkRuleResponse Client::deleteLiveStreamWatermarkRuleWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveStreamWatermarkRuleResponse>();
 }
 
@@ -8538,7 +8538,7 @@ DeleteLiveStreamsNotifyUrlConfigResponse Client::deleteLiveStreamsNotifyUrlConfi
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLiveStreamsNotifyUrlConfig"},
     {"version" , "2016-11-01"},
@@ -8549,7 +8549,7 @@ DeleteLiveStreamsNotifyUrlConfigResponse Client::deleteLiveStreamsNotifyUrlConfi
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLiveStreamsNotifyUrlConfigResponse>();
 }
 
@@ -8587,7 +8587,7 @@ DeleteMessageAppResponse Client::deleteMessageAppWithOptions(const DeleteMessage
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteMessageApp"},
     {"version" , "2016-11-01"},
@@ -8598,7 +8598,7 @@ DeleteMessageAppResponse Client::deleteMessageAppWithOptions(const DeleteMessage
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMessageAppResponse>();
 }
 
@@ -8656,7 +8656,7 @@ DeleteMixStreamResponse Client::deleteMixStreamWithOptions(const DeleteMixStream
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteMixStream"},
     {"version" , "2016-11-01"},
@@ -8667,7 +8667,7 @@ DeleteMixStreamResponse Client::deleteMixStreamWithOptions(const DeleteMixStream
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMixStreamResponse>();
 }
 
@@ -8714,7 +8714,7 @@ DeletePlaylistResponse Client::deletePlaylistWithOptions(const DeletePlaylistReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeletePlaylist"},
     {"version" , "2016-11-01"},
@@ -8725,7 +8725,7 @@ DeletePlaylistResponse Client::deletePlaylistWithOptions(const DeletePlaylistReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeletePlaylistResponse>();
 }
 
@@ -8776,7 +8776,7 @@ DeletePlaylistItemsResponse Client::deletePlaylistItemsWithOptions(const DeleteP
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeletePlaylistItems"},
     {"version" , "2016-11-01"},
@@ -8787,7 +8787,7 @@ DeletePlaylistItemsResponse Client::deletePlaylistItemsWithOptions(const DeleteP
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeletePlaylistItemsResponse>();
 }
 
@@ -8832,7 +8832,7 @@ DeleteRtcAsrTaskResponse Client::deleteRtcAsrTaskWithOptions(const DeleteRtcAsrT
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteRtcAsrTask"},
     {"version" , "2016-11-01"},
@@ -8843,7 +8843,7 @@ DeleteRtcAsrTaskResponse Client::deleteRtcAsrTaskWithOptions(const DeleteRtcAsrT
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteRtcAsrTaskResponse>();
 }
 
@@ -8881,7 +8881,7 @@ DeleteRtcMPUEventSubResponse Client::deleteRtcMPUEventSubWithOptions(const Delet
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteRtcMPUEventSub"},
     {"version" , "2016-11-01"},
@@ -8892,7 +8892,7 @@ DeleteRtcMPUEventSubResponse Client::deleteRtcMPUEventSubWithOptions(const Delet
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteRtcMPUEventSubResponse>();
 }
 
@@ -8940,7 +8940,7 @@ DeleteSnapshotCallbackAuthResponse Client::deleteSnapshotCallbackAuthWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteSnapshotCallbackAuth"},
     {"version" , "2016-11-01"},
@@ -8951,7 +8951,7 @@ DeleteSnapshotCallbackAuthResponse Client::deleteSnapshotCallbackAuthWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteSnapshotCallbackAuthResponse>();
 }
 
@@ -9014,7 +9014,7 @@ DeleteSnapshotFilesResponse Client::deleteSnapshotFilesWithOptions(const DeleteS
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteSnapshotFiles"},
     {"version" , "2016-11-01"},
@@ -9025,7 +9025,7 @@ DeleteSnapshotFilesResponse Client::deleteSnapshotFilesWithOptions(const DeleteS
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteSnapshotFilesResponse>();
 }
 
@@ -9076,7 +9076,7 @@ DeleteStudioLayoutResponse Client::deleteStudioLayoutWithOptions(const DeleteStu
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteStudioLayout"},
     {"version" , "2016-11-01"},
@@ -9087,7 +9087,7 @@ DeleteStudioLayoutResponse Client::deleteStudioLayoutWithOptions(const DeleteStu
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteStudioLayoutResponse>();
 }
 
@@ -9134,7 +9134,7 @@ DescribeAutoShowListTasksResponse Client::describeAutoShowListTasksWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeAutoShowListTasks"},
     {"version" , "2016-11-01"},
@@ -9145,7 +9145,7 @@ DescribeAutoShowListTasksResponse Client::describeAutoShowListTasksWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeAutoShowListTasksResponse>();
 }
 
@@ -9192,7 +9192,7 @@ DescribeCasterChannelsResponse Client::describeCasterChannelsWithOptions(const D
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeCasterChannels"},
     {"version" , "2016-11-01"},
@@ -9203,7 +9203,7 @@ DescribeCasterChannelsResponse Client::describeCasterChannelsWithOptions(const D
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeCasterChannelsResponse>();
 }
 
@@ -9254,7 +9254,7 @@ DescribeCasterComponentsResponse Client::describeCasterComponentsWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeCasterComponents"},
     {"version" , "2016-11-01"},
@@ -9265,7 +9265,7 @@ DescribeCasterComponentsResponse Client::describeCasterComponentsWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeCasterComponentsResponse>();
 }
 
@@ -9312,7 +9312,7 @@ DescribeCasterConfigResponse Client::describeCasterConfigWithOptions(const Descr
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeCasterConfig"},
     {"version" , "2016-11-01"},
@@ -9323,7 +9323,7 @@ DescribeCasterConfigResponse Client::describeCasterConfigWithOptions(const Descr
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeCasterConfigResponse>();
 }
 
@@ -9374,7 +9374,7 @@ DescribeCasterLayoutsResponse Client::describeCasterLayoutsWithOptions(const Des
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeCasterLayouts"},
     {"version" , "2016-11-01"},
@@ -9385,7 +9385,7 @@ DescribeCasterLayoutsResponse Client::describeCasterLayoutsWithOptions(const Des
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeCasterLayoutsResponse>();
 }
 
@@ -9460,7 +9460,7 @@ DescribeCasterProgramResponse Client::describeCasterProgramWithOptions(const Des
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeCasterProgram"},
     {"version" , "2016-11-01"},
@@ -9471,7 +9471,7 @@ DescribeCasterProgramResponse Client::describeCasterProgramWithOptions(const Des
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeCasterProgramResponse>();
 }
 
@@ -9523,7 +9523,7 @@ DescribeCasterSceneAudioResponse Client::describeCasterSceneAudioWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeCasterSceneAudio"},
     {"version" , "2016-11-01"},
@@ -9534,7 +9534,7 @@ DescribeCasterSceneAudioResponse Client::describeCasterSceneAudioWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeCasterSceneAudioResponse>();
 }
 
@@ -9586,7 +9586,7 @@ DescribeCasterScenesResponse Client::describeCasterScenesWithOptions(const Descr
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeCasterScenes"},
     {"version" , "2016-11-01"},
@@ -9597,7 +9597,7 @@ DescribeCasterScenesResponse Client::describeCasterScenesWithOptions(const Descr
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeCasterScenesResponse>();
 }
 
@@ -9644,7 +9644,7 @@ DescribeCasterStreamUrlResponse Client::describeCasterStreamUrlWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeCasterStreamUrl"},
     {"version" , "2016-11-01"},
@@ -9655,7 +9655,7 @@ DescribeCasterStreamUrlResponse Client::describeCasterStreamUrlWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeCasterStreamUrlResponse>();
 }
 
@@ -9702,7 +9702,7 @@ DescribeCasterVideoResourcesResponse Client::describeCasterVideoResourcesWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeCasterVideoResources"},
     {"version" , "2016-11-01"},
@@ -9713,7 +9713,7 @@ DescribeCasterVideoResourcesResponse Client::describeCasterVideoResourcesWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeCasterVideoResourcesResponse>();
 }
 
@@ -9804,7 +9804,7 @@ DescribeCastersResponse Client::describeCastersWithOptions(const DescribeCasters
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeCasters"},
     {"version" , "2016-11-01"},
@@ -9815,7 +9815,7 @@ DescribeCastersResponse Client::describeCastersWithOptions(const DescribeCasters
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeCastersResponse>();
 }
 
@@ -9870,7 +9870,7 @@ DescribeChannelParticipantsResponse Client::describeChannelParticipantsWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeChannelParticipants"},
     {"version" , "2016-11-01"},
@@ -9881,7 +9881,7 @@ DescribeChannelParticipantsResponse Client::describeChannelParticipantsWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeChannelParticipantsResponse>();
 }
 
@@ -9924,7 +9924,7 @@ DescribeChannelUsersResponse Client::describeChannelUsersWithOptions(const Descr
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeChannelUsers"},
     {"version" , "2016-11-01"},
@@ -9935,7 +9935,7 @@ DescribeChannelUsersResponse Client::describeChannelUsersWithOptions(const Descr
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeChannelUsersResponse>();
 }
 
@@ -10018,7 +10018,7 @@ DescribeDomainUsageDataResponse Client::describeDomainUsageDataWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeDomainUsageData"},
     {"version" , "2016-11-01"},
@@ -10029,7 +10029,7 @@ DescribeDomainUsageDataResponse Client::describeDomainUsageDataWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeDomainUsageDataResponse>();
 }
 
@@ -10072,7 +10072,7 @@ DescribeDomainWithIntegrityResponse Client::describeDomainWithIntegrityWithOptio
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeDomainWithIntegrity"},
     {"version" , "2016-11-01"},
@@ -10083,7 +10083,7 @@ DescribeDomainWithIntegrityResponse Client::describeDomainWithIntegrityWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeDomainWithIntegrityResponse>();
 }
 
@@ -10118,7 +10118,7 @@ DescribeHlsLiveStreamRealTimeBpsDataResponse Client::describeHlsLiveStreamRealTi
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeHlsLiveStreamRealTimeBpsData"},
     {"version" , "2016-11-01"},
@@ -10129,7 +10129,7 @@ DescribeHlsLiveStreamRealTimeBpsDataResponse Client::describeHlsLiveStreamRealTi
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeHlsLiveStreamRealTimeBpsDataResponse>();
 }
 
@@ -10197,7 +10197,7 @@ DescribeLiveAIProduceRulesResponse Client::describeLiveAIProduceRulesWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveAIProduceRules"},
     {"version" , "2016-11-01"},
@@ -10208,7 +10208,7 @@ DescribeLiveAIProduceRulesResponse Client::describeLiveAIProduceRulesWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveAIProduceRulesResponse>();
 }
 
@@ -10264,7 +10264,7 @@ DescribeLiveAIStudioResponse Client::describeLiveAIStudioWithOptions(const Descr
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveAIStudio"},
     {"version" , "2016-11-01"},
@@ -10275,7 +10275,7 @@ DescribeLiveAIStudioResponse Client::describeLiveAIStudioWithOptions(const Descr
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveAIStudioResponse>();
 }
 
@@ -10335,7 +10335,7 @@ DescribeLiveAISubtitleResponse Client::describeLiveAISubtitleWithOptions(const D
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveAISubtitle"},
     {"version" , "2016-11-01"},
@@ -10346,7 +10346,7 @@ DescribeLiveAISubtitleResponse Client::describeLiveAISubtitleWithOptions(const D
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveAISubtitleResponse>();
 }
 
@@ -10403,7 +10403,7 @@ DescribeLiveAudioAuditConfigResponse Client::describeLiveAudioAuditConfigWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveAudioAuditConfig"},
     {"version" , "2016-11-01"},
@@ -10414,7 +10414,7 @@ DescribeLiveAudioAuditConfigResponse Client::describeLiveAudioAuditConfigWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveAudioAuditConfigResponse>();
 }
 
@@ -10463,7 +10463,7 @@ DescribeLiveAudioAuditNotifyConfigResponse Client::describeLiveAudioAuditNotifyC
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveAudioAuditNotifyConfig"},
     {"version" , "2016-11-01"},
@@ -10474,7 +10474,7 @@ DescribeLiveAudioAuditNotifyConfigResponse Client::describeLiveAudioAuditNotifyC
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveAudioAuditNotifyConfigResponse>();
 }
 
@@ -10544,7 +10544,7 @@ DescribeLiveCdnDiagnoseInfoResponse Client::describeLiveCdnDiagnoseInfoWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveCdnDiagnoseInfo"},
     {"version" , "2016-11-01"},
@@ -10555,7 +10555,7 @@ DescribeLiveCdnDiagnoseInfoResponse Client::describeLiveCdnDiagnoseInfoWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveCdnDiagnoseInfoResponse>();
 }
 
@@ -10604,7 +10604,7 @@ DescribeLiveCenterStreamRateDataResponse Client::describeLiveCenterStreamRateDat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveCenterStreamRateData"},
     {"version" , "2016-11-01"},
@@ -10615,7 +10615,7 @@ DescribeLiveCenterStreamRateDataResponse Client::describeLiveCenterStreamRateDat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveCenterStreamRateDataResponse>();
 }
 
@@ -10672,7 +10672,7 @@ DescribeLiveCenterTransferResponse Client::describeLiveCenterTransferWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveCenterTransfer"},
     {"version" , "2016-11-01"},
@@ -10683,7 +10683,7 @@ DescribeLiveCenterTransferResponse Client::describeLiveCenterTransferWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveCenterTransferResponse>();
 }
 
@@ -10728,7 +10728,7 @@ DescribeLiveCertificateDetailResponse Client::describeLiveCertificateDetailWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveCertificateDetail"},
     {"version" , "2016-11-01"},
@@ -10739,7 +10739,7 @@ DescribeLiveCertificateDetailResponse Client::describeLiveCertificateDetailWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveCertificateDetailResponse>();
 }
 
@@ -10786,7 +10786,7 @@ DescribeLiveCertificateListResponse Client::describeLiveCertificateListWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveCertificateList"},
     {"version" , "2016-11-01"},
@@ -10797,7 +10797,7 @@ DescribeLiveCertificateListResponse Client::describeLiveCertificateListWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveCertificateListResponse>();
 }
 
@@ -10851,7 +10851,7 @@ DescribeLiveDelayConfigResponse Client::describeLiveDelayConfigWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDelayConfig"},
     {"version" , "2016-11-01"},
@@ -10862,7 +10862,7 @@ DescribeLiveDelayConfigResponse Client::describeLiveDelayConfigWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDelayConfigResponse>();
 }
 
@@ -10935,7 +10935,7 @@ DescribeLiveDelayedStreamingUsageResponse Client::describeLiveDelayedStreamingUs
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDelayedStreamingUsage"},
     {"version" , "2016-11-01"},
@@ -10946,7 +10946,7 @@ DescribeLiveDelayedStreamingUsageResponse Client::describeLiveDelayedStreamingUs
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDelayedStreamingUsageResponse>();
 }
 
@@ -10997,7 +10997,7 @@ DescribeLiveDetectNotifyConfigResponse Client::describeLiveDetectNotifyConfigWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDetectNotifyConfig"},
     {"version" , "2016-11-01"},
@@ -11008,7 +11008,7 @@ DescribeLiveDetectNotifyConfigResponse Client::describeLiveDetectNotifyConfigWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDetectNotifyConfigResponse>();
 }
 
@@ -11090,7 +11090,7 @@ DescribeLiveDetectPornDataResponse Client::describeLiveDetectPornDataWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDetectPornData"},
     {"version" , "2016-11-01"},
@@ -11101,7 +11101,7 @@ DescribeLiveDetectPornDataResponse Client::describeLiveDetectPornDataWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDetectPornDataResponse>();
 }
 
@@ -11174,7 +11174,7 @@ DescribeLiveDomainBpsDataResponse Client::describeLiveDomainBpsDataWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainBpsData"},
     {"version" , "2016-11-01"},
@@ -11185,7 +11185,7 @@ DescribeLiveDomainBpsDataResponse Client::describeLiveDomainBpsDataWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainBpsDataResponse>();
 }
 
@@ -11264,7 +11264,7 @@ DescribeLiveDomainBpsDataByLayerResponse Client::describeLiveDomainBpsDataByLaye
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainBpsDataByLayer"},
     {"version" , "2016-11-01"},
@@ -11275,7 +11275,7 @@ DescribeLiveDomainBpsDataByLayerResponse Client::describeLiveDomainBpsDataByLaye
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainBpsDataByLayerResponse>();
 }
 
@@ -11330,7 +11330,7 @@ DescribeLiveDomainByCertificateResponse Client::describeLiveDomainByCertificateW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainByCertificate"},
     {"version" , "2016-11-01"},
@@ -11341,7 +11341,7 @@ DescribeLiveDomainByCertificateResponse Client::describeLiveDomainByCertificateW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainByCertificateResponse>();
 }
 
@@ -11388,7 +11388,7 @@ DescribeLiveDomainCertificateInfoResponse Client::describeLiveDomainCertificateI
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainCertificateInfo"},
     {"version" , "2016-11-01"},
@@ -11399,7 +11399,7 @@ DescribeLiveDomainCertificateInfoResponse Client::describeLiveDomainCertificateI
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainCertificateInfoResponse>();
 }
 
@@ -11450,7 +11450,7 @@ DescribeLiveDomainConfigsResponse Client::describeLiveDomainConfigsWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainConfigs"},
     {"version" , "2016-11-01"},
@@ -11461,7 +11461,7 @@ DescribeLiveDomainConfigsResponse Client::describeLiveDomainConfigsWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainConfigsResponse>();
 }
 
@@ -11509,7 +11509,7 @@ DescribeLiveDomainDetailResponse Client::describeLiveDomainDetailWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainDetail"},
     {"version" , "2016-11-01"},
@@ -11520,7 +11520,7 @@ DescribeLiveDomainDetailResponse Client::describeLiveDomainDetailWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainDetailResponse>();
 }
 
@@ -11580,7 +11580,7 @@ DescribeLiveDomainEdgeLogResponse Client::describeLiveDomainEdgeLogWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainEdgeLog"},
     {"version" , "2016-11-01"},
@@ -11591,7 +11591,7 @@ DescribeLiveDomainEdgeLogResponse Client::describeLiveDomainEdgeLogWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainEdgeLogResponse>();
 }
 
@@ -11639,7 +11639,7 @@ DescribeLiveDomainFrameRateAndBitRateDataResponse Client::describeLiveDomainFram
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainFrameRateAndBitRateData"},
     {"version" , "2016-11-01"},
@@ -11650,7 +11650,7 @@ DescribeLiveDomainFrameRateAndBitRateDataResponse Client::describeLiveDomainFram
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainFrameRateAndBitRateDataResponse>();
 }
 
@@ -11698,7 +11698,7 @@ DescribeLiveDomainLimitResponse Client::describeLiveDomainLimitWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainLimit"},
     {"version" , "2016-11-01"},
@@ -11709,7 +11709,7 @@ DescribeLiveDomainLimitResponse Client::describeLiveDomainLimitWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainLimitResponse>();
 }
 
@@ -11774,7 +11774,7 @@ DescribeLiveDomainLogResponse Client::describeLiveDomainLogWithOptions(const Des
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainLog"},
     {"version" , "2016-11-01"},
@@ -11785,7 +11785,7 @@ DescribeLiveDomainLogResponse Client::describeLiveDomainLogWithOptions(const Des
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainLogResponse>();
 }
 
@@ -11846,7 +11846,7 @@ DescribeLiveDomainLogExTtlResponse Client::describeLiveDomainLogExTtlWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainLogExTtl"},
     {"version" , "2016-11-01"},
@@ -11857,7 +11857,7 @@ DescribeLiveDomainLogExTtlResponse Client::describeLiveDomainLogExTtlWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainLogExTtlResponse>();
 }
 
@@ -11888,7 +11888,7 @@ DescribeLiveDomainMappingResponse Client::describeLiveDomainMappingWithOptions(c
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainMapping"},
     {"version" , "2016-11-01"},
@@ -11899,7 +11899,7 @@ DescribeLiveDomainMappingResponse Client::describeLiveDomainMappingWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainMappingResponse>();
 }
 
@@ -11973,7 +11973,7 @@ DescribeLiveDomainMonitoringUsageDataResponse Client::describeLiveDomainMonitori
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainMonitoringUsageData"},
     {"version" , "2016-11-01"},
@@ -11984,7 +11984,7 @@ DescribeLiveDomainMonitoringUsageDataResponse Client::describeLiveDomainMonitori
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainMonitoringUsageDataResponse>();
 }
 
@@ -12018,7 +12018,7 @@ DescribeLiveDomainMultiStreamConfigResponse Client::describeLiveDomainMultiStrea
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainMultiStreamConfig"},
     {"version" , "2016-11-01"},
@@ -12029,7 +12029,7 @@ DescribeLiveDomainMultiStreamConfigResponse Client::describeLiveDomainMultiStrea
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainMultiStreamConfigResponse>();
 }
 
@@ -12077,7 +12077,7 @@ DescribeLiveDomainOnlineUserNumResponse Client::describeLiveDomainOnlineUserNumW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainOnlineUserNum"},
     {"version" , "2016-11-01"},
@@ -12088,7 +12088,7 @@ DescribeLiveDomainOnlineUserNumResponse Client::describeLiveDomainOnlineUserNumW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainOnlineUserNumResponse>();
 }
 
@@ -12150,7 +12150,7 @@ DescribeLiveDomainPublishErrorCodeResponse Client::describeLiveDomainPublishErro
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainPublishErrorCode"},
     {"version" , "2016-11-01"},
@@ -12161,7 +12161,7 @@ DescribeLiveDomainPublishErrorCodeResponse Client::describeLiveDomainPublishErro
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainPublishErrorCodeResponse>();
 }
 
@@ -12233,7 +12233,7 @@ DescribeLiveDomainPushBpsDataResponse Client::describeLiveDomainPushBpsDataWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainPushBpsData"},
     {"version" , "2016-11-01"},
@@ -12244,7 +12244,7 @@ DescribeLiveDomainPushBpsDataResponse Client::describeLiveDomainPushBpsDataWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainPushBpsDataResponse>();
 }
 
@@ -12317,7 +12317,7 @@ DescribeLiveDomainPushTrafficDataResponse Client::describeLiveDomainPushTrafficD
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainPushTrafficData"},
     {"version" , "2016-11-01"},
@@ -12328,7 +12328,7 @@ DescribeLiveDomainPushTrafficDataResponse Client::describeLiveDomainPushTrafficD
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainPushTrafficDataResponse>();
 }
 
@@ -12389,7 +12389,7 @@ DescribeLiveDomainPvUvDataResponse Client::describeLiveDomainPvUvDataWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainPvUvData"},
     {"version" , "2016-11-01"},
@@ -12400,7 +12400,7 @@ DescribeLiveDomainPvUvDataResponse Client::describeLiveDomainPvUvDataWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainPvUvDataResponse>();
 }
 
@@ -12441,7 +12441,7 @@ DescribeLiveDomainRealTimeBpsDataResponse Client::describeLiveDomainRealTimeBpsD
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainRealTimeBpsData"},
     {"version" , "2016-11-01"},
@@ -12452,7 +12452,7 @@ DescribeLiveDomainRealTimeBpsDataResponse Client::describeLiveDomainRealTimeBpsD
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainRealTimeBpsDataResponse>();
 }
 
@@ -12524,7 +12524,7 @@ DescribeLiveDomainRealTimeHttpCodeDataResponse Client::describeLiveDomainRealTim
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainRealTimeHttpCodeData"},
     {"version" , "2016-11-01"},
@@ -12535,7 +12535,7 @@ DescribeLiveDomainRealTimeHttpCodeDataResponse Client::describeLiveDomainRealTim
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainRealTimeHttpCodeDataResponse>();
 }
 
@@ -12607,7 +12607,7 @@ DescribeLiveDomainRealTimeTrafficDataResponse Client::describeLiveDomainRealTime
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainRealTimeTrafficData"},
     {"version" , "2016-11-01"},
@@ -12618,7 +12618,7 @@ DescribeLiveDomainRealTimeTrafficDataResponse Client::describeLiveDomainRealTime
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainRealTimeTrafficDataResponse>();
 }
 
@@ -12656,7 +12656,7 @@ DescribeLiveDomainRealtimeLogDeliveryResponse Client::describeLiveDomainRealtime
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainRealtimeLogDelivery"},
     {"version" , "2016-11-01"},
@@ -12667,7 +12667,7 @@ DescribeLiveDomainRealtimeLogDeliveryResponse Client::describeLiveDomainRealtime
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainRealtimeLogDeliveryResponse>();
 }
 
@@ -12739,7 +12739,7 @@ DescribeLiveDomainRecordUsageDataResponse Client::describeLiveDomainRecordUsageD
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainRecordUsageData"},
     {"version" , "2016-11-01"},
@@ -12750,7 +12750,7 @@ DescribeLiveDomainRecordUsageDataResponse Client::describeLiveDomainRecordUsageD
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainRecordUsageDataResponse>();
 }
 
@@ -12811,7 +12811,7 @@ DescribeLiveDomainSnapshotDataResponse Client::describeLiveDomainSnapshotDataWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainSnapshotData"},
     {"version" , "2016-11-01"},
@@ -12822,7 +12822,7 @@ DescribeLiveDomainSnapshotDataResponse Client::describeLiveDomainSnapshotDataWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainSnapshotDataResponse>();
 }
 
@@ -12875,7 +12875,7 @@ DescribeLiveDomainStagingConfigResponse Client::describeLiveDomainStagingConfigW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainStagingConfig"},
     {"version" , "2016-11-01"},
@@ -12886,7 +12886,7 @@ DescribeLiveDomainStagingConfigResponse Client::describeLiveDomainStagingConfigW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainStagingConfigResponse>();
 }
 
@@ -12958,7 +12958,7 @@ DescribeLiveDomainStreamTranscodeDataResponse Client::describeLiveDomainStreamTr
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainStreamTranscodeData"},
     {"version" , "2016-11-01"},
@@ -12969,7 +12969,7 @@ DescribeLiveDomainStreamTranscodeDataResponse Client::describeLiveDomainStreamTr
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainStreamTranscodeDataResponse>();
 }
 
@@ -13035,7 +13035,7 @@ DescribeLiveDomainTimeShiftDataResponse Client::describeLiveDomainTimeShiftDataW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainTimeShiftData"},
     {"version" , "2016-11-01"},
@@ -13046,7 +13046,7 @@ DescribeLiveDomainTimeShiftDataResponse Client::describeLiveDomainTimeShiftDataW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainTimeShiftDataResponse>();
 }
 
@@ -13117,7 +13117,7 @@ DescribeLiveDomainTrafficDataResponse Client::describeLiveDomainTrafficDataWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainTrafficData"},
     {"version" , "2016-11-01"},
@@ -13128,7 +13128,7 @@ DescribeLiveDomainTrafficDataResponse Client::describeLiveDomainTrafficDataWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainTrafficDataResponse>();
 }
 
@@ -13174,7 +13174,7 @@ DescribeLiveDomainTranscodeParamsResponse Client::describeLiveDomainTranscodePar
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDomainTranscodeParams"},
     {"version" , "2016-11-01"},
@@ -13185,7 +13185,7 @@ DescribeLiveDomainTranscodeParamsResponse Client::describeLiveDomainTranscodePar
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDomainTranscodeParamsResponse>();
 }
 
@@ -13242,7 +13242,7 @@ DescribeLiveDrmUsageDataResponse Client::describeLiveDrmUsageDataWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveDrmUsageData"},
     {"version" , "2016-11-01"},
@@ -13253,7 +13253,7 @@ DescribeLiveDrmUsageDataResponse Client::describeLiveDrmUsageDataWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveDrmUsageDataResponse>();
 }
 
@@ -13300,7 +13300,7 @@ DescribeLiveEdgeTransferResponse Client::describeLiveEdgeTransferWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveEdgeTransfer"},
     {"version" , "2016-11-01"},
@@ -13311,7 +13311,7 @@ DescribeLiveEdgeTransferResponse Client::describeLiveEdgeTransferWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveEdgeTransferResponse>();
 }
 
@@ -13376,7 +13376,7 @@ DescribeLiveGrtnDurationResponse Client::describeLiveGrtnDurationWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveGrtnDuration"},
     {"version" , "2016-11-01"},
@@ -13387,7 +13387,7 @@ DescribeLiveGrtnDurationResponse Client::describeLiveGrtnDurationWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveGrtnDurationResponse>();
 }
 
@@ -13444,7 +13444,7 @@ DescribeLiveHttpsDomainListResponse Client::describeLiveHttpsDomainListWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveHttpsDomainList"},
     {"version" , "2016-11-01"},
@@ -13455,7 +13455,7 @@ DescribeLiveHttpsDomainListResponse Client::describeLiveHttpsDomainListWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveHttpsDomainListResponse>();
 }
 
@@ -13515,7 +13515,7 @@ DescribeLiveInteractionMetricDataResponse Client::describeLiveInteractionMetricD
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveInteractionMetricData"},
     {"version" , "2016-11-01"},
@@ -13526,7 +13526,7 @@ DescribeLiveInteractionMetricDataResponse Client::describeLiveInteractionMetricD
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveInteractionMetricDataResponse>();
 }
 
@@ -13573,7 +13573,7 @@ DescribeLiveIpInfoResponse Client::describeLiveIpInfoWithOptions(const DescribeL
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveIpInfo"},
     {"version" , "2016-11-01"},
@@ -13584,7 +13584,7 @@ DescribeLiveIpInfoResponse Client::describeLiveIpInfoWithOptions(const DescribeL
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveIpInfoResponse>();
 }
 
@@ -13635,7 +13635,7 @@ DescribeLiveLazyPullStreamConfigResponse Client::describeLiveLazyPullStreamConfi
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveLazyPullStreamConfig"},
     {"version" , "2016-11-01"},
@@ -13646,7 +13646,7 @@ DescribeLiveLazyPullStreamConfigResponse Client::describeLiveLazyPullStreamConfi
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveLazyPullStreamConfigResponse>();
 }
 
@@ -13688,7 +13688,7 @@ DescribeLiveMessageAppResponse Client::describeLiveMessageAppWithOptions(const D
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveMessageApp"},
     {"version" , "2016-11-01"},
@@ -13699,7 +13699,7 @@ DescribeLiveMessageAppResponse Client::describeLiveMessageAppWithOptions(const D
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveMessageAppResponse>();
 }
 
@@ -13744,7 +13744,7 @@ DescribeLiveMessageGroupResponse Client::describeLiveMessageGroupWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveMessageGroup"},
     {"version" , "2016-11-01"},
@@ -13755,7 +13755,7 @@ DescribeLiveMessageGroupResponse Client::describeLiveMessageGroupWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveMessageGroupResponse>();
 }
 
@@ -13802,7 +13802,7 @@ DescribeLiveMessageGroupBandResponse Client::describeLiveMessageGroupBandWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveMessageGroupBand"},
     {"version" , "2016-11-01"},
@@ -13813,7 +13813,7 @@ DescribeLiveMessageGroupBandResponse Client::describeLiveMessageGroupBandWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveMessageGroupBandResponse>();
 }
 
@@ -13878,7 +13878,7 @@ DescribeLivePackageConfigResponse Client::describeLivePackageConfigWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLivePackageConfig"},
     {"version" , "2016-11-01"},
@@ -13889,7 +13889,7 @@ DescribeLivePackageConfigResponse Client::describeLivePackageConfigWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLivePackageConfigResponse>();
 }
 
@@ -13934,7 +13934,7 @@ DescribeLivePrivateLineAreasResponse Client::describeLivePrivateLineAreasWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLivePrivateLineAreas"},
     {"version" , "2016-11-01"},
@@ -13945,7 +13945,7 @@ DescribeLivePrivateLineAreasResponse Client::describeLivePrivateLineAreasWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLivePrivateLineAreasResponse>();
 }
 
@@ -14012,7 +14012,7 @@ DescribeLivePrivateLineAvailGAResponse Client::describeLivePrivateLineAvailGAWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLivePrivateLineAvailGA"},
     {"version" , "2016-11-01"},
@@ -14023,7 +14023,7 @@ DescribeLivePrivateLineAvailGAResponse Client::describeLivePrivateLineAvailGAWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLivePrivateLineAvailGAResponse>();
 }
 
@@ -14102,7 +14102,7 @@ DescribeLiveProducerUsageDataResponse Client::describeLiveProducerUsageDataWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveProducerUsageData"},
     {"version" , "2016-11-01"},
@@ -14113,7 +14113,7 @@ DescribeLiveProducerUsageDataResponse Client::describeLiveProducerUsageDataWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveProducerUsageDataResponse>();
 }
 
@@ -14161,7 +14161,7 @@ DescribeLivePullStreamConfigResponse Client::describeLivePullStreamConfigWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLivePullStreamConfig"},
     {"version" , "2016-11-01"},
@@ -14172,7 +14172,7 @@ DescribeLivePullStreamConfigResponse Client::describeLivePullStreamConfigWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLivePullStreamConfigResponse>();
 }
 
@@ -14209,7 +14209,7 @@ DescribeLivePullToPushResponse Client::describeLivePullToPushWithOptions(const D
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLivePullToPush"},
     {"version" , "2016-11-01"},
@@ -14220,7 +14220,7 @@ DescribeLivePullToPushResponse Client::describeLivePullToPushWithOptions(const D
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLivePullToPushResponse>();
 }
 
@@ -14257,7 +14257,7 @@ DescribeLivePullToPushListResponse Client::describeLivePullToPushListWithOptions
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLivePullToPushList"},
     {"version" , "2016-11-01"},
@@ -14268,7 +14268,7 @@ DescribeLivePullToPushListResponse Client::describeLivePullToPushListWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLivePullToPushListResponse>();
 }
 
@@ -14334,7 +14334,7 @@ DescribeLivePushProxyLogResponse Client::describeLivePushProxyLogWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLivePushProxyLog"},
     {"version" , "2016-11-01"},
@@ -14345,7 +14345,7 @@ DescribeLivePushProxyLogResponse Client::describeLivePushProxyLogWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLivePushProxyLogResponse>();
 }
 
@@ -14413,7 +14413,7 @@ DescribeLivePushProxyUsageDataResponse Client::describeLivePushProxyUsageDataWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLivePushProxyUsageData"},
     {"version" , "2016-11-01"},
@@ -14424,7 +14424,7 @@ DescribeLivePushProxyUsageDataResponse Client::describeLivePushProxyUsageDataWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLivePushProxyUsageDataResponse>();
 }
 
@@ -14496,7 +14496,7 @@ DescribeLiveRealtimeDeliveryAccResponse Client::describeLiveRealtimeDeliveryAccW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveRealtimeDeliveryAcc"},
     {"version" , "2016-11-01"},
@@ -14507,7 +14507,7 @@ DescribeLiveRealtimeDeliveryAccResponse Client::describeLiveRealtimeDeliveryAccW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveRealtimeDeliveryAccResponse>();
 }
 
@@ -14544,7 +14544,7 @@ DescribeLiveRealtimeLogAuthorizedResponse Client::describeLiveRealtimeLogAuthori
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveRealtimeLogAuthorized"},
     {"version" , "2016-11-01"},
@@ -14555,7 +14555,7 @@ DescribeLiveRealtimeLogAuthorizedResponse Client::describeLiveRealtimeLogAuthori
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveRealtimeLogAuthorizedResponse>();
 }
 
@@ -14622,7 +14622,7 @@ DescribeLiveRecordConfigResponse Client::describeLiveRecordConfigWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveRecordConfig"},
     {"version" , "2016-11-01"},
@@ -14633,7 +14633,7 @@ DescribeLiveRecordConfigResponse Client::describeLiveRecordConfigWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveRecordConfigResponse>();
 }
 
@@ -14680,7 +14680,7 @@ DescribeLiveRecordNotifyConfigResponse Client::describeLiveRecordNotifyConfigWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveRecordNotifyConfig"},
     {"version" , "2016-11-01"},
@@ -14691,7 +14691,7 @@ DescribeLiveRecordNotifyConfigResponse Client::describeLiveRecordNotifyConfigWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveRecordNotifyConfigResponse>();
 }
 
@@ -14764,7 +14764,7 @@ DescribeLiveRecordNotifyRecordsResponse Client::describeLiveRecordNotifyRecordsW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveRecordNotifyRecords"},
     {"version" , "2016-11-01"},
@@ -14775,7 +14775,7 @@ DescribeLiveRecordNotifyRecordsResponse Client::describeLiveRecordNotifyRecordsW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveRecordNotifyRecordsResponse>();
 }
 
@@ -14837,7 +14837,7 @@ DescribeLiveRecordVodConfigsResponse Client::describeLiveRecordVodConfigsWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveRecordVodConfigs"},
     {"version" , "2016-11-01"},
@@ -14848,7 +14848,7 @@ DescribeLiveRecordVodConfigsResponse Client::describeLiveRecordVodConfigsWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveRecordVodConfigsResponse>();
 }
 
@@ -14896,7 +14896,7 @@ DescribeLiveShiftConfigsResponse Client::describeLiveShiftConfigsWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveShiftConfigs"},
     {"version" , "2016-11-01"},
@@ -14907,7 +14907,7 @@ DescribeLiveShiftConfigsResponse Client::describeLiveShiftConfigsWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveShiftConfigsResponse>();
 }
 
@@ -14970,7 +14970,7 @@ DescribeLiveSnapshotConfigResponse Client::describeLiveSnapshotConfigWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveSnapshotConfig"},
     {"version" , "2016-11-01"},
@@ -14981,7 +14981,7 @@ DescribeLiveSnapshotConfigResponse Client::describeLiveSnapshotConfigWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveSnapshotConfigResponse>();
 }
 
@@ -15045,7 +15045,7 @@ DescribeLiveSnapshotDetectPornConfigResponse Client::describeLiveSnapshotDetectP
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveSnapshotDetectPornConfig"},
     {"version" , "2016-11-01"},
@@ -15056,7 +15056,7 @@ DescribeLiveSnapshotDetectPornConfigResponse Client::describeLiveSnapshotDetectP
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveSnapshotDetectPornConfigResponse>();
 }
 
@@ -15102,7 +15102,7 @@ DescribeLiveSnapshotNotifyConfigResponse Client::describeLiveSnapshotNotifyConfi
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveSnapshotNotifyConfig"},
     {"version" , "2016-11-01"},
@@ -15113,7 +15113,7 @@ DescribeLiveSnapshotNotifyConfigResponse Client::describeLiveSnapshotNotifyConfi
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveSnapshotNotifyConfigResponse>();
 }
 
@@ -15160,7 +15160,7 @@ DescribeLiveStreamAuthCheckingResponse Client::describeLiveStreamAuthCheckingWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamAuthChecking"},
     {"version" , "2016-11-01"},
@@ -15171,7 +15171,7 @@ DescribeLiveStreamAuthCheckingResponse Client::describeLiveStreamAuthCheckingWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamAuthCheckingResponse>();
 }
 
@@ -15232,7 +15232,7 @@ DescribeLiveStreamBitRateDataResponse Client::describeLiveStreamBitRateDataWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamBitRateData"},
     {"version" , "2016-11-01"},
@@ -15243,7 +15243,7 @@ DescribeLiveStreamBitRateDataResponse Client::describeLiveStreamBitRateDataWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamBitRateDataResponse>();
 }
 
@@ -15278,7 +15278,7 @@ DescribeLiveStreamCountResponse Client::describeLiveStreamCountWithOptions(const
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamCount"},
     {"version" , "2016-11-01"},
@@ -15289,7 +15289,7 @@ DescribeLiveStreamCountResponse Client::describeLiveStreamCountWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamCountResponse>();
 }
 
@@ -15336,7 +15336,7 @@ DescribeLiveStreamDelayConfigResponse Client::describeLiveStreamDelayConfigWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamDelayConfig"},
     {"version" , "2016-11-01"},
@@ -15347,7 +15347,7 @@ DescribeLiveStreamDelayConfigResponse Client::describeLiveStreamDelayConfigWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamDelayConfigResponse>();
 }
 
@@ -15412,7 +15412,7 @@ DescribeLiveStreamDetailFrameRateAndBitRateDataResponse Client::describeLiveStre
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamDetailFrameRateAndBitRateData"},
     {"version" , "2016-11-01"},
@@ -15423,7 +15423,7 @@ DescribeLiveStreamDetailFrameRateAndBitRateDataResponse Client::describeLiveStre
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamDetailFrameRateAndBitRateDataResponse>();
 }
 
@@ -15490,7 +15490,7 @@ DescribeLiveStreamHistoryUserNumResponse Client::describeLiveStreamHistoryUserNu
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamHistoryUserNum"},
     {"version" , "2016-11-01"},
@@ -15501,7 +15501,7 @@ DescribeLiveStreamHistoryUserNumResponse Client::describeLiveStreamHistoryUserNu
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamHistoryUserNumResponse>();
 }
 
@@ -15560,7 +15560,7 @@ DescribeLiveStreamMergeResponse Client::describeLiveStreamMergeWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamMerge"},
     {"version" , "2016-11-01"},
@@ -15571,7 +15571,7 @@ DescribeLiveStreamMergeResponse Client::describeLiveStreamMergeWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamMergeResponse>();
 }
 
@@ -15651,7 +15651,7 @@ DescribeLiveStreamMetricDetailDataResponse Client::describeLiveStreamMetricDetai
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamMetricDetailData"},
     {"version" , "2016-11-01"},
@@ -15662,7 +15662,7 @@ DescribeLiveStreamMetricDetailDataResponse Client::describeLiveStreamMetricDetai
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamMetricDetailDataResponse>();
 }
 
@@ -15736,7 +15736,7 @@ DescribeLiveStreamMonitorListResponse Client::describeLiveStreamMonitorListWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamMonitorList"},
     {"version" , "2016-11-01"},
@@ -15747,7 +15747,7 @@ DescribeLiveStreamMonitorListResponse Client::describeLiveStreamMonitorListWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamMonitorListResponse>();
 }
 
@@ -15822,7 +15822,7 @@ DescribeLiveStreamPreloadTasksResponse Client::describeLiveStreamPreloadTasksWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamPreloadTasks"},
     {"version" , "2016-11-01"},
@@ -15833,7 +15833,7 @@ DescribeLiveStreamPreloadTasksResponse Client::describeLiveStreamPreloadTasksWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamPreloadTasksResponse>();
 }
 
@@ -15904,7 +15904,7 @@ DescribeLiveStreamPushMetricDetailDataResponse Client::describeLiveStreamPushMet
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamPushMetricDetailData"},
     {"version" , "2016-11-01"},
@@ -15915,7 +15915,7 @@ DescribeLiveStreamPushMetricDetailDataResponse Client::describeLiveStreamPushMet
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamPushMetricDetailDataResponse>();
 }
 
@@ -15982,7 +15982,7 @@ DescribeLiveStreamRecordContentResponse Client::describeLiveStreamRecordContentW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamRecordContent"},
     {"version" , "2016-11-01"},
@@ -15993,7 +15993,7 @@ DescribeLiveStreamRecordContentResponse Client::describeLiveStreamRecordContentW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamRecordContentResponse>();
 }
 
@@ -16052,7 +16052,7 @@ DescribeLiveStreamRecordIndexFileResponse Client::describeLiveStreamRecordIndexF
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamRecordIndexFile"},
     {"version" , "2016-11-01"},
@@ -16063,7 +16063,7 @@ DescribeLiveStreamRecordIndexFileResponse Client::describeLiveStreamRecordIndexF
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamRecordIndexFileResponse>();
 }
 
@@ -16139,7 +16139,7 @@ DescribeLiveStreamRecordIndexFilesResponse Client::describeLiveStreamRecordIndex
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamRecordIndexFiles"},
     {"version" , "2016-11-01"},
@@ -16150,7 +16150,7 @@ DescribeLiveStreamRecordIndexFilesResponse Client::describeLiveStreamRecordIndex
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamRecordIndexFilesResponse>();
 }
 
@@ -16222,7 +16222,7 @@ DescribeLiveStreamSnapshotInfoResponse Client::describeLiveStreamSnapshotInfoWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamSnapshotInfo"},
     {"version" , "2016-11-01"},
@@ -16233,7 +16233,7 @@ DescribeLiveStreamSnapshotInfoResponse Client::describeLiveStreamSnapshotInfoWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamSnapshotInfoResponse>();
 }
 
@@ -16288,7 +16288,7 @@ DescribeLiveStreamStateResponse Client::describeLiveStreamStateWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamState"},
     {"version" , "2016-11-01"},
@@ -16299,7 +16299,7 @@ DescribeLiveStreamStateResponse Client::describeLiveStreamStateWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamStateResponse>();
 }
 
@@ -16350,7 +16350,7 @@ DescribeLiveStreamTranscodeInfoResponse Client::describeLiveStreamTranscodeInfoW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamTranscodeInfo"},
     {"version" , "2016-11-01"},
@@ -16361,7 +16361,7 @@ DescribeLiveStreamTranscodeInfoResponse Client::describeLiveStreamTranscodeInfoW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamTranscodeInfoResponse>();
 }
 
@@ -16430,7 +16430,7 @@ DescribeLiveStreamTranscodeMetricDataResponse Client::describeLiveStreamTranscod
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamTranscodeMetricData"},
     {"version" , "2016-11-01"},
@@ -16441,7 +16441,7 @@ DescribeLiveStreamTranscodeMetricDataResponse Client::describeLiveStreamTranscod
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamTranscodeMetricDataResponse>();
 }
 
@@ -16492,7 +16492,7 @@ DescribeLiveStreamTranscodeStreamNumResponse Client::describeLiveStreamTranscode
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamTranscodeStreamNum"},
     {"version" , "2016-11-01"},
@@ -16503,7 +16503,7 @@ DescribeLiveStreamTranscodeStreamNumResponse Client::describeLiveStreamTranscode
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamTranscodeStreamNumResponse>();
 }
 
@@ -16556,7 +16556,7 @@ DescribeLiveStreamWatermarkRulesResponse Client::describeLiveStreamWatermarkRule
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamWatermarkRules"},
     {"version" , "2016-11-01"},
@@ -16567,7 +16567,7 @@ DescribeLiveStreamWatermarkRulesResponse Client::describeLiveStreamWatermarkRule
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamWatermarkRulesResponse>();
 }
 
@@ -16626,7 +16626,7 @@ DescribeLiveStreamWatermarksResponse Client::describeLiveStreamWatermarksWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamWatermarks"},
     {"version" , "2016-11-01"},
@@ -16637,7 +16637,7 @@ DescribeLiveStreamWatermarksResponse Client::describeLiveStreamWatermarksWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamWatermarksResponse>();
 }
 
@@ -16692,7 +16692,7 @@ DescribeLiveStreamsBlockListResponse Client::describeLiveStreamsBlockListWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamsBlockList"},
     {"version" , "2016-11-01"},
@@ -16703,7 +16703,7 @@ DescribeLiveStreamsBlockListResponse Client::describeLiveStreamsBlockListWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamsBlockListResponse>();
 }
 
@@ -16762,7 +16762,7 @@ DescribeLiveStreamsControlHistoryResponse Client::describeLiveStreamsControlHist
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamsControlHistory"},
     {"version" , "2016-11-01"},
@@ -16773,7 +16773,7 @@ DescribeLiveStreamsControlHistoryResponse Client::describeLiveStreamsControlHist
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamsControlHistoryResponse>();
 }
 
@@ -16846,7 +16846,7 @@ DescribeLiveStreamsNotifyRecordsResponse Client::describeLiveStreamsNotifyRecord
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamsNotifyRecords"},
     {"version" , "2016-11-01"},
@@ -16857,7 +16857,7 @@ DescribeLiveStreamsNotifyRecordsResponse Client::describeLiveStreamsNotifyRecord
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamsNotifyRecordsResponse>();
 }
 
@@ -16898,7 +16898,7 @@ DescribeLiveStreamsNotifyUrlConfigResponse Client::describeLiveStreamsNotifyUrlC
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamsNotifyUrlConfig"},
     {"version" , "2016-11-01"},
@@ -16909,7 +16909,7 @@ DescribeLiveStreamsNotifyUrlConfigResponse Client::describeLiveStreamsNotifyUrlC
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamsNotifyUrlConfigResponse>();
 }
 
@@ -16983,7 +16983,7 @@ DescribeLiveStreamsOnlineListResponse Client::describeLiveStreamsOnlineListWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamsOnlineList"},
     {"version" , "2016-11-01"},
@@ -16994,7 +16994,7 @@ DescribeLiveStreamsOnlineListResponse Client::describeLiveStreamsOnlineListWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamsOnlineListResponse>();
 }
 
@@ -17085,7 +17085,7 @@ DescribeLiveStreamsPublishListResponse Client::describeLiveStreamsPublishListWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamsPublishList"},
     {"version" , "2016-11-01"},
@@ -17096,7 +17096,7 @@ DescribeLiveStreamsPublishListResponse Client::describeLiveStreamsPublishListWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamsPublishListResponse>();
 }
 
@@ -17161,7 +17161,7 @@ DescribeLiveStreamsTotalCountResponse Client::describeLiveStreamsTotalCountWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveStreamsTotalCount"},
     {"version" , "2016-11-01"},
@@ -17172,7 +17172,7 @@ DescribeLiveStreamsTotalCountResponse Client::describeLiveStreamsTotalCountWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveStreamsTotalCountResponse>();
 }
 
@@ -17229,7 +17229,7 @@ DescribeLiveTopDomainsByFlowResponse Client::describeLiveTopDomainsByFlowWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveTopDomainsByFlow"},
     {"version" , "2016-11-01"},
@@ -17240,7 +17240,7 @@ DescribeLiveTopDomainsByFlowResponse Client::describeLiveTopDomainsByFlowWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveTopDomainsByFlowResponse>();
 }
 
@@ -17300,7 +17300,7 @@ DescribeLiveTrafficDomainLogResponse Client::describeLiveTrafficDomainLogWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveTrafficDomainLog"},
     {"version" , "2016-11-01"},
@@ -17311,7 +17311,7 @@ DescribeLiveTrafficDomainLogResponse Client::describeLiveTrafficDomainLogWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveTrafficDomainLogResponse>();
 }
 
@@ -17365,7 +17365,7 @@ DescribeLiveUpVideoAudioInfoResponse Client::describeLiveUpVideoAudioInfoWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveUpVideoAudioInfo"},
     {"version" , "2016-11-01"},
@@ -17376,7 +17376,7 @@ DescribeLiveUpVideoAudioInfoResponse Client::describeLiveUpVideoAudioInfoWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveUpVideoAudioInfoResponse>();
 }
 
@@ -17435,7 +17435,7 @@ DescribeLiveUserBillPredictionResponse Client::describeLiveUserBillPredictionWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveUserBillPrediction"},
     {"version" , "2016-11-01"},
@@ -17446,7 +17446,7 @@ DescribeLiveUserBillPredictionResponse Client::describeLiveUserBillPredictionWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveUserBillPredictionResponse>();
 }
 
@@ -17531,7 +17531,7 @@ DescribeLiveUserDomainsResponse Client::describeLiveUserDomainsWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveUserDomains"},
     {"version" , "2016-11-01"},
@@ -17542,7 +17542,7 @@ DescribeLiveUserDomainsResponse Client::describeLiveUserDomainsWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveUserDomainsResponse>();
 }
 
@@ -17606,7 +17606,7 @@ DescribeLiveUserStreamMetricDataResponse Client::describeLiveUserStreamMetricDat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveUserStreamMetricData"},
     {"version" , "2016-11-01"},
@@ -17617,7 +17617,7 @@ DescribeLiveUserStreamMetricDataResponse Client::describeLiveUserStreamMetricDat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveUserStreamMetricDataResponse>();
 }
 
@@ -17650,7 +17650,7 @@ DescribeLiveUserTagsResponse Client::describeLiveUserTagsWithOptions(const Descr
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveUserTags"},
     {"version" , "2016-11-01"},
@@ -17661,7 +17661,7 @@ DescribeLiveUserTagsResponse Client::describeLiveUserTagsWithOptions(const Descr
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveUserTagsResponse>();
 }
 
@@ -17714,7 +17714,7 @@ DescribeLiveUserTrafficLogResponse Client::describeLiveUserTrafficLogWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveUserTrafficLog"},
     {"version" , "2016-11-01"},
@@ -17725,7 +17725,7 @@ DescribeLiveUserTrafficLogResponse Client::describeLiveUserTrafficLogWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveUserTrafficLogResponse>();
 }
 
@@ -17770,7 +17770,7 @@ DescribeLiveVerifyContentResponse Client::describeLiveVerifyContentWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLiveVerifyContent"},
     {"version" , "2016-11-01"},
@@ -17781,7 +17781,7 @@ DescribeLiveVerifyContentResponse Client::describeLiveVerifyContentWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLiveVerifyContentResponse>();
 }
 
@@ -17837,7 +17837,7 @@ DescribeMeterLiveBypassDurationResponse Client::describeMeterLiveBypassDurationW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMeterLiveBypassDuration"},
     {"version" , "2016-11-01"},
@@ -17848,7 +17848,7 @@ DescribeMeterLiveBypassDurationResponse Client::describeMeterLiveBypassDurationW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMeterLiveBypassDurationResponse>();
 }
 
@@ -17926,7 +17926,7 @@ DescribeMixStreamListResponse Client::describeMixStreamListWithOptions(const Des
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMixStreamList"},
     {"version" , "2016-11-01"},
@@ -17937,7 +17937,7 @@ DescribeMixStreamListResponse Client::describeMixStreamListWithOptions(const Des
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMixStreamListResponse>();
 }
 
@@ -17992,7 +17992,7 @@ DescribeRTSNativeSDKFirstFrameCostResponse Client::describeRTSNativeSDKFirstFram
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeRTSNativeSDKFirstFrameCost"},
     {"version" , "2016-11-01"},
@@ -18003,7 +18003,7 @@ DescribeRTSNativeSDKFirstFrameCostResponse Client::describeRTSNativeSDKFirstFram
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeRTSNativeSDKFirstFrameCostResponse>();
 }
 
@@ -18056,7 +18056,7 @@ DescribeRTSNativeSDKFirstFrameDelayResponse Client::describeRTSNativeSDKFirstFra
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeRTSNativeSDKFirstFrameDelay"},
     {"version" , "2016-11-01"},
@@ -18067,7 +18067,7 @@ DescribeRTSNativeSDKFirstFrameDelayResponse Client::describeRTSNativeSDKFirstFra
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeRTSNativeSDKFirstFrameDelayResponse>();
 }
 
@@ -18120,7 +18120,7 @@ DescribeRTSNativeSDKPlayFailStatusResponse Client::describeRTSNativeSDKPlayFailS
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeRTSNativeSDKPlayFailStatus"},
     {"version" , "2016-11-01"},
@@ -18131,7 +18131,7 @@ DescribeRTSNativeSDKPlayFailStatusResponse Client::describeRTSNativeSDKPlayFailS
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeRTSNativeSDKPlayFailStatusResponse>();
 }
 
@@ -18184,7 +18184,7 @@ DescribeRTSNativeSDKPlayTimeResponse Client::describeRTSNativeSDKPlayTimeWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeRTSNativeSDKPlayTime"},
     {"version" , "2016-11-01"},
@@ -18195,7 +18195,7 @@ DescribeRTSNativeSDKPlayTimeResponse Client::describeRTSNativeSDKPlayTimeWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeRTSNativeSDKPlayTimeResponse>();
 }
 
@@ -18248,7 +18248,7 @@ DescribeRTSNativeSDKVvDataResponse Client::describeRTSNativeSDKVvDataWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeRTSNativeSDKVvData"},
     {"version" , "2016-11-01"},
@@ -18259,7 +18259,7 @@ DescribeRTSNativeSDKVvDataResponse Client::describeRTSNativeSDKVvDataWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeRTSNativeSDKVvDataResponse>();
 }
 
@@ -18292,7 +18292,7 @@ DescribeRtcCloudRecordingFilesResponse Client::describeRtcCloudRecordingFilesWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeRtcCloudRecordingFiles"},
     {"version" , "2016-11-01"},
@@ -18303,7 +18303,7 @@ DescribeRtcCloudRecordingFilesResponse Client::describeRtcCloudRecordingFilesWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeRtcCloudRecordingFilesResponse>();
 }
 
@@ -18340,7 +18340,7 @@ DescribeRtcMPUEventSubResponse Client::describeRtcMPUEventSubWithOptions(const D
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeRtcMPUEventSub"},
     {"version" , "2016-11-01"},
@@ -18351,7 +18351,7 @@ DescribeRtcMPUEventSubResponse Client::describeRtcMPUEventSubWithOptions(const D
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeRtcMPUEventSubResponse>();
 }
 
@@ -18400,7 +18400,7 @@ DescribeShowListResponse Client::describeShowListWithOptions(const DescribeShowL
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeShowList"},
     {"version" , "2016-11-01"},
@@ -18411,7 +18411,7 @@ DescribeShowListResponse Client::describeShowListWithOptions(const DescribeShowL
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeShowListResponse>();
 }
 
@@ -18478,7 +18478,7 @@ DescribeStreamLocationBlockResponse Client::describeStreamLocationBlockWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeStreamLocationBlock"},
     {"version" , "2016-11-01"},
@@ -18489,7 +18489,7 @@ DescribeStreamLocationBlockResponse Client::describeStreamLocationBlockWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeStreamLocationBlockResponse>();
 }
 
@@ -18540,7 +18540,7 @@ DescribeStudioLayoutsResponse Client::describeStudioLayoutsWithOptions(const Des
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeStudioLayouts"},
     {"version" , "2016-11-01"},
@@ -18551,7 +18551,7 @@ DescribeStudioLayoutsResponse Client::describeStudioLayoutsWithOptions(const Des
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeStudioLayoutsResponse>();
 }
 
@@ -18614,7 +18614,7 @@ DescribeToutiaoLivePlayResponse Client::describeToutiaoLivePlayWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeToutiaoLivePlay"},
     {"version" , "2016-11-01"},
@@ -18625,7 +18625,7 @@ DescribeToutiaoLivePlayResponse Client::describeToutiaoLivePlayWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeToutiaoLivePlayResponse>();
 }
 
@@ -18688,7 +18688,7 @@ DescribeToutiaoLivePublishResponse Client::describeToutiaoLivePublishWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeToutiaoLivePublish"},
     {"version" , "2016-11-01"},
@@ -18699,7 +18699,7 @@ DescribeToutiaoLivePublishResponse Client::describeToutiaoLivePublishWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeToutiaoLivePublishResponse>();
 }
 
@@ -18730,7 +18730,7 @@ DescribeUidOnlineStreamsResponse Client::describeUidOnlineStreamsWithOptions(con
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeUidOnlineStreams"},
     {"version" , "2016-11-01"},
@@ -18741,7 +18741,7 @@ DescribeUidOnlineStreamsResponse Client::describeUidOnlineStreamsWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeUidOnlineStreamsResponse>();
 }
 
@@ -18796,7 +18796,7 @@ DescribeUpBpsPeakDataResponse Client::describeUpBpsPeakDataWithOptions(const Des
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeUpBpsPeakData"},
     {"version" , "2016-11-01"},
@@ -18807,7 +18807,7 @@ DescribeUpBpsPeakDataResponse Client::describeUpBpsPeakDataWithOptions(const Des
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeUpBpsPeakDataResponse>();
 }
 
@@ -18870,7 +18870,7 @@ DescribeUpBpsPeakOfLineResponse Client::describeUpBpsPeakOfLineWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeUpBpsPeakOfLine"},
     {"version" , "2016-11-01"},
@@ -18881,7 +18881,7 @@ DescribeUpBpsPeakOfLineResponse Client::describeUpBpsPeakOfLineWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeUpBpsPeakOfLineResponse>();
 }
 
@@ -18940,7 +18940,7 @@ DescribeUpPeakPublishStreamDataResponse Client::describeUpPeakPublishStreamDataW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeUpPeakPublishStreamData"},
     {"version" , "2016-11-01"},
@@ -18951,7 +18951,7 @@ DescribeUpPeakPublishStreamDataResponse Client::describeUpPeakPublishStreamDataW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeUpPeakPublishStreamDataResponse>();
 }
 
@@ -18987,7 +18987,7 @@ DisableLiveRealtimeLogDeliveryResponse Client::disableLiveRealtimeLogDeliveryWit
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DisableLiveRealtimeLogDelivery"},
     {"version" , "2016-11-01"},
@@ -18998,7 +18998,7 @@ DisableLiveRealtimeLogDeliveryResponse Client::disableLiveRealtimeLogDeliveryWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DisableLiveRealtimeLogDeliveryResponse>();
 }
 
@@ -19058,7 +19058,7 @@ DynamicUpdateWaterMarkStreamRuleResponse Client::dynamicUpdateWaterMarkStreamRul
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DynamicUpdateWaterMarkStreamRule"},
     {"version" , "2016-11-01"},
@@ -19069,7 +19069,7 @@ DynamicUpdateWaterMarkStreamRuleResponse Client::dynamicUpdateWaterMarkStreamRul
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DynamicUpdateWaterMarkStreamRuleResponse>();
 }
 
@@ -19124,7 +19124,7 @@ EditPlaylistResponse Client::editPlaylistWithOptions(const EditPlaylistRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "EditPlaylist"},
     {"version" , "2016-11-01"},
@@ -19135,7 +19135,7 @@ EditPlaylistResponse Client::editPlaylistWithOptions(const EditPlaylistRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<EditPlaylistResponse>();
 }
 
@@ -19202,7 +19202,7 @@ EditShowAndReplaceResponse Client::editShowAndReplaceWithOptions(const EditShowA
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "EditShowAndReplace"},
     {"version" , "2016-11-01"},
@@ -19213,7 +19213,7 @@ EditShowAndReplaceResponse Client::editShowAndReplaceWithOptions(const EditShowA
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<EditShowAndReplaceResponse>();
 }
 
@@ -19264,7 +19264,7 @@ EffectCasterUrgentResponse Client::effectCasterUrgentWithOptions(const EffectCas
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "EffectCasterUrgent"},
     {"version" , "2016-11-01"},
@@ -19275,7 +19275,7 @@ EffectCasterUrgentResponse Client::effectCasterUrgentWithOptions(const EffectCas
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<EffectCasterUrgentResponse>();
 }
 
@@ -19330,7 +19330,7 @@ EffectCasterVideoResourceResponse Client::effectCasterVideoResourceWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "EffectCasterVideoResource"},
     {"version" , "2016-11-01"},
@@ -19341,7 +19341,7 @@ EffectCasterVideoResourceResponse Client::effectCasterVideoResourceWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<EffectCasterVideoResourceResponse>();
 }
 
@@ -19377,7 +19377,7 @@ EnableLiveRealtimeLogDeliveryResponse Client::enableLiveRealtimeLogDeliveryWithO
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "EnableLiveRealtimeLogDelivery"},
     {"version" , "2016-11-01"},
@@ -19388,7 +19388,7 @@ EnableLiveRealtimeLogDeliveryResponse Client::enableLiveRealtimeLogDeliveryWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<EnableLiveRealtimeLogDeliveryResponse>();
 }
 
@@ -19459,7 +19459,7 @@ ForbidLiveStreamResponse Client::forbidLiveStreamWithOptions(const ForbidLiveStr
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ForbidLiveStream"},
     {"version" , "2016-11-01"},
@@ -19470,7 +19470,7 @@ ForbidLiveStreamResponse Client::forbidLiveStreamWithOptions(const ForbidLiveStr
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ForbidLiveStreamResponse>();
 }
 
@@ -19520,7 +19520,7 @@ GetAllCustomTemplatesResponse Client::getAllCustomTemplatesWithOptions(const Get
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetAllCustomTemplates"},
     {"version" , "2016-11-01"},
@@ -19531,7 +19531,7 @@ GetAllCustomTemplatesResponse Client::getAllCustomTemplatesWithOptions(const Get
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetAllCustomTemplatesResponse>();
 }
 
@@ -19578,7 +19578,7 @@ GetCustomTemplateResponse Client::getCustomTemplateWithOptions(const GetCustomTe
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetCustomTemplate"},
     {"version" , "2016-11-01"},
@@ -19589,7 +19589,7 @@ GetCustomTemplateResponse Client::getCustomTemplateWithOptions(const GetCustomTe
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetCustomTemplateResponse>();
 }
 
@@ -19640,7 +19640,7 @@ GetEdgeTranscodeJobResponse Client::getEdgeTranscodeJobWithOptions(const GetEdge
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetEdgeTranscodeJob"},
     {"version" , "2016-11-01"},
@@ -19651,7 +19651,7 @@ GetEdgeTranscodeJobResponse Client::getEdgeTranscodeJobWithOptions(const GetEdge
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetEdgeTranscodeJobResponse>();
 }
 
@@ -19703,7 +19703,7 @@ GetEdgeTranscodeTemplateResponse Client::getEdgeTranscodeTemplateWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetEdgeTranscodeTemplate"},
     {"version" , "2016-11-01"},
@@ -19714,7 +19714,7 @@ GetEdgeTranscodeTemplateResponse Client::getEdgeTranscodeTemplateWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetEdgeTranscodeTemplateResponse>();
 }
 
@@ -19768,7 +19768,7 @@ GetEditingJobInfoResponse Client::getEditingJobInfoWithOptions(const GetEditingJ
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetEditingJobInfo"},
     {"version" , "2016-11-01"},
@@ -19779,7 +19779,7 @@ GetEditingJobInfoResponse Client::getEditingJobInfoWithOptions(const GetEditingJ
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetEditingJobInfoResponse>();
 }
 
@@ -19819,7 +19819,7 @@ GetMessageAppResponse Client::getMessageAppWithOptions(const GetMessageAppReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetMessageApp"},
     {"version" , "2016-11-01"},
@@ -19830,7 +19830,7 @@ GetMessageAppResponse Client::getMessageAppWithOptions(const GetMessageAppReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMessageAppResponse>();
 }
 
@@ -19870,7 +19870,7 @@ GetMessageGroupResponse Client::getMessageGroupWithOptions(const GetMessageGroup
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetMessageGroup"},
     {"version" , "2016-11-01"},
@@ -19881,7 +19881,7 @@ GetMessageGroupResponse Client::getMessageGroupWithOptions(const GetMessageGroup
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMessageGroupResponse>();
 }
 
@@ -19931,7 +19931,7 @@ GetMessageTokenResponse Client::getMessageTokenWithOptions(const GetMessageToken
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetMessageToken"},
     {"version" , "2016-11-01"},
@@ -19942,7 +19942,7 @@ GetMessageTokenResponse Client::getMessageTokenWithOptions(const GetMessageToken
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMessageTokenResponse>();
 }
 
@@ -19992,7 +19992,7 @@ GetTranscodeTaskStatusResponse Client::getTranscodeTaskStatusWithOptions(const G
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetTranscodeTaskStatus"},
     {"version" , "2016-11-01"},
@@ -20003,7 +20003,7 @@ GetTranscodeTaskStatusResponse Client::getTranscodeTaskStatusWithOptions(const G
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetTranscodeTaskStatusResponse>();
 }
 
@@ -20071,7 +20071,7 @@ HotLiveRtcStreamResponse Client::hotLiveRtcStreamWithOptions(const HotLiveRtcStr
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "HotLiveRtcStream"},
     {"version" , "2016-11-01"},
@@ -20082,7 +20082,7 @@ HotLiveRtcStreamResponse Client::hotLiveRtcStreamWithOptions(const HotLiveRtcStr
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<HotLiveRtcStreamResponse>();
 }
 
@@ -20148,7 +20148,7 @@ InitializeAutoShowListTaskResponse Client::initializeAutoShowListTaskWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "InitializeAutoShowListTask"},
     {"version" , "2016-11-01"},
@@ -20159,7 +20159,7 @@ InitializeAutoShowListTaskResponse Client::initializeAutoShowListTaskWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<InitializeAutoShowListTaskResponse>();
 }
 
@@ -20212,7 +20212,7 @@ JoinMessageGroupResponse Client::joinMessageGroupWithOptions(const JoinMessageGr
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "JoinMessageGroup"},
     {"version" , "2016-11-01"},
@@ -20223,7 +20223,7 @@ JoinMessageGroupResponse Client::joinMessageGroupWithOptions(const JoinMessageGr
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<JoinMessageGroupResponse>();
 }
 
@@ -20272,7 +20272,7 @@ KickLiveMessageGroupUserResponse Client::kickLiveMessageGroupUserWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "KickLiveMessageGroupUser"},
     {"version" , "2016-11-01"},
@@ -20283,7 +20283,7 @@ KickLiveMessageGroupUserResponse Client::kickLiveMessageGroupUserWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<KickLiveMessageGroupUserResponse>();
 }
 
@@ -20337,7 +20337,7 @@ LeaveMessageGroupResponse Client::leaveMessageGroupWithOptions(const LeaveMessag
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "LeaveMessageGroup"},
     {"version" , "2016-11-01"},
@@ -20348,7 +20348,7 @@ LeaveMessageGroupResponse Client::leaveMessageGroupWithOptions(const LeaveMessag
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<LeaveMessageGroupResponse>();
 }
 
@@ -20420,7 +20420,7 @@ ListEdgeTranscodeJobResponse Client::listEdgeTranscodeJobWithOptions(const ListE
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListEdgeTranscodeJob"},
     {"version" , "2016-11-01"},
@@ -20431,7 +20431,7 @@ ListEdgeTranscodeJobResponse Client::listEdgeTranscodeJobWithOptions(const ListE
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListEdgeTranscodeJobResponse>();
 }
 
@@ -20505,7 +20505,7 @@ ListEdgeTranscodeTemplateResponse Client::listEdgeTranscodeTemplateWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListEdgeTranscodeTemplate"},
     {"version" , "2016-11-01"},
@@ -20516,7 +20516,7 @@ ListEdgeTranscodeTemplateResponse Client::listEdgeTranscodeTemplateWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListEdgeTranscodeTemplateResponse>();
 }
 
@@ -20550,7 +20550,7 @@ ListEventSubResponse Client::listEventSubWithOptions(const ListEventSubRequest &
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListEventSub"},
     {"version" , "2016-11-01"},
@@ -20561,7 +20561,7 @@ ListEventSubResponse Client::listEventSubWithOptions(const ListEventSubRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListEventSubResponse>();
 }
 
@@ -20596,7 +20596,7 @@ ListEventSubEventResponse Client::listEventSubEventWithOptions(const ListEventSu
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListEventSubEvent"},
     {"version" , "2016-11-01"},
@@ -20607,7 +20607,7 @@ ListEventSubEventResponse Client::listEventSubEventWithOptions(const ListEventSu
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListEventSubEventResponse>();
 }
 
@@ -20662,7 +20662,7 @@ ListLiveDelayConfigResponse Client::listLiveDelayConfigWithOptions(const ListLiv
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListLiveDelayConfig"},
     {"version" , "2016-11-01"},
@@ -20673,7 +20673,7 @@ ListLiveDelayConfigResponse Client::listLiveDelayConfigWithOptions(const ListLiv
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListLiveDelayConfigResponse>();
 }
 
@@ -20716,7 +20716,7 @@ ListLiveMessageAppsResponse Client::listLiveMessageAppsWithOptions(const ListLiv
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListLiveMessageApps"},
     {"version" , "2016-11-01"},
@@ -20727,7 +20727,7 @@ ListLiveMessageAppsResponse Client::listLiveMessageAppsWithOptions(const ListLiv
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListLiveMessageAppsResponse>();
 }
 
@@ -20760,7 +20760,7 @@ ListLiveMessageGroupByPageResponse Client::listLiveMessageGroupByPageWithOptions
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListLiveMessageGroupByPage"},
     {"version" , "2016-11-01"},
@@ -20771,7 +20771,7 @@ ListLiveMessageGroupByPageResponse Client::listLiveMessageGroupByPageWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListLiveMessageGroupByPageResponse>();
 }
 
@@ -20842,7 +20842,7 @@ ListLiveMessageGroupMessagesResponse Client::listLiveMessageGroupMessagesWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListLiveMessageGroupMessages"},
     {"version" , "2016-11-01"},
@@ -20853,7 +20853,7 @@ ListLiveMessageGroupMessagesResponse Client::listLiveMessageGroupMessagesWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListLiveMessageGroupMessagesResponse>();
 }
 
@@ -20913,7 +20913,7 @@ ListLiveMessageGroupUsersResponse Client::listLiveMessageGroupUsersWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListLiveMessageGroupUsers"},
     {"version" , "2016-11-01"},
@@ -20924,7 +20924,7 @@ ListLiveMessageGroupUsersResponse Client::listLiveMessageGroupUsersWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListLiveMessageGroupUsersResponse>();
 }
 
@@ -20980,7 +20980,7 @@ ListLiveMessageGroupsResponse Client::listLiveMessageGroupsWithOptions(const Lis
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListLiveMessageGroups"},
     {"version" , "2016-11-01"},
@@ -20991,7 +20991,7 @@ ListLiveMessageGroupsResponse Client::listLiveMessageGroupsWithOptions(const Lis
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListLiveMessageGroupsResponse>();
 }
 
@@ -21026,7 +21026,7 @@ ListLiveRealtimeLogDeliveryResponse Client::listLiveRealtimeLogDeliveryWithOptio
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListLiveRealtimeLogDelivery"},
     {"version" , "2016-11-01"},
@@ -21037,7 +21037,7 @@ ListLiveRealtimeLogDeliveryResponse Client::listLiveRealtimeLogDeliveryWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListLiveRealtimeLogDeliveryResponse>();
 }
 
@@ -21073,7 +21073,7 @@ ListLiveRealtimeLogDeliveryDomainsResponse Client::listLiveRealtimeLogDeliveryDo
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListLiveRealtimeLogDeliveryDomains"},
     {"version" , "2016-11-01"},
@@ -21084,7 +21084,7 @@ ListLiveRealtimeLogDeliveryDomainsResponse Client::listLiveRealtimeLogDeliveryDo
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListLiveRealtimeLogDeliveryDomainsResponse>();
 }
 
@@ -21120,7 +21120,7 @@ ListLiveRealtimeLogDeliveryInfosResponse Client::listLiveRealtimeLogDeliveryInfo
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListLiveRealtimeLogDeliveryInfos"},
     {"version" , "2016-11-01"},
@@ -21131,7 +21131,7 @@ ListLiveRealtimeLogDeliveryInfosResponse Client::listLiveRealtimeLogDeliveryInfo
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListLiveRealtimeLogDeliveryInfosResponse>();
 }
 
@@ -21189,7 +21189,7 @@ ListMessageResponse Client::listMessageWithOptions(const ListMessageRequest &req
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListMessage"},
     {"version" , "2016-11-01"},
@@ -21200,7 +21200,7 @@ ListMessageResponse Client::listMessageWithOptions(const ListMessageRequest &req
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMessageResponse>();
 }
 
@@ -21245,7 +21245,7 @@ ListMessageAppResponse Client::listMessageAppWithOptions(const ListMessageAppReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListMessageApp"},
     {"version" , "2016-11-01"},
@@ -21256,7 +21256,7 @@ ListMessageAppResponse Client::listMessageAppWithOptions(const ListMessageAppReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMessageAppResponse>();
 }
 
@@ -21309,7 +21309,7 @@ ListMessageGroupResponse Client::listMessageGroupWithOptions(const ListMessageGr
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListMessageGroup"},
     {"version" , "2016-11-01"},
@@ -21320,7 +21320,7 @@ ListMessageGroupResponse Client::listMessageGroupWithOptions(const ListMessageGr
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMessageGroupResponse>();
 }
 
@@ -21373,7 +21373,7 @@ ListMessageGroupUserResponse Client::listMessageGroupUserWithOptions(const ListM
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListMessageGroupUser"},
     {"version" , "2016-11-01"},
@@ -21384,7 +21384,7 @@ ListMessageGroupUserResponse Client::listMessageGroupUserWithOptions(const ListM
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMessageGroupUserResponse>();
 }
 
@@ -21435,7 +21435,7 @@ ListMessageGroupUserByIdResponse Client::listMessageGroupUserByIdWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListMessageGroupUserById"},
     {"version" , "2016-11-01"},
@@ -21446,7 +21446,7 @@ ListMessageGroupUserByIdResponse Client::listMessageGroupUserByIdWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMessageGroupUserByIdResponse>();
 }
 
@@ -21499,7 +21499,7 @@ ListMuteGroupUserResponse Client::listMuteGroupUserWithOptions(const ListMuteGro
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListMuteGroupUser"},
     {"version" , "2016-11-01"},
@@ -21510,7 +21510,7 @@ ListMuteGroupUserResponse Client::listMuteGroupUserWithOptions(const ListMuteGro
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMuteGroupUserResponse>();
 }
 
@@ -21564,7 +21564,7 @@ ListPlaylistResponse Client::listPlaylistWithOptions(const ListPlaylistRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListPlaylist"},
     {"version" , "2016-11-01"},
@@ -21575,7 +21575,7 @@ ListPlaylistResponse Client::listPlaylistWithOptions(const ListPlaylistRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListPlaylistResponse>();
 }
 
@@ -21626,7 +21626,7 @@ ListPlaylistItemsResponse Client::listPlaylistItemsWithOptions(const ListPlaylis
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListPlaylistItems"},
     {"version" , "2016-11-01"},
@@ -21637,7 +21637,7 @@ ListPlaylistItemsResponse Client::listPlaylistItemsWithOptions(const ListPlaylis
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListPlaylistItemsResponse>();
 }
 
@@ -21696,7 +21696,7 @@ ListRtcMPUEventSubRecordResponse Client::listRtcMPUEventSubRecordWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListRtcMPUEventSubRecord"},
     {"version" , "2016-11-01"},
@@ -21707,7 +21707,7 @@ ListRtcMPUEventSubRecordResponse Client::listRtcMPUEventSubRecordWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListRtcMPUEventSubRecordResponse>();
 }
 
@@ -21759,7 +21759,7 @@ ListRtcMPUTaskDetailResponse Client::listRtcMPUTaskDetailWithOptions(const ListR
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListRtcMPUTaskDetail"},
     {"version" , "2016-11-01"},
@@ -21770,7 +21770,7 @@ ListRtcMPUTaskDetailResponse Client::listRtcMPUTaskDetailWithOptions(const ListR
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListRtcMPUTaskDetailResponse>();
 }
 
@@ -21872,7 +21872,7 @@ LiveUpstreamQosDataResponse Client::liveUpstreamQosDataWithOptions(const LiveUps
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "LiveUpstreamQosData"},
     {"version" , "2016-11-01"},
@@ -21883,7 +21883,7 @@ LiveUpstreamQosDataResponse Client::liveUpstreamQosDataWithOptions(const LiveUps
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<LiveUpstreamQosDataResponse>();
 }
 
@@ -21926,7 +21926,7 @@ MiguLivePullToPushStartResponse Client::miguLivePullToPushStartWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "MiguLivePullToPushStart"},
     {"version" , "2016-11-01"},
@@ -21937,7 +21937,7 @@ MiguLivePullToPushStartResponse Client::miguLivePullToPushStartWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<MiguLivePullToPushStartResponse>();
 }
 
@@ -21980,7 +21980,7 @@ MiguLivePullToPushStatusResponse Client::miguLivePullToPushStatusWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "MiguLivePullToPushStatus"},
     {"version" , "2016-11-01"},
@@ -21991,7 +21991,7 @@ MiguLivePullToPushStatusResponse Client::miguLivePullToPushStatusWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<MiguLivePullToPushStatusResponse>();
 }
 
@@ -22066,7 +22066,7 @@ ModifyCasterComponentResponse Client::modifyCasterComponentWithOptions(const Mod
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyCasterComponent"},
     {"version" , "2016-11-01"},
@@ -22077,7 +22077,7 @@ ModifyCasterComponentResponse Client::modifyCasterComponentWithOptions(const Mod
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyCasterComponentResponse>();
 }
 
@@ -22152,7 +22152,7 @@ ModifyCasterEpisodeResponse Client::modifyCasterEpisodeWithOptions(const ModifyC
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyCasterEpisode"},
     {"version" , "2016-11-01"},
@@ -22163,7 +22163,7 @@ ModifyCasterEpisodeResponse Client::modifyCasterEpisodeWithOptions(const ModifyC
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyCasterEpisodeResponse>();
 }
 
@@ -22230,7 +22230,7 @@ ModifyCasterLayoutResponse Client::modifyCasterLayoutWithOptions(const ModifyCas
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyCasterLayout"},
     {"version" , "2016-11-01"},
@@ -22241,7 +22241,7 @@ ModifyCasterLayoutResponse Client::modifyCasterLayoutWithOptions(const ModifyCas
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyCasterLayoutResponse>();
 }
 
@@ -22292,7 +22292,7 @@ ModifyCasterProgramResponse Client::modifyCasterProgramWithOptions(const ModifyC
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyCasterProgram"},
     {"version" , "2016-11-01"},
@@ -22303,7 +22303,7 @@ ModifyCasterProgramResponse Client::modifyCasterProgramWithOptions(const ModifyC
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyCasterProgramResponse>();
 }
 
@@ -22395,7 +22395,7 @@ ModifyCasterVideoResourceResponse Client::modifyCasterVideoResourceWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyCasterVideoResource"},
     {"version" , "2016-11-01"},
@@ -22406,7 +22406,7 @@ ModifyCasterVideoResourceResponse Client::modifyCasterVideoResourceWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyCasterVideoResourceResponse>();
 }
 
@@ -22508,7 +22508,7 @@ ModifyLiveAIStudioResponse Client::modifyLiveAIStudioWithOptions(const ModifyLiv
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyLiveAIStudio"},
     {"version" , "2016-11-01"},
@@ -22519,7 +22519,7 @@ ModifyLiveAIStudioResponse Client::modifyLiveAIStudioWithOptions(const ModifyLiv
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyLiveAIStudioResponse>();
 }
 
@@ -22565,7 +22565,7 @@ ModifyLiveDomainSchdmByPropertyResponse Client::modifyLiveDomainSchdmByPropertyW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyLiveDomainSchdmByProperty"},
     {"version" , "2016-11-01"},
@@ -22576,7 +22576,7 @@ ModifyLiveDomainSchdmByPropertyResponse Client::modifyLiveDomainSchdmByPropertyW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyLiveDomainSchdmByPropertyResponse>();
 }
 
@@ -22624,7 +22624,7 @@ ModifyLiveMessageAppAuditResponse Client::modifyLiveMessageAppAuditWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyLiveMessageAppAudit"},
     {"version" , "2016-11-01"},
@@ -22635,7 +22635,7 @@ ModifyLiveMessageAppAuditResponse Client::modifyLiveMessageAppAuditWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyLiveMessageAppAuditResponse>();
 }
 
@@ -22678,7 +22678,7 @@ ModifyLiveMessageAppCallbackResponse Client::modifyLiveMessageAppCallbackWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyLiveMessageAppCallback"},
     {"version" , "2016-11-01"},
@@ -22689,7 +22689,7 @@ ModifyLiveMessageAppCallbackResponse Client::modifyLiveMessageAppCallbackWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyLiveMessageAppCallbackResponse>();
 }
 
@@ -22732,7 +22732,7 @@ ModifyLiveMessageAppDisableResponse Client::modifyLiveMessageAppDisableWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyLiveMessageAppDisable"},
     {"version" , "2016-11-01"},
@@ -22743,7 +22743,7 @@ ModifyLiveMessageAppDisableResponse Client::modifyLiveMessageAppDisableWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyLiveMessageAppDisableResponse>();
 }
 
@@ -22810,7 +22810,7 @@ ModifyLiveMessageGroupResponse Client::modifyLiveMessageGroupWithOptions(const M
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyLiveMessageGroup"},
     {"version" , "2016-11-01"},
@@ -22821,7 +22821,7 @@ ModifyLiveMessageGroupResponse Client::modifyLiveMessageGroupWithOptions(const M
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyLiveMessageGroupResponse>();
 }
 
@@ -22890,7 +22890,7 @@ ModifyLiveMessageGroupBandResponse Client::modifyLiveMessageGroupBandWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyLiveMessageGroupBand"},
     {"version" , "2016-11-01"},
@@ -22901,7 +22901,7 @@ ModifyLiveMessageGroupBandResponse Client::modifyLiveMessageGroupBandWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyLiveMessageGroupBandResponse>();
 }
 
@@ -22948,7 +22948,7 @@ ModifyLiveMessageUserInfoResponse Client::modifyLiveMessageUserInfoWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyLiveMessageUserInfo"},
     {"version" , "2016-11-01"},
@@ -22959,7 +22959,7 @@ ModifyLiveMessageUserInfoResponse Client::modifyLiveMessageUserInfoWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyLiveMessageUserInfoResponse>();
 }
 
@@ -22992,7 +22992,7 @@ ModifyLiveRealtimeLogDeliveryResponse Client::modifyLiveRealtimeLogDeliveryWithO
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyLiveRealtimeLogDelivery"},
     {"version" , "2016-11-01"},
@@ -23003,7 +23003,7 @@ ModifyLiveRealtimeLogDeliveryResponse Client::modifyLiveRealtimeLogDeliveryWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyLiveRealtimeLogDeliveryResponse>();
 }
 
@@ -23072,7 +23072,7 @@ ModifyShowListResponse Client::modifyShowListWithOptions(const ModifyShowListReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyShowList"},
     {"version" , "2016-11-01"},
@@ -23083,7 +23083,7 @@ ModifyShowListResponse Client::modifyShowListWithOptions(const ModifyShowListReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyShowListResponse>();
 }
 
@@ -23158,7 +23158,7 @@ ModifyStudioLayoutResponse Client::modifyStudioLayoutWithOptions(const ModifyStu
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyStudioLayout"},
     {"version" , "2016-11-01"},
@@ -23169,7 +23169,7 @@ ModifyStudioLayoutResponse Client::modifyStudioLayoutWithOptions(const ModifyStu
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyStudioLayoutResponse>();
 }
 
@@ -23219,7 +23219,7 @@ MuteAllGroupUserResponse Client::muteAllGroupUserWithOptions(const MuteAllGroupU
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "MuteAllGroupUser"},
     {"version" , "2016-11-01"},
@@ -23230,7 +23230,7 @@ MuteAllGroupUserResponse Client::muteAllGroupUserWithOptions(const MuteAllGroupU
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<MuteAllGroupUserResponse>();
 }
 
@@ -23293,7 +23293,7 @@ MuteGroupUserResponse Client::muteGroupUserWithOptions(const MuteGroupUserReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "MuteGroupUser"},
     {"version" , "2016-11-01"},
@@ -23304,7 +23304,7 @@ MuteGroupUserResponse Client::muteGroupUserWithOptions(const MuteGroupUserReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<MuteGroupUserResponse>();
 }
 
@@ -23370,7 +23370,7 @@ OpenLiveShiftResponse Client::openLiveShiftWithOptions(const OpenLiveShiftReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "OpenLiveShift"},
     {"version" , "2016-11-01"},
@@ -23381,7 +23381,7 @@ OpenLiveShiftResponse Client::openLiveShiftWithOptions(const OpenLiveShiftReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<OpenLiveShiftResponse>();
 }
 
@@ -23432,7 +23432,7 @@ PlayChoosenShowResponse Client::playChoosenShowWithOptions(const PlayChoosenShow
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "PlayChoosenShow"},
     {"version" , "2016-11-01"},
@@ -23443,7 +23443,7 @@ PlayChoosenShowResponse Client::playChoosenShowWithOptions(const PlayChoosenShow
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PlayChoosenShowResponse>();
 }
 
@@ -23494,7 +23494,7 @@ PublishLiveStagingConfigToProductionResponse Client::publishLiveStagingConfigToP
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "PublishLiveStagingConfigToProduction"},
     {"version" , "2016-11-01"},
@@ -23505,7 +23505,7 @@ PublishLiveStagingConfigToProductionResponse Client::publishLiveStagingConfigToP
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PublishLiveStagingConfigToProductionResponse>();
 }
 
@@ -23536,7 +23536,7 @@ QueryLiveDomainMultiStreamListResponse Client::queryLiveDomainMultiStreamListWit
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryLiveDomainMultiStreamList"},
     {"version" , "2016-11-01"},
@@ -23547,7 +23547,7 @@ QueryLiveDomainMultiStreamListResponse Client::queryLiveDomainMultiStreamListWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryLiveDomainMultiStreamListResponse>();
 }
 
@@ -23597,7 +23597,7 @@ QueryMessageAppResponse Client::queryMessageAppWithOptions(const QueryMessageApp
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "QueryMessageApp"},
     {"version" , "2016-11-01"},
@@ -23608,7 +23608,7 @@ QueryMessageAppResponse Client::queryMessageAppWithOptions(const QueryMessageApp
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryMessageAppResponse>();
 }
 
@@ -23652,7 +23652,7 @@ QueryRtcAsrTasksResponse Client::queryRtcAsrTasksWithOptions(const QueryRtcAsrTa
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryRtcAsrTasks"},
     {"version" , "2016-11-01"},
@@ -23663,7 +23663,7 @@ QueryRtcAsrTasksResponse Client::queryRtcAsrTasksWithOptions(const QueryRtcAsrTa
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryRtcAsrTasksResponse>();
 }
 
@@ -23708,7 +23708,7 @@ QuerySnapshotCallbackAuthResponse Client::querySnapshotCallbackAuthWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QuerySnapshotCallbackAuth"},
     {"version" , "2016-11-01"},
@@ -23719,7 +23719,7 @@ QuerySnapshotCallbackAuthResponse Client::querySnapshotCallbackAuthWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QuerySnapshotCallbackAuthResponse>();
 }
 
@@ -23782,7 +23782,7 @@ RealTimeRecordCommandResponse Client::realTimeRecordCommandWithOptions(const Rea
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "RealTimeRecordCommand"},
     {"version" , "2016-11-01"},
@@ -23793,7 +23793,7 @@ RealTimeRecordCommandResponse Client::realTimeRecordCommandWithOptions(const Rea
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RealTimeRecordCommandResponse>();
 }
 
@@ -23845,7 +23845,7 @@ RecoverLiveMessageDeletedGroupResponse Client::recoverLiveMessageDeletedGroupWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "RecoverLiveMessageDeletedGroup"},
     {"version" , "2016-11-01"},
@@ -23856,7 +23856,7 @@ RecoverLiveMessageDeletedGroupResponse Client::recoverLiveMessageDeletedGroupWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RecoverLiveMessageDeletedGroupResponse>();
 }
 
@@ -23914,7 +23914,7 @@ RemoveLiveMessageGroupBandResponse Client::removeLiveMessageGroupBandWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "RemoveLiveMessageGroupBand"},
     {"version" , "2016-11-01"},
@@ -23925,7 +23925,7 @@ RemoveLiveMessageGroupBandResponse Client::removeLiveMessageGroupBandWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RemoveLiveMessageGroupBandResponse>();
 }
 
@@ -23985,7 +23985,7 @@ RemoveShowFromShowListResponse Client::removeShowFromShowListWithOptions(const R
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "RemoveShowFromShowList"},
     {"version" , "2016-11-01"},
@@ -23996,7 +23996,7 @@ RemoveShowFromShowListResponse Client::removeShowFromShowListWithOptions(const R
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RemoveShowFromShowListResponse>();
 }
 
@@ -24044,7 +24044,7 @@ RemoveTerminalsResponse Client::removeTerminalsWithOptions(const RemoveTerminals
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "RemoveTerminals"},
     {"version" , "2016-11-01"},
@@ -24055,7 +24055,7 @@ RemoveTerminalsResponse Client::removeTerminalsWithOptions(const RemoveTerminals
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RemoveTerminalsResponse>();
 }
 
@@ -24103,7 +24103,7 @@ RestartCasterResponse Client::restartCasterWithOptions(const RestartCasterReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "RestartCaster"},
     {"version" , "2016-11-01"},
@@ -24114,7 +24114,7 @@ RestartCasterResponse Client::restartCasterWithOptions(const RestartCasterReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RestartCasterResponse>();
 }
 
@@ -24154,7 +24154,7 @@ RestartLivePullToPushResponse Client::restartLivePullToPushWithOptions(const Res
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "RestartLivePullToPush"},
     {"version" , "2016-11-01"},
@@ -24165,7 +24165,7 @@ RestartLivePullToPushResponse Client::restartLivePullToPushWithOptions(const Res
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RestartLivePullToPushResponse>();
 }
 
@@ -24218,7 +24218,7 @@ RestartTranscodeTaskResponse Client::restartTranscodeTaskWithOptions(const Resta
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "RestartTranscodeTask"},
     {"version" , "2016-11-01"},
@@ -24229,7 +24229,7 @@ RestartTranscodeTaskResponse Client::restartTranscodeTaskWithOptions(const Resta
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RestartTranscodeTaskResponse>();
 }
 
@@ -24282,7 +24282,7 @@ ResumeLiveStreamResponse Client::resumeLiveStreamWithOptions(const ResumeLiveStr
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ResumeLiveStream"},
     {"version" , "2016-11-01"},
@@ -24293,7 +24293,7 @@ ResumeLiveStreamResponse Client::resumeLiveStreamWithOptions(const ResumeLiveStr
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ResumeLiveStreamResponse>();
 }
 
@@ -24344,7 +24344,7 @@ RollbackLiveStagingConfigResponse Client::rollbackLiveStagingConfigWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "RollbackLiveStagingConfig"},
     {"version" , "2016-11-01"},
@@ -24355,7 +24355,7 @@ RollbackLiveStagingConfigResponse Client::rollbackLiveStagingConfigWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RollbackLiveStagingConfigResponse>();
 }
 
@@ -24409,7 +24409,7 @@ SendLikeResponse Client::sendLikeWithOptions(const SendLikeRequest &request, con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "SendLike"},
     {"version" , "2016-11-01"},
@@ -24420,7 +24420,7 @@ SendLikeResponse Client::sendLikeWithOptions(const SendLikeRequest &request, con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SendLikeResponse>();
 }
 
@@ -24502,7 +24502,7 @@ SendLiveMessageGroupResponse Client::sendLiveMessageGroupWithOptions(const SendL
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SendLiveMessageGroup"},
     {"version" , "2016-11-01"},
@@ -24513,7 +24513,7 @@ SendLiveMessageGroupResponse Client::sendLiveMessageGroupWithOptions(const SendL
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SendLiveMessageGroupResponse>();
 }
 
@@ -24586,7 +24586,7 @@ SendLiveMessageUserResponse Client::sendLiveMessageUserWithOptions(const SendLiv
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SendLiveMessageUser"},
     {"version" , "2016-11-01"},
@@ -24597,7 +24597,7 @@ SendLiveMessageUserResponse Client::sendLiveMessageUserWithOptions(const SendLiv
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SendLiveMessageUserResponse>();
 }
 
@@ -24666,7 +24666,7 @@ SendMessageToGroupResponse Client::sendMessageToGroupWithOptions(const SendMessa
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SendMessageToGroupResponse>();
 }
 
@@ -24746,7 +24746,7 @@ SendMessageToGroupUsersResponse Client::sendMessageToGroupUsersWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SendMessageToGroupUsersResponse>();
 }
 
@@ -24812,7 +24812,7 @@ SetCasterChannelResponse Client::setCasterChannelWithOptions(const SetCasterChan
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SetCasterChannel"},
     {"version" , "2016-11-01"},
@@ -24823,7 +24823,7 @@ SetCasterChannelResponse Client::setCasterChannelWithOptions(const SetCasterChan
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetCasterChannelResponse>();
 }
 
@@ -24942,7 +24942,7 @@ SetCasterConfigResponse Client::setCasterConfigWithOptions(const SetCasterConfig
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SetCasterConfig"},
     {"version" , "2016-11-01"},
@@ -24953,7 +24953,7 @@ SetCasterConfigResponse Client::setCasterConfigWithOptions(const SetCasterConfig
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetCasterConfigResponse>();
 }
 
@@ -25013,7 +25013,7 @@ SetCasterSceneConfigResponse Client::setCasterSceneConfigWithOptions(const SetCa
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SetCasterSceneConfig"},
     {"version" , "2016-11-01"},
@@ -25024,7 +25024,7 @@ SetCasterSceneConfigResponse Client::setCasterSceneConfigWithOptions(const SetCa
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetCasterSceneConfigResponse>();
 }
 
@@ -25096,7 +25096,7 @@ SetLiveDomainCertificateResponse Client::setLiveDomainCertificateWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SetLiveDomainCertificate"},
     {"version" , "2016-11-01"},
@@ -25107,7 +25107,7 @@ SetLiveDomainCertificateResponse Client::setLiveDomainCertificateWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetLiveDomainCertificateResponse>();
 }
 
@@ -25142,7 +25142,7 @@ SetLiveDomainMultiStreamConfigResponse Client::setLiveDomainMultiStreamConfigWit
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SetLiveDomainMultiStreamConfig"},
     {"version" , "2016-11-01"},
@@ -25153,7 +25153,7 @@ SetLiveDomainMultiStreamConfigResponse Client::setLiveDomainMultiStreamConfigWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetLiveDomainMultiStreamConfigResponse>();
 }
 
@@ -25184,7 +25184,7 @@ SetLiveDomainMultiStreamMasterResponse Client::setLiveDomainMultiStreamMasterWit
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SetLiveDomainMultiStreamMaster"},
     {"version" , "2016-11-01"},
@@ -25195,7 +25195,7 @@ SetLiveDomainMultiStreamMasterResponse Client::setLiveDomainMultiStreamMasterWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetLiveDomainMultiStreamMasterResponse>();
 }
 
@@ -25222,7 +25222,7 @@ SetLiveDomainMultiStreamOptimalModeResponse Client::setLiveDomainMultiStreamOpti
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SetLiveDomainMultiStreamOptimalMode"},
     {"version" , "2016-11-01"},
@@ -25233,7 +25233,7 @@ SetLiveDomainMultiStreamOptimalModeResponse Client::setLiveDomainMultiStreamOpti
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetLiveDomainMultiStreamOptimalModeResponse>();
 }
 
@@ -25281,7 +25281,7 @@ SetLiveDomainStagingConfigResponse Client::setLiveDomainStagingConfigWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SetLiveDomainStagingConfig"},
     {"version" , "2016-11-01"},
@@ -25292,7 +25292,7 @@ SetLiveDomainStagingConfigResponse Client::setLiveDomainStagingConfigWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetLiveDomainStagingConfigResponse>();
 }
 
@@ -25365,7 +25365,7 @@ SetLiveEdgeTransferResponse Client::setLiveEdgeTransferWithOptions(const SetLive
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SetLiveEdgeTransfer"},
     {"version" , "2016-11-01"},
@@ -25376,7 +25376,7 @@ SetLiveEdgeTransferResponse Client::setLiveEdgeTransferWithOptions(const SetLive
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetLiveEdgeTransferResponse>();
 }
 
@@ -25449,7 +25449,7 @@ SetLiveLazyPullStreamInfoConfigResponse Client::setLiveLazyPullStreamInfoConfigW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SetLiveLazyPullStreamInfoConfig"},
     {"version" , "2016-11-01"},
@@ -25460,7 +25460,7 @@ SetLiveLazyPullStreamInfoConfigResponse Client::setLiveLazyPullStreamInfoConfigW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetLiveLazyPullStreamInfoConfigResponse>();
 }
 
@@ -25509,7 +25509,7 @@ SetLiveMpuTaskSeiResponse Client::setLiveMpuTaskSeiWithOptions(const SetLiveMpuT
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SetLiveMpuTaskSei"},
     {"version" , "2016-11-01"},
@@ -25520,7 +25520,7 @@ SetLiveMpuTaskSeiResponse Client::setLiveMpuTaskSeiWithOptions(const SetLiveMpuT
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetLiveMpuTaskSeiResponse>();
 }
 
@@ -25588,7 +25588,7 @@ SetLiveStreamBlockResponse Client::setLiveStreamBlockWithOptions(const SetLiveSt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SetLiveStreamBlock"},
     {"version" , "2016-11-01"},
@@ -25599,7 +25599,7 @@ SetLiveStreamBlockResponse Client::setLiveStreamBlockWithOptions(const SetLiveSt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetLiveStreamBlockResponse>();
 }
 
@@ -25676,7 +25676,7 @@ SetLiveStreamDelayConfigResponse Client::setLiveStreamDelayConfigWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SetLiveStreamDelayConfig"},
     {"version" , "2016-11-01"},
@@ -25687,7 +25687,7 @@ SetLiveStreamDelayConfigResponse Client::setLiveStreamDelayConfigWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetLiveStreamDelayConfigResponse>();
 }
 
@@ -25757,7 +25757,7 @@ SetLiveStreamPreloadTasksResponse Client::setLiveStreamPreloadTasksWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SetLiveStreamPreloadTasks"},
     {"version" , "2016-11-01"},
@@ -25768,7 +25768,7 @@ SetLiveStreamPreloadTasksResponse Client::setLiveStreamPreloadTasksWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetLiveStreamPreloadTasksResponse>();
 }
 
@@ -25833,7 +25833,7 @@ SetLiveStreamsNotifyUrlConfigResponse Client::setLiveStreamsNotifyUrlConfigWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SetLiveStreamsNotifyUrlConfig"},
     {"version" , "2016-11-01"},
@@ -25844,7 +25844,7 @@ SetLiveStreamsNotifyUrlConfigResponse Client::setLiveStreamsNotifyUrlConfigWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetLiveStreamsNotifyUrlConfigResponse>();
 }
 
@@ -25908,7 +25908,7 @@ SetShowListBackgroundResponse Client::setShowListBackgroundWithOptions(const Set
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SetShowListBackground"},
     {"version" , "2016-11-01"},
@@ -25919,7 +25919,7 @@ SetShowListBackgroundResponse Client::setShowListBackgroundWithOptions(const Set
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetShowListBackgroundResponse>();
 }
 
@@ -25980,7 +25980,7 @@ SetSnapshotCallbackAuthResponse Client::setSnapshotCallbackAuthWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SetSnapshotCallbackAuth"},
     {"version" , "2016-11-01"},
@@ -25991,7 +25991,7 @@ SetSnapshotCallbackAuthResponse Client::setSnapshotCallbackAuthWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetSnapshotCallbackAuthResponse>();
 }
 
@@ -26040,7 +26040,7 @@ StartCasterResponse Client::startCasterWithOptions(const StartCasterRequest &req
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StartCaster"},
     {"version" , "2016-11-01"},
@@ -26051,7 +26051,7 @@ StartCasterResponse Client::startCasterWithOptions(const StartCasterRequest &req
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StartCasterResponse>();
 }
 
@@ -26102,7 +26102,7 @@ StartCasterSceneResponse Client::startCasterSceneWithOptions(const StartCasterSc
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StartCasterScene"},
     {"version" , "2016-11-01"},
@@ -26113,7 +26113,7 @@ StartCasterSceneResponse Client::startCasterSceneWithOptions(const StartCasterSc
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StartCasterSceneResponse>();
 }
 
@@ -26165,7 +26165,7 @@ StartEdgeTranscodeJobResponse Client::startEdgeTranscodeJobWithOptions(const Sta
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StartEdgeTranscodeJob"},
     {"version" , "2016-11-01"},
@@ -26176,7 +26176,7 @@ StartEdgeTranscodeJobResponse Client::startEdgeTranscodeJobWithOptions(const Sta
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StartEdgeTranscodeJobResponse>();
 }
 
@@ -26224,7 +26224,7 @@ StartLiveDomainResponse Client::startLiveDomainWithOptions(const StartLiveDomain
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StartLiveDomain"},
     {"version" , "2016-11-01"},
@@ -26235,7 +26235,7 @@ StartLiveDomainResponse Client::startLiveDomainWithOptions(const StartLiveDomain
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StartLiveDomainResponse>();
 }
 
@@ -26348,7 +26348,7 @@ StartLiveMPUTaskResponse Client::startLiveMPUTaskWithOptions(const StartLiveMPUT
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StartLiveMPUTask"},
     {"version" , "2016-11-01"},
@@ -26359,7 +26359,7 @@ StartLiveMPUTaskResponse Client::startLiveMPUTaskWithOptions(const StartLiveMPUT
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StartLiveMPUTaskResponse>();
 }
 
@@ -26422,7 +26422,7 @@ StartLiveStreamMonitorResponse Client::startLiveStreamMonitorWithOptions(const S
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StartLiveStreamMonitor"},
     {"version" , "2016-11-01"},
@@ -26433,7 +26433,7 @@ StartLiveStreamMonitorResponse Client::startLiveStreamMonitorWithOptions(const S
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StartLiveStreamMonitorResponse>();
 }
 
@@ -26492,7 +26492,7 @@ StartPlaylistResponse Client::startPlaylistWithOptions(const StartPlaylistReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StartPlaylist"},
     {"version" , "2016-11-01"},
@@ -26503,7 +26503,7 @@ StartPlaylistResponse Client::startPlaylistWithOptions(const StartPlaylistReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StartPlaylistResponse>();
 }
 
@@ -26596,7 +26596,7 @@ StartRtcCloudRecordingResponse Client::startRtcCloudRecordingWithOptions(const S
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StartRtcCloudRecording"},
     {"version" , "2016-11-01"},
@@ -26607,7 +26607,7 @@ StartRtcCloudRecordingResponse Client::startRtcCloudRecordingWithOptions(const S
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StartRtcCloudRecordingResponse>();
 }
 
@@ -26650,7 +26650,7 @@ StopCasterResponse Client::stopCasterWithOptions(const StopCasterRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StopCaster"},
     {"version" , "2016-11-01"},
@@ -26661,7 +26661,7 @@ StopCasterResponse Client::stopCasterWithOptions(const StopCasterRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StopCasterResponse>();
 }
 
@@ -26711,7 +26711,7 @@ StopCasterSceneResponse Client::stopCasterSceneWithOptions(const StopCasterScene
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StopCasterScene"},
     {"version" , "2016-11-01"},
@@ -26722,7 +26722,7 @@ StopCasterSceneResponse Client::stopCasterSceneWithOptions(const StopCasterScene
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StopCasterSceneResponse>();
 }
 
@@ -26773,7 +26773,7 @@ StopEdgeTranscodeJobResponse Client::stopEdgeTranscodeJobWithOptions(const StopE
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StopEdgeTranscodeJob"},
     {"version" , "2016-11-01"},
@@ -26784,7 +26784,7 @@ StopEdgeTranscodeJobResponse Client::stopEdgeTranscodeJobWithOptions(const StopE
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StopEdgeTranscodeJobResponse>();
 }
 
@@ -26832,7 +26832,7 @@ StopLiveDomainResponse Client::stopLiveDomainWithOptions(const StopLiveDomainReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StopLiveDomain"},
     {"version" , "2016-11-01"},
@@ -26843,7 +26843,7 @@ StopLiveDomainResponse Client::stopLiveDomainWithOptions(const StopLiveDomainReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StopLiveDomainResponse>();
 }
 
@@ -26887,7 +26887,7 @@ StopLiveMPUTaskResponse Client::stopLiveMPUTaskWithOptions(const StopLiveMPUTask
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StopLiveMPUTask"},
     {"version" , "2016-11-01"},
@@ -26898,7 +26898,7 @@ StopLiveMPUTaskResponse Client::stopLiveMPUTaskWithOptions(const StopLiveMPUTask
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StopLiveMPUTaskResponse>();
 }
 
@@ -26935,7 +26935,7 @@ StopLivePullToPushResponse Client::stopLivePullToPushWithOptions(const StopLiveP
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StopLivePullToPush"},
     {"version" , "2016-11-01"},
@@ -26946,7 +26946,7 @@ StopLivePullToPushResponse Client::stopLivePullToPushWithOptions(const StopLiveP
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StopLivePullToPushResponse>();
 }
 
@@ -26994,7 +26994,7 @@ StopLiveStreamMonitorResponse Client::stopLiveStreamMonitorWithOptions(const Sto
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StopLiveStreamMonitor"},
     {"version" , "2016-11-01"},
@@ -27005,7 +27005,7 @@ StopLiveStreamMonitorResponse Client::stopLiveStreamMonitorWithOptions(const Sto
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StopLiveStreamMonitorResponse>();
 }
 
@@ -27052,7 +27052,7 @@ StopPlaylistResponse Client::stopPlaylistWithOptions(const StopPlaylistRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StopPlaylist"},
     {"version" , "2016-11-01"},
@@ -27063,7 +27063,7 @@ StopPlaylistResponse Client::stopPlaylistWithOptions(const StopPlaylistRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StopPlaylistResponse>();
 }
 
@@ -27108,7 +27108,7 @@ StopRtcAsrTaskResponse Client::stopRtcAsrTaskWithOptions(const StopRtcAsrTaskReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StopRtcAsrTask"},
     {"version" , "2016-11-01"},
@@ -27119,7 +27119,7 @@ StopRtcAsrTaskResponse Client::stopRtcAsrTaskWithOptions(const StopRtcAsrTaskReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StopRtcAsrTaskResponse>();
 }
 
@@ -27152,7 +27152,7 @@ StopRtcCloudRecordingResponse Client::stopRtcCloudRecordingWithOptions(const Sto
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StopRtcCloudRecording"},
     {"version" , "2016-11-01"},
@@ -27163,7 +27163,7 @@ StopRtcCloudRecordingResponse Client::stopRtcCloudRecordingWithOptions(const Sto
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StopRtcCloudRecordingResponse>();
 }
 
@@ -27212,7 +27212,7 @@ TagLiveResourcesResponse Client::tagLiveResourcesWithOptions(const TagLiveResour
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "TagLiveResources"},
     {"version" , "2016-11-01"},
@@ -27223,7 +27223,7 @@ TagLiveResourcesResponse Client::tagLiveResourcesWithOptions(const TagLiveResour
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<TagLiveResourcesResponse>();
 }
 
@@ -27274,7 +27274,7 @@ UnTagLiveResourcesResponse Client::unTagLiveResourcesWithOptions(const UnTagLive
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UnTagLiveResources"},
     {"version" , "2016-11-01"},
@@ -27285,7 +27285,7 @@ UnTagLiveResourcesResponse Client::unTagLiveResourcesWithOptions(const UnTagLive
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UnTagLiveResourcesResponse>();
 }
 
@@ -27327,7 +27327,7 @@ UnbanLiveMessageGroupResponse Client::unbanLiveMessageGroupWithOptions(const Unb
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UnbanLiveMessageGroup"},
     {"version" , "2016-11-01"},
@@ -27338,7 +27338,7 @@ UnbanLiveMessageGroupResponse Client::unbanLiveMessageGroupWithOptions(const Unb
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UnbanLiveMessageGroupResponse>();
 }
 
@@ -27391,7 +27391,7 @@ UpdateCasterResourceGroupResponse Client::updateCasterResourceGroupWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateCasterResourceGroup"},
     {"version" , "2016-11-01"},
@@ -27402,7 +27402,7 @@ UpdateCasterResourceGroupResponse Client::updateCasterResourceGroupWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateCasterResourceGroupResponse>();
 }
 
@@ -27466,7 +27466,7 @@ UpdateCasterSceneAudioResponse Client::updateCasterSceneAudioWithOptions(const U
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateCasterSceneAudio"},
     {"version" , "2016-11-01"},
@@ -27477,7 +27477,7 @@ UpdateCasterSceneAudioResponse Client::updateCasterSceneAudioWithOptions(const U
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateCasterSceneAudioResponse>();
 }
 
@@ -27536,7 +27536,7 @@ UpdateCasterSceneConfigResponse Client::updateCasterSceneConfigWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateCasterSceneConfig"},
     {"version" , "2016-11-01"},
@@ -27547,7 +27547,7 @@ UpdateCasterSceneConfigResponse Client::updateCasterSceneConfigWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateCasterSceneConfigResponse>();
 }
 
@@ -27679,7 +27679,7 @@ UpdateCustomLiveStreamTranscodeResponse Client::updateCustomLiveStreamTranscodeW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateCustomLiveStreamTranscode"},
     {"version" , "2016-11-01"},
@@ -27690,7 +27690,7 @@ UpdateCustomLiveStreamTranscodeResponse Client::updateCustomLiveStreamTranscodeW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateCustomLiveStreamTranscodeResponse>();
 }
 
@@ -27763,7 +27763,7 @@ UpdateEdgeTranscodeJobResponse Client::updateEdgeTranscodeJobWithOptions(const U
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateEdgeTranscodeJob"},
     {"version" , "2016-11-01"},
@@ -27774,7 +27774,7 @@ UpdateEdgeTranscodeJobResponse Client::updateEdgeTranscodeJobWithOptions(const U
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateEdgeTranscodeJobResponse>();
 }
 
@@ -27836,7 +27836,7 @@ UpdateEventSubResponse Client::updateEventSubWithOptions(const UpdateEventSubReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateEventSub"},
     {"version" , "2016-11-01"},
@@ -27847,7 +27847,7 @@ UpdateEventSubResponse Client::updateEventSubWithOptions(const UpdateEventSubReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateEventSubResponse>();
 }
 
@@ -27933,7 +27933,7 @@ UpdateLiveAIProduceRulesResponse Client::updateLiveAIProduceRulesWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateLiveAIProduceRules"},
     {"version" , "2016-11-01"},
@@ -27944,7 +27944,7 @@ UpdateLiveAIProduceRulesResponse Client::updateLiveAIProduceRulesWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLiveAIProduceRulesResponse>();
 }
 
@@ -28058,7 +28058,7 @@ UpdateLiveAISubtitleResponse Client::updateLiveAISubtitleWithOptions(const Updat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateLiveAISubtitle"},
     {"version" , "2016-11-01"},
@@ -28069,7 +28069,7 @@ UpdateLiveAISubtitleResponse Client::updateLiveAISubtitleWithOptions(const Updat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLiveAISubtitleResponse>();
 }
 
@@ -28152,7 +28152,7 @@ UpdateLiveAppRecordConfigResponse Client::updateLiveAppRecordConfigWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateLiveAppRecordConfig"},
     {"version" , "2016-11-01"},
@@ -28163,7 +28163,7 @@ UpdateLiveAppRecordConfigResponse Client::updateLiveAppRecordConfigWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLiveAppRecordConfigResponse>();
 }
 
@@ -28238,7 +28238,7 @@ UpdateLiveAppSnapshotConfigResponse Client::updateLiveAppSnapshotConfigWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateLiveAppSnapshotConfig"},
     {"version" , "2016-11-01"},
@@ -28249,7 +28249,7 @@ UpdateLiveAppSnapshotConfigResponse Client::updateLiveAppSnapshotConfigWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLiveAppSnapshotConfigResponse>();
 }
 
@@ -28321,7 +28321,7 @@ UpdateLiveAudioAuditConfigResponse Client::updateLiveAudioAuditConfigWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateLiveAudioAuditConfig"},
     {"version" , "2016-11-01"},
@@ -28332,7 +28332,7 @@ UpdateLiveAudioAuditConfigResponse Client::updateLiveAudioAuditConfigWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLiveAudioAuditConfigResponse>();
 }
 
@@ -28384,7 +28384,7 @@ UpdateLiveAudioAuditNotifyConfigResponse Client::updateLiveAudioAuditNotifyConfi
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateLiveAudioAuditNotifyConfig"},
     {"version" , "2016-11-01"},
@@ -28395,7 +28395,7 @@ UpdateLiveAudioAuditNotifyConfigResponse Client::updateLiveAudioAuditNotifyConfi
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLiveAudioAuditNotifyConfigResponse>();
 }
 
@@ -28462,7 +28462,7 @@ UpdateLiveCenterTransferResponse Client::updateLiveCenterTransferWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateLiveCenterTransfer"},
     {"version" , "2016-11-01"},
@@ -28473,7 +28473,7 @@ UpdateLiveCenterTransferResponse Client::updateLiveCenterTransferWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLiveCenterTransferResponse>();
 }
 
@@ -28535,7 +28535,7 @@ UpdateLiveDelayConfigResponse Client::updateLiveDelayConfigWithOptions(const Upd
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateLiveDelayConfig"},
     {"version" , "2016-11-01"},
@@ -28546,7 +28546,7 @@ UpdateLiveDelayConfigResponse Client::updateLiveDelayConfigWithOptions(const Upd
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLiveDelayConfigResponse>();
 }
 
@@ -28597,7 +28597,7 @@ UpdateLiveDetectNotifyConfigResponse Client::updateLiveDetectNotifyConfigWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateLiveDetectNotifyConfig"},
     {"version" , "2016-11-01"},
@@ -28608,7 +28608,7 @@ UpdateLiveDetectNotifyConfigResponse Client::updateLiveDetectNotifyConfigWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLiveDetectNotifyConfigResponse>();
 }
 
@@ -28698,7 +28698,7 @@ UpdateLiveMPUTaskResponse Client::updateLiveMPUTaskWithOptions(const UpdateLiveM
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateLiveMPUTask"},
     {"version" , "2016-11-01"},
@@ -28709,7 +28709,7 @@ UpdateLiveMPUTaskResponse Client::updateLiveMPUTaskWithOptions(const UpdateLiveM
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLiveMPUTaskResponse>();
 }
 
@@ -28784,7 +28784,7 @@ UpdateLivePackageConfigResponse Client::updateLivePackageConfigWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateLivePackageConfig"},
     {"version" , "2016-11-01"},
@@ -28795,7 +28795,7 @@ UpdateLivePackageConfigResponse Client::updateLivePackageConfigWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLivePackageConfigResponse>();
 }
 
@@ -28831,7 +28831,7 @@ UpdateLivePullStreamInfoConfigResponse Client::updateLivePullStreamInfoConfigWit
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateLivePullStreamInfoConfig"},
     {"version" , "2016-11-01"},
@@ -28842,7 +28842,7 @@ UpdateLivePullStreamInfoConfigResponse Client::updateLivePullStreamInfoConfigWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLivePullStreamInfoConfigResponse>();
 }
 
@@ -28887,7 +28887,7 @@ UpdateLivePullToPushResponse Client::updateLivePullToPushWithOptions(const Updat
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateLivePullToPush"},
     {"version" , "2016-11-01"},
@@ -28898,7 +28898,7 @@ UpdateLivePullToPushResponse Client::updateLivePullToPushWithOptions(const Updat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLivePullToPushResponse>();
 }
 
@@ -28963,7 +28963,7 @@ UpdateLiveRecordNotifyConfigResponse Client::updateLiveRecordNotifyConfigWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateLiveRecordNotifyConfig"},
     {"version" , "2016-11-01"},
@@ -28974,7 +28974,7 @@ UpdateLiveRecordNotifyConfigResponse Client::updateLiveRecordNotifyConfigWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLiveRecordNotifyConfigResponse>();
 }
 
@@ -29050,7 +29050,7 @@ UpdateLiveRecordVodConfigResponse Client::updateLiveRecordVodConfigWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateLiveRecordVodConfig"},
     {"version" , "2016-11-01"},
@@ -29061,7 +29061,7 @@ UpdateLiveRecordVodConfigResponse Client::updateLiveRecordVodConfigWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLiveRecordVodConfigResponse>();
 }
 
@@ -29131,7 +29131,7 @@ UpdateLiveSnapshotDetectPornConfigResponse Client::updateLiveSnapshotDetectPornC
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateLiveSnapshotDetectPornConfig"},
     {"version" , "2016-11-01"},
@@ -29142,7 +29142,7 @@ UpdateLiveSnapshotDetectPornConfigResponse Client::updateLiveSnapshotDetectPornC
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLiveSnapshotDetectPornConfigResponse>();
 }
 
@@ -29200,7 +29200,7 @@ UpdateLiveSnapshotNotifyConfigResponse Client::updateLiveSnapshotNotifyConfigWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateLiveSnapshotNotifyConfig"},
     {"version" , "2016-11-01"},
@@ -29211,7 +29211,7 @@ UpdateLiveSnapshotNotifyConfigResponse Client::updateLiveSnapshotNotifyConfigWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLiveSnapshotNotifyConfigResponse>();
 }
 
@@ -29292,7 +29292,7 @@ UpdateLiveStreamMonitorResponse Client::updateLiveStreamMonitorWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateLiveStreamMonitor"},
     {"version" , "2016-11-01"},
@@ -29303,7 +29303,7 @@ UpdateLiveStreamMonitorResponse Client::updateLiveStreamMonitorWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLiveStreamMonitorResponse>();
 }
 
@@ -29366,7 +29366,7 @@ UpdateLiveStreamTranscodeResponse Client::updateLiveStreamTranscodeWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateLiveStreamTranscode"},
     {"version" , "2016-11-01"},
@@ -29377,7 +29377,7 @@ UpdateLiveStreamTranscodeResponse Client::updateLiveStreamTranscodeWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLiveStreamTranscodeResponse>();
 }
 
@@ -29464,7 +29464,7 @@ UpdateLiveStreamWatermarkResponse Client::updateLiveStreamWatermarkWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateLiveStreamWatermark"},
     {"version" , "2016-11-01"},
@@ -29475,7 +29475,7 @@ UpdateLiveStreamWatermarkResponse Client::updateLiveStreamWatermarkWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLiveStreamWatermarkResponse>();
 }
 
@@ -29534,7 +29534,7 @@ UpdateLiveStreamWatermarkRuleResponse Client::updateLiveStreamWatermarkRuleWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateLiveStreamWatermarkRule"},
     {"version" , "2016-11-01"},
@@ -29545,7 +29545,7 @@ UpdateLiveStreamWatermarkRuleResponse Client::updateLiveStreamWatermarkRuleWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLiveStreamWatermarkRuleResponse>();
 }
 
@@ -29605,7 +29605,7 @@ UpdateMessageAppResponse Client::updateMessageAppWithOptions(const UpdateMessage
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UpdateMessageApp"},
     {"version" , "2016-11-01"},
@@ -29616,7 +29616,7 @@ UpdateMessageAppResponse Client::updateMessageAppWithOptions(const UpdateMessage
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateMessageAppResponse>();
 }
 
@@ -29667,7 +29667,7 @@ UpdateMessageGroupResponse Client::updateMessageGroupWithOptions(const UpdateMes
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UpdateMessageGroup"},
     {"version" , "2016-11-01"},
@@ -29678,7 +29678,7 @@ UpdateMessageGroupResponse Client::updateMessageGroupWithOptions(const UpdateMes
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateMessageGroupResponse>();
 }
 
@@ -29736,7 +29736,7 @@ UpdateMixStreamResponse Client::updateMixStreamWithOptions(const UpdateMixStream
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateMixStream"},
     {"version" , "2016-11-01"},
@@ -29747,7 +29747,7 @@ UpdateMixStreamResponse Client::updateMixStreamWithOptions(const UpdateMixStream
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateMixStreamResponse>();
 }
 
@@ -29800,7 +29800,7 @@ UpdateRtcCloudRecordingResponse Client::updateRtcCloudRecordingWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateRtcCloudRecording"},
     {"version" , "2016-11-01"},
@@ -29811,7 +29811,7 @@ UpdateRtcCloudRecordingResponse Client::updateRtcCloudRecordingWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateRtcCloudRecordingResponse>();
 }
 
@@ -29855,7 +29855,7 @@ UpdateRtcMPUEventSubResponse Client::updateRtcMPUEventSubWithOptions(const Updat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateRtcMPUEventSub"},
     {"version" , "2016-11-01"},
@@ -29866,7 +29866,7 @@ UpdateRtcMPUEventSubResponse Client::updateRtcMPUEventSubWithOptions(const Updat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateRtcMPUEventSubResponse>();
 }
 
@@ -29982,7 +29982,7 @@ UpdateRtsLiveStreamTranscodeResponse Client::updateRtsLiveStreamTranscodeWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateRtsLiveStreamTranscode"},
     {"version" , "2016-11-01"},
@@ -29993,7 +29993,7 @@ UpdateRtsLiveStreamTranscodeResponse Client::updateRtsLiveStreamTranscodeWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateRtsLiveStreamTranscodeResponse>();
 }
 
@@ -30043,7 +30043,7 @@ VerifyLiveDomainOwnerResponse Client::verifyLiveDomainOwnerWithOptions(const Ver
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "VerifyLiveDomainOwner"},
     {"version" , "2016-11-01"},
@@ -30054,7 +30054,7 @@ VerifyLiveDomainOwnerResponse Client::verifyLiveDomainOwnerWithOptions(const Ver
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<VerifyLiveDomainOwnerResponse>();
 }
 

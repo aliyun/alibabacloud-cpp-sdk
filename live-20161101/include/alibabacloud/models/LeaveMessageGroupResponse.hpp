@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LEAVEMESSAGEGROUPRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/LeaveMessageGroupResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

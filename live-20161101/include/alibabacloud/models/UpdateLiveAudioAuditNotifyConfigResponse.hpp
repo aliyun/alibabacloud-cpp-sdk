@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_UPDATELIVEAUDIOAUDITNOTIFYCONFIGRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/UpdateLiveAudioAuditNotifyConfigResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

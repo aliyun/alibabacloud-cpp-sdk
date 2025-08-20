@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_UPDATECUSTOMLIVESTREAMTRANSCODERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/UpdateCustomLiveStreamTranscodeResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

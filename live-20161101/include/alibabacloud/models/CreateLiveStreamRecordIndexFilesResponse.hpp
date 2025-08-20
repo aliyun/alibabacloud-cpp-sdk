@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATELIVESTREAMRECORDINDEXFILESRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateLiveStreamRecordIndexFilesResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

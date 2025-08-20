@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CHECKLIVEMESSAGEUSERSINGROUPRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CheckLiveMessageUsersInGroupResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

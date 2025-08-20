@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_SENDLIVEMESSAGEGROUPRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/SendLiveMessageGroupResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

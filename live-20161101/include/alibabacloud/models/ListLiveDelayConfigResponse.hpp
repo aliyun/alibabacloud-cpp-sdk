@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTLIVEDELAYCONFIGRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ListLiveDelayConfigResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

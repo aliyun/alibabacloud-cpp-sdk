@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_ADDCASTEREPISODERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/AddCasterEpisodeResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

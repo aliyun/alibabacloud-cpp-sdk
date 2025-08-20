@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYLIVEMESSAGEAPPAUDITRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ModifyLiveMessageAppAuditResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
