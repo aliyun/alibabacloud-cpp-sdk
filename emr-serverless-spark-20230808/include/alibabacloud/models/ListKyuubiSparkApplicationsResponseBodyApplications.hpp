@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(applicationName, applicationName_);
       DARABONBA_PTR_TO_JSON(cuHours, cuHours_);
       DARABONBA_PTR_TO_JSON(endTime, endTime_);
+      DARABONBA_PTR_TO_JSON(exitReason, exitReason_);
       DARABONBA_PTR_TO_JSON(latestSqlStatementStatus, latestSqlStatementStatus_);
       DARABONBA_PTR_TO_JSON(mbSeconds, mbSeconds_);
       DARABONBA_PTR_TO_JSON(resourceQueueId, resourceQueueId_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(applicationName, applicationName_);
       DARABONBA_PTR_FROM_JSON(cuHours, cuHours_);
       DARABONBA_PTR_FROM_JSON(endTime, endTime_);
+      DARABONBA_PTR_FROM_JSON(exitReason, exitReason_);
       DARABONBA_PTR_FROM_JSON(latestSqlStatementStatus, latestSqlStatementStatus_);
       DARABONBA_PTR_FROM_JSON(mbSeconds, mbSeconds_);
       DARABONBA_PTR_FROM_JSON(resourceQueueId, resourceQueueId_);
@@ -50,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->applicationId_ != nullptr
-        && this->applicationName_ != nullptr && this->cuHours_ != nullptr && this->endTime_ != nullptr && this->latestSqlStatementStatus_ != nullptr && this->mbSeconds_ != nullptr
-        && this->resourceQueueId_ != nullptr && this->startTime_ != nullptr && this->state_ != nullptr && this->vcoreSeconds_ != nullptr && this->webUI_ != nullptr; };
+        && this->applicationName_ != nullptr && this->cuHours_ != nullptr && this->endTime_ != nullptr && this->exitReason_ != nullptr && this->latestSqlStatementStatus_ != nullptr
+        && this->mbSeconds_ != nullptr && this->resourceQueueId_ != nullptr && this->startTime_ != nullptr && this->state_ != nullptr && this->vcoreSeconds_ != nullptr
+        && this->webUI_ != nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -78,6 +81,13 @@ namespace Models
     void deleteEndTime() { this->endTime_ = nullptr;};
     inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline ListKyuubiSparkApplicationsResponseBodyApplications& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+    // exitReason Field Functions 
+    bool hasExitReason() const { return this->exitReason_ != nullptr;};
+    void deleteExitReason() { this->exitReason_ = nullptr;};
+    inline string exitReason() const { DARABONBA_PTR_GET_DEFAULT(exitReason_, "") };
+    inline ListKyuubiSparkApplicationsResponseBodyApplications& setExitReason(string exitReason) { DARABONBA_PTR_SET_VALUE(exitReason_, exitReason) };
 
 
     // latestSqlStatementStatus Field Functions 
@@ -138,6 +148,7 @@ namespace Models
     std::shared_ptr<double> cuHours_ = nullptr;
     // The time when the task ended.
     std::shared_ptr<string> endTime_ = nullptr;
+    std::shared_ptr<string> exitReason_ = nullptr;
     std::shared_ptr<string> latestSqlStatementStatus_ = nullptr;
     // The total amount of memory allocated to the job multiplied by the running duration (seconds).
     std::shared_ptr<int64_t> mbSeconds_ = nullptr;

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTKYUUBITOKENRESPONSEBODYDATATOKENS_HPP_
 #define ALIBABACLOUD_MODELS_LISTKYUUBITOKENRESPONSEBODYDATATOKENS_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -13,19 +14,23 @@ namespace Models
   class ListKyuubiTokenResponseBodyDataTokens : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListKyuubiTokenResponseBodyDataTokens& obj) { 
+      DARABONBA_PTR_TO_JSON(accountNames, accountNames_);
       DARABONBA_PTR_TO_JSON(createTime, createTime_);
       DARABONBA_PTR_TO_JSON(createdBy, createdBy_);
       DARABONBA_PTR_TO_JSON(expireTime, expireTime_);
       DARABONBA_PTR_TO_JSON(lastUsedTime, lastUsedTime_);
+      DARABONBA_PTR_TO_JSON(memberArns, memberArns_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(token, token_);
       DARABONBA_PTR_TO_JSON(tokenId, tokenId_);
     };
     friend void from_json(const Darabonba::Json& j, ListKyuubiTokenResponseBodyDataTokens& obj) { 
+      DARABONBA_PTR_FROM_JSON(accountNames, accountNames_);
       DARABONBA_PTR_FROM_JSON(createTime, createTime_);
       DARABONBA_PTR_FROM_JSON(createdBy, createdBy_);
       DARABONBA_PTR_FROM_JSON(expireTime, expireTime_);
       DARABONBA_PTR_FROM_JSON(lastUsedTime, lastUsedTime_);
+      DARABONBA_PTR_FROM_JSON(memberArns, memberArns_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(token, token_);
       DARABONBA_PTR_FROM_JSON(tokenId, tokenId_);
@@ -41,9 +46,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->createdBy_ != nullptr && this->expireTime_ != nullptr && this->lastUsedTime_ != nullptr && this->name_ != nullptr && this->token_ != nullptr
-        && this->tokenId_ != nullptr; };
+    virtual bool empty() const override { this->accountNames_ != nullptr
+        && this->createTime_ != nullptr && this->createdBy_ != nullptr && this->expireTime_ != nullptr && this->lastUsedTime_ != nullptr && this->memberArns_ != nullptr
+        && this->name_ != nullptr && this->token_ != nullptr && this->tokenId_ != nullptr; };
+    // accountNames Field Functions 
+    bool hasAccountNames() const { return this->accountNames_ != nullptr;};
+    void deleteAccountNames() { this->accountNames_ = nullptr;};
+    inline const vector<string> & accountNames() const { DARABONBA_PTR_GET_CONST(accountNames_, vector<string>) };
+    inline vector<string> accountNames() { DARABONBA_PTR_GET(accountNames_, vector<string>) };
+    inline ListKyuubiTokenResponseBodyDataTokens& setAccountNames(const vector<string> & accountNames) { DARABONBA_PTR_SET_VALUE(accountNames_, accountNames) };
+    inline ListKyuubiTokenResponseBodyDataTokens& setAccountNames(vector<string> && accountNames) { DARABONBA_PTR_SET_RVALUE(accountNames_, accountNames) };
+
+
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -72,6 +86,15 @@ namespace Models
     inline ListKyuubiTokenResponseBodyDataTokens& setLastUsedTime(int64_t lastUsedTime) { DARABONBA_PTR_SET_VALUE(lastUsedTime_, lastUsedTime) };
 
 
+    // memberArns Field Functions 
+    bool hasMemberArns() const { return this->memberArns_ != nullptr;};
+    void deleteMemberArns() { this->memberArns_ = nullptr;};
+    inline const vector<string> & memberArns() const { DARABONBA_PTR_GET_CONST(memberArns_, vector<string>) };
+    inline vector<string> memberArns() { DARABONBA_PTR_GET(memberArns_, vector<string>) };
+    inline ListKyuubiTokenResponseBodyDataTokens& setMemberArns(const vector<string> & memberArns) { DARABONBA_PTR_SET_VALUE(memberArns_, memberArns) };
+    inline ListKyuubiTokenResponseBodyDataTokens& setMemberArns(vector<string> && memberArns) { DARABONBA_PTR_SET_RVALUE(memberArns_, memberArns) };
+
+
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
@@ -94,10 +117,12 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<vector<string>> accountNames_ = nullptr;
     std::shared_ptr<int64_t> createTime_ = nullptr;
     std::shared_ptr<string> createdBy_ = nullptr;
     std::shared_ptr<int64_t> expireTime_ = nullptr;
     std::shared_ptr<int64_t> lastUsedTime_ = nullptr;
+    std::shared_ptr<vector<string>> memberArns_ = nullptr;
     std::shared_ptr<string> name_ = nullptr;
     std::shared_ptr<string> token_ = nullptr;
     // Token ID。

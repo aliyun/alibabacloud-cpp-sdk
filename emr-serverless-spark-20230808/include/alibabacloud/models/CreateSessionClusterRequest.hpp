@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(applicationConfigs, applicationConfigs_);
       DARABONBA_PTR_TO_JSON(autoStartConfiguration, autoStartConfiguration_);
       DARABONBA_PTR_TO_JSON(autoStopConfiguration, autoStopConfiguration_);
+      DARABONBA_PTR_TO_JSON(clientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(displayReleaseVersion, displayReleaseVersion_);
       DARABONBA_PTR_TO_JSON(envId, envId_);
       DARABONBA_PTR_TO_JSON(fusion, fusion_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(applicationConfigs, applicationConfigs_);
       DARABONBA_PTR_FROM_JSON(autoStartConfiguration, autoStartConfiguration_);
       DARABONBA_PTR_FROM_JSON(autoStopConfiguration, autoStopConfiguration_);
+      DARABONBA_PTR_FROM_JSON(clientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(displayReleaseVersion, displayReleaseVersion_);
       DARABONBA_PTR_FROM_JSON(envId, envId_);
       DARABONBA_PTR_FROM_JSON(fusion, fusion_);
@@ -56,9 +58,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->applicationConfigs_ != nullptr
-        && this->autoStartConfiguration_ != nullptr && this->autoStopConfiguration_ != nullptr && this->displayReleaseVersion_ != nullptr && this->envId_ != nullptr && this->fusion_ != nullptr
-        && this->kind_ != nullptr && this->name_ != nullptr && this->publicEndpointEnabled_ != nullptr && this->queueName_ != nullptr && this->releaseVersion_ != nullptr
-        && this->regionId_ != nullptr; };
+        && this->autoStartConfiguration_ != nullptr && this->autoStopConfiguration_ != nullptr && this->clientToken_ != nullptr && this->displayReleaseVersion_ != nullptr && this->envId_ != nullptr
+        && this->fusion_ != nullptr && this->kind_ != nullptr && this->name_ != nullptr && this->publicEndpointEnabled_ != nullptr && this->queueName_ != nullptr
+        && this->releaseVersion_ != nullptr && this->regionId_ != nullptr; };
     // applicationConfigs Field Functions 
     bool hasApplicationConfigs() const { return this->applicationConfigs_ != nullptr;};
     void deleteApplicationConfigs() { this->applicationConfigs_ = nullptr;};
@@ -84,6 +86,13 @@ namespace Models
     inline CreateSessionClusterRequestAutoStopConfiguration autoStopConfiguration() { DARABONBA_PTR_GET(autoStopConfiguration_, CreateSessionClusterRequestAutoStopConfiguration) };
     inline CreateSessionClusterRequest& setAutoStopConfiguration(const CreateSessionClusterRequestAutoStopConfiguration & autoStopConfiguration) { DARABONBA_PTR_SET_VALUE(autoStopConfiguration_, autoStopConfiguration) };
     inline CreateSessionClusterRequest& setAutoStopConfiguration(CreateSessionClusterRequestAutoStopConfiguration && autoStopConfiguration) { DARABONBA_PTR_SET_RVALUE(autoStopConfiguration_, autoStopConfiguration) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline CreateSessionClusterRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // displayReleaseVersion Field Functions 
@@ -159,6 +168,7 @@ namespace Models
     std::shared_ptr<CreateSessionClusterRequestAutoStartConfiguration> autoStartConfiguration_ = nullptr;
     // The automatic termination configuration.
     std::shared_ptr<CreateSessionClusterRequestAutoStopConfiguration> autoStopConfiguration_ = nullptr;
+    std::shared_ptr<string> clientToken_ = nullptr;
     // The version of the Spark engine.
     std::shared_ptr<string> displayReleaseVersion_ = nullptr;
     // The ID of the Python environment. This parameter takes effect only for notebook sessions.

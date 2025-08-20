@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(creator, creator_);
       DARABONBA_PTR_TO_JSON(innerEndpoint, innerEndpoint_);
       DARABONBA_PTR_TO_JSON(kyuubiConfigs, kyuubiConfigs_);
+      DARABONBA_PTR_TO_JSON(kyuubiReleaseVersion, kyuubiReleaseVersion_);
       DARABONBA_PTR_TO_JSON(kyuubiServiceId, kyuubiServiceId_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(publicEndpoint, publicEndpoint_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(creator, creator_);
       DARABONBA_PTR_FROM_JSON(innerEndpoint, innerEndpoint_);
       DARABONBA_PTR_FROM_JSON(kyuubiConfigs, kyuubiConfigs_);
+      DARABONBA_PTR_FROM_JSON(kyuubiReleaseVersion, kyuubiReleaseVersion_);
       DARABONBA_PTR_FROM_JSON(kyuubiServiceId, kyuubiServiceId_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(publicEndpoint, publicEndpoint_);
@@ -56,9 +58,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->computeInstance_ != nullptr
-        && this->createTime_ != nullptr && this->creator_ != nullptr && this->innerEndpoint_ != nullptr && this->kyuubiConfigs_ != nullptr && this->kyuubiServiceId_ != nullptr
-        && this->name_ != nullptr && this->publicEndpoint_ != nullptr && this->queue_ != nullptr && this->releaseVersion_ != nullptr && this->replica_ != nullptr
-        && this->sparkConfigs_ != nullptr && this->startTime_ != nullptr && this->state_ != nullptr; };
+        && this->createTime_ != nullptr && this->creator_ != nullptr && this->innerEndpoint_ != nullptr && this->kyuubiConfigs_ != nullptr && this->kyuubiReleaseVersion_ != nullptr
+        && this->kyuubiServiceId_ != nullptr && this->name_ != nullptr && this->publicEndpoint_ != nullptr && this->queue_ != nullptr && this->releaseVersion_ != nullptr
+        && this->replica_ != nullptr && this->sparkConfigs_ != nullptr && this->startTime_ != nullptr && this->state_ != nullptr; };
     // computeInstance Field Functions 
     bool hasComputeInstance() const { return this->computeInstance_ != nullptr;};
     void deleteComputeInstance() { this->computeInstance_ = nullptr;};
@@ -92,6 +94,13 @@ namespace Models
     void deleteKyuubiConfigs() { this->kyuubiConfigs_ = nullptr;};
     inline string kyuubiConfigs() const { DARABONBA_PTR_GET_DEFAULT(kyuubiConfigs_, "") };
     inline ListKyuubiServicesResponseBodyDataKyuubiServices& setKyuubiConfigs(string kyuubiConfigs) { DARABONBA_PTR_SET_VALUE(kyuubiConfigs_, kyuubiConfigs) };
+
+
+    // kyuubiReleaseVersion Field Functions 
+    bool hasKyuubiReleaseVersion() const { return this->kyuubiReleaseVersion_ != nullptr;};
+    void deleteKyuubiReleaseVersion() { this->kyuubiReleaseVersion_ = nullptr;};
+    inline string kyuubiReleaseVersion() const { DARABONBA_PTR_GET_DEFAULT(kyuubiReleaseVersion_, "") };
+    inline ListKyuubiServicesResponseBodyDataKyuubiServices& setKyuubiReleaseVersion(string kyuubiReleaseVersion) { DARABONBA_PTR_SET_VALUE(kyuubiReleaseVersion_, kyuubiReleaseVersion) };
 
 
     // kyuubiServiceId Field Functions 
@@ -163,6 +172,7 @@ namespace Models
     std::shared_ptr<string> creator_ = nullptr;
     std::shared_ptr<string> innerEndpoint_ = nullptr;
     std::shared_ptr<string> kyuubiConfigs_ = nullptr;
+    std::shared_ptr<string> kyuubiReleaseVersion_ = nullptr;
     // KyuubiServer ID。
     std::shared_ptr<string> kyuubiServiceId_ = nullptr;
     std::shared_ptr<string> name_ = nullptr;

@@ -461,6 +461,10 @@ CreateSessionClusterResponse Client::createSessionClusterWithOptions(const strin
     body["autoStopConfiguration"] = request.autoStopConfiguration();
   }
 
+  if (!!request.hasClientToken()) {
+    body["clientToken"] = request.clientToken();
+  }
+
   if (!!request.hasDisplayReleaseVersion()) {
     body["displayReleaseVersion"] = request.displayReleaseVersion();
   }
@@ -1319,6 +1323,10 @@ ListJobRunsResponse Client::listJobRunsWithOptions(const string &workspaceId, co
   }
 
   json query = {};
+  if (!!request.hasApplicationConfigs()) {
+    query["applicationConfigs"] = request.applicationConfigs();
+  }
+
   if (!!request.hasCreator()) {
     query["creator"] = request.creator();
   }
@@ -1361,6 +1369,10 @@ ListJobRunsResponse Client::listJobRunsWithOptions(const string &workspaceId, co
 
   if (!!request.hasResourceQueueId()) {
     query["resourceQueueId"] = request.resourceQueueId();
+  }
+
+  if (!!request.hasRuntimeConfigs()) {
+    query["runtimeConfigs"] = request.runtimeConfigs();
   }
 
   if (!!request.hasStartTimeShrink()) {
@@ -1722,6 +1734,59 @@ ListLogContentsResponse Client::listLogContents(const string &workspaceId, const
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listLogContentsWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询用户列表
+ *
+ * @param request ListMembersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMembersResponse
+ */
+ListMembersResponse Client::listMembersWithOptions(const string &workspaceId, const ListMembersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMembers"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/auth/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/members")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMembersResponse>();
+}
+
+/**
+ * @summary 查询用户列表
+ *
+ * @param request ListMembersRequest
+ * @return ListMembersResponse
+ */
+ListMembersResponse Client::listMembers(const string &workspaceId, const ListMembersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMembersWithOptions(workspaceId, request, headers, runtime);
 }
 
 /**

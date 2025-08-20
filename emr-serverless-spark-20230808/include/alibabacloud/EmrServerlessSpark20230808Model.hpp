@@ -103,6 +103,9 @@
 #include <alibabacloud/models/ListLogContentsRequest.hpp>
 #include <alibabacloud/models/ListLogContentsResponseBody.hpp>
 #include <alibabacloud/models/ListLogContentsResponse.hpp>
+#include <alibabacloud/models/ListMembersRequest.hpp>
+#include <alibabacloud/models/ListMembersResponseBody.hpp>
+#include <alibabacloud/models/ListMembersResponse.hpp>
 #include <alibabacloud/models/ListReleaseVersionsRequest.hpp>
 #include <alibabacloud/models/ListReleaseVersionsResponseBody.hpp>
 #include <alibabacloud/models/ListReleaseVersionsResponse.hpp>
@@ -210,6 +213,10 @@
 #include <alibabacloud/models/ListLivyComputeTokenResponseBodyData.hpp>
 #include <alibabacloud/models/ListLogContentsResponseBodyListLogContentContents.hpp>
 #include <alibabacloud/models/ListLogContentsResponseBodyListLogContent.hpp>
+#include <alibabacloud/models/ListMembersResponseBodyMembersActions.hpp>
+#include <alibabacloud/models/ListMembersResponseBodyMembersRolesActions.hpp>
+#include <alibabacloud/models/ListMembersResponseBodyMembersRoles.hpp>
+#include <alibabacloud/models/ListMembersResponseBodyMembers.hpp>
 #include <alibabacloud/models/ListReleaseVersionsResponseBodyReleaseVersions.hpp>
 #include <alibabacloud/models/ListSessionClustersResponseBodySessionClustersApplicationConfigs.hpp>
 #include <alibabacloud/models/ListSessionClustersResponseBodySessionClustersAutoStartConfiguration.hpp>

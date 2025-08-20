@@ -13,6 +13,7 @@ namespace Models
   class ListJobRunsShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListJobRunsShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(applicationConfigs, applicationConfigs_);
       DARABONBA_PTR_TO_JSON(creator, creator_);
       DARABONBA_PTR_TO_JSON(endTime, endTimeShrink_);
       DARABONBA_PTR_TO_JSON(isWorkflow, isWorkflow_);
@@ -24,11 +25,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
       DARABONBA_PTR_TO_JSON(resourceQueueId, resourceQueueId_);
+      DARABONBA_PTR_TO_JSON(runtimeConfigs, runtimeConfigs_);
       DARABONBA_PTR_TO_JSON(startTime, startTimeShrink_);
       DARABONBA_PTR_TO_JSON(states, statesShrink_);
       DARABONBA_PTR_TO_JSON(tags, tagsShrink_);
     };
     friend void from_json(const Darabonba::Json& j, ListJobRunsShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(applicationConfigs, applicationConfigs_);
       DARABONBA_PTR_FROM_JSON(creator, creator_);
       DARABONBA_PTR_FROM_JSON(endTime, endTimeShrink_);
       DARABONBA_PTR_FROM_JSON(isWorkflow, isWorkflow_);
@@ -40,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
       DARABONBA_PTR_FROM_JSON(resourceQueueId, resourceQueueId_);
+      DARABONBA_PTR_FROM_JSON(runtimeConfigs, runtimeConfigs_);
       DARABONBA_PTR_FROM_JSON(startTime, startTimeShrink_);
       DARABONBA_PTR_FROM_JSON(states, statesShrink_);
       DARABONBA_PTR_FROM_JSON(tags, tagsShrink_);
@@ -55,10 +59,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creator_ != nullptr
-        && this->endTimeShrink_ != nullptr && this->isWorkflow_ != nullptr && this->jobRunDeploymentId_ != nullptr && this->jobRunId_ != nullptr && this->maxResults_ != nullptr
-        && this->minDuration_ != nullptr && this->name_ != nullptr && this->nextToken_ != nullptr && this->regionId_ != nullptr && this->resourceQueueId_ != nullptr
-        && this->startTimeShrink_ != nullptr && this->statesShrink_ != nullptr && this->tagsShrink_ != nullptr; };
+    virtual bool empty() const override { this->applicationConfigs_ != nullptr
+        && this->creator_ != nullptr && this->endTimeShrink_ != nullptr && this->isWorkflow_ != nullptr && this->jobRunDeploymentId_ != nullptr && this->jobRunId_ != nullptr
+        && this->maxResults_ != nullptr && this->minDuration_ != nullptr && this->name_ != nullptr && this->nextToken_ != nullptr && this->regionId_ != nullptr
+        && this->resourceQueueId_ != nullptr && this->runtimeConfigs_ != nullptr && this->startTimeShrink_ != nullptr && this->statesShrink_ != nullptr && this->tagsShrink_ != nullptr; };
+    // applicationConfigs Field Functions 
+    bool hasApplicationConfigs() const { return this->applicationConfigs_ != nullptr;};
+    void deleteApplicationConfigs() { this->applicationConfigs_ = nullptr;};
+    inline string applicationConfigs() const { DARABONBA_PTR_GET_DEFAULT(applicationConfigs_, "") };
+    inline ListJobRunsShrinkRequest& setApplicationConfigs(string applicationConfigs) { DARABONBA_PTR_SET_VALUE(applicationConfigs_, applicationConfigs) };
+
+
     // creator Field Functions 
     bool hasCreator() const { return this->creator_ != nullptr;};
     void deleteCreator() { this->creator_ = nullptr;};
@@ -136,6 +147,13 @@ namespace Models
     inline ListJobRunsShrinkRequest& setResourceQueueId(string resourceQueueId) { DARABONBA_PTR_SET_VALUE(resourceQueueId_, resourceQueueId) };
 
 
+    // runtimeConfigs Field Functions 
+    bool hasRuntimeConfigs() const { return this->runtimeConfigs_ != nullptr;};
+    void deleteRuntimeConfigs() { this->runtimeConfigs_ = nullptr;};
+    inline string runtimeConfigs() const { DARABONBA_PTR_GET_DEFAULT(runtimeConfigs_, "") };
+    inline ListJobRunsShrinkRequest& setRuntimeConfigs(string runtimeConfigs) { DARABONBA_PTR_SET_VALUE(runtimeConfigs_, runtimeConfigs) };
+
+
     // startTimeShrink Field Functions 
     bool hasStartTimeShrink() const { return this->startTimeShrink_ != nullptr;};
     void deleteStartTimeShrink() { this->startTimeShrink_ = nullptr;};
@@ -158,6 +176,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> applicationConfigs_ = nullptr;
     // The ID of the user who created the job.
     std::shared_ptr<string> creator_ = nullptr;
     // The range of end time.
@@ -179,6 +198,7 @@ namespace Models
     std::shared_ptr<string> regionId_ = nullptr;
     // The name of the resource queue on which the Spark jobs run.
     std::shared_ptr<string> resourceQueueId_ = nullptr;
+    std::shared_ptr<string> runtimeConfigs_ = nullptr;
     // The range of start time.
     std::shared_ptr<string> startTimeShrink_ = nullptr;
     // The job states.

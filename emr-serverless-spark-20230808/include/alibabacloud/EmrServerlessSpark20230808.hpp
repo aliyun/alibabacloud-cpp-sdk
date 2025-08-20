@@ -505,6 +505,24 @@ namespace EmrServerlessSpark20230808
       Models::ListLogContentsResponse listLogContents(const string &workspaceId, const Models::ListLogContentsRequest &request);
 
       /**
+       * @summary 查询用户列表
+       *
+       * @param request ListMembersRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMembersResponse
+       */
+      Models::ListMembersResponse listMembersWithOptions(const string &workspaceId, const Models::ListMembersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询用户列表
+       *
+       * @param request ListMembersRequest
+       * @return ListMembersResponse
+       */
+      Models::ListMembersResponse listMembers(const string &workspaceId, const Models::ListMembersRequest &request);
+
+      /**
        * @summary Queries the list of published versions of E-MapReduce (EMR) Serverless Spark.
        *
        * @param request ListReleaseVersionsRequest
