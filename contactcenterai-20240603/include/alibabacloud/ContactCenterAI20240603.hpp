@@ -159,6 +159,34 @@ namespace ContactCenterAI20240603
       Models::DeleteVocabResponse deleteVocab(const Models::DeleteVocabRequest &request);
 
       /**
+       * @summary 通用图片分析
+       *
+       * @param request GeneralAnalyzeImageRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GeneralAnalyzeImageResponse
+       */
+      FutrueGenerator<Models::GeneralAnalyzeImageResponse> generalAnalyzeImageWithSSE(const string &workspaceId, const string &appId, const Models::GeneralAnalyzeImageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通用图片分析
+       *
+       * @param request GeneralAnalyzeImageRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GeneralAnalyzeImageResponse
+       */
+      Models::GeneralAnalyzeImageResponse generalAnalyzeImageWithOptions(const string &workspaceId, const string &appId, const Models::GeneralAnalyzeImageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通用图片分析
+       *
+       * @param request GeneralAnalyzeImageRequest
+       * @return GeneralAnalyzeImageResponse
+       */
+      Models::GeneralAnalyzeImageResponse generalAnalyzeImage(const string &workspaceId, const string &appId, const Models::GeneralAnalyzeImageRequest &request);
+
+      /**
        * @summary 语音文件调用大模型获取结果
        *
        * @param tmpReq GetTaskResultRequest

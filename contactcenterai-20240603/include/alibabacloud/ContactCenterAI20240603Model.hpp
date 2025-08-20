@@ -20,6 +20,9 @@
 #include <alibabacloud/models/DeleteVocabRequest.hpp>
 #include <alibabacloud/models/DeleteVocabResponseBody.hpp>
 #include <alibabacloud/models/DeleteVocabResponse.hpp>
+#include <alibabacloud/models/GeneralAnalyzeImageRequest.hpp>
+#include <alibabacloud/models/GeneralAnalyzeImageResponseBody.hpp>
+#include <alibabacloud/models/GeneralAnalyzeImageResponse.hpp>
 #include <alibabacloud/models/GetTaskResultRequest.hpp>
 #include <alibabacloud/models/GetTaskResultShrinkRequest.hpp>
 #include <alibabacloud/models/GetTaskResultResponseBody.hpp>

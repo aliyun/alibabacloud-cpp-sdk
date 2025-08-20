@@ -723,6 +723,120 @@ DeleteVocabResponse Client::deleteVocab(const DeleteVocabRequest &request) {
 }
 
 /**
+ * @summary 通用图片分析
+ *
+ * @param request GeneralAnalyzeImageRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GeneralAnalyzeImageResponse
+ */
+FutrueGenerator<GeneralAnalyzeImageResponse> Client::generalAnalyzeImageWithSSE(const string &workspaceId, const string &appId, const GeneralAnalyzeImageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCustomPrompt()) {
+    body["customPrompt"] = request.customPrompt();
+  }
+
+  if (!!request.hasImageUrls()) {
+    body["imageUrls"] = request.imageUrls();
+  }
+
+  if (!!request.hasStream()) {
+    body["stream"] = request.stream();
+  }
+
+  if (!!request.hasTemplateIds()) {
+    body["templateIds"] = request.templateIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GeneralAnalyzeImage"},
+    {"version" , "2024-06-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Http::URL::percentEncode(appId) , "/generalanalyzeImage")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<GeneralAnalyzeImageResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
+}
+
+/**
+ * @summary 通用图片分析
+ *
+ * @param request GeneralAnalyzeImageRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GeneralAnalyzeImageResponse
+ */
+GeneralAnalyzeImageResponse Client::generalAnalyzeImageWithOptions(const string &workspaceId, const string &appId, const GeneralAnalyzeImageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCustomPrompt()) {
+    body["customPrompt"] = request.customPrompt();
+  }
+
+  if (!!request.hasImageUrls()) {
+    body["imageUrls"] = request.imageUrls();
+  }
+
+  if (!!request.hasStream()) {
+    body["stream"] = request.stream();
+  }
+
+  if (!!request.hasTemplateIds()) {
+    body["templateIds"] = request.templateIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GeneralAnalyzeImage"},
+    {"version" , "2024-06-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/ccai/app/" , Darabonba::Http::URL::percentEncode(appId) , "/generalanalyzeImage")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GeneralAnalyzeImageResponse>();
+}
+
+/**
+ * @summary 通用图片分析
+ *
+ * @param request GeneralAnalyzeImageRequest
+ * @return GeneralAnalyzeImageResponse
+ */
+GeneralAnalyzeImageResponse Client::generalAnalyzeImage(const string &workspaceId, const string &appId, const GeneralAnalyzeImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return generalAnalyzeImageWithOptions(workspaceId, appId, request, headers, runtime);
+}
+
+/**
  * @summary 语音文件调用大模型获取结果
  *
  * @param tmpReq GetTaskResultRequest
