@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetOrgLiveListResponseBodyResultUpdateLiveLiveList& obj) { 
       DARABONBA_PTR_TO_JSON(AnchorNickname, anchorNickname_);
       DARABONBA_PTR_TO_JSON(AnchorUnionId, anchorUnionId_);
+      DARABONBA_PTR_TO_JSON(AnchorUnionIdInAlibaba, anchorUnionIdInAlibaba_);
       DARABONBA_PTR_TO_JSON(AnchorUserId, anchorUserId_);
       DARABONBA_PTR_TO_JSON(LiveEndTime, liveEndTime_);
       DARABONBA_PTR_TO_JSON(LiveStartTime, liveStartTime_);
@@ -24,6 +25,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, GetOrgLiveListResponseBodyResultUpdateLiveLiveList& obj) { 
       DARABONBA_PTR_FROM_JSON(AnchorNickname, anchorNickname_);
       DARABONBA_PTR_FROM_JSON(AnchorUnionId, anchorUnionId_);
+      DARABONBA_PTR_FROM_JSON(AnchorUnionIdInAlibaba, anchorUnionIdInAlibaba_);
       DARABONBA_PTR_FROM_JSON(AnchorUserId, anchorUserId_);
       DARABONBA_PTR_FROM_JSON(LiveEndTime, liveEndTime_);
       DARABONBA_PTR_FROM_JSON(LiveStartTime, liveStartTime_);
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->anchorNickname_ != nullptr
-        && this->anchorUnionId_ != nullptr && this->anchorUserId_ != nullptr && this->liveEndTime_ != nullptr && this->liveStartTime_ != nullptr && this->liveUuid_ != nullptr
-        && this->title_ != nullptr; };
+        && this->anchorUnionId_ != nullptr && this->anchorUnionIdInAlibaba_ != nullptr && this->anchorUserId_ != nullptr && this->liveEndTime_ != nullptr && this->liveStartTime_ != nullptr
+        && this->liveUuid_ != nullptr && this->title_ != nullptr; };
     // anchorNickname Field Functions 
     bool hasAnchorNickname() const { return this->anchorNickname_ != nullptr;};
     void deleteAnchorNickname() { this->anchorNickname_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     void deleteAnchorUnionId() { this->anchorUnionId_ = nullptr;};
     inline string anchorUnionId() const { DARABONBA_PTR_GET_DEFAULT(anchorUnionId_, "") };
     inline GetOrgLiveListResponseBodyResultUpdateLiveLiveList& setAnchorUnionId(string anchorUnionId) { DARABONBA_PTR_SET_VALUE(anchorUnionId_, anchorUnionId) };
+
+
+    // anchorUnionIdInAlibaba Field Functions 
+    bool hasAnchorUnionIdInAlibaba() const { return this->anchorUnionIdInAlibaba_ != nullptr;};
+    void deleteAnchorUnionIdInAlibaba() { this->anchorUnionIdInAlibaba_ = nullptr;};
+    inline string anchorUnionIdInAlibaba() const { DARABONBA_PTR_GET_DEFAULT(anchorUnionIdInAlibaba_, "") };
+    inline GetOrgLiveListResponseBodyResultUpdateLiveLiveList& setAnchorUnionIdInAlibaba(string anchorUnionIdInAlibaba) { DARABONBA_PTR_SET_VALUE(anchorUnionIdInAlibaba_, anchorUnionIdInAlibaba) };
 
 
     // anchorUserId Field Functions 
@@ -96,6 +105,7 @@ namespace Models
   protected:
     std::shared_ptr<string> anchorNickname_ = nullptr;
     std::shared_ptr<string> anchorUnionId_ = nullptr;
+    std::shared_ptr<string> anchorUnionIdInAlibaba_ = nullptr;
     std::shared_ptr<string> anchorUserId_ = nullptr;
     std::shared_ptr<int64_t> liveEndTime_ = nullptr;
     std::shared_ptr<int64_t> liveStartTime_ = nullptr;
