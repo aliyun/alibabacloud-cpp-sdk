@@ -1,0 +1,48 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DELETEPRIVATEACCESSTAGREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_DELETEPRIVATEACCESSTAGREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Csas20230120
+{
+namespace Models
+{
+  class DeletePrivateAccessTagRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DeletePrivateAccessTagRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(TagId, tagId_);
+    };
+    friend void from_json(const Darabonba::Json& j, DeletePrivateAccessTagRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(TagId, tagId_);
+    };
+    DeletePrivateAccessTagRequest() = default ;
+    DeletePrivateAccessTagRequest(const DeletePrivateAccessTagRequest &) = default ;
+    DeletePrivateAccessTagRequest(DeletePrivateAccessTagRequest &&) = default ;
+    DeletePrivateAccessTagRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DeletePrivateAccessTagRequest() = default ;
+    DeletePrivateAccessTagRequest& operator=(const DeletePrivateAccessTagRequest &) = default ;
+    DeletePrivateAccessTagRequest& operator=(DeletePrivateAccessTagRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->tagId_ != nullptr; };
+    // tagId Field Functions 
+    bool hasTagId() const { return this->tagId_ != nullptr;};
+    void deleteTagId() { this->tagId_ = nullptr;};
+    inline string tagId() const { DARABONBA_PTR_GET_DEFAULT(tagId_, "") };
+    inline DeletePrivateAccessTagRequest& setTagId(string tagId) { DARABONBA_PTR_SET_VALUE(tagId_, tagId) };
+
+
+  protected:
+    // This parameter is required.
+    std::shared_ptr<string> tagId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Csas20230120
+#endif
