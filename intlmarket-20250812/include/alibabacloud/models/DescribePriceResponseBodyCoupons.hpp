@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribePriceResponseBodyCoupons& obj) { 
       DARABONBA_PTR_TO_JSON(CanPromFee, canPromFee_);
+      DARABONBA_PTR_TO_JSON(CouponDesc, couponDesc_);
       DARABONBA_PTR_TO_JSON(CouponName, couponName_);
       DARABONBA_PTR_TO_JSON(CouponOptionCode, couponOptionCode_);
       DARABONBA_PTR_TO_JSON(CouponOptionNo, couponOptionNo_);
@@ -22,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribePriceResponseBodyCoupons& obj) { 
       DARABONBA_PTR_FROM_JSON(CanPromFee, canPromFee_);
+      DARABONBA_PTR_FROM_JSON(CouponDesc, couponDesc_);
       DARABONBA_PTR_FROM_JSON(CouponName, couponName_);
       DARABONBA_PTR_FROM_JSON(CouponOptionCode, couponOptionCode_);
       DARABONBA_PTR_FROM_JSON(CouponOptionNo, couponOptionNo_);
@@ -40,12 +42,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->canPromFee_ != nullptr
-        && this->couponName_ != nullptr && this->couponOptionCode_ != nullptr && this->couponOptionNo_ != nullptr && this->isSelected_ != nullptr && this->promotionDesc_ != nullptr; };
+        && this->couponDesc_ != nullptr && this->couponName_ != nullptr && this->couponOptionCode_ != nullptr && this->couponOptionNo_ != nullptr && this->isSelected_ != nullptr
+        && this->promotionDesc_ != nullptr; };
     // canPromFee Field Functions 
     bool hasCanPromFee() const { return this->canPromFee_ != nullptr;};
     void deleteCanPromFee() { this->canPromFee_ = nullptr;};
     inline int64_t canPromFee() const { DARABONBA_PTR_GET_DEFAULT(canPromFee_, 0L) };
     inline DescribePriceResponseBodyCoupons& setCanPromFee(int64_t canPromFee) { DARABONBA_PTR_SET_VALUE(canPromFee_, canPromFee) };
+
+
+    // couponDesc Field Functions 
+    bool hasCouponDesc() const { return this->couponDesc_ != nullptr;};
+    void deleteCouponDesc() { this->couponDesc_ = nullptr;};
+    inline string couponDesc() const { DARABONBA_PTR_GET_DEFAULT(couponDesc_, "") };
+    inline DescribePriceResponseBodyCoupons& setCouponDesc(string couponDesc) { DARABONBA_PTR_SET_VALUE(couponDesc_, couponDesc) };
 
 
     // couponName Field Functions 
@@ -85,6 +95,7 @@ namespace Models
 
   protected:
     std::shared_ptr<int64_t> canPromFee_ = nullptr;
+    std::shared_ptr<string> couponDesc_ = nullptr;
     std::shared_ptr<string> couponName_ = nullptr;
     std::shared_ptr<string> couponOptionCode_ = nullptr;
     std::shared_ptr<string> couponOptionNo_ = nullptr;
