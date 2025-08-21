@@ -1,0 +1,50 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBECLOUDBENCHTASKCONFIGREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBECLOUDBENCHTASKCONFIGREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace DAS20200116
+{
+namespace Models
+{
+  class DescribeCloudbenchTaskConfigRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeCloudbenchTaskConfigRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeCloudbenchTaskConfigRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+    };
+    DescribeCloudbenchTaskConfigRequest() = default ;
+    DescribeCloudbenchTaskConfigRequest(const DescribeCloudbenchTaskConfigRequest &) = default ;
+    DescribeCloudbenchTaskConfigRequest(DescribeCloudbenchTaskConfigRequest &&) = default ;
+    DescribeCloudbenchTaskConfigRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeCloudbenchTaskConfigRequest() = default ;
+    DescribeCloudbenchTaskConfigRequest& operator=(const DescribeCloudbenchTaskConfigRequest &) = default ;
+    DescribeCloudbenchTaskConfigRequest& operator=(DescribeCloudbenchTaskConfigRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->taskId_ != nullptr; };
+    // taskId Field Functions 
+    bool hasTaskId() const { return this->taskId_ != nullptr;};
+    void deleteTaskId() { this->taskId_ = nullptr;};
+    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline DescribeCloudbenchTaskConfigRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
+
+
+  protected:
+    // The task ID. You can call the [DescribeCloudBenchTasks](https://help.aliyun.com/document_detail/230670.html) operation to query the task ID.
+    // 
+    // This parameter is required.
+    std::shared_ptr<string> taskId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace DAS20200116
+#endif

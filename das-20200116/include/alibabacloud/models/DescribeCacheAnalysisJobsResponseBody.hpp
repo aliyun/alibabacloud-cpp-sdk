@@ -1,0 +1,101 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBECACHEANALYSISJOBSRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBECACHEANALYSISJOBSRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/models/DescribeCacheAnalysisJobsResponseBodyData.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace DAS20200116
+{
+namespace Models
+{
+  class DescribeCacheAnalysisJobsResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeCacheAnalysisJobsResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Code, code_);
+      DARABONBA_PTR_TO_JSON(Data, data_);
+      DARABONBA_PTR_TO_JSON(Message, message_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(Success, success_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeCacheAnalysisJobsResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Code, code_);
+      DARABONBA_PTR_FROM_JSON(Data, data_);
+      DARABONBA_PTR_FROM_JSON(Message, message_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(Success, success_);
+    };
+    DescribeCacheAnalysisJobsResponseBody() = default ;
+    DescribeCacheAnalysisJobsResponseBody(const DescribeCacheAnalysisJobsResponseBody &) = default ;
+    DescribeCacheAnalysisJobsResponseBody(DescribeCacheAnalysisJobsResponseBody &&) = default ;
+    DescribeCacheAnalysisJobsResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeCacheAnalysisJobsResponseBody() = default ;
+    DescribeCacheAnalysisJobsResponseBody& operator=(const DescribeCacheAnalysisJobsResponseBody &) = default ;
+    DescribeCacheAnalysisJobsResponseBody& operator=(DescribeCacheAnalysisJobsResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->code_ != nullptr
+        && this->data_ != nullptr && this->message_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr; };
+    // code Field Functions 
+    bool hasCode() const { return this->code_ != nullptr;};
+    void deleteCode() { this->code_ = nullptr;};
+    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline DescribeCacheAnalysisJobsResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // data Field Functions 
+    bool hasData() const { return this->data_ != nullptr;};
+    void deleteData() { this->data_ = nullptr;};
+    inline const DescribeCacheAnalysisJobsResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, DescribeCacheAnalysisJobsResponseBodyData) };
+    inline DescribeCacheAnalysisJobsResponseBodyData data() { DARABONBA_PTR_GET(data_, DescribeCacheAnalysisJobsResponseBodyData) };
+    inline DescribeCacheAnalysisJobsResponseBody& setData(const DescribeCacheAnalysisJobsResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline DescribeCacheAnalysisJobsResponseBody& setData(DescribeCacheAnalysisJobsResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+
+
+    // message Field Functions 
+    bool hasMessage() const { return this->message_ != nullptr;};
+    void deleteMessage() { this->message_ = nullptr;};
+    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline DescribeCacheAnalysisJobsResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline DescribeCacheAnalysisJobsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // success Field Functions 
+    bool hasSuccess() const { return this->success_ != nullptr;};
+    void deleteSuccess() { this->success_ = nullptr;};
+    inline string success() const { DARABONBA_PTR_GET_DEFAULT(success_, "") };
+    inline DescribeCacheAnalysisJobsResponseBody& setSuccess(string success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
+  protected:
+    // The HTTP status code returned.
+    std::shared_ptr<string> code_ = nullptr;
+    // The list of cache analysis tasks.
+    std::shared_ptr<DescribeCacheAnalysisJobsResponseBodyData> data_ = nullptr;
+    // The returned message.
+    // 
+    // >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+    std::shared_ptr<string> message_ = nullptr;
+    // The request ID.
+    std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // *   **true**: The request was successful.
+    // *   **false**: The request failed.
+    std::shared_ptr<string> success_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace DAS20200116
+#endif
