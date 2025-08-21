@@ -38,6 +38,23 @@ namespace EhpcInstant20230701
       Models::AddImageResponse addImage(const Models::AddImageRequest &request);
 
       /**
+       * @summary 创建执行计划创建执行计划
+       *
+       * @param tmpReq CreateActionPlanRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateActionPlanResponse
+       */
+      Models::CreateActionPlanResponse createActionPlanWithOptions(const Models::CreateActionPlanRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建执行计划创建执行计划
+       *
+       * @param request CreateActionPlanRequest
+       * @return CreateActionPlanResponse
+       */
+      Models::CreateActionPlanResponse createActionPlan(const Models::CreateActionPlanRequest &request);
+
+      /**
        * @summary 提交任务
        *
        * @param tmpReq CreateJobRequest
@@ -70,6 +87,23 @@ namespace EhpcInstant20230701
        * @return CreatePoolResponse
        */
       Models::CreatePoolResponse createPool(const Models::CreatePoolRequest &request);
+
+      /**
+       * @summary 删除执行计划
+       *
+       * @param request DeleteActionPlanRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteActionPlanResponse
+       */
+      Models::DeleteActionPlanResponse deleteActionPlanWithOptions(const Models::DeleteActionPlanRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除执行计划
+       *
+       * @param request DeleteActionPlanRequest
+       * @return DeleteActionPlanResponse
+       */
+      Models::DeleteActionPlanResponse deleteActionPlan(const Models::DeleteActionPlanRequest &request);
 
       /**
        * @summary 删除作业
@@ -140,6 +174,23 @@ namespace EhpcInstant20230701
       Models::DescribeJobMetricLastResponse describeJobMetricLast(const Models::DescribeJobMetricLastRequest &request);
 
       /**
+       * @summary 查询执行计划详情
+       *
+       * @param request GetActionPlanRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetActionPlanResponse
+       */
+      Models::GetActionPlanResponse getActionPlanWithOptions(const Models::GetActionPlanRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询执行计划详情
+       *
+       * @param request GetActionPlanRequest
+       * @return GetActionPlanResponse
+       */
+      Models::GetActionPlanResponse getActionPlan(const Models::GetActionPlanRequest &request);
+
+      /**
        * @summary 查看应用版本列表
        *
        * @param request GetAppVersionsRequest
@@ -206,6 +257,40 @@ namespace EhpcInstant20230701
        * @return GetPoolResponse
        */
       Models::GetPoolResponse getPool(const Models::GetPoolRequest &request);
+
+      /**
+       * @summary 查询执行计划的执行情况。
+       *
+       * @param request ListActionPlanActivitiesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListActionPlanActivitiesResponse
+       */
+      Models::ListActionPlanActivitiesResponse listActionPlanActivitiesWithOptions(const Models::ListActionPlanActivitiesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询执行计划的执行情况。
+       *
+       * @param request ListActionPlanActivitiesRequest
+       * @return ListActionPlanActivitiesResponse
+       */
+      Models::ListActionPlanActivitiesResponse listActionPlanActivities(const Models::ListActionPlanActivitiesRequest &request);
+
+      /**
+       * @summary 查询执行计划列表
+       *
+       * @param tmpReq ListActionPlansRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListActionPlansResponse
+       */
+      Models::ListActionPlansResponse listActionPlansWithOptions(const Models::ListActionPlansRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询执行计划列表
+       *
+       * @param request ListActionPlansRequest
+       * @return ListActionPlansResponse
+       */
+      Models::ListActionPlansResponse listActionPlans(const Models::ListActionPlansRequest &request);
 
       /**
        * @summary 查询全局Executor信息
@@ -376,6 +461,23 @@ namespace EhpcInstant20230701
        * @return UnTagResourcesResponse
        */
       Models::UnTagResourcesResponse unTagResources(const Models::UnTagResourcesRequest &request);
+
+      /**
+       * @summary 更新执行计划
+       *
+       * @param request UpdateActionPlanRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateActionPlanResponse
+       */
+      Models::UpdateActionPlanResponse updateActionPlanWithOptions(const Models::UpdateActionPlanRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新执行计划
+       *
+       * @param request UpdateActionPlanRequest
+       * @return UpdateActionPlanResponse
+       */
+      Models::UpdateActionPlanResponse updateActionPlan(const Models::UpdateActionPlanRequest &request);
 
       /**
        * @summary 更新资源池

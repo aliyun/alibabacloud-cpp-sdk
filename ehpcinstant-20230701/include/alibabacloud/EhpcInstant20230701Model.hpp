@@ -6,6 +6,10 @@
 #include <alibabacloud/models/AddImageShrinkRequest.hpp>
 #include <alibabacloud/models/AddImageResponseBody.hpp>
 #include <alibabacloud/models/AddImageResponse.hpp>
+#include <alibabacloud/models/CreateActionPlanRequest.hpp>
+#include <alibabacloud/models/CreateActionPlanShrinkRequest.hpp>
+#include <alibabacloud/models/CreateActionPlanResponseBody.hpp>
+#include <alibabacloud/models/CreateActionPlanResponse.hpp>
 #include <alibabacloud/models/CreateJobRequest.hpp>
 #include <alibabacloud/models/CreateJobShrinkRequest.hpp>
 #include <alibabacloud/models/CreateJobResponseBody.hpp>
@@ -14,6 +18,9 @@
 #include <alibabacloud/models/CreatePoolShrinkRequest.hpp>
 #include <alibabacloud/models/CreatePoolResponseBody.hpp>
 #include <alibabacloud/models/CreatePoolResponse.hpp>
+#include <alibabacloud/models/DeleteActionPlanRequest.hpp>
+#include <alibabacloud/models/DeleteActionPlanResponseBody.hpp>
+#include <alibabacloud/models/DeleteActionPlanResponse.hpp>
 #include <alibabacloud/models/DeleteJobsRequest.hpp>
 #include <alibabacloud/models/DeleteJobsShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteJobsResponseBody.hpp>
@@ -29,6 +36,9 @@
 #include <alibabacloud/models/DescribeJobMetricLastShrinkRequest.hpp>
 #include <alibabacloud/models/DescribeJobMetricLastResponseBody.hpp>
 #include <alibabacloud/models/DescribeJobMetricLastResponse.hpp>
+#include <alibabacloud/models/GetActionPlanRequest.hpp>
+#include <alibabacloud/models/GetActionPlanResponseBody.hpp>
+#include <alibabacloud/models/GetActionPlanResponse.hpp>
 #include <alibabacloud/models/GetAppVersionsRequest.hpp>
 #include <alibabacloud/models/GetAppVersionsResponseBody.hpp>
 #include <alibabacloud/models/GetAppVersionsResponse.hpp>
@@ -42,6 +52,13 @@
 #include <alibabacloud/models/GetPoolRequest.hpp>
 #include <alibabacloud/models/GetPoolResponseBody.hpp>
 #include <alibabacloud/models/GetPoolResponse.hpp>
+#include <alibabacloud/models/ListActionPlanActivitiesRequest.hpp>
+#include <alibabacloud/models/ListActionPlanActivitiesResponseBody.hpp>
+#include <alibabacloud/models/ListActionPlanActivitiesResponse.hpp>
+#include <alibabacloud/models/ListActionPlansRequest.hpp>
+#include <alibabacloud/models/ListActionPlansShrinkRequest.hpp>
+#include <alibabacloud/models/ListActionPlansResponseBody.hpp>
+#include <alibabacloud/models/ListActionPlansResponse.hpp>
 #include <alibabacloud/models/ListExecutorsRequest.hpp>
 #include <alibabacloud/models/ListExecutorsShrinkRequest.hpp>
 #include <alibabacloud/models/ListExecutorsResponseBody.hpp>
@@ -77,6 +94,9 @@
 #include <alibabacloud/models/UnTagResourcesRequest.hpp>
 #include <alibabacloud/models/UnTagResourcesResponseBody.hpp>
 #include <alibabacloud/models/UnTagResourcesResponse.hpp>
+#include <alibabacloud/models/UpdateActionPlanRequest.hpp>
+#include <alibabacloud/models/UpdateActionPlanResponseBody.hpp>
+#include <alibabacloud/models/UpdateActionPlanResponse.hpp>
 #include <alibabacloud/models/UpdatePoolRequest.hpp>
 #include <alibabacloud/models/UpdatePoolShrinkRequest.hpp>
 #include <alibabacloud/models/UpdatePoolResponseBody.hpp>
@@ -84,6 +104,8 @@
 #include <alibabacloud/models/AddImageRequestContainerImageSpecRegistryCredential.hpp>
 #include <alibabacloud/models/AddImageRequestContainerImageSpec.hpp>
 #include <alibabacloud/models/AddImageRequestVmimageSpec.hpp>
+#include <alibabacloud/models/CreateActionPlanRequestRegions.hpp>
+#include <alibabacloud/models/CreateActionPlanRequestResources.hpp>
 #include <alibabacloud/models/CreateJobRequestDependencyPolicyJobDependency.hpp>
 #include <alibabacloud/models/CreateJobRequestDependencyPolicy.hpp>
 #include <alibabacloud/models/CreateJobRequestDeploymentPolicyNetwork.hpp>
@@ -109,6 +131,8 @@
 #include <alibabacloud/models/DeleteJobsRequestJobSpecTaskSpec.hpp>
 #include <alibabacloud/models/DeleteJobsRequestJobSpec.hpp>
 #include <alibabacloud/models/DescribeJobMetricLastResponseBodyMetrics.hpp>
+#include <alibabacloud/models/GetActionPlanResponseBodyRegions.hpp>
+#include <alibabacloud/models/GetActionPlanResponseBodyResources.hpp>
 #include <alibabacloud/models/GetAppVersionsResponseBodyAppVersions.hpp>
 #include <alibabacloud/models/GetImageResponseBodyImageAdditionalRegionsInfo.hpp>
 #include <alibabacloud/models/GetImageResponseBodyImageContainerImageSpecRegistryCredential.hpp>
@@ -134,6 +158,9 @@
 #include <alibabacloud/models/GetJobResponseBodyJobInfoTasks.hpp>
 #include <alibabacloud/models/GetJobResponseBodyJobInfo.hpp>
 #include <alibabacloud/models/GetPoolResponseBodyPoolInfo.hpp>
+#include <alibabacloud/models/ListActionPlanActivitiesResponseBodyActionPlanActivitiesJobs.hpp>
+#include <alibabacloud/models/ListActionPlanActivitiesResponseBodyActionPlanActivities.hpp>
+#include <alibabacloud/models/ListActionPlansResponseBodyActionPlans.hpp>
 #include <alibabacloud/models/ListExecutorsRequestFilter.hpp>
 #include <alibabacloud/models/ListExecutorsResponseBodyExecutorsResourceDisks.hpp>
 #include <alibabacloud/models/ListExecutorsResponseBodyExecutorsResource.hpp>

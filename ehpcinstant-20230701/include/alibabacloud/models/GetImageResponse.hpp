@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETIMAGERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetImageResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

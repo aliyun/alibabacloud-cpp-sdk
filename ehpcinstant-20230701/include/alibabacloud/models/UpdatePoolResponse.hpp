@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_UPDATEPOOLRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/UpdatePoolResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

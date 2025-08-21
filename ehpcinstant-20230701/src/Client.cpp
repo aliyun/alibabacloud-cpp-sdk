@@ -81,7 +81,7 @@ AddImageResponse Client::addImageWithOptions(const AddImageRequest &tmpReq, cons
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddImage"},
     {"version" , "2023-07-01"},
@@ -92,7 +92,7 @@ AddImageResponse Client::addImageWithOptions(const AddImageRequest &tmpReq, cons
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddImageResponse>();
 }
 
@@ -105,6 +105,94 @@ AddImageResponse Client::addImageWithOptions(const AddImageRequest &tmpReq, cons
 AddImageResponse Client::addImage(const AddImageRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return addImageWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建执行计划创建执行计划
+ *
+ * @param tmpReq CreateActionPlanRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateActionPlanResponse
+ */
+CreateActionPlanResponse Client::createActionPlanWithOptions(const CreateActionPlanRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateActionPlanShrinkRequest request = CreateActionPlanShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRegions()) {
+    request.setRegionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.regions(), "Regions", "json"));
+  }
+
+  if (!!tmpReq.hasResources()) {
+    request.setResourcesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resources(), "Resources", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasActionPlanName()) {
+    query["ActionPlanName"] = request.actionPlanName();
+  }
+
+  if (!!request.hasAllocationSpec()) {
+    query["AllocationSpec"] = request.allocationSpec();
+  }
+
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasDesiredCapacity()) {
+    query["DesiredCapacity"] = request.desiredCapacity();
+  }
+
+  if (!!request.hasLevel()) {
+    query["Level"] = request.level();
+  }
+
+  if (!!request.hasPrologScript()) {
+    query["PrologScript"] = request.prologScript();
+  }
+
+  if (!!request.hasRegionsShrink()) {
+    query["Regions"] = request.regionsShrink();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.resourceType();
+  }
+
+  if (!!request.hasResourcesShrink()) {
+    query["Resources"] = request.resourcesShrink();
+  }
+
+  if (!!request.hasScript()) {
+    query["Script"] = request.script();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateActionPlan"},
+    {"version" , "2023-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateActionPlanResponse>();
+}
+
+/**
+ * @summary 创建执行计划创建执行计划
+ *
+ * @param request CreateActionPlanRequest
+ * @return CreateActionPlanResponse
+ */
+CreateActionPlanResponse Client::createActionPlan(const CreateActionPlanRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createActionPlanWithOptions(request, runtime);
 }
 
 /**
@@ -165,7 +253,7 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &tmpReq, c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateJob"},
     {"version" , "2023-07-01"},
@@ -176,7 +264,7 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &tmpReq, c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateJobResponse>();
 }
 
@@ -221,7 +309,7 @@ CreatePoolResponse Client::createPoolWithOptions(const CreatePoolRequest &tmpReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreatePool"},
     {"version" , "2023-07-01"},
@@ -232,7 +320,7 @@ CreatePoolResponse Client::createPoolWithOptions(const CreatePoolRequest &tmpReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreatePoolResponse>();
 }
 
@@ -245,6 +333,48 @@ CreatePoolResponse Client::createPoolWithOptions(const CreatePoolRequest &tmpReq
 CreatePoolResponse Client::createPool(const CreatePoolRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createPoolWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除执行计划
+ *
+ * @param request DeleteActionPlanRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteActionPlanResponse
+ */
+DeleteActionPlanResponse Client::deleteActionPlanWithOptions(const DeleteActionPlanRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActionPlanId()) {
+    query["ActionPlanId"] = request.actionPlanId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteActionPlan"},
+    {"version" , "2023-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteActionPlanResponse>();
+}
+
+/**
+ * @summary 删除执行计划
+ *
+ * @param request DeleteActionPlanRequest
+ * @return DeleteActionPlanResponse
+ */
+DeleteActionPlanResponse Client::deleteActionPlan(const DeleteActionPlanRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteActionPlanWithOptions(request, runtime);
 }
 
 /**
@@ -281,7 +411,7 @@ DeleteJobsResponse Client::deleteJobsWithOptions(const DeleteJobsRequest &tmpReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteJobs"},
     {"version" , "2023-07-01"},
@@ -292,7 +422,7 @@ DeleteJobsResponse Client::deleteJobsWithOptions(const DeleteJobsRequest &tmpReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteJobsResponse>();
 }
 
@@ -323,7 +453,7 @@ DeletePoolResponse Client::deletePoolWithOptions(const DeletePoolRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeletePool"},
     {"version" , "2023-07-01"},
@@ -334,7 +464,7 @@ DeletePoolResponse Client::deletePoolWithOptions(const DeletePoolRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeletePoolResponse>();
 }
 
@@ -383,7 +513,7 @@ DescribeJobMetricDataResponse Client::describeJobMetricDataWithOptions(const Des
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeJobMetricData"},
     {"version" , "2023-07-01"},
@@ -394,7 +524,7 @@ DescribeJobMetricDataResponse Client::describeJobMetricDataWithOptions(const Des
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeJobMetricDataResponse>();
 }
 
@@ -439,7 +569,7 @@ DescribeJobMetricLastResponse Client::describeJobMetricLastWithOptions(const Des
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeJobMetricLast"},
     {"version" , "2023-07-01"},
@@ -450,7 +580,7 @@ DescribeJobMetricLastResponse Client::describeJobMetricLastWithOptions(const Des
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeJobMetricLastResponse>();
 }
 
@@ -463,6 +593,48 @@ DescribeJobMetricLastResponse Client::describeJobMetricLastWithOptions(const Des
 DescribeJobMetricLastResponse Client::describeJobMetricLast(const DescribeJobMetricLastRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeJobMetricLastWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询执行计划详情
+ *
+ * @param request GetActionPlanRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetActionPlanResponse
+ */
+GetActionPlanResponse Client::getActionPlanWithOptions(const GetActionPlanRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActionPlanId()) {
+    query["ActionPlanId"] = request.actionPlanId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetActionPlan"},
+    {"version" , "2023-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetActionPlanResponse>();
+}
+
+/**
+ * @summary 查询执行计划详情
+ *
+ * @param request GetActionPlanRequest
+ * @return GetActionPlanResponse
+ */
+GetActionPlanResponse Client::getActionPlan(const GetActionPlanRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getActionPlanWithOptions(request, runtime);
 }
 
 /**
@@ -497,7 +669,7 @@ GetAppVersionsResponse Client::getAppVersionsWithOptions(const GetAppVersionsReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetAppVersions"},
     {"version" , "2023-07-01"},
@@ -508,7 +680,7 @@ GetAppVersionsResponse Client::getAppVersionsWithOptions(const GetAppVersionsReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetAppVersionsResponse>();
 }
 
@@ -557,7 +729,7 @@ GetImageResponse Client::getImageWithOptions(const GetImageRequest &tmpReq, cons
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetImage"},
     {"version" , "2023-07-01"},
@@ -568,7 +740,7 @@ GetImageResponse Client::getImageWithOptions(const GetImageRequest &tmpReq, cons
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetImageResponse>();
 }
 
@@ -599,7 +771,7 @@ GetJobResponse Client::getJobWithOptions(const GetJobRequest &request, const Dar
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetJob"},
     {"version" , "2023-07-01"},
@@ -610,7 +782,7 @@ GetJobResponse Client::getJobWithOptions(const GetJobRequest &request, const Dar
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetJobResponse>();
 }
 
@@ -641,7 +813,7 @@ GetPoolResponse Client::getPoolWithOptions(const GetPoolRequest &request, const 
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetPool"},
     {"version" , "2023-07-01"},
@@ -652,7 +824,7 @@ GetPoolResponse Client::getPoolWithOptions(const GetPoolRequest &request, const 
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetPoolResponse>();
 }
 
@@ -665,6 +837,112 @@ GetPoolResponse Client::getPoolWithOptions(const GetPoolRequest &request, const 
 GetPoolResponse Client::getPool(const GetPoolRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getPoolWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询执行计划的执行情况。
+ *
+ * @param request ListActionPlanActivitiesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListActionPlanActivitiesResponse
+ */
+ListActionPlanActivitiesResponse Client::listActionPlanActivitiesWithOptions(const ListActionPlanActivitiesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActionPlanId()) {
+    query["ActionPlanId"] = request.actionPlanId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListActionPlanActivities"},
+    {"version" , "2023-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListActionPlanActivitiesResponse>();
+}
+
+/**
+ * @summary 查询执行计划的执行情况。
+ *
+ * @param request ListActionPlanActivitiesRequest
+ * @return ListActionPlanActivitiesResponse
+ */
+ListActionPlanActivitiesResponse Client::listActionPlanActivities(const ListActionPlanActivitiesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listActionPlanActivitiesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询执行计划列表
+ *
+ * @param tmpReq ListActionPlansRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListActionPlansResponse
+ */
+ListActionPlansResponse Client::listActionPlansWithOptions(const ListActionPlansRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListActionPlansShrinkRequest request = ListActionPlansShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasActionPlanIds()) {
+    request.setActionPlanIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.actionPlanIds(), "ActionPlanIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasActionPlanIdsShrink()) {
+    query["ActionPlanIds"] = request.actionPlanIdsShrink();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListActionPlans"},
+    {"version" , "2023-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListActionPlansResponse>();
+}
+
+/**
+ * @summary 查询执行计划列表
+ *
+ * @param request ListActionPlansRequest
+ * @return ListActionPlansResponse
+ */
+ListActionPlansResponse Client::listActionPlans(const ListActionPlansRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listActionPlansWithOptions(request, runtime);
 }
 
 /**
@@ -697,7 +975,7 @@ ListExecutorsResponse Client::listExecutorsWithOptions(const ListExecutorsReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListExecutors"},
     {"version" , "2023-07-01"},
@@ -708,7 +986,7 @@ ListExecutorsResponse Client::listExecutorsWithOptions(const ListExecutorsReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListExecutorsResponse>();
 }
 
@@ -773,7 +1051,7 @@ ListImagesResponse Client::listImagesWithOptions(const ListImagesRequest &tmpReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListImages"},
     {"version" , "2023-07-01"},
@@ -784,7 +1062,7 @@ ListImagesResponse Client::listImagesWithOptions(const ListImagesRequest &tmpReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListImagesResponse>();
 }
 
@@ -827,7 +1105,7 @@ ListJobExecutorsResponse Client::listJobExecutorsWithOptions(const ListJobExecut
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListJobExecutors"},
     {"version" , "2023-07-01"},
@@ -838,7 +1116,7 @@ ListJobExecutorsResponse Client::listJobExecutorsWithOptions(const ListJobExecut
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListJobExecutorsResponse>();
 }
 
@@ -891,7 +1169,7 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &tmpReq, cons
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListJobs"},
     {"version" , "2023-07-01"},
@@ -902,7 +1180,7 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &tmpReq, cons
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListJobsResponse>();
 }
 
@@ -947,7 +1225,7 @@ ListPoolsResponse Client::listPoolsWithOptions(const ListPoolsRequest &tmpReq, c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListPools"},
     {"version" , "2023-07-01"},
@@ -958,7 +1236,7 @@ ListPoolsResponse Client::listPoolsWithOptions(const ListPoolsRequest &tmpReq, c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListPoolsResponse>();
 }
 
@@ -1005,7 +1283,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListTagResources"},
     {"version" , "2023-07-01"},
@@ -1016,7 +1294,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTagResourcesResponse>();
 }
 
@@ -1051,7 +1329,7 @@ RemoveImageResponse Client::removeImageWithOptions(const RemoveImageRequest &req
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "RemoveImage"},
     {"version" , "2023-07-01"},
@@ -1062,7 +1340,7 @@ RemoveImageResponse Client::removeImageWithOptions(const RemoveImageRequest &req
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RemoveImageResponse>();
 }
 
@@ -1103,7 +1381,7 @@ SynchronizeAppResponse Client::synchronizeAppWithOptions(const SynchronizeAppReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SynchronizeApp"},
     {"version" , "2023-07-01"},
@@ -1114,7 +1392,7 @@ SynchronizeAppResponse Client::synchronizeAppWithOptions(const SynchronizeAppReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SynchronizeAppResponse>();
 }
 
@@ -1153,7 +1431,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "TagResources"},
     {"version" , "2023-07-01"},
@@ -1164,7 +1442,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<TagResourcesResponse>();
 }
 
@@ -1207,7 +1485,7 @@ UnTagResourcesResponse Client::unTagResourcesWithOptions(const UnTagResourcesReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UnTagResources"},
     {"version" , "2023-07-01"},
@@ -1218,7 +1496,7 @@ UnTagResourcesResponse Client::unTagResourcesWithOptions(const UnTagResourcesReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UnTagResourcesResponse>();
 }
 
@@ -1231,6 +1509,56 @@ UnTagResourcesResponse Client::unTagResourcesWithOptions(const UnTagResourcesReq
 UnTagResourcesResponse Client::unTagResources(const UnTagResourcesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return unTagResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新执行计划
+ *
+ * @param request UpdateActionPlanRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateActionPlanResponse
+ */
+UpdateActionPlanResponse Client::updateActionPlanWithOptions(const UpdateActionPlanRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActionPlanId()) {
+    query["ActionPlanId"] = request.actionPlanId();
+  }
+
+  if (!!request.hasDesiredCapacity()) {
+    query["DesiredCapacity"] = request.desiredCapacity();
+  }
+
+  if (!!request.hasEnabled()) {
+    query["Enabled"] = request.enabled();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateActionPlan"},
+    {"version" , "2023-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateActionPlanResponse>();
+}
+
+/**
+ * @summary 更新执行计划
+ *
+ * @param request UpdateActionPlanRequest
+ * @return UpdateActionPlanResponse
+ */
+UpdateActionPlanResponse Client::updateActionPlan(const UpdateActionPlanRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateActionPlanWithOptions(request, runtime);
 }
 
 /**
@@ -1263,7 +1591,7 @@ UpdatePoolResponse Client::updatePoolWithOptions(const UpdatePoolRequest &tmpReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdatePool"},
     {"version" , "2023-07-01"},
@@ -1274,7 +1602,7 @@ UpdatePoolResponse Client::updatePoolWithOptions(const UpdatePoolRequest &tmpReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdatePoolResponse>();
 }
 
