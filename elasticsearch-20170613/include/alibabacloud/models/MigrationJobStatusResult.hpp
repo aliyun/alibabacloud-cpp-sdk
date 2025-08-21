@@ -1,0 +1,58 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_MIGRATIONJOBSTATUSRESULT_HPP_
+#define ALIBABACLOUD_MODELS_MIGRATIONJOBSTATUSRESULT_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Elasticsearch20170613
+{
+namespace Models
+{
+  class MigrationJobStatusResult : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const MigrationJobStatusResult& obj) { 
+      DARABONBA_PTR_TO_JSON(code, code_);
+      DARABONBA_PTR_TO_JSON(success, success_);
+    };
+    friend void from_json(const Darabonba::Json& j, MigrationJobStatusResult& obj) { 
+      DARABONBA_PTR_FROM_JSON(code, code_);
+      DARABONBA_PTR_FROM_JSON(success, success_);
+    };
+    MigrationJobStatusResult() = default ;
+    MigrationJobStatusResult(const MigrationJobStatusResult &) = default ;
+    MigrationJobStatusResult(MigrationJobStatusResult &&) = default ;
+    MigrationJobStatusResult(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~MigrationJobStatusResult() = default ;
+    MigrationJobStatusResult& operator=(const MigrationJobStatusResult &) = default ;
+    MigrationJobStatusResult& operator=(MigrationJobStatusResult &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->code_ != nullptr
+        && this->success_ != nullptr; };
+    // code Field Functions 
+    bool hasCode() const { return this->code_ != nullptr;};
+    void deleteCode() { this->code_ = nullptr;};
+    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline MigrationJobStatusResult& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // success Field Functions 
+    bool hasSuccess() const { return this->success_ != nullptr;};
+    void deleteSuccess() { this->success_ = nullptr;};
+    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline MigrationJobStatusResult& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
+  protected:
+    std::shared_ptr<string> code_ = nullptr;
+    std::shared_ptr<bool> success_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Elasticsearch20170613
+#endif

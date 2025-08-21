@@ -1,0 +1,61 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_UNINSTALLLOGSTASHPLUGINREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_UNINSTALLLOGSTASHPLUGINREQUEST_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Elasticsearch20170613
+{
+namespace Models
+{
+  class UninstallLogstashPluginRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const UninstallLogstashPluginRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(body, body_);
+      DARABONBA_PTR_TO_JSON(clientToken, clientToken_);
+    };
+    friend void from_json(const Darabonba::Json& j, UninstallLogstashPluginRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(body, body_);
+      DARABONBA_PTR_FROM_JSON(clientToken, clientToken_);
+    };
+    UninstallLogstashPluginRequest() = default ;
+    UninstallLogstashPluginRequest(const UninstallLogstashPluginRequest &) = default ;
+    UninstallLogstashPluginRequest(UninstallLogstashPluginRequest &&) = default ;
+    UninstallLogstashPluginRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~UninstallLogstashPluginRequest() = default ;
+    UninstallLogstashPluginRequest& operator=(const UninstallLogstashPluginRequest &) = default ;
+    UninstallLogstashPluginRequest& operator=(UninstallLogstashPluginRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->body_ != nullptr
+        && this->clientToken_ != nullptr; };
+    // body Field Functions 
+    bool hasBody() const { return this->body_ != nullptr;};
+    void deleteBody() { this->body_ = nullptr;};
+    inline const vector<string> & body() const { DARABONBA_PTR_GET_CONST(body_, vector<string>) };
+    inline vector<string> body() { DARABONBA_PTR_GET(body_, vector<string>) };
+    inline UninstallLogstashPluginRequest& setBody(const vector<string> & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline UninstallLogstashPluginRequest& setBody(vector<string> && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline UninstallLogstashPluginRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+  protected:
+    std::shared_ptr<vector<string>> body_ = nullptr;
+    std::shared_ptr<string> clientToken_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Elasticsearch20170613
+#endif
