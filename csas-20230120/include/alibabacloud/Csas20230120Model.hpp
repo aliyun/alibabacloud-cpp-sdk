@@ -428,6 +428,12 @@
 #include <alibabacloud/models/CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleControl.hpp>
 #include <alibabacloud/models/CreateWmEmbedTaskRequestDocumentControlBackgroundControl.hpp>
 #include <alibabacloud/models/CreateWmEmbedTaskRequestDocumentControl.hpp>
+#include <alibabacloud/models/CreateWmEmbedTaskRequestImageControlLogoVisibleControlMargin.hpp>
+#include <alibabacloud/models/CreateWmEmbedTaskRequestImageControlLogoVisibleControl.hpp>
+#include <alibabacloud/models/CreateWmEmbedTaskRequestImageControlMetadataControl.hpp>
+#include <alibabacloud/models/CreateWmEmbedTaskRequestImageControlTextVisibleControlMargin.hpp>
+#include <alibabacloud/models/CreateWmEmbedTaskRequestImageControlTextVisibleControl.hpp>
+#include <alibabacloud/models/CreateWmEmbedTaskRequestImageControl.hpp>
 #include <alibabacloud/models/CreateWmEmbedTaskResponseBodyData.hpp>
 #include <alibabacloud/models/CreateWmExtractTaskRequestCsvControl.hpp>
 #include <alibabacloud/models/CreateWmExtractTaskRequestImageExtractParamsOpenApi.hpp>

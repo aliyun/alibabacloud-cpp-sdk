@@ -1030,6 +1030,10 @@ CreateWmEmbedTaskResponse Client::createWmEmbedTaskWithOptions(const CreateWmEmb
     request.setDocumentControlShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.documentControl(), "DocumentControl", "json"));
   }
 
+  if (!!tmpReq.hasImageControl()) {
+    request.setImageControlShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.imageControl(), "ImageControl", "json"));
+  }
+
   json query = {};
   if (!!request.hasCsvControlShrink()) {
     query["CsvControl"] = request.csvControlShrink();
@@ -1046,6 +1050,10 @@ CreateWmEmbedTaskResponse Client::createWmEmbedTaskWithOptions(const CreateWmEmb
 
   if (!!request.hasFilename()) {
     body["Filename"] = request.filename();
+  }
+
+  if (!!request.hasImageControlShrink()) {
+    body["ImageControl"] = request.imageControlShrink();
   }
 
   if (!!request.hasImageEmbedJpegQuality()) {

@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/CreateWmEmbedTaskRequestCsvControl.hpp>
 #include <alibabacloud/models/CreateWmEmbedTaskRequestDocumentControl.hpp>
+#include <alibabacloud/models/CreateWmEmbedTaskRequestImageControl.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DocumentControl, documentControl_);
       DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_TO_JSON(Filename, filename_);
+      DARABONBA_PTR_TO_JSON(ImageControl, imageControl_);
       DARABONBA_PTR_TO_JSON(ImageEmbedJpegQuality, imageEmbedJpegQuality_);
       DARABONBA_PTR_TO_JSON(ImageEmbedLevel, imageEmbedLevel_);
       DARABONBA_PTR_TO_JSON(VideoBitrate, videoBitrate_);
@@ -33,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DocumentControl, documentControl_);
       DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_FROM_JSON(Filename, filename_);
+      DARABONBA_PTR_FROM_JSON(ImageControl, imageControl_);
       DARABONBA_PTR_FROM_JSON(ImageEmbedJpegQuality, imageEmbedJpegQuality_);
       DARABONBA_PTR_FROM_JSON(ImageEmbedLevel, imageEmbedLevel_);
       DARABONBA_PTR_FROM_JSON(VideoBitrate, videoBitrate_);
@@ -54,9 +57,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->csvControl_ != nullptr
-        && this->documentControl_ != nullptr && this->fileUrl_ != nullptr && this->filename_ != nullptr && this->imageEmbedJpegQuality_ != nullptr && this->imageEmbedLevel_ != nullptr
-        && this->videoBitrate_ != nullptr && this->videoIsLong_ != nullptr && this->wmInfoBytesB64_ != nullptr && this->wmInfoSize_ != nullptr && this->wmInfoUint_ != nullptr
-        && this->wmType_ != nullptr; };
+        && this->documentControl_ != nullptr && this->fileUrl_ != nullptr && this->filename_ != nullptr && this->imageControl_ != nullptr && this->imageEmbedJpegQuality_ != nullptr
+        && this->imageEmbedLevel_ != nullptr && this->videoBitrate_ != nullptr && this->videoIsLong_ != nullptr && this->wmInfoBytesB64_ != nullptr && this->wmInfoSize_ != nullptr
+        && this->wmInfoUint_ != nullptr && this->wmType_ != nullptr; };
     // csvControl Field Functions 
     bool hasCsvControl() const { return this->csvControl_ != nullptr;};
     void deleteCsvControl() { this->csvControl_ = nullptr;};
@@ -87,6 +90,15 @@ namespace Models
     void deleteFilename() { this->filename_ = nullptr;};
     inline string filename() const { DARABONBA_PTR_GET_DEFAULT(filename_, "") };
     inline CreateWmEmbedTaskRequest& setFilename(string filename) { DARABONBA_PTR_SET_VALUE(filename_, filename) };
+
+
+    // imageControl Field Functions 
+    bool hasImageControl() const { return this->imageControl_ != nullptr;};
+    void deleteImageControl() { this->imageControl_ = nullptr;};
+    inline const CreateWmEmbedTaskRequestImageControl & imageControl() const { DARABONBA_PTR_GET_CONST(imageControl_, CreateWmEmbedTaskRequestImageControl) };
+    inline CreateWmEmbedTaskRequestImageControl imageControl() { DARABONBA_PTR_GET(imageControl_, CreateWmEmbedTaskRequestImageControl) };
+    inline CreateWmEmbedTaskRequest& setImageControl(const CreateWmEmbedTaskRequestImageControl & imageControl) { DARABONBA_PTR_SET_VALUE(imageControl_, imageControl) };
+    inline CreateWmEmbedTaskRequest& setImageControl(CreateWmEmbedTaskRequestImageControl && imageControl) { DARABONBA_PTR_SET_RVALUE(imageControl_, imageControl) };
 
 
     // imageEmbedJpegQuality Field Functions 
@@ -152,6 +164,7 @@ namespace Models
     std::shared_ptr<string> fileUrl_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> filename_ = nullptr;
+    std::shared_ptr<CreateWmEmbedTaskRequestImageControl> imageControl_ = nullptr;
     std::shared_ptr<int64_t> imageEmbedJpegQuality_ = nullptr;
     std::shared_ptr<int64_t> imageEmbedLevel_ = nullptr;
     std::shared_ptr<string> videoBitrate_ = nullptr;
