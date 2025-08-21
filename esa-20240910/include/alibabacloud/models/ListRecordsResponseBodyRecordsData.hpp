@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Priority, priority_);
       DARABONBA_PTR_TO_JSON(Selector, selector_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
+      DARABONBA_ANY_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(Type, type_);
       DARABONBA_PTR_TO_JSON(Usage, usage_);
       DARABONBA_PTR_TO_JSON(Value, value_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Priority, priority_);
       DARABONBA_PTR_FROM_JSON(Selector, selector_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
+      DARABONBA_ANY_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
       DARABONBA_PTR_FROM_JSON(Usage, usage_);
       DARABONBA_PTR_FROM_JSON(Value, value_);
@@ -57,8 +59,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->algorithm_ != nullptr
         && this->certificate_ != nullptr && this->fingerprint_ != nullptr && this->flag_ != nullptr && this->keyTag_ != nullptr && this->matchingType_ != nullptr
-        && this->port_ != nullptr && this->priority_ != nullptr && this->selector_ != nullptr && this->tag_ != nullptr && this->type_ != nullptr
-        && this->usage_ != nullptr && this->value_ != nullptr && this->weight_ != nullptr; };
+        && this->port_ != nullptr && this->priority_ != nullptr && this->selector_ != nullptr && this->tag_ != nullptr && this->tags_ != nullptr
+        && this->type_ != nullptr && this->usage_ != nullptr && this->value_ != nullptr && this->weight_ != nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};
@@ -129,6 +131,15 @@ namespace Models
     inline ListRecordsResponseBodyRecordsData& setTag(string tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline     const Darabonba::Json & tags() const { DARABONBA_GET(tags_) };
+    Darabonba::Json & tags() { DARABONBA_GET(tags_) };
+    inline ListRecordsResponseBodyRecordsData& setTags(const Darabonba::Json & tags) { DARABONBA_SET_VALUE(tags_, tags) };
+    inline ListRecordsResponseBodyRecordsData& setTags(Darabonba::Json & tags) { DARABONBA_SET_RVALUE(tags_, tags) };
+
+
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
@@ -178,6 +189,7 @@ namespace Models
     std::shared_ptr<int32_t> selector_ = nullptr;
     // The tag of the record. The Tag of a CAA record indicate its specific type and usage. Exclusive to CAA records.
     std::shared_ptr<string> tag_ = nullptr;
+    Darabonba::Json tags_ = nullptr;
     // The certificate type of the record (in CERT records), or the public key type (in SSHFP records).
     std::shared_ptr<int32_t> type_ = nullptr;
     // The usage identifier of the record. Valid values: 0 to 255. Exclusive to SMIMEA, and TLSA records.

@@ -4,8 +4,10 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/WafSiteSettingsAddBotProtectionHeaders.hpp>
 #include <alibabacloud/models/WafSiteSettingsAddSecurityHeaders.hpp>
+#include <alibabacloud/models/WafSiteSettingsBandwidthAbuseProtection.hpp>
 #include <alibabacloud/models/WafSiteSettingsBotManagement.hpp>
 #include <alibabacloud/models/WafSiteSettingsClientIpIdentifier.hpp>
+#include <alibabacloud/models/WafSiteSettingsDisableSecurityModule.hpp>
 #include <alibabacloud/models/WafSiteSettingsSecurityLevel.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -20,15 +22,19 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const WafSiteSettings& obj) { 
       DARABONBA_PTR_TO_JSON(AddBotProtectionHeaders, addBotProtectionHeaders_);
       DARABONBA_PTR_TO_JSON(AddSecurityHeaders, addSecurityHeaders_);
+      DARABONBA_PTR_TO_JSON(BandwidthAbuseProtection, bandwidthAbuseProtection_);
       DARABONBA_PTR_TO_JSON(BotManagement, botManagement_);
       DARABONBA_PTR_TO_JSON(ClientIpIdentifier, clientIpIdentifier_);
+      DARABONBA_PTR_TO_JSON(DisableSecurityModule, disableSecurityModule_);
       DARABONBA_PTR_TO_JSON(SecurityLevel, securityLevel_);
     };
     friend void from_json(const Darabonba::Json& j, WafSiteSettings& obj) { 
       DARABONBA_PTR_FROM_JSON(AddBotProtectionHeaders, addBotProtectionHeaders_);
       DARABONBA_PTR_FROM_JSON(AddSecurityHeaders, addSecurityHeaders_);
+      DARABONBA_PTR_FROM_JSON(BandwidthAbuseProtection, bandwidthAbuseProtection_);
       DARABONBA_PTR_FROM_JSON(BotManagement, botManagement_);
       DARABONBA_PTR_FROM_JSON(ClientIpIdentifier, clientIpIdentifier_);
+      DARABONBA_PTR_FROM_JSON(DisableSecurityModule, disableSecurityModule_);
       DARABONBA_PTR_FROM_JSON(SecurityLevel, securityLevel_);
     };
     WafSiteSettings() = default ;
@@ -43,7 +49,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->addBotProtectionHeaders_ != nullptr
-        && this->addSecurityHeaders_ != nullptr && this->botManagement_ != nullptr && this->clientIpIdentifier_ != nullptr && this->securityLevel_ != nullptr; };
+        && this->addSecurityHeaders_ != nullptr && this->bandwidthAbuseProtection_ != nullptr && this->botManagement_ != nullptr && this->clientIpIdentifier_ != nullptr && this->disableSecurityModule_ != nullptr
+        && this->securityLevel_ != nullptr; };
     // addBotProtectionHeaders Field Functions 
     bool hasAddBotProtectionHeaders() const { return this->addBotProtectionHeaders_ != nullptr;};
     void deleteAddBotProtectionHeaders() { this->addBotProtectionHeaders_ = nullptr;};
@@ -60,6 +67,15 @@ namespace Models
     inline WafSiteSettingsAddSecurityHeaders addSecurityHeaders() { DARABONBA_PTR_GET(addSecurityHeaders_, WafSiteSettingsAddSecurityHeaders) };
     inline WafSiteSettings& setAddSecurityHeaders(const WafSiteSettingsAddSecurityHeaders & addSecurityHeaders) { DARABONBA_PTR_SET_VALUE(addSecurityHeaders_, addSecurityHeaders) };
     inline WafSiteSettings& setAddSecurityHeaders(WafSiteSettingsAddSecurityHeaders && addSecurityHeaders) { DARABONBA_PTR_SET_RVALUE(addSecurityHeaders_, addSecurityHeaders) };
+
+
+    // bandwidthAbuseProtection Field Functions 
+    bool hasBandwidthAbuseProtection() const { return this->bandwidthAbuseProtection_ != nullptr;};
+    void deleteBandwidthAbuseProtection() { this->bandwidthAbuseProtection_ = nullptr;};
+    inline const WafSiteSettingsBandwidthAbuseProtection & bandwidthAbuseProtection() const { DARABONBA_PTR_GET_CONST(bandwidthAbuseProtection_, WafSiteSettingsBandwidthAbuseProtection) };
+    inline WafSiteSettingsBandwidthAbuseProtection bandwidthAbuseProtection() { DARABONBA_PTR_GET(bandwidthAbuseProtection_, WafSiteSettingsBandwidthAbuseProtection) };
+    inline WafSiteSettings& setBandwidthAbuseProtection(const WafSiteSettingsBandwidthAbuseProtection & bandwidthAbuseProtection) { DARABONBA_PTR_SET_VALUE(bandwidthAbuseProtection_, bandwidthAbuseProtection) };
+    inline WafSiteSettings& setBandwidthAbuseProtection(WafSiteSettingsBandwidthAbuseProtection && bandwidthAbuseProtection) { DARABONBA_PTR_SET_RVALUE(bandwidthAbuseProtection_, bandwidthAbuseProtection) };
 
 
     // botManagement Field Functions 
@@ -80,6 +96,15 @@ namespace Models
     inline WafSiteSettings& setClientIpIdentifier(WafSiteSettingsClientIpIdentifier && clientIpIdentifier) { DARABONBA_PTR_SET_RVALUE(clientIpIdentifier_, clientIpIdentifier) };
 
 
+    // disableSecurityModule Field Functions 
+    bool hasDisableSecurityModule() const { return this->disableSecurityModule_ != nullptr;};
+    void deleteDisableSecurityModule() { this->disableSecurityModule_ = nullptr;};
+    inline const WafSiteSettingsDisableSecurityModule & disableSecurityModule() const { DARABONBA_PTR_GET_CONST(disableSecurityModule_, WafSiteSettingsDisableSecurityModule) };
+    inline WafSiteSettingsDisableSecurityModule disableSecurityModule() { DARABONBA_PTR_GET(disableSecurityModule_, WafSiteSettingsDisableSecurityModule) };
+    inline WafSiteSettings& setDisableSecurityModule(const WafSiteSettingsDisableSecurityModule & disableSecurityModule) { DARABONBA_PTR_SET_VALUE(disableSecurityModule_, disableSecurityModule) };
+    inline WafSiteSettings& setDisableSecurityModule(WafSiteSettingsDisableSecurityModule && disableSecurityModule) { DARABONBA_PTR_SET_RVALUE(disableSecurityModule_, disableSecurityModule) };
+
+
     // securityLevel Field Functions 
     bool hasSecurityLevel() const { return this->securityLevel_ != nullptr;};
     void deleteSecurityLevel() { this->securityLevel_ = nullptr;};
@@ -92,8 +117,10 @@ namespace Models
   protected:
     std::shared_ptr<WafSiteSettingsAddBotProtectionHeaders> addBotProtectionHeaders_ = nullptr;
     std::shared_ptr<WafSiteSettingsAddSecurityHeaders> addSecurityHeaders_ = nullptr;
+    std::shared_ptr<WafSiteSettingsBandwidthAbuseProtection> bandwidthAbuseProtection_ = nullptr;
     std::shared_ptr<WafSiteSettingsBotManagement> botManagement_ = nullptr;
     std::shared_ptr<WafSiteSettingsClientIpIdentifier> clientIpIdentifier_ = nullptr;
+    std::shared_ptr<WafSiteSettingsDisableSecurityModule> disableSecurityModule_ = nullptr;
     std::shared_ptr<WafSiteSettingsSecurityLevel> securityLevel_ = nullptr;
   };
 

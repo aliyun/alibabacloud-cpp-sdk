@@ -1082,6 +1082,7 @@
 #include <alibabacloud/models/WafRuleMatch2criteria.hpp>
 #include <alibabacloud/models/WafSiteSettingsAddBotProtectionHeaders.hpp>
 #include <alibabacloud/models/WafSiteSettingsAddSecurityHeaders.hpp>
+#include <alibabacloud/models/WafSiteSettingsBandwidthAbuseProtection.hpp>
 #include <alibabacloud/models/WafSiteSettingsBotManagementDefiniteBots.hpp>
 #include <alibabacloud/models/WafSiteSettingsBotManagementEffectOnStatic.hpp>
 #include <alibabacloud/models/WafSiteSettingsBotManagementJsdetection.hpp>
@@ -1089,6 +1090,7 @@
 #include <alibabacloud/models/WafSiteSettingsBotManagementVerifiedBots.hpp>
 #include <alibabacloud/models/WafSiteSettingsBotManagement.hpp>
 #include <alibabacloud/models/WafSiteSettingsClientIpIdentifier.hpp>
+#include <alibabacloud/models/WafSiteSettingsDisableSecurityModule.hpp>
 #include <alibabacloud/models/WafSiteSettingsSecurityLevel.hpp>
 #include <alibabacloud/models/WafTimerPeriods.hpp>
 #include <alibabacloud/models/WafTimerWeeklyPeriodsDailyPeriods.hpp>
