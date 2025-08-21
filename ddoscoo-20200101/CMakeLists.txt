@@ -1,13 +1,15 @@
 
-cmake_minimum_required(VERSION 3.11 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
-project(alibabacloud_ddoscoo_20200101 VERSION "0.1.0")
+project(alibabacloud_ddoscoo_20200101 VERSION "1.0.0")
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< General set up >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_INSTALL_PREFIX "${PROJECT_SOURCE_DIR}/${PROJECT_NAME}_build")
+SET(CMAKE_FIND_LIBRARY_SUFFIXES "${CMAKE_FIND_LIBRARY_SUFFIXES}" "_d.dylib")
 message("C++ compiler flags: ${CMAKE_CXX_FLAGS}")
 
 if (CMAKE_CXX_COMPILER_LOADED)
@@ -20,17 +22,18 @@ if (NOT CMAKE_BUILD_TYPE)
 endif ()
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 
-# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Target set up >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
-add_library(${PROJECT_NAME} SHARED "")
-set(headers
-        include/alibabacloud/ddoscoo_20200101.hpp)
-target_sources(${PROJECT_NAME}
-        PRIVATE
-        src/ddoscoo_20200101.cpp
-        ${headers})
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Target set up >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #=
+include_directories(${CMAKE_SOURCE_DIR}/include)
+
+set(SOURCE_FILES
+        src/Client.cpp)
+
+add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES})
+        
 target_include_directories(${PROJECT_NAME}
         PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
 set_target_properties(${PROJECT_NAME}
         PROPERTIES
         POSITION_INDEPENDENT_CODE 1
@@ -43,9 +46,52 @@ set_target_properties(${PROJECT_NAME}
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< External set up >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
 add_subdirectory(external)
-find_package(Boost REQUIRED COMPONENTS random system thread filesystem chrono atomic date_time regex)
-find_library(CPPREST_LIB cpprest)
-target_link_libraries(${PROJECT_NAME} PRIVATE crypto darabonba_util alibabacloud_open_api alibabacloud_open_api_util alibabacloud_endpoint_util darabonba_core ${Boost_LIBRARIES} ${CPPREST_LIB})
+find_package(OpenSSL REQUIRED)
+find_library(CURL_LIB curl)
+if(CMAKE_HOST_WIN32)
+  ExternalProject_Get_Property(curl INSTALL_DIR)
+    set(curl_install_dir ${INSTALL_DIR})
+    add_dependencies(${PROJECT_NAME}
+            curl)
+    target_include_directories(${PROJECT_NAME}
+            PRIVATE	${curl_install_dir}/include)
+    target_link_libraries(${PROJECT_NAME}
+            OpenSSL::SSL OpenSSL::Crypto
+            Crypt32
+            Rpcrt4
+            Ws2_32
+            debug ${curl_install_dir}/lib/libcurl-d.lib
+            optimized ${curl_install_dir}/lib/libcurl.lib
+            darabonba_core
+            alibabacloud_open_api_v2
+            alibabacloud_credential
+            
+            )
+    target_compile_definitions(${PROJECT_NAME}
+            PRIVATE CURL_STATICLIB
+            _CRT_SECURE_NO_WARNINGS)
+elseif(APPLE)
+  find_library(CFLIB CoreFoundation)
+  find_library(UTIL_LIB alibabacloud_ddoscoo_20200101 ${CMAKE_CURRENT_SOURCE_DIR}/deps/lib)
+  target_link_libraries(${PROJECT_NAME} 
+      OpenSSL::SSL OpenSSL::Crypto
+      ${CFLIB}
+      ${CURL_LIB} 
+      darabonba_core
+      alibabacloud_open_api_v2
+            alibabacloud_credential
+            )
+  target_compile_definitions(${PROJECT_NAME} PRIVATE GUID_CFUUID)
+else()
+  target_link_libraries(${PROJECT_NAME} 
+      OpenSSL::SSL OpenSSL::Crypto
+      ${CURL_LIB} 
+      darabonba_core
+      alibabacloud_open_api_v2
+            alibabacloud_credential
+            )
+endif()
+
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Install set up >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
 message(STATUS "${PROJECT_NAME} : Project will be installed to ${CMAKE_INSTALL_PREFIX}")
@@ -91,33 +137,33 @@ set_target_properties(${PROJECT_NAME}
 
 install(
         TARGETS
-          ${PROJECT_NAME}
+        ${PROJECT_NAME}
         EXPORT
-          alibabacloud_ddoscoo_20200101Targets
+        alibabacloud_ddoscoo_20200101Targets
         ARCHIVE
-          DESTINATION ${INSTALL_LIBDIR}
-          COMPONENT lib
+        DESTINATION ${INSTALL_LIBDIR}
+        COMPONENT lib
         RUNTIME
-          DESTINATION ${INSTALL_BINDIR}
-          COMPONENT bin
+        DESTINATION ${INSTALL_BINDIR}
+        COMPONENT bin
         LIBRARY
-          DESTINATION ${INSTALL_LIBDIR}
-          COMPONENT lib
+        DESTINATION ${INSTALL_LIBDIR}
+        COMPONENT lib
         PUBLIC_HEADER
-          DESTINATION ${INSTALL_INCLUDEDIR}/alibabacloud
-          COMPONENT dev
+        DESTINATION ${INSTALL_INCLUDEDIR}/alibabacloud
+        COMPONENT dev
 )
 
 # Install cmake config
 install(
         EXPORT
-          alibabacloud_ddoscoo_20200101Targets
+        alibabacloud_ddoscoo_20200101Targets
         NAMESPACE
-          "alibabacloud_ddoscoo_20200101::"
+        "alibabacloud_ddoscoo_20200101::"
         DESTINATION
-          ${INSTALL_CMAKEDIR}
+        ${INSTALL_CMAKEDIR}
         COMPONENT
-          dev
+        dev
 )
 include(CMakePackageConfigHelpers)
 
