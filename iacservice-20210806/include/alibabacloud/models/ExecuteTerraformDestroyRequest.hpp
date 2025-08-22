@@ -1,0 +1,60 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_EXECUTETERRAFORMDESTROYREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_EXECUTETERRAFORMDESTROYREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace IaCService20210806
+{
+namespace Models
+{
+  class ExecuteTerraformDestroyRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ExecuteTerraformDestroyRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(clientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(stateId, stateId_);
+    };
+    friend void from_json(const Darabonba::Json& j, ExecuteTerraformDestroyRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(clientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(stateId, stateId_);
+    };
+    ExecuteTerraformDestroyRequest() = default ;
+    ExecuteTerraformDestroyRequest(const ExecuteTerraformDestroyRequest &) = default ;
+    ExecuteTerraformDestroyRequest(ExecuteTerraformDestroyRequest &&) = default ;
+    ExecuteTerraformDestroyRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ExecuteTerraformDestroyRequest() = default ;
+    ExecuteTerraformDestroyRequest& operator=(const ExecuteTerraformDestroyRequest &) = default ;
+    ExecuteTerraformDestroyRequest& operator=(ExecuteTerraformDestroyRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->clientToken_ != nullptr
+        && this->stateId_ != nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline ExecuteTerraformDestroyRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // stateId Field Functions 
+    bool hasStateId() const { return this->stateId_ != nullptr;};
+    void deleteStateId() { this->stateId_ = nullptr;};
+    inline string stateId() const { DARABONBA_PTR_GET_DEFAULT(stateId_, "") };
+    inline ExecuteTerraformDestroyRequest& setStateId(string stateId) { DARABONBA_PTR_SET_VALUE(stateId_, stateId) };
+
+
+  protected:
+    // This parameter is required.
+    std::shared_ptr<string> clientToken_ = nullptr;
+    // This parameter is required.
+    std::shared_ptr<string> stateId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace IaCService20210806
+#endif
