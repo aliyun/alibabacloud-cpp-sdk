@@ -603,8 +603,16 @@ CreateReportDefinitionResponse Client::createReportDefinitionWithOptions(const C
     query["BeginBillingCycle"] = request.beginBillingCycle();
   }
 
+  if (!!request.hasIncludeMembers()) {
+    query["IncludeMembers"] = request.includeMembers();
+  }
+
   if (!!request.hasNbid()) {
     query["Nbid"] = request.nbid();
+  }
+
+  if (!!request.hasNotSendOnNoData()) {
+    query["NotSendOnNoData"] = request.notSendOnNoData();
   }
 
   if (!!request.hasOssBucketName()) {
@@ -621,6 +629,14 @@ CreateReportDefinitionResponse Client::createReportDefinitionWithOptions(const C
 
   if (!!request.hasReportType()) {
     query["ReportType"] = request.reportType();
+  }
+
+  if (!!request.hasSendWithAttach()) {
+    query["SendWithAttach"] = request.sendWithAttach();
+  }
+
+  if (!!request.hasSplitFileOnUserId()) {
+    query["SplitFileOnUserId"] = request.splitFileOnUserId();
   }
 
   json body = {};

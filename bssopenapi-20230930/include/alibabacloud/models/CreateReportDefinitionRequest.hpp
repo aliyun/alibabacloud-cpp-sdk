@@ -14,25 +14,33 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateReportDefinitionRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BeginBillingCycle, beginBillingCycle_);
+      DARABONBA_PTR_TO_JSON(IncludeMembers, includeMembers_);
       DARABONBA_PTR_TO_JSON(McProject, mcProject_);
       DARABONBA_PTR_TO_JSON(McTableName, mcTableName_);
       DARABONBA_PTR_TO_JSON(Nbid, nbid_);
+      DARABONBA_PTR_TO_JSON(NotSendOnNoData, notSendOnNoData_);
       DARABONBA_PTR_TO_JSON(OssBucketName, ossBucketName_);
       DARABONBA_PTR_TO_JSON(OssBucketOwnerAccountId, ossBucketOwnerAccountId_);
       DARABONBA_PTR_TO_JSON(OssBucketPath, ossBucketPath_);
       DARABONBA_PTR_TO_JSON(ReportSourceType, reportSourceType_);
       DARABONBA_PTR_TO_JSON(ReportType, reportType_);
+      DARABONBA_PTR_TO_JSON(SendWithAttach, sendWithAttach_);
+      DARABONBA_PTR_TO_JSON(SplitFileOnUserId, splitFileOnUserId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateReportDefinitionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BeginBillingCycle, beginBillingCycle_);
+      DARABONBA_PTR_FROM_JSON(IncludeMembers, includeMembers_);
       DARABONBA_PTR_FROM_JSON(McProject, mcProject_);
       DARABONBA_PTR_FROM_JSON(McTableName, mcTableName_);
       DARABONBA_PTR_FROM_JSON(Nbid, nbid_);
+      DARABONBA_PTR_FROM_JSON(NotSendOnNoData, notSendOnNoData_);
       DARABONBA_PTR_FROM_JSON(OssBucketName, ossBucketName_);
       DARABONBA_PTR_FROM_JSON(OssBucketOwnerAccountId, ossBucketOwnerAccountId_);
       DARABONBA_PTR_FROM_JSON(OssBucketPath, ossBucketPath_);
       DARABONBA_PTR_FROM_JSON(ReportSourceType, reportSourceType_);
       DARABONBA_PTR_FROM_JSON(ReportType, reportType_);
+      DARABONBA_PTR_FROM_JSON(SendWithAttach, sendWithAttach_);
+      DARABONBA_PTR_FROM_JSON(SplitFileOnUserId, splitFileOnUserId_);
     };
     CreateReportDefinitionRequest() = default ;
     CreateReportDefinitionRequest(const CreateReportDefinitionRequest &) = default ;
@@ -46,13 +54,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->beginBillingCycle_ != nullptr
-        && this->mcProject_ != nullptr && this->mcTableName_ != nullptr && this->nbid_ != nullptr && this->ossBucketName_ != nullptr && this->ossBucketOwnerAccountId_ != nullptr
-        && this->ossBucketPath_ != nullptr && this->reportSourceType_ != nullptr && this->reportType_ != nullptr; };
+        && this->includeMembers_ != nullptr && this->mcProject_ != nullptr && this->mcTableName_ != nullptr && this->nbid_ != nullptr && this->notSendOnNoData_ != nullptr
+        && this->ossBucketName_ != nullptr && this->ossBucketOwnerAccountId_ != nullptr && this->ossBucketPath_ != nullptr && this->reportSourceType_ != nullptr && this->reportType_ != nullptr
+        && this->sendWithAttach_ != nullptr && this->splitFileOnUserId_ != nullptr; };
     // beginBillingCycle Field Functions 
     bool hasBeginBillingCycle() const { return this->beginBillingCycle_ != nullptr;};
     void deleteBeginBillingCycle() { this->beginBillingCycle_ = nullptr;};
     inline string beginBillingCycle() const { DARABONBA_PTR_GET_DEFAULT(beginBillingCycle_, "") };
     inline CreateReportDefinitionRequest& setBeginBillingCycle(string beginBillingCycle) { DARABONBA_PTR_SET_VALUE(beginBillingCycle_, beginBillingCycle) };
+
+
+    // includeMembers Field Functions 
+    bool hasIncludeMembers() const { return this->includeMembers_ != nullptr;};
+    void deleteIncludeMembers() { this->includeMembers_ = nullptr;};
+    inline string includeMembers() const { DARABONBA_PTR_GET_DEFAULT(includeMembers_, "") };
+    inline CreateReportDefinitionRequest& setIncludeMembers(string includeMembers) { DARABONBA_PTR_SET_VALUE(includeMembers_, includeMembers) };
 
 
     // mcProject Field Functions 
@@ -74,6 +90,13 @@ namespace Models
     void deleteNbid() { this->nbid_ = nullptr;};
     inline string nbid() const { DARABONBA_PTR_GET_DEFAULT(nbid_, "") };
     inline CreateReportDefinitionRequest& setNbid(string nbid) { DARABONBA_PTR_SET_VALUE(nbid_, nbid) };
+
+
+    // notSendOnNoData Field Functions 
+    bool hasNotSendOnNoData() const { return this->notSendOnNoData_ != nullptr;};
+    void deleteNotSendOnNoData() { this->notSendOnNoData_ = nullptr;};
+    inline string notSendOnNoData() const { DARABONBA_PTR_GET_DEFAULT(notSendOnNoData_, "") };
+    inline CreateReportDefinitionRequest& setNotSendOnNoData(string notSendOnNoData) { DARABONBA_PTR_SET_VALUE(notSendOnNoData_, notSendOnNoData) };
 
 
     // ossBucketName Field Functions 
@@ -111,17 +134,35 @@ namespace Models
     inline CreateReportDefinitionRequest& setReportType(string reportType) { DARABONBA_PTR_SET_VALUE(reportType_, reportType) };
 
 
+    // sendWithAttach Field Functions 
+    bool hasSendWithAttach() const { return this->sendWithAttach_ != nullptr;};
+    void deleteSendWithAttach() { this->sendWithAttach_ = nullptr;};
+    inline string sendWithAttach() const { DARABONBA_PTR_GET_DEFAULT(sendWithAttach_, "") };
+    inline CreateReportDefinitionRequest& setSendWithAttach(string sendWithAttach) { DARABONBA_PTR_SET_VALUE(sendWithAttach_, sendWithAttach) };
+
+
+    // splitFileOnUserId Field Functions 
+    bool hasSplitFileOnUserId() const { return this->splitFileOnUserId_ != nullptr;};
+    void deleteSplitFileOnUserId() { this->splitFileOnUserId_ = nullptr;};
+    inline string splitFileOnUserId() const { DARABONBA_PTR_GET_DEFAULT(splitFileOnUserId_, "") };
+    inline CreateReportDefinitionRequest& setSplitFileOnUserId(string splitFileOnUserId) { DARABONBA_PTR_SET_VALUE(splitFileOnUserId_, splitFileOnUserId) };
+
+
   protected:
     std::shared_ptr<string> beginBillingCycle_ = nullptr;
+    std::shared_ptr<string> includeMembers_ = nullptr;
     std::shared_ptr<string> mcProject_ = nullptr;
     std::shared_ptr<string> mcTableName_ = nullptr;
     std::shared_ptr<string> nbid_ = nullptr;
+    std::shared_ptr<string> notSendOnNoData_ = nullptr;
     std::shared_ptr<string> ossBucketName_ = nullptr;
     std::shared_ptr<int64_t> ossBucketOwnerAccountId_ = nullptr;
     std::shared_ptr<string> ossBucketPath_ = nullptr;
     std::shared_ptr<string> reportSourceType_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> reportType_ = nullptr;
+    std::shared_ptr<string> sendWithAttach_ = nullptr;
+    std::shared_ptr<string> splitFileOnUserId_ = nullptr;
   };
 
   } // namespace Models
