@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYDESKTOPTIMERRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ModifyDesktopTimerResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

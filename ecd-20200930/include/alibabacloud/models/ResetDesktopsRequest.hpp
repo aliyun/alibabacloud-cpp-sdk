@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DesktopGroupIds, desktopGroupIds_);
       DARABONBA_PTR_TO_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
+      DARABONBA_PTR_TO_JSON(LastRetryTime, lastRetryTime_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResetScope, resetScope_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DesktopGroupIds, desktopGroupIds_);
       DARABONBA_PTR_FROM_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
+      DARABONBA_PTR_FROM_JSON(LastRetryTime, lastRetryTime_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResetScope, resetScope_);
@@ -45,8 +47,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->desktopGroupId_ != nullptr
-        && this->desktopGroupIds_ != nullptr && this->desktopId_ != nullptr && this->imageId_ != nullptr && this->payType_ != nullptr && this->regionId_ != nullptr
-        && this->resetScope_ != nullptr && this->resetType_ != nullptr; };
+        && this->desktopGroupIds_ != nullptr && this->desktopId_ != nullptr && this->imageId_ != nullptr && this->lastRetryTime_ != nullptr && this->payType_ != nullptr
+        && this->regionId_ != nullptr && this->resetScope_ != nullptr && this->resetType_ != nullptr; };
     // desktopGroupId Field Functions 
     bool hasDesktopGroupId() const { return this->desktopGroupId_ != nullptr;};
     void deleteDesktopGroupId() { this->desktopGroupId_ = nullptr;};
@@ -77,6 +79,13 @@ namespace Models
     void deleteImageId() { this->imageId_ = nullptr;};
     inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline ResetDesktopsRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
+
+
+    // lastRetryTime Field Functions 
+    bool hasLastRetryTime() const { return this->lastRetryTime_ != nullptr;};
+    void deleteLastRetryTime() { this->lastRetryTime_ = nullptr;};
+    inline int64_t lastRetryTime() const { DARABONBA_PTR_GET_DEFAULT(lastRetryTime_, 0L) };
+    inline ResetDesktopsRequest& setLastRetryTime(int64_t lastRetryTime) { DARABONBA_PTR_SET_VALUE(lastRetryTime_, lastRetryTime) };
 
 
     // payType Field Functions 
@@ -119,6 +128,7 @@ namespace Models
     std::shared_ptr<vector<string>> desktopId_ = nullptr;
     // The ID of the image.
     std::shared_ptr<string> imageId_ = nullptr;
+    std::shared_ptr<int64_t> lastRetryTime_ = nullptr;
     // The billing method of the cloud computer share.
     // 
     // >  This parameter takes effect when you reset a cloud computer share. If you leave this parameter empty, all cloud computers in that share are reset.

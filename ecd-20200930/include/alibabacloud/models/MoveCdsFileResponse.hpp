@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MOVECDSFILERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/MoveCdsFileResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

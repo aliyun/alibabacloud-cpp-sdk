@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_ADDUSERTODESKTOPGROUPRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/AddUserToDesktopGroupResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

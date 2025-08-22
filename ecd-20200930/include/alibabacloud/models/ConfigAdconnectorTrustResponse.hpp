@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CONFIGADCONNECTORTRUSTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ConfigADConnectorTrustResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

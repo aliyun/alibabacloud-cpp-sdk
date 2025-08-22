@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYDESKTOPSPECRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ModifyDesktopSpecResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

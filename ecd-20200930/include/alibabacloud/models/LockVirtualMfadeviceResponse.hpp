@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LOCKVIRTUALMFADEVICERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/LockVirtualMFADeviceResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

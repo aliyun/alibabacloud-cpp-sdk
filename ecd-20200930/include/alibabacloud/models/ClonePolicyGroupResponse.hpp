@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CLONEPOLICYGROUPRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ClonePolicyGroupResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

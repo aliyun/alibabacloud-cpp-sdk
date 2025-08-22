@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_SETDIRECTORYSSOSTATUSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/SetDirectorySsoStatusResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

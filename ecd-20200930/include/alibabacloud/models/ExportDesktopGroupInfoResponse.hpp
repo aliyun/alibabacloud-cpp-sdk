@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_EXPORTDESKTOPGROUPINFORESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ExportDesktopGroupInfoResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

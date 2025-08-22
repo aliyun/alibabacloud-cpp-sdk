@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_ADDFILEPERMISSIONRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/AddFilePermissionResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

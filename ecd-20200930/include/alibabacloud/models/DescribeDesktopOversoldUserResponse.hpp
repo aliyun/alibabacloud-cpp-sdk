@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEDESKTOPOVERSOLDUSERRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeDesktopOversoldUserResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

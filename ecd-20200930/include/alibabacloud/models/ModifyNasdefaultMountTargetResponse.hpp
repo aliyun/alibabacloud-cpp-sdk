@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYNASDEFAULTMOUNTTARGETRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ModifyNASDefaultMountTargetResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

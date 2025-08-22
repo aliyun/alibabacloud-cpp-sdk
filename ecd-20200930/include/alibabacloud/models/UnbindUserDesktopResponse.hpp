@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_UNBINDUSERDESKTOPRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/UnbindUserDesktopResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBECDSFILESHARELINKSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/Ecd20200930.hpp>
+#include <alibabacloud/models/CdsFileShareLinkModel.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
