@@ -2918,6 +2918,10 @@ CreateRumUploadFileUrlResponse Client::createRumUploadFileUrlWithOptions(const C
     query["RegionId"] = request.regionId();
   }
 
+  if (!!request.hasServiceId()) {
+    query["ServiceId"] = request.serviceId();
+  }
+
   if (!!request.hasSourcemapType()) {
     query["SourcemapType"] = request.sourcemapType();
   }
@@ -2928,6 +2932,10 @@ CreateRumUploadFileUrlResponse Client::createRumUploadFileUrlWithOptions(const C
 
   if (!!request.hasVersionId()) {
     query["VersionId"] = request.versionId();
+  }
+
+  if (!!request.hasWorkspace()) {
+    query["Workspace"] = request.workspace();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4720,12 +4728,20 @@ DeleteRumUploadFileResponse Client::deleteRumUploadFileWithOptions(const DeleteR
     query["RegionId"] = request.regionId();
   }
 
+  if (!!request.hasServiceId()) {
+    query["ServiceId"] = request.serviceId();
+  }
+
   if (!!request.hasUuid()) {
     query["Uuid"] = request.uuid();
   }
 
   if (!!request.hasVersionId()) {
     query["VersionId"] = request.versionId();
+  }
+
+  if (!!request.hasWorkspace()) {
+    query["Workspace"] = request.workspace();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7502,8 +7518,16 @@ GetRumExceptionStackResponse Client::getRumExceptionStackWithOptions(const GetRu
     query["RegionId"] = request.regionId();
   }
 
+  if (!!request.hasServiceId()) {
+    query["ServiceId"] = request.serviceId();
+  }
+
   if (!!request.hasSourcemapType()) {
     query["SourcemapType"] = request.sourcemapType();
+  }
+
+  if (!!request.hasWorkspace()) {
+    query["Workspace"] = request.workspace();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7624,8 +7648,16 @@ GetRumUploadFilesResponse Client::getRumUploadFilesWithOptions(const GetRumUploa
     query["RegionId"] = request.regionId();
   }
 
+  if (!!request.hasServiceId()) {
+    query["ServiceId"] = request.serviceId();
+  }
+
   if (!!request.hasVersionId()) {
     query["VersionId"] = request.versionId();
+  }
+
+  if (!!request.hasWorkspace()) {
+    query["Workspace"] = request.workspace();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

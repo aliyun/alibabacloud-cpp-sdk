@@ -19,7 +19,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ExtraInfo, extraInfo_);
       DARABONBA_PTR_TO_JSON(Pid, pid_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ServiceId, serviceId_);
       DARABONBA_PTR_TO_JSON(SourcemapType, sourcemapType_);
+      DARABONBA_PTR_TO_JSON(Workspace, workspace_);
     };
     friend void from_json(const Darabonba::Json& j, GetRumExceptionStackRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ExceptionBinaryImages, exceptionBinaryImages_);
@@ -28,7 +30,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ExtraInfo, extraInfo_);
       DARABONBA_PTR_FROM_JSON(Pid, pid_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ServiceId, serviceId_);
       DARABONBA_PTR_FROM_JSON(SourcemapType, sourcemapType_);
+      DARABONBA_PTR_FROM_JSON(Workspace, workspace_);
     };
     GetRumExceptionStackRequest() = default ;
     GetRumExceptionStackRequest(const GetRumExceptionStackRequest &) = default ;
@@ -43,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->exceptionBinaryImages_ != nullptr
         && this->exceptionStack_ != nullptr && this->exceptionThreadId_ != nullptr && this->extraInfo_ != nullptr && this->pid_ != nullptr && this->regionId_ != nullptr
-        && this->sourcemapType_ != nullptr; };
+        && this->serviceId_ != nullptr && this->sourcemapType_ != nullptr && this->workspace_ != nullptr; };
     // exceptionBinaryImages Field Functions 
     bool hasExceptionBinaryImages() const { return this->exceptionBinaryImages_ != nullptr;};
     void deleteExceptionBinaryImages() { this->exceptionBinaryImages_ = nullptr;};
@@ -86,11 +90,25 @@ namespace Models
     inline GetRumExceptionStackRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // serviceId Field Functions 
+    bool hasServiceId() const { return this->serviceId_ != nullptr;};
+    void deleteServiceId() { this->serviceId_ = nullptr;};
+    inline string serviceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+    inline GetRumExceptionStackRequest& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
+
+
     // sourcemapType Field Functions 
     bool hasSourcemapType() const { return this->sourcemapType_ != nullptr;};
     void deleteSourcemapType() { this->sourcemapType_ = nullptr;};
     inline string sourcemapType() const { DARABONBA_PTR_GET_DEFAULT(sourcemapType_, "") };
     inline GetRumExceptionStackRequest& setSourcemapType(string sourcemapType) { DARABONBA_PTR_SET_VALUE(sourcemapType_, sourcemapType) };
+
+
+    // workspace Field Functions 
+    bool hasWorkspace() const { return this->workspace_ != nullptr;};
+    void deleteWorkspace() { this->workspace_ = nullptr;};
+    inline string workspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+    inline GetRumExceptionStackRequest& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
 
 
   protected:
@@ -103,11 +121,10 @@ namespace Models
     // Extra information about iOS symbol tables. You can leave this parameter empty.
     std::shared_ptr<string> extraInfo_ = nullptr;
     // The application ID.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> pid_ = nullptr;
     // The region ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    std::shared_ptr<string> serviceId_ = nullptr;
     // The parsing type. Valid values:
     // 
     // *   js: Parses JavaScript errors.
@@ -116,6 +133,7 @@ namespace Models
     // *   dSYM: Parses iOS errors.
     // *   so: Parses Android errors.
     std::shared_ptr<string> sourcemapType_ = nullptr;
+    std::shared_ptr<string> workspace_ = nullptr;
   };
 
   } // namespace Models

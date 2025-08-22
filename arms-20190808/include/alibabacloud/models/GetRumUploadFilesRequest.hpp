@@ -19,7 +19,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Pid, pid_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ServiceId, serviceId_);
       DARABONBA_PTR_TO_JSON(VersionId, versionId_);
+      DARABONBA_PTR_TO_JSON(Workspace, workspace_);
     };
     friend void from_json(const Darabonba::Json& j, GetRumUploadFilesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppType, appType_);
@@ -28,7 +30,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Pid, pid_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ServiceId, serviceId_);
       DARABONBA_PTR_FROM_JSON(VersionId, versionId_);
+      DARABONBA_PTR_FROM_JSON(Workspace, workspace_);
     };
     GetRumUploadFilesRequest() = default ;
     GetRumUploadFilesRequest(const GetRumUploadFilesRequest &) = default ;
@@ -43,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->appType_ != nullptr
         && this->fileName_ != nullptr && this->nextToken_ != nullptr && this->pageSize_ != nullptr && this->pid_ != nullptr && this->regionId_ != nullptr
-        && this->versionId_ != nullptr; };
+        && this->serviceId_ != nullptr && this->versionId_ != nullptr && this->workspace_ != nullptr; };
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};
@@ -86,11 +90,25 @@ namespace Models
     inline GetRumUploadFilesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // serviceId Field Functions 
+    bool hasServiceId() const { return this->serviceId_ != nullptr;};
+    void deleteServiceId() { this->serviceId_ = nullptr;};
+    inline string serviceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+    inline GetRumUploadFilesRequest& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
+
+
     // versionId Field Functions 
     bool hasVersionId() const { return this->versionId_ != nullptr;};
     void deleteVersionId() { this->versionId_ = nullptr;};
     inline string versionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
     inline GetRumUploadFilesRequest& setVersionId(string versionId) { DARABONBA_PTR_SET_VALUE(versionId_, versionId) };
+
+
+    // workspace Field Functions 
+    bool hasWorkspace() const { return this->workspace_ != nullptr;};
+    void deleteWorkspace() { this->workspace_ = nullptr;};
+    inline string workspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+    inline GetRumUploadFilesRequest& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
 
 
   protected:
@@ -105,8 +123,10 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
+    std::shared_ptr<string> serviceId_ = nullptr;
     // The version number of the files. If you do not specify this parameter, all versions of the files are returned by default.
     std::shared_ptr<string> versionId_ = nullptr;
+    std::shared_ptr<string> workspace_ = nullptr;
   };
 
   } // namespace Models

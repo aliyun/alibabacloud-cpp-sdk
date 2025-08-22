@@ -18,9 +18,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FileName, fileName_);
       DARABONBA_PTR_TO_JSON(Pid, pid_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ServiceId, serviceId_);
       DARABONBA_PTR_TO_JSON(SourcemapType, sourcemapType_);
       DARABONBA_PTR_TO_JSON(Uuid, uuid_);
       DARABONBA_PTR_TO_JSON(VersionId, versionId_);
+      DARABONBA_PTR_TO_JSON(Workspace, workspace_);
     };
     friend void from_json(const Darabonba::Json& j, CreateRumUploadFileUrlRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
@@ -28,9 +30,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FileName, fileName_);
       DARABONBA_PTR_FROM_JSON(Pid, pid_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ServiceId, serviceId_);
       DARABONBA_PTR_FROM_JSON(SourcemapType, sourcemapType_);
       DARABONBA_PTR_FROM_JSON(Uuid, uuid_);
       DARABONBA_PTR_FROM_JSON(VersionId, versionId_);
+      DARABONBA_PTR_FROM_JSON(Workspace, workspace_);
     };
     CreateRumUploadFileUrlRequest() = default ;
     CreateRumUploadFileUrlRequest(const CreateRumUploadFileUrlRequest &) = default ;
@@ -44,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->appName_ != nullptr
-        && this->contentType_ != nullptr && this->fileName_ != nullptr && this->pid_ != nullptr && this->regionId_ != nullptr && this->sourcemapType_ != nullptr
-        && this->uuid_ != nullptr && this->versionId_ != nullptr; };
+        && this->contentType_ != nullptr && this->fileName_ != nullptr && this->pid_ != nullptr && this->regionId_ != nullptr && this->serviceId_ != nullptr
+        && this->sourcemapType_ != nullptr && this->uuid_ != nullptr && this->versionId_ != nullptr && this->workspace_ != nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -81,6 +85,13 @@ namespace Models
     inline CreateRumUploadFileUrlRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // serviceId Field Functions 
+    bool hasServiceId() const { return this->serviceId_ != nullptr;};
+    void deleteServiceId() { this->serviceId_ = nullptr;};
+    inline string serviceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+    inline CreateRumUploadFileUrlRequest& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
+
+
     // sourcemapType Field Functions 
     bool hasSourcemapType() const { return this->sourcemapType_ != nullptr;};
     void deleteSourcemapType() { this->sourcemapType_ = nullptr;};
@@ -102,6 +113,13 @@ namespace Models
     inline CreateRumUploadFileUrlRequest& setVersionId(string versionId) { DARABONBA_PTR_SET_VALUE(versionId_, versionId) };
 
 
+    // workspace Field Functions 
+    bool hasWorkspace() const { return this->workspace_ != nullptr;};
+    void deleteWorkspace() { this->workspace_ = nullptr;};
+    inline string workspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+    inline CreateRumUploadFileUrlRequest& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
+
+
   protected:
     // The application name.
     std::shared_ptr<string> appName_ = nullptr;
@@ -112,19 +130,19 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> fileName_ = nullptr;
     // The process ID (PID) of the application.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> pid_ = nullptr;
     // The region ID.
     // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
+    std::shared_ptr<string> serviceId_ = nullptr;
     // The file type. Valid values: source-map: SourceMap files. mapping: symbol table files for Android. dsym: dSYM files for iOS.
     std::shared_ptr<string> sourcemapType_ = nullptr;
     // The file ID.
     std::shared_ptr<string> uuid_ = nullptr;
     // The version number of the file.
     std::shared_ptr<string> versionId_ = nullptr;
+    std::shared_ptr<string> workspace_ = nullptr;
   };
 
   } // namespace Models
