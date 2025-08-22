@@ -17,7 +17,6 @@ namespace Mse20190531
 {
 
 AlibabaCloud::Mse20190531::Client::Client(Config &config): OpenApiClient(config){
-  this->_signatureAlgorithm = "v2";
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("mse", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -15159,6 +15158,10 @@ UpdateMessageQueueRouteResponse Client::updateMessageQueueRouteWithOptions(const
   tmpReq.validate();
   UpdateMessageQueueRouteShrinkRequest request = UpdateMessageQueueRouteShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasGrayBaseTags()) {
+    request.setGrayBaseTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.grayBaseTags(), "GrayBaseTags", "json"));
+  }
+
   if (!!tmpReq.hasTags()) {
     request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "Tags", "json"));
   }
@@ -15182,6 +15185,10 @@ UpdateMessageQueueRouteResponse Client::updateMessageQueueRouteWithOptions(const
 
   if (!!request.hasFilterSide()) {
     query["FilterSide"] = request.filterSide();
+  }
+
+  if (!!request.hasGrayBaseTagsShrink()) {
+    query["GrayBaseTags"] = request.grayBaseTagsShrink();
   }
 
   if (!!request.hasNamespace()) {

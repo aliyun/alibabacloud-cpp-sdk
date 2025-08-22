@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppName, appName_);
       DARABONBA_PTR_TO_JSON(Enable, enable_);
       DARABONBA_PTR_TO_JSON(FilterSide, filterSide_);
+      DARABONBA_PTR_TO_JSON(GrayBaseTags, grayBaseTagsShrink_);
       DARABONBA_PTR_TO_JSON(Namespace, namespace_);
       DARABONBA_PTR_TO_JSON(Region, region_);
       DARABONBA_PTR_TO_JSON(Tags, tagsShrink_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
       DARABONBA_PTR_FROM_JSON(Enable, enable_);
       DARABONBA_PTR_FROM_JSON(FilterSide, filterSide_);
+      DARABONBA_PTR_FROM_JSON(GrayBaseTags, grayBaseTagsShrink_);
       DARABONBA_PTR_FROM_JSON(Namespace, namespace_);
       DARABONBA_PTR_FROM_JSON(Region, region_);
       DARABONBA_PTR_FROM_JSON(Tags, tagsShrink_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->acceptLanguage_ != nullptr
-        && this->appId_ != nullptr && this->appName_ != nullptr && this->enable_ != nullptr && this->filterSide_ != nullptr && this->namespace_ != nullptr
-        && this->region_ != nullptr && this->tagsShrink_ != nullptr; };
+        && this->appId_ != nullptr && this->appName_ != nullptr && this->enable_ != nullptr && this->filterSide_ != nullptr && this->grayBaseTagsShrink_ != nullptr
+        && this->namespace_ != nullptr && this->region_ != nullptr && this->tagsShrink_ != nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
@@ -79,6 +81,13 @@ namespace Models
     void deleteFilterSide() { this->filterSide_ = nullptr;};
     inline string filterSide() const { DARABONBA_PTR_GET_DEFAULT(filterSide_, "") };
     inline UpdateMessageQueueRouteShrinkRequest& setFilterSide(string filterSide) { DARABONBA_PTR_SET_VALUE(filterSide_, filterSide) };
+
+
+    // grayBaseTagsShrink Field Functions 
+    bool hasGrayBaseTagsShrink() const { return this->grayBaseTagsShrink_ != nullptr;};
+    void deleteGrayBaseTagsShrink() { this->grayBaseTagsShrink_ = nullptr;};
+    inline string grayBaseTagsShrink() const { DARABONBA_PTR_GET_DEFAULT(grayBaseTagsShrink_, "") };
+    inline UpdateMessageQueueRouteShrinkRequest& setGrayBaseTagsShrink(string grayBaseTagsShrink) { DARABONBA_PTR_SET_VALUE(grayBaseTagsShrink_, grayBaseTagsShrink) };
 
 
     // namespace Field Functions 
@@ -120,6 +129,7 @@ namespace Models
     std::shared_ptr<bool> enable_ = nullptr;
     // The side for message filtering when the canary release for messaging feature is enabled.
     std::shared_ptr<string> filterSide_ = nullptr;
+    std::shared_ptr<string> grayBaseTagsShrink_ = nullptr;
     std::shared_ptr<string> namespace_ = nullptr;
     // The region ID.
     // 
