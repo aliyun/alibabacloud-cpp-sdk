@@ -32,6 +32,7 @@
 #include <alibabacloud/models/Role.hpp>
 #include <alibabacloud/models/Schema.hpp>
 #include <alibabacloud/models/Share.hpp>
+#include <alibabacloud/models/ShareOptions.hpp>
 #include <alibabacloud/models/ShareResource.hpp>
 #include <alibabacloud/models/Snapshot.hpp>
 #include <alibabacloud/models/Table.hpp>

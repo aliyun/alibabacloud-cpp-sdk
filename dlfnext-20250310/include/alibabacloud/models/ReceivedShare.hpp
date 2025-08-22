@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(comment, comment_);
       DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
       DARABONBA_PTR_TO_JSON(createdBy, createdBy_);
+      DARABONBA_PTR_TO_JSON(enableWrite, enableWrite_);
       DARABONBA_PTR_TO_JSON(owner, owner_);
       DARABONBA_PTR_TO_JSON(providerTenantId, providerTenantId_);
       DARABONBA_PTR_TO_JSON(shareId, shareId_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(comment, comment_);
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
       DARABONBA_PTR_FROM_JSON(createdBy, createdBy_);
+      DARABONBA_PTR_FROM_JSON(enableWrite, enableWrite_);
       DARABONBA_PTR_FROM_JSON(owner, owner_);
       DARABONBA_PTR_FROM_JSON(providerTenantId, providerTenantId_);
       DARABONBA_PTR_FROM_JSON(shareId, shareId_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->catalogName_ != nullptr
-        && this->comment_ != nullptr && this->createdAt_ != nullptr && this->createdBy_ != nullptr && this->owner_ != nullptr && this->providerTenantId_ != nullptr
-        && this->shareId_ != nullptr && this->shareName_ != nullptr && this->updatedAt_ != nullptr && this->updatedBy_ != nullptr; };
+        && this->comment_ != nullptr && this->createdAt_ != nullptr && this->createdBy_ != nullptr && this->enableWrite_ != nullptr && this->owner_ != nullptr
+        && this->providerTenantId_ != nullptr && this->shareId_ != nullptr && this->shareName_ != nullptr && this->updatedAt_ != nullptr && this->updatedBy_ != nullptr; };
     // catalogName Field Functions 
     bool hasCatalogName() const { return this->catalogName_ != nullptr;};
     void deleteCatalogName() { this->catalogName_ = nullptr;};
@@ -76,6 +78,13 @@ namespace Models
     void deleteCreatedBy() { this->createdBy_ = nullptr;};
     inline string createdBy() const { DARABONBA_PTR_GET_DEFAULT(createdBy_, "") };
     inline ReceivedShare& setCreatedBy(string createdBy) { DARABONBA_PTR_SET_VALUE(createdBy_, createdBy) };
+
+
+    // enableWrite Field Functions 
+    bool hasEnableWrite() const { return this->enableWrite_ != nullptr;};
+    void deleteEnableWrite() { this->enableWrite_ = nullptr;};
+    inline bool enableWrite() const { DARABONBA_PTR_GET_DEFAULT(enableWrite_, false) };
+    inline ReceivedShare& setEnableWrite(bool enableWrite) { DARABONBA_PTR_SET_VALUE(enableWrite_, enableWrite) };
 
 
     // owner Field Functions 
@@ -125,6 +134,7 @@ namespace Models
     std::shared_ptr<string> comment_ = nullptr;
     std::shared_ptr<int64_t> createdAt_ = nullptr;
     std::shared_ptr<string> createdBy_ = nullptr;
+    std::shared_ptr<bool> enableWrite_ = nullptr;
     std::shared_ptr<string> owner_ = nullptr;
     std::shared_ptr<int64_t> providerTenantId_ = nullptr;
     std::shared_ptr<string> shareId_ = nullptr;

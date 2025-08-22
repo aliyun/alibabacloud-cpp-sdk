@@ -198,6 +198,10 @@ AlterShareResponse Client::alterShareWithOptions(const string &share, const Alte
     body["comment"] = request.comment();
   }
 
+  if (!!request.hasEnableWrite()) {
+    body["enableWrite"] = request.enableWrite();
+  }
+
   if (!!request.hasShareName()) {
     body["shareName"] = request.shareName();
   }
@@ -694,6 +698,10 @@ CreateShareResponse Client::createShareWithOptions(const CreateShareRequest &req
   json body = {};
   if (!!request.hasComment()) {
     body["comment"] = request.comment();
+  }
+
+  if (!!request.hasEnableWrite()) {
+    body["enableWrite"] = request.enableWrite();
   }
 
   if (!!request.hasShareName()) {

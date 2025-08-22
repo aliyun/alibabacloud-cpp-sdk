@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const AlterShareRequest& obj) { 
       DARABONBA_PTR_TO_JSON(comment, comment_);
+      DARABONBA_PTR_TO_JSON(enableWrite, enableWrite_);
       DARABONBA_PTR_TO_JSON(shareName, shareName_);
     };
     friend void from_json(const Darabonba::Json& j, AlterShareRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(comment, comment_);
+      DARABONBA_PTR_FROM_JSON(enableWrite, enableWrite_);
       DARABONBA_PTR_FROM_JSON(shareName, shareName_);
     };
     AlterShareRequest() = default ;
@@ -32,12 +34,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->comment_ != nullptr
-        && this->shareName_ != nullptr; };
+        && this->enableWrite_ != nullptr && this->shareName_ != nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
     inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline AlterShareRequest& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
+
+
+    // enableWrite Field Functions 
+    bool hasEnableWrite() const { return this->enableWrite_ != nullptr;};
+    void deleteEnableWrite() { this->enableWrite_ = nullptr;};
+    inline bool enableWrite() const { DARABONBA_PTR_GET_DEFAULT(enableWrite_, false) };
+    inline AlterShareRequest& setEnableWrite(bool enableWrite) { DARABONBA_PTR_SET_VALUE(enableWrite_, enableWrite) };
 
 
     // shareName Field Functions 
@@ -49,6 +58,7 @@ namespace Models
 
   protected:
     std::shared_ptr<string> comment_ = nullptr;
+    std::shared_ptr<bool> enableWrite_ = nullptr;
     std::shared_ptr<string> shareName_ = nullptr;
   };
 
