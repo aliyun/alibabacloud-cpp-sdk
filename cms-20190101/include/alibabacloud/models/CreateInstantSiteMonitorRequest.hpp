@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateInstantSiteMonitorRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Address, address_);
+      DARABONBA_PTR_TO_JSON(AgentGroup, agentGroup_);
       DARABONBA_PTR_TO_JSON(IspCities, ispCities_);
       DARABONBA_PTR_TO_JSON(OptionsJson, optionsJson_);
       DARABONBA_PTR_TO_JSON(RandomIspCity, randomIspCity_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateInstantSiteMonitorRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Address, address_);
+      DARABONBA_PTR_FROM_JSON(AgentGroup, agentGroup_);
       DARABONBA_PTR_FROM_JSON(IspCities, ispCities_);
       DARABONBA_PTR_FROM_JSON(OptionsJson, optionsJson_);
       DARABONBA_PTR_FROM_JSON(RandomIspCity, randomIspCity_);
@@ -42,13 +44,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->address_ != nullptr
-        && this->ispCities_ != nullptr && this->optionsJson_ != nullptr && this->randomIspCity_ != nullptr && this->regionId_ != nullptr && this->taskName_ != nullptr
-        && this->taskType_ != nullptr; };
+        && this->agentGroup_ != nullptr && this->ispCities_ != nullptr && this->optionsJson_ != nullptr && this->randomIspCity_ != nullptr && this->regionId_ != nullptr
+        && this->taskName_ != nullptr && this->taskType_ != nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
     inline string address() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
     inline CreateInstantSiteMonitorRequest& setAddress(string address) { DARABONBA_PTR_SET_VALUE(address_, address) };
+
+
+    // agentGroup Field Functions 
+    bool hasAgentGroup() const { return this->agentGroup_ != nullptr;};
+    void deleteAgentGroup() { this->agentGroup_ = nullptr;};
+    inline string agentGroup() const { DARABONBA_PTR_GET_DEFAULT(agentGroup_, "") };
+    inline CreateInstantSiteMonitorRequest& setAgentGroup(string agentGroup) { DARABONBA_PTR_SET_VALUE(agentGroup_, agentGroup) };
 
 
     // ispCities Field Functions 
@@ -98,6 +107,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> address_ = nullptr;
+    std::shared_ptr<string> agentGroup_ = nullptr;
     // The detection points. If you leave this parameter empty, the system randomly selects three detection points.
     // 
     // The value is a `JSON array`. Example: {"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}. The values of the city field indicate Beijing, Hangzhou, and Qingdao.

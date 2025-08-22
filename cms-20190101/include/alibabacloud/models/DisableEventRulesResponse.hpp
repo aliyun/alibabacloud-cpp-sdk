@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DISABLEEVENTRULESRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DisableEventRulesResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

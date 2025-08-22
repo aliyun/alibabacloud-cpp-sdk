@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBELOGMONITORLISTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeLogMonitorListResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

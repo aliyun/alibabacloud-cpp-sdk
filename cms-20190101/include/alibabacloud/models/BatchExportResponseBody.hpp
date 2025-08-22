@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_BATCHEXPORTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/Cms20190101.hpp>
+#include <alibabacloud/models/MetricStat.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

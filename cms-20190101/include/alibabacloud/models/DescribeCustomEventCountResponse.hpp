@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBECUSTOMEVENTCOUNTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeCustomEventCountResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATEHYBRIDMONITORSLSGROUPRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateHybridMonitorSLSGroupResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

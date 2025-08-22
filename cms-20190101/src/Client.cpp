@@ -57,7 +57,7 @@ AddTagsResponse Client::addTagsWithOptions(const AddTagsRequest &request, const 
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddTags"},
     {"version" , "2019-01-01"},
@@ -68,7 +68,7 @@ AddTagsResponse Client::addTagsWithOptions(const AddTagsRequest &request, const 
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddTagsResponse>();
 }
 
@@ -135,7 +135,7 @@ ApplyMetricRuleTemplateResponse Client::applyMetricRuleTemplateWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ApplyMetricRuleTemplate"},
     {"version" , "2019-01-01"},
@@ -146,7 +146,7 @@ ApplyMetricRuleTemplateResponse Client::applyMetricRuleTemplateWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ApplyMetricRuleTemplateResponse>();
 }
 
@@ -181,7 +181,7 @@ BatchCreateInstantSiteMonitorResponse Client::batchCreateInstantSiteMonitorWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "BatchCreateInstantSiteMonitor"},
     {"version" , "2019-01-01"},
@@ -192,7 +192,7 @@ BatchCreateInstantSiteMonitorResponse Client::batchCreateInstantSiteMonitorWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<BatchCreateInstantSiteMonitorResponse>();
 }
 
@@ -252,7 +252,7 @@ BatchExportResponse Client::batchExportWithOptions(const BatchExportRequest &tmp
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "BatchExport"},
     {"version" , "2019-01-01"},
@@ -263,7 +263,7 @@ BatchExportResponse Client::batchExportWithOptions(const BatchExportRequest &tmp
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<BatchExportResponse>();
 }
 
@@ -330,7 +330,7 @@ CreateDynamicTagGroupResponse Client::createDynamicTagGroupWithOptions(const Cre
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateDynamicTagGroup"},
     {"version" , "2019-01-01"},
@@ -341,7 +341,7 @@ CreateDynamicTagGroupResponse Client::createDynamicTagGroupWithOptions(const Cre
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateDynamicTagGroupResponse>();
 }
 
@@ -381,7 +381,7 @@ CreateGroupMetricRulesResponse Client::createGroupMetricRulesWithOptions(const C
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateGroupMetricRules"},
     {"version" , "2019-01-01"},
@@ -392,7 +392,7 @@ CreateGroupMetricRulesResponse Client::createGroupMetricRulesWithOptions(const C
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateGroupMetricRulesResponse>();
 }
 
@@ -441,7 +441,7 @@ CreateGroupMonitoringAgentProcessResponse Client::createGroupMonitoringAgentProc
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateGroupMonitoringAgentProcess"},
     {"version" , "2019-01-01"},
@@ -452,7 +452,7 @@ CreateGroupMonitoringAgentProcessResponse Client::createGroupMonitoringAgentProc
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateGroupMonitoringAgentProcessResponse>();
 }
 
@@ -517,7 +517,7 @@ CreateHostAvailabilityResponse Client::createHostAvailabilityWithOptions(const C
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateHostAvailability"},
     {"version" , "2019-01-01"},
@@ -528,7 +528,7 @@ CreateHostAvailabilityResponse Client::createHostAvailabilityWithOptions(const C
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateHostAvailabilityResponse>();
 }
 
@@ -582,7 +582,7 @@ CreateHybridMonitorNamespaceResponse Client::createHybridMonitorNamespaceWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateHybridMonitorNamespace"},
     {"version" , "2019-01-01"},
@@ -593,7 +593,7 @@ CreateHybridMonitorNamespaceResponse Client::createHybridMonitorNamespaceWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateHybridMonitorNamespaceResponse>();
 }
 
@@ -642,7 +642,7 @@ CreateHybridMonitorSLSGroupResponse Client::createHybridMonitorSLSGroupWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateHybridMonitorSLSGroup"},
     {"version" , "2019-01-01"},
@@ -653,7 +653,7 @@ CreateHybridMonitorSLSGroupResponse Client::createHybridMonitorSLSGroupWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateHybridMonitorSLSGroupResponse>();
 }
 
@@ -743,7 +743,7 @@ CreateHybridMonitorTaskResponse Client::createHybridMonitorTaskWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateHybridMonitorTask"},
     {"version" , "2019-01-01"},
@@ -754,7 +754,7 @@ CreateHybridMonitorTaskResponse Client::createHybridMonitorTaskWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateHybridMonitorTaskResponse>();
 }
 
@@ -792,6 +792,10 @@ CreateInstantSiteMonitorResponse Client::createInstantSiteMonitorWithOptions(con
     query["Address"] = request.address();
   }
 
+  if (!!request.hasAgentGroup()) {
+    query["AgentGroup"] = request.agentGroup();
+  }
+
   if (!!request.hasIspCities()) {
     query["IspCities"] = request.ispCities();
   }
@@ -814,7 +818,7 @@ CreateInstantSiteMonitorResponse Client::createInstantSiteMonitorWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateInstantSiteMonitor"},
     {"version" , "2019-01-01"},
@@ -825,7 +829,7 @@ CreateInstantSiteMonitorResponse Client::createInstantSiteMonitorWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateInstantSiteMonitorResponse>();
 }
 
@@ -899,7 +903,7 @@ CreateMetricRuleBlackListResponse Client::createMetricRuleBlackListWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateMetricRuleBlackList"},
     {"version" , "2019-01-01"},
@@ -910,7 +914,7 @@ CreateMetricRuleBlackListResponse Client::createMetricRuleBlackListWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMetricRuleBlackListResponse>();
 }
 
@@ -953,7 +957,7 @@ CreateMetricRuleResourcesResponse Client::createMetricRuleResourcesWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateMetricRuleResources"},
     {"version" , "2019-01-01"},
@@ -964,7 +968,7 @@ CreateMetricRuleResourcesResponse Client::createMetricRuleResourcesWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMetricRuleResourcesResponse>();
 }
 
@@ -1003,7 +1007,7 @@ CreateMetricRuleTemplateResponse Client::createMetricRuleTemplateWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateMetricRuleTemplate"},
     {"version" , "2019-01-01"},
@@ -1014,7 +1018,7 @@ CreateMetricRuleTemplateResponse Client::createMetricRuleTemplateWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMetricRuleTemplateResponse>();
 }
 
@@ -1053,7 +1057,7 @@ CreateMonitorAgentProcessResponse Client::createMonitorAgentProcessWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateMonitorAgentProcess"},
     {"version" , "2019-01-01"},
@@ -1064,7 +1068,7 @@ CreateMonitorAgentProcessResponse Client::createMonitorAgentProcessWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMonitorAgentProcessResponse>();
 }
 
@@ -1101,7 +1105,7 @@ CreateMonitorGroupResponse Client::createMonitorGroupWithOptions(const CreateMon
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateMonitorGroup"},
     {"version" , "2019-01-01"},
@@ -1112,7 +1116,7 @@ CreateMonitorGroupResponse Client::createMonitorGroupWithOptions(const CreateMon
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMonitorGroupResponse>();
 }
 
@@ -1167,7 +1171,7 @@ CreateMonitorGroupByResourceGroupIdResponse Client::createMonitorGroupByResource
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateMonitorGroupByResourceGroupId"},
     {"version" , "2019-01-01"},
@@ -1178,7 +1182,7 @@ CreateMonitorGroupByResourceGroupIdResponse Client::createMonitorGroupByResource
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMonitorGroupByResourceGroupIdResponse>();
 }
 
@@ -1218,7 +1222,7 @@ CreateMonitorGroupInstancesResponse Client::createMonitorGroupInstancesWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateMonitorGroupInstances"},
     {"version" , "2019-01-01"},
@@ -1229,7 +1233,7 @@ CreateMonitorGroupInstancesResponse Client::createMonitorGroupInstancesWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMonitorGroupInstancesResponse>();
 }
 
@@ -1278,7 +1282,7 @@ CreateMonitorGroupNotifyPolicyResponse Client::createMonitorGroupNotifyPolicyWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateMonitorGroupNotifyPolicy"},
     {"version" , "2019-01-01"},
@@ -1289,7 +1293,7 @@ CreateMonitorGroupNotifyPolicyResponse Client::createMonitorGroupNotifyPolicyWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMonitorGroupNotifyPolicyResponse>();
 }
 
@@ -1331,7 +1335,7 @@ CreateMonitoringAgentProcessResponse Client::createMonitoringAgentProcessWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateMonitoringAgentProcess"},
     {"version" , "2019-01-01"},
@@ -1342,7 +1346,7 @@ CreateMonitoringAgentProcessResponse Client::createMonitoringAgentProcessWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMonitoringAgentProcessResponse>();
 }
 
@@ -1407,7 +1411,7 @@ CreateSiteMonitorResponse Client::createSiteMonitorWithOptions(const CreateSiteM
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateSiteMonitor"},
     {"version" , "2019-01-01"},
@@ -1418,7 +1422,7 @@ CreateSiteMonitorResponse Client::createSiteMonitorWithOptions(const CreateSiteM
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateSiteMonitorResponse>();
 }
 
@@ -1484,7 +1488,7 @@ CursorResponse Client::cursorWithOptions(const CursorRequest &tmpReq, const Dara
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "Cursor"},
     {"version" , "2019-01-01"},
@@ -1495,7 +1499,7 @@ CursorResponse Client::cursorWithOptions(const CursorRequest &tmpReq, const Dara
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CursorResponse>();
 }
 
@@ -1533,7 +1537,7 @@ DeleteContactResponse Client::deleteContactWithOptions(const DeleteContactReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteContact"},
     {"version" , "2019-01-01"},
@@ -1544,7 +1548,7 @@ DeleteContactResponse Client::deleteContactWithOptions(const DeleteContactReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteContactResponse>();
 }
 
@@ -1575,7 +1579,7 @@ DeleteContactGroupResponse Client::deleteContactGroupWithOptions(const DeleteCon
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteContactGroup"},
     {"version" , "2019-01-01"},
@@ -1586,7 +1590,7 @@ DeleteContactGroupResponse Client::deleteContactGroupWithOptions(const DeleteCon
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteContactGroupResponse>();
 }
 
@@ -1629,7 +1633,7 @@ DeleteCustomMetricResponse Client::deleteCustomMetricWithOptions(const DeleteCus
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteCustomMetric"},
     {"version" , "2019-01-01"},
@@ -1640,7 +1644,7 @@ DeleteCustomMetricResponse Client::deleteCustomMetricWithOptions(const DeleteCus
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteCustomMetricResponse>();
 }
 
@@ -1671,7 +1675,7 @@ DeleteDynamicTagGroupResponse Client::deleteDynamicTagGroupWithOptions(const Del
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteDynamicTagGroup"},
     {"version" , "2019-01-01"},
@@ -1682,7 +1686,7 @@ DeleteDynamicTagGroupResponse Client::deleteDynamicTagGroupWithOptions(const Del
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteDynamicTagGroupResponse>();
 }
 
@@ -1717,7 +1721,7 @@ DeleteEventRuleTargetsResponse Client::deleteEventRuleTargetsWithOptions(const D
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteEventRuleTargets"},
     {"version" , "2019-01-01"},
@@ -1728,7 +1732,7 @@ DeleteEventRuleTargetsResponse Client::deleteEventRuleTargetsWithOptions(const D
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteEventRuleTargetsResponse>();
 }
 
@@ -1759,7 +1763,7 @@ DeleteEventRulesResponse Client::deleteEventRulesWithOptions(const DeleteEventRu
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteEventRules"},
     {"version" , "2019-01-01"},
@@ -1770,7 +1774,7 @@ DeleteEventRulesResponse Client::deleteEventRulesWithOptions(const DeleteEventRu
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteEventRulesResponse>();
 }
 
@@ -1801,7 +1805,7 @@ DeleteExporterOutputResponse Client::deleteExporterOutputWithOptions(const Delet
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteExporterOutput"},
     {"version" , "2019-01-01"},
@@ -1812,7 +1816,7 @@ DeleteExporterOutputResponse Client::deleteExporterOutputWithOptions(const Delet
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteExporterOutputResponse>();
 }
 
@@ -1843,7 +1847,7 @@ DeleteExporterRuleResponse Client::deleteExporterRuleWithOptions(const DeleteExp
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteExporterRule"},
     {"version" , "2019-01-01"},
@@ -1854,7 +1858,7 @@ DeleteExporterRuleResponse Client::deleteExporterRuleWithOptions(const DeleteExp
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteExporterRuleResponse>();
 }
 
@@ -1889,7 +1893,7 @@ DeleteGroupMonitoringAgentProcessResponse Client::deleteGroupMonitoringAgentProc
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteGroupMonitoringAgentProcess"},
     {"version" , "2019-01-01"},
@@ -1900,7 +1904,7 @@ DeleteGroupMonitoringAgentProcessResponse Client::deleteGroupMonitoringAgentProc
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteGroupMonitoringAgentProcessResponse>();
 }
 
@@ -1931,7 +1935,7 @@ DeleteHostAvailabilityResponse Client::deleteHostAvailabilityWithOptions(const D
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteHostAvailability"},
     {"version" , "2019-01-01"},
@@ -1942,7 +1946,7 @@ DeleteHostAvailabilityResponse Client::deleteHostAvailabilityWithOptions(const D
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteHostAvailabilityResponse>();
 }
 
@@ -1976,7 +1980,7 @@ DeleteHybridMonitorNamespaceResponse Client::deleteHybridMonitorNamespaceWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteHybridMonitorNamespace"},
     {"version" , "2019-01-01"},
@@ -1987,7 +1991,7 @@ DeleteHybridMonitorNamespaceResponse Client::deleteHybridMonitorNamespaceWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteHybridMonitorNamespaceResponse>();
 }
 
@@ -2023,7 +2027,7 @@ DeleteHybridMonitorSLSGroupResponse Client::deleteHybridMonitorSLSGroupWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteHybridMonitorSLSGroup"},
     {"version" , "2019-01-01"},
@@ -2034,7 +2038,7 @@ DeleteHybridMonitorSLSGroupResponse Client::deleteHybridMonitorSLSGroupWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteHybridMonitorSLSGroupResponse>();
 }
 
@@ -2077,7 +2081,7 @@ DeleteHybridMonitorTaskResponse Client::deleteHybridMonitorTaskWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteHybridMonitorTask"},
     {"version" , "2019-01-01"},
@@ -2088,7 +2092,7 @@ DeleteHybridMonitorTaskResponse Client::deleteHybridMonitorTaskWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteHybridMonitorTaskResponse>();
 }
 
@@ -2121,7 +2125,7 @@ DeleteLogMonitorResponse Client::deleteLogMonitorWithOptions(const DeleteLogMoni
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteLogMonitor"},
     {"version" , "2019-01-01"},
@@ -2132,7 +2136,7 @@ DeleteLogMonitorResponse Client::deleteLogMonitorWithOptions(const DeleteLogMoni
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLogMonitorResponse>();
 }
 
@@ -2163,7 +2167,7 @@ DeleteMetricRuleBlackListResponse Client::deleteMetricRuleBlackListWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteMetricRuleBlackList"},
     {"version" , "2019-01-01"},
@@ -2174,7 +2178,7 @@ DeleteMetricRuleBlackListResponse Client::deleteMetricRuleBlackListWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMetricRuleBlackListResponse>();
 }
 
@@ -2209,7 +2213,7 @@ DeleteMetricRuleResourcesResponse Client::deleteMetricRuleResourcesWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteMetricRuleResources"},
     {"version" , "2019-01-01"},
@@ -2220,7 +2224,7 @@ DeleteMetricRuleResourcesResponse Client::deleteMetricRuleResourcesWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMetricRuleResourcesResponse>();
 }
 
@@ -2255,7 +2259,7 @@ DeleteMetricRuleTargetsResponse Client::deleteMetricRuleTargetsWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteMetricRuleTargets"},
     {"version" , "2019-01-01"},
@@ -2266,7 +2270,7 @@ DeleteMetricRuleTargetsResponse Client::deleteMetricRuleTargetsWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMetricRuleTargetsResponse>();
 }
 
@@ -2297,7 +2301,7 @@ DeleteMetricRuleTemplateResponse Client::deleteMetricRuleTemplateWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteMetricRuleTemplate"},
     {"version" , "2019-01-01"},
@@ -2308,7 +2312,7 @@ DeleteMetricRuleTemplateResponse Client::deleteMetricRuleTemplateWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMetricRuleTemplateResponse>();
 }
 
@@ -2339,7 +2343,7 @@ DeleteMetricRulesResponse Client::deleteMetricRulesWithOptions(const DeleteMetri
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteMetricRules"},
     {"version" , "2019-01-01"},
@@ -2350,7 +2354,7 @@ DeleteMetricRulesResponse Client::deleteMetricRulesWithOptions(const DeleteMetri
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMetricRulesResponse>();
 }
 
@@ -2381,7 +2385,7 @@ DeleteMonitorGroupResponse Client::deleteMonitorGroupWithOptions(const DeleteMon
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteMonitorGroup"},
     {"version" , "2019-01-01"},
@@ -2392,7 +2396,7 @@ DeleteMonitorGroupResponse Client::deleteMonitorGroupWithOptions(const DeleteMon
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMonitorGroupResponse>();
 }
 
@@ -2427,7 +2431,7 @@ DeleteMonitorGroupDynamicRuleResponse Client::deleteMonitorGroupDynamicRuleWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteMonitorGroupDynamicRule"},
     {"version" , "2019-01-01"},
@@ -2438,7 +2442,7 @@ DeleteMonitorGroupDynamicRuleResponse Client::deleteMonitorGroupDynamicRuleWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMonitorGroupDynamicRuleResponse>();
 }
 
@@ -2477,7 +2481,7 @@ DeleteMonitorGroupInstancesResponse Client::deleteMonitorGroupInstancesWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteMonitorGroupInstances"},
     {"version" , "2019-01-01"},
@@ -2488,7 +2492,7 @@ DeleteMonitorGroupInstancesResponse Client::deleteMonitorGroupInstancesWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMonitorGroupInstancesResponse>();
 }
 
@@ -2523,7 +2527,7 @@ DeleteMonitorGroupNotifyPolicyResponse Client::deleteMonitorGroupNotifyPolicyWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteMonitorGroupNotifyPolicy"},
     {"version" , "2019-01-01"},
@@ -2534,7 +2538,7 @@ DeleteMonitorGroupNotifyPolicyResponse Client::deleteMonitorGroupNotifyPolicyWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMonitorGroupNotifyPolicyResponse>();
 }
 
@@ -2573,7 +2577,7 @@ DeleteMonitoringAgentProcessResponse Client::deleteMonitoringAgentProcessWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteMonitoringAgentProcess"},
     {"version" , "2019-01-01"},
@@ -2584,7 +2588,7 @@ DeleteMonitoringAgentProcessResponse Client::deleteMonitoringAgentProcessWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMonitoringAgentProcessResponse>();
 }
 
@@ -2619,7 +2623,7 @@ DeleteSiteMonitorsResponse Client::deleteSiteMonitorsWithOptions(const DeleteSit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteSiteMonitors"},
     {"version" , "2019-01-01"},
@@ -2630,7 +2634,7 @@ DeleteSiteMonitorsResponse Client::deleteSiteMonitorsWithOptions(const DeleteSit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteSiteMonitorsResponse>();
 }
 
@@ -2661,7 +2665,7 @@ DescribeActiveMetricRuleListResponse Client::describeActiveMetricRuleListWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeActiveMetricRuleList"},
     {"version" , "2019-01-01"},
@@ -2672,7 +2676,7 @@ DescribeActiveMetricRuleListResponse Client::describeActiveMetricRuleListWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeActiveMetricRuleListResponse>();
 }
 
@@ -2751,7 +2755,7 @@ DescribeAlertHistoryListResponse Client::describeAlertHistoryListWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeAlertHistoryList"},
     {"version" , "2019-01-01"},
@@ -2762,7 +2766,7 @@ DescribeAlertHistoryListResponse Client::describeAlertHistoryListWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeAlertHistoryListResponse>();
 }
 
@@ -2868,7 +2872,7 @@ DescribeAlertLogCountResponse Client::describeAlertLogCountWithOptions(const Des
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeAlertLogCount"},
     {"version" , "2019-01-01"},
@@ -2879,7 +2883,7 @@ DescribeAlertLogCountResponse Client::describeAlertLogCountWithOptions(const Des
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeAlertLogCountResponse>();
 }
 
@@ -2983,7 +2987,7 @@ DescribeAlertLogHistogramResponse Client::describeAlertLogHistogramWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeAlertLogHistogram"},
     {"version" , "2019-01-01"},
@@ -2994,7 +2998,7 @@ DescribeAlertLogHistogramResponse Client::describeAlertLogHistogramWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeAlertLogHistogramResponse>();
 }
 
@@ -3098,7 +3102,7 @@ DescribeAlertLogListResponse Client::describeAlertLogListWithOptions(const Descr
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeAlertLogList"},
     {"version" , "2019-01-01"},
@@ -3109,7 +3113,7 @@ DescribeAlertLogListResponse Client::describeAlertLogListWithOptions(const Descr
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeAlertLogListResponse>();
 }
 
@@ -3139,7 +3143,7 @@ DescribeAlertingMetricRuleResourcesResponse Client::describeAlertingMetricRuleRe
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeAlertingMetricRuleResources"},
     {"version" , "2019-01-01"},
@@ -3150,7 +3154,7 @@ DescribeAlertingMetricRuleResourcesResponse Client::describeAlertingMetricRuleRe
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeAlertingMetricRuleResourcesResponse>();
 }
 
@@ -3185,7 +3189,7 @@ DescribeContactGroupListResponse Client::describeContactGroupListWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeContactGroupList"},
     {"version" , "2019-01-01"},
@@ -3196,7 +3200,7 @@ DescribeContactGroupListResponse Client::describeContactGroupListWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeContactGroupListResponse>();
 }
 
@@ -3243,7 +3247,7 @@ DescribeContactListResponse Client::describeContactListWithOptions(const Describ
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeContactList"},
     {"version" , "2019-01-01"},
@@ -3254,7 +3258,7 @@ DescribeContactListResponse Client::describeContactListWithOptions(const Describ
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeContactListResponse>();
 }
 
@@ -3285,7 +3289,7 @@ DescribeContactListByContactGroupResponse Client::describeContactListByContactGr
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeContactListByContactGroup"},
     {"version" , "2019-01-01"},
@@ -3296,7 +3300,7 @@ DescribeContactListByContactGroupResponse Client::describeContactListByContactGr
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeContactListByContactGroupResponse>();
 }
 
@@ -3355,7 +3359,7 @@ DescribeCustomEventAttributeResponse Client::describeCustomEventAttributeWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeCustomEventAttribute"},
     {"version" , "2019-01-01"},
@@ -3366,7 +3370,7 @@ DescribeCustomEventAttributeResponse Client::describeCustomEventAttributeWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeCustomEventAttributeResponse>();
 }
 
@@ -3419,7 +3423,7 @@ DescribeCustomEventCountResponse Client::describeCustomEventCountWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeCustomEventCount"},
     {"version" , "2019-01-01"},
@@ -3430,7 +3434,7 @@ DescribeCustomEventCountResponse Client::describeCustomEventCountWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeCustomEventCountResponse>();
 }
 
@@ -3487,7 +3491,7 @@ DescribeCustomEventHistogramResponse Client::describeCustomEventHistogramWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeCustomEventHistogram"},
     {"version" , "2019-01-01"},
@@ -3498,7 +3502,7 @@ DescribeCustomEventHistogramResponse Client::describeCustomEventHistogramWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeCustomEventHistogramResponse>();
 }
 
@@ -3551,7 +3555,7 @@ DescribeCustomMetricListResponse Client::describeCustomMetricListWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeCustomMetricList"},
     {"version" , "2019-01-01"},
@@ -3562,7 +3566,7 @@ DescribeCustomMetricListResponse Client::describeCustomMetricListWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeCustomMetricListResponse>();
 }
 
@@ -3617,7 +3621,7 @@ DescribeDynamicTagRuleListResponse Client::describeDynamicTagRuleListWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeDynamicTagRuleList"},
     {"version" , "2019-01-01"},
@@ -3628,7 +3632,7 @@ DescribeDynamicTagRuleListResponse Client::describeDynamicTagRuleListWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeDynamicTagRuleListResponse>();
 }
 
@@ -3667,7 +3671,7 @@ DescribeEventRuleAttributeResponse Client::describeEventRuleAttributeWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeEventRuleAttribute"},
     {"version" , "2019-01-01"},
@@ -3678,7 +3682,7 @@ DescribeEventRuleAttributeResponse Client::describeEventRuleAttributeWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeEventRuleAttributeResponse>();
 }
 
@@ -3727,7 +3731,7 @@ DescribeEventRuleListResponse Client::describeEventRuleListWithOptions(const Des
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeEventRuleList"},
     {"version" , "2019-01-01"},
@@ -3738,7 +3742,7 @@ DescribeEventRuleListResponse Client::describeEventRuleListWithOptions(const Des
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeEventRuleListResponse>();
 }
 
@@ -3771,7 +3775,7 @@ DescribeEventRuleTargetListResponse Client::describeEventRuleTargetListWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeEventRuleTargetList"},
     {"version" , "2019-01-01"},
@@ -3782,7 +3786,7 @@ DescribeEventRuleTargetListResponse Client::describeEventRuleTargetListWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeEventRuleTargetListResponse>();
 }
 
@@ -3819,7 +3823,7 @@ DescribeExporterOutputListResponse Client::describeExporterOutputListWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeExporterOutputList"},
     {"version" , "2019-01-01"},
@@ -3830,7 +3834,7 @@ DescribeExporterOutputListResponse Client::describeExporterOutputListWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeExporterOutputListResponse>();
 }
 
@@ -3865,7 +3869,7 @@ DescribeExporterRuleListResponse Client::describeExporterRuleListWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeExporterRuleList"},
     {"version" , "2019-01-01"},
@@ -3876,7 +3880,7 @@ DescribeExporterRuleListResponse Client::describeExporterRuleListWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeExporterRuleListResponse>();
 }
 
@@ -3921,7 +3925,7 @@ DescribeGroupMonitoringAgentProcessResponse Client::describeGroupMonitoringAgent
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeGroupMonitoringAgentProcess"},
     {"version" , "2019-01-01"},
@@ -3932,7 +3936,7 @@ DescribeGroupMonitoringAgentProcessResponse Client::describeGroupMonitoringAgent
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeGroupMonitoringAgentProcessResponse>();
 }
 
@@ -3987,7 +3991,7 @@ DescribeHostAvailabilityListResponse Client::describeHostAvailabilityListWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeHostAvailabilityList"},
     {"version" , "2019-01-01"},
@@ -3998,7 +4002,7 @@ DescribeHostAvailabilityListResponse Client::describeHostAvailabilityListWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeHostAvailabilityListResponse>();
 }
 
@@ -4054,7 +4058,7 @@ DescribeHybridMonitorDataListResponse Client::describeHybridMonitorDataListWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeHybridMonitorDataList"},
     {"version" , "2019-01-01"},
@@ -4065,7 +4069,7 @@ DescribeHybridMonitorDataListResponse Client::describeHybridMonitorDataListWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeHybridMonitorDataListResponse>();
 }
 
@@ -4121,7 +4125,7 @@ DescribeHybridMonitorNamespaceListResponse Client::describeHybridMonitorNamespac
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeHybridMonitorNamespaceList"},
     {"version" , "2019-01-01"},
@@ -4132,7 +4136,7 @@ DescribeHybridMonitorNamespaceListResponse Client::describeHybridMonitorNamespac
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeHybridMonitorNamespaceListResponse>();
 }
 
@@ -4179,7 +4183,7 @@ DescribeHybridMonitorSLSGroupResponse Client::describeHybridMonitorSLSGroupWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeHybridMonitorSLSGroup"},
     {"version" , "2019-01-01"},
@@ -4190,7 +4194,7 @@ DescribeHybridMonitorSLSGroupResponse Client::describeHybridMonitorSLSGroupWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeHybridMonitorSLSGroupResponse>();
 }
 
@@ -4257,7 +4261,7 @@ DescribeHybridMonitorTaskListResponse Client::describeHybridMonitorTaskListWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeHybridMonitorTaskList"},
     {"version" , "2019-01-01"},
@@ -4268,7 +4272,7 @@ DescribeHybridMonitorTaskListResponse Client::describeHybridMonitorTaskListWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeHybridMonitorTaskListResponse>();
 }
 
@@ -4297,7 +4301,7 @@ DescribeLogMonitorAttributeResponse Client::describeLogMonitorAttributeWithOptio
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLogMonitorAttribute"},
     {"version" , "2019-01-01"},
@@ -4308,7 +4312,7 @@ DescribeLogMonitorAttributeResponse Client::describeLogMonitorAttributeWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLogMonitorAttributeResponse>();
 }
 
@@ -4351,7 +4355,7 @@ DescribeLogMonitorListResponse Client::describeLogMonitorListWithOptions(const D
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeLogMonitorList"},
     {"version" , "2019-01-01"},
@@ -4362,7 +4366,7 @@ DescribeLogMonitorListResponse Client::describeLogMonitorListWithOptions(const D
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeLogMonitorListResponse>();
 }
 
@@ -4428,7 +4432,7 @@ DescribeMetricDataResponse Client::describeMetricDataWithOptions(const DescribeM
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMetricData"},
     {"version" , "2019-01-01"},
@@ -4439,7 +4443,7 @@ DescribeMetricDataResponse Client::describeMetricDataWithOptions(const DescribeM
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMetricDataResponse>();
 }
 
@@ -4521,7 +4525,7 @@ DescribeMetricLastResponse Client::describeMetricLastWithOptions(const DescribeM
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMetricLast"},
     {"version" , "2019-01-01"},
@@ -4532,7 +4536,7 @@ DescribeMetricLastResponse Client::describeMetricLastWithOptions(const DescribeM
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMetricLastResponse>();
 }
 
@@ -4611,7 +4615,7 @@ DescribeMetricListResponse Client::describeMetricListWithOptions(const DescribeM
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMetricList"},
     {"version" , "2019-01-01"},
@@ -4622,7 +4626,7 @@ DescribeMetricListResponse Client::describeMetricListWithOptions(const DescribeM
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMetricListResponse>();
 }
 
@@ -4675,7 +4679,7 @@ DescribeMetricMetaListResponse Client::describeMetricMetaListWithOptions(const D
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMetricMetaList"},
     {"version" , "2019-01-01"},
@@ -4686,7 +4690,7 @@ DescribeMetricMetaListResponse Client::describeMetricMetaListWithOptions(const D
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMetricMetaListResponse>();
 }
 
@@ -4753,7 +4757,7 @@ DescribeMetricRuleBlackListResponse Client::describeMetricRuleBlackListWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMetricRuleBlackList"},
     {"version" , "2019-01-01"},
@@ -4764,7 +4768,7 @@ DescribeMetricRuleBlackListResponse Client::describeMetricRuleBlackListWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMetricRuleBlackListResponse>();
 }
 
@@ -4789,7 +4793,7 @@ DescribeMetricRuleCountResponse Client::describeMetricRuleCountWithOptions(const
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMetricRuleCount"},
     {"version" , "2019-01-01"},
@@ -4800,7 +4804,7 @@ DescribeMetricRuleCountResponse Client::describeMetricRuleCountWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMetricRuleCountResponse>();
 }
 
@@ -4869,7 +4873,7 @@ DescribeMetricRuleListResponse Client::describeMetricRuleListWithOptions(const D
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMetricRuleList"},
     {"version" , "2019-01-01"},
@@ -4880,7 +4884,7 @@ DescribeMetricRuleListResponse Client::describeMetricRuleListWithOptions(const D
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMetricRuleListResponse>();
 }
 
@@ -4917,7 +4921,7 @@ DescribeMetricRuleTargetsResponse Client::describeMetricRuleTargetsWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMetricRuleTargets"},
     {"version" , "2019-01-01"},
@@ -4928,7 +4932,7 @@ DescribeMetricRuleTargetsResponse Client::describeMetricRuleTargetsWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMetricRuleTargetsResponse>();
 }
 
@@ -4969,7 +4973,7 @@ DescribeMetricRuleTemplateAttributeResponse Client::describeMetricRuleTemplateAt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMetricRuleTemplateAttribute"},
     {"version" , "2019-01-01"},
@@ -4980,7 +4984,7 @@ DescribeMetricRuleTemplateAttributeResponse Client::describeMetricRuleTemplateAt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMetricRuleTemplateAttributeResponse>();
 }
 
@@ -5043,7 +5047,7 @@ DescribeMetricRuleTemplateListResponse Client::describeMetricRuleTemplateListWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMetricRuleTemplateList"},
     {"version" , "2019-01-01"},
@@ -5054,7 +5058,7 @@ DescribeMetricRuleTemplateListResponse Client::describeMetricRuleTemplateListWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMetricRuleTemplateListResponse>();
 }
 
@@ -5134,7 +5138,7 @@ DescribeMetricTopResponse Client::describeMetricTopWithOptions(const DescribeMet
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMetricTop"},
     {"version" , "2019-01-01"},
@@ -5145,7 +5149,7 @@ DescribeMetricTopResponse Client::describeMetricTopWithOptions(const DescribeMet
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMetricTopResponse>();
 }
 
@@ -5187,7 +5191,7 @@ DescribeMonitorGroupCategoriesResponse Client::describeMonitorGroupCategoriesWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMonitorGroupCategories"},
     {"version" , "2019-01-01"},
@@ -5198,7 +5202,7 @@ DescribeMonitorGroupCategoriesResponse Client::describeMonitorGroupCategoriesWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMonitorGroupCategoriesResponse>();
 }
 
@@ -5229,7 +5233,7 @@ DescribeMonitorGroupDynamicRulesResponse Client::describeMonitorGroupDynamicRule
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMonitorGroupDynamicRules"},
     {"version" , "2019-01-01"},
@@ -5240,7 +5244,7 @@ DescribeMonitorGroupDynamicRulesResponse Client::describeMonitorGroupDynamicRule
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMonitorGroupDynamicRulesResponse>();
 }
 
@@ -5295,7 +5299,7 @@ DescribeMonitorGroupInstanceAttributeResponse Client::describeMonitorGroupInstan
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMonitorGroupInstanceAttribute"},
     {"version" , "2019-01-01"},
@@ -5306,7 +5310,7 @@ DescribeMonitorGroupInstanceAttributeResponse Client::describeMonitorGroupInstan
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMonitorGroupInstanceAttributeResponse>();
 }
 
@@ -5357,7 +5361,7 @@ DescribeMonitorGroupInstancesResponse Client::describeMonitorGroupInstancesWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMonitorGroupInstances"},
     {"version" , "2019-01-01"},
@@ -5368,7 +5372,7 @@ DescribeMonitorGroupInstancesResponse Client::describeMonitorGroupInstancesWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMonitorGroupInstancesResponse>();
 }
 
@@ -5411,7 +5415,7 @@ DescribeMonitorGroupNotifyPolicyListResponse Client::describeMonitorGroupNotifyP
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMonitorGroupNotifyPolicyList"},
     {"version" , "2019-01-01"},
@@ -5422,7 +5426,7 @@ DescribeMonitorGroupNotifyPolicyListResponse Client::describeMonitorGroupNotifyP
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMonitorGroupNotifyPolicyListResponse>();
 }
 
@@ -5507,7 +5511,7 @@ DescribeMonitorGroupsResponse Client::describeMonitorGroupsWithOptions(const Des
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMonitorGroups"},
     {"version" , "2019-01-01"},
@@ -5518,7 +5522,7 @@ DescribeMonitorGroupsResponse Client::describeMonitorGroupsWithOptions(const Des
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMonitorGroupsResponse>();
 }
 
@@ -5551,7 +5555,7 @@ DescribeMonitorResourceQuotaAttributeResponse Client::describeMonitorResourceQuo
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMonitorResourceQuotaAttribute"},
     {"version" , "2019-01-01"},
@@ -5562,7 +5566,7 @@ DescribeMonitorResourceQuotaAttributeResponse Client::describeMonitorResourceQuo
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMonitorResourceQuotaAttributeResponse>();
 }
 
@@ -5597,7 +5601,7 @@ DescribeMonitoringAgentAccessKeyResponse Client::describeMonitoringAgentAccessKe
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMonitoringAgentAccessKeyResponse>();
 }
 
@@ -5632,7 +5636,7 @@ DescribeMonitoringAgentConfigResponse Client::describeMonitoringAgentConfigWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMonitoringAgentConfigResponse>();
 }
 
@@ -5699,7 +5703,7 @@ DescribeMonitoringAgentHostsResponse Client::describeMonitoringAgentHostsWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMonitoringAgentHosts"},
     {"version" , "2019-01-01"},
@@ -5710,7 +5714,7 @@ DescribeMonitoringAgentHostsResponse Client::describeMonitoringAgentHostsWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMonitoringAgentHostsResponse>();
 }
 
@@ -5742,7 +5746,7 @@ DescribeMonitoringAgentProcessesResponse Client::describeMonitoringAgentProcesse
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMonitoringAgentProcesses"},
     {"version" , "2019-01-01"},
@@ -5753,7 +5757,7 @@ DescribeMonitoringAgentProcessesResponse Client::describeMonitoringAgentProcesse
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMonitoringAgentProcessesResponse>();
 }
 
@@ -5791,7 +5795,7 @@ DescribeMonitoringAgentStatusesResponse Client::describeMonitoringAgentStatusesW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMonitoringAgentStatuses"},
     {"version" , "2019-01-01"},
@@ -5802,7 +5806,7 @@ DescribeMonitoringAgentStatusesResponse Client::describeMonitoringAgentStatusesW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMonitoringAgentStatusesResponse>();
 }
 
@@ -5839,7 +5843,7 @@ DescribeMonitoringConfigResponse Client::describeMonitoringConfigWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMonitoringConfigResponse>();
 }
 
@@ -5872,7 +5876,7 @@ DescribeProductResourceTagKeyListResponse Client::describeProductResourceTagKeyL
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeProductResourceTagKeyList"},
     {"version" , "2019-01-01"},
@@ -5883,7 +5887,7 @@ DescribeProductResourceTagKeyListResponse Client::describeProductResourceTagKeyL
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeProductResourceTagKeyListResponse>();
 }
 
@@ -5920,7 +5924,7 @@ DescribeProductsOfActiveMetricRuleResponse Client::describeProductsOfActiveMetri
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeProductsOfActiveMetricRuleResponse>();
 }
 
@@ -5961,7 +5965,7 @@ DescribeProjectMetaResponse Client::describeProjectMetaWithOptions(const Describ
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeProjectMeta"},
     {"version" , "2019-01-01"},
@@ -5972,7 +5976,7 @@ DescribeProjectMetaResponse Client::describeProjectMetaWithOptions(const Describ
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeProjectMetaResponse>();
 }
 
@@ -6011,7 +6015,7 @@ DescribeSiteMonitorAttributeResponse Client::describeSiteMonitorAttributeWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeSiteMonitorAttribute"},
     {"version" , "2019-01-01"},
@@ -6022,7 +6026,7 @@ DescribeSiteMonitorAttributeResponse Client::describeSiteMonitorAttributeWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeSiteMonitorAttributeResponse>();
 }
 
@@ -6083,7 +6087,7 @@ DescribeSiteMonitorDataResponse Client::describeSiteMonitorDataWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeSiteMonitorData"},
     {"version" , "2019-01-01"},
@@ -6094,7 +6098,7 @@ DescribeSiteMonitorDataResponse Client::describeSiteMonitorDataWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeSiteMonitorDataResponse>();
 }
 
@@ -6143,7 +6147,7 @@ DescribeSiteMonitorISPCityListResponse Client::describeSiteMonitorISPCityListWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeSiteMonitorISPCityList"},
     {"version" , "2019-01-01"},
@@ -6154,7 +6158,7 @@ DescribeSiteMonitorISPCityListResponse Client::describeSiteMonitorISPCityListWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeSiteMonitorISPCityListResponse>();
 }
 
@@ -6213,7 +6217,7 @@ DescribeSiteMonitorListResponse Client::describeSiteMonitorListWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeSiteMonitorList"},
     {"version" , "2019-01-01"},
@@ -6224,7 +6228,7 @@ DescribeSiteMonitorListResponse Client::describeSiteMonitorListWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeSiteMonitorListResponse>();
 }
 
@@ -6304,7 +6308,7 @@ DescribeSiteMonitorLogResponse Client::describeSiteMonitorLogWithOptions(const D
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeSiteMonitorLog"},
     {"version" , "2019-01-01"},
@@ -6315,7 +6319,7 @@ DescribeSiteMonitorLogResponse Client::describeSiteMonitorLogWithOptions(const D
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeSiteMonitorLogResponse>();
 }
 
@@ -6353,7 +6357,7 @@ DescribeSiteMonitorQuotaResponse Client::describeSiteMonitorQuotaWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeSiteMonitorQuotaResponse>();
 }
 
@@ -6398,7 +6402,7 @@ DescribeSiteMonitorStatisticsResponse Client::describeSiteMonitorStatisticsWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeSiteMonitorStatistics"},
     {"version" , "2019-01-01"},
@@ -6409,7 +6413,7 @@ DescribeSiteMonitorStatisticsResponse Client::describeSiteMonitorStatisticsWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeSiteMonitorStatisticsResponse>();
 }
 
@@ -6470,7 +6474,7 @@ DescribeSyntheticProbeListResponse Client::describeSyntheticProbeListWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeSyntheticProbeList"},
     {"version" , "2019-01-01"},
@@ -6481,7 +6485,7 @@ DescribeSyntheticProbeListResponse Client::describeSyntheticProbeListWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeSyntheticProbeListResponse>();
 }
 
@@ -6552,7 +6556,7 @@ DescribeSystemEventAttributeResponse Client::describeSystemEventAttributeWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeSystemEventAttribute"},
     {"version" , "2019-01-01"},
@@ -6563,7 +6567,7 @@ DescribeSystemEventAttributeResponse Client::describeSystemEventAttributeWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeSystemEventAttributeResponse>();
 }
 
@@ -6631,7 +6635,7 @@ DescribeSystemEventCountResponse Client::describeSystemEventCountWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeSystemEventCount"},
     {"version" , "2019-01-01"},
@@ -6642,7 +6646,7 @@ DescribeSystemEventCountResponse Client::describeSystemEventCountWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeSystemEventCountResponse>();
 }
 
@@ -6710,7 +6714,7 @@ DescribeSystemEventHistogramResponse Client::describeSystemEventHistogramWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeSystemEventHistogram"},
     {"version" , "2019-01-01"},
@@ -6721,7 +6725,7 @@ DescribeSystemEventHistogramResponse Client::describeSystemEventHistogramWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeSystemEventHistogramResponse>();
 }
 
@@ -6756,7 +6760,7 @@ DescribeSystemEventMetaListResponse Client::describeSystemEventMetaListWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeSystemEventMetaListResponse>();
 }
 
@@ -6791,7 +6795,7 @@ DescribeTagKeyListResponse Client::describeTagKeyListWithOptions(const DescribeT
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeTagKeyList"},
     {"version" , "2019-01-01"},
@@ -6802,7 +6806,7 @@ DescribeTagKeyListResponse Client::describeTagKeyListWithOptions(const DescribeT
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeTagKeyListResponse>();
 }
 
@@ -6843,7 +6847,7 @@ DescribeTagValueListResponse Client::describeTagValueListWithOptions(const Descr
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeTagValueList"},
     {"version" , "2019-01-01"},
@@ -6854,7 +6858,7 @@ DescribeTagValueListResponse Client::describeTagValueListWithOptions(const Descr
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeTagValueListResponse>();
 }
 
@@ -6887,7 +6891,7 @@ DescribeUnhealthyHostAvailabilityResponse Client::describeUnhealthyHostAvailabil
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeUnhealthyHostAvailability"},
     {"version" , "2019-01-01"},
@@ -6898,7 +6902,7 @@ DescribeUnhealthyHostAvailabilityResponse Client::describeUnhealthyHostAvailabil
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeUnhealthyHostAvailabilityResponse>();
 }
 
@@ -6929,7 +6933,7 @@ DisableActiveMetricRuleResponse Client::disableActiveMetricRuleWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DisableActiveMetricRule"},
     {"version" , "2019-01-01"},
@@ -6940,7 +6944,7 @@ DisableActiveMetricRuleResponse Client::disableActiveMetricRuleWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DisableActiveMetricRuleResponse>();
 }
 
@@ -6969,7 +6973,7 @@ DisableEventRulesResponse Client::disableEventRulesWithOptions(const DisableEven
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DisableEventRules"},
     {"version" , "2019-01-01"},
@@ -6980,7 +6984,7 @@ DisableEventRulesResponse Client::disableEventRulesWithOptions(const DisableEven
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DisableEventRulesResponse>();
 }
 
@@ -7009,7 +7013,7 @@ DisableHostAvailabilityResponse Client::disableHostAvailabilityWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DisableHostAvailability"},
     {"version" , "2019-01-01"},
@@ -7020,7 +7024,7 @@ DisableHostAvailabilityResponse Client::disableHostAvailabilityWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DisableHostAvailabilityResponse>();
 }
 
@@ -7051,7 +7055,7 @@ DisableMetricRulesResponse Client::disableMetricRulesWithOptions(const DisableMe
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DisableMetricRules"},
     {"version" , "2019-01-01"},
@@ -7062,7 +7066,7 @@ DisableMetricRulesResponse Client::disableMetricRulesWithOptions(const DisableMe
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DisableMetricRulesResponse>();
 }
 
@@ -7093,7 +7097,7 @@ DisableSiteMonitorsResponse Client::disableSiteMonitorsWithOptions(const Disable
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DisableSiteMonitors"},
     {"version" , "2019-01-01"},
@@ -7104,7 +7108,7 @@ DisableSiteMonitorsResponse Client::disableSiteMonitorsWithOptions(const Disable
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DisableSiteMonitorsResponse>();
 }
 
@@ -7135,7 +7139,7 @@ EnableActiveMetricRuleResponse Client::enableActiveMetricRuleWithOptions(const E
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "EnableActiveMetricRule"},
     {"version" , "2019-01-01"},
@@ -7146,7 +7150,7 @@ EnableActiveMetricRuleResponse Client::enableActiveMetricRuleWithOptions(const E
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<EnableActiveMetricRuleResponse>();
 }
 
@@ -7175,7 +7179,7 @@ EnableEventRulesResponse Client::enableEventRulesWithOptions(const EnableEventRu
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "EnableEventRules"},
     {"version" , "2019-01-01"},
@@ -7186,7 +7190,7 @@ EnableEventRulesResponse Client::enableEventRulesWithOptions(const EnableEventRu
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<EnableEventRulesResponse>();
 }
 
@@ -7215,7 +7219,7 @@ EnableHostAvailabilityResponse Client::enableHostAvailabilityWithOptions(const E
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "EnableHostAvailability"},
     {"version" , "2019-01-01"},
@@ -7226,7 +7230,7 @@ EnableHostAvailabilityResponse Client::enableHostAvailabilityWithOptions(const E
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<EnableHostAvailabilityResponse>();
 }
 
@@ -7261,7 +7265,7 @@ EnableMetricRuleBlackListResponse Client::enableMetricRuleBlackListWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "EnableMetricRuleBlackList"},
     {"version" , "2019-01-01"},
@@ -7272,7 +7276,7 @@ EnableMetricRuleBlackListResponse Client::enableMetricRuleBlackListWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<EnableMetricRuleBlackListResponse>();
 }
 
@@ -7303,7 +7307,7 @@ EnableMetricRulesResponse Client::enableMetricRulesWithOptions(const EnableMetri
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "EnableMetricRules"},
     {"version" , "2019-01-01"},
@@ -7314,7 +7318,7 @@ EnableMetricRulesResponse Client::enableMetricRulesWithOptions(const EnableMetri
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<EnableMetricRulesResponse>();
 }
 
@@ -7345,7 +7349,7 @@ EnableSiteMonitorsResponse Client::enableSiteMonitorsWithOptions(const EnableSit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "EnableSiteMonitors"},
     {"version" , "2019-01-01"},
@@ -7356,7 +7360,7 @@ EnableSiteMonitorsResponse Client::enableSiteMonitorsWithOptions(const EnableSit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<EnableSiteMonitorsResponse>();
 }
 
@@ -7398,7 +7402,7 @@ InstallMonitoringAgentResponse Client::installMonitoringAgentWithOptions(const I
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "InstallMonitoringAgent"},
     {"version" , "2019-01-01"},
@@ -7409,7 +7413,7 @@ InstallMonitoringAgentResponse Client::installMonitoringAgentWithOptions(const I
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<InstallMonitoringAgentResponse>();
 }
 
@@ -7453,7 +7457,7 @@ ModifyGroupMonitoringAgentProcessResponse Client::modifyGroupMonitoringAgentProc
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyGroupMonitoringAgentProcess"},
     {"version" , "2019-01-01"},
@@ -7464,7 +7468,7 @@ ModifyGroupMonitoringAgentProcessResponse Client::modifyGroupMonitoringAgentProc
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyGroupMonitoringAgentProcessResponse>();
 }
 
@@ -7527,7 +7531,7 @@ ModifyHostAvailabilityResponse Client::modifyHostAvailabilityWithOptions(const M
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyHostAvailability"},
     {"version" , "2019-01-01"},
@@ -7538,7 +7542,7 @@ ModifyHostAvailabilityResponse Client::modifyHostAvailabilityWithOptions(const M
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyHostAvailabilityResponse>();
 }
 
@@ -7575,7 +7579,7 @@ ModifyHostInfoResponse Client::modifyHostInfoWithOptions(const ModifyHostInfoReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyHostInfo"},
     {"version" , "2019-01-01"},
@@ -7586,7 +7590,7 @@ ModifyHostInfoResponse Client::modifyHostInfoWithOptions(const ModifyHostInfoReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyHostInfoResponse>();
 }
 
@@ -7627,7 +7631,7 @@ ModifyHybridMonitorNamespaceResponse Client::modifyHybridMonitorNamespaceWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyHybridMonitorNamespace"},
     {"version" , "2019-01-01"},
@@ -7638,7 +7642,7 @@ ModifyHybridMonitorNamespaceResponse Client::modifyHybridMonitorNamespaceWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyHybridMonitorNamespaceResponse>();
 }
 
@@ -7681,7 +7685,7 @@ ModifyHybridMonitorSLSGroupResponse Client::modifyHybridMonitorSLSGroupWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyHybridMonitorSLSGroup"},
     {"version" , "2019-01-01"},
@@ -7692,7 +7696,7 @@ ModifyHybridMonitorSLSGroupResponse Client::modifyHybridMonitorSLSGroupWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyHybridMonitorSLSGroupResponse>();
 }
 
@@ -7747,7 +7751,7 @@ ModifyHybridMonitorTaskResponse Client::modifyHybridMonitorTaskWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyHybridMonitorTask"},
     {"version" , "2019-01-01"},
@@ -7758,7 +7762,7 @@ ModifyHybridMonitorTaskResponse Client::modifyHybridMonitorTaskWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyHybridMonitorTaskResponse>();
 }
 
@@ -7831,7 +7835,7 @@ ModifyMetricRuleBlackListResponse Client::modifyMetricRuleBlackListWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyMetricRuleBlackList"},
     {"version" , "2019-01-01"},
@@ -7842,7 +7846,7 @@ ModifyMetricRuleBlackListResponse Client::modifyMetricRuleBlackListWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyMetricRuleBlackListResponse>();
 }
 
@@ -7891,7 +7895,7 @@ ModifyMetricRuleTemplateResponse Client::modifyMetricRuleTemplateWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyMetricRuleTemplate"},
     {"version" , "2019-01-01"},
@@ -7902,7 +7906,7 @@ ModifyMetricRuleTemplateResponse Client::modifyMetricRuleTemplateWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyMetricRuleTemplateResponse>();
 }
 
@@ -7941,7 +7945,7 @@ ModifyMonitorGroupResponse Client::modifyMonitorGroupWithOptions(const ModifyMon
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyMonitorGroup"},
     {"version" , "2019-01-01"},
@@ -7952,7 +7956,7 @@ ModifyMonitorGroupResponse Client::modifyMonitorGroupWithOptions(const ModifyMon
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyMonitorGroupResponse>();
 }
 
@@ -7985,7 +7989,7 @@ ModifyMonitorGroupInstancesResponse Client::modifyMonitorGroupInstancesWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyMonitorGroupInstances"},
     {"version" , "2019-01-01"},
@@ -7996,7 +8000,7 @@ ModifyMonitorGroupInstancesResponse Client::modifyMonitorGroupInstancesWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyMonitorGroupInstancesResponse>();
 }
 
@@ -8061,7 +8065,7 @@ ModifySiteMonitorResponse Client::modifySiteMonitorWithOptions(const ModifySiteM
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifySiteMonitor"},
     {"version" , "2019-01-01"},
@@ -8072,7 +8076,7 @@ ModifySiteMonitorResponse Client::modifySiteMonitorWithOptions(const ModifySiteM
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifySiteMonitorResponse>();
 }
 
@@ -8117,7 +8121,7 @@ PutContactResponse Client::putContactWithOptions(const PutContactRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "PutContact"},
     {"version" , "2019-01-01"},
@@ -8128,7 +8132,7 @@ PutContactResponse Client::putContactWithOptions(const PutContactRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PutContactResponse>();
 }
 
@@ -8173,7 +8177,7 @@ PutContactGroupResponse Client::putContactGroupWithOptions(const PutContactGroup
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "PutContactGroup"},
     {"version" , "2019-01-01"},
@@ -8184,7 +8188,7 @@ PutContactGroupResponse Client::putContactGroupWithOptions(const PutContactGroup
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PutContactGroupResponse>();
 }
 
@@ -8217,7 +8221,7 @@ PutCustomEventResponse Client::putCustomEventWithOptions(const PutCustomEventReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "PutCustomEvent"},
     {"version" , "2019-01-01"},
@@ -8228,7 +8232,7 @@ PutCustomEventResponse Client::putCustomEventWithOptions(const PutCustomEventReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PutCustomEventResponse>();
 }
 
@@ -8299,7 +8303,7 @@ PutCustomEventRuleResponse Client::putCustomEventRuleWithOptions(const PutCustom
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "PutCustomEventRule"},
     {"version" , "2019-01-01"},
@@ -8310,7 +8314,7 @@ PutCustomEventRuleResponse Client::putCustomEventRuleWithOptions(const PutCustom
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PutCustomEventRuleResponse>();
 }
 
@@ -8343,7 +8347,7 @@ PutCustomMetricResponse Client::putCustomMetricWithOptions(const PutCustomMetric
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "PutCustomMetric"},
     {"version" , "2019-01-01"},
@@ -8354,7 +8358,7 @@ PutCustomMetricResponse Client::putCustomMetricWithOptions(const PutCustomMetric
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PutCustomMetricResponse>();
 }
 
@@ -8449,7 +8453,7 @@ PutCustomMetricRuleResponse Client::putCustomMetricRuleWithOptions(const PutCust
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "PutCustomMetricRule"},
     {"version" , "2019-01-01"},
@@ -8460,7 +8464,7 @@ PutCustomMetricRuleResponse Client::putCustomMetricRuleWithOptions(const PutCust
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PutCustomMetricRuleResponse>();
 }
 
@@ -8520,7 +8524,7 @@ PutEventRuleResponse Client::putEventRuleWithOptions(const PutEventRuleRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "PutEventRule"},
     {"version" , "2019-01-01"},
@@ -8531,7 +8535,7 @@ PutEventRuleResponse Client::putEventRuleWithOptions(const PutEventRuleRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PutEventRuleResponse>();
 }
 
@@ -8589,7 +8593,7 @@ PutEventRuleTargetsResponse Client::putEventRuleTargetsWithOptions(const PutEven
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "PutEventRuleTargets"},
     {"version" , "2019-01-01"},
@@ -8600,7 +8604,7 @@ PutEventRuleTargetsResponse Client::putEventRuleTargetsWithOptions(const PutEven
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PutEventRuleTargetsResponse>();
 }
 
@@ -8645,7 +8649,7 @@ PutExporterOutputResponse Client::putExporterOutputWithOptions(const PutExporter
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "PutExporterOutput"},
     {"version" , "2019-01-01"},
@@ -8656,7 +8660,7 @@ PutExporterOutputResponse Client::putExporterOutputWithOptions(const PutExporter
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PutExporterOutputResponse>();
 }
 
@@ -8709,7 +8713,7 @@ PutExporterRuleResponse Client::putExporterRuleWithOptions(const PutExporterRule
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "PutExporterRule"},
     {"version" , "2019-01-01"},
@@ -8720,7 +8724,7 @@ PutExporterRuleResponse Client::putExporterRuleWithOptions(const PutExporterRule
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PutExporterRuleResponse>();
 }
 
@@ -8829,7 +8833,7 @@ PutGroupMetricRuleResponse Client::putGroupMetricRuleWithOptions(const PutGroupM
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "PutGroupMetricRule"},
     {"version" , "2019-01-01"},
@@ -8840,7 +8844,7 @@ PutGroupMetricRuleResponse Client::putGroupMetricRuleWithOptions(const PutGroupM
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PutGroupMetricRuleResponse>();
 }
 
@@ -8884,7 +8888,7 @@ PutHybridMonitorMetricDataResponse Client::putHybridMonitorMetricDataWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "PutHybridMonitorMetricData"},
     {"version" , "2019-01-01"},
@@ -8895,7 +8899,7 @@ PutHybridMonitorMetricDataResponse Client::putHybridMonitorMetricDataWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PutHybridMonitorMetricDataResponse>();
 }
 
@@ -8983,7 +8987,7 @@ PutLogMonitorResponse Client::putLogMonitorWithOptions(const PutLogMonitorReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "PutLogMonitor"},
     {"version" , "2019-01-01"},
@@ -8994,7 +8998,7 @@ PutLogMonitorResponse Client::putLogMonitorWithOptions(const PutLogMonitorReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PutLogMonitorResponse>();
 }
 
@@ -9034,7 +9038,7 @@ PutMetricRuleTargetsResponse Client::putMetricRuleTargetsWithOptions(const PutMe
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "PutMetricRuleTargets"},
     {"version" , "2019-01-01"},
@@ -9045,7 +9049,7 @@ PutMetricRuleTargetsResponse Client::putMetricRuleTargetsWithOptions(const PutMe
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PutMetricRuleTargetsResponse>();
 }
 
@@ -9087,7 +9091,7 @@ PutMonitorGroupDynamicRuleResponse Client::putMonitorGroupDynamicRuleWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "PutMonitorGroupDynamicRule"},
     {"version" , "2019-01-01"},
@@ -9098,7 +9102,7 @@ PutMonitorGroupDynamicRuleResponse Client::putMonitorGroupDynamicRuleWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PutMonitorGroupDynamicRuleResponse>();
 }
 
@@ -9133,7 +9137,7 @@ PutMonitoringConfigResponse Client::putMonitoringConfigWithOptions(const PutMoni
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "PutMonitoringConfig"},
     {"version" , "2019-01-01"},
@@ -9144,7 +9148,7 @@ PutMonitoringConfigResponse Client::putMonitoringConfigWithOptions(const PutMoni
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PutMonitoringConfigResponse>();
 }
 
@@ -9256,7 +9260,7 @@ PutResourceMetricRuleResponse Client::putResourceMetricRuleWithOptions(const Put
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "PutResourceMetricRule"},
     {"version" , "2019-01-01"},
@@ -9267,7 +9271,7 @@ PutResourceMetricRuleResponse Client::putResourceMetricRuleWithOptions(const Put
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PutResourceMetricRuleResponse>();
 }
 
@@ -9304,7 +9308,7 @@ PutResourceMetricRulesResponse Client::putResourceMetricRulesWithOptions(const P
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "PutResourceMetricRules"},
     {"version" , "2019-01-01"},
@@ -9315,7 +9319,7 @@ PutResourceMetricRulesResponse Client::putResourceMetricRulesWithOptions(const P
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PutResourceMetricRulesResponse>();
 }
 
@@ -9353,7 +9357,7 @@ RemoveTagsResponse Client::removeTagsWithOptions(const RemoveTagsRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "RemoveTags"},
     {"version" , "2019-01-01"},
@@ -9364,7 +9368,7 @@ RemoveTagsResponse Client::removeTagsWithOptions(const RemoveTagsRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RemoveTagsResponse>();
 }
 
@@ -9409,7 +9413,7 @@ SendDryRunSystemEventResponse Client::sendDryRunSystemEventWithOptions(const Sen
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SendDryRunSystemEvent"},
     {"version" , "2019-01-01"},
@@ -9420,7 +9424,7 @@ SendDryRunSystemEventResponse Client::sendDryRunSystemEventWithOptions(const Sen
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SendDryRunSystemEventResponse>();
 }
 
@@ -9455,7 +9459,7 @@ UninstallMonitoringAgentResponse Client::uninstallMonitoringAgentWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UninstallMonitoringAgent"},
     {"version" , "2019-01-01"},
@@ -9466,7 +9470,7 @@ UninstallMonitoringAgentResponse Client::uninstallMonitoringAgentWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UninstallMonitoringAgentResponse>();
 }
 

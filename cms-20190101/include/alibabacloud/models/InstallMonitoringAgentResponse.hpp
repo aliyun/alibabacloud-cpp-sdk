@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_INSTALLMONITORINGAGENTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/InstallMonitoringAgentResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

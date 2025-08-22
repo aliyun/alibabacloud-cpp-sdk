@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_PUTCONTACTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/PutContactResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

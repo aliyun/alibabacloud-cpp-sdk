@@ -4,7 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <map>
 #include <vector>
-#include <alibabacloud/Cms20190101.hpp>
+#include <alibabacloud/models/Dimension.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

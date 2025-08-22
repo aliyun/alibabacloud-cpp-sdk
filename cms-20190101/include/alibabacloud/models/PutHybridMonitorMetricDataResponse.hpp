@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_PUTHYBRIDMONITORMETRICDATARESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/PutHybridMonitorMetricDataResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

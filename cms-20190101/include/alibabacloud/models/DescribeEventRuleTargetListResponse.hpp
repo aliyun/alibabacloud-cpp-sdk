@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEEVENTRULETARGETLISTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeEventRuleTargetListResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

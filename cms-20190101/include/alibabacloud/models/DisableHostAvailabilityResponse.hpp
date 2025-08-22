@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DISABLEHOSTAVAILABILITYRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DisableHostAvailabilityResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

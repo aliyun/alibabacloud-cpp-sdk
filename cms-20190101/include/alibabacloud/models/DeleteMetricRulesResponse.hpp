@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DELETEMETRICRULESRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DeleteMetricRulesResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
