@@ -15,6 +15,8 @@ namespace Models
   class GetResourceGroupMachineGroupResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetResourceGroupMachineGroupResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AllocatableCpu, allocatableCpu_);
+      DARABONBA_PTR_TO_JSON(AllocatableMemory, allocatableMemory_);
       DARABONBA_PTR_TO_JSON(Cpu, cpu_);
       DARABONBA_PTR_TO_JSON(DefaultDriver, defaultDriver_);
       DARABONBA_PTR_TO_JSON(EcsCount, ecsCount_);
@@ -35,9 +37,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceGroupID, resourceGroupID_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(SupportedDrivers, supportedDrivers_);
+      DARABONBA_PTR_TO_JSON(SystemReservedCpu, systemReservedCpu_);
+      DARABONBA_PTR_TO_JSON(SystemReservedMemory, systemReservedMemory_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
     };
     friend void from_json(const Darabonba::Json& j, GetResourceGroupMachineGroupResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AllocatableCpu, allocatableCpu_);
+      DARABONBA_PTR_FROM_JSON(AllocatableMemory, allocatableMemory_);
       DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
       DARABONBA_PTR_FROM_JSON(DefaultDriver, defaultDriver_);
       DARABONBA_PTR_FROM_JSON(EcsCount, ecsCount_);
@@ -58,6 +64,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceGroupID, resourceGroupID_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(SupportedDrivers, supportedDrivers_);
+      DARABONBA_PTR_FROM_JSON(SystemReservedCpu, systemReservedCpu_);
+      DARABONBA_PTR_FROM_JSON(SystemReservedMemory, systemReservedMemory_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
     };
     GetResourceGroupMachineGroupResponseBody() = default ;
@@ -71,11 +79,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpu_ != nullptr
-        && this->defaultDriver_ != nullptr && this->ecsCount_ != nullptr && this->ecsSpec_ != nullptr && this->gmtCreatedTime_ != nullptr && this->gmtExpiredTime_ != nullptr
-        && this->gmtModifiedTime_ != nullptr && this->gmtStartedTime_ != nullptr && this->gpu_ != nullptr && this->gpuType_ != nullptr && this->machineGroupID_ != nullptr
-        && this->memory_ != nullptr && this->name_ != nullptr && this->paymentDuration_ != nullptr && this->paymentDurationUnit_ != nullptr && this->paymentType_ != nullptr
-        && this->requestId_ != nullptr && this->resourceGroupID_ != nullptr && this->status_ != nullptr && this->supportedDrivers_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { this->allocatableCpu_ != nullptr
+        && this->allocatableMemory_ != nullptr && this->cpu_ != nullptr && this->defaultDriver_ != nullptr && this->ecsCount_ != nullptr && this->ecsSpec_ != nullptr
+        && this->gmtCreatedTime_ != nullptr && this->gmtExpiredTime_ != nullptr && this->gmtModifiedTime_ != nullptr && this->gmtStartedTime_ != nullptr && this->gpu_ != nullptr
+        && this->gpuType_ != nullptr && this->machineGroupID_ != nullptr && this->memory_ != nullptr && this->name_ != nullptr && this->paymentDuration_ != nullptr
+        && this->paymentDurationUnit_ != nullptr && this->paymentType_ != nullptr && this->requestId_ != nullptr && this->resourceGroupID_ != nullptr && this->status_ != nullptr
+        && this->supportedDrivers_ != nullptr && this->systemReservedCpu_ != nullptr && this->systemReservedMemory_ != nullptr && this->tags_ != nullptr; };
+    // allocatableCpu Field Functions 
+    bool hasAllocatableCpu() const { return this->allocatableCpu_ != nullptr;};
+    void deleteAllocatableCpu() { this->allocatableCpu_ = nullptr;};
+    inline string allocatableCpu() const { DARABONBA_PTR_GET_DEFAULT(allocatableCpu_, "") };
+    inline GetResourceGroupMachineGroupResponseBody& setAllocatableCpu(string allocatableCpu) { DARABONBA_PTR_SET_VALUE(allocatableCpu_, allocatableCpu) };
+
+
+    // allocatableMemory Field Functions 
+    bool hasAllocatableMemory() const { return this->allocatableMemory_ != nullptr;};
+    void deleteAllocatableMemory() { this->allocatableMemory_ = nullptr;};
+    inline string allocatableMemory() const { DARABONBA_PTR_GET_DEFAULT(allocatableMemory_, "") };
+    inline GetResourceGroupMachineGroupResponseBody& setAllocatableMemory(string allocatableMemory) { DARABONBA_PTR_SET_VALUE(allocatableMemory_, allocatableMemory) };
+
+
     // cpu Field Functions 
     bool hasCpu() const { return this->cpu_ != nullptr;};
     void deleteCpu() { this->cpu_ = nullptr;};
@@ -218,6 +241,20 @@ namespace Models
     inline GetResourceGroupMachineGroupResponseBody& setSupportedDrivers(vector<string> && supportedDrivers) { DARABONBA_PTR_SET_RVALUE(supportedDrivers_, supportedDrivers) };
 
 
+    // systemReservedCpu Field Functions 
+    bool hasSystemReservedCpu() const { return this->systemReservedCpu_ != nullptr;};
+    void deleteSystemReservedCpu() { this->systemReservedCpu_ = nullptr;};
+    inline string systemReservedCpu() const { DARABONBA_PTR_GET_DEFAULT(systemReservedCpu_, "") };
+    inline GetResourceGroupMachineGroupResponseBody& setSystemReservedCpu(string systemReservedCpu) { DARABONBA_PTR_SET_VALUE(systemReservedCpu_, systemReservedCpu) };
+
+
+    // systemReservedMemory Field Functions 
+    bool hasSystemReservedMemory() const { return this->systemReservedMemory_ != nullptr;};
+    void deleteSystemReservedMemory() { this->systemReservedMemory_ = nullptr;};
+    inline string systemReservedMemory() const { DARABONBA_PTR_GET_DEFAULT(systemReservedMemory_, "") };
+    inline GetResourceGroupMachineGroupResponseBody& setSystemReservedMemory(string systemReservedMemory) { DARABONBA_PTR_SET_VALUE(systemReservedMemory_, systemReservedMemory) };
+
+
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
@@ -228,6 +265,8 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> allocatableCpu_ = nullptr;
+    std::shared_ptr<string> allocatableMemory_ = nullptr;
     std::shared_ptr<string> cpu_ = nullptr;
     std::shared_ptr<string> defaultDriver_ = nullptr;
     std::shared_ptr<int64_t> ecsCount_ = nullptr;
@@ -248,6 +287,8 @@ namespace Models
     std::shared_ptr<string> resourceGroupID_ = nullptr;
     std::shared_ptr<string> status_ = nullptr;
     std::shared_ptr<vector<string>> supportedDrivers_ = nullptr;
+    std::shared_ptr<string> systemReservedCpu_ = nullptr;
+    std::shared_ptr<string> systemReservedMemory_ = nullptr;
     std::shared_ptr<vector<GetResourceGroupMachineGroupResponseBodyTags>> tags_ = nullptr;
   };
 

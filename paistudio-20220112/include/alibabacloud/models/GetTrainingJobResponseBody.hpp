@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETTRAININGJOBRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETTRAININGJOBRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AlgorithmSpec.hpp>
 #include <alibabacloud/models/GetTrainingJobResponseBodyComputeResource.hpp>
 #include <map>
 #include <alibabacloud/models/GetTrainingJobResponseBodyExperimentConfig.hpp>
@@ -15,6 +16,7 @@
 #include <alibabacloud/models/GetTrainingJobResponseBodyOutputChannels.hpp>
 #include <alibabacloud/models/GetTrainingJobResponseBodyOutputModel.hpp>
 #include <alibabacloud/models/GetTrainingJobResponseBodyScheduler.hpp>
+#include <alibabacloud/models/JobSettings.hpp>
 #include <alibabacloud/models/GetTrainingJobResponseBodyStatusTransitions.hpp>
 #include <alibabacloud/models/GetTrainingJobResponseBodyUserVpc.hpp>
 using namespace std;

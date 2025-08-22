@@ -2,8 +2,15 @@
 #ifndef ALIBABACLOUD_MODELS_QUOTACONFIG_HPP_
 #define ALIBABACLOUD_MODELS_QUOTACONFIG_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ACS.hpp>
+#include <alibabacloud/models/EniCacheConfig.hpp>
+#include <alibabacloud/models/OversoldUsageConfig.hpp>
 #include <vector>
-#include <alibabacloud/PaiStudio20220112.hpp>
+#include <alibabacloud/models/WorkspaceSpecs.hpp>
+#include <alibabacloud/models/SandboxCacheConfig.hpp>
+#include <alibabacloud/models/SelfQuotaPreemptionConfig.hpp>
+#include <alibabacloud/models/SubQuotaPreemptionConfig.hpp>
+#include <alibabacloud/models/UserVpc.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

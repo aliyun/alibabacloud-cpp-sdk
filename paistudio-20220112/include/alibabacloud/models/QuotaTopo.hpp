@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_QUOTATOPO_HPP_
 #define ALIBABACLOUD_MODELS_QUOTATOPO_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/QuotaDetails.hpp>
+#include <alibabacloud/models/WorkloadDetails.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

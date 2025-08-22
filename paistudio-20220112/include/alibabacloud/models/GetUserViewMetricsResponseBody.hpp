@@ -2,8 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_GETUSERVIEWMETRICSRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETUSERVIEWMETRICSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/UserViewMetric.hpp>
 #include <vector>
-#include <alibabacloud/PaiStudio20220112.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

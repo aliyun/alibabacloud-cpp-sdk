@@ -14,6 +14,8 @@ namespace Models
   class MachineGroup : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const MachineGroup& obj) { 
+      DARABONBA_PTR_TO_JSON(AllocatableCpu, allocatableCpu_);
+      DARABONBA_PTR_TO_JSON(AllocatableMemory, allocatableMemory_);
       DARABONBA_PTR_TO_JSON(Cpu, cpu_);
       DARABONBA_PTR_TO_JSON(CreatorID, creatorID_);
       DARABONBA_PTR_TO_JSON(DefaultDriver, defaultDriver_);
@@ -40,8 +42,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(SupportedDrivers, supportedDrivers_);
+      DARABONBA_PTR_TO_JSON(SystemReservedCpu, systemReservedCpu_);
+      DARABONBA_PTR_TO_JSON(SystemReservedMemory, systemReservedMemory_);
     };
     friend void from_json(const Darabonba::Json& j, MachineGroup& obj) { 
+      DARABONBA_PTR_FROM_JSON(AllocatableCpu, allocatableCpu_);
+      DARABONBA_PTR_FROM_JSON(AllocatableMemory, allocatableMemory_);
       DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
       DARABONBA_PTR_FROM_JSON(CreatorID, creatorID_);
       DARABONBA_PTR_FROM_JSON(DefaultDriver, defaultDriver_);
@@ -68,6 +74,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(SupportedDrivers, supportedDrivers_);
+      DARABONBA_PTR_FROM_JSON(SystemReservedCpu, systemReservedCpu_);
+      DARABONBA_PTR_FROM_JSON(SystemReservedMemory, systemReservedMemory_);
     };
     MachineGroup() = default ;
     MachineGroup(const MachineGroup &) = default ;
@@ -80,12 +88,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpu_ != nullptr
-        && this->creatorID_ != nullptr && this->defaultDriver_ != nullptr && this->diskCapacity_ != nullptr && this->diskPL_ != nullptr && this->ecsCount_ != nullptr
-        && this->ecsSpec_ != nullptr && this->gmtCreatedTime_ != nullptr && this->gmtExpiredTime_ != nullptr && this->gmtModifiedTime_ != nullptr && this->gmtStartedTime_ != nullptr
-        && this->gpu_ != nullptr && this->gpuMemory_ != nullptr && this->gpuType_ != nullptr && this->machineGroupID_ != nullptr && this->memory_ != nullptr
-        && this->orderInstanceId_ != nullptr && this->paymentDuration_ != nullptr && this->paymentDurationUnit_ != nullptr && this->paymentType_ != nullptr && this->reasonCode_ != nullptr
-        && this->reasonMessage_ != nullptr && this->resourceGroupID_ != nullptr && this->resourceType_ != nullptr && this->status_ != nullptr && this->supportedDrivers_ != nullptr; };
+    virtual bool empty() const override { this->allocatableCpu_ != nullptr
+        && this->allocatableMemory_ != nullptr && this->cpu_ != nullptr && this->creatorID_ != nullptr && this->defaultDriver_ != nullptr && this->diskCapacity_ != nullptr
+        && this->diskPL_ != nullptr && this->ecsCount_ != nullptr && this->ecsSpec_ != nullptr && this->gmtCreatedTime_ != nullptr && this->gmtExpiredTime_ != nullptr
+        && this->gmtModifiedTime_ != nullptr && this->gmtStartedTime_ != nullptr && this->gpu_ != nullptr && this->gpuMemory_ != nullptr && this->gpuType_ != nullptr
+        && this->machineGroupID_ != nullptr && this->memory_ != nullptr && this->orderInstanceId_ != nullptr && this->paymentDuration_ != nullptr && this->paymentDurationUnit_ != nullptr
+        && this->paymentType_ != nullptr && this->reasonCode_ != nullptr && this->reasonMessage_ != nullptr && this->resourceGroupID_ != nullptr && this->resourceType_ != nullptr
+        && this->status_ != nullptr && this->supportedDrivers_ != nullptr && this->systemReservedCpu_ != nullptr && this->systemReservedMemory_ != nullptr; };
+    // allocatableCpu Field Functions 
+    bool hasAllocatableCpu() const { return this->allocatableCpu_ != nullptr;};
+    void deleteAllocatableCpu() { this->allocatableCpu_ = nullptr;};
+    inline int64_t allocatableCpu() const { DARABONBA_PTR_GET_DEFAULT(allocatableCpu_, 0L) };
+    inline MachineGroup& setAllocatableCpu(int64_t allocatableCpu) { DARABONBA_PTR_SET_VALUE(allocatableCpu_, allocatableCpu) };
+
+
+    // allocatableMemory Field Functions 
+    bool hasAllocatableMemory() const { return this->allocatableMemory_ != nullptr;};
+    void deleteAllocatableMemory() { this->allocatableMemory_ = nullptr;};
+    inline int64_t allocatableMemory() const { DARABONBA_PTR_GET_DEFAULT(allocatableMemory_, 0L) };
+    inline MachineGroup& setAllocatableMemory(int64_t allocatableMemory) { DARABONBA_PTR_SET_VALUE(allocatableMemory_, allocatableMemory) };
+
+
     // cpu Field Functions 
     bool hasCpu() const { return this->cpu_ != nullptr;};
     void deleteCpu() { this->cpu_ = nullptr;};
@@ -270,7 +293,23 @@ namespace Models
     inline MachineGroup& setSupportedDrivers(vector<string> && supportedDrivers) { DARABONBA_PTR_SET_RVALUE(supportedDrivers_, supportedDrivers) };
 
 
+    // systemReservedCpu Field Functions 
+    bool hasSystemReservedCpu() const { return this->systemReservedCpu_ != nullptr;};
+    void deleteSystemReservedCpu() { this->systemReservedCpu_ = nullptr;};
+    inline int64_t systemReservedCpu() const { DARABONBA_PTR_GET_DEFAULT(systemReservedCpu_, 0L) };
+    inline MachineGroup& setSystemReservedCpu(int64_t systemReservedCpu) { DARABONBA_PTR_SET_VALUE(systemReservedCpu_, systemReservedCpu) };
+
+
+    // systemReservedMemory Field Functions 
+    bool hasSystemReservedMemory() const { return this->systemReservedMemory_ != nullptr;};
+    void deleteSystemReservedMemory() { this->systemReservedMemory_ = nullptr;};
+    inline int64_t systemReservedMemory() const { DARABONBA_PTR_GET_DEFAULT(systemReservedMemory_, 0L) };
+    inline MachineGroup& setSystemReservedMemory(int64_t systemReservedMemory) { DARABONBA_PTR_SET_VALUE(systemReservedMemory_, systemReservedMemory) };
+
+
   protected:
+    std::shared_ptr<int64_t> allocatableCpu_ = nullptr;
+    std::shared_ptr<int64_t> allocatableMemory_ = nullptr;
     std::shared_ptr<int64_t> cpu_ = nullptr;
     std::shared_ptr<string> creatorID_ = nullptr;
     std::shared_ptr<string> defaultDriver_ = nullptr;
@@ -297,6 +336,8 @@ namespace Models
     std::shared_ptr<string> resourceType_ = nullptr;
     std::shared_ptr<string> status_ = nullptr;
     std::shared_ptr<vector<string>> supportedDrivers_ = nullptr;
+    std::shared_ptr<int64_t> systemReservedCpu_ = nullptr;
+    std::shared_ptr<int64_t> systemReservedMemory_ = nullptr;
   };
 
   } // namespace Models

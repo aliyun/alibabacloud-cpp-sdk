@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTQUOTASRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/PaiStudio20220112.hpp>
+#include <alibabacloud/models/Quota.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

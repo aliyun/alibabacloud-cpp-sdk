@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETALGORITHMVERSIONRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETALGORITHMVERSIONRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AlgorithmSpec.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -3,7 +3,8 @@
 #define ALIBABACLOUD_MODELS_NODE_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/PaiStudio20220112.hpp>
+#include <alibabacloud/models/QuotaIdName.hpp>
+#include <alibabacloud/models/UserInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -16,6 +17,8 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const Node& obj) { 
       DARABONBA_PTR_TO_JSON(AcceleratorType, acceleratorType_);
+      DARABONBA_PTR_TO_JSON(AllocatableCPU, allocatableCPU_);
+      DARABONBA_PTR_TO_JSON(AllocatableMemory, allocatableMemory_);
       DARABONBA_PTR_TO_JSON(AvailabilityZone, availabilityZone_);
       DARABONBA_PTR_TO_JSON(BoundQuotas, boundQuotas_);
       DARABONBA_PTR_TO_JSON(CPU, CPU_);
@@ -45,11 +48,15 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestMemory, requestMemory_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupName, resourceGroupName_);
+      DARABONBA_PTR_TO_JSON(SystemReservedCPU, systemReservedCPU_);
+      DARABONBA_PTR_TO_JSON(SystemReservedMemory, systemReservedMemory_);
       DARABONBA_PTR_TO_JSON(Users, users_);
       DARABONBA_PTR_TO_JSON(WorkloadNum, workloadNum_);
     };
     friend void from_json(const Darabonba::Json& j, Node& obj) { 
       DARABONBA_PTR_FROM_JSON(AcceleratorType, acceleratorType_);
+      DARABONBA_PTR_FROM_JSON(AllocatableCPU, allocatableCPU_);
+      DARABONBA_PTR_FROM_JSON(AllocatableMemory, allocatableMemory_);
       DARABONBA_PTR_FROM_JSON(AvailabilityZone, availabilityZone_);
       DARABONBA_PTR_FROM_JSON(BoundQuotas, boundQuotas_);
       DARABONBA_PTR_FROM_JSON(CPU, CPU_);
@@ -79,6 +86,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RequestMemory, requestMemory_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupName, resourceGroupName_);
+      DARABONBA_PTR_FROM_JSON(SystemReservedCPU, systemReservedCPU_);
+      DARABONBA_PTR_FROM_JSON(SystemReservedMemory, systemReservedMemory_);
       DARABONBA_PTR_FROM_JSON(Users, users_);
       DARABONBA_PTR_FROM_JSON(WorkloadNum, workloadNum_);
     };
@@ -94,18 +103,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->acceleratorType_ != nullptr
-        && this->availabilityZone_ != nullptr && this->boundQuotas_ != nullptr && this->CPU_ != nullptr && this->creatorId_ != nullptr && this->GPU_ != nullptr
-        && this->GPUMemory_ != nullptr && this->GPUType_ != nullptr && this->gmtCreateTime_ != nullptr && this->gmtExpiredTime_ != nullptr && this->gmtModifiedTime_ != nullptr
-        && this->hyperZone_ != nullptr && this->isBound_ != nullptr && this->limitCPU_ != nullptr && this->limitGPU_ != nullptr && this->limitMemory_ != nullptr
-        && this->machineGroupId_ != nullptr && this->memory_ != nullptr && this->nodeName_ != nullptr && this->nodeStatus_ != nullptr && this->nodeType_ != nullptr
-        && this->orderStatus_ != nullptr && this->podNum_ != nullptr && this->reasonCode_ != nullptr && this->reasonMessage_ != nullptr && this->requestCPU_ != nullptr
-        && this->requestGPU_ != nullptr && this->requestMemory_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceGroupName_ != nullptr && this->users_ != nullptr
-        && this->workloadNum_ != nullptr; };
+        && this->allocatableCPU_ != nullptr && this->allocatableMemory_ != nullptr && this->availabilityZone_ != nullptr && this->boundQuotas_ != nullptr && this->CPU_ != nullptr
+        && this->creatorId_ != nullptr && this->GPU_ != nullptr && this->GPUMemory_ != nullptr && this->GPUType_ != nullptr && this->gmtCreateTime_ != nullptr
+        && this->gmtExpiredTime_ != nullptr && this->gmtModifiedTime_ != nullptr && this->hyperZone_ != nullptr && this->isBound_ != nullptr && this->limitCPU_ != nullptr
+        && this->limitGPU_ != nullptr && this->limitMemory_ != nullptr && this->machineGroupId_ != nullptr && this->memory_ != nullptr && this->nodeName_ != nullptr
+        && this->nodeStatus_ != nullptr && this->nodeType_ != nullptr && this->orderStatus_ != nullptr && this->podNum_ != nullptr && this->reasonCode_ != nullptr
+        && this->reasonMessage_ != nullptr && this->requestCPU_ != nullptr && this->requestGPU_ != nullptr && this->requestMemory_ != nullptr && this->resourceGroupId_ != nullptr
+        && this->resourceGroupName_ != nullptr && this->systemReservedCPU_ != nullptr && this->systemReservedMemory_ != nullptr && this->users_ != nullptr && this->workloadNum_ != nullptr; };
     // acceleratorType Field Functions 
     bool hasAcceleratorType() const { return this->acceleratorType_ != nullptr;};
     void deleteAcceleratorType() { this->acceleratorType_ = nullptr;};
     inline string acceleratorType() const { DARABONBA_PTR_GET_DEFAULT(acceleratorType_, "") };
     inline Node& setAcceleratorType(string acceleratorType) { DARABONBA_PTR_SET_VALUE(acceleratorType_, acceleratorType) };
+
+
+    // allocatableCPU Field Functions 
+    bool hasAllocatableCPU() const { return this->allocatableCPU_ != nullptr;};
+    void deleteAllocatableCPU() { this->allocatableCPU_ = nullptr;};
+    inline string allocatableCPU() const { DARABONBA_PTR_GET_DEFAULT(allocatableCPU_, "") };
+    inline Node& setAllocatableCPU(string allocatableCPU) { DARABONBA_PTR_SET_VALUE(allocatableCPU_, allocatableCPU) };
+
+
+    // allocatableMemory Field Functions 
+    bool hasAllocatableMemory() const { return this->allocatableMemory_ != nullptr;};
+    void deleteAllocatableMemory() { this->allocatableMemory_ = nullptr;};
+    inline string allocatableMemory() const { DARABONBA_PTR_GET_DEFAULT(allocatableMemory_, "") };
+    inline Node& setAllocatableMemory(string allocatableMemory) { DARABONBA_PTR_SET_VALUE(allocatableMemory_, allocatableMemory) };
 
 
     // availabilityZone Field Functions 
@@ -313,6 +336,20 @@ namespace Models
     inline Node& setResourceGroupName(string resourceGroupName) { DARABONBA_PTR_SET_VALUE(resourceGroupName_, resourceGroupName) };
 
 
+    // systemReservedCPU Field Functions 
+    bool hasSystemReservedCPU() const { return this->systemReservedCPU_ != nullptr;};
+    void deleteSystemReservedCPU() { this->systemReservedCPU_ = nullptr;};
+    inline string systemReservedCPU() const { DARABONBA_PTR_GET_DEFAULT(systemReservedCPU_, "") };
+    inline Node& setSystemReservedCPU(string systemReservedCPU) { DARABONBA_PTR_SET_VALUE(systemReservedCPU_, systemReservedCPU) };
+
+
+    // systemReservedMemory Field Functions 
+    bool hasSystemReservedMemory() const { return this->systemReservedMemory_ != nullptr;};
+    void deleteSystemReservedMemory() { this->systemReservedMemory_ = nullptr;};
+    inline string systemReservedMemory() const { DARABONBA_PTR_GET_DEFAULT(systemReservedMemory_, "") };
+    inline Node& setSystemReservedMemory(string systemReservedMemory) { DARABONBA_PTR_SET_VALUE(systemReservedMemory_, systemReservedMemory) };
+
+
     // users Field Functions 
     bool hasUsers() const { return this->users_ != nullptr;};
     void deleteUsers() { this->users_ = nullptr;};
@@ -331,6 +368,8 @@ namespace Models
 
   protected:
     std::shared_ptr<string> acceleratorType_ = nullptr;
+    std::shared_ptr<string> allocatableCPU_ = nullptr;
+    std::shared_ptr<string> allocatableMemory_ = nullptr;
     std::shared_ptr<string> availabilityZone_ = nullptr;
     std::shared_ptr<vector<QuotaIdName>> boundQuotas_ = nullptr;
     std::shared_ptr<string> CPU_ = nullptr;
@@ -360,6 +399,8 @@ namespace Models
     std::shared_ptr<string> requestMemory_ = nullptr;
     std::shared_ptr<string> resourceGroupId_ = nullptr;
     std::shared_ptr<string> resourceGroupName_ = nullptr;
+    std::shared_ptr<string> systemReservedCPU_ = nullptr;
+    std::shared_ptr<string> systemReservedMemory_ = nullptr;
     std::shared_ptr<vector<UserInfo>> users_ = nullptr;
     std::shared_ptr<int64_t> workloadNum_ = nullptr;
   };

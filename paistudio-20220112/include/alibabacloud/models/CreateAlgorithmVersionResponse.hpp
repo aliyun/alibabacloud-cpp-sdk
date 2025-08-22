@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATEALGORITHMVERSIONRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateAlgorithmVersionResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

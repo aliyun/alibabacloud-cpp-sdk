@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/GetResourceGroupResponseBodyTags.hpp>
+#include <alibabacloud/models/UserVpc.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

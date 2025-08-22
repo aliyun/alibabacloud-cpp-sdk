@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_USERVPC_HPP_
 #define ALIBABACLOUD_MODELS_USERVPC_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ForwardInfo.hpp>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;

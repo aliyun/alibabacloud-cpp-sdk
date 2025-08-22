@@ -2,11 +2,15 @@
 #ifndef ALIBABACLOUD_MODELS_ALGORITHMSPEC_HPP_
 #define ALIBABACLOUD_MODELS_ALGORITHMSPEC_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/Location.hpp>
 #include <vector>
 #include <alibabacloud/models/AlgorithmSpecComputeResource.hpp>
 #include <alibabacloud/models/AlgorithmSpecCustomization.hpp>
-#include <alibabacloud/PaiStudio20220112.hpp>
+#include <alibabacloud/models/HyperParameterDefinition.hpp>
+#include <alibabacloud/models/Channel.hpp>
+#include <alibabacloud/models/MetricDefinition.hpp>
 #include <alibabacloud/models/AlgorithmSpecProgressDefinitions.hpp>
+#include <alibabacloud/models/ConditionExpression.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

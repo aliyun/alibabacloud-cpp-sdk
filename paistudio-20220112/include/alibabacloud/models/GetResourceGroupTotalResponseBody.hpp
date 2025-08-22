@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETRESOURCEGROUPTOTALRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/PaiStudio20220112.hpp>
+#include <alibabacloud/models/GPUInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

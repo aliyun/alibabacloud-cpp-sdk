@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_RESOURCEDIAGNOSISDETAIL_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/ResourceAmount.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

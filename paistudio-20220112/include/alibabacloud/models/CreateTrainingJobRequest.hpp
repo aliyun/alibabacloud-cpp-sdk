@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_CREATETRAININGJOBREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATETRAININGJOBREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AlgorithmSpec.hpp>
+#include <alibabacloud/models/Location.hpp>
 #include <alibabacloud/models/CreateTrainingJobRequestComputeResource.hpp>
 #include <map>
 #include <alibabacloud/models/CreateTrainingJobRequestExperimentConfig.hpp>
@@ -11,6 +13,7 @@
 #include <alibabacloud/models/CreateTrainingJobRequestLabels.hpp>
 #include <alibabacloud/models/CreateTrainingJobRequestOutputChannels.hpp>
 #include <alibabacloud/models/CreateTrainingJobRequestScheduler.hpp>
+#include <alibabacloud/models/JobSettings.hpp>
 #include <alibabacloud/models/CreateTrainingJobRequestUserVpc.hpp>
 using namespace std;
 using json = nlohmann::json;

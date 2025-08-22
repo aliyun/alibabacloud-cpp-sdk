@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETSPOTPRICEHISTORYRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetSpotPriceHistoryResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

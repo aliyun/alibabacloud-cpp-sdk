@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETNODEMETRICSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/PaiStudio20220112.hpp>
+#include <alibabacloud/models/NodeMetric.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

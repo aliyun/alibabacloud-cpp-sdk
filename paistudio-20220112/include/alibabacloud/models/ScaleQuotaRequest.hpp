@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_SCALEQUOTAREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_SCALEQUOTAREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ResourceSpec.hpp>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;

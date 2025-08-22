@@ -3,7 +3,9 @@
 #define ALIBABACLOUD_MODELS_CREATEQUOTAREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/PaiStudio20220112.hpp>
+#include <alibabacloud/models/Label.hpp>
+#include <alibabacloud/models/ResourceSpec.hpp>
+#include <alibabacloud/models/QuotaConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

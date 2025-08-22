@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_HYPERPARAMETERDEFINITION_HPP_
 #define ALIBABACLOUD_MODELS_HYPERPARAMETERDEFINITION_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/HyperParameterRange.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

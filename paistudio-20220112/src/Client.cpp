@@ -36,7 +36,7 @@ AlibabaCloud::PaiStudio20220112::Client::Client(Config &config): OpenApiClient(c
     {"ap-south-1" , "pai.ap-south-1.aliyuncs.com"},
     {"cn-qingdao" , "pai.cn-qingdao.aliyuncs.com"},
     {"cn-zhangjiakou" , "pai.cn-zhangjiakou.aliyuncs.com"}
-  });
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("paistudio", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -83,7 +83,7 @@ CheckInstanceWebTerminalResponse Client::checkInstanceWebTerminalWithOptions(con
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CheckInstanceWebTerminalResponse>();
 }
 
@@ -140,7 +140,7 @@ CreateAlgorithmResponse Client::createAlgorithmWithOptions(const CreateAlgorithm
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateAlgorithmResponse>();
 }
 
@@ -191,7 +191,7 @@ CreateAlgorithmVersionResponse Client::createAlgorithmVersionWithOptions(const s
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateAlgorithmVersionResponse>();
 }
 
@@ -217,7 +217,7 @@ CreateAlgorithmVersionResponse Client::createAlgorithmVersion(const string &Algo
 CreateInstanceWebTerminalResponse Client::createInstanceWebTerminalWithOptions(const string &TrainingJobId, const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateInstanceWebTerminal"},
     {"version" , "2022-01-12"},
@@ -228,7 +228,7 @@ CreateInstanceWebTerminalResponse Client::createInstanceWebTerminalWithOptions(c
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateInstanceWebTerminalResponse>();
 }
 
@@ -308,7 +308,7 @@ CreateQuotaResponse Client::createQuotaWithOptions(const CreateQuotaRequest &req
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateQuotaResponse>();
 }
 
@@ -373,7 +373,7 @@ CreateResourceGroupResponse Client::createResourceGroupWithOptions(const CreateR
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateResourceGroupResponse>();
 }
 
@@ -498,7 +498,7 @@ CreateTrainingJobResponse Client::createTrainingJobWithOptions(const CreateTrain
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateTrainingJobResponse>();
 }
 
@@ -524,7 +524,7 @@ CreateTrainingJobResponse Client::createTrainingJob(const CreateTrainingJobReque
 DeleteAlgorithmResponse Client::deleteAlgorithmWithOptions(const string &AlgorithmId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteAlgorithm"},
     {"version" , "2022-01-12"},
@@ -535,7 +535,7 @@ DeleteAlgorithmResponse Client::deleteAlgorithmWithOptions(const string &Algorit
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteAlgorithmResponse>();
 }
 
@@ -560,7 +560,7 @@ DeleteAlgorithmResponse Client::deleteAlgorithm(const string &AlgorithmId) {
 DeleteAlgorithmVersionResponse Client::deleteAlgorithmVersionWithOptions(const string &AlgorithmId, const string &AlgorithmVersion, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteAlgorithmVersion"},
     {"version" , "2022-01-12"},
@@ -571,7 +571,7 @@ DeleteAlgorithmVersionResponse Client::deleteAlgorithmVersionWithOptions(const s
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteAlgorithmVersionResponse>();
 }
 
@@ -598,7 +598,7 @@ DeleteAlgorithmVersionResponse Client::deleteAlgorithmVersion(const string &Algo
 DeleteMachineGroupResponse Client::deleteMachineGroupWithOptions(const string &MachineGroupID, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteMachineGroup"},
     {"version" , "2022-01-12"},
@@ -609,7 +609,7 @@ DeleteMachineGroupResponse Client::deleteMachineGroupWithOptions(const string &M
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMachineGroupResponse>();
 }
 
@@ -636,7 +636,7 @@ DeleteMachineGroupResponse Client::deleteMachineGroup(const string &MachineGroup
 DeleteQuotaResponse Client::deleteQuotaWithOptions(const string &QuotaId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteQuota"},
     {"version" , "2022-01-12"},
@@ -647,7 +647,7 @@ DeleteQuotaResponse Client::deleteQuotaWithOptions(const string &QuotaId, const 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteQuotaResponse>();
 }
 
@@ -672,7 +672,7 @@ DeleteQuotaResponse Client::deleteQuota(const string &QuotaId) {
 DeleteResourceGroupResponse Client::deleteResourceGroupWithOptions(const string &ResourceGroupID, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteResourceGroup"},
     {"version" , "2022-01-12"},
@@ -683,7 +683,7 @@ DeleteResourceGroupResponse Client::deleteResourceGroupWithOptions(const string 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteResourceGroupResponse>();
 }
 
@@ -710,7 +710,7 @@ DeleteResourceGroupResponse Client::deleteResourceGroup(const string &ResourceGr
 DeleteResourceGroupMachineGroupResponse Client::deleteResourceGroupMachineGroupWithOptions(const string &MachineGroupID, const string &ResourceGroupID, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteResourceGroupMachineGroup"},
     {"version" , "2022-01-12"},
@@ -721,7 +721,7 @@ DeleteResourceGroupMachineGroupResponse Client::deleteResourceGroupMachineGroupW
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteResourceGroupMachineGroupResponse>();
 }
 
@@ -748,7 +748,7 @@ DeleteResourceGroupMachineGroupResponse Client::deleteResourceGroupMachineGroup(
 DeleteTrainingJobResponse Client::deleteTrainingJobWithOptions(const string &TrainingJobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteTrainingJob"},
     {"version" , "2022-01-12"},
@@ -759,7 +759,7 @@ DeleteTrainingJobResponse Client::deleteTrainingJobWithOptions(const string &Tra
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteTrainingJobResponse>();
 }
 
@@ -792,7 +792,7 @@ DeleteTrainingJobLabelsResponse Client::deleteTrainingJobLabelsWithOptions(const
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteTrainingJobLabels"},
     {"version" , "2022-01-12"},
@@ -803,7 +803,7 @@ DeleteTrainingJobLabelsResponse Client::deleteTrainingJobLabelsWithOptions(const
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteTrainingJobLabelsResponse>();
 }
 
@@ -829,7 +829,7 @@ DeleteTrainingJobLabelsResponse Client::deleteTrainingJobLabels(const string &Tr
 GetAlgorithmResponse Client::getAlgorithmWithOptions(const string &AlgorithmId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetAlgorithm"},
     {"version" , "2022-01-12"},
@@ -840,7 +840,7 @@ GetAlgorithmResponse Client::getAlgorithmWithOptions(const string &AlgorithmId, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetAlgorithmResponse>();
 }
 
@@ -865,7 +865,7 @@ GetAlgorithmResponse Client::getAlgorithm(const string &AlgorithmId) {
 GetAlgorithmVersionResponse Client::getAlgorithmVersionWithOptions(const string &AlgorithmId, const string &AlgorithmVersion, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetAlgorithmVersion"},
     {"version" , "2022-01-12"},
@@ -876,7 +876,7 @@ GetAlgorithmVersionResponse Client::getAlgorithmVersionWithOptions(const string 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetAlgorithmVersionResponse>();
 }
 
@@ -903,7 +903,7 @@ GetAlgorithmVersionResponse Client::getAlgorithmVersion(const string &AlgorithmI
 GetMachineGroupResponse Client::getMachineGroupWithOptions(const string &MachineGroupID, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetMachineGroup"},
     {"version" , "2022-01-12"},
@@ -914,7 +914,7 @@ GetMachineGroupResponse Client::getMachineGroupWithOptions(const string &Machine
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMachineGroupResponse>();
 }
 
@@ -967,7 +967,7 @@ GetNodeMetricsResponse Client::getNodeMetricsWithOptions(const string &ResourceG
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetNodeMetrics"},
     {"version" , "2022-01-12"},
@@ -978,7 +978,7 @@ GetNodeMetricsResponse Client::getNodeMetricsWithOptions(const string &ResourceG
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetNodeMetricsResponse>();
 }
 
@@ -1014,7 +1014,7 @@ GetQuotaResponse Client::getQuotaWithOptions(const string &QuotaId, const GetQuo
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetQuota"},
     {"version" , "2022-01-12"},
@@ -1025,7 +1025,7 @@ GetQuotaResponse Client::getQuotaWithOptions(const string &QuotaId, const GetQuo
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetQuotaResponse>();
 }
 
@@ -1069,7 +1069,7 @@ GetResourceGroupResponse Client::getResourceGroupWithOptions(const string &Resou
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetResourceGroup"},
     {"version" , "2022-01-12"},
@@ -1080,7 +1080,7 @@ GetResourceGroupResponse Client::getResourceGroupWithOptions(const string &Resou
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetResourceGroupResponse>();
 }
 
@@ -1120,7 +1120,7 @@ GetResourceGroupMachineGroupResponse Client::getResourceGroupMachineGroupWithOpt
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetResourceGroupMachineGroup"},
     {"version" , "2022-01-12"},
@@ -1131,7 +1131,7 @@ GetResourceGroupMachineGroupResponse Client::getResourceGroupMachineGroupWithOpt
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetResourceGroupMachineGroupResponse>();
 }
 
@@ -1171,7 +1171,7 @@ GetResourceGroupRequestResponse Client::getResourceGroupRequestWithOptions(const
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetResourceGroupRequest"},
     {"version" , "2022-01-12"},
@@ -1182,7 +1182,7 @@ GetResourceGroupRequestResponse Client::getResourceGroupRequestWithOptions(const
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetResourceGroupRequestResponse>();
 }
 
@@ -1218,7 +1218,7 @@ GetResourceGroupTotalResponse Client::getResourceGroupTotalWithOptions(const Get
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetResourceGroupTotal"},
     {"version" , "2022-01-12"},
@@ -1229,7 +1229,7 @@ GetResourceGroupTotalResponse Client::getResourceGroupTotalWithOptions(const Get
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetResourceGroupTotalResponse>();
 }
 
@@ -1287,7 +1287,7 @@ GetSpotPriceHistoryResponse Client::getSpotPriceHistoryWithOptions(const string 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetSpotPriceHistory"},
     {"version" , "2022-01-12"},
@@ -1298,7 +1298,7 @@ GetSpotPriceHistoryResponse Client::getSpotPriceHistoryWithOptions(const string 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetSpotPriceHistoryResponse>();
 }
 
@@ -1336,7 +1336,7 @@ GetTokenResponse Client::getTokenWithOptions(const GetTokenRequest &request, con
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetToken"},
     {"version" , "2022-01-12"},
@@ -1347,7 +1347,7 @@ GetTokenResponse Client::getTokenWithOptions(const GetTokenRequest &request, con
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetTokenResponse>();
 }
 
@@ -1373,7 +1373,7 @@ GetTokenResponse Client::getToken(const GetTokenRequest &request) {
 GetTrainingJobResponse Client::getTrainingJobWithOptions(const string &TrainingJobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetTrainingJob"},
     {"version" , "2022-01-12"},
@@ -1384,7 +1384,7 @@ GetTrainingJobResponse Client::getTrainingJobWithOptions(const string &TrainingJ
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetTrainingJobResponse>();
 }
 
@@ -1409,7 +1409,7 @@ GetTrainingJobResponse Client::getTrainingJob(const string &TrainingJobId) {
 GetTrainingJobErrorInfoResponse Client::getTrainingJobErrorInfoWithOptions(const string &TrainingJobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetTrainingJobErrorInfo"},
     {"version" , "2022-01-12"},
@@ -1420,7 +1420,7 @@ GetTrainingJobErrorInfoResponse Client::getTrainingJobErrorInfoWithOptions(const
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetTrainingJobErrorInfoResponse>();
 }
 
@@ -1453,7 +1453,7 @@ GetTrainingJobLatestMetricsResponse Client::getTrainingJobLatestMetricsWithOptio
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetTrainingJobLatestMetrics"},
     {"version" , "2022-01-12"},
@@ -1464,7 +1464,7 @@ GetTrainingJobLatestMetricsResponse Client::getTrainingJobLatestMetricsWithOptio
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetTrainingJobLatestMetricsResponse>();
 }
 
@@ -1524,7 +1524,7 @@ GetUserViewMetricsResponse Client::getUserViewMetricsWithOptions(const string &R
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetUserViewMetrics"},
     {"version" , "2022-01-12"},
@@ -1535,7 +1535,7 @@ GetUserViewMetricsResponse Client::getUserViewMetricsWithOptions(const string &R
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetUserViewMetricsResponse>();
 }
 
@@ -1575,7 +1575,7 @@ ListAlgorithmVersionsResponse Client::listAlgorithmVersionsWithOptions(const str
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListAlgorithmVersions"},
     {"version" , "2022-01-12"},
@@ -1586,7 +1586,7 @@ ListAlgorithmVersionsResponse Client::listAlgorithmVersionsWithOptions(const str
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListAlgorithmVersionsResponse>();
 }
 
@@ -1640,7 +1640,7 @@ ListAlgorithmsResponse Client::listAlgorithmsWithOptions(const ListAlgorithmsReq
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListAlgorithms"},
     {"version" , "2022-01-12"},
@@ -1651,7 +1651,7 @@ ListAlgorithmsResponse Client::listAlgorithmsWithOptions(const ListAlgorithmsReq
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListAlgorithmsResponse>();
 }
 
@@ -1761,7 +1761,7 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &request, 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListNodes"},
     {"version" , "2022-01-12"},
@@ -1772,7 +1772,7 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &request, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListNodesResponse>();
 }
 
@@ -1878,7 +1878,7 @@ ListQuotaWorkloadsResponse Client::listQuotaWorkloadsWithOptions(const string &Q
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListQuotaWorkloads"},
     {"version" , "2022-01-12"},
@@ -1889,7 +1889,7 @@ ListQuotaWorkloadsResponse Client::listQuotaWorkloadsWithOptions(const string &Q
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListQuotaWorkloadsResponse>();
 }
 
@@ -1979,7 +1979,7 @@ ListQuotasResponse Client::listQuotasWithOptions(const ListQuotasRequest &reques
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListQuotas"},
     {"version" , "2022-01-12"},
@@ -1990,7 +1990,7 @@ ListQuotasResponse Client::listQuotasWithOptions(const ListQuotasRequest &reques
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListQuotasResponse>();
 }
 
@@ -2072,7 +2072,7 @@ ListResourceGroupMachineGroupsResponse Client::listResourceGroupMachineGroupsWit
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListResourceGroupMachineGroups"},
     {"version" , "2022-01-12"},
@@ -2083,7 +2083,7 @@ ListResourceGroupMachineGroupsResponse Client::listResourceGroupMachineGroupsWit
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListResourceGroupMachineGroupsResponse>();
 }
 
@@ -2157,7 +2157,7 @@ ListResourceGroupsResponse Client::listResourceGroupsWithOptions(const ListResou
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListResourceGroups"},
     {"version" , "2022-01-12"},
@@ -2168,7 +2168,7 @@ ListResourceGroupsResponse Client::listResourceGroupsWithOptions(const ListResou
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListResourceGroupsResponse>();
 }
 
@@ -2214,7 +2214,7 @@ ListTrainingJobEventsResponse Client::listTrainingJobEventsWithOptions(const str
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListTrainingJobEvents"},
     {"version" , "2022-01-12"},
@@ -2225,7 +2225,7 @@ ListTrainingJobEventsResponse Client::listTrainingJobEventsWithOptions(const str
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTrainingJobEventsResponse>();
 }
 
@@ -2271,7 +2271,7 @@ ListTrainingJobInstanceEventsResponse Client::listTrainingJobInstanceEventsWithO
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListTrainingJobInstanceEvents"},
     {"version" , "2022-01-12"},
@@ -2282,7 +2282,7 @@ ListTrainingJobInstanceEventsResponse Client::listTrainingJobInstanceEventsWithO
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTrainingJobInstanceEventsResponse>();
 }
 
@@ -2332,7 +2332,7 @@ ListTrainingJobInstanceMetricsResponse Client::listTrainingJobInstanceMetricsWit
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListTrainingJobInstanceMetrics"},
     {"version" , "2022-01-12"},
@@ -2343,7 +2343,7 @@ ListTrainingJobInstanceMetricsResponse Client::listTrainingJobInstanceMetricsWit
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTrainingJobInstanceMetricsResponse>();
 }
 
@@ -2397,7 +2397,7 @@ ListTrainingJobLogsResponse Client::listTrainingJobLogsWithOptions(const string 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListTrainingJobLogs"},
     {"version" , "2022-01-12"},
@@ -2408,7 +2408,7 @@ ListTrainingJobLogsResponse Client::listTrainingJobLogsWithOptions(const string 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTrainingJobLogsResponse>();
 }
 
@@ -2462,7 +2462,7 @@ ListTrainingJobMetricsResponse Client::listTrainingJobMetricsWithOptions(const s
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListTrainingJobMetrics"},
     {"version" , "2022-01-12"},
@@ -2473,7 +2473,7 @@ ListTrainingJobMetricsResponse Client::listTrainingJobMetricsWithOptions(const s
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTrainingJobMetricsResponse>();
 }
 
@@ -2499,7 +2499,7 @@ ListTrainingJobMetricsResponse Client::listTrainingJobMetrics(const string &Trai
 ListTrainingJobOutputModelsResponse Client::listTrainingJobOutputModelsWithOptions(const string &TrainingJobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListTrainingJobOutputModels"},
     {"version" , "2022-01-12"},
@@ -2510,7 +2510,7 @@ ListTrainingJobOutputModelsResponse Client::listTrainingJobOutputModelsWithOptio
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTrainingJobOutputModelsResponse>();
 }
 
@@ -2601,7 +2601,7 @@ ListTrainingJobsResponse Client::listTrainingJobsWithOptions(const ListTrainingJ
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListTrainingJobs"},
     {"version" , "2022-01-12"},
@@ -2612,7 +2612,7 @@ ListTrainingJobsResponse Client::listTrainingJobsWithOptions(const ListTrainingJ
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTrainingJobsResponse>();
 }
 
@@ -2661,7 +2661,7 @@ ScaleQuotaResponse Client::scaleQuotaWithOptions(const string &QuotaId, const Sc
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ScaleQuotaResponse>();
 }
 
@@ -2687,7 +2687,7 @@ ScaleQuotaResponse Client::scaleQuota(const string &QuotaId, const ScaleQuotaReq
 StopTrainingJobResponse Client::stopTrainingJobWithOptions(const string &TrainingJobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StopTrainingJob"},
     {"version" , "2022-01-12"},
@@ -2698,7 +2698,7 @@ StopTrainingJobResponse Client::stopTrainingJobWithOptions(const string &Trainin
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StopTrainingJobResponse>();
 }
 
@@ -2746,7 +2746,7 @@ UpdateAlgorithmResponse Client::updateAlgorithmWithOptions(const string &Algorit
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateAlgorithmResponse>();
 }
 
@@ -2797,7 +2797,7 @@ UpdateAlgorithmVersionResponse Client::updateAlgorithmVersionWithOptions(const s
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateAlgorithmVersionResponse>();
 }
 
@@ -2858,7 +2858,7 @@ UpdateQuotaResponse Client::updateQuotaWithOptions(const string &QuotaId, const 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateQuotaResponse>();
 }
 
@@ -2915,7 +2915,7 @@ UpdateResourceGroupResponse Client::updateResourceGroupWithOptions(const string 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateResourceGroupResponse>();
 }
 
@@ -2960,7 +2960,7 @@ UpdateTrainingJobLabelsResponse Client::updateTrainingJobLabelsWithOptions(const
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateTrainingJobLabelsResponse>();
 }
 

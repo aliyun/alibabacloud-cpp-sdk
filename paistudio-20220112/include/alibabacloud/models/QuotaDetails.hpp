@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_QUOTADETAILS_HPP_
 #define ALIBABACLOUD_MODELS_QUOTADETAILS_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ResourceAmount.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const QuotaDetails& obj) { 
       DARABONBA_PTR_TO_JSON(ActualMinQuota, actualMinQuota_);
+      DARABONBA_PTR_TO_JSON(AllocatableQuota, allocatableQuota_);
       DARABONBA_PTR_TO_JSON(AllocatedQuota, allocatedQuota_);
       DARABONBA_PTR_TO_JSON(AncestorsAllocatedQuota, ancestorsAllocatedQuota_);
       DARABONBA_PTR_TO_JSON(DescendantsAllocatedQuota, descendantsAllocatedQuota_);
@@ -21,10 +23,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestedQuota, requestedQuota_);
       DARABONBA_PTR_TO_JSON(SelfAllocatedQuota, selfAllocatedQuota_);
       DARABONBA_PTR_TO_JSON(SelfSubmittedQuota, selfSubmittedQuota_);
+      DARABONBA_PTR_TO_JSON(SystemReservedQuota, systemReservedQuota_);
       DARABONBA_PTR_TO_JSON(UsedQuota, usedQuota_);
     };
     friend void from_json(const Darabonba::Json& j, QuotaDetails& obj) { 
       DARABONBA_PTR_FROM_JSON(ActualMinQuota, actualMinQuota_);
+      DARABONBA_PTR_FROM_JSON(AllocatableQuota, allocatableQuota_);
       DARABONBA_PTR_FROM_JSON(AllocatedQuota, allocatedQuota_);
       DARABONBA_PTR_FROM_JSON(AncestorsAllocatedQuota, ancestorsAllocatedQuota_);
       DARABONBA_PTR_FROM_JSON(DescendantsAllocatedQuota, descendantsAllocatedQuota_);
@@ -32,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RequestedQuota, requestedQuota_);
       DARABONBA_PTR_FROM_JSON(SelfAllocatedQuota, selfAllocatedQuota_);
       DARABONBA_PTR_FROM_JSON(SelfSubmittedQuota, selfSubmittedQuota_);
+      DARABONBA_PTR_FROM_JSON(SystemReservedQuota, systemReservedQuota_);
       DARABONBA_PTR_FROM_JSON(UsedQuota, usedQuota_);
     };
     QuotaDetails() = default ;
@@ -46,8 +51,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->actualMinQuota_ != nullptr
-        && this->allocatedQuota_ != nullptr && this->ancestorsAllocatedQuota_ != nullptr && this->descendantsAllocatedQuota_ != nullptr && this->desiredMinQuota_ != nullptr && this->requestedQuota_ != nullptr
-        && this->selfAllocatedQuota_ != nullptr && this->selfSubmittedQuota_ != nullptr && this->usedQuota_ != nullptr; };
+        && this->allocatableQuota_ != nullptr && this->allocatedQuota_ != nullptr && this->ancestorsAllocatedQuota_ != nullptr && this->descendantsAllocatedQuota_ != nullptr && this->desiredMinQuota_ != nullptr
+        && this->requestedQuota_ != nullptr && this->selfAllocatedQuota_ != nullptr && this->selfSubmittedQuota_ != nullptr && this->systemReservedQuota_ != nullptr && this->usedQuota_ != nullptr; };
     // actualMinQuota Field Functions 
     bool hasActualMinQuota() const { return this->actualMinQuota_ != nullptr;};
     void deleteActualMinQuota() { this->actualMinQuota_ = nullptr;};
@@ -55,6 +60,15 @@ namespace Models
     inline ResourceAmount actualMinQuota() { DARABONBA_PTR_GET(actualMinQuota_, ResourceAmount) };
     inline QuotaDetails& setActualMinQuota(const ResourceAmount & actualMinQuota) { DARABONBA_PTR_SET_VALUE(actualMinQuota_, actualMinQuota) };
     inline QuotaDetails& setActualMinQuota(ResourceAmount && actualMinQuota) { DARABONBA_PTR_SET_RVALUE(actualMinQuota_, actualMinQuota) };
+
+
+    // allocatableQuota Field Functions 
+    bool hasAllocatableQuota() const { return this->allocatableQuota_ != nullptr;};
+    void deleteAllocatableQuota() { this->allocatableQuota_ = nullptr;};
+    inline const ResourceAmount & allocatableQuota() const { DARABONBA_PTR_GET_CONST(allocatableQuota_, ResourceAmount) };
+    inline ResourceAmount allocatableQuota() { DARABONBA_PTR_GET(allocatableQuota_, ResourceAmount) };
+    inline QuotaDetails& setAllocatableQuota(const ResourceAmount & allocatableQuota) { DARABONBA_PTR_SET_VALUE(allocatableQuota_, allocatableQuota) };
+    inline QuotaDetails& setAllocatableQuota(ResourceAmount && allocatableQuota) { DARABONBA_PTR_SET_RVALUE(allocatableQuota_, allocatableQuota) };
 
 
     // allocatedQuota Field Functions 
@@ -120,6 +134,15 @@ namespace Models
     inline QuotaDetails& setSelfSubmittedQuota(ResourceAmount && selfSubmittedQuota) { DARABONBA_PTR_SET_RVALUE(selfSubmittedQuota_, selfSubmittedQuota) };
 
 
+    // systemReservedQuota Field Functions 
+    bool hasSystemReservedQuota() const { return this->systemReservedQuota_ != nullptr;};
+    void deleteSystemReservedQuota() { this->systemReservedQuota_ = nullptr;};
+    inline const ResourceAmount & systemReservedQuota() const { DARABONBA_PTR_GET_CONST(systemReservedQuota_, ResourceAmount) };
+    inline ResourceAmount systemReservedQuota() { DARABONBA_PTR_GET(systemReservedQuota_, ResourceAmount) };
+    inline QuotaDetails& setSystemReservedQuota(const ResourceAmount & systemReservedQuota) { DARABONBA_PTR_SET_VALUE(systemReservedQuota_, systemReservedQuota) };
+    inline QuotaDetails& setSystemReservedQuota(ResourceAmount && systemReservedQuota) { DARABONBA_PTR_SET_RVALUE(systemReservedQuota_, systemReservedQuota) };
+
+
     // usedQuota Field Functions 
     bool hasUsedQuota() const { return this->usedQuota_ != nullptr;};
     void deleteUsedQuota() { this->usedQuota_ = nullptr;};
@@ -131,6 +154,7 @@ namespace Models
 
   protected:
     std::shared_ptr<ResourceAmount> actualMinQuota_ = nullptr;
+    std::shared_ptr<ResourceAmount> allocatableQuota_ = nullptr;
     std::shared_ptr<ResourceAmount> allocatedQuota_ = nullptr;
     std::shared_ptr<ResourceAmount> ancestorsAllocatedQuota_ = nullptr;
     std::shared_ptr<ResourceAmount> descendantsAllocatedQuota_ = nullptr;
@@ -138,6 +162,7 @@ namespace Models
     std::shared_ptr<ResourceAmount> requestedQuota_ = nullptr;
     std::shared_ptr<ResourceAmount> selfAllocatedQuota_ = nullptr;
     std::shared_ptr<ResourceAmount> selfSubmittedQuota_ = nullptr;
+    std::shared_ptr<ResourceAmount> systemReservedQuota_ = nullptr;
     std::shared_ptr<ResourceAmount> usedQuota_ = nullptr;
   };
 
