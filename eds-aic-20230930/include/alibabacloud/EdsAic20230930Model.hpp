@@ -22,6 +22,7 @@
 #include <alibabacloud/models/CheckResourceStockResponseBody.hpp>
 #include <alibabacloud/models/CheckResourceStockResponse.hpp>
 #include <alibabacloud/models/CreateAndroidInstanceGroupRequest.hpp>
+#include <alibabacloud/models/CreateAndroidInstanceGroupShrinkRequest.hpp>
 #include <alibabacloud/models/CreateAndroidInstanceGroupResponseBody.hpp>
 #include <alibabacloud/models/CreateAndroidInstanceGroupResponse.hpp>
 #include <alibabacloud/models/CreateAppRequest.hpp>
@@ -255,8 +256,11 @@
 #include <alibabacloud/models/ChangeCloudPhoneNodeResponseBodyNodeInfosInstanceInfos.hpp>
 #include <alibabacloud/models/ChangeCloudPhoneNodeResponseBodyNodeInfos.hpp>
 #include <alibabacloud/models/CheckResourceStockResponseBodyResourceStockModels.hpp>
+#include <alibabacloud/models/CreateAndroidInstanceGroupRequestNetworkInfo.hpp>
 #include <alibabacloud/models/CreateAndroidInstanceGroupRequestTag.hpp>
+#include <alibabacloud/models/CreateAndroidInstanceGroupShrinkRequestTag.hpp>
 #include <alibabacloud/models/CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos.hpp>
+#include <alibabacloud/models/CreateAndroidInstanceGroupResponseBodyNetworkPackageOrderModel.hpp>
 #include <alibabacloud/models/CreateAppRequestCustomAppInfo.hpp>
 #include <alibabacloud/models/CreateCloudPhoneNodeRequestDisplayConfig.hpp>
 #include <alibabacloud/models/CreateCloudPhoneNodeRequestNetworkInfo.hpp>
@@ -272,7 +276,9 @@
 #include <alibabacloud/models/CreateSystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos.hpp>
 #include <alibabacloud/models/CreateSystemPropertyTemplateRequestSystemPropertyInfo.hpp>
 #include <alibabacloud/models/DeleteImagesResponseBodyData.hpp>
+#include <alibabacloud/models/DescribeAndroidInstanceGroupsRequestTags.hpp>
 #include <alibabacloud/models/DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks.hpp>
+#include <alibabacloud/models/DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelTags.hpp>
 #include <alibabacloud/models/DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel.hpp>
 #include <alibabacloud/models/DescribeAndroidInstancesRequestTag.hpp>
 #include <alibabacloud/models/DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy.hpp>

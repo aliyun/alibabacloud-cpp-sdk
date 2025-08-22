@@ -17,7 +17,6 @@ namespace EdsAic20230930
 {
 
 AlibabaCloud::EdsAic20230930::Client::Client(Config &config): OpenApiClient(config){
-  this->_signatureAlgorithm = "v2";
   this->_endpointRule = "";
   checkConfig(config);
   this->_endpoint = getEndpoint("eds-aic", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -407,12 +406,18 @@ CheckResourceStockResponse Client::checkResourceStock(const CheckResourceStockRe
  * *   If the billing method of an instance group is PrePaid, AutoPay is set to false by default. In this case, you need to go to [Expenses and Costs](https://usercenter2-intl.aliyun.com/order/list) to manually complete the payment.
  * *   You can also set AutoPay to true based on your business requirements.
  *
- * @param request CreateAndroidInstanceGroupRequest
+ * @param tmpReq CreateAndroidInstanceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateAndroidInstanceGroupResponse
  */
-CreateAndroidInstanceGroupResponse Client::createAndroidInstanceGroupWithOptions(const CreateAndroidInstanceGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+CreateAndroidInstanceGroupResponse Client::createAndroidInstanceGroupWithOptions(const CreateAndroidInstanceGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateAndroidInstanceGroupShrinkRequest request = CreateAndroidInstanceGroupShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasNetworkInfo()) {
+    request.setNetworkInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.networkInfo(), "NetworkInfo", "json"));
+  }
+
   json query = {};
   if (!!request.hasAmount()) {
     query["Amount"] = request.amount();
@@ -424,6 +429,14 @@ CreateAndroidInstanceGroupResponse Client::createAndroidInstanceGroupWithOptions
 
   if (!!request.hasAutoRenew()) {
     query["AutoRenew"] = request.autoRenew();
+  }
+
+  if (!!request.hasBandwidthPackageId()) {
+    query["BandwidthPackageId"] = request.bandwidthPackageId();
+  }
+
+  if (!!request.hasBandwidthPackageType()) {
+    query["BandwidthPackageType"] = request.bandwidthPackageType();
   }
 
   if (!!request.hasBizRegionId()) {
@@ -464,6 +477,14 @@ CreateAndroidInstanceGroupResponse Client::createAndroidInstanceGroupWithOptions
 
   if (!!request.hasKeyPairId()) {
     query["KeyPairId"] = request.keyPairId();
+  }
+
+  if (!!request.hasNetworkInfoShrink()) {
+    query["NetworkInfo"] = request.networkInfoShrink();
+  }
+
+  if (!!request.hasNetworkType()) {
+    query["NetworkType"] = request.networkType();
   }
 
   if (!!request.hasNumberOfInstances()) {
@@ -1514,6 +1535,10 @@ DescribeAndroidInstanceGroupsResponse Client::describeAndroidInstanceGroupsWithO
 
   if (!!request.hasStatus()) {
     query["Status"] = request.status();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.tags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4712,6 +4737,10 @@ UpdateInstanceImageResponse Client::updateInstanceImageWithOptions(const UpdateI
 
   if (!!request.hasInstanceIdList()) {
     query["InstanceIdList"] = request.instanceIdList();
+  }
+
+  if (!!request.hasReset()) {
+    query["Reset"] = request.reset();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks.hpp>
+#include <alibabacloud/models/DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -18,6 +19,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppInstanceGroupId, appInstanceGroupId_);
       DARABONBA_PTR_TO_JSON(ArchitectureType, architectureType_);
       DARABONBA_PTR_TO_JSON(AvailableInstanceAmount, availableInstanceAmount_);
+      DARABONBA_PTR_TO_JSON(BandwidthPackageId, bandwidthPackageId_);
+      DARABONBA_PTR_TO_JSON(BandwidthPackageStatus, bandwidthPackageStatus_);
+      DARABONBA_PTR_TO_JSON(BandwidthPackageType, bandwidthPackageType_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(Cpu, cpu_);
       DARABONBA_PTR_TO_JSON(Disks, disks_);
@@ -35,6 +39,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceGroupStatus, instanceGroupStatus_);
       DARABONBA_PTR_TO_JSON(Ipv6Bandwidth, ipv6Bandwidth_);
       DARABONBA_PTR_TO_JSON(Memory, memory_);
+      DARABONBA_PTR_TO_JSON(NetworkType, networkType_);
       DARABONBA_PTR_TO_JSON(NumberOfInstances, numberOfInstances_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
@@ -44,12 +49,16 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResolutionWidth, resolutionWidth_);
       DARABONBA_PTR_TO_JSON(SaleMode, saleMode_);
       DARABONBA_PTR_TO_JSON(SystemVersion, systemVersion_);
+      DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel& obj) { 
       DARABONBA_PTR_FROM_JSON(AppInstanceGroupId, appInstanceGroupId_);
       DARABONBA_PTR_FROM_JSON(ArchitectureType, architectureType_);
       DARABONBA_PTR_FROM_JSON(AvailableInstanceAmount, availableInstanceAmount_);
+      DARABONBA_PTR_FROM_JSON(BandwidthPackageId, bandwidthPackageId_);
+      DARABONBA_PTR_FROM_JSON(BandwidthPackageStatus, bandwidthPackageStatus_);
+      DARABONBA_PTR_FROM_JSON(BandwidthPackageType, bandwidthPackageType_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
       DARABONBA_PTR_FROM_JSON(Disks, disks_);
@@ -67,6 +76,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceGroupStatus, instanceGroupStatus_);
       DARABONBA_PTR_FROM_JSON(Ipv6Bandwidth, ipv6Bandwidth_);
       DARABONBA_PTR_FROM_JSON(Memory, memory_);
+      DARABONBA_PTR_FROM_JSON(NetworkType, networkType_);
       DARABONBA_PTR_FROM_JSON(NumberOfInstances, numberOfInstances_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
@@ -76,6 +86,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResolutionWidth, resolutionWidth_);
       DARABONBA_PTR_FROM_JSON(SaleMode, saleMode_);
       DARABONBA_PTR_FROM_JSON(SystemVersion, systemVersion_);
+      DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
     };
     DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel() = default ;
@@ -90,12 +101,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->appInstanceGroupId_ != nullptr
-        && this->architectureType_ != nullptr && this->availableInstanceAmount_ != nullptr && this->chargeType_ != nullptr && this->cpu_ != nullptr && this->disks_ != nullptr
-        && this->enableIpv6_ != nullptr && this->errorCode_ != nullptr && this->gmtCreate_ != nullptr && this->gmtExpired_ != nullptr && this->gmtModified_ != nullptr
-        && this->imageId_ != nullptr && this->installedAppList_ != nullptr && this->instanceGroupId_ != nullptr && this->instanceGroupName_ != nullptr && this->instanceGroupSpec_ != nullptr
-        && this->instanceGroupSpecDescribe_ != nullptr && this->instanceGroupStatus_ != nullptr && this->ipv6Bandwidth_ != nullptr && this->memory_ != nullptr && this->numberOfInstances_ != nullptr
-        && this->officeSiteId_ != nullptr && this->policyGroupId_ != nullptr && this->regionId_ != nullptr && this->renderingType_ != nullptr && this->resolutionHeight_ != nullptr
-        && this->resolutionWidth_ != nullptr && this->saleMode_ != nullptr && this->systemVersion_ != nullptr && this->vSwitchId_ != nullptr; };
+        && this->architectureType_ != nullptr && this->availableInstanceAmount_ != nullptr && this->bandwidthPackageId_ != nullptr && this->bandwidthPackageStatus_ != nullptr && this->bandwidthPackageType_ != nullptr
+        && this->chargeType_ != nullptr && this->cpu_ != nullptr && this->disks_ != nullptr && this->enableIpv6_ != nullptr && this->errorCode_ != nullptr
+        && this->gmtCreate_ != nullptr && this->gmtExpired_ != nullptr && this->gmtModified_ != nullptr && this->imageId_ != nullptr && this->installedAppList_ != nullptr
+        && this->instanceGroupId_ != nullptr && this->instanceGroupName_ != nullptr && this->instanceGroupSpec_ != nullptr && this->instanceGroupSpecDescribe_ != nullptr && this->instanceGroupStatus_ != nullptr
+        && this->ipv6Bandwidth_ != nullptr && this->memory_ != nullptr && this->networkType_ != nullptr && this->numberOfInstances_ != nullptr && this->officeSiteId_ != nullptr
+        && this->policyGroupId_ != nullptr && this->regionId_ != nullptr && this->renderingType_ != nullptr && this->resolutionHeight_ != nullptr && this->resolutionWidth_ != nullptr
+        && this->saleMode_ != nullptr && this->systemVersion_ != nullptr && this->tags_ != nullptr && this->vSwitchId_ != nullptr; };
     // appInstanceGroupId Field Functions 
     bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
     void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};
@@ -115,6 +127,27 @@ namespace Models
     void deleteAvailableInstanceAmount() { this->availableInstanceAmount_ = nullptr;};
     inline int32_t availableInstanceAmount() const { DARABONBA_PTR_GET_DEFAULT(availableInstanceAmount_, 0) };
     inline DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel& setAvailableInstanceAmount(int32_t availableInstanceAmount) { DARABONBA_PTR_SET_VALUE(availableInstanceAmount_, availableInstanceAmount) };
+
+
+    // bandwidthPackageId Field Functions 
+    bool hasBandwidthPackageId() const { return this->bandwidthPackageId_ != nullptr;};
+    void deleteBandwidthPackageId() { this->bandwidthPackageId_ = nullptr;};
+    inline string bandwidthPackageId() const { DARABONBA_PTR_GET_DEFAULT(bandwidthPackageId_, "") };
+    inline DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel& setBandwidthPackageId(string bandwidthPackageId) { DARABONBA_PTR_SET_VALUE(bandwidthPackageId_, bandwidthPackageId) };
+
+
+    // bandwidthPackageStatus Field Functions 
+    bool hasBandwidthPackageStatus() const { return this->bandwidthPackageStatus_ != nullptr;};
+    void deleteBandwidthPackageStatus() { this->bandwidthPackageStatus_ = nullptr;};
+    inline string bandwidthPackageStatus() const { DARABONBA_PTR_GET_DEFAULT(bandwidthPackageStatus_, "") };
+    inline DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel& setBandwidthPackageStatus(string bandwidthPackageStatus) { DARABONBA_PTR_SET_VALUE(bandwidthPackageStatus_, bandwidthPackageStatus) };
+
+
+    // bandwidthPackageType Field Functions 
+    bool hasBandwidthPackageType() const { return this->bandwidthPackageType_ != nullptr;};
+    void deleteBandwidthPackageType() { this->bandwidthPackageType_ = nullptr;};
+    inline string bandwidthPackageType() const { DARABONBA_PTR_GET_DEFAULT(bandwidthPackageType_, "") };
+    inline DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel& setBandwidthPackageType(string bandwidthPackageType) { DARABONBA_PTR_SET_VALUE(bandwidthPackageType_, bandwidthPackageType) };
 
 
     // chargeType Field Functions 
@@ -238,6 +271,13 @@ namespace Models
     inline DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel& setMemory(int32_t memory) { DARABONBA_PTR_SET_VALUE(memory_, memory) };
 
 
+    // networkType Field Functions 
+    bool hasNetworkType() const { return this->networkType_ != nullptr;};
+    void deleteNetworkType() { this->networkType_ = nullptr;};
+    inline string networkType() const { DARABONBA_PTR_GET_DEFAULT(networkType_, "") };
+    inline DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel& setNetworkType(string networkType) { DARABONBA_PTR_SET_VALUE(networkType_, networkType) };
+
+
     // numberOfInstances Field Functions 
     bool hasNumberOfInstances() const { return this->numberOfInstances_ != nullptr;};
     void deleteNumberOfInstances() { this->numberOfInstances_ = nullptr;};
@@ -301,6 +341,15 @@ namespace Models
     inline DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel& setSystemVersion(string systemVersion) { DARABONBA_PTR_SET_VALUE(systemVersion_, systemVersion) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<Models::DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<Models::DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelTags>) };
+    inline vector<Models::DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelTags> tags() { DARABONBA_PTR_GET(tags_, vector<Models::DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelTags>) };
+    inline DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel& setTags(const vector<Models::DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel& setTags(vector<Models::DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
@@ -317,6 +366,9 @@ namespace Models
     // 
     // >  Available instances are those not in the Deleting or Deleted state.
     std::shared_ptr<int32_t> availableInstanceAmount_ = nullptr;
+    std::shared_ptr<string> bandwidthPackageId_ = nullptr;
+    std::shared_ptr<string> bandwidthPackageStatus_ = nullptr;
+    std::shared_ptr<string> bandwidthPackageType_ = nullptr;
     // The billing method.
     std::shared_ptr<string> chargeType_ = nullptr;
     // The number of vCPUs.
@@ -349,6 +401,7 @@ namespace Models
     std::shared_ptr<int32_t> ipv6Bandwidth_ = nullptr;
     // The memory size.
     std::shared_ptr<int32_t> memory_ = nullptr;
+    std::shared_ptr<string> networkType_ = nullptr;
     // The number of instances in the instance group.
     std::shared_ptr<string> numberOfInstances_ = nullptr;
     // The ID of the network.
@@ -373,6 +426,7 @@ namespace Models
     std::shared_ptr<string> saleMode_ = nullptr;
     // The version of the operating system.
     std::shared_ptr<string> systemVersion_ = nullptr;
+    std::shared_ptr<vector<Models::DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelTags>> tags_ = nullptr;
     // The ID of the vSwitch.
     std::shared_ptr<string> vSwitchId_ = nullptr;
   };

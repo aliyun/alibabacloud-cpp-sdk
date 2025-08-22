@@ -1,10 +1,9 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_CREATEANDROIDINSTANCEGROUPREQUEST_HPP_
-#define ALIBABACLOUD_MODELS_CREATEANDROIDINSTANCEGROUPREQUEST_HPP_
+#ifndef ALIBABACLOUD_MODELS_CREATEANDROIDINSTANCEGROUPSHRINKREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_CREATEANDROIDINSTANCEGROUPSHRINKREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/CreateAndroidInstanceGroupRequestNetworkInfo.hpp>
 #include <vector>
-#include <alibabacloud/models/CreateAndroidInstanceGroupRequestTag.hpp>
+#include <alibabacloud/models/CreateAndroidInstanceGroupShrinkRequestTag.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -13,9 +12,9 @@ namespace EdsAic20230930
 {
 namespace Models
 {
-  class CreateAndroidInstanceGroupRequest : public Darabonba::Model {
+  class CreateAndroidInstanceGroupShrinkRequest : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const CreateAndroidInstanceGroupRequest& obj) { 
+    friend void to_json(Darabonba::Json& j, const CreateAndroidInstanceGroupShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Amount, amount_);
       DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
@@ -31,7 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceGroupSpec, instanceGroupSpec_);
       DARABONBA_PTR_TO_JSON(Ipv6Bandwidth, ipv6Bandwidth_);
       DARABONBA_PTR_TO_JSON(KeyPairId, keyPairId_);
-      DARABONBA_PTR_TO_JSON(NetworkInfo, networkInfo_);
+      DARABONBA_PTR_TO_JSON(NetworkInfo, networkInfoShrink_);
       DARABONBA_PTR_TO_JSON(NetworkType, networkType_);
       DARABONBA_PTR_TO_JSON(NumberOfInstances, numberOfInstances_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
@@ -41,7 +40,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
     };
-    friend void from_json(const Darabonba::Json& j, CreateAndroidInstanceGroupRequest& obj) { 
+    friend void from_json(const Darabonba::Json& j, CreateAndroidInstanceGroupShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Amount, amount_);
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
@@ -57,7 +56,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceGroupSpec, instanceGroupSpec_);
       DARABONBA_PTR_FROM_JSON(Ipv6Bandwidth, ipv6Bandwidth_);
       DARABONBA_PTR_FROM_JSON(KeyPairId, keyPairId_);
-      DARABONBA_PTR_FROM_JSON(NetworkInfo, networkInfo_);
+      DARABONBA_PTR_FROM_JSON(NetworkInfo, networkInfoShrink_);
       DARABONBA_PTR_FROM_JSON(NetworkType, networkType_);
       DARABONBA_PTR_FROM_JSON(NumberOfInstances, numberOfInstances_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
@@ -67,13 +66,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
     };
-    CreateAndroidInstanceGroupRequest() = default ;
-    CreateAndroidInstanceGroupRequest(const CreateAndroidInstanceGroupRequest &) = default ;
-    CreateAndroidInstanceGroupRequest(CreateAndroidInstanceGroupRequest &&) = default ;
-    CreateAndroidInstanceGroupRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~CreateAndroidInstanceGroupRequest() = default ;
-    CreateAndroidInstanceGroupRequest& operator=(const CreateAndroidInstanceGroupRequest &) = default ;
-    CreateAndroidInstanceGroupRequest& operator=(CreateAndroidInstanceGroupRequest &&) = default ;
+    CreateAndroidInstanceGroupShrinkRequest() = default ;
+    CreateAndroidInstanceGroupShrinkRequest(const CreateAndroidInstanceGroupShrinkRequest &) = default ;
+    CreateAndroidInstanceGroupShrinkRequest(CreateAndroidInstanceGroupShrinkRequest &&) = default ;
+    CreateAndroidInstanceGroupShrinkRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateAndroidInstanceGroupShrinkRequest() = default ;
+    CreateAndroidInstanceGroupShrinkRequest& operator=(const CreateAndroidInstanceGroupShrinkRequest &) = default ;
+    CreateAndroidInstanceGroupShrinkRequest& operator=(CreateAndroidInstanceGroupShrinkRequest &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -81,179 +80,177 @@ namespace Models
     virtual bool empty() const override { this->amount_ != nullptr
         && this->autoPay_ != nullptr && this->autoRenew_ != nullptr && this->bandwidthPackageId_ != nullptr && this->bandwidthPackageType_ != nullptr && this->bizRegionId_ != nullptr
         && this->chargeType_ != nullptr && this->clientToken_ != nullptr && this->enableIpv6_ != nullptr && this->gpuAcceleration_ != nullptr && this->imageId_ != nullptr
-        && this->instanceGroupName_ != nullptr && this->instanceGroupSpec_ != nullptr && this->ipv6Bandwidth_ != nullptr && this->keyPairId_ != nullptr && this->networkInfo_ != nullptr
+        && this->instanceGroupName_ != nullptr && this->instanceGroupSpec_ != nullptr && this->ipv6Bandwidth_ != nullptr && this->keyPairId_ != nullptr && this->networkInfoShrink_ != nullptr
         && this->networkType_ != nullptr && this->numberOfInstances_ != nullptr && this->officeSiteId_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr
         && this->policyGroupId_ != nullptr && this->tag_ != nullptr && this->vSwitchId_ != nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
     inline int32_t amount() const { DARABONBA_PTR_GET_DEFAULT(amount_, 0) };
-    inline CreateAndroidInstanceGroupRequest& setAmount(int32_t amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setAmount(int32_t amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
 
 
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
     inline bool autoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
-    inline CreateAndroidInstanceGroupRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
 
 
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
     inline bool autoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
-    inline CreateAndroidInstanceGroupRequest& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
 
 
     // bandwidthPackageId Field Functions 
     bool hasBandwidthPackageId() const { return this->bandwidthPackageId_ != nullptr;};
     void deleteBandwidthPackageId() { this->bandwidthPackageId_ = nullptr;};
     inline string bandwidthPackageId() const { DARABONBA_PTR_GET_DEFAULT(bandwidthPackageId_, "") };
-    inline CreateAndroidInstanceGroupRequest& setBandwidthPackageId(string bandwidthPackageId) { DARABONBA_PTR_SET_VALUE(bandwidthPackageId_, bandwidthPackageId) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setBandwidthPackageId(string bandwidthPackageId) { DARABONBA_PTR_SET_VALUE(bandwidthPackageId_, bandwidthPackageId) };
 
 
     // bandwidthPackageType Field Functions 
     bool hasBandwidthPackageType() const { return this->bandwidthPackageType_ != nullptr;};
     void deleteBandwidthPackageType() { this->bandwidthPackageType_ = nullptr;};
     inline string bandwidthPackageType() const { DARABONBA_PTR_GET_DEFAULT(bandwidthPackageType_, "") };
-    inline CreateAndroidInstanceGroupRequest& setBandwidthPackageType(string bandwidthPackageType) { DARABONBA_PTR_SET_VALUE(bandwidthPackageType_, bandwidthPackageType) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setBandwidthPackageType(string bandwidthPackageType) { DARABONBA_PTR_SET_VALUE(bandwidthPackageType_, bandwidthPackageType) };
 
 
     // bizRegionId Field Functions 
     bool hasBizRegionId() const { return this->bizRegionId_ != nullptr;};
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
     inline string bizRegionId() const { DARABONBA_PTR_GET_DEFAULT(bizRegionId_, "") };
-    inline CreateAndroidInstanceGroupRequest& setBizRegionId(string bizRegionId) { DARABONBA_PTR_SET_VALUE(bizRegionId_, bizRegionId) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setBizRegionId(string bizRegionId) { DARABONBA_PTR_SET_VALUE(bizRegionId_, bizRegionId) };
 
 
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
     inline string chargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
-    inline CreateAndroidInstanceGroupRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
-    inline CreateAndroidInstanceGroupRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // enableIpv6 Field Functions 
     bool hasEnableIpv6() const { return this->enableIpv6_ != nullptr;};
     void deleteEnableIpv6() { this->enableIpv6_ = nullptr;};
     inline bool enableIpv6() const { DARABONBA_PTR_GET_DEFAULT(enableIpv6_, false) };
-    inline CreateAndroidInstanceGroupRequest& setEnableIpv6(bool enableIpv6) { DARABONBA_PTR_SET_VALUE(enableIpv6_, enableIpv6) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setEnableIpv6(bool enableIpv6) { DARABONBA_PTR_SET_VALUE(enableIpv6_, enableIpv6) };
 
 
     // gpuAcceleration Field Functions 
     bool hasGpuAcceleration() const { return this->gpuAcceleration_ != nullptr;};
     void deleteGpuAcceleration() { this->gpuAcceleration_ = nullptr;};
     inline bool gpuAcceleration() const { DARABONBA_PTR_GET_DEFAULT(gpuAcceleration_, false) };
-    inline CreateAndroidInstanceGroupRequest& setGpuAcceleration(bool gpuAcceleration) { DARABONBA_PTR_SET_VALUE(gpuAcceleration_, gpuAcceleration) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setGpuAcceleration(bool gpuAcceleration) { DARABONBA_PTR_SET_VALUE(gpuAcceleration_, gpuAcceleration) };
 
 
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
     inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
-    inline CreateAndroidInstanceGroupRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // instanceGroupName Field Functions 
     bool hasInstanceGroupName() const { return this->instanceGroupName_ != nullptr;};
     void deleteInstanceGroupName() { this->instanceGroupName_ = nullptr;};
     inline string instanceGroupName() const { DARABONBA_PTR_GET_DEFAULT(instanceGroupName_, "") };
-    inline CreateAndroidInstanceGroupRequest& setInstanceGroupName(string instanceGroupName) { DARABONBA_PTR_SET_VALUE(instanceGroupName_, instanceGroupName) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setInstanceGroupName(string instanceGroupName) { DARABONBA_PTR_SET_VALUE(instanceGroupName_, instanceGroupName) };
 
 
     // instanceGroupSpec Field Functions 
     bool hasInstanceGroupSpec() const { return this->instanceGroupSpec_ != nullptr;};
     void deleteInstanceGroupSpec() { this->instanceGroupSpec_ = nullptr;};
     inline string instanceGroupSpec() const { DARABONBA_PTR_GET_DEFAULT(instanceGroupSpec_, "") };
-    inline CreateAndroidInstanceGroupRequest& setInstanceGroupSpec(string instanceGroupSpec) { DARABONBA_PTR_SET_VALUE(instanceGroupSpec_, instanceGroupSpec) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setInstanceGroupSpec(string instanceGroupSpec) { DARABONBA_PTR_SET_VALUE(instanceGroupSpec_, instanceGroupSpec) };
 
 
     // ipv6Bandwidth Field Functions 
     bool hasIpv6Bandwidth() const { return this->ipv6Bandwidth_ != nullptr;};
     void deleteIpv6Bandwidth() { this->ipv6Bandwidth_ = nullptr;};
     inline int32_t ipv6Bandwidth() const { DARABONBA_PTR_GET_DEFAULT(ipv6Bandwidth_, 0) };
-    inline CreateAndroidInstanceGroupRequest& setIpv6Bandwidth(int32_t ipv6Bandwidth) { DARABONBA_PTR_SET_VALUE(ipv6Bandwidth_, ipv6Bandwidth) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setIpv6Bandwidth(int32_t ipv6Bandwidth) { DARABONBA_PTR_SET_VALUE(ipv6Bandwidth_, ipv6Bandwidth) };
 
 
     // keyPairId Field Functions 
     bool hasKeyPairId() const { return this->keyPairId_ != nullptr;};
     void deleteKeyPairId() { this->keyPairId_ = nullptr;};
     inline string keyPairId() const { DARABONBA_PTR_GET_DEFAULT(keyPairId_, "") };
-    inline CreateAndroidInstanceGroupRequest& setKeyPairId(string keyPairId) { DARABONBA_PTR_SET_VALUE(keyPairId_, keyPairId) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setKeyPairId(string keyPairId) { DARABONBA_PTR_SET_VALUE(keyPairId_, keyPairId) };
 
 
-    // networkInfo Field Functions 
-    bool hasNetworkInfo() const { return this->networkInfo_ != nullptr;};
-    void deleteNetworkInfo() { this->networkInfo_ = nullptr;};
-    inline const CreateAndroidInstanceGroupRequestNetworkInfo & networkInfo() const { DARABONBA_PTR_GET_CONST(networkInfo_, CreateAndroidInstanceGroupRequestNetworkInfo) };
-    inline CreateAndroidInstanceGroupRequestNetworkInfo networkInfo() { DARABONBA_PTR_GET(networkInfo_, CreateAndroidInstanceGroupRequestNetworkInfo) };
-    inline CreateAndroidInstanceGroupRequest& setNetworkInfo(const CreateAndroidInstanceGroupRequestNetworkInfo & networkInfo) { DARABONBA_PTR_SET_VALUE(networkInfo_, networkInfo) };
-    inline CreateAndroidInstanceGroupRequest& setNetworkInfo(CreateAndroidInstanceGroupRequestNetworkInfo && networkInfo) { DARABONBA_PTR_SET_RVALUE(networkInfo_, networkInfo) };
+    // networkInfoShrink Field Functions 
+    bool hasNetworkInfoShrink() const { return this->networkInfoShrink_ != nullptr;};
+    void deleteNetworkInfoShrink() { this->networkInfoShrink_ = nullptr;};
+    inline string networkInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(networkInfoShrink_, "") };
+    inline CreateAndroidInstanceGroupShrinkRequest& setNetworkInfoShrink(string networkInfoShrink) { DARABONBA_PTR_SET_VALUE(networkInfoShrink_, networkInfoShrink) };
 
 
     // networkType Field Functions 
     bool hasNetworkType() const { return this->networkType_ != nullptr;};
     void deleteNetworkType() { this->networkType_ = nullptr;};
     inline string networkType() const { DARABONBA_PTR_GET_DEFAULT(networkType_, "") };
-    inline CreateAndroidInstanceGroupRequest& setNetworkType(string networkType) { DARABONBA_PTR_SET_VALUE(networkType_, networkType) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setNetworkType(string networkType) { DARABONBA_PTR_SET_VALUE(networkType_, networkType) };
 
 
     // numberOfInstances Field Functions 
     bool hasNumberOfInstances() const { return this->numberOfInstances_ != nullptr;};
     void deleteNumberOfInstances() { this->numberOfInstances_ = nullptr;};
     inline int32_t numberOfInstances() const { DARABONBA_PTR_GET_DEFAULT(numberOfInstances_, 0) };
-    inline CreateAndroidInstanceGroupRequest& setNumberOfInstances(int32_t numberOfInstances) { DARABONBA_PTR_SET_VALUE(numberOfInstances_, numberOfInstances) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setNumberOfInstances(int32_t numberOfInstances) { DARABONBA_PTR_SET_VALUE(numberOfInstances_, numberOfInstances) };
 
 
     // officeSiteId Field Functions 
     bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
     void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
     inline string officeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
-    inline CreateAndroidInstanceGroupRequest& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
 
 
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
     inline int32_t period() const { DARABONBA_PTR_GET_DEFAULT(period_, 0) };
-    inline CreateAndroidInstanceGroupRequest& setPeriod(int32_t period) { DARABONBA_PTR_SET_VALUE(period_, period) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setPeriod(int32_t period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // periodUnit Field Functions 
     bool hasPeriodUnit() const { return this->periodUnit_ != nullptr;};
     void deletePeriodUnit() { this->periodUnit_ = nullptr;};
     inline string periodUnit() const { DARABONBA_PTR_GET_DEFAULT(periodUnit_, "") };
-    inline CreateAndroidInstanceGroupRequest& setPeriodUnit(string periodUnit) { DARABONBA_PTR_SET_VALUE(periodUnit_, periodUnit) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setPeriodUnit(string periodUnit) { DARABONBA_PTR_SET_VALUE(periodUnit_, periodUnit) };
 
 
     // policyGroupId Field Functions 
     bool hasPolicyGroupId() const { return this->policyGroupId_ != nullptr;};
     void deletePolicyGroupId() { this->policyGroupId_ = nullptr;};
     inline string policyGroupId() const { DARABONBA_PTR_GET_DEFAULT(policyGroupId_, "") };
-    inline CreateAndroidInstanceGroupRequest& setPolicyGroupId(string policyGroupId) { DARABONBA_PTR_SET_VALUE(policyGroupId_, policyGroupId) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setPolicyGroupId(string policyGroupId) { DARABONBA_PTR_SET_VALUE(policyGroupId_, policyGroupId) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<CreateAndroidInstanceGroupRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateAndroidInstanceGroupRequestTag>) };
-    inline vector<CreateAndroidInstanceGroupRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<CreateAndroidInstanceGroupRequestTag>) };
-    inline CreateAndroidInstanceGroupRequest& setTag(const vector<CreateAndroidInstanceGroupRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-    inline CreateAndroidInstanceGroupRequest& setTag(vector<CreateAndroidInstanceGroupRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+    inline const vector<CreateAndroidInstanceGroupShrinkRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateAndroidInstanceGroupShrinkRequestTag>) };
+    inline vector<CreateAndroidInstanceGroupShrinkRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<CreateAndroidInstanceGroupShrinkRequestTag>) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setTag(const vector<CreateAndroidInstanceGroupShrinkRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setTag(vector<CreateAndroidInstanceGroupShrinkRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
     inline string vSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
-    inline CreateAndroidInstanceGroupRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
   protected:
@@ -330,7 +327,7 @@ namespace Models
     // 
     // >  Binding key pairs to cloud phone instances is currently not supported during instance group resizing.
     std::shared_ptr<string> keyPairId_ = nullptr;
-    std::shared_ptr<CreateAndroidInstanceGroupRequestNetworkInfo> networkInfo_ = nullptr;
+    std::shared_ptr<string> networkInfoShrink_ = nullptr;
     std::shared_ptr<string> networkType_ = nullptr;
     // The number of cloud phones in the instance group. Maximum value: 100.
     std::shared_ptr<int32_t> numberOfInstances_ = nullptr;
@@ -352,7 +349,7 @@ namespace Models
     // The ID of the policy. You can call the [ListPolicyGroups](https://help.aliyun.com/document_detail/2807352.html) operation to query policies.
     std::shared_ptr<string> policyGroupId_ = nullptr;
     // The tags
-    std::shared_ptr<vector<CreateAndroidInstanceGroupRequestTag>> tag_ = nullptr;
+    std::shared_ptr<vector<CreateAndroidInstanceGroupShrinkRequestTag>> tag_ = nullptr;
     // The ID of the vSwitch. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/448774.html) operation to query vSwitches.
     // 
     // *   This parameter is not required if you assign a shared network to cloud phones.

@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos.hpp>
+#include <alibabacloud/models/CreateAndroidInstanceGroupResponseBodyNetworkPackageOrderModel.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -17,12 +18,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateAndroidInstanceGroupResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(InstanceGroupIds, instanceGroupIds_);
       DARABONBA_PTR_TO_JSON(InstanceGroupInfos, instanceGroupInfos_);
+      DARABONBA_PTR_TO_JSON(NetworkPackageOrderModel, networkPackageOrderModel_);
       DARABONBA_PTR_TO_JSON(OrderId, orderId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateAndroidInstanceGroupResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceGroupIds, instanceGroupIds_);
       DARABONBA_PTR_FROM_JSON(InstanceGroupInfos, instanceGroupInfos_);
+      DARABONBA_PTR_FROM_JSON(NetworkPackageOrderModel, networkPackageOrderModel_);
       DARABONBA_PTR_FROM_JSON(OrderId, orderId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
@@ -38,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->instanceGroupIds_ != nullptr
-        && this->instanceGroupInfos_ != nullptr && this->orderId_ != nullptr && this->requestId_ != nullptr; };
+        && this->instanceGroupInfos_ != nullptr && this->networkPackageOrderModel_ != nullptr && this->orderId_ != nullptr && this->requestId_ != nullptr; };
     // instanceGroupIds Field Functions 
     bool hasInstanceGroupIds() const { return this->instanceGroupIds_ != nullptr;};
     void deleteInstanceGroupIds() { this->instanceGroupIds_ = nullptr;};
@@ -55,6 +58,15 @@ namespace Models
     inline vector<CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos> instanceGroupInfos() { DARABONBA_PTR_GET(instanceGroupInfos_, vector<CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos>) };
     inline CreateAndroidInstanceGroupResponseBody& setInstanceGroupInfos(const vector<CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos> & instanceGroupInfos) { DARABONBA_PTR_SET_VALUE(instanceGroupInfos_, instanceGroupInfos) };
     inline CreateAndroidInstanceGroupResponseBody& setInstanceGroupInfos(vector<CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos> && instanceGroupInfos) { DARABONBA_PTR_SET_RVALUE(instanceGroupInfos_, instanceGroupInfos) };
+
+
+    // networkPackageOrderModel Field Functions 
+    bool hasNetworkPackageOrderModel() const { return this->networkPackageOrderModel_ != nullptr;};
+    void deleteNetworkPackageOrderModel() { this->networkPackageOrderModel_ = nullptr;};
+    inline const CreateAndroidInstanceGroupResponseBodyNetworkPackageOrderModel & networkPackageOrderModel() const { DARABONBA_PTR_GET_CONST(networkPackageOrderModel_, CreateAndroidInstanceGroupResponseBodyNetworkPackageOrderModel) };
+    inline CreateAndroidInstanceGroupResponseBodyNetworkPackageOrderModel networkPackageOrderModel() { DARABONBA_PTR_GET(networkPackageOrderModel_, CreateAndroidInstanceGroupResponseBodyNetworkPackageOrderModel) };
+    inline CreateAndroidInstanceGroupResponseBody& setNetworkPackageOrderModel(const CreateAndroidInstanceGroupResponseBodyNetworkPackageOrderModel & networkPackageOrderModel) { DARABONBA_PTR_SET_VALUE(networkPackageOrderModel_, networkPackageOrderModel) };
+    inline CreateAndroidInstanceGroupResponseBody& setNetworkPackageOrderModel(CreateAndroidInstanceGroupResponseBodyNetworkPackageOrderModel && networkPackageOrderModel) { DARABONBA_PTR_SET_RVALUE(networkPackageOrderModel_, networkPackageOrderModel) };
 
 
     // orderId Field Functions 
@@ -76,6 +88,7 @@ namespace Models
     std::shared_ptr<vector<string>> instanceGroupIds_ = nullptr;
     // The instance groups.
     std::shared_ptr<vector<CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos>> instanceGroupInfos_ = nullptr;
+    std::shared_ptr<CreateAndroidInstanceGroupResponseBodyNetworkPackageOrderModel> networkPackageOrderModel_ = nullptr;
     // The ID of the order.
     std::shared_ptr<string> orderId_ = nullptr;
     // The ID of the request.

@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Isp, isp_);
       DARABONBA_PTR_TO_JSON(LimitedBandwidth, limitedBandwidth_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
+      DARABONBA_PTR_TO_JSON(VisibleType, visibleType_);
     };
     friend void from_json(const Darabonba::Json& j, CreateCloudPhoneNodeRequestNetworkInfo& obj) { 
       DARABONBA_PTR_FROM_JSON(BandwidthPackageName, bandwidthPackageName_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Isp, isp_);
       DARABONBA_PTR_FROM_JSON(LimitedBandwidth, limitedBandwidth_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
+      DARABONBA_PTR_FROM_JSON(VisibleType, visibleType_);
     };
     CreateCloudPhoneNodeRequestNetworkInfo() = default ;
     CreateCloudPhoneNodeRequestNetworkInfo(const CreateCloudPhoneNodeRequestNetworkInfo &) = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->bandwidthPackageName_ != nullptr
         && this->cidrBlock_ != nullptr && this->internetChargeType_ != nullptr && this->ipRatio_ != nullptr && this->isp_ != nullptr && this->limitedBandwidth_ != nullptr
-        && this->payType_ != nullptr; };
+        && this->payType_ != nullptr && this->visibleType_ != nullptr; };
     // bandwidthPackageName Field Functions 
     bool hasBandwidthPackageName() const { return this->bandwidthPackageName_ != nullptr;};
     void deleteBandwidthPackageName() { this->bandwidthPackageName_ = nullptr;};
@@ -93,6 +95,13 @@ namespace Models
     inline CreateCloudPhoneNodeRequestNetworkInfo& setPayType(string payType) { DARABONBA_PTR_SET_VALUE(payType_, payType) };
 
 
+    // visibleType Field Functions 
+    bool hasVisibleType() const { return this->visibleType_ != nullptr;};
+    void deleteVisibleType() { this->visibleType_ = nullptr;};
+    inline string visibleType() const { DARABONBA_PTR_GET_DEFAULT(visibleType_, "") };
+    inline CreateCloudPhoneNodeRequestNetworkInfo& setVisibleType(string visibleType) { DARABONBA_PTR_SET_VALUE(visibleType_, visibleType) };
+
+
   protected:
     std::shared_ptr<string> bandwidthPackageName_ = nullptr;
     std::shared_ptr<string> cidrBlock_ = nullptr;
@@ -101,6 +110,7 @@ namespace Models
     std::shared_ptr<string> isp_ = nullptr;
     std::shared_ptr<int32_t> limitedBandwidth_ = nullptr;
     std::shared_ptr<string> payType_ = nullptr;
+    std::shared_ptr<string> visibleType_ = nullptr;
   };
 
   } // namespace Models

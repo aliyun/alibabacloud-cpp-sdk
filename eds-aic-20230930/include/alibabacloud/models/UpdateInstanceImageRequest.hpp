@@ -16,10 +16,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateInstanceImageRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
       DARABONBA_PTR_TO_JSON(InstanceIdList, instanceIdList_);
+      DARABONBA_PTR_TO_JSON(Reset, reset_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateInstanceImageRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
       DARABONBA_PTR_FROM_JSON(InstanceIdList, instanceIdList_);
+      DARABONBA_PTR_FROM_JSON(Reset, reset_);
     };
     UpdateInstanceImageRequest() = default ;
     UpdateInstanceImageRequest(const UpdateInstanceImageRequest &) = default ;
@@ -33,7 +35,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->imageId_ != nullptr
-        && this->instanceIdList_ != nullptr; };
+        && this->instanceIdList_ != nullptr && this->reset_ != nullptr; };
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
@@ -50,9 +52,17 @@ namespace Models
     inline UpdateInstanceImageRequest& setInstanceIdList(vector<string> && instanceIdList) { DARABONBA_PTR_SET_RVALUE(instanceIdList_, instanceIdList) };
 
 
+    // reset Field Functions 
+    bool hasReset() const { return this->reset_ != nullptr;};
+    void deleteReset() { this->reset_ = nullptr;};
+    inline bool reset() const { DARABONBA_PTR_GET_DEFAULT(reset_, false) };
+    inline UpdateInstanceImageRequest& setReset(bool reset) { DARABONBA_PTR_SET_VALUE(reset_, reset) };
+
+
   protected:
     std::shared_ptr<string> imageId_ = nullptr;
     std::shared_ptr<vector<string>> instanceIdList_ = nullptr;
+    std::shared_ptr<bool> reset_ = nullptr;
   };
 
   } // namespace Models

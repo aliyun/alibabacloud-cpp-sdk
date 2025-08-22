@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEANDROIDINSTANCEGROUPSREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/DescribeAndroidInstanceGroupsRequestTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_TO_JSON(SaleMode, saleMode_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(Tags, tags_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeAndroidInstanceGroupsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
@@ -36,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_FROM_JSON(SaleMode, saleMode_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(Tags, tags_);
     };
     DescribeAndroidInstanceGroupsRequest() = default ;
     DescribeAndroidInstanceGroupsRequest(const DescribeAndroidInstanceGroupsRequest &) = default ;
@@ -50,7 +53,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->bizRegionId_ != nullptr
         && this->chargeType_ != nullptr && this->instanceGroupIds_ != nullptr && this->instanceGroupName_ != nullptr && this->keyPairId_ != nullptr && this->maxResults_ != nullptr
-        && this->nextToken_ != nullptr && this->policyGroupId_ != nullptr && this->saleMode_ != nullptr && this->status_ != nullptr; };
+        && this->nextToken_ != nullptr && this->policyGroupId_ != nullptr && this->saleMode_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr; };
     // bizRegionId Field Functions 
     bool hasBizRegionId() const { return this->bizRegionId_ != nullptr;};
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
@@ -123,6 +126,15 @@ namespace Models
     inline DescribeAndroidInstanceGroupsRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<DescribeAndroidInstanceGroupsRequestTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<DescribeAndroidInstanceGroupsRequestTags>) };
+    inline vector<DescribeAndroidInstanceGroupsRequestTags> tags() { DARABONBA_PTR_GET(tags_, vector<DescribeAndroidInstanceGroupsRequestTags>) };
+    inline DescribeAndroidInstanceGroupsRequest& setTags(const vector<DescribeAndroidInstanceGroupsRequestTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline DescribeAndroidInstanceGroupsRequest& setTags(vector<DescribeAndroidInstanceGroupsRequestTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
   protected:
     // The ID of the region.
     std::shared_ptr<string> bizRegionId_ = nullptr;
@@ -165,6 +177,7 @@ namespace Models
     // *   UPDATING: The instance group is undergoing an image update.
     // *   CREATING: The instance group is being created.
     std::shared_ptr<string> status_ = nullptr;
+    std::shared_ptr<vector<DescribeAndroidInstanceGroupsRequestTags>> tags_ = nullptr;
   };
 
   } // namespace Models

@@ -145,11 +145,11 @@ namespace EdsAic20230930
        * *   If the billing method of an instance group is PrePaid, AutoPay is set to false by default. In this case, you need to go to [Expenses and Costs](https://usercenter2-intl.aliyun.com/order/list) to manually complete the payment.
        * *   You can also set AutoPay to true based on your business requirements.
        *
-       * @param request CreateAndroidInstanceGroupRequest
+       * @param tmpReq CreateAndroidInstanceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateAndroidInstanceGroupResponse
        */
-      Models::CreateAndroidInstanceGroupResponse createAndroidInstanceGroupWithOptions(const Models::CreateAndroidInstanceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::CreateAndroidInstanceGroupResponse createAndroidInstanceGroupWithOptions(const Models::CreateAndroidInstanceGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Creates pay-as-you-go or subscription instance groups.

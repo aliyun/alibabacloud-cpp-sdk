@@ -64,6 +64,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ServerType, serverType_);
       DARABONBA_PTR_TO_JSON(SessionStatus, sessionStatus_);
       DARABONBA_PTR_TO_JSON(StreamMode, streamMode_);
+      DARABONBA_PTR_TO_JSON(SystemVersion, systemVersion_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(UpBandwidthLimit, upBandwidthLimit_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
@@ -114,6 +115,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ServerType, serverType_);
       DARABONBA_PTR_FROM_JSON(SessionStatus, sessionStatus_);
       DARABONBA_PTR_FROM_JSON(StreamMode, streamMode_);
+      DARABONBA_PTR_FROM_JSON(SystemVersion, systemVersion_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(UpBandwidthLimit, upBandwidthLimit_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
@@ -139,8 +141,8 @@ namespace Models
         && this->memory_ != nullptr && this->networkInterfaceIp_ != nullptr && this->networkInterfaceIpv6Address_ != nullptr && this->networkType_ != nullptr && this->officeSiteId_ != nullptr
         && this->persistentAppInstanceId_ != nullptr && this->phoneDataInfo_ != nullptr && this->policyGroupId_ != nullptr && this->publicIpAddress_ != nullptr && this->publicIpv6Address_ != nullptr
         && this->qosRuleId_ != nullptr && this->rate_ != nullptr && this->regionId_ != nullptr && this->renderingType_ != nullptr && this->serverStatus_ != nullptr
-        && this->serverType_ != nullptr && this->sessionStatus_ != nullptr && this->streamMode_ != nullptr && this->tags_ != nullptr && this->upBandwidthLimit_ != nullptr
-        && this->vSwitchId_ != nullptr && this->zoneId_ != nullptr; };
+        && this->serverType_ != nullptr && this->sessionStatus_ != nullptr && this->streamMode_ != nullptr && this->systemVersion_ != nullptr && this->tags_ != nullptr
+        && this->upBandwidthLimit_ != nullptr && this->vSwitchId_ != nullptr && this->zoneId_ != nullptr; };
     // androidInstanceGroupId Field Functions 
     bool hasAndroidInstanceGroupId() const { return this->androidInstanceGroupId_ != nullptr;};
     void deleteAndroidInstanceGroupId() { this->androidInstanceGroupId_ = nullptr;};
@@ -459,6 +461,13 @@ namespace Models
     inline DescribeAndroidInstancesResponseBodyInstanceModel& setStreamMode(int32_t streamMode) { DARABONBA_PTR_SET_VALUE(streamMode_, streamMode) };
 
 
+    // systemVersion Field Functions 
+    bool hasSystemVersion() const { return this->systemVersion_ != nullptr;};
+    void deleteSystemVersion() { this->systemVersion_ = nullptr;};
+    inline string systemVersion() const { DARABONBA_PTR_GET_DEFAULT(systemVersion_, "") };
+    inline DescribeAndroidInstancesResponseBodyInstanceModel& setSystemVersion(string systemVersion) { DARABONBA_PTR_SET_VALUE(systemVersion_, systemVersion) };
+
+
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
@@ -570,6 +579,7 @@ namespace Models
     // *   connect: The session is connected.
     std::shared_ptr<string> sessionStatus_ = nullptr;
     std::shared_ptr<int32_t> streamMode_ = nullptr;
+    std::shared_ptr<string> systemVersion_ = nullptr;
     // The tags.
     std::shared_ptr<vector<Models::DescribeAndroidInstancesResponseBodyInstanceModelTags>> tags_ = nullptr;
     std::shared_ptr<int32_t> upBandwidthLimit_ = nullptr;
