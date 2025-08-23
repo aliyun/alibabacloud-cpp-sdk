@@ -86,15 +86,12 @@ namespace Models
   protected:
     // This parameter is required.
     std::shared_ptr<string> deviceToken_ = nullptr;
-    // This parameter is required.
     std::shared_ptr<string> mobile_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> productCode_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> regCountry_ = nullptr;
-    // This parameter is required.
     std::shared_ptr<string> text_ = nullptr;
-    // This parameter is required.
     std::shared_ptr<string> verifyType_ = nullptr;
   };
 

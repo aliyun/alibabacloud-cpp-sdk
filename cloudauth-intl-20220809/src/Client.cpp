@@ -1521,6 +1521,10 @@ InitializeResponse Client::initializeWithOptions(const InitializeRequest &tmpReq
     query["DocumentNumber"] = request.documentNumber();
   }
 
+  if (!!request.hasEditOcrResult()) {
+    query["EditOcrResult"] = request.editOcrResult();
+  }
+
   if (!!request.hasExperienceCode()) {
     query["ExperienceCode"] = request.experienceCode();
   }

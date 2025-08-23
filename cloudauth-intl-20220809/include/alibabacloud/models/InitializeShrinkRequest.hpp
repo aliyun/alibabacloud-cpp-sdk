@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DocType, docType_);
       DARABONBA_PTR_TO_JSON(DocVideo, docVideo_);
       DARABONBA_PTR_TO_JSON(DocumentNumber, documentNumber_);
+      DARABONBA_PTR_TO_JSON(EditOcrResult, editOcrResult_);
       DARABONBA_PTR_TO_JSON(ExperienceCode, experienceCode_);
       DARABONBA_PTR_TO_JSON(FacePictureBase64, facePictureBase64_);
       DARABONBA_PTR_TO_JSON(FacePictureUrl, facePictureUrl_);
@@ -70,6 +71,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DocType, docType_);
       DARABONBA_PTR_FROM_JSON(DocVideo, docVideo_);
       DARABONBA_PTR_FROM_JSON(DocumentNumber, documentNumber_);
+      DARABONBA_PTR_FROM_JSON(EditOcrResult, editOcrResult_);
       DARABONBA_PTR_FROM_JSON(ExperienceCode, experienceCode_);
       DARABONBA_PTR_FROM_JSON(FacePictureBase64, facePictureBase64_);
       DARABONBA_PTR_FROM_JSON(FacePictureUrl, facePictureUrl_);
@@ -110,12 +112,12 @@ namespace Models
     virtual bool empty() const override { this->appQualityCheck_ != nullptr
         && this->authorize_ != nullptr && this->callbackToken_ != nullptr && this->callbackUrl_ != nullptr && this->chameleonFrameEnable_ != nullptr && this->crop_ != nullptr
         && this->dateOfBirth_ != nullptr && this->dateOfExpiry_ != nullptr && this->docName_ != nullptr && this->docNo_ != nullptr && this->docPageConfigShrink_ != nullptr
-        && this->docScanMode_ != nullptr && this->docType_ != nullptr && this->docVideo_ != nullptr && this->documentNumber_ != nullptr && this->experienceCode_ != nullptr
-        && this->facePictureBase64_ != nullptr && this->facePictureUrl_ != nullptr && this->idFaceQuality_ != nullptr && this->idSpoof_ != nullptr && this->idThreshold_ != nullptr
-        && this->languageConfig_ != nullptr && this->MRTDInput_ != nullptr && this->merchantBizId_ != nullptr && this->merchantUserId_ != nullptr && this->metaInfo_ != nullptr
-        && this->model_ != nullptr && this->ocr_ != nullptr && this->pages_ != nullptr && this->procedurePriority_ != nullptr && this->productCode_ != nullptr
-        && this->productFlow_ != nullptr && this->returnUrl_ != nullptr && this->sceneCode_ != nullptr && this->securityLevel_ != nullptr && this->showAlbumIcon_ != nullptr
-        && this->showGuidePage_ != nullptr && this->showOcrResult_ != nullptr && this->styleConfig_ != nullptr && this->useNFC_ != nullptr; };
+        && this->docScanMode_ != nullptr && this->docType_ != nullptr && this->docVideo_ != nullptr && this->documentNumber_ != nullptr && this->editOcrResult_ != nullptr
+        && this->experienceCode_ != nullptr && this->facePictureBase64_ != nullptr && this->facePictureUrl_ != nullptr && this->idFaceQuality_ != nullptr && this->idSpoof_ != nullptr
+        && this->idThreshold_ != nullptr && this->languageConfig_ != nullptr && this->MRTDInput_ != nullptr && this->merchantBizId_ != nullptr && this->merchantUserId_ != nullptr
+        && this->metaInfo_ != nullptr && this->model_ != nullptr && this->ocr_ != nullptr && this->pages_ != nullptr && this->procedurePriority_ != nullptr
+        && this->productCode_ != nullptr && this->productFlow_ != nullptr && this->returnUrl_ != nullptr && this->sceneCode_ != nullptr && this->securityLevel_ != nullptr
+        && this->showAlbumIcon_ != nullptr && this->showGuidePage_ != nullptr && this->showOcrResult_ != nullptr && this->styleConfig_ != nullptr && this->useNFC_ != nullptr; };
     // appQualityCheck Field Functions 
     bool hasAppQualityCheck() const { return this->appQualityCheck_ != nullptr;};
     void deleteAppQualityCheck() { this->appQualityCheck_ = nullptr;};
@@ -219,6 +221,13 @@ namespace Models
     void deleteDocumentNumber() { this->documentNumber_ = nullptr;};
     inline string documentNumber() const { DARABONBA_PTR_GET_DEFAULT(documentNumber_, "") };
     inline InitializeShrinkRequest& setDocumentNumber(string documentNumber) { DARABONBA_PTR_SET_VALUE(documentNumber_, documentNumber) };
+
+
+    // editOcrResult Field Functions 
+    bool hasEditOcrResult() const { return this->editOcrResult_ != nullptr;};
+    void deleteEditOcrResult() { this->editOcrResult_ = nullptr;};
+    inline string editOcrResult() const { DARABONBA_PTR_GET_DEFAULT(editOcrResult_, "") };
+    inline InitializeShrinkRequest& setEditOcrResult(string editOcrResult) { DARABONBA_PTR_SET_VALUE(editOcrResult_, editOcrResult) };
 
 
     // experienceCode Field Functions 
@@ -412,6 +421,7 @@ namespace Models
     std::shared_ptr<string> docType_ = nullptr;
     std::shared_ptr<string> docVideo_ = nullptr;
     std::shared_ptr<string> documentNumber_ = nullptr;
+    std::shared_ptr<string> editOcrResult_ = nullptr;
     std::shared_ptr<string> experienceCode_ = nullptr;
     std::shared_ptr<string> facePictureBase64_ = nullptr;
     std::shared_ptr<string> facePictureUrl_ = nullptr;
