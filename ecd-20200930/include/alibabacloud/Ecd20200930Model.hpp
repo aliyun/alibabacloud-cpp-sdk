@@ -986,6 +986,7 @@
 #include <alibabacloud/models/DescribeUsersInGroupResponseBodyEndUsersUserSetPropertiesModels.hpp>
 #include <alibabacloud/models/DescribeUsersInGroupResponseBodyEndUsers.hpp>
 #include <alibabacloud/models/DescribeUsersPasswordResponseBodyDesktopUsers.hpp>
+#include <alibabacloud/models/DescribeVirtualMfadevicesResponseBodyVirtualMfadevicesAdUser.hpp>
 #include <alibabacloud/models/DescribeVirtualMfadevicesResponseBodyVirtualMfadevices.hpp>
 #include <alibabacloud/models/DescribeZonesResponseBodyZones.hpp>
 #include <alibabacloud/models/DisconnectDesktopSessionsRequestSessions.hpp>

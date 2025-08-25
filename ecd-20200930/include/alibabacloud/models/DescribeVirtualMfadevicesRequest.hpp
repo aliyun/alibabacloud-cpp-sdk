@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeVirtualMFADevicesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
+      DARABONBA_PTR_TO_JSON(Filter, filter_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
@@ -22,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeVirtualMFADevicesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
+      DARABONBA_PTR_FROM_JSON(Filter, filter_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
@@ -39,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->endUserId_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->officeSiteId_ != nullptr && this->regionId_ != nullptr; };
+        && this->filter_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->officeSiteId_ != nullptr && this->regionId_ != nullptr; };
     // endUserId Field Functions 
     bool hasEndUserId() const { return this->endUserId_ != nullptr;};
     void deleteEndUserId() { this->endUserId_ = nullptr;};
@@ -47,6 +49,13 @@ namespace Models
     inline vector<string> endUserId() { DARABONBA_PTR_GET(endUserId_, vector<string>) };
     inline DescribeVirtualMFADevicesRequest& setEndUserId(const vector<string> & endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
     inline DescribeVirtualMFADevicesRequest& setEndUserId(vector<string> && endUserId) { DARABONBA_PTR_SET_RVALUE(endUserId_, endUserId) };
+
+
+    // filter Field Functions 
+    bool hasFilter() const { return this->filter_ != nullptr;};
+    void deleteFilter() { this->filter_ = nullptr;};
+    inline string filter() const { DARABONBA_PTR_GET_DEFAULT(filter_, "") };
+    inline DescribeVirtualMFADevicesRequest& setFilter(string filter) { DARABONBA_PTR_SET_VALUE(filter_, filter) };
 
 
     // maxResults Field Functions 
@@ -80,6 +89,7 @@ namespace Models
   protected:
     // The names of the AD users.
     std::shared_ptr<vector<string>> endUserId_ = nullptr;
+    std::shared_ptr<string> filter_ = nullptr;
     // The number of entries per page. Valid values: 1 to 500. Default value: 100.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
     // The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.

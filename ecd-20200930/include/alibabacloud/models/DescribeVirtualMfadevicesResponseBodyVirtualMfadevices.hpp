@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEVIRTUALMFADEVICESRESPONSEBODYVIRTUALMFADEVICES_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEVIRTUALMFADEVICESRESPONSEBODYVIRTUALMFADEVICES_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/DescribeVirtualMFADevicesResponseBodyVirtualMFADevicesAdUser.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -13,6 +14,7 @@ namespace Models
   class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeVirtualMFADevicesResponseBodyVirtualMFADevices& obj) { 
+      DARABONBA_PTR_TO_JSON(AdUser, adUser_);
       DARABONBA_PTR_TO_JSON(ConsecutiveFails, consecutiveFails_);
       DARABONBA_PTR_TO_JSON(DirectoryId, directoryId_);
       DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
@@ -23,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(status, status_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeVirtualMFADevicesResponseBodyVirtualMFADevices& obj) { 
+      DARABONBA_PTR_FROM_JSON(AdUser, adUser_);
       DARABONBA_PTR_FROM_JSON(ConsecutiveFails, consecutiveFails_);
       DARABONBA_PTR_FROM_JSON(DirectoryId, directoryId_);
       DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
@@ -43,9 +46,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->consecutiveFails_ != nullptr
-        && this->directoryId_ != nullptr && this->endUserId_ != nullptr && this->gmtEnabled_ != nullptr && this->gmtUnlock_ != nullptr && this->officeSiteId_ != nullptr
-        && this->serialNumber_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { this->adUser_ != nullptr
+        && this->consecutiveFails_ != nullptr && this->directoryId_ != nullptr && this->endUserId_ != nullptr && this->gmtEnabled_ != nullptr && this->gmtUnlock_ != nullptr
+        && this->officeSiteId_ != nullptr && this->serialNumber_ != nullptr && this->status_ != nullptr; };
+    // adUser Field Functions 
+    bool hasAdUser() const { return this->adUser_ != nullptr;};
+    void deleteAdUser() { this->adUser_ = nullptr;};
+    inline const Models::DescribeVirtualMFADevicesResponseBodyVirtualMFADevicesAdUser & adUser() const { DARABONBA_PTR_GET_CONST(adUser_, Models::DescribeVirtualMFADevicesResponseBodyVirtualMFADevicesAdUser) };
+    inline Models::DescribeVirtualMFADevicesResponseBodyVirtualMFADevicesAdUser adUser() { DARABONBA_PTR_GET(adUser_, Models::DescribeVirtualMFADevicesResponseBodyVirtualMFADevicesAdUser) };
+    inline DescribeVirtualMFADevicesResponseBodyVirtualMFADevices& setAdUser(const Models::DescribeVirtualMFADevicesResponseBodyVirtualMFADevicesAdUser & adUser) { DARABONBA_PTR_SET_VALUE(adUser_, adUser) };
+    inline DescribeVirtualMFADevicesResponseBodyVirtualMFADevices& setAdUser(Models::DescribeVirtualMFADevicesResponseBodyVirtualMFADevicesAdUser && adUser) { DARABONBA_PTR_SET_RVALUE(adUser_, adUser) };
+
+
     // consecutiveFails Field Functions 
     bool hasConsecutiveFails() const { return this->consecutiveFails_ != nullptr;};
     void deleteConsecutiveFails() { this->consecutiveFails_ = nullptr;};
@@ -103,6 +115,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<Models::DescribeVirtualMFADevicesResponseBodyVirtualMFADevicesAdUser> adUser_ = nullptr;
     // The number of consecutive failures to bind the virtual MFA device, or the number of failures on the verification of the virtual MFA device.
     std::shared_ptr<int32_t> consecutiveFails_ = nullptr;
     // > This parameter is in invitational preview and is not publicly available.

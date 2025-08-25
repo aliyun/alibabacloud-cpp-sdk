@@ -11063,6 +11063,10 @@ DescribeVirtualMFADevicesResponse Client::describeVirtualMFADevicesWithOptions(c
     query["EndUserId"] = request.endUserId();
   }
 
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.filter();
+  }
+
   if (!!request.hasMaxResults()) {
     query["MaxResults"] = request.maxResults();
   }
