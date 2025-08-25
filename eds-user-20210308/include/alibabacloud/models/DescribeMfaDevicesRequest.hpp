@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeMfaDevicesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AdDomain, adDomain_);
       DARABONBA_PTR_TO_JSON(EndUserIds, endUserIds_);
+      DARABONBA_PTR_TO_JSON(Filter, filter_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(SerialNumbers, serialNumbers_);
@@ -23,6 +24,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeMfaDevicesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AdDomain, adDomain_);
       DARABONBA_PTR_FROM_JSON(EndUserIds, endUserIds_);
+      DARABONBA_PTR_FROM_JSON(Filter, filter_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(SerialNumbers, serialNumbers_);
@@ -39,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->adDomain_ != nullptr
-        && this->endUserIds_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->serialNumbers_ != nullptr; };
+        && this->endUserIds_ != nullptr && this->filter_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->serialNumbers_ != nullptr; };
     // adDomain Field Functions 
     bool hasAdDomain() const { return this->adDomain_ != nullptr;};
     void deleteAdDomain() { this->adDomain_ = nullptr;};
@@ -54,6 +56,13 @@ namespace Models
     inline vector<string> endUserIds() { DARABONBA_PTR_GET(endUserIds_, vector<string>) };
     inline DescribeMfaDevicesRequest& setEndUserIds(const vector<string> & endUserIds) { DARABONBA_PTR_SET_VALUE(endUserIds_, endUserIds) };
     inline DescribeMfaDevicesRequest& setEndUserIds(vector<string> && endUserIds) { DARABONBA_PTR_SET_RVALUE(endUserIds_, endUserIds) };
+
+
+    // filter Field Functions 
+    bool hasFilter() const { return this->filter_ != nullptr;};
+    void deleteFilter() { this->filter_ = nullptr;};
+    inline string filter() const { DARABONBA_PTR_GET_DEFAULT(filter_, "") };
+    inline DescribeMfaDevicesRequest& setFilter(string filter) { DARABONBA_PTR_SET_VALUE(filter_, filter) };
 
 
     // maxResults Field Functions 
@@ -84,6 +93,7 @@ namespace Models
     std::shared_ptr<string> adDomain_ = nullptr;
     // The usernames of the convenience users.
     std::shared_ptr<vector<string>> endUserIds_ = nullptr;
+    std::shared_ptr<string> filter_ = nullptr;
     // The maximum number of entries to return. Valid values: 1 to 500.\\
     // Default value: 100.
     std::shared_ptr<int64_t> maxResults_ = nullptr;

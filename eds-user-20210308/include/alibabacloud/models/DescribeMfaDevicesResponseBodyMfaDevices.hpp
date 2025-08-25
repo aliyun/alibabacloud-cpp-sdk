@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEMFADEVICESRESPONSEBODYMFADEVICES_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEMFADEVICESRESPONSEBODYMFADEVICES_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/DescribeMfaDevicesResponseBodyMfaDevicesAdUser.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -13,6 +14,7 @@ namespace Models
   class DescribeMfaDevicesResponseBodyMfaDevices : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeMfaDevicesResponseBodyMfaDevices& obj) { 
+      DARABONBA_PTR_TO_JSON(AdUser, adUser_);
       DARABONBA_PTR_TO_JSON(ConsecutiveFails, consecutiveFails_);
       DARABONBA_PTR_TO_JSON(DeviceType, deviceType_);
       DARABONBA_PTR_TO_JSON(Email, email_);
@@ -24,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeMfaDevicesResponseBodyMfaDevices& obj) { 
+      DARABONBA_PTR_FROM_JSON(AdUser, adUser_);
       DARABONBA_PTR_FROM_JSON(ConsecutiveFails, consecutiveFails_);
       DARABONBA_PTR_FROM_JSON(DeviceType, deviceType_);
       DARABONBA_PTR_FROM_JSON(Email, email_);
@@ -45,9 +48,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->consecutiveFails_ != nullptr
-        && this->deviceType_ != nullptr && this->email_ != nullptr && this->endUserId_ != nullptr && this->gmtEnabled_ != nullptr && this->gmtUnlock_ != nullptr
-        && this->id_ != nullptr && this->serialNumber_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { this->adUser_ != nullptr
+        && this->consecutiveFails_ != nullptr && this->deviceType_ != nullptr && this->email_ != nullptr && this->endUserId_ != nullptr && this->gmtEnabled_ != nullptr
+        && this->gmtUnlock_ != nullptr && this->id_ != nullptr && this->serialNumber_ != nullptr && this->status_ != nullptr; };
+    // adUser Field Functions 
+    bool hasAdUser() const { return this->adUser_ != nullptr;};
+    void deleteAdUser() { this->adUser_ = nullptr;};
+    inline const Models::DescribeMfaDevicesResponseBodyMfaDevicesAdUser & adUser() const { DARABONBA_PTR_GET_CONST(adUser_, Models::DescribeMfaDevicesResponseBodyMfaDevicesAdUser) };
+    inline Models::DescribeMfaDevicesResponseBodyMfaDevicesAdUser adUser() { DARABONBA_PTR_GET(adUser_, Models::DescribeMfaDevicesResponseBodyMfaDevicesAdUser) };
+    inline DescribeMfaDevicesResponseBodyMfaDevices& setAdUser(const Models::DescribeMfaDevicesResponseBodyMfaDevicesAdUser & adUser) { DARABONBA_PTR_SET_VALUE(adUser_, adUser) };
+    inline DescribeMfaDevicesResponseBodyMfaDevices& setAdUser(Models::DescribeMfaDevicesResponseBodyMfaDevicesAdUser && adUser) { DARABONBA_PTR_SET_RVALUE(adUser_, adUser) };
+
+
     // consecutiveFails Field Functions 
     bool hasConsecutiveFails() const { return this->consecutiveFails_ != nullptr;};
     void deleteConsecutiveFails() { this->consecutiveFails_ = nullptr;};
@@ -112,6 +124,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<Models::DescribeMfaDevicesResponseBodyMfaDevicesAdUser> adUser_ = nullptr;
     // The number of consecutive failures to bind the virtual MFA device, or the number of authentication failures based on the virtual MFA device.
     std::shared_ptr<int32_t> consecutiveFails_ = nullptr;
     // The type of the virtual MFA device. The value can only be TOTP_VIRTUAL. This value indicates that the virtual MFA device follows the Time-based One-time Password (TOTP) algorithm.

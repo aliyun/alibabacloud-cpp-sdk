@@ -150,6 +150,7 @@
 #include <alibabacloud/models/DescribeGroupUserResponseBodyGroups.hpp>
 #include <alibabacloud/models/DescribeGroupUserResponseBodyUsers.hpp>
 #include <alibabacloud/models/DescribeGroupsResponseBodyGroups.hpp>
+#include <alibabacloud/models/DescribeMfaDevicesResponseBodyMfaDevicesAdUser.hpp>
 #include <alibabacloud/models/DescribeMfaDevicesResponseBodyMfaDevices.hpp>
 #include <alibabacloud/models/DescribeOrgByLayerResponseBodyOrgs.hpp>
 #include <alibabacloud/models/DescribeOrgsResponseBodyOrgs.hpp>

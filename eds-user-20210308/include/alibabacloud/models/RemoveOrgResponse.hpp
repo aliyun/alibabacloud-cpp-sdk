@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_REMOVEORGRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/RemoveOrgResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

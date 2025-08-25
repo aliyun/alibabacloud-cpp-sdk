@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_WAIDPERMISSIONS_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/EdsUser20210308.hpp>
+#include <alibabacloud/models/WaIdPermissions.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

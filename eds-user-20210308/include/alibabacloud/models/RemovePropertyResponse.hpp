@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_REMOVEPROPERTYRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/RemovePropertyResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
