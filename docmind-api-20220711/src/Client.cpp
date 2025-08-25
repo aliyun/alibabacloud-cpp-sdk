@@ -1576,12 +1576,18 @@ SubmitDigitalDocStructureJobResponse Client::submitDigitalDocStructureJobAdvance
 /**
  * @summary 文档智能解析流式输出
  *
- * @param request SubmitDocParserJobRequest
+ * @param tmpReq SubmitDocParserJobRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SubmitDocParserJobResponse
  */
-SubmitDocParserJobResponse Client::submitDocParserJobWithOptions(const SubmitDocParserJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+SubmitDocParserJobResponse Client::submitDocParserJobWithOptions(const SubmitDocParserJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SubmitDocParserJobShrinkRequest request = SubmitDocParserJobShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasMultimediaParameters()) {
+    request.setMultimediaParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.multimediaParameters(), "MultimediaParameters", "json"));
+  }
+
   json query = {};
   if (!!request.hasEnhancementMode()) {
     query["EnhancementMode"] = request.enhancementMode();
@@ -1605,6 +1611,10 @@ SubmitDocParserJobResponse Client::submitDocParserJobWithOptions(const SubmitDoc
 
   if (!!request.hasLlmEnhancement()) {
     query["LlmEnhancement"] = request.llmEnhancement();
+  }
+
+  if (!!request.hasMultimediaParametersShrink()) {
+    query["MultimediaParameters"] = request.multimediaParametersShrink();
   }
 
   if (!!request.hasOption()) {

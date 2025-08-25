@@ -1,8 +1,7 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_SUBMITDOCPARSERJOBREQUEST_HPP_
-#define ALIBABACLOUD_MODELS_SUBMITDOCPARSERJOBREQUEST_HPP_
+#ifndef ALIBABACLOUD_MODELS_SUBMITDOCPARSERJOBSHRINKREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_SUBMITDOCPARSERJOBSHRINKREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/SubmitDocParserJobRequestMultimediaParameters.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -11,135 +10,133 @@ namespace DocmindApi20220711
 {
 namespace Models
 {
-  class SubmitDocParserJobRequest : public Darabonba::Model {
+  class SubmitDocParserJobShrinkRequest : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const SubmitDocParserJobRequest& obj) { 
+    friend void to_json(Darabonba::Json& j, const SubmitDocParserJobShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(EnhancementMode, enhancementMode_);
       DARABONBA_PTR_TO_JSON(FileName, fileName_);
       DARABONBA_PTR_TO_JSON(FileNameExtension, fileNameExtension_);
       DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_TO_JSON(FormulaEnhancement, formulaEnhancement_);
       DARABONBA_PTR_TO_JSON(LlmEnhancement, llmEnhancement_);
-      DARABONBA_PTR_TO_JSON(MultimediaParameters, multimediaParameters_);
+      DARABONBA_PTR_TO_JSON(MultimediaParameters, multimediaParametersShrink_);
       DARABONBA_PTR_TO_JSON(Option, option_);
       DARABONBA_PTR_TO_JSON(OssBucket, ossBucket_);
       DARABONBA_PTR_TO_JSON(OssEndpoint, ossEndpoint_);
       DARABONBA_PTR_TO_JSON(OutputHtmlTable, outputHtmlTable_);
       DARABONBA_PTR_TO_JSON(PageIndex, pageIndex_);
     };
-    friend void from_json(const Darabonba::Json& j, SubmitDocParserJobRequest& obj) { 
+    friend void from_json(const Darabonba::Json& j, SubmitDocParserJobShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EnhancementMode, enhancementMode_);
       DARABONBA_PTR_FROM_JSON(FileName, fileName_);
       DARABONBA_PTR_FROM_JSON(FileNameExtension, fileNameExtension_);
       DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_FROM_JSON(FormulaEnhancement, formulaEnhancement_);
       DARABONBA_PTR_FROM_JSON(LlmEnhancement, llmEnhancement_);
-      DARABONBA_PTR_FROM_JSON(MultimediaParameters, multimediaParameters_);
+      DARABONBA_PTR_FROM_JSON(MultimediaParameters, multimediaParametersShrink_);
       DARABONBA_PTR_FROM_JSON(Option, option_);
       DARABONBA_PTR_FROM_JSON(OssBucket, ossBucket_);
       DARABONBA_PTR_FROM_JSON(OssEndpoint, ossEndpoint_);
       DARABONBA_PTR_FROM_JSON(OutputHtmlTable, outputHtmlTable_);
       DARABONBA_PTR_FROM_JSON(PageIndex, pageIndex_);
     };
-    SubmitDocParserJobRequest() = default ;
-    SubmitDocParserJobRequest(const SubmitDocParserJobRequest &) = default ;
-    SubmitDocParserJobRequest(SubmitDocParserJobRequest &&) = default ;
-    SubmitDocParserJobRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~SubmitDocParserJobRequest() = default ;
-    SubmitDocParserJobRequest& operator=(const SubmitDocParserJobRequest &) = default ;
-    SubmitDocParserJobRequest& operator=(SubmitDocParserJobRequest &&) = default ;
+    SubmitDocParserJobShrinkRequest() = default ;
+    SubmitDocParserJobShrinkRequest(const SubmitDocParserJobShrinkRequest &) = default ;
+    SubmitDocParserJobShrinkRequest(SubmitDocParserJobShrinkRequest &&) = default ;
+    SubmitDocParserJobShrinkRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~SubmitDocParserJobShrinkRequest() = default ;
+    SubmitDocParserJobShrinkRequest& operator=(const SubmitDocParserJobShrinkRequest &) = default ;
+    SubmitDocParserJobShrinkRequest& operator=(SubmitDocParserJobShrinkRequest &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->enhancementMode_ != nullptr
         && this->fileName_ != nullptr && this->fileNameExtension_ != nullptr && this->fileUrl_ != nullptr && this->formulaEnhancement_ != nullptr && this->llmEnhancement_ != nullptr
-        && this->multimediaParameters_ != nullptr && this->option_ != nullptr && this->ossBucket_ != nullptr && this->ossEndpoint_ != nullptr && this->outputHtmlTable_ != nullptr
+        && this->multimediaParametersShrink_ != nullptr && this->option_ != nullptr && this->ossBucket_ != nullptr && this->ossEndpoint_ != nullptr && this->outputHtmlTable_ != nullptr
         && this->pageIndex_ != nullptr; };
     // enhancementMode Field Functions 
     bool hasEnhancementMode() const { return this->enhancementMode_ != nullptr;};
     void deleteEnhancementMode() { this->enhancementMode_ = nullptr;};
     inline string enhancementMode() const { DARABONBA_PTR_GET_DEFAULT(enhancementMode_, "") };
-    inline SubmitDocParserJobRequest& setEnhancementMode(string enhancementMode) { DARABONBA_PTR_SET_VALUE(enhancementMode_, enhancementMode) };
+    inline SubmitDocParserJobShrinkRequest& setEnhancementMode(string enhancementMode) { DARABONBA_PTR_SET_VALUE(enhancementMode_, enhancementMode) };
 
 
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
     inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
-    inline SubmitDocParserJobRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
+    inline SubmitDocParserJobShrinkRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // fileNameExtension Field Functions 
     bool hasFileNameExtension() const { return this->fileNameExtension_ != nullptr;};
     void deleteFileNameExtension() { this->fileNameExtension_ = nullptr;};
     inline string fileNameExtension() const { DARABONBA_PTR_GET_DEFAULT(fileNameExtension_, "") };
-    inline SubmitDocParserJobRequest& setFileNameExtension(string fileNameExtension) { DARABONBA_PTR_SET_VALUE(fileNameExtension_, fileNameExtension) };
+    inline SubmitDocParserJobShrinkRequest& setFileNameExtension(string fileNameExtension) { DARABONBA_PTR_SET_VALUE(fileNameExtension_, fileNameExtension) };
 
 
     // fileUrl Field Functions 
     bool hasFileUrl() const { return this->fileUrl_ != nullptr;};
     void deleteFileUrl() { this->fileUrl_ = nullptr;};
     inline string fileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
-    inline SubmitDocParserJobRequest& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
+    inline SubmitDocParserJobShrinkRequest& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
 
 
     // formulaEnhancement Field Functions 
     bool hasFormulaEnhancement() const { return this->formulaEnhancement_ != nullptr;};
     void deleteFormulaEnhancement() { this->formulaEnhancement_ = nullptr;};
     inline bool formulaEnhancement() const { DARABONBA_PTR_GET_DEFAULT(formulaEnhancement_, false) };
-    inline SubmitDocParserJobRequest& setFormulaEnhancement(bool formulaEnhancement) { DARABONBA_PTR_SET_VALUE(formulaEnhancement_, formulaEnhancement) };
+    inline SubmitDocParserJobShrinkRequest& setFormulaEnhancement(bool formulaEnhancement) { DARABONBA_PTR_SET_VALUE(formulaEnhancement_, formulaEnhancement) };
 
 
     // llmEnhancement Field Functions 
     bool hasLlmEnhancement() const { return this->llmEnhancement_ != nullptr;};
     void deleteLlmEnhancement() { this->llmEnhancement_ = nullptr;};
     inline bool llmEnhancement() const { DARABONBA_PTR_GET_DEFAULT(llmEnhancement_, false) };
-    inline SubmitDocParserJobRequest& setLlmEnhancement(bool llmEnhancement) { DARABONBA_PTR_SET_VALUE(llmEnhancement_, llmEnhancement) };
+    inline SubmitDocParserJobShrinkRequest& setLlmEnhancement(bool llmEnhancement) { DARABONBA_PTR_SET_VALUE(llmEnhancement_, llmEnhancement) };
 
 
-    // multimediaParameters Field Functions 
-    bool hasMultimediaParameters() const { return this->multimediaParameters_ != nullptr;};
-    void deleteMultimediaParameters() { this->multimediaParameters_ = nullptr;};
-    inline const SubmitDocParserJobRequestMultimediaParameters & multimediaParameters() const { DARABONBA_PTR_GET_CONST(multimediaParameters_, SubmitDocParserJobRequestMultimediaParameters) };
-    inline SubmitDocParserJobRequestMultimediaParameters multimediaParameters() { DARABONBA_PTR_GET(multimediaParameters_, SubmitDocParserJobRequestMultimediaParameters) };
-    inline SubmitDocParserJobRequest& setMultimediaParameters(const SubmitDocParserJobRequestMultimediaParameters & multimediaParameters) { DARABONBA_PTR_SET_VALUE(multimediaParameters_, multimediaParameters) };
-    inline SubmitDocParserJobRequest& setMultimediaParameters(SubmitDocParserJobRequestMultimediaParameters && multimediaParameters) { DARABONBA_PTR_SET_RVALUE(multimediaParameters_, multimediaParameters) };
+    // multimediaParametersShrink Field Functions 
+    bool hasMultimediaParametersShrink() const { return this->multimediaParametersShrink_ != nullptr;};
+    void deleteMultimediaParametersShrink() { this->multimediaParametersShrink_ = nullptr;};
+    inline string multimediaParametersShrink() const { DARABONBA_PTR_GET_DEFAULT(multimediaParametersShrink_, "") };
+    inline SubmitDocParserJobShrinkRequest& setMultimediaParametersShrink(string multimediaParametersShrink) { DARABONBA_PTR_SET_VALUE(multimediaParametersShrink_, multimediaParametersShrink) };
 
 
     // option Field Functions 
     bool hasOption() const { return this->option_ != nullptr;};
     void deleteOption() { this->option_ = nullptr;};
     inline string option() const { DARABONBA_PTR_GET_DEFAULT(option_, "") };
-    inline SubmitDocParserJobRequest& setOption(string option) { DARABONBA_PTR_SET_VALUE(option_, option) };
+    inline SubmitDocParserJobShrinkRequest& setOption(string option) { DARABONBA_PTR_SET_VALUE(option_, option) };
 
 
     // ossBucket Field Functions 
     bool hasOssBucket() const { return this->ossBucket_ != nullptr;};
     void deleteOssBucket() { this->ossBucket_ = nullptr;};
     inline string ossBucket() const { DARABONBA_PTR_GET_DEFAULT(ossBucket_, "") };
-    inline SubmitDocParserJobRequest& setOssBucket(string ossBucket) { DARABONBA_PTR_SET_VALUE(ossBucket_, ossBucket) };
+    inline SubmitDocParserJobShrinkRequest& setOssBucket(string ossBucket) { DARABONBA_PTR_SET_VALUE(ossBucket_, ossBucket) };
 
 
     // ossEndpoint Field Functions 
     bool hasOssEndpoint() const { return this->ossEndpoint_ != nullptr;};
     void deleteOssEndpoint() { this->ossEndpoint_ = nullptr;};
     inline string ossEndpoint() const { DARABONBA_PTR_GET_DEFAULT(ossEndpoint_, "") };
-    inline SubmitDocParserJobRequest& setOssEndpoint(string ossEndpoint) { DARABONBA_PTR_SET_VALUE(ossEndpoint_, ossEndpoint) };
+    inline SubmitDocParserJobShrinkRequest& setOssEndpoint(string ossEndpoint) { DARABONBA_PTR_SET_VALUE(ossEndpoint_, ossEndpoint) };
 
 
     // outputHtmlTable Field Functions 
     bool hasOutputHtmlTable() const { return this->outputHtmlTable_ != nullptr;};
     void deleteOutputHtmlTable() { this->outputHtmlTable_ = nullptr;};
     inline bool outputHtmlTable() const { DARABONBA_PTR_GET_DEFAULT(outputHtmlTable_, false) };
-    inline SubmitDocParserJobRequest& setOutputHtmlTable(bool outputHtmlTable) { DARABONBA_PTR_SET_VALUE(outputHtmlTable_, outputHtmlTable) };
+    inline SubmitDocParserJobShrinkRequest& setOutputHtmlTable(bool outputHtmlTable) { DARABONBA_PTR_SET_VALUE(outputHtmlTable_, outputHtmlTable) };
 
 
     // pageIndex Field Functions 
     bool hasPageIndex() const { return this->pageIndex_ != nullptr;};
     void deletePageIndex() { this->pageIndex_ = nullptr;};
     inline string pageIndex() const { DARABONBA_PTR_GET_DEFAULT(pageIndex_, "") };
-    inline SubmitDocParserJobRequest& setPageIndex(string pageIndex) { DARABONBA_PTR_SET_VALUE(pageIndex_, pageIndex) };
+    inline SubmitDocParserJobShrinkRequest& setPageIndex(string pageIndex) { DARABONBA_PTR_SET_VALUE(pageIndex_, pageIndex) };
 
 
   protected:
@@ -149,7 +146,7 @@ namespace Models
     std::shared_ptr<string> fileUrl_ = nullptr;
     std::shared_ptr<bool> formulaEnhancement_ = nullptr;
     std::shared_ptr<bool> llmEnhancement_ = nullptr;
-    std::shared_ptr<SubmitDocParserJobRequestMultimediaParameters> multimediaParameters_ = nullptr;
+    std::shared_ptr<string> multimediaParametersShrink_ = nullptr;
     std::shared_ptr<string> option_ = nullptr;
     std::shared_ptr<string> ossBucket_ = nullptr;
     std::shared_ptr<string> ossEndpoint_ = nullptr;

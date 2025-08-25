@@ -341,11 +341,11 @@ namespace DocmindApi20220711
       /**
        * @summary 文档智能解析流式输出
        *
-       * @param request SubmitDocParserJobRequest
+       * @param tmpReq SubmitDocParserJobRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SubmitDocParserJobResponse
        */
-      Models::SubmitDocParserJobResponse submitDocParserJobWithOptions(const Models::SubmitDocParserJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::SubmitDocParserJobResponse submitDocParserJobWithOptions(const Models::SubmitDocParserJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 文档智能解析流式输出

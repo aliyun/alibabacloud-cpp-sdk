@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_SUBMITDOCPARSERJOBADVANCEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_SUBMITDOCPARSERJOBADVANCEREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/SubmitDocParserJobAdvanceRequestMultimediaParameters.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,6 +20,7 @@ namespace Models
       DARABONBA_TO_JSON(FileUrl, fileUrlObject_);
       DARABONBA_PTR_TO_JSON(FormulaEnhancement, formulaEnhancement_);
       DARABONBA_PTR_TO_JSON(LlmEnhancement, llmEnhancement_);
+      DARABONBA_PTR_TO_JSON(MultimediaParameters, multimediaParameters_);
       DARABONBA_PTR_TO_JSON(Option, option_);
       DARABONBA_PTR_TO_JSON(OssBucket, ossBucket_);
       DARABONBA_PTR_TO_JSON(OssEndpoint, ossEndpoint_);
@@ -32,6 +34,7 @@ namespace Models
       DARABONBA_FROM_JSON(FileUrl, fileUrlObject_);
       DARABONBA_PTR_FROM_JSON(FormulaEnhancement, formulaEnhancement_);
       DARABONBA_PTR_FROM_JSON(LlmEnhancement, llmEnhancement_);
+      DARABONBA_PTR_FROM_JSON(MultimediaParameters, multimediaParameters_);
       DARABONBA_PTR_FROM_JSON(Option, option_);
       DARABONBA_PTR_FROM_JSON(OssBucket, ossBucket_);
       DARABONBA_PTR_FROM_JSON(OssEndpoint, ossEndpoint_);
@@ -51,7 +54,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->enhancementMode_ != nullptr
         && this->fileName_ != nullptr && this->fileNameExtension_ != nullptr && this->fileUrlObject_ != nullptr && this->formulaEnhancement_ != nullptr && this->llmEnhancement_ != nullptr
-        && this->option_ != nullptr && this->ossBucket_ != nullptr && this->ossEndpoint_ != nullptr && this->outputHtmlTable_ != nullptr && this->pageIndex_ != nullptr; };
+        && this->multimediaParameters_ != nullptr && this->option_ != nullptr && this->ossBucket_ != nullptr && this->ossEndpoint_ != nullptr && this->outputHtmlTable_ != nullptr
+        && this->pageIndex_ != nullptr; };
     // enhancementMode Field Functions 
     bool hasEnhancementMode() const { return this->enhancementMode_ != nullptr;};
     void deleteEnhancementMode() { this->enhancementMode_ = nullptr;};
@@ -92,6 +96,15 @@ namespace Models
     void deleteLlmEnhancement() { this->llmEnhancement_ = nullptr;};
     inline bool llmEnhancement() const { DARABONBA_PTR_GET_DEFAULT(llmEnhancement_, false) };
     inline SubmitDocParserJobAdvanceRequest& setLlmEnhancement(bool llmEnhancement) { DARABONBA_PTR_SET_VALUE(llmEnhancement_, llmEnhancement) };
+
+
+    // multimediaParameters Field Functions 
+    bool hasMultimediaParameters() const { return this->multimediaParameters_ != nullptr;};
+    void deleteMultimediaParameters() { this->multimediaParameters_ = nullptr;};
+    inline const SubmitDocParserJobAdvanceRequestMultimediaParameters & multimediaParameters() const { DARABONBA_PTR_GET_CONST(multimediaParameters_, SubmitDocParserJobAdvanceRequestMultimediaParameters) };
+    inline SubmitDocParserJobAdvanceRequestMultimediaParameters multimediaParameters() { DARABONBA_PTR_GET(multimediaParameters_, SubmitDocParserJobAdvanceRequestMultimediaParameters) };
+    inline SubmitDocParserJobAdvanceRequest& setMultimediaParameters(const SubmitDocParserJobAdvanceRequestMultimediaParameters & multimediaParameters) { DARABONBA_PTR_SET_VALUE(multimediaParameters_, multimediaParameters) };
+    inline SubmitDocParserJobAdvanceRequest& setMultimediaParameters(SubmitDocParserJobAdvanceRequestMultimediaParameters && multimediaParameters) { DARABONBA_PTR_SET_RVALUE(multimediaParameters_, multimediaParameters) };
 
 
     // option Field Functions 
@@ -136,6 +149,7 @@ namespace Models
     shared_ptr<Darabonba::IStream> fileUrlObject_ = nullptr;
     std::shared_ptr<bool> formulaEnhancement_ = nullptr;
     std::shared_ptr<bool> llmEnhancement_ = nullptr;
+    std::shared_ptr<SubmitDocParserJobAdvanceRequestMultimediaParameters> multimediaParameters_ = nullptr;
     std::shared_ptr<string> option_ = nullptr;
     std::shared_ptr<string> ossBucket_ = nullptr;
     std::shared_ptr<string> ossEndpoint_ = nullptr;
