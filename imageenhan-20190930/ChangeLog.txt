@@ -1,3 +1,6 @@
+2025-08-25 Version: 1.1.1
+- Generated cpp 2019-09-30 for imageenhan.
+
 2024-02-20 Version: 1.1.0
 - Support API GenerateSuperResolutionImage.
 - Update API GenerateCartoonizedImage: update param ImageType.
