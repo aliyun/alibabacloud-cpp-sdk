@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DELETEPREFIXLISTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DeletePrefixListResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

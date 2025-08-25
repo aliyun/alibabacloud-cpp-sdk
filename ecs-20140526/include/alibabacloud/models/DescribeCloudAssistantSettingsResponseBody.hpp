@@ -93,6 +93,7 @@ namespace Models
     std::shared_ptr<DescribeCloudAssistantSettingsResponseBodyOssDeliveryConfigs> ossDeliveryConfigs_ = nullptr;
     // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Cloud Assistant Session Manager configuration.
     std::shared_ptr<DescribeCloudAssistantSettingsResponseBodySessionManagerConfig> sessionManagerConfig_ = nullptr;
     // The configurations for delivering items to Simple Log Service.
     std::shared_ptr<DescribeCloudAssistantSettingsResponseBodySlsDeliveryConfigs> slsDeliveryConfigs_ = nullptr;

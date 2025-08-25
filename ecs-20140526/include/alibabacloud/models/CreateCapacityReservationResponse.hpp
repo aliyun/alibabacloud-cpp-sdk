@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATECAPACITYRESERVATIONRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateCapacityReservationResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

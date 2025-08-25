@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATENETWORKINTERFACEPERMISSIONRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateNetworkInterfacePermissionResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

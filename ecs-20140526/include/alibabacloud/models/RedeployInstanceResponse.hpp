@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_REDEPLOYINSTANCERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/RedeployInstanceResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

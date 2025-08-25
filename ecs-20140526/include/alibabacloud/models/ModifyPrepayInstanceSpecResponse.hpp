@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYPREPAYINSTANCESPECRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ModifyPrepayInstanceSpecResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

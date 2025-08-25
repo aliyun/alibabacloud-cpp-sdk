@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_RENEWDEDICATEDHOSTSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/RenewDedicatedHostsResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

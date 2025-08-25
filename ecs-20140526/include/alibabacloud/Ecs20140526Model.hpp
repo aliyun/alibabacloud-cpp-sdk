@@ -851,6 +851,9 @@
 #include <alibabacloud/models/ModifyInstanceChargeTypeRequest.hpp>
 #include <alibabacloud/models/ModifyInstanceChargeTypeResponseBody.hpp>
 #include <alibabacloud/models/ModifyInstanceChargeTypeResponse.hpp>
+#include <alibabacloud/models/ModifyInstanceClockOptionsRequest.hpp>
+#include <alibabacloud/models/ModifyInstanceClockOptionsResponseBody.hpp>
+#include <alibabacloud/models/ModifyInstanceClockOptionsResponse.hpp>
 #include <alibabacloud/models/ModifyInstanceDeploymentRequest.hpp>
 #include <alibabacloud/models/ModifyInstanceDeploymentResponseBody.hpp>
 #include <alibabacloud/models/ModifyInstanceDeploymentResponse.hpp>
@@ -1531,6 +1534,10 @@
 #include <alibabacloud/models/DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeEnhancedNetwork.hpp>
 #include <alibabacloud/models/DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkCardsNetworkCardInfo.hpp>
 #include <alibabacloud/models/DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkCards.hpp>
+#include <alibabacloud/models/DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfoBandwidthWeightingWeightingInfosWeightingInfo.hpp>
+#include <alibabacloud/models/DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfoBandwidthWeightingWeightingInfos.hpp>
+#include <alibabacloud/models/DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfoBandwidthWeighting.hpp>
+#include <alibabacloud/models/DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfo.hpp>
 #include <alibabacloud/models/DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeSupportedBootModes.hpp>
 #include <alibabacloud/models/DescribeInstanceTypesResponseBodyInstanceTypesInstanceType.hpp>
 #include <alibabacloud/models/DescribeInstanceTypesResponseBodyInstanceTypes.hpp>
@@ -1752,6 +1759,7 @@
 #include <alibabacloud/models/DescribeSavingsPlanPriceResponseBodyPriceInfo.hpp>
 #include <alibabacloud/models/DescribeSecurityGroupAttributeResponseBodyPermissionsPermission.hpp>
 #include <alibabacloud/models/DescribeSecurityGroupAttributeResponseBodyPermissions.hpp>
+#include <alibabacloud/models/DescribeSecurityGroupAttributeResponseBodySnapshotPolicyIds.hpp>
 #include <alibabacloud/models/DescribeSecurityGroupReferencesResponseBodySecurityGroupReferencesSecurityGroupReferenceReferencingSecurityGroupsReferencingSecurityGroup.hpp>
 #include <alibabacloud/models/DescribeSecurityGroupReferencesResponseBodySecurityGroupReferencesSecurityGroupReferenceReferencingSecurityGroups.hpp>
 #include <alibabacloud/models/DescribeSecurityGroupReferencesResponseBodySecurityGroupReferencesSecurityGroupReference.hpp>

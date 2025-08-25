@@ -145,6 +145,7 @@ namespace Models
     std::shared_ptr<string> regionId_ = nullptr;
     std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    // Cloud Assistant Session Manager configuration.
     std::shared_ptr<ModifyCloudAssistantSettingsRequestSessionManagerConfig> sessionManagerConfig_ = nullptr;
     // The Cloud Assistant feature. Valid values:
     // 

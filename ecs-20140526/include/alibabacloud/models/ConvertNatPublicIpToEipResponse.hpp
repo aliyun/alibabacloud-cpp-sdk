@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CONVERTNATPUBLICIPTOEIPRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ConvertNatPublicIpToEipResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

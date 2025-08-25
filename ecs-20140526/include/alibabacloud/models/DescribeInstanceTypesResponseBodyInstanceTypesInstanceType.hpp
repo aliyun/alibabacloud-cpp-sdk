@@ -7,6 +7,7 @@
 #include <alibabacloud/models/DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeCpuOptions.hpp>
 #include <alibabacloud/models/DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeEnhancedNetwork.hpp>
 #include <alibabacloud/models/DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkCards.hpp>
+#include <alibabacloud/models/DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfo.hpp>
 #include <alibabacloud/models/DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeSupportedBootModes.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -56,6 +57,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NetworkCardQuantity, networkCardQuantity_);
       DARABONBA_PTR_TO_JSON(NetworkCards, networkCards_);
       DARABONBA_PTR_TO_JSON(NetworkEncryptionSupport, networkEncryptionSupport_);
+      DARABONBA_PTR_TO_JSON(NetworkInfo, networkInfo_);
       DARABONBA_PTR_TO_JSON(NvmeSupport, nvmeSupport_);
       DARABONBA_PTR_TO_JSON(PhysicalProcessorModel, physicalProcessorModel_);
       DARABONBA_PTR_TO_JSON(PrimaryEniQueueNumber, primaryEniQueueNumber_);
@@ -102,6 +104,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NetworkCardQuantity, networkCardQuantity_);
       DARABONBA_PTR_FROM_JSON(NetworkCards, networkCards_);
       DARABONBA_PTR_FROM_JSON(NetworkEncryptionSupport, networkEncryptionSupport_);
+      DARABONBA_PTR_FROM_JSON(NetworkInfo, networkInfo_);
       DARABONBA_PTR_FROM_JSON(NvmeSupport, nvmeSupport_);
       DARABONBA_PTR_FROM_JSON(PhysicalProcessorModel, physicalProcessorModel_);
       DARABONBA_PTR_FROM_JSON(PrimaryEniQueueNumber, primaryEniQueueNumber_);
@@ -129,8 +132,8 @@ namespace Models
         && this->instanceBandwidthTx_ != nullptr && this->instanceCategory_ != nullptr && this->instanceFamilyLevel_ != nullptr && this->instancePpsRx_ != nullptr && this->instancePpsTx_ != nullptr
         && this->instanceTypeFamily_ != nullptr && this->instanceTypeId_ != nullptr && this->jumboFrameSupport_ != nullptr && this->localStorageAmount_ != nullptr && this->localStorageCapacity_ != nullptr
         && this->localStorageCategory_ != nullptr && this->maximumQueueNumberPerEni_ != nullptr && this->memorySize_ != nullptr && this->networkCardQuantity_ != nullptr && this->networkCards_ != nullptr
-        && this->networkEncryptionSupport_ != nullptr && this->nvmeSupport_ != nullptr && this->physicalProcessorModel_ != nullptr && this->primaryEniQueueNumber_ != nullptr && this->queuePairNumber_ != nullptr
-        && this->secondaryEniQueueNumber_ != nullptr && this->supportedBootModes_ != nullptr && this->totalEniQueueQuantity_ != nullptr; };
+        && this->networkEncryptionSupport_ != nullptr && this->networkInfo_ != nullptr && this->nvmeSupport_ != nullptr && this->physicalProcessorModel_ != nullptr && this->primaryEniQueueNumber_ != nullptr
+        && this->queuePairNumber_ != nullptr && this->secondaryEniQueueNumber_ != nullptr && this->supportedBootModes_ != nullptr && this->totalEniQueueQuantity_ != nullptr; };
     // attributes Field Functions 
     bool hasAttributes() const { return this->attributes_ != nullptr;};
     void deleteAttributes() { this->attributes_ = nullptr;};
@@ -400,6 +403,15 @@ namespace Models
     inline DescribeInstanceTypesResponseBodyInstanceTypesInstanceType& setNetworkEncryptionSupport(bool networkEncryptionSupport) { DARABONBA_PTR_SET_VALUE(networkEncryptionSupport_, networkEncryptionSupport) };
 
 
+    // networkInfo Field Functions 
+    bool hasNetworkInfo() const { return this->networkInfo_ != nullptr;};
+    void deleteNetworkInfo() { this->networkInfo_ = nullptr;};
+    inline const Models::DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfo & networkInfo() const { DARABONBA_PTR_GET_CONST(networkInfo_, Models::DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfo) };
+    inline Models::DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfo networkInfo() { DARABONBA_PTR_GET(networkInfo_, Models::DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfo) };
+    inline DescribeInstanceTypesResponseBodyInstanceTypesInstanceType& setNetworkInfo(const Models::DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfo & networkInfo) { DARABONBA_PTR_SET_VALUE(networkInfo_, networkInfo) };
+    inline DescribeInstanceTypesResponseBodyInstanceTypesInstanceType& setNetworkInfo(Models::DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfo && networkInfo) { DARABONBA_PTR_SET_RVALUE(networkInfo_, networkInfo) };
+
+
     // nvmeSupport Field Functions 
     bool hasNvmeSupport() const { return this->nvmeSupport_ != nullptr;};
     void deleteNvmeSupport() { this->nvmeSupport_ = nullptr;};
@@ -564,6 +576,7 @@ namespace Models
     // 
     // >  This parameter is in invitational preview and is not publicly available.
     std::shared_ptr<bool> networkEncryptionSupport_ = nullptr;
+    std::shared_ptr<Models::DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfo> networkInfo_ = nullptr;
     // Indicates whether cloud disks can be attached by using the NVMe protocol. Valid values:
     // 
     // *   required: Cloud disks can be attached by using the NVMe protocol.

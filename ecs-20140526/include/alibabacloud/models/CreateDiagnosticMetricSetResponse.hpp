@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATEDIAGNOSTICMETRICSETRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateDiagnosticMetricSetResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

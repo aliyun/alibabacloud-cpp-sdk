@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYSNAPSHOTCATEGORYRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ModifySnapshotCategoryResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

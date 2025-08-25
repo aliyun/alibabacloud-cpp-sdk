@@ -38,6 +38,14 @@ namespace Models
 
 
   protected:
+    // Specify whether to enable Cloud Assistant Session Manager. Valid values:
+    // 
+    // *   true: Enables the feature.
+    // *   false: Disables the feature.
+    // 
+    // Notes:
+    // 
+    // *   The feature applies to all regions.
     std::shared_ptr<bool> sessionManagerEnabled_ = nullptr;
   };
 

@@ -14,6 +14,7 @@ namespace Models
   class DescribeInstanceTypesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeInstanceTypesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AdditionalAttributes, additionalAttributes_);
       DARABONBA_PTR_TO_JSON(CpuArchitecture, cpuArchitecture_);
       DARABONBA_PTR_TO_JSON(CpuArchitectures, cpuArchitectures_);
       DARABONBA_PTR_TO_JSON(GPUSpec, GPUSpec_);
@@ -63,6 +64,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeInstanceTypesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AdditionalAttributes, additionalAttributes_);
       DARABONBA_PTR_FROM_JSON(CpuArchitecture, cpuArchitecture_);
       DARABONBA_PTR_FROM_JSON(CpuArchitectures, cpuArchitectures_);
       DARABONBA_PTR_FROM_JSON(GPUSpec, GPUSpec_);
@@ -122,17 +124,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpuArchitecture_ != nullptr
-        && this->cpuArchitectures_ != nullptr && this->GPUSpec_ != nullptr && this->gpuSpecs_ != nullptr && this->instanceCategories_ != nullptr && this->instanceCategory_ != nullptr
-        && this->instanceFamilyLevel_ != nullptr && this->instanceTypeFamilies_ != nullptr && this->instanceTypeFamily_ != nullptr && this->instanceTypes_ != nullptr && this->localStorageCategories_ != nullptr
-        && this->localStorageCategory_ != nullptr && this->maxResults_ != nullptr && this->maximumCpuCoreCount_ != nullptr && this->maximumCpuSpeedFrequency_ != nullptr && this->maximumCpuTurboFrequency_ != nullptr
-        && this->maximumGPUAmount_ != nullptr && this->maximumMemorySize_ != nullptr && this->minimumBaselineCredit_ != nullptr && this->minimumCpuCoreCount_ != nullptr && this->minimumCpuSpeedFrequency_ != nullptr
-        && this->minimumCpuTurboFrequency_ != nullptr && this->minimumDiskQuantity_ != nullptr && this->minimumEniIpv6AddressQuantity_ != nullptr && this->minimumEniPrivateIpAddressQuantity_ != nullptr && this->minimumEniQuantity_ != nullptr
-        && this->minimumEriQuantity_ != nullptr && this->minimumGPUAmount_ != nullptr && this->minimumInitialCredit_ != nullptr && this->minimumInstanceBandwidthRx_ != nullptr && this->minimumInstanceBandwidthTx_ != nullptr
-        && this->minimumInstancePpsRx_ != nullptr && this->minimumInstancePpsTx_ != nullptr && this->minimumLocalStorageAmount_ != nullptr && this->minimumLocalStorageCapacity_ != nullptr && this->minimumMemorySize_ != nullptr
-        && this->minimumPrimaryEniQueueNumber_ != nullptr && this->minimumQueuePairNumber_ != nullptr && this->minimumSecondaryEniQueueNumber_ != nullptr && this->nextToken_ != nullptr && this->nvmeSupport_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->physicalProcessorModel_ != nullptr && this->physicalProcessorModels_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { this->additionalAttributes_ != nullptr
+        && this->cpuArchitecture_ != nullptr && this->cpuArchitectures_ != nullptr && this->GPUSpec_ != nullptr && this->gpuSpecs_ != nullptr && this->instanceCategories_ != nullptr
+        && this->instanceCategory_ != nullptr && this->instanceFamilyLevel_ != nullptr && this->instanceTypeFamilies_ != nullptr && this->instanceTypeFamily_ != nullptr && this->instanceTypes_ != nullptr
+        && this->localStorageCategories_ != nullptr && this->localStorageCategory_ != nullptr && this->maxResults_ != nullptr && this->maximumCpuCoreCount_ != nullptr && this->maximumCpuSpeedFrequency_ != nullptr
+        && this->maximumCpuTurboFrequency_ != nullptr && this->maximumGPUAmount_ != nullptr && this->maximumMemorySize_ != nullptr && this->minimumBaselineCredit_ != nullptr && this->minimumCpuCoreCount_ != nullptr
+        && this->minimumCpuSpeedFrequency_ != nullptr && this->minimumCpuTurboFrequency_ != nullptr && this->minimumDiskQuantity_ != nullptr && this->minimumEniIpv6AddressQuantity_ != nullptr && this->minimumEniPrivateIpAddressQuantity_ != nullptr
+        && this->minimumEniQuantity_ != nullptr && this->minimumEriQuantity_ != nullptr && this->minimumGPUAmount_ != nullptr && this->minimumInitialCredit_ != nullptr && this->minimumInstanceBandwidthRx_ != nullptr
+        && this->minimumInstanceBandwidthTx_ != nullptr && this->minimumInstancePpsRx_ != nullptr && this->minimumInstancePpsTx_ != nullptr && this->minimumLocalStorageAmount_ != nullptr && this->minimumLocalStorageCapacity_ != nullptr
+        && this->minimumMemorySize_ != nullptr && this->minimumPrimaryEniQueueNumber_ != nullptr && this->minimumQueuePairNumber_ != nullptr && this->minimumSecondaryEniQueueNumber_ != nullptr && this->nextToken_ != nullptr
+        && this->nvmeSupport_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->physicalProcessorModel_ != nullptr && this->physicalProcessorModels_ != nullptr
+        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    // additionalAttributes Field Functions 
+    bool hasAdditionalAttributes() const { return this->additionalAttributes_ != nullptr;};
+    void deleteAdditionalAttributes() { this->additionalAttributes_ = nullptr;};
+    inline const vector<string> & additionalAttributes() const { DARABONBA_PTR_GET_CONST(additionalAttributes_, vector<string>) };
+    inline vector<string> additionalAttributes() { DARABONBA_PTR_GET(additionalAttributes_, vector<string>) };
+    inline DescribeInstanceTypesRequest& setAdditionalAttributes(const vector<string> & additionalAttributes) { DARABONBA_PTR_SET_VALUE(additionalAttributes_, additionalAttributes) };
+    inline DescribeInstanceTypesRequest& setAdditionalAttributes(vector<string> && additionalAttributes) { DARABONBA_PTR_SET_RVALUE(additionalAttributes_, additionalAttributes) };
+
+
     // cpuArchitecture Field Functions 
     bool hasCpuArchitecture() const { return this->cpuArchitecture_ != nullptr;};
     void deleteCpuArchitecture() { this->cpuArchitecture_ = nullptr;};
@@ -477,6 +488,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<vector<string>> additionalAttributes_ = nullptr;
     // The CPU architecture. Valid values:
     // 
     // *   X86

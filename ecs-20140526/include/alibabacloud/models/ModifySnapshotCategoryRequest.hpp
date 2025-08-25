@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The new type of the snapshot.
+    // The type of the snapshot. Valid value:
     // 
     // *   Archive: archive snapshot
     std::shared_ptr<string> category_ = nullptr;

@@ -7391,6 +7391,31 @@ namespace Ecs20140526
       Models::ModifyInstanceChargeTypeResponse modifyInstanceChargeType(const Models::ModifyInstanceChargeTypeRequest &request);
 
       /**
+       * @summary Modifies the instance clock options.
+       *
+       * @description When you call this operation, note that:
+       * *   This is an asynchronous operation. The ID of the asynchronous task is returned after the call. Query the asynchronous task result to determine whether the execution is complete.
+       * *   To modify the PtpStatus parameter, you must specify the parameter. The instance types that are supported. You can query the instance type list ([DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) ).
+       *
+       * @param request ModifyInstanceClockOptionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyInstanceClockOptionsResponse
+       */
+      Models::ModifyInstanceClockOptionsResponse modifyInstanceClockOptionsWithOptions(const Models::ModifyInstanceClockOptionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the instance clock options.
+       *
+       * @description When you call this operation, note that:
+       * *   This is an asynchronous operation. The ID of the asynchronous task is returned after the call. Query the asynchronous task result to determine whether the execution is complete.
+       * *   To modify the PtpStatus parameter, you must specify the parameter. The instance types that are supported. You can query the instance type list ([DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) ).
+       *
+       * @param request ModifyInstanceClockOptionsRequest
+       * @return ModifyInstanceClockOptionsResponse
+       */
+      Models::ModifyInstanceClockOptionsResponse modifyInstanceClockOptions(const Models::ModifyInstanceClockOptionsRequest &request);
+
+      /**
        * @summary Changes the deployment set of an Elastic Compute Service (ECS) instance or migrates an ECS instance to a dedicated host. You can change the instance type of an ECS instance when you migrate the instance.
        *
        * @description Take note of the following items:
@@ -7466,7 +7491,12 @@ namespace Ecs20140526
       Models::ModifyInstanceMetadataOptionsResponse modifyInstanceMetadataOptions(const Models::ModifyInstanceMetadataOptionsRequest &request);
 
       /**
-       * @summary 修改实例网络选项
+       * @summary Modifies instance network configurations.
+       *
+       * @description When you call this operation, take note of the following item:
+       * *   This is an asynchronous operation. The ID of the asynchronous task is returned after the call. Query the asynchronous task result to determine whether the execution is complete.
+       * *   You can modify only one attribute at a time. If you modify multiple attributes, call this operation multiple times.
+       * *   To modify the BandwidthWeighting, you must specify the specifications of the instance. The instance types that are supported. You can query the instance type list (DescribeInstanceTypes).
        *
        * @param request ModifyInstanceNetworkOptionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7475,7 +7505,12 @@ namespace Ecs20140526
       Models::ModifyInstanceNetworkOptionsResponse modifyInstanceNetworkOptionsWithOptions(const Models::ModifyInstanceNetworkOptionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改实例网络选项
+       * @summary Modifies instance network configurations.
+       *
+       * @description When you call this operation, take note of the following item:
+       * *   This is an asynchronous operation. The ID of the asynchronous task is returned after the call. Query the asynchronous task result to determine whether the execution is complete.
+       * *   You can modify only one attribute at a time. If you modify multiple attributes, call this operation multiple times.
+       * *   To modify the BandwidthWeighting, you must specify the specifications of the instance. The instance types that are supported. You can query the instance type list (DescribeInstanceTypes).
        *
        * @param request ModifyInstanceNetworkOptionsRequest
        * @return ModifyInstanceNetworkOptionsResponse
@@ -8171,11 +8206,9 @@ namespace Ecs20140526
       /**
        * @summary Changes the type of a snapshot. You can call this operation to convert a standard snapshot into an archive snapshot.
        *
-       * @description *   Archive snapshots cannot be restored to standard snapshots.
+       * @description *   Archived snapshots cannot be restored to standard snapshots.
        * *   You can archive only standard snapshots that have been retained for at least 14 days.
-       * *   You cannot archive encrypted snapshots.
        * *   You cannot archive snapshots that are shared to you, snapshots managed by Cloud Backup, or snapshots in cloud boxes.
-       * *   The archive snapshot feature is available only in the China (Hohhot), Malaysia (Kuala Lumpur), South Korea (Seoul), Philippines (Manila), Thailand (Bangkok), and Mexico regions. The availability of the feature in other regions is subject to notice.
        *
        * @param request ModifySnapshotCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8186,11 +8219,9 @@ namespace Ecs20140526
       /**
        * @summary Changes the type of a snapshot. You can call this operation to convert a standard snapshot into an archive snapshot.
        *
-       * @description *   Archive snapshots cannot be restored to standard snapshots.
+       * @description *   Archived snapshots cannot be restored to standard snapshots.
        * *   You can archive only standard snapshots that have been retained for at least 14 days.
-       * *   You cannot archive encrypted snapshots.
        * *   You cannot archive snapshots that are shared to you, snapshots managed by Cloud Backup, or snapshots in cloud boxes.
-       * *   The archive snapshot feature is available only in the China (Hohhot), Malaysia (Kuala Lumpur), South Korea (Seoul), Philippines (Manila), Thailand (Bangkok), and Mexico regions. The availability of the feature in other regions is subject to notice.
        *
        * @param request ModifySnapshotCategoryRequest
        * @return ModifySnapshotCategoryResponse

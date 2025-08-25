@@ -13,6 +13,7 @@ namespace Models
   class DescribeSecurityGroupAttributeRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeSecurityGroupAttributeRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Attribute, attribute_);
       DARABONBA_PTR_TO_JSON(Direction, direction_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeSecurityGroupAttributeRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Attribute, attribute_);
       DARABONBA_PTR_FROM_JSON(Direction, direction_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
@@ -47,9 +49,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->direction_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->nicType_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->securityGroupId_ != nullptr; };
+    virtual bool empty() const override { this->attribute_ != nullptr
+        && this->direction_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->nicType_ != nullptr && this->ownerAccount_ != nullptr
+        && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->securityGroupId_ != nullptr; };
+    // attribute Field Functions 
+    bool hasAttribute() const { return this->attribute_ != nullptr;};
+    void deleteAttribute() { this->attribute_ = nullptr;};
+    inline string attribute() const { DARABONBA_PTR_GET_DEFAULT(attribute_, "") };
+    inline DescribeSecurityGroupAttributeRequest& setAttribute(string attribute) { DARABONBA_PTR_SET_VALUE(attribute_, attribute) };
+
+
     // direction Field Functions 
     bool hasDirection() const { return this->direction_ != nullptr;};
     void deleteDirection() { this->direction_ = nullptr;};
@@ -121,6 +130,8 @@ namespace Models
 
 
   protected:
+    // The attributes of the security group. Valid value: snapshotPolicyIds: queries information about snapshot policies associated with a security group.
+    std::shared_ptr<string> attribute_ = nullptr;
     // The direction in which the security group rule is applied. Valid values:
     // 
     // *   egress: outbound

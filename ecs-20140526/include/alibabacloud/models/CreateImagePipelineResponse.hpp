@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATEIMAGEPIPELINERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateImagePipelineResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

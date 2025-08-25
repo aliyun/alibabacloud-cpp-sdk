@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYPREFIXLISTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ModifyPrefixListResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

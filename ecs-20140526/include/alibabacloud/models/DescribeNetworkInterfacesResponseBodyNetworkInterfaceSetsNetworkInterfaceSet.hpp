@@ -324,7 +324,7 @@ namespace Models
     std::shared_ptr<Models::DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetAssociatedPublicIp> associatedPublicIp_ = nullptr;
     // >  This parameter is in invitational preview and is not publicly available.
     std::shared_ptr<Models::DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetAttachment> attachment_ = nullptr;
-    // The time when the ENI was created.
+    // The time when the security group was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     std::shared_ptr<string> creationTime_ = nullptr;
     // Indicates whether to retain the ENI when the associated instance is released. Valid values:
     // 

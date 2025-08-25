@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBESECURITYGROUPATTRIBUTERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/DescribeSecurityGroupAttributeResponseBodyPermissions.hpp>
+#include <alibabacloud/models/DescribeSecurityGroupAttributeResponseBodySnapshotPolicyIds.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_TO_JSON(SecurityGroupName, securityGroupName_);
+      DARABONBA_PTR_TO_JSON(SnapshotPolicyIds, snapshotPolicyIds_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeSecurityGroupAttributeResponseBody& obj) { 
@@ -33,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_FROM_JSON(SecurityGroupName, securityGroupName_);
+      DARABONBA_PTR_FROM_JSON(SnapshotPolicyIds, snapshotPolicyIds_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
     };
     DescribeSecurityGroupAttributeResponseBody() = default ;
@@ -48,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->description_ != nullptr
         && this->innerAccessPolicy_ != nullptr && this->nextToken_ != nullptr && this->permissions_ != nullptr && this->regionId_ != nullptr && this->requestId_ != nullptr
-        && this->securityGroupId_ != nullptr && this->securityGroupName_ != nullptr && this->vpcId_ != nullptr; };
+        && this->securityGroupId_ != nullptr && this->securityGroupName_ != nullptr && this->snapshotPolicyIds_ != nullptr && this->vpcId_ != nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -107,6 +110,15 @@ namespace Models
     inline DescribeSecurityGroupAttributeResponseBody& setSecurityGroupName(string securityGroupName) { DARABONBA_PTR_SET_VALUE(securityGroupName_, securityGroupName) };
 
 
+    // snapshotPolicyIds Field Functions 
+    bool hasSnapshotPolicyIds() const { return this->snapshotPolicyIds_ != nullptr;};
+    void deleteSnapshotPolicyIds() { this->snapshotPolicyIds_ = nullptr;};
+    inline const DescribeSecurityGroupAttributeResponseBodySnapshotPolicyIds & snapshotPolicyIds() const { DARABONBA_PTR_GET_CONST(snapshotPolicyIds_, DescribeSecurityGroupAttributeResponseBodySnapshotPolicyIds) };
+    inline DescribeSecurityGroupAttributeResponseBodySnapshotPolicyIds snapshotPolicyIds() { DARABONBA_PTR_GET(snapshotPolicyIds_, DescribeSecurityGroupAttributeResponseBodySnapshotPolicyIds) };
+    inline DescribeSecurityGroupAttributeResponseBody& setSnapshotPolicyIds(const DescribeSecurityGroupAttributeResponseBodySnapshotPolicyIds & snapshotPolicyIds) { DARABONBA_PTR_SET_VALUE(snapshotPolicyIds_, snapshotPolicyIds) };
+    inline DescribeSecurityGroupAttributeResponseBody& setSnapshotPolicyIds(DescribeSecurityGroupAttributeResponseBodySnapshotPolicyIds && snapshotPolicyIds) { DARABONBA_PTR_SET_RVALUE(snapshotPolicyIds_, snapshotPolicyIds) };
+
+
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
@@ -134,6 +146,7 @@ namespace Models
     std::shared_ptr<string> securityGroupId_ = nullptr;
     // The name of the security group.
     std::shared_ptr<string> securityGroupName_ = nullptr;
+    std::shared_ptr<DescribeSecurityGroupAttributeResponseBodySnapshotPolicyIds> snapshotPolicyIds_ = nullptr;
     // The ID of the VPC. If a VPC ID is returned, the network type of the security group is VPC. If no VPC ID is returned, the network type of the security group is classic network.
     std::shared_ptr<string> vpcId_ = nullptr;
   };

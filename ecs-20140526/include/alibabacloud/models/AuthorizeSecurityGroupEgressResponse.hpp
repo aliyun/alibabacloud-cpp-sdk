@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_AUTHORIZESECURITYGROUPEGRESSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/AuthorizeSecurityGroupEgressResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

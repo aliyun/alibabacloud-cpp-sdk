@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_UNASSIGNIPV6ADDRESSESRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/UnassignIpv6AddressesResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

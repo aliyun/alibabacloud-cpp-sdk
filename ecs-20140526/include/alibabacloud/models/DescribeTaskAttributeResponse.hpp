@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBETASKATTRIBUTERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeTaskAttributeResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

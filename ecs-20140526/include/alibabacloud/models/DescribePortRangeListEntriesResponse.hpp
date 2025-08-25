@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEPORTRANGELISTENTRIESRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribePortRangeListEntriesResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

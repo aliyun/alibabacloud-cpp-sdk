@@ -50,6 +50,9 @@ namespace Models
   protected:
     // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;
+    // The ID of the redeployment task.
+    // 
+    // You can call the [DescribeTasks](https://help.aliyun.com/document_detail/25622.html) operation to query the redeployment result.
     std::shared_ptr<string> taskId_ = nullptr;
   };
 

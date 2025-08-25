@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CANCELSIMULATEDSYSTEMEVENTSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CancelSimulatedSystemEventsResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

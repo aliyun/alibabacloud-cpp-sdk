@@ -75,7 +75,17 @@ namespace Models
 
 
   protected:
+    // The bandwidth weight. Different specifications support different values. You can call the DescribeInstanceTypes operation to query the values supported by the current instance type.
+    // 
+    // Valid values:
+    // 
+    // *   Vpc-L1.
+    // *   Vpc-L2.
+    // *   Ebs-L1.
+    // *   Ebs-L2.
+    // *   Default.
     std::shared_ptr<string> bandwidthWeighting_ = nullptr;
+    // The ID of the instance for which you want to modify network configurations.
     std::shared_ptr<string> instanceId_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
     std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
