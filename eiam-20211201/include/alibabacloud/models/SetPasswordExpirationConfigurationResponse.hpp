@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_SETPASSWORDEXPIRATIONCONFIGURATIONRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/SetPasswordExpirationConfigurationResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

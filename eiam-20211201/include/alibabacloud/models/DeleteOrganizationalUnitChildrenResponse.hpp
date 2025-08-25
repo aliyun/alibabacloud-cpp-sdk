@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DELETEORGANIZATIONALUNITCHILDRENRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DeleteOrganizationalUnitChildrenResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

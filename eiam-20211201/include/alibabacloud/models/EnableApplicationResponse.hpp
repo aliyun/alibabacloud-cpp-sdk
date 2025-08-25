@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_ENABLEAPPLICATIONRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/EnableApplicationResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

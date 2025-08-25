@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTIDENTITYPROVIDERSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ListIdentityProvidersResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

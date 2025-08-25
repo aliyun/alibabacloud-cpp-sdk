@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTAPPLICATIONSFORORGANIZATIONALUNITRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ListApplicationsForOrganizationalUnitResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

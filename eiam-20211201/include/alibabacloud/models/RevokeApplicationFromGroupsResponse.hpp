@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_REVOKEAPPLICATIONFROMGROUPSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/RevokeApplicationFromGroupsResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

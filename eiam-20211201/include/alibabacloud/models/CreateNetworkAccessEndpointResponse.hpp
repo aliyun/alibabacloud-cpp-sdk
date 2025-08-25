@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATENETWORKACCESSENDPOINTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateNetworkAccessEndpointResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

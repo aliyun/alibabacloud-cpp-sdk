@@ -359,6 +359,9 @@
 #include <alibabacloud/models/UpdateApplicationAuthorizationTypeRequest.hpp>
 #include <alibabacloud/models/UpdateApplicationAuthorizationTypeResponseBody.hpp>
 #include <alibabacloud/models/UpdateApplicationAuthorizationTypeResponse.hpp>
+#include <alibabacloud/models/UpdateApplicationClientSecretExpirationTimeRequest.hpp>
+#include <alibabacloud/models/UpdateApplicationClientSecretExpirationTimeResponseBody.hpp>
+#include <alibabacloud/models/UpdateApplicationClientSecretExpirationTimeResponse.hpp>
 #include <alibabacloud/models/UpdateApplicationDescriptionRequest.hpp>
 #include <alibabacloud/models/UpdateApplicationDescriptionResponseBody.hpp>
 #include <alibabacloud/models/UpdateApplicationDescriptionResponse.hpp>

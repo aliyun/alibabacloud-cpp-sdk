@@ -2114,6 +2114,23 @@ namespace Eiam20211201
       Models::UpdateApplicationAuthorizationTypeResponse updateApplicationAuthorizationType(const Models::UpdateApplicationAuthorizationTypeRequest &request);
 
       /**
+       * @summary 更新应用的指定ClientSecret的到期时间
+       *
+       * @param request UpdateApplicationClientSecretExpirationTimeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateApplicationClientSecretExpirationTimeResponse
+       */
+      Models::UpdateApplicationClientSecretExpirationTimeResponse updateApplicationClientSecretExpirationTimeWithOptions(const Models::UpdateApplicationClientSecretExpirationTimeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新应用的指定ClientSecret的到期时间
+       *
+       * @param request UpdateApplicationClientSecretExpirationTimeRequest
+       * @return UpdateApplicationClientSecretExpirationTimeResponse
+       */
+      Models::UpdateApplicationClientSecretExpirationTimeResponse updateApplicationClientSecretExpirationTime(const Models::UpdateApplicationClientSecretExpirationTimeRequest &request);
+
+      /**
        * @summary Modifies the description of an Employee Identity and Access Management (EIAM) application.
        *
        * @param request UpdateApplicationDescriptionRequest
