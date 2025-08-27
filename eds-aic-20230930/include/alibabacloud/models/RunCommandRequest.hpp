@@ -14,12 +14,14 @@ namespace Models
   class RunCommandRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const RunCommandRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AgentType, agentType_);
       DARABONBA_PTR_TO_JSON(CommandContent, commandContent_);
       DARABONBA_PTR_TO_JSON(ContentEncoding, contentEncoding_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(Timeout, timeout_);
     };
     friend void from_json(const Darabonba::Json& j, RunCommandRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AgentType, agentType_);
       DARABONBA_PTR_FROM_JSON(CommandContent, commandContent_);
       DARABONBA_PTR_FROM_JSON(ContentEncoding, contentEncoding_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
@@ -36,8 +38,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commandContent_ != nullptr
-        && this->contentEncoding_ != nullptr && this->instanceIds_ != nullptr && this->timeout_ != nullptr; };
+    virtual bool empty() const override { this->agentType_ != nullptr
+        && this->commandContent_ != nullptr && this->contentEncoding_ != nullptr && this->instanceIds_ != nullptr && this->timeout_ != nullptr; };
+    // agentType Field Functions 
+    bool hasAgentType() const { return this->agentType_ != nullptr;};
+    void deleteAgentType() { this->agentType_ = nullptr;};
+    inline string agentType() const { DARABONBA_PTR_GET_DEFAULT(agentType_, "") };
+    inline RunCommandRequest& setAgentType(string agentType) { DARABONBA_PTR_SET_VALUE(agentType_, agentType) };
+
+
     // commandContent Field Functions 
     bool hasCommandContent() const { return this->commandContent_ != nullptr;};
     void deleteCommandContent() { this->commandContent_ = nullptr;};
@@ -69,6 +78,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> agentType_ = nullptr;
     // The content of the command.
     std::shared_ptr<string> commandContent_ = nullptr;
     // The encoding method of the command content (`CommandContent`). The value is not case-sensitive.

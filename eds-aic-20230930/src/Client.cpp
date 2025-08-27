@@ -4101,6 +4101,10 @@ ResetAndroidInstancesInGroupResponse Client::resetAndroidInstancesInGroup(const 
 RunCommandResponse Client::runCommandWithOptions(const RunCommandRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAgentType()) {
+    query["AgentType"] = request.agentType();
+  }
+
   if (!!request.hasCommandContent()) {
     query["CommandContent"] = request.commandContent();
   }
