@@ -32,6 +32,7 @@
 #include <alibabacloud/models/DescribeRegionsOutput.hpp>
 #include <alibabacloud/models/Destination.hpp>
 #include <alibabacloud/models/DestinationConfig.hpp>
+#include <alibabacloud/models/ElasticConfigStatus.hpp>
 #include <alibabacloud/models/EqualRule.hpp>
 #include <alibabacloud/models/Error.hpp>
 #include <alibabacloud/models/EventBridgeTriggerConfig.hpp>
@@ -62,6 +63,7 @@
 #include <alibabacloud/models/ListAsyncTaskOutput.hpp>
 #include <alibabacloud/models/ListConcurrencyConfigsOutput.hpp>
 #include <alibabacloud/models/ListCustomDomainOutput.hpp>
+#include <alibabacloud/models/ListElasticConfigsOutput.hpp>
 #include <alibabacloud/models/ListFunctionsOutput.hpp>
 #include <alibabacloud/models/ListInstancesOutput.hpp>
 #include <alibabacloud/models/ListLayerVersionOutput.hpp>
@@ -90,6 +92,7 @@
 #include <alibabacloud/models/PublishVersionInput.hpp>
 #include <alibabacloud/models/PutAsyncInvokeConfigInput.hpp>
 #include <alibabacloud/models/PutConcurrencyInput.hpp>
+#include <alibabacloud/models/PutElasticConfigInput.hpp>
 #include <alibabacloud/models/PutProvisionConfigInput.hpp>
 #include <alibabacloud/models/PutScalingConfigInput.hpp>
 #include <alibabacloud/models/PutScalingConfigOutput.hpp>
@@ -111,8 +114,10 @@
 #include <alibabacloud/models/SlstriggerConfig.hpp>
 #include <alibabacloud/models/SlstriggerLogConfig.hpp>
 #include <alibabacloud/models/ScalingConfigStatus.hpp>
+#include <alibabacloud/models/ScalingPolicy.hpp>
 #include <alibabacloud/models/ScalingStatus.hpp>
 #include <alibabacloud/models/ScheduledAction.hpp>
+#include <alibabacloud/models/ScheduledPolicy.hpp>
 #include <alibabacloud/models/SourceConfig.hpp>
 #include <alibabacloud/models/SourceDtsparameters.hpp>
 #include <alibabacloud/models/SourceKafkaParameters.hpp>
