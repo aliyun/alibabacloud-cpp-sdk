@@ -2294,6 +2294,8 @@ InitCardVerifyResponse Client::initCardVerify(const InitCardVerifyRequest &reque
 }
 
 /**
+ * @summary 实人服务端初始化接口
+ *
  * @param request InitFaceVerifyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return InitFaceVerifyResponse
@@ -2469,6 +2471,8 @@ InitFaceVerifyResponse Client::initFaceVerifyWithOptions(const InitFaceVerifyReq
 }
 
 /**
+ * @summary 实人服务端初始化接口
+ *
  * @param request InitFaceVerifyRequest
  * @return InitFaceVerifyResponse
  */

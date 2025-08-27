@@ -566,6 +566,8 @@ namespace Cloudauth20190307
       Models::InitCardVerifyResponse initCardVerify(const Models::InitCardVerifyRequest &request);
 
       /**
+       * @summary 实人服务端初始化接口
+       *
        * @param request InitFaceVerifyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return InitFaceVerifyResponse
@@ -573,6 +575,8 @@ namespace Cloudauth20190307
       Models::InitFaceVerifyResponse initFaceVerifyWithOptions(const Models::InitFaceVerifyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 实人服务端初始化接口
+       *
        * @param request InitFaceVerifyRequest
        * @return InitFaceVerifyResponse
        */
