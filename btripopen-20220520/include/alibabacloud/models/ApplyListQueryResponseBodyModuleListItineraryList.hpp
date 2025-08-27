@@ -1,0 +1,180 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_APPLYLISTQUERYRESPONSEBODYMODULELISTITINERARYLIST_HPP_
+#define ALIBABACLOUD_MODELS_APPLYLISTQUERYRESPONSEBODYMODULELISTITINERARYLIST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace BtripOpen20220520
+{
+namespace Models
+{
+  class ApplyListQueryResponseBodyModuleListItineraryList : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ApplyListQueryResponseBodyModuleListItineraryList& obj) { 
+      DARABONBA_PTR_TO_JSON(arr_city, arrCity_);
+      DARABONBA_PTR_TO_JSON(arr_date, arrDate_);
+      DARABONBA_PTR_TO_JSON(cost_center_name, costCenterName_);
+      DARABONBA_PTR_TO_JSON(dep_city, depCity_);
+      DARABONBA_PTR_TO_JSON(dep_date, depDate_);
+      DARABONBA_PTR_TO_JSON(invoice_name, invoiceName_);
+      DARABONBA_PTR_TO_JSON(itinerary_id, itineraryId_);
+      DARABONBA_PTR_TO_JSON(project_code, projectCode_);
+      DARABONBA_PTR_TO_JSON(project_title, projectTitle_);
+      DARABONBA_PTR_TO_JSON(thirdpart_cost_center_id, thirdpartCostCenterId_);
+      DARABONBA_PTR_TO_JSON(thirdpart_invoice_id, thirdpartInvoiceId_);
+      DARABONBA_PTR_TO_JSON(thirdpart_itinerary_id, thirdpartItineraryId_);
+      DARABONBA_PTR_TO_JSON(traffic_type, trafficType_);
+      DARABONBA_PTR_TO_JSON(trip_way, tripWay_);
+    };
+    friend void from_json(const Darabonba::Json& j, ApplyListQueryResponseBodyModuleListItineraryList& obj) { 
+      DARABONBA_PTR_FROM_JSON(arr_city, arrCity_);
+      DARABONBA_PTR_FROM_JSON(arr_date, arrDate_);
+      DARABONBA_PTR_FROM_JSON(cost_center_name, costCenterName_);
+      DARABONBA_PTR_FROM_JSON(dep_city, depCity_);
+      DARABONBA_PTR_FROM_JSON(dep_date, depDate_);
+      DARABONBA_PTR_FROM_JSON(invoice_name, invoiceName_);
+      DARABONBA_PTR_FROM_JSON(itinerary_id, itineraryId_);
+      DARABONBA_PTR_FROM_JSON(project_code, projectCode_);
+      DARABONBA_PTR_FROM_JSON(project_title, projectTitle_);
+      DARABONBA_PTR_FROM_JSON(thirdpart_cost_center_id, thirdpartCostCenterId_);
+      DARABONBA_PTR_FROM_JSON(thirdpart_invoice_id, thirdpartInvoiceId_);
+      DARABONBA_PTR_FROM_JSON(thirdpart_itinerary_id, thirdpartItineraryId_);
+      DARABONBA_PTR_FROM_JSON(traffic_type, trafficType_);
+      DARABONBA_PTR_FROM_JSON(trip_way, tripWay_);
+    };
+    ApplyListQueryResponseBodyModuleListItineraryList() = default ;
+    ApplyListQueryResponseBodyModuleListItineraryList(const ApplyListQueryResponseBodyModuleListItineraryList &) = default ;
+    ApplyListQueryResponseBodyModuleListItineraryList(ApplyListQueryResponseBodyModuleListItineraryList &&) = default ;
+    ApplyListQueryResponseBodyModuleListItineraryList(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ApplyListQueryResponseBodyModuleListItineraryList() = default ;
+    ApplyListQueryResponseBodyModuleListItineraryList& operator=(const ApplyListQueryResponseBodyModuleListItineraryList &) = default ;
+    ApplyListQueryResponseBodyModuleListItineraryList& operator=(ApplyListQueryResponseBodyModuleListItineraryList &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->arrCity_ != nullptr
+        && this->arrDate_ != nullptr && this->costCenterName_ != nullptr && this->depCity_ != nullptr && this->depDate_ != nullptr && this->invoiceName_ != nullptr
+        && this->itineraryId_ != nullptr && this->projectCode_ != nullptr && this->projectTitle_ != nullptr && this->thirdpartCostCenterId_ != nullptr && this->thirdpartInvoiceId_ != nullptr
+        && this->thirdpartItineraryId_ != nullptr && this->trafficType_ != nullptr && this->tripWay_ != nullptr; };
+    // arrCity Field Functions 
+    bool hasArrCity() const { return this->arrCity_ != nullptr;};
+    void deleteArrCity() { this->arrCity_ = nullptr;};
+    inline string arrCity() const { DARABONBA_PTR_GET_DEFAULT(arrCity_, "") };
+    inline ApplyListQueryResponseBodyModuleListItineraryList& setArrCity(string arrCity) { DARABONBA_PTR_SET_VALUE(arrCity_, arrCity) };
+
+
+    // arrDate Field Functions 
+    bool hasArrDate() const { return this->arrDate_ != nullptr;};
+    void deleteArrDate() { this->arrDate_ = nullptr;};
+    inline string arrDate() const { DARABONBA_PTR_GET_DEFAULT(arrDate_, "") };
+    inline ApplyListQueryResponseBodyModuleListItineraryList& setArrDate(string arrDate) { DARABONBA_PTR_SET_VALUE(arrDate_, arrDate) };
+
+
+    // costCenterName Field Functions 
+    bool hasCostCenterName() const { return this->costCenterName_ != nullptr;};
+    void deleteCostCenterName() { this->costCenterName_ = nullptr;};
+    inline string costCenterName() const { DARABONBA_PTR_GET_DEFAULT(costCenterName_, "") };
+    inline ApplyListQueryResponseBodyModuleListItineraryList& setCostCenterName(string costCenterName) { DARABONBA_PTR_SET_VALUE(costCenterName_, costCenterName) };
+
+
+    // depCity Field Functions 
+    bool hasDepCity() const { return this->depCity_ != nullptr;};
+    void deleteDepCity() { this->depCity_ = nullptr;};
+    inline string depCity() const { DARABONBA_PTR_GET_DEFAULT(depCity_, "") };
+    inline ApplyListQueryResponseBodyModuleListItineraryList& setDepCity(string depCity) { DARABONBA_PTR_SET_VALUE(depCity_, depCity) };
+
+
+    // depDate Field Functions 
+    bool hasDepDate() const { return this->depDate_ != nullptr;};
+    void deleteDepDate() { this->depDate_ = nullptr;};
+    inline string depDate() const { DARABONBA_PTR_GET_DEFAULT(depDate_, "") };
+    inline ApplyListQueryResponseBodyModuleListItineraryList& setDepDate(string depDate) { DARABONBA_PTR_SET_VALUE(depDate_, depDate) };
+
+
+    // invoiceName Field Functions 
+    bool hasInvoiceName() const { return this->invoiceName_ != nullptr;};
+    void deleteInvoiceName() { this->invoiceName_ = nullptr;};
+    inline string invoiceName() const { DARABONBA_PTR_GET_DEFAULT(invoiceName_, "") };
+    inline ApplyListQueryResponseBodyModuleListItineraryList& setInvoiceName(string invoiceName) { DARABONBA_PTR_SET_VALUE(invoiceName_, invoiceName) };
+
+
+    // itineraryId Field Functions 
+    bool hasItineraryId() const { return this->itineraryId_ != nullptr;};
+    void deleteItineraryId() { this->itineraryId_ = nullptr;};
+    inline string itineraryId() const { DARABONBA_PTR_GET_DEFAULT(itineraryId_, "") };
+    inline ApplyListQueryResponseBodyModuleListItineraryList& setItineraryId(string itineraryId) { DARABONBA_PTR_SET_VALUE(itineraryId_, itineraryId) };
+
+
+    // projectCode Field Functions 
+    bool hasProjectCode() const { return this->projectCode_ != nullptr;};
+    void deleteProjectCode() { this->projectCode_ = nullptr;};
+    inline string projectCode() const { DARABONBA_PTR_GET_DEFAULT(projectCode_, "") };
+    inline ApplyListQueryResponseBodyModuleListItineraryList& setProjectCode(string projectCode) { DARABONBA_PTR_SET_VALUE(projectCode_, projectCode) };
+
+
+    // projectTitle Field Functions 
+    bool hasProjectTitle() const { return this->projectTitle_ != nullptr;};
+    void deleteProjectTitle() { this->projectTitle_ = nullptr;};
+    inline string projectTitle() const { DARABONBA_PTR_GET_DEFAULT(projectTitle_, "") };
+    inline ApplyListQueryResponseBodyModuleListItineraryList& setProjectTitle(string projectTitle) { DARABONBA_PTR_SET_VALUE(projectTitle_, projectTitle) };
+
+
+    // thirdpartCostCenterId Field Functions 
+    bool hasThirdpartCostCenterId() const { return this->thirdpartCostCenterId_ != nullptr;};
+    void deleteThirdpartCostCenterId() { this->thirdpartCostCenterId_ = nullptr;};
+    inline string thirdpartCostCenterId() const { DARABONBA_PTR_GET_DEFAULT(thirdpartCostCenterId_, "") };
+    inline ApplyListQueryResponseBodyModuleListItineraryList& setThirdpartCostCenterId(string thirdpartCostCenterId) { DARABONBA_PTR_SET_VALUE(thirdpartCostCenterId_, thirdpartCostCenterId) };
+
+
+    // thirdpartInvoiceId Field Functions 
+    bool hasThirdpartInvoiceId() const { return this->thirdpartInvoiceId_ != nullptr;};
+    void deleteThirdpartInvoiceId() { this->thirdpartInvoiceId_ = nullptr;};
+    inline string thirdpartInvoiceId() const { DARABONBA_PTR_GET_DEFAULT(thirdpartInvoiceId_, "") };
+    inline ApplyListQueryResponseBodyModuleListItineraryList& setThirdpartInvoiceId(string thirdpartInvoiceId) { DARABONBA_PTR_SET_VALUE(thirdpartInvoiceId_, thirdpartInvoiceId) };
+
+
+    // thirdpartItineraryId Field Functions 
+    bool hasThirdpartItineraryId() const { return this->thirdpartItineraryId_ != nullptr;};
+    void deleteThirdpartItineraryId() { this->thirdpartItineraryId_ = nullptr;};
+    inline string thirdpartItineraryId() const { DARABONBA_PTR_GET_DEFAULT(thirdpartItineraryId_, "") };
+    inline ApplyListQueryResponseBodyModuleListItineraryList& setThirdpartItineraryId(string thirdpartItineraryId) { DARABONBA_PTR_SET_VALUE(thirdpartItineraryId_, thirdpartItineraryId) };
+
+
+    // trafficType Field Functions 
+    bool hasTrafficType() const { return this->trafficType_ != nullptr;};
+    void deleteTrafficType() { this->trafficType_ = nullptr;};
+    inline int32_t trafficType() const { DARABONBA_PTR_GET_DEFAULT(trafficType_, 0) };
+    inline ApplyListQueryResponseBodyModuleListItineraryList& setTrafficType(int32_t trafficType) { DARABONBA_PTR_SET_VALUE(trafficType_, trafficType) };
+
+
+    // tripWay Field Functions 
+    bool hasTripWay() const { return this->tripWay_ != nullptr;};
+    void deleteTripWay() { this->tripWay_ = nullptr;};
+    inline int32_t tripWay() const { DARABONBA_PTR_GET_DEFAULT(tripWay_, 0) };
+    inline ApplyListQueryResponseBodyModuleListItineraryList& setTripWay(int32_t tripWay) { DARABONBA_PTR_SET_VALUE(tripWay_, tripWay) };
+
+
+  protected:
+    std::shared_ptr<string> arrCity_ = nullptr;
+    std::shared_ptr<string> arrDate_ = nullptr;
+    std::shared_ptr<string> costCenterName_ = nullptr;
+    std::shared_ptr<string> depCity_ = nullptr;
+    std::shared_ptr<string> depDate_ = nullptr;
+    std::shared_ptr<string> invoiceName_ = nullptr;
+    std::shared_ptr<string> itineraryId_ = nullptr;
+    std::shared_ptr<string> projectCode_ = nullptr;
+    std::shared_ptr<string> projectTitle_ = nullptr;
+    std::shared_ptr<string> thirdpartCostCenterId_ = nullptr;
+    std::shared_ptr<string> thirdpartInvoiceId_ = nullptr;
+    std::shared_ptr<string> thirdpartItineraryId_ = nullptr;
+    std::shared_ptr<int32_t> trafficType_ = nullptr;
+    std::shared_ptr<int32_t> tripWay_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace BtripOpen20220520
+#endif
