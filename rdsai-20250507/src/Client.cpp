@@ -272,6 +272,52 @@ DescribeAppInstancesResponse Client::describeAppInstances(const DescribeAppInsta
 }
 
 /**
+ * @summary 查看实例认证信息
+ *
+ * @param request DescribeInstanceAuthInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInstanceAuthInfoResponse
+ */
+DescribeInstanceAuthInfoResponse Client::describeInstanceAuthInfoWithOptions(const DescribeInstanceAuthInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.instanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInstanceAuthInfo"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInstanceAuthInfoResponse>();
+}
+
+/**
+ * @summary 查看实例认证信息
+ *
+ * @param request DescribeInstanceAuthInfoRequest
+ * @return DescribeInstanceAuthInfoResponse
+ */
+DescribeInstanceAuthInfoResponse Client::describeInstanceAuthInfo(const DescribeInstanceAuthInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInstanceAuthInfoWithOptions(request, runtime);
+}
+
+/**
  * @summary 查看服务连接信息
  *
  * @param request DescribeInstanceEndpointsRequest

@@ -14,6 +14,9 @@
 #include <alibabacloud/models/DescribeAppInstancesRequest.hpp>
 #include <alibabacloud/models/DescribeAppInstancesResponseBody.hpp>
 #include <alibabacloud/models/DescribeAppInstancesResponse.hpp>
+#include <alibabacloud/models/DescribeInstanceAuthInfoRequest.hpp>
+#include <alibabacloud/models/DescribeInstanceAuthInfoResponseBody.hpp>
+#include <alibabacloud/models/DescribeInstanceAuthInfoResponse.hpp>
 #include <alibabacloud/models/DescribeInstanceEndpointsRequest.hpp>
 #include <alibabacloud/models/DescribeInstanceEndpointsResponseBody.hpp>
 #include <alibabacloud/models/DescribeInstanceEndpointsResponse.hpp>
@@ -24,6 +27,7 @@
 #include <alibabacloud/models/ModifyInstanceIpWhitelistResponseBody.hpp>
 #include <alibabacloud/models/ModifyInstanceIpWhitelistResponse.hpp>
 #include <alibabacloud/models/DescribeAppInstancesResponseBodyInstances.hpp>
+#include <alibabacloud/models/DescribeInstanceAuthInfoResponseBodyApiKeys.hpp>
 #include <alibabacloud/models/DescribeInstanceEndpointsResponseBodyInstanceEndpoints.hpp>
 #include <alibabacloud/models/DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups.hpp>
 

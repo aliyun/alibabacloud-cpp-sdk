@@ -89,6 +89,23 @@ namespace RdsAi20250507
       Models::DescribeAppInstancesResponse describeAppInstances(const Models::DescribeAppInstancesRequest &request);
 
       /**
+       * @summary 查看实例认证信息
+       *
+       * @param request DescribeInstanceAuthInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInstanceAuthInfoResponse
+       */
+      Models::DescribeInstanceAuthInfoResponse describeInstanceAuthInfoWithOptions(const Models::DescribeInstanceAuthInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看实例认证信息
+       *
+       * @param request DescribeInstanceAuthInfoRequest
+       * @return DescribeInstanceAuthInfoResponse
+       */
+      Models::DescribeInstanceAuthInfoResponse describeInstanceAuthInfo(const Models::DescribeInstanceAuthInfoRequest &request);
+
+      /**
        * @summary 查看服务连接信息
        *
        * @param request DescribeInstanceEndpointsRequest
