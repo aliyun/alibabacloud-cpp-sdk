@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ControlType, controlType_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(EffectiveSceneIds, effectiveSceneIds_);
+      DARABONBA_PTR_TO_JSON(EffectiveSceneNameList, effectiveSceneNameList_);
       DARABONBA_PTR_TO_JSON(EffectiveSceneNames, effectiveSceneNames_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(EverPublished, everPublished_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SceneId, sceneId_);
       DARABONBA_PTR_TO_JSON(SceneName, sceneName_);
       DARABONBA_PTR_TO_JSON(ServiceId, serviceId_);
+      DARABONBA_PTR_TO_JSON(ServiceIdList, serviceIdList_);
       DARABONBA_PTR_TO_JSON(ServiceIds, serviceIds_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(StatisBahaviorConditionExpress, statisBahaviorConditionExpress_);
@@ -60,6 +62,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ControlType, controlType_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(EffectiveSceneIds, effectiveSceneIds_);
+      DARABONBA_PTR_FROM_JSON(EffectiveSceneNameList, effectiveSceneNameList_);
       DARABONBA_PTR_FROM_JSON(EffectiveSceneNames, effectiveSceneNames_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(EverPublished, everPublished_);
@@ -80,6 +83,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SceneId, sceneId_);
       DARABONBA_PTR_FROM_JSON(SceneName, sceneName_);
       DARABONBA_PTR_FROM_JSON(ServiceId, serviceId_);
+      DARABONBA_PTR_FROM_JSON(ServiceIdList, serviceIdList_);
       DARABONBA_PTR_FROM_JSON(ServiceIds, serviceIds_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(StatisBahaviorConditionExpress, statisBahaviorConditionExpress_);
@@ -105,13 +109,13 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->behaviorTableMetaId_ != nullptr
         && this->controlGranularity_ != nullptr && this->controlLogic_ != nullptr && this->controlType_ != nullptr && this->description_ != nullptr && this->effectiveSceneIds_ != nullptr
-        && this->effectiveSceneNames_ != nullptr && this->endTime_ != nullptr && this->everPublished_ != nullptr && this->executionTime_ != nullptr && this->flinkResourceId_ != nullptr
-        && this->flinkResourceName_ != nullptr && this->gmtCreateTime_ != nullptr && this->gmtModifiedTime_ != nullptr && this->itemConditionArray_ != nullptr && this->itemConditionExpress_ != nullptr
-        && this->itemConditionType_ != nullptr && this->itemTableMetaId_ != nullptr && this->name_ != nullptr && this->preExperimentIds_ != nullptr && this->prepubStatus_ != nullptr
-        && this->prodExperimentIds_ != nullptr && this->productStatus_ != nullptr && this->sceneId_ != nullptr && this->sceneName_ != nullptr && this->serviceId_ != nullptr
-        && this->serviceIds_ != nullptr && this->startTime_ != nullptr && this->statisBahaviorConditionExpress_ != nullptr && this->statisBehaviorConditionArray_ != nullptr && this->statisBehaviorConditionType_ != nullptr
-        && this->trafficControlTargets_ != nullptr && this->trafficControlTaskId_ != nullptr && this->userConditionArray_ != nullptr && this->userConditionExpress_ != nullptr && this->userConditionType_ != nullptr
-        && this->userTableMetaId_ != nullptr; };
+        && this->effectiveSceneNameList_ != nullptr && this->effectiveSceneNames_ != nullptr && this->endTime_ != nullptr && this->everPublished_ != nullptr && this->executionTime_ != nullptr
+        && this->flinkResourceId_ != nullptr && this->flinkResourceName_ != nullptr && this->gmtCreateTime_ != nullptr && this->gmtModifiedTime_ != nullptr && this->itemConditionArray_ != nullptr
+        && this->itemConditionExpress_ != nullptr && this->itemConditionType_ != nullptr && this->itemTableMetaId_ != nullptr && this->name_ != nullptr && this->preExperimentIds_ != nullptr
+        && this->prepubStatus_ != nullptr && this->prodExperimentIds_ != nullptr && this->productStatus_ != nullptr && this->sceneId_ != nullptr && this->sceneName_ != nullptr
+        && this->serviceId_ != nullptr && this->serviceIdList_ != nullptr && this->serviceIds_ != nullptr && this->startTime_ != nullptr && this->statisBahaviorConditionExpress_ != nullptr
+        && this->statisBehaviorConditionArray_ != nullptr && this->statisBehaviorConditionType_ != nullptr && this->trafficControlTargets_ != nullptr && this->trafficControlTaskId_ != nullptr && this->userConditionArray_ != nullptr
+        && this->userConditionExpress_ != nullptr && this->userConditionType_ != nullptr && this->userTableMetaId_ != nullptr; };
     // behaviorTableMetaId Field Functions 
     bool hasBehaviorTableMetaId() const { return this->behaviorTableMetaId_ != nullptr;};
     void deleteBehaviorTableMetaId() { this->behaviorTableMetaId_ = nullptr;};
@@ -154,6 +158,15 @@ namespace Models
     inline vector<int32_t> effectiveSceneIds() { DARABONBA_PTR_GET(effectiveSceneIds_, vector<int32_t>) };
     inline ListTrafficControlTasksResponseBodyTrafficControlTasks& setEffectiveSceneIds(const vector<int32_t> & effectiveSceneIds) { DARABONBA_PTR_SET_VALUE(effectiveSceneIds_, effectiveSceneIds) };
     inline ListTrafficControlTasksResponseBodyTrafficControlTasks& setEffectiveSceneIds(vector<int32_t> && effectiveSceneIds) { DARABONBA_PTR_SET_RVALUE(effectiveSceneIds_, effectiveSceneIds) };
+
+
+    // effectiveSceneNameList Field Functions 
+    bool hasEffectiveSceneNameList() const { return this->effectiveSceneNameList_ != nullptr;};
+    void deleteEffectiveSceneNameList() { this->effectiveSceneNameList_ = nullptr;};
+    inline const vector<string> & effectiveSceneNameList() const { DARABONBA_PTR_GET_CONST(effectiveSceneNameList_, vector<string>) };
+    inline vector<string> effectiveSceneNameList() { DARABONBA_PTR_GET(effectiveSceneNameList_, vector<string>) };
+    inline ListTrafficControlTasksResponseBodyTrafficControlTasks& setEffectiveSceneNameList(const vector<string> & effectiveSceneNameList) { DARABONBA_PTR_SET_VALUE(effectiveSceneNameList_, effectiveSceneNameList) };
+    inline ListTrafficControlTasksResponseBodyTrafficControlTasks& setEffectiveSceneNameList(vector<string> && effectiveSceneNameList) { DARABONBA_PTR_SET_RVALUE(effectiveSceneNameList_, effectiveSceneNameList) };
 
 
     // effectiveSceneNames Field Functions 
@@ -298,6 +311,15 @@ namespace Models
     inline ListTrafficControlTasksResponseBodyTrafficControlTasks& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
+    // serviceIdList Field Functions 
+    bool hasServiceIdList() const { return this->serviceIdList_ != nullptr;};
+    void deleteServiceIdList() { this->serviceIdList_ = nullptr;};
+    inline const vector<int32_t> & serviceIdList() const { DARABONBA_PTR_GET_CONST(serviceIdList_, vector<int32_t>) };
+    inline vector<int32_t> serviceIdList() { DARABONBA_PTR_GET(serviceIdList_, vector<int32_t>) };
+    inline ListTrafficControlTasksResponseBodyTrafficControlTasks& setServiceIdList(const vector<int32_t> & serviceIdList) { DARABONBA_PTR_SET_VALUE(serviceIdList_, serviceIdList) };
+    inline ListTrafficControlTasksResponseBodyTrafficControlTasks& setServiceIdList(vector<int32_t> && serviceIdList) { DARABONBA_PTR_SET_RVALUE(serviceIdList_, serviceIdList) };
+
+
     // serviceIds Field Functions 
     bool hasServiceIds() const { return this->serviceIds_ != nullptr;};
     void deleteServiceIds() { this->serviceIds_ = nullptr;};
@@ -386,6 +408,7 @@ namespace Models
     std::shared_ptr<string> controlType_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<vector<int32_t>> effectiveSceneIds_ = nullptr;
+    std::shared_ptr<vector<string>> effectiveSceneNameList_ = nullptr;
     std::shared_ptr<vector<int32_t>> effectiveSceneNames_ = nullptr;
     std::shared_ptr<string> endTime_ = nullptr;
     std::shared_ptr<bool> everPublished_ = nullptr;
@@ -406,6 +429,7 @@ namespace Models
     std::shared_ptr<string> sceneId_ = nullptr;
     std::shared_ptr<string> sceneName_ = nullptr;
     std::shared_ptr<string> serviceId_ = nullptr;
+    std::shared_ptr<vector<int32_t>> serviceIdList_ = nullptr;
     std::shared_ptr<vector<string>> serviceIds_ = nullptr;
     std::shared_ptr<string> startTime_ = nullptr;
     std::shared_ptr<string> statisBahaviorConditionExpress_ = nullptr;
