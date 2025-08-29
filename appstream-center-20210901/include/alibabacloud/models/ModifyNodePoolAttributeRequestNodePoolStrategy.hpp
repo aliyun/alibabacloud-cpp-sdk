@@ -134,25 +134,47 @@ namespace Models
 
 
   protected:
+    // The maximum number of idle sessions. After you specify a value for this parameter, auto scaling is triggered only if the number of idle sessions in the delivery group is smaller than the specified value and the session usage exceeds the value specified for `ScalingUsageThreshold`. Otherwise, the system determines that the idle sessions in the delivery group are sufficient and does not perform auto scaling.`` You can use this parameter to flexibly manage auto scaling and reduce costs.
     std::shared_ptr<int32_t> maxIdleAppInstanceAmount_ = nullptr;
+    // The maximum number of resources that can be created for scale-out. This parameter is required only if you set `StrategyType` to `NODE_SCALING_BY_USAGE`.
     std::shared_ptr<int32_t> maxScalingAmount_ = nullptr;
-    // 购买资源的数量。取值范围：1~100。
+    // The number of resources to purchase. Valid values: 1 to 100.
     // 
     // > 
-    // - 若为包年包月资源，则该参数不可修改。
-    // - 若为按量付费资源，则当弹性模式（`StrategyType`）为固定数量（`NODE_FIXED`）或自动扩缩容（`NODE_SCALING_BY_USAGE`）时该参数可修改。
+    // 
+    // *   If you use subscription resources, you cannot modify this parameter.
+    // *   If you use pay-as-you-go resources, you can modify this parameter only if you set `StrategyType` to `NODE_FIXED` or `NODE_SCALING_BY_USAGE`.
     std::shared_ptr<int32_t> nodeAmount_ = nullptr;
-    // 策略执行周期列表。`StrategyType`（弹性模式）设为`NODE_SCALING_BY_SCHEDULE`（定时扩缩容）时，该字段必填。
+    // The intervals at which the scaling policy is executed. This parameter is required only if you set `StrategyType` to `NODE_SCALING_BY_SCHEDULE`.
     std::shared_ptr<vector<Models::ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules>> recurrenceSchedules_ = nullptr;
+    // The maximum retention period of a resource to which no session is connected. If no session is connected to a resource, the resource is automatically scaled in after the specified retention period elapses. Valid values: 5 to 120. Default value: 5. Unit: minutes. If one of the following situations occurs, the resource is not scaled in.
+    // 
+    // *   If a scale-out is automatically triggered after the resource is scaled in, the scale-in is not executed. This prevents repeated scale-in and scale-out.
+    // *   If a scale-out is automatically triggered due to an increase in the number of sessions during the specified period of time, the resource is not scaled in and the countdown restarts.
     std::shared_ptr<int32_t> scalingDownAfterIdleMinutes_ = nullptr;
+    // The number of resources that are created each time resources are scaled out. Valid values: 1 to 10. This parameter is required only if you set `StrategyType` to `NODE_SCALING_BY_USAGE`.
     std::shared_ptr<int32_t> scalingStep_ = nullptr;
+    // The upper limit of session usage. If the session usage exceeds the specified upper limit, auto scaling is automatically triggered. The session usage is calculated by using the following formula: `Session usage = Number of current sessions/(Total number of resources × Number of concurrent sessions) × 100%`. This parameter is required only if you set `StrategyType` to `NODE_SCALING_BY_USAGE`. Valid values: 0 to 100. Default value: 85.
     std::shared_ptr<string> scalingUsageThreshold_ = nullptr;
-    // 策略失效日期。格式为：yyyy-MM-dd。失效日期与生效日期的间隔必须介于7天到1年之间（含7天和1年）。`StrategyType`（弹性模式）设为`NODE_SCALING_BY_SCHEDULE`（定时扩缩容）时，该字段必填。
+    // The expiration date of the scaling policy. Format: yyyy-MM-dd. The interval between the expiration date and the effective date must be from 7 days to 1 year. This parameter is required only if you set `StrategyType` to `NODE_SCALING_BY_SCHEDULE`.
     std::shared_ptr<string> strategyDisableDate_ = nullptr;
-    // 策略生效日期。格式为：yyyy-MM-dd。该日期必须大于或等于当前日期。`StrategyType`（弹性模式）设为`NODE_SCALING_BY_SCHEDULE`（定时扩缩容）时，该字段必填。
+    // The effective date of the scaling policy. Format: yyyy-MM-dd. The date must be the same as or later than the current date. This parameter is required only if you set `StrategyType` to `NODE_SCALING_BY_SCHEDULE`.
     std::shared_ptr<string> strategyEnableDate_ = nullptr;
+    // The scaling mode.
+    // 
+    // > 
+    // 
+    // *   `NODE_FIXED`: no scaling. This value is applicable to pay-as-you-go resources and subscription resources.
+    // *   `NODE_SCALING_BY_USAGE`: auto scaling. This value is applicable to pay-as-you-go resources and subscription resources.
+    // *   `NODE_SCALING_BY_SCHEDULE`: scheduled scaling. This value is applicable only to pay-as-you-go resources.
+    // 
+    // Valid values:
+    // 
+    // *   NODE_FIXED: no scaling
+    // *   NODE_SCALING_BY_SCHEDULE: scheduled scaling
+    // *   NODE_SCALING_BY_USAGE: auto scaling
     std::shared_ptr<string> strategyType_ = nullptr;
-    // 是否开启资源预热策略。`StrategyType`（弹性模式）设为`NODE_SCALING_BY_SCHEDULE`（定时扩缩容）时，该字段必填。
+    // Specifies whether to enable the warmup policy for resources. This parameter is required only if you set `StrategyType` to `NODE_SCALING_BY_SCHEDULE`.
     std::shared_ptr<bool> warmUp_ = nullptr;
   };
 

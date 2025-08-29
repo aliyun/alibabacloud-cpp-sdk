@@ -75,11 +75,22 @@ namespace Models
 
 
   protected:
+    // The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
+    // 
+    // Valid values:
+    // 
+    // *   cn-shanghai: China (Shanghai)
+    // *   cn-hangzhou: China (Hangzhou)
     std::shared_ptr<string> bizRegionId_ = nullptr;
     std::shared_ptr<int32_t> nodeCapacity_ = nullptr;
+    // The auto scaling policy used by the delivery group.
     std::shared_ptr<string> nodePoolStrategyShrink_ = nullptr;
     std::shared_ptr<string> poolId_ = nullptr;
-    // 产品类型。
+    // The product type.
+    // 
+    // Valid value:
+    // 
+    // *   CloudApp: App Streaming
     std::shared_ptr<string> productType_ = nullptr;
   };
 

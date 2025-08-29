@@ -14,6 +14,7 @@ namespace Models
   class ListWuyingServerRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListWuyingServerRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AddVirtualNodePoolStatusList, addVirtualNodePoolStatusList_);
       DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
@@ -22,10 +23,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ServerInstanceType, serverInstanceType_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(VirtualNodePoolId, virtualNodePoolId_);
       DARABONBA_PTR_TO_JSON(WuyingServerIdList, wuyingServerIdList_);
       DARABONBA_PTR_TO_JSON(WuyingServerNameOrId, wuyingServerNameOrId_);
     };
     friend void from_json(const Darabonba::Json& j, ListWuyingServerRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AddVirtualNodePoolStatusList, addVirtualNodePoolStatusList_);
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
@@ -34,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ServerInstanceType, serverInstanceType_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(VirtualNodePoolId, virtualNodePoolId_);
       DARABONBA_PTR_FROM_JSON(WuyingServerIdList, wuyingServerIdList_);
       DARABONBA_PTR_FROM_JSON(WuyingServerNameOrId, wuyingServerNameOrId_);
     };
@@ -48,9 +52,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizRegionId_ != nullptr
-        && this->chargeType_ != nullptr && this->imageId_ != nullptr && this->officeSiteId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->serverInstanceType_ != nullptr && this->status_ != nullptr && this->wuyingServerIdList_ != nullptr && this->wuyingServerNameOrId_ != nullptr; };
+    virtual bool empty() const override { this->addVirtualNodePoolStatusList_ != nullptr
+        && this->bizRegionId_ != nullptr && this->chargeType_ != nullptr && this->imageId_ != nullptr && this->officeSiteId_ != nullptr && this->pageNumber_ != nullptr
+        && this->pageSize_ != nullptr && this->serverInstanceType_ != nullptr && this->status_ != nullptr && this->virtualNodePoolId_ != nullptr && this->wuyingServerIdList_ != nullptr
+        && this->wuyingServerNameOrId_ != nullptr; };
+    // addVirtualNodePoolStatusList Field Functions 
+    bool hasAddVirtualNodePoolStatusList() const { return this->addVirtualNodePoolStatusList_ != nullptr;};
+    void deleteAddVirtualNodePoolStatusList() { this->addVirtualNodePoolStatusList_ = nullptr;};
+    inline const vector<string> & addVirtualNodePoolStatusList() const { DARABONBA_PTR_GET_CONST(addVirtualNodePoolStatusList_, vector<string>) };
+    inline vector<string> addVirtualNodePoolStatusList() { DARABONBA_PTR_GET(addVirtualNodePoolStatusList_, vector<string>) };
+    inline ListWuyingServerRequest& setAddVirtualNodePoolStatusList(const vector<string> & addVirtualNodePoolStatusList) { DARABONBA_PTR_SET_VALUE(addVirtualNodePoolStatusList_, addVirtualNodePoolStatusList) };
+    inline ListWuyingServerRequest& setAddVirtualNodePoolStatusList(vector<string> && addVirtualNodePoolStatusList) { DARABONBA_PTR_SET_RVALUE(addVirtualNodePoolStatusList_, addVirtualNodePoolStatusList) };
+
+
     // bizRegionId Field Functions 
     bool hasBizRegionId() const { return this->bizRegionId_ != nullptr;};
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
@@ -107,6 +121,13 @@ namespace Models
     inline ListWuyingServerRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // virtualNodePoolId Field Functions 
+    bool hasVirtualNodePoolId() const { return this->virtualNodePoolId_ != nullptr;};
+    void deleteVirtualNodePoolId() { this->virtualNodePoolId_ = nullptr;};
+    inline string virtualNodePoolId() const { DARABONBA_PTR_GET_DEFAULT(virtualNodePoolId_, "") };
+    inline ListWuyingServerRequest& setVirtualNodePoolId(string virtualNodePoolId) { DARABONBA_PTR_SET_VALUE(virtualNodePoolId_, virtualNodePoolId) };
+
+
     // wuyingServerIdList Field Functions 
     bool hasWuyingServerIdList() const { return this->wuyingServerIdList_ != nullptr;};
     void deleteWuyingServerIdList() { this->wuyingServerIdList_ = nullptr;};
@@ -124,6 +145,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<vector<string>> addVirtualNodePoolStatusList_ = nullptr;
     std::shared_ptr<string> bizRegionId_ = nullptr;
     std::shared_ptr<string> chargeType_ = nullptr;
     std::shared_ptr<string> imageId_ = nullptr;
@@ -132,6 +154,7 @@ namespace Models
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     std::shared_ptr<string> serverInstanceType_ = nullptr;
     std::shared_ptr<string> status_ = nullptr;
+    std::shared_ptr<string> virtualNodePoolId_ = nullptr;
     std::shared_ptr<vector<string>> wuyingServerIdList_ = nullptr;
     std::shared_ptr<string> wuyingServerNameOrId_ = nullptr;
   };

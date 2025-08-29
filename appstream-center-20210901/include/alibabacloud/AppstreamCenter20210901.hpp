@@ -537,6 +537,14 @@ namespace AppstreamCenter20210901
       Models::ModifyNodePoolAmountResponse modifyNodePoolAmount(const Models::ModifyNodePoolAmountRequest &request);
 
       /**
+       * @summary Changes the scaling policy of a delivery group. The following scaling policies are supported: fixed resource number, scheduled scaling, and auto scaling.
+       *
+       * @description You can select one of the following scaling policies for cloud app resources:
+       * *   No scaling: Resources are not scaled.
+       * *   Auto scaling: Resources are automatically scaled based on the number of connected sessions and the duration during which no session is connected.
+       * *   Scheduled scaling: Resources are scaled during specific periods of time on specific dates.
+       * Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
+       *
        * @param tmpReq ModifyNodePoolAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyNodePoolAttributeResponse
@@ -544,6 +552,14 @@ namespace AppstreamCenter20210901
       Models::ModifyNodePoolAttributeResponse modifyNodePoolAttributeWithOptions(const Models::ModifyNodePoolAttributeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Changes the scaling policy of a delivery group. The following scaling policies are supported: fixed resource number, scheduled scaling, and auto scaling.
+       *
+       * @description You can select one of the following scaling policies for cloud app resources:
+       * *   No scaling: Resources are not scaled.
+       * *   Auto scaling: Resources are automatically scaled based on the number of connected sessions and the duration during which no session is connected.
+       * *   Scheduled scaling: Resources are scaled during specific periods of time on specific dates.
+       * Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
+       *
        * @param request ModifyNodePoolAttributeRequest
        * @return ModifyNodePoolAttributeResponse
        */

@@ -32,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SystemDiskPerformanceLevel, systemDiskPerformanceLevel_);
       DARABONBA_PTR_TO_JSON(SystemDiskSize, systemDiskSize_);
       DARABONBA_PTR_TO_JSON(VSwitchIds, vSwitchIds_);
+      DARABONBA_PTR_TO_JSON(VirtualNodePoolId, virtualNodePoolId_);
       DARABONBA_PTR_TO_JSON(WuyingServerName, wuyingServerName_);
     };
     friend void from_json(const Darabonba::Json& j, CreateWuyingServerRequest& obj) { 
@@ -52,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SystemDiskPerformanceLevel, systemDiskPerformanceLevel_);
       DARABONBA_PTR_FROM_JSON(SystemDiskSize, systemDiskSize_);
       DARABONBA_PTR_FROM_JSON(VSwitchIds, vSwitchIds_);
+      DARABONBA_PTR_FROM_JSON(VirtualNodePoolId, virtualNodePoolId_);
       DARABONBA_PTR_FROM_JSON(WuyingServerName, wuyingServerName_);
     };
     CreateWuyingServerRequest() = default ;
@@ -69,7 +71,7 @@ namespace Models
         && this->autoPay_ != nullptr && this->autoRenew_ != nullptr && this->bizRegionId_ != nullptr && this->chargeType_ != nullptr && this->dataDisk_ != nullptr
         && this->imageId_ != nullptr && this->officeSiteId_ != nullptr && this->password_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr
         && this->promotionId_ != nullptr && this->serverInstanceType_ != nullptr && this->systemDiskCategory_ != nullptr && this->systemDiskPerformanceLevel_ != nullptr && this->systemDiskSize_ != nullptr
-        && this->vSwitchIds_ != nullptr && this->wuyingServerName_ != nullptr; };
+        && this->vSwitchIds_ != nullptr && this->virtualNodePoolId_ != nullptr && this->wuyingServerName_ != nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -193,6 +195,13 @@ namespace Models
     inline CreateWuyingServerRequest& setVSwitchIds(vector<string> && vSwitchIds) { DARABONBA_PTR_SET_RVALUE(vSwitchIds_, vSwitchIds) };
 
 
+    // virtualNodePoolId Field Functions 
+    bool hasVirtualNodePoolId() const { return this->virtualNodePoolId_ != nullptr;};
+    void deleteVirtualNodePoolId() { this->virtualNodePoolId_ = nullptr;};
+    inline string virtualNodePoolId() const { DARABONBA_PTR_GET_DEFAULT(virtualNodePoolId_, "") };
+    inline CreateWuyingServerRequest& setVirtualNodePoolId(string virtualNodePoolId) { DARABONBA_PTR_SET_VALUE(virtualNodePoolId_, virtualNodePoolId) };
+
+
     // wuyingServerName Field Functions 
     bool hasWuyingServerName() const { return this->wuyingServerName_ != nullptr;};
     void deleteWuyingServerName() { this->wuyingServerName_ = nullptr;};
@@ -218,6 +227,7 @@ namespace Models
     std::shared_ptr<string> systemDiskPerformanceLevel_ = nullptr;
     std::shared_ptr<int32_t> systemDiskSize_ = nullptr;
     std::shared_ptr<vector<string>> vSwitchIds_ = nullptr;
+    std::shared_ptr<string> virtualNodePoolId_ = nullptr;
     std::shared_ptr<string> wuyingServerName_ = nullptr;
   };
 

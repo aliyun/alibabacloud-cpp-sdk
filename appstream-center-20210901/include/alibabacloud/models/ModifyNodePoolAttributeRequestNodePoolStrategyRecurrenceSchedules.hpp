@@ -63,17 +63,21 @@ namespace Models
 
 
   protected:
-    // 策略执行周期的类型。必须同时指定`RecurrenceType`和`RecurrenceValues`。
-    std::shared_ptr<string> recurrenceType_ = nullptr;
-    // 策略执行周期的数值列表。
-    std::shared_ptr<vector<int32_t>> recurrenceValues_ = nullptr;
-    // 策略执行周期的时间段列表。时间段设置要求：
+    // The schedule type of the scaling policy. This parameter must be configured together with `RecurrenceValues`.``
     // 
-    // - 最多可添加3个时间段。
-    // - 时间段之间不重叠。
-    // - 时间段之间的间隔大于或等于5分钟。
-    // - 单个时间段的时长大于或等于15分钟。
-    // - 所有时间段累计不跨天。
+    // Valid values:
+    // 
+    // *   weekly: The scaling policy is executed on specific days each week.
+    std::shared_ptr<string> recurrenceType_ = nullptr;
+    // The days of each week on which the scaling policy is executed.
+    std::shared_ptr<vector<int32_t>> recurrenceValues_ = nullptr;
+    // The time periods during which the scaling policy can be executed. The time periods must meet the following requirements:
+    // 
+    // *   Up to three time periods can be added.
+    // *   Time periods cannot be overlapped.
+    // *   The interval between two consecutive time periods must be greater than or equal to 5 minutes.
+    // *   Each time period must be greater than or equal to 15 minutes.
+    // *   The total length of the time periods that you specify cannot be greater than a day.
     std::shared_ptr<vector<Models::ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTimerPeriods>> timerPeriods_ = nullptr;
   };
 

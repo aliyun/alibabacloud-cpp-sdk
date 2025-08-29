@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // 资源数量。
+    // The number of resources.
     std::shared_ptr<int32_t> amount_ = nullptr;
-    // 结束时间。格式为HH:mm。
+    // The end of the time period during which the scaling policy is executed. Format: HH:mm.
     std::shared_ptr<string> endTime_ = nullptr;
-    // 开始时间。格式为HH:mm。
+    // The beginning of the time period during which the scaling policy is executed. Format: HH:mm.
     std::shared_ptr<string> startTime_ = nullptr;
   };
 

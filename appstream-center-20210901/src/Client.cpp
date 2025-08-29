@@ -17,7 +17,6 @@ namespace AppstreamCenter20210901
 {
 
 AlibabaCloud::AppstreamCenter20210901::Client::Client(Config &config): OpenApiClient(config){
-  this->_signatureAlgorithm = "v2";
   this->_endpointRule = "";
   checkConfig(config);
   this->_endpoint = getEndpoint("appstream-center", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -487,6 +486,10 @@ CreateWuyingServerResponse Client::createWuyingServerWithOptions(const CreateWuy
 
   if (!!request.hasVSwitchIds()) {
     body["VSwitchIds"] = request.vSwitchIds();
+  }
+
+  if (!!request.hasVirtualNodePoolId()) {
+    body["VirtualNodePoolId"] = request.virtualNodePoolId();
   }
 
   if (!!request.hasWuyingServerName()) {
@@ -1679,6 +1682,11 @@ ListTenantConfigResponse Client::listTenantConfig() {
 ListWuyingServerResponse Client::listWuyingServerWithOptions(const ListWuyingServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  json bodyFlat = {};
+  if (!!request.hasAddVirtualNodePoolStatusList()) {
+    bodyFlat["AddVirtualNodePoolStatusList"] = request.addVirtualNodePoolStatusList();
+  }
+
   if (!!request.hasBizRegionId()) {
     body["BizRegionId"] = request.bizRegionId();
   }
@@ -1711,7 +1719,10 @@ ListWuyingServerResponse Client::listWuyingServerWithOptions(const ListWuyingSer
     body["Status"] = request.status();
   }
 
-  json bodyFlat = {};
+  if (!!request.hasVirtualNodePoolId()) {
+    body["VirtualNodePoolId"] = request.virtualNodePoolId();
+  }
+
   if (!!request.hasWuyingServerIdList()) {
     bodyFlat["WuyingServerIdList"] = request.wuyingServerIdList();
   }
@@ -2016,6 +2027,14 @@ ModifyNodePoolAmountResponse Client::modifyNodePoolAmount(const ModifyNodePoolAm
 }
 
 /**
+ * @summary Changes the scaling policy of a delivery group. The following scaling policies are supported: fixed resource number, scheduled scaling, and auto scaling.
+ *
+ * @description You can select one of the following scaling policies for cloud app resources:
+ * *   No scaling: Resources are not scaled.
+ * *   Auto scaling: Resources are automatically scaled based on the number of connected sessions and the duration during which no session is connected.
+ * *   Scheduled scaling: Resources are scaled during specific periods of time on specific dates.
+ * Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
+ *
  * @param tmpReq ModifyNodePoolAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyNodePoolAttributeResponse
@@ -2067,6 +2086,14 @@ ModifyNodePoolAttributeResponse Client::modifyNodePoolAttributeWithOptions(const
 }
 
 /**
+ * @summary Changes the scaling policy of a delivery group. The following scaling policies are supported: fixed resource number, scheduled scaling, and auto scaling.
+ *
+ * @description You can select one of the following scaling policies for cloud app resources:
+ * *   No scaling: Resources are not scaled.
+ * *   Auto scaling: Resources are automatically scaled based on the number of connected sessions and the duration during which no session is connected.
+ * *   Scheduled scaling: Resources are scaled during specific periods of time on specific dates.
+ * Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
+ *
  * @param request ModifyNodePoolAttributeRequest
  * @return ModifyNodePoolAttributeResponse
  */

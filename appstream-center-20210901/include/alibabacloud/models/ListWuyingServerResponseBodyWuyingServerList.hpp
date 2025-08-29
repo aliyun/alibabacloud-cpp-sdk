@@ -17,6 +17,7 @@ namespace Models
   class ListWuyingServerResponseBodyWuyingServerList : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListWuyingServerResponseBodyWuyingServerList& obj) { 
+      DARABONBA_PTR_TO_JSON(AddVirtualNodePoolStatus, addVirtualNodePoolStatus_);
       DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
@@ -30,15 +31,18 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OfficeSiteName, officeSiteName_);
       DARABONBA_PTR_TO_JSON(OfficeSiteType, officeSiteType_);
       DARABONBA_PTR_TO_JSON(OsType, osType_);
+      DARABONBA_PTR_TO_JSON(SecurityGroupIds, securityGroupIds_);
       DARABONBA_PTR_TO_JSON(ServerInstanceTypeInfo, serverInstanceTypeInfo_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(SystemDiskCategory, systemDiskCategory_);
       DARABONBA_PTR_TO_JSON(SystemDiskPerformanceLevel, systemDiskPerformanceLevel_);
       DARABONBA_PTR_TO_JSON(SystemDiskSize, systemDiskSize_);
+      DARABONBA_PTR_TO_JSON(VirtualNodePoolId, virtualNodePoolId_);
       DARABONBA_PTR_TO_JSON(WuyingServerId, wuyingServerId_);
       DARABONBA_PTR_TO_JSON(WuyingServerName, wuyingServerName_);
     };
     friend void from_json(const Darabonba::Json& j, ListWuyingServerResponseBodyWuyingServerList& obj) { 
+      DARABONBA_PTR_FROM_JSON(AddVirtualNodePoolStatus, addVirtualNodePoolStatus_);
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
@@ -52,11 +56,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OfficeSiteName, officeSiteName_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteType, officeSiteType_);
       DARABONBA_PTR_FROM_JSON(OsType, osType_);
+      DARABONBA_PTR_FROM_JSON(SecurityGroupIds, securityGroupIds_);
       DARABONBA_PTR_FROM_JSON(ServerInstanceTypeInfo, serverInstanceTypeInfo_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(SystemDiskCategory, systemDiskCategory_);
       DARABONBA_PTR_FROM_JSON(SystemDiskPerformanceLevel, systemDiskPerformanceLevel_);
       DARABONBA_PTR_FROM_JSON(SystemDiskSize, systemDiskSize_);
+      DARABONBA_PTR_FROM_JSON(VirtualNodePoolId, virtualNodePoolId_);
       DARABONBA_PTR_FROM_JSON(WuyingServerId, wuyingServerId_);
       DARABONBA_PTR_FROM_JSON(WuyingServerName, wuyingServerName_);
     };
@@ -71,11 +77,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizRegionId_ != nullptr
-        && this->chargeType_ != nullptr && this->createTime_ != nullptr && this->dataDisk_ != nullptr && this->expiredTime_ != nullptr && this->imageId_ != nullptr
-        && this->imageName_ != nullptr && this->instanceInfoList_ != nullptr && this->networkInterfaceIp_ != nullptr && this->officeSiteId_ != nullptr && this->officeSiteName_ != nullptr
-        && this->officeSiteType_ != nullptr && this->osType_ != nullptr && this->serverInstanceTypeInfo_ != nullptr && this->status_ != nullptr && this->systemDiskCategory_ != nullptr
-        && this->systemDiskPerformanceLevel_ != nullptr && this->systemDiskSize_ != nullptr && this->wuyingServerId_ != nullptr && this->wuyingServerName_ != nullptr; };
+    virtual bool empty() const override { this->addVirtualNodePoolStatus_ != nullptr
+        && this->bizRegionId_ != nullptr && this->chargeType_ != nullptr && this->createTime_ != nullptr && this->dataDisk_ != nullptr && this->expiredTime_ != nullptr
+        && this->imageId_ != nullptr && this->imageName_ != nullptr && this->instanceInfoList_ != nullptr && this->networkInterfaceIp_ != nullptr && this->officeSiteId_ != nullptr
+        && this->officeSiteName_ != nullptr && this->officeSiteType_ != nullptr && this->osType_ != nullptr && this->securityGroupIds_ != nullptr && this->serverInstanceTypeInfo_ != nullptr
+        && this->status_ != nullptr && this->systemDiskCategory_ != nullptr && this->systemDiskPerformanceLevel_ != nullptr && this->systemDiskSize_ != nullptr && this->virtualNodePoolId_ != nullptr
+        && this->wuyingServerId_ != nullptr && this->wuyingServerName_ != nullptr; };
+    // addVirtualNodePoolStatus Field Functions 
+    bool hasAddVirtualNodePoolStatus() const { return this->addVirtualNodePoolStatus_ != nullptr;};
+    void deleteAddVirtualNodePoolStatus() { this->addVirtualNodePoolStatus_ = nullptr;};
+    inline string addVirtualNodePoolStatus() const { DARABONBA_PTR_GET_DEFAULT(addVirtualNodePoolStatus_, "") };
+    inline ListWuyingServerResponseBodyWuyingServerList& setAddVirtualNodePoolStatus(string addVirtualNodePoolStatus) { DARABONBA_PTR_SET_VALUE(addVirtualNodePoolStatus_, addVirtualNodePoolStatus) };
+
+
     // bizRegionId Field Functions 
     bool hasBizRegionId() const { return this->bizRegionId_ != nullptr;};
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
@@ -171,6 +185,15 @@ namespace Models
     inline ListWuyingServerResponseBodyWuyingServerList& setOsType(string osType) { DARABONBA_PTR_SET_VALUE(osType_, osType) };
 
 
+    // securityGroupIds Field Functions 
+    bool hasSecurityGroupIds() const { return this->securityGroupIds_ != nullptr;};
+    void deleteSecurityGroupIds() { this->securityGroupIds_ = nullptr;};
+    inline const vector<string> & securityGroupIds() const { DARABONBA_PTR_GET_CONST(securityGroupIds_, vector<string>) };
+    inline vector<string> securityGroupIds() { DARABONBA_PTR_GET(securityGroupIds_, vector<string>) };
+    inline ListWuyingServerResponseBodyWuyingServerList& setSecurityGroupIds(const vector<string> & securityGroupIds) { DARABONBA_PTR_SET_VALUE(securityGroupIds_, securityGroupIds) };
+    inline ListWuyingServerResponseBodyWuyingServerList& setSecurityGroupIds(vector<string> && securityGroupIds) { DARABONBA_PTR_SET_RVALUE(securityGroupIds_, securityGroupIds) };
+
+
     // serverInstanceTypeInfo Field Functions 
     bool hasServerInstanceTypeInfo() const { return this->serverInstanceTypeInfo_ != nullptr;};
     void deleteServerInstanceTypeInfo() { this->serverInstanceTypeInfo_ = nullptr;};
@@ -208,6 +231,13 @@ namespace Models
     inline ListWuyingServerResponseBodyWuyingServerList& setSystemDiskSize(int32_t systemDiskSize) { DARABONBA_PTR_SET_VALUE(systemDiskSize_, systemDiskSize) };
 
 
+    // virtualNodePoolId Field Functions 
+    bool hasVirtualNodePoolId() const { return this->virtualNodePoolId_ != nullptr;};
+    void deleteVirtualNodePoolId() { this->virtualNodePoolId_ = nullptr;};
+    inline string virtualNodePoolId() const { DARABONBA_PTR_GET_DEFAULT(virtualNodePoolId_, "") };
+    inline ListWuyingServerResponseBodyWuyingServerList& setVirtualNodePoolId(string virtualNodePoolId) { DARABONBA_PTR_SET_VALUE(virtualNodePoolId_, virtualNodePoolId) };
+
+
     // wuyingServerId Field Functions 
     bool hasWuyingServerId() const { return this->wuyingServerId_ != nullptr;};
     void deleteWuyingServerId() { this->wuyingServerId_ = nullptr;};
@@ -223,6 +253,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> addVirtualNodePoolStatus_ = nullptr;
     std::shared_ptr<string> bizRegionId_ = nullptr;
     std::shared_ptr<string> chargeType_ = nullptr;
     std::shared_ptr<string> createTime_ = nullptr;
@@ -236,11 +267,13 @@ namespace Models
     std::shared_ptr<string> officeSiteName_ = nullptr;
     std::shared_ptr<string> officeSiteType_ = nullptr;
     std::shared_ptr<string> osType_ = nullptr;
+    std::shared_ptr<vector<string>> securityGroupIds_ = nullptr;
     std::shared_ptr<Models::ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo> serverInstanceTypeInfo_ = nullptr;
     std::shared_ptr<string> status_ = nullptr;
     std::shared_ptr<string> systemDiskCategory_ = nullptr;
     std::shared_ptr<string> systemDiskPerformanceLevel_ = nullptr;
     std::shared_ptr<int32_t> systemDiskSize_ = nullptr;
+    std::shared_ptr<string> virtualNodePoolId_ = nullptr;
     std::shared_ptr<string> wuyingServerId_ = nullptr;
     std::shared_ptr<string> wuyingServerName_ = nullptr;
   };
