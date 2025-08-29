@@ -5318,6 +5318,52 @@ GetTableLineageByTaskIdResponse Client::getTableLineageByTaskId(const GetTableLi
 }
 
 /**
+ * @summary 根据转交任务ID查询转交任务的进度
+ *
+ * @param request GetTransferInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTransferInfoResponse
+ */
+GetTransferInfoResponse Client::getTransferInfoWithOptions(const GetTransferInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.opTenantId();
+  }
+
+  if (!!request.hasProposalId()) {
+    query["ProposalId"] = request.proposalId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTransferInfo"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTransferInfoResponse>();
+}
+
+/**
+ * @summary 根据转交任务ID查询转交任务的进度
+ *
+ * @param request GetTransferInfoRequest
+ * @return GetTransferInfoResponse
+ */
+GetTransferInfoResponse Client::getTransferInfo(const GetTransferInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTransferInfoWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取自定义函数详情。
  *
  * @param request GetUdfRequest
@@ -8204,6 +8250,60 @@ ResumePhysicalNodeResponse Client::resumePhysicalNode(const ResumePhysicalNodeRe
 }
 
 /**
+ * @summary 重新转交运行失败的转交任务
+ *
+ * @param tmpReq RetryTransferOwnershipRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RetryTransferOwnershipResponse
+ */
+RetryTransferOwnershipResponse Client::retryTransferOwnershipWithOptions(const RetryTransferOwnershipRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RetryTransferOwnershipShrinkRequest request = RetryTransferOwnershipShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasPrivilegeTransferRecord()) {
+    request.setPrivilegeTransferRecordShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.privilegeTransferRecord(), "PrivilegeTransferRecord", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.opTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasPrivilegeTransferRecordShrink()) {
+    body["PrivilegeTransferRecord"] = request.privilegeTransferRecordShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RetryTransferOwnership"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RetryTransferOwnershipResponse>();
+}
+
+/**
+ * @summary 重新转交运行失败的转交任务
+ *
+ * @param request RetryTransferOwnershipRequest
+ * @return RetryTransferOwnershipResponse
+ */
+RetryTransferOwnershipResponse Client::retryTransferOwnership(const RetryTransferOwnershipRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return retryTransferOwnershipWithOptions(request, runtime);
+}
+
+/**
  * @summary 回收API授权。
  *
  * @param tmpReq RevokeDataServiceApiRequest
@@ -8417,6 +8517,60 @@ SubmitBatchTaskResponse Client::submitBatchTaskWithOptions(const SubmitBatchTask
 SubmitBatchTaskResponse Client::submitBatchTask(const SubmitBatchTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitBatchTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 一键转交负责人
+ *
+ * @param tmpReq TransferOwnershipForAllObjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TransferOwnershipForAllObjectResponse
+ */
+TransferOwnershipForAllObjectResponse Client::transferOwnershipForAllObjectWithOptions(const TransferOwnershipForAllObjectRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  TransferOwnershipForAllObjectShrinkRequest request = TransferOwnershipForAllObjectShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasPrivilegeTransferRecord()) {
+    request.setPrivilegeTransferRecordShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.privilegeTransferRecord(), "PrivilegeTransferRecord", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.opTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasPrivilegeTransferRecordShrink()) {
+    body["PrivilegeTransferRecord"] = request.privilegeTransferRecordShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TransferOwnershipForAllObject"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TransferOwnershipForAllObjectResponse>();
+}
+
+/**
+ * @summary 一键转交负责人
+ *
+ * @param request TransferOwnershipForAllObjectRequest
+ * @return TransferOwnershipForAllObjectResponse
+ */
+TransferOwnershipForAllObjectResponse Client::transferOwnershipForAllObject(const TransferOwnershipForAllObjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return transferOwnershipForAllObjectWithOptions(request, runtime);
 }
 
 /**

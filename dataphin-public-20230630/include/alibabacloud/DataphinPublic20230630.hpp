@@ -1738,6 +1738,23 @@ namespace DataphinPublic20230630
       Models::GetTableLineageByTaskIdResponse getTableLineageByTaskId(const Models::GetTableLineageByTaskIdRequest &request);
 
       /**
+       * @summary 根据转交任务ID查询转交任务的进度
+       *
+       * @param request GetTransferInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTransferInfoResponse
+       */
+      Models::GetTransferInfoResponse getTransferInfoWithOptions(const Models::GetTransferInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据转交任务ID查询转交任务的进度
+       *
+       * @param request GetTransferInfoRequest
+       * @return GetTransferInfoResponse
+       */
+      Models::GetTransferInfoResponse getTransferInfo(const Models::GetTransferInfoRequest &request);
+
+      /**
        * @summary 获取自定义函数详情。
        *
        * @param request GetUdfRequest
@@ -2639,6 +2656,23 @@ namespace DataphinPublic20230630
       Models::ResumePhysicalNodeResponse resumePhysicalNode(const Models::ResumePhysicalNodeRequest &request);
 
       /**
+       * @summary 重新转交运行失败的转交任务
+       *
+       * @param tmpReq RetryTransferOwnershipRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RetryTransferOwnershipResponse
+       */
+      Models::RetryTransferOwnershipResponse retryTransferOwnershipWithOptions(const Models::RetryTransferOwnershipRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重新转交运行失败的转交任务
+       *
+       * @param request RetryTransferOwnershipRequest
+       * @return RetryTransferOwnershipResponse
+       */
+      Models::RetryTransferOwnershipResponse retryTransferOwnership(const Models::RetryTransferOwnershipRequest &request);
+
+      /**
        * @summary 回收API授权。
        *
        * @param tmpReq RevokeDataServiceApiRequest
@@ -2705,6 +2739,23 @@ namespace DataphinPublic20230630
        * @return SubmitBatchTaskResponse
        */
       Models::SubmitBatchTaskResponse submitBatchTask(const Models::SubmitBatchTaskRequest &request);
+
+      /**
+       * @summary 一键转交负责人
+       *
+       * @param tmpReq TransferOwnershipForAllObjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TransferOwnershipForAllObjectResponse
+       */
+      Models::TransferOwnershipForAllObjectResponse transferOwnershipForAllObjectWithOptions(const Models::TransferOwnershipForAllObjectRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 一键转交负责人
+       *
+       * @param request TransferOwnershipForAllObjectRequest
+       * @return TransferOwnershipForAllObjectResponse
+       */
+      Models::TransferOwnershipForAllObjectResponse transferOwnershipForAllObject(const Models::TransferOwnershipForAllObjectRequest &request);
 
       /**
        * @summary 编辑即席查询文件。

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_DATAPHINPUBLIC20230630MODEL_HPP_
 #define ALIBABACLOUD_DATAPHINPUBLIC20230630MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/PrivilegeTransferResultEntrie.hpp>
 #include <alibabacloud/models/AddDataServiceProjectMemberRequest.hpp>
 #include <alibabacloud/models/AddDataServiceProjectMemberShrinkRequest.hpp>
 #include <alibabacloud/models/AddDataServiceProjectMemberResponseBody.hpp>
@@ -345,6 +346,9 @@
 #include <alibabacloud/models/GetTableLineageByTaskIdShrinkRequest.hpp>
 #include <alibabacloud/models/GetTableLineageByTaskIdResponseBody.hpp>
 #include <alibabacloud/models/GetTableLineageByTaskIdResponse.hpp>
+#include <alibabacloud/models/GetTransferInfoRequest.hpp>
+#include <alibabacloud/models/GetTransferInfoResponseBody.hpp>
+#include <alibabacloud/models/GetTransferInfoResponse.hpp>
 #include <alibabacloud/models/GetUdfRequest.hpp>
 #include <alibabacloud/models/GetUdfResponseBody.hpp>
 #include <alibabacloud/models/GetUdfResponse.hpp>
@@ -549,6 +553,10 @@
 #include <alibabacloud/models/ResumePhysicalNodeShrinkRequest.hpp>
 #include <alibabacloud/models/ResumePhysicalNodeResponseBody.hpp>
 #include <alibabacloud/models/ResumePhysicalNodeResponse.hpp>
+#include <alibabacloud/models/RetryTransferOwnershipRequest.hpp>
+#include <alibabacloud/models/RetryTransferOwnershipShrinkRequest.hpp>
+#include <alibabacloud/models/RetryTransferOwnershipResponseBody.hpp>
+#include <alibabacloud/models/RetryTransferOwnershipResponse.hpp>
 #include <alibabacloud/models/RevokeDataServiceApiRequest.hpp>
 #include <alibabacloud/models/RevokeDataServiceApiShrinkRequest.hpp>
 #include <alibabacloud/models/RevokeDataServiceApiResponseBody.hpp>
@@ -564,6 +572,10 @@
 #include <alibabacloud/models/SubmitBatchTaskShrinkRequest.hpp>
 #include <alibabacloud/models/SubmitBatchTaskResponseBody.hpp>
 #include <alibabacloud/models/SubmitBatchTaskResponse.hpp>
+#include <alibabacloud/models/TransferOwnershipForAllObjectRequest.hpp>
+#include <alibabacloud/models/TransferOwnershipForAllObjectShrinkRequest.hpp>
+#include <alibabacloud/models/TransferOwnershipForAllObjectResponseBody.hpp>
+#include <alibabacloud/models/TransferOwnershipForAllObjectResponse.hpp>
 #include <alibabacloud/models/UpdateAdHocFileRequest.hpp>
 #include <alibabacloud/models/UpdateAdHocFileShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateAdHocFileResponseBody.hpp>
@@ -854,6 +866,12 @@
 #include <alibabacloud/models/GetTableColumnLineageByTaskIdResponseBodyData.hpp>
 #include <alibabacloud/models/GetTableLineageByTaskIdRequestTableLineageByTaskIdQuery.hpp>
 #include <alibabacloud/models/GetTableLineageByTaskIdResponseBodyData.hpp>
+#include <alibabacloud/models/GetTransferInfoResponseBodyDataCreator.hpp>
+#include <alibabacloud/models/GetTransferInfoResponseBodyDataLastModifier.hpp>
+#include <alibabacloud/models/GetTransferInfoResponseBodyDataNewOwner.hpp>
+#include <alibabacloud/models/GetTransferInfoResponseBodyDataOldOwner.hpp>
+#include <alibabacloud/models/GetTransferInfoResponseBodyDataPrivilegeTransferResultEntries.hpp>
+#include <alibabacloud/models/GetTransferInfoResponseBodyData.hpp>
 #include <alibabacloud/models/GetUdfResponseBodyUdfInfo.hpp>
 #include <alibabacloud/models/GetUdfByVersionResponseBodyUdfInfo.hpp>
 #include <alibabacloud/models/GetUserBySourceIdResponseBodyUser.hpp>
@@ -1051,6 +1069,7 @@
 #include <alibabacloud/models/ReplaceProjectWhiteListsRequestReplaceCommand.hpp>
 #include <alibabacloud/models/ResumePhysicalNodeRequestResumeCommand.hpp>
 #include <alibabacloud/models/ResumePhysicalNodeResponseBodyNodeOperateResultList.hpp>
+#include <alibabacloud/models/RetryTransferOwnershipRequestPrivilegeTransferRecord.hpp>
 #include <alibabacloud/models/RevokeDataServiceApiRequestRevokeCommand.hpp>
 #include <alibabacloud/models/RevokeResourcePermissionRequestRevokeCommandResourceList.hpp>
 #include <alibabacloud/models/RevokeResourcePermissionRequestRevokeCommand.hpp>
@@ -1061,6 +1080,7 @@
 #include <alibabacloud/models/SubmitBatchTaskRequestSubmitCommandUpStreamList.hpp>
 #include <alibabacloud/models/SubmitBatchTaskRequestSubmitCommand.hpp>
 #include <alibabacloud/models/SubmitBatchTaskResponseBodySubmitResult.hpp>
+#include <alibabacloud/models/TransferOwnershipForAllObjectRequestPrivilegeTransferRecord.hpp>
 #include <alibabacloud/models/UpdateAdHocFileRequestUpdateCommand.hpp>
 #include <alibabacloud/models/UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig.hpp>
 #include <alibabacloud/models/UpdateBatchTaskRequestUpdateCommandParamList.hpp>
