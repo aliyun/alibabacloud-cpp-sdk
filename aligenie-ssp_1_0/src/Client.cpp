@@ -5274,6 +5274,10 @@ ThirdImmediateMsgPushResponse Client::thirdImmediateMsgPushWithOptions(const Thi
     query["PsgIds"] = request.psgIds();
   }
 
+  if (!!request.hasSource()) {
+    query["Source"] = request.source();
+  }
+
   if (!!request.hasTrafficChangeType()) {
     query["TrafficChangeType"] = request.trafficChangeType();
   }

@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ChangeDetail, changeDetail_);
       DARABONBA_PTR_TO_JSON(OrderId, orderId_);
       DARABONBA_PTR_TO_JSON(PsgIds, psgIds_);
+      DARABONBA_PTR_TO_JSON(Source, source_);
       DARABONBA_PTR_TO_JSON(TrafficChangeType, trafficChangeType_);
       DARABONBA_PTR_TO_JSON(TrafficChangeTypeDesc, trafficChangeTypeDesc_);
       DARABONBA_PTR_TO_JSON(TrafficJourneyIds, trafficJourneyIds_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ChangeDetail, changeDetail_);
       DARABONBA_PTR_FROM_JSON(OrderId, orderId_);
       DARABONBA_PTR_FROM_JSON(PsgIds, psgIds_);
+      DARABONBA_PTR_FROM_JSON(Source, source_);
       DARABONBA_PTR_FROM_JSON(TrafficChangeType, trafficChangeType_);
       DARABONBA_PTR_FROM_JSON(TrafficChangeTypeDesc, trafficChangeTypeDesc_);
       DARABONBA_PTR_FROM_JSON(TrafficJourneyIds, trafficJourneyIds_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->bizType_ != nullptr
-        && this->changeDetail_ != nullptr && this->orderId_ != nullptr && this->psgIds_ != nullptr && this->trafficChangeType_ != nullptr && this->trafficChangeTypeDesc_ != nullptr
-        && this->trafficJourneyIds_ != nullptr && this->trafficSubOrderIds_ != nullptr && this->userId_ != nullptr; };
+        && this->changeDetail_ != nullptr && this->orderId_ != nullptr && this->psgIds_ != nullptr && this->source_ != nullptr && this->trafficChangeType_ != nullptr
+        && this->trafficChangeTypeDesc_ != nullptr && this->trafficJourneyIds_ != nullptr && this->trafficSubOrderIds_ != nullptr && this->userId_ != nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
@@ -74,6 +76,13 @@ namespace Models
     void deletePsgIds() { this->psgIds_ = nullptr;};
     inline string psgIds() const { DARABONBA_PTR_GET_DEFAULT(psgIds_, "") };
     inline ThirdImmediateMsgPushRequest& setPsgIds(string psgIds) { DARABONBA_PTR_SET_VALUE(psgIds_, psgIds) };
+
+
+    // source Field Functions 
+    bool hasSource() const { return this->source_ != nullptr;};
+    void deleteSource() { this->source_ = nullptr;};
+    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline ThirdImmediateMsgPushRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // trafficChangeType Field Functions 
@@ -116,6 +125,7 @@ namespace Models
     std::shared_ptr<string> changeDetail_ = nullptr;
     std::shared_ptr<string> orderId_ = nullptr;
     std::shared_ptr<string> psgIds_ = nullptr;
+    std::shared_ptr<string> source_ = nullptr;
     std::shared_ptr<string> trafficChangeType_ = nullptr;
     std::shared_ptr<string> trafficChangeTypeDesc_ = nullptr;
     std::shared_ptr<string> trafficJourneyIds_ = nullptr;
