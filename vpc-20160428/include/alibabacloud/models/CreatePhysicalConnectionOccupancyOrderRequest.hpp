@@ -14,6 +14,8 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreatePhysicalConnectionOccupancyOrderRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
+      DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
+      DARABONBA_PTR_TO_JSON(AutoRenewDuration, autoRenewDuration_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(InstanceChargeType, instanceChargeType_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
@@ -27,6 +29,8 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreatePhysicalConnectionOccupancyOrderRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
+      DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
+      DARABONBA_PTR_FROM_JSON(AutoRenewDuration, autoRenewDuration_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(InstanceChargeType, instanceChargeType_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
@@ -50,13 +54,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->autoPay_ != nullptr
-        && this->clientToken_ != nullptr && this->instanceChargeType_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->period_ != nullptr
-        && this->physicalConnectionId_ != nullptr && this->pricingCycle_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+        && this->autoRenew_ != nullptr && this->autoRenewDuration_ != nullptr && this->clientToken_ != nullptr && this->instanceChargeType_ != nullptr && this->ownerAccount_ != nullptr
+        && this->ownerId_ != nullptr && this->period_ != nullptr && this->physicalConnectionId_ != nullptr && this->pricingCycle_ != nullptr && this->regionId_ != nullptr
+        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
     inline bool autoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
     inline CreatePhysicalConnectionOccupancyOrderRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
+
+
+    // autoRenew Field Functions 
+    bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
+    void deleteAutoRenew() { this->autoRenew_ = nullptr;};
+    inline bool autoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
+    inline CreatePhysicalConnectionOccupancyOrderRequest& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
+
+
+    // autoRenewDuration Field Functions 
+    bool hasAutoRenewDuration() const { return this->autoRenewDuration_ != nullptr;};
+    void deleteAutoRenewDuration() { this->autoRenewDuration_ = nullptr;};
+    inline int32_t autoRenewDuration() const { DARABONBA_PTR_GET_DEFAULT(autoRenewDuration_, 0) };
+    inline CreatePhysicalConnectionOccupancyOrderRequest& setAutoRenewDuration(int32_t autoRenewDuration) { DARABONBA_PTR_SET_VALUE(autoRenewDuration_, autoRenewDuration) };
 
 
     // clientToken Field Functions 
@@ -135,6 +154,8 @@ namespace Models
     // *   **true**: yes Make sure that you have a sufficient balance in your account. Otherwise, your order becomes invalid and is automatically canceled.
     // *   **false**: disables automatic payment. This is the default value.
     std::shared_ptr<bool> autoPay_ = nullptr;
+    std::shared_ptr<bool> autoRenew_ = nullptr;
+    std::shared_ptr<int32_t> autoRenewDuration_ = nullptr;
     // The client token that is used to ensure the idempotence of the request.
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests.

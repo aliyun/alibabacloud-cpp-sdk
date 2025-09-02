@@ -6389,6 +6389,14 @@ CreatePhysicalConnectionOccupancyOrderResponse Client::createPhysicalConnectionO
     query["AutoPay"] = request.autoPay();
   }
 
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.autoRenew();
+  }
+
+  if (!!request.hasAutoRenewDuration()) {
+    query["AutoRenewDuration"] = request.autoRenewDuration();
+  }
+
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.clientToken();
   }
@@ -27934,6 +27942,10 @@ ModifyVirtualBorderRouterAttributeResponse Client::modifyVirtualBorderRouterAttr
 
   if (!!request.hasMinTxInterval()) {
     query["MinTxInterval"] = request.minTxInterval();
+  }
+
+  if (!!request.hasMtu()) {
+    query["Mtu"] = request.mtu();
   }
 
   if (!!request.hasName()) {

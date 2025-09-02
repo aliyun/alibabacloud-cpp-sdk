@@ -35,6 +35,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LocalIpv6GatewayIp, localIpv6GatewayIp_);
       DARABONBA_PTR_TO_JSON(MinRxInterval, minRxInterval_);
       DARABONBA_PTR_TO_JSON(MinTxInterval, minTxInterval_);
+      DARABONBA_PTR_TO_JSON(Mtu, mtu_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(PConnVbrChargeType, PConnVbrChargeType_);
       DARABONBA_PTR_TO_JSON(PConnVbrExpireTime, PConnVbrExpireTime_);
@@ -78,6 +79,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LocalIpv6GatewayIp, localIpv6GatewayIp_);
       DARABONBA_PTR_FROM_JSON(MinRxInterval, minRxInterval_);
       DARABONBA_PTR_FROM_JSON(MinTxInterval, minTxInterval_);
+      DARABONBA_PTR_FROM_JSON(Mtu, mtu_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(PConnVbrChargeType, PConnVbrChargeType_);
       DARABONBA_PTR_FROM_JSON(PConnVbrExpireTime, PConnVbrExpireTime_);
@@ -116,11 +118,12 @@ namespace Models
         && this->activationTime_ != nullptr && this->associatedCens_ != nullptr && this->associatedPhysicalConnections_ != nullptr && this->bandwidth_ != nullptr && this->circuitCode_ != nullptr
         && this->cloudBoxInstanceId_ != nullptr && this->creationTime_ != nullptr && this->description_ != nullptr && this->detectMultiplier_ != nullptr && this->eccId_ != nullptr
         && this->ecrAttatchStatus_ != nullptr && this->ecrId_ != nullptr && this->ecrOwnerId_ != nullptr && this->enableIpv6_ != nullptr && this->localGatewayIp_ != nullptr
-        && this->localIpv6GatewayIp_ != nullptr && this->minRxInterval_ != nullptr && this->minTxInterval_ != nullptr && this->name_ != nullptr && this->PConnVbrChargeType_ != nullptr
-        && this->PConnVbrExpireTime_ != nullptr && this->peerGatewayIp_ != nullptr && this->peerIpv6GatewayIp_ != nullptr && this->peeringIpv6SubnetMask_ != nullptr && this->peeringSubnetMask_ != nullptr
-        && this->physicalConnectionBusinessStatus_ != nullptr && this->physicalConnectionId_ != nullptr && this->physicalConnectionOwnerUid_ != nullptr && this->physicalConnectionStatus_ != nullptr && this->recoveryTime_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->routeTableId_ != nullptr && this->sitelinkEnable_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr
-        && this->terminationTime_ != nullptr && this->type_ != nullptr && this->vbrId_ != nullptr && this->vlanId_ != nullptr && this->vlanInterfaceId_ != nullptr; };
+        && this->localIpv6GatewayIp_ != nullptr && this->minRxInterval_ != nullptr && this->minTxInterval_ != nullptr && this->mtu_ != nullptr && this->name_ != nullptr
+        && this->PConnVbrChargeType_ != nullptr && this->PConnVbrExpireTime_ != nullptr && this->peerGatewayIp_ != nullptr && this->peerIpv6GatewayIp_ != nullptr && this->peeringIpv6SubnetMask_ != nullptr
+        && this->peeringSubnetMask_ != nullptr && this->physicalConnectionBusinessStatus_ != nullptr && this->physicalConnectionId_ != nullptr && this->physicalConnectionOwnerUid_ != nullptr && this->physicalConnectionStatus_ != nullptr
+        && this->recoveryTime_ != nullptr && this->resourceGroupId_ != nullptr && this->routeTableId_ != nullptr && this->sitelinkEnable_ != nullptr && this->status_ != nullptr
+        && this->tags_ != nullptr && this->terminationTime_ != nullptr && this->type_ != nullptr && this->vbrId_ != nullptr && this->vlanId_ != nullptr
+        && this->vlanInterfaceId_ != nullptr; };
     // accessPointId Field Functions 
     bool hasAccessPointId() const { return this->accessPointId_ != nullptr;};
     void deleteAccessPointId() { this->accessPointId_ = nullptr;};
@@ -256,6 +259,13 @@ namespace Models
     void deleteMinTxInterval() { this->minTxInterval_ = nullptr;};
     inline int64_t minTxInterval() const { DARABONBA_PTR_GET_DEFAULT(minTxInterval_, 0L) };
     inline DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtualBorderRouterType& setMinTxInterval(int64_t minTxInterval) { DARABONBA_PTR_SET_VALUE(minTxInterval_, minTxInterval) };
+
+
+    // mtu Field Functions 
+    bool hasMtu() const { return this->mtu_ != nullptr;};
+    void deleteMtu() { this->mtu_ = nullptr;};
+    inline int32_t mtu() const { DARABONBA_PTR_GET_DEFAULT(mtu_, 0) };
+    inline DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtualBorderRouterType& setMtu(int32_t mtu) { DARABONBA_PTR_SET_VALUE(mtu_, mtu) };
 
 
     // name Field Functions 
@@ -466,6 +476,7 @@ namespace Models
     std::shared_ptr<int64_t> minRxInterval_ = nullptr;
     // The time interval to send Bidirectional Forwarding Detection (BFD) packets. Valid values: **200 to 1000**. Unit: milliseconds.
     std::shared_ptr<int64_t> minTxInterval_ = nullptr;
+    std::shared_ptr<int32_t> mtu_ = nullptr;
     // The VBR name.
     std::shared_ptr<string> name_ = nullptr;
     // The billing method of the VBR. Valid values:
