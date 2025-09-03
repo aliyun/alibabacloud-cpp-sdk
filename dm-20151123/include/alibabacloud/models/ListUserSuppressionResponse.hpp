@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTUSERSUPPRESSIONRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ListUserSuppressionResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

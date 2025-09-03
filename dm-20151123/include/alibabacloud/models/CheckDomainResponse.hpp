@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CHECKDOMAINRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CheckDomainResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

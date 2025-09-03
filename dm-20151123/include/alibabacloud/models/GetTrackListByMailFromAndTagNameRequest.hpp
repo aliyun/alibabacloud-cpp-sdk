@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetTrackListByMailFromAndTagNameRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AccountName, accountName_);
+      DARABONBA_PTR_TO_JSON(ConfigSetId, configSetId_);
       DARABONBA_PTR_TO_JSON(DedicatedIp, dedicatedIp_);
       DARABONBA_PTR_TO_JSON(DedicatedIpPoolId, dedicatedIpPoolId_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
@@ -32,6 +33,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, GetTrackListByMailFromAndTagNameRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
+      DARABONBA_PTR_FROM_JSON(ConfigSetId, configSetId_);
       DARABONBA_PTR_FROM_JSON(DedicatedIp, dedicatedIp_);
       DARABONBA_PTR_FROM_JSON(DedicatedIpPoolId, dedicatedIpPoolId_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
@@ -60,14 +62,22 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->accountName_ != nullptr
-        && this->dedicatedIp_ != nullptr && this->dedicatedIpPoolId_ != nullptr && this->endTime_ != nullptr && this->esp_ != nullptr && this->offset_ != nullptr
-        && this->offsetCreateTime_ != nullptr && this->offsetCreateTimeDesc_ != nullptr && this->ownerId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->startTime_ != nullptr && this->tagName_ != nullptr && this->total_ != nullptr; };
+        && this->configSetId_ != nullptr && this->dedicatedIp_ != nullptr && this->dedicatedIpPoolId_ != nullptr && this->endTime_ != nullptr && this->esp_ != nullptr
+        && this->offset_ != nullptr && this->offsetCreateTime_ != nullptr && this->offsetCreateTimeDesc_ != nullptr && this->ownerId_ != nullptr && this->pageNumber_ != nullptr
+        && this->pageSize_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->startTime_ != nullptr && this->tagName_ != nullptr
+        && this->total_ != nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
     inline string accountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
     inline GetTrackListByMailFromAndTagNameRequest& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
+
+
+    // configSetId Field Functions 
+    bool hasConfigSetId() const { return this->configSetId_ != nullptr;};
+    void deleteConfigSetId() { this->configSetId_ = nullptr;};
+    inline string configSetId() const { DARABONBA_PTR_GET_DEFAULT(configSetId_, "") };
+    inline GetTrackListByMailFromAndTagNameRequest& setConfigSetId(string configSetId) { DARABONBA_PTR_SET_VALUE(configSetId_, configSetId) };
 
 
     // dedicatedIp Field Functions 
@@ -180,6 +190,7 @@ namespace Models
     // 
     // > If not filled, it represents all addresses; if there is a TagName, this parameter must not be empty.
     std::shared_ptr<string> accountName_ = nullptr;
+    std::shared_ptr<string> configSetId_ = nullptr;
     std::shared_ptr<string> dedicatedIp_ = nullptr;
     std::shared_ptr<string> dedicatedIpPoolId_ = nullptr;
     // End time, with a span from the start time that cannot exceed 15 days. Format: yyyy-MM-dd.

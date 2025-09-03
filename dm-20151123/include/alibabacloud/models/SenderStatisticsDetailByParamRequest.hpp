@@ -14,7 +14,9 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const SenderStatisticsDetailByParamRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AccountName, accountName_);
+      DARABONBA_PTR_TO_JSON(ConfigSetId, configSetId_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+      DARABONBA_PTR_TO_JSON(IpPoolId, ipPoolId_);
       DARABONBA_PTR_TO_JSON(Length, length_);
       DARABONBA_PTR_TO_JSON(NextStart, nextStart_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -27,7 +29,9 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, SenderStatisticsDetailByParamRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
+      DARABONBA_PTR_FROM_JSON(ConfigSetId, configSetId_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+      DARABONBA_PTR_FROM_JSON(IpPoolId, ipPoolId_);
       DARABONBA_PTR_FROM_JSON(Length, length_);
       DARABONBA_PTR_FROM_JSON(NextStart, nextStart_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -50,8 +54,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->accountName_ != nullptr
-        && this->endTime_ != nullptr && this->length_ != nullptr && this->nextStart_ != nullptr && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->tagName_ != nullptr && this->toAddress_ != nullptr; };
+        && this->configSetId_ != nullptr && this->endTime_ != nullptr && this->ipPoolId_ != nullptr && this->length_ != nullptr && this->nextStart_ != nullptr
+        && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr
+        && this->tagName_ != nullptr && this->toAddress_ != nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
@@ -59,11 +64,25 @@ namespace Models
     inline SenderStatisticsDetailByParamRequest& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
 
 
+    // configSetId Field Functions 
+    bool hasConfigSetId() const { return this->configSetId_ != nullptr;};
+    void deleteConfigSetId() { this->configSetId_ = nullptr;};
+    inline string configSetId() const { DARABONBA_PTR_GET_DEFAULT(configSetId_, "") };
+    inline SenderStatisticsDetailByParamRequest& setConfigSetId(string configSetId) { DARABONBA_PTR_SET_VALUE(configSetId_, configSetId) };
+
+
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
     inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline SenderStatisticsDetailByParamRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+    // ipPoolId Field Functions 
+    bool hasIpPoolId() const { return this->ipPoolId_ != nullptr;};
+    void deleteIpPoolId() { this->ipPoolId_ = nullptr;};
+    inline string ipPoolId() const { DARABONBA_PTR_GET_DEFAULT(ipPoolId_, "") };
+    inline SenderStatisticsDetailByParamRequest& setIpPoolId(string ipPoolId) { DARABONBA_PTR_SET_VALUE(ipPoolId_, ipPoolId) };
 
 
     // length Field Functions 
@@ -134,8 +153,10 @@ namespace Models
     // 
     // > **AccountName**, **TagName**, and **ToAddress** can all be left unfilled. If any are filled, only one of these parameters can be passed; you cannot pass a combination of two or more.
     std::shared_ptr<string> accountName_ = nullptr;
+    std::shared_ptr<string> configSetId_ = nullptr;
     // End time. The span between start and end times cannot exceed 30 days, format: yyyy-MM-dd HH:mm.
     std::shared_ptr<string> endTime_ = nullptr;
+    std::shared_ptr<string> ipPoolId_ = nullptr;
     // Specifies the number of results to return in this request. Range is 1~100.
     std::shared_ptr<int32_t> length_ = nullptr;
     // Used for pagination. Specifies the offset for this request. If there are more results, set this returned value to the NextStart in the next request.

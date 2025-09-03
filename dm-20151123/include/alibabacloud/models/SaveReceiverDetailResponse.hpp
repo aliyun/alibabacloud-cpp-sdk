@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_SAVERECEIVERDETAILRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/SaveReceiverDetailResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

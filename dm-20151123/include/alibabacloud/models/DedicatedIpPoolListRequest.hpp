@@ -13,11 +13,13 @@ namespace Models
   class DedicatedIpPoolListRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DedicatedIpPoolListRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(All, all_);
       DARABONBA_PTR_TO_JSON(Keyword, keyword_);
       DARABONBA_PTR_TO_JSON(PageIndex, pageIndex_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
     };
     friend void from_json(const Darabonba::Json& j, DedicatedIpPoolListRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(All, all_);
       DARABONBA_PTR_FROM_JSON(Keyword, keyword_);
       DARABONBA_PTR_FROM_JSON(PageIndex, pageIndex_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->keyword_ != nullptr
-        && this->pageIndex_ != nullptr && this->pageSize_ != nullptr; };
+    virtual bool empty() const override { this->all_ != nullptr
+        && this->keyword_ != nullptr && this->pageIndex_ != nullptr && this->pageSize_ != nullptr; };
+    // all Field Functions 
+    bool hasAll() const { return this->all_ != nullptr;};
+    void deleteAll() { this->all_ = nullptr;};
+    inline bool all() const { DARABONBA_PTR_GET_DEFAULT(all_, false) };
+    inline DedicatedIpPoolListRequest& setAll(bool all) { DARABONBA_PTR_SET_VALUE(all_, all) };
+
+
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};
@@ -57,6 +66,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<bool> all_ = nullptr;
     // Search keyword for the name
     std::shared_ptr<string> keyword_ = nullptr;
     // Page index, starting from 1

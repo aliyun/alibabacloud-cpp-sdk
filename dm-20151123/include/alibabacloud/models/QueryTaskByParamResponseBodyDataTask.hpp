@@ -14,6 +14,8 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const QueryTaskByParamResponseBodyDataTask& obj) { 
       DARABONBA_PTR_TO_JSON(AddressType, addressType_);
+      DARABONBA_PTR_TO_JSON(ConfigSetId, configSetId_);
+      DARABONBA_PTR_TO_JSON(ConfigSetName, configSetName_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(IpPoolId, ipPoolId_);
       DARABONBA_PTR_TO_JSON(IpPoolName, ipPoolName_);
@@ -27,6 +29,8 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, QueryTaskByParamResponseBodyDataTask& obj) { 
       DARABONBA_PTR_FROM_JSON(AddressType, addressType_);
+      DARABONBA_PTR_FROM_JSON(ConfigSetId, configSetId_);
+      DARABONBA_PTR_FROM_JSON(ConfigSetName, configSetName_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(IpPoolId, ipPoolId_);
       DARABONBA_PTR_FROM_JSON(IpPoolName, ipPoolName_);
@@ -50,13 +54,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->addressType_ != nullptr
-        && this->createTime_ != nullptr && this->ipPoolId_ != nullptr && this->ipPoolName_ != nullptr && this->receiversName_ != nullptr && this->requestCount_ != nullptr
-        && this->tagName_ != nullptr && this->taskId_ != nullptr && this->taskStatus_ != nullptr && this->templateName_ != nullptr && this->utcCreateTime_ != nullptr; };
+        && this->configSetId_ != nullptr && this->configSetName_ != nullptr && this->createTime_ != nullptr && this->ipPoolId_ != nullptr && this->ipPoolName_ != nullptr
+        && this->receiversName_ != nullptr && this->requestCount_ != nullptr && this->tagName_ != nullptr && this->taskId_ != nullptr && this->taskStatus_ != nullptr
+        && this->templateName_ != nullptr && this->utcCreateTime_ != nullptr; };
     // addressType Field Functions 
     bool hasAddressType() const { return this->addressType_ != nullptr;};
     void deleteAddressType() { this->addressType_ = nullptr;};
     inline string addressType() const { DARABONBA_PTR_GET_DEFAULT(addressType_, "") };
     inline QueryTaskByParamResponseBodyDataTask& setAddressType(string addressType) { DARABONBA_PTR_SET_VALUE(addressType_, addressType) };
+
+
+    // configSetId Field Functions 
+    bool hasConfigSetId() const { return this->configSetId_ != nullptr;};
+    void deleteConfigSetId() { this->configSetId_ = nullptr;};
+    inline string configSetId() const { DARABONBA_PTR_GET_DEFAULT(configSetId_, "") };
+    inline QueryTaskByParamResponseBodyDataTask& setConfigSetId(string configSetId) { DARABONBA_PTR_SET_VALUE(configSetId_, configSetId) };
+
+
+    // configSetName Field Functions 
+    bool hasConfigSetName() const { return this->configSetName_ != nullptr;};
+    void deleteConfigSetName() { this->configSetName_ = nullptr;};
+    inline string configSetName() const { DARABONBA_PTR_GET_DEFAULT(configSetName_, "") };
+    inline QueryTaskByParamResponseBodyDataTask& setConfigSetName(string configSetName) { DARABONBA_PTR_SET_VALUE(configSetName_, configSetName) };
 
 
     // createTime Field Functions 
@@ -132,6 +151,8 @@ namespace Models
   protected:
     // Address type, sending address: 1; random address: 0;
     std::shared_ptr<string> addressType_ = nullptr;
+    std::shared_ptr<string> configSetId_ = nullptr;
+    std::shared_ptr<string> configSetName_ = nullptr;
     // Creation time
     std::shared_ptr<string> createTime_ = nullptr;
     // dedicated IP pool ID.

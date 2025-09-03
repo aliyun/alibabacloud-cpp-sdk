@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_UPDATEIPPROTECTIONRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/UpdateIpProtectionResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

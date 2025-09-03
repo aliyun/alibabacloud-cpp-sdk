@@ -14,7 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const SenderStatisticsDetailByParamResponseBodyDataMailDetail& obj) { 
       DARABONBA_PTR_TO_JSON(AccountName, accountName_);
+      DARABONBA_PTR_TO_JSON(ConfigSetId, configSetId_);
+      DARABONBA_PTR_TO_JSON(ConfigSetName, configSetName_);
       DARABONBA_PTR_TO_JSON(ErrorClassification, errorClassification_);
+      DARABONBA_PTR_TO_JSON(IpPoolId, ipPoolId_);
+      DARABONBA_PTR_TO_JSON(IpPoolName, ipPoolName_);
       DARABONBA_PTR_TO_JSON(LastUpdateTime, lastUpdateTime_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(Status, status_);
@@ -24,7 +28,11 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, SenderStatisticsDetailByParamResponseBodyDataMailDetail& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
+      DARABONBA_PTR_FROM_JSON(ConfigSetId, configSetId_);
+      DARABONBA_PTR_FROM_JSON(ConfigSetName, configSetName_);
       DARABONBA_PTR_FROM_JSON(ErrorClassification, errorClassification_);
+      DARABONBA_PTR_FROM_JSON(IpPoolId, ipPoolId_);
+      DARABONBA_PTR_FROM_JSON(IpPoolName, ipPoolName_);
       DARABONBA_PTR_FROM_JSON(LastUpdateTime, lastUpdateTime_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -44,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->accountName_ != nullptr
-        && this->errorClassification_ != nullptr && this->lastUpdateTime_ != nullptr && this->message_ != nullptr && this->status_ != nullptr && this->subject_ != nullptr
-        && this->toAddress_ != nullptr && this->utcLastUpdateTime_ != nullptr; };
+        && this->configSetId_ != nullptr && this->configSetName_ != nullptr && this->errorClassification_ != nullptr && this->ipPoolId_ != nullptr && this->ipPoolName_ != nullptr
+        && this->lastUpdateTime_ != nullptr && this->message_ != nullptr && this->status_ != nullptr && this->subject_ != nullptr && this->toAddress_ != nullptr
+        && this->utcLastUpdateTime_ != nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
@@ -53,11 +62,39 @@ namespace Models
     inline SenderStatisticsDetailByParamResponseBodyDataMailDetail& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
 
 
+    // configSetId Field Functions 
+    bool hasConfigSetId() const { return this->configSetId_ != nullptr;};
+    void deleteConfigSetId() { this->configSetId_ = nullptr;};
+    inline string configSetId() const { DARABONBA_PTR_GET_DEFAULT(configSetId_, "") };
+    inline SenderStatisticsDetailByParamResponseBodyDataMailDetail& setConfigSetId(string configSetId) { DARABONBA_PTR_SET_VALUE(configSetId_, configSetId) };
+
+
+    // configSetName Field Functions 
+    bool hasConfigSetName() const { return this->configSetName_ != nullptr;};
+    void deleteConfigSetName() { this->configSetName_ = nullptr;};
+    inline string configSetName() const { DARABONBA_PTR_GET_DEFAULT(configSetName_, "") };
+    inline SenderStatisticsDetailByParamResponseBodyDataMailDetail& setConfigSetName(string configSetName) { DARABONBA_PTR_SET_VALUE(configSetName_, configSetName) };
+
+
     // errorClassification Field Functions 
     bool hasErrorClassification() const { return this->errorClassification_ != nullptr;};
     void deleteErrorClassification() { this->errorClassification_ = nullptr;};
     inline string errorClassification() const { DARABONBA_PTR_GET_DEFAULT(errorClassification_, "") };
     inline SenderStatisticsDetailByParamResponseBodyDataMailDetail& setErrorClassification(string errorClassification) { DARABONBA_PTR_SET_VALUE(errorClassification_, errorClassification) };
+
+
+    // ipPoolId Field Functions 
+    bool hasIpPoolId() const { return this->ipPoolId_ != nullptr;};
+    void deleteIpPoolId() { this->ipPoolId_ = nullptr;};
+    inline string ipPoolId() const { DARABONBA_PTR_GET_DEFAULT(ipPoolId_, "") };
+    inline SenderStatisticsDetailByParamResponseBodyDataMailDetail& setIpPoolId(string ipPoolId) { DARABONBA_PTR_SET_VALUE(ipPoolId_, ipPoolId) };
+
+
+    // ipPoolName Field Functions 
+    bool hasIpPoolName() const { return this->ipPoolName_ != nullptr;};
+    void deleteIpPoolName() { this->ipPoolName_ = nullptr;};
+    inline string ipPoolName() const { DARABONBA_PTR_GET_DEFAULT(ipPoolName_, "") };
+    inline SenderStatisticsDetailByParamResponseBodyDataMailDetail& setIpPoolName(string ipPoolName) { DARABONBA_PTR_SET_VALUE(ipPoolName_, ipPoolName) };
 
 
     // lastUpdateTime Field Functions 
@@ -105,9 +142,13 @@ namespace Models
   protected:
     // Sending address
     std::shared_ptr<string> accountName_ = nullptr;
+    std::shared_ptr<string> configSetId_ = nullptr;
+    std::shared_ptr<string> configSetName_ = nullptr;
     // Detailed classification of error reasons: - SendOk - SmtpNxBox
     // etc.
     std::shared_ptr<string> errorClassification_ = nullptr;
+    std::shared_ptr<string> ipPoolId_ = nullptr;
+    std::shared_ptr<string> ipPoolName_ = nullptr;
     // Update time
     std::shared_ptr<string> lastUpdateTime_ = nullptr;
     // Delivery detail information

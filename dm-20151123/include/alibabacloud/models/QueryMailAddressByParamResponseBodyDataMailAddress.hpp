@@ -15,6 +15,8 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const QueryMailAddressByParamResponseBodyDataMailAddress& obj) { 
       DARABONBA_PTR_TO_JSON(AccountName, accountName_);
       DARABONBA_PTR_TO_JSON(AccountStatus, accountStatus_);
+      DARABONBA_PTR_TO_JSON(ConfigSetId, configSetId_);
+      DARABONBA_PTR_TO_JSON(ConfigSetName, configSetName_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(DailyCount, dailyCount_);
       DARABONBA_PTR_TO_JSON(DailyReqCount, dailyReqCount_);
@@ -29,6 +31,8 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, QueryMailAddressByParamResponseBodyDataMailAddress& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
       DARABONBA_PTR_FROM_JSON(AccountStatus, accountStatus_);
+      DARABONBA_PTR_FROM_JSON(ConfigSetId, configSetId_);
+      DARABONBA_PTR_FROM_JSON(ConfigSetName, configSetName_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(DailyCount, dailyCount_);
       DARABONBA_PTR_FROM_JSON(DailyReqCount, dailyReqCount_);
@@ -52,9 +56,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->accountName_ != nullptr
-        && this->accountStatus_ != nullptr && this->createTime_ != nullptr && this->dailyCount_ != nullptr && this->dailyReqCount_ != nullptr && this->domainStatus_ != nullptr
-        && this->mailAddressId_ != nullptr && this->monthCount_ != nullptr && this->monthReqCount_ != nullptr && this->replyAddress_ != nullptr && this->replyStatus_ != nullptr
-        && this->sendtype_ != nullptr; };
+        && this->accountStatus_ != nullptr && this->configSetId_ != nullptr && this->configSetName_ != nullptr && this->createTime_ != nullptr && this->dailyCount_ != nullptr
+        && this->dailyReqCount_ != nullptr && this->domainStatus_ != nullptr && this->mailAddressId_ != nullptr && this->monthCount_ != nullptr && this->monthReqCount_ != nullptr
+        && this->replyAddress_ != nullptr && this->replyStatus_ != nullptr && this->sendtype_ != nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
@@ -67,6 +71,20 @@ namespace Models
     void deleteAccountStatus() { this->accountStatus_ = nullptr;};
     inline string accountStatus() const { DARABONBA_PTR_GET_DEFAULT(accountStatus_, "") };
     inline QueryMailAddressByParamResponseBodyDataMailAddress& setAccountStatus(string accountStatus) { DARABONBA_PTR_SET_VALUE(accountStatus_, accountStatus) };
+
+
+    // configSetId Field Functions 
+    bool hasConfigSetId() const { return this->configSetId_ != nullptr;};
+    void deleteConfigSetId() { this->configSetId_ = nullptr;};
+    inline string configSetId() const { DARABONBA_PTR_GET_DEFAULT(configSetId_, "") };
+    inline QueryMailAddressByParamResponseBodyDataMailAddress& setConfigSetId(string configSetId) { DARABONBA_PTR_SET_VALUE(configSetId_, configSetId) };
+
+
+    // configSetName Field Functions 
+    bool hasConfigSetName() const { return this->configSetName_ != nullptr;};
+    void deleteConfigSetName() { this->configSetName_ = nullptr;};
+    inline string configSetName() const { DARABONBA_PTR_GET_DEFAULT(configSetName_, "") };
+    inline QueryMailAddressByParamResponseBodyDataMailAddress& setConfigSetName(string configSetName) { DARABONBA_PTR_SET_VALUE(configSetName_, configSetName) };
 
 
     // createTime Field Functions 
@@ -144,6 +162,8 @@ namespace Models
     std::shared_ptr<string> accountName_ = nullptr;
     // Account status, frozen: 1, normal: 0.
     std::shared_ptr<string> accountStatus_ = nullptr;
+    std::shared_ptr<string> configSetId_ = nullptr;
+    std::shared_ptr<string> configSetName_ = nullptr;
     // Creation time
     std::shared_ptr<string> createTime_ = nullptr;
     // Daily quota limit

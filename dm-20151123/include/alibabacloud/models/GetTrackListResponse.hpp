@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETTRACKLISTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetTrackListResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
