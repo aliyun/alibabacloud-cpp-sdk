@@ -2,7 +2,9 @@
 #ifndef ALIBABACLOUD_MODELS_LISTEVENTSTREAMINGSRESPONSEBODYDATAEVENTSTREAMINGSSINK_HPP_
 #define ALIBABACLOUD_MODELS_LISTEVENTSTREAMINGSRESPONSEBODYDATAEVENTSTREAMINGSSINK_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheKafkaParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParameters.hpp>
+#include <alibabacloud/models/SinkBaiLianParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaConnectorParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParameters.hpp>
@@ -28,6 +30,7 @@ namespace Models
   class ListEventStreamingsResponseBodyDataEventStreamingsSink : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListEventStreamingsResponseBodyDataEventStreamingsSink& obj) { 
+      DARABONBA_PTR_TO_JSON(SinkApacheKafkaParameters, sinkApacheKafkaParameters_);
       DARABONBA_PTR_TO_JSON(SinkApacheRocketMQCheckpointParameters, sinkApacheRocketMQCheckpointParameters_);
       DARABONBA_PTR_TO_JSON(SinkBaiLianParameters, sinkBaiLianParameters_);
       DARABONBA_PTR_TO_JSON(SinkCustomizedKafkaConnectorParameters, sinkCustomizedKafkaConnectorParameters_);
@@ -46,6 +49,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SinkSLSParameters, sinkSLSParameters_);
     };
     friend void from_json(const Darabonba::Json& j, ListEventStreamingsResponseBodyDataEventStreamingsSink& obj) { 
+      DARABONBA_PTR_FROM_JSON(SinkApacheKafkaParameters, sinkApacheKafkaParameters_);
       DARABONBA_PTR_FROM_JSON(SinkApacheRocketMQCheckpointParameters, sinkApacheRocketMQCheckpointParameters_);
       DARABONBA_PTR_FROM_JSON(SinkBaiLianParameters, sinkBaiLianParameters_);
       DARABONBA_PTR_FROM_JSON(SinkCustomizedKafkaConnectorParameters, sinkCustomizedKafkaConnectorParameters_);
@@ -74,10 +78,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->sinkApacheRocketMQCheckpointParameters_ != nullptr
-        && this->sinkBaiLianParameters_ != nullptr && this->sinkCustomizedKafkaConnectorParameters_ != nullptr && this->sinkCustomizedKafkaParameters_ != nullptr && this->sinkDashVectorParameters_ != nullptr && this->sinkDataHubParameters_ != nullptr
-        && this->sinkDorisParameters_ != nullptr && this->sinkFcParameters_ != nullptr && this->sinkFnfParameters_ != nullptr && this->sinkKafkaParameters_ != nullptr && this->sinkMNSParameters_ != nullptr
-        && this->sinkOpenSourceRabbitMQParameters_ != nullptr && this->sinkRabbitMQParameters_ != nullptr && this->sinkRocketMQCheckpointParameters_ != nullptr && this->sinkRocketMQParameters_ != nullptr && this->sinkSLSParameters_ != nullptr; };
+    virtual bool empty() const override { this->sinkApacheKafkaParameters_ != nullptr
+        && this->sinkApacheRocketMQCheckpointParameters_ != nullptr && this->sinkBaiLianParameters_ != nullptr && this->sinkCustomizedKafkaConnectorParameters_ != nullptr && this->sinkCustomizedKafkaParameters_ != nullptr && this->sinkDashVectorParameters_ != nullptr
+        && this->sinkDataHubParameters_ != nullptr && this->sinkDorisParameters_ != nullptr && this->sinkFcParameters_ != nullptr && this->sinkFnfParameters_ != nullptr && this->sinkKafkaParameters_ != nullptr
+        && this->sinkMNSParameters_ != nullptr && this->sinkOpenSourceRabbitMQParameters_ != nullptr && this->sinkRabbitMQParameters_ != nullptr && this->sinkRocketMQCheckpointParameters_ != nullptr && this->sinkRocketMQParameters_ != nullptr
+        && this->sinkSLSParameters_ != nullptr; };
+    // sinkApacheKafkaParameters Field Functions 
+    bool hasSinkApacheKafkaParameters() const { return this->sinkApacheKafkaParameters_ != nullptr;};
+    void deleteSinkApacheKafkaParameters() { this->sinkApacheKafkaParameters_ = nullptr;};
+    inline const Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheKafkaParameters & sinkApacheKafkaParameters() const { DARABONBA_PTR_GET_CONST(sinkApacheKafkaParameters_, Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheKafkaParameters) };
+    inline Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheKafkaParameters sinkApacheKafkaParameters() { DARABONBA_PTR_GET(sinkApacheKafkaParameters_, Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheKafkaParameters) };
+    inline ListEventStreamingsResponseBodyDataEventStreamingsSink& setSinkApacheKafkaParameters(const Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheKafkaParameters & sinkApacheKafkaParameters) { DARABONBA_PTR_SET_VALUE(sinkApacheKafkaParameters_, sinkApacheKafkaParameters) };
+    inline ListEventStreamingsResponseBodyDataEventStreamingsSink& setSinkApacheKafkaParameters(Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheKafkaParameters && sinkApacheKafkaParameters) { DARABONBA_PTR_SET_RVALUE(sinkApacheKafkaParameters_, sinkApacheKafkaParameters) };
+
+
     // sinkApacheRocketMQCheckpointParameters Field Functions 
     bool hasSinkApacheRocketMQCheckpointParameters() const { return this->sinkApacheRocketMQCheckpointParameters_ != nullptr;};
     void deleteSinkApacheRocketMQCheckpointParameters() { this->sinkApacheRocketMQCheckpointParameters_ = nullptr;};
@@ -223,6 +237,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheKafkaParameters> sinkApacheKafkaParameters_ = nullptr;
     std::shared_ptr<Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParameters> sinkApacheRocketMQCheckpointParameters_ = nullptr;
     std::shared_ptr<Models::SinkBaiLianParameters> sinkBaiLianParameters_ = nullptr;
     std::shared_ptr<Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaConnectorParameters> sinkCustomizedKafkaConnectorParameters_ = nullptr;

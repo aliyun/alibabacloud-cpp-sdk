@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTEVENTSTREAMINGSRESPONSEBODYDATAEVENTSTREAMINGSSOURCE_HPP_
 #define ALIBABACLOUD_MODELS_LISTEVENTSTREAMINGSRESPONSEBODYDATAEVENTSTREAMINGSSOURCE_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheRocketMQCheckpointParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCustomizedKafkaConnectorParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCustomizedKafkaParameters.hpp>
@@ -10,6 +11,7 @@
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceKafkaParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMNSParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTParameters.hpp>
+#include <alibabacloud/models/SourceMySQLParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOSSParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenSourceRabbitMQParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters.hpp>
@@ -28,6 +30,7 @@ namespace Models
   class ListEventStreamingsResponseBodyDataEventStreamingsSource : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListEventStreamingsResponseBodyDataEventStreamingsSource& obj) { 
+      DARABONBA_PTR_TO_JSON(SourceApacheKafkaParameters, sourceApacheKafkaParameters_);
       DARABONBA_PTR_TO_JSON(SourceApacheRocketMQCheckpointParameters, sourceApacheRocketMQCheckpointParameters_);
       DARABONBA_PTR_TO_JSON(SourceCustomizedKafkaConnectorParameters, sourceCustomizedKafkaConnectorParameters_);
       DARABONBA_PTR_TO_JSON(SourceCustomizedKafkaParameters, sourceCustomizedKafkaParameters_);
@@ -46,6 +49,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SourceSLSParameters, sourceSLSParameters_);
     };
     friend void from_json(const Darabonba::Json& j, ListEventStreamingsResponseBodyDataEventStreamingsSource& obj) { 
+      DARABONBA_PTR_FROM_JSON(SourceApacheKafkaParameters, sourceApacheKafkaParameters_);
       DARABONBA_PTR_FROM_JSON(SourceApacheRocketMQCheckpointParameters, sourceApacheRocketMQCheckpointParameters_);
       DARABONBA_PTR_FROM_JSON(SourceCustomizedKafkaConnectorParameters, sourceCustomizedKafkaConnectorParameters_);
       DARABONBA_PTR_FROM_JSON(SourceCustomizedKafkaParameters, sourceCustomizedKafkaParameters_);
@@ -74,10 +78,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->sourceApacheRocketMQCheckpointParameters_ != nullptr
-        && this->sourceCustomizedKafkaConnectorParameters_ != nullptr && this->sourceCustomizedKafkaParameters_ != nullptr && this->sourceDTSParameters_ != nullptr && this->sourceEventBusParameters_ != nullptr && this->sourceKafkaParameters_ != nullptr
-        && this->sourceMNSParameters_ != nullptr && this->sourceMQTTParameters_ != nullptr && this->sourceMySQLParameters_ != nullptr && this->sourceOSSParameters_ != nullptr && this->sourceOpenSourceRabbitMQParameters_ != nullptr
-        && this->sourcePrometheusParameters_ != nullptr && this->sourceRabbitMQParameters_ != nullptr && this->sourceRocketMQCheckpointParameters_ != nullptr && this->sourceRocketMQParameters_ != nullptr && this->sourceSLSParameters_ != nullptr; };
+    virtual bool empty() const override { this->sourceApacheKafkaParameters_ != nullptr
+        && this->sourceApacheRocketMQCheckpointParameters_ != nullptr && this->sourceCustomizedKafkaConnectorParameters_ != nullptr && this->sourceCustomizedKafkaParameters_ != nullptr && this->sourceDTSParameters_ != nullptr && this->sourceEventBusParameters_ != nullptr
+        && this->sourceKafkaParameters_ != nullptr && this->sourceMNSParameters_ != nullptr && this->sourceMQTTParameters_ != nullptr && this->sourceMySQLParameters_ != nullptr && this->sourceOSSParameters_ != nullptr
+        && this->sourceOpenSourceRabbitMQParameters_ != nullptr && this->sourcePrometheusParameters_ != nullptr && this->sourceRabbitMQParameters_ != nullptr && this->sourceRocketMQCheckpointParameters_ != nullptr && this->sourceRocketMQParameters_ != nullptr
+        && this->sourceSLSParameters_ != nullptr; };
+    // sourceApacheKafkaParameters Field Functions 
+    bool hasSourceApacheKafkaParameters() const { return this->sourceApacheKafkaParameters_ != nullptr;};
+    void deleteSourceApacheKafkaParameters() { this->sourceApacheKafkaParameters_ = nullptr;};
+    inline const Models::ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters & sourceApacheKafkaParameters() const { DARABONBA_PTR_GET_CONST(sourceApacheKafkaParameters_, Models::ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters) };
+    inline Models::ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters sourceApacheKafkaParameters() { DARABONBA_PTR_GET(sourceApacheKafkaParameters_, Models::ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters) };
+    inline ListEventStreamingsResponseBodyDataEventStreamingsSource& setSourceApacheKafkaParameters(const Models::ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters & sourceApacheKafkaParameters) { DARABONBA_PTR_SET_VALUE(sourceApacheKafkaParameters_, sourceApacheKafkaParameters) };
+    inline ListEventStreamingsResponseBodyDataEventStreamingsSource& setSourceApacheKafkaParameters(Models::ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters && sourceApacheKafkaParameters) { DARABONBA_PTR_SET_RVALUE(sourceApacheKafkaParameters_, sourceApacheKafkaParameters) };
+
+
     // sourceApacheRocketMQCheckpointParameters Field Functions 
     bool hasSourceApacheRocketMQCheckpointParameters() const { return this->sourceApacheRocketMQCheckpointParameters_ != nullptr;};
     void deleteSourceApacheRocketMQCheckpointParameters() { this->sourceApacheRocketMQCheckpointParameters_ = nullptr;};
@@ -223,6 +237,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<Models::ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters> sourceApacheKafkaParameters_ = nullptr;
     std::shared_ptr<Models::ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheRocketMQCheckpointParameters> sourceApacheRocketMQCheckpointParameters_ = nullptr;
     std::shared_ptr<Models::ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCustomizedKafkaConnectorParameters> sourceCustomizedKafkaConnectorParameters_ = nullptr;
     std::shared_ptr<Models::ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCustomizedKafkaParameters> sourceCustomizedKafkaParameters_ = nullptr;

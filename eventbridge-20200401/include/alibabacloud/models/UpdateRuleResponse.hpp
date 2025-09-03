@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_UPDATERULERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/UpdateRuleResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

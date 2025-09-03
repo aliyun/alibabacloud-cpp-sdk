@@ -51,7 +51,7 @@ CheckServiceLinkedRoleForProductResponse Client::checkServiceLinkedRoleForProduc
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CheckServiceLinkedRoleForProduct"},
     {"version" , "2020-04-01"},
@@ -62,7 +62,7 @@ CheckServiceLinkedRoleForProductResponse Client::checkServiceLinkedRoleForProduc
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CheckServiceLinkedRoleForProductResponse>();
 }
 
@@ -113,7 +113,7 @@ CreateApiDestinationResponse Client::createApiDestinationWithOptions(const Creat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateApiDestination"},
     {"version" , "2020-04-01"},
@@ -124,7 +124,7 @@ CreateApiDestinationResponse Client::createApiDestinationWithOptions(const Creat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateApiDestinationResponse>();
 }
 
@@ -181,7 +181,7 @@ CreateConnectionResponse Client::createConnectionWithOptions(const CreateConnect
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateConnection"},
     {"version" , "2020-04-01"},
@@ -192,7 +192,7 @@ CreateConnectionResponse Client::createConnectionWithOptions(const CreateConnect
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateConnectionResponse>();
 }
 
@@ -231,7 +231,7 @@ CreateEventBusResponse Client::createEventBusWithOptions(const CreateEventBusReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateEventBus"},
     {"version" , "2020-04-01"},
@@ -242,7 +242,7 @@ CreateEventBusResponse Client::createEventBusWithOptions(const CreateEventBusReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateEventBusResponse>();
 }
 
@@ -359,7 +359,7 @@ CreateEventSourceResponse Client::createEventSourceWithOptions(const CreateEvent
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateEventSource"},
     {"version" , "2020-04-01"},
@@ -370,7 +370,7 @@ CreateEventSourceResponse Client::createEventSourceWithOptions(const CreateEvent
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateEventSourceResponse>();
 }
 
@@ -451,7 +451,7 @@ CreateEventStreamingResponse Client::createEventStreamingWithOptions(const Creat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateEventStreaming"},
     {"version" , "2020-04-01"},
@@ -462,7 +462,7 @@ CreateEventStreamingResponse Client::createEventStreamingWithOptions(const Creat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateEventStreamingResponse>();
 }
 
@@ -523,7 +523,7 @@ CreateRuleResponse Client::createRuleWithOptions(const CreateRuleRequest &tmpReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateRule"},
     {"version" , "2020-04-01"},
@@ -534,7 +534,7 @@ CreateRuleResponse Client::createRuleWithOptions(const CreateRuleRequest &tmpReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateRuleResponse>();
 }
 
@@ -569,7 +569,7 @@ CreateServiceLinkedRoleForProductResponse Client::createServiceLinkedRoleForProd
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateServiceLinkedRoleForProduct"},
     {"version" , "2020-04-01"},
@@ -580,7 +580,7 @@ CreateServiceLinkedRoleForProductResponse Client::createServiceLinkedRoleForProd
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateServiceLinkedRoleForProductResponse>();
 }
 
@@ -615,7 +615,7 @@ DeleteApiDestinationResponse Client::deleteApiDestinationWithOptions(const Delet
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteApiDestination"},
     {"version" , "2020-04-01"},
@@ -626,7 +626,7 @@ DeleteApiDestinationResponse Client::deleteApiDestinationWithOptions(const Delet
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteApiDestinationResponse>();
 }
 
@@ -661,7 +661,7 @@ DeleteConnectionResponse Client::deleteConnectionWithOptions(const DeleteConnect
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteConnection"},
     {"version" , "2020-04-01"},
@@ -672,7 +672,7 @@ DeleteConnectionResponse Client::deleteConnectionWithOptions(const DeleteConnect
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteConnectionResponse>();
 }
 
@@ -707,7 +707,7 @@ DeleteEventBusResponse Client::deleteEventBusWithOptions(const DeleteEventBusReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteEventBus"},
     {"version" , "2020-04-01"},
@@ -718,7 +718,7 @@ DeleteEventBusResponse Client::deleteEventBusWithOptions(const DeleteEventBusReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteEventBusResponse>();
 }
 
@@ -757,7 +757,7 @@ DeleteEventSourceResponse Client::deleteEventSourceWithOptions(const DeleteEvent
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteEventSource"},
     {"version" , "2020-04-01"},
@@ -768,7 +768,7 @@ DeleteEventSourceResponse Client::deleteEventSourceWithOptions(const DeleteEvent
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteEventSourceResponse>();
 }
 
@@ -803,7 +803,7 @@ DeleteEventStreamingResponse Client::deleteEventStreamingWithOptions(const Delet
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteEventStreaming"},
     {"version" , "2020-04-01"},
@@ -814,7 +814,7 @@ DeleteEventStreamingResponse Client::deleteEventStreamingWithOptions(const Delet
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteEventStreamingResponse>();
 }
 
@@ -853,7 +853,7 @@ DeleteRuleResponse Client::deleteRuleWithOptions(const DeleteRuleRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteRule"},
     {"version" , "2020-04-01"},
@@ -864,7 +864,7 @@ DeleteRuleResponse Client::deleteRuleWithOptions(const DeleteRuleRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteRuleResponse>();
 }
 
@@ -913,7 +913,7 @@ DeleteTargetsResponse Client::deleteTargetsWithOptions(const DeleteTargetsReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteTargets"},
     {"version" , "2020-04-01"},
@@ -924,7 +924,7 @@ DeleteTargetsResponse Client::deleteTargetsWithOptions(const DeleteTargetsReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteTargetsResponse>();
 }
 
@@ -963,7 +963,7 @@ DisableRuleResponse Client::disableRuleWithOptions(const DisableRuleRequest &req
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DisableRule"},
     {"version" , "2020-04-01"},
@@ -974,7 +974,7 @@ DisableRuleResponse Client::disableRuleWithOptions(const DisableRuleRequest &req
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DisableRuleResponse>();
 }
 
@@ -1013,7 +1013,7 @@ DiscoverEventSourceResponse Client::discoverEventSourceWithOptions(const Discove
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DiscoverEventSource"},
     {"version" , "2020-04-01"},
@@ -1024,7 +1024,7 @@ DiscoverEventSourceResponse Client::discoverEventSourceWithOptions(const Discove
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DiscoverEventSourceResponse>();
 }
 
@@ -1061,7 +1061,7 @@ EnableRuleResponse Client::enableRuleWithOptions(const EnableRuleRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "EnableRule"},
     {"version" , "2020-04-01"},
@@ -1072,7 +1072,7 @@ EnableRuleResponse Client::enableRuleWithOptions(const EnableRuleRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<EnableRuleResponse>();
 }
 
@@ -1136,7 +1136,7 @@ EventCenterQueryEventsResponse Client::eventCenterQueryEventsWithOptions(const E
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<EventCenterQueryEventsResponse>();
 }
 
@@ -1169,7 +1169,7 @@ GetApiDestinationResponse Client::getApiDestinationWithOptions(const GetApiDesti
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetApiDestination"},
     {"version" , "2020-04-01"},
@@ -1180,7 +1180,7 @@ GetApiDestinationResponse Client::getApiDestinationWithOptions(const GetApiDesti
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetApiDestinationResponse>();
 }
 
@@ -1215,7 +1215,7 @@ GetConnectionResponse Client::getConnectionWithOptions(const GetConnectionReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetConnection"},
     {"version" , "2020-04-01"},
@@ -1226,7 +1226,7 @@ GetConnectionResponse Client::getConnectionWithOptions(const GetConnectionReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetConnectionResponse>();
 }
 
@@ -1261,7 +1261,7 @@ GetEventBusResponse Client::getEventBusWithOptions(const GetEventBusRequest &req
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetEventBus"},
     {"version" , "2020-04-01"},
@@ -1272,7 +1272,7 @@ GetEventBusResponse Client::getEventBusWithOptions(const GetEventBusRequest &req
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetEventBusResponse>();
 }
 
@@ -1307,7 +1307,7 @@ GetEventStreamingResponse Client::getEventStreamingWithOptions(const GetEventStr
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetEventStreaming"},
     {"version" , "2020-04-01"},
@@ -1318,7 +1318,7 @@ GetEventStreamingResponse Client::getEventStreamingWithOptions(const GetEventStr
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetEventStreamingResponse>();
 }
 
@@ -1357,7 +1357,7 @@ GetRuleResponse Client::getRuleWithOptions(const GetRuleRequest &request, const 
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetRule"},
     {"version" , "2020-04-01"},
@@ -1368,7 +1368,7 @@ GetRuleResponse Client::getRuleWithOptions(const GetRuleRequest &request, const 
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetRuleResponse>();
 }
 
@@ -1406,7 +1406,7 @@ ListAliyunOfficialEventSourcesResponse Client::listAliyunOfficialEventSourcesWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListAliyunOfficialEventSourcesResponse>();
 }
 
@@ -1452,7 +1452,7 @@ ListApiDestinationsResponse Client::listApiDestinationsWithOptions(const ListApi
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListApiDestinations"},
     {"version" , "2020-04-01"},
@@ -1463,7 +1463,7 @@ ListApiDestinationsResponse Client::listApiDestinationsWithOptions(const ListApi
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListApiDestinationsResponse>();
 }
 
@@ -1506,7 +1506,7 @@ ListConnectionsResponse Client::listConnectionsWithOptions(const ListConnections
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListConnections"},
     {"version" , "2020-04-01"},
@@ -1517,7 +1517,7 @@ ListConnectionsResponse Client::listConnectionsWithOptions(const ListConnections
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListConnectionsResponse>();
 }
 
@@ -1560,7 +1560,7 @@ ListEventBusesResponse Client::listEventBusesWithOptions(const ListEventBusesReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListEventBuses"},
     {"version" , "2020-04-01"},
@@ -1571,7 +1571,7 @@ ListEventBusesResponse Client::listEventBusesWithOptions(const ListEventBusesReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListEventBusesResponse>();
 }
 
@@ -1626,7 +1626,7 @@ ListEventStreamingsResponse Client::listEventStreamingsWithOptions(const ListEve
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListEventStreamings"},
     {"version" , "2020-04-01"},
@@ -1637,7 +1637,7 @@ ListEventStreamingsResponse Client::listEventStreamingsWithOptions(const ListEve
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListEventStreamingsResponse>();
 }
 
@@ -1684,7 +1684,7 @@ ListRulesResponse Client::listRulesWithOptions(const ListRulesRequest &request, 
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListRules"},
     {"version" , "2020-04-01"},
@@ -1695,7 +1695,7 @@ ListRulesResponse Client::listRulesWithOptions(const ListRulesRequest &request, 
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListRulesResponse>();
 }
 
@@ -1744,7 +1744,7 @@ ListTargetsResponse Client::listTargetsWithOptions(const ListTargetsRequest &req
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListTargets"},
     {"version" , "2020-04-01"},
@@ -1755,7 +1755,7 @@ ListTargetsResponse Client::listTargetsWithOptions(const ListTargetsRequest &req
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTargetsResponse>();
 }
 
@@ -1800,7 +1800,7 @@ ListUserDefinedEventSourcesResponse Client::listUserDefinedEventSourcesWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListUserDefinedEventSources"},
     {"version" , "2020-04-01"},
@@ -1811,7 +1811,7 @@ ListUserDefinedEventSourcesResponse Client::listUserDefinedEventSourcesWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListUserDefinedEventSourcesResponse>();
 }
 
@@ -1846,7 +1846,7 @@ PauseEventStreamingResponse Client::pauseEventStreamingWithOptions(const PauseEv
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "PauseEventStreaming"},
     {"version" , "2020-04-01"},
@@ -1857,7 +1857,7 @@ PauseEventStreamingResponse Client::pauseEventStreamingWithOptions(const PauseEv
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PauseEventStreamingResponse>();
 }
 
@@ -1906,7 +1906,7 @@ PutTargetsResponse Client::putTargetsWithOptions(const PutTargetsRequest &tmpReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "PutTargets"},
     {"version" , "2020-04-01"},
@@ -1917,7 +1917,7 @@ PutTargetsResponse Client::putTargetsWithOptions(const PutTargetsRequest &tmpReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PutTargetsResponse>();
 }
 
@@ -1960,7 +1960,7 @@ QueryEventResponse Client::queryEventWithOptions(const QueryEventRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryEvent"},
     {"version" , "2020-04-01"},
@@ -1971,7 +1971,7 @@ QueryEventResponse Client::queryEventWithOptions(const QueryEventRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryEventResponse>();
 }
 
@@ -2010,7 +2010,7 @@ QueryEventTracesResponse Client::queryEventTracesWithOptions(const QueryEventTra
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryEventTraces"},
     {"version" , "2020-04-01"},
@@ -2021,7 +2021,7 @@ QueryEventTracesResponse Client::queryEventTracesWithOptions(const QueryEventTra
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryEventTracesResponse>();
 }
 
@@ -2064,7 +2064,7 @@ QueryTracedEventByEventIdResponse Client::queryTracedEventByEventIdWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryTracedEventByEventId"},
     {"version" , "2020-04-01"},
@@ -2075,7 +2075,7 @@ QueryTracedEventByEventIdResponse Client::queryTracedEventByEventIdWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryTracedEventByEventIdResponse>();
 }
 
@@ -2138,7 +2138,7 @@ QueryTracedEventsResponse Client::queryTracedEventsWithOptions(const QueryTraced
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryTracedEvents"},
     {"version" , "2020-04-01"},
@@ -2149,7 +2149,7 @@ QueryTracedEventsResponse Client::queryTracedEventsWithOptions(const QueryTraced
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryTracedEventsResponse>();
 }
 
@@ -2184,7 +2184,7 @@ StartEventStreamingResponse Client::startEventStreamingWithOptions(const StartEv
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "StartEventStreaming"},
     {"version" , "2020-04-01"},
@@ -2195,7 +2195,7 @@ StartEventStreamingResponse Client::startEventStreamingWithOptions(const StartEv
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StartEventStreamingResponse>();
 }
 
@@ -2234,7 +2234,7 @@ TestEventPatternResponse Client::testEventPatternWithOptions(const TestEventPatt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "TestEventPattern"},
     {"version" , "2020-04-01"},
@@ -2245,7 +2245,7 @@ TestEventPatternResponse Client::testEventPatternWithOptions(const TestEventPatt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<TestEventPatternResponse>();
 }
 
@@ -2286,7 +2286,7 @@ TestEventSourceConfigResponse Client::testEventSourceConfigWithOptions(const Tes
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "TestEventSourceConfig"},
     {"version" , "2020-04-01"},
@@ -2297,7 +2297,7 @@ TestEventSourceConfigResponse Client::testEventSourceConfigWithOptions(const Tes
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<TestEventSourceConfigResponse>();
 }
 
@@ -2350,7 +2350,7 @@ UpdateApiDestinationResponse Client::updateApiDestinationWithOptions(const Updat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateApiDestination"},
     {"version" , "2020-04-01"},
@@ -2361,7 +2361,7 @@ UpdateApiDestinationResponse Client::updateApiDestinationWithOptions(const Updat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateApiDestinationResponse>();
 }
 
@@ -2418,7 +2418,7 @@ UpdateConnectionResponse Client::updateConnectionWithOptions(const UpdateConnect
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateConnection"},
     {"version" , "2020-04-01"},
@@ -2429,7 +2429,7 @@ UpdateConnectionResponse Client::updateConnectionWithOptions(const UpdateConnect
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateConnectionResponse>();
 }
 
@@ -2468,7 +2468,7 @@ UpdateEventBusResponse Client::updateEventBusWithOptions(const UpdateEventBusReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateEventBus"},
     {"version" , "2020-04-01"},
@@ -2479,7 +2479,7 @@ UpdateEventBusResponse Client::updateEventBusWithOptions(const UpdateEventBusReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateEventBusResponse>();
 }
 
@@ -2596,7 +2596,7 @@ UpdateEventSourceResponse Client::updateEventSourceWithOptions(const UpdateEvent
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UpdateEventSource"},
     {"version" , "2020-04-01"},
@@ -2607,7 +2607,7 @@ UpdateEventSourceResponse Client::updateEventSourceWithOptions(const UpdateEvent
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateEventSourceResponse>();
 }
 
@@ -2684,7 +2684,7 @@ UpdateEventStreamingResponse Client::updateEventStreamingWithOptions(const Updat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UpdateEventStreaming"},
     {"version" , "2020-04-01"},
@@ -2695,7 +2695,7 @@ UpdateEventStreamingResponse Client::updateEventStreamingWithOptions(const Updat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateEventStreamingResponse>();
 }
 
@@ -2740,7 +2740,7 @@ UpdateEventStreamingBusinessOptionResponse Client::updateEventStreamingBusinessO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UpdateEventStreamingBusinessOption"},
     {"version" , "2020-04-01"},
@@ -2751,7 +2751,7 @@ UpdateEventStreamingBusinessOptionResponse Client::updateEventStreamingBusinessO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateEventStreamingBusinessOptionResponse>();
 }
 
@@ -2800,7 +2800,7 @@ UpdateRuleResponse Client::updateRuleWithOptions(const UpdateRuleRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateRule"},
     {"version" , "2020-04-01"},
@@ -2811,7 +2811,7 @@ UpdateRuleResponse Client::updateRuleWithOptions(const UpdateRuleRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateRuleResponse>();
 }
 

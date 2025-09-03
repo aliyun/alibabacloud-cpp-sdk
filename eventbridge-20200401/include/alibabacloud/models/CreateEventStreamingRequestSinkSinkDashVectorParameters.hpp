@@ -117,10 +117,10 @@ namespace Models
     // vector Field Functions 
     bool hasVector() const { return this->vector_ != nullptr;};
     void deleteVector() { this->vector_ = nullptr;};
-    inline const Models::CreateEventStreamingRequestSinkSinkDashVectorParametersVector & vector() const { DARABONBA_PTR_GET_CONST(vector_, Models::CreateEventStreamingRequestSinkSinkDashVectorParametersVector) };
-    inline Models::CreateEventStreamingRequestSinkSinkDashVectorParametersVector vector() { DARABONBA_PTR_GET(vector_, Models::CreateEventStreamingRequestSinkSinkDashVectorParametersVector) };
-    inline CreateEventStreamingRequestSinkSinkDashVectorParameters& setVector(const Models::CreateEventStreamingRequestSinkSinkDashVectorParametersVector & vector) { DARABONBA_PTR_SET_VALUE(vector_, vector) };
-    inline CreateEventStreamingRequestSinkSinkDashVectorParameters& setVector(Models::CreateEventStreamingRequestSinkSinkDashVectorParametersVector && vector) { DARABONBA_PTR_SET_RVALUE(vector_, vector) };
+    inline const Models::CreateEventStreamingRequestSinkSinkDashVectorParametersVector & _vector() const { DARABONBA_PTR_GET_CONST(vector_, Models::CreateEventStreamingRequestSinkSinkDashVectorParametersVector) };
+    inline Models::CreateEventStreamingRequestSinkSinkDashVectorParametersVector _vector() { DARABONBA_PTR_GET(vector_, Models::CreateEventStreamingRequestSinkSinkDashVectorParametersVector) };
+    inline CreateEventStreamingRequestSinkSinkDashVectorParameters& setVector(const Models::CreateEventStreamingRequestSinkSinkDashVectorParametersVector & _vector) { DARABONBA_PTR_SET_VALUE(vector_, _vector) };
+    inline CreateEventStreamingRequestSinkSinkDashVectorParameters& setVector(Models::CreateEventStreamingRequestSinkSinkDashVectorParametersVector && _vector) { DARABONBA_PTR_SET_RVALUE(vector_, _vector) };
 
 
   protected:

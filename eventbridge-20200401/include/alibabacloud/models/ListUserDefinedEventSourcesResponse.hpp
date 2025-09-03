@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTUSERDEFINEDEVENTSOURCESRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ListUserDefinedEventSourcesResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

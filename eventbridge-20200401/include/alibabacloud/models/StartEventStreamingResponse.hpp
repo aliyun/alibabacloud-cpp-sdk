@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_STARTEVENTSTREAMINGRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/StartEventStreamingResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

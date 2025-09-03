@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_QUERYTRACEDEVENTBYEVENTIDRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/QueryTracedEventByEventIdResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
