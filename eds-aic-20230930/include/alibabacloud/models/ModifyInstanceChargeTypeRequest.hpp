@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceGroupIds, instanceGroupIds_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
+      DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyInstanceChargeTypeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceGroupIds, instanceGroupIds_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
+      DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
     };
     ModifyInstanceChargeTypeRequest() = default ;
     ModifyInstanceChargeTypeRequest(const ModifyInstanceChargeTypeRequest &) = default ;
@@ -41,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->autoPay_ != nullptr
-        && this->autoRenew_ != nullptr && this->chargeType_ != nullptr && this->instanceGroupIds_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr; };
+        && this->autoRenew_ != nullptr && this->chargeType_ != nullptr && this->instanceGroupIds_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr
+        && this->promotionId_ != nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -86,6 +89,13 @@ namespace Models
     inline ModifyInstanceChargeTypeRequest& setPeriodUnit(string periodUnit) { DARABONBA_PTR_SET_VALUE(periodUnit_, periodUnit) };
 
 
+    // promotionId Field Functions 
+    bool hasPromotionId() const { return this->promotionId_ != nullptr;};
+    void deletePromotionId() { this->promotionId_ = nullptr;};
+    inline string promotionId() const { DARABONBA_PTR_GET_DEFAULT(promotionId_, "") };
+    inline ModifyInstanceChargeTypeRequest& setPromotionId(string promotionId) { DARABONBA_PTR_SET_VALUE(promotionId_, promotionId) };
+
+
   protected:
     // Specifies whether to enable the auto-payment feature. Default value: false.
     std::shared_ptr<bool> autoPay_ = nullptr;
@@ -108,6 +118,7 @@ namespace Models
     // *   **Month**
     // *   **Year**
     std::shared_ptr<string> periodUnit_ = nullptr;
+    std::shared_ptr<string> promotionId_ = nullptr;
   };
 
   } // namespace Models

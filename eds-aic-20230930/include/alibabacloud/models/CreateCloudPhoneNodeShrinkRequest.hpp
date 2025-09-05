@@ -34,6 +34,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_TO_JSON(PhoneCount, phoneCount_);
       DARABONBA_PTR_TO_JSON(PhoneDataVolume, phoneDataVolume_);
+      DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
       DARABONBA_PTR_TO_JSON(ResolutionHeight, resolutionHeight_);
       DARABONBA_PTR_TO_JSON(ResolutionWidth, resolutionWidth_);
       DARABONBA_PTR_TO_JSON(ServerShareDataVolume, serverShareDataVolume_);
@@ -64,6 +65,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_FROM_JSON(PhoneCount, phoneCount_);
       DARABONBA_PTR_FROM_JSON(PhoneDataVolume, phoneDataVolume_);
+      DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
       DARABONBA_PTR_FROM_JSON(ResolutionHeight, resolutionHeight_);
       DARABONBA_PTR_FROM_JSON(ResolutionWidth, resolutionWidth_);
       DARABONBA_PTR_FROM_JSON(ServerShareDataVolume, serverShareDataVolume_);
@@ -89,9 +91,9 @@ namespace Models
         && this->autoRenew_ != nullptr && this->bandwidthPackageId_ != nullptr && this->bandwidthPackageType_ != nullptr && this->bizRegionId_ != nullptr && this->chargeType_ != nullptr
         && this->count_ != nullptr && this->displayConfigShrink_ != nullptr && this->downBandwidthLimit_ != nullptr && this->imageId_ != nullptr && this->instanceType_ != nullptr
         && this->networkId_ != nullptr && this->networkInfoShrink_ != nullptr && this->networkType_ != nullptr && this->nodeName_ != nullptr && this->period_ != nullptr
-        && this->periodUnit_ != nullptr && this->phoneCount_ != nullptr && this->phoneDataVolume_ != nullptr && this->resolutionHeight_ != nullptr && this->resolutionWidth_ != nullptr
-        && this->serverShareDataVolume_ != nullptr && this->serverType_ != nullptr && this->streamMode_ != nullptr && this->tag_ != nullptr && this->upBandwidthLimit_ != nullptr
-        && this->useTemplate_ != nullptr && this->vSwitchId_ != nullptr; };
+        && this->periodUnit_ != nullptr && this->phoneCount_ != nullptr && this->phoneDataVolume_ != nullptr && this->promotionId_ != nullptr && this->resolutionHeight_ != nullptr
+        && this->resolutionWidth_ != nullptr && this->serverShareDataVolume_ != nullptr && this->serverType_ != nullptr && this->streamMode_ != nullptr && this->tag_ != nullptr
+        && this->upBandwidthLimit_ != nullptr && this->useTemplate_ != nullptr && this->vSwitchId_ != nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -225,6 +227,13 @@ namespace Models
     inline CreateCloudPhoneNodeShrinkRequest& setPhoneDataVolume(int32_t phoneDataVolume) { DARABONBA_PTR_SET_VALUE(phoneDataVolume_, phoneDataVolume) };
 
 
+    // promotionId Field Functions 
+    bool hasPromotionId() const { return this->promotionId_ != nullptr;};
+    void deletePromotionId() { this->promotionId_ = nullptr;};
+    inline string promotionId() const { DARABONBA_PTR_GET_DEFAULT(promotionId_, "") };
+    inline CreateCloudPhoneNodeShrinkRequest& setPromotionId(string promotionId) { DARABONBA_PTR_SET_VALUE(promotionId_, promotionId) };
+
+
     // resolutionHeight Field Functions 
     bool hasResolutionHeight() const { return this->resolutionHeight_ != nullptr;};
     void deleteResolutionHeight() { this->resolutionHeight_ = nullptr;};
@@ -347,6 +356,7 @@ namespace Models
     // The number of instances per cloud phone matrix.
     std::shared_ptr<int32_t> phoneCount_ = nullptr;
     std::shared_ptr<int32_t> phoneDataVolume_ = nullptr;
+    std::shared_ptr<string> promotionId_ = nullptr;
     // The resolution height. Unit: pixel.
     std::shared_ptr<int32_t> resolutionHeight_ = nullptr;
     // The resolution width. Unit: pixel.

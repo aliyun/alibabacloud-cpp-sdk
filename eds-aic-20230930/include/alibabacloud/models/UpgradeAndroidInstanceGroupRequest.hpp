@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(IncreaseNumberOfInstance, increaseNumberOfInstance_);
       DARABONBA_PTR_TO_JSON(InstanceGroupId, instanceGroupId_);
+      DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
     };
     friend void from_json(const Darabonba::Json& j, UpgradeAndroidInstanceGroupRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(IncreaseNumberOfInstance, increaseNumberOfInstance_);
       DARABONBA_PTR_FROM_JSON(InstanceGroupId, instanceGroupId_);
+      DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
     };
     UpgradeAndroidInstanceGroupRequest() = default ;
     UpgradeAndroidInstanceGroupRequest(const UpgradeAndroidInstanceGroupRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->autoPay_ != nullptr
-        && this->increaseNumberOfInstance_ != nullptr && this->instanceGroupId_ != nullptr; };
+        && this->increaseNumberOfInstance_ != nullptr && this->instanceGroupId_ != nullptr && this->promotionId_ != nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     inline UpgradeAndroidInstanceGroupRequest& setInstanceGroupId(string instanceGroupId) { DARABONBA_PTR_SET_VALUE(instanceGroupId_, instanceGroupId) };
 
 
+    // promotionId Field Functions 
+    bool hasPromotionId() const { return this->promotionId_ != nullptr;};
+    void deletePromotionId() { this->promotionId_ = nullptr;};
+    inline string promotionId() const { DARABONBA_PTR_GET_DEFAULT(promotionId_, "") };
+    inline UpgradeAndroidInstanceGroupRequest& setPromotionId(string promotionId) { DARABONBA_PTR_SET_VALUE(promotionId_, promotionId) };
+
+
   protected:
     // Specifies whether to enable the auto-payment feature.
     // 
@@ -68,6 +77,7 @@ namespace Models
     std::shared_ptr<int32_t> increaseNumberOfInstance_ = nullptr;
     // The ID of the instance group.
     std::shared_ptr<string> instanceGroupId_ = nullptr;
+    std::shared_ptr<string> promotionId_ = nullptr;
   };
 
   } // namespace Models

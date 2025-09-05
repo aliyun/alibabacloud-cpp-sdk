@@ -309,6 +309,10 @@ ChangeCloudPhoneNodeResponse Client::changeCloudPhoneNodeWithOptions(const Chang
     query["PhoneDataVolume"] = request.phoneDataVolume();
   }
 
+  if (!!request.hasPromotionId()) {
+    query["PromotionId"] = request.promotionId();
+  }
+
   if (!!request.hasUpBandwidthLimit()) {
     query["UpBandwidthLimit"] = request.upBandwidthLimit();
   }
@@ -505,6 +509,10 @@ CreateAndroidInstanceGroupResponse Client::createAndroidInstanceGroupWithOptions
 
   if (!!request.hasPolicyGroupId()) {
     query["PolicyGroupId"] = request.policyGroupId();
+  }
+
+  if (!!request.hasPromotionId()) {
+    query["PromotionId"] = request.promotionId();
   }
 
   if (!!request.hasTag()) {
@@ -745,6 +753,10 @@ CreateCloudPhoneNodeResponse Client::createCloudPhoneNodeWithOptions(const Creat
 
   if (!!request.hasPhoneDataVolume()) {
     query["PhoneDataVolume"] = request.phoneDataVolume();
+  }
+
+  if (!!request.hasPromotionId()) {
+    query["PromotionId"] = request.promotionId();
   }
 
   if (!!request.hasResolutionHeight()) {
@@ -2765,6 +2777,10 @@ ExpandDataVolumeResponse Client::expandDataVolumeWithOptions(const ExpandDataVol
     query["PhoneDataVolume"] = request.phoneDataVolume();
   }
 
+  if (!!request.hasPromotionId()) {
+    query["PromotionId"] = request.promotionId();
+  }
+
   if (!!request.hasShareDataVolume()) {
     query["ShareDataVolume"] = request.shareDataVolume();
   }
@@ -3519,6 +3535,10 @@ ModifyInstanceChargeTypeResponse Client::modifyInstanceChargeTypeWithOptions(con
     query["PeriodUnit"] = request.periodUnit();
   }
 
+  if (!!request.hasPromotionId()) {
+    query["PromotionId"] = request.promotionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -3949,6 +3969,10 @@ RenewAndroidInstanceGroupsResponse Client::renewAndroidInstanceGroupsWithOptions
     query["PeriodUnit"] = request.periodUnit();
   }
 
+  if (!!request.hasPromotionId()) {
+    query["PromotionId"] = request.promotionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -3989,6 +4013,10 @@ RenewCloudPhoneNodesResponse Client::renewCloudPhoneNodesWithOptions(const Renew
   json query = {};
   if (!!request.hasAutoPay()) {
     query["AutoPay"] = request.autoPay();
+  }
+
+  if (!!request.hasPromotionId()) {
+    query["PromotionId"] = request.promotionId();
   }
 
   json body = {};
@@ -4797,6 +4825,10 @@ UpgradeAndroidInstanceGroupResponse Client::upgradeAndroidInstanceGroupWithOptio
 
   if (!!request.hasInstanceGroupId()) {
     query["InstanceGroupId"] = request.instanceGroupId();
+  }
+
+  if (!!request.hasPromotionId()) {
+    query["PromotionId"] = request.promotionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

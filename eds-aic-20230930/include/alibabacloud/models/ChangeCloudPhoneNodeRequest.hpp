@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NodeId, nodeId_);
       DARABONBA_PTR_TO_JSON(PhoneCount, phoneCount_);
       DARABONBA_PTR_TO_JSON(PhoneDataVolume, phoneDataVolume_);
+      DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
       DARABONBA_PTR_TO_JSON(UpBandwidthLimit, upBandwidthLimit_);
     };
     friend void from_json(const Darabonba::Json& j, ChangeCloudPhoneNodeRequest& obj) { 
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NodeId, nodeId_);
       DARABONBA_PTR_FROM_JSON(PhoneCount, phoneCount_);
       DARABONBA_PTR_FROM_JSON(PhoneDataVolume, phoneDataVolume_);
+      DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
       DARABONBA_PTR_FROM_JSON(UpBandwidthLimit, upBandwidthLimit_);
     };
     ChangeCloudPhoneNodeRequest() = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->autoPay_ != nullptr
         && this->downBandwidthLimit_ != nullptr && this->instanceType_ != nullptr && this->nodeId_ != nullptr && this->phoneCount_ != nullptr && this->phoneDataVolume_ != nullptr
-        && this->upBandwidthLimit_ != nullptr; };
+        && this->promotionId_ != nullptr && this->upBandwidthLimit_ != nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -86,6 +88,13 @@ namespace Models
     inline ChangeCloudPhoneNodeRequest& setPhoneDataVolume(int32_t phoneDataVolume) { DARABONBA_PTR_SET_VALUE(phoneDataVolume_, phoneDataVolume) };
 
 
+    // promotionId Field Functions 
+    bool hasPromotionId() const { return this->promotionId_ != nullptr;};
+    void deletePromotionId() { this->promotionId_ = nullptr;};
+    inline string promotionId() const { DARABONBA_PTR_GET_DEFAULT(promotionId_, "") };
+    inline ChangeCloudPhoneNodeRequest& setPromotionId(string promotionId) { DARABONBA_PTR_SET_VALUE(promotionId_, promotionId) };
+
+
     // upBandwidthLimit Field Functions 
     bool hasUpBandwidthLimit() const { return this->upBandwidthLimit_ != nullptr;};
     void deleteUpBandwidthLimit() { this->upBandwidthLimit_ = nullptr;};
@@ -100,6 +109,7 @@ namespace Models
     std::shared_ptr<string> nodeId_ = nullptr;
     std::shared_ptr<int32_t> phoneCount_ = nullptr;
     std::shared_ptr<int32_t> phoneDataVolume_ = nullptr;
+    std::shared_ptr<string> promotionId_ = nullptr;
     std::shared_ptr<int32_t> upBandwidthLimit_ = nullptr;
   };
 

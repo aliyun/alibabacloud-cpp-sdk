@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_TO_JSON(NodeIds, nodeIds_);
       DARABONBA_PTR_TO_JSON(PhoneDataVolume, phoneDataVolume_);
+      DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
       DARABONBA_PTR_TO_JSON(ShareDataVolume, shareDataVolume_);
     };
     friend void from_json(const Darabonba::Json& j, ExpandDataVolumeRequest& obj) { 
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_FROM_JSON(NodeIds, nodeIds_);
       DARABONBA_PTR_FROM_JSON(PhoneDataVolume, phoneDataVolume_);
+      DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
       DARABONBA_PTR_FROM_JSON(ShareDataVolume, shareDataVolume_);
     };
     ExpandDataVolumeRequest() = default ;
@@ -39,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->autoPay_ != nullptr
-        && this->bizRegionId_ != nullptr && this->nodeIds_ != nullptr && this->phoneDataVolume_ != nullptr && this->shareDataVolume_ != nullptr; };
+        && this->bizRegionId_ != nullptr && this->nodeIds_ != nullptr && this->phoneDataVolume_ != nullptr && this->promotionId_ != nullptr && this->shareDataVolume_ != nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -70,6 +72,13 @@ namespace Models
     inline ExpandDataVolumeRequest& setPhoneDataVolume(int32_t phoneDataVolume) { DARABONBA_PTR_SET_VALUE(phoneDataVolume_, phoneDataVolume) };
 
 
+    // promotionId Field Functions 
+    bool hasPromotionId() const { return this->promotionId_ != nullptr;};
+    void deletePromotionId() { this->promotionId_ = nullptr;};
+    inline string promotionId() const { DARABONBA_PTR_GET_DEFAULT(promotionId_, "") };
+    inline ExpandDataVolumeRequest& setPromotionId(string promotionId) { DARABONBA_PTR_SET_VALUE(promotionId_, promotionId) };
+
+
     // shareDataVolume Field Functions 
     bool hasShareDataVolume() const { return this->shareDataVolume_ != nullptr;};
     void deleteShareDataVolume() { this->shareDataVolume_ = nullptr;};
@@ -82,6 +91,7 @@ namespace Models
     std::shared_ptr<string> bizRegionId_ = nullptr;
     std::shared_ptr<vector<string>> nodeIds_ = nullptr;
     std::shared_ptr<int32_t> phoneDataVolume_ = nullptr;
+    std::shared_ptr<string> promotionId_ = nullptr;
     std::shared_ptr<int32_t> shareDataVolume_ = nullptr;
   };
 
