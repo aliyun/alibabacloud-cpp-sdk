@@ -1072,7 +1072,7 @@ namespace ICE20201109
       Models::DeleteCategoryResponse deleteCategory(const Models::DeleteCategoryRequest &request);
 
       /**
-       * @summary Deletes a channel in MediaWeaver.
+       * @summary Deletes a channel.
        *
        * @param request DeleteChannelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1081,7 +1081,7 @@ namespace ICE20201109
       Models::DeleteChannelResponse deleteChannelWithOptions(const Models::DeleteChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a channel in MediaWeaver.
+       * @summary Deletes a channel.
        *
        * @param request DeleteChannelRequest
        * @return DeleteChannelResponse
@@ -3079,7 +3079,7 @@ namespace ICE20201109
       Models::GetSnapshotUrlsResponse getSnapshotUrls(const Models::GetSnapshotUrlsRequest &request);
 
       /**
-       * @summary Queries a source in MediaWeaver.
+       * @summary Queries a source.
        *
        * @param request GetSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3088,7 +3088,7 @@ namespace ICE20201109
       Models::GetSourceResponse getSourceWithOptions(const Models::GetSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a source in MediaWeaver.
+       * @summary Queries a source.
        *
        * @param request GetSourceRequest
        * @return GetSourceResponse

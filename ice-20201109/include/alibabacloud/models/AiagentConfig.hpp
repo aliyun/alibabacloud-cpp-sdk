@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_AIAGENTCONFIG_HPP_
 #define ALIBABACLOUD_MODELS_AIAGENTCONFIG_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AIAgentConfigAmbientSoundConfig.hpp>
 #include <alibabacloud/models/AIAgentConfigAsrConfig.hpp>
 #include <alibabacloud/models/AIAgentConfigAvatarConfig.hpp>
 #include <alibabacloud/models/AIAgentConfigInterruptConfig.hpp>
@@ -21,6 +22,7 @@ namespace Models
   class AIAgentConfig : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const AIAgentConfig& obj) { 
+      DARABONBA_PTR_TO_JSON(AmbientSoundConfig, ambientSoundConfig_);
       DARABONBA_PTR_TO_JSON(AsrConfig, asrConfig_);
       DARABONBA_PTR_TO_JSON(AvatarConfig, avatarConfig_);
       DARABONBA_PTR_TO_JSON(AvatarUrl, avatarUrl_);
@@ -44,6 +46,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkflowOverrideParams, workflowOverrideParams_);
     };
     friend void from_json(const Darabonba::Json& j, AIAgentConfig& obj) { 
+      DARABONBA_PTR_FROM_JSON(AmbientSoundConfig, ambientSoundConfig_);
       DARABONBA_PTR_FROM_JSON(AsrConfig, asrConfig_);
       DARABONBA_PTR_FROM_JSON(AvatarConfig, avatarConfig_);
       DARABONBA_PTR_FROM_JSON(AvatarUrl, avatarUrl_);
@@ -77,11 +80,21 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->asrConfig_ != nullptr
-        && this->avatarConfig_ != nullptr && this->avatarUrl_ != nullptr && this->avatarUrlType_ != nullptr && this->enableIntelligentSegment_ != nullptr && this->enablePushToTalk_ != nullptr
-        && this->experimentalConfig_ != nullptr && this->gracefulShutdown_ != nullptr && this->greeting_ != nullptr && this->interruptConfig_ != nullptr && this->llmConfig_ != nullptr
-        && this->maxIdleTime_ != nullptr && this->ttsConfig_ != nullptr && this->turnDetectionConfig_ != nullptr && this->userOfflineTimeout_ != nullptr && this->userOnlineTimeout_ != nullptr
-        && this->vcrConfig_ != nullptr && this->voiceprintConfig_ != nullptr && this->volume_ != nullptr && this->wakeUpQuery_ != nullptr && this->workflowOverrideParams_ != nullptr; };
+    virtual bool empty() const override { this->ambientSoundConfig_ != nullptr
+        && this->asrConfig_ != nullptr && this->avatarConfig_ != nullptr && this->avatarUrl_ != nullptr && this->avatarUrlType_ != nullptr && this->enableIntelligentSegment_ != nullptr
+        && this->enablePushToTalk_ != nullptr && this->experimentalConfig_ != nullptr && this->gracefulShutdown_ != nullptr && this->greeting_ != nullptr && this->interruptConfig_ != nullptr
+        && this->llmConfig_ != nullptr && this->maxIdleTime_ != nullptr && this->ttsConfig_ != nullptr && this->turnDetectionConfig_ != nullptr && this->userOfflineTimeout_ != nullptr
+        && this->userOnlineTimeout_ != nullptr && this->vcrConfig_ != nullptr && this->voiceprintConfig_ != nullptr && this->volume_ != nullptr && this->wakeUpQuery_ != nullptr
+        && this->workflowOverrideParams_ != nullptr; };
+    // ambientSoundConfig Field Functions 
+    bool hasAmbientSoundConfig() const { return this->ambientSoundConfig_ != nullptr;};
+    void deleteAmbientSoundConfig() { this->ambientSoundConfig_ = nullptr;};
+    inline const AIAgentConfigAmbientSoundConfig & ambientSoundConfig() const { DARABONBA_PTR_GET_CONST(ambientSoundConfig_, AIAgentConfigAmbientSoundConfig) };
+    inline AIAgentConfigAmbientSoundConfig ambientSoundConfig() { DARABONBA_PTR_GET(ambientSoundConfig_, AIAgentConfigAmbientSoundConfig) };
+    inline AIAgentConfig& setAmbientSoundConfig(const AIAgentConfigAmbientSoundConfig & ambientSoundConfig) { DARABONBA_PTR_SET_VALUE(ambientSoundConfig_, ambientSoundConfig) };
+    inline AIAgentConfig& setAmbientSoundConfig(AIAgentConfigAmbientSoundConfig && ambientSoundConfig) { DARABONBA_PTR_SET_RVALUE(ambientSoundConfig_, ambientSoundConfig) };
+
+
     // asrConfig Field Functions 
     bool hasAsrConfig() const { return this->asrConfig_ != nullptr;};
     void deleteAsrConfig() { this->asrConfig_ = nullptr;};
@@ -246,6 +259,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<AIAgentConfigAmbientSoundConfig> ambientSoundConfig_ = nullptr;
     std::shared_ptr<AIAgentConfigAsrConfig> asrConfig_ = nullptr;
     std::shared_ptr<AIAgentConfigAvatarConfig> avatarConfig_ = nullptr;
     std::shared_ptr<string> avatarUrl_ = nullptr;

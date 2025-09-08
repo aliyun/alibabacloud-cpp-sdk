@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_AIAGENTOUTBOUNDCALLCONFIG_HPP_
 #define ALIBABACLOUD_MODELS_AIAGENTOUTBOUNDCALLCONFIG_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AIAgentOutboundCallConfigAmbientSoundConfig.hpp>
 #include <alibabacloud/models/AIAgentOutboundCallConfigAsrConfig.hpp>
 #include <alibabacloud/models/AIAgentOutboundCallConfigInterruptConfig.hpp>
 #include <alibabacloud/models/AIAgentOutboundCallConfigLlmConfig.hpp>
@@ -18,6 +19,7 @@ namespace Models
   class AIAgentOutboundCallConfig : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const AIAgentOutboundCallConfig& obj) { 
+      DARABONBA_PTR_TO_JSON(AmbientSoundConfig, ambientSoundConfig_);
       DARABONBA_PTR_TO_JSON(AsrConfig, asrConfig_);
       DARABONBA_PTR_TO_JSON(EnableIntelligentSegment, enableIntelligentSegment_);
       DARABONBA_PTR_TO_JSON(Greeting, greeting_);
@@ -28,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TurnDetectionConfig, turnDetectionConfig_);
     };
     friend void from_json(const Darabonba::Json& j, AIAgentOutboundCallConfig& obj) { 
+      DARABONBA_PTR_FROM_JSON(AmbientSoundConfig, ambientSoundConfig_);
       DARABONBA_PTR_FROM_JSON(AsrConfig, asrConfig_);
       DARABONBA_PTR_FROM_JSON(EnableIntelligentSegment, enableIntelligentSegment_);
       DARABONBA_PTR_FROM_JSON(Greeting, greeting_);
@@ -48,9 +51,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->asrConfig_ != nullptr
-        && this->enableIntelligentSegment_ != nullptr && this->greeting_ != nullptr && this->greetingDelay_ != nullptr && this->interruptConfig_ != nullptr && this->llmConfig_ != nullptr
-        && this->ttsConfig_ != nullptr && this->turnDetectionConfig_ != nullptr; };
+    virtual bool empty() const override { this->ambientSoundConfig_ != nullptr
+        && this->asrConfig_ != nullptr && this->enableIntelligentSegment_ != nullptr && this->greeting_ != nullptr && this->greetingDelay_ != nullptr && this->interruptConfig_ != nullptr
+        && this->llmConfig_ != nullptr && this->ttsConfig_ != nullptr && this->turnDetectionConfig_ != nullptr; };
+    // ambientSoundConfig Field Functions 
+    bool hasAmbientSoundConfig() const { return this->ambientSoundConfig_ != nullptr;};
+    void deleteAmbientSoundConfig() { this->ambientSoundConfig_ = nullptr;};
+    inline const AIAgentOutboundCallConfigAmbientSoundConfig & ambientSoundConfig() const { DARABONBA_PTR_GET_CONST(ambientSoundConfig_, AIAgentOutboundCallConfigAmbientSoundConfig) };
+    inline AIAgentOutboundCallConfigAmbientSoundConfig ambientSoundConfig() { DARABONBA_PTR_GET(ambientSoundConfig_, AIAgentOutboundCallConfigAmbientSoundConfig) };
+    inline AIAgentOutboundCallConfig& setAmbientSoundConfig(const AIAgentOutboundCallConfigAmbientSoundConfig & ambientSoundConfig) { DARABONBA_PTR_SET_VALUE(ambientSoundConfig_, ambientSoundConfig) };
+    inline AIAgentOutboundCallConfig& setAmbientSoundConfig(AIAgentOutboundCallConfigAmbientSoundConfig && ambientSoundConfig) { DARABONBA_PTR_SET_RVALUE(ambientSoundConfig_, ambientSoundConfig) };
+
+
     // asrConfig Field Functions 
     bool hasAsrConfig() const { return this->asrConfig_ != nullptr;};
     void deleteAsrConfig() { this->asrConfig_ = nullptr;};
@@ -118,6 +130,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<AIAgentOutboundCallConfigAmbientSoundConfig> ambientSoundConfig_ = nullptr;
     std::shared_ptr<AIAgentOutboundCallConfigAsrConfig> asrConfig_ = nullptr;
     std::shared_ptr<bool> enableIntelligentSegment_ = nullptr;
     std::shared_ptr<string> greeting_ = nullptr;

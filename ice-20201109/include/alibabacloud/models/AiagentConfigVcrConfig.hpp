@@ -5,6 +5,7 @@
 #include <alibabacloud/models/AIAgentConfigVcrConfigEquipment.hpp>
 #include <alibabacloud/models/AIAgentConfigVcrConfigHeadMotion.hpp>
 #include <alibabacloud/models/AIAgentConfigVcrConfigInvalidFrameMotion.hpp>
+#include <alibabacloud/models/AIAgentConfigVcrConfigLookAway.hpp>
 #include <alibabacloud/models/AIAgentConfigVcrConfigPeopleCount.hpp>
 #include <alibabacloud/models/AIAgentConfigVcrConfigStillFrameMotion.hpp>
 using namespace std;
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Equipment, equipment_);
       DARABONBA_PTR_TO_JSON(HeadMotion, headMotion_);
       DARABONBA_PTR_TO_JSON(InvalidFrameMotion, invalidFrameMotion_);
+      DARABONBA_PTR_TO_JSON(LookAway, lookAway_);
       DARABONBA_PTR_TO_JSON(PeopleCount, peopleCount_);
       DARABONBA_PTR_TO_JSON(StillFrameMotion, stillFrameMotion_);
     };
@@ -28,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Equipment, equipment_);
       DARABONBA_PTR_FROM_JSON(HeadMotion, headMotion_);
       DARABONBA_PTR_FROM_JSON(InvalidFrameMotion, invalidFrameMotion_);
+      DARABONBA_PTR_FROM_JSON(LookAway, lookAway_);
       DARABONBA_PTR_FROM_JSON(PeopleCount, peopleCount_);
       DARABONBA_PTR_FROM_JSON(StillFrameMotion, stillFrameMotion_);
     };
@@ -43,7 +46,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->equipment_ != nullptr
-        && this->headMotion_ != nullptr && this->invalidFrameMotion_ != nullptr && this->peopleCount_ != nullptr && this->stillFrameMotion_ != nullptr; };
+        && this->headMotion_ != nullptr && this->invalidFrameMotion_ != nullptr && this->lookAway_ != nullptr && this->peopleCount_ != nullptr && this->stillFrameMotion_ != nullptr; };
     // equipment Field Functions 
     bool hasEquipment() const { return this->equipment_ != nullptr;};
     void deleteEquipment() { this->equipment_ = nullptr;};
@@ -71,6 +74,15 @@ namespace Models
     inline AIAgentConfigVcrConfig& setInvalidFrameMotion(Models::AIAgentConfigVcrConfigInvalidFrameMotion && invalidFrameMotion) { DARABONBA_PTR_SET_RVALUE(invalidFrameMotion_, invalidFrameMotion) };
 
 
+    // lookAway Field Functions 
+    bool hasLookAway() const { return this->lookAway_ != nullptr;};
+    void deleteLookAway() { this->lookAway_ = nullptr;};
+    inline const Models::AIAgentConfigVcrConfigLookAway & lookAway() const { DARABONBA_PTR_GET_CONST(lookAway_, Models::AIAgentConfigVcrConfigLookAway) };
+    inline Models::AIAgentConfigVcrConfigLookAway lookAway() { DARABONBA_PTR_GET(lookAway_, Models::AIAgentConfigVcrConfigLookAway) };
+    inline AIAgentConfigVcrConfig& setLookAway(const Models::AIAgentConfigVcrConfigLookAway & lookAway) { DARABONBA_PTR_SET_VALUE(lookAway_, lookAway) };
+    inline AIAgentConfigVcrConfig& setLookAway(Models::AIAgentConfigVcrConfigLookAway && lookAway) { DARABONBA_PTR_SET_RVALUE(lookAway_, lookAway) };
+
+
     // peopleCount Field Functions 
     bool hasPeopleCount() const { return this->peopleCount_ != nullptr;};
     void deletePeopleCount() { this->peopleCount_ = nullptr;};
@@ -93,6 +105,7 @@ namespace Models
     std::shared_ptr<Models::AIAgentConfigVcrConfigEquipment> equipment_ = nullptr;
     std::shared_ptr<Models::AIAgentConfigVcrConfigHeadMotion> headMotion_ = nullptr;
     std::shared_ptr<Models::AIAgentConfigVcrConfigInvalidFrameMotion> invalidFrameMotion_ = nullptr;
+    std::shared_ptr<Models::AIAgentConfigVcrConfigLookAway> lookAway_ = nullptr;
     std::shared_ptr<Models::AIAgentConfigVcrConfigPeopleCount> peopleCount_ = nullptr;
     std::shared_ptr<Models::AIAgentConfigVcrConfigStillFrameMotion> stillFrameMotion_ = nullptr;
   };

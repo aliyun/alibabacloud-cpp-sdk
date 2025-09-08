@@ -162,8 +162,8 @@ namespace Models
     // 
     // *   Inited: The task is initialized.
     // *   Running
-    // *   Success
-    // *   Failed
+    // *   Complete
+    // *   Error
     // *   Cancelled
     std::shared_ptr<string> state_ = nullptr;
     // The user data.

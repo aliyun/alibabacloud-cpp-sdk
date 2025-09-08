@@ -1162,6 +1162,7 @@
 #include <alibabacloud/models/UploadStreamByUrlrequest.hpp>
 #include <alibabacloud/models/UploadStreamByUrlresponseBody.hpp>
 #include <alibabacloud/models/UploadStreamByUrlresponse.hpp>
+#include <alibabacloud/models/AiagentConfigAmbientSoundConfig.hpp>
 #include <alibabacloud/models/AiagentConfigAsrConfig.hpp>
 #include <alibabacloud/models/AiagentConfigAvatarConfig.hpp>
 #include <alibabacloud/models/AiagentConfigInterruptConfig.hpp>
@@ -1174,10 +1175,12 @@
 #include <alibabacloud/models/AiagentConfigVcrConfigEquipment.hpp>
 #include <alibabacloud/models/AiagentConfigVcrConfigHeadMotion.hpp>
 #include <alibabacloud/models/AiagentConfigVcrConfigInvalidFrameMotion.hpp>
+#include <alibabacloud/models/AiagentConfigVcrConfigLookAway.hpp>
 #include <alibabacloud/models/AiagentConfigVcrConfigPeopleCount.hpp>
 #include <alibabacloud/models/AiagentConfigVcrConfigStillFrameMotion.hpp>
 #include <alibabacloud/models/AiagentConfigVcrConfig.hpp>
 #include <alibabacloud/models/AiagentConfigVoiceprintConfig.hpp>
+#include <alibabacloud/models/AiagentOutboundCallConfigAmbientSoundConfig.hpp>
 #include <alibabacloud/models/AiagentOutboundCallConfigAsrConfig.hpp>
 #include <alibabacloud/models/AiagentOutboundCallConfigInterruptConfig.hpp>
 #include <alibabacloud/models/AiagentOutboundCallConfigLlmConfigFunctionMap.hpp>

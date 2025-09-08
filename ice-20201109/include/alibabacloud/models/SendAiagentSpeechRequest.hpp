@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EnableInterrupt, enableInterrupt_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(Text, text_);
+      DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, SendAIAgentSpeechRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EnableInterrupt, enableInterrupt_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(Text, text_);
+      DARABONBA_PTR_FROM_JSON(Type, type_);
     };
     SendAIAgentSpeechRequest() = default ;
     SendAIAgentSpeechRequest(const SendAIAgentSpeechRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->enableInterrupt_ != nullptr
-        && this->instanceId_ != nullptr && this->text_ != nullptr; };
+        && this->instanceId_ != nullptr && this->text_ != nullptr && this->type_ != nullptr; };
     // enableInterrupt Field Functions 
     bool hasEnableInterrupt() const { return this->enableInterrupt_ != nullptr;};
     void deleteEnableInterrupt() { this->enableInterrupt_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     inline SendAIAgentSpeechRequest& setText(string text) { DARABONBA_PTR_SET_VALUE(text_, text) };
 
 
+    // type Field Functions 
+    bool hasType() const { return this->type_ != nullptr;};
+    void deleteType() { this->type_ = nullptr;};
+    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline SendAIAgentSpeechRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
   protected:
     // Specifies whether the broadcast can interrupt the ongoing speech. Default value: true
     std::shared_ptr<bool> enableInterrupt_ = nullptr;
@@ -63,6 +72,7 @@ namespace Models
     std::shared_ptr<string> instanceId_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> text_ = nullptr;
+    std::shared_ptr<string> type_ = nullptr;
   };
 
   } // namespace Models

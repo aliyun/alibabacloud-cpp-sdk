@@ -78,6 +78,7 @@ namespace Models
   protected:
     // The inputs of the transcoding task.
     std::shared_ptr<vector<Models::MediaConvertInput>> inputs_ = nullptr;
+    // The name of the job.
     std::shared_ptr<string> jobName_ = nullptr;
     // The output group configurations.
     std::shared_ptr<vector<Models::MediaConvertOutputGroup>> outputGroups_ = nullptr;

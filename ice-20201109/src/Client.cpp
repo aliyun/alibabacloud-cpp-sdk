@@ -3288,7 +3288,7 @@ DeleteCategoryResponse Client::deleteCategory(const DeleteCategoryRequest &reque
 }
 
 /**
- * @summary Deletes a channel in MediaWeaver.
+ * @summary Deletes a channel.
  *
  * @param request DeleteChannelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3319,7 +3319,7 @@ DeleteChannelResponse Client::deleteChannelWithOptions(const DeleteChannelReques
 }
 
 /**
- * @summary Deletes a channel in MediaWeaver.
+ * @summary Deletes a channel.
  *
  * @param request DeleteChannelRequest
  * @return DeleteChannelResponse
@@ -8353,7 +8353,7 @@ GetSnapshotUrlsResponse Client::getSnapshotUrls(const GetSnapshotUrlsRequest &re
 }
 
 /**
- * @summary Queries a source in MediaWeaver.
+ * @summary Queries a source.
  *
  * @param request GetSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8392,7 +8392,7 @@ GetSourceResponse Client::getSourceWithOptions(const GetSourceRequest &request, 
 }
 
 /**
- * @summary Queries a source in MediaWeaver.
+ * @summary Queries a source.
  *
  * @param request GetSourceRequest
  * @return GetSourceResponse
@@ -14530,6 +14530,10 @@ SendAIAgentSpeechResponse Client::sendAIAgentSpeechWithOptions(const SendAIAgent
 
   if (!!request.hasText()) {
     query["Text"] = request.text();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.type();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
