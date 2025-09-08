@@ -18,6 +18,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ScorePageItem& obj) { 
       DARABONBA_PTR_TO_JSON(cardType, cardType_);
       DARABONBA_PTR_TO_JSON(displayLink, displayLink_);
+      DARABONBA_PTR_TO_JSON(hostAuthorityScore, hostAuthorityScore_);
       DARABONBA_PTR_TO_JSON(hostLogo, hostLogo_);
       DARABONBA_PTR_TO_JSON(hostname, hostname_);
       DARABONBA_PTR_TO_JSON(htmlSnippet, htmlSnippet_);
@@ -38,6 +39,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ScorePageItem& obj) { 
       DARABONBA_PTR_FROM_JSON(cardType, cardType_);
       DARABONBA_PTR_FROM_JSON(displayLink, displayLink_);
+      DARABONBA_PTR_FROM_JSON(hostAuthorityScore, hostAuthorityScore_);
       DARABONBA_PTR_FROM_JSON(hostLogo, hostLogo_);
       DARABONBA_PTR_FROM_JSON(hostname, hostname_);
       DARABONBA_PTR_FROM_JSON(htmlSnippet, htmlSnippet_);
@@ -67,10 +69,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->cardType_ != nullptr
-        && this->displayLink_ != nullptr && this->hostLogo_ != nullptr && this->hostname_ != nullptr && this->htmlSnippet_ != nullptr && this->htmlTitle_ != nullptr
-        && this->images_ != nullptr && this->link_ != nullptr && this->mainText_ != nullptr && this->markdownText_ != nullptr && this->mime_ != nullptr
-        && this->pageMap_ != nullptr && this->publishTime_ != nullptr && this->score_ != nullptr && this->siteLabel_ != nullptr && this->snippet_ != nullptr
-        && this->summary_ != nullptr && this->title_ != nullptr; };
+        && this->displayLink_ != nullptr && this->hostAuthorityScore_ != nullptr && this->hostLogo_ != nullptr && this->hostname_ != nullptr && this->htmlSnippet_ != nullptr
+        && this->htmlTitle_ != nullptr && this->images_ != nullptr && this->link_ != nullptr && this->mainText_ != nullptr && this->markdownText_ != nullptr
+        && this->mime_ != nullptr && this->pageMap_ != nullptr && this->publishTime_ != nullptr && this->score_ != nullptr && this->siteLabel_ != nullptr
+        && this->snippet_ != nullptr && this->summary_ != nullptr && this->title_ != nullptr; };
     // cardType Field Functions 
     bool hasCardType() const { return this->cardType_ != nullptr;};
     void deleteCardType() { this->cardType_ = nullptr;};
@@ -83,6 +85,13 @@ namespace Models
     void deleteDisplayLink() { this->displayLink_ = nullptr;};
     inline string displayLink() const { DARABONBA_PTR_GET_DEFAULT(displayLink_, "") };
     inline ScorePageItem& setDisplayLink(string displayLink) { DARABONBA_PTR_SET_VALUE(displayLink_, displayLink) };
+
+
+    // hostAuthorityScore Field Functions 
+    bool hasHostAuthorityScore() const { return this->hostAuthorityScore_ != nullptr;};
+    void deleteHostAuthorityScore() { this->hostAuthorityScore_ = nullptr;};
+    inline double hostAuthorityScore() const { DARABONBA_PTR_GET_DEFAULT(hostAuthorityScore_, 0.0) };
+    inline ScorePageItem& setHostAuthorityScore(double hostAuthorityScore) { DARABONBA_PTR_SET_VALUE(hostAuthorityScore_, hostAuthorityScore) };
 
 
     // hostLogo Field Functions 
@@ -206,6 +215,7 @@ namespace Models
     std::shared_ptr<string> cardType_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> displayLink_ = nullptr;
+    std::shared_ptr<double> hostAuthorityScore_ = nullptr;
     std::shared_ptr<string> hostLogo_ = nullptr;
     std::shared_ptr<string> hostname_ = nullptr;
     // This parameter is required.
