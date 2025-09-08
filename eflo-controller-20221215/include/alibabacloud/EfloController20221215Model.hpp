@@ -36,6 +36,9 @@
 #include <alibabacloud/models/DeleteClusterRequest.hpp>
 #include <alibabacloud/models/DeleteClusterResponseBody.hpp>
 #include <alibabacloud/models/DeleteClusterResponse.hpp>
+#include <alibabacloud/models/DeleteNodeRequest.hpp>
+#include <alibabacloud/models/DeleteNodeResponseBody.hpp>
+#include <alibabacloud/models/DeleteNodeResponse.hpp>
 #include <alibabacloud/models/DeleteNodeGroupRequest.hpp>
 #include <alibabacloud/models/DeleteNodeGroupResponseBody.hpp>
 #include <alibabacloud/models/DeleteNodeGroupResponse.hpp>

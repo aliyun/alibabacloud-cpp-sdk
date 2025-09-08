@@ -660,6 +660,48 @@ DeleteClusterResponse Client::deleteCluster(const DeleteClusterRequest &request)
 }
 
 /**
+ * @summary 删除一个未使用节点
+ *
+ * @param request DeleteNodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteNodeResponse
+ */
+DeleteNodeResponse Client::deleteNodeWithOptions(const DeleteNodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasNodeId()) {
+    body["NodeId"] = request.nodeId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteNode"},
+    {"version" , "2022-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteNodeResponse>();
+}
+
+/**
+ * @summary 删除一个未使用节点
+ *
+ * @param request DeleteNodeRequest
+ * @return DeleteNodeResponse
+ */
+DeleteNodeResponse Client::deleteNode(const DeleteNodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteNodeWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除节点分组
  *
  * @param request DeleteNodeGroupRequest
@@ -1340,6 +1382,10 @@ ListClusterNodesResponse Client::listClusterNodesWithOptions(const ListClusterNo
 
   if (!!request.hasNodeGroupId()) {
     body["NodeGroupId"] = request.nodeGroupId();
+  }
+
+  if (!!request.hasOperatingStates()) {
+    body["OperatingStates"] = request.operatingStates();
   }
 
   if (!!request.hasResourceGroupId()) {

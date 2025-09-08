@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(NodeGroupId, nodeGroupId_);
+      DARABONBA_PTR_TO_JSON(OperatingStates, operatingStates_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
     };
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(NodeGroupId, nodeGroupId_);
+      DARABONBA_PTR_FROM_JSON(OperatingStates, operatingStates_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
     };
@@ -42,7 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->nodeGroupId_ != nullptr && this->resourceGroupId_ != nullptr && this->tags_ != nullptr; };
+        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->nodeGroupId_ != nullptr && this->operatingStates_ != nullptr && this->resourceGroupId_ != nullptr
+        && this->tags_ != nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -69,6 +72,15 @@ namespace Models
     void deleteNodeGroupId() { this->nodeGroupId_ = nullptr;};
     inline string nodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
     inline ListClusterNodesRequest& setNodeGroupId(string nodeGroupId) { DARABONBA_PTR_SET_VALUE(nodeGroupId_, nodeGroupId) };
+
+
+    // operatingStates Field Functions 
+    bool hasOperatingStates() const { return this->operatingStates_ != nullptr;};
+    void deleteOperatingStates() { this->operatingStates_ = nullptr;};
+    inline const vector<string> & operatingStates() const { DARABONBA_PTR_GET_CONST(operatingStates_, vector<string>) };
+    inline vector<string> operatingStates() { DARABONBA_PTR_GET(operatingStates_, vector<string>) };
+    inline ListClusterNodesRequest& setOperatingStates(const vector<string> & operatingStates) { DARABONBA_PTR_SET_VALUE(operatingStates_, operatingStates) };
+    inline ListClusterNodesRequest& setOperatingStates(vector<string> && operatingStates) { DARABONBA_PTR_SET_RVALUE(operatingStates_, operatingStates) };
 
 
     // resourceGroupId Field Functions 
@@ -98,6 +110,7 @@ namespace Models
     std::shared_ptr<string> nextToken_ = nullptr;
     // The node group ID.
     std::shared_ptr<string> nodeGroupId_ = nullptr;
+    std::shared_ptr<vector<string>> operatingStates_ = nullptr;
     // The resource group ID.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
     // The tags.

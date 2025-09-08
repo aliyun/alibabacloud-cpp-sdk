@@ -199,6 +199,23 @@ namespace EfloController20221215
       Models::DeleteClusterResponse deleteCluster(const Models::DeleteClusterRequest &request);
 
       /**
+       * @summary 删除一个未使用节点
+       *
+       * @param request DeleteNodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteNodeResponse
+       */
+      Models::DeleteNodeResponse deleteNodeWithOptions(const Models::DeleteNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除一个未使用节点
+       *
+       * @param request DeleteNodeRequest
+       * @return DeleteNodeResponse
+       */
+      Models::DeleteNodeResponse deleteNode(const Models::DeleteNodeRequest &request);
+
+      /**
        * @summary 删除节点分组
        *
        * @param request DeleteNodeGroupRequest
