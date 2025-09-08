@@ -1,0 +1,50 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBECHANGEORDERREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBECHANGEORDERREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Sae20190506
+{
+namespace Models
+{
+  class DescribeChangeOrderRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeChangeOrderRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ChangeOrderId, changeOrderId_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeChangeOrderRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ChangeOrderId, changeOrderId_);
+    };
+    DescribeChangeOrderRequest() = default ;
+    DescribeChangeOrderRequest(const DescribeChangeOrderRequest &) = default ;
+    DescribeChangeOrderRequest(DescribeChangeOrderRequest &&) = default ;
+    DescribeChangeOrderRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeChangeOrderRequest() = default ;
+    DescribeChangeOrderRequest& operator=(const DescribeChangeOrderRequest &) = default ;
+    DescribeChangeOrderRequest& operator=(DescribeChangeOrderRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->changeOrderId_ != nullptr; };
+    // changeOrderId Field Functions 
+    bool hasChangeOrderId() const { return this->changeOrderId_ != nullptr;};
+    void deleteChangeOrderId() { this->changeOrderId_ = nullptr;};
+    inline string changeOrderId() const { DARABONBA_PTR_GET_DEFAULT(changeOrderId_, "") };
+    inline DescribeChangeOrderRequest& setChangeOrderId(string changeOrderId) { DARABONBA_PTR_SET_VALUE(changeOrderId_, changeOrderId) };
+
+
+  protected:
+    // The ID of the change order. You can call the [ListChangeOrders](https://help.aliyun.com/document_detail/126615.html) operation to obtain the ID.
+    // 
+    // This parameter is required.
+    std::shared_ptr<string> changeOrderId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Sae20190506
+#endif

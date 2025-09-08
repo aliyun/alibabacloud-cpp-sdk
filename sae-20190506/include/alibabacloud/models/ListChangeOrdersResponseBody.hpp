@@ -1,0 +1,126 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTCHANGEORDERSRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_LISTCHANGEORDERSRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/models/ListChangeOrdersResponseBodyData.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Sae20190506
+{
+namespace Models
+{
+  class ListChangeOrdersResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListChangeOrdersResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Code, code_);
+      DARABONBA_PTR_TO_JSON(Data, data_);
+      DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
+      DARABONBA_PTR_TO_JSON(Message, message_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(Success, success_);
+      DARABONBA_PTR_TO_JSON(TraceId, traceId_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListChangeOrdersResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Code, code_);
+      DARABONBA_PTR_FROM_JSON(Data, data_);
+      DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
+      DARABONBA_PTR_FROM_JSON(Message, message_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(Success, success_);
+      DARABONBA_PTR_FROM_JSON(TraceId, traceId_);
+    };
+    ListChangeOrdersResponseBody() = default ;
+    ListChangeOrdersResponseBody(const ListChangeOrdersResponseBody &) = default ;
+    ListChangeOrdersResponseBody(ListChangeOrdersResponseBody &&) = default ;
+    ListChangeOrdersResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListChangeOrdersResponseBody() = default ;
+    ListChangeOrdersResponseBody& operator=(const ListChangeOrdersResponseBody &) = default ;
+    ListChangeOrdersResponseBody& operator=(ListChangeOrdersResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->code_ != nullptr
+        && this->data_ != nullptr && this->errorCode_ != nullptr && this->message_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr
+        && this->traceId_ != nullptr; };
+    // code Field Functions 
+    bool hasCode() const { return this->code_ != nullptr;};
+    void deleteCode() { this->code_ = nullptr;};
+    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline ListChangeOrdersResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // data Field Functions 
+    bool hasData() const { return this->data_ != nullptr;};
+    void deleteData() { this->data_ = nullptr;};
+    inline const ListChangeOrdersResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, ListChangeOrdersResponseBodyData) };
+    inline ListChangeOrdersResponseBodyData data() { DARABONBA_PTR_GET(data_, ListChangeOrdersResponseBodyData) };
+    inline ListChangeOrdersResponseBody& setData(const ListChangeOrdersResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ListChangeOrdersResponseBody& setData(ListChangeOrdersResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+
+
+    // errorCode Field Functions 
+    bool hasErrorCode() const { return this->errorCode_ != nullptr;};
+    void deleteErrorCode() { this->errorCode_ = nullptr;};
+    inline string errorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+    inline ListChangeOrdersResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
+
+
+    // message Field Functions 
+    bool hasMessage() const { return this->message_ != nullptr;};
+    void deleteMessage() { this->message_ = nullptr;};
+    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline ListChangeOrdersResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline ListChangeOrdersResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // success Field Functions 
+    bool hasSuccess() const { return this->success_ != nullptr;};
+    void deleteSuccess() { this->success_ = nullptr;};
+    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline ListChangeOrdersResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
+    // traceId Field Functions 
+    bool hasTraceId() const { return this->traceId_ != nullptr;};
+    void deleteTraceId() { this->traceId_ = nullptr;};
+    inline string traceId() const { DARABONBA_PTR_GET_DEFAULT(traceId_, "") };
+    inline ListChangeOrdersResponseBody& setTraceId(string traceId) { DARABONBA_PTR_SET_VALUE(traceId_, traceId) };
+
+
+  protected:
+    // Indicates whether the list of change orders was obtained. Valid values:
+    // 
+    // *   **true**: indicates that the list was obtained.
+    // *   **false**: indicates that the list could not be obtained.
+    std::shared_ptr<string> code_ = nullptr;
+    // The information about change orders.
+    std::shared_ptr<ListChangeOrdersResponseBodyData> data_ = nullptr;
+    // The HTTP status code. Valid values:
+    // 
+    // *   **2xx**: indicates that the request was successful.
+    // *   **3xx**: indicates that the request was redirected.
+    // *   **4xx**: indicates that the request was invalid.
+    // *   **5xx**: indicates that a server error occurred.
+    std::shared_ptr<string> errorCode_ = nullptr;
+    // The ID of the trace. It is used to query the details of a request.
+    std::shared_ptr<string> message_ = nullptr;
+    // The returned message.
+    std::shared_ptr<string> requestId_ = nullptr;
+    std::shared_ptr<bool> success_ = nullptr;
+    // The information about change orders.
+    std::shared_ptr<string> traceId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Sae20190506
+#endif
