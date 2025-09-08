@@ -152,6 +152,9 @@
 #include <alibabacloud/models/DescribeApisecUserOperationsRequest.hpp>
 #include <alibabacloud/models/DescribeApisecUserOperationsResponseBody.hpp>
 #include <alibabacloud/models/DescribeApisecUserOperationsResponse.hpp>
+#include <alibabacloud/models/DescribeBaseSystemRulesRequest.hpp>
+#include <alibabacloud/models/DescribeBaseSystemRulesResponseBody.hpp>
+#include <alibabacloud/models/DescribeBaseSystemRulesResponse.hpp>
 #include <alibabacloud/models/DescribeCertDetailRequest.hpp>
 #include <alibabacloud/models/DescribeCertDetailResponseBody.hpp>
 #include <alibabacloud/models/DescribeCertDetailResponse.hpp>
@@ -170,6 +173,9 @@
 #include <alibabacloud/models/DescribeCnameCountRequest.hpp>
 #include <alibabacloud/models/DescribeCnameCountResponseBody.hpp>
 #include <alibabacloud/models/DescribeCnameCountResponse.hpp>
+#include <alibabacloud/models/DescribeCustomBaseRuleCompileResultRequest.hpp>
+#include <alibabacloud/models/DescribeCustomBaseRuleCompileResultResponseBody.hpp>
+#include <alibabacloud/models/DescribeCustomBaseRuleCompileResultResponse.hpp>
 #include <alibabacloud/models/DescribeDdoSstatusRequest.hpp>
 #include <alibabacloud/models/DescribeDdoSstatusResponseBody.hpp>
 #include <alibabacloud/models/DescribeDdoSstatusResponse.hpp>
@@ -203,6 +209,9 @@
 #include <alibabacloud/models/DescribeDefenseRuleRequest.hpp>
 #include <alibabacloud/models/DescribeDefenseRuleResponseBody.hpp>
 #include <alibabacloud/models/DescribeDefenseRuleResponse.hpp>
+#include <alibabacloud/models/DescribeDefenseRuleStatisticsRequest.hpp>
+#include <alibabacloud/models/DescribeDefenseRuleStatisticsResponseBody.hpp>
+#include <alibabacloud/models/DescribeDefenseRuleStatisticsResponse.hpp>
 #include <alibabacloud/models/DescribeDefenseRulesRequest.hpp>
 #include <alibabacloud/models/DescribeDefenseRulesResponseBody.hpp>
 #include <alibabacloud/models/DescribeDefenseRulesResponse.hpp>
@@ -582,6 +591,7 @@
 #include <alibabacloud/models/DescribeApisecStatisticsResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeApisecSuggestionsResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeApisecUserOperationsResponseBodyData.hpp>
+#include <alibabacloud/models/DescribeBaseSystemRulesResponseBodyRules.hpp>
 #include <alibabacloud/models/DescribeCertDetailResponseBodyCertDetail.hpp>
 #include <alibabacloud/models/DescribeCertsResponseBodyCerts.hpp>
 #include <alibabacloud/models/DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCertificates.hpp>
@@ -602,6 +612,7 @@
 #include <alibabacloud/models/DescribeDefenseResourcesResponseBodyResourcesResponseHeaders.hpp>
 #include <alibabacloud/models/DescribeDefenseResourcesResponseBodyResources.hpp>
 #include <alibabacloud/models/DescribeDefenseRuleResponseBodyRule.hpp>
+#include <alibabacloud/models/DescribeDefenseRuleStatisticsResponseBodyStatisticsInfos.hpp>
 #include <alibabacloud/models/DescribeDefenseRulesResponseBodyRules.hpp>
 #include <alibabacloud/models/DescribeDefenseTemplateResponseBodyTemplate.hpp>
 #include <alibabacloud/models/DescribeDefenseTemplatesResponseBodyTemplates.hpp>

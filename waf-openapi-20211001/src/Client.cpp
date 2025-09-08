@@ -3372,6 +3372,96 @@ DescribeApisecUserOperationsResponse Client::describeApisecUserOperations(const 
 }
 
 /**
+ * @summary 查询基础防护系统规则集
+ *
+ * @param request DescribeBaseSystemRulesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeBaseSystemRulesResponse
+ */
+DescribeBaseSystemRulesResponse Client::describeBaseSystemRulesWithOptions(const DescribeBaseSystemRulesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDetectType()) {
+    query["DetectType"] = request.detectType();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  if (!!request.hasRiskLevel()) {
+    query["RiskLevel"] = request.riskLevel();
+  }
+
+  if (!!request.hasRuleAction()) {
+    query["RuleAction"] = request.ruleAction();
+  }
+
+  if (!!request.hasRuleId()) {
+    query["RuleId"] = request.ruleId();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.ruleName();
+  }
+
+  if (!!request.hasRuleStatus()) {
+    query["RuleStatus"] = request.ruleStatus();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.templateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeBaseSystemRules"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeBaseSystemRulesResponse>();
+}
+
+/**
+ * @summary 查询基础防护系统规则集
+ *
+ * @param request DescribeBaseSystemRulesRequest
+ * @return DescribeBaseSystemRulesResponse
+ */
+DescribeBaseSystemRulesResponse Client::describeBaseSystemRules(const DescribeBaseSystemRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeBaseSystemRulesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of a certificate, such as the certificate name, expiration time, issuance time, and associated domain name.
  *
  * @param request DescribeCertDetailRequest
@@ -3761,6 +3851,56 @@ DescribeCnameCountResponse Client::describeCnameCountWithOptions(const DescribeC
 DescribeCnameCountResponse Client::describeCnameCount(const DescribeCnameCountRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeCnameCountWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询自定义正则规则编译结果
+ *
+ * @param request DescribeCustomBaseRuleCompileResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeCustomBaseRuleCompileResultResponse
+ */
+DescribeCustomBaseRuleCompileResultResponse Client::describeCustomBaseRuleCompileResultWithOptions(const DescribeCustomBaseRuleCompileResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeCustomBaseRuleCompileResult"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeCustomBaseRuleCompileResultResponse>();
+}
+
+/**
+ * @summary 查询自定义正则规则编译结果
+ *
+ * @param request DescribeCustomBaseRuleCompileResultRequest
+ * @return DescribeCustomBaseRuleCompileResultResponse
+ */
+DescribeCustomBaseRuleCompileResultResponse Client::describeCustomBaseRuleCompileResult(const DescribeCustomBaseRuleCompileResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeCustomBaseRuleCompileResultWithOptions(request, runtime);
 }
 
 /**
@@ -4419,6 +4559,76 @@ DescribeDefenseRuleResponse Client::describeDefenseRuleWithOptions(const Describ
 DescribeDefenseRuleResponse Client::describeDefenseRule(const DescribeDefenseRuleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeDefenseRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询防护规则的统计信息
+ *
+ * @param request DescribeDefenseRuleStatisticsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDefenseRuleStatisticsResponse
+ */
+DescribeDefenseRuleStatisticsResponse Client::describeDefenseRuleStatisticsWithOptions(const DescribeDefenseRuleStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFourthKey()) {
+    query["FourthKey"] = request.fourthKey();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasPrimaryKey()) {
+    query["PrimaryKey"] = request.primaryKey();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  if (!!request.hasSecondaryKey()) {
+    query["SecondaryKey"] = request.secondaryKey();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.templateId();
+  }
+
+  if (!!request.hasThirdKey()) {
+    query["ThirdKey"] = request.thirdKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDefenseRuleStatistics"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDefenseRuleStatisticsResponse>();
+}
+
+/**
+ * @summary 查询防护规则的统计信息
+ *
+ * @param request DescribeDefenseRuleStatisticsRequest
+ * @return DescribeDefenseRuleStatisticsResponse
+ */
+DescribeDefenseRuleStatisticsResponse Client::describeDefenseRuleStatistics(const DescribeDefenseRuleStatisticsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDefenseRuleStatisticsWithOptions(request, runtime);
 }
 
 /**

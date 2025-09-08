@@ -858,6 +858,23 @@ namespace WafOpenapi20211001
       Models::DescribeApisecUserOperationsResponse describeApisecUserOperations(const Models::DescribeApisecUserOperationsRequest &request);
 
       /**
+       * @summary 查询基础防护系统规则集
+       *
+       * @param request DescribeBaseSystemRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeBaseSystemRulesResponse
+       */
+      Models::DescribeBaseSystemRulesResponse describeBaseSystemRulesWithOptions(const Models::DescribeBaseSystemRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询基础防护系统规则集
+       *
+       * @param request DescribeBaseSystemRulesRequest
+       * @return DescribeBaseSystemRulesResponse
+       */
+      Models::DescribeBaseSystemRulesResponse describeBaseSystemRules(const Models::DescribeBaseSystemRulesRequest &request);
+
+      /**
        * @summary Queries the details of a certificate, such as the certificate name, expiration time, issuance time, and associated domain name.
        *
        * @param request DescribeCertDetailRequest
@@ -958,6 +975,23 @@ namespace WafOpenapi20211001
        * @return DescribeCnameCountResponse
        */
       Models::DescribeCnameCountResponse describeCnameCount(const Models::DescribeCnameCountRequest &request);
+
+      /**
+       * @summary 查询自定义正则规则编译结果
+       *
+       * @param request DescribeCustomBaseRuleCompileResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCustomBaseRuleCompileResultResponse
+       */
+      Models::DescribeCustomBaseRuleCompileResultResponse describeCustomBaseRuleCompileResultWithOptions(const Models::DescribeCustomBaseRuleCompileResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询自定义正则规则编译结果
+       *
+       * @param request DescribeCustomBaseRuleCompileResultRequest
+       * @return DescribeCustomBaseRuleCompileResultResponse
+       */
+      Models::DescribeCustomBaseRuleCompileResultResponse describeCustomBaseRuleCompileResult(const Models::DescribeCustomBaseRuleCompileResultRequest &request);
 
       /**
        * @summary Checks whether DDoS attacks occur on specific domain names protected by a Web Application Firewall (WAF) instance.
@@ -1145,6 +1179,23 @@ namespace WafOpenapi20211001
        * @return DescribeDefenseRuleResponse
        */
       Models::DescribeDefenseRuleResponse describeDefenseRule(const Models::DescribeDefenseRuleRequest &request);
+
+      /**
+       * @summary 查询防护规则的统计信息
+       *
+       * @param request DescribeDefenseRuleStatisticsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDefenseRuleStatisticsResponse
+       */
+      Models::DescribeDefenseRuleStatisticsResponse describeDefenseRuleStatisticsWithOptions(const Models::DescribeDefenseRuleStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询防护规则的统计信息
+       *
+       * @param request DescribeDefenseRuleStatisticsRequest
+       * @return DescribeDefenseRuleStatisticsResponse
+       */
+      Models::DescribeDefenseRuleStatisticsResponse describeDefenseRuleStatistics(const Models::DescribeDefenseRuleStatisticsRequest &request);
 
       /**
        * @summary Queries protection rules by page.
