@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MessageRetentionPeriod, messageRetentionPeriod_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(TopicName, topicName_);
+      DARABONBA_PTR_TO_JSON(TopicType, topicType_);
     };
     friend void from_json(const Darabonba::Json& j, GetTopicAttributesResponseBodyData& obj) { 
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MessageRetentionPeriod, messageRetentionPeriod_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(TopicName, topicName_);
+      DARABONBA_PTR_FROM_JSON(TopicType, topicType_);
     };
     GetTopicAttributesResponseBodyData() = default ;
     GetTopicAttributesResponseBodyData(const GetTopicAttributesResponseBodyData &) = default ;
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->createTime_ != nullptr
         && this->lastModifyTime_ != nullptr && this->loggingEnabled_ != nullptr && this->maxMessageSize_ != nullptr && this->messageCount_ != nullptr && this->messageRetentionPeriod_ != nullptr
-        && this->tags_ != nullptr && this->topicName_ != nullptr; };
+        && this->tags_ != nullptr && this->topicName_ != nullptr && this->topicType_ != nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -106,6 +108,13 @@ namespace Models
     inline GetTopicAttributesResponseBodyData& setTopicName(string topicName) { DARABONBA_PTR_SET_VALUE(topicName_, topicName) };
 
 
+    // topicType Field Functions 
+    bool hasTopicType() const { return this->topicType_ != nullptr;};
+    void deleteTopicType() { this->topicType_ = nullptr;};
+    inline string topicType() const { DARABONBA_PTR_GET_DEFAULT(topicType_, "") };
+    inline GetTopicAttributesResponseBodyData& setTopicType(string topicType) { DARABONBA_PTR_SET_VALUE(topicType_, topicType) };
+
+
   protected:
     // The time when the topic was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     std::shared_ptr<int64_t> createTime_ = nullptr;
@@ -126,6 +135,7 @@ namespace Models
     std::shared_ptr<vector<Models::GetTopicAttributesResponseBodyDataTags>> tags_ = nullptr;
     // The name of the topic.
     std::shared_ptr<string> topicName_ = nullptr;
+    std::shared_ptr<string> topicType_ = nullptr;
   };
 
   } // namespace Models

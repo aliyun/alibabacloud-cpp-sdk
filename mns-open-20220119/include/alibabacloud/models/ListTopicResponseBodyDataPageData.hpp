@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(TopicInnerUrl, topicInnerUrl_);
       DARABONBA_PTR_TO_JSON(TopicName, topicName_);
+      DARABONBA_PTR_TO_JSON(TopicType, topicType_);
       DARABONBA_PTR_TO_JSON(TopicUrl, topicUrl_);
     };
     friend void from_json(const Darabonba::Json& j, ListTopicResponseBodyDataPageData& obj) { 
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(TopicInnerUrl, topicInnerUrl_);
       DARABONBA_PTR_FROM_JSON(TopicName, topicName_);
+      DARABONBA_PTR_FROM_JSON(TopicType, topicType_);
       DARABONBA_PTR_FROM_JSON(TopicUrl, topicUrl_);
     };
     ListTopicResponseBodyDataPageData() = default ;
@@ -51,7 +53,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->createTime_ != nullptr
         && this->lastModifyTime_ != nullptr && this->loggingEnabled_ != nullptr && this->maxMessageSize_ != nullptr && this->messageCount_ != nullptr && this->messageRetentionPeriod_ != nullptr
-        && this->tags_ != nullptr && this->topicInnerUrl_ != nullptr && this->topicName_ != nullptr && this->topicUrl_ != nullptr; };
+        && this->tags_ != nullptr && this->topicInnerUrl_ != nullptr && this->topicName_ != nullptr && this->topicType_ != nullptr && this->topicUrl_ != nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -117,6 +119,13 @@ namespace Models
     inline ListTopicResponseBodyDataPageData& setTopicName(string topicName) { DARABONBA_PTR_SET_VALUE(topicName_, topicName) };
 
 
+    // topicType Field Functions 
+    bool hasTopicType() const { return this->topicType_ != nullptr;};
+    void deleteTopicType() { this->topicType_ = nullptr;};
+    inline string topicType() const { DARABONBA_PTR_GET_DEFAULT(topicType_, "") };
+    inline ListTopicResponseBodyDataPageData& setTopicType(string topicType) { DARABONBA_PTR_SET_VALUE(topicType_, topicType) };
+
+
     // topicUrl Field Functions 
     bool hasTopicUrl() const { return this->topicUrl_ != nullptr;};
     void deleteTopicUrl() { this->topicUrl_ = nullptr;};
@@ -146,6 +155,7 @@ namespace Models
     std::shared_ptr<string> topicInnerUrl_ = nullptr;
     // The name of the topic.
     std::shared_ptr<string> topicName_ = nullptr;
+    std::shared_ptr<string> topicType_ = nullptr;
     // The URL of the message topic.
     std::shared_ptr<string> topicUrl_ = nullptr;
   };

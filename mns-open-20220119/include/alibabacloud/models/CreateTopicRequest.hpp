@@ -19,12 +19,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MaxMessageSize, maxMessageSize_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(TopicName, topicName_);
+      DARABONBA_PTR_TO_JSON(TopicType, topicType_);
     };
     friend void from_json(const Darabonba::Json& j, CreateTopicRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EnableLogging, enableLogging_);
       DARABONBA_PTR_FROM_JSON(MaxMessageSize, maxMessageSize_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(TopicName, topicName_);
+      DARABONBA_PTR_FROM_JSON(TopicType, topicType_);
     };
     CreateTopicRequest() = default ;
     CreateTopicRequest(const CreateTopicRequest &) = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->enableLogging_ != nullptr
-        && this->maxMessageSize_ != nullptr && this->tag_ != nullptr && this->topicName_ != nullptr; };
+        && this->maxMessageSize_ != nullptr && this->tag_ != nullptr && this->topicName_ != nullptr && this->topicType_ != nullptr; };
     // enableLogging Field Functions 
     bool hasEnableLogging() const { return this->enableLogging_ != nullptr;};
     void deleteEnableLogging() { this->enableLogging_ = nullptr;};
@@ -69,6 +71,13 @@ namespace Models
     inline CreateTopicRequest& setTopicName(string topicName) { DARABONBA_PTR_SET_VALUE(topicName_, topicName) };
 
 
+    // topicType Field Functions 
+    bool hasTopicType() const { return this->topicType_ != nullptr;};
+    void deleteTopicType() { this->topicType_ = nullptr;};
+    inline string topicType() const { DARABONBA_PTR_GET_DEFAULT(topicType_, "") };
+    inline CreateTopicRequest& setTopicType(string topicType) { DARABONBA_PTR_SET_VALUE(topicType_, topicType) };
+
+
   protected:
     // Specifies whether to enable the log management feature. Valid values:
     // 
@@ -83,6 +92,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> topicName_ = nullptr;
+    std::shared_ptr<string> topicType_ = nullptr;
   };
 
   } // namespace Models

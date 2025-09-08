@@ -18,12 +18,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageNum, pageNum_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(QueueName, queueName_);
+      DARABONBA_PTR_TO_JSON(QueueType, queueType_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
     };
     friend void from_json(const Darabonba::Json& j, ListQueueRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(PageNum, pageNum_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(QueueName, queueName_);
+      DARABONBA_PTR_FROM_JSON(QueueType, queueType_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
     };
     ListQueueRequest() = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->pageNum_ != nullptr
-        && this->pageSize_ != nullptr && this->queueName_ != nullptr && this->tag_ != nullptr; };
+        && this->pageSize_ != nullptr && this->queueName_ != nullptr && this->queueType_ != nullptr && this->tag_ != nullptr; };
     // pageNum Field Functions 
     bool hasPageNum() const { return this->pageNum_ != nullptr;};
     void deletePageNum() { this->pageNum_ = nullptr;};
@@ -60,6 +62,13 @@ namespace Models
     inline ListQueueRequest& setQueueName(string queueName) { DARABONBA_PTR_SET_VALUE(queueName_, queueName) };
 
 
+    // queueType Field Functions 
+    bool hasQueueType() const { return this->queueType_ != nullptr;};
+    void deleteQueueType() { this->queueType_ = nullptr;};
+    inline string queueType() const { DARABONBA_PTR_GET_DEFAULT(queueType_, "") };
+    inline ListQueueRequest& setQueueType(string queueType) { DARABONBA_PTR_SET_VALUE(queueType_, queueType) };
+
+
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
@@ -76,6 +85,7 @@ namespace Models
     std::shared_ptr<int64_t> pageSize_ = nullptr;
     // The name of the queue.
     std::shared_ptr<string> queueName_ = nullptr;
+    std::shared_ptr<string> queueType_ = nullptr;
     // The tags.
     std::shared_ptr<vector<ListQueueRequestTag>> tag_ = nullptr;
   };

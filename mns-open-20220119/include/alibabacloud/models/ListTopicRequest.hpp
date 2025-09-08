@@ -19,12 +19,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(TopicName, topicName_);
+      DARABONBA_PTR_TO_JSON(TopicType, topicType_);
     };
     friend void from_json(const Darabonba::Json& j, ListTopicRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(PageNum, pageNum_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(TopicName, topicName_);
+      DARABONBA_PTR_FROM_JSON(TopicType, topicType_);
     };
     ListTopicRequest() = default ;
     ListTopicRequest(const ListTopicRequest &) = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->pageNum_ != nullptr
-        && this->pageSize_ != nullptr && this->tag_ != nullptr && this->topicName_ != nullptr; };
+        && this->pageSize_ != nullptr && this->tag_ != nullptr && this->topicName_ != nullptr && this->topicType_ != nullptr; };
     // pageNum Field Functions 
     bool hasPageNum() const { return this->pageNum_ != nullptr;};
     void deletePageNum() { this->pageNum_ = nullptr;};
@@ -69,6 +71,13 @@ namespace Models
     inline ListTopicRequest& setTopicName(string topicName) { DARABONBA_PTR_SET_VALUE(topicName_, topicName) };
 
 
+    // topicType Field Functions 
+    bool hasTopicType() const { return this->topicType_ != nullptr;};
+    void deleteTopicType() { this->topicType_ = nullptr;};
+    inline string topicType() const { DARABONBA_PTR_GET_DEFAULT(topicType_, "") };
+    inline ListTopicRequest& setTopicType(string topicType) { DARABONBA_PTR_SET_VALUE(topicType_, topicType) };
+
+
   protected:
     // The page number. Valid values: 1 to 100000000. If you set this parameter to a value smaller than 1, the value of this parameter is 1 by default. If you set this parameter to a value greater than 100000000, the value of this parameter is 100000000 by default.
     std::shared_ptr<int64_t> pageNum_ = nullptr;
@@ -78,6 +87,7 @@ namespace Models
     std::shared_ptr<vector<ListTopicRequestTag>> tag_ = nullptr;
     // The name of the topic.
     std::shared_ptr<string> topicName_ = nullptr;
+    std::shared_ptr<string> topicType_ = nullptr;
   };
 
   } // namespace Models

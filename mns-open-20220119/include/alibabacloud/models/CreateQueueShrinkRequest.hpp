@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MessageRetentionPeriod, messageRetentionPeriod_);
       DARABONBA_PTR_TO_JSON(PollingWaitSeconds, pollingWaitSeconds_);
       DARABONBA_PTR_TO_JSON(QueueName, queueName_);
+      DARABONBA_PTR_TO_JSON(QueueType, queueType_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(TenantRateLimitPolicy, tenantRateLimitPolicyShrink_);
       DARABONBA_PTR_TO_JSON(VisibilityTimeout, visibilityTimeout_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MessageRetentionPeriod, messageRetentionPeriod_);
       DARABONBA_PTR_FROM_JSON(PollingWaitSeconds, pollingWaitSeconds_);
       DARABONBA_PTR_FROM_JSON(QueueName, queueName_);
+      DARABONBA_PTR_FROM_JSON(QueueType, queueType_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(TenantRateLimitPolicy, tenantRateLimitPolicyShrink_);
       DARABONBA_PTR_FROM_JSON(VisibilityTimeout, visibilityTimeout_);
@@ -51,7 +53,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->delaySeconds_ != nullptr
         && this->dlqPolicyShrink_ != nullptr && this->enableLogging_ != nullptr && this->maximumMessageSize_ != nullptr && this->messageRetentionPeriod_ != nullptr && this->pollingWaitSeconds_ != nullptr
-        && this->queueName_ != nullptr && this->tag_ != nullptr && this->tenantRateLimitPolicyShrink_ != nullptr && this->visibilityTimeout_ != nullptr; };
+        && this->queueName_ != nullptr && this->queueType_ != nullptr && this->tag_ != nullptr && this->tenantRateLimitPolicyShrink_ != nullptr && this->visibilityTimeout_ != nullptr; };
     // delaySeconds Field Functions 
     bool hasDelaySeconds() const { return this->delaySeconds_ != nullptr;};
     void deleteDelaySeconds() { this->delaySeconds_ = nullptr;};
@@ -101,6 +103,13 @@ namespace Models
     inline CreateQueueShrinkRequest& setQueueName(string queueName) { DARABONBA_PTR_SET_VALUE(queueName_, queueName) };
 
 
+    // queueType Field Functions 
+    bool hasQueueType() const { return this->queueType_ != nullptr;};
+    void deleteQueueType() { this->queueType_ = nullptr;};
+    inline string queueType() const { DARABONBA_PTR_GET_DEFAULT(queueType_, "") };
+    inline CreateQueueShrinkRequest& setQueueType(string queueType) { DARABONBA_PTR_SET_VALUE(queueType_, queueType) };
+
+
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
@@ -146,6 +155,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> queueName_ = nullptr;
+    std::shared_ptr<string> queueType_ = nullptr;
     // The tags.
     std::shared_ptr<vector<CreateQueueShrinkRequestTag>> tag_ = nullptr;
     std::shared_ptr<string> tenantRateLimitPolicyShrink_ = nullptr;

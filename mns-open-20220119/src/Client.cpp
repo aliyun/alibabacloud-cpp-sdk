@@ -227,6 +227,10 @@ CreateQueueResponse Client::createQueueWithOptions(const CreateQueueRequest &tmp
     query["QueueName"] = request.queueName();
   }
 
+  if (!!request.hasQueueType()) {
+    query["QueueType"] = request.queueType();
+  }
+
   if (!!request.hasTag()) {
     query["Tag"] = request.tag();
   }
@@ -279,6 +283,10 @@ CreateTopicResponse Client::createTopicWithOptions(const CreateTopicRequest &req
   json query = {};
   if (!!request.hasTag()) {
     query["Tag"] = request.tag();
+  }
+
+  if (!!request.hasTopicType()) {
+    query["TopicType"] = request.topicType();
   }
 
   json body = {};
@@ -865,6 +873,10 @@ ListQueueResponse Client::listQueueWithOptions(const ListQueueRequest &request, 
     query["QueueName"] = request.queueName();
   }
 
+  if (!!request.hasQueueType()) {
+    query["QueueType"] = request.queueType();
+  }
+
   if (!!request.hasTag()) {
     query["Tag"] = request.tag();
   }
@@ -983,6 +995,10 @@ ListTopicResponse Client::listTopicWithOptions(const ListTopicRequest &request, 
 
   if (!!request.hasTopicName()) {
     query["TopicName"] = request.topicName();
+  }
+
+  if (!!request.hasTopicType()) {
+    query["TopicType"] = request.topicType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
