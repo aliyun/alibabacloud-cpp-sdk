@@ -533,6 +533,52 @@ CancelAuditTaskResponse Client::cancelAuditTask(const CancelAuditTaskRequest &re
 }
 
 /**
+ * @summary 取消深度写作任务
+ *
+ * @param request CancelDeepWriteTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelDeepWriteTaskResponse
+ */
+CancelDeepWriteTaskResponse Client::cancelDeepWriteTaskWithOptions(const CancelDeepWriteTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CancelDeepWriteTask"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelDeepWriteTaskResponse>();
+}
+
+/**
+ * @summary 取消深度写作任务
+ *
+ * @param request CancelDeepWriteTaskRequest
+ * @return CancelDeepWriteTaskResponse
+ */
+CancelDeepWriteTaskResponse Client::cancelDeepWriteTask(const CancelDeepWriteTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelDeepWriteTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary 清除所有干预内容
  *
  * @param request ClearIntervenesRequest
@@ -3072,6 +3118,98 @@ GetDatasetDocumentResponse Client::getDatasetDocumentWithOptions(const GetDatase
 GetDatasetDocumentResponse Client::getDatasetDocument(const GetDatasetDocumentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getDatasetDocumentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询深度写作任务
+ *
+ * @param request GetDeepWriteTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDeepWriteTaskResponse
+ */
+GetDeepWriteTaskResponse Client::getDeepWriteTaskWithOptions(const GetDeepWriteTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetDeepWriteTask"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDeepWriteTaskResponse>();
+}
+
+/**
+ * @summary 查询深度写作任务
+ *
+ * @param request GetDeepWriteTaskRequest
+ * @return GetDeepWriteTaskResponse
+ */
+GetDeepWriteTaskResponse Client::getDeepWriteTask(const GetDeepWriteTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDeepWriteTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询深度写作任务的结果
+ *
+ * @param request GetDeepWriteTaskResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDeepWriteTaskResultResponse
+ */
+GetDeepWriteTaskResultResponse Client::getDeepWriteTaskResultWithOptions(const GetDeepWriteTaskResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetDeepWriteTaskResult"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDeepWriteTaskResultResponse>();
+}
+
+/**
+ * @summary 查询深度写作任务的结果
+ *
+ * @param request GetDeepWriteTaskResultRequest
+ * @return GetDeepWriteTaskResultResponse
+ */
+GetDeepWriteTaskResultResponse Client::getDeepWriteTaskResult(const GetDeepWriteTaskResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDeepWriteTaskResultWithOptions(request, runtime);
 }
 
 /**
@@ -7491,6 +7629,107 @@ RunCustomHotTopicViewPointAnalysisResponse Client::runCustomHotTopicViewPointAna
 }
 
 /**
+ * @summary 流式输出深度写作事件
+ *
+ * @param request RunDeepWritingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunDeepWritingResponse
+ */
+FutrueGenerator<RunDeepWritingResponse> Client::runDeepWritingWithSSE(const RunDeepWritingRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCursor()) {
+    body["Cursor"] = request.cursor();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunDeepWriting"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunDeepWritingResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
+}
+
+/**
+ * @summary 流式输出深度写作事件
+ *
+ * @param request RunDeepWritingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunDeepWritingResponse
+ */
+RunDeepWritingResponse Client::runDeepWritingWithOptions(const RunDeepWritingRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCursor()) {
+    body["Cursor"] = request.cursor();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunDeepWriting"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RunDeepWritingResponse>();
+}
+
+/**
+ * @summary 流式输出深度写作事件
+ *
+ * @param request RunDeepWritingRequest
+ * @return RunDeepWritingResponse
+ */
+RunDeepWritingResponse Client::runDeepWriting(const RunDeepWritingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return runDeepWritingWithOptions(request, runtime);
+}
+
+/**
  * @summary 妙读脑图生成接口
  *
  * @param request RunDocBrainmapRequest
@@ -10115,6 +10354,131 @@ RunTranslateGenerationResponse Client::runTranslateGeneration(const RunTranslate
 }
 
 /**
+ * @summary AI生成视频剪辑脚本
+ *
+ * @param request RunVideoScriptGenerateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunVideoScriptGenerateResponse
+ */
+FutrueGenerator<RunVideoScriptGenerateResponse> Client::runVideoScriptGenerateWithSSE(const RunVideoScriptGenerateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLanguage()) {
+    body["Language"] = request.language();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasScriptLength()) {
+    body["ScriptLength"] = request.scriptLength();
+  }
+
+  if (!!request.hasScriptNumber()) {
+    body["ScriptNumber"] = request.scriptNumber();
+  }
+
+  if (!!request.hasUseSearch()) {
+    body["UseSearch"] = request.useSearch();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunVideoScriptGenerate"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunVideoScriptGenerateResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
+}
+
+/**
+ * @summary AI生成视频剪辑脚本
+ *
+ * @param request RunVideoScriptGenerateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunVideoScriptGenerateResponse
+ */
+RunVideoScriptGenerateResponse Client::runVideoScriptGenerateWithOptions(const RunVideoScriptGenerateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLanguage()) {
+    body["Language"] = request.language();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasScriptLength()) {
+    body["ScriptLength"] = request.scriptLength();
+  }
+
+  if (!!request.hasScriptNumber()) {
+    body["ScriptNumber"] = request.scriptNumber();
+  }
+
+  if (!!request.hasUseSearch()) {
+    body["UseSearch"] = request.useSearch();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunVideoScriptGenerate"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RunVideoScriptGenerateResponse>();
+}
+
+/**
+ * @summary AI生成视频剪辑脚本
+ *
+ * @param request RunVideoScriptGenerateRequest
+ * @return RunVideoScriptGenerateResponse
+ */
+RunVideoScriptGenerateResponse Client::runVideoScriptGenerate(const RunVideoScriptGenerateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return runVideoScriptGenerateWithOptions(request, runtime);
+}
+
+/**
  * @summary AI妙笔-创作-文风改写
  *
  * @param tmpReq RunWriteToneGenerationRequest
@@ -11481,6 +11845,76 @@ SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse Client::submitCustomTo
 SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse Client::submitCustomTopicSelectionPerspectiveAnalysisTask(const SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitCustomTopicSelectionPerspectiveAnalysisTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 提交深度写作任务
+ *
+ * @param tmpReq SubmitDeepWriteTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitDeepWriteTaskResponse
+ */
+SubmitDeepWriteTaskResponse Client::submitDeepWriteTaskWithOptions(const SubmitDeepWriteTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SubmitDeepWriteTaskShrinkRequest request = SubmitDeepWriteTaskShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAgentOrchestration()) {
+    request.setAgentOrchestrationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.agentOrchestration(), "AgentOrchestration", "json"));
+  }
+
+  if (!!tmpReq.hasFiles()) {
+    request.setFilesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.files(), "Files", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAgentOrchestrationShrink()) {
+    query["AgentOrchestration"] = request.agentOrchestrationShrink();
+  }
+
+  json body = {};
+  if (!!request.hasFilesShrink()) {
+    body["Files"] = request.filesShrink();
+  }
+
+  if (!!request.hasInput()) {
+    body["Input"] = request.input();
+  }
+
+  if (!!request.hasInstructions()) {
+    body["Instructions"] = request.instructions();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SubmitDeepWriteTask"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitDeepWriteTaskResponse>();
+}
+
+/**
+ * @summary 提交深度写作任务
+ *
+ * @param request SubmitDeepWriteTaskRequest
+ * @return SubmitDeepWriteTaskResponse
+ */
+SubmitDeepWriteTaskResponse Client::submitDeepWriteTask(const SubmitDeepWriteTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitDeepWriteTaskWithOptions(request, runtime);
 }
 
 /**

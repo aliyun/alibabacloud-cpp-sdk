@@ -33,6 +33,9 @@
 #include <alibabacloud/models/CancelAuditTaskRequest.hpp>
 #include <alibabacloud/models/CancelAuditTaskResponseBody.hpp>
 #include <alibabacloud/models/CancelAuditTaskResponse.hpp>
+#include <alibabacloud/models/CancelDeepWriteTaskRequest.hpp>
+#include <alibabacloud/models/CancelDeepWriteTaskResponseBody.hpp>
+#include <alibabacloud/models/CancelDeepWriteTaskResponse.hpp>
 #include <alibabacloud/models/ClearIntervenesRequest.hpp>
 #include <alibabacloud/models/ClearIntervenesResponseBody.hpp>
 #include <alibabacloud/models/ClearIntervenesResponse.hpp>
@@ -192,6 +195,12 @@
 #include <alibabacloud/models/GetDatasetDocumentRequest.hpp>
 #include <alibabacloud/models/GetDatasetDocumentResponseBody.hpp>
 #include <alibabacloud/models/GetDatasetDocumentResponse.hpp>
+#include <alibabacloud/models/GetDeepWriteTaskRequest.hpp>
+#include <alibabacloud/models/GetDeepWriteTaskResponseBody.hpp>
+#include <alibabacloud/models/GetDeepWriteTaskResponse.hpp>
+#include <alibabacloud/models/GetDeepWriteTaskResultRequest.hpp>
+#include <alibabacloud/models/GetDeepWriteTaskResultResponseBody.hpp>
+#include <alibabacloud/models/GetDeepWriteTaskResultResponse.hpp>
 #include <alibabacloud/models/GetDocClusterTaskRequest.hpp>
 #include <alibabacloud/models/GetDocClusterTaskResponseBody.hpp>
 #include <alibabacloud/models/GetDocClusterTaskResponse.hpp>
@@ -401,6 +410,9 @@
 #include <alibabacloud/models/RunCustomHotTopicViewPointAnalysisRequest.hpp>
 #include <alibabacloud/models/RunCustomHotTopicViewPointAnalysisResponseBody.hpp>
 #include <alibabacloud/models/RunCustomHotTopicViewPointAnalysisResponse.hpp>
+#include <alibabacloud/models/RunDeepWritingRequest.hpp>
+#include <alibabacloud/models/RunDeepWritingResponseBody.hpp>
+#include <alibabacloud/models/RunDeepWritingResponse.hpp>
 #include <alibabacloud/models/RunDocBrainmapRequest.hpp>
 #include <alibabacloud/models/RunDocBrainmapResponseBody.hpp>
 #include <alibabacloud/models/RunDocBrainmapResponse.hpp>
@@ -470,6 +482,9 @@
 #include <alibabacloud/models/RunTranslateGenerationShrinkRequest.hpp>
 #include <alibabacloud/models/RunTranslateGenerationResponseBody.hpp>
 #include <alibabacloud/models/RunTranslateGenerationResponse.hpp>
+#include <alibabacloud/models/RunVideoScriptGenerateRequest.hpp>
+#include <alibabacloud/models/RunVideoScriptGenerateResponseBody.hpp>
+#include <alibabacloud/models/RunVideoScriptGenerateResponse.hpp>
 #include <alibabacloud/models/RunWriteToneGenerationRequest.hpp>
 #include <alibabacloud/models/RunWriteToneGenerationShrinkRequest.hpp>
 #include <alibabacloud/models/RunWriteToneGenerationResponseBody.hpp>
@@ -525,6 +540,10 @@
 #include <alibabacloud/models/SubmitCustomTopicSelectionPerspectiveAnalysisTaskShrinkRequest.hpp>
 #include <alibabacloud/models/SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponseBody.hpp>
 #include <alibabacloud/models/SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse.hpp>
+#include <alibabacloud/models/SubmitDeepWriteTaskRequest.hpp>
+#include <alibabacloud/models/SubmitDeepWriteTaskShrinkRequest.hpp>
+#include <alibabacloud/models/SubmitDeepWriteTaskResponseBody.hpp>
+#include <alibabacloud/models/SubmitDeepWriteTaskResponse.hpp>
 #include <alibabacloud/models/SubmitDocClusterTaskRequest.hpp>
 #include <alibabacloud/models/SubmitDocClusterTaskShrinkRequest.hpp>
 #include <alibabacloud/models/SubmitDocClusterTaskResponseBody.hpp>
@@ -587,6 +606,7 @@
 #include <alibabacloud/models/WritingStyleTemplateDefineExample.hpp>
 #include <alibabacloud/models/WritingStyleTemplateFieldEnums.hpp>
 #include <alibabacloud/models/WritingStyleTemplateFieldStyle.hpp>
+#include <alibabacloud/models/AddAuditTermsResponseBodyDataV1.hpp>
 #include <alibabacloud/models/AddDatasetDocumentRequestDocumentMultimodalMedias.hpp>
 #include <alibabacloud/models/AddDatasetDocumentRequestDocument.hpp>
 #include <alibabacloud/models/AddDatasetDocumentResponseBodyData.hpp>
@@ -600,6 +620,7 @@
 #include <alibabacloud/models/AsyncUploadVideoRequestSourceVideos.hpp>
 #include <alibabacloud/models/AsyncUploadVideoResponseBodyDataVideoInfos.hpp>
 #include <alibabacloud/models/AsyncUploadVideoResponseBodyData.hpp>
+#include <alibabacloud/models/CancelDeepWriteTaskResponseBodyData.hpp>
 #include <alibabacloud/models/ClearIntervenesResponseBodyData.hpp>
 #include <alibabacloud/models/CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfigHeaders.hpp>
 #include <alibabacloud/models/CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfigParams.hpp>
@@ -662,6 +683,8 @@
 #include <alibabacloud/models/GetDatasetResponseBodyDataDocumentHandleConfig.hpp>
 #include <alibabacloud/models/GetDatasetResponseBodyData.hpp>
 #include <alibabacloud/models/GetDatasetDocumentResponseBodyData.hpp>
+#include <alibabacloud/models/GetDeepWriteTaskResponseBodyData.hpp>
+#include <alibabacloud/models/GetDeepWriteTaskResultResponseBodyData.hpp>
 #include <alibabacloud/models/GetDocClusterTaskResponseBodyDataTopics.hpp>
 #include <alibabacloud/models/GetDocClusterTaskResponseBodyData.hpp>
 #include <alibabacloud/models/GetDocInfoResponseBodyData.hpp>
@@ -856,6 +879,12 @@
 #include <alibabacloud/models/RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutput.hpp>
 #include <alibabacloud/models/RunCustomHotTopicViewPointAnalysisResponseBodyPayloadUsage.hpp>
 #include <alibabacloud/models/RunCustomHotTopicViewPointAnalysisResponseBodyPayload.hpp>
+#include <alibabacloud/models/RunDeepWritingResponseBodyHeader.hpp>
+#include <alibabacloud/models/RunDeepWritingResponseBodyPayloadOutputItemContent.hpp>
+#include <alibabacloud/models/RunDeepWritingResponseBodyPayloadOutputItem.hpp>
+#include <alibabacloud/models/RunDeepWritingResponseBodyPayloadOutputResponse.hpp>
+#include <alibabacloud/models/RunDeepWritingResponseBodyPayloadOutput.hpp>
+#include <alibabacloud/models/RunDeepWritingResponseBodyPayload.hpp>
 #include <alibabacloud/models/RunDocBrainmapResponseBodyHeader.hpp>
 #include <alibabacloud/models/RunDocBrainmapResponseBodyPayloadOutput.hpp>
 #include <alibabacloud/models/RunDocBrainmapResponseBodyPayloadUsage.hpp>
@@ -1030,6 +1059,10 @@
 #include <alibabacloud/models/RunTranslateGenerationResponseBodyPayloadOutput.hpp>
 #include <alibabacloud/models/RunTranslateGenerationResponseBodyPayloadUsage.hpp>
 #include <alibabacloud/models/RunTranslateGenerationResponseBodyPayload.hpp>
+#include <alibabacloud/models/RunVideoScriptGenerateResponseBodyHeader.hpp>
+#include <alibabacloud/models/RunVideoScriptGenerateResponseBodyPayloadOutput.hpp>
+#include <alibabacloud/models/RunVideoScriptGenerateResponseBodyPayloadUsage.hpp>
+#include <alibabacloud/models/RunVideoScriptGenerateResponseBodyPayload.hpp>
 #include <alibabacloud/models/RunWriteToneGenerationRequestReferenceData.hpp>
 #include <alibabacloud/models/RunWriteToneGenerationResponseBodyHeader.hpp>
 #include <alibabacloud/models/RunWriteToneGenerationResponseBodyPayloadOutput.hpp>
@@ -1072,6 +1105,12 @@
 #include <alibabacloud/models/SubmitCustomSourceTopicAnalysisResponseBodyData.hpp>
 #include <alibabacloud/models/SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequestDocuments.hpp>
 #include <alibabacloud/models/SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyData.hpp>
+#include <alibabacloud/models/SubmitDeepWriteTaskRequestAgentOrchestrationDataAnalystAgent.hpp>
+#include <alibabacloud/models/SubmitDeepWriteTaskRequestAgentOrchestrationDataCollectorAgent.hpp>
+#include <alibabacloud/models/SubmitDeepWriteTaskRequestAgentOrchestrationReporterAgent.hpp>
+#include <alibabacloud/models/SubmitDeepWriteTaskRequestAgentOrchestration.hpp>
+#include <alibabacloud/models/SubmitDeepWriteTaskRequestFiles.hpp>
+#include <alibabacloud/models/SubmitDeepWriteTaskResponseBodyData.hpp>
 #include <alibabacloud/models/SubmitDocClusterTaskRequestDocuments.hpp>
 #include <alibabacloud/models/SubmitDocClusterTaskResponseBodyData.hpp>
 #include <alibabacloud/models/SubmitEnterpriseVocAnalysisTaskRequestContentTags.hpp>

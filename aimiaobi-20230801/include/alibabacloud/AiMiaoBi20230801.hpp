@@ -157,6 +157,23 @@ namespace AiMiaoBi20230801
       Models::CancelAuditTaskResponse cancelAuditTask(const Models::CancelAuditTaskRequest &request);
 
       /**
+       * @summary 取消深度写作任务
+       *
+       * @param request CancelDeepWriteTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelDeepWriteTaskResponse
+       */
+      Models::CancelDeepWriteTaskResponse cancelDeepWriteTaskWithOptions(const Models::CancelDeepWriteTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消深度写作任务
+       *
+       * @param request CancelDeepWriteTaskRequest
+       * @return CancelDeepWriteTaskResponse
+       */
+      Models::CancelDeepWriteTaskResponse cancelDeepWriteTask(const Models::CancelDeepWriteTaskRequest &request);
+
+      /**
        * @summary 清除所有干预内容
        *
        * @param request ClearIntervenesRequest
@@ -988,6 +1005,40 @@ namespace AiMiaoBi20230801
        * @return GetDatasetDocumentResponse
        */
       Models::GetDatasetDocumentResponse getDatasetDocument(const Models::GetDatasetDocumentRequest &request);
+
+      /**
+       * @summary 查询深度写作任务
+       *
+       * @param request GetDeepWriteTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDeepWriteTaskResponse
+       */
+      Models::GetDeepWriteTaskResponse getDeepWriteTaskWithOptions(const Models::GetDeepWriteTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询深度写作任务
+       *
+       * @param request GetDeepWriteTaskRequest
+       * @return GetDeepWriteTaskResponse
+       */
+      Models::GetDeepWriteTaskResponse getDeepWriteTask(const Models::GetDeepWriteTaskRequest &request);
+
+      /**
+       * @summary 查询深度写作任务的结果
+       *
+       * @param request GetDeepWriteTaskResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDeepWriteTaskResultResponse
+       */
+      Models::GetDeepWriteTaskResultResponse getDeepWriteTaskResultWithOptions(const Models::GetDeepWriteTaskResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询深度写作任务的结果
+       *
+       * @param request GetDeepWriteTaskResultRequest
+       * @return GetDeepWriteTaskResultResponse
+       */
+      Models::GetDeepWriteTaskResultResponse getDeepWriteTaskResult(const Models::GetDeepWriteTaskResultRequest &request);
 
       /**
        * @summary 获取文档聚合任务结果
@@ -2167,6 +2218,32 @@ namespace AiMiaoBi20230801
       Models::RunCustomHotTopicViewPointAnalysisResponse runCustomHotTopicViewPointAnalysis(const Models::RunCustomHotTopicViewPointAnalysisRequest &request);
 
       /**
+       * @summary 流式输出深度写作事件
+       *
+       * @param request RunDeepWritingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunDeepWritingResponse
+       */
+      FutrueGenerator<Models::RunDeepWritingResponse> runDeepWritingWithSSE(const Models::RunDeepWritingRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 流式输出深度写作事件
+       *
+       * @param request RunDeepWritingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunDeepWritingResponse
+       */
+      Models::RunDeepWritingResponse runDeepWritingWithOptions(const Models::RunDeepWritingRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 流式输出深度写作事件
+       *
+       * @param request RunDeepWritingRequest
+       * @return RunDeepWritingResponse
+       */
+      Models::RunDeepWritingResponse runDeepWriting(const Models::RunDeepWritingRequest &request);
+
+      /**
        * @summary 妙读脑图生成接口
        *
        * @param request RunDocBrainmapRequest
@@ -2687,6 +2764,32 @@ namespace AiMiaoBi20230801
       Models::RunTranslateGenerationResponse runTranslateGeneration(const Models::RunTranslateGenerationRequest &request);
 
       /**
+       * @summary AI生成视频剪辑脚本
+       *
+       * @param request RunVideoScriptGenerateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunVideoScriptGenerateResponse
+       */
+      FutrueGenerator<Models::RunVideoScriptGenerateResponse> runVideoScriptGenerateWithSSE(const Models::RunVideoScriptGenerateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary AI生成视频剪辑脚本
+       *
+       * @param request RunVideoScriptGenerateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunVideoScriptGenerateResponse
+       */
+      Models::RunVideoScriptGenerateResponse runVideoScriptGenerateWithOptions(const Models::RunVideoScriptGenerateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary AI生成视频剪辑脚本
+       *
+       * @param request RunVideoScriptGenerateRequest
+       * @return RunVideoScriptGenerateResponse
+       */
+      Models::RunVideoScriptGenerateResponse runVideoScriptGenerate(const Models::RunVideoScriptGenerateRequest &request);
+
+      /**
        * @summary AI妙笔-创作-文风改写
        *
        * @param tmpReq RunWriteToneGenerationRequest
@@ -2967,6 +3070,23 @@ namespace AiMiaoBi20230801
        * @return SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse
        */
       Models::SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse submitCustomTopicSelectionPerspectiveAnalysisTask(const Models::SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest &request);
+
+      /**
+       * @summary 提交深度写作任务
+       *
+       * @param tmpReq SubmitDeepWriteTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitDeepWriteTaskResponse
+       */
+      Models::SubmitDeepWriteTaskResponse submitDeepWriteTaskWithOptions(const Models::SubmitDeepWriteTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交深度写作任务
+       *
+       * @param request SubmitDeepWriteTaskRequest
+       * @return SubmitDeepWriteTaskResponse
+       */
+      Models::SubmitDeepWriteTaskResponse submitDeepWriteTask(const Models::SubmitDeepWriteTaskRequest &request);
 
       /**
        * @summary 提交文档聚合任务
