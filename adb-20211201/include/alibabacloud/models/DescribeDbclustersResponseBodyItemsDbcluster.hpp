@@ -15,6 +15,8 @@ namespace Models
   class DescribeDBClustersResponseBodyItemsDBCluster : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeDBClustersResponseBodyItemsDBCluster& obj) { 
+      DARABONBA_PTR_TO_JSON(AINodeNumber, AINodeNumber_);
+      DARABONBA_PTR_TO_JSON(AINodeSpec, AINodeSpec_);
       DARABONBA_PTR_TO_JSON(Category, category_);
       DARABONBA_PTR_TO_JSON(CommodityCode, commodityCode_);
       DARABONBA_PTR_TO_JSON(ComputeResource, computeResource_);
@@ -60,6 +62,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDBClustersResponseBodyItemsDBCluster& obj) { 
+      DARABONBA_PTR_FROM_JSON(AINodeNumber, AINodeNumber_);
+      DARABONBA_PTR_FROM_JSON(AINodeSpec, AINodeSpec_);
       DARABONBA_PTR_FROM_JSON(Category, category_);
       DARABONBA_PTR_FROM_JSON(CommodityCode, commodityCode_);
       DARABONBA_PTR_FROM_JSON(ComputeResource, computeResource_);
@@ -115,16 +119,30 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->category_ != nullptr
-        && this->commodityCode_ != nullptr && this->computeResource_ != nullptr && this->connectionString_ != nullptr && this->createTime_ != nullptr && this->DBClusterDescription_ != nullptr
-        && this->DBClusterId_ != nullptr && this->DBClusterNetworkType_ != nullptr && this->DBClusterStatus_ != nullptr && this->DBClusterType_ != nullptr && this->DBNodeClass_ != nullptr
-        && this->DBNodeCount_ != nullptr && this->DBNodeStorage_ != nullptr && this->DBVersion_ != nullptr && this->diskType_ != nullptr && this->dtsJobId_ != nullptr
-        && this->elasticIOResource_ != nullptr && this->engine_ != nullptr && this->executorCount_ != nullptr && this->expireTime_ != nullptr && this->expired_ != nullptr
-        && this->innerIp_ != nullptr && this->innerPort_ != nullptr && this->lockMode_ != nullptr && this->lockReason_ != nullptr && this->mode_ != nullptr
-        && this->payType_ != nullptr && this->port_ != nullptr && this->productForm_ != nullptr && this->productVersion_ != nullptr && this->rdsInstanceId_ != nullptr
-        && this->regionId_ != nullptr && this->reservedACU_ != nullptr && this->reservedNodeCount_ != nullptr && this->reservedNodeSize_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->storageResource_ != nullptr && this->tags_ != nullptr && this->taskInfo_ != nullptr && this->VPCCloudInstanceId_ != nullptr && this->VPCId_ != nullptr
-        && this->vSwitchId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { this->AINodeNumber_ != nullptr
+        && this->AINodeSpec_ != nullptr && this->category_ != nullptr && this->commodityCode_ != nullptr && this->computeResource_ != nullptr && this->connectionString_ != nullptr
+        && this->createTime_ != nullptr && this->DBClusterDescription_ != nullptr && this->DBClusterId_ != nullptr && this->DBClusterNetworkType_ != nullptr && this->DBClusterStatus_ != nullptr
+        && this->DBClusterType_ != nullptr && this->DBNodeClass_ != nullptr && this->DBNodeCount_ != nullptr && this->DBNodeStorage_ != nullptr && this->DBVersion_ != nullptr
+        && this->diskType_ != nullptr && this->dtsJobId_ != nullptr && this->elasticIOResource_ != nullptr && this->engine_ != nullptr && this->executorCount_ != nullptr
+        && this->expireTime_ != nullptr && this->expired_ != nullptr && this->innerIp_ != nullptr && this->innerPort_ != nullptr && this->lockMode_ != nullptr
+        && this->lockReason_ != nullptr && this->mode_ != nullptr && this->payType_ != nullptr && this->port_ != nullptr && this->productForm_ != nullptr
+        && this->productVersion_ != nullptr && this->rdsInstanceId_ != nullptr && this->regionId_ != nullptr && this->reservedACU_ != nullptr && this->reservedNodeCount_ != nullptr
+        && this->reservedNodeSize_ != nullptr && this->resourceGroupId_ != nullptr && this->storageResource_ != nullptr && this->tags_ != nullptr && this->taskInfo_ != nullptr
+        && this->VPCCloudInstanceId_ != nullptr && this->VPCId_ != nullptr && this->vSwitchId_ != nullptr && this->zoneId_ != nullptr; };
+    // AINodeNumber Field Functions 
+    bool hasAINodeNumber() const { return this->AINodeNumber_ != nullptr;};
+    void deleteAINodeNumber() { this->AINodeNumber_ = nullptr;};
+    inline int32_t AINodeNumber() const { DARABONBA_PTR_GET_DEFAULT(AINodeNumber_, 0) };
+    inline DescribeDBClustersResponseBodyItemsDBCluster& setAINodeNumber(int32_t AINodeNumber) { DARABONBA_PTR_SET_VALUE(AINodeNumber_, AINodeNumber) };
+
+
+    // AINodeSpec Field Functions 
+    bool hasAINodeSpec() const { return this->AINodeSpec_ != nullptr;};
+    void deleteAINodeSpec() { this->AINodeSpec_ = nullptr;};
+    inline string AINodeSpec() const { DARABONBA_PTR_GET_DEFAULT(AINodeSpec_, "") };
+    inline DescribeDBClustersResponseBodyItemsDBCluster& setAINodeSpec(string AINodeSpec) { DARABONBA_PTR_SET_VALUE(AINodeSpec_, AINodeSpec) };
+
+
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
@@ -431,6 +449,8 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<int32_t> AINodeNumber_ = nullptr;
+    std::shared_ptr<string> AINodeSpec_ = nullptr;
     // The mode of the cluster. This parameter is returned only for Data Warehouse Edition clusters. Valid values:
     // 
     // *   **BASIC**: reserved mode for Basic Edition.

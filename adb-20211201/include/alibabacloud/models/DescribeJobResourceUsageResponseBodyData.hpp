@@ -18,13 +18,19 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(JobAcuUsage, jobAcuUsage_);
+      DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+      DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeJobResourceUsageResponseBodyData& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(JobAcuUsage, jobAcuUsage_);
+      DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+      DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
     };
     DescribeJobResourceUsageResponseBodyData() = default ;
     DescribeJobResourceUsageResponseBodyData(const DescribeJobResourceUsageResponseBodyData &) = default ;
@@ -38,7 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->DBClusterId_ != nullptr
-        && this->endTime_ != nullptr && this->jobAcuUsage_ != nullptr && this->startTime_ != nullptr; };
+        && this->endTime_ != nullptr && this->jobAcuUsage_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->startTime_ != nullptr
+        && this->totalCount_ != nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -62,11 +69,32 @@ namespace Models
     inline DescribeJobResourceUsageResponseBodyData& setJobAcuUsage(vector<Models::DescribeJobResourceUsageResponseBodyDataJobAcuUsage> && jobAcuUsage) { DARABONBA_PTR_SET_RVALUE(jobAcuUsage_, jobAcuUsage) };
 
 
+    // pageNumber Field Functions 
+    bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+    void deletePageNumber() { this->pageNumber_ = nullptr;};
+    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline DescribeJobResourceUsageResponseBodyData& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline DescribeJobResourceUsageResponseBodyData& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
     inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeJobResourceUsageResponseBodyData& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+    // totalCount Field Functions 
+    bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+    void deleteTotalCount() { this->totalCount_ = nullptr;};
+    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline DescribeJobResourceUsageResponseBodyData& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
@@ -76,8 +104,11 @@ namespace Models
     std::shared_ptr<string> endTime_ = nullptr;
     // The AnalyticDB compute unit (ACU) usage of the job resource group.
     std::shared_ptr<vector<Models::DescribeJobResourceUsageResponseBodyDataJobAcuUsage>> jobAcuUsage_ = nullptr;
+    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    std::shared_ptr<int32_t> pageSize_ = nullptr;
     // The start time of the query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     std::shared_ptr<string> startTime_ = nullptr;
+    std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 
   } // namespace Models

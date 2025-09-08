@@ -6502,6 +6502,14 @@ DescribeJobResourceUsageResponse Client::describeJobResourceUsageWithOptions(con
     query["EndTime"] = request.endTime();
   }
 
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
   if (!!request.hasStartTime()) {
     query["StartTime"] = request.startTime();
   }
