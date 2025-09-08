@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_SCOREPAGEITEM_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/IQS20241111.hpp>
+#include <alibabacloud/models/IncludeImage.hpp>
 #include <map>
 using namespace std;
 using json = nlohmann::json;

@@ -8,6 +8,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using namespace AlibabaCloud::IQS20241111::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -33,6 +34,67 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
   }
 
   return Utils::Utils::getEndpointRules(productId, regionId, endpointRule, network, suffix);
+}
+
+/**
+ * @summary AI搜索流式接口
+ *
+ * @param request AiSearchRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AiSearchResponse
+ */
+FutrueGenerator<AiSearchResponse> Client::aiSearchWithSSE(const AiSearchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIndustry()) {
+    query["industry"] = request.industry();
+  }
+
+  if (!!request.hasPage()) {
+    query["page"] = request.page();
+  }
+
+  if (!!request.hasQuery()) {
+    query["query"] = request.query();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["sessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasTimeRange()) {
+    query["timeRange"] = request.timeRange();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AiSearch"},
+    {"version" , "2024-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/linked-retrieval/linked-retrieval-entry/v3/linkedRetrieval/commands/aiSearch")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<AiSearchResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
 }
 
 /**
@@ -69,7 +131,7 @@ AiSearchResponse Client::aiSearchWithOptions(const AiSearchRequest &request, con
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AiSearch"},
     {"version" , "2024-11-11"},
@@ -80,7 +142,7 @@ AiSearchResponse Client::aiSearchWithOptions(const AiSearchRequest &request, con
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AiSearchResponse>();
 }
 
@@ -126,7 +188,7 @@ GenericAdvancedSearchResponse Client::genericAdvancedSearchWithOptions(const Gen
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GenericAdvancedSearch"},
     {"version" , "2024-11-11"},
@@ -137,7 +199,7 @@ GenericAdvancedSearchResponse Client::genericAdvancedSearchWithOptions(const Gen
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GenericAdvancedSearchResponse>();
 }
 
@@ -203,7 +265,7 @@ GenericSearchResponse Client::genericSearchWithOptions(const GenericSearchReques
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GenericSearch"},
     {"version" , "2024-11-11"},
@@ -214,7 +276,7 @@ GenericSearchResponse Client::genericSearchWithOptions(const GenericSearchReques
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GenericSearchResponse>();
 }
 
@@ -252,7 +314,7 @@ GetIqsUsageResponse Client::getIqsUsageWithOptions(const GetIqsUsageRequest &req
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetIqsUsage"},
     {"version" , "2024-11-11"},
@@ -263,7 +325,7 @@ GetIqsUsageResponse Client::getIqsUsageWithOptions(const GetIqsUsageRequest &req
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetIqsUsageResponse>();
 }
 
@@ -309,7 +371,7 @@ GlobalSearchResponse Client::globalSearchWithOptions(const GlobalSearchRequest &
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GlobalSearch"},
     {"version" , "2024-11-11"},
@@ -320,7 +382,7 @@ GlobalSearchResponse Client::globalSearchWithOptions(const GlobalSearchRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GlobalSearchResponse>();
 }
 
@@ -360,7 +422,7 @@ UnifiedSearchResponse Client::unifiedSearchWithOptions(const UnifiedSearchReques
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UnifiedSearchResponse>();
 }
 

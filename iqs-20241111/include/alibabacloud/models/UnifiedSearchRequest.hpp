@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_UNIFIEDSEARCHREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UNIFIEDSEARCHREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/UnifiedSearchInput.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

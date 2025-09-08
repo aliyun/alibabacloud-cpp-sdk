@@ -3,7 +3,11 @@
 #define ALIBABACLOUD_MODELS_GENERICSEARCHRESULT_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/IQS20241111.hpp>
+#include <alibabacloud/models/ScorePageItem.hpp>
+#include <alibabacloud/models/QueryContext.hpp>
+#include <alibabacloud/models/SceneItem.hpp>
+#include <alibabacloud/models/SearchInformation.hpp>
+#include <alibabacloud/models/WeiboItem.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

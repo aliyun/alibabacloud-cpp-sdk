@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_UNIFIEDCOSTCREDITS_HPP_
 #define ALIBABACLOUD_MODELS_UNIFIEDCOSTCREDITS_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/SearchCredits.hpp>
+#include <alibabacloud/models/ValueAddedCredits.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

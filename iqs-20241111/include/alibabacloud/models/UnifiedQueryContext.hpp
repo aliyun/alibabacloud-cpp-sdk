@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_UNIFIEDQUERYCONTEXT_HPP_
 #define ALIBABACLOUD_MODELS_UNIFIEDQUERYCONTEXT_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/UnifiedOriginalQuery.hpp>
+#include <alibabacloud/models/UnifiedRewrite.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

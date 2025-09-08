@@ -2,8 +2,12 @@
 #ifndef ALIBABACLOUD_MODELS_UNIFIEDSEARCHOUTPUT_HPP_
 #define ALIBABACLOUD_MODELS_UNIFIEDSEARCHOUTPUT_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/UnifiedCostCredits.hpp>
 #include <vector>
-#include <alibabacloud/IQS20241111.hpp>
+#include <alibabacloud/models/UnifiedPageItem.hpp>
+#include <alibabacloud/models/UnifiedQueryContext.hpp>
+#include <alibabacloud/models/UnifiedSceneItem.hpp>
+#include <alibabacloud/models/UnifiedSearchInformation.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
