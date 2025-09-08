@@ -154,6 +154,23 @@ namespace CloudauthIntl20220809
       Models::CheckVerifyLogResponse checkVerifyLog(const Models::CheckVerifyLogRequest &request);
 
       /**
+       * @summary 凭证识别
+       *
+       * @param request CredentialRecognitionIntlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CredentialRecognitionIntlResponse
+       */
+      Models::CredentialRecognitionIntlResponse credentialRecognitionIntlWithOptions(const Models::CredentialRecognitionIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 凭证识别
+       *
+       * @param request CredentialRecognitionIntlRequest
+       * @return CredentialRecognitionIntlResponse
+       */
+      Models::CredentialRecognitionIntlResponse credentialRecognitionIntl(const Models::CredentialRecognitionIntlRequest &request);
+
+      /**
        * @summary Credential Verification
        *
        * @description Input credential image information, perform image quality, tampering, and forgery detection, and return the detection results.

@@ -23,6 +23,9 @@
 #include <alibabacloud/models/CheckVerifyLogRequest.hpp>
 #include <alibabacloud/models/CheckVerifyLogResponseBody.hpp>
 #include <alibabacloud/models/CheckVerifyLogResponse.hpp>
+#include <alibabacloud/models/CredentialRecognitionIntlRequest.hpp>
+#include <alibabacloud/models/CredentialRecognitionIntlResponseBody.hpp>
+#include <alibabacloud/models/CredentialRecognitionIntlResponse.hpp>
 #include <alibabacloud/models/CredentialVerifyIntlRequest.hpp>
 #include <alibabacloud/models/CredentialVerifyIntlAdvanceRequest.hpp>
 #include <alibabacloud/models/CredentialVerifyIntlResponseBody.hpp>
@@ -79,6 +82,7 @@
 #include <alibabacloud/models/CardOcrResponseBodyResult.hpp>
 #include <alibabacloud/models/CheckResultResponseBodyResult.hpp>
 #include <alibabacloud/models/CheckVerifyLogResponseBodyResult.hpp>
+#include <alibabacloud/models/CredentialRecognitionIntlResponseBodyResult.hpp>
 #include <alibabacloud/models/CredentialVerifyIntlResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DeepfakeDetectIntlResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DeleteVerifyResultResponseBodyResult.hpp>

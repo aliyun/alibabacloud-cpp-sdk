@@ -548,6 +548,70 @@ CheckVerifyLogResponse Client::checkVerifyLog(const CheckVerifyLogRequest &reque
 }
 
 /**
+ * @summary 凭证识别
+ *
+ * @param request CredentialRecognitionIntlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CredentialRecognitionIntlResponse
+ */
+CredentialRecognitionIntlResponse Client::credentialRecognitionIntlWithOptions(const CredentialRecognitionIntlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDocType()) {
+    query["DocType"] = request.docType();
+  }
+
+  if (!!request.hasFraudCheck()) {
+    query["FraudCheck"] = request.fraudCheck();
+  }
+
+  if (!!request.hasOcrArea()) {
+    query["OcrArea"] = request.ocrArea();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.productCode();
+  }
+
+  json body = {};
+  if (!!request.hasCredentialOcrPictureBase64()) {
+    body["CredentialOcrPictureBase64"] = request.credentialOcrPictureBase64();
+  }
+
+  if (!!request.hasCredentialOcrPictureUrl()) {
+    body["CredentialOcrPictureUrl"] = request.credentialOcrPictureUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CredentialRecognitionIntl"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CredentialRecognitionIntlResponse>();
+}
+
+/**
+ * @summary 凭证识别
+ *
+ * @param request CredentialRecognitionIntlRequest
+ * @return CredentialRecognitionIntlResponse
+ */
+CredentialRecognitionIntlResponse Client::credentialRecognitionIntl(const CredentialRecognitionIntlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return credentialRecognitionIntlWithOptions(request, runtime);
+}
+
+/**
  * @summary Credential Verification
  *
  * @description Input credential image information, perform image quality, tampering, and forgery detection, and return the detection results.
