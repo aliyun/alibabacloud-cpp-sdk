@@ -2375,6 +2375,10 @@ InitFaceVerifyResponse Client::initFaceVerifyWithOptions(const InitFaceVerifyReq
     query["Mode"] = request.mode();
   }
 
+  if (!!request.hasNeedMultiFaceCheck()) {
+    query["NeedMultiFaceCheck"] = request.needMultiFaceCheck();
+  }
+
   if (!!request.hasOssBucketName()) {
     query["OssBucketName"] = request.ossBucketName();
   }

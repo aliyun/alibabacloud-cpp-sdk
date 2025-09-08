@@ -35,6 +35,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Mobile, mobile_);
       DARABONBA_PTR_TO_JSON(Mode, mode_);
       DARABONBA_PTR_TO_JSON(Model, model_);
+      DARABONBA_PTR_TO_JSON(NeedMultiFaceCheck, needMultiFaceCheck_);
       DARABONBA_PTR_TO_JSON(OssBucketName, ossBucketName_);
       DARABONBA_PTR_TO_JSON(OssObjectName, ossObjectName_);
       DARABONBA_PTR_TO_JSON(OuterOrderNo, outerOrderNo_);
@@ -74,6 +75,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Mobile, mobile_);
       DARABONBA_PTR_FROM_JSON(Mode, mode_);
       DARABONBA_PTR_FROM_JSON(Model, model_);
+      DARABONBA_PTR_FROM_JSON(NeedMultiFaceCheck, needMultiFaceCheck_);
       DARABONBA_PTR_FROM_JSON(OssBucketName, ossBucketName_);
       DARABONBA_PTR_FROM_JSON(OssObjectName, ossObjectName_);
       DARABONBA_PTR_FROM_JSON(OuterOrderNo, outerOrderNo_);
@@ -106,10 +108,10 @@ namespace Models
         && this->certName_ != nullptr && this->certNo_ != nullptr && this->certType_ != nullptr && this->certifyId_ != nullptr && this->certifyUrlStyle_ != nullptr
         && this->certifyUrlType_ != nullptr && this->crop_ != nullptr && this->encryptType_ != nullptr && this->faceContrastPicture_ != nullptr && this->faceContrastPictureUrl_ != nullptr
         && this->faceGuardOutput_ != nullptr && this->ip_ != nullptr && this->metaInfo_ != nullptr && this->mobile_ != nullptr && this->mode_ != nullptr
-        && this->model_ != nullptr && this->ossBucketName_ != nullptr && this->ossObjectName_ != nullptr && this->outerOrderNo_ != nullptr && this->procedurePriority_ != nullptr
-        && this->productCode_ != nullptr && this->rarelyCharacters_ != nullptr && this->readImg_ != nullptr && this->returnUrl_ != nullptr && this->sceneId_ != nullptr
-        && this->suitableType_ != nullptr && this->uiCustomUrl_ != nullptr && this->userId_ != nullptr && this->validityDate_ != nullptr && this->videoEvidence_ != nullptr
-        && this->voluntaryCustomizedContent_ != nullptr; };
+        && this->model_ != nullptr && this->needMultiFaceCheck_ != nullptr && this->ossBucketName_ != nullptr && this->ossObjectName_ != nullptr && this->outerOrderNo_ != nullptr
+        && this->procedurePriority_ != nullptr && this->productCode_ != nullptr && this->rarelyCharacters_ != nullptr && this->readImg_ != nullptr && this->returnUrl_ != nullptr
+        && this->sceneId_ != nullptr && this->suitableType_ != nullptr && this->uiCustomUrl_ != nullptr && this->userId_ != nullptr && this->validityDate_ != nullptr
+        && this->videoEvidence_ != nullptr && this->voluntaryCustomizedContent_ != nullptr; };
     // appQualityCheck Field Functions 
     bool hasAppQualityCheck() const { return this->appQualityCheck_ != nullptr;};
     void deleteAppQualityCheck() { this->appQualityCheck_ = nullptr;};
@@ -264,6 +266,13 @@ namespace Models
     inline InitFaceVerifyRequest& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
 
 
+    // needMultiFaceCheck Field Functions 
+    bool hasNeedMultiFaceCheck() const { return this->needMultiFaceCheck_ != nullptr;};
+    void deleteNeedMultiFaceCheck() { this->needMultiFaceCheck_ = nullptr;};
+    inline string needMultiFaceCheck() const { DARABONBA_PTR_GET_DEFAULT(needMultiFaceCheck_, "") };
+    inline InitFaceVerifyRequest& setNeedMultiFaceCheck(string needMultiFaceCheck) { DARABONBA_PTR_SET_VALUE(needMultiFaceCheck_, needMultiFaceCheck) };
+
+
     // ossBucketName Field Functions 
     bool hasOssBucketName() const { return this->ossBucketName_ != nullptr;};
     void deleteOssBucketName() { this->ossBucketName_ = nullptr;};
@@ -392,6 +401,7 @@ namespace Models
     std::shared_ptr<string> mobile_ = nullptr;
     std::shared_ptr<string> mode_ = nullptr;
     std::shared_ptr<string> model_ = nullptr;
+    std::shared_ptr<string> needMultiFaceCheck_ = nullptr;
     std::shared_ptr<string> ossBucketName_ = nullptr;
     std::shared_ptr<string> ossObjectName_ = nullptr;
     std::shared_ptr<string> outerOrderNo_ = nullptr;
