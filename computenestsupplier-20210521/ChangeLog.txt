@@ -1,3 +1,13 @@
+2025-09-09 Version: 5.2.0
+- Support API DeleteAcrImageRepositories.
+- Support API DeleteAcrImageTags.
+- Support API GetNetworkAvailableZones.
+- Support API GetServiceTemplateCriterionIssues.
+- Support API ListArtifactBuildLogs.
+- Support API ListServiceBuildLogs.
+- Update API GetService: add response parameters Body.SecretKey.
+
+
 2025-07-11 Version: 5.1.4
 - Update API CreateArtifact: add request parameters ArtifactBuildProperty.EnableGpu.
 - Update API CreateArtifact: add request parameters ArtifactBuildProperty.SystemDiskSize.
