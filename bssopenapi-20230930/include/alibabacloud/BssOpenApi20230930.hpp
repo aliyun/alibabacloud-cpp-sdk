@@ -72,6 +72,23 @@ namespace BssOpenApi20230930
       Models::CancelFundAccountLowAvailableAmountAlarmResponse cancelFundAccountLowAvailableAmountAlarm(const Models::CancelFundAccountLowAvailableAmountAlarmRequest &request);
 
       /**
+       * @summary 提货券账户检查是否存在
+       *
+       * @param request CheckAccountExistRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckAccountExistResponse
+       */
+      Models::CheckAccountExistResponse checkAccountExistWithOptions(const Models::CheckAccountExistRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提货券账户检查是否存在
+       *
+       * @param request CheckAccountExistRequest
+       * @return CheckAccountExistResponse
+       */
+      Models::CheckAccountExistResponse checkAccountExist(const Models::CheckAccountExistRequest &request);
+
+      /**
        * @summary 创建财务单元
        *
        * @param tmpReq CreateCostCenterRequest
@@ -630,6 +647,23 @@ namespace BssOpenApi20230930
        * @return ModifyCostCenterRuleResponse
        */
       Models::ModifyCostCenterRuleResponse modifyCostCenterRule(const Models::ModifyCostCenterRuleRequest &request);
+
+      /**
+       * @summary 对客订单支付接口
+       *
+       * @param request PayOrderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PayOrderResponse
+       */
+      Models::PayOrderResponse payOrderWithOptions(const Models::PayOrderRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 对客订单支付接口
+       *
+       * @param request PayOrderRequest
+       * @return PayOrderResponse
+       */
+      Models::PayOrderResponse payOrder(const Models::PayOrderRequest &request);
 
       /**
        * @summary 查询财务单元

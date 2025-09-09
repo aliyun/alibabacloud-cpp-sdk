@@ -15,6 +15,9 @@
 #include <alibabacloud/models/CancelFundAccountLowAvailableAmountAlarmRequest.hpp>
 #include <alibabacloud/models/CancelFundAccountLowAvailableAmountAlarmResponseBody.hpp>
 #include <alibabacloud/models/CancelFundAccountLowAvailableAmountAlarmResponse.hpp>
+#include <alibabacloud/models/CheckAccountExistRequest.hpp>
+#include <alibabacloud/models/CheckAccountExistResponseBody.hpp>
+#include <alibabacloud/models/CheckAccountExistResponse.hpp>
 #include <alibabacloud/models/CreateCostCenterRequest.hpp>
 #include <alibabacloud/models/CreateCostCenterShrinkRequest.hpp>
 #include <alibabacloud/models/CreateCostCenterResponseBody.hpp>
@@ -130,6 +133,9 @@
 #include <alibabacloud/models/ModifyCostCenterRuleShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyCostCenterRuleResponseBody.hpp>
 #include <alibabacloud/models/ModifyCostCenterRuleResponse.hpp>
+#include <alibabacloud/models/PayOrderRequest.hpp>
+#include <alibabacloud/models/PayOrderResponseBody.hpp>
+#include <alibabacloud/models/PayOrderResponse.hpp>
 #include <alibabacloud/models/QueryCostCenterRequest.hpp>
 #include <alibabacloud/models/QueryCostCenterShrinkRequest.hpp>
 #include <alibabacloud/models/QueryCostCenterResponseBody.hpp>
@@ -162,6 +168,8 @@
 #include <alibabacloud/models/AddCouponDeductTagRequestEcIdAccountIds.hpp>
 #include <alibabacloud/models/AddCouponDeductTagRequestTags.hpp>
 #include <alibabacloud/models/AllocateCostCenterResourceRequestResourceInstanceList.hpp>
+#include <alibabacloud/models/CheckAccountExistRequestEcIdAccountIds.hpp>
+#include <alibabacloud/models/CheckAccountExistResponseBodyData.hpp>
 #include <alibabacloud/models/CreateCostCenterRequestCostCenterEntityList.hpp>
 #include <alibabacloud/models/CreateCostCenterResponseBodyCostCenterDtoList.hpp>
 #include <alibabacloud/models/CreateCostCenterRuleRequestFilterExpressionFilterValues.hpp>
@@ -226,6 +234,7 @@
 #include <alibabacloud/models/ModifyCostCenterResponseBodyCostCenterOperateDto.hpp>
 #include <alibabacloud/models/ModifyCostCenterRuleRequestFilterExpressionFilterValues.hpp>
 #include <alibabacloud/models/ModifyCostCenterRuleRequestFilterExpression.hpp>
+#include <alibabacloud/models/PayOrderRequestEcIdAccountIds.hpp>
 #include <alibabacloud/models/QueryCostCenterRequestEcIdAccountIds.hpp>
 #include <alibabacloud/models/QueryCostCenterResponseBodyCostCenterDtoList.hpp>
 #include <alibabacloud/models/QueryCostCenterResourceRequestEcIdAccountIds.hpp>

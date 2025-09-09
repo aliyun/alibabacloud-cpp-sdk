@@ -268,6 +268,62 @@ CancelFundAccountLowAvailableAmountAlarmResponse Client::cancelFundAccountLowAva
 }
 
 /**
+ * @summary 提货券账户检查是否存在
+ *
+ * @param request CheckAccountExistRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckAccountExistResponse
+ */
+CheckAccountExistResponse Client::checkAccountExistWithOptions(const CheckAccountExistRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEcIdAccountIds()) {
+    query["EcIdAccountIds"] = request.ecIdAccountIds();
+  }
+
+  if (!!request.hasNbid()) {
+    query["Nbid"] = request.nbid();
+  }
+
+  json body = {};
+  if (!!request.hasToUserType()) {
+    body["ToUserType"] = request.toUserType();
+  }
+
+  if (!!request.hasTransferAccount()) {
+    body["TransferAccount"] = request.transferAccount();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CheckAccountExist"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckAccountExistResponse>();
+}
+
+/**
+ * @summary 提货券账户检查是否存在
+ *
+ * @param request CheckAccountExistRequest
+ * @return CheckAccountExistResponse
+ */
+CheckAccountExistResponse Client::checkAccountExist(const CheckAccountExistRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkAccountExistWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建财务单元
  *
  * @param tmpReq CreateCostCenterRequest
@@ -2172,6 +2228,72 @@ ModifyCostCenterRuleResponse Client::modifyCostCenterRuleWithOptions(const Modif
 ModifyCostCenterRuleResponse Client::modifyCostCenterRule(const ModifyCostCenterRuleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyCostCenterRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 对客订单支付接口
+ *
+ * @param request PayOrderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PayOrderResponse
+ */
+PayOrderResponse Client::payOrderWithOptions(const PayOrderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBuyerId()) {
+    query["BuyerId"] = request.buyerId();
+  }
+
+  if (!!request.hasEcIdAccountIds()) {
+    query["EcIdAccountIds"] = request.ecIdAccountIds();
+  }
+
+  if (!!request.hasNbid()) {
+    query["Nbid"] = request.nbid();
+  }
+
+  if (!!request.hasOrderId()) {
+    query["OrderId"] = request.orderId();
+  }
+
+  if (!!request.hasPaySubmitUid()) {
+    query["PaySubmitUid"] = request.paySubmitUid();
+  }
+
+  if (!!request.hasPayerId()) {
+    query["PayerId"] = request.payerId();
+  }
+
+  if (!!request.hasToken()) {
+    query["Token"] = request.token();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PayOrder"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PayOrderResponse>();
+}
+
+/**
+ * @summary 对客订单支付接口
+ *
+ * @param request PayOrderRequest
+ * @return PayOrderResponse
+ */
+PayOrderResponse Client::payOrder(const PayOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return payOrderWithOptions(request, runtime);
 }
 
 /**
