@@ -21657,6 +21657,56 @@ ListPlaylistItemsResponse Client::listPlaylistItems(const ListPlaylistItemsReque
 }
 
 /**
+ * @summary 获取在线频道列表
+ *
+ * @param request ListRTCLiveRoomsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRTCLiveRoomsResponse
+ */
+ListRTCLiveRoomsResponse Client::listRTCLiveRoomsWithOptions(const ListRTCLiveRoomsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.pageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListRTCLiveRooms"},
+    {"version" , "2016-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRTCLiveRoomsResponse>();
+}
+
+/**
+ * @summary 获取在线频道列表
+ *
+ * @param request ListRTCLiveRoomsRequest
+ * @return ListRTCLiveRoomsResponse
+ */
+ListRTCLiveRoomsResponse Client::listRTCLiveRooms(const ListRTCLiveRoomsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listRTCLiveRoomsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the callback records of a subscription to mixed-stream relay events.
  *
  * @description You can call this operation to query the callback records of a subscription to mixed-stream relay events in the last seven days.

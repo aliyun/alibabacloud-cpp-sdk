@@ -957,6 +957,9 @@
 #include <alibabacloud/models/ListPlaylistItemsRequest.hpp>
 #include <alibabacloud/models/ListPlaylistItemsResponseBody.hpp>
 #include <alibabacloud/models/ListPlaylistItemsResponse.hpp>
+#include <alibabacloud/models/ListRtcliveRoomsRequest.hpp>
+#include <alibabacloud/models/ListRtcliveRoomsResponseBody.hpp>
+#include <alibabacloud/models/ListRtcliveRoomsResponse.hpp>
 #include <alibabacloud/models/ListRtcMpueventSubRecordRequest.hpp>
 #include <alibabacloud/models/ListRtcMpueventSubRecordResponseBody.hpp>
 #include <alibabacloud/models/ListRtcMpueventSubRecordResponse.hpp>

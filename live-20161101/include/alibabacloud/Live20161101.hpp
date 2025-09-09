@@ -8025,6 +8025,23 @@ namespace Live20161101
       Models::ListPlaylistItemsResponse listPlaylistItems(const Models::ListPlaylistItemsRequest &request);
 
       /**
+       * @summary 获取在线频道列表
+       *
+       * @param request ListRTCLiveRoomsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListRTCLiveRoomsResponse
+       */
+      Models::ListRTCLiveRoomsResponse listRTCLiveRoomsWithOptions(const Models::ListRTCLiveRoomsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取在线频道列表
+       *
+       * @param request ListRTCLiveRoomsRequest
+       * @return ListRTCLiveRoomsResponse
+       */
+      Models::ListRTCLiveRoomsResponse listRTCLiveRooms(const Models::ListRTCLiveRoomsRequest &request);
+
+      /**
        * @summary Queries the callback records of a subscription to mixed-stream relay events.
        *
        * @description You can call this operation to query the callback records of a subscription to mixed-stream relay events in the last seven days.
