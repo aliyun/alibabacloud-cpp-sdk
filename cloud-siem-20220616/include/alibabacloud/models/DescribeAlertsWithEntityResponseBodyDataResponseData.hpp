@@ -35,6 +35,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AssetList, assetList_);
       DARABONBA_PTR_TO_JSON(AttCk, attCk_);
       DARABONBA_PTR_TO_JSON(CloudCode, cloudCode_);
+      DARABONBA_PTR_TO_JSON(DetectionRuleId, detectionRuleId_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(EntityList, entityList_);
       DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
@@ -46,9 +47,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LogUuid, logUuid_);
       DARABONBA_PTR_TO_JSON(MainUserId, mainUserId_);
       DARABONBA_PTR_TO_JSON(OccurTime, occurTime_);
+      DARABONBA_PTR_TO_JSON(ProductId, productId_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(SubUserId, subUserId_);
       DARABONBA_PTR_TO_JSON(SubUserName, subUserName_);
+      DARABONBA_PTR_TO_JSON(VendorId, vendorId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeAlertsWithEntityResponseBodyDataResponseData& obj) { 
       DARABONBA_PTR_FROM_JSON(AlertDesc, alertDesc_);
@@ -71,6 +74,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AssetList, assetList_);
       DARABONBA_PTR_FROM_JSON(AttCk, attCk_);
       DARABONBA_PTR_FROM_JSON(CloudCode, cloudCode_);
+      DARABONBA_PTR_FROM_JSON(DetectionRuleId, detectionRuleId_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(EntityList, entityList_);
       DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
@@ -82,9 +86,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LogUuid, logUuid_);
       DARABONBA_PTR_FROM_JSON(MainUserId, mainUserId_);
       DARABONBA_PTR_FROM_JSON(OccurTime, occurTime_);
+      DARABONBA_PTR_FROM_JSON(ProductId, productId_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(SubUserId, subUserId_);
       DARABONBA_PTR_FROM_JSON(SubUserName, subUserName_);
+      DARABONBA_PTR_FROM_JSON(VendorId, vendorId_);
     };
     DescribeAlertsWithEntityResponseBodyDataResponseData() = default ;
     DescribeAlertsWithEntityResponseBodyDataResponseData(const DescribeAlertsWithEntityResponseBodyDataResponseData &) = default ;
@@ -101,10 +107,11 @@ namespace Models
         && this->alertDescCode_ != nullptr && this->alertDescEn_ != nullptr && this->alertDetail_ != nullptr && this->alertInfoList_ != nullptr && this->alertLevel_ != nullptr
         && this->alertName_ != nullptr && this->alertNameCode_ != nullptr && this->alertNameEn_ != nullptr && this->alertSrcProd_ != nullptr && this->alertSrcProdModule_ != nullptr
         && this->alertTitle_ != nullptr && this->alertTitleEn_ != nullptr && this->alertType_ != nullptr && this->alertTypeCode_ != nullptr && this->alertTypeEn_ != nullptr
-        && this->alertUuid_ != nullptr && this->assetList_ != nullptr && this->attCk_ != nullptr && this->cloudCode_ != nullptr && this->endTime_ != nullptr
-        && this->entityList_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->id_ != nullptr && this->incidentUuid_ != nullptr
-        && this->isDefend_ != nullptr && this->logTime_ != nullptr && this->logUuid_ != nullptr && this->mainUserId_ != nullptr && this->occurTime_ != nullptr
-        && this->startTime_ != nullptr && this->subUserId_ != nullptr && this->subUserName_ != nullptr; };
+        && this->alertUuid_ != nullptr && this->assetList_ != nullptr && this->attCk_ != nullptr && this->cloudCode_ != nullptr && this->detectionRuleId_ != nullptr
+        && this->endTime_ != nullptr && this->entityList_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->id_ != nullptr
+        && this->incidentUuid_ != nullptr && this->isDefend_ != nullptr && this->logTime_ != nullptr && this->logUuid_ != nullptr && this->mainUserId_ != nullptr
+        && this->occurTime_ != nullptr && this->productId_ != nullptr && this->startTime_ != nullptr && this->subUserId_ != nullptr && this->subUserName_ != nullptr
+        && this->vendorId_ != nullptr; };
     // alertDesc Field Functions 
     bool hasAlertDesc() const { return this->alertDesc_ != nullptr;};
     void deleteAlertDesc() { this->alertDesc_ = nullptr;};
@@ -247,6 +254,13 @@ namespace Models
     inline DescribeAlertsWithEntityResponseBodyDataResponseData& setCloudCode(string cloudCode) { DARABONBA_PTR_SET_VALUE(cloudCode_, cloudCode) };
 
 
+    // detectionRuleId Field Functions 
+    bool hasDetectionRuleId() const { return this->detectionRuleId_ != nullptr;};
+    void deleteDetectionRuleId() { this->detectionRuleId_ = nullptr;};
+    inline string detectionRuleId() const { DARABONBA_PTR_GET_DEFAULT(detectionRuleId_, "") };
+    inline DescribeAlertsWithEntityResponseBodyDataResponseData& setDetectionRuleId(string detectionRuleId) { DARABONBA_PTR_SET_VALUE(detectionRuleId_, detectionRuleId) };
+
+
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
@@ -324,6 +338,13 @@ namespace Models
     inline DescribeAlertsWithEntityResponseBodyDataResponseData& setOccurTime(string occurTime) { DARABONBA_PTR_SET_VALUE(occurTime_, occurTime) };
 
 
+    // productId Field Functions 
+    bool hasProductId() const { return this->productId_ != nullptr;};
+    void deleteProductId() { this->productId_ = nullptr;};
+    inline string productId() const { DARABONBA_PTR_GET_DEFAULT(productId_, "") };
+    inline DescribeAlertsWithEntityResponseBodyDataResponseData& setProductId(string productId) { DARABONBA_PTR_SET_VALUE(productId_, productId) };
+
+
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
@@ -343,6 +364,13 @@ namespace Models
     void deleteSubUserName() { this->subUserName_ = nullptr;};
     inline string subUserName() const { DARABONBA_PTR_GET_DEFAULT(subUserName_, "") };
     inline DescribeAlertsWithEntityResponseBodyDataResponseData& setSubUserName(string subUserName) { DARABONBA_PTR_SET_VALUE(subUserName_, subUserName) };
+
+
+    // vendorId Field Functions 
+    bool hasVendorId() const { return this->vendorId_ != nullptr;};
+    void deleteVendorId() { this->vendorId_ = nullptr;};
+    inline string vendorId() const { DARABONBA_PTR_GET_DEFAULT(vendorId_, "") };
+    inline DescribeAlertsWithEntityResponseBodyDataResponseData& setVendorId(string vendorId) { DARABONBA_PTR_SET_VALUE(vendorId_, vendorId) };
 
 
   protected:
@@ -394,6 +422,7 @@ namespace Models
     // *   qcloud: Tencent Cloud
     // *   hcloud: Huawei Cloud
     std::shared_ptr<string> cloudCode_ = nullptr;
+    std::shared_ptr<string> detectionRuleId_ = nullptr;
     // The time when the alert was closed.
     std::shared_ptr<string> endTime_ = nullptr;
     std::shared_ptr<string> entityList_ = nullptr;
@@ -418,11 +447,13 @@ namespace Models
     std::shared_ptr<int64_t> mainUserId_ = nullptr;
     // The time when the alert was triggered.
     std::shared_ptr<string> occurTime_ = nullptr;
+    std::shared_ptr<string> productId_ = nullptr;
     // The time at which the alert was first generated.
     std::shared_ptr<string> startTime_ = nullptr;
     // The ID of the Alibaba Cloud account within which the alert is generated.
     std::shared_ptr<int64_t> subUserId_ = nullptr;
     std::shared_ptr<string> subUserName_ = nullptr;
+    std::shared_ptr<string> vendorId_ = nullptr;
   };
 
   } // namespace Models
