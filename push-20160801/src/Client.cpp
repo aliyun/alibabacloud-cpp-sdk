@@ -659,12 +659,22 @@ MassPushResponse Client::massPush(const MassPushRequest &request) {
 /**
  * @summary 高级推送接口
  *
- * @param request PushRequest
+ * @param tmpReq PushRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return PushResponse
  */
-PushResponse Client::pushWithOptions(const PushRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+PushResponse Client::pushWithOptions(const PushRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  PushShrinkRequest request = PushShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAndroidOppoPrivateContentParameters()) {
+    request.setAndroidOppoPrivateContentParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.androidOppoPrivateContentParameters(), "androidOppoPrivateContentParameters", "json"));
+  }
+
+  if (!!tmpReq.hasAndroidOppoPrivateTitleParameters()) {
+    request.setAndroidOppoPrivateTitleParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.androidOppoPrivateTitleParameters(), "androidOppoPrivateTitleParameters", "json"));
+  }
+
   json query = {};
   if (!!request.hasAndroidActivity()) {
     query["AndroidActivity"] = request.androidActivity();
@@ -1004,6 +1014,18 @@ PushResponse Client::pushWithOptions(const PushRequest &request, const Darabonba
 
   if (!!request.hasTrim()) {
     query["Trim"] = request.trim();
+  }
+
+  if (!!request.hasAndroidOppoPrivateContentParametersShrink()) {
+    query["androidOppoPrivateContentParameters"] = request.androidOppoPrivateContentParametersShrink();
+  }
+
+  if (!!request.hasAndroidOppoPrivateMsgTemplateId()) {
+    query["androidOppoPrivateMsgTemplateId"] = request.androidOppoPrivateMsgTemplateId();
+  }
+
+  if (!!request.hasAndroidOppoPrivateTitleParametersShrink()) {
+    query["androidOppoPrivateTitleParameters"] = request.androidOppoPrivateTitleParametersShrink();
   }
 
   if (!!request.hasIOSApnsEnv()) {

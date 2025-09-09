@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_PUSHREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_PUSHREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <map>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -98,6 +99,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TargetValue, targetValue_);
       DARABONBA_PTR_TO_JSON(Title, title_);
       DARABONBA_PTR_TO_JSON(Trim, trim_);
+      DARABONBA_PTR_TO_JSON(androidOppoPrivateContentParameters, androidOppoPrivateContentParameters_);
+      DARABONBA_PTR_TO_JSON(androidOppoPrivateMsgTemplateId, androidOppoPrivateMsgTemplateId_);
+      DARABONBA_PTR_TO_JSON(androidOppoPrivateTitleParameters, androidOppoPrivateTitleParameters_);
       DARABONBA_PTR_TO_JSON(iOSApnsEnv, iOSApnsEnv_);
       DARABONBA_PTR_TO_JSON(iOSBadge, iOSBadge_);
       DARABONBA_PTR_TO_JSON(iOSBadgeAutoIncrement, iOSBadgeAutoIncrement_);
@@ -207,6 +211,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(TargetValue, targetValue_);
       DARABONBA_PTR_FROM_JSON(Title, title_);
       DARABONBA_PTR_FROM_JSON(Trim, trim_);
+      DARABONBA_PTR_FROM_JSON(androidOppoPrivateContentParameters, androidOppoPrivateContentParameters_);
+      DARABONBA_PTR_FROM_JSON(androidOppoPrivateMsgTemplateId, androidOppoPrivateMsgTemplateId_);
+      DARABONBA_PTR_FROM_JSON(androidOppoPrivateTitleParameters, androidOppoPrivateTitleParameters_);
       DARABONBA_PTR_FROM_JSON(iOSApnsEnv, iOSApnsEnv_);
       DARABONBA_PTR_FROM_JSON(iOSBadge, iOSBadge_);
       DARABONBA_PTR_FROM_JSON(iOSBadgeAutoIncrement, iOSBadgeAutoIncrement_);
@@ -258,12 +265,12 @@ namespace Models
         && this->harmonyRenderStyle_ != nullptr && this->harmonyTestMessage_ != nullptr && this->harmonyUri_ != nullptr && this->idempotentToken_ != nullptr && this->jobKey_ != nullptr
         && this->pushTime_ != nullptr && this->pushType_ != nullptr && this->sendChannels_ != nullptr && this->sendSpeed_ != nullptr && this->smsDelaySecs_ != nullptr
         && this->smsParams_ != nullptr && this->smsSendPolicy_ != nullptr && this->smsSignName_ != nullptr && this->smsTemplateName_ != nullptr && this->storeOffline_ != nullptr
-        && this->target_ != nullptr && this->targetValue_ != nullptr && this->title_ != nullptr && this->trim_ != nullptr && this->iOSApnsEnv_ != nullptr
-        && this->iOSBadge_ != nullptr && this->iOSBadgeAutoIncrement_ != nullptr && this->iOSExtParameters_ != nullptr && this->iOSInterruptionLevel_ != nullptr && this->iOSLiveActivityAttributes_ != nullptr
-        && this->iOSLiveActivityAttributesType_ != nullptr && this->iOSLiveActivityContentState_ != nullptr && this->iOSLiveActivityDismissalDate_ != nullptr && this->iOSLiveActivityEvent_ != nullptr && this->iOSLiveActivityId_ != nullptr
-        && this->iOSLiveActivityStaleDate_ != nullptr && this->iOSMusic_ != nullptr && this->iOSMutableContent_ != nullptr && this->iOSNotificationCategory_ != nullptr && this->iOSNotificationCollapseId_ != nullptr
-        && this->iOSNotificationThreadId_ != nullptr && this->iOSRelevanceScore_ != nullptr && this->iOSRemind_ != nullptr && this->iOSRemindBody_ != nullptr && this->iOSSilentNotification_ != nullptr
-        && this->iOSSubtitle_ != nullptr; };
+        && this->target_ != nullptr && this->targetValue_ != nullptr && this->title_ != nullptr && this->trim_ != nullptr && this->androidOppoPrivateContentParameters_ != nullptr
+        && this->androidOppoPrivateMsgTemplateId_ != nullptr && this->androidOppoPrivateTitleParameters_ != nullptr && this->iOSApnsEnv_ != nullptr && this->iOSBadge_ != nullptr && this->iOSBadgeAutoIncrement_ != nullptr
+        && this->iOSExtParameters_ != nullptr && this->iOSInterruptionLevel_ != nullptr && this->iOSLiveActivityAttributes_ != nullptr && this->iOSLiveActivityAttributesType_ != nullptr && this->iOSLiveActivityContentState_ != nullptr
+        && this->iOSLiveActivityDismissalDate_ != nullptr && this->iOSLiveActivityEvent_ != nullptr && this->iOSLiveActivityId_ != nullptr && this->iOSLiveActivityStaleDate_ != nullptr && this->iOSMusic_ != nullptr
+        && this->iOSMutableContent_ != nullptr && this->iOSNotificationCategory_ != nullptr && this->iOSNotificationCollapseId_ != nullptr && this->iOSNotificationThreadId_ != nullptr && this->iOSRelevanceScore_ != nullptr
+        && this->iOSRemind_ != nullptr && this->iOSRemindBody_ != nullptr && this->iOSSilentNotification_ != nullptr && this->iOSSubtitle_ != nullptr; };
     // androidActivity Field Functions 
     bool hasAndroidActivity() const { return this->androidActivity_ != nullptr;};
     void deleteAndroidActivity() { this->androidActivity_ = nullptr;};
@@ -859,6 +866,31 @@ namespace Models
     inline PushRequest& setTrim(bool trim) { DARABONBA_PTR_SET_VALUE(trim_, trim) };
 
 
+    // androidOppoPrivateContentParameters Field Functions 
+    bool hasAndroidOppoPrivateContentParameters() const { return this->androidOppoPrivateContentParameters_ != nullptr;};
+    void deleteAndroidOppoPrivateContentParameters() { this->androidOppoPrivateContentParameters_ = nullptr;};
+    inline const map<string, string> & androidOppoPrivateContentParameters() const { DARABONBA_PTR_GET_CONST(androidOppoPrivateContentParameters_, map<string, string>) };
+    inline map<string, string> androidOppoPrivateContentParameters() { DARABONBA_PTR_GET(androidOppoPrivateContentParameters_, map<string, string>) };
+    inline PushRequest& setAndroidOppoPrivateContentParameters(const map<string, string> & androidOppoPrivateContentParameters) { DARABONBA_PTR_SET_VALUE(androidOppoPrivateContentParameters_, androidOppoPrivateContentParameters) };
+    inline PushRequest& setAndroidOppoPrivateContentParameters(map<string, string> && androidOppoPrivateContentParameters) { DARABONBA_PTR_SET_RVALUE(androidOppoPrivateContentParameters_, androidOppoPrivateContentParameters) };
+
+
+    // androidOppoPrivateMsgTemplateId Field Functions 
+    bool hasAndroidOppoPrivateMsgTemplateId() const { return this->androidOppoPrivateMsgTemplateId_ != nullptr;};
+    void deleteAndroidOppoPrivateMsgTemplateId() { this->androidOppoPrivateMsgTemplateId_ = nullptr;};
+    inline string androidOppoPrivateMsgTemplateId() const { DARABONBA_PTR_GET_DEFAULT(androidOppoPrivateMsgTemplateId_, "") };
+    inline PushRequest& setAndroidOppoPrivateMsgTemplateId(string androidOppoPrivateMsgTemplateId) { DARABONBA_PTR_SET_VALUE(androidOppoPrivateMsgTemplateId_, androidOppoPrivateMsgTemplateId) };
+
+
+    // androidOppoPrivateTitleParameters Field Functions 
+    bool hasAndroidOppoPrivateTitleParameters() const { return this->androidOppoPrivateTitleParameters_ != nullptr;};
+    void deleteAndroidOppoPrivateTitleParameters() { this->androidOppoPrivateTitleParameters_ = nullptr;};
+    inline const map<string, string> & androidOppoPrivateTitleParameters() const { DARABONBA_PTR_GET_CONST(androidOppoPrivateTitleParameters_, map<string, string>) };
+    inline map<string, string> androidOppoPrivateTitleParameters() { DARABONBA_PTR_GET(androidOppoPrivateTitleParameters_, map<string, string>) };
+    inline PushRequest& setAndroidOppoPrivateTitleParameters(const map<string, string> & androidOppoPrivateTitleParameters) { DARABONBA_PTR_SET_VALUE(androidOppoPrivateTitleParameters_, androidOppoPrivateTitleParameters) };
+    inline PushRequest& setAndroidOppoPrivateTitleParameters(map<string, string> && androidOppoPrivateTitleParameters) { DARABONBA_PTR_SET_RVALUE(androidOppoPrivateTitleParameters_, androidOppoPrivateTitleParameters) };
+
+
     // iOSApnsEnv Field Functions 
     bool hasIOSApnsEnv() const { return this->iOSApnsEnv_ != nullptr;};
     void deleteIOSApnsEnv() { this->iOSApnsEnv_ = nullptr;};
@@ -1104,6 +1136,9 @@ namespace Models
     std::shared_ptr<string> targetValue_ = nullptr;
     std::shared_ptr<string> title_ = nullptr;
     std::shared_ptr<bool> trim_ = nullptr;
+    std::shared_ptr<map<string, string>> androidOppoPrivateContentParameters_ = nullptr;
+    std::shared_ptr<string> androidOppoPrivateMsgTemplateId_ = nullptr;
+    std::shared_ptr<map<string, string>> androidOppoPrivateTitleParameters_ = nullptr;
     std::shared_ptr<string> iOSApnsEnv_ = nullptr;
     std::shared_ptr<int32_t> iOSBadge_ = nullptr;
     std::shared_ptr<bool> iOSBadgeAutoIncrement_ = nullptr;

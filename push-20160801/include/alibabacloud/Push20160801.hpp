@@ -230,11 +230,11 @@ namespace Push20160801
       /**
        * @summary 高级推送接口
        *
-       * @param request PushRequest
+       * @param tmpReq PushRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return PushResponse
        */
-      Models::PushResponse pushWithOptions(const Models::PushRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::PushResponse pushWithOptions(const Models::PushRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 高级推送接口
