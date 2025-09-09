@@ -9243,8 +9243,16 @@ DescribeModificationPriceResponse Client::describeModificationPriceWithOptions(c
     query["ResourceType"] = request.resourceType();
   }
 
+  if (!!request.hasRootDiskPerformanceLevel()) {
+    query["RootDiskPerformanceLevel"] = request.rootDiskPerformanceLevel();
+  }
+
   if (!!request.hasRootDiskSizeGib()) {
     query["RootDiskSizeGib"] = request.rootDiskSizeGib();
+  }
+
+  if (!!request.hasUserDiskPerformanceLevel()) {
+    query["UserDiskPerformanceLevel"] = request.userDiskPerformanceLevel();
   }
 
   if (!!request.hasUserDiskSizeGib()) {
@@ -9674,12 +9682,20 @@ DescribePriceResponse Client::describePriceWithOptions(const DescribePriceReques
     query["RootDiskCategory"] = request.rootDiskCategory();
   }
 
+  if (!!request.hasRootDiskPerformanceLevel()) {
+    query["RootDiskPerformanceLevel"] = request.rootDiskPerformanceLevel();
+  }
+
   if (!!request.hasRootDiskSizeGib()) {
     query["RootDiskSizeGib"] = request.rootDiskSizeGib();
   }
 
   if (!!request.hasUserDiskCategory()) {
     query["UserDiskCategory"] = request.userDiskCategory();
+  }
+
+  if (!!request.hasUserDiskPerformanceLevel()) {
+    query["UserDiskPerformanceLevel"] = request.userDiskPerformanceLevel();
   }
 
   if (!!request.hasUserDiskSizeGib()) {
@@ -17110,6 +17126,10 @@ ResetSnapshotResponse Client::resetSnapshotWithOptions(const ResetSnapshotReques
 
   if (!!request.hasSnapshotId()) {
     query["SnapshotId"] = request.snapshotId();
+  }
+
+  if (!!request.hasStopDesktop()) {
+    query["StopDesktop"] = request.stopDesktop();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

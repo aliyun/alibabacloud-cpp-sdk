@@ -23,7 +23,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResellerOwnerUid, resellerOwnerUid_);
       DARABONBA_PTR_TO_JSON(ResourceSpecs, resourceSpecs_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
+      DARABONBA_PTR_TO_JSON(RootDiskPerformanceLevel, rootDiskPerformanceLevel_);
       DARABONBA_PTR_TO_JSON(RootDiskSizeGib, rootDiskSizeGib_);
+      DARABONBA_PTR_TO_JSON(UserDiskPerformanceLevel, userDiskPerformanceLevel_);
       DARABONBA_PTR_TO_JSON(UserDiskSizeGib, userDiskSizeGib_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeModificationPriceRequest& obj) { 
@@ -35,7 +37,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResellerOwnerUid, resellerOwnerUid_);
       DARABONBA_PTR_FROM_JSON(ResourceSpecs, resourceSpecs_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
+      DARABONBA_PTR_FROM_JSON(RootDiskPerformanceLevel, rootDiskPerformanceLevel_);
       DARABONBA_PTR_FROM_JSON(RootDiskSizeGib, rootDiskSizeGib_);
+      DARABONBA_PTR_FROM_JSON(UserDiskPerformanceLevel, userDiskPerformanceLevel_);
       DARABONBA_PTR_FROM_JSON(UserDiskSizeGib, userDiskSizeGib_);
     };
     DescribeModificationPriceRequest() = default ;
@@ -51,7 +55,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->bandwidth_ != nullptr
         && this->instanceId_ != nullptr && this->instanceType_ != nullptr && this->promotionId_ != nullptr && this->regionId_ != nullptr && this->resellerOwnerUid_ != nullptr
-        && this->resourceSpecs_ != nullptr && this->resourceType_ != nullptr && this->rootDiskSizeGib_ != nullptr && this->userDiskSizeGib_ != nullptr; };
+        && this->resourceSpecs_ != nullptr && this->resourceType_ != nullptr && this->rootDiskPerformanceLevel_ != nullptr && this->rootDiskSizeGib_ != nullptr && this->userDiskPerformanceLevel_ != nullptr
+        && this->userDiskSizeGib_ != nullptr; };
     // bandwidth Field Functions 
     bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
     void deleteBandwidth() { this->bandwidth_ = nullptr;};
@@ -110,11 +115,25 @@ namespace Models
     inline DescribeModificationPriceRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
+    // rootDiskPerformanceLevel Field Functions 
+    bool hasRootDiskPerformanceLevel() const { return this->rootDiskPerformanceLevel_ != nullptr;};
+    void deleteRootDiskPerformanceLevel() { this->rootDiskPerformanceLevel_ = nullptr;};
+    inline string rootDiskPerformanceLevel() const { DARABONBA_PTR_GET_DEFAULT(rootDiskPerformanceLevel_, "") };
+    inline DescribeModificationPriceRequest& setRootDiskPerformanceLevel(string rootDiskPerformanceLevel) { DARABONBA_PTR_SET_VALUE(rootDiskPerformanceLevel_, rootDiskPerformanceLevel) };
+
+
     // rootDiskSizeGib Field Functions 
     bool hasRootDiskSizeGib() const { return this->rootDiskSizeGib_ != nullptr;};
     void deleteRootDiskSizeGib() { this->rootDiskSizeGib_ = nullptr;};
     inline int32_t rootDiskSizeGib() const { DARABONBA_PTR_GET_DEFAULT(rootDiskSizeGib_, 0) };
     inline DescribeModificationPriceRequest& setRootDiskSizeGib(int32_t rootDiskSizeGib) { DARABONBA_PTR_SET_VALUE(rootDiskSizeGib_, rootDiskSizeGib) };
+
+
+    // userDiskPerformanceLevel Field Functions 
+    bool hasUserDiskPerformanceLevel() const { return this->userDiskPerformanceLevel_ != nullptr;};
+    void deleteUserDiskPerformanceLevel() { this->userDiskPerformanceLevel_ = nullptr;};
+    inline string userDiskPerformanceLevel() const { DARABONBA_PTR_GET_DEFAULT(userDiskPerformanceLevel_, "") };
+    inline DescribeModificationPriceRequest& setUserDiskPerformanceLevel(string userDiskPerformanceLevel) { DARABONBA_PTR_SET_VALUE(userDiskPerformanceLevel_, userDiskPerformanceLevel) };
 
 
     // userDiskSizeGib Field Functions 
@@ -173,8 +192,10 @@ namespace Models
     // *   Desktop (default): cloud computers.
     // *   NetworkPackage: premium bandwidth plans.
     std::shared_ptr<string> resourceType_ = nullptr;
+    std::shared_ptr<string> rootDiskPerformanceLevel_ = nullptr;
     // The size of the system disk. Unit: GiB.
     std::shared_ptr<int32_t> rootDiskSizeGib_ = nullptr;
+    std::shared_ptr<string> userDiskPerformanceLevel_ = nullptr;
     // The size of the data disk. Unit: GiB.
     std::shared_ptr<int32_t> userDiskSizeGib_ = nullptr;
   };

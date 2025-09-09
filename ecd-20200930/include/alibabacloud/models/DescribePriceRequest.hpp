@@ -27,8 +27,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResellerOwnerUid, resellerOwnerUid_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(RootDiskCategory, rootDiskCategory_);
+      DARABONBA_PTR_TO_JSON(RootDiskPerformanceLevel, rootDiskPerformanceLevel_);
       DARABONBA_PTR_TO_JSON(RootDiskSizeGib, rootDiskSizeGib_);
       DARABONBA_PTR_TO_JSON(UserDiskCategory, userDiskCategory_);
+      DARABONBA_PTR_TO_JSON(UserDiskPerformanceLevel, userDiskPerformanceLevel_);
       DARABONBA_PTR_TO_JSON(UserDiskSizeGib, userDiskSizeGib_);
     };
     friend void from_json(const Darabonba::Json& j, DescribePriceRequest& obj) { 
@@ -46,8 +48,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResellerOwnerUid, resellerOwnerUid_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(RootDiskCategory, rootDiskCategory_);
+      DARABONBA_PTR_FROM_JSON(RootDiskPerformanceLevel, rootDiskPerformanceLevel_);
       DARABONBA_PTR_FROM_JSON(RootDiskSizeGib, rootDiskSizeGib_);
       DARABONBA_PTR_FROM_JSON(UserDiskCategory, userDiskCategory_);
+      DARABONBA_PTR_FROM_JSON(UserDiskPerformanceLevel, userDiskPerformanceLevel_);
       DARABONBA_PTR_FROM_JSON(UserDiskSizeGib, userDiskSizeGib_);
     };
     DescribePriceRequest() = default ;
@@ -64,8 +68,8 @@ namespace Models
     virtual bool empty() const override { this->amount_ != nullptr
         && this->bandwidth_ != nullptr && this->duration_ != nullptr && this->groupDesktopCount_ != nullptr && this->instanceType_ != nullptr && this->internetChargeType_ != nullptr
         && this->osType_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr && this->promotionId_ != nullptr && this->regionId_ != nullptr
-        && this->resellerOwnerUid_ != nullptr && this->resourceType_ != nullptr && this->rootDiskCategory_ != nullptr && this->rootDiskSizeGib_ != nullptr && this->userDiskCategory_ != nullptr
-        && this->userDiskSizeGib_ != nullptr; };
+        && this->resellerOwnerUid_ != nullptr && this->resourceType_ != nullptr && this->rootDiskCategory_ != nullptr && this->rootDiskPerformanceLevel_ != nullptr && this->rootDiskSizeGib_ != nullptr
+        && this->userDiskCategory_ != nullptr && this->userDiskPerformanceLevel_ != nullptr && this->userDiskSizeGib_ != nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -164,6 +168,13 @@ namespace Models
     inline DescribePriceRequest& setRootDiskCategory(string rootDiskCategory) { DARABONBA_PTR_SET_VALUE(rootDiskCategory_, rootDiskCategory) };
 
 
+    // rootDiskPerformanceLevel Field Functions 
+    bool hasRootDiskPerformanceLevel() const { return this->rootDiskPerformanceLevel_ != nullptr;};
+    void deleteRootDiskPerformanceLevel() { this->rootDiskPerformanceLevel_ = nullptr;};
+    inline string rootDiskPerformanceLevel() const { DARABONBA_PTR_GET_DEFAULT(rootDiskPerformanceLevel_, "") };
+    inline DescribePriceRequest& setRootDiskPerformanceLevel(string rootDiskPerformanceLevel) { DARABONBA_PTR_SET_VALUE(rootDiskPerformanceLevel_, rootDiskPerformanceLevel) };
+
+
     // rootDiskSizeGib Field Functions 
     bool hasRootDiskSizeGib() const { return this->rootDiskSizeGib_ != nullptr;};
     void deleteRootDiskSizeGib() { this->rootDiskSizeGib_ = nullptr;};
@@ -176,6 +187,13 @@ namespace Models
     void deleteUserDiskCategory() { this->userDiskCategory_ = nullptr;};
     inline string userDiskCategory() const { DARABONBA_PTR_GET_DEFAULT(userDiskCategory_, "") };
     inline DescribePriceRequest& setUserDiskCategory(string userDiskCategory) { DARABONBA_PTR_SET_VALUE(userDiskCategory_, userDiskCategory) };
+
+
+    // userDiskPerformanceLevel Field Functions 
+    bool hasUserDiskPerformanceLevel() const { return this->userDiskPerformanceLevel_ != nullptr;};
+    void deleteUserDiskPerformanceLevel() { this->userDiskPerformanceLevel_ = nullptr;};
+    inline string userDiskPerformanceLevel() const { DARABONBA_PTR_GET_DEFAULT(userDiskPerformanceLevel_, "") };
+    inline DescribePriceRequest& setUserDiskPerformanceLevel(string userDiskPerformanceLevel) { DARABONBA_PTR_SET_VALUE(userDiskPerformanceLevel_, userDiskPerformanceLevel) };
 
 
     // userDiskSizeGib Field Functions 
@@ -264,6 +282,7 @@ namespace Models
     // *   cloud_auto: the standard SSD.
     // *   cloud_essd: the Enterprise SSD (ESSD). Take note that only specific cloud computer types support ESSDs.
     std::shared_ptr<string> rootDiskCategory_ = nullptr;
+    std::shared_ptr<string> rootDiskPerformanceLevel_ = nullptr;
     // The size of the system disk. Unit: GiB. If you set `ResourceType` to `Desktop`, you must specify this parameter.
     std::shared_ptr<int32_t> rootDiskSizeGib_ = nullptr;
     // The category of the data disk.
@@ -274,6 +293,7 @@ namespace Models
     // *   cloud_auto: the standard SSD.
     // *   cloud_essd: the ESSD. Take note that only specific cloud computer types support ESSDs.
     std::shared_ptr<string> userDiskCategory_ = nullptr;
+    std::shared_ptr<string> userDiskPerformanceLevel_ = nullptr;
     // The size of the data disk. Unit: GiB.
     std::shared_ptr<int32_t> userDiskSizeGib_ = nullptr;
   };

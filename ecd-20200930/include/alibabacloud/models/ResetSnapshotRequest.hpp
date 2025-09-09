@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ResetSnapshotRequest& obj) { 
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(SnapshotId, snapshotId_);
+      DARABONBA_PTR_TO_JSON(StopDesktop, stopDesktop_);
     };
     friend void from_json(const Darabonba::Json& j, ResetSnapshotRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(SnapshotId, snapshotId_);
+      DARABONBA_PTR_FROM_JSON(StopDesktop, stopDesktop_);
     };
     ResetSnapshotRequest() = default ;
     ResetSnapshotRequest(const ResetSnapshotRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->regionId_ != nullptr
-        && this->snapshotId_ != nullptr; };
+        && this->snapshotId_ != nullptr && this->stopDesktop_ != nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -47,6 +49,13 @@ namespace Models
     inline ResetSnapshotRequest& setSnapshotId(string snapshotId) { DARABONBA_PTR_SET_VALUE(snapshotId_, snapshotId) };
 
 
+    // stopDesktop Field Functions 
+    bool hasStopDesktop() const { return this->stopDesktop_ != nullptr;};
+    void deleteStopDesktop() { this->stopDesktop_ = nullptr;};
+    inline bool stopDesktop() const { DARABONBA_PTR_GET_DEFAULT(stopDesktop_, false) };
+    inline ResetSnapshotRequest& setStopDesktop(bool stopDesktop) { DARABONBA_PTR_SET_VALUE(stopDesktop_, stopDesktop) };
+
+
   protected:
     // The ID of the region.
     // 
@@ -56,6 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> snapshotId_ = nullptr;
+    std::shared_ptr<bool> stopDesktop_ = nullptr;
   };
 
   } // namespace Models
