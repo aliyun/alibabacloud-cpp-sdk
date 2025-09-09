@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTTAGKEYSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ListTagKeysResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

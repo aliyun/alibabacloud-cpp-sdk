@@ -47,6 +47,9 @@
 #include <alibabacloud/models/GetBackupRequest.hpp>
 #include <alibabacloud/models/GetBackupResponseBody.hpp>
 #include <alibabacloud/models/GetBackupResponse.hpp>
+#include <alibabacloud/models/GetNetworkAvailableZonesRequest.hpp>
+#include <alibabacloud/models/GetNetworkAvailableZonesResponseBody.hpp>
+#include <alibabacloud/models/GetNetworkAvailableZonesResponse.hpp>
 #include <alibabacloud/models/GetServiceRequest.hpp>
 #include <alibabacloud/models/GetServiceResponseBody.hpp>
 #include <alibabacloud/models/GetServiceResponse.hpp>
@@ -150,6 +153,9 @@
 #include <alibabacloud/models/UpgradeServiceInstanceShrinkRequest.hpp>
 #include <alibabacloud/models/UpgradeServiceInstanceResponseBody.hpp>
 #include <alibabacloud/models/UpgradeServiceInstanceResponse.hpp>
+#include <alibabacloud/models/ValidateServiceInstanceNameRequest.hpp>
+#include <alibabacloud/models/ValidateServiceInstanceNameResponseBody.hpp>
+#include <alibabacloud/models/ValidateServiceInstanceNameResponse.hpp>
 #include <alibabacloud/models/CommodityValueResultOrder.hpp>
 #include <alibabacloud/models/CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs.hpp>
 #include <alibabacloud/models/CommodityValueResultSubOrdersSubOrderModuleInstance.hpp>
@@ -167,6 +173,7 @@
 #include <alibabacloud/models/CreateServiceInstanceShrinkRequestTag.hpp>
 #include <alibabacloud/models/DescribeRegionsResponseBodyRegions.hpp>
 #include <alibabacloud/models/GenerateServicePolicyResponseBodyMissingPolicy.hpp>
+#include <alibabacloud/models/GetNetworkAvailableZonesResponseBodyData.hpp>
 #include <alibabacloud/models/GetServiceResponseBodyCommodityCssMetadataComponentsMappings.hpp>
 #include <alibabacloud/models/GetServiceResponseBodyCommodityCssMetadata.hpp>
 #include <alibabacloud/models/GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings.hpp>

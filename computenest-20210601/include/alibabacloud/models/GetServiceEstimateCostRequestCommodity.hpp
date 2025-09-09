@@ -72,11 +72,11 @@ namespace Models
     std::shared_ptr<int32_t> payPeriod_ = nullptr;
     // The unit of the subscription duration. Valid values:
     // 
-    // *   Year
-    // *   Month
-    // *   Day
+    // *   Year.
+    // *   Month.
+    // *   Day.
     std::shared_ptr<string> payPeriodUnit_ = nullptr;
-    // Marketplace private offer Id
+    // The PrivateOffer ID of the Alibaba Cloud Marketplace.
     std::shared_ptr<string> quotationId_ = nullptr;
   };
 

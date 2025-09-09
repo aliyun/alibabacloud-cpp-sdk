@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ServiceId, serviceId_);
       DARABONBA_PTR_TO_JSON(ServiceVersion, serviceVersion_);
+      DARABONBA_PTR_TO_JSON(TemplateName, templateName_);
       DARABONBA_PTR_TO_JSON(TrialType, trialType_);
     };
     friend void from_json(const Darabonba::Json& j, CheckServiceDeployableRequest& obj) { 
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ServiceId, serviceId_);
       DARABONBA_PTR_FROM_JSON(ServiceVersion, serviceVersion_);
+      DARABONBA_PTR_FROM_JSON(TemplateName, templateName_);
       DARABONBA_PTR_FROM_JSON(TrialType, trialType_);
     };
     CheckServiceDeployableRequest() = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->postPaidAmount_ != nullptr
-        && this->prePaidAmount_ != nullptr && this->regionId_ != nullptr && this->serviceId_ != nullptr && this->serviceVersion_ != nullptr && this->trialType_ != nullptr; };
+        && this->prePaidAmount_ != nullptr && this->regionId_ != nullptr && this->serviceId_ != nullptr && this->serviceVersion_ != nullptr && this->templateName_ != nullptr
+        && this->trialType_ != nullptr; };
     // postPaidAmount Field Functions 
     bool hasPostPaidAmount() const { return this->postPaidAmount_ != nullptr;};
     void deletePostPaidAmount() { this->postPaidAmount_ = nullptr;};
@@ -76,6 +79,13 @@ namespace Models
     inline CheckServiceDeployableRequest& setServiceVersion(string serviceVersion) { DARABONBA_PTR_SET_VALUE(serviceVersion_, serviceVersion) };
 
 
+    // templateName Field Functions 
+    bool hasTemplateName() const { return this->templateName_ != nullptr;};
+    void deleteTemplateName() { this->templateName_ = nullptr;};
+    inline string templateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+    inline CheckServiceDeployableRequest& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
+
+
     // trialType Field Functions 
     bool hasTrialType() const { return this->trialType_ != nullptr;};
     void deleteTrialType() { this->trialType_ = nullptr;};
@@ -96,6 +106,7 @@ namespace Models
     std::shared_ptr<string> serviceId_ = nullptr;
     // The service version.
     std::shared_ptr<string> serviceVersion_ = nullptr;
+    std::shared_ptr<string> templateName_ = nullptr;
     // The trial type of the service instance. Valid values:
     // 
     // *   **Trial**: Trials are supported.

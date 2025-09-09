@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTSERVICEINSTANCEUPGRADEHISTORYRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ListServiceInstanceUpgradeHistoryResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

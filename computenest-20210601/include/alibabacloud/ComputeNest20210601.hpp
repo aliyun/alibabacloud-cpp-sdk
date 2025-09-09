@@ -287,6 +287,23 @@ namespace ComputeNest20210601
       Models::GetBackupResponse getBackup(const Models::GetBackupRequest &request);
 
       /**
+       * @summary 根据指定地域获取可用区列表
+       *
+       * @param request GetNetworkAvailableZonesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetNetworkAvailableZonesResponse
+       */
+      Models::GetNetworkAvailableZonesResponse getNetworkAvailableZonesWithOptions(const Models::GetNetworkAvailableZonesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据指定地域获取可用区列表
+       *
+       * @param request GetNetworkAvailableZonesRequest
+       * @return GetNetworkAvailableZonesResponse
+       */
+      Models::GetNetworkAvailableZonesResponse getNetworkAvailableZones(const Models::GetNetworkAvailableZonesRequest &request);
+
+      /**
        * @summary Queries the information about a service.
        *
        * @param request GetServiceRequest
@@ -863,6 +880,23 @@ namespace ComputeNest20210601
        * @return UpgradeServiceInstanceResponse
        */
       Models::UpgradeServiceInstanceResponse upgradeServiceInstance(const Models::UpgradeServiceInstanceRequest &request);
+
+      /**
+       * @summary 校验服务实例名称
+       *
+       * @param request ValidateServiceInstanceNameRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ValidateServiceInstanceNameResponse
+       */
+      Models::ValidateServiceInstanceNameResponse validateServiceInstanceNameWithOptions(const Models::ValidateServiceInstanceNameRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 校验服务实例名称
+       *
+       * @param request ValidateServiceInstanceNameRequest
+       * @return ValidateServiceInstanceNameResponse
+       */
+      Models::ValidateServiceInstanceNameResponse validateServiceInstanceName(const Models::ValidateServiceInstanceNameRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace ComputeNest20210601

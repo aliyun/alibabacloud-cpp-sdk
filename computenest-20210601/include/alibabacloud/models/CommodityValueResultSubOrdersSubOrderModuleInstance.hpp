@@ -175,7 +175,9 @@ namespace Models
     std::shared_ptr<string> priceType_ = nullptr;
     // The module attributes.
     std::shared_ptr<vector<Models::CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs>> moduleAttrs_ = nullptr;
+    // Module English name.
     std::shared_ptr<string> moduleNameEn_ = nullptr;
+    // Price Unit English Name
     std::shared_ptr<string> priceUnitEn_ = nullptr;
   };
 

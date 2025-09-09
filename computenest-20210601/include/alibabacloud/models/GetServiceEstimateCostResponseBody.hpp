@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETSERVICEESTIMATECOSTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
-#include <alibabacloud/ComputeNest20210601.hpp>
+#include <alibabacloud/models/CommodityValue.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
