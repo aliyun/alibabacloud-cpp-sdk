@@ -1,0 +1,42 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_WEBSITEBUILD20250429MODEL_HPP_
+#define ALIBABACLOUD_WEBSITEBUILD20250429MODEL_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/models/CreateLogoTaskRequest.hpp>
+#include <alibabacloud/models/CreateLogoTaskResponseBody.hpp>
+#include <alibabacloud/models/CreateLogoTaskResponse.hpp>
+#include <alibabacloud/models/GetCreateLogoTaskRequest.hpp>
+#include <alibabacloud/models/GetCreateLogoTaskResponseBody.hpp>
+#include <alibabacloud/models/GetCreateLogoTaskResponse.hpp>
+#include <alibabacloud/models/GetIcpFilingInfoForPartnerRequest.hpp>
+#include <alibabacloud/models/GetIcpFilingInfoForPartnerResponseBody.hpp>
+#include <alibabacloud/models/GetIcpFilingInfoForPartnerResponse.hpp>
+#include <alibabacloud/models/GetUserTmpIdentityForPartnerRequest.hpp>
+#include <alibabacloud/models/GetUserTmpIdentityForPartnerResponseBody.hpp>
+#include <alibabacloud/models/GetUserTmpIdentityForPartnerResponse.hpp>
+#include <alibabacloud/models/OperateAppInstanceForPartnerRequest.hpp>
+#include <alibabacloud/models/OperateAppInstanceForPartnerResponseBody.hpp>
+#include <alibabacloud/models/OperateAppInstanceForPartnerResponse.hpp>
+#include <alibabacloud/models/OperateAppServiceForPartnerRequest.hpp>
+#include <alibabacloud/models/OperateAppServiceForPartnerResponseBody.hpp>
+#include <alibabacloud/models/OperateAppServiceForPartnerResponse.hpp>
+#include <alibabacloud/models/SearchImageRequest.hpp>
+#include <alibabacloud/models/SearchImageShrinkRequest.hpp>
+#include <alibabacloud/models/SearchImageResponseBody.hpp>
+#include <alibabacloud/models/SearchImageResponse.hpp>
+#include <alibabacloud/models/SyncAppInstanceForPartnerRequest.hpp>
+#include <alibabacloud/models/SyncAppInstanceForPartnerShrinkRequest.hpp>
+#include <alibabacloud/models/SyncAppInstanceForPartnerResponseBody.hpp>
+#include <alibabacloud/models/SyncAppInstanceForPartnerResponse.hpp>
+#include <alibabacloud/models/GetCreateLogoTaskResponseBodyTask.hpp>
+#include <alibabacloud/models/GetIcpFilingInfoForPartnerResponseBodyData.hpp>
+#include <alibabacloud/models/GetUserTmpIdentityForPartnerResponseBodyDataCredentials.hpp>
+#include <alibabacloud/models/GetUserTmpIdentityForPartnerResponseBodyData.hpp>
+#include <alibabacloud/models/SearchImageResponseBodyImageResponseImageList.hpp>
+#include <alibabacloud/models/SearchImageResponseBodyImageResponse.hpp>
+#include <alibabacloud/models/SyncAppInstanceForPartnerRequestAppInstanceProfile.hpp>
+#include <alibabacloud/models/SyncAppInstanceForPartnerRequestAppInstance.hpp>
+#include <alibabacloud/models/SyncAppInstanceForPartnerResponseBodyDataAppInstance.hpp>
+#include <alibabacloud/models/SyncAppInstanceForPartnerResponseBodyData.hpp>
+
+#endif
