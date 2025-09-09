@@ -57,6 +57,24 @@ namespace EmrServerlessSpark20230808
       Models::CancelJobRunResponse cancelJobRun(const string &workspaceId, const string &jobRunId, const Models::CancelJobRunRequest &request);
 
       /**
+       * @summary 创建kyuubi的token
+       *
+       * @param request CreateKyuubiTokenRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateKyuubiTokenResponse
+       */
+      Models::CreateKyuubiTokenResponse createKyuubiTokenWithOptions(const string &workspaceId, const string &kyuubiServiceId, const Models::CreateKyuubiTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建kyuubi的token
+       *
+       * @param request CreateKyuubiTokenRequest
+       * @return CreateKyuubiTokenResponse
+       */
+      Models::CreateKyuubiTokenResponse createKyuubiToken(const string &workspaceId, const string &kyuubiServiceId, const Models::CreateKyuubiTokenRequest &request);
+
+      /**
        * @summary 创建Livy compute
        *
        * @param request CreateLivyComputeRequest
@@ -165,6 +183,24 @@ namespace EmrServerlessSpark20230808
       Models::CreateWorkspaceResponse createWorkspace(const Models::CreateWorkspaceRequest &request);
 
       /**
+       * @summary 删除compute的token
+       *
+       * @param request DeleteKyuubiTokenRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteKyuubiTokenResponse
+       */
+      Models::DeleteKyuubiTokenResponse deleteKyuubiTokenWithOptions(const string &workspaceId, const string &kyuubiServiceId, const string &tokenId, const Models::DeleteKyuubiTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除compute的token
+       *
+       * @param request DeleteKyuubiTokenRequest
+       * @return DeleteKyuubiTokenResponse
+       */
+      Models::DeleteKyuubiTokenResponse deleteKyuubiToken(const string &workspaceId, const string &kyuubiServiceId, const string &tokenId, const Models::DeleteKyuubiTokenRequest &request);
+
+      /**
        * @summary 删除livy compute
        *
        * @param request DeleteLivyComputeRequest
@@ -271,6 +307,24 @@ namespace EmrServerlessSpark20230808
        * @return GetJobRunResponse
        */
       Models::GetJobRunResponse getJobRun(const string &workspaceId, const string &jobRunId, const Models::GetJobRunRequest &request);
+
+      /**
+       * @summary 获取compute的token
+       *
+       * @param request GetKyuubiTokenRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetKyuubiTokenResponse
+       */
+      Models::GetKyuubiTokenResponse getKyuubiTokenWithOptions(const string &workspaceId, const string &kyuubiServiceId, const string &tokenId, const Models::GetKyuubiTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取compute的token
+       *
+       * @param request GetKyuubiTokenRequest
+       * @return GetKyuubiTokenResponse
+       */
+      Models::GetKyuubiTokenResponse getKyuubiToken(const string &workspaceId, const string &kyuubiServiceId, const string &tokenId, const Models::GetKyuubiTokenRequest &request);
 
       /**
        * @summary 获取livy compute
@@ -755,6 +809,24 @@ namespace EmrServerlessSpark20230808
        * @return TerminateSqlStatementResponse
        */
       Models::TerminateSqlStatementResponse terminateSqlStatement(const string &workspaceId, const string &statementId, const Models::TerminateSqlStatementRequest &request);
+
+      /**
+       * @summary 更新kyuubi的token
+       *
+       * @param request UpdateKyuubiTokenRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateKyuubiTokenResponse
+       */
+      Models::UpdateKyuubiTokenResponse updateKyuubiTokenWithOptions(const string &workspaceId, const string &kyuubiServiceId, const string &tokenId, const Models::UpdateKyuubiTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新kyuubi的token
+       *
+       * @param request UpdateKyuubiTokenRequest
+       * @return UpdateKyuubiTokenResponse
+       */
+      Models::UpdateKyuubiTokenResponse updateKyuubiToken(const string &workspaceId, const string &kyuubiServiceId, const string &tokenId, const Models::UpdateKyuubiTokenRequest &request);
 
       /**
        * @summary 更新livy compute

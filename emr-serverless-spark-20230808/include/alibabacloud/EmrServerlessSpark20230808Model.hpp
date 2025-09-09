@@ -26,6 +26,9 @@
 #include <alibabacloud/models/CancelJobRunRequest.hpp>
 #include <alibabacloud/models/CancelJobRunResponseBody.hpp>
 #include <alibabacloud/models/CancelJobRunResponse.hpp>
+#include <alibabacloud/models/CreateKyuubiTokenRequest.hpp>
+#include <alibabacloud/models/CreateKyuubiTokenResponseBody.hpp>
+#include <alibabacloud/models/CreateKyuubiTokenResponse.hpp>
 #include <alibabacloud/models/CreateLivyComputeRequest.hpp>
 #include <alibabacloud/models/CreateLivyComputeResponseBody.hpp>
 #include <alibabacloud/models/CreateLivyComputeResponse.hpp>
@@ -45,6 +48,9 @@
 #include <alibabacloud/models/CreateWorkspaceRequest.hpp>
 #include <alibabacloud/models/CreateWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/CreateWorkspaceResponse.hpp>
+#include <alibabacloud/models/DeleteKyuubiTokenRequest.hpp>
+#include <alibabacloud/models/DeleteKyuubiTokenResponseBody.hpp>
+#include <alibabacloud/models/DeleteKyuubiTokenResponse.hpp>
 #include <alibabacloud/models/DeleteLivyComputeRequest.hpp>
 #include <alibabacloud/models/DeleteLivyComputeResponseBody.hpp>
 #include <alibabacloud/models/DeleteLivyComputeResponse.hpp>
@@ -63,6 +69,9 @@
 #include <alibabacloud/models/GetJobRunRequest.hpp>
 #include <alibabacloud/models/GetJobRunResponseBody.hpp>
 #include <alibabacloud/models/GetJobRunResponse.hpp>
+#include <alibabacloud/models/GetKyuubiTokenRequest.hpp>
+#include <alibabacloud/models/GetKyuubiTokenResponseBody.hpp>
+#include <alibabacloud/models/GetKyuubiTokenResponse.hpp>
 #include <alibabacloud/models/GetLivyComputeRequest.hpp>
 #include <alibabacloud/models/GetLivyComputeResponseBody.hpp>
 #include <alibabacloud/models/GetLivyComputeResponse.hpp>
@@ -146,6 +155,9 @@
 #include <alibabacloud/models/TerminateSqlStatementRequest.hpp>
 #include <alibabacloud/models/TerminateSqlStatementResponseBody.hpp>
 #include <alibabacloud/models/TerminateSqlStatementResponse.hpp>
+#include <alibabacloud/models/UpdateKyuubiTokenRequest.hpp>
+#include <alibabacloud/models/UpdateKyuubiTokenResponseBody.hpp>
+#include <alibabacloud/models/UpdateKyuubiTokenResponse.hpp>
 #include <alibabacloud/models/UpdateLivyComputeRequest.hpp>
 #include <alibabacloud/models/UpdateLivyComputeResponseBody.hpp>
 #include <alibabacloud/models/UpdateLivyComputeResponse.hpp>
@@ -159,6 +171,8 @@
 #include <alibabacloud/models/SqlOutputSchemaFields.hpp>
 #include <alibabacloud/models/SqlOutputSchema.hpp>
 #include <alibabacloud/models/TaskCredential.hpp>
+#include <alibabacloud/models/CreateKyuubiTokenRequestAutoExpireConfiguration.hpp>
+#include <alibabacloud/models/CreateKyuubiTokenResponseBodyData.hpp>
 #include <alibabacloud/models/CreateLivyComputeRequestAutoStartConfiguration.hpp>
 #include <alibabacloud/models/CreateLivyComputeRequestAutoStopConfiguration.hpp>
 #include <alibabacloud/models/CreateLivyComputeResponseBodyData.hpp>
@@ -184,6 +198,8 @@
 #include <alibabacloud/models/GetJobRunResponseBodyJobRunConfigurationOverrides.hpp>
 #include <alibabacloud/models/GetJobRunResponseBodyJobRunStateChangeReason.hpp>
 #include <alibabacloud/models/GetJobRunResponseBodyJobRun.hpp>
+#include <alibabacloud/models/GetKyuubiTokenResponseBodyDataAutoExpireConfiguration.hpp>
+#include <alibabacloud/models/GetKyuubiTokenResponseBodyData.hpp>
 #include <alibabacloud/models/GetLivyComputeResponseBodyDataAutoStopConfiguration.hpp>
 #include <alibabacloud/models/GetLivyComputeResponseBodyData.hpp>
 #include <alibabacloud/models/GetLivyComputeTokenResponseBodyDataAutoExpireConfiguration.hpp>
@@ -234,6 +250,7 @@
 #include <alibabacloud/models/RefreshLivyComputeTokenRequestAutoExpireConfiguration.hpp>
 #include <alibabacloud/models/StartJobRunRequestConfigurationOverridesConfigurations.hpp>
 #include <alibabacloud/models/StartJobRunRequestConfigurationOverrides.hpp>
+#include <alibabacloud/models/UpdateKyuubiTokenRequestAutoExpireConfiguration.hpp>
 #include <alibabacloud/models/UpdateLivyComputeRequestAutoStartConfiguration.hpp>
 #include <alibabacloud/models/UpdateLivyComputeRequestAutoStopConfiguration.hpp>
 #include <alibabacloud/models/UpdateProcessDefinitionWithScheduleRequestGlobalParams.hpp>

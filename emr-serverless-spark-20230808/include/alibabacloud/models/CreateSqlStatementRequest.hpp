@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(defaultDatabase, defaultDatabase_);
       DARABONBA_PTR_TO_JSON(limit, limit_);
       DARABONBA_PTR_TO_JSON(sqlComputeId, sqlComputeId_);
+      DARABONBA_PTR_TO_JSON(taskBizId, taskBizId_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSqlStatementRequest& obj) { 
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(defaultDatabase, defaultDatabase_);
       DARABONBA_PTR_FROM_JSON(limit, limit_);
       DARABONBA_PTR_FROM_JSON(sqlComputeId, sqlComputeId_);
+      DARABONBA_PTR_FROM_JSON(taskBizId, taskBizId_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
     };
     CreateSqlStatementRequest() = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->codeContent_ != nullptr
-        && this->defaultCatalog_ != nullptr && this->defaultDatabase_ != nullptr && this->limit_ != nullptr && this->sqlComputeId_ != nullptr && this->regionId_ != nullptr; };
+        && this->defaultCatalog_ != nullptr && this->defaultDatabase_ != nullptr && this->limit_ != nullptr && this->sqlComputeId_ != nullptr && this->taskBizId_ != nullptr
+        && this->regionId_ != nullptr; };
     // codeContent Field Functions 
     bool hasCodeContent() const { return this->codeContent_ != nullptr;};
     void deleteCodeContent() { this->codeContent_ = nullptr;};
@@ -76,6 +79,13 @@ namespace Models
     inline CreateSqlStatementRequest& setSqlComputeId(string sqlComputeId) { DARABONBA_PTR_SET_VALUE(sqlComputeId_, sqlComputeId) };
 
 
+    // taskBizId Field Functions 
+    bool hasTaskBizId() const { return this->taskBizId_ != nullptr;};
+    void deleteTaskBizId() { this->taskBizId_ = nullptr;};
+    inline string taskBizId() const { DARABONBA_PTR_GET_DEFAULT(taskBizId_, "") };
+    inline CreateSqlStatementRequest& setTaskBizId(string taskBizId) { DARABONBA_PTR_SET_VALUE(taskBizId_, taskBizId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -94,6 +104,7 @@ namespace Models
     std::shared_ptr<int32_t> limit_ = nullptr;
     // The SQL session ID. You can create an SQL session in the workspace created in EMR Serverless Spark.
     std::shared_ptr<string> sqlComputeId_ = nullptr;
+    std::shared_ptr<string> taskBizId_ = nullptr;
     // The region ID.
     std::shared_ptr<string> regionId_ = nullptr;
   };
