@@ -411,6 +411,9 @@
 #include <alibabacloud/models/ModifyDbnodeClassRequest.hpp>
 #include <alibabacloud/models/ModifyDbnodeClassResponseBody.hpp>
 #include <alibabacloud/models/ModifyDbnodeClassResponse.hpp>
+#include <alibabacloud/models/ModifyDbnodeDescriptionRequest.hpp>
+#include <alibabacloud/models/ModifyDbnodeDescriptionResponseBody.hpp>
+#include <alibabacloud/models/ModifyDbnodeDescriptionResponse.hpp>
 #include <alibabacloud/models/ModifyDbnodeHotReplicaModeRequest.hpp>
 #include <alibabacloud/models/ModifyDbnodeHotReplicaModeResponseBody.hpp>
 #include <alibabacloud/models/ModifyDbnodeHotReplicaModeResponse.hpp>

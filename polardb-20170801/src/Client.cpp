@@ -4570,6 +4570,10 @@ DescribeDBClusterPerformanceResponse Client::describeDBClusterPerformanceWithOpt
     query["StartTime"] = request.startTime();
   }
 
+  if (!!request.hasSubGroupName()) {
+    query["SubGroupName"] = request.subGroupName();
+  }
+
   if (!!request.hasType()) {
     query["Type"] = request.type();
   }
@@ -10213,6 +10217,72 @@ ModifyDBNodeClassResponse Client::modifyDBNodeClassWithOptions(const ModifyDBNod
 ModifyDBNodeClassResponse Client::modifyDBNodeClass(const ModifyDBNodeClassRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyDBNodeClassWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改物理节点描述
+ *
+ * @param request ModifyDBNodeDescriptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyDBNodeDescriptionResponse
+ */
+ModifyDBNodeDescriptionResponse Client::modifyDBNodeDescriptionWithOptions(const ModifyDBNodeDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDBNodeDescription()) {
+    query["DBNodeDescription"] = request.DBNodeDescription();
+  }
+
+  if (!!request.hasDBNodeId()) {
+    query["DBNodeId"] = request.DBNodeId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyDBNodeDescription"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyDBNodeDescriptionResponse>();
+}
+
+/**
+ * @summary 修改物理节点描述
+ *
+ * @param request ModifyDBNodeDescriptionRequest
+ * @return ModifyDBNodeDescriptionResponse
+ */
+ModifyDBNodeDescriptionResponse Client::modifyDBNodeDescription(const ModifyDBNodeDescriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyDBNodeDescriptionWithOptions(request, runtime);
 }
 
 /**

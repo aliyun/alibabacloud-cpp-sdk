@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Interval, interval_);
       DARABONBA_PTR_TO_JSON(Key, key_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+      DARABONBA_PTR_TO_JSON(SubGroupName, subGroupName_);
       DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDBClusterPerformanceRequest& obj) { 
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Interval, interval_);
       DARABONBA_PTR_FROM_JSON(Key, key_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+      DARABONBA_PTR_FROM_JSON(SubGroupName, subGroupName_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
     };
     DescribeDBClusterPerformanceRequest() = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->DBClusterId_ != nullptr
-        && this->endTime_ != nullptr && this->interval_ != nullptr && this->key_ != nullptr && this->startTime_ != nullptr && this->type_ != nullptr; };
+        && this->endTime_ != nullptr && this->interval_ != nullptr && this->key_ != nullptr && this->startTime_ != nullptr && this->subGroupName_ != nullptr
+        && this->type_ != nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -76,6 +79,13 @@ namespace Models
     inline DescribeDBClusterPerformanceRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
+    // subGroupName Field Functions 
+    bool hasSubGroupName() const { return this->subGroupName_ != nullptr;};
+    void deleteSubGroupName() { this->subGroupName_ = nullptr;};
+    inline string subGroupName() const { DARABONBA_PTR_GET_DEFAULT(subGroupName_, "") };
+    inline DescribeDBClusterPerformanceRequest& setSubGroupName(string subGroupName) { DARABONBA_PTR_SET_VALUE(subGroupName_, subGroupName) };
+
+
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
@@ -104,6 +114,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> startTime_ = nullptr;
+    std::shared_ptr<string> subGroupName_ = nullptr;
     // The query type.
     std::shared_ptr<string> type_ = nullptr;
   };

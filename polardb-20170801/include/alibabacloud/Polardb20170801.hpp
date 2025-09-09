@@ -2585,6 +2585,23 @@ namespace Polardb20170801
       Models::ModifyDBNodeClassResponse modifyDBNodeClass(const Models::ModifyDBNodeClassRequest &request);
 
       /**
+       * @summary 修改物理节点描述
+       *
+       * @param request ModifyDBNodeDescriptionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyDBNodeDescriptionResponse
+       */
+      Models::ModifyDBNodeDescriptionResponse modifyDBNodeDescriptionWithOptions(const Models::ModifyDBNodeDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改物理节点描述
+       *
+       * @param request ModifyDBNodeDescriptionRequest
+       * @return ModifyDBNodeDescriptionResponse
+       */
+      Models::ModifyDBNodeDescriptionResponse modifyDBNodeDescription(const Models::ModifyDBNodeDescriptionRequest &request);
+
+      /**
        * @summary Enables or disables the failover with hot replica feature for a node in a cluster.
        *
        * @param request ModifyDBNodeHotReplicaModeRequest
