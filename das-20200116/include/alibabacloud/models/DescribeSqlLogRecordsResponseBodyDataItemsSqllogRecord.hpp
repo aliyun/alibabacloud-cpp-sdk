@@ -39,6 +39,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SqlText, sqlText_);
       DARABONBA_PTR_TO_JSON(SqlType, sqlType_);
       DARABONBA_PTR_TO_JSON(State, state_);
+      DARABONBA_PTR_TO_JSON(TableName, tableName_);
       DARABONBA_PTR_TO_JSON(ThreadId, threadId_);
       DARABONBA_PTR_TO_JSON(TraceId, traceId_);
       DARABONBA_PTR_TO_JSON(TrxId, trxId_);
@@ -74,6 +75,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SqlText, sqlText_);
       DARABONBA_PTR_FROM_JSON(SqlType, sqlType_);
       DARABONBA_PTR_FROM_JSON(State, state_);
+      DARABONBA_PTR_FROM_JSON(TableName, tableName_);
       DARABONBA_PTR_FROM_JSON(ThreadId, threadId_);
       DARABONBA_PTR_FROM_JSON(TraceId, traceId_);
       DARABONBA_PTR_FROM_JSON(TrxId, trxId_);
@@ -99,8 +101,8 @@ namespace Models
         && this->nodeId_ != nullptr && this->originTime_ != nullptr && this->parallelDegree_ != nullptr && this->parallelQueueTime_ != nullptr && this->physicAsyncRead_ != nullptr
         && this->physicRead_ != nullptr && this->physicSyncRead_ != nullptr && this->returnRows_ != nullptr && this->rows_ != nullptr && this->scanRows_ != nullptr
         && this->scnt_ != nullptr && this->sqlId_ != nullptr && this->sqlText_ != nullptr && this->sqlType_ != nullptr && this->state_ != nullptr
-        && this->threadId_ != nullptr && this->traceId_ != nullptr && this->trxId_ != nullptr && this->updateRows_ != nullptr && this->useImciEngine_ != nullptr
-        && this->vip_ != nullptr && this->writes_ != nullptr; };
+        && this->tableName_ != nullptr && this->threadId_ != nullptr && this->traceId_ != nullptr && this->trxId_ != nullptr && this->updateRows_ != nullptr
+        && this->useImciEngine_ != nullptr && this->vip_ != nullptr && this->writes_ != nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
@@ -283,6 +285,13 @@ namespace Models
     inline DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
 
 
+    // tableName Field Functions 
+    bool hasTableName() const { return this->tableName_ != nullptr;};
+    void deleteTableName() { this->tableName_ = nullptr;};
+    inline string tableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
+    inline DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord& setTableName(string tableName) { DARABONBA_PTR_SET_VALUE(tableName_, tableName) };
+
+
     // threadId Field Functions 
     bool hasThreadId() const { return this->threadId_ != nullptr;};
     void deleteThreadId() { this->threadId_ = nullptr;};
@@ -388,6 +397,7 @@ namespace Models
     // *   **0**: The execution was successful.
     // *   **1**: The execution failed.
     std::shared_ptr<string> state_ = nullptr;
+    std::shared_ptr<string> tableName_ = nullptr;
     // The thread ID.
     std::shared_ptr<int64_t> threadId_ = nullptr;
     // The trace ID of the PolarDB-X 2.0 instance. The value is the execution ID of the SQL statement on the data node.

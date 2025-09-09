@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestStopTime, requestStopTime_);
       DARABONBA_PTR_TO_JSON(Retention, retention_);
       DARABONBA_PTR_TO_JSON(SqlLogEnable, sqlLogEnable_);
+      DARABONBA_PTR_TO_JSON(SqlLogSource, sqlLogSource_);
       DARABONBA_PTR_TO_JSON(SqlLogState, sqlLogState_);
       DARABONBA_PTR_TO_JSON(SqlLogVisibleTime, sqlLogVisibleTime_);
       DARABONBA_PTR_TO_JSON(SupportVersion, supportVersion_);
@@ -45,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RequestStopTime, requestStopTime_);
       DARABONBA_PTR_FROM_JSON(Retention, retention_);
       DARABONBA_PTR_FROM_JSON(SqlLogEnable, sqlLogEnable_);
+      DARABONBA_PTR_FROM_JSON(SqlLogSource, sqlLogSource_);
       DARABONBA_PTR_FROM_JSON(SqlLogState, sqlLogState_);
       DARABONBA_PTR_FROM_JSON(SqlLogVisibleTime, sqlLogVisibleTime_);
       DARABONBA_PTR_FROM_JSON(SupportVersion, supportVersion_);
@@ -64,8 +66,8 @@ namespace Models
     virtual bool empty() const override { this->coldEnable_ != nullptr
         && this->coldRetention_ != nullptr && this->coldStartTime_ != nullptr && this->collectorVersion_ != nullptr && this->hotEnable_ != nullptr && this->hotRetention_ != nullptr
         && this->hotStartTime_ != nullptr && this->logFilter_ != nullptr && this->requestEnable_ != nullptr && this->requestStartTime_ != nullptr && this->requestStopTime_ != nullptr
-        && this->retention_ != nullptr && this->sqlLogEnable_ != nullptr && this->sqlLogState_ != nullptr && this->sqlLogVisibleTime_ != nullptr && this->supportVersion_ != nullptr
-        && this->version_ != nullptr; };
+        && this->retention_ != nullptr && this->sqlLogEnable_ != nullptr && this->sqlLogSource_ != nullptr && this->sqlLogState_ != nullptr && this->sqlLogVisibleTime_ != nullptr
+        && this->supportVersion_ != nullptr && this->version_ != nullptr; };
     // coldEnable Field Functions 
     bool hasColdEnable() const { return this->coldEnable_ != nullptr;};
     void deleteColdEnable() { this->coldEnable_ = nullptr;};
@@ -157,6 +159,13 @@ namespace Models
     inline ModifySqlLogConfigResponseBodyData& setSqlLogEnable(bool sqlLogEnable) { DARABONBA_PTR_SET_VALUE(sqlLogEnable_, sqlLogEnable) };
 
 
+    // sqlLogSource Field Functions 
+    bool hasSqlLogSource() const { return this->sqlLogSource_ != nullptr;};
+    void deleteSqlLogSource() { this->sqlLogSource_ = nullptr;};
+    inline string sqlLogSource() const { DARABONBA_PTR_GET_DEFAULT(sqlLogSource_, "") };
+    inline ModifySqlLogConfigResponseBodyData& setSqlLogSource(string sqlLogSource) { DARABONBA_PTR_SET_VALUE(sqlLogSource_, sqlLogSource) };
+
+
     // sqlLogState Field Functions 
     bool hasSqlLogState() const { return this->sqlLogState_ != nullptr;};
     void deleteSqlLogState() { this->sqlLogState_ = nullptr;};
@@ -232,6 +241,7 @@ namespace Models
     // *   **true**
     // *   **false**
     std::shared_ptr<bool> sqlLogEnable_ = nullptr;
+    std::shared_ptr<string> sqlLogSource_ = nullptr;
     // The state of data migration. Valid values:
     // 
     // *   **FINISH**: The historical data is migrated.
