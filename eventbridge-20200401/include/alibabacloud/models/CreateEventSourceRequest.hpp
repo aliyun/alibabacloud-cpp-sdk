@@ -5,6 +5,7 @@
 #include <alibabacloud/models/CreateEventSourceRequestSourceHttpEventParameters.hpp>
 #include <alibabacloud/models/CreateEventSourceRequestSourceKafkaParameters.hpp>
 #include <alibabacloud/models/CreateEventSourceRequestSourceMNSParameters.hpp>
+#include <alibabacloud/models/CreateEventSourceRequestSourceOSSEventParameters.hpp>
 #include <alibabacloud/models/CreateEventSourceRequestSourceRabbitMQParameters.hpp>
 #include <alibabacloud/models/CreateEventSourceRequestSourceRocketMQParameters.hpp>
 #include <alibabacloud/models/CreateEventSourceRequestSourceSLSParameters.hpp>
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SourceHttpEventParameters, sourceHttpEventParameters_);
       DARABONBA_PTR_TO_JSON(SourceKafkaParameters, sourceKafkaParameters_);
       DARABONBA_PTR_TO_JSON(SourceMNSParameters, sourceMNSParameters_);
+      DARABONBA_PTR_TO_JSON(SourceOSSEventParameters, sourceOSSEventParameters_);
       DARABONBA_PTR_TO_JSON(SourceRabbitMQParameters, sourceRabbitMQParameters_);
       DARABONBA_PTR_TO_JSON(SourceRocketMQParameters, sourceRocketMQParameters_);
       DARABONBA_PTR_TO_JSON(SourceSLSParameters, sourceSLSParameters_);
@@ -44,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SourceHttpEventParameters, sourceHttpEventParameters_);
       DARABONBA_PTR_FROM_JSON(SourceKafkaParameters, sourceKafkaParameters_);
       DARABONBA_PTR_FROM_JSON(SourceMNSParameters, sourceMNSParameters_);
+      DARABONBA_PTR_FROM_JSON(SourceOSSEventParameters, sourceOSSEventParameters_);
       DARABONBA_PTR_FROM_JSON(SourceRabbitMQParameters, sourceRabbitMQParameters_);
       DARABONBA_PTR_FROM_JSON(SourceRocketMQParameters, sourceRocketMQParameters_);
       DARABONBA_PTR_FROM_JSON(SourceSLSParameters, sourceSLSParameters_);
@@ -62,8 +65,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->description_ != nullptr
         && this->eventBusName_ != nullptr && this->eventSourceName_ != nullptr && this->externalSourceConfig_ != nullptr && this->externalSourceType_ != nullptr && this->linkedExternalSource_ != nullptr
-        && this->sourceHttpEventParameters_ != nullptr && this->sourceKafkaParameters_ != nullptr && this->sourceMNSParameters_ != nullptr && this->sourceRabbitMQParameters_ != nullptr && this->sourceRocketMQParameters_ != nullptr
-        && this->sourceSLSParameters_ != nullptr && this->sourceScheduledEventParameters_ != nullptr; };
+        && this->sourceHttpEventParameters_ != nullptr && this->sourceKafkaParameters_ != nullptr && this->sourceMNSParameters_ != nullptr && this->sourceOSSEventParameters_ != nullptr && this->sourceRabbitMQParameters_ != nullptr
+        && this->sourceRocketMQParameters_ != nullptr && this->sourceSLSParameters_ != nullptr && this->sourceScheduledEventParameters_ != nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -135,6 +138,15 @@ namespace Models
     inline CreateEventSourceRequest& setSourceMNSParameters(CreateEventSourceRequestSourceMNSParameters && sourceMNSParameters) { DARABONBA_PTR_SET_RVALUE(sourceMNSParameters_, sourceMNSParameters) };
 
 
+    // sourceOSSEventParameters Field Functions 
+    bool hasSourceOSSEventParameters() const { return this->sourceOSSEventParameters_ != nullptr;};
+    void deleteSourceOSSEventParameters() { this->sourceOSSEventParameters_ = nullptr;};
+    inline const CreateEventSourceRequestSourceOSSEventParameters & sourceOSSEventParameters() const { DARABONBA_PTR_GET_CONST(sourceOSSEventParameters_, CreateEventSourceRequestSourceOSSEventParameters) };
+    inline CreateEventSourceRequestSourceOSSEventParameters sourceOSSEventParameters() { DARABONBA_PTR_GET(sourceOSSEventParameters_, CreateEventSourceRequestSourceOSSEventParameters) };
+    inline CreateEventSourceRequest& setSourceOSSEventParameters(const CreateEventSourceRequestSourceOSSEventParameters & sourceOSSEventParameters) { DARABONBA_PTR_SET_VALUE(sourceOSSEventParameters_, sourceOSSEventParameters) };
+    inline CreateEventSourceRequest& setSourceOSSEventParameters(CreateEventSourceRequestSourceOSSEventParameters && sourceOSSEventParameters) { DARABONBA_PTR_SET_RVALUE(sourceOSSEventParameters_, sourceOSSEventParameters) };
+
+
     // sourceRabbitMQParameters Field Functions 
     bool hasSourceRabbitMQParameters() const { return this->sourceRabbitMQParameters_ != nullptr;};
     void deleteSourceRabbitMQParameters() { this->sourceRabbitMQParameters_ = nullptr;};
@@ -194,6 +206,7 @@ namespace Models
     std::shared_ptr<CreateEventSourceRequestSourceKafkaParameters> sourceKafkaParameters_ = nullptr;
     // The parameters that are configured if you specify Simple Message Queue (formerly MNS) (SMQ) as the event source. If you specify SMQ as the event source, you must configure RegionId, IsBase64Decode, and QueueName.
     std::shared_ptr<CreateEventSourceRequestSourceMNSParameters> sourceMNSParameters_ = nullptr;
+    std::shared_ptr<CreateEventSourceRequestSourceOSSEventParameters> sourceOSSEventParameters_ = nullptr;
     // The parameters that are configured if the event source is Message Queue for RabbitMQ.
     std::shared_ptr<CreateEventSourceRequestSourceRabbitMQParameters> sourceRabbitMQParameters_ = nullptr;
     // The parameters that are configured if the event source is Message Queue for Apache RocketMQ.

@@ -288,6 +288,10 @@ CreateEventSourceResponse Client::createEventSourceWithOptions(const CreateEvent
     request.setSourceMNSParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceMNSParameters(), "SourceMNSParameters", "json"));
   }
 
+  if (!!tmpReq.hasSourceOSSEventParameters()) {
+    request.setSourceOSSEventParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceOSSEventParameters(), "SourceOSSEventParameters", "json"));
+  }
+
   if (!!tmpReq.hasSourceRabbitMQParameters()) {
     request.setSourceRabbitMQParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceRabbitMQParameters(), "SourceRabbitMQParameters", "json"));
   }
@@ -339,6 +343,10 @@ CreateEventSourceResponse Client::createEventSourceWithOptions(const CreateEvent
 
   if (!!request.hasSourceMNSParametersShrink()) {
     body["SourceMNSParameters"] = request.sourceMNSParametersShrink();
+  }
+
+  if (!!request.hasSourceOSSEventParametersShrink()) {
+    body["SourceOSSEventParameters"] = request.sourceOSSEventParametersShrink();
   }
 
   if (!!request.hasSourceRabbitMQParametersShrink()) {
@@ -2525,6 +2533,10 @@ UpdateEventSourceResponse Client::updateEventSourceWithOptions(const UpdateEvent
     request.setSourceMNSParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceMNSParameters(), "SourceMNSParameters", "json"));
   }
 
+  if (!!tmpReq.hasSourceOSSEventParameters()) {
+    request.setSourceOSSEventParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceOSSEventParameters(), "SourceOSSEventParameters", "json"));
+  }
+
   if (!!tmpReq.hasSourceRabbitMQParameters()) {
     request.setSourceRabbitMQParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceRabbitMQParameters(), "SourceRabbitMQParameters", "json"));
   }
@@ -2576,6 +2588,10 @@ UpdateEventSourceResponse Client::updateEventSourceWithOptions(const UpdateEvent
 
   if (!!request.hasSourceMNSParametersShrink()) {
     body["SourceMNSParameters"] = request.sourceMNSParametersShrink();
+  }
+
+  if (!!request.hasSourceOSSEventParametersShrink()) {
+    body["SourceOSSEventParameters"] = request.sourceOSSEventParametersShrink();
   }
 
   if (!!request.hasSourceRabbitMQParametersShrink()) {

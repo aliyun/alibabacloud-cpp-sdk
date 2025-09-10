@@ -5,6 +5,7 @@
 #include <alibabacloud/models/ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceHttpEventParameters.hpp>
 #include <alibabacloud/models/ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceKafkaParameters.hpp>
 #include <alibabacloud/models/ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceMNSParameters.hpp>
+#include <alibabacloud/models/ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceOSSEventParameters.hpp>
 #include <alibabacloud/models/ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRabbitMQParameters.hpp>
 #include <alibabacloud/models/ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRocketMQParameters.hpp>
 #include <alibabacloud/models/ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceSLSParameters.hpp>
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SourceHttpEventParameters, sourceHttpEventParameters_);
       DARABONBA_PTR_TO_JSON(SourceKafkaParameters, sourceKafkaParameters_);
       DARABONBA_PTR_TO_JSON(SourceMNSParameters, sourceMNSParameters_);
+      DARABONBA_PTR_TO_JSON(SourceOSSEventParameters, sourceOSSEventParameters_);
       DARABONBA_PTR_TO_JSON(SourceRabbitMQParameters, sourceRabbitMQParameters_);
       DARABONBA_PTR_TO_JSON(SourceRocketMQParameters, sourceRocketMQParameters_);
       DARABONBA_PTR_TO_JSON(SourceSLSParameters, sourceSLSParameters_);
@@ -44,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SourceHttpEventParameters, sourceHttpEventParameters_);
       DARABONBA_PTR_FROM_JSON(SourceKafkaParameters, sourceKafkaParameters_);
       DARABONBA_PTR_FROM_JSON(SourceMNSParameters, sourceMNSParameters_);
+      DARABONBA_PTR_FROM_JSON(SourceOSSEventParameters, sourceOSSEventParameters_);
       DARABONBA_PTR_FROM_JSON(SourceRabbitMQParameters, sourceRabbitMQParameters_);
       DARABONBA_PTR_FROM_JSON(SourceRocketMQParameters, sourceRocketMQParameters_);
       DARABONBA_PTR_FROM_JSON(SourceSLSParameters, sourceSLSParameters_);
@@ -64,8 +67,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->arn_ != nullptr
         && this->ctime_ != nullptr && this->eventBusName_ != nullptr && this->externalSourceType_ != nullptr && this->name_ != nullptr && this->sourceHttpEventParameters_ != nullptr
-        && this->sourceKafkaParameters_ != nullptr && this->sourceMNSParameters_ != nullptr && this->sourceRabbitMQParameters_ != nullptr && this->sourceRocketMQParameters_ != nullptr && this->sourceSLSParameters_ != nullptr
-        && this->sourceScheduledEventParameters_ != nullptr && this->status_ != nullptr && this->type_ != nullptr; };
+        && this->sourceKafkaParameters_ != nullptr && this->sourceMNSParameters_ != nullptr && this->sourceOSSEventParameters_ != nullptr && this->sourceRabbitMQParameters_ != nullptr && this->sourceRocketMQParameters_ != nullptr
+        && this->sourceSLSParameters_ != nullptr && this->sourceScheduledEventParameters_ != nullptr && this->status_ != nullptr && this->type_ != nullptr; };
     // arn Field Functions 
     bool hasArn() const { return this->arn_ != nullptr;};
     void deleteArn() { this->arn_ = nullptr;};
@@ -126,6 +129,15 @@ namespace Models
     inline Models::ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceMNSParameters sourceMNSParameters() { DARABONBA_PTR_GET(sourceMNSParameters_, Models::ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceMNSParameters) };
     inline ListUserDefinedEventSourcesResponseBodyDataEventSourceList& setSourceMNSParameters(const Models::ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceMNSParameters & sourceMNSParameters) { DARABONBA_PTR_SET_VALUE(sourceMNSParameters_, sourceMNSParameters) };
     inline ListUserDefinedEventSourcesResponseBodyDataEventSourceList& setSourceMNSParameters(Models::ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceMNSParameters && sourceMNSParameters) { DARABONBA_PTR_SET_RVALUE(sourceMNSParameters_, sourceMNSParameters) };
+
+
+    // sourceOSSEventParameters Field Functions 
+    bool hasSourceOSSEventParameters() const { return this->sourceOSSEventParameters_ != nullptr;};
+    void deleteSourceOSSEventParameters() { this->sourceOSSEventParameters_ = nullptr;};
+    inline const Models::ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceOSSEventParameters & sourceOSSEventParameters() const { DARABONBA_PTR_GET_CONST(sourceOSSEventParameters_, Models::ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceOSSEventParameters) };
+    inline Models::ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceOSSEventParameters sourceOSSEventParameters() { DARABONBA_PTR_GET(sourceOSSEventParameters_, Models::ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceOSSEventParameters) };
+    inline ListUserDefinedEventSourcesResponseBodyDataEventSourceList& setSourceOSSEventParameters(const Models::ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceOSSEventParameters & sourceOSSEventParameters) { DARABONBA_PTR_SET_VALUE(sourceOSSEventParameters_, sourceOSSEventParameters) };
+    inline ListUserDefinedEventSourcesResponseBodyDataEventSourceList& setSourceOSSEventParameters(Models::ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceOSSEventParameters && sourceOSSEventParameters) { DARABONBA_PTR_SET_RVALUE(sourceOSSEventParameters_, sourceOSSEventParameters) };
 
 
     // sourceRabbitMQParameters Field Functions 
@@ -195,6 +207,7 @@ namespace Models
     std::shared_ptr<Models::ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceKafkaParameters> sourceKafkaParameters_ = nullptr;
     // The parameters that are returned if Simple Message Queue (formerly MNS) (SMQ) is specified as the event source.
     std::shared_ptr<Models::ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceMNSParameters> sourceMNSParameters_ = nullptr;
+    std::shared_ptr<Models::ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceOSSEventParameters> sourceOSSEventParameters_ = nullptr;
     // The parameters that are returned if Message Queue for RabbitMQ is specified as the event source.
     std::shared_ptr<Models::ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRabbitMQParameters> sourceRabbitMQParameters_ = nullptr;
     // The parameters that are returned if Message Queue for Apache RocketMQ is specified as the event source.

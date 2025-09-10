@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SourceHttpEventParameters, sourceHttpEventParametersShrink_);
       DARABONBA_PTR_TO_JSON(SourceKafkaParameters, sourceKafkaParametersShrink_);
       DARABONBA_PTR_TO_JSON(SourceMNSParameters, sourceMNSParametersShrink_);
+      DARABONBA_PTR_TO_JSON(SourceOSSEventParameters, sourceOSSEventParametersShrink_);
       DARABONBA_PTR_TO_JSON(SourceRabbitMQParameters, sourceRabbitMQParametersShrink_);
       DARABONBA_PTR_TO_JSON(SourceRocketMQParameters, sourceRocketMQParametersShrink_);
       DARABONBA_PTR_TO_JSON(SourceSLSParameters, sourceSLSParametersShrink_);
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SourceHttpEventParameters, sourceHttpEventParametersShrink_);
       DARABONBA_PTR_FROM_JSON(SourceKafkaParameters, sourceKafkaParametersShrink_);
       DARABONBA_PTR_FROM_JSON(SourceMNSParameters, sourceMNSParametersShrink_);
+      DARABONBA_PTR_FROM_JSON(SourceOSSEventParameters, sourceOSSEventParametersShrink_);
       DARABONBA_PTR_FROM_JSON(SourceRabbitMQParameters, sourceRabbitMQParametersShrink_);
       DARABONBA_PTR_FROM_JSON(SourceRocketMQParameters, sourceRocketMQParametersShrink_);
       DARABONBA_PTR_FROM_JSON(SourceSLSParameters, sourceSLSParametersShrink_);
@@ -55,8 +57,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->description_ != nullptr
         && this->eventBusName_ != nullptr && this->eventSourceName_ != nullptr && this->externalSourceConfigShrink_ != nullptr && this->externalSourceType_ != nullptr && this->linkedExternalSource_ != nullptr
-        && this->sourceHttpEventParametersShrink_ != nullptr && this->sourceKafkaParametersShrink_ != nullptr && this->sourceMNSParametersShrink_ != nullptr && this->sourceRabbitMQParametersShrink_ != nullptr && this->sourceRocketMQParametersShrink_ != nullptr
-        && this->sourceSLSParametersShrink_ != nullptr && this->sourceScheduledEventParametersShrink_ != nullptr; };
+        && this->sourceHttpEventParametersShrink_ != nullptr && this->sourceKafkaParametersShrink_ != nullptr && this->sourceMNSParametersShrink_ != nullptr && this->sourceOSSEventParametersShrink_ != nullptr && this->sourceRabbitMQParametersShrink_ != nullptr
+        && this->sourceRocketMQParametersShrink_ != nullptr && this->sourceSLSParametersShrink_ != nullptr && this->sourceScheduledEventParametersShrink_ != nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -120,6 +122,13 @@ namespace Models
     inline UpdateEventSourceShrinkRequest& setSourceMNSParametersShrink(string sourceMNSParametersShrink) { DARABONBA_PTR_SET_VALUE(sourceMNSParametersShrink_, sourceMNSParametersShrink) };
 
 
+    // sourceOSSEventParametersShrink Field Functions 
+    bool hasSourceOSSEventParametersShrink() const { return this->sourceOSSEventParametersShrink_ != nullptr;};
+    void deleteSourceOSSEventParametersShrink() { this->sourceOSSEventParametersShrink_ = nullptr;};
+    inline string sourceOSSEventParametersShrink() const { DARABONBA_PTR_GET_DEFAULT(sourceOSSEventParametersShrink_, "") };
+    inline UpdateEventSourceShrinkRequest& setSourceOSSEventParametersShrink(string sourceOSSEventParametersShrink) { DARABONBA_PTR_SET_VALUE(sourceOSSEventParametersShrink_, sourceOSSEventParametersShrink) };
+
+
     // sourceRabbitMQParametersShrink Field Functions 
     bool hasSourceRabbitMQParametersShrink() const { return this->sourceRabbitMQParametersShrink_ != nullptr;};
     void deleteSourceRabbitMQParametersShrink() { this->sourceRabbitMQParametersShrink_ = nullptr;};
@@ -171,6 +180,7 @@ namespace Models
     std::shared_ptr<string> sourceKafkaParametersShrink_ = nullptr;
     // The parameters that are configured if the event source is Message Service (MNS).
     std::shared_ptr<string> sourceMNSParametersShrink_ = nullptr;
+    std::shared_ptr<string> sourceOSSEventParametersShrink_ = nullptr;
     // The parameters that are configured if the event source is Message Queue for RabbitMQ.
     std::shared_ptr<string> sourceRabbitMQParametersShrink_ = nullptr;
     // The parameters that are configured if the event source is Message Queue for Apache RocketMQ.

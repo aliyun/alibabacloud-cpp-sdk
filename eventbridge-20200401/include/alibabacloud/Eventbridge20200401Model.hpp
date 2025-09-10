@@ -184,6 +184,8 @@
 #include <alibabacloud/models/CreateEventSourceRequestSourceHttpEventParameters.hpp>
 #include <alibabacloud/models/CreateEventSourceRequestSourceKafkaParameters.hpp>
 #include <alibabacloud/models/CreateEventSourceRequestSourceMnsparameters.hpp>
+#include <alibabacloud/models/CreateEventSourceRequestSourceOsseventParametersMatchRules.hpp>
+#include <alibabacloud/models/CreateEventSourceRequestSourceOsseventParameters.hpp>
 #include <alibabacloud/models/CreateEventSourceRequestSourceRabbitMqparameters.hpp>
 #include <alibabacloud/models/CreateEventSourceRequestSourceRocketMqparameters.hpp>
 #include <alibabacloud/models/CreateEventSourceRequestSourceSlsparameters.hpp>
@@ -676,6 +678,7 @@
 #include <alibabacloud/models/ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceHttpEventParameters.hpp>
 #include <alibabacloud/models/ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceKafkaParameters.hpp>
 #include <alibabacloud/models/ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceMnsparameters.hpp>
+#include <alibabacloud/models/ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceOsseventParameters.hpp>
 #include <alibabacloud/models/ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRabbitMqparameters.hpp>
 #include <alibabacloud/models/ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRocketMqparameters.hpp>
 #include <alibabacloud/models/ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceSlsparameters.hpp>
@@ -710,6 +713,8 @@
 #include <alibabacloud/models/UpdateEventSourceRequestSourceHttpEventParameters.hpp>
 #include <alibabacloud/models/UpdateEventSourceRequestSourceKafkaParameters.hpp>
 #include <alibabacloud/models/UpdateEventSourceRequestSourceMnsparameters.hpp>
+#include <alibabacloud/models/UpdateEventSourceRequestSourceOsseventParametersMatchRules.hpp>
+#include <alibabacloud/models/UpdateEventSourceRequestSourceOsseventParameters.hpp>
 #include <alibabacloud/models/UpdateEventSourceRequestSourceRabbitMqparameters.hpp>
 #include <alibabacloud/models/UpdateEventSourceRequestSourceRocketMqparameters.hpp>
 #include <alibabacloud/models/UpdateEventSourceRequestSourceSlsparameters.hpp>
