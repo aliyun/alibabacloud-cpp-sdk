@@ -98,6 +98,7 @@ namespace Models
     // 
     // *   TAG_POLICY: the Tag Policy feature.
     // *   VERIFY_NO_TAG: the strong verification feature.
+    // *   TAG_POLICY_NOTIFY: the notification feature that sends notifications for resources found to be non-compliant with the tag policy.
     std::shared_ptr<string> openType_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
