@@ -211,10 +211,10 @@ namespace Models
     // vector Field Functions 
     bool hasVector() const { return this->vector_ != nullptr;};
     void deleteVector() { this->vector_ = nullptr;};
-    inline const vector<double> & vector() const { DARABONBA_PTR_GET_CONST(vector_, vector<double>) };
-    inline vector<double> vector() { DARABONBA_PTR_GET(vector_, vector<double>) };
-    inline QueryCollectionDataRequest& setVector(const vector<double> & vector) { DARABONBA_PTR_SET_VALUE(vector_, vector) };
-    inline QueryCollectionDataRequest& setVector(vector<double> && vector) { DARABONBA_PTR_SET_RVALUE(vector_, vector) };
+    inline const vector<double> & _vector() const { DARABONBA_PTR_GET_CONST(vector_, vector<double>) };
+    inline vector<double> _vector() { DARABONBA_PTR_GET(vector_, vector<double>) };
+    inline QueryCollectionDataRequest& setVector(const vector<double> & _vector) { DARABONBA_PTR_SET_VALUE(vector_, _vector) };
+    inline QueryCollectionDataRequest& setVector(vector<double> && _vector) { DARABONBA_PTR_SET_RVALUE(vector_, _vector) };
 
 
     // workspaceId Field Functions 

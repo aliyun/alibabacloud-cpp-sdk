@@ -41,6 +41,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Engine, engine_);
       DARABONBA_PTR_TO_JSON(EngineVersion, engineVersion_);
       DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
+      DARABONBA_PTR_TO_JSON(GraphEngineStatus, graphEngineStatus_);
       DARABONBA_PTR_TO_JSON(HostType, hostType_);
       DARABONBA_PTR_TO_JSON(IdleTime, idleTime_);
       DARABONBA_PTR_TO_JSON(InstanceNetworkType, instanceNetworkType_);
@@ -112,6 +113,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Engine, engine_);
       DARABONBA_PTR_FROM_JSON(EngineVersion, engineVersion_);
       DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
+      DARABONBA_PTR_FROM_JSON(GraphEngineStatus, graphEngineStatus_);
       DARABONBA_PTR_FROM_JSON(HostType, hostType_);
       DARABONBA_PTR_FROM_JSON(IdleTime, idleTime_);
       DARABONBA_PTR_FROM_JSON(InstanceNetworkType, instanceNetworkType_);
@@ -172,15 +174,15 @@ namespace Models
         && this->DBInstanceCpuCores_ != nullptr && this->DBInstanceDescription_ != nullptr && this->DBInstanceDiskMBPS_ != nullptr && this->DBInstanceGroupCount_ != nullptr && this->DBInstanceId_ != nullptr
         && this->DBInstanceMemory_ != nullptr && this->DBInstanceMode_ != nullptr && this->DBInstanceNetType_ != nullptr && this->DBInstanceStatus_ != nullptr && this->DBInstanceStorage_ != nullptr
         && this->deployMode_ != nullptr && this->encryptionKey_ != nullptr && this->encryptionType_ != nullptr && this->engine_ != nullptr && this->engineVersion_ != nullptr
-        && this->expireTime_ != nullptr && this->hostType_ != nullptr && this->idleTime_ != nullptr && this->instanceNetworkType_ != nullptr && this->instanceSpec_ != nullptr
-        && this->lockMode_ != nullptr && this->lockReason_ != nullptr && this->maintainEndTime_ != nullptr && this->maintainStartTime_ != nullptr && this->masterAISpec_ != nullptr
-        && this->masterCU_ != nullptr && this->masterNodeNum_ != nullptr && this->maxConnections_ != nullptr && this->memoryPerNode_ != nullptr && this->memorySize_ != nullptr
-        && this->memoryUnit_ != nullptr && this->minorVersion_ != nullptr && this->payType_ != nullptr && this->port_ != nullptr && this->prodType_ != nullptr
-        && this->readDelayTime_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->runningTime_ != nullptr && this->securityIPList_ != nullptr
-        && this->segDiskPerformanceLevel_ != nullptr && this->segNodeNum_ != nullptr && this->segmentAISpec_ != nullptr && this->segmentCounts_ != nullptr && this->serverlessMode_ != nullptr
-        && this->serverlessResource_ != nullptr && this->standbyZoneId_ != nullptr && this->startTime_ != nullptr && this->storagePerNode_ != nullptr && this->storageSize_ != nullptr
-        && this->storageType_ != nullptr && this->storageUnit_ != nullptr && this->supportRestore_ != nullptr && this->tags_ != nullptr && this->vSwitchId_ != nullptr
-        && this->vectorConfigurationStatus_ != nullptr && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
+        && this->expireTime_ != nullptr && this->graphEngineStatus_ != nullptr && this->hostType_ != nullptr && this->idleTime_ != nullptr && this->instanceNetworkType_ != nullptr
+        && this->instanceSpec_ != nullptr && this->lockMode_ != nullptr && this->lockReason_ != nullptr && this->maintainEndTime_ != nullptr && this->maintainStartTime_ != nullptr
+        && this->masterAISpec_ != nullptr && this->masterCU_ != nullptr && this->masterNodeNum_ != nullptr && this->maxConnections_ != nullptr && this->memoryPerNode_ != nullptr
+        && this->memorySize_ != nullptr && this->memoryUnit_ != nullptr && this->minorVersion_ != nullptr && this->payType_ != nullptr && this->port_ != nullptr
+        && this->prodType_ != nullptr && this->readDelayTime_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->runningTime_ != nullptr
+        && this->securityIPList_ != nullptr && this->segDiskPerformanceLevel_ != nullptr && this->segNodeNum_ != nullptr && this->segmentAISpec_ != nullptr && this->segmentCounts_ != nullptr
+        && this->serverlessMode_ != nullptr && this->serverlessResource_ != nullptr && this->standbyZoneId_ != nullptr && this->startTime_ != nullptr && this->storagePerNode_ != nullptr
+        && this->storageSize_ != nullptr && this->storageType_ != nullptr && this->storageUnit_ != nullptr && this->supportRestore_ != nullptr && this->tags_ != nullptr
+        && this->vSwitchId_ != nullptr && this->vectorConfigurationStatus_ != nullptr && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
     // availabilityValue Field Functions 
     bool hasAvailabilityValue() const { return this->availabilityValue_ != nullptr;};
     void deleteAvailabilityValue() { this->availabilityValue_ = nullptr;};
@@ -368,6 +370,13 @@ namespace Models
     void deleteExpireTime() { this->expireTime_ = nullptr;};
     inline string expireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, "") };
     inline DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute& setExpireTime(string expireTime) { DARABONBA_PTR_SET_VALUE(expireTime_, expireTime) };
+
+
+    // graphEngineStatus Field Functions 
+    bool hasGraphEngineStatus() const { return this->graphEngineStatus_ != nullptr;};
+    void deleteGraphEngineStatus() { this->graphEngineStatus_ = nullptr;};
+    inline string graphEngineStatus() const { DARABONBA_PTR_GET_DEFAULT(graphEngineStatus_, "") };
+    inline DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute& setGraphEngineStatus(string graphEngineStatus) { DARABONBA_PTR_SET_VALUE(graphEngineStatus_, graphEngineStatus) };
 
 
     // hostType Field Functions 
@@ -756,6 +765,7 @@ namespace Models
     // 
     // > The expiration time for pay-as-you-go instances is `2999-09-08T16:00:00Z`.
     std::shared_ptr<string> expireTime_ = nullptr;
+    std::shared_ptr<string> graphEngineStatus_ = nullptr;
     // Compute group machine type, with the following values:
     // - **0**: SSD
     // - **1**: HDD

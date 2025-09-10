@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYMASTERSPECRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ModifyMasterSpecResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

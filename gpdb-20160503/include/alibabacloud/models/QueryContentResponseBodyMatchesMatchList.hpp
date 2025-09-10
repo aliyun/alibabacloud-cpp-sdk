@@ -120,10 +120,10 @@ namespace Models
     // vector Field Functions 
     bool hasVector() const { return this->vector_ != nullptr;};
     void deleteVector() { this->vector_ = nullptr;};
-    inline const Models::QueryContentResponseBodyMatchesMatchListVector & vector() const { DARABONBA_PTR_GET_CONST(vector_, Models::QueryContentResponseBodyMatchesMatchListVector) };
-    inline Models::QueryContentResponseBodyMatchesMatchListVector vector() { DARABONBA_PTR_GET(vector_, Models::QueryContentResponseBodyMatchesMatchListVector) };
-    inline QueryContentResponseBodyMatchesMatchList& setVector(const Models::QueryContentResponseBodyMatchesMatchListVector & vector) { DARABONBA_PTR_SET_VALUE(vector_, vector) };
-    inline QueryContentResponseBodyMatchesMatchList& setVector(Models::QueryContentResponseBodyMatchesMatchListVector && vector) { DARABONBA_PTR_SET_RVALUE(vector_, vector) };
+    inline const Models::QueryContentResponseBodyMatchesMatchListVector & _vector() const { DARABONBA_PTR_GET_CONST(vector_, Models::QueryContentResponseBodyMatchesMatchListVector) };
+    inline Models::QueryContentResponseBodyMatchesMatchListVector _vector() { DARABONBA_PTR_GET(vector_, Models::QueryContentResponseBodyMatchesMatchListVector) };
+    inline QueryContentResponseBodyMatchesMatchList& setVector(const Models::QueryContentResponseBodyMatchesMatchListVector & _vector) { DARABONBA_PTR_SET_VALUE(vector_, _vector) };
+    inline QueryContentResponseBodyMatchesMatchList& setVector(Models::QueryContentResponseBodyMatchesMatchListVector && _vector) { DARABONBA_PTR_SET_RVALUE(vector_, _vector) };
 
 
   protected:

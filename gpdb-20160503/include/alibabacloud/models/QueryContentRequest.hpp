@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_QUERYCONTENTREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_QUERYCONTENTREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/QueryContentRequestGraphSearchArgs.hpp>
 #include <map>
 #include <vector>
 using namespace std;
@@ -21,6 +22,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FileName, fileName_);
       DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_TO_JSON(Filter, filter_);
+      DARABONBA_PTR_TO_JSON(GraphEnhance, graphEnhance_);
+      DARABONBA_PTR_TO_JSON(GraphSearchArgs, graphSearchArgs_);
       DARABONBA_PTR_TO_JSON(HybridSearch, hybridSearch_);
       DARABONBA_PTR_TO_JSON(HybridSearchArgs, hybridSearchArgs_);
       DARABONBA_PTR_TO_JSON(IncludeFileUrl, includeFileUrl_);
@@ -44,6 +47,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FileName, fileName_);
       DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_FROM_JSON(Filter, filter_);
+      DARABONBA_PTR_FROM_JSON(GraphEnhance, graphEnhance_);
+      DARABONBA_PTR_FROM_JSON(GraphSearchArgs, graphSearchArgs_);
       DARABONBA_PTR_FROM_JSON(HybridSearch, hybridSearch_);
       DARABONBA_PTR_FROM_JSON(HybridSearchArgs, hybridSearchArgs_);
       DARABONBA_PTR_FROM_JSON(IncludeFileUrl, includeFileUrl_);
@@ -73,9 +78,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->collection_ != nullptr
         && this->content_ != nullptr && this->DBInstanceId_ != nullptr && this->fileName_ != nullptr && this->fileUrl_ != nullptr && this->filter_ != nullptr
-        && this->hybridSearch_ != nullptr && this->hybridSearchArgs_ != nullptr && this->includeFileUrl_ != nullptr && this->includeMetadataFields_ != nullptr && this->includeVector_ != nullptr
-        && this->metrics_ != nullptr && this->namespace_ != nullptr && this->namespacePassword_ != nullptr && this->ownerId_ != nullptr && this->recallWindow_ != nullptr
-        && this->regionId_ != nullptr && this->rerankFactor_ != nullptr && this->topK_ != nullptr && this->urlExpiration_ != nullptr && this->useFullTextRetrieval_ != nullptr; };
+        && this->graphEnhance_ != nullptr && this->graphSearchArgs_ != nullptr && this->hybridSearch_ != nullptr && this->hybridSearchArgs_ != nullptr && this->includeFileUrl_ != nullptr
+        && this->includeMetadataFields_ != nullptr && this->includeVector_ != nullptr && this->metrics_ != nullptr && this->namespace_ != nullptr && this->namespacePassword_ != nullptr
+        && this->ownerId_ != nullptr && this->recallWindow_ != nullptr && this->regionId_ != nullptr && this->rerankFactor_ != nullptr && this->topK_ != nullptr
+        && this->urlExpiration_ != nullptr && this->useFullTextRetrieval_ != nullptr; };
     // collection Field Functions 
     bool hasCollection() const { return this->collection_ != nullptr;};
     void deleteCollection() { this->collection_ = nullptr;};
@@ -116,6 +122,22 @@ namespace Models
     void deleteFilter() { this->filter_ = nullptr;};
     inline string filter() const { DARABONBA_PTR_GET_DEFAULT(filter_, "") };
     inline QueryContentRequest& setFilter(string filter) { DARABONBA_PTR_SET_VALUE(filter_, filter) };
+
+
+    // graphEnhance Field Functions 
+    bool hasGraphEnhance() const { return this->graphEnhance_ != nullptr;};
+    void deleteGraphEnhance() { this->graphEnhance_ = nullptr;};
+    inline bool graphEnhance() const { DARABONBA_PTR_GET_DEFAULT(graphEnhance_, false) };
+    inline QueryContentRequest& setGraphEnhance(bool graphEnhance) { DARABONBA_PTR_SET_VALUE(graphEnhance_, graphEnhance) };
+
+
+    // graphSearchArgs Field Functions 
+    bool hasGraphSearchArgs() const { return this->graphSearchArgs_ != nullptr;};
+    void deleteGraphSearchArgs() { this->graphSearchArgs_ = nullptr;};
+    inline const QueryContentRequestGraphSearchArgs & graphSearchArgs() const { DARABONBA_PTR_GET_CONST(graphSearchArgs_, QueryContentRequestGraphSearchArgs) };
+    inline QueryContentRequestGraphSearchArgs graphSearchArgs() { DARABONBA_PTR_GET(graphSearchArgs_, QueryContentRequestGraphSearchArgs) };
+    inline QueryContentRequest& setGraphSearchArgs(const QueryContentRequestGraphSearchArgs & graphSearchArgs) { DARABONBA_PTR_SET_VALUE(graphSearchArgs_, graphSearchArgs) };
+    inline QueryContentRequest& setGraphSearchArgs(QueryContentRequestGraphSearchArgs && graphSearchArgs) { DARABONBA_PTR_SET_RVALUE(graphSearchArgs_, graphSearchArgs) };
 
 
     // hybridSearch Field Functions 
@@ -254,6 +276,8 @@ namespace Models
     // > 
     // > - For detailed syntax, refer to: https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/
     std::shared_ptr<string> filter_ = nullptr;
+    std::shared_ptr<bool> graphEnhance_ = nullptr;
+    std::shared_ptr<QueryContentRequestGraphSearchArgs> graphSearchArgs_ = nullptr;
     // Dual recall algorithm, default is empty (i.e., directly compare and sort the scores of vectors and full text).
     // 
     // Available values:

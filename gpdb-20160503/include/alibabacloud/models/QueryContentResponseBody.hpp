@@ -2,7 +2,9 @@
 #ifndef ALIBABACLOUD_MODELS_QUERYCONTENTRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_QUERYCONTENTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/QueryContentResponseBodyEntities.hpp>
 #include <alibabacloud/models/QueryContentResponseBodyMatches.hpp>
+#include <alibabacloud/models/QueryContentResponseBodyRelations.hpp>
 #include <alibabacloud/models/QueryContentResponseBodyUsage.hpp>
 #include <alibabacloud/models/QueryContentResponseBodyWindowMatches.hpp>
 using namespace std;
@@ -17,8 +19,10 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const QueryContentResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(EmbeddingTokens, embeddingTokens_);
+      DARABONBA_PTR_TO_JSON(Entities, entities_);
       DARABONBA_PTR_TO_JSON(Matches, matches_);
       DARABONBA_PTR_TO_JSON(Message, message_);
+      DARABONBA_PTR_TO_JSON(Relations, relations_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Usage, usage_);
@@ -26,8 +30,10 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, QueryContentResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(EmbeddingTokens, embeddingTokens_);
+      DARABONBA_PTR_FROM_JSON(Entities, entities_);
       DARABONBA_PTR_FROM_JSON(Matches, matches_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
+      DARABONBA_PTR_FROM_JSON(Relations, relations_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Usage, usage_);
@@ -45,13 +51,22 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->embeddingTokens_ != nullptr
-        && this->matches_ != nullptr && this->message_ != nullptr && this->requestId_ != nullptr && this->status_ != nullptr && this->usage_ != nullptr
-        && this->windowMatches_ != nullptr; };
+        && this->entities_ != nullptr && this->matches_ != nullptr && this->message_ != nullptr && this->relations_ != nullptr && this->requestId_ != nullptr
+        && this->status_ != nullptr && this->usage_ != nullptr && this->windowMatches_ != nullptr; };
     // embeddingTokens Field Functions 
     bool hasEmbeddingTokens() const { return this->embeddingTokens_ != nullptr;};
     void deleteEmbeddingTokens() { this->embeddingTokens_ = nullptr;};
     inline string embeddingTokens() const { DARABONBA_PTR_GET_DEFAULT(embeddingTokens_, "") };
     inline QueryContentResponseBody& setEmbeddingTokens(string embeddingTokens) { DARABONBA_PTR_SET_VALUE(embeddingTokens_, embeddingTokens) };
+
+
+    // entities Field Functions 
+    bool hasEntities() const { return this->entities_ != nullptr;};
+    void deleteEntities() { this->entities_ = nullptr;};
+    inline const QueryContentResponseBodyEntities & entities() const { DARABONBA_PTR_GET_CONST(entities_, QueryContentResponseBodyEntities) };
+    inline QueryContentResponseBodyEntities entities() { DARABONBA_PTR_GET(entities_, QueryContentResponseBodyEntities) };
+    inline QueryContentResponseBody& setEntities(const QueryContentResponseBodyEntities & entities) { DARABONBA_PTR_SET_VALUE(entities_, entities) };
+    inline QueryContentResponseBody& setEntities(QueryContentResponseBodyEntities && entities) { DARABONBA_PTR_SET_RVALUE(entities_, entities) };
 
 
     // matches Field Functions 
@@ -68,6 +83,15 @@ namespace Models
     void deleteMessage() { this->message_ = nullptr;};
     inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline QueryContentResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+    // relations Field Functions 
+    bool hasRelations() const { return this->relations_ != nullptr;};
+    void deleteRelations() { this->relations_ = nullptr;};
+    inline const QueryContentResponseBodyRelations & relations() const { DARABONBA_PTR_GET_CONST(relations_, QueryContentResponseBodyRelations) };
+    inline QueryContentResponseBodyRelations relations() { DARABONBA_PTR_GET(relations_, QueryContentResponseBodyRelations) };
+    inline QueryContentResponseBody& setRelations(const QueryContentResponseBodyRelations & relations) { DARABONBA_PTR_SET_VALUE(relations_, relations) };
+    inline QueryContentResponseBody& setRelations(QueryContentResponseBodyRelations && relations) { DARABONBA_PTR_SET_RVALUE(relations_, relations) };
 
 
     // requestId Field Functions 
@@ -107,10 +131,12 @@ namespace Models
     // 
     // > A token refers to the smallest unit into which the input text is divided; a token can be a word, a phrase, a punctuation mark, or a character, etc.
     std::shared_ptr<string> embeddingTokens_ = nullptr;
+    std::shared_ptr<QueryContentResponseBodyEntities> entities_ = nullptr;
     // The retrieved data.
     std::shared_ptr<QueryContentResponseBodyMatches> matches_ = nullptr;
     // Return message.
     std::shared_ptr<string> message_ = nullptr;
+    std::shared_ptr<QueryContentResponseBodyRelations> relations_ = nullptr;
     // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
     // The execution state of the operation. Valid values:

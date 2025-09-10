@@ -14,12 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpsertChunksResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(EmbeddingTokens, embeddingTokens_);
+      DARABONBA_PTR_TO_JSON(JobId, jobId_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, UpsertChunksResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(EmbeddingTokens, embeddingTokens_);
+      DARABONBA_PTR_FROM_JSON(JobId, jobId_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -36,12 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->embeddingTokens_ != nullptr
-        && this->message_ != nullptr && this->requestId_ != nullptr && this->status_ != nullptr; };
+        && this->jobId_ != nullptr && this->message_ != nullptr && this->requestId_ != nullptr && this->status_ != nullptr; };
     // embeddingTokens Field Functions 
     bool hasEmbeddingTokens() const { return this->embeddingTokens_ != nullptr;};
     void deleteEmbeddingTokens() { this->embeddingTokens_ = nullptr;};
     inline string embeddingTokens() const { DARABONBA_PTR_GET_DEFAULT(embeddingTokens_, "") };
     inline UpsertChunksResponseBody& setEmbeddingTokens(string embeddingTokens) { DARABONBA_PTR_SET_VALUE(embeddingTokens_, embeddingTokens) };
+
+
+    // jobId Field Functions 
+    bool hasJobId() const { return this->jobId_ != nullptr;};
+    void deleteJobId() { this->jobId_ = nullptr;};
+    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline UpsertChunksResponseBody& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // message Field Functions 
@@ -70,6 +79,7 @@ namespace Models
     // 
     // > A token refers to the smallest unit into which the input text is divided. A token can be a word, a phrase, a punctuation mark, a character, etc.
     std::shared_ptr<string> embeddingTokens_ = nullptr;
+    std::shared_ptr<string> jobId_ = nullptr;
     // Return message.
     std::shared_ptr<string> message_ = nullptr;
     // Request ID.

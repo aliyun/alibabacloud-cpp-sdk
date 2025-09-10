@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_RESETSUPABASEPROJECTPASSWORDRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ResetSupabaseProjectPasswordResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

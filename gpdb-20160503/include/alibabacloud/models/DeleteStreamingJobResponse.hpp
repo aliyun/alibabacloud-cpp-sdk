@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DELETESTREAMINGJOBRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DeleteStreamingJobResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATECOLLECTIONRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateCollectionResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

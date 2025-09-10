@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATEINDEXRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateIndexResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

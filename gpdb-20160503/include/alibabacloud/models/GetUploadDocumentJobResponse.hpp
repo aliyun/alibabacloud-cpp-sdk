@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETUPLOADDOCUMENTJOBRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetUploadDocumentJobResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

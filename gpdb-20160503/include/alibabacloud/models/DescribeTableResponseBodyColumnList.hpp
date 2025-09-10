@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBETABLERESPONSEBODYCOLUMNLIST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/Gpdb20160503.hpp>
+#include <alibabacloud/models/ColumnMetadata.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

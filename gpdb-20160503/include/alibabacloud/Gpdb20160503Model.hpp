@@ -56,6 +56,7 @@
 #include <alibabacloud/models/CreateDbresourceGroupResponseBody.hpp>
 #include <alibabacloud/models/CreateDbresourceGroupResponse.hpp>
 #include <alibabacloud/models/CreateDocumentCollectionRequest.hpp>
+#include <alibabacloud/models/CreateDocumentCollectionShrinkRequest.hpp>
 #include <alibabacloud/models/CreateDocumentCollectionResponseBody.hpp>
 #include <alibabacloud/models/CreateDocumentCollectionResponse.hpp>
 #include <alibabacloud/models/CreateExtensionsRequest.hpp>
@@ -801,9 +802,15 @@
 #include <alibabacloud/models/QueryCollectionDataResponseBodyMatchesMatchValues.hpp>
 #include <alibabacloud/models/QueryCollectionDataResponseBodyMatchesMatch.hpp>
 #include <alibabacloud/models/QueryCollectionDataResponseBodyMatches.hpp>
+#include <alibabacloud/models/QueryContentRequestGraphSearchArgs.hpp>
+#include <alibabacloud/models/QueryContentAdvanceRequestGraphSearchArgs.hpp>
+#include <alibabacloud/models/QueryContentResponseBodyEntitiesEntities.hpp>
+#include <alibabacloud/models/QueryContentResponseBodyEntities.hpp>
 #include <alibabacloud/models/QueryContentResponseBodyMatchesMatchListVector.hpp>
 #include <alibabacloud/models/QueryContentResponseBodyMatchesMatchList.hpp>
 #include <alibabacloud/models/QueryContentResponseBodyMatches.hpp>
+#include <alibabacloud/models/QueryContentResponseBodyRelationsRelations.hpp>
+#include <alibabacloud/models/QueryContentResponseBodyRelations.hpp>
 #include <alibabacloud/models/QueryContentResponseBodyUsage.hpp>
 #include <alibabacloud/models/QueryContentResponseBodyWindowMatchesWindowMatchesWindowMatchWindowMatch.hpp>
 #include <alibabacloud/models/QueryContentResponseBodyWindowMatchesWindowMatchesWindowMatch.hpp>

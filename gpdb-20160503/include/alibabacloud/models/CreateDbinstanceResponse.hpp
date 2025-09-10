@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATEDBINSTANCERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateDBInstanceResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

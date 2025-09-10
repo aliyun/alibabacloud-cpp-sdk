@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CHECKHADOOPNETCONNECTIONRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CheckHadoopNetConnectionResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

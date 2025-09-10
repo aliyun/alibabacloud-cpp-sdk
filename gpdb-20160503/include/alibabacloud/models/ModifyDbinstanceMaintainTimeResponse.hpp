@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYDBINSTANCEMAINTAINTIMERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ModifyDBInstanceMaintainTimeResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

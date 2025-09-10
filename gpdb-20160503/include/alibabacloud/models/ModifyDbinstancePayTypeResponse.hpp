@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYDBINSTANCEPAYTYPERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ModifyDBInstancePayTypeResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEDOCUMENTCOLLECTIONREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEDOCUMENTCOLLECTIONREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -17,10 +18,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_TO_JSON(Dimension, dimension_);
       DARABONBA_PTR_TO_JSON(EmbeddingModel, embeddingModel_);
+      DARABONBA_PTR_TO_JSON(EnableGraph, enableGraph_);
+      DARABONBA_PTR_TO_JSON(EntityTypes, entityTypes_);
       DARABONBA_PTR_TO_JSON(ExternalStorage, externalStorage_);
       DARABONBA_PTR_TO_JSON(FullTextRetrievalFields, fullTextRetrievalFields_);
       DARABONBA_PTR_TO_JSON(HnswEfConstruction, hnswEfConstruction_);
       DARABONBA_PTR_TO_JSON(HnswM, hnswM_);
+      DARABONBA_PTR_TO_JSON(LLMModel, LLMModel_);
+      DARABONBA_PTR_TO_JSON(Language, language_);
       DARABONBA_PTR_TO_JSON(ManagerAccount, managerAccount_);
       DARABONBA_PTR_TO_JSON(ManagerAccountPassword, managerAccountPassword_);
       DARABONBA_PTR_TO_JSON(Metadata, metadata_);
@@ -31,16 +36,21 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Parser, parser_);
       DARABONBA_PTR_TO_JSON(PqEnable, pqEnable_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(RelationshipTypes, relationshipTypes_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDocumentCollectionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Collection, collection_);
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_FROM_JSON(Dimension, dimension_);
       DARABONBA_PTR_FROM_JSON(EmbeddingModel, embeddingModel_);
+      DARABONBA_PTR_FROM_JSON(EnableGraph, enableGraph_);
+      DARABONBA_PTR_FROM_JSON(EntityTypes, entityTypes_);
       DARABONBA_PTR_FROM_JSON(ExternalStorage, externalStorage_);
       DARABONBA_PTR_FROM_JSON(FullTextRetrievalFields, fullTextRetrievalFields_);
       DARABONBA_PTR_FROM_JSON(HnswEfConstruction, hnswEfConstruction_);
       DARABONBA_PTR_FROM_JSON(HnswM, hnswM_);
+      DARABONBA_PTR_FROM_JSON(LLMModel, LLMModel_);
+      DARABONBA_PTR_FROM_JSON(Language, language_);
       DARABONBA_PTR_FROM_JSON(ManagerAccount, managerAccount_);
       DARABONBA_PTR_FROM_JSON(ManagerAccountPassword, managerAccountPassword_);
       DARABONBA_PTR_FROM_JSON(Metadata, metadata_);
@@ -51,6 +61,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Parser, parser_);
       DARABONBA_PTR_FROM_JSON(PqEnable, pqEnable_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(RelationshipTypes, relationshipTypes_);
     };
     CreateDocumentCollectionRequest() = default ;
     CreateDocumentCollectionRequest(const CreateDocumentCollectionRequest &) = default ;
@@ -64,10 +75,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->collection_ != nullptr
-        && this->DBInstanceId_ != nullptr && this->dimension_ != nullptr && this->embeddingModel_ != nullptr && this->externalStorage_ != nullptr && this->fullTextRetrievalFields_ != nullptr
-        && this->hnswEfConstruction_ != nullptr && this->hnswM_ != nullptr && this->managerAccount_ != nullptr && this->managerAccountPassword_ != nullptr && this->metadata_ != nullptr
-        && this->metadataIndices_ != nullptr && this->metrics_ != nullptr && this->namespace_ != nullptr && this->ownerId_ != nullptr && this->parser_ != nullptr
-        && this->pqEnable_ != nullptr && this->regionId_ != nullptr; };
+        && this->DBInstanceId_ != nullptr && this->dimension_ != nullptr && this->embeddingModel_ != nullptr && this->enableGraph_ != nullptr && this->entityTypes_ != nullptr
+        && this->externalStorage_ != nullptr && this->fullTextRetrievalFields_ != nullptr && this->hnswEfConstruction_ != nullptr && this->hnswM_ != nullptr && this->LLMModel_ != nullptr
+        && this->language_ != nullptr && this->managerAccount_ != nullptr && this->managerAccountPassword_ != nullptr && this->metadata_ != nullptr && this->metadataIndices_ != nullptr
+        && this->metrics_ != nullptr && this->namespace_ != nullptr && this->ownerId_ != nullptr && this->parser_ != nullptr && this->pqEnable_ != nullptr
+        && this->regionId_ != nullptr && this->relationshipTypes_ != nullptr; };
     // collection Field Functions 
     bool hasCollection() const { return this->collection_ != nullptr;};
     void deleteCollection() { this->collection_ = nullptr;};
@@ -96,6 +108,22 @@ namespace Models
     inline CreateDocumentCollectionRequest& setEmbeddingModel(string embeddingModel) { DARABONBA_PTR_SET_VALUE(embeddingModel_, embeddingModel) };
 
 
+    // enableGraph Field Functions 
+    bool hasEnableGraph() const { return this->enableGraph_ != nullptr;};
+    void deleteEnableGraph() { this->enableGraph_ = nullptr;};
+    inline bool enableGraph() const { DARABONBA_PTR_GET_DEFAULT(enableGraph_, false) };
+    inline CreateDocumentCollectionRequest& setEnableGraph(bool enableGraph) { DARABONBA_PTR_SET_VALUE(enableGraph_, enableGraph) };
+
+
+    // entityTypes Field Functions 
+    bool hasEntityTypes() const { return this->entityTypes_ != nullptr;};
+    void deleteEntityTypes() { this->entityTypes_ = nullptr;};
+    inline const vector<string> & entityTypes() const { DARABONBA_PTR_GET_CONST(entityTypes_, vector<string>) };
+    inline vector<string> entityTypes() { DARABONBA_PTR_GET(entityTypes_, vector<string>) };
+    inline CreateDocumentCollectionRequest& setEntityTypes(const vector<string> & entityTypes) { DARABONBA_PTR_SET_VALUE(entityTypes_, entityTypes) };
+    inline CreateDocumentCollectionRequest& setEntityTypes(vector<string> && entityTypes) { DARABONBA_PTR_SET_RVALUE(entityTypes_, entityTypes) };
+
+
     // externalStorage Field Functions 
     bool hasExternalStorage() const { return this->externalStorage_ != nullptr;};
     void deleteExternalStorage() { this->externalStorage_ = nullptr;};
@@ -122,6 +150,20 @@ namespace Models
     void deleteHnswM() { this->hnswM_ = nullptr;};
     inline int32_t hnswM() const { DARABONBA_PTR_GET_DEFAULT(hnswM_, 0) };
     inline CreateDocumentCollectionRequest& setHnswM(int32_t hnswM) { DARABONBA_PTR_SET_VALUE(hnswM_, hnswM) };
+
+
+    // LLMModel Field Functions 
+    bool hasLLMModel() const { return this->LLMModel_ != nullptr;};
+    void deleteLLMModel() { this->LLMModel_ = nullptr;};
+    inline string LLMModel() const { DARABONBA_PTR_GET_DEFAULT(LLMModel_, "") };
+    inline CreateDocumentCollectionRequest& setLLMModel(string LLMModel) { DARABONBA_PTR_SET_VALUE(LLMModel_, LLMModel) };
+
+
+    // language Field Functions 
+    bool hasLanguage() const { return this->language_ != nullptr;};
+    void deleteLanguage() { this->language_ = nullptr;};
+    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline CreateDocumentCollectionRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // managerAccount Field Functions 
@@ -194,6 +236,15 @@ namespace Models
     inline CreateDocumentCollectionRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // relationshipTypes Field Functions 
+    bool hasRelationshipTypes() const { return this->relationshipTypes_ != nullptr;};
+    void deleteRelationshipTypes() { this->relationshipTypes_ = nullptr;};
+    inline const vector<string> & relationshipTypes() const { DARABONBA_PTR_GET_CONST(relationshipTypes_, vector<string>) };
+    inline vector<string> relationshipTypes() { DARABONBA_PTR_GET(relationshipTypes_, vector<string>) };
+    inline CreateDocumentCollectionRequest& setRelationshipTypes(const vector<string> & relationshipTypes) { DARABONBA_PTR_SET_VALUE(relationshipTypes_, relationshipTypes) };
+    inline CreateDocumentCollectionRequest& setRelationshipTypes(vector<string> && relationshipTypes) { DARABONBA_PTR_SET_RVALUE(relationshipTypes_, relationshipTypes) };
+
+
   protected:
     // The name of the document collection that you want to create.
     // 
@@ -240,6 +291,8 @@ namespace Models
     // 
     // *   clip-rn50x64: the image vectorization algorithm that uses the CLIP RN50x64 model and produces 1024-dimensional vectors.
     std::shared_ptr<string> embeddingModel_ = nullptr;
+    std::shared_ptr<bool> enableGraph_ = nullptr;
+    std::shared_ptr<vector<string>> entityTypes_ = nullptr;
     // Specifies whether to use the memory mapping technology to create HNSW indexes. Valid values: 0 and 1. Default value: 0. We recommend that you set the value to 1 in scenarios that require upload speed but not data deletion.
     // 
     // > 
@@ -263,6 +316,8 @@ namespace Models
     // 
     // *   If you set Dimension to a value greater than 1024, set the value of HnswM to 128.
     std::shared_ptr<int32_t> hnswM_ = nullptr;
+    std::shared_ptr<string> LLMModel_ = nullptr;
+    std::shared_ptr<string> language_ = nullptr;
     // The name of the manager account that has the rds_superuser permission.
     // 
     // > You can create an account through the console -> Account Management, or by using the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) API.
@@ -306,6 +361,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
+    std::shared_ptr<vector<string>> relationshipTypes_ = nullptr;
   };
 
   } // namespace Models

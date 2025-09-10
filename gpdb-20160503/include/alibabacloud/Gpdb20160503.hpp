@@ -339,11 +339,11 @@ namespace Gpdb20160503
       /**
        * @summary Creates a document collection.
        *
-       * @param request CreateDocumentCollectionRequest
+       * @param tmpReq CreateDocumentCollectionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateDocumentCollectionResponse
        */
-      Models::CreateDocumentCollectionResponse createDocumentCollectionWithOptions(const Models::CreateDocumentCollectionRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::CreateDocumentCollectionResponse createDocumentCollectionWithOptions(const Models::CreateDocumentCollectionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Creates a document collection.
