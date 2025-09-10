@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GENERATEUPLOADCONFIGRESPONSEBODYDATA_HPP_
 #define ALIBABACLOUD_MODELS_GENERATEUPLOADCONFIGRESPONSEBODYDATA_HPP_
 #include <darabonba/Core.hpp>
+#include <map>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,12 +15,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GenerateUploadConfigResponseBodyData& obj) { 
       DARABONBA_PTR_TO_JSON(FileKey, fileKey_);
-      DARABONBA_ANY_TO_JSON(FormDatas, formDatas_);
+      DARABONBA_PTR_TO_JSON(FormDatas, formDatas_);
       DARABONBA_PTR_TO_JSON(PostUrl, postUrl_);
     };
     friend void from_json(const Darabonba::Json& j, GenerateUploadConfigResponseBodyData& obj) { 
       DARABONBA_PTR_FROM_JSON(FileKey, fileKey_);
-      DARABONBA_ANY_FROM_JSON(FormDatas, formDatas_);
+      DARABONBA_PTR_FROM_JSON(FormDatas, formDatas_);
       DARABONBA_PTR_FROM_JSON(PostUrl, postUrl_);
     };
     GenerateUploadConfigResponseBodyData() = default ;
@@ -45,10 +46,10 @@ namespace Models
     // formDatas Field Functions 
     bool hasFormDatas() const { return this->formDatas_ != nullptr;};
     void deleteFormDatas() { this->formDatas_ = nullptr;};
-    inline     const Darabonba::Json & formDatas() const { DARABONBA_GET(formDatas_) };
-    Darabonba::Json & formDatas() { DARABONBA_GET(formDatas_) };
-    inline GenerateUploadConfigResponseBodyData& setFormDatas(const Darabonba::Json & formDatas) { DARABONBA_SET_VALUE(formDatas_, formDatas) };
-    inline GenerateUploadConfigResponseBodyData& setFormDatas(Darabonba::Json & formDatas) { DARABONBA_SET_RVALUE(formDatas_, formDatas) };
+    inline const map<string, string> & formDatas() const { DARABONBA_PTR_GET_CONST(formDatas_, map<string, string>) };
+    inline map<string, string> formDatas() { DARABONBA_PTR_GET(formDatas_, map<string, string>) };
+    inline GenerateUploadConfigResponseBodyData& setFormDatas(const map<string, string> & formDatas) { DARABONBA_PTR_SET_VALUE(formDatas_, formDatas) };
+    inline GenerateUploadConfigResponseBodyData& setFormDatas(map<string, string> && formDatas) { DARABONBA_PTR_SET_RVALUE(formDatas_, formDatas) };
 
 
     // postUrl Field Functions 
@@ -60,7 +61,7 @@ namespace Models
 
   protected:
     std::shared_ptr<string> fileKey_ = nullptr;
-    Darabonba::Json formDatas_ = nullptr;
+    std::shared_ptr<map<string, string>> formDatas_ = nullptr;
     std::shared_ptr<string> postUrl_ = nullptr;
   };
 
