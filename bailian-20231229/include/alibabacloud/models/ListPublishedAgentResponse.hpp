@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTPUBLISHEDAGENTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ListPublishedAgentResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

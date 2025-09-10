@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FileDetails, fileDetailsShrink_);
       DARABONBA_PTR_TO_JSON(OssBucketName, ossBucketName_);
       DARABONBA_PTR_TO_JSON(OssRegionId, ossRegionId_);
+      DARABONBA_PTR_TO_JSON(OverWriteFileByOssKey, overWriteFileByOssKey_);
       DARABONBA_PTR_TO_JSON(Tags, tagsShrink_);
     };
     friend void from_json(const Darabonba::Json& j, AddFilesFromAuthorizedOssShrinkRequest& obj) { 
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FileDetails, fileDetailsShrink_);
       DARABONBA_PTR_FROM_JSON(OssBucketName, ossBucketName_);
       DARABONBA_PTR_FROM_JSON(OssRegionId, ossRegionId_);
+      DARABONBA_PTR_FROM_JSON(OverWriteFileByOssKey, overWriteFileByOssKey_);
       DARABONBA_PTR_FROM_JSON(Tags, tagsShrink_);
     };
     AddFilesFromAuthorizedOssShrinkRequest() = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->categoryId_ != nullptr
-        && this->categoryType_ != nullptr && this->fileDetailsShrink_ != nullptr && this->ossBucketName_ != nullptr && this->ossRegionId_ != nullptr && this->tagsShrink_ != nullptr; };
+        && this->categoryType_ != nullptr && this->fileDetailsShrink_ != nullptr && this->ossBucketName_ != nullptr && this->ossRegionId_ != nullptr && this->overWriteFileByOssKey_ != nullptr
+        && this->tagsShrink_ != nullptr; };
     // categoryId Field Functions 
     bool hasCategoryId() const { return this->categoryId_ != nullptr;};
     void deleteCategoryId() { this->categoryId_ = nullptr;};
@@ -76,6 +79,13 @@ namespace Models
     inline AddFilesFromAuthorizedOssShrinkRequest& setOssRegionId(string ossRegionId) { DARABONBA_PTR_SET_VALUE(ossRegionId_, ossRegionId) };
 
 
+    // overWriteFileByOssKey Field Functions 
+    bool hasOverWriteFileByOssKey() const { return this->overWriteFileByOssKey_ != nullptr;};
+    void deleteOverWriteFileByOssKey() { this->overWriteFileByOssKey_ = nullptr;};
+    inline bool overWriteFileByOssKey() const { DARABONBA_PTR_GET_DEFAULT(overWriteFileByOssKey_, false) };
+    inline AddFilesFromAuthorizedOssShrinkRequest& setOverWriteFileByOssKey(bool overWriteFileByOssKey) { DARABONBA_PTR_SET_VALUE(overWriteFileByOssKey_, overWriteFileByOssKey) };
+
+
     // tagsShrink Field Functions 
     bool hasTagsShrink() const { return this->tagsShrink_ != nullptr;};
     void deleteTagsShrink() { this->tagsShrink_ = nullptr;};
@@ -94,6 +104,7 @@ namespace Models
     std::shared_ptr<string> ossBucketName_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> ossRegionId_ = nullptr;
+    std::shared_ptr<bool> overWriteFileByOssKey_ = nullptr;
     std::shared_ptr<string> tagsShrink_ = nullptr;
   };
 

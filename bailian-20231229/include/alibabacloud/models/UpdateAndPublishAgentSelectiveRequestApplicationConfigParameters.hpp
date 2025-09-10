@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpdateAndPublishAgentSelectiveRequestApplicationConfigParameters& obj) { 
       DARABONBA_PTR_TO_JSON(dialogRound, dialogRound_);
+      DARABONBA_PTR_TO_JSON(enable_thinking, enableThinking_);
       DARABONBA_PTR_TO_JSON(maxTokens, maxTokens_);
       DARABONBA_PTR_TO_JSON(temperature, temperature_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateAndPublishAgentSelectiveRequestApplicationConfigParameters& obj) { 
       DARABONBA_PTR_FROM_JSON(dialogRound, dialogRound_);
+      DARABONBA_PTR_FROM_JSON(enable_thinking, enableThinking_);
       DARABONBA_PTR_FROM_JSON(maxTokens, maxTokens_);
       DARABONBA_PTR_FROM_JSON(temperature, temperature_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->dialogRound_ != nullptr
-        && this->maxTokens_ != nullptr && this->temperature_ != nullptr; };
+        && this->enableThinking_ != nullptr && this->maxTokens_ != nullptr && this->temperature_ != nullptr; };
     // dialogRound Field Functions 
     bool hasDialogRound() const { return this->dialogRound_ != nullptr;};
     void deleteDialogRound() { this->dialogRound_ = nullptr;};
     inline int32_t dialogRound() const { DARABONBA_PTR_GET_DEFAULT(dialogRound_, 0) };
     inline UpdateAndPublishAgentSelectiveRequestApplicationConfigParameters& setDialogRound(int32_t dialogRound) { DARABONBA_PTR_SET_VALUE(dialogRound_, dialogRound) };
+
+
+    // enableThinking Field Functions 
+    bool hasEnableThinking() const { return this->enableThinking_ != nullptr;};
+    void deleteEnableThinking() { this->enableThinking_ = nullptr;};
+    inline bool enableThinking() const { DARABONBA_PTR_GET_DEFAULT(enableThinking_, false) };
+    inline UpdateAndPublishAgentSelectiveRequestApplicationConfigParameters& setEnableThinking(bool enableThinking) { DARABONBA_PTR_SET_VALUE(enableThinking_, enableThinking) };
 
 
     // maxTokens Field Functions 
@@ -58,6 +67,7 @@ namespace Models
 
   protected:
     std::shared_ptr<int32_t> dialogRound_ = nullptr;
+    std::shared_ptr<bool> enableThinking_ = nullptr;
     std::shared_ptr<int32_t> maxTokens_ = nullptr;
     std::shared_ptr<double> temperature_ = nullptr;
   };

@@ -73,7 +73,7 @@ AddCategoryResponse Client::addCategoryWithOptions(const string &WorkspaceId, co
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddCategoryResponse>();
 }
 
@@ -150,7 +150,7 @@ AddFileResponse Client::addFileWithOptions(const string &WorkspaceId, const AddF
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddFileResponse>();
 }
 
@@ -213,6 +213,10 @@ AddFilesFromAuthorizedOssResponse Client::addFilesFromAuthorizedOssWithOptions(c
     body["OssRegionId"] = request.ossRegionId();
   }
 
+  if (!!request.hasOverWriteFileByOssKey()) {
+    body["OverWriteFileByOssKey"] = request.overWriteFileByOssKey();
+  }
+
   if (!!request.hasTagsShrink()) {
     body["Tags"] = request.tagsShrink();
   }
@@ -231,7 +235,7 @@ AddFilesFromAuthorizedOssResponse Client::addFilesFromAuthorizedOssWithOptions(c
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddFilesFromAuthorizedOssResponse>();
 }
 
@@ -297,7 +301,7 @@ ApplyFileUploadLeaseResponse Client::applyFileUploadLeaseWithOptions(const strin
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ApplyFileUploadLeaseResponse>();
 }
 
@@ -373,7 +377,7 @@ CreateAndPulishAgentResponse Client::createAndPulishAgentWithOptions(const strin
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateAndPulishAgentResponse>();
 }
 
@@ -525,7 +529,7 @@ CreateIndexResponse Client::createIndexWithOptions(const string &WorkspaceId, co
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateIndex"},
     {"version" , "2023-12-29"},
@@ -536,7 +540,7 @@ CreateIndexResponse Client::createIndexWithOptions(const string &WorkspaceId, co
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateIndexResponse>();
 }
 
@@ -574,7 +578,7 @@ CreateMemoryResponse Client::createMemoryWithOptions(const string &workspaceId, 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateMemory"},
     {"version" , "2023-12-29"},
@@ -585,7 +589,7 @@ CreateMemoryResponse Client::createMemoryWithOptions(const string &workspaceId, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMemoryResponse>();
 }
 
@@ -619,7 +623,7 @@ CreateMemoryNodeResponse Client::createMemoryNodeWithOptions(const string &works
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateMemoryNode"},
     {"version" , "2023-12-29"},
@@ -630,7 +634,7 @@ CreateMemoryNodeResponse Client::createMemoryNodeWithOptions(const string &works
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMemoryNodeResponse>();
 }
 
@@ -668,7 +672,7 @@ CreatePromptTemplateResponse Client::createPromptTemplateWithOptions(const strin
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreatePromptTemplate"},
     {"version" , "2023-12-29"},
@@ -679,7 +683,7 @@ CreatePromptTemplateResponse Client::createPromptTemplateWithOptions(const strin
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreatePromptTemplateResponse>();
 }
 
@@ -705,7 +709,7 @@ CreatePromptTemplateResponse Client::createPromptTemplate(const string &workspac
 DeleteAgentResponse Client::deleteAgentWithOptions(const string &workspaceId, const string &appCode, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteAgent"},
     {"version" , "2023-12-29"},
@@ -716,7 +720,7 @@ DeleteAgentResponse Client::deleteAgentWithOptions(const string &workspaceId, co
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteAgentResponse>();
 }
 
@@ -741,7 +745,7 @@ DeleteAgentResponse Client::deleteAgent(const string &workspaceId, const string 
 DeleteCategoryResponse Client::deleteCategoryWithOptions(const string &CategoryId, const string &WorkspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteCategory"},
     {"version" , "2023-12-29"},
@@ -752,7 +756,7 @@ DeleteCategoryResponse Client::deleteCategoryWithOptions(const string &CategoryI
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteCategoryResponse>();
 }
 
@@ -795,7 +799,7 @@ DeleteChunkResponse Client::deleteChunkWithOptions(const string &WorkspaceId, co
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteChunk"},
     {"version" , "2023-12-29"},
@@ -806,7 +810,7 @@ DeleteChunkResponse Client::deleteChunkWithOptions(const string &WorkspaceId, co
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteChunkResponse>();
 }
 
@@ -832,7 +836,7 @@ DeleteChunkResponse Client::deleteChunk(const string &WorkspaceId, const DeleteC
 DeleteFileResponse Client::deleteFileWithOptions(const string &FileId, const string &WorkspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteFile"},
     {"version" , "2023-12-29"},
@@ -843,7 +847,7 @@ DeleteFileResponse Client::deleteFileWithOptions(const string &FileId, const str
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteFileResponse>();
 }
 
@@ -882,7 +886,7 @@ DeleteIndexResponse Client::deleteIndexWithOptions(const string &WorkspaceId, co
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteIndex"},
     {"version" , "2023-12-29"},
@@ -893,7 +897,7 @@ DeleteIndexResponse Client::deleteIndexWithOptions(const string &WorkspaceId, co
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteIndexResponse>();
 }
 
@@ -949,7 +953,7 @@ DeleteIndexDocumentResponse Client::deleteIndexDocumentWithOptions(const string 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteIndexDocument"},
     {"version" , "2023-12-29"},
@@ -960,7 +964,7 @@ DeleteIndexDocumentResponse Client::deleteIndexDocumentWithOptions(const string 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteIndexDocumentResponse>();
 }
 
@@ -992,7 +996,7 @@ DeleteIndexDocumentResponse Client::deleteIndexDocument(const string &WorkspaceI
 DeleteMemoryResponse Client::deleteMemoryWithOptions(const string &workspaceId, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteMemory"},
     {"version" , "2023-12-29"},
@@ -1003,7 +1007,7 @@ DeleteMemoryResponse Client::deleteMemoryWithOptions(const string &workspaceId, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMemoryResponse>();
 }
 
@@ -1028,7 +1032,7 @@ DeleteMemoryResponse Client::deleteMemory(const string &workspaceId, const strin
 DeleteMemoryNodeResponse Client::deleteMemoryNodeWithOptions(const string &workspaceId, const string &memoryId, const string &memoryNodeId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteMemoryNode"},
     {"version" , "2023-12-29"},
@@ -1039,7 +1043,7 @@ DeleteMemoryNodeResponse Client::deleteMemoryNodeWithOptions(const string &works
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMemoryNodeResponse>();
 }
 
@@ -1064,7 +1068,7 @@ DeleteMemoryNodeResponse Client::deleteMemoryNode(const string &workspaceId, con
 DeletePromptTemplateResponse Client::deletePromptTemplateWithOptions(const string &workspaceId, const string &promptTemplateId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeletePromptTemplate"},
     {"version" , "2023-12-29"},
@@ -1075,7 +1079,7 @@ DeletePromptTemplateResponse Client::deletePromptTemplateWithOptions(const strin
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeletePromptTemplateResponse>();
 }
 
@@ -1105,7 +1109,7 @@ DeletePromptTemplateResponse Client::deletePromptTemplate(const string &workspac
 DescribeFileResponse Client::describeFileWithOptions(const string &WorkspaceId, const string &FileId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeFile"},
     {"version" , "2023-12-29"},
@@ -1116,7 +1120,7 @@ DescribeFileResponse Client::describeFileWithOptions(const string &WorkspaceId, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeFileResponse>();
 }
 
@@ -1158,7 +1162,7 @@ GetAlipayTransferStatusResponse Client::getAlipayTransferStatusWithOptions(const
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetAlipayTransferStatus"},
     {"version" , "2023-12-29"},
@@ -1169,7 +1173,7 @@ GetAlipayTransferStatusResponse Client::getAlipayTransferStatusWithOptions(const
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetAlipayTransferStatusResponse>();
 }
 
@@ -1207,7 +1211,7 @@ GetAlipayUrlResponse Client::getAlipayUrlWithOptions(const GetAlipayUrlRequest &
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetAlipayUrl"},
     {"version" , "2023-12-29"},
@@ -1218,7 +1222,7 @@ GetAlipayUrlResponse Client::getAlipayUrlWithOptions(const GetAlipayUrlRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetAlipayUrlResponse>();
 }
 
@@ -1268,7 +1272,7 @@ GetIndexJobStatusResponse Client::getIndexJobStatusWithOptions(const string &Wor
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetIndexJobStatus"},
     {"version" , "2023-12-29"},
@@ -1279,7 +1283,7 @@ GetIndexJobStatusResponse Client::getIndexJobStatusWithOptions(const string &Wor
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetIndexJobStatusResponse>();
 }
 
@@ -1309,7 +1313,7 @@ GetIndexJobStatusResponse Client::getIndexJobStatus(const string &WorkspaceId, c
 GetMemoryResponse Client::getMemoryWithOptions(const string &workspaceId, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetMemory"},
     {"version" , "2023-12-29"},
@@ -1320,7 +1324,7 @@ GetMemoryResponse Client::getMemoryWithOptions(const string &workspaceId, const 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMemoryResponse>();
 }
 
@@ -1345,7 +1349,7 @@ GetMemoryResponse Client::getMemory(const string &workspaceId, const string &mem
 GetMemoryNodeResponse Client::getMemoryNodeWithOptions(const string &workspaceId, const string &memoryId, const string &memoryNodeId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetMemoryNode"},
     {"version" , "2023-12-29"},
@@ -1356,7 +1360,7 @@ GetMemoryNodeResponse Client::getMemoryNodeWithOptions(const string &workspaceId
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMemoryNodeResponse>();
 }
 
@@ -1381,7 +1385,7 @@ GetMemoryNodeResponse Client::getMemoryNode(const string &workspaceId, const str
 GetPromptTemplateResponse Client::getPromptTemplateWithOptions(const string &workspaceId, const string &promptTemplateId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetPromptTemplate"},
     {"version" , "2023-12-29"},
@@ -1392,7 +1396,7 @@ GetPromptTemplateResponse Client::getPromptTemplateWithOptions(const string &wor
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetPromptTemplateResponse>();
 }
 
@@ -1417,7 +1421,7 @@ GetPromptTemplateResponse Client::getPromptTemplate(const string &workspaceId, c
 GetPublishedAgentResponse Client::getPublishedAgentWithOptions(const string &workspaceId, const string &appCode, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetPublishedAgent"},
     {"version" , "2023-12-29"},
@@ -1428,7 +1432,7 @@ GetPublishedAgentResponse Client::getPublishedAgentWithOptions(const string &wor
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetPublishedAgentResponse>();
 }
 
@@ -1488,7 +1492,7 @@ ListCategoryResponse Client::listCategoryWithOptions(const string &WorkspaceId, 
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListCategoryResponse>();
 }
 
@@ -1556,7 +1560,7 @@ ListChunksResponse Client::listChunksWithOptions(const string &WorkspaceId, cons
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListChunksResponse>();
 }
 
@@ -1605,7 +1609,7 @@ ListFileResponse Client::listFileWithOptions(const string &WorkspaceId, const Li
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListFile"},
     {"version" , "2023-12-29"},
@@ -1616,7 +1620,7 @@ ListFileResponse Client::listFileWithOptions(const string &WorkspaceId, const Li
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListFileResponse>();
 }
 
@@ -1673,7 +1677,7 @@ ListIndexDocumentsResponse Client::listIndexDocumentsWithOptions(const string &W
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListIndexDocuments"},
     {"version" , "2023-12-29"},
@@ -1684,7 +1688,7 @@ ListIndexDocumentsResponse Client::listIndexDocumentsWithOptions(const string &W
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListIndexDocumentsResponse>();
 }
 
@@ -1741,7 +1745,7 @@ ListIndexFileDetailsResponse Client::listIndexFileDetailsWithOptions(const strin
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListIndexFileDetails"},
     {"version" , "2023-12-29"},
@@ -1752,7 +1756,7 @@ ListIndexFileDetailsResponse Client::listIndexFileDetailsWithOptions(const strin
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListIndexFileDetailsResponse>();
 }
 
@@ -1796,7 +1800,7 @@ ListIndicesResponse Client::listIndicesWithOptions(const string &WorkspaceId, co
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListIndices"},
     {"version" , "2023-12-29"},
@@ -1807,7 +1811,7 @@ ListIndicesResponse Client::listIndicesWithOptions(const string &WorkspaceId, co
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListIndicesResponse>();
 }
 
@@ -1847,7 +1851,7 @@ ListMemoriesResponse Client::listMemoriesWithOptions(const string &workspaceId, 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListMemories"},
     {"version" , "2023-12-29"},
@@ -1858,7 +1862,7 @@ ListMemoriesResponse Client::listMemoriesWithOptions(const string &workspaceId, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMemoriesResponse>();
 }
 
@@ -1896,7 +1900,7 @@ ListMemoryNodesResponse Client::listMemoryNodesWithOptions(const string &workspa
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListMemoryNodes"},
     {"version" , "2023-12-29"},
@@ -1907,7 +1911,7 @@ ListMemoryNodesResponse Client::listMemoryNodesWithOptions(const string &workspa
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMemoryNodesResponse>();
 }
 
@@ -1953,7 +1957,7 @@ ListPromptTemplatesResponse Client::listPromptTemplatesWithOptions(const string 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListPromptTemplates"},
     {"version" , "2023-12-29"},
@@ -1964,7 +1968,7 @@ ListPromptTemplatesResponse Client::listPromptTemplatesWithOptions(const string 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListPromptTemplatesResponse>();
 }
 
@@ -2002,7 +2006,7 @@ ListPublishedAgentResponse Client::listPublishedAgentWithOptions(const string &w
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListPublishedAgent"},
     {"version" , "2023-12-29"},
@@ -2013,7 +2017,7 @@ ListPublishedAgentResponse Client::listPublishedAgentWithOptions(const string &w
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListPublishedAgentResponse>();
 }
 
@@ -2125,7 +2129,7 @@ RetrieveResponse Client::retrieveWithOptions(const string &WorkspaceId, const Re
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "Retrieve"},
     {"version" , "2023-12-29"},
@@ -2136,7 +2140,7 @@ RetrieveResponse Client::retrieveWithOptions(const string &WorkspaceId, const Re
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RetrieveResponse>();
 }
 
@@ -2221,7 +2225,7 @@ SubmitIndexAddDocumentsJobResponse Client::submitIndexAddDocumentsJobWithOptions
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SubmitIndexAddDocumentsJob"},
     {"version" , "2023-12-29"},
@@ -2232,7 +2236,7 @@ SubmitIndexAddDocumentsJobResponse Client::submitIndexAddDocumentsJobWithOptions
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SubmitIndexAddDocumentsJobResponse>();
 }
 
@@ -2276,7 +2280,7 @@ SubmitIndexJobResponse Client::submitIndexJobWithOptions(const string &Workspace
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SubmitIndexJob"},
     {"version" , "2023-12-29"},
@@ -2287,7 +2291,7 @@ SubmitIndexJobResponse Client::submitIndexJobWithOptions(const string &Workspace
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SubmitIndexJobResponse>();
 }
 
@@ -2363,7 +2367,7 @@ UpdateAndPublishAgentResponse Client::updateAndPublishAgentWithOptions(const str
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateAndPublishAgentResponse>();
 }
 
@@ -2434,7 +2438,7 @@ UpdateAndPublishAgentSelectiveResponse Client::updateAndPublishAgentSelectiveWit
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateAndPublishAgentSelectiveResponse>();
 }
 
@@ -2488,7 +2492,7 @@ UpdateChunkResponse Client::updateChunkWithOptions(const string &WorkspaceId, co
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateChunk"},
     {"version" , "2023-12-29"},
@@ -2499,7 +2503,7 @@ UpdateChunkResponse Client::updateChunkWithOptions(const string &WorkspaceId, co
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateChunkResponse>();
 }
 
@@ -2550,7 +2554,7 @@ UpdateFileTagResponse Client::updateFileTagWithOptions(const string &WorkspaceId
     {"style" , "ROA"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateFileTagResponse>();
 }
 
@@ -2584,7 +2588,7 @@ UpdateMemoryResponse Client::updateMemoryWithOptions(const string &workspaceId, 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateMemory"},
     {"version" , "2023-12-29"},
@@ -2595,7 +2599,7 @@ UpdateMemoryResponse Client::updateMemoryWithOptions(const string &workspaceId, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateMemoryResponse>();
 }
 
@@ -2629,7 +2633,7 @@ UpdateMemoryNodeResponse Client::updateMemoryNodeWithOptions(const string &works
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateMemoryNode"},
     {"version" , "2023-12-29"},
@@ -2640,7 +2644,7 @@ UpdateMemoryNodeResponse Client::updateMemoryNodeWithOptions(const string &works
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateMemoryNodeResponse>();
 }
 
@@ -2678,7 +2682,7 @@ UpdatePromptTemplateResponse Client::updatePromptTemplateWithOptions(const strin
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdatePromptTemplate"},
     {"version" , "2023-12-29"},
@@ -2689,7 +2693,7 @@ UpdatePromptTemplateResponse Client::updatePromptTemplateWithOptions(const strin
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdatePromptTemplateResponse>();
 }
 

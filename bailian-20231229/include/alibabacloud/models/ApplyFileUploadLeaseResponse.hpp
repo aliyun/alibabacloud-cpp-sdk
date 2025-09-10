@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_APPLYFILEUPLOADLEASERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ApplyFileUploadLeaseResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

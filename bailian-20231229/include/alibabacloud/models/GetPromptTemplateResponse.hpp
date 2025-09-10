@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETPROMPTTEMPLATERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetPromptTemplateResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
