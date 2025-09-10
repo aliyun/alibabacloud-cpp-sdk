@@ -13,10 +13,12 @@ namespace Models
   class CancelRestoreJobRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CancelRestoreJobRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Edition, edition_);
       DARABONBA_PTR_TO_JSON(RestoreId, restoreId_);
       DARABONBA_PTR_TO_JSON(VaultId, vaultId_);
     };
     friend void from_json(const Darabonba::Json& j, CancelRestoreJobRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Edition, edition_);
       DARABONBA_PTR_FROM_JSON(RestoreId, restoreId_);
       DARABONBA_PTR_FROM_JSON(VaultId, vaultId_);
     };
@@ -31,8 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->restoreId_ != nullptr
-        && this->vaultId_ != nullptr; };
+    virtual bool empty() const override { this->edition_ != nullptr
+        && this->restoreId_ != nullptr && this->vaultId_ != nullptr; };
+    // edition Field Functions 
+    bool hasEdition() const { return this->edition_ != nullptr;};
+    void deleteEdition() { this->edition_ = nullptr;};
+    inline string edition() const { DARABONBA_PTR_GET_DEFAULT(edition_, "") };
+    inline CancelRestoreJobRequest& setEdition(string edition) { DARABONBA_PTR_SET_VALUE(edition_, edition) };
+
+
     // restoreId Field Functions 
     bool hasRestoreId() const { return this->restoreId_ != nullptr;};
     void deleteRestoreId() { this->restoreId_ = nullptr;};
@@ -48,13 +57,12 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> edition_ = nullptr;
     // The ID of the restore job.
     // 
     // This parameter is required.
     std::shared_ptr<string> restoreId_ = nullptr;
     // The ID of the backup vault.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> vaultId_ = nullptr;
   };
 

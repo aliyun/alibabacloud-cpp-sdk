@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATEBACKUPPLANREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UPDATEBACKUPPLANREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/OtsDetail.hpp>
 #include <vector>
 #include <alibabacloud/models/UpdateBackupPlanRequestRule.hpp>
 using namespace std;
@@ -17,6 +18,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateBackupPlanRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ChangeListPath, changeListPath_);
       DARABONBA_ANY_TO_JSON(Detail, detail_);
+      DARABONBA_PTR_TO_JSON(Edition, edition_);
       DARABONBA_PTR_TO_JSON(Exclude, exclude_);
       DARABONBA_PTR_TO_JSON(Include, include_);
       DARABONBA_PTR_TO_JSON(KeepLatestSnapshots, keepLatestSnapshots_);
@@ -37,6 +39,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, UpdateBackupPlanRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ChangeListPath, changeListPath_);
       DARABONBA_ANY_FROM_JSON(Detail, detail_);
+      DARABONBA_PTR_FROM_JSON(Edition, edition_);
       DARABONBA_PTR_FROM_JSON(Exclude, exclude_);
       DARABONBA_PTR_FROM_JSON(Include, include_);
       DARABONBA_PTR_FROM_JSON(KeepLatestSnapshots, keepLatestSnapshots_);
@@ -66,10 +69,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->changeListPath_ != nullptr
-        && this->detail_ != nullptr && this->exclude_ != nullptr && this->include_ != nullptr && this->keepLatestSnapshots_ != nullptr && this->options_ != nullptr
-        && this->otsDetail_ != nullptr && this->path_ != nullptr && this->planId_ != nullptr && this->planName_ != nullptr && this->prefix_ != nullptr
-        && this->retention_ != nullptr && this->rule_ != nullptr && this->schedule_ != nullptr && this->sourceType_ != nullptr && this->speedLimit_ != nullptr
-        && this->updatePaths_ != nullptr && this->vaultId_ != nullptr; };
+        && this->detail_ != nullptr && this->edition_ != nullptr && this->exclude_ != nullptr && this->include_ != nullptr && this->keepLatestSnapshots_ != nullptr
+        && this->options_ != nullptr && this->otsDetail_ != nullptr && this->path_ != nullptr && this->planId_ != nullptr && this->planName_ != nullptr
+        && this->prefix_ != nullptr && this->retention_ != nullptr && this->rule_ != nullptr && this->schedule_ != nullptr && this->sourceType_ != nullptr
+        && this->speedLimit_ != nullptr && this->updatePaths_ != nullptr && this->vaultId_ != nullptr; };
     // changeListPath Field Functions 
     bool hasChangeListPath() const { return this->changeListPath_ != nullptr;};
     void deleteChangeListPath() { this->changeListPath_ = nullptr;};
@@ -84,6 +87,13 @@ namespace Models
     Darabonba::Json & detail() { DARABONBA_GET(detail_) };
     inline UpdateBackupPlanRequest& setDetail(const Darabonba::Json & detail) { DARABONBA_SET_VALUE(detail_, detail) };
     inline UpdateBackupPlanRequest& setDetail(Darabonba::Json & detail) { DARABONBA_SET_RVALUE(detail_, detail) };
+
+
+    // edition Field Functions 
+    bool hasEdition() const { return this->edition_ != nullptr;};
+    void deleteEdition() { this->edition_ = nullptr;};
+    inline string edition() const { DARABONBA_PTR_GET_DEFAULT(edition_, "") };
+    inline UpdateBackupPlanRequest& setEdition(string edition) { DARABONBA_PTR_SET_VALUE(edition_, edition) };
 
 
     // exclude Field Functions 
@@ -214,6 +224,7 @@ namespace Models
     // *   preScriptPath: the path to the pre-freeze scripts.
     // *   postScriptPath: the path to the post-thaw scripts.
     Darabonba::Json detail_ = nullptr;
+    std::shared_ptr<string> edition_ = nullptr;
     // This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the paths to the files that are excluded from the backup job. The value must be 1 to 255 characters in length.
     std::shared_ptr<string> exclude_ = nullptr;
     // This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the paths to the files that you want to back up. The value must be 1 to 255 characters in length.

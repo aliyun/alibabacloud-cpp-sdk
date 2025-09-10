@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATEHANARESTORERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateHanaRestoreResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

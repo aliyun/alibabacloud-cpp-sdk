@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CHECKROLERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CheckRoleResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -17,7 +17,6 @@ namespace Hbr20170908
 {
 
 AlibabaCloud::Hbr20170908::Client::Client(Config &config): OpenApiClient(config){
-  this->_signatureAlgorithm = "v2";
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"ap-northeast-2-pop" , "hbr.aliyuncs.com"},
@@ -51,7 +50,7 @@ AlibabaCloud::Hbr20170908::Client::Client(Config &config): OpenApiClient(config)
     {"cn-zhengzhou-nebula-1" , "hbr.aliyuncs.com"},
     {"eu-west-1-oxs" , "hbr.aliyuncs.com"},
     {"rus-west-1-pop" , "hbr.aliyuncs.com"}
-  });
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("hbr", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -101,7 +100,7 @@ AddContainerClusterResponse Client::addContainerClusterWithOptions(const AddCont
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddContainerCluster"},
     {"version" , "2017-09-08"},
@@ -112,7 +111,7 @@ AddContainerClusterResponse Client::addContainerClusterWithOptions(const AddCont
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddContainerClusterResponse>();
 }
 
@@ -137,6 +136,10 @@ AddContainerClusterResponse Client::addContainerCluster(const AddContainerCluste
 CancelBackupJobResponse Client::cancelBackupJobWithOptions(const CancelBackupJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasEdition()) {
+    query["Edition"] = request.edition();
+  }
+
   if (!!request.hasJobId()) {
     query["JobId"] = request.jobId();
   }
@@ -147,7 +150,7 @@ CancelBackupJobResponse Client::cancelBackupJobWithOptions(const CancelBackupJob
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CancelBackupJob"},
     {"version" , "2017-09-08"},
@@ -158,7 +161,7 @@ CancelBackupJobResponse Client::cancelBackupJobWithOptions(const CancelBackupJob
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CancelBackupJobResponse>();
 }
 
@@ -183,6 +186,10 @@ CancelBackupJobResponse Client::cancelBackupJob(const CancelBackupJobRequest &re
 CancelRestoreJobResponse Client::cancelRestoreJobWithOptions(const CancelRestoreJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasEdition()) {
+    query["Edition"] = request.edition();
+  }
+
   if (!!request.hasRestoreId()) {
     query["RestoreId"] = request.restoreId();
   }
@@ -193,7 +200,7 @@ CancelRestoreJobResponse Client::cancelRestoreJobWithOptions(const CancelRestore
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CancelRestoreJob"},
     {"version" , "2017-09-08"},
@@ -204,7 +211,7 @@ CancelRestoreJobResponse Client::cancelRestoreJobWithOptions(const CancelRestore
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CancelRestoreJobResponse>();
 }
 
@@ -247,7 +254,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ChangeResourceGroup"},
     {"version" , "2017-09-08"},
@@ -258,7 +265,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ChangeResourceGroupResponse>();
 }
 
@@ -301,7 +308,7 @@ CheckRoleResponse Client::checkRoleWithOptions(const CheckRoleRequest &request, 
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CheckRole"},
     {"version" , "2017-09-08"},
@@ -312,7 +319,7 @@ CheckRoleResponse Client::checkRoleWithOptions(const CheckRoleRequest &request, 
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CheckRoleResponse>();
 }
 
@@ -417,7 +424,7 @@ CreateBackupJobResponse Client::createBackupJobWithOptions(const CreateBackupJob
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateBackupJob"},
     {"version" , "2017-09-08"},
@@ -428,7 +435,7 @@ CreateBackupJobResponse Client::createBackupJobWithOptions(const CreateBackupJob
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateBackupJobResponse>();
 }
 
@@ -615,7 +622,7 @@ CreateBackupPlanResponse Client::createBackupPlanWithOptions(const CreateBackupP
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateBackupPlanResponse>();
 }
 
@@ -681,7 +688,7 @@ CreateClientsResponse Client::createClientsWithOptions(const CreateClientsReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateClients"},
     {"version" , "2017-09-08"},
@@ -692,7 +699,7 @@ CreateClientsResponse Client::createClientsWithOptions(const CreateClientsReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateClientsResponse>();
 }
 
@@ -758,7 +765,7 @@ CreateHanaBackupPlanResponse Client::createHanaBackupPlanWithOptions(const Creat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateHanaBackupPlan"},
     {"version" , "2017-09-08"},
@@ -769,7 +776,7 @@ CreateHanaBackupPlanResponse Client::createHanaBackupPlanWithOptions(const Creat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateHanaBackupPlanResponse>();
 }
 
@@ -863,7 +870,7 @@ CreateHanaInstanceResponse Client::createHanaInstanceWithOptions(const CreateHan
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateHanaInstance"},
     {"version" , "2017-09-08"},
@@ -874,7 +881,7 @@ CreateHanaInstanceResponse Client::createHanaInstanceWithOptions(const CreateHan
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateHanaInstanceResponse>();
 }
 
@@ -977,7 +984,7 @@ CreateHanaRestoreResponse Client::createHanaRestoreWithOptions(const CreateHanaR
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateHanaRestore"},
     {"version" , "2017-09-08"},
@@ -988,7 +995,7 @@ CreateHanaRestoreResponse Client::createHanaRestoreWithOptions(const CreateHanaR
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateHanaRestoreResponse>();
 }
 
@@ -1047,7 +1054,7 @@ CreatePolicyBindingsResponse Client::createPolicyBindingsWithOptions(const Creat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreatePolicyBindingsResponse>();
 }
 
@@ -1104,7 +1111,7 @@ CreatePolicyV2Response Client::createPolicyV2WithOptions(const CreatePolicyV2Req
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreatePolicyV2"},
     {"version" , "2017-09-08"},
@@ -1115,7 +1122,7 @@ CreatePolicyV2Response Client::createPolicyV2WithOptions(const CreatePolicyV2Req
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreatePolicyV2Response>();
 }
 
@@ -1185,7 +1192,7 @@ CreateReplicationVaultResponse Client::createReplicationVaultWithOptions(const C
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateReplicationVault"},
     {"version" , "2017-09-08"},
@@ -1196,7 +1203,7 @@ CreateReplicationVaultResponse Client::createReplicationVaultWithOptions(const C
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateReplicationVaultResponse>();
 }
 
@@ -1250,6 +1257,10 @@ CreateRestoreJobResponse Client::createRestoreJobWithOptions(const CreateRestore
 
   if (!!request.hasCrossAccountUserId()) {
     query["CrossAccountUserId"] = request.crossAccountUserId();
+  }
+
+  if (!!request.hasEdition()) {
+    query["Edition"] = request.edition();
   }
 
   if (!!request.hasFailbackDetailShrink()) {
@@ -1363,7 +1374,7 @@ CreateRestoreJobResponse Client::createRestoreJobWithOptions(const CreateRestore
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateRestoreJobResponse>();
 }
 
@@ -1401,7 +1412,7 @@ CreateTempFileUploadUrlResponse Client::createTempFileUploadUrlWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateTempFileUploadUrl"},
     {"version" , "2017-09-08"},
@@ -1412,7 +1423,7 @@ CreateTempFileUploadUrlResponse Client::createTempFileUploadUrlWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateTempFileUploadUrlResponse>();
 }
 
@@ -1480,7 +1491,7 @@ CreateVaultResponse Client::createVaultWithOptions(const CreateVaultRequest &req
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateVault"},
     {"version" , "2017-09-08"},
@@ -1491,7 +1502,7 @@ CreateVaultResponse Client::createVaultWithOptions(const CreateVaultRequest &req
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateVaultResponse>();
 }
 
@@ -1537,7 +1548,7 @@ DeleteAirEcsInstanceResponse Client::deleteAirEcsInstanceWithOptions(const Delet
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteAirEcsInstance"},
     {"version" , "2017-09-08"},
@@ -1548,7 +1559,7 @@ DeleteAirEcsInstanceResponse Client::deleteAirEcsInstanceWithOptions(const Delet
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteAirEcsInstanceResponse>();
 }
 
@@ -1585,7 +1596,7 @@ DeleteBackupClientResponse Client::deleteBackupClientWithOptions(const DeleteBac
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteBackupClient"},
     {"version" , "2017-09-08"},
@@ -1596,7 +1607,7 @@ DeleteBackupClientResponse Client::deleteBackupClientWithOptions(const DeleteBac
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteBackupClientResponse>();
 }
 
@@ -1641,7 +1652,7 @@ DeleteBackupClientResourceResponse Client::deleteBackupClientResourceWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteBackupClientResource"},
     {"version" , "2017-09-08"},
@@ -1652,7 +1663,7 @@ DeleteBackupClientResourceResponse Client::deleteBackupClientResourceWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteBackupClientResourceResponse>();
 }
 
@@ -1682,6 +1693,10 @@ DeleteBackupClientResourceResponse Client::deleteBackupClientResource(const Dele
 DeleteBackupPlanResponse Client::deleteBackupPlanWithOptions(const DeleteBackupPlanRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasEdition()) {
+    query["Edition"] = request.edition();
+  }
+
   if (!!request.hasPlanId()) {
     query["PlanId"] = request.planId();
   }
@@ -1700,7 +1715,7 @@ DeleteBackupPlanResponse Client::deleteBackupPlanWithOptions(const DeleteBackupP
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteBackupPlan"},
     {"version" , "2017-09-08"},
@@ -1711,7 +1726,7 @@ DeleteBackupPlanResponse Client::deleteBackupPlanWithOptions(const DeleteBackupP
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteBackupPlanResponse>();
 }
 
@@ -1751,7 +1766,7 @@ DeleteClientResponse Client::deleteClientWithOptions(const DeleteClientRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteClient"},
     {"version" , "2017-09-08"},
@@ -1762,7 +1777,7 @@ DeleteClientResponse Client::deleteClientWithOptions(const DeleteClientRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteClientResponse>();
 }
 
@@ -1803,7 +1818,7 @@ DeleteHanaBackupPlanResponse Client::deleteHanaBackupPlanWithOptions(const Delet
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteHanaBackupPlan"},
     {"version" , "2017-09-08"},
@@ -1814,7 +1829,7 @@ DeleteHanaBackupPlanResponse Client::deleteHanaBackupPlanWithOptions(const Delet
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteHanaBackupPlanResponse>();
 }
 
@@ -1859,7 +1874,7 @@ DeleteHanaInstanceResponse Client::deleteHanaInstanceWithOptions(const DeleteHan
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteHanaInstance"},
     {"version" , "2017-09-08"},
@@ -1870,7 +1885,7 @@ DeleteHanaInstanceResponse Client::deleteHanaInstanceWithOptions(const DeleteHan
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteHanaInstanceResponse>();
 }
 
@@ -1930,7 +1945,7 @@ DeletePolicyBindingResponse Client::deletePolicyBindingWithOptions(const DeleteP
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeletePolicyBindingResponse>();
 }
 
@@ -1963,7 +1978,7 @@ DeletePolicyV2Response Client::deletePolicyV2WithOptions(const DeletePolicyV2Req
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeletePolicyV2"},
     {"version" , "2017-09-08"},
@@ -1974,7 +1989,7 @@ DeletePolicyV2Response Client::deletePolicyV2WithOptions(const DeletePolicyV2Req
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeletePolicyV2Response>();
 }
 
@@ -2031,7 +2046,7 @@ DeleteSnapshotResponse Client::deleteSnapshotWithOptions(const DeleteSnapshotReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteSnapshot"},
     {"version" , "2017-09-08"},
@@ -2042,7 +2057,7 @@ DeleteSnapshotResponse Client::deleteSnapshotWithOptions(const DeleteSnapshotReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteSnapshotResponse>();
 }
 
@@ -2073,7 +2088,7 @@ DeleteUdmDiskResponse Client::deleteUdmDiskWithOptions(const DeleteUdmDiskReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteUdmDisk"},
     {"version" , "2017-09-08"},
@@ -2084,7 +2099,7 @@ DeleteUdmDiskResponse Client::deleteUdmDiskWithOptions(const DeleteUdmDiskReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteUdmDiskResponse>();
 }
 
@@ -2115,7 +2130,7 @@ DeleteUdmEcsInstanceResponse Client::deleteUdmEcsInstanceWithOptions(const Delet
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteUdmEcsInstance"},
     {"version" , "2017-09-08"},
@@ -2126,7 +2141,7 @@ DeleteUdmEcsInstanceResponse Client::deleteUdmEcsInstanceWithOptions(const Delet
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteUdmEcsInstanceResponse>();
 }
 
@@ -2168,7 +2183,7 @@ DeleteVaultResponse Client::deleteVaultWithOptions(const DeleteVaultRequest &req
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteVault"},
     {"version" , "2017-09-08"},
@@ -2179,7 +2194,7 @@ DeleteVaultResponse Client::deleteVaultWithOptions(const DeleteVaultRequest &req
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteVaultResponse>();
 }
 
@@ -2276,7 +2291,7 @@ DescribeBackupClientsResponse Client::describeBackupClientsWithOptions(const Des
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeBackupClientsResponse>();
 }
 
@@ -2301,6 +2316,10 @@ DescribeBackupClientsResponse Client::describeBackupClients(const DescribeBackup
 DescribeBackupJobs2Response Client::describeBackupJobs2WithOptions(const DescribeBackupJobs2Request &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasEdition()) {
+    query["Edition"] = request.edition();
+  }
+
   if (!!request.hasFilters()) {
     query["Filters"] = request.filters();
   }
@@ -2323,7 +2342,7 @@ DescribeBackupJobs2Response Client::describeBackupJobs2WithOptions(const Describ
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeBackupJobs2"},
     {"version" , "2017-09-08"},
@@ -2334,7 +2353,7 @@ DescribeBackupJobs2Response Client::describeBackupJobs2WithOptions(const Describ
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeBackupJobs2Response>();
 }
 
@@ -2359,6 +2378,10 @@ DescribeBackupJobs2Response Client::describeBackupJobs2(const DescribeBackupJobs
 DescribeBackupPlansResponse Client::describeBackupPlansWithOptions(const DescribeBackupPlansRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasEdition()) {
+    query["Edition"] = request.edition();
+  }
+
   if (!!request.hasFilters()) {
     query["Filters"] = request.filters();
   }
@@ -2377,7 +2400,7 @@ DescribeBackupPlansResponse Client::describeBackupPlansWithOptions(const Describ
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeBackupPlans"},
     {"version" , "2017-09-08"},
@@ -2388,7 +2411,7 @@ DescribeBackupPlansResponse Client::describeBackupPlansWithOptions(const Describ
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeBackupPlansResponse>();
 }
 
@@ -2449,7 +2472,7 @@ DescribeClientsResponse Client::describeClientsWithOptions(const DescribeClients
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeClients"},
     {"version" , "2017-09-08"},
@@ -2460,7 +2483,7 @@ DescribeClientsResponse Client::describeClientsWithOptions(const DescribeClients
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeClientsResponse>();
 }
 
@@ -2507,7 +2530,7 @@ DescribeContainerClusterResponse Client::describeContainerClusterWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeContainerCluster"},
     {"version" , "2017-09-08"},
@@ -2518,7 +2541,7 @@ DescribeContainerClusterResponse Client::describeContainerClusterWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeContainerClusterResponse>();
 }
 
@@ -2555,7 +2578,7 @@ DescribeCrossAccountsResponse Client::describeCrossAccountsWithOptions(const Des
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeCrossAccounts"},
     {"version" , "2017-09-08"},
@@ -2566,7 +2589,7 @@ DescribeCrossAccountsResponse Client::describeCrossAccountsWithOptions(const Des
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeCrossAccountsResponse>();
 }
 
@@ -2617,7 +2640,7 @@ DescribeHanaBackupPlansResponse Client::describeHanaBackupPlansWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeHanaBackupPlans"},
     {"version" , "2017-09-08"},
@@ -2628,7 +2651,7 @@ DescribeHanaBackupPlansResponse Client::describeHanaBackupPlansWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeHanaBackupPlansResponse>();
 }
 
@@ -2669,7 +2692,7 @@ DescribeHanaBackupSettingResponse Client::describeHanaBackupSettingWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeHanaBackupSetting"},
     {"version" , "2017-09-08"},
@@ -2680,7 +2703,7 @@ DescribeHanaBackupSettingResponse Client::describeHanaBackupSettingWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeHanaBackupSettingResponse>();
 }
 
@@ -2779,7 +2802,7 @@ DescribeHanaBackupsAsyncResponse Client::describeHanaBackupsAsyncWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeHanaBackupsAsync"},
     {"version" , "2017-09-08"},
@@ -2790,7 +2813,7 @@ DescribeHanaBackupsAsyncResponse Client::describeHanaBackupsAsyncWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeHanaBackupsAsyncResponse>();
 }
 
@@ -2841,7 +2864,7 @@ DescribeHanaDatabasesResponse Client::describeHanaDatabasesWithOptions(const Des
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeHanaDatabases"},
     {"version" , "2017-09-08"},
@@ -2852,7 +2875,7 @@ DescribeHanaDatabasesResponse Client::describeHanaDatabasesWithOptions(const Des
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeHanaDatabasesResponse>();
 }
 
@@ -2918,7 +2941,7 @@ DescribeHanaInstancesResponse Client::describeHanaInstancesWithOptions(const Des
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeHanaInstancesResponse>();
 }
 
@@ -2981,7 +3004,7 @@ DescribeHanaRestoresResponse Client::describeHanaRestoresWithOptions(const Descr
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeHanaRestores"},
     {"version" , "2017-09-08"},
@@ -2992,7 +3015,7 @@ DescribeHanaRestoresResponse Client::describeHanaRestoresWithOptions(const Descr
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeHanaRestoresResponse>();
 }
 
@@ -3034,7 +3057,7 @@ DescribeHanaRetentionSettingResponse Client::describeHanaRetentionSettingWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeHanaRetentionSetting"},
     {"version" , "2017-09-08"},
@@ -3045,7 +3068,7 @@ DescribeHanaRetentionSettingResponse Client::describeHanaRetentionSettingWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeHanaRetentionSettingResponse>();
 }
 
@@ -3128,7 +3151,7 @@ DescribeOtsTableSnapshotsResponse Client::describeOtsTableSnapshotsWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeOtsTableSnapshotsResponse>();
 }
 
@@ -3167,7 +3190,7 @@ DescribePoliciesV2Response Client::describePoliciesV2WithOptions(const DescribeP
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DescribePoliciesV2"},
     {"version" , "2017-09-08"},
@@ -3178,7 +3201,7 @@ DescribePoliciesV2Response Client::describePoliciesV2WithOptions(const DescribeP
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribePoliciesV2Response>();
 }
 
@@ -3248,7 +3271,7 @@ DescribePolicyBindingsResponse Client::describePolicyBindingsWithOptions(const D
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribePolicyBindingsResponse>();
 }
 
@@ -3287,7 +3310,7 @@ DescribeRecoverableOtsInstancesResponse Client::describeRecoverableOtsInstancesW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeRecoverableOtsInstances"},
     {"version" , "2017-09-08"},
@@ -3298,7 +3321,7 @@ DescribeRecoverableOtsInstancesResponse Client::describeRecoverableOtsInstancesW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeRecoverableOtsInstancesResponse>();
 }
 
@@ -3332,7 +3355,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const Darabonba::Runt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeRegionsResponse>();
 }
 
@@ -3356,6 +3379,10 @@ DescribeRegionsResponse Client::describeRegions() {
 DescribeRestoreJobs2Response Client::describeRestoreJobs2WithOptions(const DescribeRestoreJobs2Request &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasEdition()) {
+    query["Edition"] = request.edition();
+  }
+
   if (!!request.hasFilters()) {
     query["Filters"] = request.filters();
   }
@@ -3374,7 +3401,7 @@ DescribeRestoreJobs2Response Client::describeRestoreJobs2WithOptions(const Descr
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeRestoreJobs2"},
     {"version" , "2017-09-08"},
@@ -3385,7 +3412,7 @@ DescribeRestoreJobs2Response Client::describeRestoreJobs2WithOptions(const Descr
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeRestoreJobs2Response>();
 }
 
@@ -3424,7 +3451,7 @@ DescribeTaskResponse Client::describeTaskWithOptions(const DescribeTaskRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeTask"},
     {"version" , "2017-09-08"},
@@ -3435,7 +3462,7 @@ DescribeTaskResponse Client::describeTaskWithOptions(const DescribeTaskRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeTaskResponse>();
 }
 
@@ -3513,7 +3540,7 @@ DescribeUdmSnapshotsResponse Client::describeUdmSnapshotsWithOptions(const Descr
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeUdmSnapshotsResponse>();
 }
 
@@ -3548,7 +3575,7 @@ DescribeVaultReplicationRegionsResponse Client::describeVaultReplicationRegionsW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeVaultReplicationRegions"},
     {"version" , "2017-09-08"},
@@ -3559,7 +3586,7 @@ DescribeVaultReplicationRegionsResponse Client::describeVaultReplicationRegionsW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeVaultReplicationRegionsResponse>();
 }
 
@@ -3635,7 +3662,7 @@ DescribeVaultsResponse Client::describeVaultsWithOptions(const DescribeVaultsReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeVaultsResponse>();
 }
 
@@ -3685,7 +3712,7 @@ DetachNasFileSystemResponse Client::detachNasFileSystemWithOptions(const DetachN
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DetachNasFileSystem"},
     {"version" , "2017-09-08"},
@@ -3696,7 +3723,7 @@ DetachNasFileSystemResponse Client::detachNasFileSystemWithOptions(const DetachN
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DetachNasFileSystemResponse>();
 }
 
@@ -3726,6 +3753,10 @@ DetachNasFileSystemResponse Client::detachNasFileSystem(const DetachNasFileSyste
 DisableBackupPlanResponse Client::disableBackupPlanWithOptions(const DisableBackupPlanRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasEdition()) {
+    query["Edition"] = request.edition();
+  }
+
   if (!!request.hasPlanId()) {
     query["PlanId"] = request.planId();
   }
@@ -3740,7 +3771,7 @@ DisableBackupPlanResponse Client::disableBackupPlanWithOptions(const DisableBack
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DisableBackupPlan"},
     {"version" , "2017-09-08"},
@@ -3751,7 +3782,7 @@ DisableBackupPlanResponse Client::disableBackupPlanWithOptions(const DisableBack
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DisableBackupPlanResponse>();
 }
 
@@ -3798,7 +3829,7 @@ DisableHanaBackupPlanResponse Client::disableHanaBackupPlanWithOptions(const Dis
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DisableHanaBackupPlan"},
     {"version" , "2017-09-08"},
@@ -3809,7 +3840,7 @@ DisableHanaBackupPlanResponse Client::disableHanaBackupPlanWithOptions(const Dis
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DisableHanaBackupPlanResponse>();
 }
 
@@ -3838,6 +3869,10 @@ DisableHanaBackupPlanResponse Client::disableHanaBackupPlan(const DisableHanaBac
 EnableBackupPlanResponse Client::enableBackupPlanWithOptions(const EnableBackupPlanRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasEdition()) {
+    query["Edition"] = request.edition();
+  }
+
   if (!!request.hasPlanId()) {
     query["PlanId"] = request.planId();
   }
@@ -3852,7 +3887,7 @@ EnableBackupPlanResponse Client::enableBackupPlanWithOptions(const EnableBackupP
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "EnableBackupPlan"},
     {"version" , "2017-09-08"},
@@ -3863,7 +3898,7 @@ EnableBackupPlanResponse Client::enableBackupPlanWithOptions(const EnableBackupP
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<EnableBackupPlanResponse>();
 }
 
@@ -3910,7 +3945,7 @@ EnableHanaBackupPlanResponse Client::enableHanaBackupPlanWithOptions(const Enabl
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "EnableHanaBackupPlan"},
     {"version" , "2017-09-08"},
@@ -3921,7 +3956,7 @@ EnableHanaBackupPlanResponse Client::enableHanaBackupPlanWithOptions(const Enabl
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<EnableHanaBackupPlanResponse>();
 }
 
@@ -3948,6 +3983,10 @@ EnableHanaBackupPlanResponse Client::enableHanaBackupPlan(const EnableHanaBackup
 ExecuteBackupPlanResponse Client::executeBackupPlanWithOptions(const ExecuteBackupPlanRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasEdition()) {
+    query["Edition"] = request.edition();
+  }
+
   if (!!request.hasPlanId()) {
     query["PlanId"] = request.planId();
   }
@@ -3966,7 +4005,7 @@ ExecuteBackupPlanResponse Client::executeBackupPlanWithOptions(const ExecuteBack
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ExecuteBackupPlan"},
     {"version" , "2017-09-08"},
@@ -3977,7 +4016,7 @@ ExecuteBackupPlanResponse Client::executeBackupPlanWithOptions(const ExecuteBack
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ExecuteBackupPlanResponse>();
 }
 
@@ -4033,7 +4072,7 @@ ExecutePolicyV2Response Client::executePolicyV2WithOptions(const ExecutePolicyV2
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ExecutePolicyV2Response>();
 }
 
@@ -4076,7 +4115,7 @@ GenerateRamPolicyResponse Client::generateRamPolicyWithOptions(const GenerateRam
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GenerateRamPolicy"},
     {"version" , "2017-09-08"},
@@ -4087,7 +4126,7 @@ GenerateRamPolicyResponse Client::generateRamPolicyWithOptions(const GenerateRam
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GenerateRamPolicyResponse>();
 }
 
@@ -4118,7 +4157,7 @@ GetTempFileDownloadLinkResponse Client::getTempFileDownloadLinkWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetTempFileDownloadLink"},
     {"version" , "2017-09-08"},
@@ -4129,7 +4168,7 @@ GetTempFileDownloadLinkResponse Client::getTempFileDownloadLinkWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetTempFileDownloadLinkResponse>();
 }
 
@@ -4182,7 +4221,7 @@ InstallBackupClientsResponse Client::installBackupClientsWithOptions(const Insta
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "InstallBackupClients"},
     {"version" , "2017-09-08"},
@@ -4193,7 +4232,7 @@ InstallBackupClientsResponse Client::installBackupClientsWithOptions(const Insta
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<InstallBackupClientsResponse>();
 }
 
@@ -4231,7 +4270,7 @@ OpenHbrServiceResponse Client::openHbrServiceWithOptions(const Darabonba::Runtim
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<OpenHbrServiceResponse>();
 }
 
@@ -4261,6 +4300,10 @@ SearchHistoricalSnapshotsResponse Client::searchHistoricalSnapshotsWithOptions(c
   }
 
   json query = {};
+  if (!!request.hasEdition()) {
+    query["Edition"] = request.edition();
+  }
+
   if (!!request.hasLimit()) {
     query["Limit"] = request.limit();
   }
@@ -4287,7 +4330,7 @@ SearchHistoricalSnapshotsResponse Client::searchHistoricalSnapshotsWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SearchHistoricalSnapshots"},
     {"version" , "2017-09-08"},
@@ -4298,7 +4341,7 @@ SearchHistoricalSnapshotsResponse Client::searchHistoricalSnapshotsWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SearchHistoricalSnapshotsResponse>();
 }
 
@@ -4339,7 +4382,7 @@ StartHanaDatabaseAsyncResponse Client::startHanaDatabaseAsyncWithOptions(const S
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StartHanaDatabaseAsync"},
     {"version" , "2017-09-08"},
@@ -4350,7 +4393,7 @@ StartHanaDatabaseAsyncResponse Client::startHanaDatabaseAsyncWithOptions(const S
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StartHanaDatabaseAsyncResponse>();
 }
 
@@ -4393,7 +4436,7 @@ StopHanaDatabaseAsyncResponse Client::stopHanaDatabaseAsyncWithOptions(const Sto
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StopHanaDatabaseAsync"},
     {"version" , "2017-09-08"},
@@ -4404,7 +4447,7 @@ StopHanaDatabaseAsyncResponse Client::stopHanaDatabaseAsyncWithOptions(const Sto
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StopHanaDatabaseAsyncResponse>();
 }
 
@@ -4467,7 +4510,7 @@ UninstallBackupClientsResponse Client::uninstallBackupClientsWithOptions(const U
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UninstallBackupClients"},
     {"version" , "2017-09-08"},
@@ -4478,7 +4521,7 @@ UninstallBackupClientsResponse Client::uninstallBackupClientsWithOptions(const U
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UninstallBackupClientsResponse>();
 }
 
@@ -4523,7 +4566,7 @@ UninstallClientResponse Client::uninstallClientWithOptions(const UninstallClient
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UninstallClient"},
     {"version" , "2017-09-08"},
@@ -4534,7 +4577,7 @@ UninstallClientResponse Client::uninstallClientWithOptions(const UninstallClient
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UninstallClientResponse>();
 }
 
@@ -4577,6 +4620,10 @@ UpdateBackupPlanResponse Client::updateBackupPlanWithOptions(const UpdateBackupP
 
   if (!!request.hasDetailShrink()) {
     query["Detail"] = request.detailShrink();
+  }
+
+  if (!!request.hasEdition()) {
+    query["Edition"] = request.edition();
   }
 
   if (!!request.hasKeepLatestSnapshots()) {
@@ -4658,7 +4705,7 @@ UpdateBackupPlanResponse Client::updateBackupPlanWithOptions(const UpdateBackupP
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateBackupPlanResponse>();
 }
 
@@ -4743,7 +4790,7 @@ UpdateClientSettingsResponse Client::updateClientSettingsWithOptions(const Updat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateClientSettings"},
     {"version" , "2017-09-08"},
@@ -4754,7 +4801,7 @@ UpdateClientSettingsResponse Client::updateClientSettingsWithOptions(const Updat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateClientSettingsResponse>();
 }
 
@@ -4803,7 +4850,7 @@ UpdateContainerClusterResponse Client::updateContainerClusterWithOptions(const U
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateContainerCluster"},
     {"version" , "2017-09-08"},
@@ -4814,7 +4861,7 @@ UpdateContainerClusterResponse Client::updateContainerClusterWithOptions(const U
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateContainerClusterResponse>();
 }
 
@@ -4874,7 +4921,7 @@ UpdateHanaBackupPlanResponse Client::updateHanaBackupPlanWithOptions(const Updat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateHanaBackupPlan"},
     {"version" , "2017-09-08"},
@@ -4885,7 +4932,7 @@ UpdateHanaBackupPlanResponse Client::updateHanaBackupPlanWithOptions(const Updat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateHanaBackupPlanResponse>();
 }
 
@@ -4959,7 +5006,7 @@ UpdateHanaBackupSettingResponse Client::updateHanaBackupSettingWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateHanaBackupSetting"},
     {"version" , "2017-09-08"},
@@ -4970,7 +5017,7 @@ UpdateHanaBackupSettingResponse Client::updateHanaBackupSettingWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateHanaBackupSettingResponse>();
 }
 
@@ -5043,7 +5090,7 @@ UpdateHanaInstanceResponse Client::updateHanaInstanceWithOptions(const UpdateHan
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateHanaInstance"},
     {"version" , "2017-09-08"},
@@ -5054,7 +5101,7 @@ UpdateHanaInstanceResponse Client::updateHanaInstanceWithOptions(const UpdateHan
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateHanaInstanceResponse>();
 }
 
@@ -5108,7 +5155,7 @@ UpdateHanaRetentionSettingResponse Client::updateHanaRetentionSettingWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateHanaRetentionSetting"},
     {"version" , "2017-09-08"},
@@ -5119,7 +5166,7 @@ UpdateHanaRetentionSettingResponse Client::updateHanaRetentionSettingWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateHanaRetentionSettingResponse>();
 }
 
@@ -5208,7 +5255,7 @@ UpdatePolicyBindingResponse Client::updatePolicyBindingWithOptions(const UpdateP
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdatePolicyBindingResponse>();
 }
 
@@ -5259,7 +5306,7 @@ UpdatePolicyV2Response Client::updatePolicyV2WithOptions(const UpdatePolicyV2Req
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UpdatePolicyV2"},
     {"version" , "2017-09-08"},
@@ -5270,7 +5317,7 @@ UpdatePolicyV2Response Client::updatePolicyV2WithOptions(const UpdatePolicyV2Req
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdatePolicyV2Response>();
 }
 
@@ -5319,7 +5366,7 @@ UpdateVaultResponse Client::updateVaultWithOptions(const UpdateVaultRequest &req
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateVault"},
     {"version" , "2017-09-08"},
@@ -5330,7 +5377,7 @@ UpdateVaultResponse Client::updateVaultWithOptions(const UpdateVaultRequest &req
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateVaultResponse>();
 }
 
@@ -5391,7 +5438,7 @@ UpgradeBackupClientsResponse Client::upgradeBackupClientsWithOptions(const Upgra
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpgradeBackupClients"},
     {"version" , "2017-09-08"},
@@ -5402,7 +5449,7 @@ UpgradeBackupClientsResponse Client::upgradeBackupClientsWithOptions(const Upgra
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpgradeBackupClientsResponse>();
 }
 
@@ -5447,7 +5494,7 @@ UpgradeClientResponse Client::upgradeClientWithOptions(const UpgradeClientReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpgradeClient"},
     {"version" , "2017-09-08"},
@@ -5458,7 +5505,7 @@ UpgradeClientResponse Client::upgradeClientWithOptions(const UpgradeClientReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpgradeClientResponse>();
 }
 

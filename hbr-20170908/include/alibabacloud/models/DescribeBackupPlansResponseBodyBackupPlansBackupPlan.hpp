@@ -47,6 +47,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(KeepLatestSnapshots, keepLatestSnapshots_);
       DARABONBA_PTR_TO_JSON(LatestExecuteJobId, latestExecuteJobId_);
+      DARABONBA_PTR_TO_JSON(LatestFinishJobId, latestFinishJobId_);
       DARABONBA_PTR_TO_JSON(Options, options_);
       DARABONBA_PTR_TO_JSON(OtsDetail, otsDetail_);
       DARABONBA_PTR_TO_JSON(Paths, paths_);
@@ -92,6 +93,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(KeepLatestSnapshots, keepLatestSnapshots_);
       DARABONBA_PTR_FROM_JSON(LatestExecuteJobId, latestExecuteJobId_);
+      DARABONBA_PTR_FROM_JSON(LatestFinishJobId, latestFinishJobId_);
       DARABONBA_PTR_FROM_JSON(Options, options_);
       DARABONBA_PTR_FROM_JSON(OtsDetail, otsDetail_);
       DARABONBA_PTR_FROM_JSON(Paths, paths_);
@@ -125,10 +127,10 @@ namespace Models
         && this->crossAccountType_ != nullptr && this->crossAccountUserId_ != nullptr && this->dataSourceId_ != nullptr && this->destDataSourceDetail_ != nullptr && this->destDataSourceId_ != nullptr
         && this->destSourceType_ != nullptr && this->detail_ != nullptr && this->disabled_ != nullptr && this->exclude_ != nullptr && this->fileSystemId_ != nullptr
         && this->hitTags_ != nullptr && this->include_ != nullptr && this->instanceGroupId_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr
-        && this->keepLatestSnapshots_ != nullptr && this->latestExecuteJobId_ != nullptr && this->options_ != nullptr && this->otsDetail_ != nullptr && this->paths_ != nullptr
-        && this->planId_ != nullptr && this->planName_ != nullptr && this->prefix_ != nullptr && this->resources_ != nullptr && this->retention_ != nullptr
-        && this->rules_ != nullptr && this->schedule_ != nullptr && this->sourceType_ != nullptr && this->speedLimit_ != nullptr && this->trialInfo_ != nullptr
-        && this->updatedTime_ != nullptr && this->vaultId_ != nullptr; };
+        && this->keepLatestSnapshots_ != nullptr && this->latestExecuteJobId_ != nullptr && this->latestFinishJobId_ != nullptr && this->options_ != nullptr && this->otsDetail_ != nullptr
+        && this->paths_ != nullptr && this->planId_ != nullptr && this->planName_ != nullptr && this->prefix_ != nullptr && this->resources_ != nullptr
+        && this->retention_ != nullptr && this->rules_ != nullptr && this->schedule_ != nullptr && this->sourceType_ != nullptr && this->speedLimit_ != nullptr
+        && this->trialInfo_ != nullptr && this->updatedTime_ != nullptr && this->vaultId_ != nullptr; };
     // backupSourceGroupId Field Functions 
     bool hasBackupSourceGroupId() const { return this->backupSourceGroupId_ != nullptr;};
     void deleteBackupSourceGroupId() { this->backupSourceGroupId_ = nullptr;};
@@ -327,6 +329,13 @@ namespace Models
     inline DescribeBackupPlansResponseBodyBackupPlansBackupPlan& setLatestExecuteJobId(string latestExecuteJobId) { DARABONBA_PTR_SET_VALUE(latestExecuteJobId_, latestExecuteJobId) };
 
 
+    // latestFinishJobId Field Functions 
+    bool hasLatestFinishJobId() const { return this->latestFinishJobId_ != nullptr;};
+    void deleteLatestFinishJobId() { this->latestFinishJobId_ = nullptr;};
+    inline string latestFinishJobId() const { DARABONBA_PTR_GET_DEFAULT(latestFinishJobId_, "") };
+    inline DescribeBackupPlansResponseBodyBackupPlansBackupPlan& setLatestFinishJobId(string latestFinishJobId) { DARABONBA_PTR_SET_VALUE(latestFinishJobId_, latestFinishJobId) };
+
+
     // options Field Functions 
     bool hasOptions() const { return this->options_ != nullptr;};
     void deleteOptions() { this->options_ = nullptr;};
@@ -507,6 +516,7 @@ namespace Models
     std::shared_ptr<int64_t> keepLatestSnapshots_ = nullptr;
     // The latest execution job id of plan.
     std::shared_ptr<string> latestExecuteJobId_ = nullptr;
+    std::shared_ptr<string> latestFinishJobId_ = nullptr;
     // This parameter is valid only when **SourceType** is set to **ECS_FILE**. This parameter indicates whether Windows Volume Shadow Copy Service (VSS) is used to define a source path.
     std::shared_ptr<string> options_ = nullptr;
     // The details about the Tablestore instance.

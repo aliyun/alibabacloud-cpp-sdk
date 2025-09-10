@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATERESTOREJOBREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATERESTOREJOBREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/OtsTableRestoreDetail.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -16,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CrossAccountRoleName, crossAccountRoleName_);
       DARABONBA_PTR_TO_JSON(CrossAccountType, crossAccountType_);
       DARABONBA_PTR_TO_JSON(CrossAccountUserId, crossAccountUserId_);
+      DARABONBA_PTR_TO_JSON(Edition, edition_);
       DARABONBA_PTR_TO_JSON(Exclude, exclude_);
       DARABONBA_ANY_TO_JSON(FailbackDetail, failbackDetail_);
       DARABONBA_PTR_TO_JSON(Include, include_);
@@ -45,6 +47,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CrossAccountRoleName, crossAccountRoleName_);
       DARABONBA_PTR_FROM_JSON(CrossAccountType, crossAccountType_);
       DARABONBA_PTR_FROM_JSON(CrossAccountUserId, crossAccountUserId_);
+      DARABONBA_PTR_FROM_JSON(Edition, edition_);
       DARABONBA_PTR_FROM_JSON(Exclude, exclude_);
       DARABONBA_ANY_FROM_JSON(FailbackDetail, failbackDetail_);
       DARABONBA_PTR_FROM_JSON(Include, include_);
@@ -82,12 +85,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->crossAccountRoleName_ != nullptr
-        && this->crossAccountType_ != nullptr && this->crossAccountUserId_ != nullptr && this->exclude_ != nullptr && this->failbackDetail_ != nullptr && this->include_ != nullptr
-        && this->initiatedByAck_ != nullptr && this->options_ != nullptr && this->otsDetail_ != nullptr && this->restoreType_ != nullptr && this->snapshotHash_ != nullptr
-        && this->snapshotId_ != nullptr && this->sourceType_ != nullptr && this->targetBucket_ != nullptr && this->targetContainer_ != nullptr && this->targetContainerClusterId_ != nullptr
-        && this->targetCreateTime_ != nullptr && this->targetFileSystemId_ != nullptr && this->targetInstanceId_ != nullptr && this->targetInstanceName_ != nullptr && this->targetPath_ != nullptr
-        && this->targetPrefix_ != nullptr && this->targetTableName_ != nullptr && this->targetTime_ != nullptr && this->udmDetail_ != nullptr && this->udmRegionId_ != nullptr
-        && this->vaultId_ != nullptr; };
+        && this->crossAccountType_ != nullptr && this->crossAccountUserId_ != nullptr && this->edition_ != nullptr && this->exclude_ != nullptr && this->failbackDetail_ != nullptr
+        && this->include_ != nullptr && this->initiatedByAck_ != nullptr && this->options_ != nullptr && this->otsDetail_ != nullptr && this->restoreType_ != nullptr
+        && this->snapshotHash_ != nullptr && this->snapshotId_ != nullptr && this->sourceType_ != nullptr && this->targetBucket_ != nullptr && this->targetContainer_ != nullptr
+        && this->targetContainerClusterId_ != nullptr && this->targetCreateTime_ != nullptr && this->targetFileSystemId_ != nullptr && this->targetInstanceId_ != nullptr && this->targetInstanceName_ != nullptr
+        && this->targetPath_ != nullptr && this->targetPrefix_ != nullptr && this->targetTableName_ != nullptr && this->targetTime_ != nullptr && this->udmDetail_ != nullptr
+        && this->udmRegionId_ != nullptr && this->vaultId_ != nullptr; };
     // crossAccountRoleName Field Functions 
     bool hasCrossAccountRoleName() const { return this->crossAccountRoleName_ != nullptr;};
     void deleteCrossAccountRoleName() { this->crossAccountRoleName_ = nullptr;};
@@ -107,6 +110,13 @@ namespace Models
     void deleteCrossAccountUserId() { this->crossAccountUserId_ = nullptr;};
     inline int64_t crossAccountUserId() const { DARABONBA_PTR_GET_DEFAULT(crossAccountUserId_, 0L) };
     inline CreateRestoreJobRequest& setCrossAccountUserId(int64_t crossAccountUserId) { DARABONBA_PTR_SET_VALUE(crossAccountUserId_, crossAccountUserId) };
+
+
+    // edition Field Functions 
+    bool hasEdition() const { return this->edition_ != nullptr;};
+    void deleteEdition() { this->edition_ = nullptr;};
+    inline string edition() const { DARABONBA_PTR_GET_DEFAULT(edition_, "") };
+    inline CreateRestoreJobRequest& setEdition(string edition) { DARABONBA_PTR_SET_VALUE(edition_, edition) };
 
 
     // exclude Field Functions 
@@ -292,6 +302,7 @@ namespace Models
     std::shared_ptr<string> crossAccountType_ = nullptr;
     // The original account ID managed by the current account for cross-account backup.
     std::shared_ptr<int64_t> crossAccountUserId_ = nullptr;
+    std::shared_ptr<string> edition_ = nullptr;
     // The path not to be restored. All documents under this path will not be restored. Maximum length is 255 characters.
     std::shared_ptr<string> exclude_ = nullptr;
     // Details of restoring to the local environment.

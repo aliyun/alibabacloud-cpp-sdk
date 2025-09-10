@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEBACKUPPLANREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEBACKUPPLANREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/OtsDetail.hpp>
 #include <vector>
 #include <alibabacloud/models/CreateBackupPlanRequestRule.hpp>
 using namespace std;

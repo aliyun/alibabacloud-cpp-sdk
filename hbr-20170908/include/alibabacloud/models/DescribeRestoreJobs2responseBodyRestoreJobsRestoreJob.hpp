@@ -44,6 +44,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RestoreType, restoreType_);
       DARABONBA_PTR_TO_JSON(SnapshotHash, snapshotHash_);
       DARABONBA_PTR_TO_JSON(SnapshotId, snapshotId_);
+      DARABONBA_PTR_TO_JSON(SourceInstanceId, sourceInstanceId_);
       DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
       DARABONBA_PTR_TO_JSON(Speed, speed_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
@@ -94,6 +95,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RestoreType, restoreType_);
       DARABONBA_PTR_FROM_JSON(SnapshotHash, snapshotHash_);
       DARABONBA_PTR_FROM_JSON(SnapshotId, snapshotId_);
+      DARABONBA_PTR_FROM_JSON(SourceInstanceId, sourceInstanceId_);
       DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
       DARABONBA_PTR_FROM_JSON(Speed, speed_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
@@ -131,11 +133,11 @@ namespace Models
         && this->errorMessage_ != nullptr && this->exclude_ != nullptr && this->expireTime_ != nullptr && this->failbackDetail_ != nullptr && this->include_ != nullptr
         && this->itemsDone_ != nullptr && this->itemsTotal_ != nullptr && this->meteringBytesDone_ != nullptr && this->meteringBytesTotal_ != nullptr && this->options_ != nullptr
         && this->otsDetail_ != nullptr && this->parentId_ != nullptr && this->progress_ != nullptr && this->report_ != nullptr && this->restoreId_ != nullptr
-        && this->restoreType_ != nullptr && this->snapshotHash_ != nullptr && this->snapshotId_ != nullptr && this->sourceType_ != nullptr && this->speed_ != nullptr
-        && this->startTime_ != nullptr && this->status_ != nullptr && this->storageClass_ != nullptr && this->targetBucket_ != nullptr && this->targetClientId_ != nullptr
-        && this->targetCreateTime_ != nullptr && this->targetDataSourceId_ != nullptr && this->targetFileSystemId_ != nullptr && this->targetInstanceId_ != nullptr && this->targetInstanceName_ != nullptr
-        && this->targetPath_ != nullptr && this->targetPrefix_ != nullptr && this->targetTableName_ != nullptr && this->targetTime_ != nullptr && this->udmDetail_ != nullptr
-        && this->updatedTime_ != nullptr && this->vaultId_ != nullptr; };
+        && this->restoreType_ != nullptr && this->snapshotHash_ != nullptr && this->snapshotId_ != nullptr && this->sourceInstanceId_ != nullptr && this->sourceType_ != nullptr
+        && this->speed_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->storageClass_ != nullptr && this->targetBucket_ != nullptr
+        && this->targetClientId_ != nullptr && this->targetCreateTime_ != nullptr && this->targetDataSourceId_ != nullptr && this->targetFileSystemId_ != nullptr && this->targetInstanceId_ != nullptr
+        && this->targetInstanceName_ != nullptr && this->targetPath_ != nullptr && this->targetPrefix_ != nullptr && this->targetTableName_ != nullptr && this->targetTime_ != nullptr
+        && this->udmDetail_ != nullptr && this->updatedTime_ != nullptr && this->vaultId_ != nullptr; };
     // actualBytes Field Functions 
     bool hasActualBytes() const { return this->actualBytes_ != nullptr;};
     void deleteActualBytes() { this->actualBytes_ = nullptr;};
@@ -343,6 +345,13 @@ namespace Models
     inline DescribeRestoreJobs2ResponseBodyRestoreJobsRestoreJob& setSnapshotId(string snapshotId) { DARABONBA_PTR_SET_VALUE(snapshotId_, snapshotId) };
 
 
+    // sourceInstanceId Field Functions 
+    bool hasSourceInstanceId() const { return this->sourceInstanceId_ != nullptr;};
+    void deleteSourceInstanceId() { this->sourceInstanceId_ = nullptr;};
+    inline string sourceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(sourceInstanceId_, "") };
+    inline DescribeRestoreJobs2ResponseBodyRestoreJobsRestoreJob& setSourceInstanceId(string sourceInstanceId) { DARABONBA_PTR_SET_VALUE(sourceInstanceId_, sourceInstanceId) };
+
+
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
@@ -542,6 +551,7 @@ namespace Models
     std::shared_ptr<string> snapshotHash_ = nullptr;
     // The ID of the snapshot used for restoration.
     std::shared_ptr<string> snapshotId_ = nullptr;
+    std::shared_ptr<string> sourceInstanceId_ = nullptr;
     // The type of the data source. Valid values:
     // 
     // *   **ECS_FILE**: ECS files

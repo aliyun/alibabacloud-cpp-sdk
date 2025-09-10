@@ -17,6 +17,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateBackupPlanShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ChangeListPath, changeListPath_);
       DARABONBA_PTR_TO_JSON(Detail, detailShrink_);
+      DARABONBA_PTR_TO_JSON(Edition, edition_);
       DARABONBA_PTR_TO_JSON(Exclude, exclude_);
       DARABONBA_PTR_TO_JSON(Include, include_);
       DARABONBA_PTR_TO_JSON(KeepLatestSnapshots, keepLatestSnapshots_);
@@ -37,6 +38,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, UpdateBackupPlanShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ChangeListPath, changeListPath_);
       DARABONBA_PTR_FROM_JSON(Detail, detailShrink_);
+      DARABONBA_PTR_FROM_JSON(Edition, edition_);
       DARABONBA_PTR_FROM_JSON(Exclude, exclude_);
       DARABONBA_PTR_FROM_JSON(Include, include_);
       DARABONBA_PTR_FROM_JSON(KeepLatestSnapshots, keepLatestSnapshots_);
@@ -66,10 +68,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->changeListPath_ != nullptr
-        && this->detailShrink_ != nullptr && this->exclude_ != nullptr && this->include_ != nullptr && this->keepLatestSnapshots_ != nullptr && this->options_ != nullptr
-        && this->otsDetailShrink_ != nullptr && this->path_ != nullptr && this->planId_ != nullptr && this->planName_ != nullptr && this->prefix_ != nullptr
-        && this->retention_ != nullptr && this->rule_ != nullptr && this->schedule_ != nullptr && this->sourceType_ != nullptr && this->speedLimit_ != nullptr
-        && this->updatePaths_ != nullptr && this->vaultId_ != nullptr; };
+        && this->detailShrink_ != nullptr && this->edition_ != nullptr && this->exclude_ != nullptr && this->include_ != nullptr && this->keepLatestSnapshots_ != nullptr
+        && this->options_ != nullptr && this->otsDetailShrink_ != nullptr && this->path_ != nullptr && this->planId_ != nullptr && this->planName_ != nullptr
+        && this->prefix_ != nullptr && this->retention_ != nullptr && this->rule_ != nullptr && this->schedule_ != nullptr && this->sourceType_ != nullptr
+        && this->speedLimit_ != nullptr && this->updatePaths_ != nullptr && this->vaultId_ != nullptr; };
     // changeListPath Field Functions 
     bool hasChangeListPath() const { return this->changeListPath_ != nullptr;};
     void deleteChangeListPath() { this->changeListPath_ = nullptr;};
@@ -82,6 +84,13 @@ namespace Models
     void deleteDetailShrink() { this->detailShrink_ = nullptr;};
     inline string detailShrink() const { DARABONBA_PTR_GET_DEFAULT(detailShrink_, "") };
     inline UpdateBackupPlanShrinkRequest& setDetailShrink(string detailShrink) { DARABONBA_PTR_SET_VALUE(detailShrink_, detailShrink) };
+
+
+    // edition Field Functions 
+    bool hasEdition() const { return this->edition_ != nullptr;};
+    void deleteEdition() { this->edition_ = nullptr;};
+    inline string edition() const { DARABONBA_PTR_GET_DEFAULT(edition_, "") };
+    inline UpdateBackupPlanShrinkRequest& setEdition(string edition) { DARABONBA_PTR_SET_VALUE(edition_, edition) };
 
 
     // exclude Field Functions 
@@ -210,6 +219,7 @@ namespace Models
     // *   preScriptPath: the path to the pre-freeze scripts.
     // *   postScriptPath: the path to the post-thaw scripts.
     std::shared_ptr<string> detailShrink_ = nullptr;
+    std::shared_ptr<string> edition_ = nullptr;
     // This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the paths to the files that are excluded from the backup job. The value must be 1 to 255 characters in length.
     std::shared_ptr<string> exclude_ = nullptr;
     // This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the paths to the files that you want to back up. The value must be 1 to 255 characters in length.

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_UPDATEHANABACKUPSETTINGRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/UpdateHanaBackupSettingResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

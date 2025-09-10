@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DETACHNASFILESYSTEMRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DetachNasFileSystemResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

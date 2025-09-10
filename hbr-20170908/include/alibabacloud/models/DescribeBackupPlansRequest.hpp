@@ -15,12 +15,14 @@ namespace Models
   class DescribeBackupPlansRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeBackupPlansRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Edition, edition_);
       DARABONBA_PTR_TO_JSON(Filters, filters_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeBackupPlansRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Edition, edition_);
       DARABONBA_PTR_FROM_JSON(Filters, filters_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->filters_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->sourceType_ != nullptr; };
+    virtual bool empty() const override { this->edition_ != nullptr
+        && this->filters_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->sourceType_ != nullptr; };
+    // edition Field Functions 
+    bool hasEdition() const { return this->edition_ != nullptr;};
+    void deleteEdition() { this->edition_ = nullptr;};
+    inline string edition() const { DARABONBA_PTR_GET_DEFAULT(edition_, "") };
+    inline DescribeBackupPlansRequest& setEdition(string edition) { DARABONBA_PTR_SET_VALUE(edition_, edition) };
+
+
     // filters Field Functions 
     bool hasFilters() const { return this->filters_ != nullptr;};
     void deleteFilters() { this->filters_ = nullptr;};
@@ -70,6 +79,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> edition_ = nullptr;
     // The filters.
     std::shared_ptr<vector<DescribeBackupPlansRequestFilters>> filters_ = nullptr;
     // The page number. Pages start from page 1. Default value: 1.

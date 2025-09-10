@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETTEMPFILEDOWNLOADLINKRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetTempFileDownloadLinkResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

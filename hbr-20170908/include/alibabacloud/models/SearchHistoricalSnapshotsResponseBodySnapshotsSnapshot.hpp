@@ -39,6 +39,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Path, path_);
       DARABONBA_PTR_TO_JSON(Paths, paths_);
       DARABONBA_PTR_TO_JSON(Prefix, prefix_);
+      DARABONBA_PTR_TO_JSON(ProtectedDataSize, protectedDataSize_);
       DARABONBA_PTR_TO_JSON(RangeEnd, rangeEnd_);
       DARABONBA_PTR_TO_JSON(RangeStart, rangeStart_);
       DARABONBA_PTR_TO_JSON(Retention, retention_);
@@ -81,6 +82,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Path, path_);
       DARABONBA_PTR_FROM_JSON(Paths, paths_);
       DARABONBA_PTR_FROM_JSON(Prefix, prefix_);
+      DARABONBA_PTR_FROM_JSON(ProtectedDataSize, protectedDataSize_);
       DARABONBA_PTR_FROM_JSON(RangeEnd, rangeEnd_);
       DARABONBA_PTR_FROM_JSON(RangeStart, rangeStart_);
       DARABONBA_PTR_FROM_JSON(Retention, retention_);
@@ -113,10 +115,10 @@ namespace Models
         && this->bytesTotal_ != nullptr && this->clientId_ != nullptr && this->completeTime_ != nullptr && this->createTime_ != nullptr && this->createdTime_ != nullptr
         && this->errorFile_ != nullptr && this->exclude_ != nullptr && this->expireTime_ != nullptr && this->fileSystemId_ != nullptr && this->include_ != nullptr
         && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->itemsDone_ != nullptr && this->itemsTotal_ != nullptr && this->jobId_ != nullptr
-        && this->parentSnapshotHash_ != nullptr && this->path_ != nullptr && this->paths_ != nullptr && this->prefix_ != nullptr && this->rangeEnd_ != nullptr
-        && this->rangeStart_ != nullptr && this->retention_ != nullptr && this->snapshotHash_ != nullptr && this->snapshotId_ != nullptr && this->sourceParentSnapshotHash_ != nullptr
-        && this->sourceSnapshotHash_ != nullptr && this->sourceType_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->storageClass_ != nullptr
-        && this->tableName_ != nullptr && this->updatedTime_ != nullptr && this->useCommonNas_ != nullptr && this->vaultId_ != nullptr; };
+        && this->parentSnapshotHash_ != nullptr && this->path_ != nullptr && this->paths_ != nullptr && this->prefix_ != nullptr && this->protectedDataSize_ != nullptr
+        && this->rangeEnd_ != nullptr && this->rangeStart_ != nullptr && this->retention_ != nullptr && this->snapshotHash_ != nullptr && this->snapshotId_ != nullptr
+        && this->sourceParentSnapshotHash_ != nullptr && this->sourceSnapshotHash_ != nullptr && this->sourceType_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr
+        && this->storageClass_ != nullptr && this->tableName_ != nullptr && this->updatedTime_ != nullptr && this->useCommonNas_ != nullptr && this->vaultId_ != nullptr; };
     // actualBytes Field Functions 
     bool hasActualBytes() const { return this->actualBytes_ != nullptr;};
     void deleteActualBytes() { this->actualBytes_ = nullptr;};
@@ -294,6 +296,13 @@ namespace Models
     inline SearchHistoricalSnapshotsResponseBodySnapshotsSnapshot& setPrefix(string prefix) { DARABONBA_PTR_SET_VALUE(prefix_, prefix) };
 
 
+    // protectedDataSize Field Functions 
+    bool hasProtectedDataSize() const { return this->protectedDataSize_ != nullptr;};
+    void deleteProtectedDataSize() { this->protectedDataSize_ = nullptr;};
+    inline int64_t protectedDataSize() const { DARABONBA_PTR_GET_DEFAULT(protectedDataSize_, 0L) };
+    inline SearchHistoricalSnapshotsResponseBodySnapshotsSnapshot& setProtectedDataSize(int64_t protectedDataSize) { DARABONBA_PTR_SET_VALUE(protectedDataSize_, protectedDataSize) };
+
+
     // rangeEnd Field Functions 
     bool hasRangeEnd() const { return this->rangeEnd_ != nullptr;};
     void deleteRangeEnd() { this->rangeEnd_ = nullptr;};
@@ -456,6 +465,7 @@ namespace Models
     std::shared_ptr<Models::SearchHistoricalSnapshotsResponseBodySnapshotsSnapshotPaths> paths_ = nullptr;
     // This parameter is returned only if the **SourceType** parameter is set to **OSS**. This parameter indicates the prefix of objects that are backed up.
     std::shared_ptr<string> prefix_ = nullptr;
+    std::shared_ptr<int64_t> protectedDataSize_ = nullptr;
     // The time when the backup job ended. The value is a UNIX timestamp. Unit: milliseconds.
     std::shared_ptr<int64_t> rangeEnd_ = nullptr;
     // The time when the backup job started. The value is a UNIX timestamp. Unit: milliseconds.

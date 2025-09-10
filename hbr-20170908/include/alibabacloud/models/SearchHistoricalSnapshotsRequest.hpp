@@ -14,6 +14,7 @@ namespace Models
   class SearchHistoricalSnapshotsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SearchHistoricalSnapshotsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Edition, edition_);
       DARABONBA_PTR_TO_JSON(Limit, limit_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(Order, order_);
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
     };
     friend void from_json(const Darabonba::Json& j, SearchHistoricalSnapshotsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Edition, edition_);
       DARABONBA_PTR_FROM_JSON(Limit, limit_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(Order, order_);
@@ -40,8 +42,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->limit_ != nullptr
-        && this->nextToken_ != nullptr && this->order_ != nullptr && this->query_ != nullptr && this->sortBy_ != nullptr && this->sourceType_ != nullptr; };
+    virtual bool empty() const override { this->edition_ != nullptr
+        && this->limit_ != nullptr && this->nextToken_ != nullptr && this->order_ != nullptr && this->query_ != nullptr && this->sortBy_ != nullptr
+        && this->sourceType_ != nullptr; };
+    // edition Field Functions 
+    bool hasEdition() const { return this->edition_ != nullptr;};
+    void deleteEdition() { this->edition_ = nullptr;};
+    inline string edition() const { DARABONBA_PTR_GET_DEFAULT(edition_, "") };
+    inline SearchHistoricalSnapshotsRequest& setEdition(string edition) { DARABONBA_PTR_SET_VALUE(edition_, edition) };
+
+
     // limit Field Functions 
     bool hasLimit() const { return this->limit_ != nullptr;};
     void deleteLimit() { this->limit_ = nullptr;};
@@ -87,6 +97,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> edition_ = nullptr;
     // The maximum number of rows that you want the current query to return. To query only the number of matched rows without the need to return specific data, you can set the Limit parameter to `0`. Then, the operation returns only the number of matched rows.
     std::shared_ptr<int32_t> limit_ = nullptr;
     // The token that is required to obtain the next page of backup snapshots.
