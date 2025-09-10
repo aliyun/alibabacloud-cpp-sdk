@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_RDSAI20250507MODEL_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/CreateAppInstanceRequest.hpp>
+#include <alibabacloud/models/CreateAppInstanceShrinkRequest.hpp>
 #include <alibabacloud/models/CreateAppInstanceResponseBody.hpp>
 #include <alibabacloud/models/CreateAppInstanceResponse.hpp>
 #include <alibabacloud/models/DeleteAppInstanceRequest.hpp>
@@ -26,6 +27,7 @@
 #include <alibabacloud/models/ModifyInstanceIpWhitelistRequest.hpp>
 #include <alibabacloud/models/ModifyInstanceIpWhitelistResponseBody.hpp>
 #include <alibabacloud/models/ModifyInstanceIpWhitelistResponse.hpp>
+#include <alibabacloud/models/CreateAppInstanceRequestDbinstanceConfig.hpp>
 #include <alibabacloud/models/DescribeAppInstancesResponseBodyInstances.hpp>
 #include <alibabacloud/models/DescribeInstanceAuthInfoResponseBodyApiKeys.hpp>
 #include <alibabacloud/models/DescribeInstanceEndpointsResponseBodyInstanceEndpoints.hpp>

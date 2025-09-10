@@ -38,12 +38,18 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 /**
  * @summary 创建应用服务实例
  *
- * @param request CreateAppInstanceRequest
+ * @param tmpReq CreateAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateAppInstanceResponse
  */
-CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateAppInstanceShrinkRequest request = CreateAppInstanceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDBInstanceConfig()) {
+    request.setDBInstanceConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.DBInstanceConfig(), "DBInstanceConfig", "json"));
+  }
+
   json query = {};
   if (!!request.hasAppName()) {
     query["AppName"] = request.appName();
@@ -55,6 +61,10 @@ CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppIn
 
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDBInstanceConfigShrink()) {
+    query["DBInstanceConfig"] = request.DBInstanceConfigShrink();
   }
 
   if (!!request.hasDBInstanceName()) {
@@ -79,6 +89,10 @@ CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppIn
 
   if (!!request.hasPublicNetworkAccessEnabled()) {
     query["PublicNetworkAccessEnabled"] = request.publicNetworkAccessEnabled();
+  }
+
+  if (!!request.hasRAGEnabled()) {
+    query["RAGEnabled"] = request.RAGEnabled();
   }
 
   if (!!request.hasRegionId()) {

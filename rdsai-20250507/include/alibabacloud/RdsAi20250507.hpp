@@ -23,11 +23,11 @@ namespace RdsAi20250507
       /**
        * @summary 创建应用服务实例
        *
-       * @param request CreateAppInstanceRequest
+       * @param tmpReq CreateAppInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateAppInstanceResponse
        */
-      Models::CreateAppInstanceResponse createAppInstanceWithOptions(const Models::CreateAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::CreateAppInstanceResponse createAppInstanceWithOptions(const Models::CreateAppInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 创建应用服务实例
