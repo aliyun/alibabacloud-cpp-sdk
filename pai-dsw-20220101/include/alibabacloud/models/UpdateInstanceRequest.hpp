@@ -3,12 +3,14 @@
 #define ALIBABACLOUD_MODELS_UPDATEINSTANCEREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/UpdateInstanceRequestAffinity.hpp>
+#include <alibabacloud/models/UpdateInstanceRequestAssignNodeSpec.hpp>
 #include <vector>
 #include <alibabacloud/models/UpdateInstanceRequestCloudDisks.hpp>
 #include <alibabacloud/models/CredentialConfig.hpp>
 #include <alibabacloud/models/UpdateInstanceRequestDatasets.hpp>
 #include <alibabacloud/models/DynamicMount.hpp>
 #include <alibabacloud/models/UpdateInstanceRequestRequestedResource.hpp>
+#include <alibabacloud/models/UpdateInstanceRequestSpotSpec.hpp>
 #include <alibabacloud/models/UpdateInstanceRequestUserCommand.hpp>
 #include <alibabacloud/models/UpdateInstanceRequestUserVpc.hpp>
 using namespace std;
@@ -24,14 +26,17 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateInstanceRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_TO_JSON(Affinity, affinity_);
+      DARABONBA_PTR_TO_JSON(AssignNodeSpec, assignNodeSpec_);
       DARABONBA_PTR_TO_JSON(CloudDisks, cloudDisks_);
       DARABONBA_PTR_TO_JSON(CredentialConfig, credentialConfig_);
       DARABONBA_PTR_TO_JSON(Datasets, datasets_);
+      DARABONBA_PTR_TO_JSON(DisassociateAssignNode, disassociateAssignNode_);
       DARABONBA_PTR_TO_JSON(DisassociateCredential, disassociateCredential_);
       DARABONBA_PTR_TO_JSON(DisassociateDatasets, disassociateDatasets_);
       DARABONBA_PTR_TO_JSON(DisassociateDriver, disassociateDriver_);
       DARABONBA_PTR_TO_JSON(DisassociateEnvironmentVariables, disassociateEnvironmentVariables_);
       DARABONBA_PTR_TO_JSON(DisassociateForwardInfos, disassociateForwardInfos_);
+      DARABONBA_PTR_TO_JSON(DisassociateSpot, disassociateSpot_);
       DARABONBA_PTR_TO_JSON(DisassociateUserCommand, disassociateUserCommand_);
       DARABONBA_PTR_TO_JSON(DisassociateVpc, disassociateVpc_);
       DARABONBA_PTR_TO_JSON(Driver, driver_);
@@ -45,6 +50,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OversoldType, oversoldType_);
       DARABONBA_PTR_TO_JSON(Priority, priority_);
       DARABONBA_PTR_TO_JSON(RequestedResource, requestedResource_);
+      DARABONBA_PTR_TO_JSON(SpotSpec, spotSpec_);
       DARABONBA_PTR_TO_JSON(UserCommand, userCommand_);
       DARABONBA_PTR_TO_JSON(UserId, userId_);
       DARABONBA_PTR_TO_JSON(UserVpc, userVpc_);
@@ -53,14 +59,17 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, UpdateInstanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_FROM_JSON(Affinity, affinity_);
+      DARABONBA_PTR_FROM_JSON(AssignNodeSpec, assignNodeSpec_);
       DARABONBA_PTR_FROM_JSON(CloudDisks, cloudDisks_);
       DARABONBA_PTR_FROM_JSON(CredentialConfig, credentialConfig_);
       DARABONBA_PTR_FROM_JSON(Datasets, datasets_);
+      DARABONBA_PTR_FROM_JSON(DisassociateAssignNode, disassociateAssignNode_);
       DARABONBA_PTR_FROM_JSON(DisassociateCredential, disassociateCredential_);
       DARABONBA_PTR_FROM_JSON(DisassociateDatasets, disassociateDatasets_);
       DARABONBA_PTR_FROM_JSON(DisassociateDriver, disassociateDriver_);
       DARABONBA_PTR_FROM_JSON(DisassociateEnvironmentVariables, disassociateEnvironmentVariables_);
       DARABONBA_PTR_FROM_JSON(DisassociateForwardInfos, disassociateForwardInfos_);
+      DARABONBA_PTR_FROM_JSON(DisassociateSpot, disassociateSpot_);
       DARABONBA_PTR_FROM_JSON(DisassociateUserCommand, disassociateUserCommand_);
       DARABONBA_PTR_FROM_JSON(DisassociateVpc, disassociateVpc_);
       DARABONBA_PTR_FROM_JSON(Driver, driver_);
@@ -74,6 +83,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OversoldType, oversoldType_);
       DARABONBA_PTR_FROM_JSON(Priority, priority_);
       DARABONBA_PTR_FROM_JSON(RequestedResource, requestedResource_);
+      DARABONBA_PTR_FROM_JSON(SpotSpec, spotSpec_);
       DARABONBA_PTR_FROM_JSON(UserCommand, userCommand_);
       DARABONBA_PTR_FROM_JSON(UserId, userId_);
       DARABONBA_PTR_FROM_JSON(UserVpc, userVpc_);
@@ -91,12 +101,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->accessibility_ != nullptr
-        && this->affinity_ != nullptr && this->cloudDisks_ != nullptr && this->credentialConfig_ != nullptr && this->datasets_ != nullptr && this->disassociateCredential_ != nullptr
-        && this->disassociateDatasets_ != nullptr && this->disassociateDriver_ != nullptr && this->disassociateEnvironmentVariables_ != nullptr && this->disassociateForwardInfos_ != nullptr && this->disassociateUserCommand_ != nullptr
-        && this->disassociateVpc_ != nullptr && this->driver_ != nullptr && this->dynamicMount_ != nullptr && this->ecsSpec_ != nullptr && this->environmentVariables_ != nullptr
-        && this->imageAuth_ != nullptr && this->imageId_ != nullptr && this->imageUrl_ != nullptr && this->instanceName_ != nullptr && this->oversoldType_ != nullptr
-        && this->priority_ != nullptr && this->requestedResource_ != nullptr && this->userCommand_ != nullptr && this->userId_ != nullptr && this->userVpc_ != nullptr
-        && this->workspaceSource_ != nullptr; };
+        && this->affinity_ != nullptr && this->assignNodeSpec_ != nullptr && this->cloudDisks_ != nullptr && this->credentialConfig_ != nullptr && this->datasets_ != nullptr
+        && this->disassociateAssignNode_ != nullptr && this->disassociateCredential_ != nullptr && this->disassociateDatasets_ != nullptr && this->disassociateDriver_ != nullptr && this->disassociateEnvironmentVariables_ != nullptr
+        && this->disassociateForwardInfos_ != nullptr && this->disassociateSpot_ != nullptr && this->disassociateUserCommand_ != nullptr && this->disassociateVpc_ != nullptr && this->driver_ != nullptr
+        && this->dynamicMount_ != nullptr && this->ecsSpec_ != nullptr && this->environmentVariables_ != nullptr && this->imageAuth_ != nullptr && this->imageId_ != nullptr
+        && this->imageUrl_ != nullptr && this->instanceName_ != nullptr && this->oversoldType_ != nullptr && this->priority_ != nullptr && this->requestedResource_ != nullptr
+        && this->spotSpec_ != nullptr && this->userCommand_ != nullptr && this->userId_ != nullptr && this->userVpc_ != nullptr && this->workspaceSource_ != nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -111,6 +121,15 @@ namespace Models
     inline UpdateInstanceRequestAffinity affinity() { DARABONBA_PTR_GET(affinity_, UpdateInstanceRequestAffinity) };
     inline UpdateInstanceRequest& setAffinity(const UpdateInstanceRequestAffinity & affinity) { DARABONBA_PTR_SET_VALUE(affinity_, affinity) };
     inline UpdateInstanceRequest& setAffinity(UpdateInstanceRequestAffinity && affinity) { DARABONBA_PTR_SET_RVALUE(affinity_, affinity) };
+
+
+    // assignNodeSpec Field Functions 
+    bool hasAssignNodeSpec() const { return this->assignNodeSpec_ != nullptr;};
+    void deleteAssignNodeSpec() { this->assignNodeSpec_ = nullptr;};
+    inline const UpdateInstanceRequestAssignNodeSpec & assignNodeSpec() const { DARABONBA_PTR_GET_CONST(assignNodeSpec_, UpdateInstanceRequestAssignNodeSpec) };
+    inline UpdateInstanceRequestAssignNodeSpec assignNodeSpec() { DARABONBA_PTR_GET(assignNodeSpec_, UpdateInstanceRequestAssignNodeSpec) };
+    inline UpdateInstanceRequest& setAssignNodeSpec(const UpdateInstanceRequestAssignNodeSpec & assignNodeSpec) { DARABONBA_PTR_SET_VALUE(assignNodeSpec_, assignNodeSpec) };
+    inline UpdateInstanceRequest& setAssignNodeSpec(UpdateInstanceRequestAssignNodeSpec && assignNodeSpec) { DARABONBA_PTR_SET_RVALUE(assignNodeSpec_, assignNodeSpec) };
 
 
     // cloudDisks Field Functions 
@@ -138,6 +157,13 @@ namespace Models
     inline vector<UpdateInstanceRequestDatasets> datasets() { DARABONBA_PTR_GET(datasets_, vector<UpdateInstanceRequestDatasets>) };
     inline UpdateInstanceRequest& setDatasets(const vector<UpdateInstanceRequestDatasets> & datasets) { DARABONBA_PTR_SET_VALUE(datasets_, datasets) };
     inline UpdateInstanceRequest& setDatasets(vector<UpdateInstanceRequestDatasets> && datasets) { DARABONBA_PTR_SET_RVALUE(datasets_, datasets) };
+
+
+    // disassociateAssignNode Field Functions 
+    bool hasDisassociateAssignNode() const { return this->disassociateAssignNode_ != nullptr;};
+    void deleteDisassociateAssignNode() { this->disassociateAssignNode_ = nullptr;};
+    inline bool disassociateAssignNode() const { DARABONBA_PTR_GET_DEFAULT(disassociateAssignNode_, false) };
+    inline UpdateInstanceRequest& setDisassociateAssignNode(bool disassociateAssignNode) { DARABONBA_PTR_SET_VALUE(disassociateAssignNode_, disassociateAssignNode) };
 
 
     // disassociateCredential Field Functions 
@@ -173,6 +199,13 @@ namespace Models
     void deleteDisassociateForwardInfos() { this->disassociateForwardInfos_ = nullptr;};
     inline bool disassociateForwardInfos() const { DARABONBA_PTR_GET_DEFAULT(disassociateForwardInfos_, false) };
     inline UpdateInstanceRequest& setDisassociateForwardInfos(bool disassociateForwardInfos) { DARABONBA_PTR_SET_VALUE(disassociateForwardInfos_, disassociateForwardInfos) };
+
+
+    // disassociateSpot Field Functions 
+    bool hasDisassociateSpot() const { return this->disassociateSpot_ != nullptr;};
+    void deleteDisassociateSpot() { this->disassociateSpot_ = nullptr;};
+    inline bool disassociateSpot() const { DARABONBA_PTR_GET_DEFAULT(disassociateSpot_, false) };
+    inline UpdateInstanceRequest& setDisassociateSpot(bool disassociateSpot) { DARABONBA_PTR_SET_VALUE(disassociateSpot_, disassociateSpot) };
 
 
     // disassociateUserCommand Field Functions 
@@ -272,6 +305,15 @@ namespace Models
     inline UpdateInstanceRequest& setRequestedResource(UpdateInstanceRequestRequestedResource && requestedResource) { DARABONBA_PTR_SET_RVALUE(requestedResource_, requestedResource) };
 
 
+    // spotSpec Field Functions 
+    bool hasSpotSpec() const { return this->spotSpec_ != nullptr;};
+    void deleteSpotSpec() { this->spotSpec_ = nullptr;};
+    inline const UpdateInstanceRequestSpotSpec & spotSpec() const { DARABONBA_PTR_GET_CONST(spotSpec_, UpdateInstanceRequestSpotSpec) };
+    inline UpdateInstanceRequestSpotSpec spotSpec() { DARABONBA_PTR_GET(spotSpec_, UpdateInstanceRequestSpotSpec) };
+    inline UpdateInstanceRequest& setSpotSpec(const UpdateInstanceRequestSpotSpec & spotSpec) { DARABONBA_PTR_SET_VALUE(spotSpec_, spotSpec) };
+    inline UpdateInstanceRequest& setSpotSpec(UpdateInstanceRequestSpotSpec && spotSpec) { DARABONBA_PTR_SET_RVALUE(spotSpec_, spotSpec) };
+
+
     // userCommand Field Functions 
     bool hasUserCommand() const { return this->userCommand_ != nullptr;};
     void deleteUserCommand() { this->userCommand_ = nullptr;};
@@ -314,12 +356,14 @@ namespace Models
     std::shared_ptr<string> accessibility_ = nullptr;
     // The affinity configuration.
     std::shared_ptr<UpdateInstanceRequestAffinity> affinity_ = nullptr;
+    std::shared_ptr<UpdateInstanceRequestAssignNodeSpec> assignNodeSpec_ = nullptr;
     // The cloud disks.
     std::shared_ptr<vector<UpdateInstanceRequestCloudDisks>> cloudDisks_ = nullptr;
     // The credential configuration.
     std::shared_ptr<CredentialConfig> credentialConfig_ = nullptr;
     // The datasets.
     std::shared_ptr<vector<UpdateInstanceRequestDatasets>> datasets_ = nullptr;
+    std::shared_ptr<bool> disassociateAssignNode_ = nullptr;
     // Specifies whether to delete the credential injection information.
     std::shared_ptr<bool> disassociateCredential_ = nullptr;
     // Specifies whether to delete the associated datasets.
@@ -332,6 +376,7 @@ namespace Models
     std::shared_ptr<bool> disassociateEnvironmentVariables_ = nullptr;
     // Specifies whether to delete the associated forward information.
     std::shared_ptr<bool> disassociateForwardInfos_ = nullptr;
+    std::shared_ptr<bool> disassociateSpot_ = nullptr;
     std::shared_ptr<bool> disassociateUserCommand_ = nullptr;
     // Specifies whether to delete the associated user VPC.
     std::shared_ptr<bool> disassociateVpc_ = nullptr;
@@ -361,6 +406,7 @@ namespace Models
     std::shared_ptr<int64_t> priority_ = nullptr;
     // The resource configurations.
     std::shared_ptr<UpdateInstanceRequestRequestedResource> requestedResource_ = nullptr;
+    std::shared_ptr<UpdateInstanceRequestSpotSpec> spotSpec_ = nullptr;
     std::shared_ptr<UpdateInstanceRequestUserCommand> userCommand_ = nullptr;
     // the User ID of the instance.
     std::shared_ptr<string> userId_ = nullptr;

@@ -99,11 +99,13 @@
 #include <alibabacloud/models/ForwardInfoResponseConnectInfo.hpp>
 #include <alibabacloud/models/CreateInstanceRequestAffinityCpu.hpp>
 #include <alibabacloud/models/CreateInstanceRequestAffinity.hpp>
+#include <alibabacloud/models/CreateInstanceRequestAssignNodeSpec.hpp>
 #include <alibabacloud/models/CreateInstanceRequestCloudDisksStatus.hpp>
 #include <alibabacloud/models/CreateInstanceRequestCloudDisks.hpp>
 #include <alibabacloud/models/CreateInstanceRequestDatasets.hpp>
 #include <alibabacloud/models/CreateInstanceRequestLabels.hpp>
 #include <alibabacloud/models/CreateInstanceRequestRequestedResource.hpp>
+#include <alibabacloud/models/CreateInstanceRequestSpotSpec.hpp>
 #include <alibabacloud/models/CreateInstanceRequestTag.hpp>
 #include <alibabacloud/models/CreateInstanceRequestUserCommandOnStart.hpp>
 #include <alibabacloud/models/CreateInstanceRequestUserCommand.hpp>
@@ -149,9 +151,11 @@
 #include <alibabacloud/models/ListSystemLogsResponseBodySystemLogs.hpp>
 #include <alibabacloud/models/UpdateInstanceRequestAffinityCpu.hpp>
 #include <alibabacloud/models/UpdateInstanceRequestAffinity.hpp>
+#include <alibabacloud/models/UpdateInstanceRequestAssignNodeSpec.hpp>
 #include <alibabacloud/models/UpdateInstanceRequestCloudDisks.hpp>
 #include <alibabacloud/models/UpdateInstanceRequestDatasets.hpp>
 #include <alibabacloud/models/UpdateInstanceRequestRequestedResource.hpp>
+#include <alibabacloud/models/UpdateInstanceRequestSpotSpec.hpp>
 #include <alibabacloud/models/UpdateInstanceRequestUserCommandOnStart.hpp>
 #include <alibabacloud/models/UpdateInstanceRequestUserCommand.hpp>
 #include <alibabacloud/models/UpdateInstanceRequestUserVpc.hpp>

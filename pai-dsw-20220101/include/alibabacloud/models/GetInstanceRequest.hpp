@@ -13,9 +13,11 @@ namespace Models
   class GetInstanceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetInstanceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Fields, fields_);
       DARABONBA_PTR_TO_JSON(Token, token_);
     };
     friend void from_json(const Darabonba::Json& j, GetInstanceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Fields, fields_);
       DARABONBA_PTR_FROM_JSON(Token, token_);
     };
     GetInstanceRequest() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->token_ != nullptr; };
+    virtual bool empty() const override { this->fields_ != nullptr
+        && this->token_ != nullptr; };
+    // fields Field Functions 
+    bool hasFields() const { return this->fields_ != nullptr;};
+    void deleteFields() { this->fields_ = nullptr;};
+    inline string fields() const { DARABONBA_PTR_GET_DEFAULT(fields_, "") };
+    inline GetInstanceRequest& setFields(string fields) { DARABONBA_PTR_SET_VALUE(fields_, fields) };
+
+
     // token Field Functions 
     bool hasToken() const { return this->token_ != nullptr;};
     void deleteToken() { this->token_ = nullptr;};
@@ -38,6 +48,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> fields_ = nullptr;
     // The sharing token information.
     std::shared_ptr<string> token_ = nullptr;
   };

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATEINSTANCEREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/CreateInstanceRequestAffinity.hpp>
+#include <alibabacloud/models/CreateInstanceRequestAssignNodeSpec.hpp>
 #include <vector>
 #include <alibabacloud/models/CreateInstanceRequestCloudDisks.hpp>
 #include <alibabacloud/models/CredentialConfig.hpp>
@@ -11,6 +12,7 @@
 #include <map>
 #include <alibabacloud/models/CreateInstanceRequestLabels.hpp>
 #include <alibabacloud/models/CreateInstanceRequestRequestedResource.hpp>
+#include <alibabacloud/models/CreateInstanceRequestSpotSpec.hpp>
 #include <alibabacloud/models/CreateInstanceRequestTag.hpp>
 #include <alibabacloud/models/CreateInstanceRequestUserCommand.hpp>
 #include <alibabacloud/models/CreateInstanceRequestUserVpc.hpp>
@@ -27,6 +29,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateInstanceRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_TO_JSON(Affinity, affinity_);
+      DARABONBA_PTR_TO_JSON(AssignNodeSpec, assignNodeSpec_);
       DARABONBA_PTR_TO_JSON(CloudDisks, cloudDisks_);
       DARABONBA_PTR_TO_JSON(CredentialConfig, credentialConfig_);
       DARABONBA_PTR_TO_JSON(Datasets, datasets_);
@@ -43,6 +46,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Priority, priority_);
       DARABONBA_PTR_TO_JSON(RequestedResource, requestedResource_);
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
+      DARABONBA_PTR_TO_JSON(SpotSpec, spotSpec_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(UserCommand, userCommand_);
       DARABONBA_PTR_TO_JSON(UserId, userId_);
@@ -53,6 +57,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateInstanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_FROM_JSON(Affinity, affinity_);
+      DARABONBA_PTR_FROM_JSON(AssignNodeSpec, assignNodeSpec_);
       DARABONBA_PTR_FROM_JSON(CloudDisks, cloudDisks_);
       DARABONBA_PTR_FROM_JSON(CredentialConfig, credentialConfig_);
       DARABONBA_PTR_FROM_JSON(Datasets, datasets_);
@@ -69,6 +74,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Priority, priority_);
       DARABONBA_PTR_FROM_JSON(RequestedResource, requestedResource_);
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
+      DARABONBA_PTR_FROM_JSON(SpotSpec, spotSpec_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(UserCommand, userCommand_);
       DARABONBA_PTR_FROM_JSON(UserId, userId_);
@@ -88,11 +94,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->accessibility_ != nullptr
-        && this->affinity_ != nullptr && this->cloudDisks_ != nullptr && this->credentialConfig_ != nullptr && this->datasets_ != nullptr && this->driver_ != nullptr
-        && this->dynamicMount_ != nullptr && this->ecsSpec_ != nullptr && this->environmentVariables_ != nullptr && this->imageAuth_ != nullptr && this->imageId_ != nullptr
-        && this->imageUrl_ != nullptr && this->instanceName_ != nullptr && this->labels_ != nullptr && this->oversoldType_ != nullptr && this->priority_ != nullptr
-        && this->requestedResource_ != nullptr && this->resourceId_ != nullptr && this->tag_ != nullptr && this->userCommand_ != nullptr && this->userId_ != nullptr
-        && this->userVpc_ != nullptr && this->workspaceId_ != nullptr && this->workspaceSource_ != nullptr; };
+        && this->affinity_ != nullptr && this->assignNodeSpec_ != nullptr && this->cloudDisks_ != nullptr && this->credentialConfig_ != nullptr && this->datasets_ != nullptr
+        && this->driver_ != nullptr && this->dynamicMount_ != nullptr && this->ecsSpec_ != nullptr && this->environmentVariables_ != nullptr && this->imageAuth_ != nullptr
+        && this->imageId_ != nullptr && this->imageUrl_ != nullptr && this->instanceName_ != nullptr && this->labels_ != nullptr && this->oversoldType_ != nullptr
+        && this->priority_ != nullptr && this->requestedResource_ != nullptr && this->resourceId_ != nullptr && this->spotSpec_ != nullptr && this->tag_ != nullptr
+        && this->userCommand_ != nullptr && this->userId_ != nullptr && this->userVpc_ != nullptr && this->workspaceId_ != nullptr && this->workspaceSource_ != nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -107,6 +113,15 @@ namespace Models
     inline CreateInstanceRequestAffinity affinity() { DARABONBA_PTR_GET(affinity_, CreateInstanceRequestAffinity) };
     inline CreateInstanceRequest& setAffinity(const CreateInstanceRequestAffinity & affinity) { DARABONBA_PTR_SET_VALUE(affinity_, affinity) };
     inline CreateInstanceRequest& setAffinity(CreateInstanceRequestAffinity && affinity) { DARABONBA_PTR_SET_RVALUE(affinity_, affinity) };
+
+
+    // assignNodeSpec Field Functions 
+    bool hasAssignNodeSpec() const { return this->assignNodeSpec_ != nullptr;};
+    void deleteAssignNodeSpec() { this->assignNodeSpec_ = nullptr;};
+    inline const CreateInstanceRequestAssignNodeSpec & assignNodeSpec() const { DARABONBA_PTR_GET_CONST(assignNodeSpec_, CreateInstanceRequestAssignNodeSpec) };
+    inline CreateInstanceRequestAssignNodeSpec assignNodeSpec() { DARABONBA_PTR_GET(assignNodeSpec_, CreateInstanceRequestAssignNodeSpec) };
+    inline CreateInstanceRequest& setAssignNodeSpec(const CreateInstanceRequestAssignNodeSpec & assignNodeSpec) { DARABONBA_PTR_SET_VALUE(assignNodeSpec_, assignNodeSpec) };
+    inline CreateInstanceRequest& setAssignNodeSpec(CreateInstanceRequestAssignNodeSpec && assignNodeSpec) { DARABONBA_PTR_SET_RVALUE(assignNodeSpec_, assignNodeSpec) };
 
 
     // cloudDisks Field Functions 
@@ -235,6 +250,15 @@ namespace Models
     inline CreateInstanceRequest& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
 
 
+    // spotSpec Field Functions 
+    bool hasSpotSpec() const { return this->spotSpec_ != nullptr;};
+    void deleteSpotSpec() { this->spotSpec_ = nullptr;};
+    inline const CreateInstanceRequestSpotSpec & spotSpec() const { DARABONBA_PTR_GET_CONST(spotSpec_, CreateInstanceRequestSpotSpec) };
+    inline CreateInstanceRequestSpotSpec spotSpec() { DARABONBA_PTR_GET(spotSpec_, CreateInstanceRequestSpotSpec) };
+    inline CreateInstanceRequest& setSpotSpec(const CreateInstanceRequestSpotSpec & spotSpec) { DARABONBA_PTR_SET_VALUE(spotSpec_, spotSpec) };
+    inline CreateInstanceRequest& setSpotSpec(CreateInstanceRequestSpotSpec && spotSpec) { DARABONBA_PTR_SET_RVALUE(spotSpec_, spotSpec) };
+
+
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
@@ -293,6 +317,7 @@ namespace Models
     std::shared_ptr<string> accessibility_ = nullptr;
     // The affinity configuration.
     std::shared_ptr<CreateInstanceRequestAffinity> affinity_ = nullptr;
+    std::shared_ptr<CreateInstanceRequestAssignNodeSpec> assignNodeSpec_ = nullptr;
     // The cloud disks.
     std::shared_ptr<vector<CreateInstanceRequestCloudDisks>> cloudDisks_ = nullptr;
     // The credential configuration.
@@ -330,6 +355,7 @@ namespace Models
     std::shared_ptr<CreateInstanceRequestRequestedResource> requestedResource_ = nullptr;
     // The ID of the resource group. This parameter is configured during prepayment. For information about how to create a dedicated resource group, see [Create a dedicated resource group and purchase general computing resources](https://help.aliyun.com/document_detail/202827.html).
     std::shared_ptr<string> resourceId_ = nullptr;
+    std::shared_ptr<CreateInstanceRequestSpotSpec> spotSpec_ = nullptr;
     // The tags.
     std::shared_ptr<vector<CreateInstanceRequestTag>> tag_ = nullptr;
     std::shared_ptr<CreateInstanceRequestUserCommand> userCommand_ = nullptr;

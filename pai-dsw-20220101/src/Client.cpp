@@ -108,6 +108,10 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
     body["Affinity"] = request.affinity();
   }
 
+  if (!!request.hasAssignNodeSpec()) {
+    body["AssignNodeSpec"] = request.assignNodeSpec();
+  }
+
   if (!!request.hasCloudDisks()) {
     body["CloudDisks"] = request.cloudDisks();
   }
@@ -170,6 +174,10 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 
   if (!!request.hasResourceId()) {
     body["ResourceId"] = request.resourceId();
+  }
+
+  if (!!request.hasSpotSpec()) {
+    body["SpotSpec"] = request.spotSpec();
   }
 
   if (!!request.hasTag()) {
@@ -576,6 +584,10 @@ GetIdleInstanceCullerResponse Client::getIdleInstanceCuller(const string &Instan
 GetInstanceResponse Client::getInstanceWithOptions(const string &InstanceId, const GetInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasFields()) {
+    query["Fields"] = request.fields();
+  }
+
   if (!!request.hasToken()) {
     query["Token"] = request.token();
   }
@@ -623,6 +635,10 @@ GetInstanceEventsResponse Client::getInstanceEventsWithOptions(const string &Ins
   json query = {};
   if (!!request.hasEndTime()) {
     query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasEventLevel()) {
+    query["EventLevel"] = request.eventLevel();
   }
 
   if (!!request.hasMaxEventsNum()) {
@@ -1636,6 +1652,10 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const string &InstanceI
     body["Affinity"] = request.affinity();
   }
 
+  if (!!request.hasAssignNodeSpec()) {
+    body["AssignNodeSpec"] = request.assignNodeSpec();
+  }
+
   if (!!request.hasCloudDisks()) {
     body["CloudDisks"] = request.cloudDisks();
   }
@@ -1646,6 +1666,10 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const string &InstanceI
 
   if (!!request.hasDatasets()) {
     body["Datasets"] = request.datasets();
+  }
+
+  if (!!request.hasDisassociateAssignNode()) {
+    body["DisassociateAssignNode"] = request.disassociateAssignNode();
   }
 
   if (!!request.hasDisassociateCredential()) {
@@ -1666,6 +1690,10 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const string &InstanceI
 
   if (!!request.hasDisassociateForwardInfos()) {
     body["DisassociateForwardInfos"] = request.disassociateForwardInfos();
+  }
+
+  if (!!request.hasDisassociateSpot()) {
+    body["DisassociateSpot"] = request.disassociateSpot();
   }
 
   if (!!request.hasDisassociateUserCommand()) {
@@ -1718,6 +1746,10 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const string &InstanceI
 
   if (!!request.hasRequestedResource()) {
     body["RequestedResource"] = request.requestedResource();
+  }
+
+  if (!!request.hasSpotSpec()) {
+    body["SpotSpec"] = request.spotSpec();
   }
 
   if (!!request.hasUserCommand()) {

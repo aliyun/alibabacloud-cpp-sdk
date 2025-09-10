@@ -14,12 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetInstanceEventsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+      DARABONBA_PTR_TO_JSON(EventLevel, eventLevel_);
       DARABONBA_PTR_TO_JSON(MaxEventsNum, maxEventsNum_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(Token, token_);
     };
     friend void from_json(const Darabonba::Json& j, GetInstanceEventsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+      DARABONBA_PTR_FROM_JSON(EventLevel, eventLevel_);
       DARABONBA_PTR_FROM_JSON(MaxEventsNum, maxEventsNum_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(Token, token_);
@@ -36,12 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->endTime_ != nullptr
-        && this->maxEventsNum_ != nullptr && this->startTime_ != nullptr && this->token_ != nullptr; };
+        && this->eventLevel_ != nullptr && this->maxEventsNum_ != nullptr && this->startTime_ != nullptr && this->token_ != nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
     inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline GetInstanceEventsRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+    // eventLevel Field Functions 
+    bool hasEventLevel() const { return this->eventLevel_ != nullptr;};
+    void deleteEventLevel() { this->eventLevel_ = nullptr;};
+    inline string eventLevel() const { DARABONBA_PTR_GET_DEFAULT(eventLevel_, "") };
+    inline GetInstanceEventsRequest& setEventLevel(string eventLevel) { DARABONBA_PTR_SET_VALUE(eventLevel_, eventLevel) };
 
 
     // maxEventsNum Field Functions 
@@ -68,6 +77,7 @@ namespace Models
   protected:
     // The end of the time range to query.
     std::shared_ptr<string> endTime_ = nullptr;
+    std::shared_ptr<string> eventLevel_ = nullptr;
     // The maximum number of events. Default value: 2000.
     std::shared_ptr<int32_t> maxEventsNum_ = nullptr;
     // The beginning of the time range to query.
