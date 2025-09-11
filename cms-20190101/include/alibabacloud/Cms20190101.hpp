@@ -1957,6 +1957,8 @@ namespace Cms20190101
       Models::DescribeMonitoringAgentHostsResponse describeMonitoringAgentHosts(const Models::DescribeMonitoringAgentHostsRequest &request);
 
       /**
+       * @summary 查询指定资源的进程数列表
+       *
        * @description >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
        * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
        *
@@ -1967,6 +1969,8 @@ namespace Cms20190101
       Models::DescribeMonitoringAgentProcessesResponse describeMonitoringAgentProcessesWithOptions(const Models::DescribeMonitoringAgentProcessesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询指定资源的进程数列表
+       *
        * @description >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
        * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
        *
@@ -2566,6 +2570,8 @@ namespace Cms20190101
       Models::InstallMonitoringAgentResponse installMonitoringAgent(const Models::InstallMonitoringAgentRequest &request);
 
       /**
+       * @summary 修改应用分组内的进程监控
+       *
        * @param request ModifyGroupMonitoringAgentProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyGroupMonitoringAgentProcessResponse
@@ -2573,6 +2579,8 @@ namespace Cms20190101
       Models::ModifyGroupMonitoringAgentProcessResponse modifyGroupMonitoringAgentProcessWithOptions(const Models::ModifyGroupMonitoringAgentProcessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改应用分组内的进程监控
+       *
        * @param request ModifyGroupMonitoringAgentProcessRequest
        * @return ModifyGroupMonitoringAgentProcessResponse
        */
@@ -2600,6 +2608,8 @@ namespace Cms20190101
       Models::ModifyHostAvailabilityResponse modifyHostAvailability(const Models::ModifyHostAvailabilityRequest &request);
 
       /**
+       * @summary 修改非阿里云的主机显示信息
+       *
        * @description ****
        *
        * @param request ModifyHostInfoRequest
@@ -2609,6 +2619,8 @@ namespace Cms20190101
       Models::ModifyHostInfoResponse modifyHostInfoWithOptions(const Models::ModifyHostInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改非阿里云的主机显示信息
+       *
        * @description ****
        *
        * @param request ModifyHostInfoRequest
@@ -2718,6 +2730,8 @@ namespace Cms20190101
       Models::ModifyMetricRuleTemplateResponse modifyMetricRuleTemplate(const Models::ModifyMetricRuleTemplateRequest &request);
 
       /**
+       * @summary 修改应用分组
+       *
        * @param request ModifyMonitorGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyMonitorGroupResponse
@@ -2725,13 +2739,15 @@ namespace Cms20190101
       Models::ModifyMonitorGroupResponse modifyMonitorGroupWithOptions(const Models::ModifyMonitorGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改应用分组
+       *
        * @param request ModifyMonitorGroupRequest
        * @return ModifyMonitorGroupResponse
        */
       Models::ModifyMonitorGroupResponse modifyMonitorGroup(const Models::ModifyMonitorGroupRequest &request);
 
       /**
-       * @summary ModifyMonitorGroupInstances
+       * @summary 修改应用分组中的资源
        *
        * @param request ModifyMonitorGroupInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2740,7 +2756,7 @@ namespace Cms20190101
       Models::ModifyMonitorGroupInstancesResponse modifyMonitorGroupInstancesWithOptions(const Models::ModifyMonitorGroupInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ModifyMonitorGroupInstances
+       * @summary 修改应用分组中的资源
        *
        * @param request ModifyMonitorGroupInstancesRequest
        * @return ModifyMonitorGroupInstancesResponse

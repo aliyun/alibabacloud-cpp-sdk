@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateSiteMonitorRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Address, address_);
+      DARABONBA_PTR_TO_JSON(AgentGroup, agentGroup_);
       DARABONBA_PTR_TO_JSON(AlertIds, alertIds_);
       DARABONBA_PTR_TO_JSON(CustomSchedule, customSchedule_);
       DARABONBA_PTR_TO_JSON(Interval, interval_);
@@ -26,6 +27,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateSiteMonitorRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Address, address_);
+      DARABONBA_PTR_FROM_JSON(AgentGroup, agentGroup_);
       DARABONBA_PTR_FROM_JSON(AlertIds, alertIds_);
       DARABONBA_PTR_FROM_JSON(CustomSchedule, customSchedule_);
       DARABONBA_PTR_FROM_JSON(Interval, interval_);
@@ -48,13 +50,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->address_ != nullptr
-        && this->alertIds_ != nullptr && this->customSchedule_ != nullptr && this->interval_ != nullptr && this->ispCities_ != nullptr && this->optionsJson_ != nullptr
-        && this->regionId_ != nullptr && this->taskName_ != nullptr && this->taskType_ != nullptr && this->vpcConfig_ != nullptr; };
+        && this->agentGroup_ != nullptr && this->alertIds_ != nullptr && this->customSchedule_ != nullptr && this->interval_ != nullptr && this->ispCities_ != nullptr
+        && this->optionsJson_ != nullptr && this->regionId_ != nullptr && this->taskName_ != nullptr && this->taskType_ != nullptr && this->vpcConfig_ != nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
     inline string address() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
     inline CreateSiteMonitorRequest& setAddress(string address) { DARABONBA_PTR_SET_VALUE(address_, address) };
+
+
+    // agentGroup Field Functions 
+    bool hasAgentGroup() const { return this->agentGroup_ != nullptr;};
+    void deleteAgentGroup() { this->agentGroup_ = nullptr;};
+    inline string agentGroup() const { DARABONBA_PTR_GET_DEFAULT(agentGroup_, "") };
+    inline CreateSiteMonitorRequest& setAgentGroup(string agentGroup) { DARABONBA_PTR_SET_VALUE(agentGroup_, agentGroup) };
 
 
     // alertIds Field Functions 
@@ -125,6 +134,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> address_ = nullptr;
+    std::shared_ptr<string> agentGroup_ = nullptr;
     // The ID of the alert rule.
     // 
     // For more information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).

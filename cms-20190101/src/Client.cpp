@@ -1377,6 +1377,10 @@ CreateSiteMonitorResponse Client::createSiteMonitorWithOptions(const CreateSiteM
     query["Address"] = request.address();
   }
 
+  if (!!request.hasAgentGroup()) {
+    query["AgentGroup"] = request.agentGroup();
+  }
+
   if (!!request.hasAlertIds()) {
     query["AlertIds"] = request.alertIds();
   }
@@ -5730,6 +5734,8 @@ DescribeMonitoringAgentHostsResponse Client::describeMonitoringAgentHosts(const 
 }
 
 /**
+ * @summary 查询指定资源的进程数列表
+ *
  * @description >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
  * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
  *
@@ -5762,6 +5768,8 @@ DescribeMonitoringAgentProcessesResponse Client::describeMonitoringAgentProcesse
 }
 
 /**
+ * @summary 查询指定资源的进程数列表
+ *
  * @description >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
  * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
  *
@@ -7432,6 +7440,8 @@ InstallMonitoringAgentResponse Client::installMonitoringAgent(const InstallMonit
 }
 
 /**
+ * @summary 修改应用分组内的进程监控
+ *
  * @param request ModifyGroupMonitoringAgentProcessRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyGroupMonitoringAgentProcessResponse
@@ -7473,6 +7483,8 @@ ModifyGroupMonitoringAgentProcessResponse Client::modifyGroupMonitoringAgentProc
 }
 
 /**
+ * @summary 修改应用分组内的进程监控
+ *
  * @param request ModifyGroupMonitoringAgentProcessRequest
  * @return ModifyGroupMonitoringAgentProcessResponse
  */
@@ -7560,6 +7572,8 @@ ModifyHostAvailabilityResponse Client::modifyHostAvailability(const ModifyHostAv
 }
 
 /**
+ * @summary 修改非阿里云的主机显示信息
+ *
  * @description ****
  *
  * @param request ModifyHostInfoRequest
@@ -7595,6 +7609,8 @@ ModifyHostInfoResponse Client::modifyHostInfoWithOptions(const ModifyHostInfoReq
 }
 
 /**
+ * @summary 修改非阿里云的主机显示信息
+ *
  * @description ****
  *
  * @param request ModifyHostInfoRequest
@@ -7924,6 +7940,8 @@ ModifyMetricRuleTemplateResponse Client::modifyMetricRuleTemplate(const ModifyMe
 }
 
 /**
+ * @summary 修改应用分组
+ *
  * @param request ModifyMonitorGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyMonitorGroupResponse
@@ -7961,6 +7979,8 @@ ModifyMonitorGroupResponse Client::modifyMonitorGroupWithOptions(const ModifyMon
 }
 
 /**
+ * @summary 修改应用分组
+ *
  * @param request ModifyMonitorGroupRequest
  * @return ModifyMonitorGroupResponse
  */
@@ -7970,7 +7990,7 @@ ModifyMonitorGroupResponse Client::modifyMonitorGroup(const ModifyMonitorGroupRe
 }
 
 /**
- * @summary ModifyMonitorGroupInstances
+ * @summary 修改应用分组中的资源
  *
  * @param request ModifyMonitorGroupInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8005,7 +8025,7 @@ ModifyMonitorGroupInstancesResponse Client::modifyMonitorGroupInstancesWithOptio
 }
 
 /**
- * @summary ModifyMonitorGroupInstances
+ * @summary 修改应用分组中的资源
  *
  * @param request ModifyMonitorGroupInstancesRequest
  * @return ModifyMonitorGroupInstancesResponse
