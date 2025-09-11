@@ -481,6 +481,8 @@
 #include <alibabacloud/models/DescribeMountTargetsRequest.hpp>
 #include <alibabacloud/models/DescribeMountTargetsResponseBody.hpp>
 #include <alibabacloud/models/DescribeMountTargetsResponse.hpp>
+#include <alibabacloud/models/DescribeNasavailableResourceInfoResponseBody.hpp>
+#include <alibabacloud/models/DescribeNasavailableResourceInfoResponse.hpp>
 #include <alibabacloud/models/DescribeNcinformationRequest.hpp>
 #include <alibabacloud/models/DescribeNcinformationResponseBody.hpp>
 #include <alibabacloud/models/DescribeNcinformationResponse.hpp>
@@ -1146,6 +1148,7 @@
 #include <alibabacloud/models/DescribeMeasurementDataResponseBodyMeasurementDatasMeasurementData.hpp>
 #include <alibabacloud/models/DescribeMeasurementDataResponseBodyMeasurementDatas.hpp>
 #include <alibabacloud/models/DescribeMountTargetsResponseBodyMountTargets.hpp>
+#include <alibabacloud/models/DescribeNasavailableResourceInfoResponseBodyNasAvailableResourceInfo.hpp>
 #include <alibabacloud/models/DescribeNcinformationResponseBodyDataCpu.hpp>
 #include <alibabacloud/models/DescribeNcinformationResponseBodyDataGpu.hpp>
 #include <alibabacloud/models/DescribeNcinformationResponseBodyDataHdd.hpp>

@@ -8438,6 +8438,39 @@ DescribeMountTargetsResponse Client::describeMountTargets(const DescribeMountTar
 }
 
 /**
+ * @summary 输出指定用户ID下可用资源对应的nas信息
+ *
+ * @param request DescribeNASAvailableResourceInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeNASAvailableResourceInfoResponse
+ */
+DescribeNASAvailableResourceInfoResponse Client::describeNASAvailableResourceInfoWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "DescribeNASAvailableResourceInfo"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeNASAvailableResourceInfoResponse>();
+}
+
+/**
+ * @summary 输出指定用户ID下可用资源对应的nas信息
+ *
+ * @return DescribeNASAvailableResourceInfoResponse
+ */
+DescribeNASAvailableResourceInfoResponse Client::describeNASAvailableResourceInfo() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeNASAvailableResourceInfoWithOptions(runtime);
+}
+
+/**
  * @summary 根据筛选条件获取指定NC属性和资源量信息
  *
  * @param request DescribeNCInformationRequest

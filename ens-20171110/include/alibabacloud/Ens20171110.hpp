@@ -2840,6 +2840,22 @@ namespace Ens20171110
       Models::DescribeMountTargetsResponse describeMountTargets(const Models::DescribeMountTargetsRequest &request);
 
       /**
+       * @summary 输出指定用户ID下可用资源对应的nas信息
+       *
+       * @param request DescribeNASAvailableResourceInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeNASAvailableResourceInfoResponse
+       */
+      Models::DescribeNASAvailableResourceInfoResponse describeNASAvailableResourceInfoWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 输出指定用户ID下可用资源对应的nas信息
+       *
+       * @return DescribeNASAvailableResourceInfoResponse
+       */
+      Models::DescribeNASAvailableResourceInfoResponse describeNASAvailableResourceInfo();
+
+      /**
        * @summary 根据筛选条件获取指定NC属性和资源量信息
        *
        * @param request DescribeNCInformationRequest
