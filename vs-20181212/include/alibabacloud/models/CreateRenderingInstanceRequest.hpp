@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATERENDERINGINSTANCEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATERENDERINGINSTANCEREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/CreateRenderingInstanceRequestAttributes.hpp>
 #include <alibabacloud/models/CreateRenderingInstanceRequestClientInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -14,6 +15,7 @@ namespace Models
   class CreateRenderingInstanceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateRenderingInstanceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Attributes, attributes_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(ClientInfo, clientInfo_);
       DARABONBA_PTR_TO_JSON(InstanceBillingCycle, instanceBillingCycle_);
@@ -25,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StorageSize, storageSize_);
     };
     friend void from_json(const Darabonba::Json& j, CreateRenderingInstanceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Attributes, attributes_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(ClientInfo, clientInfo_);
       DARABONBA_PTR_FROM_JSON(InstanceBillingCycle, instanceBillingCycle_);
@@ -46,9 +49,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRenew_ != nullptr
-        && this->clientInfo_ != nullptr && this->instanceBillingCycle_ != nullptr && this->instanceChargeType_ != nullptr && this->internetChargeType_ != nullptr && this->internetMaxBandwidth_ != nullptr
-        && this->period_ != nullptr && this->renderingSpec_ != nullptr && this->storageSize_ != nullptr; };
+    virtual bool empty() const override { this->attributes_ != nullptr
+        && this->autoRenew_ != nullptr && this->clientInfo_ != nullptr && this->instanceBillingCycle_ != nullptr && this->instanceChargeType_ != nullptr && this->internetChargeType_ != nullptr
+        && this->internetMaxBandwidth_ != nullptr && this->period_ != nullptr && this->renderingSpec_ != nullptr && this->storageSize_ != nullptr; };
+    // attributes Field Functions 
+    bool hasAttributes() const { return this->attributes_ != nullptr;};
+    void deleteAttributes() { this->attributes_ = nullptr;};
+    inline const CreateRenderingInstanceRequestAttributes & attributes() const { DARABONBA_PTR_GET_CONST(attributes_, CreateRenderingInstanceRequestAttributes) };
+    inline CreateRenderingInstanceRequestAttributes attributes() { DARABONBA_PTR_GET(attributes_, CreateRenderingInstanceRequestAttributes) };
+    inline CreateRenderingInstanceRequest& setAttributes(const CreateRenderingInstanceRequestAttributes & attributes) { DARABONBA_PTR_SET_VALUE(attributes_, attributes) };
+    inline CreateRenderingInstanceRequest& setAttributes(CreateRenderingInstanceRequestAttributes && attributes) { DARABONBA_PTR_SET_RVALUE(attributes_, attributes) };
+
+
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -115,6 +127,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<CreateRenderingInstanceRequestAttributes> attributes_ = nullptr;
     std::shared_ptr<bool> autoRenew_ = nullptr;
     std::shared_ptr<CreateRenderingInstanceRequestClientInfo> clientInfo_ = nullptr;
     std::shared_ptr<string> instanceBillingCycle_ = nullptr;

@@ -1868,11 +1868,19 @@ CreateRenderingInstanceResponse Client::createRenderingInstanceWithOptions(const
   tmpReq.validate();
   CreateRenderingInstanceShrinkRequest request = CreateRenderingInstanceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAttributes()) {
+    request.setAttributesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.attributes(), "Attributes", "json"));
+  }
+
   if (!!tmpReq.hasClientInfo()) {
     request.setClientInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.clientInfo(), "ClientInfo", "json"));
   }
 
   json query = {};
+  if (!!request.hasAttributesShrink()) {
+    query["Attributes"] = request.attributesShrink();
+  }
+
   if (!!request.hasAutoRenew()) {
     query["AutoRenew"] = request.autoRenew();
   }
@@ -6134,6 +6142,72 @@ ListCloudAppInstallationsResponse Client::listCloudAppInstallations(const ListCl
 }
 
 /**
+ * @summary 查询一个云应用的Patch列表。
+ *
+ * @param request ListCloudAppPatchesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCloudAppPatchesResponse
+ */
+ListCloudAppPatchesResponse Client::listCloudAppPatchesWithOptions(const ListCloudAppPatchesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasPatchId()) {
+    query["PatchId"] = request.patchId();
+  }
+
+  if (!!request.hasPatchName()) {
+    query["PatchName"] = request.patchName();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCloudAppPatches"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCloudAppPatchesResponse>();
+}
+
+/**
+ * @summary 查询一个云应用的Patch列表。
+ *
+ * @param request ListCloudAppPatchesRequest
+ * @return ListCloudAppPatchesResponse
+ */
+ListCloudAppPatchesResponse Client::listCloudAppPatches(const ListCloudAppPatchesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCloudAppPatchesWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询云应用列表
  *
  * @param request ListCloudAppsRequest
@@ -7283,6 +7357,52 @@ ModifyRenderingInstanceResponse Client::modifyRenderingInstanceWithOptions(const
 ModifyRenderingInstanceResponse Client::modifyRenderingInstance(const ModifyRenderingInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyRenderingInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改云应用服务实例密码
+ *
+ * @param request ModifyRenderingInstanceAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyRenderingInstanceAttributeResponse
+ */
+ModifyRenderingInstanceAttributeResponse Client::modifyRenderingInstanceAttributeWithOptions(const ModifyRenderingInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPassword()) {
+    query["Password"] = request.password();
+  }
+
+  if (!!request.hasRenderingInstanceId()) {
+    query["RenderingInstanceId"] = request.renderingInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyRenderingInstanceAttribute"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyRenderingInstanceAttributeResponse>();
+}
+
+/**
+ * @summary 修改云应用服务实例密码
+ *
+ * @param request ModifyRenderingInstanceAttributeRequest
+ * @return ModifyRenderingInstanceAttributeResponse
+ */
+ModifyRenderingInstanceAttributeResponse Client::modifyRenderingInstanceAttribute(const ModifyRenderingInstanceAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyRenderingInstanceAttributeWithOptions(request, runtime);
 }
 
 /**

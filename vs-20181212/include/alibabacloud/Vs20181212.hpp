@@ -1597,6 +1597,23 @@ namespace Vs20181212
       Models::ListCloudAppInstallationsResponse listCloudAppInstallations(const Models::ListCloudAppInstallationsRequest &request);
 
       /**
+       * @summary 查询一个云应用的Patch列表。
+       *
+       * @param request ListCloudAppPatchesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCloudAppPatchesResponse
+       */
+      Models::ListCloudAppPatchesResponse listCloudAppPatchesWithOptions(const Models::ListCloudAppPatchesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询一个云应用的Patch列表。
+       *
+       * @param request ListCloudAppPatchesRequest
+       * @return ListCloudAppPatchesResponse
+       */
+      Models::ListCloudAppPatchesResponse listCloudAppPatches(const Models::ListCloudAppPatchesRequest &request);
+
+      /**
        * @summary 查询云应用列表
        *
        * @param request ListCloudAppsRequest
@@ -1912,6 +1929,23 @@ namespace Vs20181212
        * @return ModifyRenderingInstanceResponse
        */
       Models::ModifyRenderingInstanceResponse modifyRenderingInstance(const Models::ModifyRenderingInstanceRequest &request);
+
+      /**
+       * @summary 修改云应用服务实例密码
+       *
+       * @param request ModifyRenderingInstanceAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyRenderingInstanceAttributeResponse
+       */
+      Models::ModifyRenderingInstanceAttributeResponse modifyRenderingInstanceAttributeWithOptions(const Models::ModifyRenderingInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改云应用服务实例密码
+       *
+       * @param request ModifyRenderingInstanceAttributeRequest
+       * @return ModifyRenderingInstanceAttributeResponse
+       */
+      Models::ModifyRenderingInstanceAttributeResponse modifyRenderingInstanceAttribute(const Models::ModifyRenderingInstanceAttributeRequest &request);
 
       /**
        * @summary 修改云渲染实例限速带宽

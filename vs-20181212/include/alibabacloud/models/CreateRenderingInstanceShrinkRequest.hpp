@@ -13,6 +13,7 @@ namespace Models
   class CreateRenderingInstanceShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateRenderingInstanceShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Attributes, attributesShrink_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(ClientInfo, clientInfoShrink_);
       DARABONBA_PTR_TO_JSON(InstanceBillingCycle, instanceBillingCycle_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StorageSize, storageSize_);
     };
     friend void from_json(const Darabonba::Json& j, CreateRenderingInstanceShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Attributes, attributesShrink_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(ClientInfo, clientInfoShrink_);
       DARABONBA_PTR_FROM_JSON(InstanceBillingCycle, instanceBillingCycle_);
@@ -45,9 +47,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRenew_ != nullptr
-        && this->clientInfoShrink_ != nullptr && this->instanceBillingCycle_ != nullptr && this->instanceChargeType_ != nullptr && this->internetChargeType_ != nullptr && this->internetMaxBandwidth_ != nullptr
-        && this->period_ != nullptr && this->renderingSpec_ != nullptr && this->storageSize_ != nullptr; };
+    virtual bool empty() const override { this->attributesShrink_ != nullptr
+        && this->autoRenew_ != nullptr && this->clientInfoShrink_ != nullptr && this->instanceBillingCycle_ != nullptr && this->instanceChargeType_ != nullptr && this->internetChargeType_ != nullptr
+        && this->internetMaxBandwidth_ != nullptr && this->period_ != nullptr && this->renderingSpec_ != nullptr && this->storageSize_ != nullptr; };
+    // attributesShrink Field Functions 
+    bool hasAttributesShrink() const { return this->attributesShrink_ != nullptr;};
+    void deleteAttributesShrink() { this->attributesShrink_ = nullptr;};
+    inline string attributesShrink() const { DARABONBA_PTR_GET_DEFAULT(attributesShrink_, "") };
+    inline CreateRenderingInstanceShrinkRequest& setAttributesShrink(string attributesShrink) { DARABONBA_PTR_SET_VALUE(attributesShrink_, attributesShrink) };
+
+
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -112,6 +121,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> attributesShrink_ = nullptr;
     std::shared_ptr<bool> autoRenew_ = nullptr;
     std::shared_ptr<string> clientInfoShrink_ = nullptr;
     std::shared_ptr<string> instanceBillingCycle_ = nullptr;

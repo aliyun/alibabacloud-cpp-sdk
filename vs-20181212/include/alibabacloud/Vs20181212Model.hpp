@@ -353,6 +353,9 @@
 #include <alibabacloud/models/ListCloudAppInstallationsRequest.hpp>
 #include <alibabacloud/models/ListCloudAppInstallationsResponseBody.hpp>
 #include <alibabacloud/models/ListCloudAppInstallationsResponse.hpp>
+#include <alibabacloud/models/ListCloudAppPatchesRequest.hpp>
+#include <alibabacloud/models/ListCloudAppPatchesResponseBody.hpp>
+#include <alibabacloud/models/ListCloudAppPatchesResponse.hpp>
 #include <alibabacloud/models/ListCloudAppsRequest.hpp>
 #include <alibabacloud/models/ListCloudAppsResponseBody.hpp>
 #include <alibabacloud/models/ListCloudAppsResponse.hpp>
@@ -410,6 +413,9 @@
 #include <alibabacloud/models/ModifyRenderingInstanceRequest.hpp>
 #include <alibabacloud/models/ModifyRenderingInstanceResponseBody.hpp>
 #include <alibabacloud/models/ModifyRenderingInstanceResponse.hpp>
+#include <alibabacloud/models/ModifyRenderingInstanceAttributeRequest.hpp>
+#include <alibabacloud/models/ModifyRenderingInstanceAttributeResponseBody.hpp>
+#include <alibabacloud/models/ModifyRenderingInstanceAttributeResponse.hpp>
 #include <alibabacloud/models/ModifyRenderingInstanceBandwidthRequest.hpp>
 #include <alibabacloud/models/ModifyRenderingInstanceBandwidthResponseBody.hpp>
 #include <alibabacloud/models/ModifyRenderingInstanceBandwidthResponse.hpp>
@@ -585,6 +591,7 @@
 #include <alibabacloud/models/BatchUnbindPurchasedDevicesResponseBodyResults.hpp>
 #include <alibabacloud/models/BatchUnbindTemplateResponseBodyBindings.hpp>
 #include <alibabacloud/models/BatchUnbindTemplatesResponseBodyResults.hpp>
+#include <alibabacloud/models/CreateRenderingInstanceRequestAttributes.hpp>
 #include <alibabacloud/models/CreateRenderingInstanceRequestClientInfo.hpp>
 #include <alibabacloud/models/CreateRenderingProjectRequestSessionAttribs.hpp>
 #include <alibabacloud/models/DeleteRenderingInstanceConfigurationRequestConfiguration.hpp>
@@ -674,6 +681,7 @@
 #include <alibabacloud/models/InstallCloudAppResponseBodyFailedInstances.hpp>
 #include <alibabacloud/models/InstallCloudAppResponseBodySuccessInstances.hpp>
 #include <alibabacloud/models/ListCloudAppInstallationsResponseBodyInstallationInfos.hpp>
+#include <alibabacloud/models/ListCloudAppPatchesResponseBodyPatches.hpp>
 #include <alibabacloud/models/ListCloudAppsResponseBodyCloudApps.hpp>
 #include <alibabacloud/models/ListFilePushStatusesResponseBodyPushStatuses.hpp>
 #include <alibabacloud/models/ListFilesResponseBodyFiles.hpp>
