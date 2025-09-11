@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ServerIds, serverIdsShrink_);
       DARABONBA_PTR_TO_JSON(ServerSpecs, serverSpecsShrink_);
       DARABONBA_PTR_TO_JSON(States, statesShrink_);
+      DARABONBA_PTR_TO_JSON(Tags, tagsShrink_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeARMServerInstancesShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AICSpecs, AICSpecsShrink_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ServerIds, serverIdsShrink_);
       DARABONBA_PTR_FROM_JSON(ServerSpecs, serverSpecsShrink_);
       DARABONBA_PTR_FROM_JSON(States, statesShrink_);
+      DARABONBA_PTR_FROM_JSON(Tags, tagsShrink_);
     };
     DescribeARMServerInstancesShrinkRequest() = default ;
     DescribeARMServerInstancesShrinkRequest(const DescribeARMServerInstancesShrinkRequest &) = default ;
@@ -56,7 +58,7 @@ namespace Models
     virtual bool empty() const override { this->AICSpecsShrink_ != nullptr
         && this->describeAICInstances_ != nullptr && this->ensRegionIdsShrink_ != nullptr && this->maxDate_ != nullptr && this->minDate_ != nullptr && this->name_ != nullptr
         && this->namespace_ != nullptr && this->orderByParams_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->serverIdsShrink_ != nullptr
-        && this->serverSpecsShrink_ != nullptr && this->statesShrink_ != nullptr; };
+        && this->serverSpecsShrink_ != nullptr && this->statesShrink_ != nullptr && this->tagsShrink_ != nullptr; };
     // AICSpecsShrink Field Functions 
     bool hasAICSpecsShrink() const { return this->AICSpecsShrink_ != nullptr;};
     void deleteAICSpecsShrink() { this->AICSpecsShrink_ = nullptr;};
@@ -148,6 +150,13 @@ namespace Models
     inline DescribeARMServerInstancesShrinkRequest& setStatesShrink(string statesShrink) { DARABONBA_PTR_SET_VALUE(statesShrink_, statesShrink) };
 
 
+    // tagsShrink Field Functions 
+    bool hasTagsShrink() const { return this->tagsShrink_ != nullptr;};
+    void deleteTagsShrink() { this->tagsShrink_ = nullptr;};
+    inline string tagsShrink() const { DARABONBA_PTR_GET_DEFAULT(tagsShrink_, "") };
+    inline DescribeARMServerInstancesShrinkRequest& setTagsShrink(string tagsShrink) { DARABONBA_PTR_SET_VALUE(tagsShrink_, tagsShrink) };
+
+
   protected:
     // The container specifications.
     std::shared_ptr<string> AICSpecsShrink_ = nullptr;
@@ -184,6 +193,7 @@ namespace Models
     std::shared_ptr<string> serverSpecsShrink_ = nullptr;
     // The operation statuses.
     std::shared_ptr<string> statesShrink_ = nullptr;
+    std::shared_ptr<string> tagsShrink_ = nullptr;
   };
 
   } // namespace Models

@@ -5030,6 +5030,10 @@ DescribeARMServerInstancesResponse Client::describeARMServerInstancesWithOptions
     request.setStatesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.states(), "States", "json"));
   }
 
+  if (!!tmpReq.hasTags()) {
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "Tags", "json"));
+  }
+
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}

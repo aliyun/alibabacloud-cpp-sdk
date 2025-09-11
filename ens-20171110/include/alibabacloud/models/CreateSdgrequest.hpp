@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DiskType, diskType_);
       DARABONBA_PTR_TO_JSON(FromSDGId, fromSDGId_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(PerformanceLevel, performanceLevel_);
       DARABONBA_PTR_TO_JSON(Size, size_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSDGRequest& obj) { 
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DiskType, diskType_);
       DARABONBA_PTR_FROM_JSON(FromSDGId, fromSDGId_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(PerformanceLevel, performanceLevel_);
       DARABONBA_PTR_FROM_JSON(Size, size_);
     };
     CreateSDGRequest() = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->billingCycle_ != nullptr
-        && this->description_ != nullptr && this->diskType_ != nullptr && this->fromSDGId_ != nullptr && this->instanceId_ != nullptr && this->size_ != nullptr; };
+        && this->description_ != nullptr && this->diskType_ != nullptr && this->fromSDGId_ != nullptr && this->instanceId_ != nullptr && this->performanceLevel_ != nullptr
+        && this->size_ != nullptr; };
     // billingCycle Field Functions 
     bool hasBillingCycle() const { return this->billingCycle_ != nullptr;};
     void deleteBillingCycle() { this->billingCycle_ = nullptr;};
@@ -76,6 +79,13 @@ namespace Models
     inline CreateSDGRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+    // performanceLevel Field Functions 
+    bool hasPerformanceLevel() const { return this->performanceLevel_ != nullptr;};
+    void deletePerformanceLevel() { this->performanceLevel_ = nullptr;};
+    inline int64_t performanceLevel() const { DARABONBA_PTR_GET_DEFAULT(performanceLevel_, 0L) };
+    inline CreateSDGRequest& setPerformanceLevel(int64_t performanceLevel) { DARABONBA_PTR_SET_VALUE(performanceLevel_, performanceLevel) };
+
+
     // size Field Functions 
     bool hasSize() const { return this->size_ != nullptr;};
     void deleteSize() { this->size_ = nullptr;};
@@ -104,6 +114,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> instanceId_ = nullptr;
+    std::shared_ptr<int64_t> performanceLevel_ = nullptr;
     // The maximum capacity of the SDG. Unit: GB.
     // 
     // > 

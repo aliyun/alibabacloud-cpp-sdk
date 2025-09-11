@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEARMSERVERINSTANCESREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/DescribeARMServerInstancesRequestTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ServerIds, serverIds_);
       DARABONBA_PTR_TO_JSON(ServerSpecs, serverSpecs_);
       DARABONBA_PTR_TO_JSON(States, states_);
+      DARABONBA_PTR_TO_JSON(Tags, tags_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeARMServerInstancesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AICSpecs, AICSpecs_);
@@ -42,6 +44,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ServerIds, serverIds_);
       DARABONBA_PTR_FROM_JSON(ServerSpecs, serverSpecs_);
       DARABONBA_PTR_FROM_JSON(States, states_);
+      DARABONBA_PTR_FROM_JSON(Tags, tags_);
     };
     DescribeARMServerInstancesRequest() = default ;
     DescribeARMServerInstancesRequest(const DescribeARMServerInstancesRequest &) = default ;
@@ -57,7 +60,7 @@ namespace Models
     virtual bool empty() const override { this->AICSpecs_ != nullptr
         && this->describeAICInstances_ != nullptr && this->ensRegionIds_ != nullptr && this->maxDate_ != nullptr && this->minDate_ != nullptr && this->name_ != nullptr
         && this->namespace_ != nullptr && this->orderByParams_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->serverIds_ != nullptr
-        && this->serverSpecs_ != nullptr && this->states_ != nullptr; };
+        && this->serverSpecs_ != nullptr && this->states_ != nullptr && this->tags_ != nullptr; };
     // AICSpecs Field Functions 
     bool hasAICSpecs() const { return this->AICSpecs_ != nullptr;};
     void deleteAICSpecs() { this->AICSpecs_ = nullptr;};
@@ -159,6 +162,15 @@ namespace Models
     inline DescribeARMServerInstancesRequest& setStates(vector<string> && states) { DARABONBA_PTR_SET_RVALUE(states_, states) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<DescribeARMServerInstancesRequestTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<DescribeARMServerInstancesRequestTags>) };
+    inline vector<DescribeARMServerInstancesRequestTags> tags() { DARABONBA_PTR_GET(tags_, vector<DescribeARMServerInstancesRequestTags>) };
+    inline DescribeARMServerInstancesRequest& setTags(const vector<DescribeARMServerInstancesRequestTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline DescribeARMServerInstancesRequest& setTags(vector<DescribeARMServerInstancesRequestTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
   protected:
     // The container specifications.
     std::shared_ptr<vector<string>> AICSpecs_ = nullptr;
@@ -195,6 +207,7 @@ namespace Models
     std::shared_ptr<vector<string>> serverSpecs_ = nullptr;
     // The operation statuses.
     std::shared_ptr<vector<string>> states_ = nullptr;
+    std::shared_ptr<vector<DescribeARMServerInstancesRequestTags>> tags_ = nullptr;
   };
 
   } // namespace Models

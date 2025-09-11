@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(ParentSDGId, parentSDGId_);
+      DARABONBA_PTR_TO_JSON(PerformanceLevel, performanceLevel_);
       DARABONBA_PTR_TO_JSON(PreloadInfos, preloadInfos_);
       DARABONBA_PTR_TO_JSON(SDGId, SDGId_);
       DARABONBA_PTR_TO_JSON(Size, size_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(ParentSDGId, parentSDGId_);
+      DARABONBA_PTR_FROM_JSON(PerformanceLevel, performanceLevel_);
       DARABONBA_PTR_FROM_JSON(PreloadInfos, preloadInfos_);
       DARABONBA_PTR_FROM_JSON(SDGId, SDGId_);
       DARABONBA_PTR_FROM_JSON(Size, size_);
@@ -58,8 +60,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->avaliableRegionIds_ != nullptr
         && this->billingCycle_ != nullptr && this->creationDiskType_ != nullptr && this->creationInstanceId_ != nullptr && this->creationRegionId_ != nullptr && this->creationTime_ != nullptr
-        && this->description_ != nullptr && this->parentSDGId_ != nullptr && this->preloadInfos_ != nullptr && this->SDGId_ != nullptr && this->size_ != nullptr
-        && this->status_ != nullptr && this->updateTime_ != nullptr; };
+        && this->description_ != nullptr && this->parentSDGId_ != nullptr && this->performanceLevel_ != nullptr && this->preloadInfos_ != nullptr && this->SDGId_ != nullptr
+        && this->size_ != nullptr && this->status_ != nullptr && this->updateTime_ != nullptr; };
     // avaliableRegionIds Field Functions 
     bool hasAvaliableRegionIds() const { return this->avaliableRegionIds_ != nullptr;};
     void deleteAvaliableRegionIds() { this->avaliableRegionIds_ = nullptr;};
@@ -118,6 +120,13 @@ namespace Models
     inline DescribeSDGResponseBodySDGs& setParentSDGId(string parentSDGId) { DARABONBA_PTR_SET_VALUE(parentSDGId_, parentSDGId) };
 
 
+    // performanceLevel Field Functions 
+    bool hasPerformanceLevel() const { return this->performanceLevel_ != nullptr;};
+    void deletePerformanceLevel() { this->performanceLevel_ = nullptr;};
+    inline string performanceLevel() const { DARABONBA_PTR_GET_DEFAULT(performanceLevel_, "") };
+    inline DescribeSDGResponseBodySDGs& setPerformanceLevel(string performanceLevel) { DARABONBA_PTR_SET_VALUE(performanceLevel_, performanceLevel) };
+
+
     // preloadInfos Field Functions 
     bool hasPreloadInfos() const { return this->preloadInfos_ != nullptr;};
     void deletePreloadInfos() { this->preloadInfos_ = nullptr;};
@@ -170,6 +179,7 @@ namespace Models
     std::shared_ptr<string> description_ = nullptr;
     // The ID of the source SDG from which you want to create an SDG. The value of this parameter is the value of the **FromSDGId** parameter that you need to specify when you call the [CreateSDG](https://help.aliyun.com/document_detail/608128.html) operation.
     std::shared_ptr<string> parentSDGId_ = nullptr;
+    std::shared_ptr<string> performanceLevel_ = nullptr;
     // The preload information.
     std::shared_ptr<vector<Models::DescribeSDGResponseBodySDGsPreloadInfos>> preloadInfos_ = nullptr;
     // The ID of the SDG.

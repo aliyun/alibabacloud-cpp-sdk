@@ -968,6 +968,7 @@
 #include <alibabacloud/models/DeploySdgresponseBodyDataResult.hpp>
 #include <alibabacloud/models/DeploySdgresponseBodyData.hpp>
 #include <alibabacloud/models/DescribeAicimagesResponseBodyImages.hpp>
+#include <alibabacloud/models/DescribeArmserverInstancesRequestTags.hpp>
 #include <alibabacloud/models/DescribeArmserverInstancesResponseBodyServersAicinstancesNetworkAttributes.hpp>
 #include <alibabacloud/models/DescribeArmserverInstancesResponseBodyServersAicinstancesSdgDeployInfo.hpp>
 #include <alibabacloud/models/DescribeArmserverInstancesResponseBodyServersAicinstances.hpp>

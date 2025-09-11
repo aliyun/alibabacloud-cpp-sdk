@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DeployedInstanceIds, deployedInstanceIds_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(ParentSDGId, parentSDGId_);
+      DARABONBA_PTR_TO_JSON(PerformanceLevel, performanceLevel_);
       DARABONBA_PTR_TO_JSON(SDGId, SDGId_);
       DARABONBA_PTR_TO_JSON(Size, size_);
       DARABONBA_PTR_TO_JSON(Status, status_);
@@ -40,6 +41,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DeployedInstanceIds, deployedInstanceIds_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(ParentSDGId, parentSDGId_);
+      DARABONBA_PTR_FROM_JSON(PerformanceLevel, performanceLevel_);
       DARABONBA_PTR_FROM_JSON(SDGId, SDGId_);
       DARABONBA_PTR_FROM_JSON(Size, size_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -58,8 +60,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->avaliableRegionIds_ != nullptr
         && this->billingCycle_ != nullptr && this->creationDiskType_ != nullptr && this->creationInstanceId_ != nullptr && this->creationRegionId_ != nullptr && this->creationTime_ != nullptr
-        && this->deployedInstanceIds_ != nullptr && this->description_ != nullptr && this->parentSDGId_ != nullptr && this->SDGId_ != nullptr && this->size_ != nullptr
-        && this->status_ != nullptr && this->updateTime_ != nullptr; };
+        && this->deployedInstanceIds_ != nullptr && this->description_ != nullptr && this->parentSDGId_ != nullptr && this->performanceLevel_ != nullptr && this->SDGId_ != nullptr
+        && this->size_ != nullptr && this->status_ != nullptr && this->updateTime_ != nullptr; };
     // avaliableRegionIds Field Functions 
     bool hasAvaliableRegionIds() const { return this->avaliableRegionIds_ != nullptr;};
     void deleteAvaliableRegionIds() { this->avaliableRegionIds_ = nullptr;};
@@ -127,6 +129,13 @@ namespace Models
     inline DescribeSDGsResponseBodySDGs& setParentSDGId(string parentSDGId) { DARABONBA_PTR_SET_VALUE(parentSDGId_, parentSDGId) };
 
 
+    // performanceLevel Field Functions 
+    bool hasPerformanceLevel() const { return this->performanceLevel_ != nullptr;};
+    void deletePerformanceLevel() { this->performanceLevel_ = nullptr;};
+    inline int64_t performanceLevel() const { DARABONBA_PTR_GET_DEFAULT(performanceLevel_, 0L) };
+    inline DescribeSDGsResponseBodySDGs& setPerformanceLevel(int64_t performanceLevel) { DARABONBA_PTR_SET_VALUE(performanceLevel_, performanceLevel) };
+
+
     // SDGId Field Functions 
     bool hasSDGId() const { return this->SDGId_ != nullptr;};
     void deleteSDGId() { this->SDGId_ = nullptr;};
@@ -172,6 +181,7 @@ namespace Models
     std::shared_ptr<string> description_ = nullptr;
     // The ID of the source SDG from which you want to create an SDG. The value of this parameter is the value of the **FromSDGId** parameter that you need to specify when you call the [CreateSDG](https://help.aliyun.com/document_detail/608128.html) operation.
     std::shared_ptr<string> parentSDGId_ = nullptr;
+    std::shared_ptr<int64_t> performanceLevel_ = nullptr;
     // The ID of the SDG.
     std::shared_ptr<string> SDGId_ = nullptr;
     // The size of the SDG. Unit: GB.
