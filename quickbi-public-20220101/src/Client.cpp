@@ -53,7 +53,7 @@ AddDataLevelPermissionRuleUsersResponse Client::addDataLevelPermissionRuleUsersW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddDataLevelPermissionRuleUsers"},
     {"version" , "2022-01-01"},
@@ -64,7 +64,7 @@ AddDataLevelPermissionRuleUsersResponse Client::addDataLevelPermissionRuleUsersW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddDataLevelPermissionRuleUsersResponse>();
 }
 
@@ -115,7 +115,7 @@ AddDataLevelPermissionWhiteListResponse Client::addDataLevelPermissionWhiteListW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddDataLevelPermissionWhiteList"},
     {"version" , "2022-01-01"},
@@ -126,7 +126,7 @@ AddDataLevelPermissionWhiteListResponse Client::addDataLevelPermissionWhiteListW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddDataLevelPermissionWhiteListResponse>();
 }
 
@@ -141,6 +141,48 @@ AddDataLevelPermissionWhiteListResponse Client::addDataLevelPermissionWhiteListW
 AddDataLevelPermissionWhiteListResponse Client::addDataLevelPermissionWhiteList(const AddDataLevelPermissionWhiteListRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return addDataLevelPermissionWhiteListWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建数据源
+ *
+ * @param request AddDataSourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddDataSourceResponse
+ */
+AddDataSourceResponse Client::addDataSourceWithOptions(const AddDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAddModel()) {
+    query["AddModel"] = request.addModel();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddDataSource"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddDataSourceResponse>();
+}
+
+/**
+ * @summary 创建数据源
+ *
+ * @param request AddDataSourceRequest
+ * @return AddDataSourceResponse
+ */
+AddDataSourceResponse Client::addDataSource(const AddDataSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addDataSourceWithOptions(request, runtime);
 }
 
 /**
@@ -175,7 +217,7 @@ AddShareReportResponse Client::addShareReportWithOptions(const AddShareReportReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddShareReport"},
     {"version" , "2022-01-01"},
@@ -186,7 +228,7 @@ AddShareReportResponse Client::addShareReportWithOptions(const AddShareReportReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddShareReportResponse>();
 }
 
@@ -254,7 +296,7 @@ AddUserResponse Client::addUserWithOptions(const AddUserRequest &request, const 
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddUserResponse>();
 }
 
@@ -289,7 +331,7 @@ AddUserGroupMemberResponse Client::addUserGroupMemberWithOptions(const AddUserGr
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddUserGroupMember"},
     {"version" , "2022-01-01"},
@@ -300,7 +342,7 @@ AddUserGroupMemberResponse Client::addUserGroupMemberWithOptions(const AddUserGr
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddUserGroupMemberResponse>();
 }
 
@@ -335,7 +377,7 @@ AddUserGroupMembersResponse Client::addUserGroupMembersWithOptions(const AddUser
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddUserGroupMembers"},
     {"version" , "2022-01-01"},
@@ -346,7 +388,7 @@ AddUserGroupMembersResponse Client::addUserGroupMembersWithOptions(const AddUser
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddUserGroupMembersResponse>();
 }
 
@@ -381,7 +423,7 @@ AddUserTagMetaResponse Client::addUserTagMetaWithOptions(const AddUserTagMetaReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddUserTagMeta"},
     {"version" , "2022-01-01"},
@@ -392,7 +434,7 @@ AddUserTagMetaResponse Client::addUserTagMetaWithOptions(const AddUserTagMetaReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddUserTagMetaResponse>();
 }
 
@@ -431,7 +473,7 @@ AddUserToWorkspaceResponse Client::addUserToWorkspaceWithOptions(const AddUserTo
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddUserToWorkspace"},
     {"version" , "2022-01-01"},
@@ -442,7 +484,7 @@ AddUserToWorkspaceResponse Client::addUserToWorkspaceWithOptions(const AddUserTo
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddUserToWorkspaceResponse>();
 }
 
@@ -481,7 +523,7 @@ AddWorkspaceUsersResponse Client::addWorkspaceUsersWithOptions(const AddWorkspac
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AddWorkspaceUsers"},
     {"version" , "2022-01-01"},
@@ -492,7 +534,7 @@ AddWorkspaceUsersResponse Client::addWorkspaceUsersWithOptions(const AddWorkspac
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddWorkspaceUsersResponse>();
 }
 
@@ -523,7 +565,7 @@ AllotDatasetAccelerationTaskResponse Client::allotDatasetAccelerationTaskWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AllotDatasetAccelerationTask"},
     {"version" , "2022-01-01"},
@@ -534,7 +576,7 @@ AllotDatasetAccelerationTaskResponse Client::allotDatasetAccelerationTaskWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AllotDatasetAccelerationTaskResponse>();
 }
 
@@ -581,7 +623,7 @@ AuthorizeMenuResponse Client::authorizeMenuWithOptions(const AuthorizeMenuReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AuthorizeMenu"},
     {"version" , "2022-01-01"},
@@ -592,7 +634,7 @@ AuthorizeMenuResponse Client::authorizeMenuWithOptions(const AuthorizeMenuReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AuthorizeMenuResponse>();
 }
 
@@ -641,7 +683,7 @@ BatchAddFeishuUsersResponse Client::batchAddFeishuUsersWithOptions(const BatchAd
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "BatchAddFeishuUsers"},
     {"version" , "2022-01-01"},
@@ -652,7 +694,7 @@ BatchAddFeishuUsersResponse Client::batchAddFeishuUsersWithOptions(const BatchAd
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<BatchAddFeishuUsersResponse>();
 }
 
@@ -697,7 +739,7 @@ CancelAuthorizationMenuResponse Client::cancelAuthorizationMenuWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CancelAuthorizationMenu"},
     {"version" , "2022-01-01"},
@@ -708,7 +750,7 @@ CancelAuthorizationMenuResponse Client::cancelAuthorizationMenuWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CancelAuthorizationMenuResponse>();
 }
 
@@ -743,7 +785,7 @@ CancelCollectionResponse Client::cancelCollectionWithOptions(const CancelCollect
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CancelCollection"},
     {"version" , "2022-01-01"},
@@ -754,7 +796,7 @@ CancelCollectionResponse Client::cancelCollectionWithOptions(const CancelCollect
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CancelCollectionResponse>();
 }
 
@@ -793,7 +835,7 @@ CancelReportShareResponse Client::cancelReportShareWithOptions(const CancelRepor
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CancelReportShare"},
     {"version" , "2022-01-01"},
@@ -804,7 +846,7 @@ CancelReportShareResponse Client::cancelReportShareWithOptions(const CancelRepor
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CancelReportShareResponse>();
 }
 
@@ -843,7 +885,7 @@ ChangeVisibilityModelResponse Client::changeVisibilityModelWithOptions(const Cha
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ChangeVisibilityModel"},
     {"version" , "2022-01-01"},
@@ -854,7 +896,7 @@ ChangeVisibilityModelResponse Client::changeVisibilityModelWithOptions(const Cha
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ChangeVisibilityModelResponse>();
 }
 
@@ -867,6 +909,90 @@ ChangeVisibilityModelResponse Client::changeVisibilityModelWithOptions(const Cha
 ChangeVisibilityModelResponse Client::changeVisibilityModel(const ChangeVisibilityModelRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return changeVisibilityModelWithOptions(request, runtime);
+}
+
+/**
+ * @summary 检查给定的cubeId是否存在
+ *
+ * @param request CheckDatasetExistedRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckDatasetExistedResponse
+ */
+CheckDatasetExistedResponse Client::checkDatasetExistedWithOptions(const CheckDatasetExistedRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCubeId()) {
+    query["CubeId"] = request.cubeId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckDatasetExisted"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckDatasetExistedResponse>();
+}
+
+/**
+ * @summary 检查给定的cubeId是否存在
+ *
+ * @param request CheckDatasetExistedRequest
+ * @return CheckDatasetExistedResponse
+ */
+CheckDatasetExistedResponse Client::checkDatasetExisted(const CheckDatasetExistedRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkDatasetExistedWithOptions(request, runtime);
+}
+
+/**
+ * @summary 判断用户是否属于组织
+ *
+ * @param request CheckOrganizationMemberRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckOrganizationMemberResponse
+ */
+CheckOrganizationMemberResponse Client::checkOrganizationMemberWithOptions(const CheckOrganizationMemberRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.userId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckOrganizationMember"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckOrganizationMemberResponse>();
+}
+
+/**
+ * @summary 判断用户是否属于组织
+ *
+ * @param request CheckOrganizationMemberRequest
+ * @return CheckOrganizationMemberResponse
+ */
+CheckOrganizationMemberResponse Client::checkOrganizationMember(const CheckOrganizationMemberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkOrganizationMemberWithOptions(request, runtime);
 }
 
 /**
@@ -889,7 +1015,7 @@ CheckReadableResponse Client::checkReadableWithOptions(const CheckReadableReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CheckReadable"},
     {"version" , "2022-01-01"},
@@ -900,7 +1026,7 @@ CheckReadableResponse Client::checkReadableWithOptions(const CheckReadableReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CheckReadableResponse>();
 }
 
@@ -913,6 +1039,126 @@ CheckReadableResponse Client::checkReadableWithOptions(const CheckReadableReques
 CheckReadableResponse Client::checkReadable(const CheckReadableRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return checkReadableWithOptions(request, runtime);
+}
+
+/**
+ * @summary 根据自定义sql创建数据集
+ *
+ * @param request CreateCubeBySqlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCubeBySqlResponse
+ */
+CreateCubeBySqlResponse Client::createCubeBySqlWithOptions(const CreateCubeBySqlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCaption()) {
+    query["Caption"] = request.caption();
+  }
+
+  if (!!request.hasCustomSql()) {
+    query["CustomSql"] = request.customSql();
+  }
+
+  if (!!request.hasDsId()) {
+    query["DsId"] = request.dsId();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.userId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateCubeBySql"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCubeBySqlResponse>();
+}
+
+/**
+ * @summary 根据自定义sql创建数据集
+ *
+ * @param request CreateCubeBySqlRequest
+ * @return CreateCubeBySqlResponse
+ */
+CreateCubeBySqlResponse Client::createCubeBySql(const CreateCubeBySqlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCubeBySqlWithOptions(request, runtime);
+}
+
+/**
+ * @summary 根据物理表名称创建数据集
+ *
+ * @param request CreateDatasetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDatasetResponse
+ */
+CreateDatasetResponse Client::createDatasetWithOptions(const CreateDatasetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDsId()) {
+    query["DsId"] = request.dsId();
+  }
+
+  if (!!request.hasTableName()) {
+    query["TableName"] = request.tableName();
+  }
+
+  if (!!request.hasTargetDirectoryId()) {
+    query["TargetDirectoryId"] = request.targetDirectoryId();
+  }
+
+  if (!!request.hasUserDefineCubeName()) {
+    query["UserDefineCubeName"] = request.userDefineCubeName();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.userId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateDataset"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDatasetResponse>();
+}
+
+/**
+ * @summary 根据物理表名称创建数据集
+ *
+ * @param request CreateDatasetRequest
+ * @return CreateDatasetResponse
+ */
+CreateDatasetResponse Client::createDataset(const CreateDatasetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDatasetWithOptions(request, runtime);
 }
 
 /**
@@ -965,7 +1211,7 @@ CreateTicketResponse Client::createTicketWithOptions(const CreateTicketRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateTicket"},
     {"version" , "2022-01-01"},
@@ -976,7 +1222,7 @@ CreateTicketResponse Client::createTicketWithOptions(const CreateTicketRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateTicketResponse>();
 }
 
@@ -1029,7 +1275,7 @@ CreateTicket4CopilotResponse Client::createTicket4CopilotWithOptions(const Creat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateTicket4Copilot"},
     {"version" , "2022-01-01"},
@@ -1040,7 +1286,7 @@ CreateTicket4CopilotResponse Client::createTicket4CopilotWithOptions(const Creat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateTicket4CopilotResponse>();
 }
 
@@ -1083,7 +1329,7 @@ CreateUserGroupResponse Client::createUserGroupWithOptions(const CreateUserGroup
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateUserGroup"},
     {"version" , "2022-01-01"},
@@ -1094,7 +1340,7 @@ CreateUserGroupResponse Client::createUserGroupWithOptions(const CreateUserGroup
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateUserGroupResponse>();
 }
 
@@ -1141,7 +1387,7 @@ DataInterpretationResponse Client::dataInterpretationWithOptions(const DataInter
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DataInterpretation"},
     {"version" , "2022-01-01"},
@@ -1152,7 +1398,7 @@ DataInterpretationResponse Client::dataInterpretationWithOptions(const DataInter
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DataInterpretationResponse>();
 }
 
@@ -1191,7 +1437,7 @@ DataSetBloodResponse Client::dataSetBloodWithOptions(const DataSetBloodRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DataSetBlood"},
     {"version" , "2022-01-01"},
@@ -1202,7 +1448,7 @@ DataSetBloodResponse Client::dataSetBloodWithOptions(const DataSetBloodRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DataSetBloodResponse>();
 }
 
@@ -1233,7 +1479,7 @@ DataSourceBloodResponse Client::dataSourceBloodWithOptions(const DataSourceBlood
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DataSourceBlood"},
     {"version" , "2022-01-01"},
@@ -1244,7 +1490,7 @@ DataSourceBloodResponse Client::dataSourceBloodWithOptions(const DataSourceBlood
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DataSourceBloodResponse>();
 }
 
@@ -1279,7 +1525,7 @@ DelayTicketExpireTimeResponse Client::delayTicketExpireTimeWithOptions(const Del
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DelayTicketExpireTime"},
     {"version" , "2022-01-01"},
@@ -1290,7 +1536,7 @@ DelayTicketExpireTimeResponse Client::delayTicketExpireTimeWithOptions(const Del
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DelayTicketExpireTimeResponse>();
 }
 
@@ -1323,7 +1569,7 @@ DeleteDataLevelPermissionRuleUsersResponse Client::deleteDataLevelPermissionRule
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteDataLevelPermissionRuleUsers"},
     {"version" , "2022-01-01"},
@@ -1334,7 +1580,7 @@ DeleteDataLevelPermissionRuleUsersResponse Client::deleteDataLevelPermissionRule
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteDataLevelPermissionRuleUsersResponse>();
 }
 
@@ -1373,7 +1619,7 @@ DeleteDataLevelRuleConfigResponse Client::deleteDataLevelRuleConfigWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteDataLevelRuleConfig"},
     {"version" , "2022-01-01"},
@@ -1384,7 +1630,7 @@ DeleteDataLevelRuleConfigResponse Client::deleteDataLevelRuleConfigWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteDataLevelRuleConfigResponse>();
 }
 
@@ -1417,7 +1663,7 @@ DeleteTicketResponse Client::deleteTicketWithOptions(const DeleteTicketRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteTicket"},
     {"version" , "2022-01-01"},
@@ -1428,7 +1674,7 @@ DeleteTicketResponse Client::deleteTicketWithOptions(const DeleteTicketRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteTicketResponse>();
 }
 
@@ -1463,7 +1709,7 @@ DeleteUserResponse Client::deleteUserWithOptions(const DeleteUserRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteUser"},
     {"version" , "2022-01-01"},
@@ -1474,7 +1720,7 @@ DeleteUserResponse Client::deleteUserWithOptions(const DeleteUserRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteUserResponse>();
 }
 
@@ -1509,7 +1755,7 @@ DeleteUserFromWorkspaceResponse Client::deleteUserFromWorkspaceWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteUserFromWorkspace"},
     {"version" , "2022-01-01"},
@@ -1520,7 +1766,7 @@ DeleteUserFromWorkspaceResponse Client::deleteUserFromWorkspaceWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteUserFromWorkspaceResponse>();
 }
 
@@ -1551,7 +1797,7 @@ DeleteUserGroupResponse Client::deleteUserGroupWithOptions(const DeleteUserGroup
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteUserGroup"},
     {"version" , "2022-01-01"},
@@ -1562,7 +1808,7 @@ DeleteUserGroupResponse Client::deleteUserGroupWithOptions(const DeleteUserGroup
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteUserGroupResponse>();
 }
 
@@ -1597,7 +1843,7 @@ DeleteUserGroupMemberResponse Client::deleteUserGroupMemberWithOptions(const Del
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteUserGroupMember"},
     {"version" , "2022-01-01"},
@@ -1608,7 +1854,7 @@ DeleteUserGroupMemberResponse Client::deleteUserGroupMemberWithOptions(const Del
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteUserGroupMemberResponse>();
 }
 
@@ -1643,7 +1889,7 @@ DeleteUserGroupMembersResponse Client::deleteUserGroupMembersWithOptions(const D
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteUserGroupMembers"},
     {"version" , "2022-01-01"},
@@ -1654,7 +1900,7 @@ DeleteUserGroupMembersResponse Client::deleteUserGroupMembersWithOptions(const D
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteUserGroupMembersResponse>();
 }
 
@@ -1685,7 +1931,7 @@ DeleteUserTagMetaResponse Client::deleteUserTagMetaWithOptions(const DeleteUserT
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteUserTagMeta"},
     {"version" , "2022-01-01"},
@@ -1696,7 +1942,7 @@ DeleteUserTagMetaResponse Client::deleteUserTagMetaWithOptions(const DeleteUserT
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteUserTagMetaResponse>();
 }
 
@@ -1727,7 +1973,7 @@ GetDataSourceConnectionInfoResponse Client::getDataSourceConnectionInfoWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetDataSourceConnectionInfo"},
     {"version" , "2022-01-01"},
@@ -1738,7 +1984,7 @@ GetDataSourceConnectionInfoResponse Client::getDataSourceConnectionInfoWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetDataSourceConnectionInfoResponse>();
 }
 
@@ -1773,7 +2019,7 @@ GetMailTaskStatusResponse Client::getMailTaskStatusWithOptions(const GetMailTask
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetMailTaskStatus"},
     {"version" , "2022-01-01"},
@@ -1784,7 +2030,7 @@ GetMailTaskStatusResponse Client::getMailTaskStatusWithOptions(const GetMailTask
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMailTaskStatusResponse>();
 }
 
@@ -1815,7 +2061,7 @@ GetUserGroupInfoResponse Client::getUserGroupInfoWithOptions(const GetUserGroupI
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetUserGroupInfo"},
     {"version" , "2022-01-01"},
@@ -1826,7 +2072,7 @@ GetUserGroupInfoResponse Client::getUserGroupInfoWithOptions(const GetUserGroupI
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetUserGroupInfoResponse>();
 }
 
@@ -1873,7 +2119,7 @@ GetWorksEmbedListResponse Client::getWorksEmbedListWithOptions(const GetWorksEmb
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetWorksEmbedList"},
     {"version" , "2022-01-01"},
@@ -1884,7 +2130,7 @@ GetWorksEmbedListResponse Client::getWorksEmbedListWithOptions(const GetWorksEmb
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetWorksEmbedListResponse>();
 }
 
@@ -1929,7 +2175,7 @@ ListApiDatasourceResponse Client::listApiDatasourceWithOptions(const ListApiData
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListApiDatasource"},
     {"version" , "2022-01-01"},
@@ -1940,7 +2186,7 @@ ListApiDatasourceResponse Client::listApiDatasourceWithOptions(const ListApiData
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListApiDatasourceResponse>();
 }
 
@@ -1973,7 +2219,7 @@ ListByUserGroupIdResponse Client::listByUserGroupIdWithOptions(const ListByUserG
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListByUserGroupId"},
     {"version" , "2022-01-01"},
@@ -1984,7 +2230,7 @@ ListByUserGroupIdResponse Client::listByUserGroupIdWithOptions(const ListByUserG
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListByUserGroupIdResponse>();
 }
 
@@ -2015,7 +2261,7 @@ ListCollectionsResponse Client::listCollectionsWithOptions(const ListCollections
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListCollections"},
     {"version" , "2022-01-01"},
@@ -2026,7 +2272,7 @@ ListCollectionsResponse Client::listCollectionsWithOptions(const ListCollections
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListCollectionsResponse>();
 }
 
@@ -2063,7 +2309,7 @@ ListCubeDataLevelPermissionConfigResponse Client::listCubeDataLevelPermissionCon
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListCubeDataLevelPermissionConfig"},
     {"version" , "2022-01-01"},
@@ -2074,7 +2320,7 @@ ListCubeDataLevelPermissionConfigResponse Client::listCubeDataLevelPermissionCon
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListCubeDataLevelPermissionConfigResponse>();
 }
 
@@ -2113,7 +2359,7 @@ ListDataLevelPermissionWhiteListResponse Client::listDataLevelPermissionWhiteLis
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListDataLevelPermissionWhiteList"},
     {"version" , "2022-01-01"},
@@ -2124,7 +2370,7 @@ ListDataLevelPermissionWhiteListResponse Client::listDataLevelPermissionWhiteLis
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListDataLevelPermissionWhiteListResponse>();
 }
 
@@ -2161,7 +2407,7 @@ ListDataSourceResponse Client::listDataSourceWithOptions(const ListDataSourceReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListDataSource"},
     {"version" , "2022-01-01"},
@@ -2172,7 +2418,7 @@ ListDataSourceResponse Client::listDataSourceWithOptions(const ListDataSourceReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListDataSourceResponse>();
 }
 
@@ -2215,7 +2461,7 @@ ListFavoriteReportsResponse Client::listFavoriteReportsWithOptions(const ListFav
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListFavoriteReports"},
     {"version" , "2022-01-01"},
@@ -2226,7 +2472,7 @@ ListFavoriteReportsResponse Client::listFavoriteReportsWithOptions(const ListFav
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListFavoriteReportsResponse>();
 }
 
@@ -2269,7 +2515,7 @@ ListOrganizationRoleUsersResponse Client::listOrganizationRoleUsersWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListOrganizationRoleUsers"},
     {"version" , "2022-01-01"},
@@ -2280,7 +2526,7 @@ ListOrganizationRoleUsersResponse Client::listOrganizationRoleUsersWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListOrganizationRoleUsersResponse>();
 }
 
@@ -2314,7 +2560,7 @@ ListOrganizationRolesResponse Client::listOrganizationRolesWithOptions(const Dar
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListOrganizationRolesResponse>();
 }
 
@@ -2344,7 +2590,7 @@ ListPortalMenuAuthorizationResponse Client::listPortalMenuAuthorizationWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListPortalMenuAuthorization"},
     {"version" , "2022-01-01"},
@@ -2355,7 +2601,7 @@ ListPortalMenuAuthorizationResponse Client::listPortalMenuAuthorizationWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListPortalMenuAuthorizationResponse>();
 }
 
@@ -2390,7 +2636,7 @@ ListPortalMenusResponse Client::listPortalMenusWithOptions(const ListPortalMenus
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListPortalMenus"},
     {"version" , "2022-01-01"},
@@ -2401,7 +2647,7 @@ ListPortalMenusResponse Client::listPortalMenusWithOptions(const ListPortalMenus
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListPortalMenusResponse>();
 }
 
@@ -2452,7 +2698,7 @@ ListRecentViewReportsResponse Client::listRecentViewReportsWithOptions(const Lis
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListRecentViewReports"},
     {"version" , "2022-01-01"},
@@ -2463,7 +2709,7 @@ ListRecentViewReportsResponse Client::listRecentViewReportsWithOptions(const Lis
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListRecentViewReportsResponse>();
 }
 
@@ -2506,7 +2752,7 @@ ListSharedReportsResponse Client::listSharedReportsWithOptions(const ListSharedR
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListSharedReports"},
     {"version" , "2022-01-01"},
@@ -2517,7 +2763,7 @@ ListSharedReportsResponse Client::listSharedReportsWithOptions(const ListSharedR
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListSharedReportsResponse>();
 }
 
@@ -2548,7 +2794,7 @@ ListUserGroupsByUserIdResponse Client::listUserGroupsByUserIdWithOptions(const L
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListUserGroupsByUserId"},
     {"version" , "2022-01-01"},
@@ -2559,7 +2805,7 @@ ListUserGroupsByUserIdResponse Client::listUserGroupsByUserIdWithOptions(const L
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListUserGroupsByUserIdResponse>();
 }
 
@@ -2606,7 +2852,7 @@ ListWorkspaceRoleUsersResponse Client::listWorkspaceRoleUsersWithOptions(const L
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListWorkspaceRoleUsers"},
     {"version" , "2022-01-01"},
@@ -2617,7 +2863,7 @@ ListWorkspaceRoleUsersResponse Client::listWorkspaceRoleUsersWithOptions(const L
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListWorkspaceRoleUsersResponse>();
 }
 
@@ -2648,7 +2894,7 @@ ListWorkspaceRolesResponse Client::listWorkspaceRolesWithOptions(const ListWorks
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListWorkspaceRoles"},
     {"version" , "2022-01-01"},
@@ -2659,7 +2905,7 @@ ListWorkspaceRolesResponse Client::listWorkspaceRolesWithOptions(const ListWorks
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListWorkspaceRolesResponse>();
 }
 
@@ -2672,6 +2918,48 @@ ListWorkspaceRolesResponse Client::listWorkspaceRolesWithOptions(const ListWorks
 ListWorkspaceRolesResponse Client::listWorkspaceRoles(const ListWorkspaceRolesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listWorkspaceRolesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询用户所有空间角色列表
+ *
+ * @param request ListWorkspaceUserRolesByUserIdRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWorkspaceUserRolesByUserIdResponse
+ */
+ListWorkspaceUserRolesByUserIdResponse Client::listWorkspaceUserRolesByUserIdWithOptions(const ListWorkspaceUserRolesByUserIdRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.userId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListWorkspaceUserRolesByUserId"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWorkspaceUserRolesByUserIdResponse>();
+}
+
+/**
+ * @summary 查询用户所有空间角色列表
+ *
+ * @param request ListWorkspaceUserRolesByUserIdRequest
+ * @return ListWorkspaceUserRolesByUserIdResponse
+ */
+ListWorkspaceUserRolesByUserIdResponse Client::listWorkspaceUserRolesByUserId(const ListWorkspaceUserRolesByUserIdRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listWorkspaceUserRolesByUserIdWithOptions(request, runtime);
 }
 
 /**
@@ -2690,7 +2978,7 @@ ManualRunMailTaskResponse Client::manualRunMailTaskWithOptions(const ManualRunMa
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ManualRunMailTask"},
     {"version" , "2022-01-01"},
@@ -2701,7 +2989,7 @@ ManualRunMailTaskResponse Client::manualRunMailTaskWithOptions(const ManualRunMa
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ManualRunMailTaskResponse>();
 }
 
@@ -2742,7 +3030,7 @@ ModifyApiDatasourceParametersResponse Client::modifyApiDatasourceParametersWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyApiDatasourceParameters"},
     {"version" , "2022-01-01"},
@@ -2753,7 +3041,7 @@ ModifyApiDatasourceParametersResponse Client::modifyApiDatasourceParametersWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyApiDatasourceParametersResponse>();
 }
 
@@ -2798,7 +3086,7 @@ ModifyCopilotEmbedConfigResponse Client::modifyCopilotEmbedConfigWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyCopilotEmbedConfig"},
     {"version" , "2022-01-01"},
@@ -2809,7 +3097,7 @@ ModifyCopilotEmbedConfigResponse Client::modifyCopilotEmbedConfigWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyCopilotEmbedConfigResponse>();
 }
 
@@ -2852,7 +3140,7 @@ QueryApprovalInfoResponse Client::queryApprovalInfoWithOptions(const QueryApprov
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryApprovalInfo"},
     {"version" , "2022-01-01"},
@@ -2863,7 +3151,7 @@ QueryApprovalInfoResponse Client::queryApprovalInfoWithOptions(const QueryApprov
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryApprovalInfoResponse>();
 }
 
@@ -2926,7 +3214,7 @@ QueryAuditLogResponse Client::queryAuditLogWithOptions(const QueryAuditLogReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryAuditLog"},
     {"version" , "2022-01-01"},
@@ -2937,7 +3225,7 @@ QueryAuditLogResponse Client::queryAuditLogWithOptions(const QueryAuditLogReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryAuditLogResponse>();
 }
 
@@ -2992,7 +3280,7 @@ QueryComponentPerformanceResponse Client::queryComponentPerformanceWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryComponentPerformance"},
     {"version" , "2022-01-01"},
@@ -3003,7 +3291,7 @@ QueryComponentPerformanceResponse Client::queryComponentPerformanceWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryComponentPerformanceResponse>();
 }
 
@@ -3034,7 +3322,7 @@ QueryCopilotEmbedConfigResponse Client::queryCopilotEmbedConfigWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryCopilotEmbedConfig"},
     {"version" , "2022-01-01"},
@@ -3045,7 +3333,7 @@ QueryCopilotEmbedConfigResponse Client::queryCopilotEmbedConfigWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryCopilotEmbedConfigResponse>();
 }
 
@@ -3076,7 +3364,7 @@ QueryCubeOptimizationResponse Client::queryCubeOptimizationWithOptions(const Que
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryCubeOptimization"},
     {"version" , "2022-01-01"},
@@ -3087,7 +3375,7 @@ QueryCubeOptimizationResponse Client::queryCubeOptimizationWithOptions(const Que
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryCubeOptimizationResponse>();
 }
 
@@ -3138,7 +3426,7 @@ QueryCubePerformanceResponse Client::queryCubePerformanceWithOptions(const Query
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryCubePerformance"},
     {"version" , "2022-01-01"},
@@ -3149,7 +3437,7 @@ QueryCubePerformanceResponse Client::queryCubePerformanceWithOptions(const Query
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryCubePerformanceResponse>();
 }
 
@@ -3184,7 +3472,7 @@ QueryDashboardNl2sqlResponse Client::queryDashboardNl2sqlWithOptions(const Query
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryDashboardNl2sql"},
     {"version" , "2022-01-01"},
@@ -3195,7 +3483,7 @@ QueryDashboardNl2sqlResponse Client::queryDashboardNl2sqlWithOptions(const Query
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryDashboardNl2sqlResponse>();
 }
 
@@ -3245,7 +3533,7 @@ QueryDataResponse Client::queryDataWithOptions(const QueryDataRequest &request, 
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryData"},
     {"version" , "2022-01-01"},
@@ -3256,7 +3544,7 @@ QueryDataResponse Client::queryDataWithOptions(const QueryDataRequest &request, 
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryDataResponse>();
 }
 
@@ -3298,7 +3586,7 @@ QueryDataRangeResponse Client::queryDataRangeWithOptions(const QueryDataRangeReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryDataRange"},
     {"version" , "2022-01-01"},
@@ -3309,7 +3597,7 @@ QueryDataRangeResponse Client::queryDataRangeWithOptions(const QueryDataRangeReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryDataRangeResponse>();
 }
 
@@ -3357,7 +3645,7 @@ QueryDataServiceResponse Client::queryDataServiceWithOptions(const QueryDataServ
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryDataService"},
     {"version" , "2022-01-01"},
@@ -3368,7 +3656,7 @@ QueryDataServiceResponse Client::queryDataServiceWithOptions(const QueryDataServ
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryDataServiceResponse>();
 }
 
@@ -3420,7 +3708,7 @@ QueryDataServiceListResponse Client::queryDataServiceListWithOptions(const Query
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryDataServiceList"},
     {"version" , "2022-01-01"},
@@ -3431,7 +3719,7 @@ QueryDataServiceListResponse Client::queryDataServiceListWithOptions(const Query
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryDataServiceListResponse>();
 }
 
@@ -3464,7 +3752,7 @@ QueryDatasetDetailInfoResponse Client::queryDatasetDetailInfoWithOptions(const Q
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryDatasetDetailInfo"},
     {"version" , "2022-01-01"},
@@ -3475,7 +3763,7 @@ QueryDatasetDetailInfoResponse Client::queryDatasetDetailInfoWithOptions(const Q
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryDatasetDetailInfoResponse>();
 }
 
@@ -3510,7 +3798,7 @@ QueryDatasetInfoResponse Client::queryDatasetInfoWithOptions(const QueryDatasetI
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryDatasetInfo"},
     {"version" , "2022-01-01"},
@@ -3521,7 +3809,7 @@ QueryDatasetInfoResponse Client::queryDatasetInfoWithOptions(const QueryDatasetI
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryDatasetInfoResponse>();
 }
 
@@ -3574,7 +3862,7 @@ QueryDatasetListResponse Client::queryDatasetListWithOptions(const QueryDatasetL
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryDatasetList"},
     {"version" , "2022-01-01"},
@@ -3585,7 +3873,7 @@ QueryDatasetListResponse Client::queryDatasetListWithOptions(const QueryDatasetL
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryDatasetListResponse>();
 }
 
@@ -3616,7 +3904,7 @@ QueryDatasetSmartqStatusResponse Client::queryDatasetSmartqStatusWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryDatasetSmartqStatus"},
     {"version" , "2022-01-01"},
@@ -3627,7 +3915,7 @@ QueryDatasetSmartqStatusResponse Client::queryDatasetSmartqStatusWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryDatasetSmartqStatusResponse>();
 }
 
@@ -3658,7 +3946,7 @@ QueryDatasetSwitchInfoResponse Client::queryDatasetSwitchInfoWithOptions(const Q
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryDatasetSwitchInfo"},
     {"version" , "2022-01-01"},
@@ -3669,7 +3957,7 @@ QueryDatasetSwitchInfoResponse Client::queryDatasetSwitchInfoWithOptions(const Q
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryDatasetSwitchInfoResponse>();
 }
 
@@ -3703,7 +3991,7 @@ QueryEmbeddedInfoResponse Client::queryEmbeddedInfoWithOptions(const Darabonba::
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryEmbeddedInfoResponse>();
 }
 
@@ -3733,7 +4021,7 @@ QueryEmbeddedStatusResponse Client::queryEmbeddedStatusWithOptions(const QueryEm
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryEmbeddedStatus"},
     {"version" , "2022-01-01"},
@@ -3744,7 +4032,7 @@ QueryEmbeddedStatusResponse Client::queryEmbeddedStatusWithOptions(const QueryEm
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryEmbeddedStatusResponse>();
 }
 
@@ -3775,7 +4063,7 @@ QueryLastAccelerationEngineJobResponse Client::queryLastAccelerationEngineJobWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryLastAccelerationEngineJob"},
     {"version" , "2022-01-01"},
@@ -3786,7 +4074,7 @@ QueryLastAccelerationEngineJobResponse Client::queryLastAccelerationEngineJobWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryLastAccelerationEngineJobResponse>();
 }
 
@@ -3817,7 +4105,7 @@ QueryLlmCubeWithThemeListByUserIdResponse Client::queryLlmCubeWithThemeListByUse
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryLlmCubeWithThemeListByUserId"},
     {"version" , "2022-01-01"},
@@ -3828,7 +4116,7 @@ QueryLlmCubeWithThemeListByUserIdResponse Client::queryLlmCubeWithThemeListByUse
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryLlmCubeWithThemeListByUserIdResponse>();
 }
 
@@ -3859,7 +4147,7 @@ QueryOrganizationRoleConfigResponse Client::queryOrganizationRoleConfigWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryOrganizationRoleConfig"},
     {"version" , "2022-01-01"},
@@ -3870,7 +4158,7 @@ QueryOrganizationRoleConfigResponse Client::queryOrganizationRoleConfigWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryOrganizationRoleConfigResponse>();
 }
 
@@ -3913,7 +4201,7 @@ QueryOrganizationWorkspaceListResponse Client::queryOrganizationWorkspaceListWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryOrganizationWorkspaceList"},
     {"version" , "2022-01-01"},
@@ -3924,7 +4212,7 @@ QueryOrganizationWorkspaceListResponse Client::queryOrganizationWorkspaceListWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryOrganizationWorkspaceListResponse>();
 }
 
@@ -3957,7 +4245,7 @@ QueryReadableResourcesListByUserIdResponse Client::queryReadableResourcesListByU
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryReadableResourcesListByUserId"},
     {"version" , "2022-01-01"},
@@ -3968,7 +4256,7 @@ QueryReadableResourcesListByUserIdResponse Client::queryReadableResourcesListByU
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryReadableResourcesListByUserIdResponse>();
 }
 
@@ -4009,7 +4297,7 @@ QueryReadableResourcesListByUserIdV2Response Client::queryReadableResourcesListB
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryReadableResourcesListByUserIdV2"},
     {"version" , "2022-01-01"},
@@ -4020,7 +4308,7 @@ QueryReadableResourcesListByUserIdV2Response Client::queryReadableResourcesListB
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryReadableResourcesListByUserIdV2Response>();
 }
 
@@ -4075,7 +4363,7 @@ QueryReportPerformanceResponse Client::queryReportPerformanceWithOptions(const Q
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryReportPerformance"},
     {"version" , "2022-01-01"},
@@ -4086,7 +4374,7 @@ QueryReportPerformanceResponse Client::queryReportPerformanceWithOptions(const Q
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryReportPerformanceResponse>();
 }
 
@@ -4117,7 +4405,7 @@ QueryShareListResponse Client::queryShareListWithOptions(const QueryShareListReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryShareList"},
     {"version" , "2022-01-01"},
@@ -4128,7 +4416,7 @@ QueryShareListResponse Client::queryShareListWithOptions(const QueryShareListReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryShareListResponse>();
 }
 
@@ -4159,7 +4447,7 @@ QuerySharesToUserListResponse Client::querySharesToUserListWithOptions(const Que
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QuerySharesToUserList"},
     {"version" , "2022-01-01"},
@@ -4170,7 +4458,7 @@ QuerySharesToUserListResponse Client::querySharesToUserListWithOptions(const Que
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QuerySharesToUserListResponse>();
 }
 
@@ -4205,7 +4493,7 @@ QuerySmartqPermissionByCubeIdResponse Client::querySmartqPermissionByCubeIdWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QuerySmartqPermissionByCubeId"},
     {"version" , "2022-01-01"},
@@ -4216,7 +4504,7 @@ QuerySmartqPermissionByCubeIdResponse Client::querySmartqPermissionByCubeIdWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QuerySmartqPermissionByCubeIdResponse>();
 }
 
@@ -4247,7 +4535,7 @@ QueryTicketInfoResponse Client::queryTicketInfoWithOptions(const QueryTicketInfo
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryTicketInfo"},
     {"version" , "2022-01-01"},
@@ -4258,7 +4546,7 @@ QueryTicketInfoResponse Client::queryTicketInfoWithOptions(const QueryTicketInfo
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryTicketInfoResponse>();
 }
 
@@ -4289,7 +4577,7 @@ QueryUserGroupListByParentIdResponse Client::queryUserGroupListByParentIdWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryUserGroupListByParentId"},
     {"version" , "2022-01-01"},
@@ -4300,7 +4588,7 @@ QueryUserGroupListByParentIdResponse Client::queryUserGroupListByParentIdWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryUserGroupListByParentIdResponse>();
 }
 
@@ -4335,7 +4623,7 @@ QueryUserGroupMemberResponse Client::queryUserGroupMemberWithOptions(const Query
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryUserGroupMember"},
     {"version" , "2022-01-01"},
@@ -4346,7 +4634,7 @@ QueryUserGroupMemberResponse Client::queryUserGroupMemberWithOptions(const Query
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryUserGroupMemberResponse>();
 }
 
@@ -4381,7 +4669,7 @@ QueryUserInfoByAccountResponse Client::queryUserInfoByAccountWithOptions(const Q
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryUserInfoByAccount"},
     {"version" , "2022-01-01"},
@@ -4392,7 +4680,7 @@ QueryUserInfoByAccountResponse Client::queryUserInfoByAccountWithOptions(const Q
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryUserInfoByAccountResponse>();
 }
 
@@ -4423,7 +4711,7 @@ QueryUserInfoByUserIdResponse Client::queryUserInfoByUserIdWithOptions(const Que
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryUserInfoByUserId"},
     {"version" , "2022-01-01"},
@@ -4434,7 +4722,7 @@ QueryUserInfoByUserIdResponse Client::queryUserInfoByUserIdWithOptions(const Que
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryUserInfoByUserIdResponse>();
 }
 
@@ -4461,7 +4749,7 @@ QueryUserListResponse Client::queryUserListWithOptions(const QueryUserListReques
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryUserList"},
     {"version" , "2022-01-01"},
@@ -4472,7 +4760,7 @@ QueryUserListResponse Client::queryUserListWithOptions(const QueryUserListReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryUserListResponse>();
 }
 
@@ -4507,7 +4795,7 @@ QueryUserRoleInfoInWorkspaceResponse Client::queryUserRoleInfoInWorkspaceWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryUserRoleInfoInWorkspace"},
     {"version" , "2022-01-01"},
@@ -4518,7 +4806,7 @@ QueryUserRoleInfoInWorkspaceResponse Client::queryUserRoleInfoInWorkspaceWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryUserRoleInfoInWorkspaceResponse>();
 }
 
@@ -4552,7 +4840,7 @@ QueryUserTagMetaListResponse Client::queryUserTagMetaListWithOptions(const Darab
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryUserTagMetaListResponse>();
 }
 
@@ -4578,7 +4866,7 @@ QueryUserTagValueListResponse Client::queryUserTagValueListWithOptions(const Que
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryUserTagValueList"},
     {"version" , "2022-01-01"},
@@ -4589,7 +4877,7 @@ QueryUserTagValueListResponse Client::queryUserTagValueListWithOptions(const Que
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryUserTagValueListResponse>();
 }
 
@@ -4620,7 +4908,7 @@ QueryWorksResponse Client::queryWorksWithOptions(const QueryWorksRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryWorks"},
     {"version" , "2022-01-01"},
@@ -4631,7 +4919,7 @@ QueryWorksResponse Client::queryWorksWithOptions(const QueryWorksRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryWorksResponse>();
 }
 
@@ -4662,7 +4950,7 @@ QueryWorksBloodRelationshipResponse Client::queryWorksBloodRelationshipWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryWorksBloodRelationship"},
     {"version" , "2022-01-01"},
@@ -4673,7 +4961,7 @@ QueryWorksBloodRelationshipResponse Client::queryWorksBloodRelationshipWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryWorksBloodRelationshipResponse>();
 }
 
@@ -4720,7 +5008,7 @@ QueryWorksByOrganizationResponse Client::queryWorksByOrganizationWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryWorksByOrganization"},
     {"version" , "2022-01-01"},
@@ -4731,7 +5019,7 @@ QueryWorksByOrganizationResponse Client::queryWorksByOrganizationWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryWorksByOrganizationResponse>();
 }
 
@@ -4782,7 +5070,7 @@ QueryWorksByWorkspaceResponse Client::queryWorksByWorkspaceWithOptions(const Que
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryWorksByWorkspace"},
     {"version" , "2022-01-01"},
@@ -4793,7 +5081,7 @@ QueryWorksByWorkspaceResponse Client::queryWorksByWorkspaceWithOptions(const Que
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryWorksByWorkspaceResponse>();
 }
 
@@ -4824,7 +5112,7 @@ QueryWorkspaceRoleConfigResponse Client::queryWorkspaceRoleConfigWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryWorkspaceRoleConfig"},
     {"version" , "2022-01-01"},
@@ -4835,7 +5123,7 @@ QueryWorkspaceRoleConfigResponse Client::queryWorkspaceRoleConfigWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryWorkspaceRoleConfigResponse>();
 }
 
@@ -4878,7 +5166,7 @@ QueryWorkspaceUserListResponse Client::queryWorkspaceUserListWithOptions(const Q
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryWorkspaceUserList"},
     {"version" , "2022-01-01"},
@@ -4889,7 +5177,7 @@ QueryWorkspaceUserListResponse Client::queryWorkspaceUserListWithOptions(const Q
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryWorkspaceUserListResponse>();
 }
 
@@ -4928,7 +5216,7 @@ ResultCallbackResponse Client::resultCallbackWithOptions(const ResultCallbackReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ResultCallback"},
     {"version" , "2022-01-01"},
@@ -4939,7 +5227,7 @@ ResultCallbackResponse Client::resultCallbackWithOptions(const ResultCallbackReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ResultCallbackResponse>();
 }
 
@@ -4974,7 +5262,7 @@ SaveFavoritesResponse Client::saveFavoritesWithOptions(const SaveFavoritesReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SaveFavorites"},
     {"version" , "2022-01-01"},
@@ -4985,7 +5273,7 @@ SaveFavoritesResponse Client::saveFavoritesWithOptions(const SaveFavoritesReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SaveFavoritesResponse>();
 }
 
@@ -5024,7 +5312,7 @@ SetDataLevelPermissionExtraConfigResponse Client::setDataLevelPermissionExtraCon
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SetDataLevelPermissionExtraConfig"},
     {"version" , "2022-01-01"},
@@ -5035,7 +5323,7 @@ SetDataLevelPermissionExtraConfigResponse Client::setDataLevelPermissionExtraCon
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetDataLevelPermissionExtraConfigResponse>();
 }
 
@@ -5066,7 +5354,7 @@ SetDataLevelPermissionRuleConfigResponse Client::setDataLevelPermissionRuleConfi
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SetDataLevelPermissionRuleConfig"},
     {"version" , "2022-01-01"},
@@ -5077,7 +5365,7 @@ SetDataLevelPermissionRuleConfigResponse Client::setDataLevelPermissionRuleConfi
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetDataLevelPermissionRuleConfigResponse>();
 }
 
@@ -5110,7 +5398,7 @@ SetDataLevelPermissionWhiteListResponse Client::setDataLevelPermissionWhiteListW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SetDataLevelPermissionWhiteList"},
     {"version" , "2022-01-01"},
@@ -5121,7 +5409,7 @@ SetDataLevelPermissionWhiteListResponse Client::setDataLevelPermissionWhiteListW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetDataLevelPermissionWhiteListResponse>();
 }
 
@@ -5158,7 +5446,7 @@ SmartqAuthTransferResponse Client::smartqAuthTransferWithOptions(const SmartqAut
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SmartqAuthTransfer"},
     {"version" , "2022-01-01"},
@@ -5169,7 +5457,7 @@ SmartqAuthTransferResponse Client::smartqAuthTransferWithOptions(const SmartqAut
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SmartqAuthTransferResponse>();
 }
 
@@ -5222,7 +5510,7 @@ SmartqAuthorizeResponse Client::smartqAuthorizeWithOptions(const SmartqAuthorize
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SmartqAuthorize"},
     {"version" , "2022-01-01"},
@@ -5233,7 +5521,7 @@ SmartqAuthorizeResponse Client::smartqAuthorizeWithOptions(const SmartqAuthorize
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SmartqAuthorizeResponse>();
 }
 
@@ -5276,7 +5564,7 @@ SmartqQueryAbilityResponse Client::smartqQueryAbilityWithOptions(const SmartqQue
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SmartqQueryAbility"},
     {"version" , "2022-01-01"},
@@ -5287,7 +5575,7 @@ SmartqQueryAbilityResponse Client::smartqQueryAbilityWithOptions(const SmartqQue
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SmartqQueryAbilityResponse>();
 }
 
@@ -5302,6 +5590,64 @@ SmartqQueryAbilityResponse Client::smartqQueryAbilityWithOptions(const SmartqQue
 SmartqQueryAbilityResponse Client::smartqQueryAbility(const SmartqQueryAbilityRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return smartqQueryAbilityWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新自定义sql数据集
+ *
+ * @param request UpdateCubeBySqlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCubeBySqlResponse
+ */
+UpdateCubeBySqlResponse Client::updateCubeBySqlWithOptions(const UpdateCubeBySqlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCubeId()) {
+    query["CubeId"] = request.cubeId();
+  }
+
+  if (!!request.hasCustomSql()) {
+    query["CustomSql"] = request.customSql();
+  }
+
+  if (!!request.hasDsId()) {
+    query["DsId"] = request.dsId();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.userId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateCubeBySql"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCubeBySqlResponse>();
+}
+
+/**
+ * @summary 更新自定义sql数据集
+ *
+ * @param request UpdateCubeBySqlRequest
+ * @return UpdateCubeBySqlResponse
+ */
+UpdateCubeBySqlResponse Client::updateCubeBySql(const UpdateCubeBySqlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCubeBySqlWithOptions(request, runtime);
 }
 
 /**
@@ -5334,7 +5680,7 @@ UpdateDataLevelPermissionStatusResponse Client::updateDataLevelPermissionStatusW
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateDataLevelPermissionStatus"},
     {"version" , "2022-01-01"},
@@ -5345,7 +5691,7 @@ UpdateDataLevelPermissionStatusResponse Client::updateDataLevelPermissionStatusW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateDataLevelPermissionStatusResponse>();
 }
 
@@ -5364,6 +5710,48 @@ UpdateDataLevelPermissionStatusResponse Client::updateDataLevelPermissionStatusW
 UpdateDataLevelPermissionStatusResponse Client::updateDataLevelPermissionStatus(const UpdateDataLevelPermissionStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateDataLevelPermissionStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改数据源配置
+ *
+ * @param request UpdateDataSourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDataSourceResponse
+ */
+UpdateDataSourceResponse Client::updateDataSourceWithOptions(const UpdateDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasUpdateModel()) {
+    query["UpdateModel"] = request.updateModel();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateDataSource"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDataSourceResponse>();
+}
+
+/**
+ * @summary 修改数据源配置
+ *
+ * @param request UpdateDataSourceRequest
+ * @return UpdateDataSourceResponse
+ */
+UpdateDataSourceResponse Client::updateDataSource(const UpdateDataSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDataSourceWithOptions(request, runtime);
 }
 
 /**
@@ -5386,7 +5774,7 @@ UpdateEmbeddedStatusResponse Client::updateEmbeddedStatusWithOptions(const Updat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateEmbeddedStatus"},
     {"version" , "2022-01-01"},
@@ -5397,7 +5785,7 @@ UpdateEmbeddedStatusResponse Client::updateEmbeddedStatusWithOptions(const Updat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateEmbeddedStatusResponse>();
 }
 
@@ -5432,7 +5820,7 @@ UpdateTicketNumResponse Client::updateTicketNumWithOptions(const UpdateTicketNum
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateTicketNum"},
     {"version" , "2022-01-01"},
@@ -5443,7 +5831,7 @@ UpdateTicketNumResponse Client::updateTicketNumWithOptions(const UpdateTicketNum
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateTicketNumResponse>();
 }
 
@@ -5498,7 +5886,7 @@ UpdateUserResponse Client::updateUserWithOptions(const UpdateUserRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateUser"},
     {"version" , "2022-01-01"},
@@ -5509,7 +5897,7 @@ UpdateUserResponse Client::updateUserWithOptions(const UpdateUserRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateUserResponse>();
 }
 
@@ -5548,7 +5936,7 @@ UpdateUserGroupResponse Client::updateUserGroupWithOptions(const UpdateUserGroup
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateUserGroup"},
     {"version" , "2022-01-01"},
@@ -5559,7 +5947,7 @@ UpdateUserGroupResponse Client::updateUserGroupWithOptions(const UpdateUserGroup
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateUserGroupResponse>();
 }
 
@@ -5598,7 +5986,7 @@ UpdateUserTagMetaResponse Client::updateUserTagMetaWithOptions(const UpdateUserT
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateUserTagMeta"},
     {"version" , "2022-01-01"},
@@ -5609,7 +5997,7 @@ UpdateUserTagMetaResponse Client::updateUserTagMetaWithOptions(const UpdateUserT
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateUserTagMetaResponse>();
 }
 
@@ -5648,7 +6036,7 @@ UpdateUserTagValueResponse Client::updateUserTagValueWithOptions(const UpdateUse
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateUserTagValue"},
     {"version" , "2022-01-01"},
@@ -5659,7 +6047,7 @@ UpdateUserTagValueResponse Client::updateUserTagValueWithOptions(const UpdateUse
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateUserTagValueResponse>();
 }
 
@@ -5702,7 +6090,7 @@ UpdateWorkspaceUserRoleResponse Client::updateWorkspaceUserRoleWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateWorkspaceUserRole"},
     {"version" , "2022-01-01"},
@@ -5713,7 +6101,7 @@ UpdateWorkspaceUserRoleResponse Client::updateWorkspaceUserRoleWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateWorkspaceUserRoleResponse>();
 }
 
@@ -5752,7 +6140,7 @@ UpdateWorkspaceUsersRoleResponse Client::updateWorkspaceUsersRoleWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateWorkspaceUsersRole"},
     {"version" , "2022-01-01"},
@@ -5763,7 +6151,7 @@ UpdateWorkspaceUsersRoleResponse Client::updateWorkspaceUsersRoleWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateWorkspaceUsersRoleResponse>();
 }
 
@@ -5794,7 +6182,7 @@ WithdrawAllUserGroupsResponse Client::withdrawAllUserGroupsWithOptions(const Wit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "WithdrawAllUserGroups"},
     {"version" , "2022-01-01"},
@@ -5805,7 +6193,7 @@ WithdrawAllUserGroupsResponse Client::withdrawAllUserGroupsWithOptions(const Wit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<WithdrawAllUserGroupsResponse>();
 }
 

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_QUERYREADABLERESOURCESLISTBYUSERIDV2RESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/QueryReadableResourcesListByUserIdV2ResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

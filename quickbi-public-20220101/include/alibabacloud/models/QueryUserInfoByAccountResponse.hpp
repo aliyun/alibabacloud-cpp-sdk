@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_QUERYUSERINFOBYACCOUNTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/QueryUserInfoByAccountResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

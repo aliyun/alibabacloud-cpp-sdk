@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_ALLOTDATASETACCELERATIONTASKRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/AllotDatasetAccelerationTaskResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

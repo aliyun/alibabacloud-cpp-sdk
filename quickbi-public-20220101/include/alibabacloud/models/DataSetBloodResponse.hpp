@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DATASETBLOODRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DataSetBloodResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

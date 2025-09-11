@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTRECENTVIEWREPORTSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ListRecentViewReportsResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

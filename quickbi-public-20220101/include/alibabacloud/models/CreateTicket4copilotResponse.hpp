@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATETICKET4COPILOTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateTicket4CopilotResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_ADDDATALEVELPERMISSIONWHITELISTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/AddDataLevelPermissionWhiteListResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

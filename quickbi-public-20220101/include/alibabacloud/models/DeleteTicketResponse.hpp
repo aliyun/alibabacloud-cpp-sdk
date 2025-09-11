@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DELETETICKETRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DeleteTicketResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

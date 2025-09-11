@@ -63,6 +63,23 @@ namespace QuickbiPublic20220101
       Models::AddDataLevelPermissionWhiteListResponse addDataLevelPermissionWhiteList(const Models::AddDataLevelPermissionWhiteListRequest &request);
 
       /**
+       * @summary 创建数据源
+       *
+       * @param request AddDataSourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddDataSourceResponse
+       */
+      Models::AddDataSourceResponse addDataSourceWithOptions(const Models::AddDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建数据源
+       *
+       * @param request AddDataSourceRequest
+       * @return AddDataSourceResponse
+       */
+      Models::AddDataSourceResponse addDataSource(const Models::AddDataSourceRequest &request);
+
+      /**
        * @summary Add a sharing configuration for data works.
        *
        * @param request AddShareReportRequest
@@ -305,6 +322,40 @@ namespace QuickbiPublic20220101
       Models::ChangeVisibilityModelResponse changeVisibilityModel(const Models::ChangeVisibilityModelRequest &request);
 
       /**
+       * @summary 检查给定的cubeId是否存在
+       *
+       * @param request CheckDatasetExistedRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckDatasetExistedResponse
+       */
+      Models::CheckDatasetExistedResponse checkDatasetExistedWithOptions(const Models::CheckDatasetExistedRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 检查给定的cubeId是否存在
+       *
+       * @param request CheckDatasetExistedRequest
+       * @return CheckDatasetExistedResponse
+       */
+      Models::CheckDatasetExistedResponse checkDatasetExisted(const Models::CheckDatasetExistedRequest &request);
+
+      /**
+       * @summary 判断用户是否属于组织
+       *
+       * @param request CheckOrganizationMemberRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckOrganizationMemberResponse
+       */
+      Models::CheckOrganizationMemberResponse checkOrganizationMemberWithOptions(const Models::CheckOrganizationMemberRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 判断用户是否属于组织
+       *
+       * @param request CheckOrganizationMemberRequest
+       * @return CheckOrganizationMemberResponse
+       */
+      Models::CheckOrganizationMemberResponse checkOrganizationMember(const Models::CheckOrganizationMemberRequest &request);
+
+      /**
        * @summary Queries whether a user has permissions to view data works, such as dashboards and workbooks.
        *
        * @param request CheckReadableRequest
@@ -320,6 +371,40 @@ namespace QuickbiPublic20220101
        * @return CheckReadableResponse
        */
       Models::CheckReadableResponse checkReadable(const Models::CheckReadableRequest &request);
+
+      /**
+       * @summary 根据自定义sql创建数据集
+       *
+       * @param request CreateCubeBySqlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCubeBySqlResponse
+       */
+      Models::CreateCubeBySqlResponse createCubeBySqlWithOptions(const Models::CreateCubeBySqlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据自定义sql创建数据集
+       *
+       * @param request CreateCubeBySqlRequest
+       * @return CreateCubeBySqlResponse
+       */
+      Models::CreateCubeBySqlResponse createCubeBySql(const Models::CreateCubeBySqlRequest &request);
+
+      /**
+       * @summary 根据物理表名称创建数据集
+       *
+       * @param request CreateDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDatasetResponse
+       */
+      Models::CreateDatasetResponse createDatasetWithOptions(const Models::CreateDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据物理表名称创建数据集
+       *
+       * @param request CreateDatasetRequest
+       * @return CreateDatasetResponse
+       */
+      Models::CreateDatasetResponse createDataset(const Models::CreateDatasetRequest &request);
 
       /**
        * @summary Generate a ticket for third-party embedding.
@@ -955,6 +1040,23 @@ namespace QuickbiPublic20220101
        * @return ListWorkspaceRolesResponse
        */
       Models::ListWorkspaceRolesResponse listWorkspaceRoles(const Models::ListWorkspaceRolesRequest &request);
+
+      /**
+       * @summary 查询用户所有空间角色列表
+       *
+       * @param request ListWorkspaceUserRolesByUserIdRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListWorkspaceUserRolesByUserIdResponse
+       */
+      Models::ListWorkspaceUserRolesByUserIdResponse listWorkspaceUserRolesByUserIdWithOptions(const Models::ListWorkspaceUserRolesByUserIdRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询用户所有空间角色列表
+       *
+       * @param request ListWorkspaceUserRolesByUserIdRequest
+       * @return ListWorkspaceUserRolesByUserIdResponse
+       */
+      Models::ListWorkspaceUserRolesByUserIdResponse listWorkspaceUserRolesByUserId(const Models::ListWorkspaceUserRolesByUserIdRequest &request);
 
       /**
        * @summary Manually Execute Email Task
@@ -1933,6 +2035,23 @@ namespace QuickbiPublic20220101
       Models::SmartqQueryAbilityResponse smartqQueryAbility(const Models::SmartqQueryAbilityRequest &request);
 
       /**
+       * @summary 更新自定义sql数据集
+       *
+       * @param request UpdateCubeBySqlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCubeBySqlResponse
+       */
+      Models::UpdateCubeBySqlResponse updateCubeBySqlWithOptions(const Models::UpdateCubeBySqlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新自定义sql数据集
+       *
+       * @param request UpdateCubeBySqlRequest
+       * @return UpdateCubeBySqlResponse
+       */
+      Models::UpdateCubeBySqlResponse updateCubeBySql(const Models::UpdateCubeBySqlRequest &request);
+
+      /**
        * @summary Indicates whether the request is successful. Valid values:
        * *   true: The request was successful.
        * *   false: The request failed.
@@ -1960,6 +2079,23 @@ namespace QuickbiPublic20220101
        * @return UpdateDataLevelPermissionStatusResponse
        */
       Models::UpdateDataLevelPermissionStatusResponse updateDataLevelPermissionStatus(const Models::UpdateDataLevelPermissionStatusRequest &request);
+
+      /**
+       * @summary 修改数据源配置
+       *
+       * @param request UpdateDataSourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDataSourceResponse
+       */
+      Models::UpdateDataSourceResponse updateDataSourceWithOptions(const Models::UpdateDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改数据源配置
+       *
+       * @param request UpdateDataSourceRequest
+       * @return UpdateDataSourceResponse
+       */
+      Models::UpdateDataSourceResponse updateDataSource(const Models::UpdateDataSourceRequest &request);
 
       /**
        * @summary Change the embedding status of a report, turn on embedding, or turn off embedding.
