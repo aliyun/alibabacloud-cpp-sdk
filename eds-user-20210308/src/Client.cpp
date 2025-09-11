@@ -659,12 +659,20 @@ DescribeGroupsResponse Client::describeGroupsWithOptions(const DescribeGroupsReq
     query["BizType"] = request.bizType();
   }
 
+  if (!!request.hasExcludeAttachedLoginPolicyGroups()) {
+    query["ExcludeAttachedLoginPolicyGroups"] = request.excludeAttachedLoginPolicyGroups();
+  }
+
   if (!!request.hasGroupId()) {
     query["GroupId"] = request.groupId();
   }
 
   if (!!request.hasGroupName()) {
     query["GroupName"] = request.groupName();
+  }
+
+  if (!!request.hasLoginPolicyId()) {
+    query["LoginPolicyId"] = request.loginPolicyId();
   }
 
   if (!!request.hasPageNumber()) {

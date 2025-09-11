@@ -14,8 +14,10 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeGroupsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizType, bizType_);
+      DARABONBA_PTR_TO_JSON(ExcludeAttachedLoginPolicyGroups, excludeAttachedLoginPolicyGroups_);
       DARABONBA_PTR_TO_JSON(GroupId, groupId_);
       DARABONBA_PTR_TO_JSON(GroupName, groupName_);
+      DARABONBA_PTR_TO_JSON(LoginPolicyId, loginPolicyId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(SolutionId, solutionId_);
@@ -23,8 +25,10 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeGroupsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizType, bizType_);
+      DARABONBA_PTR_FROM_JSON(ExcludeAttachedLoginPolicyGroups, excludeAttachedLoginPolicyGroups_);
       DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
       DARABONBA_PTR_FROM_JSON(GroupName, groupName_);
+      DARABONBA_PTR_FROM_JSON(LoginPolicyId, loginPolicyId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(SolutionId, solutionId_);
@@ -42,13 +46,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->bizType_ != nullptr
-        && this->groupId_ != nullptr && this->groupName_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->solutionId_ != nullptr
-        && this->transferFileNeedApproval_ != nullptr; };
+        && this->excludeAttachedLoginPolicyGroups_ != nullptr && this->groupId_ != nullptr && this->groupName_ != nullptr && this->loginPolicyId_ != nullptr && this->pageNumber_ != nullptr
+        && this->pageSize_ != nullptr && this->solutionId_ != nullptr && this->transferFileNeedApproval_ != nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
     inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline DescribeGroupsRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
+
+
+    // excludeAttachedLoginPolicyGroups Field Functions 
+    bool hasExcludeAttachedLoginPolicyGroups() const { return this->excludeAttachedLoginPolicyGroups_ != nullptr;};
+    void deleteExcludeAttachedLoginPolicyGroups() { this->excludeAttachedLoginPolicyGroups_ = nullptr;};
+    inline bool excludeAttachedLoginPolicyGroups() const { DARABONBA_PTR_GET_DEFAULT(excludeAttachedLoginPolicyGroups_, false) };
+    inline DescribeGroupsRequest& setExcludeAttachedLoginPolicyGroups(bool excludeAttachedLoginPolicyGroups) { DARABONBA_PTR_SET_VALUE(excludeAttachedLoginPolicyGroups_, excludeAttachedLoginPolicyGroups) };
 
 
     // groupId Field Functions 
@@ -63,6 +74,13 @@ namespace Models
     void deleteGroupName() { this->groupName_ = nullptr;};
     inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline DescribeGroupsRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
+
+
+    // loginPolicyId Field Functions 
+    bool hasLoginPolicyId() const { return this->loginPolicyId_ != nullptr;};
+    void deleteLoginPolicyId() { this->loginPolicyId_ = nullptr;};
+    inline string loginPolicyId() const { DARABONBA_PTR_GET_DEFAULT(loginPolicyId_, "") };
+    inline DescribeGroupsRequest& setLoginPolicyId(string loginPolicyId) { DARABONBA_PTR_SET_VALUE(loginPolicyId_, loginPolicyId) };
 
 
     // pageNumber Field Functions 
@@ -95,8 +113,10 @@ namespace Models
 
   protected:
     std::shared_ptr<string> bizType_ = nullptr;
+    std::shared_ptr<bool> excludeAttachedLoginPolicyGroups_ = nullptr;
     std::shared_ptr<string> groupId_ = nullptr;
     std::shared_ptr<string> groupName_ = nullptr;
+    std::shared_ptr<string> loginPolicyId_ = nullptr;
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     std::shared_ptr<string> solutionId_ = nullptr;

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEGROUPSRESPONSEBODYGROUPS_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEGROUPSRESPONSEBODYGROUPS_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/DescribeGroupsResponseBodyGroupsAttachedLoginPolicy.hpp>
 #include <map>
 using namespace std;
 using json = nlohmann::json;
@@ -14,6 +15,7 @@ namespace Models
   class DescribeGroupsResponseBodyGroups : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeGroupsResponseBodyGroups& obj) { 
+      DARABONBA_PTR_TO_JSON(AttachedLoginPolicy, attachedLoginPolicy_);
       DARABONBA_PTR_TO_JSON(AuthedResources, authedResources_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(Description, description_);
@@ -23,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(UserCount, userCount_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeGroupsResponseBodyGroups& obj) { 
+      DARABONBA_PTR_FROM_JSON(AttachedLoginPolicy, attachedLoginPolicy_);
       DARABONBA_PTR_FROM_JSON(AuthedResources, authedResources_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -42,9 +45,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authedResources_ != nullptr
-        && this->createTime_ != nullptr && this->description_ != nullptr && this->groupId_ != nullptr && this->groupName_ != nullptr && this->transferFileNeedApproval_ != nullptr
-        && this->userCount_ != nullptr; };
+    virtual bool empty() const override { this->attachedLoginPolicy_ != nullptr
+        && this->authedResources_ != nullptr && this->createTime_ != nullptr && this->description_ != nullptr && this->groupId_ != nullptr && this->groupName_ != nullptr
+        && this->transferFileNeedApproval_ != nullptr && this->userCount_ != nullptr; };
+    // attachedLoginPolicy Field Functions 
+    bool hasAttachedLoginPolicy() const { return this->attachedLoginPolicy_ != nullptr;};
+    void deleteAttachedLoginPolicy() { this->attachedLoginPolicy_ = nullptr;};
+    inline const Models::DescribeGroupsResponseBodyGroupsAttachedLoginPolicy & attachedLoginPolicy() const { DARABONBA_PTR_GET_CONST(attachedLoginPolicy_, Models::DescribeGroupsResponseBodyGroupsAttachedLoginPolicy) };
+    inline Models::DescribeGroupsResponseBodyGroupsAttachedLoginPolicy attachedLoginPolicy() { DARABONBA_PTR_GET(attachedLoginPolicy_, Models::DescribeGroupsResponseBodyGroupsAttachedLoginPolicy) };
+    inline DescribeGroupsResponseBodyGroups& setAttachedLoginPolicy(const Models::DescribeGroupsResponseBodyGroupsAttachedLoginPolicy & attachedLoginPolicy) { DARABONBA_PTR_SET_VALUE(attachedLoginPolicy_, attachedLoginPolicy) };
+    inline DescribeGroupsResponseBodyGroups& setAttachedLoginPolicy(Models::DescribeGroupsResponseBodyGroupsAttachedLoginPolicy && attachedLoginPolicy) { DARABONBA_PTR_SET_RVALUE(attachedLoginPolicy_, attachedLoginPolicy) };
+
+
     // authedResources Field Functions 
     bool hasAuthedResources() const { return this->authedResources_ != nullptr;};
     void deleteAuthedResources() { this->authedResources_ = nullptr;};
@@ -97,6 +109,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<Models::DescribeGroupsResponseBodyGroupsAttachedLoginPolicy> attachedLoginPolicy_ = nullptr;
     std::shared_ptr<map<string, string>> authedResources_ = nullptr;
     std::shared_ptr<string> createTime_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
