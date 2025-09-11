@@ -17,12 +17,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const QueryCollectionDataResponseBodyMatchesMatch& obj) { 
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(Metadata, metadata_);
+      DARABONBA_ANY_TO_JSON(MetadataV2, metadataV2_);
       DARABONBA_PTR_TO_JSON(Score, score_);
       DARABONBA_PTR_TO_JSON(Values, values_);
     };
     friend void from_json(const Darabonba::Json& j, QueryCollectionDataResponseBodyMatchesMatch& obj) { 
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(Metadata, metadata_);
+      DARABONBA_ANY_FROM_JSON(MetadataV2, metadataV2_);
       DARABONBA_PTR_FROM_JSON(Score, score_);
       DARABONBA_PTR_FROM_JSON(Values, values_);
     };
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->id_ != nullptr
-        && this->metadata_ != nullptr && this->score_ != nullptr && this->values_ != nullptr; };
+        && this->metadata_ != nullptr && this->metadataV2_ != nullptr && this->score_ != nullptr && this->values_ != nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -53,6 +55,15 @@ namespace Models
     inline map<string, string> metadata() { DARABONBA_PTR_GET(metadata_, map<string, string>) };
     inline QueryCollectionDataResponseBodyMatchesMatch& setMetadata(const map<string, string> & metadata) { DARABONBA_PTR_SET_VALUE(metadata_, metadata) };
     inline QueryCollectionDataResponseBodyMatchesMatch& setMetadata(map<string, string> && metadata) { DARABONBA_PTR_SET_RVALUE(metadata_, metadata) };
+
+
+    // metadataV2 Field Functions 
+    bool hasMetadataV2() const { return this->metadataV2_ != nullptr;};
+    void deleteMetadataV2() { this->metadataV2_ = nullptr;};
+    inline     const Darabonba::Json & metadataV2() const { DARABONBA_GET(metadataV2_) };
+    Darabonba::Json & metadataV2() { DARABONBA_GET(metadataV2_) };
+    inline QueryCollectionDataResponseBodyMatchesMatch& setMetadataV2(const Darabonba::Json & metadataV2) { DARABONBA_SET_VALUE(metadataV2_, metadataV2) };
+    inline QueryCollectionDataResponseBodyMatchesMatch& setMetadataV2(Darabonba::Json & metadataV2) { DARABONBA_SET_RVALUE(metadataV2_, metadataV2) };
 
 
     // score Field Functions 
@@ -76,6 +87,7 @@ namespace Models
     std::shared_ptr<string> id_ = nullptr;
     // Metadata.
     std::shared_ptr<map<string, string>> metadata_ = nullptr;
+    Darabonba::Json metadataV2_ = nullptr;
     // The similarity score of this data, which is related to the algorithm `(l2/ip/cosine)` specified when creating the index.
     std::shared_ptr<double> score_ = nullptr;
     // List of vector data.
