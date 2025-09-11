@@ -925,6 +925,23 @@ namespace Polardb20170801
       Models::DescribeBackupPolicyResponse describeBackupPolicy(const Models::DescribeBackupPolicyRequest &request);
 
       /**
+       * @summary 查询备份集所在地域信息
+       *
+       * @param request DescribeBackupRegionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeBackupRegionsResponse
+       */
+      Models::DescribeBackupRegionsResponse describeBackupRegionsWithOptions(const Models::DescribeBackupRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询备份集所在地域信息
+       *
+       * @param request DescribeBackupRegionsRequest
+       * @return DescribeBackupRegionsResponse
+       */
+      Models::DescribeBackupRegionsResponse describeBackupRegions(const Models::DescribeBackupRegionsRequest &request);
+
+      /**
        * @summary Queries the backup tasks of a PolarDB cluster.
        *
        * @param request DescribeBackupTasksRequest

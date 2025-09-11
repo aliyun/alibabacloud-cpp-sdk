@@ -146,6 +146,9 @@
 #include <alibabacloud/models/DescribeBackupPolicyRequest.hpp>
 #include <alibabacloud/models/DescribeBackupPolicyResponseBody.hpp>
 #include <alibabacloud/models/DescribeBackupPolicyResponse.hpp>
+#include <alibabacloud/models/DescribeBackupRegionsRequest.hpp>
+#include <alibabacloud/models/DescribeBackupRegionsResponseBody.hpp>
+#include <alibabacloud/models/DescribeBackupRegionsResponse.hpp>
 #include <alibabacloud/models/DescribeBackupTasksRequest.hpp>
 #include <alibabacloud/models/DescribeBackupTasksResponseBody.hpp>
 #include <alibabacloud/models/DescribeBackupTasksResponse.hpp>

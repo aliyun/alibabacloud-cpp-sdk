@@ -57,6 +57,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SecurityIPList, securityIPList_);
       DARABONBA_PTR_TO_JSON(ServerlessType, serverlessType_);
       DARABONBA_PTR_TO_JSON(SourceResourceId, sourceResourceId_);
+      DARABONBA_PTR_TO_JSON(SourceUid, sourceUid_);
       DARABONBA_PTR_TO_JSON(StandbyAZ, standbyAZ_);
       DARABONBA_PTR_TO_JSON(StorageAutoScale, storageAutoScale_);
       DARABONBA_PTR_TO_JSON(StorageEncryption, storageEncryption_);
@@ -117,6 +118,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SecurityIPList, securityIPList_);
       DARABONBA_PTR_FROM_JSON(ServerlessType, serverlessType_);
       DARABONBA_PTR_FROM_JSON(SourceResourceId, sourceResourceId_);
+      DARABONBA_PTR_FROM_JSON(SourceUid, sourceUid_);
       DARABONBA_PTR_FROM_JSON(StandbyAZ, standbyAZ_);
       DARABONBA_PTR_FROM_JSON(StorageAutoScale, storageAutoScale_);
       DARABONBA_PTR_FROM_JSON(StorageEncryption, storageEncryption_);
@@ -154,10 +156,10 @@ namespace Models
         && this->payType_ != nullptr && this->period_ != nullptr && this->provisionedIops_ != nullptr && this->proxyClass_ != nullptr && this->proxyType_ != nullptr
         && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->scaleMax_ != nullptr
         && this->scaleMin_ != nullptr && this->scaleRoNumMax_ != nullptr && this->scaleRoNumMin_ != nullptr && this->securityIPList_ != nullptr && this->serverlessType_ != nullptr
-        && this->sourceResourceId_ != nullptr && this->standbyAZ_ != nullptr && this->storageAutoScale_ != nullptr && this->storageEncryption_ != nullptr && this->storageEncryptionKey_ != nullptr
-        && this->storagePayType_ != nullptr && this->storageSpace_ != nullptr && this->storageType_ != nullptr && this->storageUpperBound_ != nullptr && this->strictConsistency_ != nullptr
-        && this->TDEStatus_ != nullptr && this->tag_ != nullptr && this->targetMinorVersion_ != nullptr && this->usedTime_ != nullptr && this->VPCId_ != nullptr
-        && this->vSwitchId_ != nullptr && this->zoneId_ != nullptr; };
+        && this->sourceResourceId_ != nullptr && this->sourceUid_ != nullptr && this->standbyAZ_ != nullptr && this->storageAutoScale_ != nullptr && this->storageEncryption_ != nullptr
+        && this->storageEncryptionKey_ != nullptr && this->storagePayType_ != nullptr && this->storageSpace_ != nullptr && this->storageType_ != nullptr && this->storageUpperBound_ != nullptr
+        && this->strictConsistency_ != nullptr && this->TDEStatus_ != nullptr && this->tag_ != nullptr && this->targetMinorVersion_ != nullptr && this->usedTime_ != nullptr
+        && this->VPCId_ != nullptr && this->vSwitchId_ != nullptr && this->zoneId_ != nullptr; };
     // allowShutDown Field Functions 
     bool hasAllowShutDown() const { return this->allowShutDown_ != nullptr;};
     void deleteAllowShutDown() { this->allowShutDown_ = nullptr;};
@@ -450,6 +452,13 @@ namespace Models
     void deleteSourceResourceId() { this->sourceResourceId_ = nullptr;};
     inline string sourceResourceId() const { DARABONBA_PTR_GET_DEFAULT(sourceResourceId_, "") };
     inline CreateDBClusterRequest& setSourceResourceId(string sourceResourceId) { DARABONBA_PTR_SET_VALUE(sourceResourceId_, sourceResourceId) };
+
+
+    // sourceUid Field Functions 
+    bool hasSourceUid() const { return this->sourceUid_ != nullptr;};
+    void deleteSourceUid() { this->sourceUid_ = nullptr;};
+    inline int64_t sourceUid() const { DARABONBA_PTR_GET_DEFAULT(sourceUid_, 0L) };
+    inline CreateDBClusterRequest& setSourceUid(int64_t sourceUid) { DARABONBA_PTR_SET_VALUE(sourceUid_, sourceUid) };
 
 
     // standbyAZ Field Functions 
@@ -825,6 +834,7 @@ namespace Models
     // 
     // * If **CreationOption** is **RecoverFromRecyclebin**, you need to input the released source PolarDB cluster ID. The DBType of the cluster being recovered from the recycle bin must match the source cluster. For example, if the source cluster was MySQL 8.0, the recovered cluster must also have **DBType** set to **MySQL** and **DBVersion** to **8.0**.
     std::shared_ptr<string> sourceResourceId_ = nullptr;
+    std::shared_ptr<int64_t> sourceUid_ = nullptr;
     // The availability zone where the hot standby cluster is stored. Applicable to the standard edition 3AZ scenario.
     // 
     // > This parameter takes effect only when multi-zone data strong consistency is enabled.

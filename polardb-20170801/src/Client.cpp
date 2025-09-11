@@ -1077,6 +1077,10 @@ CreateDBClusterResponse Client::createDBClusterWithOptions(const CreateDBCluster
     query["SourceResourceId"] = request.sourceResourceId();
   }
 
+  if (!!request.hasSourceUid()) {
+    query["SourceUid"] = request.sourceUid();
+  }
+
   if (!!request.hasStandbyAZ()) {
     query["StandbyAZ"] = request.standbyAZ();
   }
@@ -3659,6 +3663,64 @@ DescribeBackupPolicyResponse Client::describeBackupPolicyWithOptions(const Descr
 DescribeBackupPolicyResponse Client::describeBackupPolicy(const DescribeBackupPolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeBackupPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询备份集所在地域信息
+ *
+ * @param request DescribeBackupRegionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeBackupRegionsResponse
+ */
+DescribeBackupRegionsResponse Client::describeBackupRegionsWithOptions(const DescribeBackupRegionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeBackupRegions"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeBackupRegionsResponse>();
+}
+
+/**
+ * @summary 查询备份集所在地域信息
+ *
+ * @param request DescribeBackupRegionsRequest
+ * @return DescribeBackupRegionsResponse
+ */
+DescribeBackupRegionsResponse Client::describeBackupRegions(const DescribeBackupRegionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeBackupRegionsWithOptions(request, runtime);
 }
 
 /**
