@@ -14,12 +14,16 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListUserRoutinesResponseBodyRoutines& obj) { 
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_TO_JSON(DefaultRelatedRecord, defaultRelatedRecord_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(HasAssets, hasAssets_);
       DARABONBA_PTR_TO_JSON(RoutineName, routineName_);
     };
     friend void from_json(const Darabonba::Json& j, ListUserRoutinesResponseBodyRoutines& obj) { 
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_FROM_JSON(DefaultRelatedRecord, defaultRelatedRecord_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(HasAssets, hasAssets_);
       DARABONBA_PTR_FROM_JSON(RoutineName, routineName_);
     };
     ListUserRoutinesResponseBodyRoutines() = default ;
@@ -34,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->createTime_ != nullptr
-        && this->description_ != nullptr && this->routineName_ != nullptr; };
+        && this->defaultRelatedRecord_ != nullptr && this->description_ != nullptr && this->hasAssets_ != nullptr && this->routineName_ != nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -42,11 +46,25 @@ namespace Models
     inline ListUserRoutinesResponseBodyRoutines& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
+    // defaultRelatedRecord Field Functions 
+    bool hasDefaultRelatedRecord() const { return this->defaultRelatedRecord_ != nullptr;};
+    void deleteDefaultRelatedRecord() { this->defaultRelatedRecord_ = nullptr;};
+    inline string defaultRelatedRecord() const { DARABONBA_PTR_GET_DEFAULT(defaultRelatedRecord_, "") };
+    inline ListUserRoutinesResponseBodyRoutines& setDefaultRelatedRecord(string defaultRelatedRecord) { DARABONBA_PTR_SET_VALUE(defaultRelatedRecord_, defaultRelatedRecord) };
+
+
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
     inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ListUserRoutinesResponseBodyRoutines& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // hasAssets Field Functions 
+    bool hasHasAssets() const { return this->hasAssets_ != nullptr;};
+    void deleteHasAssets() { this->hasAssets_ = nullptr;};
+    inline bool hasAssets() const { DARABONBA_PTR_GET_DEFAULT(hasAssets_, false) };
+    inline ListUserRoutinesResponseBodyRoutines& setHasAssets(bool hasAssets) { DARABONBA_PTR_SET_VALUE(hasAssets_, hasAssets) };
 
 
     // routineName Field Functions 
@@ -58,7 +76,9 @@ namespace Models
 
   protected:
     std::shared_ptr<string> createTime_ = nullptr;
+    std::shared_ptr<string> defaultRelatedRecord_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
+    std::shared_ptr<bool> hasAssets_ = nullptr;
     std::shared_ptr<string> routineName_ = nullptr;
   };
 

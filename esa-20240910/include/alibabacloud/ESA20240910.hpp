@@ -897,6 +897,23 @@ namespace ESA20240910
       Models::CreateRoutineResponse createRoutine(const Models::CreateRoutineRequest &request);
 
       /**
+       * @summary 发布Routine某版本代码
+       *
+       * @param tmpReq CreateRoutineCodeDeploymentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRoutineCodeDeploymentResponse
+       */
+      Models::CreateRoutineCodeDeploymentResponse createRoutineCodeDeploymentWithOptions(const Models::CreateRoutineCodeDeploymentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 发布Routine某版本代码
+       *
+       * @param request CreateRoutineCodeDeploymentRequest
+       * @return CreateRoutineCodeDeploymentResponse
+       */
+      Models::CreateRoutineCodeDeploymentResponse createRoutineCodeDeployment(const Models::CreateRoutineCodeDeploymentRequest &request);
+
+      /**
        * @summary Adds a record to map a domain that is associated with a routine. This record is used to trigger the associated routine code.
        *
        * @param request CreateRoutineRelatedRecordRequest
@@ -929,6 +946,23 @@ namespace ESA20240910
        * @return CreateRoutineRouteResponse
        */
       Models::CreateRoutineRouteResponse createRoutineRoute(const Models::CreateRoutineRouteRequest &request);
+
+      /**
+       * @summary 创建带Assets资源的Routine代码版本
+       *
+       * @param tmpReq CreateRoutineWithAssetsCodeVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRoutineWithAssetsCodeVersionResponse
+       */
+      Models::CreateRoutineWithAssetsCodeVersionResponse createRoutineWithAssetsCodeVersionWithOptions(const Models::CreateRoutineWithAssetsCodeVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建带Assets资源的Routine代码版本
+       *
+       * @param request CreateRoutineWithAssetsCodeVersionRequest
+       * @return CreateRoutineWithAssetsCodeVersionResponse
+       */
+      Models::CreateRoutineWithAssetsCodeVersionResponse createRoutineWithAssetsCodeVersion(const Models::CreateRoutineWithAssetsCodeVersionRequest &request);
 
       /**
        * @summary Creates scheduled prefetch plans.
@@ -5256,7 +5290,7 @@ namespace ESA20240910
       Models::UpdateCompressionRuleResponse updateCompressionRule(const Models::UpdateCompressionRuleRequest &request);
 
       /**
-       * @summary 修改站点中国大陆网络接入优化配置
+       * @summary Modifies the configuration of the Chinese mainland network access optimization.
        *
        * @param request UpdateCrossBorderOptimizationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5265,7 +5299,7 @@ namespace ESA20240910
       Models::UpdateCrossBorderOptimizationResponse updateCrossBorderOptimizationWithOptions(const Models::UpdateCrossBorderOptimizationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改站点中国大陆网络接入优化配置
+       * @summary Modifies the configuration of the Chinese mainland network access optimization.
        *
        * @param request UpdateCrossBorderOptimizationRequest
        * @return UpdateCrossBorderOptimizationResponse

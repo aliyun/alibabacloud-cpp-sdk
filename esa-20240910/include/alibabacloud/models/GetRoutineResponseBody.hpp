@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DefaultRelatedRecord, defaultRelatedRecord_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(Envs, envs_);
+      DARABONBA_PTR_TO_JSON(HasAssets, hasAssets_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, GetRoutineResponseBody& obj) { 
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DefaultRelatedRecord, defaultRelatedRecord_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(Envs, envs_);
+      DARABONBA_PTR_FROM_JSON(HasAssets, hasAssets_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
     GetRoutineResponseBody() = default ;
@@ -40,7 +42,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->createTime_ != nullptr
-        && this->defaultRelatedRecord_ != nullptr && this->description_ != nullptr && this->envs_ != nullptr && this->requestId_ != nullptr; };
+        && this->defaultRelatedRecord_ != nullptr && this->description_ != nullptr && this->envs_ != nullptr && this->hasAssets_ != nullptr && this->requestId_ != nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -71,6 +73,13 @@ namespace Models
     inline GetRoutineResponseBody& setEnvs(vector<GetRoutineResponseBodyEnvs> && envs) { DARABONBA_PTR_SET_RVALUE(envs_, envs) };
 
 
+    // hasAssets Field Functions 
+    bool hasHasAssets() const { return this->hasAssets_ != nullptr;};
+    void deleteHasAssets() { this->hasAssets_ = nullptr;};
+    inline bool hasAssets() const { DARABONBA_PTR_GET_DEFAULT(hasAssets_, false) };
+    inline GetRoutineResponseBody& setHasAssets(bool hasAssets) { DARABONBA_PTR_SET_VALUE(hasAssets_, hasAssets) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -87,6 +96,7 @@ namespace Models
     std::shared_ptr<string> description_ = nullptr;
     // The information about the environments.
     std::shared_ptr<vector<GetRoutineResponseBodyEnvs>> envs_ = nullptr;
+    std::shared_ptr<bool> hasAssets_ = nullptr;
     // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };

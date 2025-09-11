@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETROUTINERESPONSEBODYENVS_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/GetRoutineResponseBodyEnvsCodeDeploy.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -16,12 +17,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetRoutineResponseBodyEnvs& obj) { 
       DARABONBA_PTR_TO_JSON(CanaryAreaList, canaryAreaList_);
       DARABONBA_PTR_TO_JSON(CanaryCodeVersion, canaryCodeVersion_);
+      DARABONBA_PTR_TO_JSON(CodeDeploy, codeDeploy_);
       DARABONBA_PTR_TO_JSON(CodeVersion, codeVersion_);
       DARABONBA_PTR_TO_JSON(Env, env_);
     };
     friend void from_json(const Darabonba::Json& j, GetRoutineResponseBodyEnvs& obj) { 
       DARABONBA_PTR_FROM_JSON(CanaryAreaList, canaryAreaList_);
       DARABONBA_PTR_FROM_JSON(CanaryCodeVersion, canaryCodeVersion_);
+      DARABONBA_PTR_FROM_JSON(CodeDeploy, codeDeploy_);
       DARABONBA_PTR_FROM_JSON(CodeVersion, codeVersion_);
       DARABONBA_PTR_FROM_JSON(Env, env_);
     };
@@ -37,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->canaryAreaList_ != nullptr
-        && this->canaryCodeVersion_ != nullptr && this->codeVersion_ != nullptr && this->env_ != nullptr; };
+        && this->canaryCodeVersion_ != nullptr && this->codeDeploy_ != nullptr && this->codeVersion_ != nullptr && this->env_ != nullptr; };
     // canaryAreaList Field Functions 
     bool hasCanaryAreaList() const { return this->canaryAreaList_ != nullptr;};
     void deleteCanaryAreaList() { this->canaryAreaList_ = nullptr;};
@@ -52,6 +55,15 @@ namespace Models
     void deleteCanaryCodeVersion() { this->canaryCodeVersion_ = nullptr;};
     inline string canaryCodeVersion() const { DARABONBA_PTR_GET_DEFAULT(canaryCodeVersion_, "") };
     inline GetRoutineResponseBodyEnvs& setCanaryCodeVersion(string canaryCodeVersion) { DARABONBA_PTR_SET_VALUE(canaryCodeVersion_, canaryCodeVersion) };
+
+
+    // codeDeploy Field Functions 
+    bool hasCodeDeploy() const { return this->codeDeploy_ != nullptr;};
+    void deleteCodeDeploy() { this->codeDeploy_ = nullptr;};
+    inline const Models::GetRoutineResponseBodyEnvsCodeDeploy & codeDeploy() const { DARABONBA_PTR_GET_CONST(codeDeploy_, Models::GetRoutineResponseBodyEnvsCodeDeploy) };
+    inline Models::GetRoutineResponseBodyEnvsCodeDeploy codeDeploy() { DARABONBA_PTR_GET(codeDeploy_, Models::GetRoutineResponseBodyEnvsCodeDeploy) };
+    inline GetRoutineResponseBodyEnvs& setCodeDeploy(const Models::GetRoutineResponseBodyEnvsCodeDeploy & codeDeploy) { DARABONBA_PTR_SET_VALUE(codeDeploy_, codeDeploy) };
+    inline GetRoutineResponseBodyEnvs& setCodeDeploy(Models::GetRoutineResponseBodyEnvsCodeDeploy && codeDeploy) { DARABONBA_PTR_SET_RVALUE(codeDeploy_, codeDeploy) };
 
 
     // codeVersion Field Functions 
@@ -73,6 +85,7 @@ namespace Models
     std::shared_ptr<vector<string>> canaryAreaList_ = nullptr;
     // The version number for canary release.
     std::shared_ptr<string> canaryCodeVersion_ = nullptr;
+    std::shared_ptr<Models::GetRoutineResponseBodyEnvsCodeDeploy> codeDeploy_ = nullptr;
     // The version number of the code in the environment.
     std::shared_ptr<string> codeVersion_ = nullptr;
     // The environment type.

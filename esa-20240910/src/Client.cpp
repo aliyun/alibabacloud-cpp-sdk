@@ -3078,6 +3078,10 @@ CreateRoutineResponse Client::createRoutineWithOptions(const CreateRoutineReques
     body["Description"] = request.description();
   }
 
+  if (!!request.hasHasAssets()) {
+    body["HasAssets"] = request.hasAssets();
+  }
+
   if (!!request.hasName()) {
     body["Name"] = request.name();
   }
@@ -3108,6 +3112,66 @@ CreateRoutineResponse Client::createRoutineWithOptions(const CreateRoutineReques
 CreateRoutineResponse Client::createRoutine(const CreateRoutineRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createRoutineWithOptions(request, runtime);
+}
+
+/**
+ * @summary 发布Routine某版本代码
+ *
+ * @param tmpReq CreateRoutineCodeDeploymentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateRoutineCodeDeploymentResponse
+ */
+CreateRoutineCodeDeploymentResponse Client::createRoutineCodeDeploymentWithOptions(const CreateRoutineCodeDeploymentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateRoutineCodeDeploymentShrinkRequest request = CreateRoutineCodeDeploymentShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCodeVersions()) {
+    request.setCodeVersionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.codeVersions(), "CodeVersions", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasCodeVersionsShrink()) {
+    body["CodeVersions"] = request.codeVersionsShrink();
+  }
+
+  if (!!request.hasEnv()) {
+    body["Env"] = request.env();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.name();
+  }
+
+  if (!!request.hasStrategy()) {
+    body["Strategy"] = request.strategy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateRoutineCodeDeployment"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateRoutineCodeDeploymentResponse>();
+}
+
+/**
+ * @summary 发布Routine某版本代码
+ *
+ * @param request CreateRoutineCodeDeploymentRequest
+ * @return CreateRoutineCodeDeploymentResponse
+ */
+CreateRoutineCodeDeploymentResponse Client::createRoutineCodeDeployment(const CreateRoutineCodeDeploymentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createRoutineCodeDeploymentWithOptions(request, runtime);
 }
 
 /**
@@ -3228,6 +3292,70 @@ CreateRoutineRouteResponse Client::createRoutineRouteWithOptions(const CreateRou
 CreateRoutineRouteResponse Client::createRoutineRoute(const CreateRoutineRouteRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createRoutineRouteWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建带Assets资源的Routine代码版本
+ *
+ * @param tmpReq CreateRoutineWithAssetsCodeVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateRoutineWithAssetsCodeVersionResponse
+ */
+CreateRoutineWithAssetsCodeVersionResponse Client::createRoutineWithAssetsCodeVersionWithOptions(const CreateRoutineWithAssetsCodeVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateRoutineWithAssetsCodeVersionShrinkRequest request = CreateRoutineWithAssetsCodeVersionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasConfOptions()) {
+    request.setConfOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.confOptions(), "ConfOptions", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasBuildId()) {
+    body["BuildId"] = request.buildId();
+  }
+
+  if (!!request.hasCodeDescription()) {
+    body["CodeDescription"] = request.codeDescription();
+  }
+
+  if (!!request.hasConfOptionsShrink()) {
+    body["ConfOptions"] = request.confOptionsShrink();
+  }
+
+  if (!!request.hasExtraInfo()) {
+    body["ExtraInfo"] = request.extraInfo();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.name();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateRoutineWithAssetsCodeVersion"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateRoutineWithAssetsCodeVersionResponse>();
+}
+
+/**
+ * @summary 创建带Assets资源的Routine代码版本
+ *
+ * @param request CreateRoutineWithAssetsCodeVersionRequest
+ * @return CreateRoutineWithAssetsCodeVersionResponse
+ */
+CreateRoutineWithAssetsCodeVersionResponse Client::createRoutineWithAssetsCodeVersion(const CreateRoutineWithAssetsCodeVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createRoutineWithAssetsCodeVersionWithOptions(request, runtime);
 }
 
 /**
@@ -14752,7 +14880,7 @@ UpdateCompressionRuleResponse Client::updateCompressionRule(const UpdateCompress
 }
 
 /**
- * @summary 修改站点中国大陆网络接入优化配置
+ * @summary Modifies the configuration of the Chinese mainland network access optimization.
  *
  * @param request UpdateCrossBorderOptimizationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14787,7 +14915,7 @@ UpdateCrossBorderOptimizationResponse Client::updateCrossBorderOptimizationWithO
 }
 
 /**
- * @summary 修改站点中国大陆网络接入优化配置
+ * @summary Modifies the configuration of the Chinese mainland network access optimization.
  *
  * @param request UpdateCrossBorderOptimizationRequest
  * @return UpdateCrossBorderOptimizationResponse
