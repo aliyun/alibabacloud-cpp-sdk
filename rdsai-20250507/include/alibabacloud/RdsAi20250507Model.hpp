@@ -30,6 +30,7 @@
 #include <alibabacloud/models/CreateAppInstanceRequestDbinstanceConfig.hpp>
 #include <alibabacloud/models/DescribeAppInstancesResponseBodyInstances.hpp>
 #include <alibabacloud/models/DescribeInstanceAuthInfoResponseBodyApiKeys.hpp>
+#include <alibabacloud/models/DescribeInstanceAuthInfoResponseBodyConfigList.hpp>
 #include <alibabacloud/models/DescribeInstanceEndpointsResponseBodyInstanceEndpoints.hpp>
 #include <alibabacloud/models/DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups.hpp>
 
