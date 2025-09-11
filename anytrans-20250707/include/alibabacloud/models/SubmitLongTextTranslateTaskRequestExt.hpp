@@ -1,0 +1,100 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_SUBMITLONGTEXTTRANSLATETASKREQUESTEXT_HPP_
+#define ALIBABACLOUD_MODELS_SUBMITLONGTEXTTRANSLATETASKREQUESTEXT_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/SubmitLongTextTranslateTaskRequestExtExamples.hpp>
+#include <alibabacloud/models/SubmitLongTextTranslateTaskRequestExtTerminologies.hpp>
+#include <alibabacloud/models/SubmitLongTextTranslateTaskRequestExtTextTransform.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace AnyTrans20250707
+{
+namespace Models
+{
+  class SubmitLongTextTranslateTaskRequestExt : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const SubmitLongTextTranslateTaskRequestExt& obj) { 
+      DARABONBA_PTR_TO_JSON(domainHint, domainHint_);
+      DARABONBA_PTR_TO_JSON(examples, examples_);
+      DARABONBA_PTR_TO_JSON(sensitives, sensitives_);
+      DARABONBA_PTR_TO_JSON(terminologies, terminologies_);
+      DARABONBA_PTR_TO_JSON(textTransform, textTransform_);
+    };
+    friend void from_json(const Darabonba::Json& j, SubmitLongTextTranslateTaskRequestExt& obj) { 
+      DARABONBA_PTR_FROM_JSON(domainHint, domainHint_);
+      DARABONBA_PTR_FROM_JSON(examples, examples_);
+      DARABONBA_PTR_FROM_JSON(sensitives, sensitives_);
+      DARABONBA_PTR_FROM_JSON(terminologies, terminologies_);
+      DARABONBA_PTR_FROM_JSON(textTransform, textTransform_);
+    };
+    SubmitLongTextTranslateTaskRequestExt() = default ;
+    SubmitLongTextTranslateTaskRequestExt(const SubmitLongTextTranslateTaskRequestExt &) = default ;
+    SubmitLongTextTranslateTaskRequestExt(SubmitLongTextTranslateTaskRequestExt &&) = default ;
+    SubmitLongTextTranslateTaskRequestExt(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~SubmitLongTextTranslateTaskRequestExt() = default ;
+    SubmitLongTextTranslateTaskRequestExt& operator=(const SubmitLongTextTranslateTaskRequestExt &) = default ;
+    SubmitLongTextTranslateTaskRequestExt& operator=(SubmitLongTextTranslateTaskRequestExt &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->domainHint_ != nullptr
+        && this->examples_ != nullptr && this->sensitives_ != nullptr && this->terminologies_ != nullptr && this->textTransform_ != nullptr; };
+    // domainHint Field Functions 
+    bool hasDomainHint() const { return this->domainHint_ != nullptr;};
+    void deleteDomainHint() { this->domainHint_ = nullptr;};
+    inline string domainHint() const { DARABONBA_PTR_GET_DEFAULT(domainHint_, "") };
+    inline SubmitLongTextTranslateTaskRequestExt& setDomainHint(string domainHint) { DARABONBA_PTR_SET_VALUE(domainHint_, domainHint) };
+
+
+    // examples Field Functions 
+    bool hasExamples() const { return this->examples_ != nullptr;};
+    void deleteExamples() { this->examples_ = nullptr;};
+    inline const vector<Models::SubmitLongTextTranslateTaskRequestExtExamples> & examples() const { DARABONBA_PTR_GET_CONST(examples_, vector<Models::SubmitLongTextTranslateTaskRequestExtExamples>) };
+    inline vector<Models::SubmitLongTextTranslateTaskRequestExtExamples> examples() { DARABONBA_PTR_GET(examples_, vector<Models::SubmitLongTextTranslateTaskRequestExtExamples>) };
+    inline SubmitLongTextTranslateTaskRequestExt& setExamples(const vector<Models::SubmitLongTextTranslateTaskRequestExtExamples> & examples) { DARABONBA_PTR_SET_VALUE(examples_, examples) };
+    inline SubmitLongTextTranslateTaskRequestExt& setExamples(vector<Models::SubmitLongTextTranslateTaskRequestExtExamples> && examples) { DARABONBA_PTR_SET_RVALUE(examples_, examples) };
+
+
+    // sensitives Field Functions 
+    bool hasSensitives() const { return this->sensitives_ != nullptr;};
+    void deleteSensitives() { this->sensitives_ = nullptr;};
+    inline const vector<string> & sensitives() const { DARABONBA_PTR_GET_CONST(sensitives_, vector<string>) };
+    inline vector<string> sensitives() { DARABONBA_PTR_GET(sensitives_, vector<string>) };
+    inline SubmitLongTextTranslateTaskRequestExt& setSensitives(const vector<string> & sensitives) { DARABONBA_PTR_SET_VALUE(sensitives_, sensitives) };
+    inline SubmitLongTextTranslateTaskRequestExt& setSensitives(vector<string> && sensitives) { DARABONBA_PTR_SET_RVALUE(sensitives_, sensitives) };
+
+
+    // terminologies Field Functions 
+    bool hasTerminologies() const { return this->terminologies_ != nullptr;};
+    void deleteTerminologies() { this->terminologies_ = nullptr;};
+    inline const vector<Models::SubmitLongTextTranslateTaskRequestExtTerminologies> & terminologies() const { DARABONBA_PTR_GET_CONST(terminologies_, vector<Models::SubmitLongTextTranslateTaskRequestExtTerminologies>) };
+    inline vector<Models::SubmitLongTextTranslateTaskRequestExtTerminologies> terminologies() { DARABONBA_PTR_GET(terminologies_, vector<Models::SubmitLongTextTranslateTaskRequestExtTerminologies>) };
+    inline SubmitLongTextTranslateTaskRequestExt& setTerminologies(const vector<Models::SubmitLongTextTranslateTaskRequestExtTerminologies> & terminologies) { DARABONBA_PTR_SET_VALUE(terminologies_, terminologies) };
+    inline SubmitLongTextTranslateTaskRequestExt& setTerminologies(vector<Models::SubmitLongTextTranslateTaskRequestExtTerminologies> && terminologies) { DARABONBA_PTR_SET_RVALUE(terminologies_, terminologies) };
+
+
+    // textTransform Field Functions 
+    bool hasTextTransform() const { return this->textTransform_ != nullptr;};
+    void deleteTextTransform() { this->textTransform_ = nullptr;};
+    inline const Models::SubmitLongTextTranslateTaskRequestExtTextTransform & textTransform() const { DARABONBA_PTR_GET_CONST(textTransform_, Models::SubmitLongTextTranslateTaskRequestExtTextTransform) };
+    inline Models::SubmitLongTextTranslateTaskRequestExtTextTransform textTransform() { DARABONBA_PTR_GET(textTransform_, Models::SubmitLongTextTranslateTaskRequestExtTextTransform) };
+    inline SubmitLongTextTranslateTaskRequestExt& setTextTransform(const Models::SubmitLongTextTranslateTaskRequestExtTextTransform & textTransform) { DARABONBA_PTR_SET_VALUE(textTransform_, textTransform) };
+    inline SubmitLongTextTranslateTaskRequestExt& setTextTransform(Models::SubmitLongTextTranslateTaskRequestExtTextTransform && textTransform) { DARABONBA_PTR_SET_RVALUE(textTransform_, textTransform) };
+
+
+  protected:
+    std::shared_ptr<string> domainHint_ = nullptr;
+    std::shared_ptr<vector<Models::SubmitLongTextTranslateTaskRequestExtExamples>> examples_ = nullptr;
+    std::shared_ptr<vector<string>> sensitives_ = nullptr;
+    std::shared_ptr<vector<Models::SubmitLongTextTranslateTaskRequestExtTerminologies>> terminologies_ = nullptr;
+    std::shared_ptr<Models::SubmitLongTextTranslateTaskRequestExtTextTransform> textTransform_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace AnyTrans20250707
+#endif
