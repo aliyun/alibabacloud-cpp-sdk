@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_TO_JSON(DataSet, dataSet_);
       DARABONBA_PTR_TO_JSON(DatabaseName, databaseName_);
+      DARABONBA_PTR_TO_JSON(DbType, dbType_);
       DARABONBA_PTR_TO_JSON(EffectRow, effectRow_);
       DARABONBA_PTR_TO_JSON(ExecuteStatus, executeStatus_);
       DARABONBA_PTR_TO_JSON(ExecuteTime, executeTime_);
@@ -54,6 +55,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_FROM_JSON(DataSet, dataSet_);
       DARABONBA_PTR_FROM_JSON(DatabaseName, databaseName_);
+      DARABONBA_PTR_FROM_JSON(DbType, dbType_);
       DARABONBA_PTR_FROM_JSON(EffectRow, effectRow_);
       DARABONBA_PTR_FROM_JSON(ExecuteStatus, executeStatus_);
       DARABONBA_PTR_FROM_JSON(ExecuteTime, executeTime_);
@@ -93,12 +95,12 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->clientIp_ != nullptr
         && this->clientPort_ != nullptr && this->clientUa_ != nullptr && this->columnName_ != nullptr && this->creationTime_ != nullptr && this->dataSet_ != nullptr
-        && this->databaseName_ != nullptr && this->effectRow_ != nullptr && this->executeStatus_ != nullptr && this->executeTime_ != nullptr && this->inWhiteList_ != nullptr
-        && this->instanceDescription_ != nullptr && this->instanceName_ != nullptr && this->ipType_ != nullptr && this->logTime_ != nullptr && this->memberAccount_ != nullptr
-        && this->message_ != nullptr && this->modelName_ != nullptr && this->operateType_ != nullptr && this->ossObjectKey_ != nullptr && this->packageName_ != nullptr
-        && this->productCode_ != nullptr && this->productId_ != nullptr && this->ruleCategory_ != nullptr && this->ruleId_ != nullptr && this->ruleName_ != nullptr
-        && this->sqlText_ != nullptr && this->tableName_ != nullptr && this->userId_ != nullptr && this->userName_ != nullptr && this->warnLevel_ != nullptr
-        && this->warnLevelName_ != nullptr; };
+        && this->databaseName_ != nullptr && this->dbType_ != nullptr && this->effectRow_ != nullptr && this->executeStatus_ != nullptr && this->executeTime_ != nullptr
+        && this->inWhiteList_ != nullptr && this->instanceDescription_ != nullptr && this->instanceName_ != nullptr && this->ipType_ != nullptr && this->logTime_ != nullptr
+        && this->memberAccount_ != nullptr && this->message_ != nullptr && this->modelName_ != nullptr && this->operateType_ != nullptr && this->ossObjectKey_ != nullptr
+        && this->packageName_ != nullptr && this->productCode_ != nullptr && this->productId_ != nullptr && this->ruleCategory_ != nullptr && this->ruleId_ != nullptr
+        && this->ruleName_ != nullptr && this->sqlText_ != nullptr && this->tableName_ != nullptr && this->userId_ != nullptr && this->userName_ != nullptr
+        && this->warnLevel_ != nullptr && this->warnLevelName_ != nullptr; };
     // clientIp Field Functions 
     bool hasClientIp() const { return this->clientIp_ != nullptr;};
     void deleteClientIp() { this->clientIp_ = nullptr;};
@@ -146,6 +148,13 @@ namespace Models
     void deleteDatabaseName() { this->databaseName_ = nullptr;};
     inline string databaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
     inline DescribeAuditLogsResponseBodyItems& setDatabaseName(string databaseName) { DARABONBA_PTR_SET_VALUE(databaseName_, databaseName) };
+
+
+    // dbType Field Functions 
+    bool hasDbType() const { return this->dbType_ != nullptr;};
+    void deleteDbType() { this->dbType_ = nullptr;};
+    inline string dbType() const { DARABONBA_PTR_GET_DEFAULT(dbType_, "") };
+    inline DescribeAuditLogsResponseBodyItems& setDbType(string dbType) { DARABONBA_PTR_SET_VALUE(dbType_, dbType) };
 
 
     // effectRow Field Functions 
@@ -331,6 +340,7 @@ namespace Models
     std::shared_ptr<int64_t> creationTime_ = nullptr;
     std::shared_ptr<string> dataSet_ = nullptr;
     std::shared_ptr<string> databaseName_ = nullptr;
+    std::shared_ptr<string> dbType_ = nullptr;
     std::shared_ptr<int64_t> effectRow_ = nullptr;
     std::shared_ptr<int32_t> executeStatus_ = nullptr;
     std::shared_ptr<int64_t> executeTime_ = nullptr;
