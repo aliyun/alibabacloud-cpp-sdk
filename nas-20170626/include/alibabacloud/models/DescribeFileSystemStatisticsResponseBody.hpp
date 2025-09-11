@@ -1,0 +1,110 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBEFILESYSTEMSTATISTICSRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBEFILESYSTEMSTATISTICSRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/models/DescribeFileSystemStatisticsResponseBodyFileSystemStatistics.hpp>
+#include <alibabacloud/models/DescribeFileSystemStatisticsResponseBodyFileSystems.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace NAS20170626
+{
+namespace Models
+{
+  class DescribeFileSystemStatisticsResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeFileSystemStatisticsResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(FileSystemStatistics, fileSystemStatistics_);
+      DARABONBA_PTR_TO_JSON(FileSystems, fileSystems_);
+      DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeFileSystemStatisticsResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(FileSystemStatistics, fileSystemStatistics_);
+      DARABONBA_PTR_FROM_JSON(FileSystems, fileSystems_);
+      DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
+    };
+    DescribeFileSystemStatisticsResponseBody() = default ;
+    DescribeFileSystemStatisticsResponseBody(const DescribeFileSystemStatisticsResponseBody &) = default ;
+    DescribeFileSystemStatisticsResponseBody(DescribeFileSystemStatisticsResponseBody &&) = default ;
+    DescribeFileSystemStatisticsResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeFileSystemStatisticsResponseBody() = default ;
+    DescribeFileSystemStatisticsResponseBody& operator=(const DescribeFileSystemStatisticsResponseBody &) = default ;
+    DescribeFileSystemStatisticsResponseBody& operator=(DescribeFileSystemStatisticsResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->fileSystemStatistics_ != nullptr
+        && this->fileSystems_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->requestId_ != nullptr && this->totalCount_ != nullptr; };
+    // fileSystemStatistics Field Functions 
+    bool hasFileSystemStatistics() const { return this->fileSystemStatistics_ != nullptr;};
+    void deleteFileSystemStatistics() { this->fileSystemStatistics_ = nullptr;};
+    inline const DescribeFileSystemStatisticsResponseBodyFileSystemStatistics & fileSystemStatistics() const { DARABONBA_PTR_GET_CONST(fileSystemStatistics_, DescribeFileSystemStatisticsResponseBodyFileSystemStatistics) };
+    inline DescribeFileSystemStatisticsResponseBodyFileSystemStatistics fileSystemStatistics() { DARABONBA_PTR_GET(fileSystemStatistics_, DescribeFileSystemStatisticsResponseBodyFileSystemStatistics) };
+    inline DescribeFileSystemStatisticsResponseBody& setFileSystemStatistics(const DescribeFileSystemStatisticsResponseBodyFileSystemStatistics & fileSystemStatistics) { DARABONBA_PTR_SET_VALUE(fileSystemStatistics_, fileSystemStatistics) };
+    inline DescribeFileSystemStatisticsResponseBody& setFileSystemStatistics(DescribeFileSystemStatisticsResponseBodyFileSystemStatistics && fileSystemStatistics) { DARABONBA_PTR_SET_RVALUE(fileSystemStatistics_, fileSystemStatistics) };
+
+
+    // fileSystems Field Functions 
+    bool hasFileSystems() const { return this->fileSystems_ != nullptr;};
+    void deleteFileSystems() { this->fileSystems_ = nullptr;};
+    inline const DescribeFileSystemStatisticsResponseBodyFileSystems & fileSystems() const { DARABONBA_PTR_GET_CONST(fileSystems_, DescribeFileSystemStatisticsResponseBodyFileSystems) };
+    inline DescribeFileSystemStatisticsResponseBodyFileSystems fileSystems() { DARABONBA_PTR_GET(fileSystems_, DescribeFileSystemStatisticsResponseBodyFileSystems) };
+    inline DescribeFileSystemStatisticsResponseBody& setFileSystems(const DescribeFileSystemStatisticsResponseBodyFileSystems & fileSystems) { DARABONBA_PTR_SET_VALUE(fileSystems_, fileSystems) };
+    inline DescribeFileSystemStatisticsResponseBody& setFileSystems(DescribeFileSystemStatisticsResponseBodyFileSystems && fileSystems) { DARABONBA_PTR_SET_RVALUE(fileSystems_, fileSystems) };
+
+
+    // pageNumber Field Functions 
+    bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+    void deletePageNumber() { this->pageNumber_ = nullptr;};
+    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline DescribeFileSystemStatisticsResponseBody& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline DescribeFileSystemStatisticsResponseBody& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline DescribeFileSystemStatisticsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // totalCount Field Functions 
+    bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+    void deleteTotalCount() { this->totalCount_ = nullptr;};
+    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline DescribeFileSystemStatisticsResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
+  protected:
+    // The statistics of file systems.
+    std::shared_ptr<DescribeFileSystemStatisticsResponseBodyFileSystemStatistics> fileSystemStatistics_ = nullptr;
+    // The queried file systems.
+    std::shared_ptr<DescribeFileSystemStatisticsResponseBodyFileSystems> fileSystems_ = nullptr;
+    // The page number.
+    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.
+    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The request ID.
+    std::shared_ptr<string> requestId_ = nullptr;
+    // The total number of file system entries.
+    std::shared_ptr<int32_t> totalCount_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace NAS20170626
+#endif
