@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BackupRegion, backupRegion_);
       DARABONBA_PTR_TO_JSON(BackupSize, backupSize_);
       DARABONBA_PTR_TO_JSON(BackupStartTime, backupStartTime_);
+      DARABONBA_PTR_TO_JSON(BackupStatus, backupStatus_);
       DARABONBA_PTR_TO_JSON(BackupType, backupType_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(ParentBackupId, parentBackupId_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BackupRegion, backupRegion_);
       DARABONBA_PTR_FROM_JSON(BackupSize, backupSize_);
       DARABONBA_PTR_FROM_JSON(BackupStartTime, backupStartTime_);
+      DARABONBA_PTR_FROM_JSON(BackupStatus, backupStatus_);
       DARABONBA_PTR_FROM_JSON(BackupType, backupType_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(ParentBackupId, parentBackupId_);
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->backupEndTime_ != nullptr
         && this->backupExpiredTime_ != nullptr && this->backupId_ != nullptr && this->backupMethod_ != nullptr && this->backupRegion_ != nullptr && this->backupSize_ != nullptr
-        && this->backupStartTime_ != nullptr && this->backupType_ != nullptr && this->DBClusterId_ != nullptr && this->parentBackupId_ != nullptr; };
+        && this->backupStartTime_ != nullptr && this->backupStatus_ != nullptr && this->backupType_ != nullptr && this->DBClusterId_ != nullptr && this->parentBackupId_ != nullptr; };
     // backupEndTime Field Functions 
     bool hasBackupEndTime() const { return this->backupEndTime_ != nullptr;};
     void deleteBackupEndTime() { this->backupEndTime_ = nullptr;};
@@ -99,6 +101,13 @@ namespace Models
     inline DescribeBackupsResponseBodyItemsBackup& setBackupStartTime(string backupStartTime) { DARABONBA_PTR_SET_VALUE(backupStartTime_, backupStartTime) };
 
 
+    // backupStatus Field Functions 
+    bool hasBackupStatus() const { return this->backupStatus_ != nullptr;};
+    void deleteBackupStatus() { this->backupStatus_ = nullptr;};
+    inline string backupStatus() const { DARABONBA_PTR_GET_DEFAULT(backupStatus_, "") };
+    inline DescribeBackupsResponseBodyItemsBackup& setBackupStatus(string backupStatus) { DARABONBA_PTR_SET_VALUE(backupStatus_, backupStatus) };
+
+
     // backupType Field Functions 
     bool hasBackupType() const { return this->backupType_ != nullptr;};
     void deleteBackupType() { this->backupType_ = nullptr;};
@@ -133,6 +142,7 @@ namespace Models
     std::shared_ptr<int32_t> backupSize_ = nullptr;
     // The start time of the backup.
     std::shared_ptr<string> backupStartTime_ = nullptr;
+    std::shared_ptr<string> backupStatus_ = nullptr;
     // The backup type. Valid values:
     // 
     // *   **FullBackup**
