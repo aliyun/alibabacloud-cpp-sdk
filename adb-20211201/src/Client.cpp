@@ -7407,6 +7407,10 @@ DescribeSQLWebSocketDomainResponse Client::describeSQLWebSocketDomainWithOptions
     query["DBClusterId"] = request.DBClusterId();
   }
 
+  if (!!request.hasModule()) {
+    query["Module"] = request.module();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.regionId();
   }
