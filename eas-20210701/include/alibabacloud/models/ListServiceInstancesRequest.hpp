@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceStatus, instanceStatus_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(IsSpot, isSpot_);
+      DARABONBA_PTR_TO_JSON(MemberType, memberType_);
       DARABONBA_PTR_TO_JSON(Order, order_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceStatus, instanceStatus_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(IsSpot, isSpot_);
+      DARABONBA_PTR_FROM_JSON(MemberType, memberType_);
       DARABONBA_PTR_FROM_JSON(Order, order_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -55,8 +57,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->filter_ != nullptr
         && this->hostIP_ != nullptr && this->instanceIP_ != nullptr && this->instanceName_ != nullptr && this->instanceStatus_ != nullptr && this->instanceType_ != nullptr
-        && this->isSpot_ != nullptr && this->order_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->resourceType_ != nullptr
-        && this->role_ != nullptr && this->sort_ != nullptr; };
+        && this->isSpot_ != nullptr && this->memberType_ != nullptr && this->order_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
+        && this->resourceType_ != nullptr && this->role_ != nullptr && this->sort_ != nullptr; };
     // filter Field Functions 
     bool hasFilter() const { return this->filter_ != nullptr;};
     void deleteFilter() { this->filter_ = nullptr;};
@@ -104,6 +106,13 @@ namespace Models
     void deleteIsSpot() { this->isSpot_ = nullptr;};
     inline bool isSpot() const { DARABONBA_PTR_GET_DEFAULT(isSpot_, false) };
     inline ListServiceInstancesRequest& setIsSpot(bool isSpot) { DARABONBA_PTR_SET_VALUE(isSpot_, isSpot) };
+
+
+    // memberType Field Functions 
+    bool hasMemberType() const { return this->memberType_ != nullptr;};
+    void deleteMemberType() { this->memberType_ = nullptr;};
+    inline string memberType() const { DARABONBA_PTR_GET_DEFAULT(memberType_, "") };
+    inline ListServiceInstancesRequest& setMemberType(string memberType) { DARABONBA_PTR_SET_VALUE(memberType_, memberType) };
 
 
     // order Field Functions 
@@ -163,6 +172,7 @@ namespace Models
     std::shared_ptr<string> instanceType_ = nullptr;
     // Specifies whether the instance is a preemptible instance.
     std::shared_ptr<bool> isSpot_ = nullptr;
+    std::shared_ptr<string> memberType_ = nullptr;
     // The sorting order.
     // 
     // Valid values:

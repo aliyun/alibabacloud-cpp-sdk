@@ -3513,6 +3513,10 @@ ListServiceInstancesResponse Client::listServiceInstancesWithOptions(const strin
     query["IsSpot"] = request.isSpot();
   }
 
+  if (!!request.hasMemberType()) {
+    query["MemberType"] = request.memberType();
+  }
+
   if (!!request.hasOrder()) {
     query["Order"] = request.order();
   }
@@ -4577,6 +4581,10 @@ UpdateResourceInstanceLabelResponse Client::updateResourceInstanceLabel(const st
 UpdateServiceResponse Client::updateServiceWithOptions(const string &ClusterId, const string &ServiceName, const UpdateServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasMemberToUpdate()) {
+    query["MemberToUpdate"] = request.memberToUpdate();
+  }
+
   if (!!request.hasUpdateType()) {
     query["UpdateType"] = request.updateType();
   }
