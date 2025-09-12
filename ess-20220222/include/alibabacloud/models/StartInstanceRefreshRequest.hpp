@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_STARTINSTANCEREFRESHREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_STARTINSTANCEREFRESHREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/StartInstanceRefreshRequestCheckpoints.hpp>
 #include <alibabacloud/models/StartInstanceRefreshRequestDesiredConfiguration.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -14,6 +16,8 @@ namespace Models
   class StartInstanceRefreshRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const StartInstanceRefreshRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CheckpointPauseTime, checkpointPauseTime_);
+      DARABONBA_PTR_TO_JSON(Checkpoints, checkpoints_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DesiredConfiguration, desiredConfiguration_);
       DARABONBA_PTR_TO_JSON(MaxHealthyPercentage, maxHealthyPercentage_);
@@ -25,6 +29,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SkipMatching, skipMatching_);
     };
     friend void from_json(const Darabonba::Json& j, StartInstanceRefreshRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CheckpointPauseTime, checkpointPauseTime_);
+      DARABONBA_PTR_FROM_JSON(Checkpoints, checkpoints_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DesiredConfiguration, desiredConfiguration_);
       DARABONBA_PTR_FROM_JSON(MaxHealthyPercentage, maxHealthyPercentage_);
@@ -46,9 +52,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->desiredConfiguration_ != nullptr && this->maxHealthyPercentage_ != nullptr && this->minHealthyPercentage_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->scalingGroupId_ != nullptr && this->skipMatching_ != nullptr; };
+    virtual bool empty() const override { this->checkpointPauseTime_ != nullptr
+        && this->checkpoints_ != nullptr && this->clientToken_ != nullptr && this->desiredConfiguration_ != nullptr && this->maxHealthyPercentage_ != nullptr && this->minHealthyPercentage_ != nullptr
+        && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->scalingGroupId_ != nullptr && this->skipMatching_ != nullptr; };
+    // checkpointPauseTime Field Functions 
+    bool hasCheckpointPauseTime() const { return this->checkpointPauseTime_ != nullptr;};
+    void deleteCheckpointPauseTime() { this->checkpointPauseTime_ = nullptr;};
+    inline int32_t checkpointPauseTime() const { DARABONBA_PTR_GET_DEFAULT(checkpointPauseTime_, 0) };
+    inline StartInstanceRefreshRequest& setCheckpointPauseTime(int32_t checkpointPauseTime) { DARABONBA_PTR_SET_VALUE(checkpointPauseTime_, checkpointPauseTime) };
+
+
+    // checkpoints Field Functions 
+    bool hasCheckpoints() const { return this->checkpoints_ != nullptr;};
+    void deleteCheckpoints() { this->checkpoints_ = nullptr;};
+    inline const vector<StartInstanceRefreshRequestCheckpoints> & checkpoints() const { DARABONBA_PTR_GET_CONST(checkpoints_, vector<StartInstanceRefreshRequestCheckpoints>) };
+    inline vector<StartInstanceRefreshRequestCheckpoints> checkpoints() { DARABONBA_PTR_GET(checkpoints_, vector<StartInstanceRefreshRequestCheckpoints>) };
+    inline StartInstanceRefreshRequest& setCheckpoints(const vector<StartInstanceRefreshRequestCheckpoints> & checkpoints) { DARABONBA_PTR_SET_VALUE(checkpoints_, checkpoints) };
+    inline StartInstanceRefreshRequest& setCheckpoints(vector<StartInstanceRefreshRequestCheckpoints> && checkpoints) { DARABONBA_PTR_SET_RVALUE(checkpoints_, checkpoints) };
+
+
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -115,6 +137,8 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<int32_t> checkpointPauseTime_ = nullptr;
+    std::shared_ptr<vector<StartInstanceRefreshRequestCheckpoints>> checkpoints_ = nullptr;
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
     std::shared_ptr<string> clientToken_ = nullptr;
     // The desired configurations of the instance refresh task.

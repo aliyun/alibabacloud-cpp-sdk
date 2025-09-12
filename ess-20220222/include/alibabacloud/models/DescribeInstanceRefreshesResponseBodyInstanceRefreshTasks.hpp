@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEINSTANCEREFRESHESRESPONSEBODYINSTANCEREFRESHTASKS_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEINSTANCEREFRESHESRESPONSEBODYINSTANCEREFRESHTASKS_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksCheckpoints.hpp>
 #include <alibabacloud/models/DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfiguration.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -14,6 +16,8 @@ namespace Models
   class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks& obj) { 
+      DARABONBA_PTR_TO_JSON(CheckpointPauseTime, checkpointPauseTime_);
+      DARABONBA_PTR_TO_JSON(Checkpoints, checkpoints_);
       DARABONBA_PTR_TO_JSON(DesiredConfiguration, desiredConfiguration_);
       DARABONBA_PTR_TO_JSON(Detail, detail_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
@@ -29,6 +33,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TotalNeedUpdateCapacity, totalNeedUpdateCapacity_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks& obj) { 
+      DARABONBA_PTR_FROM_JSON(CheckpointPauseTime, checkpointPauseTime_);
+      DARABONBA_PTR_FROM_JSON(Checkpoints, checkpoints_);
       DARABONBA_PTR_FROM_JSON(DesiredConfiguration, desiredConfiguration_);
       DARABONBA_PTR_FROM_JSON(Detail, detail_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
@@ -54,10 +60,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->desiredConfiguration_ != nullptr
-        && this->detail_ != nullptr && this->endTime_ != nullptr && this->finishedUpdateCapacity_ != nullptr && this->instanceRefreshTaskId_ != nullptr && this->maxHealthyPercentage_ != nullptr
-        && this->minHealthyPercentage_ != nullptr && this->regionId_ != nullptr && this->scalingGroupId_ != nullptr && this->skipMatching_ != nullptr && this->startTime_ != nullptr
-        && this->status_ != nullptr && this->totalNeedUpdateCapacity_ != nullptr; };
+    virtual bool empty() const override { this->checkpointPauseTime_ != nullptr
+        && this->checkpoints_ != nullptr && this->desiredConfiguration_ != nullptr && this->detail_ != nullptr && this->endTime_ != nullptr && this->finishedUpdateCapacity_ != nullptr
+        && this->instanceRefreshTaskId_ != nullptr && this->maxHealthyPercentage_ != nullptr && this->minHealthyPercentage_ != nullptr && this->regionId_ != nullptr && this->scalingGroupId_ != nullptr
+        && this->skipMatching_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->totalNeedUpdateCapacity_ != nullptr; };
+    // checkpointPauseTime Field Functions 
+    bool hasCheckpointPauseTime() const { return this->checkpointPauseTime_ != nullptr;};
+    void deleteCheckpointPauseTime() { this->checkpointPauseTime_ = nullptr;};
+    inline int32_t checkpointPauseTime() const { DARABONBA_PTR_GET_DEFAULT(checkpointPauseTime_, 0) };
+    inline DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks& setCheckpointPauseTime(int32_t checkpointPauseTime) { DARABONBA_PTR_SET_VALUE(checkpointPauseTime_, checkpointPauseTime) };
+
+
+    // checkpoints Field Functions 
+    bool hasCheckpoints() const { return this->checkpoints_ != nullptr;};
+    void deleteCheckpoints() { this->checkpoints_ = nullptr;};
+    inline const vector<Models::DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksCheckpoints> & checkpoints() const { DARABONBA_PTR_GET_CONST(checkpoints_, vector<Models::DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksCheckpoints>) };
+    inline vector<Models::DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksCheckpoints> checkpoints() { DARABONBA_PTR_GET(checkpoints_, vector<Models::DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksCheckpoints>) };
+    inline DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks& setCheckpoints(const vector<Models::DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksCheckpoints> & checkpoints) { DARABONBA_PTR_SET_VALUE(checkpoints_, checkpoints) };
+    inline DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks& setCheckpoints(vector<Models::DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksCheckpoints> && checkpoints) { DARABONBA_PTR_SET_RVALUE(checkpoints_, checkpoints) };
+
+
     // desiredConfiguration Field Functions 
     bool hasDesiredConfiguration() const { return this->desiredConfiguration_ != nullptr;};
     void deleteDesiredConfiguration() { this->desiredConfiguration_ = nullptr;};
@@ -152,6 +174,8 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<int32_t> checkpointPauseTime_ = nullptr;
+    std::shared_ptr<vector<Models::DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksCheckpoints>> checkpoints_ = nullptr;
     // The desired configurations of the instance refresh task.
     std::shared_ptr<Models::DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfiguration> desiredConfiguration_ = nullptr;
     // The reason why the instance refresh task failed to be executed.

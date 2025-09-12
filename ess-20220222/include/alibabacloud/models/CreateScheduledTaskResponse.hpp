@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATESCHEDULEDTASKRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateScheduledTaskResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

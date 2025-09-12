@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DELETESCALINGGROUPRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DeleteScalingGroupResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

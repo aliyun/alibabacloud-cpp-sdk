@@ -414,6 +414,10 @@
 #include <alibabacloud/models/DescribeElasticStrengthResponseBodyElasticStrengthModels.hpp>
 #include <alibabacloud/models/DescribeElasticStrengthResponseBodyResourcePoolsInventoryHealth.hpp>
 #include <alibabacloud/models/DescribeElasticStrengthResponseBodyResourcePools.hpp>
+#include <alibabacloud/models/DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksCheckpoints.hpp>
+#include <alibabacloud/models/DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfigurationContainersEnvironmentVars.hpp>
+#include <alibabacloud/models/DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfigurationContainers.hpp>
+#include <alibabacloud/models/DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfigurationLaunchTemplateOverrides.hpp>
 #include <alibabacloud/models/DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfiguration.hpp>
 #include <alibabacloud/models/DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks.hpp>
 #include <alibabacloud/models/DescribeLifecycleActionsResponseBodyLifecycleActions.hpp>
@@ -543,6 +547,10 @@
 #include <alibabacloud/models/ScaleWithAdjustmentRequestOverrides.hpp>
 #include <alibabacloud/models/ScaleWithAdjustmentResponseBodyPlanResultResourceAllocations.hpp>
 #include <alibabacloud/models/ScaleWithAdjustmentResponseBodyPlanResult.hpp>
+#include <alibabacloud/models/StartInstanceRefreshRequestCheckpoints.hpp>
+#include <alibabacloud/models/StartInstanceRefreshRequestDesiredConfigurationContainersEnvironmentVars.hpp>
+#include <alibabacloud/models/StartInstanceRefreshRequestDesiredConfigurationContainers.hpp>
+#include <alibabacloud/models/StartInstanceRefreshRequestDesiredConfigurationLaunchTemplateOverrides.hpp>
 #include <alibabacloud/models/StartInstanceRefreshRequestDesiredConfiguration.hpp>
 #include <alibabacloud/models/TagResourcesRequestTags.hpp>
 
