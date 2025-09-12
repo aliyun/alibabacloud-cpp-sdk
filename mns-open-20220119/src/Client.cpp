@@ -1197,6 +1197,10 @@ SetSubscriptionAttributesResponse Client::setSubscriptionAttributesWithOptions(c
     query["NotifyStrategy"] = request.notifyStrategy();
   }
 
+  if (!!request.hasStsRoleArn()) {
+    query["StsRoleArn"] = request.stsRoleArn();
+  }
+
   if (!!request.hasSubscriptionName()) {
     query["SubscriptionName"] = request.subscriptionName();
   }

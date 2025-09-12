@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const SetSubscriptionAttributesShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DlqPolicy, dlqPolicyShrink_);
       DARABONBA_PTR_TO_JSON(NotifyStrategy, notifyStrategy_);
+      DARABONBA_PTR_TO_JSON(StsRoleArn, stsRoleArn_);
       DARABONBA_PTR_TO_JSON(SubscriptionName, subscriptionName_);
       DARABONBA_PTR_TO_JSON(TenantRateLimitPolicy, tenantRateLimitPolicyShrink_);
       DARABONBA_PTR_TO_JSON(TopicName, topicName_);
@@ -22,6 +23,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, SetSubscriptionAttributesShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DlqPolicy, dlqPolicyShrink_);
       DARABONBA_PTR_FROM_JSON(NotifyStrategy, notifyStrategy_);
+      DARABONBA_PTR_FROM_JSON(StsRoleArn, stsRoleArn_);
       DARABONBA_PTR_FROM_JSON(SubscriptionName, subscriptionName_);
       DARABONBA_PTR_FROM_JSON(TenantRateLimitPolicy, tenantRateLimitPolicyShrink_);
       DARABONBA_PTR_FROM_JSON(TopicName, topicName_);
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->dlqPolicyShrink_ != nullptr
-        && this->notifyStrategy_ != nullptr && this->subscriptionName_ != nullptr && this->tenantRateLimitPolicyShrink_ != nullptr && this->topicName_ != nullptr; };
+        && this->notifyStrategy_ != nullptr && this->stsRoleArn_ != nullptr && this->subscriptionName_ != nullptr && this->tenantRateLimitPolicyShrink_ != nullptr && this->topicName_ != nullptr; };
     // dlqPolicyShrink Field Functions 
     bool hasDlqPolicyShrink() const { return this->dlqPolicyShrink_ != nullptr;};
     void deleteDlqPolicyShrink() { this->dlqPolicyShrink_ = nullptr;};
@@ -51,6 +53,13 @@ namespace Models
     void deleteNotifyStrategy() { this->notifyStrategy_ = nullptr;};
     inline string notifyStrategy() const { DARABONBA_PTR_GET_DEFAULT(notifyStrategy_, "") };
     inline SetSubscriptionAttributesShrinkRequest& setNotifyStrategy(string notifyStrategy) { DARABONBA_PTR_SET_VALUE(notifyStrategy_, notifyStrategy) };
+
+
+    // stsRoleArn Field Functions 
+    bool hasStsRoleArn() const { return this->stsRoleArn_ != nullptr;};
+    void deleteStsRoleArn() { this->stsRoleArn_ = nullptr;};
+    inline string stsRoleArn() const { DARABONBA_PTR_GET_DEFAULT(stsRoleArn_, "") };
+    inline SetSubscriptionAttributesShrinkRequest& setStsRoleArn(string stsRoleArn) { DARABONBA_PTR_SET_VALUE(stsRoleArn_, stsRoleArn) };
 
 
     // subscriptionName Field Functions 
@@ -82,6 +91,7 @@ namespace Models
     // *   BACKOFF_RETRY
     // *   EXPONENTIAL_DECAY_RETRY
     std::shared_ptr<string> notifyStrategy_ = nullptr;
+    std::shared_ptr<string> stsRoleArn_ = nullptr;
     // The name of the subscription.
     // 
     // This parameter is required.
