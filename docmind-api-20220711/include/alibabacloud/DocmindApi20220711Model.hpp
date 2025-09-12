@@ -94,7 +94,11 @@
 #include <alibabacloud/models/SubmitConvertPdfToImageJobResponseBodyData.hpp>
 #include <alibabacloud/models/SubmitConvertPdfToMarkdownJobResponseBodyData.hpp>
 #include <alibabacloud/models/SubmitConvertPdfToWordJobResponseBodyData.hpp>
+#include <alibabacloud/models/SubmitDocParserJobRequestCustomOssConfig.hpp>
+#include <alibabacloud/models/SubmitDocParserJobRequestLlmparam.hpp>
 #include <alibabacloud/models/SubmitDocParserJobRequestMultimediaParameters.hpp>
+#include <alibabacloud/models/SubmitDocParserJobAdvanceRequestCustomOssConfig.hpp>
+#include <alibabacloud/models/SubmitDocParserJobAdvanceRequestLlmparam.hpp>
 #include <alibabacloud/models/SubmitDocParserJobAdvanceRequestMultimediaParameters.hpp>
 #include <alibabacloud/models/SubmitDocParserJobResponseBodyData.hpp>
 #include <alibabacloud/models/SubmitDocStructureJobResponseBodyData.hpp>

@@ -1584,11 +1584,23 @@ SubmitDocParserJobResponse Client::submitDocParserJobWithOptions(const SubmitDoc
   tmpReq.validate();
   SubmitDocParserJobShrinkRequest request = SubmitDocParserJobShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCustomOssConfig()) {
+    request.setCustomOssConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.customOssConfig(), "CustomOssConfig", "json"));
+  }
+
+  if (!!tmpReq.hasLLMParam()) {
+    request.setLLMParamShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.LLMParam(), "LLMParam", "json"));
+  }
+
   if (!!tmpReq.hasMultimediaParameters()) {
     request.setMultimediaParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.multimediaParameters(), "MultimediaParameters", "json"));
   }
 
   json query = {};
+  if (!!request.hasCustomOssConfigShrink()) {
+    query["CustomOssConfig"] = request.customOssConfigShrink();
+  }
+
   if (!!request.hasEnhancementMode()) {
     query["EnhancementMode"] = request.enhancementMode();
   }
@@ -1607,6 +1619,10 @@ SubmitDocParserJobResponse Client::submitDocParserJobWithOptions(const SubmitDoc
 
   if (!!request.hasFormulaEnhancement()) {
     query["FormulaEnhancement"] = request.formulaEnhancement();
+  }
+
+  if (!!request.hasLLMParamShrink()) {
+    query["LLMParam"] = request.LLMParamShrink();
   }
 
   if (!!request.hasLlmEnhancement()) {

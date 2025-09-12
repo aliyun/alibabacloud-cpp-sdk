@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_SUBMITDOCPARSERJOBREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_SUBMITDOCPARSERJOBREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/SubmitDocParserJobRequestCustomOssConfig.hpp>
+#include <alibabacloud/models/SubmitDocParserJobRequestLLMParam.hpp>
 #include <alibabacloud/models/SubmitDocParserJobRequestMultimediaParameters.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -14,11 +16,13 @@ namespace Models
   class SubmitDocParserJobRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SubmitDocParserJobRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CustomOssConfig, customOssConfig_);
       DARABONBA_PTR_TO_JSON(EnhancementMode, enhancementMode_);
       DARABONBA_PTR_TO_JSON(FileName, fileName_);
       DARABONBA_PTR_TO_JSON(FileNameExtension, fileNameExtension_);
       DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_TO_JSON(FormulaEnhancement, formulaEnhancement_);
+      DARABONBA_PTR_TO_JSON(LLMParam, LLMParam_);
       DARABONBA_PTR_TO_JSON(LlmEnhancement, llmEnhancement_);
       DARABONBA_PTR_TO_JSON(MultimediaParameters, multimediaParameters_);
       DARABONBA_PTR_TO_JSON(Option, option_);
@@ -28,11 +32,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageIndex, pageIndex_);
     };
     friend void from_json(const Darabonba::Json& j, SubmitDocParserJobRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CustomOssConfig, customOssConfig_);
       DARABONBA_PTR_FROM_JSON(EnhancementMode, enhancementMode_);
       DARABONBA_PTR_FROM_JSON(FileName, fileName_);
       DARABONBA_PTR_FROM_JSON(FileNameExtension, fileNameExtension_);
       DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_FROM_JSON(FormulaEnhancement, formulaEnhancement_);
+      DARABONBA_PTR_FROM_JSON(LLMParam, LLMParam_);
       DARABONBA_PTR_FROM_JSON(LlmEnhancement, llmEnhancement_);
       DARABONBA_PTR_FROM_JSON(MultimediaParameters, multimediaParameters_);
       DARABONBA_PTR_FROM_JSON(Option, option_);
@@ -52,10 +58,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enhancementMode_ != nullptr
-        && this->fileName_ != nullptr && this->fileNameExtension_ != nullptr && this->fileUrl_ != nullptr && this->formulaEnhancement_ != nullptr && this->llmEnhancement_ != nullptr
-        && this->multimediaParameters_ != nullptr && this->option_ != nullptr && this->ossBucket_ != nullptr && this->ossEndpoint_ != nullptr && this->outputHtmlTable_ != nullptr
-        && this->pageIndex_ != nullptr; };
+    virtual bool empty() const override { this->customOssConfig_ != nullptr
+        && this->enhancementMode_ != nullptr && this->fileName_ != nullptr && this->fileNameExtension_ != nullptr && this->fileUrl_ != nullptr && this->formulaEnhancement_ != nullptr
+        && this->LLMParam_ != nullptr && this->llmEnhancement_ != nullptr && this->multimediaParameters_ != nullptr && this->option_ != nullptr && this->ossBucket_ != nullptr
+        && this->ossEndpoint_ != nullptr && this->outputHtmlTable_ != nullptr && this->pageIndex_ != nullptr; };
+    // customOssConfig Field Functions 
+    bool hasCustomOssConfig() const { return this->customOssConfig_ != nullptr;};
+    void deleteCustomOssConfig() { this->customOssConfig_ = nullptr;};
+    inline const SubmitDocParserJobRequestCustomOssConfig & customOssConfig() const { DARABONBA_PTR_GET_CONST(customOssConfig_, SubmitDocParserJobRequestCustomOssConfig) };
+    inline SubmitDocParserJobRequestCustomOssConfig customOssConfig() { DARABONBA_PTR_GET(customOssConfig_, SubmitDocParserJobRequestCustomOssConfig) };
+    inline SubmitDocParserJobRequest& setCustomOssConfig(const SubmitDocParserJobRequestCustomOssConfig & customOssConfig) { DARABONBA_PTR_SET_VALUE(customOssConfig_, customOssConfig) };
+    inline SubmitDocParserJobRequest& setCustomOssConfig(SubmitDocParserJobRequestCustomOssConfig && customOssConfig) { DARABONBA_PTR_SET_RVALUE(customOssConfig_, customOssConfig) };
+
+
     // enhancementMode Field Functions 
     bool hasEnhancementMode() const { return this->enhancementMode_ != nullptr;};
     void deleteEnhancementMode() { this->enhancementMode_ = nullptr;};
@@ -89,6 +104,15 @@ namespace Models
     void deleteFormulaEnhancement() { this->formulaEnhancement_ = nullptr;};
     inline bool formulaEnhancement() const { DARABONBA_PTR_GET_DEFAULT(formulaEnhancement_, false) };
     inline SubmitDocParserJobRequest& setFormulaEnhancement(bool formulaEnhancement) { DARABONBA_PTR_SET_VALUE(formulaEnhancement_, formulaEnhancement) };
+
+
+    // LLMParam Field Functions 
+    bool hasLLMParam() const { return this->LLMParam_ != nullptr;};
+    void deleteLLMParam() { this->LLMParam_ = nullptr;};
+    inline const SubmitDocParserJobRequestLLMParam & LLMParam() const { DARABONBA_PTR_GET_CONST(LLMParam_, SubmitDocParserJobRequestLLMParam) };
+    inline SubmitDocParserJobRequestLLMParam LLMParam() { DARABONBA_PTR_GET(LLMParam_, SubmitDocParserJobRequestLLMParam) };
+    inline SubmitDocParserJobRequest& setLLMParam(const SubmitDocParserJobRequestLLMParam & LLMParam) { DARABONBA_PTR_SET_VALUE(LLMParam_, LLMParam) };
+    inline SubmitDocParserJobRequest& setLLMParam(SubmitDocParserJobRequestLLMParam && LLMParam) { DARABONBA_PTR_SET_RVALUE(LLMParam_, LLMParam) };
 
 
     // llmEnhancement Field Functions 
@@ -143,11 +167,13 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<SubmitDocParserJobRequestCustomOssConfig> customOssConfig_ = nullptr;
     std::shared_ptr<string> enhancementMode_ = nullptr;
     std::shared_ptr<string> fileName_ = nullptr;
     std::shared_ptr<string> fileNameExtension_ = nullptr;
     std::shared_ptr<string> fileUrl_ = nullptr;
     std::shared_ptr<bool> formulaEnhancement_ = nullptr;
+    std::shared_ptr<SubmitDocParserJobRequestLLMParam> LLMParam_ = nullptr;
     std::shared_ptr<bool> llmEnhancement_ = nullptr;
     std::shared_ptr<SubmitDocParserJobRequestMultimediaParameters> multimediaParameters_ = nullptr;
     std::shared_ptr<string> option_ = nullptr;
