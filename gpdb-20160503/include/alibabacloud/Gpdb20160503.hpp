@@ -2417,6 +2417,23 @@ namespace Gpdb20160503
       Models::DownloadSQLLogsRecordsResponse downloadSQLLogsRecords(const Models::DownloadSQLLogsRecordsRequest &request);
 
       /**
+       * @summary 知识库开启构建知识图谱
+       *
+       * @param tmpReq EnableCollectionGraphRAGRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableCollectionGraphRAGResponse
+       */
+      Models::EnableCollectionGraphRAGResponse enableCollectionGraphRAGWithOptions(const Models::EnableCollectionGraphRAGRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 知识库开启构建知识图谱
+       *
+       * @param request EnableCollectionGraphRAGRequest
+       * @return EnableCollectionGraphRAGResponse
+       */
+      Models::EnableCollectionGraphRAGResponse enableCollectionGraphRAG(const Models::EnableCollectionGraphRAGRequest &request);
+
+      /**
        * @summary Enables resource group management for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode. After resource group management is enabled, the resource management mode of the instance is changed from resource queue to resource group.
        *
        * @description *   You can call this operation only for AnalyticDB for PostgreSQL V6.0 instances in elastic storage mode whose minor version is V6.6.1.0 or later.
@@ -2474,6 +2491,23 @@ namespace Gpdb20160503
        * @return GetAccountResponse
        */
       Models::GetAccountResponse getAccount(const Models::GetAccountRequest &request);
+
+      /**
+       * @summary 获取构建知识图谱任务
+       *
+       * @param request GetGraphRAGJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetGraphRAGJobResponse
+       */
+      Models::GetGraphRAGJobResponse getGraphRAGJobWithOptions(const Models::GetGraphRAGJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取构建知识图谱任务
+       *
+       * @param request GetGraphRAGJobRequest
+       * @return GetGraphRAGJobResponse
+       */
+      Models::GetGraphRAGJobResponse getGraphRAGJob(const Models::GetGraphRAGJobRequest &request);
 
       /**
        * @summary Queries the information about an access credential.

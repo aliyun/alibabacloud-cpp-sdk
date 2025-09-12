@@ -8073,6 +8073,102 @@ DownloadSQLLogsRecordsResponse Client::downloadSQLLogsRecords(const DownloadSQLL
 }
 
 /**
+ * @summary 知识库开启构建知识图谱
+ *
+ * @param tmpReq EnableCollectionGraphRAGRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableCollectionGraphRAGResponse
+ */
+EnableCollectionGraphRAGResponse Client::enableCollectionGraphRAGWithOptions(const EnableCollectionGraphRAGRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  EnableCollectionGraphRAGShrinkRequest request = EnableCollectionGraphRAGShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEntityTypes()) {
+    request.setEntityTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.entityTypes(), "EntityTypes", "json"));
+  }
+
+  if (!!tmpReq.hasRelationshipTypes()) {
+    request.setRelationshipTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.relationshipTypes(), "RelationshipTypes", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasCollection()) {
+    query["Collection"] = request.collection();
+  }
+
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasEntityTypesShrink()) {
+    query["EntityTypes"] = request.entityTypesShrink();
+  }
+
+  if (!!request.hasLLMModel()) {
+    query["LLMModel"] = request.LLMModel();
+  }
+
+  if (!!request.hasLanguage()) {
+    query["Language"] = request.language();
+  }
+
+  if (!!request.hasManagerAccount()) {
+    query["ManagerAccount"] = request.managerAccount();
+  }
+
+  if (!!request.hasManagerAccountPassword()) {
+    query["ManagerAccountPassword"] = request.managerAccountPassword();
+  }
+
+  if (!!request.hasNamespace()) {
+    query["Namespace"] = request._namespace();
+  }
+
+  if (!!request.hasNamespacePassword()) {
+    query["NamespacePassword"] = request.namespacePassword();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasRelationshipTypesShrink()) {
+    query["RelationshipTypes"] = request.relationshipTypesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableCollectionGraphRAG"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableCollectionGraphRAGResponse>();
+}
+
+/**
+ * @summary 知识库开启构建知识图谱
+ *
+ * @param request EnableCollectionGraphRAGRequest
+ * @return EnableCollectionGraphRAGResponse
+ */
+EnableCollectionGraphRAGResponse Client::enableCollectionGraphRAG(const EnableCollectionGraphRAGRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableCollectionGraphRAGWithOptions(request, runtime);
+}
+
+/**
  * @summary Enables resource group management for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode. After resource group management is enabled, the resource management mode of the instance is changed from resource queue to resource group.
  *
  * @description *   You can call this operation only for AnalyticDB for PostgreSQL V6.0 instances in elastic storage mode whose minor version is V6.6.1.0 or later.
@@ -8272,6 +8368,72 @@ GetAccountResponse Client::getAccountWithOptions(const GetAccountRequest &reques
 GetAccountResponse Client::getAccount(const GetAccountRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getAccountWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取构建知识图谱任务
+ *
+ * @param request GetGraphRAGJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetGraphRAGJobResponse
+ */
+GetGraphRAGJobResponse Client::getGraphRAGJobWithOptions(const GetGraphRAGJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCollection()) {
+    query["Collection"] = request.collection();
+  }
+
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.jobId();
+  }
+
+  if (!!request.hasNamespace()) {
+    query["Namespace"] = request._namespace();
+  }
+
+  if (!!request.hasNamespacePassword()) {
+    query["NamespacePassword"] = request.namespacePassword();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetGraphRAGJob"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetGraphRAGJobResponse>();
+}
+
+/**
+ * @summary 获取构建知识图谱任务
+ *
+ * @param request GetGraphRAGJobRequest
+ * @return GetGraphRAGJobResponse
+ */
+GetGraphRAGJobResponse Client::getGraphRAGJob(const GetGraphRAGJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getGraphRAGJobWithOptions(request, runtime);
 }
 
 /**

@@ -376,6 +376,10 @@
 #include <alibabacloud/models/DownloadSqllogsRecordsRequest.hpp>
 #include <alibabacloud/models/DownloadSqllogsRecordsResponseBody.hpp>
 #include <alibabacloud/models/DownloadSqllogsRecordsResponse.hpp>
+#include <alibabacloud/models/EnableCollectionGraphRagrequest.hpp>
+#include <alibabacloud/models/EnableCollectionGraphRagshrinkRequest.hpp>
+#include <alibabacloud/models/EnableCollectionGraphRagresponseBody.hpp>
+#include <alibabacloud/models/EnableCollectionGraphRagresponse.hpp>
 #include <alibabacloud/models/EnableDbresourceGroupRequest.hpp>
 #include <alibabacloud/models/EnableDbresourceGroupResponseBody.hpp>
 #include <alibabacloud/models/EnableDbresourceGroupResponse.hpp>
@@ -386,6 +390,9 @@
 #include <alibabacloud/models/GetAccountRequest.hpp>
 #include <alibabacloud/models/GetAccountResponseBody.hpp>
 #include <alibabacloud/models/GetAccountResponse.hpp>
+#include <alibabacloud/models/GetGraphRagjobRequest.hpp>
+#include <alibabacloud/models/GetGraphRagjobResponseBody.hpp>
+#include <alibabacloud/models/GetGraphRagjobResponse.hpp>
 #include <alibabacloud/models/GetSecretValueRequest.hpp>
 #include <alibabacloud/models/GetSecretValueResponseBody.hpp>
 #include <alibabacloud/models/GetSecretValueResponse.hpp>
@@ -758,6 +765,8 @@
 #include <alibabacloud/models/ExecuteStatementResponseBodyDataRecordsRecords.hpp>
 #include <alibabacloud/models/ExecuteStatementResponseBodyDataRecords.hpp>
 #include <alibabacloud/models/ExecuteStatementResponseBodyData.hpp>
+#include <alibabacloud/models/GetGraphRagjobResponseBodyJob.hpp>
+#include <alibabacloud/models/GetGraphRagjobResponseBodyUsage.hpp>
 #include <alibabacloud/models/GetStatementResultResponseBodyDataColumnMetadata.hpp>
 #include <alibabacloud/models/GetStatementResultResponseBodyDataRecordsRecords.hpp>
 #include <alibabacloud/models/GetStatementResultResponseBodyDataRecords.hpp>
