@@ -8,6 +8,9 @@
 #include <alibabacloud/models/GetCreateLogoTaskRequest.hpp>
 #include <alibabacloud/models/GetCreateLogoTaskResponseBody.hpp>
 #include <alibabacloud/models/GetCreateLogoTaskResponse.hpp>
+#include <alibabacloud/models/GetDomainInfoForPartnerRequest.hpp>
+#include <alibabacloud/models/GetDomainInfoForPartnerResponseBody.hpp>
+#include <alibabacloud/models/GetDomainInfoForPartnerResponse.hpp>
 #include <alibabacloud/models/GetIcpFilingInfoForPartnerRequest.hpp>
 #include <alibabacloud/models/GetIcpFilingInfoForPartnerResponseBody.hpp>
 #include <alibabacloud/models/GetIcpFilingInfoForPartnerResponse.hpp>
@@ -29,6 +32,8 @@
 #include <alibabacloud/models/SyncAppInstanceForPartnerResponseBody.hpp>
 #include <alibabacloud/models/SyncAppInstanceForPartnerResponse.hpp>
 #include <alibabacloud/models/GetCreateLogoTaskResponseBodyTask.hpp>
+#include <alibabacloud/models/GetDomainInfoForPartnerResponseBodyDataOwnership.hpp>
+#include <alibabacloud/models/GetDomainInfoForPartnerResponseBodyData.hpp>
 #include <alibabacloud/models/GetIcpFilingInfoForPartnerResponseBodyData.hpp>
 #include <alibabacloud/models/GetUserTmpIdentityForPartnerResponseBodyDataCredentials.hpp>
 #include <alibabacloud/models/GetUserTmpIdentityForPartnerResponseBodyData.hpp>

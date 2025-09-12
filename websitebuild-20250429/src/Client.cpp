@@ -132,6 +132,56 @@ GetCreateLogoTaskResponse Client::getCreateLogoTask(const GetCreateLogoTaskReque
 }
 
 /**
+ * @summary 提供给服务商的域名查询接口
+ *
+ * @param request GetDomainInfoForPartnerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDomainInfoForPartnerResponse
+ */
+GetDomainInfoForPartnerResponse Client::getDomainInfoForPartnerWithOptions(const GetDomainInfoForPartnerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.bizId();
+  }
+
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.domainName();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.userId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDomainInfoForPartner"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDomainInfoForPartnerResponse>();
+}
+
+/**
+ * @summary 提供给服务商的域名查询接口
+ *
+ * @param request GetDomainInfoForPartnerRequest
+ * @return GetDomainInfoForPartnerResponse
+ */
+GetDomainInfoForPartnerResponse Client::getDomainInfoForPartner(const GetDomainInfoForPartnerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDomainInfoForPartnerWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询域名备案信息
  *
  * @param request GetIcpFilingInfoForPartnerRequest

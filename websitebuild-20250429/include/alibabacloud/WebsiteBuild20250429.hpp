@@ -55,6 +55,23 @@ namespace WebsiteBuild20250429
       Models::GetCreateLogoTaskResponse getCreateLogoTask(const Models::GetCreateLogoTaskRequest &request);
 
       /**
+       * @summary 提供给服务商的域名查询接口
+       *
+       * @param request GetDomainInfoForPartnerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDomainInfoForPartnerResponse
+       */
+      Models::GetDomainInfoForPartnerResponse getDomainInfoForPartnerWithOptions(const Models::GetDomainInfoForPartnerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提供给服务商的域名查询接口
+       *
+       * @param request GetDomainInfoForPartnerRequest
+       * @return GetDomainInfoForPartnerResponse
+       */
+      Models::GetDomainInfoForPartnerResponse getDomainInfoForPartner(const Models::GetDomainInfoForPartnerRequest &request);
+
+      /**
        * @summary 查询域名备案信息
        *
        * @param request GetIcpFilingInfoForPartnerRequest
