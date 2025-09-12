@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_EVENTBRIDGE20200401MODEL_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/SinkBaiLianParameters.hpp>
+#include <alibabacloud/models/SinkDataWorksTriggerParameters.hpp>
 #include <alibabacloud/models/SourceMySqlparameters.hpp>
 #include <alibabacloud/models/CheckServiceLinkedRoleForProductRequest.hpp>
 #include <alibabacloud/models/CheckServiceLinkedRoleForProductResponseBody.hpp>

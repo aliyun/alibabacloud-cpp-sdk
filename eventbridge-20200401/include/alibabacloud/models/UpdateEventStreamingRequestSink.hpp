@@ -9,6 +9,7 @@
 #include <alibabacloud/models/UpdateEventStreamingRequestSinkSinkCustomizedKafkaParameters.hpp>
 #include <alibabacloud/models/UpdateEventStreamingRequestSinkSinkDashVectorParameters.hpp>
 #include <alibabacloud/models/UpdateEventStreamingRequestSinkSinkDataHubParameters.hpp>
+#include <alibabacloud/models/SinkDataWorksTriggerParameters.hpp>
 #include <alibabacloud/models/UpdateEventStreamingRequestSinkSinkDorisParameters.hpp>
 #include <alibabacloud/models/UpdateEventStreamingRequestSinkSinkFcParameters.hpp>
 #include <alibabacloud/models/UpdateEventStreamingRequestSinkSinkFnfParameters.hpp>
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SinkCustomizedKafkaParameters, sinkCustomizedKafkaParameters_);
       DARABONBA_PTR_TO_JSON(SinkDashVectorParameters, sinkDashVectorParameters_);
       DARABONBA_PTR_TO_JSON(SinkDataHubParameters, sinkDataHubParameters_);
+      DARABONBA_PTR_TO_JSON(SinkDataWorksTriggerParameters, sinkDataWorksTriggerParameters_);
       DARABONBA_PTR_TO_JSON(SinkDorisParameters, sinkDorisParameters_);
       DARABONBA_PTR_TO_JSON(SinkFcParameters, sinkFcParameters_);
       DARABONBA_PTR_TO_JSON(SinkFnfParameters, sinkFnfParameters_);
@@ -58,6 +60,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SinkCustomizedKafkaParameters, sinkCustomizedKafkaParameters_);
       DARABONBA_PTR_FROM_JSON(SinkDashVectorParameters, sinkDashVectorParameters_);
       DARABONBA_PTR_FROM_JSON(SinkDataHubParameters, sinkDataHubParameters_);
+      DARABONBA_PTR_FROM_JSON(SinkDataWorksTriggerParameters, sinkDataWorksTriggerParameters_);
       DARABONBA_PTR_FROM_JSON(SinkDorisParameters, sinkDorisParameters_);
       DARABONBA_PTR_FROM_JSON(SinkFcParameters, sinkFcParameters_);
       DARABONBA_PTR_FROM_JSON(SinkFnfParameters, sinkFnfParameters_);
@@ -83,9 +86,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->sinkApacheKafkaParameters_ != nullptr
         && this->sinkApacheRocketMQCheckpointParameters_ != nullptr && this->sinkBaiLianParameters_ != nullptr && this->sinkCustomizedKafkaConnectorParameters_ != nullptr && this->sinkCustomizedKafkaParameters_ != nullptr && this->sinkDashVectorParameters_ != nullptr
-        && this->sinkDataHubParameters_ != nullptr && this->sinkDorisParameters_ != nullptr && this->sinkFcParameters_ != nullptr && this->sinkFnfParameters_ != nullptr && this->sinkKafkaParameters_ != nullptr
-        && this->sinkMNSParameters_ != nullptr && this->sinkOpenSourceRabbitMQParameters_ != nullptr && this->sinkPrometheusParameters_ != nullptr && this->sinkRabbitMQParameters_ != nullptr && this->sinkRocketMQCheckpointParameters_ != nullptr
-        && this->sinkRocketMQParameters_ != nullptr && this->sinkSLSParameters_ != nullptr; };
+        && this->sinkDataHubParameters_ != nullptr && this->sinkDataWorksTriggerParameters_ != nullptr && this->sinkDorisParameters_ != nullptr && this->sinkFcParameters_ != nullptr && this->sinkFnfParameters_ != nullptr
+        && this->sinkKafkaParameters_ != nullptr && this->sinkMNSParameters_ != nullptr && this->sinkOpenSourceRabbitMQParameters_ != nullptr && this->sinkPrometheusParameters_ != nullptr && this->sinkRabbitMQParameters_ != nullptr
+        && this->sinkRocketMQCheckpointParameters_ != nullptr && this->sinkRocketMQParameters_ != nullptr && this->sinkSLSParameters_ != nullptr; };
     // sinkApacheKafkaParameters Field Functions 
     bool hasSinkApacheKafkaParameters() const { return this->sinkApacheKafkaParameters_ != nullptr;};
     void deleteSinkApacheKafkaParameters() { this->sinkApacheKafkaParameters_ = nullptr;};
@@ -147,6 +150,15 @@ namespace Models
     inline Models::UpdateEventStreamingRequestSinkSinkDataHubParameters sinkDataHubParameters() { DARABONBA_PTR_GET(sinkDataHubParameters_, Models::UpdateEventStreamingRequestSinkSinkDataHubParameters) };
     inline UpdateEventStreamingRequestSink& setSinkDataHubParameters(const Models::UpdateEventStreamingRequestSinkSinkDataHubParameters & sinkDataHubParameters) { DARABONBA_PTR_SET_VALUE(sinkDataHubParameters_, sinkDataHubParameters) };
     inline UpdateEventStreamingRequestSink& setSinkDataHubParameters(Models::UpdateEventStreamingRequestSinkSinkDataHubParameters && sinkDataHubParameters) { DARABONBA_PTR_SET_RVALUE(sinkDataHubParameters_, sinkDataHubParameters) };
+
+
+    // sinkDataWorksTriggerParameters Field Functions 
+    bool hasSinkDataWorksTriggerParameters() const { return this->sinkDataWorksTriggerParameters_ != nullptr;};
+    void deleteSinkDataWorksTriggerParameters() { this->sinkDataWorksTriggerParameters_ = nullptr;};
+    inline const Models::SinkDataWorksTriggerParameters & sinkDataWorksTriggerParameters() const { DARABONBA_PTR_GET_CONST(sinkDataWorksTriggerParameters_, Models::SinkDataWorksTriggerParameters) };
+    inline Models::SinkDataWorksTriggerParameters sinkDataWorksTriggerParameters() { DARABONBA_PTR_GET(sinkDataWorksTriggerParameters_, Models::SinkDataWorksTriggerParameters) };
+    inline UpdateEventStreamingRequestSink& setSinkDataWorksTriggerParameters(const Models::SinkDataWorksTriggerParameters & sinkDataWorksTriggerParameters) { DARABONBA_PTR_SET_VALUE(sinkDataWorksTriggerParameters_, sinkDataWorksTriggerParameters) };
+    inline UpdateEventStreamingRequestSink& setSinkDataWorksTriggerParameters(Models::SinkDataWorksTriggerParameters && sinkDataWorksTriggerParameters) { DARABONBA_PTR_SET_RVALUE(sinkDataWorksTriggerParameters_, sinkDataWorksTriggerParameters) };
 
 
     // sinkDorisParameters Field Functions 
@@ -262,6 +274,7 @@ namespace Models
     std::shared_ptr<Models::UpdateEventStreamingRequestSinkSinkDashVectorParameters> sinkDashVectorParameters_ = nullptr;
     // The parameters that are configured if you specify DataHub as the event target.
     std::shared_ptr<Models::UpdateEventStreamingRequestSinkSinkDataHubParameters> sinkDataHubParameters_ = nullptr;
+    std::shared_ptr<Models::SinkDataWorksTriggerParameters> sinkDataWorksTriggerParameters_ = nullptr;
     // The type of the event source.
     std::shared_ptr<Models::UpdateEventStreamingRequestSinkSinkDorisParameters> sinkDorisParameters_ = nullptr;
     // The parameters that are configured if you specify Function Compute as the event target.
