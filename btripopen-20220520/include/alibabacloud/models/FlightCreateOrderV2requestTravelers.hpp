@@ -31,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(phone, phone_);
       DARABONBA_PTR_TO_JSON(project_code, projectCode_);
       DARABONBA_PTR_TO_JSON(project_title, projectTitle_);
+      DARABONBA_PTR_TO_JSON(tax_number, taxNumber_);
       DARABONBA_PTR_TO_JSON(user_id, userId_);
       DARABONBA_PTR_TO_JSON(user_type, userType_);
     };
@@ -53,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(phone, phone_);
       DARABONBA_PTR_FROM_JSON(project_code, projectCode_);
       DARABONBA_PTR_FROM_JSON(project_title, projectTitle_);
+      DARABONBA_PTR_FROM_JSON(tax_number, taxNumber_);
       DARABONBA_PTR_FROM_JSON(user_id, userId_);
       DARABONBA_PTR_FROM_JSON(user_type, userType_);
     };
@@ -71,7 +73,7 @@ namespace Models
         && this->certNation_ != nullptr && this->certNo_ != nullptr && this->certType_ != nullptr && this->certValidDate_ != nullptr && this->costCenterName_ != nullptr
         && this->costCenterNumber_ != nullptr && this->deptId_ != nullptr && this->deptName_ != nullptr && this->gender_ != nullptr && this->invoiceTitle_ != nullptr
         && this->nationality_ != nullptr && this->nationalityCode_ != nullptr && this->passengerName_ != nullptr && this->passengerType_ != nullptr && this->phone_ != nullptr
-        && this->projectCode_ != nullptr && this->projectTitle_ != nullptr && this->userId_ != nullptr && this->userType_ != nullptr; };
+        && this->projectCode_ != nullptr && this->projectTitle_ != nullptr && this->taxNumber_ != nullptr && this->userId_ != nullptr && this->userType_ != nullptr; };
     // birthday Field Functions 
     bool hasBirthday() const { return this->birthday_ != nullptr;};
     void deleteBirthday() { this->birthday_ = nullptr;};
@@ -198,6 +200,13 @@ namespace Models
     inline FlightCreateOrderV2RequestTravelers& setProjectTitle(string projectTitle) { DARABONBA_PTR_SET_VALUE(projectTitle_, projectTitle) };
 
 
+    // taxNumber Field Functions 
+    bool hasTaxNumber() const { return this->taxNumber_ != nullptr;};
+    void deleteTaxNumber() { this->taxNumber_ = nullptr;};
+    inline string taxNumber() const { DARABONBA_PTR_GET_DEFAULT(taxNumber_, "") };
+    inline FlightCreateOrderV2RequestTravelers& setTaxNumber(string taxNumber) { DARABONBA_PTR_SET_VALUE(taxNumber_, taxNumber) };
+
+
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
@@ -238,6 +247,7 @@ namespace Models
     std::shared_ptr<string> phone_ = nullptr;
     std::shared_ptr<string> projectCode_ = nullptr;
     std::shared_ptr<string> projectTitle_ = nullptr;
+    std::shared_ptr<string> taxNumber_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> userId_ = nullptr;
     std::shared_ptr<int32_t> userType_ = nullptr;

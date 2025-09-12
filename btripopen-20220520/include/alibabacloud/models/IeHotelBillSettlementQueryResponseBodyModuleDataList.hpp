@@ -22,6 +22,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(apply_dep_city_name, applyDepCityName_);
       DARABONBA_PTR_TO_JSON(apply_extend_field, applyExtendField_);
       DARABONBA_PTR_TO_JSON(apply_id, applyId_);
+      DARABONBA_PTR_TO_JSON(approver_email, approverEmail_);
+      DARABONBA_PTR_TO_JSON(approver_id, approverId_);
+      DARABONBA_PTR_TO_JSON(approver_name, approverName_);
       DARABONBA_PTR_TO_JSON(average_nights, averageNights_);
       DARABONBA_PTR_TO_JSON(base_location, baseLocation_);
       DARABONBA_PTR_TO_JSON(bill_record_time, billRecordTime_);
@@ -58,6 +61,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(fee_type_desc, feeTypeDesc_);
       DARABONBA_PTR_TO_JSON(fines, fines_);
       DARABONBA_PTR_TO_JSON(foreign_business_expense, foreignBusinessExpense_);
+      DARABONBA_PTR_TO_JSON(foreigners_tag, foreignersTag_);
       DARABONBA_PTR_TO_JSON(hotel_name, hotelName_);
       DARABONBA_PTR_TO_JSON(hotel_star, hotelStar_);
       DARABONBA_PTR_TO_JSON(index, index_);
@@ -65,6 +69,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(is_early_departure, isEarlyDeparture_);
       DARABONBA_PTR_TO_JSON(is_negotiation, isNegotiation_);
       DARABONBA_PTR_TO_JSON(is_share_str, isShareStr_);
+      DARABONBA_PTR_TO_JSON(location, location_);
       DARABONBA_PTR_TO_JSON(main_apply_id, mainApplyId_);
       DARABONBA_PTR_TO_JSON(mapping_company_code, mappingCompanyCode_);
       DARABONBA_PTR_TO_JSON(nights, nights_);
@@ -98,6 +103,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(settlement_grant_fee, settlementGrantFee_);
       DARABONBA_PTR_TO_JSON(settlement_time, settlementTime_);
       DARABONBA_PTR_TO_JSON(settlement_type, settlementType_);
+      DARABONBA_PTR_TO_JSON(sio, sio_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(status_desc, statusDesc_);
       DARABONBA_PTR_TO_JSON(sub_order_id, subOrderId_);
@@ -108,6 +114,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(thirdpart_apply_id, thirdpartApplyId_);
       DARABONBA_PTR_TO_JSON(total_nights, totalNights_);
       DARABONBA_PTR_TO_JSON(trade_action_desc, tradeActionDesc_);
+      DARABONBA_PTR_TO_JSON(traveler_email, travelerEmail_);
       DARABONBA_PTR_TO_JSON(traveler_id, travelerId_);
       DARABONBA_PTR_TO_JSON(traveler_job_no, travelerJobNo_);
       DARABONBA_PTR_TO_JSON(traveler_member_type, travelerMemberType_);
@@ -125,6 +132,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(apply_dep_city_name, applyDepCityName_);
       DARABONBA_PTR_FROM_JSON(apply_extend_field, applyExtendField_);
       DARABONBA_PTR_FROM_JSON(apply_id, applyId_);
+      DARABONBA_PTR_FROM_JSON(approver_email, approverEmail_);
+      DARABONBA_PTR_FROM_JSON(approver_id, approverId_);
+      DARABONBA_PTR_FROM_JSON(approver_name, approverName_);
       DARABONBA_PTR_FROM_JSON(average_nights, averageNights_);
       DARABONBA_PTR_FROM_JSON(base_location, baseLocation_);
       DARABONBA_PTR_FROM_JSON(bill_record_time, billRecordTime_);
@@ -161,6 +171,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(fee_type_desc, feeTypeDesc_);
       DARABONBA_PTR_FROM_JSON(fines, fines_);
       DARABONBA_PTR_FROM_JSON(foreign_business_expense, foreignBusinessExpense_);
+      DARABONBA_PTR_FROM_JSON(foreigners_tag, foreignersTag_);
       DARABONBA_PTR_FROM_JSON(hotel_name, hotelName_);
       DARABONBA_PTR_FROM_JSON(hotel_star, hotelStar_);
       DARABONBA_PTR_FROM_JSON(index, index_);
@@ -168,6 +179,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(is_early_departure, isEarlyDeparture_);
       DARABONBA_PTR_FROM_JSON(is_negotiation, isNegotiation_);
       DARABONBA_PTR_FROM_JSON(is_share_str, isShareStr_);
+      DARABONBA_PTR_FROM_JSON(location, location_);
       DARABONBA_PTR_FROM_JSON(main_apply_id, mainApplyId_);
       DARABONBA_PTR_FROM_JSON(mapping_company_code, mappingCompanyCode_);
       DARABONBA_PTR_FROM_JSON(nights, nights_);
@@ -201,6 +213,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(settlement_grant_fee, settlementGrantFee_);
       DARABONBA_PTR_FROM_JSON(settlement_time, settlementTime_);
       DARABONBA_PTR_FROM_JSON(settlement_type, settlementType_);
+      DARABONBA_PTR_FROM_JSON(sio, sio_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(status_desc, statusDesc_);
       DARABONBA_PTR_FROM_JSON(sub_order_id, subOrderId_);
@@ -211,6 +224,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(thirdpart_apply_id, thirdpartApplyId_);
       DARABONBA_PTR_FROM_JSON(total_nights, totalNights_);
       DARABONBA_PTR_FROM_JSON(trade_action_desc, tradeActionDesc_);
+      DARABONBA_PTR_FROM_JSON(traveler_email, travelerEmail_);
       DARABONBA_PTR_FROM_JSON(traveler_id, travelerId_);
       DARABONBA_PTR_FROM_JSON(traveler_job_no, travelerJobNo_);
       DARABONBA_PTR_FROM_JSON(traveler_member_type, travelerMemberType_);
@@ -231,25 +245,27 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->adjustTime_ != nullptr
         && this->alipayTradeNo_ != nullptr && this->amountCurrency_ != nullptr && this->applyArrCityCode_ != nullptr && this->applyArrCityName_ != nullptr && this->applyDepCityCode_ != nullptr
-        && this->applyDepCityName_ != nullptr && this->applyExtendField_ != nullptr && this->applyId_ != nullptr && this->averageNights_ != nullptr && this->baseLocation_ != nullptr
-        && this->billRecordTime_ != nullptr && this->bookMode_ != nullptr && this->bookReason_ != nullptr && this->bookTime_ != nullptr && this->bookerId_ != nullptr
-        && this->bookerJobNo_ != nullptr && this->bookerName_ != nullptr && this->brandGroup_ != nullptr && this->brandName_ != nullptr && this->businessExpense_ != nullptr
-        && this->businessTripResult_ != nullptr && this->capitalDirection_ != nullptr && this->cascadeDepartment_ != nullptr && this->categoryDesc_ != nullptr && this->checkInDate_ != nullptr
-        && this->checkoutDate_ != nullptr && this->city_ != nullptr && this->cityCode_ != nullptr && this->corpRefundFee_ != nullptr && this->corpTotalFee_ != nullptr
-        && this->costCenter_ != nullptr && this->costCenterNumber_ != nullptr && this->costDepartment_ != nullptr && this->country_ != nullptr && this->countryCode_ != nullptr
-        && this->customContent_ != nullptr && this->deductibleTax_ != nullptr && this->department_ != nullptr && this->departmentId_ != nullptr && this->exceedReason_ != nullptr
-        && this->feeType_ != nullptr && this->feeTypeDesc_ != nullptr && this->fines_ != nullptr && this->foreignBusinessExpense_ != nullptr && this->hotelName_ != nullptr
-        && this->hotelStar_ != nullptr && this->index_ != nullptr && this->invoiceTitle_ != nullptr && this->isEarlyDeparture_ != nullptr && this->isNegotiation_ != nullptr
-        && this->isShareStr_ != nullptr && this->mainApplyId_ != nullptr && this->mappingCompanyCode_ != nullptr && this->nights_ != nullptr && this->orderId_ != nullptr
+        && this->applyDepCityName_ != nullptr && this->applyExtendField_ != nullptr && this->applyId_ != nullptr && this->approverEmail_ != nullptr && this->approverId_ != nullptr
+        && this->approverName_ != nullptr && this->averageNights_ != nullptr && this->baseLocation_ != nullptr && this->billRecordTime_ != nullptr && this->bookMode_ != nullptr
+        && this->bookReason_ != nullptr && this->bookTime_ != nullptr && this->bookerId_ != nullptr && this->bookerJobNo_ != nullptr && this->bookerName_ != nullptr
+        && this->brandGroup_ != nullptr && this->brandName_ != nullptr && this->businessExpense_ != nullptr && this->businessTripResult_ != nullptr && this->capitalDirection_ != nullptr
+        && this->cascadeDepartment_ != nullptr && this->categoryDesc_ != nullptr && this->checkInDate_ != nullptr && this->checkoutDate_ != nullptr && this->city_ != nullptr
+        && this->cityCode_ != nullptr && this->corpRefundFee_ != nullptr && this->corpTotalFee_ != nullptr && this->costCenter_ != nullptr && this->costCenterNumber_ != nullptr
+        && this->costDepartment_ != nullptr && this->country_ != nullptr && this->countryCode_ != nullptr && this->customContent_ != nullptr && this->deductibleTax_ != nullptr
+        && this->department_ != nullptr && this->departmentId_ != nullptr && this->exceedReason_ != nullptr && this->feeType_ != nullptr && this->feeTypeDesc_ != nullptr
+        && this->fines_ != nullptr && this->foreignBusinessExpense_ != nullptr && this->foreignersTag_ != nullptr && this->hotelName_ != nullptr && this->hotelStar_ != nullptr
+        && this->index_ != nullptr && this->invoiceTitle_ != nullptr && this->isEarlyDeparture_ != nullptr && this->isNegotiation_ != nullptr && this->isShareStr_ != nullptr
+        && this->location_ != nullptr && this->mainApplyId_ != nullptr && this->mappingCompanyCode_ != nullptr && this->nights_ != nullptr && this->orderId_ != nullptr
         && this->orderPrice_ != nullptr && this->orderStatusDesc_ != nullptr && this->orderType_ != nullptr && this->originalReserveRule_ != nullptr && this->overApplyId_ != nullptr
         && this->paymentDepartmentId_ != nullptr && this->paymentDepartmentName_ != nullptr && this->personRefundFee_ != nullptr && this->personSettlePrice_ != nullptr && this->position_ != nullptr
         && this->positionLevel_ != nullptr && this->primaryId_ != nullptr && this->processorOaCode_ != nullptr && this->projectCode_ != nullptr && this->projectName_ != nullptr
         && this->promotionFee_ != nullptr && this->rate_ != nullptr && this->remark_ != nullptr && this->reserveRule_ != nullptr && this->roomNo_ != nullptr
         && this->roomNumber_ != nullptr && this->roomPrice_ != nullptr && this->roomType_ != nullptr && this->serviceFee_ != nullptr && this->settleTypeDesc_ != nullptr
-        && this->settlementFee_ != nullptr && this->settlementGrantFee_ != nullptr && this->settlementTime_ != nullptr && this->settlementType_ != nullptr && this->status_ != nullptr
-        && this->statusDesc_ != nullptr && this->subOrderId_ != nullptr && this->taxRate_ != nullptr && this->thirdInvoiceId_ != nullptr && this->thirdItineraryId_ != nullptr
-        && this->thirdPartBusinessId_ != nullptr && this->thirdpartApplyId_ != nullptr && this->totalNights_ != nullptr && this->tradeActionDesc_ != nullptr && this->travelerId_ != nullptr
-        && this->travelerJobNo_ != nullptr && this->travelerMemberType_ != nullptr && this->travelerName_ != nullptr && this->voucherType_ != nullptr && this->voucherTypeDesc_ != nullptr; };
+        && this->settlementFee_ != nullptr && this->settlementGrantFee_ != nullptr && this->settlementTime_ != nullptr && this->settlementType_ != nullptr && this->sio_ != nullptr
+        && this->status_ != nullptr && this->statusDesc_ != nullptr && this->subOrderId_ != nullptr && this->taxRate_ != nullptr && this->thirdInvoiceId_ != nullptr
+        && this->thirdItineraryId_ != nullptr && this->thirdPartBusinessId_ != nullptr && this->thirdpartApplyId_ != nullptr && this->totalNights_ != nullptr && this->tradeActionDesc_ != nullptr
+        && this->travelerEmail_ != nullptr && this->travelerId_ != nullptr && this->travelerJobNo_ != nullptr && this->travelerMemberType_ != nullptr && this->travelerName_ != nullptr
+        && this->voucherType_ != nullptr && this->voucherTypeDesc_ != nullptr; };
     // adjustTime Field Functions 
     bool hasAdjustTime() const { return this->adjustTime_ != nullptr;};
     void deleteAdjustTime() { this->adjustTime_ = nullptr;};
@@ -311,6 +327,27 @@ namespace Models
     void deleteApplyId() { this->applyId_ = nullptr;};
     inline string applyId() const { DARABONBA_PTR_GET_DEFAULT(applyId_, "") };
     inline IeHotelBillSettlementQueryResponseBodyModuleDataList& setApplyId(string applyId) { DARABONBA_PTR_SET_VALUE(applyId_, applyId) };
+
+
+    // approverEmail Field Functions 
+    bool hasApproverEmail() const { return this->approverEmail_ != nullptr;};
+    void deleteApproverEmail() { this->approverEmail_ = nullptr;};
+    inline string approverEmail() const { DARABONBA_PTR_GET_DEFAULT(approverEmail_, "") };
+    inline IeHotelBillSettlementQueryResponseBodyModuleDataList& setApproverEmail(string approverEmail) { DARABONBA_PTR_SET_VALUE(approverEmail_, approverEmail) };
+
+
+    // approverId Field Functions 
+    bool hasApproverId() const { return this->approverId_ != nullptr;};
+    void deleteApproverId() { this->approverId_ = nullptr;};
+    inline string approverId() const { DARABONBA_PTR_GET_DEFAULT(approverId_, "") };
+    inline IeHotelBillSettlementQueryResponseBodyModuleDataList& setApproverId(string approverId) { DARABONBA_PTR_SET_VALUE(approverId_, approverId) };
+
+
+    // approverName Field Functions 
+    bool hasApproverName() const { return this->approverName_ != nullptr;};
+    void deleteApproverName() { this->approverName_ = nullptr;};
+    inline string approverName() const { DARABONBA_PTR_GET_DEFAULT(approverName_, "") };
+    inline IeHotelBillSettlementQueryResponseBodyModuleDataList& setApproverName(string approverName) { DARABONBA_PTR_SET_VALUE(approverName_, approverName) };
 
 
     // averageNights Field Functions 
@@ -565,6 +602,13 @@ namespace Models
     inline IeHotelBillSettlementQueryResponseBodyModuleDataList& setForeignBusinessExpense(int64_t foreignBusinessExpense) { DARABONBA_PTR_SET_VALUE(foreignBusinessExpense_, foreignBusinessExpense) };
 
 
+    // foreignersTag Field Functions 
+    bool hasForeignersTag() const { return this->foreignersTag_ != nullptr;};
+    void deleteForeignersTag() { this->foreignersTag_ = nullptr;};
+    inline string foreignersTag() const { DARABONBA_PTR_GET_DEFAULT(foreignersTag_, "") };
+    inline IeHotelBillSettlementQueryResponseBodyModuleDataList& setForeignersTag(string foreignersTag) { DARABONBA_PTR_SET_VALUE(foreignersTag_, foreignersTag) };
+
+
     // hotelName Field Functions 
     bool hasHotelName() const { return this->hotelName_ != nullptr;};
     void deleteHotelName() { this->hotelName_ = nullptr;};
@@ -612,6 +656,13 @@ namespace Models
     void deleteIsShareStr() { this->isShareStr_ = nullptr;};
     inline string isShareStr() const { DARABONBA_PTR_GET_DEFAULT(isShareStr_, "") };
     inline IeHotelBillSettlementQueryResponseBodyModuleDataList& setIsShareStr(string isShareStr) { DARABONBA_PTR_SET_VALUE(isShareStr_, isShareStr) };
+
+
+    // location Field Functions 
+    bool hasLocation() const { return this->location_ != nullptr;};
+    void deleteLocation() { this->location_ = nullptr;};
+    inline string location() const { DARABONBA_PTR_GET_DEFAULT(location_, "") };
+    inline IeHotelBillSettlementQueryResponseBodyModuleDataList& setLocation(string location) { DARABONBA_PTR_SET_VALUE(location_, location) };
 
 
     // mainApplyId Field Functions 
@@ -845,6 +896,13 @@ namespace Models
     inline IeHotelBillSettlementQueryResponseBodyModuleDataList& setSettlementType(string settlementType) { DARABONBA_PTR_SET_VALUE(settlementType_, settlementType) };
 
 
+    // sio Field Functions 
+    bool hasSio() const { return this->sio_ != nullptr;};
+    void deleteSio() { this->sio_ = nullptr;};
+    inline string sio() const { DARABONBA_PTR_GET_DEFAULT(sio_, "") };
+    inline IeHotelBillSettlementQueryResponseBodyModuleDataList& setSio(string sio) { DARABONBA_PTR_SET_VALUE(sio_, sio) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -915,6 +973,13 @@ namespace Models
     inline IeHotelBillSettlementQueryResponseBodyModuleDataList& setTradeActionDesc(string tradeActionDesc) { DARABONBA_PTR_SET_VALUE(tradeActionDesc_, tradeActionDesc) };
 
 
+    // travelerEmail Field Functions 
+    bool hasTravelerEmail() const { return this->travelerEmail_ != nullptr;};
+    void deleteTravelerEmail() { this->travelerEmail_ = nullptr;};
+    inline string travelerEmail() const { DARABONBA_PTR_GET_DEFAULT(travelerEmail_, "") };
+    inline IeHotelBillSettlementQueryResponseBodyModuleDataList& setTravelerEmail(string travelerEmail) { DARABONBA_PTR_SET_VALUE(travelerEmail_, travelerEmail) };
+
+
     // travelerId Field Functions 
     bool hasTravelerId() const { return this->travelerId_ != nullptr;};
     void deleteTravelerId() { this->travelerId_ = nullptr;};
@@ -967,6 +1032,9 @@ namespace Models
     std::shared_ptr<string> applyDepCityName_ = nullptr;
     std::shared_ptr<string> applyExtendField_ = nullptr;
     std::shared_ptr<string> applyId_ = nullptr;
+    std::shared_ptr<string> approverEmail_ = nullptr;
+    std::shared_ptr<string> approverId_ = nullptr;
+    std::shared_ptr<string> approverName_ = nullptr;
     std::shared_ptr<double> averageNights_ = nullptr;
     std::shared_ptr<string> baseLocation_ = nullptr;
     std::shared_ptr<string> billRecordTime_ = nullptr;
@@ -1003,6 +1071,7 @@ namespace Models
     std::shared_ptr<string> feeTypeDesc_ = nullptr;
     std::shared_ptr<double> fines_ = nullptr;
     std::shared_ptr<int64_t> foreignBusinessExpense_ = nullptr;
+    std::shared_ptr<string> foreignersTag_ = nullptr;
     std::shared_ptr<string> hotelName_ = nullptr;
     std::shared_ptr<string> hotelStar_ = nullptr;
     std::shared_ptr<string> index_ = nullptr;
@@ -1010,6 +1079,7 @@ namespace Models
     std::shared_ptr<string> isEarlyDeparture_ = nullptr;
     std::shared_ptr<string> isNegotiation_ = nullptr;
     std::shared_ptr<string> isShareStr_ = nullptr;
+    std::shared_ptr<string> location_ = nullptr;
     std::shared_ptr<string> mainApplyId_ = nullptr;
     std::shared_ptr<string> mappingCompanyCode_ = nullptr;
     std::shared_ptr<int32_t> nights_ = nullptr;
@@ -1043,6 +1113,7 @@ namespace Models
     std::shared_ptr<double> settlementGrantFee_ = nullptr;
     std::shared_ptr<string> settlementTime_ = nullptr;
     std::shared_ptr<string> settlementType_ = nullptr;
+    std::shared_ptr<string> sio_ = nullptr;
     std::shared_ptr<int32_t> status_ = nullptr;
     std::shared_ptr<string> statusDesc_ = nullptr;
     std::shared_ptr<string> subOrderId_ = nullptr;
@@ -1053,6 +1124,7 @@ namespace Models
     std::shared_ptr<string> thirdpartApplyId_ = nullptr;
     std::shared_ptr<int32_t> totalNights_ = nullptr;
     std::shared_ptr<string> tradeActionDesc_ = nullptr;
+    std::shared_ptr<string> travelerEmail_ = nullptr;
     std::shared_ptr<string> travelerId_ = nullptr;
     std::shared_ptr<string> travelerJobNo_ = nullptr;
     std::shared_ptr<string> travelerMemberType_ = nullptr;
