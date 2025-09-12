@@ -289,6 +289,10 @@ ChangeCloudPhoneNodeResponse Client::changeCloudPhoneNodeWithOptions(const Chang
     query["AutoPay"] = request.autoPay();
   }
 
+  if (!!request.hasDisplayConfig()) {
+    query["DisplayConfig"] = request.displayConfig();
+  }
+
   if (!!request.hasDownBandwidthLimit()) {
     query["DownBandwidthLimit"] = request.downBandwidthLimit();
   }

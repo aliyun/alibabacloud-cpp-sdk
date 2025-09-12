@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ChangeCloudPhoneNodeRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
+      DARABONBA_PTR_TO_JSON(DisplayConfig, displayConfig_);
       DARABONBA_PTR_TO_JSON(DownBandwidthLimit, downBandwidthLimit_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(NodeId, nodeId_);
@@ -24,6 +25,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ChangeCloudPhoneNodeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
+      DARABONBA_PTR_FROM_JSON(DisplayConfig, displayConfig_);
       DARABONBA_PTR_FROM_JSON(DownBandwidthLimit, downBandwidthLimit_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(NodeId, nodeId_);
@@ -44,13 +46,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->autoPay_ != nullptr
-        && this->downBandwidthLimit_ != nullptr && this->instanceType_ != nullptr && this->nodeId_ != nullptr && this->phoneCount_ != nullptr && this->phoneDataVolume_ != nullptr
-        && this->promotionId_ != nullptr && this->upBandwidthLimit_ != nullptr; };
+        && this->displayConfig_ != nullptr && this->downBandwidthLimit_ != nullptr && this->instanceType_ != nullptr && this->nodeId_ != nullptr && this->phoneCount_ != nullptr
+        && this->phoneDataVolume_ != nullptr && this->promotionId_ != nullptr && this->upBandwidthLimit_ != nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
     inline bool autoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
     inline ChangeCloudPhoneNodeRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
+
+
+    // displayConfig Field Functions 
+    bool hasDisplayConfig() const { return this->displayConfig_ != nullptr;};
+    void deleteDisplayConfig() { this->displayConfig_ = nullptr;};
+    inline string displayConfig() const { DARABONBA_PTR_GET_DEFAULT(displayConfig_, "") };
+    inline ChangeCloudPhoneNodeRequest& setDisplayConfig(string displayConfig) { DARABONBA_PTR_SET_VALUE(displayConfig_, displayConfig) };
 
 
     // downBandwidthLimit Field Functions 
@@ -104,6 +113,7 @@ namespace Models
 
   protected:
     std::shared_ptr<bool> autoPay_ = nullptr;
+    std::shared_ptr<string> displayConfig_ = nullptr;
     std::shared_ptr<int32_t> downBandwidthLimit_ = nullptr;
     std::shared_ptr<string> instanceType_ = nullptr;
     std::shared_ptr<string> nodeId_ = nullptr;

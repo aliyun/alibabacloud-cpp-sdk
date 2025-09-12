@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SourceAppInfoList, sourceAppInfoList_);
       DARABONBA_PTR_TO_JSON(SourceFilePathList, sourceFilePathList_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(SystemVersion, systemVersion_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       DARABONBA_PTR_TO_JSON(UploadEndpoint, uploadEndpoint_);
       DARABONBA_PTR_TO_JSON(UploadType, uploadType_);
@@ -51,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SourceAppInfoList, sourceAppInfoList_);
       DARABONBA_PTR_FROM_JSON(SourceFilePathList, sourceFilePathList_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(SystemVersion, systemVersion_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       DARABONBA_PTR_FROM_JSON(UploadEndpoint, uploadEndpoint_);
       DARABONBA_PTR_FROM_JSON(UploadType, uploadType_);
@@ -70,7 +72,7 @@ namespace Models
         && this->androidInstanceName_ != nullptr && this->backupAll_ != nullptr && this->backupFileId_ != nullptr && this->backupFileName_ != nullptr && this->backupFilePath_ != nullptr
         && this->description_ != nullptr && this->endUserId_ != nullptr && this->fileSize_ != nullptr && this->gmtCreated_ != nullptr && this->gmtModified_ != nullptr
         && this->instanceGroupId_ != nullptr && this->regionId_ != nullptr && this->sourceAppInfoList_ != nullptr && this->sourceFilePathList_ != nullptr && this->status_ != nullptr
-        && this->taskId_ != nullptr && this->uploadEndpoint_ != nullptr && this->uploadType_ != nullptr; };
+        && this->systemVersion_ != nullptr && this->taskId_ != nullptr && this->uploadEndpoint_ != nullptr && this->uploadType_ != nullptr; };
     // androidInstanceId Field Functions 
     bool hasAndroidInstanceId() const { return this->androidInstanceId_ != nullptr;};
     void deleteAndroidInstanceId() { this->androidInstanceId_ = nullptr;};
@@ -187,6 +189,13 @@ namespace Models
     inline DescribeBackupFilesResponseBodyData& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // systemVersion Field Functions 
+    bool hasSystemVersion() const { return this->systemVersion_ != nullptr;};
+    void deleteSystemVersion() { this->systemVersion_ = nullptr;};
+    inline string systemVersion() const { DARABONBA_PTR_GET_DEFAULT(systemVersion_, "") };
+    inline DescribeBackupFilesResponseBodyData& setSystemVersion(string systemVersion) { DARABONBA_PTR_SET_VALUE(systemVersion_, systemVersion) };
+
+
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
@@ -246,6 +255,7 @@ namespace Models
     // *   AVAILABLE
     // *   RECOVERING
     std::shared_ptr<string> status_ = nullptr;
+    std::shared_ptr<string> systemVersion_ = nullptr;
     // The task ID.
     std::shared_ptr<string> taskId_ = nullptr;
     // The endpoint of the OSS bucket that stores the backup file.

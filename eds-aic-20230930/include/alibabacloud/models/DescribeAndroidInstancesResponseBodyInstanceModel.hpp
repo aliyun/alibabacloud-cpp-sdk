@@ -45,6 +45,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
       DARABONBA_PTR_TO_JSON(ImageVersion, imageVersion_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
+      DARABONBA_PTR_TO_JSON(InternetStatus, internetStatus_);
       DARABONBA_PTR_TO_JSON(KeyPairId, keyPairId_);
       DARABONBA_PTR_TO_JSON(Memory, memory_);
       DARABONBA_PTR_TO_JSON(NetworkInterfaceIp, networkInterfaceIp_);
@@ -96,6 +97,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
       DARABONBA_PTR_FROM_JSON(ImageVersion, imageVersion_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
+      DARABONBA_PTR_FROM_JSON(InternetStatus, internetStatus_);
       DARABONBA_PTR_FROM_JSON(KeyPairId, keyPairId_);
       DARABONBA_PTR_FROM_JSON(Memory, memory_);
       DARABONBA_PTR_FROM_JSON(NetworkInterfaceIp, networkInterfaceIp_);
@@ -137,12 +139,12 @@ namespace Models
         && this->appInstanceId_ != nullptr && this->appManagePolicy_ != nullptr && this->authorizedUserId_ != nullptr && this->bandwidthPackageId_ != nullptr && this->bandwidthPackageType_ != nullptr
         && this->bindUserId_ != nullptr && this->bizTags_ != nullptr && this->chargeType_ != nullptr && this->cpu_ != nullptr && this->disks_ != nullptr
         && this->displayConfig_ != nullptr && this->downBandwidthLimit_ != nullptr && this->errorCode_ != nullptr && this->gmtCreate_ != nullptr && this->gmtExpired_ != nullptr
-        && this->gmtModified_ != nullptr && this->imageId_ != nullptr && this->imageVersion_ != nullptr && this->instanceType_ != nullptr && this->keyPairId_ != nullptr
-        && this->memory_ != nullptr && this->networkInterfaceIp_ != nullptr && this->networkInterfaceIpv6Address_ != nullptr && this->networkType_ != nullptr && this->officeSiteId_ != nullptr
-        && this->persistentAppInstanceId_ != nullptr && this->phoneDataInfo_ != nullptr && this->policyGroupId_ != nullptr && this->publicIpAddress_ != nullptr && this->publicIpv6Address_ != nullptr
-        && this->qosRuleId_ != nullptr && this->rate_ != nullptr && this->regionId_ != nullptr && this->renderingType_ != nullptr && this->serverStatus_ != nullptr
-        && this->serverType_ != nullptr && this->sessionStatus_ != nullptr && this->streamMode_ != nullptr && this->systemVersion_ != nullptr && this->tags_ != nullptr
-        && this->upBandwidthLimit_ != nullptr && this->vSwitchId_ != nullptr && this->zoneId_ != nullptr; };
+        && this->gmtModified_ != nullptr && this->imageId_ != nullptr && this->imageVersion_ != nullptr && this->instanceType_ != nullptr && this->internetStatus_ != nullptr
+        && this->keyPairId_ != nullptr && this->memory_ != nullptr && this->networkInterfaceIp_ != nullptr && this->networkInterfaceIpv6Address_ != nullptr && this->networkType_ != nullptr
+        && this->officeSiteId_ != nullptr && this->persistentAppInstanceId_ != nullptr && this->phoneDataInfo_ != nullptr && this->policyGroupId_ != nullptr && this->publicIpAddress_ != nullptr
+        && this->publicIpv6Address_ != nullptr && this->qosRuleId_ != nullptr && this->rate_ != nullptr && this->regionId_ != nullptr && this->renderingType_ != nullptr
+        && this->serverStatus_ != nullptr && this->serverType_ != nullptr && this->sessionStatus_ != nullptr && this->streamMode_ != nullptr && this->systemVersion_ != nullptr
+        && this->tags_ != nullptr && this->upBandwidthLimit_ != nullptr && this->vSwitchId_ != nullptr && this->zoneId_ != nullptr; };
     // androidInstanceGroupId Field Functions 
     bool hasAndroidInstanceGroupId() const { return this->androidInstanceGroupId_ != nullptr;};
     void deleteAndroidInstanceGroupId() { this->androidInstanceGroupId_ = nullptr;};
@@ -324,6 +326,13 @@ namespace Models
     void deleteInstanceType() { this->instanceType_ = nullptr;};
     inline string instanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline DescribeAndroidInstancesResponseBodyInstanceModel& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
+
+
+    // internetStatus Field Functions 
+    bool hasInternetStatus() const { return this->internetStatus_ != nullptr;};
+    void deleteInternetStatus() { this->internetStatus_ = nullptr;};
+    inline string internetStatus() const { DARABONBA_PTR_GET_DEFAULT(internetStatus_, "") };
+    inline DescribeAndroidInstancesResponseBodyInstanceModel& setInternetStatus(string internetStatus) { DARABONBA_PTR_SET_VALUE(internetStatus_, internetStatus) };
 
 
     // keyPairId Field Functions 
@@ -542,6 +551,7 @@ namespace Models
     std::shared_ptr<string> imageVersion_ = nullptr;
     // The type of the instance.
     std::shared_ptr<string> instanceType_ = nullptr;
+    std::shared_ptr<string> internetStatus_ = nullptr;
     // The ID of the key pair.
     std::shared_ptr<string> keyPairId_ = nullptr;
     // The memory size.
