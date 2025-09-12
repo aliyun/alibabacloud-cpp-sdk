@@ -18,6 +18,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetUserDeviceResponseBodyDevice& obj) { 
       DARABONBA_PTR_TO_JSON(AppStatus, appStatus_);
       DARABONBA_PTR_TO_JSON(AppVersion, appVersion_);
+      DARABONBA_PTR_TO_JSON(AutoLoginStatus, autoLoginStatus_);
       DARABONBA_PTR_TO_JSON(CPU, CPU_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(Department, department_);
@@ -55,6 +56,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, GetUserDeviceResponseBodyDevice& obj) { 
       DARABONBA_PTR_FROM_JSON(AppStatus, appStatus_);
       DARABONBA_PTR_FROM_JSON(AppVersion, appVersion_);
+      DARABONBA_PTR_FROM_JSON(AutoLoginStatus, autoLoginStatus_);
       DARABONBA_PTR_FROM_JSON(CPU, CPU_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(Department, department_);
@@ -101,13 +103,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->appStatus_ != nullptr
-        && this->appVersion_ != nullptr && this->CPU_ != nullptr && this->createTime_ != nullptr && this->department_ != nullptr && this->deviceBelong_ != nullptr
-        && this->deviceModel_ != nullptr && this->deviceStatus_ != nullptr && this->deviceTag_ != nullptr && this->deviceType_ != nullptr && this->deviceVersion_ != nullptr
-        && this->disk_ != nullptr && this->dlpStatus_ != nullptr && this->edrStatus_ != nullptr && this->historyUsers_ != nullptr && this->hostname_ != nullptr
-        && this->iaStatus_ != nullptr && this->innerIP_ != nullptr && this->mac_ != nullptr && this->matchDeviceGroupIds_ != nullptr && this->memory_ != nullptr
-        && this->nacStatus_ != nullptr && this->netInterfaceInfo_ != nullptr && this->paStatus_ != nullptr && this->saseUserId_ != nullptr && this->sharingStatus_ != nullptr
-        && this->snBaseBoard_ != nullptr && this->snBios_ != nullptr && this->snDiskDrive_ != nullptr && this->snProcessor_ != nullptr && this->snSystem_ != nullptr
-        && this->srcIP_ != nullptr && this->updateTime_ != nullptr && this->username_ != nullptr && this->workshop_ != nullptr; };
+        && this->appVersion_ != nullptr && this->autoLoginStatus_ != nullptr && this->CPU_ != nullptr && this->createTime_ != nullptr && this->department_ != nullptr
+        && this->deviceBelong_ != nullptr && this->deviceModel_ != nullptr && this->deviceStatus_ != nullptr && this->deviceTag_ != nullptr && this->deviceType_ != nullptr
+        && this->deviceVersion_ != nullptr && this->disk_ != nullptr && this->dlpStatus_ != nullptr && this->edrStatus_ != nullptr && this->historyUsers_ != nullptr
+        && this->hostname_ != nullptr && this->iaStatus_ != nullptr && this->innerIP_ != nullptr && this->mac_ != nullptr && this->matchDeviceGroupIds_ != nullptr
+        && this->memory_ != nullptr && this->nacStatus_ != nullptr && this->netInterfaceInfo_ != nullptr && this->paStatus_ != nullptr && this->saseUserId_ != nullptr
+        && this->sharingStatus_ != nullptr && this->snBaseBoard_ != nullptr && this->snBios_ != nullptr && this->snDiskDrive_ != nullptr && this->snProcessor_ != nullptr
+        && this->snSystem_ != nullptr && this->srcIP_ != nullptr && this->updateTime_ != nullptr && this->username_ != nullptr && this->workshop_ != nullptr; };
     // appStatus Field Functions 
     bool hasAppStatus() const { return this->appStatus_ != nullptr;};
     void deleteAppStatus() { this->appStatus_ = nullptr;};
@@ -120,6 +122,13 @@ namespace Models
     void deleteAppVersion() { this->appVersion_ = nullptr;};
     inline string appVersion() const { DARABONBA_PTR_GET_DEFAULT(appVersion_, "") };
     inline GetUserDeviceResponseBodyDevice& setAppVersion(string appVersion) { DARABONBA_PTR_SET_VALUE(appVersion_, appVersion) };
+
+
+    // autoLoginStatus Field Functions 
+    bool hasAutoLoginStatus() const { return this->autoLoginStatus_ != nullptr;};
+    void deleteAutoLoginStatus() { this->autoLoginStatus_ = nullptr;};
+    inline string autoLoginStatus() const { DARABONBA_PTR_GET_DEFAULT(autoLoginStatus_, "") };
+    inline GetUserDeviceResponseBodyDevice& setAutoLoginStatus(string autoLoginStatus) { DARABONBA_PTR_SET_VALUE(autoLoginStatus_, autoLoginStatus) };
 
 
     // CPU Field Functions 
@@ -362,6 +371,7 @@ namespace Models
   protected:
     std::shared_ptr<string> appStatus_ = nullptr;
     std::shared_ptr<string> appVersion_ = nullptr;
+    std::shared_ptr<string> autoLoginStatus_ = nullptr;
     std::shared_ptr<string> CPU_ = nullptr;
     std::shared_ptr<string> createTime_ = nullptr;
     std::shared_ptr<string> department_ = nullptr;

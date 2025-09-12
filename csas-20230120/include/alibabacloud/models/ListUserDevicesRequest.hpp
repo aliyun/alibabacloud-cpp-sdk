@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListUserDevicesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AppStatuses, appStatuses_);
       DARABONBA_PTR_TO_JSON(AppVersions, appVersions_);
+      DARABONBA_PTR_TO_JSON(AutoLoginStatuses, autoLoginStatuses_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_TO_JSON(Department, department_);
       DARABONBA_PTR_TO_JSON(DeviceBelong, deviceBelong_);
@@ -41,6 +42,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListUserDevicesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppStatuses, appStatuses_);
       DARABONBA_PTR_FROM_JSON(AppVersions, appVersions_);
+      DARABONBA_PTR_FROM_JSON(AutoLoginStatuses, autoLoginStatuses_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_FROM_JSON(Department, department_);
       DARABONBA_PTR_FROM_JSON(DeviceBelong, deviceBelong_);
@@ -75,11 +77,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->appStatuses_ != nullptr
-        && this->appVersions_ != nullptr && this->currentPage_ != nullptr && this->department_ != nullptr && this->deviceBelong_ != nullptr && this->deviceGroupId_ != nullptr
-        && this->deviceStatuses_ != nullptr && this->deviceTags_ != nullptr && this->deviceTypes_ != nullptr && this->dlpStatuses_ != nullptr && this->hostname_ != nullptr
-        && this->iaStatuses_ != nullptr && this->innerIp_ != nullptr && this->mac_ != nullptr && this->nacStatuses_ != nullptr && this->paStatuses_ != nullptr
-        && this->pageSize_ != nullptr && this->saseUserId_ != nullptr && this->sharingStatus_ != nullptr && this->snSystem_ != nullptr && this->sortBy_ != nullptr
-        && this->username_ != nullptr && this->workshop_ != nullptr; };
+        && this->appVersions_ != nullptr && this->autoLoginStatuses_ != nullptr && this->currentPage_ != nullptr && this->department_ != nullptr && this->deviceBelong_ != nullptr
+        && this->deviceGroupId_ != nullptr && this->deviceStatuses_ != nullptr && this->deviceTags_ != nullptr && this->deviceTypes_ != nullptr && this->dlpStatuses_ != nullptr
+        && this->hostname_ != nullptr && this->iaStatuses_ != nullptr && this->innerIp_ != nullptr && this->mac_ != nullptr && this->nacStatuses_ != nullptr
+        && this->paStatuses_ != nullptr && this->pageSize_ != nullptr && this->saseUserId_ != nullptr && this->sharingStatus_ != nullptr && this->snSystem_ != nullptr
+        && this->sortBy_ != nullptr && this->username_ != nullptr && this->workshop_ != nullptr; };
     // appStatuses Field Functions 
     bool hasAppStatuses() const { return this->appStatuses_ != nullptr;};
     void deleteAppStatuses() { this->appStatuses_ = nullptr;};
@@ -96,6 +98,15 @@ namespace Models
     inline vector<string> appVersions() { DARABONBA_PTR_GET(appVersions_, vector<string>) };
     inline ListUserDevicesRequest& setAppVersions(const vector<string> & appVersions) { DARABONBA_PTR_SET_VALUE(appVersions_, appVersions) };
     inline ListUserDevicesRequest& setAppVersions(vector<string> && appVersions) { DARABONBA_PTR_SET_RVALUE(appVersions_, appVersions) };
+
+
+    // autoLoginStatuses Field Functions 
+    bool hasAutoLoginStatuses() const { return this->autoLoginStatuses_ != nullptr;};
+    void deleteAutoLoginStatuses() { this->autoLoginStatuses_ = nullptr;};
+    inline const vector<string> & autoLoginStatuses() const { DARABONBA_PTR_GET_CONST(autoLoginStatuses_, vector<string>) };
+    inline vector<string> autoLoginStatuses() { DARABONBA_PTR_GET(autoLoginStatuses_, vector<string>) };
+    inline ListUserDevicesRequest& setAutoLoginStatuses(const vector<string> & autoLoginStatuses) { DARABONBA_PTR_SET_VALUE(autoLoginStatuses_, autoLoginStatuses) };
+    inline ListUserDevicesRequest& setAutoLoginStatuses(vector<string> && autoLoginStatuses) { DARABONBA_PTR_SET_RVALUE(autoLoginStatuses_, autoLoginStatuses) };
 
 
     // currentPage Field Functions 
@@ -262,6 +273,7 @@ namespace Models
   protected:
     std::shared_ptr<vector<string>> appStatuses_ = nullptr;
     std::shared_ptr<vector<string>> appVersions_ = nullptr;
+    std::shared_ptr<vector<string>> autoLoginStatuses_ = nullptr;
     // This parameter is required.
     std::shared_ptr<int64_t> currentPage_ = nullptr;
     std::shared_ptr<string> department_ = nullptr;
