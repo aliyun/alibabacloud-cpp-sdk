@@ -415,6 +415,66 @@ CreateCustomCertificateResponse Client::createCustomCertificate(const CreateCust
 }
 
 /**
+ * @summary 创建外部子CA证书
+ *
+ * @param tmpReq CreateExternalCACertificateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateExternalCACertificateResponse
+ */
+CreateExternalCACertificateResponse Client::createExternalCACertificateWithOptions(const CreateExternalCACertificateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateExternalCACertificateShrinkRequest request = CreateExternalCACertificateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasApiPassthrough()) {
+    request.setApiPassthroughShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.apiPassthrough(), "ApiPassthrough", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApiPassthroughShrink()) {
+    query["ApiPassthrough"] = request.apiPassthroughShrink();
+  }
+
+  if (!!request.hasCsr()) {
+    query["Csr"] = request.csr();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasValidity()) {
+    query["Validity"] = request.validity();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateExternalCACertificate"},
+    {"version" , "2020-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateExternalCACertificateResponse>();
+}
+
+/**
+ * @summary 创建外部子CA证书
+ *
+ * @param request CreateExternalCACertificateRequest
+ * @return CreateExternalCACertificateResponse
+ */
+CreateExternalCACertificateResponse Client::createExternalCACertificate(const CreateExternalCACertificateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createExternalCACertificateWithOptions(request, runtime);
+}
+
+/**
  * @summary Revokes a client certificate or a server certificate.
  *
  * @description After a client certificate or a server certificate is revoked, the client or the server on which the certificate is installed cannot establish HTTPS connections with other devices.
@@ -1457,6 +1517,52 @@ ListClientCertificateResponse Client::listClientCertificateWithOptions(const Lis
 ListClientCertificateResponse Client::listClientCertificate(const ListClientCertificateRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listClientCertificateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询私有CA机构证书
+ *
+ * @param request ListPcaCaCertificateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPcaCaCertificateResponse
+ */
+ListPcaCaCertificateResponse Client::listPcaCaCertificateWithOptions(const ListPcaCaCertificateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPcaCaCertificate"},
+    {"version" , "2020-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPcaCaCertificateResponse>();
+}
+
+/**
+ * @summary 查询私有CA机构证书
+ *
+ * @param request ListPcaCaCertificateRequest
+ * @return ListPcaCaCertificateResponse
+ */
+ListPcaCaCertificateResponse Client::listPcaCaCertificate(const ListPcaCaCertificateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listPcaCaCertificateWithOptions(request, runtime);
 }
 
 /**

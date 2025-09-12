@@ -11,6 +11,10 @@
 #include <alibabacloud/models/CreateCustomCertificateRequest.hpp>
 #include <alibabacloud/models/CreateCustomCertificateResponseBody.hpp>
 #include <alibabacloud/models/CreateCustomCertificateResponse.hpp>
+#include <alibabacloud/models/CreateExternalCacertificateRequest.hpp>
+#include <alibabacloud/models/CreateExternalCacertificateShrinkRequest.hpp>
+#include <alibabacloud/models/CreateExternalCacertificateResponseBody.hpp>
+#include <alibabacloud/models/CreateExternalCacertificateResponse.hpp>
 #include <alibabacloud/models/CreateRevokeClientCertificateRequest.hpp>
 #include <alibabacloud/models/CreateRevokeClientCertificateResponseBody.hpp>
 #include <alibabacloud/models/CreateRevokeClientCertificateResponse.hpp>
@@ -55,6 +59,9 @@
 #include <alibabacloud/models/ListClientCertificateRequest.hpp>
 #include <alibabacloud/models/ListClientCertificateResponseBody.hpp>
 #include <alibabacloud/models/ListClientCertificateResponse.hpp>
+#include <alibabacloud/models/ListPcaCaCertificateRequest.hpp>
+#include <alibabacloud/models/ListPcaCaCertificateResponseBody.hpp>
+#include <alibabacloud/models/ListPcaCaCertificateResponse.hpp>
 #include <alibabacloud/models/ListRevokeCertificateRequest.hpp>
 #include <alibabacloud/models/ListRevokeCertificateResponseBody.hpp>
 #include <alibabacloud/models/ListRevokeCertificateResponse.hpp>
@@ -70,6 +77,9 @@
 #include <alibabacloud/models/CreateCustomCertificateRequestApiPassthroughSubjectCustomAttributes.hpp>
 #include <alibabacloud/models/CreateCustomCertificateRequestApiPassthroughSubject.hpp>
 #include <alibabacloud/models/CreateCustomCertificateRequestApiPassthrough.hpp>
+#include <alibabacloud/models/CreateExternalCacertificateRequestApiPassthroughExtensions.hpp>
+#include <alibabacloud/models/CreateExternalCacertificateRequestApiPassthroughSubject.hpp>
+#include <alibabacloud/models/CreateExternalCacertificateRequestApiPassthrough.hpp>
 #include <alibabacloud/models/DescribeCacertificateResponseBodyCertificate.hpp>
 #include <alibabacloud/models/DescribeCacertificateListResponseBodyCertificateList.hpp>
 #include <alibabacloud/models/DescribeClientCertificateResponseBodyCertificate.hpp>
@@ -77,6 +87,7 @@
 #include <alibabacloud/models/GetCainstanceStatusResponseBodyInstanceStatusList.hpp>
 #include <alibabacloud/models/ListCertResponseBodyList.hpp>
 #include <alibabacloud/models/ListClientCertificateResponseBodyCertificateList.hpp>
+#include <alibabacloud/models/ListPcaCaCertificateResponseBodyList.hpp>
 #include <alibabacloud/models/ListRevokeCertificateResponseBodyCertificateList.hpp>
 
 #endif

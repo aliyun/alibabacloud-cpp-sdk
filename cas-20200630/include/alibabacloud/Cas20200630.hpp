@@ -120,6 +120,23 @@ namespace Cas20200630
       Models::CreateCustomCertificateResponse createCustomCertificate(const Models::CreateCustomCertificateRequest &request);
 
       /**
+       * @summary 创建外部子CA证书
+       *
+       * @param tmpReq CreateExternalCACertificateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateExternalCACertificateResponse
+       */
+      Models::CreateExternalCACertificateResponse createExternalCACertificateWithOptions(const Models::CreateExternalCACertificateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建外部子CA证书
+       *
+       * @param request CreateExternalCACertificateRequest
+       * @return CreateExternalCACertificateResponse
+       */
+      Models::CreateExternalCACertificateResponse createExternalCACertificate(const Models::CreateExternalCACertificateRequest &request);
+
+      /**
        * @summary Revokes a client certificate or a server certificate.
        *
        * @description After a client certificate or a server certificate is revoked, the client or the server on which the certificate is installed cannot establish HTTPS connections with other devices.
@@ -520,6 +537,23 @@ namespace Cas20200630
        * @return ListClientCertificateResponse
        */
       Models::ListClientCertificateResponse listClientCertificate(const Models::ListClientCertificateRequest &request);
+
+      /**
+       * @summary 查询私有CA机构证书
+       *
+       * @param request ListPcaCaCertificateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPcaCaCertificateResponse
+       */
+      Models::ListPcaCaCertificateResponse listPcaCaCertificateWithOptions(const Models::ListPcaCaCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询私有CA机构证书
+       *
+       * @param request ListPcaCaCertificateRequest
+       * @return ListPcaCaCertificateResponse
+       */
+      Models::ListPcaCaCertificateResponse listPcaCaCertificate(const Models::ListPcaCaCertificateRequest &request);
 
       /**
        * @summary Queries the details about all client certificates and server certificates that are revoked.
