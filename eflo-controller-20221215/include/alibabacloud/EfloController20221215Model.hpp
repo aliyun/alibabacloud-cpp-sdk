@@ -169,6 +169,8 @@
 #include <alibabacloud/models/CreateClusterRequestNetworksNewVpdInfo.hpp>
 #include <alibabacloud/models/CreateClusterRequestNetworksVpdInfo.hpp>
 #include <alibabacloud/models/CreateClusterRequestNetworks.hpp>
+#include <alibabacloud/models/CreateClusterRequestNodeGroupsHyperNodesDataDisk.hpp>
+#include <alibabacloud/models/CreateClusterRequestNodeGroupsHyperNodes.hpp>
 #include <alibabacloud/models/CreateClusterRequestNodeGroupsNodesDataDisk.hpp>
 #include <alibabacloud/models/CreateClusterRequestNodeGroupsNodes.hpp>
 #include <alibabacloud/models/CreateClusterRequestNodeGroupsSystemDisk.hpp>
@@ -218,6 +220,8 @@
 #include <alibabacloud/models/ExtendClusterRequestIpAllocationPolicyNodePolicyBonds.hpp>
 #include <alibabacloud/models/ExtendClusterRequestIpAllocationPolicyNodePolicy.hpp>
 #include <alibabacloud/models/ExtendClusterRequestIpAllocationPolicy.hpp>
+#include <alibabacloud/models/ExtendClusterRequestNodeGroupsHyperNodesDataDisk.hpp>
+#include <alibabacloud/models/ExtendClusterRequestNodeGroupsHyperNodes.hpp>
 #include <alibabacloud/models/ExtendClusterRequestNodeGroupsNodeTag.hpp>
 #include <alibabacloud/models/ExtendClusterRequestNodeGroupsNodesDataDisk.hpp>
 #include <alibabacloud/models/ExtendClusterRequestNodeGroupsNodes.hpp>
@@ -255,6 +259,7 @@
 #include <alibabacloud/models/ListVscsResponseBodyVscsTags.hpp>
 #include <alibabacloud/models/ListVscsResponseBodyVscs.hpp>
 #include <alibabacloud/models/ReimageNodesRequestNodes.hpp>
+#include <alibabacloud/models/ShrinkClusterRequestNodeGroupsHyperNodes.hpp>
 #include <alibabacloud/models/ShrinkClusterRequestNodeGroupsNodes.hpp>
 #include <alibabacloud/models/ShrinkClusterRequestNodeGroups.hpp>
 #include <alibabacloud/models/TagResourcesRequestTag.hpp>

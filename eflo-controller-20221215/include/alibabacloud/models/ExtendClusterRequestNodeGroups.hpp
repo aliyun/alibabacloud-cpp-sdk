@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_EXTENDCLUSTERREQUESTNODEGROUPS_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/ExtendClusterRequestNodeGroupsHyperNodes.hpp>
 #include <alibabacloud/models/ExtendClusterRequestNodeGroupsNodeTag.hpp>
 #include <alibabacloud/models/ExtendClusterRequestNodeGroupsNodes.hpp>
 using namespace std;
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(Hostnames, hostnames_);
+      DARABONBA_PTR_TO_JSON(HyperNodes, hyperNodes_);
       DARABONBA_PTR_TO_JSON(LoginPassword, loginPassword_);
       DARABONBA_PTR_TO_JSON(NodeGroupId, nodeGroupId_);
       DARABONBA_PTR_TO_JSON(NodeTag, nodeTag_);
@@ -35,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(Hostnames, hostnames_);
+      DARABONBA_PTR_FROM_JSON(HyperNodes, hyperNodes_);
       DARABONBA_PTR_FROM_JSON(LoginPassword, loginPassword_);
       DARABONBA_PTR_FROM_JSON(NodeGroupId, nodeGroupId_);
       DARABONBA_PTR_FROM_JSON(NodeTag, nodeTag_);
@@ -57,9 +60,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->amount_ != nullptr
-        && this->autoRenew_ != nullptr && this->chargeType_ != nullptr && this->hostnames_ != nullptr && this->loginPassword_ != nullptr && this->nodeGroupId_ != nullptr
-        && this->nodeTag_ != nullptr && this->nodes_ != nullptr && this->period_ != nullptr && this->userData_ != nullptr && this->vSwitchId_ != nullptr
-        && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
+        && this->autoRenew_ != nullptr && this->chargeType_ != nullptr && this->hostnames_ != nullptr && this->hyperNodes_ != nullptr && this->loginPassword_ != nullptr
+        && this->nodeGroupId_ != nullptr && this->nodeTag_ != nullptr && this->nodes_ != nullptr && this->period_ != nullptr && this->userData_ != nullptr
+        && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -88,6 +91,15 @@ namespace Models
     inline vector<string> hostnames() { DARABONBA_PTR_GET(hostnames_, vector<string>) };
     inline ExtendClusterRequestNodeGroups& setHostnames(const vector<string> & hostnames) { DARABONBA_PTR_SET_VALUE(hostnames_, hostnames) };
     inline ExtendClusterRequestNodeGroups& setHostnames(vector<string> && hostnames) { DARABONBA_PTR_SET_RVALUE(hostnames_, hostnames) };
+
+
+    // hyperNodes Field Functions 
+    bool hasHyperNodes() const { return this->hyperNodes_ != nullptr;};
+    void deleteHyperNodes() { this->hyperNodes_ = nullptr;};
+    inline const vector<Models::ExtendClusterRequestNodeGroupsHyperNodes> & hyperNodes() const { DARABONBA_PTR_GET_CONST(hyperNodes_, vector<Models::ExtendClusterRequestNodeGroupsHyperNodes>) };
+    inline vector<Models::ExtendClusterRequestNodeGroupsHyperNodes> hyperNodes() { DARABONBA_PTR_GET(hyperNodes_, vector<Models::ExtendClusterRequestNodeGroupsHyperNodes>) };
+    inline ExtendClusterRequestNodeGroups& setHyperNodes(const vector<Models::ExtendClusterRequestNodeGroupsHyperNodes> & hyperNodes) { DARABONBA_PTR_SET_VALUE(hyperNodes_, hyperNodes) };
+    inline ExtendClusterRequestNodeGroups& setHyperNodes(vector<Models::ExtendClusterRequestNodeGroupsHyperNodes> && hyperNodes) { DARABONBA_PTR_SET_RVALUE(hyperNodes_, hyperNodes) };
 
 
     // loginPassword Field Functions 
@@ -166,6 +178,7 @@ namespace Models
     std::shared_ptr<string> chargeType_ = nullptr;
     // Set the hostnames for the purchased nodes. This parameter does not take effect when the Amount parameter is set to 0.
     std::shared_ptr<vector<string>> hostnames_ = nullptr;
+    std::shared_ptr<vector<Models::ExtendClusterRequestNodeGroupsHyperNodes>> hyperNodes_ = nullptr;
     // Set the login password for the purchased nodes. This parameter is not effective when the Amount parameter is set to 0.
     std::shared_ptr<string> loginPassword_ = nullptr;
     // Node Group ID

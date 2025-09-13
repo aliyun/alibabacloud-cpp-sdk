@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_SHRINKCLUSTERREQUESTNODEGROUPS_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/ShrinkClusterRequestNodeGroupsHyperNodes.hpp>
 #include <alibabacloud/models/ShrinkClusterRequestNodeGroupsNodes.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -15,10 +16,12 @@ namespace Models
   class ShrinkClusterRequestNodeGroups : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ShrinkClusterRequestNodeGroups& obj) { 
+      DARABONBA_PTR_TO_JSON(HyperNodes, hyperNodes_);
       DARABONBA_PTR_TO_JSON(NodeGroupId, nodeGroupId_);
       DARABONBA_PTR_TO_JSON(Nodes, nodes_);
     };
     friend void from_json(const Darabonba::Json& j, ShrinkClusterRequestNodeGroups& obj) { 
+      DARABONBA_PTR_FROM_JSON(HyperNodes, hyperNodes_);
       DARABONBA_PTR_FROM_JSON(NodeGroupId, nodeGroupId_);
       DARABONBA_PTR_FROM_JSON(Nodes, nodes_);
     };
@@ -33,8 +36,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->nodeGroupId_ != nullptr
-        && this->nodes_ != nullptr; };
+    virtual bool empty() const override { this->hyperNodes_ != nullptr
+        && this->nodeGroupId_ != nullptr && this->nodes_ != nullptr; };
+    // hyperNodes Field Functions 
+    bool hasHyperNodes() const { return this->hyperNodes_ != nullptr;};
+    void deleteHyperNodes() { this->hyperNodes_ = nullptr;};
+    inline const vector<Models::ShrinkClusterRequestNodeGroupsHyperNodes> & hyperNodes() const { DARABONBA_PTR_GET_CONST(hyperNodes_, vector<Models::ShrinkClusterRequestNodeGroupsHyperNodes>) };
+    inline vector<Models::ShrinkClusterRequestNodeGroupsHyperNodes> hyperNodes() { DARABONBA_PTR_GET(hyperNodes_, vector<Models::ShrinkClusterRequestNodeGroupsHyperNodes>) };
+    inline ShrinkClusterRequestNodeGroups& setHyperNodes(const vector<Models::ShrinkClusterRequestNodeGroupsHyperNodes> & hyperNodes) { DARABONBA_PTR_SET_VALUE(hyperNodes_, hyperNodes) };
+    inline ShrinkClusterRequestNodeGroups& setHyperNodes(vector<Models::ShrinkClusterRequestNodeGroupsHyperNodes> && hyperNodes) { DARABONBA_PTR_SET_RVALUE(hyperNodes_, hyperNodes) };
+
+
     // nodeGroupId Field Functions 
     bool hasNodeGroupId() const { return this->nodeGroupId_ != nullptr;};
     void deleteNodeGroupId() { this->nodeGroupId_ = nullptr;};
@@ -52,6 +64,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<vector<Models::ShrinkClusterRequestNodeGroupsHyperNodes>> hyperNodes_ = nullptr;
     // The node group ID.
     std::shared_ptr<string> nodeGroupId_ = nullptr;
     // The nodes.

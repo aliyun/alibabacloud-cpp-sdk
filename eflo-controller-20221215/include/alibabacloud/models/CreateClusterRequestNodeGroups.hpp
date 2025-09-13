@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATECLUSTERREQUESTNODEGROUPS_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/CreateClusterRequestNodeGroupsHyperNodes.hpp>
 #include <alibabacloud/models/CreateClusterRequestNodeGroupsNodes.hpp>
 #include <alibabacloud/models/CreateClusterRequestNodeGroupsSystemDisk.hpp>
 using namespace std;
@@ -17,6 +18,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateClusterRequestNodeGroups& obj) { 
       DARABONBA_PTR_TO_JSON(FileSystemMountEnabled, fileSystemMountEnabled_);
+      DARABONBA_PTR_TO_JSON(HyperNodes, hyperNodes_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
       DARABONBA_PTR_TO_JSON(KeyPairName, keyPairName_);
       DARABONBA_PTR_TO_JSON(LoginPassword, loginPassword_);
@@ -31,6 +33,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateClusterRequestNodeGroups& obj) { 
       DARABONBA_PTR_FROM_JSON(FileSystemMountEnabled, fileSystemMountEnabled_);
+      DARABONBA_PTR_FROM_JSON(HyperNodes, hyperNodes_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
       DARABONBA_PTR_FROM_JSON(KeyPairName, keyPairName_);
       DARABONBA_PTR_FROM_JSON(LoginPassword, loginPassword_);
@@ -55,14 +58,23 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->fileSystemMountEnabled_ != nullptr
-        && this->imageId_ != nullptr && this->keyPairName_ != nullptr && this->loginPassword_ != nullptr && this->machineType_ != nullptr && this->nodeGroupDescription_ != nullptr
-        && this->nodeGroupName_ != nullptr && this->nodes_ != nullptr && this->systemDisk_ != nullptr && this->userData_ != nullptr && this->virtualGpuEnabled_ != nullptr
-        && this->zoneId_ != nullptr; };
+        && this->hyperNodes_ != nullptr && this->imageId_ != nullptr && this->keyPairName_ != nullptr && this->loginPassword_ != nullptr && this->machineType_ != nullptr
+        && this->nodeGroupDescription_ != nullptr && this->nodeGroupName_ != nullptr && this->nodes_ != nullptr && this->systemDisk_ != nullptr && this->userData_ != nullptr
+        && this->virtualGpuEnabled_ != nullptr && this->zoneId_ != nullptr; };
     // fileSystemMountEnabled Field Functions 
     bool hasFileSystemMountEnabled() const { return this->fileSystemMountEnabled_ != nullptr;};
     void deleteFileSystemMountEnabled() { this->fileSystemMountEnabled_ = nullptr;};
     inline bool fileSystemMountEnabled() const { DARABONBA_PTR_GET_DEFAULT(fileSystemMountEnabled_, false) };
     inline CreateClusterRequestNodeGroups& setFileSystemMountEnabled(bool fileSystemMountEnabled) { DARABONBA_PTR_SET_VALUE(fileSystemMountEnabled_, fileSystemMountEnabled) };
+
+
+    // hyperNodes Field Functions 
+    bool hasHyperNodes() const { return this->hyperNodes_ != nullptr;};
+    void deleteHyperNodes() { this->hyperNodes_ = nullptr;};
+    inline const vector<Models::CreateClusterRequestNodeGroupsHyperNodes> & hyperNodes() const { DARABONBA_PTR_GET_CONST(hyperNodes_, vector<Models::CreateClusterRequestNodeGroupsHyperNodes>) };
+    inline vector<Models::CreateClusterRequestNodeGroupsHyperNodes> hyperNodes() { DARABONBA_PTR_GET(hyperNodes_, vector<Models::CreateClusterRequestNodeGroupsHyperNodes>) };
+    inline CreateClusterRequestNodeGroups& setHyperNodes(const vector<Models::CreateClusterRequestNodeGroupsHyperNodes> & hyperNodes) { DARABONBA_PTR_SET_VALUE(hyperNodes_, hyperNodes) };
+    inline CreateClusterRequestNodeGroups& setHyperNodes(vector<Models::CreateClusterRequestNodeGroupsHyperNodes> && hyperNodes) { DARABONBA_PTR_SET_RVALUE(hyperNodes_, hyperNodes) };
 
 
     // imageId Field Functions 
@@ -149,6 +161,7 @@ namespace Models
   protected:
     // Whether to support file system mounting
     std::shared_ptr<bool> fileSystemMountEnabled_ = nullptr;
+    std::shared_ptr<vector<Models::CreateClusterRequestNodeGroupsHyperNodes>> hyperNodes_ = nullptr;
     // System image ID
     std::shared_ptr<string> imageId_ = nullptr;
     // Key pair name.
