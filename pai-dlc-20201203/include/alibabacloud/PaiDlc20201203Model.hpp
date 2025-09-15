@@ -145,6 +145,8 @@
 #include <alibabacloud/models/GetJobResponseBodyDataSources.hpp>
 #include <alibabacloud/models/GetJobResponseBodyPodsHistoryPods.hpp>
 #include <alibabacloud/models/GetJobResponseBodyPods.hpp>
+#include <alibabacloud/models/GetJobResponseBodyRestartRecordDetailErrorInfoList.hpp>
+#include <alibabacloud/models/GetJobResponseBodyRestartRecord.hpp>
 #include <alibabacloud/models/GetJobResponseBodyUserVpc.hpp>
 
 #endif

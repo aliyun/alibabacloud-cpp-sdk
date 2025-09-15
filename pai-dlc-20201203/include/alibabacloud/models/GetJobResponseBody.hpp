@@ -10,6 +10,7 @@
 #include <map>
 #include <alibabacloud/models/JobSpec.hpp>
 #include <alibabacloud/models/GetJobResponseBodyPods.hpp>
+#include <alibabacloud/models/GetJobResponseBodyRestartRecord.hpp>
 #include <alibabacloud/models/JobSettings.hpp>
 #include <alibabacloud/models/StatusTransitionItem.hpp>
 #include <alibabacloud/models/GetJobResponseBodyUserVpc.hpp>
@@ -52,6 +53,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_TO_JSON(ResourceLevel, resourceLevel_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
+      DARABONBA_PTR_TO_JSON(RestartRecord, restartRecord_);
       DARABONBA_PTR_TO_JSON(RestartTimes, restartTimes_);
       DARABONBA_PTR_TO_JSON(Settings, settings_);
       DARABONBA_PTR_TO_JSON(Status, status_);
@@ -95,6 +97,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_FROM_JSON(ResourceLevel, resourceLevel_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
+      DARABONBA_PTR_FROM_JSON(RestartRecord, restartRecord_);
       DARABONBA_PTR_FROM_JSON(RestartTimes, restartTimes_);
       DARABONBA_PTR_FROM_JSON(Settings, settings_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -126,9 +129,10 @@ namespace Models
         && this->gmtFailedTime_ != nullptr && this->gmtFinishTime_ != nullptr && this->gmtRunningTime_ != nullptr && this->gmtStoppedTime_ != nullptr && this->gmtSubmittedTime_ != nullptr
         && this->gmtSuccessedTime_ != nullptr && this->jobId_ != nullptr && this->jobSpecs_ != nullptr && this->jobType_ != nullptr && this->pods_ != nullptr
         && this->priority_ != nullptr && this->reasonCode_ != nullptr && this->reasonMessage_ != nullptr && this->requestId_ != nullptr && this->resourceId_ != nullptr
-        && this->resourceLevel_ != nullptr && this->resourceType_ != nullptr && this->restartTimes_ != nullptr && this->settings_ != nullptr && this->status_ != nullptr
-        && this->statusHistory_ != nullptr && this->subStatus_ != nullptr && this->tenantId_ != nullptr && this->thirdpartyLibDir_ != nullptr && this->thirdpartyLibs_ != nullptr
-        && this->userCommand_ != nullptr && this->userId_ != nullptr && this->userVpc_ != nullptr && this->workspaceId_ != nullptr && this->workspaceName_ != nullptr; };
+        && this->resourceLevel_ != nullptr && this->resourceType_ != nullptr && this->restartRecord_ != nullptr && this->restartTimes_ != nullptr && this->settings_ != nullptr
+        && this->status_ != nullptr && this->statusHistory_ != nullptr && this->subStatus_ != nullptr && this->tenantId_ != nullptr && this->thirdpartyLibDir_ != nullptr
+        && this->thirdpartyLibs_ != nullptr && this->userCommand_ != nullptr && this->userId_ != nullptr && this->userVpc_ != nullptr && this->workspaceId_ != nullptr
+        && this->workspaceName_ != nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -339,6 +343,15 @@ namespace Models
     inline GetJobResponseBody& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
+    // restartRecord Field Functions 
+    bool hasRestartRecord() const { return this->restartRecord_ != nullptr;};
+    void deleteRestartRecord() { this->restartRecord_ = nullptr;};
+    inline const vector<GetJobResponseBodyRestartRecord> & restartRecord() const { DARABONBA_PTR_GET_CONST(restartRecord_, vector<GetJobResponseBodyRestartRecord>) };
+    inline vector<GetJobResponseBodyRestartRecord> restartRecord() { DARABONBA_PTR_GET(restartRecord_, vector<GetJobResponseBodyRestartRecord>) };
+    inline GetJobResponseBody& setRestartRecord(const vector<GetJobResponseBodyRestartRecord> & restartRecord) { DARABONBA_PTR_SET_VALUE(restartRecord_, restartRecord) };
+    inline GetJobResponseBody& setRestartRecord(vector<GetJobResponseBodyRestartRecord> && restartRecord) { DARABONBA_PTR_SET_RVALUE(restartRecord_, restartRecord) };
+
+
     // restartTimes Field Functions 
     bool hasRestartTimes() const { return this->restartTimes_ != nullptr;};
     void deleteRestartTimes() { this->restartTimes_ = nullptr;};
@@ -498,6 +511,7 @@ namespace Models
     std::shared_ptr<string> resourceLevel_ = nullptr;
     // The resource type. Valid values: ECS, Lingjun, and ACS.
     std::shared_ptr<string> resourceType_ = nullptr;
+    std::shared_ptr<vector<GetJobResponseBodyRestartRecord>> restartRecord_ = nullptr;
     // The number of retries and the maximum number of retries used by the job.
     std::shared_ptr<string> restartTimes_ = nullptr;
     // The additional parameter configurations of the job.
