@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(ExpiredTime, expiredTime_);
       DARABONBA_PTR_TO_JSON(HpnZone, hpnZone_);
+      DARABONBA_PTR_TO_JSON(HyperNodeId, hyperNodeId_);
       DARABONBA_PTR_TO_JSON(MachineType, machineType_);
       DARABONBA_PTR_TO_JSON(NodeId, nodeId_);
       DARABONBA_PTR_TO_JSON(OperatingState, operatingState_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(ExpiredTime, expiredTime_);
       DARABONBA_PTR_FROM_JSON(HpnZone, hpnZone_);
+      DARABONBA_PTR_FROM_JSON(HyperNodeId, hyperNodeId_);
       DARABONBA_PTR_FROM_JSON(MachineType, machineType_);
       DARABONBA_PTR_FROM_JSON(NodeId, nodeId_);
       DARABONBA_PTR_FROM_JSON(OperatingState, operatingState_);
@@ -52,8 +54,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->commodityCode_ != nullptr
-        && this->createTime_ != nullptr && this->expiredTime_ != nullptr && this->hpnZone_ != nullptr && this->machineType_ != nullptr && this->nodeId_ != nullptr
-        && this->operatingState_ != nullptr && this->resourceGroupId_ != nullptr && this->sn_ != nullptr && this->tags_ != nullptr && this->zoneId_ != nullptr; };
+        && this->createTime_ != nullptr && this->expiredTime_ != nullptr && this->hpnZone_ != nullptr && this->hyperNodeId_ != nullptr && this->machineType_ != nullptr
+        && this->nodeId_ != nullptr && this->operatingState_ != nullptr && this->resourceGroupId_ != nullptr && this->sn_ != nullptr && this->tags_ != nullptr
+        && this->zoneId_ != nullptr; };
     // commodityCode Field Functions 
     bool hasCommodityCode() const { return this->commodityCode_ != nullptr;};
     void deleteCommodityCode() { this->commodityCode_ = nullptr;};
@@ -80,6 +83,13 @@ namespace Models
     void deleteHpnZone() { this->hpnZone_ = nullptr;};
     inline string hpnZone() const { DARABONBA_PTR_GET_DEFAULT(hpnZone_, "") };
     inline ListFreeNodesResponseBodyNodes& setHpnZone(string hpnZone) { DARABONBA_PTR_SET_VALUE(hpnZone_, hpnZone) };
+
+
+    // hyperNodeId Field Functions 
+    bool hasHyperNodeId() const { return this->hyperNodeId_ != nullptr;};
+    void deleteHyperNodeId() { this->hyperNodeId_ = nullptr;};
+    inline string hyperNodeId() const { DARABONBA_PTR_GET_DEFAULT(hyperNodeId_, "") };
+    inline ListFreeNodesResponseBodyNodes& setHyperNodeId(string hyperNodeId) { DARABONBA_PTR_SET_VALUE(hyperNodeId_, hyperNodeId) };
 
 
     // machineType Field Functions 
@@ -142,6 +152,7 @@ namespace Models
     std::shared_ptr<string> expiredTime_ = nullptr;
     // The cluster number.
     std::shared_ptr<string> hpnZone_ = nullptr;
+    std::shared_ptr<string> hyperNodeId_ = nullptr;
     // The instance type.
     std::shared_ptr<string> machineType_ = nullptr;
     // The node ID.

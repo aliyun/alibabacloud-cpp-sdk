@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FileSystemMountEnabled, fileSystemMountEnabled_);
       DARABONBA_PTR_TO_JSON(Hostname, hostname_);
       DARABONBA_PTR_TO_JSON(HpnZone, hpnZone_);
+      DARABONBA_PTR_TO_JSON(HyperNodeId, hyperNodeId_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
       DARABONBA_PTR_TO_JSON(ImageName, imageName_);
       DARABONBA_PTR_TO_JSON(MachineType, machineType_);
@@ -48,6 +49,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FileSystemMountEnabled, fileSystemMountEnabled_);
       DARABONBA_PTR_FROM_JSON(Hostname, hostname_);
       DARABONBA_PTR_FROM_JSON(HpnZone, hpnZone_);
+      DARABONBA_PTR_FROM_JSON(HyperNodeId, hyperNodeId_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
       DARABONBA_PTR_FROM_JSON(ImageName, imageName_);
       DARABONBA_PTR_FROM_JSON(MachineType, machineType_);
@@ -76,10 +78,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->clusterId_ != nullptr
         && this->clusterName_ != nullptr && this->createTime_ != nullptr && this->disks_ != nullptr && this->expiredTime_ != nullptr && this->fileSystemMountEnabled_ != nullptr
-        && this->hostname_ != nullptr && this->hpnZone_ != nullptr && this->imageId_ != nullptr && this->imageName_ != nullptr && this->machineType_ != nullptr
-        && this->networks_ != nullptr && this->nodeGroupId_ != nullptr && this->nodeGroupName_ != nullptr && this->nodeId_ != nullptr && this->nodeType_ != nullptr
-        && this->operatingState_ != nullptr && this->requestId_ != nullptr && this->resourceGroupId_ != nullptr && this->sn_ != nullptr && this->userData_ != nullptr
-        && this->zoneId_ != nullptr; };
+        && this->hostname_ != nullptr && this->hpnZone_ != nullptr && this->hyperNodeId_ != nullptr && this->imageId_ != nullptr && this->imageName_ != nullptr
+        && this->machineType_ != nullptr && this->networks_ != nullptr && this->nodeGroupId_ != nullptr && this->nodeGroupName_ != nullptr && this->nodeId_ != nullptr
+        && this->nodeType_ != nullptr && this->operatingState_ != nullptr && this->requestId_ != nullptr && this->resourceGroupId_ != nullptr && this->sn_ != nullptr
+        && this->userData_ != nullptr && this->zoneId_ != nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -136,6 +138,13 @@ namespace Models
     void deleteHpnZone() { this->hpnZone_ = nullptr;};
     inline string hpnZone() const { DARABONBA_PTR_GET_DEFAULT(hpnZone_, "") };
     inline DescribeNodeResponseBody& setHpnZone(string hpnZone) { DARABONBA_PTR_SET_VALUE(hpnZone_, hpnZone) };
+
+
+    // hyperNodeId Field Functions 
+    bool hasHyperNodeId() const { return this->hyperNodeId_ != nullptr;};
+    void deleteHyperNodeId() { this->hyperNodeId_ = nullptr;};
+    inline string hyperNodeId() const { DARABONBA_PTR_GET_DEFAULT(hyperNodeId_, "") };
+    inline DescribeNodeResponseBody& setHyperNodeId(string hyperNodeId) { DARABONBA_PTR_SET_VALUE(hyperNodeId_, hyperNodeId) };
 
 
     // imageId Field Functions 
@@ -255,6 +264,7 @@ namespace Models
     std::shared_ptr<string> hostname_ = nullptr;
     // The cluster number.
     std::shared_ptr<string> hpnZone_ = nullptr;
+    std::shared_ptr<string> hyperNodeId_ = nullptr;
     // The image ID.
     std::shared_ptr<string> imageId_ = nullptr;
     // The image name.
