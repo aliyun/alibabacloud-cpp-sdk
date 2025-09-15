@@ -33,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestMethod, requestMethod_);
       DARABONBA_PTR_TO_JSON(ResponseContentType, responseContentType_);
       DARABONBA_PTR_TO_JSON(ScriptDetails, scriptDetails_);
+      DARABONBA_PTR_TO_JSON(SqlMode, sqlMode_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
       DARABONBA_PTR_TO_JSON(Timeout, timeout_);
@@ -56,6 +57,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RequestMethod, requestMethod_);
       DARABONBA_PTR_FROM_JSON(ResponseContentType, responseContentType_);
       DARABONBA_PTR_FROM_JSON(ScriptDetails, scriptDetails_);
+      DARABONBA_PTR_FROM_JSON(SqlMode, sqlMode_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
       DARABONBA_PTR_FROM_JSON(Timeout, timeout_);
@@ -77,7 +79,8 @@ namespace Models
         && this->apiMode_ != nullptr && this->apiName_ != nullptr && this->apiPath_ != nullptr && this->createdTime_ != nullptr && this->creatorId_ != nullptr
         && this->description_ != nullptr && this->groupId_ != nullptr && this->modifiedTime_ != nullptr && this->operatorId_ != nullptr && this->projectId_ != nullptr
         && this->protocols_ != nullptr && this->registrationDetails_ != nullptr && this->requestMethod_ != nullptr && this->responseContentType_ != nullptr && this->scriptDetails_ != nullptr
-        && this->status_ != nullptr && this->tenantId_ != nullptr && this->timeout_ != nullptr && this->visibleRange_ != nullptr && this->wizardDetails_ != nullptr; };
+        && this->sqlMode_ != nullptr && this->status_ != nullptr && this->tenantId_ != nullptr && this->timeout_ != nullptr && this->visibleRange_ != nullptr
+        && this->wizardDetails_ != nullptr; };
     // apiId Field Functions 
     bool hasApiId() const { return this->apiId_ != nullptr;};
     void deleteApiId() { this->apiId_ = nullptr;};
@@ -196,6 +199,13 @@ namespace Models
     inline ListDataServicePublishedApisResponseBodyDataApis& setScriptDetails(Models::ListDataServicePublishedApisResponseBodyDataApisScriptDetails && scriptDetails) { DARABONBA_PTR_SET_RVALUE(scriptDetails_, scriptDetails) };
 
 
+    // sqlMode Field Functions 
+    bool hasSqlMode() const { return this->sqlMode_ != nullptr;};
+    void deleteSqlMode() { this->sqlMode_ = nullptr;};
+    inline int32_t sqlMode() const { DARABONBA_PTR_GET_DEFAULT(sqlMode_, 0) };
+    inline ListDataServicePublishedApisResponseBodyDataApis& setSqlMode(int32_t sqlMode) { DARABONBA_PTR_SET_VALUE(sqlMode_, sqlMode) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -266,6 +276,7 @@ namespace Models
     std::shared_ptr<int32_t> responseContentType_ = nullptr;
     // The details of the API generated in script mode. This parameter is returned only if the API is generated in script mode.
     std::shared_ptr<Models::ListDataServicePublishedApisResponseBodyDataApisScriptDetails> scriptDetails_ = nullptr;
+    std::shared_ptr<int32_t> sqlMode_ = nullptr;
     // The status of the API. Valid values: 0 and 1. The value 0 indicates that the API is not published. The value 1 indicates that the API is published.
     std::shared_ptr<int32_t> status_ = nullptr;
     // The tenant ID.
