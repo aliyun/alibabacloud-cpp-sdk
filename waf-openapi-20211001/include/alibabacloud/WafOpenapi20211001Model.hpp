@@ -38,6 +38,9 @@
 #include <alibabacloud/models/CreateDomainShrinkRequest.hpp>
 #include <alibabacloud/models/CreateDomainResponseBody.hpp>
 #include <alibabacloud/models/CreateDomainResponse.hpp>
+#include <alibabacloud/models/CreateHybridCloudClusterRequest.hpp>
+#include <alibabacloud/models/CreateHybridCloudClusterResponseBody.hpp>
+#include <alibabacloud/models/CreateHybridCloudClusterResponse.hpp>
 #include <alibabacloud/models/CreateHybridCloudClusterRuleRequest.hpp>
 #include <alibabacloud/models/CreateHybridCloudClusterRuleResponseBody.hpp>
 #include <alibabacloud/models/CreateHybridCloudClusterRuleResponse.hpp>
@@ -173,6 +176,10 @@
 #include <alibabacloud/models/DescribeCnameCountRequest.hpp>
 #include <alibabacloud/models/DescribeCnameCountResponseBody.hpp>
 #include <alibabacloud/models/DescribeCnameCountResponse.hpp>
+#include <alibabacloud/models/DescribeCommonLogFieldsRequest.hpp>
+#include <alibabacloud/models/DescribeCommonLogFieldsShrinkRequest.hpp>
+#include <alibabacloud/models/DescribeCommonLogFieldsResponseBody.hpp>
+#include <alibabacloud/models/DescribeCommonLogFieldsResponse.hpp>
 #include <alibabacloud/models/DescribeCustomBaseRuleCompileResultRequest.hpp>
 #include <alibabacloud/models/DescribeCustomBaseRuleCompileResultResponseBody.hpp>
 #include <alibabacloud/models/DescribeCustomBaseRuleCompileResultResponse.hpp>
@@ -182,6 +189,9 @@
 #include <alibabacloud/models/DescribeDefaultHttpsRequest.hpp>
 #include <alibabacloud/models/DescribeDefaultHttpsResponseBody.hpp>
 #include <alibabacloud/models/DescribeDefaultHttpsResponse.hpp>
+#include <alibabacloud/models/DescribeDefenseGroupValidResourcesRequest.hpp>
+#include <alibabacloud/models/DescribeDefenseGroupValidResourcesResponseBody.hpp>
+#include <alibabacloud/models/DescribeDefenseGroupValidResourcesResponse.hpp>
 #include <alibabacloud/models/DescribeDefenseResourceRequest.hpp>
 #include <alibabacloud/models/DescribeDefenseResourceResponseBody.hpp>
 #include <alibabacloud/models/DescribeDefenseResourceResponse.hpp>
@@ -224,6 +234,9 @@
 #include <alibabacloud/models/DescribeDefenseTemplateValidGroupsRequest.hpp>
 #include <alibabacloud/models/DescribeDefenseTemplateValidGroupsResponseBody.hpp>
 #include <alibabacloud/models/DescribeDefenseTemplateValidGroupsResponse.hpp>
+#include <alibabacloud/models/DescribeDefenseTemplateValidResourcesRequest.hpp>
+#include <alibabacloud/models/DescribeDefenseTemplateValidResourcesResponseBody.hpp>
+#include <alibabacloud/models/DescribeDefenseTemplateValidResourcesResponse.hpp>
 #include <alibabacloud/models/DescribeDefenseTemplatesRequest.hpp>
 #include <alibabacloud/models/DescribeDefenseTemplatesResponseBody.hpp>
 #include <alibabacloud/models/DescribeDefenseTemplatesResponse.hpp>
@@ -424,6 +437,9 @@
 #include <alibabacloud/models/DescribeUserEventTypeRequest.hpp>
 #include <alibabacloud/models/DescribeUserEventTypeResponseBody.hpp>
 #include <alibabacloud/models/DescribeUserEventTypeResponse.hpp>
+#include <alibabacloud/models/DescribeUserLogFieldConfigRequest.hpp>
+#include <alibabacloud/models/DescribeUserLogFieldConfigResponseBody.hpp>
+#include <alibabacloud/models/DescribeUserLogFieldConfigResponse.hpp>
 #include <alibabacloud/models/DescribeUserSlsLogRegionsRequest.hpp>
 #include <alibabacloud/models/DescribeUserSlsLogRegionsResponseBody.hpp>
 #include <alibabacloud/models/DescribeUserSlsLogRegionsResponse.hpp>
@@ -543,6 +559,12 @@
 #include <alibabacloud/models/ModifyTemplateResourcesRequest.hpp>
 #include <alibabacloud/models/ModifyTemplateResourcesResponseBody.hpp>
 #include <alibabacloud/models/ModifyTemplateResourcesResponse.hpp>
+#include <alibabacloud/models/ModifyUserLogFieldConfigRequest.hpp>
+#include <alibabacloud/models/ModifyUserLogFieldConfigResponseBody.hpp>
+#include <alibabacloud/models/ModifyUserLogFieldConfigResponse.hpp>
+#include <alibabacloud/models/ModifyUserWafLogStatusRequest.hpp>
+#include <alibabacloud/models/ModifyUserWafLogStatusResponseBody.hpp>
+#include <alibabacloud/models/ModifyUserWafLogStatusResponse.hpp>
 #include <alibabacloud/models/ReCreateCloudResourceRequest.hpp>
 #include <alibabacloud/models/ReCreateCloudResourceResponseBody.hpp>
 #include <alibabacloud/models/ReCreateCloudResourceResponse.hpp>
@@ -600,6 +622,7 @@
 #include <alibabacloud/models/DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails.hpp>
 #include <alibabacloud/models/DescribeCloudResourcesResponseBodyCloudResources.hpp>
 #include <alibabacloud/models/DescribeCnameCountResponseBodyCnameCount.hpp>
+#include <alibabacloud/models/DescribeCommonLogFieldsResponseBodyLogFieldList.hpp>
 #include <alibabacloud/models/DescribeDdoSstatusResponseBodyDdoSstatus.hpp>
 #include <alibabacloud/models/DescribeDefaultHttpsResponseBodyDefaultHttps.hpp>
 #include <alibabacloud/models/DescribeDefenseResourceResponseBodyResourceResponseHeaders.hpp>

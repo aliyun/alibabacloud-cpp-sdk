@@ -208,6 +208,23 @@ namespace WafOpenapi20211001
       Models::CreateDomainResponse createDomain(const Models::CreateDomainRequest &request);
 
       /**
+       * @summary Creates a hybrid cloud cluster.
+       *
+       * @param request CreateHybridCloudClusterRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateHybridCloudClusterResponse
+       */
+      Models::CreateHybridCloudClusterResponse createHybridCloudClusterWithOptions(const Models::CreateHybridCloudClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a hybrid cloud cluster.
+       *
+       * @param request CreateHybridCloudClusterRequest
+       * @return CreateHybridCloudClusterResponse
+       */
+      Models::CreateHybridCloudClusterResponse createHybridCloudCluster(const Models::CreateHybridCloudClusterRequest &request);
+
+      /**
        * @summary 新增集群规则信息
        *
        * @param request CreateHybridCloudClusterRuleRequest
@@ -977,6 +994,23 @@ namespace WafOpenapi20211001
       Models::DescribeCnameCountResponse describeCnameCount(const Models::DescribeCnameCountRequest &request);
 
       /**
+       * @summary 查询日志服务支持的所有字段
+       *
+       * @param tmpReq DescribeCommonLogFieldsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCommonLogFieldsResponse
+       */
+      Models::DescribeCommonLogFieldsResponse describeCommonLogFieldsWithOptions(const Models::DescribeCommonLogFieldsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询日志服务支持的所有字段
+       *
+       * @param request DescribeCommonLogFieldsRequest
+       * @return DescribeCommonLogFieldsResponse
+       */
+      Models::DescribeCommonLogFieldsResponse describeCommonLogFields(const Models::DescribeCommonLogFieldsRequest &request);
+
+      /**
        * @summary 查询自定义正则规则编译结果
        *
        * @param request DescribeCustomBaseRuleCompileResultRequest
@@ -1026,6 +1060,23 @@ namespace WafOpenapi20211001
        * @return DescribeDefaultHttpsResponse
        */
       Models::DescribeDefaultHttpsResponse describeDefaultHttps(const Models::DescribeDefaultHttpsRequest &request);
+
+      /**
+       * @summary 分页查询可以被防护组绑定的防护对象列表
+       *
+       * @param request DescribeDefenseGroupValidResourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDefenseGroupValidResourcesResponse
+       */
+      Models::DescribeDefenseGroupValidResourcesResponse describeDefenseGroupValidResourcesWithOptions(const Models::DescribeDefenseGroupValidResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询可以被防护组绑定的防护对象列表
+       *
+       * @param request DescribeDefenseGroupValidResourcesRequest
+       * @return DescribeDefenseGroupValidResourcesResponse
+       */
+      Models::DescribeDefenseGroupValidResourcesResponse describeDefenseGroupValidResources(const Models::DescribeDefenseGroupValidResourcesRequest &request);
 
       /**
        * @summary Queries the information about a protected object.
@@ -1264,6 +1315,23 @@ namespace WafOpenapi20211001
        * @return DescribeDefenseTemplateValidGroupsResponse
        */
       Models::DescribeDefenseTemplateValidGroupsResponse describeDefenseTemplateValidGroups(const Models::DescribeDefenseTemplateValidGroupsRequest &request);
+
+      /**
+       * @summary 分页查询可以被自定义模板绑定的防护对象列表
+       *
+       * @param request DescribeDefenseTemplateValidResourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDefenseTemplateValidResourcesResponse
+       */
+      Models::DescribeDefenseTemplateValidResourcesResponse describeDefenseTemplateValidResourcesWithOptions(const Models::DescribeDefenseTemplateValidResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询可以被自定义模板绑定的防护对象列表
+       *
+       * @param request DescribeDefenseTemplateValidResourcesRequest
+       * @return DescribeDefenseTemplateValidResourcesResponse
+       */
+      Models::DescribeDefenseTemplateValidResourcesResponse describeDefenseTemplateValidResources(const Models::DescribeDefenseTemplateValidResourcesRequest &request);
 
       /**
        * @summary Performs a paging query to retrieve protection templates.
@@ -2401,6 +2469,23 @@ namespace WafOpenapi20211001
       Models::DescribeUserEventTypeResponse describeUserEventType(const Models::DescribeUserEventTypeRequest &request);
 
       /**
+       * @summary 查询用户日志配置
+       *
+       * @param request DescribeUserLogFieldConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeUserLogFieldConfigResponse
+       */
+      Models::DescribeUserLogFieldConfigResponse describeUserLogFieldConfigWithOptions(const Models::DescribeUserLogFieldConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询用户日志配置
+       *
+       * @param request DescribeUserLogFieldConfigRequest
+       * @return DescribeUserLogFieldConfigResponse
+       */
+      Models::DescribeUserLogFieldConfigResponse describeUserLogFieldConfig(const Models::DescribeUserLogFieldConfigRequest &request);
+
+      /**
        * @summary Queries available regions for log storage.
        *
        * @param request DescribeUserSlsLogRegionsRequest
@@ -3062,6 +3147,40 @@ namespace WafOpenapi20211001
        * @return ModifyTemplateResourcesResponse
        */
       Models::ModifyTemplateResourcesResponse modifyTemplateResources(const Models::ModifyTemplateResourcesRequest &request);
+
+      /**
+       * @summary  修改用户日志服务的默认字段配置
+       *
+       * @param request ModifyUserLogFieldConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyUserLogFieldConfigResponse
+       */
+      Models::ModifyUserLogFieldConfigResponse modifyUserLogFieldConfigWithOptions(const Models::ModifyUserLogFieldConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary  修改用户日志服务的默认字段配置
+       *
+       * @param request ModifyUserLogFieldConfigRequest
+       * @return ModifyUserLogFieldConfigResponse
+       */
+      Models::ModifyUserLogFieldConfigResponse modifyUserLogFieldConfig(const Models::ModifyUserLogFieldConfigRequest &request);
+
+      /**
+       * @summary 开通或关闭WAF日志服务
+       *
+       * @param request ModifyUserWafLogStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyUserWafLogStatusResponse
+       */
+      Models::ModifyUserWafLogStatusResponse modifyUserWafLogStatusWithOptions(const Models::ModifyUserWafLogStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开通或关闭WAF日志服务
+       *
+       * @param request ModifyUserWafLogStatusRequest
+       * @return ModifyUserWafLogStatusResponse
+       */
+      Models::ModifyUserWafLogStatusResponse modifyUserWafLogStatus(const Models::ModifyUserWafLogStatusRequest &request);
 
       /**
        * @summary 重新接入云产品

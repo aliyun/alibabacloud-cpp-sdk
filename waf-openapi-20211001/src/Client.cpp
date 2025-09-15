@@ -836,6 +836,108 @@ CreateDomainResponse Client::createDomain(const CreateDomainRequest &request) {
 }
 
 /**
+ * @summary Creates a hybrid cloud cluster.
+ *
+ * @param request CreateHybridCloudClusterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateHybridCloudClusterResponse
+ */
+CreateHybridCloudClusterResponse Client::createHybridCloudClusterWithOptions(const CreateHybridCloudClusterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccessMode()) {
+    query["AccessMode"] = request.accessMode();
+  }
+
+  if (!!request.hasAccessRegion()) {
+    query["AccessRegion"] = request.accessRegion();
+  }
+
+  if (!!request.hasClusterName()) {
+    query["ClusterName"] = request.clusterName();
+  }
+
+  if (!!request.hasHttpPorts()) {
+    query["HttpPorts"] = request.httpPorts();
+  }
+
+  if (!!request.hasHttpsPorts()) {
+    query["HttpsPorts"] = request.httpsPorts();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasLogFieldsNotReturned()) {
+    query["LogFieldsNotReturned"] = request.logFieldsNotReturned();
+  }
+
+  if (!!request.hasProtectionServerCount()) {
+    query["ProtectionServerCount"] = request.protectionServerCount();
+  }
+
+  if (!!request.hasProxyStatus()) {
+    query["ProxyStatus"] = request.proxyStatus();
+  }
+
+  if (!!request.hasProxyType()) {
+    query["ProxyType"] = request.proxyType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.remark();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  if (!!request.hasRuleConfig()) {
+    query["RuleConfig"] = request.ruleConfig();
+  }
+
+  if (!!request.hasRuleStatus()) {
+    query["RuleStatus"] = request.ruleStatus();
+  }
+
+  if (!!request.hasRuleType()) {
+    query["RuleType"] = request.ruleType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateHybridCloudCluster"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateHybridCloudClusterResponse>();
+}
+
+/**
+ * @summary Creates a hybrid cloud cluster.
+ *
+ * @param request CreateHybridCloudClusterRequest
+ * @return CreateHybridCloudClusterResponse
+ */
+CreateHybridCloudClusterResponse Client::createHybridCloudCluster(const CreateHybridCloudClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createHybridCloudClusterWithOptions(request, runtime);
+}
+
+/**
  * @summary 新增集群规则信息
  *
  * @param request CreateHybridCloudClusterRuleRequest
@@ -3854,6 +3956,74 @@ DescribeCnameCountResponse Client::describeCnameCount(const DescribeCnameCountRe
 }
 
 /**
+ * @summary 查询日志服务支持的所有字段
+ *
+ * @param tmpReq DescribeCommonLogFieldsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeCommonLogFieldsResponse
+ */
+DescribeCommonLogFieldsResponse Client::describeCommonLogFieldsWithOptions(const DescribeCommonLogFieldsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribeCommonLogFieldsShrinkRequest request = DescribeCommonLogFieldsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasLogKeyList()) {
+    request.setLogKeyListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.logKeyList(), "LogKeyList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasIsDefault()) {
+    query["IsDefault"] = request.isDefault();
+  }
+
+  if (!!request.hasIsRequired()) {
+    query["IsRequired"] = request.isRequired();
+  }
+
+  if (!!request.hasLogKeyListShrink()) {
+    query["LogKeyList"] = request.logKeyListShrink();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeCommonLogFields"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeCommonLogFieldsResponse>();
+}
+
+/**
+ * @summary 查询日志服务支持的所有字段
+ *
+ * @param request DescribeCommonLogFieldsRequest
+ * @return DescribeCommonLogFieldsResponse
+ */
+DescribeCommonLogFieldsResponse Client::describeCommonLogFields(const DescribeCommonLogFieldsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeCommonLogFieldsWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询自定义正则规则编译结果
  *
  * @param request DescribeCustomBaseRuleCompileResultRequest
@@ -4001,6 +4171,72 @@ DescribeDefaultHttpsResponse Client::describeDefaultHttpsWithOptions(const Descr
 DescribeDefaultHttpsResponse Client::describeDefaultHttps(const DescribeDefaultHttpsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeDefaultHttpsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页查询可以被防护组绑定的防护对象列表
+ *
+ * @param request DescribeDefenseGroupValidResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDefenseGroupValidResourcesResponse
+ */
+DescribeDefenseGroupValidResourcesResponse Client::describeDefenseGroupValidResourcesWithOptions(const DescribeDefenseGroupValidResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGroupName()) {
+    query["GroupName"] = request.groupName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResource()) {
+    query["Resource"] = request.resource();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDefenseGroupValidResources"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDefenseGroupValidResourcesResponse>();
+}
+
+/**
+ * @summary 分页查询可以被防护组绑定的防护对象列表
+ *
+ * @param request DescribeDefenseGroupValidResourcesRequest
+ * @return DescribeDefenseGroupValidResourcesResponse
+ */
+DescribeDefenseGroupValidResourcesResponse Client::describeDefenseGroupValidResources(const DescribeDefenseGroupValidResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDefenseGroupValidResourcesWithOptions(request, runtime);
 }
 
 /**
@@ -4881,6 +5117,76 @@ DescribeDefenseTemplateValidGroupsResponse Client::describeDefenseTemplateValidG
 DescribeDefenseTemplateValidGroupsResponse Client::describeDefenseTemplateValidGroups(const DescribeDefenseTemplateValidGroupsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeDefenseTemplateValidGroupsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页查询可以被自定义模板绑定的防护对象列表
+ *
+ * @param request DescribeDefenseTemplateValidResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDefenseTemplateValidResourcesResponse
+ */
+DescribeDefenseTemplateValidResourcesResponse Client::describeDefenseTemplateValidResourcesWithOptions(const DescribeDefenseTemplateValidResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDefenseScene()) {
+    query["DefenseScene"] = request.defenseScene();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResource()) {
+    query["Resource"] = request.resource();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.templateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDefenseTemplateValidResources"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDefenseTemplateValidResourcesResponse>();
+}
+
+/**
+ * @summary 分页查询可以被自定义模板绑定的防护对象列表
+ *
+ * @param request DescribeDefenseTemplateValidResourcesRequest
+ * @return DescribeDefenseTemplateValidResourcesResponse
+ */
+DescribeDefenseTemplateValidResourcesResponse Client::describeDefenseTemplateValidResources(const DescribeDefenseTemplateValidResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDefenseTemplateValidResourcesWithOptions(request, runtime);
 }
 
 /**
@@ -8990,6 +9296,60 @@ DescribeUserEventTypeResponse Client::describeUserEventType(const DescribeUserEv
 }
 
 /**
+ * @summary 查询用户日志配置
+ *
+ * @param request DescribeUserLogFieldConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeUserLogFieldConfigResponse
+ */
+DescribeUserLogFieldConfigResponse Client::describeUserLogFieldConfigWithOptions(const DescribeUserLogFieldConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeliveryType()) {
+    query["DeliveryType"] = request.deliveryType();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeUserLogFieldConfig"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeUserLogFieldConfigResponse>();
+}
+
+/**
+ * @summary 查询用户日志配置
+ *
+ * @param request DescribeUserLogFieldConfigRequest
+ * @return DescribeUserLogFieldConfigResponse
+ */
+DescribeUserLogFieldConfigResponse Client::describeUserLogFieldConfig(const DescribeUserLogFieldConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeUserLogFieldConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries available regions for log storage.
  *
  * @param request DescribeUserSlsLogRegionsRequest
@@ -11427,6 +11787,130 @@ ModifyTemplateResourcesResponse Client::modifyTemplateResourcesWithOptions(const
 ModifyTemplateResourcesResponse Client::modifyTemplateResources(const ModifyTemplateResourcesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyTemplateResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary  修改用户日志服务的默认字段配置
+ *
+ * @param request ModifyUserLogFieldConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyUserLogFieldConfigResponse
+ */
+ModifyUserLogFieldConfigResponse Client::modifyUserLogFieldConfigWithOptions(const ModifyUserLogFieldConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeliveryType()) {
+    query["DeliveryType"] = request.deliveryType();
+  }
+
+  if (!!request.hasExtendConfig()) {
+    query["ExtendConfig"] = request.extendConfig();
+  }
+
+  if (!!request.hasFieldList()) {
+    query["FieldList"] = request.fieldList();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasLogDeliveryStrategy()) {
+    query["LogDeliveryStrategy"] = request.logDeliveryStrategy();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyUserLogFieldConfig"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyUserLogFieldConfigResponse>();
+}
+
+/**
+ * @summary  修改用户日志服务的默认字段配置
+ *
+ * @param request ModifyUserLogFieldConfigRequest
+ * @return ModifyUserLogFieldConfigResponse
+ */
+ModifyUserLogFieldConfigResponse Client::modifyUserLogFieldConfig(const ModifyUserLogFieldConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyUserLogFieldConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 开通或关闭WAF日志服务
+ *
+ * @param request ModifyUserWafLogStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyUserWafLogStatusResponse
+ */
+ModifyUserWafLogStatusResponse Client::modifyUserWafLogStatusWithOptions(const ModifyUserWafLogStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasLogRegionId()) {
+    query["LogRegionId"] = request.logRegionId();
+  }
+
+  if (!!request.hasLogStatus()) {
+    query["LogStatus"] = request.logStatus();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyUserWafLogStatus"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyUserWafLogStatusResponse>();
+}
+
+/**
+ * @summary 开通或关闭WAF日志服务
+ *
+ * @param request ModifyUserWafLogStatusRequest
+ * @return ModifyUserWafLogStatusResponse
+ */
+ModifyUserWafLogStatusResponse Client::modifyUserWafLogStatus(const ModifyUserWafLogStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyUserWafLogStatusWithOptions(request, runtime);
 }
 
 /**
