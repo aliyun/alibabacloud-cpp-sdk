@@ -2339,6 +2339,10 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
     query["AuthorizeSecurityPolicyRule"] = request.authorizeSecurityPolicyRule();
   }
 
+  if (!!request.hasAutoReconnect()) {
+    query["AutoReconnect"] = request.autoReconnect();
+  }
+
   if (!!request.hasBusinessType()) {
     query["BusinessType"] = request.businessType();
   }
@@ -2357,6 +2361,14 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
 
   if (!!request.hasClipboard()) {
     query["Clipboard"] = request.clipboard();
+  }
+
+  if (!!request.hasClipboardGraineds()) {
+    query["ClipboardGraineds"] = request.clipboardGraineds();
+  }
+
+  if (!!request.hasClipboardScope()) {
+    query["ClipboardScope"] = request.clipboardScope();
   }
 
   if (!!request.hasColorEnhancement()) {
@@ -2503,8 +2515,20 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
     query["MobileRestart"] = request.mobileRestart();
   }
 
+  if (!!request.hasMobileSafeMenu()) {
+    query["MobileSafeMenu"] = request.mobileSafeMenu();
+  }
+
   if (!!request.hasMobileShutdown()) {
     query["MobileShutdown"] = request.mobileShutdown();
+  }
+
+  if (!!request.hasMobileWuyingKeeper()) {
+    query["MobileWuyingKeeper"] = request.mobileWuyingKeeper();
+  }
+
+  if (!!request.hasMobileWyAssistant()) {
+    query["MobileWyAssistant"] = request.mobileWyAssistant();
   }
 
   if (!!request.hasName()) {
@@ -2539,8 +2563,16 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
     query["RecordEventDuration"] = request.recordEventDuration();
   }
 
+  if (!!request.hasRecordEventFileExts()) {
+    query["RecordEventFileExts"] = request.recordEventFileExts();
+  }
+
   if (!!request.hasRecordEventFilePaths()) {
     query["RecordEventFilePaths"] = request.recordEventFilePaths();
+  }
+
+  if (!!request.hasRecordEventLevels()) {
+    query["RecordEventLevels"] = request.recordEventLevels();
   }
 
   if (!!request.hasRecordEventRegisters()) {
@@ -7301,12 +7333,28 @@ DescribeCustomizedListHeadersResponse Client::describeCustomizedListHeaders(cons
 DescribeDesktopGroupSessionsResponse Client::describeDesktopGroupSessionsWithOptions(const DescribeDesktopGroupSessionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDesktopGroupIds()) {
+    query["DesktopGroupIds"] = request.desktopGroupIds();
+  }
+
+  if (!!request.hasDesktopGroupName()) {
+    query["DesktopGroupName"] = request.desktopGroupName();
+  }
+
   if (!!request.hasEndTime()) {
     query["EndTime"] = request.endTime();
   }
 
   if (!!request.hasEndUserId()) {
     query["EndUserId"] = request.endUserId();
+  }
+
+  if (!!request.hasFillTerminalInfo()) {
+    query["FillTerminalInfo"] = request.fillTerminalInfo();
+  }
+
+  if (!!request.hasLanguage()) {
+    query["Language"] = request.language();
   }
 
   if (!!request.hasMaxResults()) {
@@ -7733,6 +7781,14 @@ DescribeDesktopSessionsResponse Client::describeDesktopSessionsWithOptions(const
 
   if (!!request.hasEndUserIdFilter()) {
     query["EndUserIdFilter"] = request.endUserIdFilter();
+  }
+
+  if (!!request.hasFillHardwareInfo()) {
+    query["FillHardwareInfo"] = request.fillHardwareInfo();
+  }
+
+  if (!!request.hasLanguage()) {
+    query["Language"] = request.language();
   }
 
   if (!!request.hasOfficeSiteId()) {
@@ -13469,6 +13525,10 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
     query["AuthorizeSecurityPolicyRule"] = request.authorizeSecurityPolicyRule();
   }
 
+  if (!!request.hasAutoReconnect()) {
+    query["AutoReconnect"] = request.autoReconnect();
+  }
+
   if (!!request.hasBusinessType()) {
     query["BusinessType"] = request.businessType();
   }
@@ -13487,6 +13547,14 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
 
   if (!!request.hasClipboard()) {
     query["Clipboard"] = request.clipboard();
+  }
+
+  if (!!request.hasClipboardGraineds()) {
+    query["ClipboardGraineds"] = request.clipboardGraineds();
+  }
+
+  if (!!request.hasClipboardScope()) {
+    query["ClipboardScope"] = request.clipboardScope();
   }
 
   if (!!request.hasColorEnhancement()) {
@@ -13633,8 +13701,20 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
     query["MobileRestart"] = request.mobileRestart();
   }
 
+  if (!!request.hasMobileSafeMenu()) {
+    query["MobileSafeMenu"] = request.mobileSafeMenu();
+  }
+
   if (!!request.hasMobileShutdown()) {
     query["MobileShutdown"] = request.mobileShutdown();
+  }
+
+  if (!!request.hasMobileWuyingKeeper()) {
+    query["MobileWuyingKeeper"] = request.mobileWuyingKeeper();
+  }
+
+  if (!!request.hasMobileWyAssistant()) {
+    query["MobileWyAssistant"] = request.mobileWyAssistant();
   }
 
   if (!!request.hasName()) {
@@ -13673,8 +13753,16 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
     query["RecordEventDuration"] = request.recordEventDuration();
   }
 
+  if (!!request.hasRecordEventFileExts()) {
+    query["RecordEventFileExts"] = request.recordEventFileExts();
+  }
+
   if (!!request.hasRecordEventFilePaths()) {
     query["RecordEventFilePaths"] = request.recordEventFilePaths();
+  }
+
+  if (!!request.hasRecordEventLevels()) {
+    query["RecordEventLevels"] = request.recordEventLevels();
   }
 
   if (!!request.hasRecordEventRegisters()) {

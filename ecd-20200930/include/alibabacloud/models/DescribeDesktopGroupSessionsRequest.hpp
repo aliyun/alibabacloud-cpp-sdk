@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEDESKTOPGROUPSESSIONSREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEDESKTOPGROUPSESSIONSREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -13,8 +14,12 @@ namespace Models
   class DescribeDesktopGroupSessionsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeDesktopGroupSessionsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DesktopGroupIds, desktopGroupIds_);
+      DARABONBA_PTR_TO_JSON(DesktopGroupName, desktopGroupName_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
+      DARABONBA_PTR_TO_JSON(FillTerminalInfo, fillTerminalInfo_);
+      DARABONBA_PTR_TO_JSON(Language, language_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(OwnType, ownType_);
@@ -23,8 +28,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDesktopGroupSessionsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DesktopGroupIds, desktopGroupIds_);
+      DARABONBA_PTR_FROM_JSON(DesktopGroupName, desktopGroupName_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
+      DARABONBA_PTR_FROM_JSON(FillTerminalInfo, fillTerminalInfo_);
+      DARABONBA_PTR_FROM_JSON(Language, language_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(OwnType, ownType_);
@@ -43,9 +52,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endTime_ != nullptr
-        && this->endUserId_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->ownType_ != nullptr && this->regionId_ != nullptr
-        && this->sessionStatus_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { this->desktopGroupIds_ != nullptr
+        && this->desktopGroupName_ != nullptr && this->endTime_ != nullptr && this->endUserId_ != nullptr && this->fillTerminalInfo_ != nullptr && this->language_ != nullptr
+        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->ownType_ != nullptr && this->regionId_ != nullptr && this->sessionStatus_ != nullptr
+        && this->startTime_ != nullptr; };
+    // desktopGroupIds Field Functions 
+    bool hasDesktopGroupIds() const { return this->desktopGroupIds_ != nullptr;};
+    void deleteDesktopGroupIds() { this->desktopGroupIds_ = nullptr;};
+    inline const vector<string> & desktopGroupIds() const { DARABONBA_PTR_GET_CONST(desktopGroupIds_, vector<string>) };
+    inline vector<string> desktopGroupIds() { DARABONBA_PTR_GET(desktopGroupIds_, vector<string>) };
+    inline DescribeDesktopGroupSessionsRequest& setDesktopGroupIds(const vector<string> & desktopGroupIds) { DARABONBA_PTR_SET_VALUE(desktopGroupIds_, desktopGroupIds) };
+    inline DescribeDesktopGroupSessionsRequest& setDesktopGroupIds(vector<string> && desktopGroupIds) { DARABONBA_PTR_SET_RVALUE(desktopGroupIds_, desktopGroupIds) };
+
+
+    // desktopGroupName Field Functions 
+    bool hasDesktopGroupName() const { return this->desktopGroupName_ != nullptr;};
+    void deleteDesktopGroupName() { this->desktopGroupName_ = nullptr;};
+    inline string desktopGroupName() const { DARABONBA_PTR_GET_DEFAULT(desktopGroupName_, "") };
+    inline DescribeDesktopGroupSessionsRequest& setDesktopGroupName(string desktopGroupName) { DARABONBA_PTR_SET_VALUE(desktopGroupName_, desktopGroupName) };
+
+
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
@@ -58,6 +84,20 @@ namespace Models
     void deleteEndUserId() { this->endUserId_ = nullptr;};
     inline string endUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
     inline DescribeDesktopGroupSessionsRequest& setEndUserId(string endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
+
+
+    // fillTerminalInfo Field Functions 
+    bool hasFillTerminalInfo() const { return this->fillTerminalInfo_ != nullptr;};
+    void deleteFillTerminalInfo() { this->fillTerminalInfo_ = nullptr;};
+    inline bool fillTerminalInfo() const { DARABONBA_PTR_GET_DEFAULT(fillTerminalInfo_, false) };
+    inline DescribeDesktopGroupSessionsRequest& setFillTerminalInfo(bool fillTerminalInfo) { DARABONBA_PTR_SET_VALUE(fillTerminalInfo_, fillTerminalInfo) };
+
+
+    // language Field Functions 
+    bool hasLanguage() const { return this->language_ != nullptr;};
+    void deleteLanguage() { this->language_ = nullptr;};
+    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline DescribeDesktopGroupSessionsRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // maxResults Field Functions 
@@ -103,10 +143,14 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<vector<string>> desktopGroupIds_ = nullptr;
+    std::shared_ptr<string> desktopGroupName_ = nullptr;
     // The end of the time range to query.
     std::shared_ptr<string> endTime_ = nullptr;
     // The ID of the end user.
     std::shared_ptr<string> endUserId_ = nullptr;
+    std::shared_ptr<bool> fillTerminalInfo_ = nullptr;
+    std::shared_ptr<string> language_ = nullptr;
     // The number of entries per page.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
     // The pagination token that is used in the next request to retrieve a new page of results.

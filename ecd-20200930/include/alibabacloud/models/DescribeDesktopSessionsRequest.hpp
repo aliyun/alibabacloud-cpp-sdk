@@ -20,6 +20,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
       DARABONBA_PTR_TO_JSON(EndUserIdFilter, endUserIdFilter_);
+      DARABONBA_PTR_TO_JSON(FillHardwareInfo, fillHardwareInfo_);
+      DARABONBA_PTR_TO_JSON(Language, language_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
@@ -36,6 +38,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
       DARABONBA_PTR_FROM_JSON(EndUserIdFilter, endUserIdFilter_);
+      DARABONBA_PTR_FROM_JSON(FillHardwareInfo, fillHardwareInfo_);
+      DARABONBA_PTR_FROM_JSON(Language, language_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -58,8 +62,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->checkOsSession_ != nullptr
         && this->desktopId_ != nullptr && this->desktopName_ != nullptr && this->endTime_ != nullptr && this->endUserId_ != nullptr && this->endUserIdFilter_ != nullptr
-        && this->officeSiteId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->sessionStatus_ != nullptr && this->startTime_ != nullptr && this->subPayType_ != nullptr; };
+        && this->fillHardwareInfo_ != nullptr && this->language_ != nullptr && this->officeSiteId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
+        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->sessionStatus_ != nullptr && this->startTime_ != nullptr && this->subPayType_ != nullptr; };
     // checkOsSession Field Functions 
     bool hasCheckOsSession() const { return this->checkOsSession_ != nullptr;};
     void deleteCheckOsSession() { this->checkOsSession_ = nullptr;};
@@ -102,6 +106,20 @@ namespace Models
     void deleteEndUserIdFilter() { this->endUserIdFilter_ = nullptr;};
     inline string endUserIdFilter() const { DARABONBA_PTR_GET_DEFAULT(endUserIdFilter_, "") };
     inline DescribeDesktopSessionsRequest& setEndUserIdFilter(string endUserIdFilter) { DARABONBA_PTR_SET_VALUE(endUserIdFilter_, endUserIdFilter) };
+
+
+    // fillHardwareInfo Field Functions 
+    bool hasFillHardwareInfo() const { return this->fillHardwareInfo_ != nullptr;};
+    void deleteFillHardwareInfo() { this->fillHardwareInfo_ = nullptr;};
+    inline bool fillHardwareInfo() const { DARABONBA_PTR_GET_DEFAULT(fillHardwareInfo_, false) };
+    inline DescribeDesktopSessionsRequest& setFillHardwareInfo(bool fillHardwareInfo) { DARABONBA_PTR_SET_VALUE(fillHardwareInfo_, fillHardwareInfo) };
+
+
+    // language Field Functions 
+    bool hasLanguage() const { return this->language_ != nullptr;};
+    void deleteLanguage() { this->language_ = nullptr;};
+    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline DescribeDesktopSessionsRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // officeSiteId Field Functions 
@@ -173,6 +191,8 @@ namespace Models
     std::shared_ptr<string> endUserId_ = nullptr;
     // The user ID. This parameter functions the same as the `EndUserId` parameter. You only need to include one of them in your request.
     std::shared_ptr<string> endUserIdFilter_ = nullptr;
+    std::shared_ptr<bool> fillHardwareInfo_ = nullptr;
+    std::shared_ptr<string> language_ = nullptr;
     // The office network ID.
     std::shared_ptr<string> officeSiteId_ = nullptr;
     // The page number.

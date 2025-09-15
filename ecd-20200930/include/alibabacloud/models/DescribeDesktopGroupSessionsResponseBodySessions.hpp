@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEDESKTOPGROUPSESSIONSRESPONSEBODYSESSIONS_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEDESKTOPGROUPSESSIONSRESPONSEBODYSESSIONS_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ProtocolType, protocolType_);
       DARABONBA_PTR_TO_JSON(SessionIdleTime, sessionIdleTime_);
       DARABONBA_PTR_TO_JSON(SessionStatus, sessionStatus_);
+      DARABONBA_PTR_TO_JSON(TerminalInfo, terminalInfo_);
       DARABONBA_PTR_TO_JSON(TotalConnectionDuration, totalConnectionDuration_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDesktopGroupSessionsResponseBodySessions& obj) { 
@@ -52,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ProtocolType, protocolType_);
       DARABONBA_PTR_FROM_JSON(SessionIdleTime, sessionIdleTime_);
       DARABONBA_PTR_FROM_JSON(SessionStatus, sessionStatus_);
+      DARABONBA_PTR_FROM_JSON(TerminalInfo, terminalInfo_);
       DARABONBA_PTR_FROM_JSON(TotalConnectionDuration, totalConnectionDuration_);
     };
     DescribeDesktopGroupSessionsResponseBodySessions() = default ;
@@ -69,7 +72,7 @@ namespace Models
         && this->clientOS_ != nullptr && this->clientVersion_ != nullptr && this->desktopGroupId_ != nullptr && this->desktopGroupName_ != nullptr && this->desktopId_ != nullptr
         && this->endUserApplyCoordinateTime_ != nullptr && this->endUserId_ != nullptr && this->lastSessionEndTime_ != nullptr && this->lastSessionStartTime_ != nullptr && this->latestConnectionTime_ != nullptr
         && this->officeSiteId_ != nullptr && this->officeSiteName_ != nullptr && this->osType_ != nullptr && this->ownType_ != nullptr && this->protocolType_ != nullptr
-        && this->sessionIdleTime_ != nullptr && this->sessionStatus_ != nullptr && this->totalConnectionDuration_ != nullptr; };
+        && this->sessionIdleTime_ != nullptr && this->sessionStatus_ != nullptr && this->terminalInfo_ != nullptr && this->totalConnectionDuration_ != nullptr; };
     // clientIp Field Functions 
     bool hasClientIp() const { return this->clientIp_ != nullptr;};
     void deleteClientIp() { this->clientIp_ = nullptr;};
@@ -196,6 +199,15 @@ namespace Models
     inline DescribeDesktopGroupSessionsResponseBodySessions& setSessionStatus(string sessionStatus) { DARABONBA_PTR_SET_VALUE(sessionStatus_, sessionStatus) };
 
 
+    // terminalInfo Field Functions 
+    bool hasTerminalInfo() const { return this->terminalInfo_ != nullptr;};
+    void deleteTerminalInfo() { this->terminalInfo_ = nullptr;};
+    inline const Models::DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo & terminalInfo() const { DARABONBA_PTR_GET_CONST(terminalInfo_, Models::DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo) };
+    inline Models::DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo terminalInfo() { DARABONBA_PTR_GET(terminalInfo_, Models::DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo) };
+    inline DescribeDesktopGroupSessionsResponseBodySessions& setTerminalInfo(const Models::DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo & terminalInfo) { DARABONBA_PTR_SET_VALUE(terminalInfo_, terminalInfo) };
+    inline DescribeDesktopGroupSessionsResponseBodySessions& setTerminalInfo(Models::DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo && terminalInfo) { DARABONBA_PTR_SET_RVALUE(terminalInfo_, terminalInfo) };
+
+
     // totalConnectionDuration Field Functions 
     bool hasTotalConnectionDuration() const { return this->totalConnectionDuration_ != nullptr;};
     void deleteTotalConnectionDuration() { this->totalConnectionDuration_ = nullptr;};
@@ -266,6 +278,7 @@ namespace Models
     // 
     //     <!-- -->
     std::shared_ptr<string> sessionStatus_ = nullptr;
+    std::shared_ptr<Models::DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo> terminalInfo_ = nullptr;
     // The total duration of the sessions.
     std::shared_ptr<int64_t> totalConnectionDuration_ = nullptr;
   };

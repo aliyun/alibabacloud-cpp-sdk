@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/DescribeDesktopSessionsResponseBodySessionsResourceGroups.hpp>
+#include <alibabacloud/models/DescribeDesktopSessionsResponseBodySessionsTerminalInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SessionStartTime, sessionStartTime_);
       DARABONBA_PTR_TO_JSON(SessionStatus, sessionStatus_);
       DARABONBA_PTR_TO_JSON(SubPayType, subPayType_);
+      DARABONBA_PTR_TO_JSON(TerminalInfo, terminalInfo_);
       DARABONBA_PTR_TO_JSON(TotalConnectionTime, totalConnectionTime_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDesktopSessionsResponseBodySessions& obj) { 
@@ -56,6 +58,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SessionStartTime, sessionStartTime_);
       DARABONBA_PTR_FROM_JSON(SessionStatus, sessionStatus_);
       DARABONBA_PTR_FROM_JSON(SubPayType, subPayType_);
+      DARABONBA_PTR_FROM_JSON(TerminalInfo, terminalInfo_);
       DARABONBA_PTR_FROM_JSON(TotalConnectionTime, totalConnectionTime_);
     };
     DescribeDesktopSessionsResponseBodySessions() = default ;
@@ -73,7 +76,7 @@ namespace Models
         && this->clientOS_ != nullptr && this->clientVersion_ != nullptr && this->desktopId_ != nullptr && this->desktopName_ != nullptr && this->endUserApplyCoordinateTime_ != nullptr
         && this->endUserId_ != nullptr && this->latestConnectionTime_ != nullptr && this->officeSiteId_ != nullptr && this->officeSiteName_ != nullptr && this->osSessionStatus_ != nullptr
         && this->osType_ != nullptr && this->protocolType_ != nullptr && this->resourceGroups_ != nullptr && this->sessionEndTime_ != nullptr && this->sessionIdleTime_ != nullptr
-        && this->sessionStartTime_ != nullptr && this->sessionStatus_ != nullptr && this->subPayType_ != nullptr && this->totalConnectionTime_ != nullptr; };
+        && this->sessionStartTime_ != nullptr && this->sessionStatus_ != nullptr && this->subPayType_ != nullptr && this->terminalInfo_ != nullptr && this->totalConnectionTime_ != nullptr; };
     // clientIp Field Functions 
     bool hasClientIp() const { return this->clientIp_ != nullptr;};
     void deleteClientIp() { this->clientIp_ = nullptr;};
@@ -209,6 +212,15 @@ namespace Models
     inline DescribeDesktopSessionsResponseBodySessions& setSubPayType(string subPayType) { DARABONBA_PTR_SET_VALUE(subPayType_, subPayType) };
 
 
+    // terminalInfo Field Functions 
+    bool hasTerminalInfo() const { return this->terminalInfo_ != nullptr;};
+    void deleteTerminalInfo() { this->terminalInfo_ = nullptr;};
+    inline const Models::DescribeDesktopSessionsResponseBodySessionsTerminalInfo & terminalInfo() const { DARABONBA_PTR_GET_CONST(terminalInfo_, Models::DescribeDesktopSessionsResponseBodySessionsTerminalInfo) };
+    inline Models::DescribeDesktopSessionsResponseBodySessionsTerminalInfo terminalInfo() { DARABONBA_PTR_GET(terminalInfo_, Models::DescribeDesktopSessionsResponseBodySessionsTerminalInfo) };
+    inline DescribeDesktopSessionsResponseBodySessions& setTerminalInfo(const Models::DescribeDesktopSessionsResponseBodySessionsTerminalInfo & terminalInfo) { DARABONBA_PTR_SET_VALUE(terminalInfo_, terminalInfo) };
+    inline DescribeDesktopSessionsResponseBodySessions& setTerminalInfo(Models::DescribeDesktopSessionsResponseBodySessionsTerminalInfo && terminalInfo) { DARABONBA_PTR_SET_RVALUE(terminalInfo_, terminalInfo) };
+
+
     // totalConnectionTime Field Functions 
     bool hasTotalConnectionTime() const { return this->totalConnectionTime_ != nullptr;};
     void deleteTotalConnectionTime() { this->totalConnectionTime_ = nullptr;};
@@ -276,6 +288,7 @@ namespace Models
     // *   monthPackage: monthly subscription (120-hour computing plan and 250-hour computing plan)
     // *   prePaid: monthly subscription (Unlimited computing plan)
     std::shared_ptr<string> subPayType_ = nullptr;
+    std::shared_ptr<Models::DescribeDesktopSessionsResponseBodySessionsTerminalInfo> terminalInfo_ = nullptr;
     // The total connection duration. Unit: seconds.
     std::shared_ptr<int64_t> totalConnectionTime_ = nullptr;
   };

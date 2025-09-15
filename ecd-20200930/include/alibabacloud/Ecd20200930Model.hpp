@@ -813,10 +813,12 @@
 #include <alibabacloud/models/CreateCenterPolicyRequestAuthorizeAccessPolicyRule.hpp>
 #include <alibabacloud/models/CreateCenterPolicyRequestAuthorizeSecurityPolicyRule.hpp>
 #include <alibabacloud/models/CreateCenterPolicyRequestClientType.hpp>
+#include <alibabacloud/models/CreateCenterPolicyRequestClipboardGraineds.hpp>
 #include <alibabacloud/models/CreateCenterPolicyRequestDeviceRedirects.hpp>
 #include <alibabacloud/models/CreateCenterPolicyRequestDeviceRules.hpp>
 #include <alibabacloud/models/CreateCenterPolicyRequestDomainResolveRule.hpp>
 #include <alibabacloud/models/CreateCenterPolicyRequestNetRedirectRule.hpp>
+#include <alibabacloud/models/CreateCenterPolicyRequestRecordEventLevels.hpp>
 #include <alibabacloud/models/CreateCenterPolicyRequestUsbSupplyRedirectRule.hpp>
 #include <alibabacloud/models/CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds.hpp>
 #include <alibabacloud/models/CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder.hpp>
@@ -874,6 +876,7 @@
 #include <alibabacloud/models/DescribeCloudDriveUsersResponseBodyCloudDriveUsers.hpp>
 #include <alibabacloud/models/DescribeConfigGroupResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeCustomizedListHeadersResponseBodyHeaders.hpp>
+#include <alibabacloud/models/DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo.hpp>
 #include <alibabacloud/models/DescribeDesktopGroupSessionsResponseBodySessions.hpp>
 #include <alibabacloud/models/DescribeDesktopGroupsRequestTag.hpp>
 #include <alibabacloud/models/DescribeDesktopGroupsResponseBodyDesktopGroupsCountPerStatus.hpp>
@@ -884,6 +887,7 @@
 #include <alibabacloud/models/DescribeDesktopOversoldUserResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeDesktopOversoldUserGroupResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeDesktopSessionsResponseBodySessionsResourceGroups.hpp>
+#include <alibabacloud/models/DescribeDesktopSessionsResponseBodySessionsTerminalInfo.hpp>
 #include <alibabacloud/models/DescribeDesktopSessionsResponseBodySessions.hpp>
 #include <alibabacloud/models/DescribeDesktopTypesResponseBodyDesktopTypes.hpp>
 #include <alibabacloud/models/DescribeDesktopsRequestTag.hpp>
@@ -942,6 +946,7 @@
 #include <alibabacloud/models/DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules.hpp>
 #include <alibabacloud/models/DescribePolicyGroupsResponseBodyDescribePolicyGroupsDomainResolveRule.hpp>
 #include <alibabacloud/models/DescribePolicyGroupsResponseBodyDescribePolicyGroupsNetRedirectRule.hpp>
+#include <alibabacloud/models/DescribePolicyGroupsResponseBodyDescribePolicyGroupsRecordEventLevels.hpp>
 #include <alibabacloud/models/DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule.hpp>
 #include <alibabacloud/models/DescribePolicyGroupsResponseBodyDescribePolicyGroups.hpp>
 #include <alibabacloud/models/DescribePriceResponseBodyPriceInfoPricePromotions.hpp>
@@ -1009,10 +1014,12 @@
 #include <alibabacloud/models/ModifyCenterPolicyRequestAuthorizeAccessPolicyRule.hpp>
 #include <alibabacloud/models/ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule.hpp>
 #include <alibabacloud/models/ModifyCenterPolicyRequestClientType.hpp>
+#include <alibabacloud/models/ModifyCenterPolicyRequestClipboardGraineds.hpp>
 #include <alibabacloud/models/ModifyCenterPolicyRequestDeviceRedirects.hpp>
 #include <alibabacloud/models/ModifyCenterPolicyRequestDeviceRules.hpp>
 #include <alibabacloud/models/ModifyCenterPolicyRequestDomainResolveRule.hpp>
 #include <alibabacloud/models/ModifyCenterPolicyRequestNetRedirectRule.hpp>
+#include <alibabacloud/models/ModifyCenterPolicyRequestRecordEventLevels.hpp>
 #include <alibabacloud/models/ModifyCenterPolicyRequestRevokeAccessPolicyRule.hpp>
 #include <alibabacloud/models/ModifyCenterPolicyRequestRevokeSecurityPolicyRule.hpp>
 #include <alibabacloud/models/ModifyCenterPolicyRequestUsbSupplyRedirectRule.hpp>

@@ -10,6 +10,7 @@
 #include <alibabacloud/models/DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules.hpp>
 #include <alibabacloud/models/DescribePolicyGroupsResponseBodyDescribePolicyGroupsDomainResolveRule.hpp>
 #include <alibabacloud/models/DescribePolicyGroupsResponseBodyDescribePolicyGroupsNetRedirectRule.hpp>
+#include <alibabacloud/models/DescribePolicyGroupsResponseBodyDescribePolicyGroupsRecordEventLevels.hpp>
 #include <alibabacloud/models/DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppContentProtection, appContentProtection_);
       DARABONBA_PTR_TO_JSON(AuthorizeAccessPolicyRules, authorizeAccessPolicyRules_);
       DARABONBA_PTR_TO_JSON(AuthorizeSecurityPolicyRules, authorizeSecurityPolicyRules_);
+      DARABONBA_PTR_TO_JSON(AutoReconnect, autoReconnect_);
       DARABONBA_PTR_TO_JSON(CameraRedirect, cameraRedirect_);
       DARABONBA_PTR_TO_JSON(ClientControlMenu, clientControlMenu_);
       DARABONBA_PTR_TO_JSON(ClientTypes, clientTypes_);
@@ -69,7 +71,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MemorySampleDuration, memorySampleDuration_);
       DARABONBA_PTR_TO_JSON(MemorySingleRateLimit, memorySingleRateLimit_);
       DARABONBA_PTR_TO_JSON(MobileRestart, mobileRestart_);
+      DARABONBA_PTR_TO_JSON(MobileSafeMenu, mobileSafeMenu_);
       DARABONBA_PTR_TO_JSON(MobileShutdown, mobileShutdown_);
+      DARABONBA_PTR_TO_JSON(MobileWuyingKeeper, mobileWuyingKeeper_);
+      DARABONBA_PTR_TO_JSON(MobileWyAssistant, mobileWyAssistant_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(NetRedirect, netRedirect_);
       DARABONBA_PTR_TO_JSON(NetRedirectRule, netRedirectRule_);
@@ -83,7 +88,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RecordContent, recordContent_);
       DARABONBA_PTR_TO_JSON(RecordContentExpires, recordContentExpires_);
       DARABONBA_PTR_TO_JSON(RecordEventDuration, recordEventDuration_);
+      DARABONBA_PTR_TO_JSON(RecordEventFileExts, recordEventFileExts_);
       DARABONBA_PTR_TO_JSON(RecordEventFilePaths, recordEventFilePaths_);
+      DARABONBA_PTR_TO_JSON(RecordEventLevels, recordEventLevels_);
       DARABONBA_PTR_TO_JSON(RecordEventRegisters, recordEventRegisters_);
       DARABONBA_PTR_TO_JSON(Recording, recording_);
       DARABONBA_PTR_TO_JSON(RecordingAudio, recordingAudio_);
@@ -140,6 +147,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AppContentProtection, appContentProtection_);
       DARABONBA_PTR_FROM_JSON(AuthorizeAccessPolicyRules, authorizeAccessPolicyRules_);
       DARABONBA_PTR_FROM_JSON(AuthorizeSecurityPolicyRules, authorizeSecurityPolicyRules_);
+      DARABONBA_PTR_FROM_JSON(AutoReconnect, autoReconnect_);
       DARABONBA_PTR_FROM_JSON(CameraRedirect, cameraRedirect_);
       DARABONBA_PTR_FROM_JSON(ClientControlMenu, clientControlMenu_);
       DARABONBA_PTR_FROM_JSON(ClientTypes, clientTypes_);
@@ -183,7 +191,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MemorySampleDuration, memorySampleDuration_);
       DARABONBA_PTR_FROM_JSON(MemorySingleRateLimit, memorySingleRateLimit_);
       DARABONBA_PTR_FROM_JSON(MobileRestart, mobileRestart_);
+      DARABONBA_PTR_FROM_JSON(MobileSafeMenu, mobileSafeMenu_);
       DARABONBA_PTR_FROM_JSON(MobileShutdown, mobileShutdown_);
+      DARABONBA_PTR_FROM_JSON(MobileWuyingKeeper, mobileWuyingKeeper_);
+      DARABONBA_PTR_FROM_JSON(MobileWyAssistant, mobileWyAssistant_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(NetRedirect, netRedirect_);
       DARABONBA_PTR_FROM_JSON(NetRedirectRule, netRedirectRule_);
@@ -197,7 +208,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RecordContent, recordContent_);
       DARABONBA_PTR_FROM_JSON(RecordContentExpires, recordContentExpires_);
       DARABONBA_PTR_FROM_JSON(RecordEventDuration, recordEventDuration_);
+      DARABONBA_PTR_FROM_JSON(RecordEventFileExts, recordEventFileExts_);
       DARABONBA_PTR_FROM_JSON(RecordEventFilePaths, recordEventFilePaths_);
+      DARABONBA_PTR_FROM_JSON(RecordEventLevels, recordEventLevels_);
       DARABONBA_PTR_FROM_JSON(RecordEventRegisters, recordEventRegisters_);
       DARABONBA_PTR_FROM_JSON(Recording, recording_);
       DARABONBA_PTR_FROM_JSON(RecordingAudio, recordingAudio_);
@@ -261,29 +274,30 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->adminAccess_ != nullptr
-        && this->appContentProtection_ != nullptr && this->authorizeAccessPolicyRules_ != nullptr && this->authorizeSecurityPolicyRules_ != nullptr && this->cameraRedirect_ != nullptr && this->clientControlMenu_ != nullptr
-        && this->clientTypes_ != nullptr && this->clipboard_ != nullptr && this->colorEnhancement_ != nullptr && this->cpdDriveClipboard_ != nullptr && this->cpuDownGradeDuration_ != nullptr
-        && this->cpuProcessors_ != nullptr && this->cpuProtectedMode_ != nullptr && this->cpuRateLimit_ != nullptr && this->cpuSampleDuration_ != nullptr && this->cpuSingleRateLimit_ != nullptr
-        && this->desktopCount_ != nullptr && this->desktopGroupCount_ != nullptr && this->deviceConnectHint_ != nullptr && this->deviceRedirects_ != nullptr && this->deviceRules_ != nullptr
-        && this->displayMode_ != nullptr && this->domainList_ != nullptr && this->domainResolveRule_ != nullptr && this->domainResolveRuleType_ != nullptr && this->edsCount_ != nullptr
-        && this->endUserApplyAdminCoordinate_ != nullptr && this->endUserGroupCoordinate_ != nullptr && this->fileMigrate_ != nullptr && this->fileTransfer_ != nullptr && this->fileTransferAddress_ != nullptr
-        && this->fileTransferSpeed_ != nullptr && this->fileTransferSpeedLocation_ != nullptr && this->gpuAcceleration_ != nullptr && this->html5Access_ != nullptr && this->html5FileTransfer_ != nullptr
-        && this->internetCommunicationProtocol_ != nullptr && this->internetPrinter_ != nullptr && this->localDrive_ != nullptr && this->maxReconnectTime_ != nullptr && this->memoryDownGradeDuration_ != nullptr
-        && this->memoryProcessors_ != nullptr && this->memoryProtectedMode_ != nullptr && this->memoryRateLimit_ != nullptr && this->memorySampleDuration_ != nullptr && this->memorySingleRateLimit_ != nullptr
-        && this->mobileRestart_ != nullptr && this->mobileShutdown_ != nullptr && this->name_ != nullptr && this->netRedirect_ != nullptr && this->netRedirectRule_ != nullptr
-        && this->policyGroupId_ != nullptr && this->policyGroupType_ != nullptr && this->policyStatus_ != nullptr && this->preemptLogin_ != nullptr && this->preemptLoginUsers_ != nullptr
-        && this->printerRedirection_ != nullptr && this->qualityEnhancement_ != nullptr && this->recordContent_ != nullptr && this->recordContentExpires_ != nullptr && this->recordEventDuration_ != nullptr
-        && this->recordEventFilePaths_ != nullptr && this->recordEventRegisters_ != nullptr && this->recording_ != nullptr && this->recordingAudio_ != nullptr && this->recordingDuration_ != nullptr
-        && this->recordingEndTime_ != nullptr && this->recordingExpires_ != nullptr && this->recordingFps_ != nullptr && this->recordingStartTime_ != nullptr && this->recordingUserNotify_ != nullptr
-        && this->recordingUserNotifyMessage_ != nullptr && this->remoteCoordinate_ != nullptr && this->resetDesktop_ != nullptr && this->resolutionHeight_ != nullptr && this->resolutionModel_ != nullptr
-        && this->resolutionWidth_ != nullptr && this->resourceGroupCount_ != nullptr && this->resourceRegionId_ != nullptr && this->safeMenu_ != nullptr && this->scope_ != nullptr
-        && this->scopeValue_ != nullptr && this->screenDisplayMode_ != nullptr && this->smoothEnhancement_ != nullptr && this->statusMonitor_ != nullptr && this->streamingMode_ != nullptr
-        && this->targetFps_ != nullptr && this->usbRedirect_ != nullptr && this->usbSupplyRedirectRule_ != nullptr && this->useTime_ != nullptr && this->videoEncAvgKbps_ != nullptr
-        && this->videoEncMaxQP_ != nullptr && this->videoEncMinQP_ != nullptr && this->videoEncPeakKbps_ != nullptr && this->videoEncPolicy_ != nullptr && this->videoRedirect_ != nullptr
-        && this->visualQuality_ != nullptr && this->watermark_ != nullptr && this->watermarkAntiCam_ != nullptr && this->watermarkColor_ != nullptr && this->watermarkCustomText_ != nullptr
-        && this->watermarkDegree_ != nullptr && this->watermarkFontSize_ != nullptr && this->watermarkFontStyle_ != nullptr && this->watermarkPower_ != nullptr && this->watermarkRowAmount_ != nullptr
-        && this->watermarkSecurity_ != nullptr && this->watermarkTransparency_ != nullptr && this->watermarkTransparencyValue_ != nullptr && this->watermarkType_ != nullptr && this->wuyingKeeper_ != nullptr
-        && this->wyAssistant_ != nullptr; };
+        && this->appContentProtection_ != nullptr && this->authorizeAccessPolicyRules_ != nullptr && this->authorizeSecurityPolicyRules_ != nullptr && this->autoReconnect_ != nullptr && this->cameraRedirect_ != nullptr
+        && this->clientControlMenu_ != nullptr && this->clientTypes_ != nullptr && this->clipboard_ != nullptr && this->colorEnhancement_ != nullptr && this->cpdDriveClipboard_ != nullptr
+        && this->cpuDownGradeDuration_ != nullptr && this->cpuProcessors_ != nullptr && this->cpuProtectedMode_ != nullptr && this->cpuRateLimit_ != nullptr && this->cpuSampleDuration_ != nullptr
+        && this->cpuSingleRateLimit_ != nullptr && this->desktopCount_ != nullptr && this->desktopGroupCount_ != nullptr && this->deviceConnectHint_ != nullptr && this->deviceRedirects_ != nullptr
+        && this->deviceRules_ != nullptr && this->displayMode_ != nullptr && this->domainList_ != nullptr && this->domainResolveRule_ != nullptr && this->domainResolveRuleType_ != nullptr
+        && this->edsCount_ != nullptr && this->endUserApplyAdminCoordinate_ != nullptr && this->endUserGroupCoordinate_ != nullptr && this->fileMigrate_ != nullptr && this->fileTransfer_ != nullptr
+        && this->fileTransferAddress_ != nullptr && this->fileTransferSpeed_ != nullptr && this->fileTransferSpeedLocation_ != nullptr && this->gpuAcceleration_ != nullptr && this->html5Access_ != nullptr
+        && this->html5FileTransfer_ != nullptr && this->internetCommunicationProtocol_ != nullptr && this->internetPrinter_ != nullptr && this->localDrive_ != nullptr && this->maxReconnectTime_ != nullptr
+        && this->memoryDownGradeDuration_ != nullptr && this->memoryProcessors_ != nullptr && this->memoryProtectedMode_ != nullptr && this->memoryRateLimit_ != nullptr && this->memorySampleDuration_ != nullptr
+        && this->memorySingleRateLimit_ != nullptr && this->mobileRestart_ != nullptr && this->mobileSafeMenu_ != nullptr && this->mobileShutdown_ != nullptr && this->mobileWuyingKeeper_ != nullptr
+        && this->mobileWyAssistant_ != nullptr && this->name_ != nullptr && this->netRedirect_ != nullptr && this->netRedirectRule_ != nullptr && this->policyGroupId_ != nullptr
+        && this->policyGroupType_ != nullptr && this->policyStatus_ != nullptr && this->preemptLogin_ != nullptr && this->preemptLoginUsers_ != nullptr && this->printerRedirection_ != nullptr
+        && this->qualityEnhancement_ != nullptr && this->recordContent_ != nullptr && this->recordContentExpires_ != nullptr && this->recordEventDuration_ != nullptr && this->recordEventFileExts_ != nullptr
+        && this->recordEventFilePaths_ != nullptr && this->recordEventLevels_ != nullptr && this->recordEventRegisters_ != nullptr && this->recording_ != nullptr && this->recordingAudio_ != nullptr
+        && this->recordingDuration_ != nullptr && this->recordingEndTime_ != nullptr && this->recordingExpires_ != nullptr && this->recordingFps_ != nullptr && this->recordingStartTime_ != nullptr
+        && this->recordingUserNotify_ != nullptr && this->recordingUserNotifyMessage_ != nullptr && this->remoteCoordinate_ != nullptr && this->resetDesktop_ != nullptr && this->resolutionHeight_ != nullptr
+        && this->resolutionModel_ != nullptr && this->resolutionWidth_ != nullptr && this->resourceGroupCount_ != nullptr && this->resourceRegionId_ != nullptr && this->safeMenu_ != nullptr
+        && this->scope_ != nullptr && this->scopeValue_ != nullptr && this->screenDisplayMode_ != nullptr && this->smoothEnhancement_ != nullptr && this->statusMonitor_ != nullptr
+        && this->streamingMode_ != nullptr && this->targetFps_ != nullptr && this->usbRedirect_ != nullptr && this->usbSupplyRedirectRule_ != nullptr && this->useTime_ != nullptr
+        && this->videoEncAvgKbps_ != nullptr && this->videoEncMaxQP_ != nullptr && this->videoEncMinQP_ != nullptr && this->videoEncPeakKbps_ != nullptr && this->videoEncPolicy_ != nullptr
+        && this->videoRedirect_ != nullptr && this->visualQuality_ != nullptr && this->watermark_ != nullptr && this->watermarkAntiCam_ != nullptr && this->watermarkColor_ != nullptr
+        && this->watermarkCustomText_ != nullptr && this->watermarkDegree_ != nullptr && this->watermarkFontSize_ != nullptr && this->watermarkFontStyle_ != nullptr && this->watermarkPower_ != nullptr
+        && this->watermarkRowAmount_ != nullptr && this->watermarkSecurity_ != nullptr && this->watermarkTransparency_ != nullptr && this->watermarkTransparencyValue_ != nullptr && this->watermarkType_ != nullptr
+        && this->wuyingKeeper_ != nullptr && this->wyAssistant_ != nullptr; };
     // adminAccess Field Functions 
     bool hasAdminAccess() const { return this->adminAccess_ != nullptr;};
     void deleteAdminAccess() { this->adminAccess_ = nullptr;};
@@ -314,6 +328,13 @@ namespace Models
     inline vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules> authorizeSecurityPolicyRules() { DARABONBA_PTR_GET(authorizeSecurityPolicyRules_, vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules>) };
     inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setAuthorizeSecurityPolicyRules(const vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules> & authorizeSecurityPolicyRules) { DARABONBA_PTR_SET_VALUE(authorizeSecurityPolicyRules_, authorizeSecurityPolicyRules) };
     inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setAuthorizeSecurityPolicyRules(vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules> && authorizeSecurityPolicyRules) { DARABONBA_PTR_SET_RVALUE(authorizeSecurityPolicyRules_, authorizeSecurityPolicyRules) };
+
+
+    // autoReconnect Field Functions 
+    bool hasAutoReconnect() const { return this->autoReconnect_ != nullptr;};
+    void deleteAutoReconnect() { this->autoReconnect_ = nullptr;};
+    inline string autoReconnect() const { DARABONBA_PTR_GET_DEFAULT(autoReconnect_, "") };
+    inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setAutoReconnect(string autoReconnect) { DARABONBA_PTR_SET_VALUE(autoReconnect_, autoReconnect) };
 
 
     // cameraRedirect Field Functions 
@@ -629,11 +650,32 @@ namespace Models
     inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setMobileRestart(string mobileRestart) { DARABONBA_PTR_SET_VALUE(mobileRestart_, mobileRestart) };
 
 
+    // mobileSafeMenu Field Functions 
+    bool hasMobileSafeMenu() const { return this->mobileSafeMenu_ != nullptr;};
+    void deleteMobileSafeMenu() { this->mobileSafeMenu_ = nullptr;};
+    inline string mobileSafeMenu() const { DARABONBA_PTR_GET_DEFAULT(mobileSafeMenu_, "") };
+    inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setMobileSafeMenu(string mobileSafeMenu) { DARABONBA_PTR_SET_VALUE(mobileSafeMenu_, mobileSafeMenu) };
+
+
     // mobileShutdown Field Functions 
     bool hasMobileShutdown() const { return this->mobileShutdown_ != nullptr;};
     void deleteMobileShutdown() { this->mobileShutdown_ = nullptr;};
     inline string mobileShutdown() const { DARABONBA_PTR_GET_DEFAULT(mobileShutdown_, "") };
     inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setMobileShutdown(string mobileShutdown) { DARABONBA_PTR_SET_VALUE(mobileShutdown_, mobileShutdown) };
+
+
+    // mobileWuyingKeeper Field Functions 
+    bool hasMobileWuyingKeeper() const { return this->mobileWuyingKeeper_ != nullptr;};
+    void deleteMobileWuyingKeeper() { this->mobileWuyingKeeper_ = nullptr;};
+    inline string mobileWuyingKeeper() const { DARABONBA_PTR_GET_DEFAULT(mobileWuyingKeeper_, "") };
+    inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setMobileWuyingKeeper(string mobileWuyingKeeper) { DARABONBA_PTR_SET_VALUE(mobileWuyingKeeper_, mobileWuyingKeeper) };
+
+
+    // mobileWyAssistant Field Functions 
+    bool hasMobileWyAssistant() const { return this->mobileWyAssistant_ != nullptr;};
+    void deleteMobileWyAssistant() { this->mobileWyAssistant_ = nullptr;};
+    inline string mobileWyAssistant() const { DARABONBA_PTR_GET_DEFAULT(mobileWyAssistant_, "") };
+    inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setMobileWyAssistant(string mobileWyAssistant) { DARABONBA_PTR_SET_VALUE(mobileWyAssistant_, mobileWyAssistant) };
 
 
     // name Field Functions 
@@ -731,6 +773,15 @@ namespace Models
     inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setRecordEventDuration(int32_t recordEventDuration) { DARABONBA_PTR_SET_VALUE(recordEventDuration_, recordEventDuration) };
 
 
+    // recordEventFileExts Field Functions 
+    bool hasRecordEventFileExts() const { return this->recordEventFileExts_ != nullptr;};
+    void deleteRecordEventFileExts() { this->recordEventFileExts_ = nullptr;};
+    inline const vector<string> & recordEventFileExts() const { DARABONBA_PTR_GET_CONST(recordEventFileExts_, vector<string>) };
+    inline vector<string> recordEventFileExts() { DARABONBA_PTR_GET(recordEventFileExts_, vector<string>) };
+    inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setRecordEventFileExts(const vector<string> & recordEventFileExts) { DARABONBA_PTR_SET_VALUE(recordEventFileExts_, recordEventFileExts) };
+    inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setRecordEventFileExts(vector<string> && recordEventFileExts) { DARABONBA_PTR_SET_RVALUE(recordEventFileExts_, recordEventFileExts) };
+
+
     // recordEventFilePaths Field Functions 
     bool hasRecordEventFilePaths() const { return this->recordEventFilePaths_ != nullptr;};
     void deleteRecordEventFilePaths() { this->recordEventFilePaths_ = nullptr;};
@@ -738,6 +789,15 @@ namespace Models
     inline vector<string> recordEventFilePaths() { DARABONBA_PTR_GET(recordEventFilePaths_, vector<string>) };
     inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setRecordEventFilePaths(const vector<string> & recordEventFilePaths) { DARABONBA_PTR_SET_VALUE(recordEventFilePaths_, recordEventFilePaths) };
     inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setRecordEventFilePaths(vector<string> && recordEventFilePaths) { DARABONBA_PTR_SET_RVALUE(recordEventFilePaths_, recordEventFilePaths) };
+
+
+    // recordEventLevels Field Functions 
+    bool hasRecordEventLevels() const { return this->recordEventLevels_ != nullptr;};
+    void deleteRecordEventLevels() { this->recordEventLevels_ = nullptr;};
+    inline const vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsRecordEventLevels> & recordEventLevels() const { DARABONBA_PTR_GET_CONST(recordEventLevels_, vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsRecordEventLevels>) };
+    inline vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsRecordEventLevels> recordEventLevels() { DARABONBA_PTR_GET(recordEventLevels_, vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsRecordEventLevels>) };
+    inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setRecordEventLevels(const vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsRecordEventLevels> & recordEventLevels) { DARABONBA_PTR_SET_VALUE(recordEventLevels_, recordEventLevels) };
+    inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setRecordEventLevels(vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsRecordEventLevels> && recordEventLevels) { DARABONBA_PTR_SET_RVALUE(recordEventLevels_, recordEventLevels) };
 
 
     // recordEventRegisters Field Functions 
@@ -1112,6 +1172,7 @@ namespace Models
     std::shared_ptr<vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules>> authorizeAccessPolicyRules_ = nullptr;
     // The security group rules.
     std::shared_ptr<vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules>> authorizeSecurityPolicyRules_ = nullptr;
+    std::shared_ptr<string> autoReconnect_ = nullptr;
     // Indicates whether the webcam redirection feature is enabled.
     // 
     // Valid values:
@@ -1279,6 +1340,7 @@ namespace Models
     // - off: not provided.
     // - on: provided.
     std::shared_ptr<string> mobileRestart_ = nullptr;
+    std::shared_ptr<string> mobileSafeMenu_ = nullptr;
     // Specifies whether to display the shut down button in the DesktopAssistant when the cloud computer is accessed from the Alibaba Cloud Workspace mobile clients (including the Android client and the iOS client).
     // 
     // > Mobile clients of V7.4 and higher versions required.
@@ -1288,6 +1350,8 @@ namespace Models
     // - off: not provided.
     // - on: provided.
     std::shared_ptr<string> mobileShutdown_ = nullptr;
+    std::shared_ptr<string> mobileWuyingKeeper_ = nullptr;
+    std::shared_ptr<string> mobileWyAssistant_ = nullptr;
     // The name of the cloud computer policy.
     std::shared_ptr<string> name_ = nullptr;
     // Indicates whether the network redirection feature is enabled.
@@ -1354,8 +1418,10 @@ namespace Models
     std::shared_ptr<int64_t> recordContentExpires_ = nullptr;
     // The recording duration since a target event is detected by the screen recording audit policy. Unit: Minute. Valid values: 10-60.
     std::shared_ptr<int32_t> recordEventDuration_ = nullptr;
+    std::shared_ptr<vector<string>> recordEventFileExts_ = nullptr;
     // The array of absolute paths of the monitored files in the screen recording audit policy.
     std::shared_ptr<vector<string>> recordEventFilePaths_ = nullptr;
+    std::shared_ptr<vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsRecordEventLevels>> recordEventLevels_ = nullptr;
     // The array of absolute paths of the monitored registry entries in the screen recording audit policy.
     std::shared_ptr<vector<string>> recordEventRegisters_ = nullptr;
     // Indicates whether the screen recording feature is enabled.
