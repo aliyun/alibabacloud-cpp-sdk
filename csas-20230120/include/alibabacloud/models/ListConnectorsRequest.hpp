@@ -87,13 +87,25 @@ namespace Models
 
 
   protected:
+    // Collection of Connector IDs. Up to 100 Connector IDs can be entered.
     std::shared_ptr<vector<string>> connectorIds_ = nullptr;
+    // The page number of the current page in a paginated query. Range: 1~10000.
+    // 
     // This parameter is required.
     std::shared_ptr<int32_t> currentPage_ = nullptr;
+    // Connector name. Length: 1~128 characters, supporting Chinese and both uppercase and lowercase English letters, and can include numbers, periods (.), underscores (_), and hyphens (-).
     std::shared_ptr<string> name_ = nullptr;
+    // The number of items per page in a paginated query. Range: 1~1000.
+    // 
     // This parameter is required.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // Connector connection status. Values:
+    // - **Online**: Online.
+    // - **Offline**: Offline.
     std::shared_ptr<string> status_ = nullptr;
+    // Connector instance status. Values:
+    // - **Enabled**: Enabled.
+    // - **Disabled**: Disabled.
     std::shared_ptr<string> switchStatus_ = nullptr;
   };
 

@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // List of Connectors.
     std::shared_ptr<vector<ListConnectorsResponseBodyConnectors>> connectors_ = nullptr;
+    // ID of the current request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Total number of Connectors.
     std::shared_ptr<int32_t> totalNum_ = nullptr;
   };
 

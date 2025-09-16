@@ -140,17 +140,31 @@ namespace Models
 
 
   protected:
+    // Collection of associated internal network access applications.
     std::shared_ptr<vector<Models::ListConnectorsResponseBodyConnectorsApplications>> applications_ = nullptr;
+    // Cluster IP.
     std::shared_ptr<string> clusterIP_ = nullptr;
+    // Cluster port.
     std::shared_ptr<string> clusterPort_ = nullptr;
+    // Collection of deployed ConnectorClients.
     std::shared_ptr<vector<Models::ListConnectorsResponseBodyConnectorsConnectorClients>> connectorClients_ = nullptr;
-    // ConnectorID。
+    // Connector ID.
     std::shared_ptr<string> connectorId_ = nullptr;
+    // Creation time of the Connector.
     std::shared_ptr<string> createTime_ = nullptr;
+    // Connector name.
     std::shared_ptr<string> name_ = nullptr;
+    // Region ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    // Connector connection status. Values:
+    // - **Online**: Online.
+    // - **Offline**: Offline.
     std::shared_ptr<string> status_ = nullptr;
+    // Connector instance status. Values:
+    // - **Enabled**: Enabled.
+    // - **Disabled**: Disabled.
     std::shared_ptr<string> switchStatus_ = nullptr;
+    // Connector upgrade time.
     std::shared_ptr<Models::ListConnectorsResponseBodyConnectorsUpgradeTime> upgradeTime_ = nullptr;
   };
 

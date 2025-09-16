@@ -1022,6 +1022,10 @@ CreateWmEmbedTaskResponse Client::createWmEmbedTaskWithOptions(const CreateWmEmb
   tmpReq.validate();
   CreateWmEmbedTaskShrinkRequest request = CreateWmEmbedTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAudioControl()) {
+    request.setAudioControlShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.audioControl(), "AudioControl", "json"));
+  }
+
   if (!!tmpReq.hasCsvControl()) {
     request.setCsvControlShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.csvControl(), "CsvControl", "json"));
   }
@@ -1034,12 +1038,19 @@ CreateWmEmbedTaskResponse Client::createWmEmbedTaskWithOptions(const CreateWmEmb
     request.setImageControlShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.imageControl(), "ImageControl", "json"));
   }
 
-  json query = {};
-  if (!!request.hasCsvControlShrink()) {
-    query["CsvControl"] = request.csvControlShrink();
+  if (!!tmpReq.hasVideoControl()) {
+    request.setVideoControlShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.videoControl(), "VideoControl", "json"));
   }
 
   json body = {};
+  if (!!request.hasAudioControlShrink()) {
+    body["AudioControl"] = request.audioControlShrink();
+  }
+
+  if (!!request.hasCsvControlShrink()) {
+    body["CsvControl"] = request.csvControlShrink();
+  }
+
   if (!!request.hasDocumentControlShrink()) {
     body["DocumentControl"] = request.documentControlShrink();
   }
@@ -1064,8 +1075,16 @@ CreateWmEmbedTaskResponse Client::createWmEmbedTaskWithOptions(const CreateWmEmb
     body["ImageEmbedLevel"] = request.imageEmbedLevel();
   }
 
+  if (!!request.hasInvisibleEnable()) {
+    body["InvisibleEnable"] = request.invisibleEnable();
+  }
+
   if (!!request.hasVideoBitrate()) {
     body["VideoBitrate"] = request.videoBitrate();
+  }
+
+  if (!!request.hasVideoControlShrink()) {
+    body["VideoControl"] = request.videoControlShrink();
   }
 
   if (!!request.hasVideoIsLong()) {
@@ -1089,9 +1108,8 @@ CreateWmEmbedTaskResponse Client::createWmEmbedTaskWithOptions(const CreateWmEmb
   }
 
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateWmEmbedTask"},
     {"version" , "2023-01-20"},
@@ -3026,7 +3044,7 @@ ListClientUsersResponse Client::listClientUsers(const ListClientUsersRequest &re
 }
 
 /**
- * @summary 批量查询connector
+ * @summary Batch query connectors
  *
  * @param request ListConnectorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3053,7 +3071,7 @@ ListConnectorsResponse Client::listConnectorsWithOptions(const ListConnectorsReq
 }
 
 /**
- * @summary 批量查询connector
+ * @summary Batch query connectors
  *
  * @param request ListConnectorsRequest
  * @return ListConnectorsResponse

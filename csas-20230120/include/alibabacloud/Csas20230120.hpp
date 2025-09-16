@@ -1030,7 +1030,7 @@ namespace Csas20230120
       Models::ListClientUsersResponse listClientUsers(const Models::ListClientUsersRequest &request);
 
       /**
-       * @summary 批量查询connector
+       * @summary Batch query connectors
        *
        * @param request ListConnectorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1039,7 +1039,7 @@ namespace Csas20230120
       Models::ListConnectorsResponse listConnectorsWithOptions(const Models::ListConnectorsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量查询connector
+       * @summary Batch query connectors
        *
        * @param request ListConnectorsRequest
        * @return ListConnectorsResponse

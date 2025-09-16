@@ -2,9 +2,11 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEWMEMBEDTASKREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEWMEMBEDTASKREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/CreateWmEmbedTaskRequestAudioControl.hpp>
 #include <alibabacloud/models/CreateWmEmbedTaskRequestCsvControl.hpp>
 #include <alibabacloud/models/CreateWmEmbedTaskRequestDocumentControl.hpp>
 #include <alibabacloud/models/CreateWmEmbedTaskRequestImageControl.hpp>
+#include <alibabacloud/models/CreateWmEmbedTaskRequestVideoControl.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -16,6 +18,7 @@ namespace Models
   class CreateWmEmbedTaskRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateWmEmbedTaskRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AudioControl, audioControl_);
       DARABONBA_PTR_TO_JSON(CsvControl, csvControl_);
       DARABONBA_PTR_TO_JSON(DocumentControl, documentControl_);
       DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
@@ -23,7 +26,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ImageControl, imageControl_);
       DARABONBA_PTR_TO_JSON(ImageEmbedJpegQuality, imageEmbedJpegQuality_);
       DARABONBA_PTR_TO_JSON(ImageEmbedLevel, imageEmbedLevel_);
+      DARABONBA_PTR_TO_JSON(InvisibleEnable, invisibleEnable_);
       DARABONBA_PTR_TO_JSON(VideoBitrate, videoBitrate_);
+      DARABONBA_PTR_TO_JSON(VideoControl, videoControl_);
       DARABONBA_PTR_TO_JSON(VideoIsLong, videoIsLong_);
       DARABONBA_PTR_TO_JSON(WmInfoBytesB64, wmInfoBytesB64_);
       DARABONBA_PTR_TO_JSON(WmInfoSize, wmInfoSize_);
@@ -31,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WmType, wmType_);
     };
     friend void from_json(const Darabonba::Json& j, CreateWmEmbedTaskRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AudioControl, audioControl_);
       DARABONBA_PTR_FROM_JSON(CsvControl, csvControl_);
       DARABONBA_PTR_FROM_JSON(DocumentControl, documentControl_);
       DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
@@ -38,7 +44,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ImageControl, imageControl_);
       DARABONBA_PTR_FROM_JSON(ImageEmbedJpegQuality, imageEmbedJpegQuality_);
       DARABONBA_PTR_FROM_JSON(ImageEmbedLevel, imageEmbedLevel_);
+      DARABONBA_PTR_FROM_JSON(InvisibleEnable, invisibleEnable_);
       DARABONBA_PTR_FROM_JSON(VideoBitrate, videoBitrate_);
+      DARABONBA_PTR_FROM_JSON(VideoControl, videoControl_);
       DARABONBA_PTR_FROM_JSON(VideoIsLong, videoIsLong_);
       DARABONBA_PTR_FROM_JSON(WmInfoBytesB64, wmInfoBytesB64_);
       DARABONBA_PTR_FROM_JSON(WmInfoSize, wmInfoSize_);
@@ -56,10 +64,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->csvControl_ != nullptr
-        && this->documentControl_ != nullptr && this->fileUrl_ != nullptr && this->filename_ != nullptr && this->imageControl_ != nullptr && this->imageEmbedJpegQuality_ != nullptr
-        && this->imageEmbedLevel_ != nullptr && this->videoBitrate_ != nullptr && this->videoIsLong_ != nullptr && this->wmInfoBytesB64_ != nullptr && this->wmInfoSize_ != nullptr
-        && this->wmInfoUint_ != nullptr && this->wmType_ != nullptr; };
+    virtual bool empty() const override { this->audioControl_ != nullptr
+        && this->csvControl_ != nullptr && this->documentControl_ != nullptr && this->fileUrl_ != nullptr && this->filename_ != nullptr && this->imageControl_ != nullptr
+        && this->imageEmbedJpegQuality_ != nullptr && this->imageEmbedLevel_ != nullptr && this->invisibleEnable_ != nullptr && this->videoBitrate_ != nullptr && this->videoControl_ != nullptr
+        && this->videoIsLong_ != nullptr && this->wmInfoBytesB64_ != nullptr && this->wmInfoSize_ != nullptr && this->wmInfoUint_ != nullptr && this->wmType_ != nullptr; };
+    // audioControl Field Functions 
+    bool hasAudioControl() const { return this->audioControl_ != nullptr;};
+    void deleteAudioControl() { this->audioControl_ = nullptr;};
+    inline const CreateWmEmbedTaskRequestAudioControl & audioControl() const { DARABONBA_PTR_GET_CONST(audioControl_, CreateWmEmbedTaskRequestAudioControl) };
+    inline CreateWmEmbedTaskRequestAudioControl audioControl() { DARABONBA_PTR_GET(audioControl_, CreateWmEmbedTaskRequestAudioControl) };
+    inline CreateWmEmbedTaskRequest& setAudioControl(const CreateWmEmbedTaskRequestAudioControl & audioControl) { DARABONBA_PTR_SET_VALUE(audioControl_, audioControl) };
+    inline CreateWmEmbedTaskRequest& setAudioControl(CreateWmEmbedTaskRequestAudioControl && audioControl) { DARABONBA_PTR_SET_RVALUE(audioControl_, audioControl) };
+
+
     // csvControl Field Functions 
     bool hasCsvControl() const { return this->csvControl_ != nullptr;};
     void deleteCsvControl() { this->csvControl_ = nullptr;};
@@ -115,11 +132,27 @@ namespace Models
     inline CreateWmEmbedTaskRequest& setImageEmbedLevel(int64_t imageEmbedLevel) { DARABONBA_PTR_SET_VALUE(imageEmbedLevel_, imageEmbedLevel) };
 
 
+    // invisibleEnable Field Functions 
+    bool hasInvisibleEnable() const { return this->invisibleEnable_ != nullptr;};
+    void deleteInvisibleEnable() { this->invisibleEnable_ = nullptr;};
+    inline bool invisibleEnable() const { DARABONBA_PTR_GET_DEFAULT(invisibleEnable_, false) };
+    inline CreateWmEmbedTaskRequest& setInvisibleEnable(bool invisibleEnable) { DARABONBA_PTR_SET_VALUE(invisibleEnable_, invisibleEnable) };
+
+
     // videoBitrate Field Functions 
     bool hasVideoBitrate() const { return this->videoBitrate_ != nullptr;};
     void deleteVideoBitrate() { this->videoBitrate_ = nullptr;};
     inline string videoBitrate() const { DARABONBA_PTR_GET_DEFAULT(videoBitrate_, "") };
     inline CreateWmEmbedTaskRequest& setVideoBitrate(string videoBitrate) { DARABONBA_PTR_SET_VALUE(videoBitrate_, videoBitrate) };
+
+
+    // videoControl Field Functions 
+    bool hasVideoControl() const { return this->videoControl_ != nullptr;};
+    void deleteVideoControl() { this->videoControl_ = nullptr;};
+    inline const CreateWmEmbedTaskRequestVideoControl & videoControl() const { DARABONBA_PTR_GET_CONST(videoControl_, CreateWmEmbedTaskRequestVideoControl) };
+    inline CreateWmEmbedTaskRequestVideoControl videoControl() { DARABONBA_PTR_GET(videoControl_, CreateWmEmbedTaskRequestVideoControl) };
+    inline CreateWmEmbedTaskRequest& setVideoControl(const CreateWmEmbedTaskRequestVideoControl & videoControl) { DARABONBA_PTR_SET_VALUE(videoControl_, videoControl) };
+    inline CreateWmEmbedTaskRequest& setVideoControl(CreateWmEmbedTaskRequestVideoControl && videoControl) { DARABONBA_PTR_SET_RVALUE(videoControl_, videoControl) };
 
 
     // videoIsLong Field Functions 
@@ -158,6 +191,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<CreateWmEmbedTaskRequestAudioControl> audioControl_ = nullptr;
     std::shared_ptr<CreateWmEmbedTaskRequestCsvControl> csvControl_ = nullptr;
     std::shared_ptr<CreateWmEmbedTaskRequestDocumentControl> documentControl_ = nullptr;
     // This parameter is required.
@@ -167,7 +201,9 @@ namespace Models
     std::shared_ptr<CreateWmEmbedTaskRequestImageControl> imageControl_ = nullptr;
     std::shared_ptr<int64_t> imageEmbedJpegQuality_ = nullptr;
     std::shared_ptr<int64_t> imageEmbedLevel_ = nullptr;
+    std::shared_ptr<bool> invisibleEnable_ = nullptr;
     std::shared_ptr<string> videoBitrate_ = nullptr;
+    std::shared_ptr<CreateWmEmbedTaskRequestVideoControl> videoControl_ = nullptr;
     std::shared_ptr<bool> videoIsLong_ = nullptr;
     std::shared_ptr<string> wmInfoBytesB64_ = nullptr;
     std::shared_ptr<int64_t> wmInfoSize_ = nullptr;

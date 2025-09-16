@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateWmEmbedTaskRequestImageControlLogoVisibleControl& obj) { 
       DARABONBA_PTR_TO_JSON(Angle, angle_);
+      DARABONBA_PTR_TO_JSON(Enhance, enhance_);
       DARABONBA_PTR_TO_JSON(LogoBase64, logoBase64_);
       DARABONBA_PTR_TO_JSON(Margin, margin_);
       DARABONBA_PTR_TO_JSON(Mode, mode_);
@@ -29,6 +30,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateWmEmbedTaskRequestImageControlLogoVisibleControl& obj) { 
       DARABONBA_PTR_FROM_JSON(Angle, angle_);
+      DARABONBA_PTR_FROM_JSON(Enhance, enhance_);
       DARABONBA_PTR_FROM_JSON(LogoBase64, logoBase64_);
       DARABONBA_PTR_FROM_JSON(Margin, margin_);
       DARABONBA_PTR_FROM_JSON(Mode, mode_);
@@ -53,14 +55,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->angle_ != nullptr
-        && this->logoBase64_ != nullptr && this->margin_ != nullptr && this->mode_ != nullptr && this->opacity_ != nullptr && this->posAx_ != nullptr
-        && this->posAy_ != nullptr && this->posX_ != nullptr && this->posY_ != nullptr && this->spaceX_ != nullptr && this->spaceY_ != nullptr
-        && this->visible_ != nullptr; };
+        && this->enhance_ != nullptr && this->logoBase64_ != nullptr && this->margin_ != nullptr && this->mode_ != nullptr && this->opacity_ != nullptr
+        && this->posAx_ != nullptr && this->posAy_ != nullptr && this->posX_ != nullptr && this->posY_ != nullptr && this->spaceX_ != nullptr
+        && this->spaceY_ != nullptr && this->visible_ != nullptr; };
     // angle Field Functions 
     bool hasAngle() const { return this->angle_ != nullptr;};
     void deleteAngle() { this->angle_ = nullptr;};
     inline int64_t angle() const { DARABONBA_PTR_GET_DEFAULT(angle_, 0L) };
     inline CreateWmEmbedTaskRequestImageControlLogoVisibleControl& setAngle(int64_t angle) { DARABONBA_PTR_SET_VALUE(angle_, angle) };
+
+
+    // enhance Field Functions 
+    bool hasEnhance() const { return this->enhance_ != nullptr;};
+    void deleteEnhance() { this->enhance_ = nullptr;};
+    inline bool enhance() const { DARABONBA_PTR_GET_DEFAULT(enhance_, false) };
+    inline CreateWmEmbedTaskRequestImageControlLogoVisibleControl& setEnhance(bool enhance) { DARABONBA_PTR_SET_VALUE(enhance_, enhance) };
 
 
     // logoBase64 Field Functions 
@@ -144,6 +153,7 @@ namespace Models
 
   protected:
     std::shared_ptr<int64_t> angle_ = nullptr;
+    std::shared_ptr<bool> enhance_ = nullptr;
     std::shared_ptr<string> logoBase64_ = nullptr;
     std::shared_ptr<Models::CreateWmEmbedTaskRequestImageControlLogoVisibleControlMargin> margin_ = nullptr;
     std::shared_ptr<string> mode_ = nullptr;

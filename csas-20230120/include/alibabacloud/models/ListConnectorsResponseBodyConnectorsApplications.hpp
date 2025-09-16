@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Internal network access application ID.
     std::shared_ptr<string> applicationId_ = nullptr;
+    // Internal network access application name.
     std::shared_ptr<string> applicationName_ = nullptr;
   };
 

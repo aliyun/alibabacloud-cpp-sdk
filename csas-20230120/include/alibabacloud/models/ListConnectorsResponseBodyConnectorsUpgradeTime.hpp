@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // End time.
     std::shared_ptr<string> end_ = nullptr;
+    // Start time.
     std::shared_ptr<string> start_ = nullptr;
   };
 

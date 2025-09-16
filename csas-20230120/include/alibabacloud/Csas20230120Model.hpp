@@ -423,6 +423,8 @@
 #include <alibabacloud/models/CreateWmBaseImageRequestImageControlTextVisibleControl.hpp>
 #include <alibabacloud/models/CreateWmBaseImageRequestImageControl.hpp>
 #include <alibabacloud/models/CreateWmBaseImageResponseBodyData.hpp>
+#include <alibabacloud/models/CreateWmEmbedTaskRequestAudioControlMetadataControl.hpp>
+#include <alibabacloud/models/CreateWmEmbedTaskRequestAudioControl.hpp>
 #include <alibabacloud/models/CreateWmEmbedTaskRequestCsvControl.hpp>
 #include <alibabacloud/models/CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl.hpp>
 #include <alibabacloud/models/CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleControl.hpp>
@@ -434,6 +436,10 @@
 #include <alibabacloud/models/CreateWmEmbedTaskRequestImageControlTextVisibleControlMargin.hpp>
 #include <alibabacloud/models/CreateWmEmbedTaskRequestImageControlTextVisibleControl.hpp>
 #include <alibabacloud/models/CreateWmEmbedTaskRequestImageControl.hpp>
+#include <alibabacloud/models/CreateWmEmbedTaskRequestVideoControlMetadataControl.hpp>
+#include <alibabacloud/models/CreateWmEmbedTaskRequestVideoControlTextVisibleControlMargin.hpp>
+#include <alibabacloud/models/CreateWmEmbedTaskRequestVideoControlTextVisibleControl.hpp>
+#include <alibabacloud/models/CreateWmEmbedTaskRequestVideoControl.hpp>
 #include <alibabacloud/models/CreateWmEmbedTaskResponseBodyData.hpp>
 #include <alibabacloud/models/CreateWmExtractTaskRequestCsvControl.hpp>
 #include <alibabacloud/models/CreateWmExtractTaskRequestImageExtractParamsOpenApi.hpp>

@@ -13,6 +13,7 @@ namespace Models
   class CreateWmEmbedTaskShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateWmEmbedTaskShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AudioControl, audioControlShrink_);
       DARABONBA_PTR_TO_JSON(CsvControl, csvControlShrink_);
       DARABONBA_PTR_TO_JSON(DocumentControl, documentControlShrink_);
       DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
@@ -20,7 +21,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ImageControl, imageControlShrink_);
       DARABONBA_PTR_TO_JSON(ImageEmbedJpegQuality, imageEmbedJpegQuality_);
       DARABONBA_PTR_TO_JSON(ImageEmbedLevel, imageEmbedLevel_);
+      DARABONBA_PTR_TO_JSON(InvisibleEnable, invisibleEnable_);
       DARABONBA_PTR_TO_JSON(VideoBitrate, videoBitrate_);
+      DARABONBA_PTR_TO_JSON(VideoControl, videoControlShrink_);
       DARABONBA_PTR_TO_JSON(VideoIsLong, videoIsLong_);
       DARABONBA_PTR_TO_JSON(WmInfoBytesB64, wmInfoBytesB64_);
       DARABONBA_PTR_TO_JSON(WmInfoSize, wmInfoSize_);
@@ -28,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WmType, wmType_);
     };
     friend void from_json(const Darabonba::Json& j, CreateWmEmbedTaskShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AudioControl, audioControlShrink_);
       DARABONBA_PTR_FROM_JSON(CsvControl, csvControlShrink_);
       DARABONBA_PTR_FROM_JSON(DocumentControl, documentControlShrink_);
       DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
@@ -35,7 +39,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ImageControl, imageControlShrink_);
       DARABONBA_PTR_FROM_JSON(ImageEmbedJpegQuality, imageEmbedJpegQuality_);
       DARABONBA_PTR_FROM_JSON(ImageEmbedLevel, imageEmbedLevel_);
+      DARABONBA_PTR_FROM_JSON(InvisibleEnable, invisibleEnable_);
       DARABONBA_PTR_FROM_JSON(VideoBitrate, videoBitrate_);
+      DARABONBA_PTR_FROM_JSON(VideoControl, videoControlShrink_);
       DARABONBA_PTR_FROM_JSON(VideoIsLong, videoIsLong_);
       DARABONBA_PTR_FROM_JSON(WmInfoBytesB64, wmInfoBytesB64_);
       DARABONBA_PTR_FROM_JSON(WmInfoSize, wmInfoSize_);
@@ -53,10 +59,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->csvControlShrink_ != nullptr
-        && this->documentControlShrink_ != nullptr && this->fileUrl_ != nullptr && this->filename_ != nullptr && this->imageControlShrink_ != nullptr && this->imageEmbedJpegQuality_ != nullptr
-        && this->imageEmbedLevel_ != nullptr && this->videoBitrate_ != nullptr && this->videoIsLong_ != nullptr && this->wmInfoBytesB64_ != nullptr && this->wmInfoSize_ != nullptr
-        && this->wmInfoUint_ != nullptr && this->wmType_ != nullptr; };
+    virtual bool empty() const override { this->audioControlShrink_ != nullptr
+        && this->csvControlShrink_ != nullptr && this->documentControlShrink_ != nullptr && this->fileUrl_ != nullptr && this->filename_ != nullptr && this->imageControlShrink_ != nullptr
+        && this->imageEmbedJpegQuality_ != nullptr && this->imageEmbedLevel_ != nullptr && this->invisibleEnable_ != nullptr && this->videoBitrate_ != nullptr && this->videoControlShrink_ != nullptr
+        && this->videoIsLong_ != nullptr && this->wmInfoBytesB64_ != nullptr && this->wmInfoSize_ != nullptr && this->wmInfoUint_ != nullptr && this->wmType_ != nullptr; };
+    // audioControlShrink Field Functions 
+    bool hasAudioControlShrink() const { return this->audioControlShrink_ != nullptr;};
+    void deleteAudioControlShrink() { this->audioControlShrink_ = nullptr;};
+    inline string audioControlShrink() const { DARABONBA_PTR_GET_DEFAULT(audioControlShrink_, "") };
+    inline CreateWmEmbedTaskShrinkRequest& setAudioControlShrink(string audioControlShrink) { DARABONBA_PTR_SET_VALUE(audioControlShrink_, audioControlShrink) };
+
+
     // csvControlShrink Field Functions 
     bool hasCsvControlShrink() const { return this->csvControlShrink_ != nullptr;};
     void deleteCsvControlShrink() { this->csvControlShrink_ = nullptr;};
@@ -106,11 +119,25 @@ namespace Models
     inline CreateWmEmbedTaskShrinkRequest& setImageEmbedLevel(int64_t imageEmbedLevel) { DARABONBA_PTR_SET_VALUE(imageEmbedLevel_, imageEmbedLevel) };
 
 
+    // invisibleEnable Field Functions 
+    bool hasInvisibleEnable() const { return this->invisibleEnable_ != nullptr;};
+    void deleteInvisibleEnable() { this->invisibleEnable_ = nullptr;};
+    inline bool invisibleEnable() const { DARABONBA_PTR_GET_DEFAULT(invisibleEnable_, false) };
+    inline CreateWmEmbedTaskShrinkRequest& setInvisibleEnable(bool invisibleEnable) { DARABONBA_PTR_SET_VALUE(invisibleEnable_, invisibleEnable) };
+
+
     // videoBitrate Field Functions 
     bool hasVideoBitrate() const { return this->videoBitrate_ != nullptr;};
     void deleteVideoBitrate() { this->videoBitrate_ = nullptr;};
     inline string videoBitrate() const { DARABONBA_PTR_GET_DEFAULT(videoBitrate_, "") };
     inline CreateWmEmbedTaskShrinkRequest& setVideoBitrate(string videoBitrate) { DARABONBA_PTR_SET_VALUE(videoBitrate_, videoBitrate) };
+
+
+    // videoControlShrink Field Functions 
+    bool hasVideoControlShrink() const { return this->videoControlShrink_ != nullptr;};
+    void deleteVideoControlShrink() { this->videoControlShrink_ = nullptr;};
+    inline string videoControlShrink() const { DARABONBA_PTR_GET_DEFAULT(videoControlShrink_, "") };
+    inline CreateWmEmbedTaskShrinkRequest& setVideoControlShrink(string videoControlShrink) { DARABONBA_PTR_SET_VALUE(videoControlShrink_, videoControlShrink) };
 
 
     // videoIsLong Field Functions 
@@ -149,6 +176,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> audioControlShrink_ = nullptr;
     std::shared_ptr<string> csvControlShrink_ = nullptr;
     std::shared_ptr<string> documentControlShrink_ = nullptr;
     // This parameter is required.
@@ -158,7 +186,9 @@ namespace Models
     std::shared_ptr<string> imageControlShrink_ = nullptr;
     std::shared_ptr<int64_t> imageEmbedJpegQuality_ = nullptr;
     std::shared_ptr<int64_t> imageEmbedLevel_ = nullptr;
+    std::shared_ptr<bool> invisibleEnable_ = nullptr;
     std::shared_ptr<string> videoBitrate_ = nullptr;
+    std::shared_ptr<string> videoControlShrink_ = nullptr;
     std::shared_ptr<bool> videoIsLong_ = nullptr;
     std::shared_ptr<string> wmInfoBytesB64_ = nullptr;
     std::shared_ptr<int64_t> wmInfoSize_ = nullptr;
