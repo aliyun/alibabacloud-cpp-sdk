@@ -1,0 +1,58 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_CREATEHTTPINCOMINGREQUESTHEADERMODIFICATIONRULERESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_CREATEHTTPINCOMINGREQUESTHEADERMODIFICATIONRULERESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace ESA20240910
+{
+namespace Models
+{
+  class CreateHttpIncomingRequestHeaderModificationRuleResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const CreateHttpIncomingRequestHeaderModificationRuleResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(ConfigId, configId_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+    };
+    friend void from_json(const Darabonba::Json& j, CreateHttpIncomingRequestHeaderModificationRuleResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(ConfigId, configId_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+    };
+    CreateHttpIncomingRequestHeaderModificationRuleResponseBody() = default ;
+    CreateHttpIncomingRequestHeaderModificationRuleResponseBody(const CreateHttpIncomingRequestHeaderModificationRuleResponseBody &) = default ;
+    CreateHttpIncomingRequestHeaderModificationRuleResponseBody(CreateHttpIncomingRequestHeaderModificationRuleResponseBody &&) = default ;
+    CreateHttpIncomingRequestHeaderModificationRuleResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateHttpIncomingRequestHeaderModificationRuleResponseBody() = default ;
+    CreateHttpIncomingRequestHeaderModificationRuleResponseBody& operator=(const CreateHttpIncomingRequestHeaderModificationRuleResponseBody &) = default ;
+    CreateHttpIncomingRequestHeaderModificationRuleResponseBody& operator=(CreateHttpIncomingRequestHeaderModificationRuleResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->configId_ != nullptr
+        && this->requestId_ != nullptr; };
+    // configId Field Functions 
+    bool hasConfigId() const { return this->configId_ != nullptr;};
+    void deleteConfigId() { this->configId_ = nullptr;};
+    inline int64_t configId() const { DARABONBA_PTR_GET_DEFAULT(configId_, 0L) };
+    inline CreateHttpIncomingRequestHeaderModificationRuleResponseBody& setConfigId(int64_t configId) { DARABONBA_PTR_SET_VALUE(configId_, configId) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline CreateHttpIncomingRequestHeaderModificationRuleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+  protected:
+    std::shared_ptr<int64_t> configId_ = nullptr;
+    std::shared_ptr<string> requestId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace ESA20240910
+#endif

@@ -1797,6 +1797,150 @@ CreateEdgeContainerAppVersionResponse Client::createEdgeContainerAppVersion(cons
 }
 
 /**
+ * @summary 新增HTTP入站请求头规则
+ *
+ * @param tmpReq CreateHttpIncomingRequestHeaderModificationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateHttpIncomingRequestHeaderModificationRuleResponse
+ */
+CreateHttpIncomingRequestHeaderModificationRuleResponse Client::createHttpIncomingRequestHeaderModificationRuleWithOptions(const CreateHttpIncomingRequestHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateHttpIncomingRequestHeaderModificationRuleShrinkRequest request = CreateHttpIncomingRequestHeaderModificationRuleShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRequestHeaderModification()) {
+    request.setRequestHeaderModificationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.requestHeaderModification(), "RequestHeaderModification", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasRequestHeaderModificationShrink()) {
+    query["RequestHeaderModification"] = request.requestHeaderModificationShrink();
+  }
+
+  if (!!request.hasRule()) {
+    query["Rule"] = request.rule();
+  }
+
+  if (!!request.hasRuleEnable()) {
+    query["RuleEnable"] = request.ruleEnable();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.ruleName();
+  }
+
+  if (!!request.hasSequence()) {
+    query["Sequence"] = request.sequence();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.siteId();
+  }
+
+  if (!!request.hasSiteVersion()) {
+    query["SiteVersion"] = request.siteVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateHttpIncomingRequestHeaderModificationRule"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateHttpIncomingRequestHeaderModificationRuleResponse>();
+}
+
+/**
+ * @summary 新增HTTP入站请求头规则
+ *
+ * @param request CreateHttpIncomingRequestHeaderModificationRuleRequest
+ * @return CreateHttpIncomingRequestHeaderModificationRuleResponse
+ */
+CreateHttpIncomingRequestHeaderModificationRuleResponse Client::createHttpIncomingRequestHeaderModificationRule(const CreateHttpIncomingRequestHeaderModificationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createHttpIncomingRequestHeaderModificationRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 新增HTTP入站响应头规则
+ *
+ * @param tmpReq CreateHttpIncomingResponseHeaderModificationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateHttpIncomingResponseHeaderModificationRuleResponse
+ */
+CreateHttpIncomingResponseHeaderModificationRuleResponse Client::createHttpIncomingResponseHeaderModificationRuleWithOptions(const CreateHttpIncomingResponseHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateHttpIncomingResponseHeaderModificationRuleShrinkRequest request = CreateHttpIncomingResponseHeaderModificationRuleShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasResponseHeaderModification()) {
+    request.setResponseHeaderModificationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.responseHeaderModification(), "ResponseHeaderModification", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasResponseHeaderModificationShrink()) {
+    query["ResponseHeaderModification"] = request.responseHeaderModificationShrink();
+  }
+
+  if (!!request.hasRule()) {
+    query["Rule"] = request.rule();
+  }
+
+  if (!!request.hasRuleEnable()) {
+    query["RuleEnable"] = request.ruleEnable();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.ruleName();
+  }
+
+  if (!!request.hasSequence()) {
+    query["Sequence"] = request.sequence();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.siteId();
+  }
+
+  if (!!request.hasSiteVersion()) {
+    query["SiteVersion"] = request.siteVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateHttpIncomingResponseHeaderModificationRule"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateHttpIncomingResponseHeaderModificationRuleResponse>();
+}
+
+/**
+ * @summary 新增HTTP入站响应头规则
+ *
+ * @param request CreateHttpIncomingResponseHeaderModificationRuleRequest
+ * @return CreateHttpIncomingResponseHeaderModificationRuleResponse
+ */
+CreateHttpIncomingResponseHeaderModificationRuleResponse Client::createHttpIncomingResponseHeaderModificationRule(const CreateHttpIncomingResponseHeaderModificationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createHttpIncomingResponseHeaderModificationRuleWithOptions(request, runtime);
+}
+
+/**
  * @summary Add HTTP Request Header Rule
  *
  * @param tmpReq CreateHttpRequestHeaderModificationRuleRequest
@@ -4863,6 +5007,98 @@ DeleteEdgeContainerAppVersionResponse Client::deleteEdgeContainerAppVersionWithO
 DeleteEdgeContainerAppVersionResponse Client::deleteEdgeContainerAppVersion(const DeleteEdgeContainerAppVersionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteEdgeContainerAppVersionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除HTTP入站请求头规则
+ *
+ * @param request DeleteHttpIncomingRequestHeaderModificationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteHttpIncomingRequestHeaderModificationRuleResponse
+ */
+DeleteHttpIncomingRequestHeaderModificationRuleResponse Client::deleteHttpIncomingRequestHeaderModificationRuleWithOptions(const DeleteHttpIncomingRequestHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConfigId()) {
+    query["ConfigId"] = request.configId();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.siteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteHttpIncomingRequestHeaderModificationRule"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteHttpIncomingRequestHeaderModificationRuleResponse>();
+}
+
+/**
+ * @summary 删除HTTP入站请求头规则
+ *
+ * @param request DeleteHttpIncomingRequestHeaderModificationRuleRequest
+ * @return DeleteHttpIncomingRequestHeaderModificationRuleResponse
+ */
+DeleteHttpIncomingRequestHeaderModificationRuleResponse Client::deleteHttpIncomingRequestHeaderModificationRule(const DeleteHttpIncomingRequestHeaderModificationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteHttpIncomingRequestHeaderModificationRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除HTTP入站响应头规则
+ *
+ * @param request DeleteHttpIncomingResponseHeaderModificationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteHttpIncomingResponseHeaderModificationRuleResponse
+ */
+DeleteHttpIncomingResponseHeaderModificationRuleResponse Client::deleteHttpIncomingResponseHeaderModificationRuleWithOptions(const DeleteHttpIncomingResponseHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConfigId()) {
+    query["ConfigId"] = request.configId();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.siteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteHttpIncomingResponseHeaderModificationRule"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteHttpIncomingResponseHeaderModificationRuleResponse>();
+}
+
+/**
+ * @summary 删除HTTP入站响应头规则
+ *
+ * @param request DeleteHttpIncomingResponseHeaderModificationRuleRequest
+ * @return DeleteHttpIncomingResponseHeaderModificationRuleResponse
+ */
+DeleteHttpIncomingResponseHeaderModificationRuleResponse Client::deleteHttpIncomingResponseHeaderModificationRule(const DeleteHttpIncomingResponseHeaderModificationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteHttpIncomingResponseHeaderModificationRuleWithOptions(request, runtime);
 }
 
 /**
@@ -8304,6 +8540,82 @@ GetErServiceResponse Client::getErService(const GetErServiceRequest &request) {
 }
 
 /**
+ * @summary 查询HTTP入站请求头规则详情
+ *
+ * @param request GetHttpIncomingRequestHeaderModificationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetHttpIncomingRequestHeaderModificationRuleResponse
+ */
+GetHttpIncomingRequestHeaderModificationRuleResponse Client::getHttpIncomingRequestHeaderModificationRuleWithOptions(const GetHttpIncomingRequestHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetHttpIncomingRequestHeaderModificationRule"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetHttpIncomingRequestHeaderModificationRuleResponse>();
+}
+
+/**
+ * @summary 查询HTTP入站请求头规则详情
+ *
+ * @param request GetHttpIncomingRequestHeaderModificationRuleRequest
+ * @return GetHttpIncomingRequestHeaderModificationRuleResponse
+ */
+GetHttpIncomingRequestHeaderModificationRuleResponse Client::getHttpIncomingRequestHeaderModificationRule(const GetHttpIncomingRequestHeaderModificationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getHttpIncomingRequestHeaderModificationRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询HTTP入站响应头规则
+ *
+ * @param request GetHttpIncomingResponseHeaderModificationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetHttpIncomingResponseHeaderModificationRuleResponse
+ */
+GetHttpIncomingResponseHeaderModificationRuleResponse Client::getHttpIncomingResponseHeaderModificationRuleWithOptions(const GetHttpIncomingResponseHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetHttpIncomingResponseHeaderModificationRule"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetHttpIncomingResponseHeaderModificationRuleResponse>();
+}
+
+/**
+ * @summary 查询HTTP入站响应头规则
+ *
+ * @param request GetHttpIncomingResponseHeaderModificationRuleRequest
+ * @return GetHttpIncomingResponseHeaderModificationRuleResponse
+ */
+GetHttpIncomingResponseHeaderModificationRuleResponse Client::getHttpIncomingResponseHeaderModificationRule(const GetHttpIncomingResponseHeaderModificationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getHttpIncomingResponseHeaderModificationRuleWithOptions(request, runtime);
+}
+
+/**
  * @summary Query HTTP Request Header Rule Details
  *
  * @param request GetHttpRequestHeaderModificationRuleRequest
@@ -10946,6 +11258,82 @@ ListEdgeRoutineRecordsResponse Client::listEdgeRoutineRecordsWithOptions(const L
 ListEdgeRoutineRecordsResponse Client::listEdgeRoutineRecords(const ListEdgeRoutineRecordsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listEdgeRoutineRecordsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询HTTP入站请求头规则列表
+ *
+ * @param request ListHttpIncomingRequestHeaderModificationRulesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListHttpIncomingRequestHeaderModificationRulesResponse
+ */
+ListHttpIncomingRequestHeaderModificationRulesResponse Client::listHttpIncomingRequestHeaderModificationRulesWithOptions(const ListHttpIncomingRequestHeaderModificationRulesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListHttpIncomingRequestHeaderModificationRules"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListHttpIncomingRequestHeaderModificationRulesResponse>();
+}
+
+/**
+ * @summary 查询HTTP入站请求头规则列表
+ *
+ * @param request ListHttpIncomingRequestHeaderModificationRulesRequest
+ * @return ListHttpIncomingRequestHeaderModificationRulesResponse
+ */
+ListHttpIncomingRequestHeaderModificationRulesResponse Client::listHttpIncomingRequestHeaderModificationRules(const ListHttpIncomingRequestHeaderModificationRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listHttpIncomingRequestHeaderModificationRulesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询HTTP入站响应头规则列表
+ *
+ * @param request ListHttpIncomingResponseHeaderModificationRulesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListHttpIncomingResponseHeaderModificationRulesResponse
+ */
+ListHttpIncomingResponseHeaderModificationRulesResponse Client::listHttpIncomingResponseHeaderModificationRulesWithOptions(const ListHttpIncomingResponseHeaderModificationRulesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListHttpIncomingResponseHeaderModificationRules"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListHttpIncomingResponseHeaderModificationRulesResponse>();
+}
+
+/**
+ * @summary 查询HTTP入站响应头规则列表
+ *
+ * @param request ListHttpIncomingResponseHeaderModificationRulesRequest
+ * @return ListHttpIncomingResponseHeaderModificationRulesResponse
+ */
+ListHttpIncomingResponseHeaderModificationRulesResponse Client::listHttpIncomingResponseHeaderModificationRules(const ListHttpIncomingResponseHeaderModificationRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listHttpIncomingResponseHeaderModificationRulesWithOptions(request, runtime);
 }
 
 /**
@@ -15149,6 +15537,150 @@ UpdateEdgeContainerAppResourceReserveResponse Client::updateEdgeContainerAppReso
 UpdateEdgeContainerAppResourceReserveResponse Client::updateEdgeContainerAppResourceReserve(const UpdateEdgeContainerAppResourceReserveRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateEdgeContainerAppResourceReserveWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改HTTP入站请求头规则
+ *
+ * @param tmpReq UpdateHttpIncomingRequestHeaderModificationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateHttpIncomingRequestHeaderModificationRuleResponse
+ */
+UpdateHttpIncomingRequestHeaderModificationRuleResponse Client::updateHttpIncomingRequestHeaderModificationRuleWithOptions(const UpdateHttpIncomingRequestHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateHttpIncomingRequestHeaderModificationRuleShrinkRequest request = UpdateHttpIncomingRequestHeaderModificationRuleShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRequestHeaderModification()) {
+    request.setRequestHeaderModificationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.requestHeaderModification(), "RequestHeaderModification", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasConfigId()) {
+    query["ConfigId"] = request.configId();
+  }
+
+  if (!!request.hasRequestHeaderModificationShrink()) {
+    query["RequestHeaderModification"] = request.requestHeaderModificationShrink();
+  }
+
+  if (!!request.hasRule()) {
+    query["Rule"] = request.rule();
+  }
+
+  if (!!request.hasRuleEnable()) {
+    query["RuleEnable"] = request.ruleEnable();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.ruleName();
+  }
+
+  if (!!request.hasSequence()) {
+    query["Sequence"] = request.sequence();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.siteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateHttpIncomingRequestHeaderModificationRule"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateHttpIncomingRequestHeaderModificationRuleResponse>();
+}
+
+/**
+ * @summary 修改HTTP入站请求头规则
+ *
+ * @param request UpdateHttpIncomingRequestHeaderModificationRuleRequest
+ * @return UpdateHttpIncomingRequestHeaderModificationRuleResponse
+ */
+UpdateHttpIncomingRequestHeaderModificationRuleResponse Client::updateHttpIncomingRequestHeaderModificationRule(const UpdateHttpIncomingRequestHeaderModificationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateHttpIncomingRequestHeaderModificationRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改HTTP入站响应头规则
+ *
+ * @param tmpReq UpdateHttpIncomingResponseHeaderModificationRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateHttpIncomingResponseHeaderModificationRuleResponse
+ */
+UpdateHttpIncomingResponseHeaderModificationRuleResponse Client::updateHttpIncomingResponseHeaderModificationRuleWithOptions(const UpdateHttpIncomingResponseHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateHttpIncomingResponseHeaderModificationRuleShrinkRequest request = UpdateHttpIncomingResponseHeaderModificationRuleShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasResponseHeaderModification()) {
+    request.setResponseHeaderModificationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.responseHeaderModification(), "ResponseHeaderModification", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasConfigId()) {
+    query["ConfigId"] = request.configId();
+  }
+
+  if (!!request.hasResponseHeaderModificationShrink()) {
+    query["ResponseHeaderModification"] = request.responseHeaderModificationShrink();
+  }
+
+  if (!!request.hasRule()) {
+    query["Rule"] = request.rule();
+  }
+
+  if (!!request.hasRuleEnable()) {
+    query["RuleEnable"] = request.ruleEnable();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.ruleName();
+  }
+
+  if (!!request.hasSequence()) {
+    query["Sequence"] = request.sequence();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.siteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateHttpIncomingResponseHeaderModificationRule"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateHttpIncomingResponseHeaderModificationRuleResponse>();
+}
+
+/**
+ * @summary 修改HTTP入站响应头规则
+ *
+ * @param request UpdateHttpIncomingResponseHeaderModificationRuleRequest
+ * @return UpdateHttpIncomingResponseHeaderModificationRuleResponse
+ */
+UpdateHttpIncomingResponseHeaderModificationRuleResponse Client::updateHttpIncomingResponseHeaderModificationRule(const UpdateHttpIncomingResponseHeaderModificationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateHttpIncomingResponseHeaderModificationRuleWithOptions(request, runtime);
 }
 
 /**

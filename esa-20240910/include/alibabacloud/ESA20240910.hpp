@@ -600,6 +600,40 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppVersionResponse createEdgeContainerAppVersion(const Models::CreateEdgeContainerAppVersionRequest &request);
 
       /**
+       * @summary 新增HTTP入站请求头规则
+       *
+       * @param tmpReq CreateHttpIncomingRequestHeaderModificationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateHttpIncomingRequestHeaderModificationRuleResponse
+       */
+      Models::CreateHttpIncomingRequestHeaderModificationRuleResponse createHttpIncomingRequestHeaderModificationRuleWithOptions(const Models::CreateHttpIncomingRequestHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新增HTTP入站请求头规则
+       *
+       * @param request CreateHttpIncomingRequestHeaderModificationRuleRequest
+       * @return CreateHttpIncomingRequestHeaderModificationRuleResponse
+       */
+      Models::CreateHttpIncomingRequestHeaderModificationRuleResponse createHttpIncomingRequestHeaderModificationRule(const Models::CreateHttpIncomingRequestHeaderModificationRuleRequest &request);
+
+      /**
+       * @summary 新增HTTP入站响应头规则
+       *
+       * @param tmpReq CreateHttpIncomingResponseHeaderModificationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateHttpIncomingResponseHeaderModificationRuleResponse
+       */
+      Models::CreateHttpIncomingResponseHeaderModificationRuleResponse createHttpIncomingResponseHeaderModificationRuleWithOptions(const Models::CreateHttpIncomingResponseHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新增HTTP入站响应头规则
+       *
+       * @param request CreateHttpIncomingResponseHeaderModificationRuleRequest
+       * @return CreateHttpIncomingResponseHeaderModificationRuleResponse
+       */
+      Models::CreateHttpIncomingResponseHeaderModificationRuleResponse createHttpIncomingResponseHeaderModificationRule(const Models::CreateHttpIncomingResponseHeaderModificationRuleRequest &request);
+
+      /**
        * @summary Add HTTP Request Header Rule
        *
        * @param tmpReq CreateHttpRequestHeaderModificationRuleRequest
@@ -1408,6 +1442,40 @@ namespace ESA20240910
        * @return DeleteEdgeContainerAppVersionResponse
        */
       Models::DeleteEdgeContainerAppVersionResponse deleteEdgeContainerAppVersion(const Models::DeleteEdgeContainerAppVersionRequest &request);
+
+      /**
+       * @summary 删除HTTP入站请求头规则
+       *
+       * @param request DeleteHttpIncomingRequestHeaderModificationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteHttpIncomingRequestHeaderModificationRuleResponse
+       */
+      Models::DeleteHttpIncomingRequestHeaderModificationRuleResponse deleteHttpIncomingRequestHeaderModificationRuleWithOptions(const Models::DeleteHttpIncomingRequestHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除HTTP入站请求头规则
+       *
+       * @param request DeleteHttpIncomingRequestHeaderModificationRuleRequest
+       * @return DeleteHttpIncomingRequestHeaderModificationRuleResponse
+       */
+      Models::DeleteHttpIncomingRequestHeaderModificationRuleResponse deleteHttpIncomingRequestHeaderModificationRule(const Models::DeleteHttpIncomingRequestHeaderModificationRuleRequest &request);
+
+      /**
+       * @summary 删除HTTP入站响应头规则
+       *
+       * @param request DeleteHttpIncomingResponseHeaderModificationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteHttpIncomingResponseHeaderModificationRuleResponse
+       */
+      Models::DeleteHttpIncomingResponseHeaderModificationRuleResponse deleteHttpIncomingResponseHeaderModificationRuleWithOptions(const Models::DeleteHttpIncomingResponseHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除HTTP入站响应头规则
+       *
+       * @param request DeleteHttpIncomingResponseHeaderModificationRuleRequest
+       * @return DeleteHttpIncomingResponseHeaderModificationRuleResponse
+       */
+      Models::DeleteHttpIncomingResponseHeaderModificationRuleResponse deleteHttpIncomingResponseHeaderModificationRule(const Models::DeleteHttpIncomingResponseHeaderModificationRuleRequest &request);
 
       /**
        * @summary Deletes the configuration of modifying HTTP request headers for a website.
@@ -2752,6 +2820,40 @@ namespace ESA20240910
       Models::GetErServiceResponse getErService(const Models::GetErServiceRequest &request);
 
       /**
+       * @summary 查询HTTP入站请求头规则详情
+       *
+       * @param request GetHttpIncomingRequestHeaderModificationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetHttpIncomingRequestHeaderModificationRuleResponse
+       */
+      Models::GetHttpIncomingRequestHeaderModificationRuleResponse getHttpIncomingRequestHeaderModificationRuleWithOptions(const Models::GetHttpIncomingRequestHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询HTTP入站请求头规则详情
+       *
+       * @param request GetHttpIncomingRequestHeaderModificationRuleRequest
+       * @return GetHttpIncomingRequestHeaderModificationRuleResponse
+       */
+      Models::GetHttpIncomingRequestHeaderModificationRuleResponse getHttpIncomingRequestHeaderModificationRule(const Models::GetHttpIncomingRequestHeaderModificationRuleRequest &request);
+
+      /**
+       * @summary 查询HTTP入站响应头规则
+       *
+       * @param request GetHttpIncomingResponseHeaderModificationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetHttpIncomingResponseHeaderModificationRuleResponse
+       */
+      Models::GetHttpIncomingResponseHeaderModificationRuleResponse getHttpIncomingResponseHeaderModificationRuleWithOptions(const Models::GetHttpIncomingResponseHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询HTTP入站响应头规则
+       *
+       * @param request GetHttpIncomingResponseHeaderModificationRuleRequest
+       * @return GetHttpIncomingResponseHeaderModificationRuleResponse
+       */
+      Models::GetHttpIncomingResponseHeaderModificationRuleResponse getHttpIncomingResponseHeaderModificationRule(const Models::GetHttpIncomingResponseHeaderModificationRuleRequest &request);
+
+      /**
        * @summary Query HTTP Request Header Rule Details
        *
        * @param request GetHttpRequestHeaderModificationRuleRequest
@@ -3917,6 +4019,40 @@ namespace ESA20240910
        * @return ListEdgeRoutineRecordsResponse
        */
       Models::ListEdgeRoutineRecordsResponse listEdgeRoutineRecords(const Models::ListEdgeRoutineRecordsRequest &request);
+
+      /**
+       * @summary 查询HTTP入站请求头规则列表
+       *
+       * @param request ListHttpIncomingRequestHeaderModificationRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListHttpIncomingRequestHeaderModificationRulesResponse
+       */
+      Models::ListHttpIncomingRequestHeaderModificationRulesResponse listHttpIncomingRequestHeaderModificationRulesWithOptions(const Models::ListHttpIncomingRequestHeaderModificationRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询HTTP入站请求头规则列表
+       *
+       * @param request ListHttpIncomingRequestHeaderModificationRulesRequest
+       * @return ListHttpIncomingRequestHeaderModificationRulesResponse
+       */
+      Models::ListHttpIncomingRequestHeaderModificationRulesResponse listHttpIncomingRequestHeaderModificationRules(const Models::ListHttpIncomingRequestHeaderModificationRulesRequest &request);
+
+      /**
+       * @summary 查询HTTP入站响应头规则列表
+       *
+       * @param request ListHttpIncomingResponseHeaderModificationRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListHttpIncomingResponseHeaderModificationRulesResponse
+       */
+      Models::ListHttpIncomingResponseHeaderModificationRulesResponse listHttpIncomingResponseHeaderModificationRulesWithOptions(const Models::ListHttpIncomingResponseHeaderModificationRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询HTTP入站响应头规则列表
+       *
+       * @param request ListHttpIncomingResponseHeaderModificationRulesRequest
+       * @return ListHttpIncomingResponseHeaderModificationRulesResponse
+       */
+      Models::ListHttpIncomingResponseHeaderModificationRulesResponse listHttpIncomingResponseHeaderModificationRules(const Models::ListHttpIncomingResponseHeaderModificationRulesRequest &request);
 
       /**
        * @summary List of HTTP Request Header Rules
@@ -5373,6 +5509,40 @@ namespace ESA20240910
        * @return UpdateEdgeContainerAppResourceReserveResponse
        */
       Models::UpdateEdgeContainerAppResourceReserveResponse updateEdgeContainerAppResourceReserve(const Models::UpdateEdgeContainerAppResourceReserveRequest &request);
+
+      /**
+       * @summary 修改HTTP入站请求头规则
+       *
+       * @param tmpReq UpdateHttpIncomingRequestHeaderModificationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateHttpIncomingRequestHeaderModificationRuleResponse
+       */
+      Models::UpdateHttpIncomingRequestHeaderModificationRuleResponse updateHttpIncomingRequestHeaderModificationRuleWithOptions(const Models::UpdateHttpIncomingRequestHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改HTTP入站请求头规则
+       *
+       * @param request UpdateHttpIncomingRequestHeaderModificationRuleRequest
+       * @return UpdateHttpIncomingRequestHeaderModificationRuleResponse
+       */
+      Models::UpdateHttpIncomingRequestHeaderModificationRuleResponse updateHttpIncomingRequestHeaderModificationRule(const Models::UpdateHttpIncomingRequestHeaderModificationRuleRequest &request);
+
+      /**
+       * @summary 修改HTTP入站响应头规则
+       *
+       * @param tmpReq UpdateHttpIncomingResponseHeaderModificationRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateHttpIncomingResponseHeaderModificationRuleResponse
+       */
+      Models::UpdateHttpIncomingResponseHeaderModificationRuleResponse updateHttpIncomingResponseHeaderModificationRuleWithOptions(const Models::UpdateHttpIncomingResponseHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改HTTP入站响应头规则
+       *
+       * @param request UpdateHttpIncomingResponseHeaderModificationRuleRequest
+       * @return UpdateHttpIncomingResponseHeaderModificationRuleResponse
+       */
+      Models::UpdateHttpIncomingResponseHeaderModificationRuleResponse updateHttpIncomingResponseHeaderModificationRule(const Models::UpdateHttpIncomingResponseHeaderModificationRuleRequest &request);
 
       /**
        * @summary Modify HTTP Request Header Rules
