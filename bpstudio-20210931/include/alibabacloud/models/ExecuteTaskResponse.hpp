@@ -1,9 +1,9 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_GETAPPLICATIONRESPONSE_HPP_
-#define ALIBABACLOUD_MODELS_GETAPPLICATIONRESPONSE_HPP_
+#ifndef ALIBABACLOUD_MODELS_EXECUTETASKRESPONSE_HPP_
+#define ALIBABACLOUD_MODELS_EXECUTETASKRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
-#include <alibabacloud/models/GetApplicationResponseBody.hpp>
+#include <alibabacloud/models/ExecuteTaskResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -12,25 +12,25 @@ namespace BPStudio20210931
 {
 namespace Models
 {
-  class GetApplicationResponse : public Darabonba::Model {
+  class ExecuteTaskResponse : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const GetApplicationResponse& obj) { 
+    friend void to_json(Darabonba::Json& j, const ExecuteTaskResponse& obj) { 
       DARABONBA_PTR_TO_JSON(headers, headers_);
       DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
       DARABONBA_PTR_TO_JSON(body, body_);
     };
-    friend void from_json(const Darabonba::Json& j, GetApplicationResponse& obj) { 
+    friend void from_json(const Darabonba::Json& j, ExecuteTaskResponse& obj) { 
       DARABONBA_PTR_FROM_JSON(headers, headers_);
       DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
       DARABONBA_PTR_FROM_JSON(body, body_);
     };
-    GetApplicationResponse() = default ;
-    GetApplicationResponse(const GetApplicationResponse &) = default ;
-    GetApplicationResponse(GetApplicationResponse &&) = default ;
-    GetApplicationResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~GetApplicationResponse() = default ;
-    GetApplicationResponse& operator=(const GetApplicationResponse &) = default ;
-    GetApplicationResponse& operator=(GetApplicationResponse &&) = default ;
+    ExecuteTaskResponse() = default ;
+    ExecuteTaskResponse(const ExecuteTaskResponse &) = default ;
+    ExecuteTaskResponse(ExecuteTaskResponse &&) = default ;
+    ExecuteTaskResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ExecuteTaskResponse() = default ;
+    ExecuteTaskResponse& operator=(const ExecuteTaskResponse &) = default ;
+    ExecuteTaskResponse& operator=(ExecuteTaskResponse &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -42,30 +42,30 @@ namespace Models
     void deleteHeaders() { this->headers_ = nullptr;};
     inline const map<string, string> & headers() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
     inline map<string, string> headers() { DARABONBA_PTR_GET(headers_, map<string, string>) };
-    inline GetApplicationResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
-    inline GetApplicationResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
+    inline ExecuteTaskResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
+    inline ExecuteTaskResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
 
 
     // statusCode Field Functions 
     bool hasStatusCode() const { return this->statusCode_ != nullptr;};
     void deleteStatusCode() { this->statusCode_ = nullptr;};
     inline int32_t statusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
-    inline GetApplicationResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+    inline ExecuteTaskResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
 
 
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const GetApplicationResponseBody & body() const { DARABONBA_PTR_GET_CONST(body_, GetApplicationResponseBody) };
-    inline GetApplicationResponseBody body() { DARABONBA_PTR_GET(body_, GetApplicationResponseBody) };
-    inline GetApplicationResponse& setBody(const GetApplicationResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
-    inline GetApplicationResponse& setBody(GetApplicationResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+    inline const ExecuteTaskResponseBody & body() const { DARABONBA_PTR_GET_CONST(body_, ExecuteTaskResponseBody) };
+    inline ExecuteTaskResponseBody body() { DARABONBA_PTR_GET(body_, ExecuteTaskResponseBody) };
+    inline ExecuteTaskResponse& setBody(const ExecuteTaskResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline ExecuteTaskResponse& setBody(ExecuteTaskResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
     std::shared_ptr<map<string, string>> headers_ = nullptr;
     std::shared_ptr<int32_t> statusCode_ = nullptr;
-    std::shared_ptr<GetApplicationResponseBody> body_ = nullptr;
+    std::shared_ptr<ExecuteTaskResponseBody> body_ = nullptr;
   };
 
   } // namespace Models

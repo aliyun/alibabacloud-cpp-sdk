@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AreaId, areaId_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Configuration, configuration_);
+      DARABONBA_PTR_TO_JSON(CreateAsync, createAsync_);
       DARABONBA_PTR_TO_JSON(Instances, instances_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_ANY_TO_JSON(ProcessVariables, processVariables_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AreaId, areaId_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Configuration, configuration_);
+      DARABONBA_PTR_FROM_JSON(CreateAsync, createAsync_);
       DARABONBA_PTR_FROM_JSON(Instances, instances_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_ANY_FROM_JSON(ProcessVariables, processVariables_);
@@ -49,8 +51,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->areaId_ != nullptr
-        && this->clientToken_ != nullptr && this->configuration_ != nullptr && this->instances_ != nullptr && this->name_ != nullptr && this->processVariables_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->templateId_ != nullptr && this->variables_ != nullptr; };
+        && this->clientToken_ != nullptr && this->configuration_ != nullptr && this->createAsync_ != nullptr && this->instances_ != nullptr && this->name_ != nullptr
+        && this->processVariables_ != nullptr && this->resourceGroupId_ != nullptr && this->templateId_ != nullptr && this->variables_ != nullptr; };
     // areaId Field Functions 
     bool hasAreaId() const { return this->areaId_ != nullptr;};
     void deleteAreaId() { this->areaId_ = nullptr;};
@@ -72,6 +74,13 @@ namespace Models
     inline map<string, string> configuration() { DARABONBA_PTR_GET(configuration_, map<string, string>) };
     inline CreateApplicationRequest& setConfiguration(const map<string, string> & configuration) { DARABONBA_PTR_SET_VALUE(configuration_, configuration) };
     inline CreateApplicationRequest& setConfiguration(map<string, string> && configuration) { DARABONBA_PTR_SET_RVALUE(configuration_, configuration) };
+
+
+    // createAsync Field Functions 
+    bool hasCreateAsync() const { return this->createAsync_ != nullptr;};
+    void deleteCreateAsync() { this->createAsync_ = nullptr;};
+    inline bool createAsync() const { DARABONBA_PTR_GET_DEFAULT(createAsync_, false) };
+    inline CreateApplicationRequest& setCreateAsync(bool createAsync) { DARABONBA_PTR_SET_VALUE(createAsync_, createAsync) };
 
 
     // instances Field Functions 
@@ -129,6 +138,7 @@ namespace Models
     std::shared_ptr<string> clientToken_ = nullptr;
     // The parameters that are used to configure the application you want to create. For example, enableMonitor specifies whether to automatically create a CloudMonitor task for the application, and enableReport specifies whether to generate reports.
     std::shared_ptr<map<string, string>> configuration_ = nullptr;
+    std::shared_ptr<bool> createAsync_ = nullptr;
     // The instances in which you want to create the application. You can create applications in an existing virtual private cloud (VPC).
     std::shared_ptr<vector<CreateApplicationRequestInstances>> instances_ = nullptr;
     // The name of the application.

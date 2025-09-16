@@ -53,7 +53,7 @@ AppFailBackResponse Client::appFailBackWithOptions(const AppFailBackRequest &req
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "AppFailBack"},
     {"version" , "2021-09-31"},
@@ -64,7 +64,7 @@ AppFailBackResponse Client::appFailBackWithOptions(const AppFailBackRequest &req
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AppFailBackResponse>();
 }
 
@@ -103,7 +103,7 @@ AppFailOverResponse Client::appFailOverWithOptions(const AppFailOverRequest &req
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "AppFailOver"},
     {"version" , "2021-09-31"},
@@ -114,7 +114,7 @@ AppFailOverResponse Client::appFailOverWithOptions(const AppFailOverRequest &req
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AppFailOverResponse>();
 }
 
@@ -155,7 +155,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ChangeResourceGroup"},
     {"version" , "2021-09-31"},
@@ -166,7 +166,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ChangeResourceGroupResponse>();
 }
 
@@ -221,6 +221,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
     body["Configuration"] = request.configurationShrink();
   }
 
+  if (!!request.hasCreateAsync()) {
+    body["CreateAsync"] = request.createAsync();
+  }
+
   if (!!request.hasInstancesShrink()) {
     body["Instances"] = request.instancesShrink();
   }
@@ -247,7 +251,7 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateApplication"},
     {"version" , "2021-09-31"},
@@ -258,7 +262,7 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateApplicationResponse>();
 }
 
@@ -271,6 +275,66 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
 CreateApplicationResponse Client::createApplication(const CreateApplicationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createApplicationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建任务
+ *
+ * @param tmpReq CreateTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTaskResponse
+ */
+CreateTaskResponse Client::createTaskWithOptions(const CreateTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateTaskShrinkRequest request = CreateTaskShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasVariables()) {
+    request.setVariablesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.variables(), "Variables", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.appId();
+  }
+
+  if (!!request.hasProcessId()) {
+    body["ProcessId"] = request.processId();
+  }
+
+  if (!!request.hasTaskName()) {
+    body["TaskName"] = request.taskName();
+  }
+
+  if (!!request.hasVariablesShrink()) {
+    body["Variables"] = request.variablesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateTask"},
+    {"version" , "2021-09-31"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTaskResponse>();
+}
+
+/**
+ * @summary 创建任务
+ *
+ * @param request CreateTaskRequest
+ * @return CreateTaskResponse
+ */
+CreateTaskResponse Client::createTask(const CreateTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createTaskWithOptions(request, runtime);
 }
 
 /**
@@ -295,7 +359,7 @@ DeleteApplicationResponse Client::deleteApplicationWithOptions(const DeleteAppli
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteApplication"},
     {"version" , "2021-09-31"},
@@ -306,7 +370,7 @@ DeleteApplicationResponse Client::deleteApplicationWithOptions(const DeleteAppli
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteApplicationResponse>();
 }
 
@@ -360,7 +424,7 @@ DeployApplicationResponse Client::deployApplicationWithOptions(const DeployAppli
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeployApplicationResponse>();
 }
 
@@ -417,7 +481,7 @@ ExecuteOperationASyncResponse Client::executeOperationASyncWithOptions(const Exe
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ExecuteOperationASync"},
     {"version" , "2021-09-31"},
@@ -428,7 +492,7 @@ ExecuteOperationASyncResponse Client::executeOperationASyncWithOptions(const Exe
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ExecuteOperationASyncResponse>();
 }
 
@@ -485,7 +549,7 @@ ExecuteOperationSyncResponse Client::executeOperationSyncWithOptions(const Execu
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ExecuteOperationSync"},
     {"version" , "2021-09-31"},
@@ -496,7 +560,7 @@ ExecuteOperationSyncResponse Client::executeOperationSyncWithOptions(const Execu
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ExecuteOperationSyncResponse>();
 }
 
@@ -509,6 +573,48 @@ ExecuteOperationSyncResponse Client::executeOperationSyncWithOptions(const Execu
 ExecuteOperationSyncResponse Client::executeOperationSync(const ExecuteOperationSyncRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return executeOperationSyncWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建任务
+ *
+ * @param request ExecuteTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExecuteTaskResponse
+ */
+ExecuteTaskResponse Client::executeTaskWithOptions(const ExecuteTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ExecuteTask"},
+    {"version" , "2021-09-31"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExecuteTaskResponse>();
+}
+
+/**
+ * @summary 创建任务
+ *
+ * @param request ExecuteTaskRequest
+ * @return ExecuteTaskResponse
+ */
+ExecuteTaskResponse Client::executeTask(const ExecuteTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return executeTaskWithOptions(request, runtime);
 }
 
 /**
@@ -531,7 +637,7 @@ GetApplicationResponse Client::getApplicationWithOptions(const GetApplicationReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetApplication"},
     {"version" , "2021-09-31"},
@@ -542,7 +648,7 @@ GetApplicationResponse Client::getApplicationWithOptions(const GetApplicationReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetApplicationResponse>();
 }
 
@@ -573,7 +679,7 @@ GetApplicationVariablesResponse Client::getApplicationVariablesWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetApplicationVariables"},
     {"version" , "2021-09-31"},
@@ -584,7 +690,7 @@ GetApplicationVariablesResponse Client::getApplicationVariablesWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetApplicationVariablesResponse>();
 }
 
@@ -615,7 +721,7 @@ GetApplicationVariables4FailResponse Client::getApplicationVariables4FailWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetApplicationVariables4Fail"},
     {"version" , "2021-09-31"},
@@ -626,7 +732,7 @@ GetApplicationVariables4FailResponse Client::getApplicationVariables4FailWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetApplicationVariables4FailResponse>();
 }
 
@@ -661,7 +767,7 @@ GetExecuteOperationResultResponse Client::getExecuteOperationResultWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetExecuteOperationResult"},
     {"version" , "2021-09-31"},
@@ -672,7 +778,7 @@ GetExecuteOperationResultResponse Client::getExecuteOperationResultWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetExecuteOperationResultResponse>();
 }
 
@@ -705,7 +811,7 @@ GetFoTaskStatusResponse Client::getFoTaskStatusWithOptions(const GetFoTaskStatus
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetFoTaskStatus"},
     {"version" , "2021-09-31"},
@@ -716,7 +822,7 @@ GetFoTaskStatusResponse Client::getFoTaskStatusWithOptions(const GetFoTaskStatus
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetFoTaskStatusResponse>();
 }
 
@@ -783,7 +889,7 @@ GetLinkageAttributesTemplateResponse Client::getLinkageAttributesTemplateWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetLinkageAttributesTemplate"},
     {"version" , "2021-09-31"},
@@ -794,7 +900,7 @@ GetLinkageAttributesTemplateResponse Client::getLinkageAttributesTemplateWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetLinkageAttributesTemplateResponse>();
 }
 
@@ -831,7 +937,7 @@ GetPotentialFailZonesResponse Client::getPotentialFailZonesWithOptions(const Get
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetPotentialFailZones"},
     {"version" , "2021-09-31"},
@@ -842,7 +948,7 @@ GetPotentialFailZonesResponse Client::getPotentialFailZonesWithOptions(const Get
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetPotentialFailZonesResponse>();
 }
 
@@ -883,7 +989,7 @@ GetResource4ModifyRecordResponse Client::getResource4ModifyRecordWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetResource4ModifyRecord"},
     {"version" , "2021-09-31"},
@@ -894,7 +1000,7 @@ GetResource4ModifyRecordResponse Client::getResource4ModifyRecordWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetResource4ModifyRecordResponse>();
 }
 
@@ -929,7 +1035,7 @@ GetResult4QueryInstancePrice4ModifyResponse Client::getResult4QueryInstancePrice
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetResult4QueryInstancePrice4Modify"},
     {"version" , "2021-09-31"},
@@ -940,7 +1046,7 @@ GetResult4QueryInstancePrice4ModifyResponse Client::getResult4QueryInstancePrice
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetResult4QueryInstancePrice4ModifyResponse>();
 }
 
@@ -953,6 +1059,48 @@ GetResult4QueryInstancePrice4ModifyResponse Client::getResult4QueryInstancePrice
 GetResult4QueryInstancePrice4ModifyResponse Client::getResult4QueryInstancePrice4Modify(const GetResult4QueryInstancePrice4ModifyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getResult4QueryInstancePrice4ModifyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取Task信息
+ *
+ * @param request GetTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTaskResponse
+ */
+GetTaskResponse Client::getTaskWithOptions(const GetTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetTask"},
+    {"version" , "2021-09-31"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTaskResponse>();
+}
+
+/**
+ * @summary 获取Task信息
+ *
+ * @param request GetTaskRequest
+ * @return GetTaskResponse
+ */
+GetTaskResponse Client::getTask(const GetTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTaskWithOptions(request, runtime);
 }
 
 /**
@@ -979,7 +1127,7 @@ GetTemplateResponse Client::getTemplateWithOptions(const GetTemplateRequest &req
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetTemplate"},
     {"version" , "2021-09-31"},
@@ -990,7 +1138,7 @@ GetTemplateResponse Client::getTemplateWithOptions(const GetTemplateRequest &req
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetTemplateResponse>();
 }
 
@@ -1025,7 +1173,7 @@ GetTokenResponse Client::getTokenWithOptions(const GetTokenRequest &request, con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetToken"},
     {"version" , "2021-09-31"},
@@ -1036,7 +1184,7 @@ GetTokenResponse Client::getTokenWithOptions(const GetTokenRequest &request, con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetTokenResponse>();
 }
 
@@ -1073,7 +1221,7 @@ InitAppFailOverResponse Client::initAppFailOverWithOptions(const InitAppFailOver
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "InitAppFailOver"},
     {"version" , "2021-09-31"},
@@ -1084,7 +1232,7 @@ InitAppFailOverResponse Client::initAppFailOverWithOptions(const InitAppFailOver
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<InitAppFailOverResponse>();
 }
 
@@ -1149,7 +1297,7 @@ ListApplicationResponse Client::listApplicationWithOptions(const ListApplication
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListApplication"},
     {"version" , "2021-09-31"},
@@ -1160,7 +1308,7 @@ ListApplicationResponse Client::listApplicationWithOptions(const ListApplication
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListApplicationResponse>();
 }
 
@@ -1196,7 +1344,7 @@ ListFoCreatedAppsResponse Client::listFoCreatedAppsWithOptions(const Darabonba::
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListFoCreatedAppsResponse>();
 }
 
@@ -1252,7 +1400,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
   );
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListTagResources"},
     {"version" , "2021-09-31"},
@@ -1263,7 +1411,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTagResourcesResponse>();
 }
 
@@ -1328,7 +1476,7 @@ ListTemplateResponse Client::listTemplateWithOptions(const ListTemplateRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListTemplate"},
     {"version" , "2021-09-31"},
@@ -1339,7 +1487,7 @@ ListTemplateResponse Client::listTemplateWithOptions(const ListTemplateRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTemplateResponse>();
 }
 
@@ -1380,7 +1528,7 @@ ModifyApplicationSpecResponse Client::modifyApplicationSpecWithOptions(const Mod
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ModifyApplicationSpec"},
     {"version" , "2021-09-31"},
@@ -1391,7 +1539,7 @@ ModifyApplicationSpecResponse Client::modifyApplicationSpecWithOptions(const Mod
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyApplicationSpecResponse>();
 }
 
@@ -1436,7 +1584,7 @@ QueryInstancePrice4ModifyResponse Client::queryInstancePrice4ModifyWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "QueryInstancePrice4Modify"},
     {"version" , "2021-09-31"},
@@ -1447,7 +1595,7 @@ QueryInstancePrice4ModifyResponse Client::queryInstancePrice4ModifyWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryInstancePrice4ModifyResponse>();
 }
 
@@ -1496,7 +1644,7 @@ QueryInstanceSpec4ModifyResponse Client::queryInstanceSpec4ModifyWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "QueryInstanceSpec4Modify"},
     {"version" , "2021-09-31"},
@@ -1507,7 +1655,7 @@ QueryInstanceSpec4ModifyResponse Client::queryInstanceSpec4ModifyWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryInstanceSpec4ModifyResponse>();
 }
 
@@ -1542,7 +1690,7 @@ ReConfigApplicationResponse Client::reConfigApplicationWithOptions(const ReConfi
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ReConfigApplication"},
     {"version" , "2021-09-31"},
@@ -1553,7 +1701,7 @@ ReConfigApplicationResponse Client::reConfigApplicationWithOptions(const ReConfi
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ReConfigApplicationResponse>();
 }
 
@@ -1592,7 +1740,7 @@ ReleaseApplicationResponse Client::releaseApplicationWithOptions(const ReleaseAp
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ReleaseApplication"},
     {"version" , "2021-09-31"},
@@ -1603,7 +1751,7 @@ ReleaseApplicationResponse Client::releaseApplicationWithOptions(const ReleaseAp
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ReleaseApplicationResponse>();
 }
 
@@ -1655,7 +1803,7 @@ ValidateApplicationResponse Client::validateApplicationWithOptions(const Validat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ValidateApplicationResponse>();
 }
 
@@ -1694,7 +1842,7 @@ ValuateApplicationResponse Client::valuateApplicationWithOptions(const ValuateAp
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ValuateApplication"},
     {"version" , "2021-09-31"},
@@ -1705,7 +1853,7 @@ ValuateApplicationResponse Client::valuateApplicationWithOptions(const ValuateAp
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ValuateApplicationResponse>();
 }
 
@@ -1766,7 +1914,7 @@ ValuateTemplateResponse Client::valuateTemplateWithOptions(const ValuateTemplate
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ValuateTemplate"},
     {"version" , "2021-09-31"},
@@ -1777,7 +1925,7 @@ ValuateTemplateResponse Client::valuateTemplateWithOptions(const ValuateTemplate
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ValuateTemplateResponse>();
 }
 

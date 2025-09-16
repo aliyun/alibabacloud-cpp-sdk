@@ -15,6 +15,10 @@
 #include <alibabacloud/models/CreateApplicationShrinkRequest.hpp>
 #include <alibabacloud/models/CreateApplicationResponseBody.hpp>
 #include <alibabacloud/models/CreateApplicationResponse.hpp>
+#include <alibabacloud/models/CreateTaskRequest.hpp>
+#include <alibabacloud/models/CreateTaskShrinkRequest.hpp>
+#include <alibabacloud/models/CreateTaskResponseBody.hpp>
+#include <alibabacloud/models/CreateTaskResponse.hpp>
 #include <alibabacloud/models/DeleteApplicationRequest.hpp>
 #include <alibabacloud/models/DeleteApplicationResponseBody.hpp>
 #include <alibabacloud/models/DeleteApplicationResponse.hpp>
@@ -29,6 +33,9 @@
 #include <alibabacloud/models/ExecuteOperationSyncShrinkRequest.hpp>
 #include <alibabacloud/models/ExecuteOperationSyncResponseBody.hpp>
 #include <alibabacloud/models/ExecuteOperationSyncResponse.hpp>
+#include <alibabacloud/models/ExecuteTaskRequest.hpp>
+#include <alibabacloud/models/ExecuteTaskResponseBody.hpp>
+#include <alibabacloud/models/ExecuteTaskResponse.hpp>
 #include <alibabacloud/models/GetApplicationRequest.hpp>
 #include <alibabacloud/models/GetApplicationResponseBody.hpp>
 #include <alibabacloud/models/GetApplicationResponse.hpp>
@@ -57,6 +64,9 @@
 #include <alibabacloud/models/GetResult4queryInstancePrice4modifyRequest.hpp>
 #include <alibabacloud/models/GetResult4queryInstancePrice4modifyResponseBody.hpp>
 #include <alibabacloud/models/GetResult4queryInstancePrice4modifyResponse.hpp>
+#include <alibabacloud/models/GetTaskRequest.hpp>
+#include <alibabacloud/models/GetTaskResponseBody.hpp>
+#include <alibabacloud/models/GetTaskResponse.hpp>
 #include <alibabacloud/models/GetTemplateRequest.hpp>
 #include <alibabacloud/models/GetTemplateResponseBody.hpp>
 #include <alibabacloud/models/GetTemplateResponse.hpp>
@@ -108,6 +118,7 @@
 #include <alibabacloud/models/ValuateTemplateResponse.hpp>
 #include <alibabacloud/models/CreateApplicationRequestInstances.hpp>
 #include <alibabacloud/models/ExecuteOperationSyncResponseBodyData.hpp>
+#include <alibabacloud/models/ExecuteTaskResponseBodyData.hpp>
 #include <alibabacloud/models/GetApplicationResponseBodyDataChecklist.hpp>
 #include <alibabacloud/models/GetApplicationResponseBodyDataComplianceListRules.hpp>
 #include <alibabacloud/models/GetApplicationResponseBodyDataComplianceList.hpp>
@@ -123,6 +134,7 @@
 #include <alibabacloud/models/GetResource4modifyRecordResponseBodyData.hpp>
 #include <alibabacloud/models/GetResult4queryInstancePrice4modifyResponseBodyDataPriceList.hpp>
 #include <alibabacloud/models/GetResult4queryInstancePrice4modifyResponseBodyData.hpp>
+#include <alibabacloud/models/GetTaskResponseBodyData.hpp>
 #include <alibabacloud/models/GetTemplateResponseBodyDataVariables.hpp>
 #include <alibabacloud/models/GetTemplateResponseBodyData.hpp>
 #include <alibabacloud/models/GetTokenResponseBodyData.hpp>

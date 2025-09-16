@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_QUERYINSTANCEPRICE4MODIFYRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/QueryInstancePrice4ModifyResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

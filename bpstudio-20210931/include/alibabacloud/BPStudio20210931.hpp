@@ -97,6 +97,23 @@ namespace BPStudio20210931
       Models::CreateApplicationResponse createApplication(const Models::CreateApplicationRequest &request);
 
       /**
+       * @summary 创建任务
+       *
+       * @param tmpReq CreateTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTaskResponse
+       */
+      Models::CreateTaskResponse createTaskWithOptions(const Models::CreateTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建任务
+       *
+       * @param request CreateTaskRequest
+       * @return CreateTaskResponse
+       */
+      Models::CreateTaskResponse createTask(const Models::CreateTaskRequest &request);
+
+      /**
        * @summary Deletes an application.
        *
        * @description Before you call this operation to delete an application, make sure that the application is in the `Destroyed_Success` state. Otherwise, the application fails to be deleted.`` You can call the [GetApplication](https://www.alibabacloud.com/help/en/bp-studio/latest/api-bpstudio-2021-09-31-getapplication) operation to query the status of an application.
@@ -167,6 +184,23 @@ namespace BPStudio20210931
        * @return ExecuteOperationSyncResponse
        */
       Models::ExecuteOperationSyncResponse executeOperationSync(const Models::ExecuteOperationSyncRequest &request);
+
+      /**
+       * @summary 创建任务
+       *
+       * @param request ExecuteTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExecuteTaskResponse
+       */
+      Models::ExecuteTaskResponse executeTaskWithOptions(const Models::ExecuteTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建任务
+       *
+       * @param request ExecuteTaskRequest
+       * @return ExecuteTaskResponse
+       */
+      Models::ExecuteTaskResponse executeTask(const Models::ExecuteTaskRequest &request);
 
       /**
        * @summary The URL of the application topology image.
@@ -328,6 +362,23 @@ namespace BPStudio20210931
        * @return GetResult4QueryInstancePrice4ModifyResponse
        */
       Models::GetResult4QueryInstancePrice4ModifyResponse getResult4QueryInstancePrice4Modify(const Models::GetResult4QueryInstancePrice4ModifyRequest &request);
+
+      /**
+       * @summary 获取Task信息
+       *
+       * @param request GetTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTaskResponse
+       */
+      Models::GetTaskResponse getTaskWithOptions(const Models::GetTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取Task信息
+       *
+       * @param request GetTaskRequest
+       * @return GetTaskResponse
+       */
+      Models::GetTaskResponse getTask(const Models::GetTaskRequest &request);
 
       /**
        * @summary Gets template images and information about architecture diagrams.

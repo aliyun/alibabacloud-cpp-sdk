@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETAPPLICATIONVARIABLES4FAILRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetApplicationVariables4FailResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
