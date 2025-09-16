@@ -18,6 +18,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DestCidrIp, destCidrIp_);
       DARABONBA_PTR_TO_JSON(Direction, direction_);
       DARABONBA_PTR_TO_JSON(IpProtocol, ipProtocol_);
+      DARABONBA_PTR_TO_JSON(Ipv6DestCidrIp, ipv6DestCidrIp_);
+      DARABONBA_PTR_TO_JSON(Ipv6SourceCidrIp, ipv6SourceCidrIp_);
       DARABONBA_PTR_TO_JSON(Policy, policy_);
       DARABONBA_PTR_TO_JSON(PortRange, portRange_);
       DARABONBA_PTR_TO_JSON(Priority, priority_);
@@ -30,6 +32,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DestCidrIp, destCidrIp_);
       DARABONBA_PTR_FROM_JSON(Direction, direction_);
       DARABONBA_PTR_FROM_JSON(IpProtocol, ipProtocol_);
+      DARABONBA_PTR_FROM_JSON(Ipv6DestCidrIp, ipv6DestCidrIp_);
+      DARABONBA_PTR_FROM_JSON(Ipv6SourceCidrIp, ipv6SourceCidrIp_);
       DARABONBA_PTR_FROM_JSON(Policy, policy_);
       DARABONBA_PTR_FROM_JSON(PortRange, portRange_);
       DARABONBA_PTR_FROM_JSON(Priority, priority_);
@@ -48,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->creationTime_ != nullptr
-        && this->description_ != nullptr && this->destCidrIp_ != nullptr && this->direction_ != nullptr && this->ipProtocol_ != nullptr && this->policy_ != nullptr
-        && this->portRange_ != nullptr && this->priority_ != nullptr && this->sourceCidrIp_ != nullptr && this->sourcePortRange_ != nullptr; };
+        && this->description_ != nullptr && this->destCidrIp_ != nullptr && this->direction_ != nullptr && this->ipProtocol_ != nullptr && this->ipv6DestCidrIp_ != nullptr
+        && this->ipv6SourceCidrIp_ != nullptr && this->policy_ != nullptr && this->portRange_ != nullptr && this->priority_ != nullptr && this->sourceCidrIp_ != nullptr
+        && this->sourcePortRange_ != nullptr; };
     // creationTime Field Functions 
     bool hasCreationTime() const { return this->creationTime_ != nullptr;};
     void deleteCreationTime() { this->creationTime_ = nullptr;};
@@ -83,6 +88,20 @@ namespace Models
     void deleteIpProtocol() { this->ipProtocol_ = nullptr;};
     inline string ipProtocol() const { DARABONBA_PTR_GET_DEFAULT(ipProtocol_, "") };
     inline DescribeSecurityGroupAttributeResponseBodyPermissionsPermission& setIpProtocol(string ipProtocol) { DARABONBA_PTR_SET_VALUE(ipProtocol_, ipProtocol) };
+
+
+    // ipv6DestCidrIp Field Functions 
+    bool hasIpv6DestCidrIp() const { return this->ipv6DestCidrIp_ != nullptr;};
+    void deleteIpv6DestCidrIp() { this->ipv6DestCidrIp_ = nullptr;};
+    inline string ipv6DestCidrIp() const { DARABONBA_PTR_GET_DEFAULT(ipv6DestCidrIp_, "") };
+    inline DescribeSecurityGroupAttributeResponseBodyPermissionsPermission& setIpv6DestCidrIp(string ipv6DestCidrIp) { DARABONBA_PTR_SET_VALUE(ipv6DestCidrIp_, ipv6DestCidrIp) };
+
+
+    // ipv6SourceCidrIp Field Functions 
+    bool hasIpv6SourceCidrIp() const { return this->ipv6SourceCidrIp_ != nullptr;};
+    void deleteIpv6SourceCidrIp() { this->ipv6SourceCidrIp_ = nullptr;};
+    inline string ipv6SourceCidrIp() const { DARABONBA_PTR_GET_DEFAULT(ipv6SourceCidrIp_, "") };
+    inline DescribeSecurityGroupAttributeResponseBodyPermissionsPermission& setIpv6SourceCidrIp(string ipv6SourceCidrIp) { DARABONBA_PTR_SET_VALUE(ipv6SourceCidrIp_, ipv6SourceCidrIp) };
 
 
     // policy Field Functions 
@@ -131,6 +150,8 @@ namespace Models
     std::shared_ptr<string> direction_ = nullptr;
     // The transport layer protocol.
     std::shared_ptr<string> ipProtocol_ = nullptr;
+    std::shared_ptr<string> ipv6DestCidrIp_ = nullptr;
+    std::shared_ptr<string> ipv6SourceCidrIp_ = nullptr;
     // The policy.
     std::shared_ptr<string> policy_ = nullptr;
     // The source port range.

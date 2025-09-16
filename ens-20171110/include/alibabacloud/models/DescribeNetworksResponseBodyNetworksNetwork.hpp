@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBENETWORKSRESPONSEBODYNETWORKSNETWORK_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/DescribeNetworksResponseBodyNetworksNetworkRouteTableIds.hpp>
+#include <alibabacloud/models/DescribeNetworksResponseBodyNetworksNetworkSecondaryCidrBlocks.hpp>
 #include <alibabacloud/models/DescribeNetworksResponseBodyNetworksNetworkTags.hpp>
 #include <alibabacloud/models/DescribeNetworksResponseBodyNetworksNetworkVSwitchIds.hpp>
 using namespace std;
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RouteTableId, routeTableId_);
       DARABONBA_PTR_TO_JSON(RouteTableIds, routeTableIds_);
       DARABONBA_PTR_TO_JSON(RouterTableId, routerTableId_);
+      DARABONBA_PTR_TO_JSON(SecondaryCidrBlocks, secondaryCidrBlocks_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(VSwitchIds, vSwitchIds_);
@@ -43,6 +45,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RouteTableId, routeTableId_);
       DARABONBA_PTR_FROM_JSON(RouteTableIds, routeTableIds_);
       DARABONBA_PTR_FROM_JSON(RouterTableId, routerTableId_);
+      DARABONBA_PTR_FROM_JSON(SecondaryCidrBlocks, secondaryCidrBlocks_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(VSwitchIds, vSwitchIds_);
@@ -61,7 +64,7 @@ namespace Models
     virtual bool empty() const override { this->cidrBlock_ != nullptr
         && this->createdTime_ != nullptr && this->description_ != nullptr && this->ensRegionId_ != nullptr && this->gatewayRouteTableId_ != nullptr && this->networkAclId_ != nullptr
         && this->networkId_ != nullptr && this->networkName_ != nullptr && this->routeTableId_ != nullptr && this->routeTableIds_ != nullptr && this->routerTableId_ != nullptr
-        && this->status_ != nullptr && this->tags_ != nullptr && this->vSwitchIds_ != nullptr; };
+        && this->secondaryCidrBlocks_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr && this->vSwitchIds_ != nullptr; };
     // cidrBlock Field Functions 
     bool hasCidrBlock() const { return this->cidrBlock_ != nullptr;};
     void deleteCidrBlock() { this->cidrBlock_ = nullptr;};
@@ -141,6 +144,15 @@ namespace Models
     inline DescribeNetworksResponseBodyNetworksNetwork& setRouterTableId(string routerTableId) { DARABONBA_PTR_SET_VALUE(routerTableId_, routerTableId) };
 
 
+    // secondaryCidrBlocks Field Functions 
+    bool hasSecondaryCidrBlocks() const { return this->secondaryCidrBlocks_ != nullptr;};
+    void deleteSecondaryCidrBlocks() { this->secondaryCidrBlocks_ = nullptr;};
+    inline const Models::DescribeNetworksResponseBodyNetworksNetworkSecondaryCidrBlocks & secondaryCidrBlocks() const { DARABONBA_PTR_GET_CONST(secondaryCidrBlocks_, Models::DescribeNetworksResponseBodyNetworksNetworkSecondaryCidrBlocks) };
+    inline Models::DescribeNetworksResponseBodyNetworksNetworkSecondaryCidrBlocks secondaryCidrBlocks() { DARABONBA_PTR_GET(secondaryCidrBlocks_, Models::DescribeNetworksResponseBodyNetworksNetworkSecondaryCidrBlocks) };
+    inline DescribeNetworksResponseBodyNetworksNetwork& setSecondaryCidrBlocks(const Models::DescribeNetworksResponseBodyNetworksNetworkSecondaryCidrBlocks & secondaryCidrBlocks) { DARABONBA_PTR_SET_VALUE(secondaryCidrBlocks_, secondaryCidrBlocks) };
+    inline DescribeNetworksResponseBodyNetworksNetwork& setSecondaryCidrBlocks(Models::DescribeNetworksResponseBodyNetworksNetworkSecondaryCidrBlocks && secondaryCidrBlocks) { DARABONBA_PTR_SET_RVALUE(secondaryCidrBlocks_, secondaryCidrBlocks) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -189,6 +201,7 @@ namespace Models
     std::shared_ptr<Models::DescribeNetworksResponseBodyNetworksNetworkRouteTableIds> routeTableIds_ = nullptr;
     // The route table ID.
     std::shared_ptr<string> routerTableId_ = nullptr;
+    std::shared_ptr<Models::DescribeNetworksResponseBodyNetworksNetworkSecondaryCidrBlocks> secondaryCidrBlocks_ = nullptr;
     // The status of the network. Valid values:
     // 
     // *   Pending

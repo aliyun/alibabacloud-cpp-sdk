@@ -1174,6 +1174,7 @@
 #include <alibabacloud/models/DescribeNetworkAttributeResponseBodyNatGatewayIds.hpp>
 #include <alibabacloud/models/DescribeNetworkAttributeResponseBodyNetworkInterfaceIds.hpp>
 #include <alibabacloud/models/DescribeNetworkAttributeResponseBodyRouteTableIds.hpp>
+#include <alibabacloud/models/DescribeNetworkAttributeResponseBodySecondaryCidrBlocks.hpp>
 #include <alibabacloud/models/DescribeNetworkAttributeResponseBodyVswitchIds.hpp>
 #include <alibabacloud/models/DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv6setsIpv6set.hpp>
 #include <alibabacloud/models/DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv6sets.hpp>
@@ -1183,6 +1184,7 @@
 #include <alibabacloud/models/DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSet.hpp>
 #include <alibabacloud/models/DescribeNetworkInterfacesResponseBodyNetworkInterfaceSets.hpp>
 #include <alibabacloud/models/DescribeNetworksResponseBodyNetworksNetworkRouteTableIds.hpp>
+#include <alibabacloud/models/DescribeNetworksResponseBodyNetworksNetworkSecondaryCidrBlocks.hpp>
 #include <alibabacloud/models/DescribeNetworksResponseBodyNetworksNetworkTagsTag.hpp>
 #include <alibabacloud/models/DescribeNetworksResponseBodyNetworksNetworkTags.hpp>
 #include <alibabacloud/models/DescribeNetworksResponseBodyNetworksNetworkVswitchIds.hpp>
