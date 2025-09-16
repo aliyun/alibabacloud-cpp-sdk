@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Restart, restart_);
       DARABONBA_PTR_TO_JSON(ServiceDomainOperationJson, serviceDomainOperationJson_);
       DARABONBA_PTR_TO_JSON(Stop, stop_);
+      DARABONBA_PTR_TO_JSON(WebSDKConfigJson, webSDKConfigJson_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateRumAppRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppConfig, appConfig_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Restart, restart_);
       DARABONBA_PTR_FROM_JSON(ServiceDomainOperationJson, serviceDomainOperationJson_);
       DARABONBA_PTR_FROM_JSON(Stop, stop_);
+      DARABONBA_PTR_FROM_JSON(WebSDKConfigJson, webSDKConfigJson_);
     };
     UpdateRumAppRequest() = default ;
     UpdateRumAppRequest(const UpdateRumAppRequest &) = default ;
@@ -56,7 +58,7 @@ namespace Models
     virtual bool empty() const override { this->appConfig_ != nullptr
         && this->autoRestart_ != nullptr && this->backendServiceTraceRegion_ != nullptr && this->bonreeSDKConfigJson_ != nullptr && this->description_ != nullptr && this->isSubscribe_ != nullptr
         && this->nickname_ != nullptr && this->pid_ != nullptr && this->realRegionId_ != nullptr && this->regionId_ != nullptr && this->restart_ != nullptr
-        && this->serviceDomainOperationJson_ != nullptr && this->stop_ != nullptr; };
+        && this->serviceDomainOperationJson_ != nullptr && this->stop_ != nullptr && this->webSDKConfigJson_ != nullptr; };
     // appConfig Field Functions 
     bool hasAppConfig() const { return this->appConfig_ != nullptr;};
     void deleteAppConfig() { this->appConfig_ = nullptr;};
@@ -148,6 +150,13 @@ namespace Models
     inline UpdateRumAppRequest& setStop(bool stop) { DARABONBA_PTR_SET_VALUE(stop_, stop) };
 
 
+    // webSDKConfigJson Field Functions 
+    bool hasWebSDKConfigJson() const { return this->webSDKConfigJson_ != nullptr;};
+    void deleteWebSDKConfigJson() { this->webSDKConfigJson_ = nullptr;};
+    inline string webSDKConfigJson() const { DARABONBA_PTR_GET_DEFAULT(webSDKConfigJson_, "") };
+    inline UpdateRumAppRequest& setWebSDKConfigJson(string webSDKConfigJson) { DARABONBA_PTR_SET_VALUE(webSDKConfigJson_, webSDKConfigJson) };
+
+
   protected:
     // The application configurations in the JSON format. This parameter is deprecated.
     std::shared_ptr<string> appConfig_ = nullptr;
@@ -179,6 +188,7 @@ namespace Models
     std::shared_ptr<string> serviceDomainOperationJson_ = nullptr;
     // Specifies whether to stop the application. Valid values: true and false.
     std::shared_ptr<bool> stop_ = nullptr;
+    std::shared_ptr<string> webSDKConfigJson_ = nullptr;
   };
 
   } // namespace Models

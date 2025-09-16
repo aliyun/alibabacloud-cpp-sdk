@@ -14292,6 +14292,10 @@ UpdateRumAppResponse Client::updateRumAppWithOptions(const UpdateRumAppRequest &
     query["Stop"] = request.stop();
   }
 
+  if (!!request.hasWebSDKConfigJson()) {
+    query["WebSDKConfigJson"] = request.webSDKConfigJson();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());

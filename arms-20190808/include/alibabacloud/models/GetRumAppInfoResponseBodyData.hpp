@@ -39,6 +39,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(Type, type_);
+      DARABONBA_PTR_TO_JSON(WebSDKConfigJson, webSDKConfigJson_);
     };
     friend void from_json(const Darabonba::Json& j, GetRumAppInfoResponseBodyData& obj) { 
       DARABONBA_PTR_FROM_JSON(AppConfig, appConfig_);
@@ -63,6 +64,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
+      DARABONBA_PTR_FROM_JSON(WebSDKConfigJson, webSDKConfigJson_);
     };
     GetRumAppInfoResponseBodyData() = default ;
     GetRumAppInfoResponseBodyData(const GetRumAppInfoResponseBodyData &) = default ;
@@ -80,7 +82,7 @@ namespace Models
         && this->createTime_ != nullptr && this->description_ != nullptr && this->endpoint_ != nullptr && this->isSubscription_ != nullptr && this->name_ != nullptr
         && this->nickName_ != nullptr && this->packageName_ != nullptr && this->pid_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
         && this->serviceDomainConfigs_ != nullptr && this->slsLogstore_ != nullptr && this->slsProject_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr
-        && this->type_ != nullptr; };
+        && this->type_ != nullptr && this->webSDKConfigJson_ != nullptr; };
     // appConfig Field Functions 
     bool hasAppConfig() const { return this->appConfig_ != nullptr;};
     void deleteAppConfig() { this->appConfig_ = nullptr;};
@@ -241,6 +243,13 @@ namespace Models
     inline GetRumAppInfoResponseBodyData& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
+    // webSDKConfigJson Field Functions 
+    bool hasWebSDKConfigJson() const { return this->webSDKConfigJson_ != nullptr;};
+    void deleteWebSDKConfigJson() { this->webSDKConfigJson_ = nullptr;};
+    inline string webSDKConfigJson() const { DARABONBA_PTR_GET_DEFAULT(webSDKConfigJson_, "") };
+    inline GetRumAppInfoResponseBodyData& setWebSDKConfigJson(string webSDKConfigJson) { DARABONBA_PTR_SET_VALUE(webSDKConfigJson_, webSDKConfigJson) };
+
+
   protected:
     // The application configurations in the JSON format. This parameter is deprecated.
     std::shared_ptr<string> appConfig_ = nullptr;
@@ -286,6 +295,7 @@ namespace Models
     std::shared_ptr<vector<Models::GetRumAppInfoResponseBodyDataTags>> tags_ = nullptr;
     // The type of the application. Valid value: RUM.
     std::shared_ptr<string> type_ = nullptr;
+    std::shared_ptr<string> webSDKConfigJson_ = nullptr;
   };
 
   } // namespace Models
