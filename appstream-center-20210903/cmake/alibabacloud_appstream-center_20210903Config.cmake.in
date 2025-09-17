@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_appstream-center_20210903Targets.cmake")
+check_required_components("alibabacloud_appstream-center_20210903")
