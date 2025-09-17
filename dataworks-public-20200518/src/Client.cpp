@@ -12579,7 +12579,7 @@ ListNodesByOutputResponse Client::listNodesByOutput(const ListNodesByOutputReque
 }
 
 /**
- * @summary Queries a list of permission request orders.
+ * @summary Views permission requests.
  *
  * @param request ListPermissionApplyOrdersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12658,7 +12658,7 @@ ListPermissionApplyOrdersResponse Client::listPermissionApplyOrdersWithOptions(c
 }
 
 /**
- * @summary Queries a list of permission request orders.
+ * @summary Views permission requests.
  *
  * @param request ListPermissionApplyOrdersRequest
  * @return ListPermissionApplyOrdersResponse

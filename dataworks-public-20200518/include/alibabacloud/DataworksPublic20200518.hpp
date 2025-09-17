@@ -3981,7 +3981,7 @@ namespace DataworksPublic20200518
       Models::ListNodesByOutputResponse listNodesByOutput(const Models::ListNodesByOutputRequest &request);
 
       /**
-       * @summary Queries a list of permission request orders.
+       * @summary Views permission requests.
        *
        * @param request ListPermissionApplyOrdersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3990,7 +3990,7 @@ namespace DataworksPublic20200518
       Models::ListPermissionApplyOrdersResponse listPermissionApplyOrdersWithOptions(const Models::ListPermissionApplyOrdersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of permission request orders.
+       * @summary Views permission requests.
        *
        * @param request ListPermissionApplyOrdersRequest
        * @return ListPermissionApplyOrdersResponse

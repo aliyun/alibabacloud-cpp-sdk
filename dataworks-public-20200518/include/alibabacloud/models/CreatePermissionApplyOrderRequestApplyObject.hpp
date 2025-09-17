@@ -61,11 +61,11 @@ namespace Models
 
 
   protected:
-    // The permission that you want to request. If you want to request multiple permissions at the same time, separate them with commas (,). You can request only the following permissions: Select, Describe, Drop, Alter, Update, and Download.
+    // The type of permissions requested. Use commas (,) to separate multiple permission types in a single request. Currently only supports Select, Describe, Drop, Alter, Update, and Download permission types.
     std::shared_ptr<string> actions_ = nullptr;
-    // The fields on which you want to request permissions.
+    // The list of column objects.
     std::shared_ptr<vector<Models::CreatePermissionApplyOrderRequestApplyObjectColumnMetaList>> columnMetaList_ = nullptr;
-    // The name of the object on which you want to request permissions. You can request permissions only on MaxCompute tables. Set this parameter to the name of the table on which you want to request permissions.
+    // The object you request access to. Currently, only permission requests for MaxCompute tables are supported. The name of the target table needs to be entered here.
     std::shared_ptr<string> name_ = nullptr;
   };
 

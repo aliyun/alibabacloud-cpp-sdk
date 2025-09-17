@@ -21,6 +21,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApplyTimestamp, applyTimestamp_);
       DARABONBA_PTR_TO_JSON(ApproveAccountList, approveAccountList_);
       DARABONBA_PTR_TO_JSON(ApproveContent, approveContent_);
+      DARABONBA_PTR_TO_JSON(FinishAapprovalTimestamp, finishAapprovalTimestamp_);
+      DARABONBA_PTR_TO_JSON(FinishApprovalComment, finishApprovalComment_);
       DARABONBA_PTR_TO_JSON(FlowId, flowId_);
       DARABONBA_PTR_TO_JSON(FlowStatus, flowStatus_);
       DARABONBA_PTR_TO_JSON(GranteeObjectList, granteeObjectList_);
@@ -30,6 +32,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ApplyTimestamp, applyTimestamp_);
       DARABONBA_PTR_FROM_JSON(ApproveAccountList, approveAccountList_);
       DARABONBA_PTR_FROM_JSON(ApproveContent, approveContent_);
+      DARABONBA_PTR_FROM_JSON(FinishAapprovalTimestamp, finishAapprovalTimestamp_);
+      DARABONBA_PTR_FROM_JSON(FinishApprovalComment, finishApprovalComment_);
       DARABONBA_PTR_FROM_JSON(FlowId, flowId_);
       DARABONBA_PTR_FROM_JSON(FlowStatus, flowStatus_);
       DARABONBA_PTR_FROM_JSON(GranteeObjectList, granteeObjectList_);
@@ -46,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->applyBaseId_ != nullptr
-        && this->applyTimestamp_ != nullptr && this->approveAccountList_ != nullptr && this->approveContent_ != nullptr && this->flowId_ != nullptr && this->flowStatus_ != nullptr
-        && this->granteeObjectList_ != nullptr; };
+        && this->applyTimestamp_ != nullptr && this->approveAccountList_ != nullptr && this->approveContent_ != nullptr && this->finishAapprovalTimestamp_ != nullptr && this->finishApprovalComment_ != nullptr
+        && this->flowId_ != nullptr && this->flowStatus_ != nullptr && this->granteeObjectList_ != nullptr; };
     // applyBaseId Field Functions 
     bool hasApplyBaseId() const { return this->applyBaseId_ != nullptr;};
     void deleteApplyBaseId() { this->applyBaseId_ = nullptr;};
@@ -78,6 +82,20 @@ namespace Models
     inline Models::GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveContent approveContent() { DARABONBA_PTR_GET(approveContent_, Models::GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveContent) };
     inline GetPermissionApplyOrderDetailResponseBodyApplyOrderDetail& setApproveContent(const Models::GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveContent & approveContent) { DARABONBA_PTR_SET_VALUE(approveContent_, approveContent) };
     inline GetPermissionApplyOrderDetailResponseBodyApplyOrderDetail& setApproveContent(Models::GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveContent && approveContent) { DARABONBA_PTR_SET_RVALUE(approveContent_, approveContent) };
+
+
+    // finishAapprovalTimestamp Field Functions 
+    bool hasFinishAapprovalTimestamp() const { return this->finishAapprovalTimestamp_ != nullptr;};
+    void deleteFinishAapprovalTimestamp() { this->finishAapprovalTimestamp_ = nullptr;};
+    inline int64_t finishAapprovalTimestamp() const { DARABONBA_PTR_GET_DEFAULT(finishAapprovalTimestamp_, 0L) };
+    inline GetPermissionApplyOrderDetailResponseBodyApplyOrderDetail& setFinishAapprovalTimestamp(int64_t finishAapprovalTimestamp) { DARABONBA_PTR_SET_VALUE(finishAapprovalTimestamp_, finishAapprovalTimestamp) };
+
+
+    // finishApprovalComment Field Functions 
+    bool hasFinishApprovalComment() const { return this->finishApprovalComment_ != nullptr;};
+    void deleteFinishApprovalComment() { this->finishApprovalComment_ = nullptr;};
+    inline string finishApprovalComment() const { DARABONBA_PTR_GET_DEFAULT(finishApprovalComment_, "") };
+    inline GetPermissionApplyOrderDetailResponseBodyApplyOrderDetail& setFinishApprovalComment(string finishApprovalComment) { DARABONBA_PTR_SET_VALUE(finishApprovalComment_, finishApprovalComment) };
 
 
     // flowId Field Functions 
@@ -112,6 +130,8 @@ namespace Models
     std::shared_ptr<vector<Models::GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveAccountList>> approveAccountList_ = nullptr;
     // The content of the permission request.
     std::shared_ptr<Models::GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveContent> approveContent_ = nullptr;
+    std::shared_ptr<int64_t> finishAapprovalTimestamp_ = nullptr;
+    std::shared_ptr<string> finishApprovalComment_ = nullptr;
     // The ID of the permission request order.
     std::shared_ptr<string> flowId_ = nullptr;
     // The status of the permission request order. Valid values:

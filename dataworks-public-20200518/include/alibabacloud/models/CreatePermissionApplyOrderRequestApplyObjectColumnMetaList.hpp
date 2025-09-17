@@ -49,7 +49,7 @@ namespace Models
 
   protected:
     std::shared_ptr<string> actions_ = nullptr;
-    // The field on which you want to request permissions. If you want to request permissions on an entire table, enter all fields in the table. You can request permissions on specific fields of a table in a MaxCompute project only after LabelSecurity is enabled for this project. If LabelSecurity is disabled, you can request permissions only on an entire table.
+    // Permissions for the target columns. Enter the column names here. If applying for permissions on the entire table, enter all column names of the table. Permissions for specific columns can only be requested if labelSecurity is enabled for the MaxCompute project. Otherwise, you can only apply for permissions on the entire table.
     std::shared_ptr<string> name_ = nullptr;
   };
 

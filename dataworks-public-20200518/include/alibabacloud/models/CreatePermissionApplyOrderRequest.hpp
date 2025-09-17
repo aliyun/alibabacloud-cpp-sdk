@@ -125,7 +125,7 @@ namespace Models
 
 
   protected:
-    // The objects on which you want to request permissions.
+    // The list of requested objects.
     // 
     // This parameter is required.
     std::shared_ptr<vector<CreatePermissionApplyOrderRequestApplyObject>> applyObject_ = nullptr;
@@ -141,13 +141,13 @@ namespace Models
     std::shared_ptr<string> catalogName_ = nullptr;
     // The expiration time of the permissions that you request. This value is a UNIX timestamp. The default value is January 1, 2065. If LabelSecurity is disabled for the MaxCompute project in which you want to request permissions on the fields of a table, or the security level of the fields is 0 or is lower than or equal to the security level of the Alibaba Cloud account for which you want to request permissions, you can request only permanent permissions. You can go to the Workspace Management page in the DataWorks console, click MaxCompute Management in the left-side navigation pane, and then check whether column-level access control is enabled. You can go to your DataWorks workspace, view the security level of the fields in Data Map, and then view the security level of the Alibaba Cloud account on the User Management page.
     std::shared_ptr<int64_t> deadline_ = nullptr;
-    // The type of the compute engine in which you want to request permissions on the fields of a table. The parameter value is odps and cannot be changed. This value indicates that you can request permissions only on fields of tables in the MaxCompute compute engine.
+    // The type of compute engine for permission requests. Currently only supports ODPS, which means only MaxCompute compute engine permissions are supported.
     std::shared_ptr<string> engineType_ = nullptr;
-    // The name of the MaxCompute project in which you request permissions on the fields of a table.
+    // The name of the MaxCompute project you request access to.
     std::shared_ptr<string> maxComputeProjectName_ = nullptr;
-    // The type of the permission request order. The parameter value is 1 and cannot be changed. This value indicates ACL-based authorization.
+    // The request type. The only supported value is 1, which represents an object ACL permission request.
     std::shared_ptr<int32_t> orderType_ = nullptr;
-    // The ID of the DataWorks workspace that is associated with the MaxCompute project in which you want to request permissions on the fields of a table. You can go to the SettingCenter page in the DataWorks console to view the workspace ID.
+    // The DataWorks workspace ID to which the MaxCompute project belongs for permission requests. You can check the workspace ID on the DataWorks workspace configuration page.
     std::shared_ptr<int32_t> workspaceId_ = nullptr;
   };
 

@@ -149,7 +149,17 @@ namespace Models
 
 
   protected:
+    // 设置申请单类型，枚举值为：
+    // 
+    // - [ MaxComputeTable]  MaxCompute表权限申请单
+    // - [ MaxComputeFunction] MaxCompute函数申请单
+    // - [ MaxComputeResource] MaxCompute资源申请单
+    // - [ DLFSchema] DLF1.0版本Schema权限申请单
+    // - [ DLFTable] DLF1.0版本表权限申请单
+    // - [ DLFColumn] DLF1.0版本列权限申请单
+    // - [ DsApiDeploy] 发布数据服务权限申请单
     std::shared_ptr<string> applyType_ = nullptr;
+    // 查询的数据目录名称。
     std::shared_ptr<string> catalogName_ = nullptr;
     // The end of the time range to query. You can query all the permissions request orders that have been submitted before the time. The parameter value is a UNIX timestamp. If you do not specify the parameter, all permission request orders that are submitted before the current time are queried.
     std::shared_ptr<int64_t> endTime_ = nullptr;
