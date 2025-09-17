@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetInstanceVpcEndpointResponseBodyLinkedVpcs& obj) { 
       DARABONBA_PTR_TO_JSON(DefaultAccess, defaultAccess_);
       DARABONBA_PTR_TO_JSON(Ip, ip_);
+      DARABONBA_PTR_TO_JSON(Issue, issue_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
       DARABONBA_PTR_TO_JSON(VswitchId, vswitchId_);
@@ -22,6 +23,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, GetInstanceVpcEndpointResponseBodyLinkedVpcs& obj) { 
       DARABONBA_PTR_FROM_JSON(DefaultAccess, defaultAccess_);
       DARABONBA_PTR_FROM_JSON(Ip, ip_);
+      DARABONBA_PTR_FROM_JSON(Issue, issue_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
       DARABONBA_PTR_FROM_JSON(VswitchId, vswitchId_);
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->defaultAccess_ != nullptr
-        && this->ip_ != nullptr && this->status_ != nullptr && this->vpcId_ != nullptr && this->vswitchId_ != nullptr; };
+        && this->ip_ != nullptr && this->issue_ != nullptr && this->status_ != nullptr && this->vpcId_ != nullptr && this->vswitchId_ != nullptr; };
     // defaultAccess Field Functions 
     bool hasDefaultAccess() const { return this->defaultAccess_ != nullptr;};
     void deleteDefaultAccess() { this->defaultAccess_ = nullptr;};
@@ -51,6 +53,13 @@ namespace Models
     void deleteIp() { this->ip_ = nullptr;};
     inline string ip() const { DARABONBA_PTR_GET_DEFAULT(ip_, "") };
     inline GetInstanceVpcEndpointResponseBodyLinkedVpcs& setIp(string ip) { DARABONBA_PTR_SET_VALUE(ip_, ip) };
+
+
+    // issue Field Functions 
+    bool hasIssue() const { return this->issue_ != nullptr;};
+    void deleteIssue() { this->issue_ = nullptr;};
+    inline string issue() const { DARABONBA_PTR_GET_DEFAULT(issue_, "") };
+    inline GetInstanceVpcEndpointResponseBodyLinkedVpcs& setIssue(string issue) { DARABONBA_PTR_SET_VALUE(issue_, issue) };
 
 
     // status Field Functions 
@@ -79,6 +88,7 @@ namespace Models
     std::shared_ptr<bool> defaultAccess_ = nullptr;
     // IP address.
     std::shared_ptr<string> ip_ = nullptr;
+    std::shared_ptr<string> issue_ = nullptr;
     // The status of the VPC. Valid values:
     // 
     // *   `CREATING`
