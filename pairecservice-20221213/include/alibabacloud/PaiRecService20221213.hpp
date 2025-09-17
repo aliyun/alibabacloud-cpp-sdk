@@ -1273,6 +1273,24 @@ namespace PaiRecService20221213
       Models::GetSceneResponse getScene(const string &SceneId, const Models::GetSceneRequest &request);
 
       /**
+       * @summary 获取服务详细信息。
+       *
+       * @param request GetServiceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetServiceResponse
+       */
+      Models::GetServiceResponse getServiceWithOptions(const string &ServiceId, const Models::GetServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取服务详细信息。
+       *
+       * @param request GetServiceRequest
+       * @return GetServiceResponse
+       */
+      Models::GetServiceResponse getService(const string &ServiceId, const Models::GetServiceRequest &request);
+
+      /**
        * @summary 获取指定人群下的指定子人群的详细信息。
        *
        * @param request GetSubCrowdRequest

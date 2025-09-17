@@ -4049,6 +4049,51 @@ GetSceneResponse Client::getScene(const string &SceneId, const GetSceneRequest &
 }
 
 /**
+ * @summary 获取服务详细信息。
+ *
+ * @param request GetServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetServiceResponse
+ */
+GetServiceResponse Client::getServiceWithOptions(const string &ServiceId, const GetServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetService"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/services/" , Darabonba::Http::URL::percentEncode(ServiceId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetServiceResponse>();
+}
+
+/**
+ * @summary 获取服务详细信息。
+ *
+ * @param request GetServiceRequest
+ * @return GetServiceResponse
+ */
+GetServiceResponse Client::getService(const string &ServiceId, const GetServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getServiceWithOptions(ServiceId, request, headers, runtime);
+}
+
+/**
  * @summary 获取指定人群下的指定子人群的详细信息。
  *
  * @param request GetSubCrowdRequest

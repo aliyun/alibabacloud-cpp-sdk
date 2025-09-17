@@ -212,6 +212,9 @@
 #include <alibabacloud/models/GetSceneRequest.hpp>
 #include <alibabacloud/models/GetSceneResponseBody.hpp>
 #include <alibabacloud/models/GetSceneResponse.hpp>
+#include <alibabacloud/models/GetServiceRequest.hpp>
+#include <alibabacloud/models/GetServiceResponseBody.hpp>
+#include <alibabacloud/models/GetServiceResponse.hpp>
 #include <alibabacloud/models/GetSubCrowdRequest.hpp>
 #include <alibabacloud/models/GetSubCrowdResponseBody.hpp>
 #include <alibabacloud/models/GetSubCrowdResponse.hpp>
@@ -434,6 +437,7 @@
 #include <alibabacloud/models/GetInstanceResourceTableResponseBodyFields.hpp>
 #include <alibabacloud/models/GetResourceRuleResponseBodyRuleItems.hpp>
 #include <alibabacloud/models/GetSceneResponseBodyFlows.hpp>
+#include <alibabacloud/models/GetServiceResponseBodyLatestProdReleaseOrder.hpp>
 #include <alibabacloud/models/GetTableMetaResponseBodyFields.hpp>
 #include <alibabacloud/models/GetTrafficControlTargetResponseBodySplitParts.hpp>
 #include <alibabacloud/models/GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts.hpp>
