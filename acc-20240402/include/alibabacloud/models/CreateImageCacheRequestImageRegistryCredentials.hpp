@@ -17,14 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Server, server_);
       DARABONBA_PTR_TO_JSON(SkipCertVerification, skipCertVerification_);
       DARABONBA_PTR_TO_JSON(UsePlainHttp, usePlainHttp_);
-      DARABONBA_PTR_TO_JSON(UserName, userName_);
+      DARABONBA_PTR_TO_JSON(Username, username_);
     };
     friend void from_json(const Darabonba::Json& j, CreateImageCacheRequestImageRegistryCredentials& obj) { 
       DARABONBA_PTR_FROM_JSON(Password, password_);
       DARABONBA_PTR_FROM_JSON(Server, server_);
       DARABONBA_PTR_FROM_JSON(SkipCertVerification, skipCertVerification_);
       DARABONBA_PTR_FROM_JSON(UsePlainHttp, usePlainHttp_);
-      DARABONBA_PTR_FROM_JSON(UserName, userName_);
+      DARABONBA_PTR_FROM_JSON(Username, username_);
     };
     CreateImageCacheRequestImageRegistryCredentials() = default ;
     CreateImageCacheRequestImageRegistryCredentials(const CreateImageCacheRequestImageRegistryCredentials &) = default ;
@@ -38,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->password_ != nullptr
-        && this->server_ != nullptr && this->skipCertVerification_ != nullptr && this->usePlainHttp_ != nullptr && this->userName_ != nullptr; };
+        && this->server_ != nullptr && this->skipCertVerification_ != nullptr && this->usePlainHttp_ != nullptr && this->username_ != nullptr; };
     // password Field Functions 
     bool hasPassword() const { return this->password_ != nullptr;};
     void deletePassword() { this->password_ = nullptr;};
@@ -67,11 +67,11 @@ namespace Models
     inline CreateImageCacheRequestImageRegistryCredentials& setUsePlainHttp(bool usePlainHttp) { DARABONBA_PTR_SET_VALUE(usePlainHttp_, usePlainHttp) };
 
 
-    // userName Field Functions 
-    bool hasUserName() const { return this->userName_ != nullptr;};
-    void deleteUserName() { this->userName_ = nullptr;};
-    inline string userName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
-    inline CreateImageCacheRequestImageRegistryCredentials& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
+    // username Field Functions 
+    bool hasUsername() const { return this->username_ != nullptr;};
+    void deleteUsername() { this->username_ = nullptr;};
+    inline string username() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
+    inline CreateImageCacheRequestImageRegistryCredentials& setUsername(string username) { DARABONBA_PTR_SET_VALUE(username_, username) };
 
 
   protected:
@@ -79,7 +79,7 @@ namespace Models
     std::shared_ptr<string> server_ = nullptr;
     std::shared_ptr<bool> skipCertVerification_ = nullptr;
     std::shared_ptr<bool> usePlainHttp_ = nullptr;
-    std::shared_ptr<string> userName_ = nullptr;
+    std::shared_ptr<string> username_ = nullptr;
   };
 
   } // namespace Models
