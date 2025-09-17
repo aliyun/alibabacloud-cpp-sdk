@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CreateTimeUnix, createTimeUnix_);
       DARABONBA_PTR_TO_JSON(CustomFields, customFields_);
       DARABONBA_PTR_TO_JSON(Departments, departments_);
+      DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(Email, email_);
       DARABONBA_PTR_TO_JSON(IdpConfigId, idpConfigId_);
       DARABONBA_PTR_TO_JSON(LeaveTimeUnix, leaveTimeUnix_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CreateTimeUnix, createTimeUnix_);
       DARABONBA_PTR_FROM_JSON(CustomFields, customFields_);
       DARABONBA_PTR_FROM_JSON(Departments, departments_);
+      DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(Email, email_);
       DARABONBA_PTR_FROM_JSON(IdpConfigId, idpConfigId_);
       DARABONBA_PTR_FROM_JSON(LeaveTimeUnix, leaveTimeUnix_);
@@ -61,9 +63,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->createTimeUnix_ != nullptr
-        && this->customFields_ != nullptr && this->departments_ != nullptr && this->email_ != nullptr && this->idpConfigId_ != nullptr && this->leaveTimeUnix_ != nullptr
-        && this->loginTimeUnix_ != nullptr && this->saseUserId_ != nullptr && this->saseUserStatus_ != nullptr && this->syncTimeUnix_ != nullptr && this->telephone_ != nullptr
-        && this->title_ != nullptr && this->updateTimeUnix_ != nullptr && this->username_ != nullptr && this->workStatus_ != nullptr; };
+        && this->customFields_ != nullptr && this->departments_ != nullptr && this->description_ != nullptr && this->email_ != nullptr && this->idpConfigId_ != nullptr
+        && this->leaveTimeUnix_ != nullptr && this->loginTimeUnix_ != nullptr && this->saseUserId_ != nullptr && this->saseUserStatus_ != nullptr && this->syncTimeUnix_ != nullptr
+        && this->telephone_ != nullptr && this->title_ != nullptr && this->updateTimeUnix_ != nullptr && this->username_ != nullptr && this->workStatus_ != nullptr; };
     // createTimeUnix Field Functions 
     bool hasCreateTimeUnix() const { return this->createTimeUnix_ != nullptr;};
     void deleteCreateTimeUnix() { this->createTimeUnix_ = nullptr;};
@@ -87,6 +89,13 @@ namespace Models
     inline vector<OpenStructSaseDepartment> departments() { DARABONBA_PTR_GET(departments_, vector<OpenStructSaseDepartment>) };
     inline OpenStructSaseUser& setDepartments(const vector<OpenStructSaseDepartment> & departments) { DARABONBA_PTR_SET_VALUE(departments_, departments) };
     inline OpenStructSaseUser& setDepartments(vector<OpenStructSaseDepartment> && departments) { DARABONBA_PTR_SET_RVALUE(departments_, departments) };
+
+
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline OpenStructSaseUser& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // email Field Functions 
@@ -177,6 +186,7 @@ namespace Models
     std::shared_ptr<int64_t> createTimeUnix_ = nullptr;
     std::shared_ptr<vector<IdpCustomField>> customFields_ = nullptr;
     std::shared_ptr<vector<OpenStructSaseDepartment>> departments_ = nullptr;
+    std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<string> email_ = nullptr;
     std::shared_ptr<string> idpConfigId_ = nullptr;
     std::shared_ptr<int64_t> leaveTimeUnix_ = nullptr;
