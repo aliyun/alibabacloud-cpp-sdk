@@ -32,7 +32,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RoutingRules, routingRules_);
       DARABONBA_PTR_TO_JSON(SniEnabled, sniEnabled_);
       DARABONBA_PTR_TO_JSON(SniHost, sniHost_);
+      DARABONBA_PTR_TO_JSON(WLProxyClientIp, WLProxyClientIp_);
+      DARABONBA_PTR_TO_JSON(WebServerType, webServerType_);
       DARABONBA_PTR_TO_JSON(WriteTimeout, writeTimeout_);
+      DARABONBA_PTR_TO_JSON(XClientIp, XClientIp_);
+      DARABONBA_PTR_TO_JSON(XTrueIp, XTrueIp_);
       DARABONBA_PTR_TO_JSON(XffProto, xffProto_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDomainRequestRedirect& obj) { 
@@ -52,7 +56,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RoutingRules, routingRules_);
       DARABONBA_PTR_FROM_JSON(SniEnabled, sniEnabled_);
       DARABONBA_PTR_FROM_JSON(SniHost, sniHost_);
+      DARABONBA_PTR_FROM_JSON(WLProxyClientIp, WLProxyClientIp_);
+      DARABONBA_PTR_FROM_JSON(WebServerType, webServerType_);
       DARABONBA_PTR_FROM_JSON(WriteTimeout, writeTimeout_);
+      DARABONBA_PTR_FROM_JSON(XClientIp, XClientIp_);
+      DARABONBA_PTR_FROM_JSON(XTrueIp, XTrueIp_);
       DARABONBA_PTR_FROM_JSON(XffProto, xffProto_);
     };
     ModifyDomainRequestRedirect() = default ;
@@ -70,7 +78,8 @@ namespace Models
         && this->backends_ != nullptr && this->backupBackends_ != nullptr && this->cnameEnabled_ != nullptr && this->connectTimeout_ != nullptr && this->focusHttpBackend_ != nullptr
         && this->keepalive_ != nullptr && this->keepaliveRequests_ != nullptr && this->keepaliveTimeout_ != nullptr && this->loadbalance_ != nullptr && this->readTimeout_ != nullptr
         && this->requestHeaders_ != nullptr && this->retry_ != nullptr && this->routingRules_ != nullptr && this->sniEnabled_ != nullptr && this->sniHost_ != nullptr
-        && this->writeTimeout_ != nullptr && this->xffProto_ != nullptr; };
+        && this->WLProxyClientIp_ != nullptr && this->webServerType_ != nullptr && this->writeTimeout_ != nullptr && this->XClientIp_ != nullptr && this->XTrueIp_ != nullptr
+        && this->xffProto_ != nullptr; };
     // backendPorts Field Functions 
     bool hasBackendPorts() const { return this->backendPorts_ != nullptr;};
     void deleteBackendPorts() { this->backendPorts_ = nullptr;};
@@ -191,11 +200,39 @@ namespace Models
     inline ModifyDomainRequestRedirect& setSniHost(string sniHost) { DARABONBA_PTR_SET_VALUE(sniHost_, sniHost) };
 
 
+    // WLProxyClientIp Field Functions 
+    bool hasWLProxyClientIp() const { return this->WLProxyClientIp_ != nullptr;};
+    void deleteWLProxyClientIp() { this->WLProxyClientIp_ = nullptr;};
+    inline bool WLProxyClientIp() const { DARABONBA_PTR_GET_DEFAULT(WLProxyClientIp_, false) };
+    inline ModifyDomainRequestRedirect& setWLProxyClientIp(bool WLProxyClientIp) { DARABONBA_PTR_SET_VALUE(WLProxyClientIp_, WLProxyClientIp) };
+
+
+    // webServerType Field Functions 
+    bool hasWebServerType() const { return this->webServerType_ != nullptr;};
+    void deleteWebServerType() { this->webServerType_ = nullptr;};
+    inline bool webServerType() const { DARABONBA_PTR_GET_DEFAULT(webServerType_, false) };
+    inline ModifyDomainRequestRedirect& setWebServerType(bool webServerType) { DARABONBA_PTR_SET_VALUE(webServerType_, webServerType) };
+
+
     // writeTimeout Field Functions 
     bool hasWriteTimeout() const { return this->writeTimeout_ != nullptr;};
     void deleteWriteTimeout() { this->writeTimeout_ = nullptr;};
     inline int32_t writeTimeout() const { DARABONBA_PTR_GET_DEFAULT(writeTimeout_, 0) };
     inline ModifyDomainRequestRedirect& setWriteTimeout(int32_t writeTimeout) { DARABONBA_PTR_SET_VALUE(writeTimeout_, writeTimeout) };
+
+
+    // XClientIp Field Functions 
+    bool hasXClientIp() const { return this->XClientIp_ != nullptr;};
+    void deleteXClientIp() { this->XClientIp_ = nullptr;};
+    inline bool XClientIp() const { DARABONBA_PTR_GET_DEFAULT(XClientIp_, false) };
+    inline ModifyDomainRequestRedirect& setXClientIp(bool XClientIp) { DARABONBA_PTR_SET_VALUE(XClientIp_, XClientIp) };
+
+
+    // XTrueIp Field Functions 
+    bool hasXTrueIp() const { return this->XTrueIp_ != nullptr;};
+    void deleteXTrueIp() { this->XTrueIp_ = nullptr;};
+    inline bool XTrueIp() const { DARABONBA_PTR_GET_DEFAULT(XTrueIp_, false) };
+    inline ModifyDomainRequestRedirect& setXTrueIp(bool XTrueIp) { DARABONBA_PTR_SET_VALUE(XTrueIp_, XTrueIp) };
 
 
     // xffProto Field Functions 
@@ -273,8 +310,12 @@ namespace Models
     // 
     // >  This parameter is required only if you set **SniEnabled** to true.
     std::shared_ptr<string> sniHost_ = nullptr;
+    std::shared_ptr<bool> WLProxyClientIp_ = nullptr;
+    std::shared_ptr<bool> webServerType_ = nullptr;
     // The timeout period of write connections. Unit: seconds. Valid values: 1 to 3600.
     std::shared_ptr<int32_t> writeTimeout_ = nullptr;
+    std::shared_ptr<bool> XClientIp_ = nullptr;
+    std::shared_ptr<bool> XTrueIp_ = nullptr;
     // Specifies whether to use the X-Forward-For-Proto header field to pass the protocol used by WAF to forward requests to the origin server. Valid values:
     // 
     // *   **true** (default)

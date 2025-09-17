@@ -5890,6 +5890,60 @@ DescribeFreeUserEventsResponse Client::describeFreeUserEvents(const DescribeFree
 }
 
 /**
+ * @summary Queries the system status of a node in a hybrid cloud cluster.
+ *
+ * @param request DescribeHybridCloudBasicMonitorRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeHybridCloudBasicMonitorResponse
+ */
+DescribeHybridCloudBasicMonitorResponse Client::describeHybridCloudBasicMonitorWithOptions(const DescribeHybridCloudBasicMonitorRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMid()) {
+    query["Mid"] = request.mid();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeHybridCloudBasicMonitor"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeHybridCloudBasicMonitorResponse>();
+}
+
+/**
+ * @summary Queries the system status of a node in a hybrid cloud cluster.
+ *
+ * @param request DescribeHybridCloudBasicMonitorRequest
+ * @return DescribeHybridCloudBasicMonitorResponse
+ */
+DescribeHybridCloudBasicMonitorResponse Client::describeHybridCloudBasicMonitor(const DescribeHybridCloudBasicMonitorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeHybridCloudBasicMonitorWithOptions(request, runtime);
+}
+
+/**
  * @summary Obtains the rule information about a hybrid cloud cluster.
  *
  * @param request DescribeHybridCloudClusterRuleRequest
@@ -5999,6 +6053,84 @@ DescribeHybridCloudClusterRulesResponse Client::describeHybridCloudClusterRulesW
 DescribeHybridCloudClusterRulesResponse Client::describeHybridCloudClusterRules(const DescribeHybridCloudClusterRulesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeHybridCloudClusterRulesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 集群机器列表
+ *
+ * @param request DescribeHybridCloudClusterServersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeHybridCloudClusterServersResponse
+ */
+DescribeHybridCloudClusterServersResponse Client::describeHybridCloudClusterServersWithOptions(const DescribeHybridCloudClusterServersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasGroupName()) {
+    query["GroupName"] = request.groupName();
+  }
+
+  if (!!request.hasGroupType()) {
+    query["GroupType"] = request.groupType();
+  }
+
+  if (!!request.hasHostName()) {
+    query["HostName"] = request.hostName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasIp()) {
+    query["Ip"] = request.ip();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeHybridCloudClusterServers"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeHybridCloudClusterServersResponse>();
+}
+
+/**
+ * @summary 集群机器列表
+ *
+ * @param request DescribeHybridCloudClusterServersRequest
+ * @return DescribeHybridCloudClusterServersResponse
+ */
+DescribeHybridCloudClusterServersResponse Client::describeHybridCloudClusterServers(const DescribeHybridCloudClusterServersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeHybridCloudClusterServersWithOptions(request, runtime);
 }
 
 /**
@@ -6126,6 +6258,130 @@ DescribeHybridCloudGroupsResponse Client::describeHybridCloudGroups(const Descri
 }
 
 /**
+ * @summary Queries the status of applications running on a hybrid cloud cluster node.
+ *
+ * @param request DescribeHybridCloudProcessMonitorRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeHybridCloudProcessMonitorResponse
+ */
+DescribeHybridCloudProcessMonitorResponse Client::describeHybridCloudProcessMonitorWithOptions(const DescribeHybridCloudProcessMonitorRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMid()) {
+    query["Mid"] = request.mid();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeHybridCloudProcessMonitor"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeHybridCloudProcessMonitorResponse>();
+}
+
+/**
+ * @summary Queries the status of applications running on a hybrid cloud cluster node.
+ *
+ * @param request DescribeHybridCloudProcessMonitorRequest
+ * @return DescribeHybridCloudProcessMonitorResponse
+ */
+DescribeHybridCloudProcessMonitorResponse Client::describeHybridCloudProcessMonitor(const DescribeHybridCloudProcessMonitorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeHybridCloudProcessMonitorWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询混合云域名详情
+ *
+ * @param request DescribeHybridCloudResourceDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeHybridCloudResourceDetailResponse
+ */
+DescribeHybridCloudResourceDetailResponse Client::describeHybridCloudResourceDetailWithOptions(const DescribeHybridCloudResourceDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBackend()) {
+    query["Backend"] = request.backend();
+  }
+
+  if (!!request.hasCnameEnabled()) {
+    query["CnameEnabled"] = request.cnameEnabled();
+  }
+
+  if (!!request.hasDomain()) {
+    query["Domain"] = request.domain();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeHybridCloudResourceDetail"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeHybridCloudResourceDetailResponse>();
+}
+
+/**
+ * @summary 查询混合云域名详情
+ *
+ * @param request DescribeHybridCloudResourceDetailRequest
+ * @return DescribeHybridCloudResourceDetailResponse
+ */
+DescribeHybridCloudResourceDetailResponse Client::describeHybridCloudResourceDetail(const DescribeHybridCloudResourceDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeHybridCloudResourceDetailWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the domain names that are added to a Web Application Firewall (WAF) instance in hybrid cloud mode.
  *
  * @param request DescribeHybridCloudResourcesRequest
@@ -6196,6 +6452,44 @@ DescribeHybridCloudResourcesResponse Client::describeHybridCloudResources(const 
 }
 
 /**
+ * @summary 获取SDK信息
+ *
+ * @param request DescribeHybridCloudSdkServersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeHybridCloudSdkServersResponse
+ */
+DescribeHybridCloudSdkServersResponse Client::describeHybridCloudSdkServersWithOptions(const DescribeHybridCloudSdkServersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeHybridCloudSdkServers"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeHybridCloudSdkServersResponse>();
+}
+
+/**
+ * @summary 获取SDK信息
+ *
+ * @param request DescribeHybridCloudSdkServersRequest
+ * @return DescribeHybridCloudSdkServersResponse
+ */
+DescribeHybridCloudSdkServersResponse Client::describeHybridCloudSdkServers(const DescribeHybridCloudSdkServersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeHybridCloudSdkServersWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries information about the regions that the hybrid cloud mode supports, such as the Internet service providers (ISPs), continents, and cities.
  *
  * @param request DescribeHybridCloudServerRegionsRequest
@@ -6251,6 +6545,56 @@ DescribeHybridCloudServerRegionsResponse Client::describeHybridCloudServerRegion
 DescribeHybridCloudServerRegionsResponse Client::describeHybridCloudServerRegions(const DescribeHybridCloudServerRegionsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeHybridCloudServerRegionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询接入区域
+ *
+ * @param request DescribeHybridCloudSupportRegionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeHybridCloudSupportRegionsResponse
+ */
+DescribeHybridCloudSupportRegionsResponse Client::describeHybridCloudSupportRegionsWithOptions(const DescribeHybridCloudSupportRegionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeHybridCloudSupportRegions"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeHybridCloudSupportRegionsResponse>();
+}
+
+/**
+ * @summary 查询接入区域
+ *
+ * @param request DescribeHybridCloudSupportRegionsRequest
+ * @return DescribeHybridCloudSupportRegionsResponse
+ */
+DescribeHybridCloudSupportRegionsResponse Client::describeHybridCloudSupportRegions(const DescribeHybridCloudSupportRegionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeHybridCloudSupportRegionsWithOptions(request, runtime);
 }
 
 /**
@@ -6321,6 +6665,56 @@ DescribeHybridCloudUnassignedMachinesResponse Client::describeHybridCloudUnassig
 DescribeHybridCloudUnassignedMachinesResponse Client::describeHybridCloudUnassignedMachines(const DescribeHybridCloudUnassignedMachinesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeHybridCloudUnassignedMachinesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the ports that are not supported by the hybrid cloud mode.
+ *
+ * @param request DescribeHybridCloudUnsupportPortsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeHybridCloudUnsupportPortsResponse
+ */
+DescribeHybridCloudUnsupportPortsResponse Client::describeHybridCloudUnsupportPortsWithOptions(const DescribeHybridCloudUnsupportPortsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeHybridCloudUnsupportPorts"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeHybridCloudUnsupportPortsResponse>();
+}
+
+/**
+ * @summary Queries the ports that are not supported by the hybrid cloud mode.
+ *
+ * @param request DescribeHybridCloudUnsupportPortsRequest
+ * @return DescribeHybridCloudUnsupportPortsResponse
+ */
+DescribeHybridCloudUnsupportPortsResponse Client::describeHybridCloudUnsupportPorts(const DescribeHybridCloudUnsupportPortsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeHybridCloudUnsupportPortsWithOptions(request, runtime);
 }
 
 /**
@@ -11035,6 +11429,112 @@ ModifyDomainPunishStatusResponse Client::modifyDomainPunishStatusWithOptions(con
 ModifyDomainPunishStatusResponse Client::modifyDomainPunishStatus(const ModifyDomainPunishStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyDomainPunishStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies information about a hybrid cloud cluster.
+ *
+ * @param request ModifyHybridCloudClusterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyHybridCloudClusterResponse
+ */
+ModifyHybridCloudClusterResponse Client::modifyHybridCloudClusterWithOptions(const ModifyHybridCloudClusterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccessMode()) {
+    query["AccessMode"] = request.accessMode();
+  }
+
+  if (!!request.hasAccessRegion()) {
+    query["AccessRegion"] = request.accessRegion();
+  }
+
+  if (!!request.hasClusterName()) {
+    query["ClusterName"] = request.clusterName();
+  }
+
+  if (!!request.hasHttpPorts()) {
+    query["HttpPorts"] = request.httpPorts();
+  }
+
+  if (!!request.hasHttpsPorts()) {
+    query["HttpsPorts"] = request.httpsPorts();
+  }
+
+  if (!!request.hasId()) {
+    query["Id"] = request.id();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasLogFieldsNotReturned()) {
+    query["LogFieldsNotReturned"] = request.logFieldsNotReturned();
+  }
+
+  if (!!request.hasProtectionServerCount()) {
+    query["ProtectionServerCount"] = request.protectionServerCount();
+  }
+
+  if (!!request.hasProxyStatus()) {
+    query["ProxyStatus"] = request.proxyStatus();
+  }
+
+  if (!!request.hasProxyType()) {
+    query["ProxyType"] = request.proxyType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.remark();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  if (!!request.hasRuleConfig()) {
+    query["RuleConfig"] = request.ruleConfig();
+  }
+
+  if (!!request.hasRuleStatus()) {
+    query["RuleStatus"] = request.ruleStatus();
+  }
+
+  if (!!request.hasRuleType()) {
+    query["RuleType"] = request.ruleType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyHybridCloudCluster"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyHybridCloudClusterResponse>();
+}
+
+/**
+ * @summary Modifies information about a hybrid cloud cluster.
+ *
+ * @param request ModifyHybridCloudClusterRequest
+ * @return ModifyHybridCloudClusterResponse
+ */
+ModifyHybridCloudClusterResponse Client::modifyHybridCloudCluster(const ModifyHybridCloudClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyHybridCloudClusterWithOptions(request, runtime);
 }
 
 /**

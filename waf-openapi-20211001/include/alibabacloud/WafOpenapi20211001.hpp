@@ -1538,6 +1538,23 @@ namespace WafOpenapi20211001
       Models::DescribeFreeUserEventsResponse describeFreeUserEvents(const Models::DescribeFreeUserEventsRequest &request);
 
       /**
+       * @summary Queries the system status of a node in a hybrid cloud cluster.
+       *
+       * @param request DescribeHybridCloudBasicMonitorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeHybridCloudBasicMonitorResponse
+       */
+      Models::DescribeHybridCloudBasicMonitorResponse describeHybridCloudBasicMonitorWithOptions(const Models::DescribeHybridCloudBasicMonitorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the system status of a node in a hybrid cloud cluster.
+       *
+       * @param request DescribeHybridCloudBasicMonitorRequest
+       * @return DescribeHybridCloudBasicMonitorResponse
+       */
+      Models::DescribeHybridCloudBasicMonitorResponse describeHybridCloudBasicMonitor(const Models::DescribeHybridCloudBasicMonitorRequest &request);
+
+      /**
        * @summary Obtains the rule information about a hybrid cloud cluster.
        *
        * @param request DescribeHybridCloudClusterRuleRequest
@@ -1570,6 +1587,23 @@ namespace WafOpenapi20211001
        * @return DescribeHybridCloudClusterRulesResponse
        */
       Models::DescribeHybridCloudClusterRulesResponse describeHybridCloudClusterRules(const Models::DescribeHybridCloudClusterRulesRequest &request);
+
+      /**
+       * @summary 集群机器列表
+       *
+       * @param request DescribeHybridCloudClusterServersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeHybridCloudClusterServersResponse
+       */
+      Models::DescribeHybridCloudClusterServersResponse describeHybridCloudClusterServersWithOptions(const Models::DescribeHybridCloudClusterServersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 集群机器列表
+       *
+       * @param request DescribeHybridCloudClusterServersRequest
+       * @return DescribeHybridCloudClusterServersResponse
+       */
+      Models::DescribeHybridCloudClusterServersResponse describeHybridCloudClusterServers(const Models::DescribeHybridCloudClusterServersRequest &request);
 
       /**
        * @summary Queries a list of hybrid cloud clusters.
@@ -1606,6 +1640,40 @@ namespace WafOpenapi20211001
       Models::DescribeHybridCloudGroupsResponse describeHybridCloudGroups(const Models::DescribeHybridCloudGroupsRequest &request);
 
       /**
+       * @summary Queries the status of applications running on a hybrid cloud cluster node.
+       *
+       * @param request DescribeHybridCloudProcessMonitorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeHybridCloudProcessMonitorResponse
+       */
+      Models::DescribeHybridCloudProcessMonitorResponse describeHybridCloudProcessMonitorWithOptions(const Models::DescribeHybridCloudProcessMonitorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the status of applications running on a hybrid cloud cluster node.
+       *
+       * @param request DescribeHybridCloudProcessMonitorRequest
+       * @return DescribeHybridCloudProcessMonitorResponse
+       */
+      Models::DescribeHybridCloudProcessMonitorResponse describeHybridCloudProcessMonitor(const Models::DescribeHybridCloudProcessMonitorRequest &request);
+
+      /**
+       * @summary 查询混合云域名详情
+       *
+       * @param request DescribeHybridCloudResourceDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeHybridCloudResourceDetailResponse
+       */
+      Models::DescribeHybridCloudResourceDetailResponse describeHybridCloudResourceDetailWithOptions(const Models::DescribeHybridCloudResourceDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询混合云域名详情
+       *
+       * @param request DescribeHybridCloudResourceDetailRequest
+       * @return DescribeHybridCloudResourceDetailResponse
+       */
+      Models::DescribeHybridCloudResourceDetailResponse describeHybridCloudResourceDetail(const Models::DescribeHybridCloudResourceDetailRequest &request);
+
+      /**
        * @summary Queries the domain names that are added to a Web Application Firewall (WAF) instance in hybrid cloud mode.
        *
        * @param request DescribeHybridCloudResourcesRequest
@@ -1621,6 +1689,23 @@ namespace WafOpenapi20211001
        * @return DescribeHybridCloudResourcesResponse
        */
       Models::DescribeHybridCloudResourcesResponse describeHybridCloudResources(const Models::DescribeHybridCloudResourcesRequest &request);
+
+      /**
+       * @summary 获取SDK信息
+       *
+       * @param request DescribeHybridCloudSdkServersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeHybridCloudSdkServersResponse
+       */
+      Models::DescribeHybridCloudSdkServersResponse describeHybridCloudSdkServersWithOptions(const Models::DescribeHybridCloudSdkServersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取SDK信息
+       *
+       * @param request DescribeHybridCloudSdkServersRequest
+       * @return DescribeHybridCloudSdkServersResponse
+       */
+      Models::DescribeHybridCloudSdkServersResponse describeHybridCloudSdkServers(const Models::DescribeHybridCloudSdkServersRequest &request);
 
       /**
        * @summary Queries information about the regions that the hybrid cloud mode supports, such as the Internet service providers (ISPs), continents, and cities.
@@ -1640,6 +1725,23 @@ namespace WafOpenapi20211001
       Models::DescribeHybridCloudServerRegionsResponse describeHybridCloudServerRegions(const Models::DescribeHybridCloudServerRegionsRequest &request);
 
       /**
+       * @summary 查询接入区域
+       *
+       * @param request DescribeHybridCloudSupportRegionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeHybridCloudSupportRegionsResponse
+       */
+      Models::DescribeHybridCloudSupportRegionsResponse describeHybridCloudSupportRegionsWithOptions(const Models::DescribeHybridCloudSupportRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询接入区域
+       *
+       * @param request DescribeHybridCloudSupportRegionsRequest
+       * @return DescribeHybridCloudSupportRegionsResponse
+       */
+      Models::DescribeHybridCloudSupportRegionsResponse describeHybridCloudSupportRegions(const Models::DescribeHybridCloudSupportRegionsRequest &request);
+
+      /**
        * @summary Queries servers that are not assigned to a hybrid cloud cluster.
        *
        * @param request DescribeHybridCloudUnassignedMachinesRequest
@@ -1655,6 +1757,23 @@ namespace WafOpenapi20211001
        * @return DescribeHybridCloudUnassignedMachinesResponse
        */
       Models::DescribeHybridCloudUnassignedMachinesResponse describeHybridCloudUnassignedMachines(const Models::DescribeHybridCloudUnassignedMachinesRequest &request);
+
+      /**
+       * @summary Queries the ports that are not supported by the hybrid cloud mode.
+       *
+       * @param request DescribeHybridCloudUnsupportPortsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeHybridCloudUnsupportPortsResponse
+       */
+      Models::DescribeHybridCloudUnsupportPortsResponse describeHybridCloudUnsupportPortsWithOptions(const Models::DescribeHybridCloudUnsupportPortsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the ports that are not supported by the hybrid cloud mode.
+       *
+       * @param request DescribeHybridCloudUnsupportPortsRequest
+       * @return DescribeHybridCloudUnsupportPortsResponse
+       */
+      Models::DescribeHybridCloudUnsupportPortsResponse describeHybridCloudUnsupportPorts(const Models::DescribeHybridCloudUnsupportPortsRequest &request);
 
       /**
        * @summary Queries the HTTP and HTTPS ports that you can use when you add a domain name to Web Application Firewall (WAF) in hybrid cloud mode.
@@ -2943,6 +3062,23 @@ namespace WafOpenapi20211001
        * @return ModifyDomainPunishStatusResponse
        */
       Models::ModifyDomainPunishStatusResponse modifyDomainPunishStatus(const Models::ModifyDomainPunishStatusRequest &request);
+
+      /**
+       * @summary Modifies information about a hybrid cloud cluster.
+       *
+       * @param request ModifyHybridCloudClusterRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyHybridCloudClusterResponse
+       */
+      Models::ModifyHybridCloudClusterResponse modifyHybridCloudClusterWithOptions(const Models::ModifyHybridCloudClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies information about a hybrid cloud cluster.
+       *
+       * @param request ModifyHybridCloudClusterRequest
+       * @return ModifyHybridCloudClusterResponse
+       */
+      Models::ModifyHybridCloudClusterResponse modifyHybridCloudCluster(const Models::ModifyHybridCloudClusterRequest &request);
 
       /**
        * @summary Enables or disables manual bypass for a hybrid cloud cluster whose type is set to SDK Integration Mode.
