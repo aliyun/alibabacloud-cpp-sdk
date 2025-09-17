@@ -179,6 +179,8 @@ namespace Models
     // If you do not pass this parameter or if you leave its value empty, Domain is used by default.
     std::shared_ptr<string> sourceType_ = nullptr;
     // The TTL of the record. Unit: seconds. If the value is 1, the TTL of the record is determined by the system.
+    // 
+    // This parameter is required.
     std::shared_ptr<int32_t> ttl_ = nullptr;
     // The type of the DNS record. For example, A/AAAA, TXT, MX, or CNAME.
     // 

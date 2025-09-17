@@ -195,6 +195,10 @@
 #include <alibabacloud/models/CreateSiteDeliveryTaskResponse.hpp>
 #include <alibabacloud/models/CreateSlrRoleForRealtimeLogResponseBody.hpp>
 #include <alibabacloud/models/CreateSlrRoleForRealtimeLogResponse.hpp>
+#include <alibabacloud/models/CreateTransportLayerApplicationRequest.hpp>
+#include <alibabacloud/models/CreateTransportLayerApplicationShrinkRequest.hpp>
+#include <alibabacloud/models/CreateTransportLayerApplicationResponseBody.hpp>
+#include <alibabacloud/models/CreateTransportLayerApplicationResponse.hpp>
 #include <alibabacloud/models/CreateUrlObservationRequest.hpp>
 #include <alibabacloud/models/CreateUrlObservationResponseBody.hpp>
 #include <alibabacloud/models/CreateUrlObservationResponse.hpp>
@@ -342,6 +346,9 @@
 #include <alibabacloud/models/DeleteSiteOriginClientCertificateRequest.hpp>
 #include <alibabacloud/models/DeleteSiteOriginClientCertificateResponseBody.hpp>
 #include <alibabacloud/models/DeleteSiteOriginClientCertificateResponse.hpp>
+#include <alibabacloud/models/DeleteTransportLayerApplicationRequest.hpp>
+#include <alibabacloud/models/DeleteTransportLayerApplicationResponseBody.hpp>
+#include <alibabacloud/models/DeleteTransportLayerApplicationResponse.hpp>
 #include <alibabacloud/models/DeleteUrlObservationRequest.hpp>
 #include <alibabacloud/models/DeleteUrlObservationResponseBody.hpp>
 #include <alibabacloud/models/DeleteUrlObservationResponse.hpp>
@@ -622,6 +629,9 @@
 #include <alibabacloud/models/GetTieredCacheRequest.hpp>
 #include <alibabacloud/models/GetTieredCacheResponseBody.hpp>
 #include <alibabacloud/models/GetTieredCacheResponse.hpp>
+#include <alibabacloud/models/GetTransportLayerApplicationRequest.hpp>
+#include <alibabacloud/models/GetTransportLayerApplicationResponseBody.hpp>
+#include <alibabacloud/models/GetTransportLayerApplicationResponse.hpp>
 #include <alibabacloud/models/GetUploadTaskRequest.hpp>
 #include <alibabacloud/models/GetUploadTaskResponseBody.hpp>
 #include <alibabacloud/models/GetUploadTaskResponse.hpp>
@@ -796,6 +806,9 @@
 #include <alibabacloud/models/ListTagResourcesRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
 #include <alibabacloud/models/ListTagResourcesResponse.hpp>
+#include <alibabacloud/models/ListTransportLayerApplicationsRequest.hpp>
+#include <alibabacloud/models/ListTransportLayerApplicationsResponseBody.hpp>
+#include <alibabacloud/models/ListTransportLayerApplicationsResponse.hpp>
 #include <alibabacloud/models/ListUploadTasksRequest.hpp>
 #include <alibabacloud/models/ListUploadTasksResponseBody.hpp>
 #include <alibabacloud/models/ListUploadTasksResponse.hpp>
@@ -1056,6 +1069,10 @@
 #include <alibabacloud/models/UpdateTieredCacheRequest.hpp>
 #include <alibabacloud/models/UpdateTieredCacheResponseBody.hpp>
 #include <alibabacloud/models/UpdateTieredCacheResponse.hpp>
+#include <alibabacloud/models/UpdateTransportLayerApplicationRequest.hpp>
+#include <alibabacloud/models/UpdateTransportLayerApplicationShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateTransportLayerApplicationResponseBody.hpp>
+#include <alibabacloud/models/UpdateTransportLayerApplicationResponse.hpp>
 #include <alibabacloud/models/UpdateUrlObservationRequest.hpp>
 #include <alibabacloud/models/UpdateUrlObservationResponseBody.hpp>
 #include <alibabacloud/models/UpdateUrlObservationResponse.hpp>
@@ -1179,6 +1196,7 @@
 #include <alibabacloud/models/CreateSiteDeliveryTaskRequestOssDelivery.hpp>
 #include <alibabacloud/models/CreateSiteDeliveryTaskRequestS3delivery.hpp>
 #include <alibabacloud/models/CreateSiteDeliveryTaskRequestSlsDelivery.hpp>
+#include <alibabacloud/models/CreateTransportLayerApplicationRequestRules.hpp>
 #include <alibabacloud/models/CreateUserDeliveryTaskRequestHttpDeliveryStandardAuthParam.hpp>
 #include <alibabacloud/models/CreateUserDeliveryTaskRequestHttpDelivery.hpp>
 #include <alibabacloud/models/CreateUserDeliveryTaskRequestKafkaDelivery.hpp>
@@ -1254,6 +1272,7 @@
 #include <alibabacloud/models/GetSiteResponseBodySiteModel.hpp>
 #include <alibabacloud/models/GetSiteCustomLogResponseBodyLogCustomField.hpp>
 #include <alibabacloud/models/GetSiteOriginClientCertificateResponseBodyResult.hpp>
+#include <alibabacloud/models/GetTransportLayerApplicationResponseBodyRules.hpp>
 #include <alibabacloud/models/GetWafFilterResponseBodyFilterFieldsLogicsValidator.hpp>
 #include <alibabacloud/models/GetWafFilterResponseBodyFilterFieldsLogics.hpp>
 #include <alibabacloud/models/GetWafFilterResponseBodyFilterFieldsSelectorData.hpp>
@@ -1341,6 +1360,8 @@
 #include <alibabacloud/models/ListSitesResponseBodySites.hpp>
 #include <alibabacloud/models/ListTagResourcesRequestTag.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBodyTagResources.hpp>
+#include <alibabacloud/models/ListTransportLayerApplicationsResponseBodyApplicationsRules.hpp>
+#include <alibabacloud/models/ListTransportLayerApplicationsResponseBodyApplications.hpp>
 #include <alibabacloud/models/ListUploadTasksResponseBodyTasks.hpp>
 #include <alibabacloud/models/ListUrlObservationsResponseBodyConfigs.hpp>
 #include <alibabacloud/models/ListUserDeliveryTasksResponseBodyTasks.hpp>
@@ -1381,6 +1402,7 @@
 #include <alibabacloud/models/UpdateOriginPoolRequestOrigins.hpp>
 #include <alibabacloud/models/UpdateRecordRequestAuthConf.hpp>
 #include <alibabacloud/models/UpdateRecordRequestData.hpp>
+#include <alibabacloud/models/UpdateTransportLayerApplicationRequestRules.hpp>
 #include <alibabacloud/models/UpdateWaitingRoomRequestHostNameAndPath.hpp>
 
 #endif

@@ -1114,6 +1114,23 @@ namespace ESA20240910
       Models::CreateSlrRoleForRealtimeLogResponse createSlrRoleForRealtimeLog();
 
       /**
+       * @summary 创建四层应用
+       *
+       * @param tmpReq CreateTransportLayerApplicationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTransportLayerApplicationResponse
+       */
+      Models::CreateTransportLayerApplicationResponse createTransportLayerApplicationWithOptions(const Models::CreateTransportLayerApplicationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建四层应用
+       *
+       * @param request CreateTransportLayerApplicationRequest
+       * @return CreateTransportLayerApplicationResponse
+       */
+      Models::CreateTransportLayerApplicationResponse createTransportLayerApplication(const Models::CreateTransportLayerApplicationRequest &request);
+
+      /**
        * @summary 创建网页监测配置
        *
        * @param request CreateUrlObservationRequest
@@ -1956,6 +1973,23 @@ namespace ESA20240910
        * @return DeleteSiteOriginClientCertificateResponse
        */
       Models::DeleteSiteOriginClientCertificateResponse deleteSiteOriginClientCertificate(const Models::DeleteSiteOriginClientCertificateRequest &request);
+
+      /**
+       * @summary 删除四层应用
+       *
+       * @param request DeleteTransportLayerApplicationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteTransportLayerApplicationResponse
+       */
+      Models::DeleteTransportLayerApplicationResponse deleteTransportLayerApplicationWithOptions(const Models::DeleteTransportLayerApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除四层应用
+       *
+       * @param request DeleteTransportLayerApplicationRequest
+       * @return DeleteTransportLayerApplicationResponse
+       */
+      Models::DeleteTransportLayerApplicationResponse deleteTransportLayerApplication(const Models::DeleteTransportLayerApplicationRequest &request);
 
       /**
        * @summary 删除网页监测配置
@@ -3599,6 +3633,23 @@ namespace ESA20240910
       Models::GetTieredCacheResponse getTieredCache(const Models::GetTieredCacheRequest &request);
 
       /**
+       * @summary 查询四层应用详情
+       *
+       * @param request GetTransportLayerApplicationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTransportLayerApplicationResponse
+       */
+      Models::GetTransportLayerApplicationResponse getTransportLayerApplicationWithOptions(const Models::GetTransportLayerApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询四层应用详情
+       *
+       * @param request GetTransportLayerApplicationRequest
+       * @return GetTransportLayerApplicationResponse
+       */
+      Models::GetTransportLayerApplicationResponse getTransportLayerApplication(const Models::GetTransportLayerApplicationRequest &request);
+
+      /**
        * @summary Queries the execution status and running information of a file upload task based on the task ID.
        *
        * @param request GetUploadTaskRequest
@@ -4616,6 +4667,23 @@ namespace ESA20240910
        * @return ListTagResourcesResponse
        */
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
+
+      /**
+       * @summary 查询四层应用列表
+       *
+       * @param request ListTransportLayerApplicationsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTransportLayerApplicationsResponse
+       */
+      Models::ListTransportLayerApplicationsResponse listTransportLayerApplicationsWithOptions(const Models::ListTransportLayerApplicationsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询四层应用列表
+       *
+       * @param request ListTransportLayerApplicationsRequest
+       * @return ListTransportLayerApplicationsResponse
+       */
+      Models::ListTransportLayerApplicationsResponse listTransportLayerApplications(const Models::ListTransportLayerApplicationsRequest &request);
 
       /**
        * @summary Queries the execution status and running information of file upload tasks based on the task time and type.
@@ -6098,6 +6166,23 @@ namespace ESA20240910
        * @return UpdateTieredCacheResponse
        */
       Models::UpdateTieredCacheResponse updateTieredCache(const Models::UpdateTieredCacheRequest &request);
+
+      /**
+       * @summary 修改四层应用
+       *
+       * @param tmpReq UpdateTransportLayerApplicationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateTransportLayerApplicationResponse
+       */
+      Models::UpdateTransportLayerApplicationResponse updateTransportLayerApplicationWithOptions(const Models::UpdateTransportLayerApplicationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改四层应用
+       *
+       * @param request UpdateTransportLayerApplicationRequest
+       * @return UpdateTransportLayerApplicationResponse
+       */
+      Models::UpdateTransportLayerApplicationResponse updateTransportLayerApplication(const Models::UpdateTransportLayerApplicationRequest &request);
 
       /**
        * @summary 更新网页监测配置

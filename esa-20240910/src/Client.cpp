@@ -3900,6 +3900,74 @@ CreateSlrRoleForRealtimeLogResponse Client::createSlrRoleForRealtimeLog() {
 }
 
 /**
+ * @summary 创建四层应用
+ *
+ * @param tmpReq CreateTransportLayerApplicationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTransportLayerApplicationResponse
+ */
+CreateTransportLayerApplicationResponse Client::createTransportLayerApplicationWithOptions(const CreateTransportLayerApplicationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateTransportLayerApplicationShrinkRequest request = CreateTransportLayerApplicationShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRules()) {
+    request.setRulesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.rules(), "Rules", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasCrossBorderOptimization()) {
+    query["CrossBorderOptimization"] = request.crossBorderOptimization();
+  }
+
+  if (!!request.hasIpAccessRule()) {
+    query["IpAccessRule"] = request.ipAccessRule();
+  }
+
+  if (!!request.hasIpv6()) {
+    query["Ipv6"] = request.ipv6();
+  }
+
+  if (!!request.hasRecordName()) {
+    query["RecordName"] = request.recordName();
+  }
+
+  if (!!request.hasRulesShrink()) {
+    query["Rules"] = request.rulesShrink();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.siteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateTransportLayerApplication"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTransportLayerApplicationResponse>();
+}
+
+/**
+ * @summary 创建四层应用
+ *
+ * @param request CreateTransportLayerApplicationRequest
+ * @return CreateTransportLayerApplicationResponse
+ */
+CreateTransportLayerApplicationResponse Client::createTransportLayerApplication(const CreateTransportLayerApplicationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createTransportLayerApplicationWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建网页监测配置
  *
  * @param request CreateUrlObservationRequest
@@ -5815,6 +5883,10 @@ DeleteRecordResponse Client::deleteRecordWithOptions(const DeleteRecordRequest &
     query["RecordId"] = request.recordId();
   }
 
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.securityToken();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -6341,6 +6413,52 @@ DeleteSiteOriginClientCertificateResponse Client::deleteSiteOriginClientCertific
 DeleteSiteOriginClientCertificateResponse Client::deleteSiteOriginClientCertificate(const DeleteSiteOriginClientCertificateRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteSiteOriginClientCertificateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除四层应用
+ *
+ * @param request DeleteTransportLayerApplicationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteTransportLayerApplicationResponse
+ */
+DeleteTransportLayerApplicationResponse Client::deleteTransportLayerApplicationWithOptions(const DeleteTransportLayerApplicationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.siteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteTransportLayerApplication"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteTransportLayerApplicationResponse>();
+}
+
+/**
+ * @summary 删除四层应用
+ *
+ * @param request DeleteTransportLayerApplicationRequest
+ * @return DeleteTransportLayerApplicationResponse
+ */
+DeleteTransportLayerApplicationResponse Client::deleteTransportLayerApplication(const DeleteTransportLayerApplicationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteTransportLayerApplicationWithOptions(request, runtime);
 }
 
 /**
@@ -10271,6 +10389,44 @@ GetTieredCacheResponse Client::getTieredCache(const GetTieredCacheRequest &reque
 }
 
 /**
+ * @summary 查询四层应用详情
+ *
+ * @param request GetTransportLayerApplicationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTransportLayerApplicationResponse
+ */
+GetTransportLayerApplicationResponse Client::getTransportLayerApplicationWithOptions(const GetTransportLayerApplicationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTransportLayerApplication"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTransportLayerApplicationResponse>();
+}
+
+/**
+ * @summary 查询四层应用详情
+ *
+ * @param request GetTransportLayerApplicationRequest
+ * @return GetTransportLayerApplicationResponse
+ */
+GetTransportLayerApplicationResponse Client::getTransportLayerApplication(const GetTransportLayerApplicationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTransportLayerApplicationWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the execution status and running information of a file upload task based on the task ID.
  *
  * @param request GetUploadTaskRequest
@@ -12715,6 +12871,44 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listTagResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询四层应用列表
+ *
+ * @param request ListTransportLayerApplicationsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTransportLayerApplicationsResponse
+ */
+ListTransportLayerApplicationsResponse Client::listTransportLayerApplicationsWithOptions(const ListTransportLayerApplicationsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTransportLayerApplications"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTransportLayerApplicationsResponse>();
+}
+
+/**
+ * @summary 查询四层应用列表
+ *
+ * @param request ListTransportLayerApplicationsRequest
+ * @return ListTransportLayerApplicationsResponse
+ */
+ListTransportLayerApplicationsResponse Client::listTransportLayerApplications(const ListTransportLayerApplicationsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listTransportLayerApplicationsWithOptions(request, runtime);
 }
 
 /**
@@ -17767,6 +17961,74 @@ UpdateTieredCacheResponse Client::updateTieredCacheWithOptions(const UpdateTiere
 UpdateTieredCacheResponse Client::updateTieredCache(const UpdateTieredCacheRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateTieredCacheWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改四层应用
+ *
+ * @param tmpReq UpdateTransportLayerApplicationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateTransportLayerApplicationResponse
+ */
+UpdateTransportLayerApplicationResponse Client::updateTransportLayerApplicationWithOptions(const UpdateTransportLayerApplicationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateTransportLayerApplicationShrinkRequest request = UpdateTransportLayerApplicationShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRules()) {
+    request.setRulesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.rules(), "Rules", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasCrossBorderOptimization()) {
+    query["CrossBorderOptimization"] = request.crossBorderOptimization();
+  }
+
+  if (!!request.hasIpAccessRule()) {
+    query["IpAccessRule"] = request.ipAccessRule();
+  }
+
+  if (!!request.hasIpv6()) {
+    query["Ipv6"] = request.ipv6();
+  }
+
+  if (!!request.hasRulesShrink()) {
+    query["Rules"] = request.rulesShrink();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.siteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateTransportLayerApplication"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateTransportLayerApplicationResponse>();
+}
+
+/**
+ * @summary 修改四层应用
+ *
+ * @param request UpdateTransportLayerApplicationRequest
+ * @return UpdateTransportLayerApplicationResponse
+ */
+UpdateTransportLayerApplicationResponse Client::updateTransportLayerApplication(const UpdateTransportLayerApplicationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateTransportLayerApplicationWithOptions(request, runtime);
 }
 
 /**
