@@ -31,6 +31,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OrderBy, orderBy_);
       DARABONBA_PTR_TO_JSON(ProductTypes, productTypes_);
       DARABONBA_PTR_TO_JSON(ProtocolType, protocolType_);
+      DARABONBA_PTR_TO_JSON(QueryDesktopDurationList, queryDesktopDurationList_);
+      DARABONBA_PTR_TO_JSON(QueryDesktopTimers, queryDesktopTimers_);
       DARABONBA_PTR_TO_JSON(QueryFotaUpdate, queryFotaUpdate_);
       DARABONBA_PTR_TO_JSON(RefreshFotaUpdate, refreshFotaUpdate_);
       DARABONBA_PTR_TO_JSON(ResourceIds, resourceIds_);
@@ -59,6 +61,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OrderBy, orderBy_);
       DARABONBA_PTR_FROM_JSON(ProductTypes, productTypes_);
       DARABONBA_PTR_FROM_JSON(ProtocolType, protocolType_);
+      DARABONBA_PTR_FROM_JSON(QueryDesktopDurationList, queryDesktopDurationList_);
+      DARABONBA_PTR_FROM_JSON(QueryDesktopTimers, queryDesktopTimers_);
       DARABONBA_PTR_FROM_JSON(QueryFotaUpdate, queryFotaUpdate_);
       DARABONBA_PTR_FROM_JSON(RefreshFotaUpdate, refreshFotaUpdate_);
       DARABONBA_PTR_FROM_JSON(ResourceIds, resourceIds_);
@@ -84,8 +88,9 @@ namespace Models
         && this->autoRefresh_ != nullptr && this->categoryId_ != nullptr && this->categoryType_ != nullptr && this->clientId_ != nullptr && this->clientType_ != nullptr
         && this->clientVersion_ != nullptr && this->dualCenterForward_ != nullptr && this->language_ != nullptr && this->loginRegionId_ != nullptr && this->loginToken_ != nullptr
         && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->officeSiteIds_ != nullptr && this->orderBy_ != nullptr && this->productTypes_ != nullptr
-        && this->protocolType_ != nullptr && this->queryFotaUpdate_ != nullptr && this->refreshFotaUpdate_ != nullptr && this->resourceIds_ != nullptr && this->resourceName_ != nullptr
-        && this->resourceTypes_ != nullptr && this->scene_ != nullptr && this->searchRegionId_ != nullptr && this->sessionId_ != nullptr && this->sortType_ != nullptr; };
+        && this->protocolType_ != nullptr && this->queryDesktopDurationList_ != nullptr && this->queryDesktopTimers_ != nullptr && this->queryFotaUpdate_ != nullptr && this->refreshFotaUpdate_ != nullptr
+        && this->resourceIds_ != nullptr && this->resourceName_ != nullptr && this->resourceTypes_ != nullptr && this->scene_ != nullptr && this->searchRegionId_ != nullptr
+        && this->sessionId_ != nullptr && this->sortType_ != nullptr; };
     // accessType Field Functions 
     bool hasAccessType() const { return this->accessType_ != nullptr;};
     void deleteAccessType() { this->accessType_ = nullptr;};
@@ -209,6 +214,20 @@ namespace Models
     inline DescribeUserResourcesRequest& setProtocolType(string protocolType) { DARABONBA_PTR_SET_VALUE(protocolType_, protocolType) };
 
 
+    // queryDesktopDurationList Field Functions 
+    bool hasQueryDesktopDurationList() const { return this->queryDesktopDurationList_ != nullptr;};
+    void deleteQueryDesktopDurationList() { this->queryDesktopDurationList_ = nullptr;};
+    inline bool queryDesktopDurationList() const { DARABONBA_PTR_GET_DEFAULT(queryDesktopDurationList_, false) };
+    inline DescribeUserResourcesRequest& setQueryDesktopDurationList(bool queryDesktopDurationList) { DARABONBA_PTR_SET_VALUE(queryDesktopDurationList_, queryDesktopDurationList) };
+
+
+    // queryDesktopTimers Field Functions 
+    bool hasQueryDesktopTimers() const { return this->queryDesktopTimers_ != nullptr;};
+    void deleteQueryDesktopTimers() { this->queryDesktopTimers_ = nullptr;};
+    inline bool queryDesktopTimers() const { DARABONBA_PTR_GET_DEFAULT(queryDesktopTimers_, false) };
+    inline DescribeUserResourcesRequest& setQueryDesktopTimers(bool queryDesktopTimers) { DARABONBA_PTR_SET_VALUE(queryDesktopTimers_, queryDesktopTimers) };
+
+
     // queryFotaUpdate Field Functions 
     bool hasQueryFotaUpdate() const { return this->queryFotaUpdate_ != nullptr;};
     void deleteQueryFotaUpdate() { this->queryFotaUpdate_ = nullptr;};
@@ -296,6 +315,8 @@ namespace Models
     std::shared_ptr<string> orderBy_ = nullptr;
     std::shared_ptr<vector<string>> productTypes_ = nullptr;
     std::shared_ptr<string> protocolType_ = nullptr;
+    std::shared_ptr<bool> queryDesktopDurationList_ = nullptr;
+    std::shared_ptr<bool> queryDesktopTimers_ = nullptr;
     std::shared_ptr<bool> queryFotaUpdate_ = nullptr;
     std::shared_ptr<bool> refreshFotaUpdate_ = nullptr;
     std::shared_ptr<vector<string>> resourceIds_ = nullptr;

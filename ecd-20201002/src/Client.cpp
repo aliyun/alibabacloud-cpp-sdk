@@ -687,6 +687,14 @@ DescribeUserResourcesResponse Client::describeUserResourcesWithOptions(const Des
     query["ProtocolType"] = request.protocolType();
   }
 
+  if (!!request.hasQueryDesktopDurationList()) {
+    query["QueryDesktopDurationList"] = request.queryDesktopDurationList();
+  }
+
+  if (!!request.hasQueryDesktopTimers()) {
+    query["QueryDesktopTimers"] = request.queryDesktopTimers();
+  }
+
   if (!!request.hasQueryFotaUpdate()) {
     query["QueryFotaUpdate"] = request.queryFotaUpdate();
   }
