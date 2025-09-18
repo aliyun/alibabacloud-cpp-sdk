@@ -110,6 +110,23 @@ namespace ComputeNestSupplier20210521
       Models::CreateArtifactResponse createArtifact(const Models::CreateArtifactRequest &request);
 
       /**
+       * @summary 创建运维公告
+       *
+       * @param tmpReq CreateOpsNoticeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateOpsNoticeResponse
+       */
+      Models::CreateOpsNoticeResponse createOpsNoticeWithOptions(const Models::CreateOpsNoticeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建运维公告
+       *
+       * @param request CreateOpsNoticeRequest
+       * @return CreateOpsNoticeResponse
+       */
+      Models::CreateOpsNoticeResponse createOpsNotice(const Models::CreateOpsNoticeRequest &request);
+
+      /**
        * @summary Creates a service.
        *
        * @param tmpReq CreateServiceRequest
@@ -416,6 +433,23 @@ namespace ComputeNestSupplier20210521
       Models::GetNetworkAvailableZonesResponse getNetworkAvailableZones(const Models::GetNetworkAvailableZonesRequest &request);
 
       /**
+       * @summary 查看运维公告详情
+       *
+       * @param request GetOpsNoticeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetOpsNoticeResponse
+       */
+      Models::GetOpsNoticeResponse getOpsNoticeWithOptions(const Models::GetOpsNoticeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看运维公告详情
+       *
+       * @param request GetOpsNoticeRequest
+       * @return GetOpsNoticeResponse
+       */
+      Models::GetOpsNoticeResponse getOpsNotice(const Models::GetOpsNoticeRequest &request);
+
+      /**
        * @summary Queries the information about a service.
        *
        * @param request GetServiceRequest
@@ -707,6 +741,23 @@ namespace ComputeNestSupplier20210521
        * @return ListArtifactsResponse
        */
       Models::ListArtifactsResponse listArtifacts(const Models::ListArtifactsRequest &request);
+
+      /**
+       * @summary 查询运维公告
+       *
+       * @param request ListOpsNoticesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListOpsNoticesResponse
+       */
+      Models::ListOpsNoticesResponse listOpsNoticesWithOptions(const Models::ListOpsNoticesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询运维公告
+       *
+       * @param request ListOpsNoticesRequest
+       * @return ListOpsNoticesResponse
+       */
+      Models::ListOpsNoticesResponse listOpsNotices(const Models::ListOpsNoticesRequest &request);
 
       /**
        * @summary Paginated query of distributor information list

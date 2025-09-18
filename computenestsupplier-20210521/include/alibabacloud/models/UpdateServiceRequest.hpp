@@ -6,6 +6,7 @@
 #include <alibabacloud/models/UpdateServiceRequestComplianceMetadata.hpp>
 #include <vector>
 #include <alibabacloud/models/UpdateServiceRequestServiceInfo.hpp>
+#include <alibabacloud/models/UpdateServiceRequestServiceLocaleConfigs.hpp>
 #include <alibabacloud/models/UpdateServiceRequestUpdateOption.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Resellable, resellable_);
       DARABONBA_PTR_TO_JSON(ServiceId, serviceId_);
       DARABONBA_PTR_TO_JSON(ServiceInfo, serviceInfo_);
+      DARABONBA_PTR_TO_JSON(ServiceLocaleConfigs, serviceLocaleConfigs_);
       DARABONBA_PTR_TO_JSON(ServiceType, serviceType_);
       DARABONBA_PTR_TO_JSON(ServiceVersion, serviceVersion_);
       DARABONBA_PTR_TO_JSON(ShareType, shareType_);
@@ -66,6 +68,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Resellable, resellable_);
       DARABONBA_PTR_FROM_JSON(ServiceId, serviceId_);
       DARABONBA_PTR_FROM_JSON(ServiceInfo, serviceInfo_);
+      DARABONBA_PTR_FROM_JSON(ServiceLocaleConfigs, serviceLocaleConfigs_);
       DARABONBA_PTR_FROM_JSON(ServiceType, serviceType_);
       DARABONBA_PTR_FROM_JSON(ServiceVersion, serviceVersion_);
       DARABONBA_PTR_FROM_JSON(ShareType, shareType_);
@@ -90,9 +93,9 @@ namespace Models
         && this->approvalType_ != nullptr && this->buildParameters_ != nullptr && this->clientToken_ != nullptr && this->commodity_ != nullptr && this->complianceMetadata_ != nullptr
         && this->deployMetadata_ != nullptr && this->deployType_ != nullptr && this->dryRun_ != nullptr && this->duration_ != nullptr && this->isSupportOperated_ != nullptr
         && this->licenseMetadata_ != nullptr && this->logMetadata_ != nullptr && this->operationMetadata_ != nullptr && this->policyNames_ != nullptr && this->regionId_ != nullptr
-        && this->resellable_ != nullptr && this->serviceId_ != nullptr && this->serviceInfo_ != nullptr && this->serviceType_ != nullptr && this->serviceVersion_ != nullptr
-        && this->shareType_ != nullptr && this->tenantType_ != nullptr && this->trialDuration_ != nullptr && this->updateOption_ != nullptr && this->upgradeMetadata_ != nullptr
-        && this->versionName_ != nullptr; };
+        && this->resellable_ != nullptr && this->serviceId_ != nullptr && this->serviceInfo_ != nullptr && this->serviceLocaleConfigs_ != nullptr && this->serviceType_ != nullptr
+        && this->serviceVersion_ != nullptr && this->shareType_ != nullptr && this->tenantType_ != nullptr && this->trialDuration_ != nullptr && this->updateOption_ != nullptr
+        && this->upgradeMetadata_ != nullptr && this->versionName_ != nullptr; };
     // alarmMetadata Field Functions 
     bool hasAlarmMetadata() const { return this->alarmMetadata_ != nullptr;};
     void deleteAlarmMetadata() { this->alarmMetadata_ = nullptr;};
@@ -232,6 +235,15 @@ namespace Models
     inline UpdateServiceRequest& setServiceInfo(vector<UpdateServiceRequestServiceInfo> && serviceInfo) { DARABONBA_PTR_SET_RVALUE(serviceInfo_, serviceInfo) };
 
 
+    // serviceLocaleConfigs Field Functions 
+    bool hasServiceLocaleConfigs() const { return this->serviceLocaleConfigs_ != nullptr;};
+    void deleteServiceLocaleConfigs() { this->serviceLocaleConfigs_ = nullptr;};
+    inline const vector<UpdateServiceRequestServiceLocaleConfigs> & serviceLocaleConfigs() const { DARABONBA_PTR_GET_CONST(serviceLocaleConfigs_, vector<UpdateServiceRequestServiceLocaleConfigs>) };
+    inline vector<UpdateServiceRequestServiceLocaleConfigs> serviceLocaleConfigs() { DARABONBA_PTR_GET(serviceLocaleConfigs_, vector<UpdateServiceRequestServiceLocaleConfigs>) };
+    inline UpdateServiceRequest& setServiceLocaleConfigs(const vector<UpdateServiceRequestServiceLocaleConfigs> & serviceLocaleConfigs) { DARABONBA_PTR_SET_VALUE(serviceLocaleConfigs_, serviceLocaleConfigs) };
+    inline UpdateServiceRequest& setServiceLocaleConfigs(vector<UpdateServiceRequestServiceLocaleConfigs> && serviceLocaleConfigs) { DARABONBA_PTR_SET_RVALUE(serviceLocaleConfigs_, serviceLocaleConfigs) };
+
+
     // serviceType Field Functions 
     bool hasServiceType() const { return this->serviceType_ != nullptr;};
     void deleteServiceType() { this->serviceType_ = nullptr;};
@@ -352,6 +364,7 @@ namespace Models
     std::shared_ptr<string> serviceId_ = nullptr;
     // The service details.
     std::shared_ptr<vector<UpdateServiceRequestServiceInfo>> serviceInfo_ = nullptr;
+    std::shared_ptr<vector<UpdateServiceRequestServiceLocaleConfigs>> serviceLocaleConfigs_ = nullptr;
     // The service type. Valid values:
     // 
     // *   private: The service is a private service and is deployed within the account of a customer.

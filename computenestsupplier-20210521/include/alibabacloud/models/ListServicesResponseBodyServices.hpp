@@ -5,6 +5,7 @@
 #include <alibabacloud/models/ListServicesResponseBodyServicesCommodity.hpp>
 #include <vector>
 #include <alibabacloud/models/ListServicesResponseBodyServicesServiceInfos.hpp>
+#include <alibabacloud/models/ListServicesResponseBodyServicesServiceLocaleConfigs.hpp>
 #include <alibabacloud/models/ListServicesResponseBodyServicesTags.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ServiceDiscoverable, serviceDiscoverable_);
       DARABONBA_PTR_TO_JSON(ServiceId, serviceId_);
       DARABONBA_PTR_TO_JSON(ServiceInfos, serviceInfos_);
+      DARABONBA_PTR_TO_JSON(ServiceLocaleConfigs, serviceLocaleConfigs_);
       DARABONBA_PTR_TO_JSON(ServiceType, serviceType_);
       DARABONBA_PTR_TO_JSON(ShareType, shareType_);
       DARABONBA_PTR_TO_JSON(SourceImage, sourceImage_);
@@ -77,6 +79,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ServiceDiscoverable, serviceDiscoverable_);
       DARABONBA_PTR_FROM_JSON(ServiceId, serviceId_);
       DARABONBA_PTR_FROM_JSON(ServiceInfos, serviceInfos_);
+      DARABONBA_PTR_FROM_JSON(ServiceLocaleConfigs, serviceLocaleConfigs_);
       DARABONBA_PTR_FROM_JSON(ServiceType, serviceType_);
       DARABONBA_PTR_FROM_JSON(ShareType, shareType_);
       DARABONBA_PTR_FROM_JSON(SourceImage, sourceImage_);
@@ -110,10 +113,10 @@ namespace Models
         && this->commodityCode_ != nullptr && this->createTime_ != nullptr && this->defaultVersion_ != nullptr && this->deployType_ != nullptr && this->hasBeta_ != nullptr
         && this->hasDraft_ != nullptr && this->latestResellSourceServiceVersion_ != nullptr && this->publishTime_ != nullptr && this->relationType_ != nullptr && this->resellApplyStatus_ != nullptr
         && this->resellServiceId_ != nullptr && this->resourceGroupId_ != nullptr && this->serviceDiscoverable_ != nullptr && this->serviceId_ != nullptr && this->serviceInfos_ != nullptr
-        && this->serviceType_ != nullptr && this->shareType_ != nullptr && this->sourceImage_ != nullptr && this->sourceServiceId_ != nullptr && this->sourceServiceVersion_ != nullptr
-        && this->sourceSupplierName_ != nullptr && this->status_ != nullptr && this->supplierName_ != nullptr && this->supplierUrl_ != nullptr && this->tags_ != nullptr
-        && this->tenantType_ != nullptr && this->trialType_ != nullptr && this->updateTime_ != nullptr && this->version_ != nullptr && this->versionName_ != nullptr
-        && this->virtualInternetService_ != nullptr; };
+        && this->serviceLocaleConfigs_ != nullptr && this->serviceType_ != nullptr && this->shareType_ != nullptr && this->sourceImage_ != nullptr && this->sourceServiceId_ != nullptr
+        && this->sourceServiceVersion_ != nullptr && this->sourceSupplierName_ != nullptr && this->status_ != nullptr && this->supplierName_ != nullptr && this->supplierUrl_ != nullptr
+        && this->tags_ != nullptr && this->tenantType_ != nullptr && this->trialType_ != nullptr && this->updateTime_ != nullptr && this->version_ != nullptr
+        && this->versionName_ != nullptr && this->virtualInternetService_ != nullptr; };
     // approvalType Field Functions 
     bool hasApprovalType() const { return this->approvalType_ != nullptr;};
     void deleteApprovalType() { this->approvalType_ = nullptr;};
@@ -263,6 +266,15 @@ namespace Models
     inline vector<Models::ListServicesResponseBodyServicesServiceInfos> serviceInfos() { DARABONBA_PTR_GET(serviceInfos_, vector<Models::ListServicesResponseBodyServicesServiceInfos>) };
     inline ListServicesResponseBodyServices& setServiceInfos(const vector<Models::ListServicesResponseBodyServicesServiceInfos> & serviceInfos) { DARABONBA_PTR_SET_VALUE(serviceInfos_, serviceInfos) };
     inline ListServicesResponseBodyServices& setServiceInfos(vector<Models::ListServicesResponseBodyServicesServiceInfos> && serviceInfos) { DARABONBA_PTR_SET_RVALUE(serviceInfos_, serviceInfos) };
+
+
+    // serviceLocaleConfigs Field Functions 
+    bool hasServiceLocaleConfigs() const { return this->serviceLocaleConfigs_ != nullptr;};
+    void deleteServiceLocaleConfigs() { this->serviceLocaleConfigs_ = nullptr;};
+    inline const vector<Models::ListServicesResponseBodyServicesServiceLocaleConfigs> & serviceLocaleConfigs() const { DARABONBA_PTR_GET_CONST(serviceLocaleConfigs_, vector<Models::ListServicesResponseBodyServicesServiceLocaleConfigs>) };
+    inline vector<Models::ListServicesResponseBodyServicesServiceLocaleConfigs> serviceLocaleConfigs() { DARABONBA_PTR_GET(serviceLocaleConfigs_, vector<Models::ListServicesResponseBodyServicesServiceLocaleConfigs>) };
+    inline ListServicesResponseBodyServices& setServiceLocaleConfigs(const vector<Models::ListServicesResponseBodyServicesServiceLocaleConfigs> & serviceLocaleConfigs) { DARABONBA_PTR_SET_VALUE(serviceLocaleConfigs_, serviceLocaleConfigs) };
+    inline ListServicesResponseBodyServices& setServiceLocaleConfigs(vector<Models::ListServicesResponseBodyServicesServiceLocaleConfigs> && serviceLocaleConfigs) { DARABONBA_PTR_SET_RVALUE(serviceLocaleConfigs_, serviceLocaleConfigs) };
 
 
     // serviceType Field Functions 
@@ -451,6 +463,7 @@ namespace Models
     std::shared_ptr<string> serviceId_ = nullptr;
     // The information about the service.
     std::shared_ptr<vector<Models::ListServicesResponseBodyServicesServiceInfos>> serviceInfos_ = nullptr;
+    std::shared_ptr<vector<Models::ListServicesResponseBodyServicesServiceLocaleConfigs>> serviceLocaleConfigs_ = nullptr;
     // The type of the service. Valid values:
     // 
     // *   private: The service is a private service and is deployed within the account of a customer.

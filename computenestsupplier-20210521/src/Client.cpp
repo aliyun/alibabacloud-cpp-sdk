@@ -364,6 +364,90 @@ CreateArtifactResponse Client::createArtifact(const CreateArtifactRequest &reque
 }
 
 /**
+ * @summary 创建运维公告
+ *
+ * @param tmpReq CreateOpsNoticeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateOpsNoticeResponse
+ */
+CreateOpsNoticeResponse Client::createOpsNoticeWithOptions(const CreateOpsNoticeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateOpsNoticeShrinkRequest request = CreateOpsNoticeShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAttributes()) {
+    request.setAttributesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.attributes(), "Attributes", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAttributesShrink()) {
+    query["Attributes"] = request.attributesShrink();
+  }
+
+  if (!!request.hasCategory()) {
+    query["Category"] = request.category();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasContent()) {
+    query["Content"] = request.content();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasServiceId()) {
+    query["ServiceId"] = request.serviceId();
+  }
+
+  if (!!request.hasServiceVersion()) {
+    query["ServiceVersion"] = request.serviceVersion();
+  }
+
+  if (!!request.hasSeverity()) {
+    query["Severity"] = request.severity();
+  }
+
+  if (!!request.hasSolutions()) {
+    query["Solutions"] = request.solutions();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.type();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateOpsNotice"},
+    {"version" , "2021-05-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateOpsNoticeResponse>();
+}
+
+/**
+ * @summary 创建运维公告
+ *
+ * @param request CreateOpsNoticeRequest
+ * @return CreateOpsNoticeResponse
+ */
+CreateOpsNoticeResponse Client::createOpsNotice(const CreateOpsNoticeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createOpsNoticeWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a service.
  *
  * @param tmpReq CreateServiceRequest
@@ -1532,6 +1616,52 @@ GetNetworkAvailableZonesResponse Client::getNetworkAvailableZones(const GetNetwo
 }
 
 /**
+ * @summary 查看运维公告详情
+ *
+ * @param request GetOpsNoticeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetOpsNoticeResponse
+ */
+GetOpsNoticeResponse Client::getOpsNoticeWithOptions(const GetOpsNoticeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNoticeId()) {
+    query["NoticeId"] = request.noticeId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetOpsNotice"},
+    {"version" , "2021-05-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetOpsNoticeResponse>();
+}
+
+/**
+ * @summary 查看运维公告详情
+ *
+ * @param request GetOpsNoticeRequest
+ * @return GetOpsNoticeResponse
+ */
+GetOpsNoticeResponse Client::getOpsNotice(const GetOpsNoticeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getOpsNoticeWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the information about a service.
  *
  * @param request GetServiceRequest
@@ -2501,6 +2631,60 @@ ListArtifactsResponse Client::listArtifactsWithOptions(const ListArtifactsReques
 ListArtifactsResponse Client::listArtifacts(const ListArtifactsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listArtifactsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询运维公告
+ *
+ * @param request ListOpsNoticesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListOpsNoticesResponse
+ */
+ListOpsNoticesResponse Client::listOpsNoticesWithOptions(const ListOpsNoticesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.filter();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListOpsNotices"},
+    {"version" , "2021-05-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListOpsNoticesResponse>();
+}
+
+/**
+ * @summary 查询运维公告
+ *
+ * @param request ListOpsNoticesRequest
+ * @return ListOpsNoticesResponse
+ */
+ListOpsNoticesResponse Client::listOpsNotices(const ListOpsNoticesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listOpsNoticesWithOptions(request, runtime);
 }
 
 /**
@@ -4481,6 +4665,10 @@ UpdateServiceResponse Client::updateServiceWithOptions(const UpdateServiceReques
 
   if (!!request.hasServiceInfo()) {
     query["ServiceInfo"] = request.serviceInfo();
+  }
+
+  if (!!request.hasServiceLocaleConfigs()) {
+    query["ServiceLocaleConfigs"] = request.serviceLocaleConfigs();
   }
 
   if (!!request.hasServiceType()) {

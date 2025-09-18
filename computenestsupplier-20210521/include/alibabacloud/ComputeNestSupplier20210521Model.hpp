@@ -18,6 +18,10 @@
 #include <alibabacloud/models/CreateArtifactShrinkRequest.hpp>
 #include <alibabacloud/models/CreateArtifactResponseBody.hpp>
 #include <alibabacloud/models/CreateArtifactResponse.hpp>
+#include <alibabacloud/models/CreateOpsNoticeRequest.hpp>
+#include <alibabacloud/models/CreateOpsNoticeShrinkRequest.hpp>
+#include <alibabacloud/models/CreateOpsNoticeResponseBody.hpp>
+#include <alibabacloud/models/CreateOpsNoticeResponse.hpp>
 #include <alibabacloud/models/CreateServiceRequest.hpp>
 #include <alibabacloud/models/CreateServiceShrinkRequest.hpp>
 #include <alibabacloud/models/CreateServiceResponseBody.hpp>
@@ -74,6 +78,9 @@
 #include <alibabacloud/models/GetNetworkAvailableZonesRequest.hpp>
 #include <alibabacloud/models/GetNetworkAvailableZonesResponseBody.hpp>
 #include <alibabacloud/models/GetNetworkAvailableZonesResponse.hpp>
+#include <alibabacloud/models/GetOpsNoticeRequest.hpp>
+#include <alibabacloud/models/GetOpsNoticeResponseBody.hpp>
+#include <alibabacloud/models/GetOpsNoticeResponse.hpp>
 #include <alibabacloud/models/GetServiceRequest.hpp>
 #include <alibabacloud/models/GetServiceResponseBody.hpp>
 #include <alibabacloud/models/GetServiceResponse.hpp>
@@ -128,6 +135,9 @@
 #include <alibabacloud/models/ListArtifactsRequest.hpp>
 #include <alibabacloud/models/ListArtifactsResponseBody.hpp>
 #include <alibabacloud/models/ListArtifactsResponse.hpp>
+#include <alibabacloud/models/ListOpsNoticesRequest.hpp>
+#include <alibabacloud/models/ListOpsNoticesResponseBody.hpp>
+#include <alibabacloud/models/ListOpsNoticesResponse.hpp>
 #include <alibabacloud/models/ListResellersRequest.hpp>
 #include <alibabacloud/models/ListResellersResponseBody.hpp>
 #include <alibabacloud/models/ListResellersResponse.hpp>
@@ -299,6 +309,7 @@
 #include <alibabacloud/models/GetServiceResponseBodyServiceInfosAgreements.hpp>
 #include <alibabacloud/models/GetServiceResponseBodyServiceInfosSoftwares.hpp>
 #include <alibabacloud/models/GetServiceResponseBodyServiceInfos.hpp>
+#include <alibabacloud/models/GetServiceResponseBodyServiceLocaleConfigs.hpp>
 #include <alibabacloud/models/GetServiceResponseBodyStatistic.hpp>
 #include <alibabacloud/models/GetServiceResponseBodySupportContacts.hpp>
 #include <alibabacloud/models/GetServiceResponseBodyTags.hpp>
@@ -339,6 +350,8 @@
 #include <alibabacloud/models/ListArtifactsRequestTag.hpp>
 #include <alibabacloud/models/ListArtifactsResponseBodyArtifactsTags.hpp>
 #include <alibabacloud/models/ListArtifactsResponseBodyArtifacts.hpp>
+#include <alibabacloud/models/ListOpsNoticesRequestFilter.hpp>
+#include <alibabacloud/models/ListOpsNoticesResponseBodyOpsNotices.hpp>
 #include <alibabacloud/models/ListResellersRequestFilter.hpp>
 #include <alibabacloud/models/ListResellersResponseBodySupplierInformation.hpp>
 #include <alibabacloud/models/ListServiceBuildLogsRequestFilter.hpp>
@@ -373,6 +386,7 @@
 #include <alibabacloud/models/ListServicesRequestTag.hpp>
 #include <alibabacloud/models/ListServicesResponseBodyServicesCommodity.hpp>
 #include <alibabacloud/models/ListServicesResponseBodyServicesServiceInfos.hpp>
+#include <alibabacloud/models/ListServicesResponseBodyServicesServiceLocaleConfigs.hpp>
 #include <alibabacloud/models/ListServicesResponseBodyServicesTags.hpp>
 #include <alibabacloud/models/ListServicesResponseBodyServices.hpp>
 #include <alibabacloud/models/ListSupplierRegistrationsRequestFilter.hpp>
@@ -393,10 +407,12 @@
 #include <alibabacloud/models/UpdateServiceRequestServiceInfoAgreements.hpp>
 #include <alibabacloud/models/UpdateServiceRequestServiceInfoSoftwares.hpp>
 #include <alibabacloud/models/UpdateServiceRequestServiceInfo.hpp>
+#include <alibabacloud/models/UpdateServiceRequestServiceLocaleConfigs.hpp>
 #include <alibabacloud/models/UpdateServiceRequestUpdateOption.hpp>
 #include <alibabacloud/models/UpdateServiceShrinkRequestServiceInfoAgreements.hpp>
 #include <alibabacloud/models/UpdateServiceShrinkRequestServiceInfoSoftwares.hpp>
 #include <alibabacloud/models/UpdateServiceShrinkRequestServiceInfo.hpp>
+#include <alibabacloud/models/UpdateServiceShrinkRequestServiceLocaleConfigs.hpp>
 #include <alibabacloud/models/UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy.hpp>
 #include <alibabacloud/models/UpdateServiceResponseBodyDryRunResultRolePolicy.hpp>
 #include <alibabacloud/models/UpdateServiceResponseBodyDryRunResult.hpp>
