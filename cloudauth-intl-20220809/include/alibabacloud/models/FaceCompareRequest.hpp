@@ -13,6 +13,7 @@ namespace Models
   class FaceCompareRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const FaceCompareRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(FacePictureQualityCheck, facePictureQualityCheck_);
       DARABONBA_PTR_TO_JSON(MerchantBizId, merchantBizId_);
       DARABONBA_PTR_TO_JSON(SourceFacePicture, sourceFacePicture_);
       DARABONBA_PTR_TO_JSON(SourceFacePictureUrl, sourceFacePictureUrl_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TargetFacePictureUrl, targetFacePictureUrl_);
     };
     friend void from_json(const Darabonba::Json& j, FaceCompareRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(FacePictureQualityCheck, facePictureQualityCheck_);
       DARABONBA_PTR_FROM_JSON(MerchantBizId, merchantBizId_);
       DARABONBA_PTR_FROM_JSON(SourceFacePicture, sourceFacePicture_);
       DARABONBA_PTR_FROM_JSON(SourceFacePictureUrl, sourceFacePictureUrl_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->merchantBizId_ != nullptr
-        && this->sourceFacePicture_ != nullptr && this->sourceFacePictureUrl_ != nullptr && this->targetFacePicture_ != nullptr && this->targetFacePictureUrl_ != nullptr; };
+    virtual bool empty() const override { this->facePictureQualityCheck_ != nullptr
+        && this->merchantBizId_ != nullptr && this->sourceFacePicture_ != nullptr && this->sourceFacePictureUrl_ != nullptr && this->targetFacePicture_ != nullptr && this->targetFacePictureUrl_ != nullptr; };
+    // facePictureQualityCheck Field Functions 
+    bool hasFacePictureQualityCheck() const { return this->facePictureQualityCheck_ != nullptr;};
+    void deleteFacePictureQualityCheck() { this->facePictureQualityCheck_ = nullptr;};
+    inline string facePictureQualityCheck() const { DARABONBA_PTR_GET_DEFAULT(facePictureQualityCheck_, "") };
+    inline FaceCompareRequest& setFacePictureQualityCheck(string facePictureQualityCheck) { DARABONBA_PTR_SET_VALUE(facePictureQualityCheck_, facePictureQualityCheck) };
+
+
     // merchantBizId Field Functions 
     bool hasMerchantBizId() const { return this->merchantBizId_ != nullptr;};
     void deleteMerchantBizId() { this->merchantBizId_ = nullptr;};
@@ -75,6 +84,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> facePictureQualityCheck_ = nullptr;
     std::shared_ptr<string> merchantBizId_ = nullptr;
     std::shared_ptr<string> sourceFacePicture_ = nullptr;
     std::shared_ptr<string> sourceFacePictureUrl_ = nullptr;

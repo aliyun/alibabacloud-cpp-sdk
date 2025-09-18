@@ -1151,6 +1151,10 @@ EkycVerifyResponse Client::ekycVerify(const EkycVerifyRequest &request) {
 FaceCompareResponse Client::faceCompareWithOptions(const FaceCompareRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasFacePictureQualityCheck()) {
+    query["FacePictureQualityCheck"] = request.facePictureQualityCheck();
+  }
+
   if (!!request.hasMerchantBizId()) {
     query["MerchantBizId"] = request.merchantBizId();
   }
