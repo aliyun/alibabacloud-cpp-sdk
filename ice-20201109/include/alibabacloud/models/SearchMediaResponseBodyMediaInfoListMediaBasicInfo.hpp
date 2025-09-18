@@ -33,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Source, source_);
       DARABONBA_PTR_TO_JSON(SpriteImages, spriteImages_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(StreamStatus, streamStatus_);
       DARABONBA_PTR_TO_JSON(Title, title_);
       DARABONBA_PTR_TO_JSON(TranscodeStatus, transcodeStatus_);
       DARABONBA_PTR_TO_JSON(UploadSource, uploadSource_);
@@ -60,6 +61,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Source, source_);
       DARABONBA_PTR_FROM_JSON(SpriteImages, spriteImages_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(StreamStatus, streamStatus_);
       DARABONBA_PTR_FROM_JSON(Title, title_);
       DARABONBA_PTR_FROM_JSON(TranscodeStatus, transcodeStatus_);
       DARABONBA_PTR_FROM_JSON(UploadSource, uploadSource_);
@@ -81,8 +83,8 @@ namespace Models
         && this->businessType_ != nullptr && this->cateId_ != nullptr && this->cateName_ != nullptr && this->category_ != nullptr && this->coverURL_ != nullptr
         && this->createTime_ != nullptr && this->deletedTime_ != nullptr && this->description_ != nullptr && this->inputURL_ != nullptr && this->mediaId_ != nullptr
         && this->mediaTags_ != nullptr && this->mediaType_ != nullptr && this->modifiedTime_ != nullptr && this->namespace_ != nullptr && this->referenceId_ != nullptr
-        && this->snapshots_ != nullptr && this->source_ != nullptr && this->spriteImages_ != nullptr && this->status_ != nullptr && this->title_ != nullptr
-        && this->transcodeStatus_ != nullptr && this->uploadSource_ != nullptr && this->userData_ != nullptr && this->visionDescription_ != nullptr; };
+        && this->snapshots_ != nullptr && this->source_ != nullptr && this->spriteImages_ != nullptr && this->status_ != nullptr && this->streamStatus_ != nullptr
+        && this->title_ != nullptr && this->transcodeStatus_ != nullptr && this->uploadSource_ != nullptr && this->userData_ != nullptr && this->visionDescription_ != nullptr; };
     // biz Field Functions 
     bool hasBiz() const { return this->biz_ != nullptr;};
     void deleteBiz() { this->biz_ = nullptr;};
@@ -223,6 +225,13 @@ namespace Models
     inline SearchMediaResponseBodyMediaInfoListMediaBasicInfo& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // streamStatus Field Functions 
+    bool hasStreamStatus() const { return this->streamStatus_ != nullptr;};
+    void deleteStreamStatus() { this->streamStatus_ = nullptr;};
+    inline string streamStatus() const { DARABONBA_PTR_GET_DEFAULT(streamStatus_, "") };
+    inline SearchMediaResponseBodyMediaInfoListMediaBasicInfo& setStreamStatus(string streamStatus) { DARABONBA_PTR_SET_VALUE(streamStatus_, streamStatus) };
+
+
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
@@ -298,6 +307,7 @@ namespace Models
     std::shared_ptr<string> spriteImages_ = nullptr;
     // The state of the media asset.
     std::shared_ptr<string> status_ = nullptr;
+    std::shared_ptr<string> streamStatus_ = nullptr;
     // The title of the media asset.
     std::shared_ptr<string> title_ = nullptr;
     // The transcoding status of the media asset.

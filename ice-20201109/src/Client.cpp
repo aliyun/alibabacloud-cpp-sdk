@@ -564,6 +564,60 @@ AddMediaMarksResponse Client::addMediaMarks(const AddMediaMarksRequest &request)
 }
 
 /**
+ * @summary 打标流媒资
+ *
+ * @param request AddStreamTagToSearchLibRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddStreamTagToSearchLibResponse
+ */
+AddStreamTagToSearchLibResponse Client::addStreamTagToSearchLibWithOptions(const AddStreamTagToSearchLibRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMediaId()) {
+    query["MediaId"] = request.mediaId();
+  }
+
+  if (!!request.hasMsgBody()) {
+    query["MsgBody"] = request.msgBody();
+  }
+
+  if (!!request.hasNamespace()) {
+    query["Namespace"] = request._namespace();
+  }
+
+  if (!!request.hasSearchLibName()) {
+    query["SearchLibName"] = request.searchLibName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddStreamTagToSearchLib"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddStreamTagToSearchLibResponse>();
+}
+
+/**
+ * @summary 打标流媒资
+ *
+ * @param request AddStreamTagToSearchLibRequest
+ * @return AddStreamTagToSearchLibResponse
+ */
+AddStreamTagToSearchLibResponse Client::addStreamTagToSearchLib(const AddStreamTagToSearchLibRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addStreamTagToSearchLibWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a template.
  *
  * @description *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
@@ -1033,6 +1087,56 @@ CloseMediaConnectFlowFailoverResponse Client::closeMediaConnectFlowFailoverWithO
 CloseMediaConnectFlowFailoverResponse Client::closeMediaConnectFlowFailover(const CloseMediaConnectFlowFailoverRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return closeMediaConnectFlowFailoverWithOptions(request, runtime);
+}
+
+/**
+ * @summary 关闭流媒资
+ *
+ * @param request CloseStreamToSearchLibRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloseStreamToSearchLibResponse
+ */
+CloseStreamToSearchLibResponse Client::closeStreamToSearchLibWithOptions(const CloseStreamToSearchLibRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMediaId()) {
+    query["MediaId"] = request.mediaId();
+  }
+
+  if (!!request.hasNamespace()) {
+    query["Namespace"] = request._namespace();
+  }
+
+  if (!!request.hasSearchLibName()) {
+    query["SearchLibName"] = request.searchLibName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloseStreamToSearchLib"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloseStreamToSearchLibResponse>();
+}
+
+/**
+ * @summary 关闭流媒资
+ *
+ * @param request CloseStreamToSearchLibRequest
+ * @return CloseStreamToSearchLibResponse
+ */
+CloseStreamToSearchLibResponse Client::closeStreamToSearchLib(const CloseStreamToSearchLibRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return closeStreamToSearchLibWithOptions(request, runtime);
 }
 
 /**
@@ -2741,6 +2845,56 @@ CreateSourceLocationResponse Client::createSourceLocationWithOptions(const Creat
 CreateSourceLocationResponse Client::createSourceLocation(const CreateSourceLocationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createSourceLocationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建流媒资
+ *
+ * @param request CreateStreamToSearchLibRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateStreamToSearchLibResponse
+ */
+CreateStreamToSearchLibResponse Client::createStreamToSearchLibWithOptions(const CreateStreamToSearchLibRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInput()) {
+    query["Input"] = request.input();
+  }
+
+  if (!!request.hasNamespace()) {
+    query["Namespace"] = request._namespace();
+  }
+
+  if (!!request.hasSearchLibName()) {
+    query["SearchLibName"] = request.searchLibName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateStreamToSearchLib"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateStreamToSearchLibResponse>();
+}
+
+/**
+ * @summary 创建流媒资
+ *
+ * @param request CreateStreamToSearchLibRequest
+ * @return CreateStreamToSearchLibResponse
+ */
+CreateStreamToSearchLibResponse Client::createStreamToSearchLib(const CreateStreamToSearchLibRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createStreamToSearchLibWithOptions(request, runtime);
 }
 
 /**
@@ -8492,6 +8646,80 @@ GetStorageListResponse Client::getStorageListWithOptions(const GetStorageListReq
 GetStorageListResponse Client::getStorageList(const GetStorageListRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getStorageListWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询流媒资打标
+ *
+ * @param request GetStreamTagListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetStreamTagListResponse
+ */
+GetStreamTagListResponse Client::getStreamTagListWithOptions(const GetStreamTagListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasMediaId()) {
+    query["MediaId"] = request.mediaId();
+  }
+
+  if (!!request.hasNamespace()) {
+    query["Namespace"] = request._namespace();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.pageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasSearchLibName()) {
+    query["SearchLibName"] = request.searchLibName();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.sortBy();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetStreamTagList"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetStreamTagListResponse>();
+}
+
+/**
+ * @summary 查询流媒资打标
+ *
+ * @param request GetStreamTagListRequest
+ * @return GetStreamTagListResponse
+ */
+GetStreamTagListResponse Client::getStreamTagList(const GetStreamTagListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getStreamTagListWithOptions(request, runtime);
 }
 
 /**

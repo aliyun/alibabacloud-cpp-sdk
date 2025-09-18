@@ -64,6 +64,9 @@
 #include <alibabacloud/models/AddMediaMarksRequest.hpp>
 #include <alibabacloud/models/AddMediaMarksResponseBody.hpp>
 #include <alibabacloud/models/AddMediaMarksResponse.hpp>
+#include <alibabacloud/models/AddStreamTagToSearchLibRequest.hpp>
+#include <alibabacloud/models/AddStreamTagToSearchLibResponseBody.hpp>
+#include <alibabacloud/models/AddStreamTagToSearchLibResponse.hpp>
 #include <alibabacloud/models/AddTemplateRequest.hpp>
 #include <alibabacloud/models/AddTemplateResponseBody.hpp>
 #include <alibabacloud/models/AddTemplateResponse.hpp>
@@ -92,6 +95,9 @@
 #include <alibabacloud/models/CloseMediaConnectFlowFailoverRequest.hpp>
 #include <alibabacloud/models/CloseMediaConnectFlowFailoverResponseBody.hpp>
 #include <alibabacloud/models/CloseMediaConnectFlowFailoverResponse.hpp>
+#include <alibabacloud/models/CloseStreamToSearchLibRequest.hpp>
+#include <alibabacloud/models/CloseStreamToSearchLibResponseBody.hpp>
+#include <alibabacloud/models/CloseStreamToSearchLibResponse.hpp>
 #include <alibabacloud/models/CreateAuditRequest.hpp>
 #include <alibabacloud/models/CreateAuditResponseBody.hpp>
 #include <alibabacloud/models/CreateAuditResponse.hpp>
@@ -180,6 +186,9 @@
 #include <alibabacloud/models/CreateSourceLocationRequest.hpp>
 #include <alibabacloud/models/CreateSourceLocationResponseBody.hpp>
 #include <alibabacloud/models/CreateSourceLocationResponse.hpp>
+#include <alibabacloud/models/CreateStreamToSearchLibRequest.hpp>
+#include <alibabacloud/models/CreateStreamToSearchLibResponseBody.hpp>
+#include <alibabacloud/models/CreateStreamToSearchLibResponse.hpp>
 #include <alibabacloud/models/CreateUploadMediaRequest.hpp>
 #include <alibabacloud/models/CreateUploadMediaResponseBody.hpp>
 #include <alibabacloud/models/CreateUploadMediaResponse.hpp>
@@ -536,6 +545,9 @@
 #include <alibabacloud/models/GetStorageListRequest.hpp>
 #include <alibabacloud/models/GetStorageListResponseBody.hpp>
 #include <alibabacloud/models/GetStorageListResponse.hpp>
+#include <alibabacloud/models/GetStreamTagListRequest.hpp>
+#include <alibabacloud/models/GetStreamTagListResponseBody.hpp>
+#include <alibabacloud/models/GetStreamTagListResponse.hpp>
 #include <alibabacloud/models/GetSystemTemplateRequest.hpp>
 #include <alibabacloud/models/GetSystemTemplateResponseBody.hpp>
 #include <alibabacloud/models/GetSystemTemplateResponse.hpp>
@@ -1417,6 +1429,7 @@
 #include <alibabacloud/models/GetSnapshotJobResponseBodySnapshotJobOutput.hpp>
 #include <alibabacloud/models/GetSnapshotJobResponseBodySnapshotJob.hpp>
 #include <alibabacloud/models/GetStorageListResponseBodyStorageInfoList.hpp>
+#include <alibabacloud/models/GetStreamTagListResponseBodyStreamTagList.hpp>
 #include <alibabacloud/models/GetSystemTemplateResponseBodySystemTemplate.hpp>
 #include <alibabacloud/models/GetTemplateResponseBodyTemplate.hpp>
 #include <alibabacloud/models/GetTemplateParamsResponseBodyParamList.hpp>

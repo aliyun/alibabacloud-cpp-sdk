@@ -184,6 +184,23 @@ namespace ICE20201109
       Models::AddMediaMarksResponse addMediaMarks(const Models::AddMediaMarksRequest &request);
 
       /**
+       * @summary 打标流媒资
+       *
+       * @param request AddStreamTagToSearchLibRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddStreamTagToSearchLibResponse
+       */
+      Models::AddStreamTagToSearchLibResponse addStreamTagToSearchLibWithOptions(const Models::AddStreamTagToSearchLibRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 打标流媒资
+       *
+       * @param request AddStreamTagToSearchLibRequest
+       * @return AddStreamTagToSearchLibResponse
+       */
+      Models::AddStreamTagToSearchLibResponse addStreamTagToSearchLib(const Models::AddStreamTagToSearchLibRequest &request);
+
+      /**
        * @summary Creates a template.
        *
        * @description *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
@@ -349,6 +366,23 @@ namespace ICE20201109
        * @return CloseMediaConnectFlowFailoverResponse
        */
       Models::CloseMediaConnectFlowFailoverResponse closeMediaConnectFlowFailover(const Models::CloseMediaConnectFlowFailoverRequest &request);
+
+      /**
+       * @summary 关闭流媒资
+       *
+       * @param request CloseStreamToSearchLibRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloseStreamToSearchLibResponse
+       */
+      Models::CloseStreamToSearchLibResponse closeStreamToSearchLibWithOptions(const Models::CloseStreamToSearchLibRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 关闭流媒资
+       *
+       * @param request CloseStreamToSearchLibRequest
+       * @return CloseStreamToSearchLibResponse
+       */
+      Models::CloseStreamToSearchLibResponse closeStreamToSearchLib(const Models::CloseStreamToSearchLibRequest &request);
 
       /**
        * @summary Submits manual review results for media assets.
@@ -872,6 +906,23 @@ namespace ICE20201109
        * @return CreateSourceLocationResponse
        */
       Models::CreateSourceLocationResponse createSourceLocation(const Models::CreateSourceLocationRequest &request);
+
+      /**
+       * @summary 创建流媒资
+       *
+       * @param request CreateStreamToSearchLibRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateStreamToSearchLibResponse
+       */
+      Models::CreateStreamToSearchLibResponse createStreamToSearchLibWithOptions(const Models::CreateStreamToSearchLibRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建流媒资
+       *
+       * @param request CreateStreamToSearchLibRequest
+       * @return CreateStreamToSearchLibResponse
+       */
+      Models::CreateStreamToSearchLibResponse createStreamToSearchLib(const Models::CreateStreamToSearchLibRequest &request);
 
       /**
        * @summary Obtains the upload URL and credential of a media asset and creates information about the media asset.
@@ -3128,6 +3179,23 @@ namespace ICE20201109
        * @return GetStorageListResponse
        */
       Models::GetStorageListResponse getStorageList(const Models::GetStorageListRequest &request);
+
+      /**
+       * @summary 查询流媒资打标
+       *
+       * @param request GetStreamTagListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetStreamTagListResponse
+       */
+      Models::GetStreamTagListResponse getStreamTagListWithOptions(const Models::GetStreamTagListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询流媒资打标
+       *
+       * @param request GetStreamTagListRequest
+       * @return GetStreamTagListResponse
+       */
+      Models::GetStreamTagListResponse getStreamTagList(const Models::GetStreamTagListRequest &request);
 
       /**
        * @summary Queries the information about a system template.

@@ -19,6 +19,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(EditingConfig, editingConfig_);
       DARABONBA_PTR_TO_JSON(Extend, extend_);
+      DARABONBA_PTR_TO_JSON(ExtendInput, extendInput_);
+      DARABONBA_PTR_TO_JSON(ExtendOutput, extendOutput_);
       DARABONBA_PTR_TO_JSON(InputConfig, inputConfig_);
       DARABONBA_PTR_TO_JSON(JobId, jobId_);
       DARABONBA_PTR_TO_JSON(JobType, jobType_);
@@ -33,6 +35,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(EditingConfig, editingConfig_);
       DARABONBA_PTR_FROM_JSON(Extend, extend_);
+      DARABONBA_PTR_FROM_JSON(ExtendInput, extendInput_);
+      DARABONBA_PTR_FROM_JSON(ExtendOutput, extendOutput_);
       DARABONBA_PTR_FROM_JSON(InputConfig, inputConfig_);
       DARABONBA_PTR_FROM_JSON(JobId, jobId_);
       DARABONBA_PTR_FROM_JSON(JobType, jobType_);
@@ -54,9 +58,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->completeTime_ != nullptr
-        && this->createTime_ != nullptr && this->editingConfig_ != nullptr && this->extend_ != nullptr && this->inputConfig_ != nullptr && this->jobId_ != nullptr
-        && this->jobType_ != nullptr && this->modifiedTime_ != nullptr && this->outputConfig_ != nullptr && this->status_ != nullptr && this->subJobList_ != nullptr
-        && this->userData_ != nullptr; };
+        && this->createTime_ != nullptr && this->editingConfig_ != nullptr && this->extend_ != nullptr && this->extendInput_ != nullptr && this->extendOutput_ != nullptr
+        && this->inputConfig_ != nullptr && this->jobId_ != nullptr && this->jobType_ != nullptr && this->modifiedTime_ != nullptr && this->outputConfig_ != nullptr
+        && this->status_ != nullptr && this->subJobList_ != nullptr && this->userData_ != nullptr; };
     // completeTime Field Functions 
     bool hasCompleteTime() const { return this->completeTime_ != nullptr;};
     void deleteCompleteTime() { this->completeTime_ = nullptr;};
@@ -83,6 +87,20 @@ namespace Models
     void deleteExtend() { this->extend_ = nullptr;};
     inline string extend() const { DARABONBA_PTR_GET_DEFAULT(extend_, "") };
     inline GetBatchMediaProducingJobResponseBodyEditingBatchJob& setExtend(string extend) { DARABONBA_PTR_SET_VALUE(extend_, extend) };
+
+
+    // extendInput Field Functions 
+    bool hasExtendInput() const { return this->extendInput_ != nullptr;};
+    void deleteExtendInput() { this->extendInput_ = nullptr;};
+    inline string extendInput() const { DARABONBA_PTR_GET_DEFAULT(extendInput_, "") };
+    inline GetBatchMediaProducingJobResponseBodyEditingBatchJob& setExtendInput(string extendInput) { DARABONBA_PTR_SET_VALUE(extendInput_, extendInput) };
+
+
+    // extendOutput Field Functions 
+    bool hasExtendOutput() const { return this->extendOutput_ != nullptr;};
+    void deleteExtendOutput() { this->extendOutput_ = nullptr;};
+    inline string extendOutput() const { DARABONBA_PTR_GET_DEFAULT(extendOutput_, "") };
+    inline GetBatchMediaProducingJobResponseBodyEditingBatchJob& setExtendOutput(string extendOutput) { DARABONBA_PTR_SET_VALUE(extendOutput_, extendOutput) };
 
 
     // inputConfig Field Functions 
@@ -158,6 +176,8 @@ namespace Models
     // 
     // ErrorMessage: the error message of the main job.
     std::shared_ptr<string> extend_ = nullptr;
+    std::shared_ptr<string> extendInput_ = nullptr;
+    std::shared_ptr<string> extendOutput_ = nullptr;
     // The input configurations. For more information, see [InputConfig](~~2692547#2faed1559549n~~).
     std::shared_ptr<string> inputConfig_ = nullptr;
     // The job ID.
