@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc.hpp>
+#include <alibabacloud/models/DescribeApplicationConfigResponseBodyDataInitContainersConfigEmptyDirDesc.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -18,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Command, command_);
       DARABONBA_PTR_TO_JSON(CommandArgs, commandArgs_);
       DARABONBA_PTR_TO_JSON(ConfigMapMountDesc, configMapMountDesc_);
+      DARABONBA_PTR_TO_JSON(EmptyDirDesc, emptyDirDesc_);
       DARABONBA_PTR_TO_JSON(Envs, envs_);
       DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_TO_JSON(Name, name_);
@@ -26,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Command, command_);
       DARABONBA_PTR_FROM_JSON(CommandArgs, commandArgs_);
       DARABONBA_PTR_FROM_JSON(ConfigMapMountDesc, configMapMountDesc_);
+      DARABONBA_PTR_FROM_JSON(EmptyDirDesc, emptyDirDesc_);
       DARABONBA_PTR_FROM_JSON(Envs, envs_);
       DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -42,7 +45,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->command_ != nullptr
-        && this->commandArgs_ != nullptr && this->configMapMountDesc_ != nullptr && this->envs_ != nullptr && this->imageUrl_ != nullptr && this->name_ != nullptr; };
+        && this->commandArgs_ != nullptr && this->configMapMountDesc_ != nullptr && this->emptyDirDesc_ != nullptr && this->envs_ != nullptr && this->imageUrl_ != nullptr
+        && this->name_ != nullptr; };
     // command Field Functions 
     bool hasCommand() const { return this->command_ != nullptr;};
     void deleteCommand() { this->command_ = nullptr;};
@@ -64,6 +68,15 @@ namespace Models
     inline vector<Models::DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc> configMapMountDesc() { DARABONBA_PTR_GET(configMapMountDesc_, vector<Models::DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc>) };
     inline DescribeApplicationConfigResponseBodyDataInitContainersConfig& setConfigMapMountDesc(const vector<Models::DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc> & configMapMountDesc) { DARABONBA_PTR_SET_VALUE(configMapMountDesc_, configMapMountDesc) };
     inline DescribeApplicationConfigResponseBodyDataInitContainersConfig& setConfigMapMountDesc(vector<Models::DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc> && configMapMountDesc) { DARABONBA_PTR_SET_RVALUE(configMapMountDesc_, configMapMountDesc) };
+
+
+    // emptyDirDesc Field Functions 
+    bool hasEmptyDirDesc() const { return this->emptyDirDesc_ != nullptr;};
+    void deleteEmptyDirDesc() { this->emptyDirDesc_ = nullptr;};
+    inline const vector<Models::DescribeApplicationConfigResponseBodyDataInitContainersConfigEmptyDirDesc> & emptyDirDesc() const { DARABONBA_PTR_GET_CONST(emptyDirDesc_, vector<Models::DescribeApplicationConfigResponseBodyDataInitContainersConfigEmptyDirDesc>) };
+    inline vector<Models::DescribeApplicationConfigResponseBodyDataInitContainersConfigEmptyDirDesc> emptyDirDesc() { DARABONBA_PTR_GET(emptyDirDesc_, vector<Models::DescribeApplicationConfigResponseBodyDataInitContainersConfigEmptyDirDesc>) };
+    inline DescribeApplicationConfigResponseBodyDataInitContainersConfig& setEmptyDirDesc(const vector<Models::DescribeApplicationConfigResponseBodyDataInitContainersConfigEmptyDirDesc> & emptyDirDesc) { DARABONBA_PTR_SET_VALUE(emptyDirDesc_, emptyDirDesc) };
+    inline DescribeApplicationConfigResponseBodyDataInitContainersConfig& setEmptyDirDesc(vector<Models::DescribeApplicationConfigResponseBodyDataInitContainersConfigEmptyDirDesc> && emptyDirDesc) { DARABONBA_PTR_SET_RVALUE(emptyDirDesc_, emptyDirDesc) };
 
 
     // envs Field Functions 
@@ -106,6 +119,7 @@ namespace Models
     std::shared_ptr<string> commandArgs_ = nullptr;
     // The information of ConfigMap.
     std::shared_ptr<vector<Models::DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc>> configMapMountDesc_ = nullptr;
+    std::shared_ptr<vector<Models::DescribeApplicationConfigResponseBodyDataInitContainersConfigEmptyDirDesc>> emptyDirDesc_ = nullptr;
     // The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Take note of the following rules:
     // 
     // *   Customize

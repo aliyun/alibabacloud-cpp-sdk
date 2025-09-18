@@ -476,6 +476,9 @@
 #include <alibabacloud/models/OpenSaeServiceResponse.hpp>
 #include <alibabacloud/models/PublishWebApplicationRevisionRequest.hpp>
 #include <alibabacloud/models/PublishWebApplicationRevisionResponse.hpp>
+#include <alibabacloud/models/QueryArmsEnableRequest.hpp>
+#include <alibabacloud/models/QueryArmsEnableResponseBody.hpp>
+#include <alibabacloud/models/QueryArmsEnableResponse.hpp>
 #include <alibabacloud/models/QueryResourceStaticsRequest.hpp>
 #include <alibabacloud/models/QueryResourceStaticsResponseBody.hpp>
 #include <alibabacloud/models/QueryResourceStaticsResponse.hpp>
@@ -651,7 +654,9 @@
 #include <alibabacloud/models/DescribeAppServiceDetailResponseBodyDataMethods.hpp>
 #include <alibabacloud/models/DescribeAppServiceDetailResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeApplicationConfigResponseBodyDataConfigMapMountDesc.hpp>
+#include <alibabacloud/models/DescribeApplicationConfigResponseBodyDataEmptyDirDesc.hpp>
 #include <alibabacloud/models/DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc.hpp>
+#include <alibabacloud/models/DescribeApplicationConfigResponseBodyDataInitContainersConfigEmptyDirDesc.hpp>
 #include <alibabacloud/models/DescribeApplicationConfigResponseBodyDataInitContainersConfig.hpp>
 #include <alibabacloud/models/DescribeApplicationConfigResponseBodyDataMountDesc.hpp>
 #include <alibabacloud/models/DescribeApplicationConfigResponseBodyDataOssMountDescs.hpp>
@@ -826,6 +831,7 @@
 #include <alibabacloud/models/ListSwimmingLaneGroupTagsResponseBodyData.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBodyDataTagResources.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBodyData.hpp>
+#include <alibabacloud/models/QueryArmsEnableResponseBodyData.hpp>
 #include <alibabacloud/models/QueryResourceStaticsResponseBodyDataRealTimeRes.hpp>
 #include <alibabacloud/models/QueryResourceStaticsResponseBodyDataSummary.hpp>
 #include <alibabacloud/models/QueryResourceStaticsResponseBodyData.hpp>

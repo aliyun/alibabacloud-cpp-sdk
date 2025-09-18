@@ -713,6 +713,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
     body["ConfigMapMountDesc"] = request.configMapMountDesc();
   }
 
+  if (!!request.hasEmptyDirDesc()) {
+    body["EmptyDirDesc"] = request.emptyDirDesc();
+  }
+
   if (!!request.hasEnableSidecarResourceIsolated()) {
     body["EnableSidecarResourceIsolated"] = request.enableSidecarResourceIsolated();
   }
@@ -2731,6 +2735,10 @@ DeployApplicationResponse Client::deployApplicationWithOptions(const DeployAppli
 
   if (!!request.hasConfigMapMountDesc()) {
     body["ConfigMapMountDesc"] = request.configMapMountDesc();
+  }
+
+  if (!!request.hasEmptyDirDesc()) {
+    body["EmptyDirDesc"] = request.emptyDirDesc();
   }
 
   if (!!request.hasEnableSidecarResourceIsolated()) {
@@ -6877,6 +6885,47 @@ PublishWebApplicationRevisionResponse Client::publishWebApplicationRevision(cons
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return publishWebApplicationRevisionWithOptions(ApplicationId, request, headers, runtime);
+}
+
+/**
+ * @param request QueryArmsEnableRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryArmsEnableResponse
+ */
+QueryArmsEnableResponse Client::queryArmsEnableWithOptions(const QueryArmsEnableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryArmsEnable"},
+    {"version" , "2019-05-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v1/arms/queryArms")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryArmsEnableResponse>();
+}
+
+/**
+ * @param request QueryArmsEnableRequest
+ * @return QueryArmsEnableResponse
+ */
+QueryArmsEnableResponse Client::queryArmsEnable(const QueryArmsEnableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return queryArmsEnableWithOptions(request, headers, runtime);
 }
 
 /**

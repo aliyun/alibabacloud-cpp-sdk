@@ -2069,6 +2069,20 @@ namespace Sae20190506
       Models::PublishWebApplicationRevisionResponse publishWebApplicationRevision(const string &ApplicationId, const Models::PublishWebApplicationRevisionRequest &request);
 
       /**
+       * @param request QueryArmsEnableRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryArmsEnableResponse
+       */
+      Models::QueryArmsEnableResponse queryArmsEnableWithOptions(const Models::QueryArmsEnableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request QueryArmsEnableRequest
+       * @return QueryArmsEnableResponse
+       */
+      Models::QueryArmsEnableResponse queryArmsEnable(const Models::QueryArmsEnableRequest &request);
+
+      /**
        * @summary Queries the resource usage of an application.
        *
        * @param request QueryResourceStaticsRequest

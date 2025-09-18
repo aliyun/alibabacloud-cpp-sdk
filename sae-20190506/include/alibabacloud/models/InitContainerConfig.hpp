@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Command, command_);
       DARABONBA_PTR_TO_JSON(CommandArgs, commandArgs_);
       DARABONBA_PTR_TO_JSON(ConfigMapMountDesc, configMapMountDesc_);
+      DARABONBA_PTR_TO_JSON(EmptyDirDesc, emptyDirDesc_);
       DARABONBA_PTR_TO_JSON(Envs, envs_);
       DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_TO_JSON(Name, name_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Command, command_);
       DARABONBA_PTR_FROM_JSON(CommandArgs, commandArgs_);
       DARABONBA_PTR_FROM_JSON(ConfigMapMountDesc, configMapMountDesc_);
+      DARABONBA_PTR_FROM_JSON(EmptyDirDesc, emptyDirDesc_);
       DARABONBA_PTR_FROM_JSON(Envs, envs_);
       DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->command_ != nullptr
-        && this->commandArgs_ != nullptr && this->configMapMountDesc_ != nullptr && this->envs_ != nullptr && this->imageUrl_ != nullptr && this->name_ != nullptr; };
+        && this->commandArgs_ != nullptr && this->configMapMountDesc_ != nullptr && this->emptyDirDesc_ != nullptr && this->envs_ != nullptr && this->imageUrl_ != nullptr
+        && this->name_ != nullptr; };
     // command Field Functions 
     bool hasCommand() const { return this->command_ != nullptr;};
     void deleteCommand() { this->command_ = nullptr;};
@@ -60,6 +63,13 @@ namespace Models
     void deleteConfigMapMountDesc() { this->configMapMountDesc_ = nullptr;};
     inline string configMapMountDesc() const { DARABONBA_PTR_GET_DEFAULT(configMapMountDesc_, "") };
     inline InitContainerConfig& setConfigMapMountDesc(string configMapMountDesc) { DARABONBA_PTR_SET_VALUE(configMapMountDesc_, configMapMountDesc) };
+
+
+    // emptyDirDesc Field Functions 
+    bool hasEmptyDirDesc() const { return this->emptyDirDesc_ != nullptr;};
+    void deleteEmptyDirDesc() { this->emptyDirDesc_ = nullptr;};
+    inline string emptyDirDesc() const { DARABONBA_PTR_GET_DEFAULT(emptyDirDesc_, "") };
+    inline InitContainerConfig& setEmptyDirDesc(string emptyDirDesc) { DARABONBA_PTR_SET_VALUE(emptyDirDesc_, emptyDirDesc) };
 
 
     // envs Field Functions 
@@ -87,6 +97,7 @@ namespace Models
     std::shared_ptr<string> command_ = nullptr;
     std::shared_ptr<string> commandArgs_ = nullptr;
     std::shared_ptr<string> configMapMountDesc_ = nullptr;
+    std::shared_ptr<string> emptyDirDesc_ = nullptr;
     std::shared_ptr<string> envs_ = nullptr;
     std::shared_ptr<string> imageUrl_ = nullptr;
     std::shared_ptr<string> name_ = nullptr;

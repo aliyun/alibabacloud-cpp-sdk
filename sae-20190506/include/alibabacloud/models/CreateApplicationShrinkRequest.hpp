@@ -31,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DiskSize, diskSize_);
       DARABONBA_PTR_TO_JSON(Dotnet, dotnet_);
       DARABONBA_PTR_TO_JSON(EdasContainerVersion, edasContainerVersion_);
+      DARABONBA_PTR_TO_JSON(EmptyDirDesc, emptyDirDesc_);
       DARABONBA_PTR_TO_JSON(EnableCpuBurst, enableCpuBurst_);
       DARABONBA_PTR_TO_JSON(EnableEbpf, enableEbpf_);
       DARABONBA_PTR_TO_JSON(EnableNewArms, enableNewArms_);
@@ -113,6 +114,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DiskSize, diskSize_);
       DARABONBA_PTR_FROM_JSON(Dotnet, dotnet_);
       DARABONBA_PTR_FROM_JSON(EdasContainerVersion, edasContainerVersion_);
+      DARABONBA_PTR_FROM_JSON(EmptyDirDesc, emptyDirDesc_);
       DARABONBA_PTR_FROM_JSON(EnableCpuBurst, enableCpuBurst_);
       DARABONBA_PTR_FROM_JSON(EnableEbpf, enableEbpf_);
       DARABONBA_PTR_FROM_JSON(EnableNewArms, enableNewArms_);
@@ -191,19 +193,19 @@ namespace Models
         && this->acrInstanceId_ != nullptr && this->appDescription_ != nullptr && this->appName_ != nullptr && this->appSource_ != nullptr && this->associateEip_ != nullptr
         && this->autoConfig_ != nullptr && this->baseAppId_ != nullptr && this->command_ != nullptr && this->commandArgs_ != nullptr && this->configMapMountDesc_ != nullptr
         && this->cpu_ != nullptr && this->customHostAlias_ != nullptr && this->customImageNetworkType_ != nullptr && this->deploy_ != nullptr && this->diskSize_ != nullptr
-        && this->dotnet_ != nullptr && this->edasContainerVersion_ != nullptr && this->enableCpuBurst_ != nullptr && this->enableEbpf_ != nullptr && this->enableNewArms_ != nullptr
-        && this->enablePrometheus_ != nullptr && this->enableSidecarResourceIsolated_ != nullptr && this->envs_ != nullptr && this->gpuConfig_ != nullptr && this->headlessPvtzDiscoverySvc_ != nullptr
-        && this->html_ != nullptr && this->imagePullSecrets_ != nullptr && this->imageUrl_ != nullptr && this->initContainersConfigShrink_ != nullptr && this->isStateful_ != nullptr
-        && this->jarStartArgs_ != nullptr && this->jarStartOptions_ != nullptr && this->jdk_ != nullptr && this->kafkaConfigs_ != nullptr && this->liveness_ != nullptr
-        && this->memory_ != nullptr && this->microRegistration_ != nullptr && this->microRegistrationConfig_ != nullptr && this->microserviceEngineConfig_ != nullptr && this->mountDesc_ != nullptr
-        && this->mountHost_ != nullptr && this->namespaceId_ != nullptr && this->nasConfigs_ != nullptr && this->nasId_ != nullptr && this->newSaeVersion_ != nullptr
-        && this->oidcRoleName_ != nullptr && this->ossAkId_ != nullptr && this->ossAkSecret_ != nullptr && this->ossMountDescs_ != nullptr && this->packageType_ != nullptr
-        && this->packageUrl_ != nullptr && this->packageVersion_ != nullptr && this->php_ != nullptr && this->phpArmsConfigLocation_ != nullptr && this->phpConfig_ != nullptr
-        && this->phpConfigLocation_ != nullptr && this->postStart_ != nullptr && this->preStop_ != nullptr && this->programmingLanguage_ != nullptr && this->pvtzDiscoverySvc_ != nullptr
-        && this->python_ != nullptr && this->pythonModules_ != nullptr && this->readiness_ != nullptr && this->replicas_ != nullptr && this->resourceType_ != nullptr
-        && this->saeVersion_ != nullptr && this->secretMountDesc_ != nullptr && this->securityGroupId_ != nullptr && this->serviceTags_ != nullptr && this->sidecarContainersConfigShrink_ != nullptr
-        && this->slsConfigs_ != nullptr && this->startupProbe_ != nullptr && this->terminationGracePeriodSeconds_ != nullptr && this->timezone_ != nullptr && this->tomcatConfig_ != nullptr
-        && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr && this->warStartOptions_ != nullptr && this->webContainer_ != nullptr; };
+        && this->dotnet_ != nullptr && this->edasContainerVersion_ != nullptr && this->emptyDirDesc_ != nullptr && this->enableCpuBurst_ != nullptr && this->enableEbpf_ != nullptr
+        && this->enableNewArms_ != nullptr && this->enablePrometheus_ != nullptr && this->enableSidecarResourceIsolated_ != nullptr && this->envs_ != nullptr && this->gpuConfig_ != nullptr
+        && this->headlessPvtzDiscoverySvc_ != nullptr && this->html_ != nullptr && this->imagePullSecrets_ != nullptr && this->imageUrl_ != nullptr && this->initContainersConfigShrink_ != nullptr
+        && this->isStateful_ != nullptr && this->jarStartArgs_ != nullptr && this->jarStartOptions_ != nullptr && this->jdk_ != nullptr && this->kafkaConfigs_ != nullptr
+        && this->liveness_ != nullptr && this->memory_ != nullptr && this->microRegistration_ != nullptr && this->microRegistrationConfig_ != nullptr && this->microserviceEngineConfig_ != nullptr
+        && this->mountDesc_ != nullptr && this->mountHost_ != nullptr && this->namespaceId_ != nullptr && this->nasConfigs_ != nullptr && this->nasId_ != nullptr
+        && this->newSaeVersion_ != nullptr && this->oidcRoleName_ != nullptr && this->ossAkId_ != nullptr && this->ossAkSecret_ != nullptr && this->ossMountDescs_ != nullptr
+        && this->packageType_ != nullptr && this->packageUrl_ != nullptr && this->packageVersion_ != nullptr && this->php_ != nullptr && this->phpArmsConfigLocation_ != nullptr
+        && this->phpConfig_ != nullptr && this->phpConfigLocation_ != nullptr && this->postStart_ != nullptr && this->preStop_ != nullptr && this->programmingLanguage_ != nullptr
+        && this->pvtzDiscoverySvc_ != nullptr && this->python_ != nullptr && this->pythonModules_ != nullptr && this->readiness_ != nullptr && this->replicas_ != nullptr
+        && this->resourceType_ != nullptr && this->saeVersion_ != nullptr && this->secretMountDesc_ != nullptr && this->securityGroupId_ != nullptr && this->serviceTags_ != nullptr
+        && this->sidecarContainersConfigShrink_ != nullptr && this->slsConfigs_ != nullptr && this->startupProbe_ != nullptr && this->terminationGracePeriodSeconds_ != nullptr && this->timezone_ != nullptr
+        && this->tomcatConfig_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr && this->warStartOptions_ != nullptr && this->webContainer_ != nullptr; };
     // acrAssumeRoleArn Field Functions 
     bool hasAcrAssumeRoleArn() const { return this->acrAssumeRoleArn_ != nullptr;};
     void deleteAcrAssumeRoleArn() { this->acrAssumeRoleArn_ = nullptr;};
@@ -328,6 +330,13 @@ namespace Models
     void deleteEdasContainerVersion() { this->edasContainerVersion_ = nullptr;};
     inline string edasContainerVersion() const { DARABONBA_PTR_GET_DEFAULT(edasContainerVersion_, "") };
     inline CreateApplicationShrinkRequest& setEdasContainerVersion(string edasContainerVersion) { DARABONBA_PTR_SET_VALUE(edasContainerVersion_, edasContainerVersion) };
+
+
+    // emptyDirDesc Field Functions 
+    bool hasEmptyDirDesc() const { return this->emptyDirDesc_ != nullptr;};
+    void deleteEmptyDirDesc() { this->emptyDirDesc_ = nullptr;};
+    inline string emptyDirDesc() const { DARABONBA_PTR_GET_DEFAULT(emptyDirDesc_, "") };
+    inline CreateApplicationShrinkRequest& setEmptyDirDesc(string emptyDirDesc) { DARABONBA_PTR_SET_VALUE(emptyDirDesc_, emptyDirDesc) };
 
 
     // enableCpuBurst Field Functions 
@@ -855,6 +864,7 @@ namespace Models
     std::shared_ptr<string> dotnet_ = nullptr;
     // The version of the container in HSF.
     std::shared_ptr<string> edasContainerVersion_ = nullptr;
+    std::shared_ptr<string> emptyDirDesc_ = nullptr;
     // Enable CPU Burst.
     // - true: enable
     // - false: disable
