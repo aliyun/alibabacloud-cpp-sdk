@@ -1,0 +1,44 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MILVUS20231012MODEL_HPP_
+#define ALIBABACLOUD_MILVUS20231012MODEL_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/models/CreateDefaultRoleResponseBody.hpp>
+#include <alibabacloud/models/CreateDefaultRoleResponse.hpp>
+#include <alibabacloud/models/DescribeAccessControlListRequest.hpp>
+#include <alibabacloud/models/DescribeAccessControlListResponseBody.hpp>
+#include <alibabacloud/models/DescribeAccessControlListResponse.hpp>
+#include <alibabacloud/models/DescribeInstanceConfigsRequest.hpp>
+#include <alibabacloud/models/DescribeInstanceConfigsResponseBody.hpp>
+#include <alibabacloud/models/DescribeInstanceConfigsResponse.hpp>
+#include <alibabacloud/models/GetInstanceDetailRequest.hpp>
+#include <alibabacloud/models/GetInstanceDetailResponseBody.hpp>
+#include <alibabacloud/models/GetInstanceDetailResponse.hpp>
+#include <alibabacloud/models/ListInstancesRequest.hpp>
+#include <alibabacloud/models/ListInstancesShrinkRequest.hpp>
+#include <alibabacloud/models/ListInstancesResponseBody.hpp>
+#include <alibabacloud/models/ListInstancesResponse.hpp>
+#include <alibabacloud/models/ModifyInstanceConfigRequest.hpp>
+#include <alibabacloud/models/ModifyInstanceConfigResponseBody.hpp>
+#include <alibabacloud/models/ModifyInstanceConfigResponse.hpp>
+#include <alibabacloud/models/UpdateAccessControlListRequest.hpp>
+#include <alibabacloud/models/UpdateAccessControlListResponseBody.hpp>
+#include <alibabacloud/models/UpdateAccessControlListResponse.hpp>
+#include <alibabacloud/models/UpdateInstanceNameRequest.hpp>
+#include <alibabacloud/models/UpdateInstanceNameResponseBody.hpp>
+#include <alibabacloud/models/UpdateInstanceNameResponse.hpp>
+#include <alibabacloud/models/UpdatePublicNetworkStatusRequest.hpp>
+#include <alibabacloud/models/UpdatePublicNetworkStatusResponseBody.hpp>
+#include <alibabacloud/models/UpdatePublicNetworkStatusResponse.hpp>
+#include <alibabacloud/models/DescribeAccessControlListResponseBodyData.hpp>
+#include <alibabacloud/models/GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList.hpp>
+#include <alibabacloud/models/GetInstanceDetailResponseBodyDataClusterInfo.hpp>
+#include <alibabacloud/models/GetInstanceDetailResponseBodyDataMeasureConfig.hpp>
+#include <alibabacloud/models/GetInstanceDetailResponseBodyDataTags.hpp>
+#include <alibabacloud/models/GetInstanceDetailResponseBodyData.hpp>
+#include <alibabacloud/models/ListInstancesRequestTag.hpp>
+#include <alibabacloud/models/ListInstancesResponseBodyDataClusterInfoMilvusResourceInfoList.hpp>
+#include <alibabacloud/models/ListInstancesResponseBodyDataClusterInfo.hpp>
+#include <alibabacloud/models/ListInstancesResponseBodyDataTags.hpp>
+#include <alibabacloud/models/ListInstancesResponseBodyData.hpp>
+
+#endif
