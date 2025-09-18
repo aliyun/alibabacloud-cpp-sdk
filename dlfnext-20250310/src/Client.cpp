@@ -1674,6 +1674,51 @@ GetTableSummaryResponse Client::getTableSummary(const string &catalogId, const s
 }
 
 /**
+ * @summary 获取数据湖表的临时访问凭证
+ *
+ * @param request GetTableTokenRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTableTokenResponse
+ */
+GetTableTokenResponse Client::getTableTokenWithOptions(const string &catalogId, const string &database, const string &table, const GetTableTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIsInternal()) {
+    query["isInternal"] = request.isInternal();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTableToken"},
+    {"version" , "2025-03-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/databases/" , Darabonba::Http::URL::percentEncode(database) , "/tables/" , Darabonba::Http::URL::percentEncode(table) , "/token")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTableTokenResponse>();
+}
+
+/**
+ * @summary 获取数据湖表的临时访问凭证
+ *
+ * @param request GetTableTokenRequest
+ * @return GetTableTokenResponse
+ */
+GetTableTokenResponse Client::getTableToken(const string &catalogId, const string &database, const string &table, const GetTableTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getTableTokenWithOptions(catalogId, database, table, request, headers, runtime);
+}
+
+/**
  * @summary 获取用户
  *
  * @param request GetUserRequest
@@ -2632,6 +2677,10 @@ ListTableDetailsResponse Client::listTableDetailsWithOptions(const string &catal
 
   if (!!request.hasTableNamePattern()) {
     query["tableNamePattern"] = request.tableNamePattern();
+  }
+
+  if (!!request.hasType()) {
+    query["type"] = request.type();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

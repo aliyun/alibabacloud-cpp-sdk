@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(tableName, tableName_);
       DARABONBA_PTR_TO_JSON(totalFileCount, totalFileCount_);
       DARABONBA_PTR_TO_JSON(totalFileSizeInBytes, totalFileSizeInBytes_);
+      DARABONBA_PTR_TO_JSON(totalMetaSizeInBytes, totalMetaSizeInBytes_);
       DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
     };
     friend void from_json(const Darabonba::Json& j, TableSummary& obj) { 
@@ -49,6 +50,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(tableName, tableName_);
       DARABONBA_PTR_FROM_JSON(totalFileCount, totalFileCount_);
       DARABONBA_PTR_FROM_JSON(totalFileSizeInBytes, totalFileSizeInBytes_);
+      DARABONBA_PTR_FROM_JSON(totalMetaSizeInBytes, totalMetaSizeInBytes_);
       DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
     };
     TableSummary() = default ;
@@ -66,7 +68,7 @@ namespace Models
         && this->databaseName_ != nullptr && this->generatedDate_ != nullptr && this->lastAccessTime_ != nullptr && this->objTypeArchiveSize_ != nullptr && this->objTypeColdArchiveSize_ != nullptr
         && this->objTypeIaSize_ != nullptr && this->objTypeStandardSize_ != nullptr && this->partitionCount_ != nullptr && this->path_ != nullptr && this->storageActionParams_ != nullptr
         && this->storageActionTimestamp_ != nullptr && this->storageClass_ != nullptr && this->tableName_ != nullptr && this->totalFileCount_ != nullptr && this->totalFileSizeInBytes_ != nullptr
-        && this->updatedAt_ != nullptr; };
+        && this->totalMetaSizeInBytes_ != nullptr && this->updatedAt_ != nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -181,6 +183,13 @@ namespace Models
     inline TableSummary& setTotalFileSizeInBytes(int64_t totalFileSizeInBytes) { DARABONBA_PTR_SET_VALUE(totalFileSizeInBytes_, totalFileSizeInBytes) };
 
 
+    // totalMetaSizeInBytes Field Functions 
+    bool hasTotalMetaSizeInBytes() const { return this->totalMetaSizeInBytes_ != nullptr;};
+    void deleteTotalMetaSizeInBytes() { this->totalMetaSizeInBytes_ = nullptr;};
+    inline int64_t totalMetaSizeInBytes() const { DARABONBA_PTR_GET_DEFAULT(totalMetaSizeInBytes_, 0L) };
+    inline TableSummary& setTotalMetaSizeInBytes(int64_t totalMetaSizeInBytes) { DARABONBA_PTR_SET_VALUE(totalMetaSizeInBytes_, totalMetaSizeInBytes) };
+
+
     // updatedAt Field Functions 
     bool hasUpdatedAt() const { return this->updatedAt_ != nullptr;};
     void deleteUpdatedAt() { this->updatedAt_ = nullptr;};
@@ -210,6 +219,7 @@ namespace Models
     // 30-day access count
     std::shared_ptr<int64_t> totalFileCount_ = nullptr;
     std::shared_ptr<int64_t> totalFileSizeInBytes_ = nullptr;
+    std::shared_ptr<int64_t> totalMetaSizeInBytes_ = nullptr;
     std::shared_ptr<int64_t> updatedAt_ = nullptr;
   };
 

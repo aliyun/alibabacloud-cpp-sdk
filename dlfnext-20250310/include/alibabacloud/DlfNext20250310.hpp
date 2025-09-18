@@ -671,6 +671,24 @@ namespace DlfNext20250310
       Models::GetTableSummaryResponse getTableSummary(const string &catalogId, const string &database, const string &table, const Models::GetTableSummaryRequest &request);
 
       /**
+       * @summary 获取数据湖表的临时访问凭证
+       *
+       * @param request GetTableTokenRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTableTokenResponse
+       */
+      Models::GetTableTokenResponse getTableTokenWithOptions(const string &catalogId, const string &database, const string &table, const Models::GetTableTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数据湖表的临时访问凭证
+       *
+       * @param request GetTableTokenRequest
+       * @return GetTableTokenResponse
+       */
+      Models::GetTableTokenResponse getTableToken(const string &catalogId, const string &database, const string &table, const Models::GetTableTokenRequest &request);
+
+      /**
        * @summary 获取用户
        *
        * @param request GetUserRequest

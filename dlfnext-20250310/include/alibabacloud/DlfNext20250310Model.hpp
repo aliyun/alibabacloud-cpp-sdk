@@ -37,6 +37,7 @@
 #include <alibabacloud/models/Snapshot.hpp>
 #include <alibabacloud/models/Table.hpp>
 #include <alibabacloud/models/TableCompaction.hpp>
+#include <alibabacloud/models/TableCompactionHistory.hpp>
 #include <alibabacloud/models/TableSnapshot.hpp>
 #include <alibabacloud/models/TableSummary.hpp>
 #include <alibabacloud/models/User.hpp>
@@ -106,6 +107,9 @@
 #include <alibabacloud/models/GetTableSnapshotResponse.hpp>
 #include <alibabacloud/models/GetTableSummaryRequest.hpp>
 #include <alibabacloud/models/GetTableSummaryResponse.hpp>
+#include <alibabacloud/models/GetTableTokenRequest.hpp>
+#include <alibabacloud/models/GetTableTokenResponseBody.hpp>
+#include <alibabacloud/models/GetTableTokenResponse.hpp>
 #include <alibabacloud/models/GetUserRequest.hpp>
 #include <alibabacloud/models/GetUserResponse.hpp>
 #include <alibabacloud/models/GrantRoleToUsersRequest.hpp>

@@ -20,12 +20,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const IcebergTableMetadata& obj) { 
       DARABONBA_PTR_TO_JSON(currentSnapshot, currentSnapshot_);
       DARABONBA_PTR_TO_JSON(fields, fields_);
+      DARABONBA_PTR_TO_JSON(identifierFieldIds, identifierFieldIds_);
       DARABONBA_PTR_TO_JSON(partitionFields, partitionFields_);
       DARABONBA_PTR_TO_JSON(properties, properties_);
     };
     friend void from_json(const Darabonba::Json& j, IcebergTableMetadata& obj) { 
       DARABONBA_PTR_FROM_JSON(currentSnapshot, currentSnapshot_);
       DARABONBA_PTR_FROM_JSON(fields, fields_);
+      DARABONBA_PTR_FROM_JSON(identifierFieldIds, identifierFieldIds_);
       DARABONBA_PTR_FROM_JSON(partitionFields, partitionFields_);
       DARABONBA_PTR_FROM_JSON(properties, properties_);
     };
@@ -41,7 +43,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->currentSnapshot_ != nullptr
-        && this->fields_ != nullptr && this->partitionFields_ != nullptr && this->properties_ != nullptr; };
+        && this->fields_ != nullptr && this->identifierFieldIds_ != nullptr && this->partitionFields_ != nullptr && this->properties_ != nullptr; };
     // currentSnapshot Field Functions 
     bool hasCurrentSnapshot() const { return this->currentSnapshot_ != nullptr;};
     void deleteCurrentSnapshot() { this->currentSnapshot_ = nullptr;};
@@ -58,6 +60,15 @@ namespace Models
     inline vector<IcebergNestedField> fields() { DARABONBA_PTR_GET(fields_, vector<IcebergNestedField>) };
     inline IcebergTableMetadata& setFields(const vector<IcebergNestedField> & fields) { DARABONBA_PTR_SET_VALUE(fields_, fields) };
     inline IcebergTableMetadata& setFields(vector<IcebergNestedField> && fields) { DARABONBA_PTR_SET_RVALUE(fields_, fields) };
+
+
+    // identifierFieldIds Field Functions 
+    bool hasIdentifierFieldIds() const { return this->identifierFieldIds_ != nullptr;};
+    void deleteIdentifierFieldIds() { this->identifierFieldIds_ = nullptr;};
+    inline const vector<int32_t> & identifierFieldIds() const { DARABONBA_PTR_GET_CONST(identifierFieldIds_, vector<int32_t>) };
+    inline vector<int32_t> identifierFieldIds() { DARABONBA_PTR_GET(identifierFieldIds_, vector<int32_t>) };
+    inline IcebergTableMetadata& setIdentifierFieldIds(const vector<int32_t> & identifierFieldIds) { DARABONBA_PTR_SET_VALUE(identifierFieldIds_, identifierFieldIds) };
+    inline IcebergTableMetadata& setIdentifierFieldIds(vector<int32_t> && identifierFieldIds) { DARABONBA_PTR_SET_RVALUE(identifierFieldIds_, identifierFieldIds) };
 
 
     // partitionFields Field Functions 
@@ -81,6 +92,7 @@ namespace Models
   protected:
     std::shared_ptr<IcebergSnapshot> currentSnapshot_ = nullptr;
     std::shared_ptr<vector<IcebergNestedField>> fields_ = nullptr;
+    std::shared_ptr<vector<int32_t>> identifierFieldIds_ = nullptr;
     std::shared_ptr<vector<IcebergPartitionField>> partitionFields_ = nullptr;
     std::shared_ptr<map<string, string>> properties_ = nullptr;
   };

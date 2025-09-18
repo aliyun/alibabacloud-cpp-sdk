@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(pageToken, pageToken_);
       DARABONBA_PTR_TO_JSON(tableNamePattern, tableNamePattern_);
+      DARABONBA_PTR_TO_JSON(type, type_);
     };
     friend void from_json(const Darabonba::Json& j, ListTableDetailsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(pageToken, pageToken_);
       DARABONBA_PTR_FROM_JSON(tableNamePattern, tableNamePattern_);
+      DARABONBA_PTR_FROM_JSON(type, type_);
     };
     ListTableDetailsRequest() = default ;
     ListTableDetailsRequest(const ListTableDetailsRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->maxResults_ != nullptr
-        && this->pageToken_ != nullptr && this->tableNamePattern_ != nullptr; };
+        && this->pageToken_ != nullptr && this->tableNamePattern_ != nullptr && this->type_ != nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
@@ -56,10 +58,18 @@ namespace Models
     inline ListTableDetailsRequest& setTableNamePattern(string tableNamePattern) { DARABONBA_PTR_SET_VALUE(tableNamePattern_, tableNamePattern) };
 
 
+    // type Field Functions 
+    bool hasType() const { return this->type_ != nullptr;};
+    void deleteType() { this->type_ = nullptr;};
+    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline ListTableDetailsRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
   protected:
     std::shared_ptr<int32_t> maxResults_ = nullptr;
     std::shared_ptr<string> pageToken_ = nullptr;
     std::shared_ptr<string> tableNamePattern_ = nullptr;
+    std::shared_ptr<string> type_ = nullptr;
   };
 
   } // namespace Models

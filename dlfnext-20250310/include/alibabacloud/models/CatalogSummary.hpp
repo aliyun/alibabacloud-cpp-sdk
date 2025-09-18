@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(throughputMonthly, throughputMonthly_);
       DARABONBA_PTR_TO_JSON(totalFileCount, totalFileCount_);
       DARABONBA_PTR_TO_JSON(totalFileSizeInBytes, totalFileSizeInBytes_);
+      DARABONBA_PTR_TO_JSON(totalMetaSizeInBytes, totalMetaSizeInBytes_);
     };
     friend void from_json(const Darabonba::Json& j, CatalogSummary& obj) { 
       DARABONBA_PTR_FROM_JSON(apiVisitCountMonthly, apiVisitCountMonthly_);
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(throughputMonthly, throughputMonthly_);
       DARABONBA_PTR_FROM_JSON(totalFileCount, totalFileCount_);
       DARABONBA_PTR_FROM_JSON(totalFileSizeInBytes, totalFileSizeInBytes_);
+      DARABONBA_PTR_FROM_JSON(totalMetaSizeInBytes, totalMetaSizeInBytes_);
     };
     CatalogSummary() = default ;
     CatalogSummary(const CatalogSummary &) = default ;
@@ -57,7 +59,7 @@ namespace Models
     virtual bool empty() const override { this->apiVisitCountMonthly_ != nullptr
         && this->databaseCount_ != nullptr && this->fileAccessCountMonthly_ != nullptr && this->generatedDate_ != nullptr && this->objTypeArchiveSize_ != nullptr && this->objTypeColdArchiveSize_ != nullptr
         && this->objTypeIaSize_ != nullptr && this->objTypeStandardSize_ != nullptr && this->partitionCount_ != nullptr && this->tableCount_ != nullptr && this->throughputMonthly_ != nullptr
-        && this->totalFileCount_ != nullptr && this->totalFileSizeInBytes_ != nullptr; };
+        && this->totalFileCount_ != nullptr && this->totalFileSizeInBytes_ != nullptr && this->totalMetaSizeInBytes_ != nullptr; };
     // apiVisitCountMonthly Field Functions 
     bool hasApiVisitCountMonthly() const { return this->apiVisitCountMonthly_ != nullptr;};
     void deleteApiVisitCountMonthly() { this->apiVisitCountMonthly_ = nullptr;};
@@ -159,6 +161,15 @@ namespace Models
     inline CatalogSummary& setTotalFileSizeInBytes(MoMValues && totalFileSizeInBytes) { DARABONBA_PTR_SET_RVALUE(totalFileSizeInBytes_, totalFileSizeInBytes) };
 
 
+    // totalMetaSizeInBytes Field Functions 
+    bool hasTotalMetaSizeInBytes() const { return this->totalMetaSizeInBytes_ != nullptr;};
+    void deleteTotalMetaSizeInBytes() { this->totalMetaSizeInBytes_ = nullptr;};
+    inline const MoMValues & totalMetaSizeInBytes() const { DARABONBA_PTR_GET_CONST(totalMetaSizeInBytes_, MoMValues) };
+    inline MoMValues totalMetaSizeInBytes() { DARABONBA_PTR_GET(totalMetaSizeInBytes_, MoMValues) };
+    inline CatalogSummary& setTotalMetaSizeInBytes(const MoMValues & totalMetaSizeInBytes) { DARABONBA_PTR_SET_VALUE(totalMetaSizeInBytes_, totalMetaSizeInBytes) };
+    inline CatalogSummary& setTotalMetaSizeInBytes(MoMValues && totalMetaSizeInBytes) { DARABONBA_PTR_SET_RVALUE(totalMetaSizeInBytes_, totalMetaSizeInBytes) };
+
+
   protected:
     std::shared_ptr<int64_t> apiVisitCountMonthly_ = nullptr;
     std::shared_ptr<MoMValues> databaseCount_ = nullptr;
@@ -174,6 +185,7 @@ namespace Models
     std::shared_ptr<int64_t> throughputMonthly_ = nullptr;
     std::shared_ptr<MoMValues> totalFileCount_ = nullptr;
     std::shared_ptr<MoMValues> totalFileSizeInBytes_ = nullptr;
+    std::shared_ptr<MoMValues> totalMetaSizeInBytes_ = nullptr;
   };
 
   } // namespace Models
