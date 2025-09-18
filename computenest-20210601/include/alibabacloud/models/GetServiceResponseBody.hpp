@@ -8,6 +8,7 @@
 #include <alibabacloud/models/GetServiceResponseBodyInstanceRoleInfos.hpp>
 #include <alibabacloud/models/GetServiceResponseBodyServiceDocumentInfos.hpp>
 #include <alibabacloud/models/GetServiceResponseBodyServiceInfos.hpp>
+#include <alibabacloud/models/GetServiceResponseBodyServiceLocaleConfigs.hpp>
 #include <alibabacloud/models/GetServiceResponseBodySupportContacts.hpp>
 #include <alibabacloud/models/GetServiceResponseBodyTags.hpp>
 using namespace std;
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ServiceDocumentInfos, serviceDocumentInfos_);
       DARABONBA_PTR_TO_JSON(ServiceId, serviceId_);
       DARABONBA_PTR_TO_JSON(ServiceInfos, serviceInfos_);
+      DARABONBA_PTR_TO_JSON(ServiceLocaleConfigs, serviceLocaleConfigs_);
       DARABONBA_PTR_TO_JSON(ServiceProductUrl, serviceProductUrl_);
       DARABONBA_PTR_TO_JSON(ServiceType, serviceType_);
       DARABONBA_PTR_TO_JSON(ShareType, shareType_);
@@ -79,6 +81,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ServiceDocumentInfos, serviceDocumentInfos_);
       DARABONBA_PTR_FROM_JSON(ServiceId, serviceId_);
       DARABONBA_PTR_FROM_JSON(ServiceInfos, serviceInfos_);
+      DARABONBA_PTR_FROM_JSON(ServiceLocaleConfigs, serviceLocaleConfigs_);
       DARABONBA_PTR_FROM_JSON(ServiceProductUrl, serviceProductUrl_);
       DARABONBA_PTR_FROM_JSON(ServiceType, serviceType_);
       DARABONBA_PTR_FROM_JSON(ShareType, shareType_);
@@ -111,10 +114,11 @@ namespace Models
         && this->categories_ != nullptr && this->commodity_ != nullptr && this->complianceMetadata_ != nullptr && this->deployFrom_ != nullptr && this->deployMetadata_ != nullptr
         && this->deployType_ != nullptr && this->duration_ != nullptr && this->instanceRoleInfos_ != nullptr && this->isSupportOperated_ != nullptr && this->licenseMetadata_ != nullptr
         && this->logMetadata_ != nullptr && this->operationMetadata_ != nullptr && this->permission_ != nullptr && this->policyNames_ != nullptr && this->publishTime_ != nullptr
-        && this->requestId_ != nullptr && this->serviceDocumentInfos_ != nullptr && this->serviceId_ != nullptr && this->serviceInfos_ != nullptr && this->serviceProductUrl_ != nullptr
-        && this->serviceType_ != nullptr && this->shareType_ != nullptr && this->status_ != nullptr && this->supplierDesc_ != nullptr && this->supplierLogo_ != nullptr
-        && this->supplierName_ != nullptr && this->supplierUid_ != nullptr && this->supplierUrl_ != nullptr && this->supportContacts_ != nullptr && this->tags_ != nullptr
-        && this->tenantType_ != nullptr && this->trialDuration_ != nullptr && this->trialType_ != nullptr && this->version_ != nullptr && this->versionName_ != nullptr; };
+        && this->requestId_ != nullptr && this->serviceDocumentInfos_ != nullptr && this->serviceId_ != nullptr && this->serviceInfos_ != nullptr && this->serviceLocaleConfigs_ != nullptr
+        && this->serviceProductUrl_ != nullptr && this->serviceType_ != nullptr && this->shareType_ != nullptr && this->status_ != nullptr && this->supplierDesc_ != nullptr
+        && this->supplierLogo_ != nullptr && this->supplierName_ != nullptr && this->supplierUid_ != nullptr && this->supplierUrl_ != nullptr && this->supportContacts_ != nullptr
+        && this->tags_ != nullptr && this->tenantType_ != nullptr && this->trialDuration_ != nullptr && this->trialType_ != nullptr && this->version_ != nullptr
+        && this->versionName_ != nullptr; };
     // alarmMetadata Field Functions 
     bool hasAlarmMetadata() const { return this->alarmMetadata_ != nullptr;};
     void deleteAlarmMetadata() { this->alarmMetadata_ = nullptr;};
@@ -263,6 +267,15 @@ namespace Models
     inline vector<GetServiceResponseBodyServiceInfos> serviceInfos() { DARABONBA_PTR_GET(serviceInfos_, vector<GetServiceResponseBodyServiceInfos>) };
     inline GetServiceResponseBody& setServiceInfos(const vector<GetServiceResponseBodyServiceInfos> & serviceInfos) { DARABONBA_PTR_SET_VALUE(serviceInfos_, serviceInfos) };
     inline GetServiceResponseBody& setServiceInfos(vector<GetServiceResponseBodyServiceInfos> && serviceInfos) { DARABONBA_PTR_SET_RVALUE(serviceInfos_, serviceInfos) };
+
+
+    // serviceLocaleConfigs Field Functions 
+    bool hasServiceLocaleConfigs() const { return this->serviceLocaleConfigs_ != nullptr;};
+    void deleteServiceLocaleConfigs() { this->serviceLocaleConfigs_ = nullptr;};
+    inline const vector<GetServiceResponseBodyServiceLocaleConfigs> & serviceLocaleConfigs() const { DARABONBA_PTR_GET_CONST(serviceLocaleConfigs_, vector<GetServiceResponseBodyServiceLocaleConfigs>) };
+    inline vector<GetServiceResponseBodyServiceLocaleConfigs> serviceLocaleConfigs() { DARABONBA_PTR_GET(serviceLocaleConfigs_, vector<GetServiceResponseBodyServiceLocaleConfigs>) };
+    inline GetServiceResponseBody& setServiceLocaleConfigs(const vector<GetServiceResponseBodyServiceLocaleConfigs> & serviceLocaleConfigs) { DARABONBA_PTR_SET_VALUE(serviceLocaleConfigs_, serviceLocaleConfigs) };
+    inline GetServiceResponseBody& setServiceLocaleConfigs(vector<GetServiceResponseBodyServiceLocaleConfigs> && serviceLocaleConfigs) { DARABONBA_PTR_SET_RVALUE(serviceLocaleConfigs_, serviceLocaleConfigs) };
 
 
     // serviceProductUrl Field Functions 
@@ -439,6 +452,7 @@ namespace Models
     std::shared_ptr<string> serviceId_ = nullptr;
     // The information about the service.
     std::shared_ptr<vector<GetServiceResponseBodyServiceInfos>> serviceInfos_ = nullptr;
+    std::shared_ptr<vector<GetServiceResponseBodyServiceLocaleConfigs>> serviceLocaleConfigs_ = nullptr;
     // The URL of the service page.
     std::shared_ptr<string> serviceProductUrl_ = nullptr;
     // The type of the service. Valid values:

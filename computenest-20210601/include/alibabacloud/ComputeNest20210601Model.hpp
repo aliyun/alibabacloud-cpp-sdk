@@ -186,6 +186,7 @@
 #include <alibabacloud/models/GetServiceResponseBodyServiceInfosAgreements.hpp>
 #include <alibabacloud/models/GetServiceResponseBodyServiceInfosSoftwares.hpp>
 #include <alibabacloud/models/GetServiceResponseBodyServiceInfos.hpp>
+#include <alibabacloud/models/GetServiceResponseBodyServiceLocaleConfigs.hpp>
 #include <alibabacloud/models/GetServiceResponseBodySupportContacts.hpp>
 #include <alibabacloud/models/GetServiceResponseBodyTags.hpp>
 #include <alibabacloud/models/GetServiceEstimateCostRequestCommodity.hpp>
@@ -237,6 +238,7 @@
 #include <alibabacloud/models/ListServicesResponseBodyServicesCommodity.hpp>
 #include <alibabacloud/models/ListServicesResponseBodyServicesServiceInfosSoftwares.hpp>
 #include <alibabacloud/models/ListServicesResponseBodyServicesServiceInfos.hpp>
+#include <alibabacloud/models/ListServicesResponseBodyServicesServiceLocaleConfigs.hpp>
 #include <alibabacloud/models/ListServicesResponseBodyServicesTags.hpp>
 #include <alibabacloud/models/ListServicesResponseBodyServices.hpp>
 #include <alibabacloud/models/ListTagResourcesRequestTag.hpp>

@@ -5,6 +5,7 @@
 #include <alibabacloud/models/ListServicesResponseBodyServicesCommodity.hpp>
 #include <vector>
 #include <alibabacloud/models/ListServicesResponseBodyServicesServiceInfos.hpp>
+#include <alibabacloud/models/ListServicesResponseBodyServicesServiceLocaleConfigs.hpp>
 #include <alibabacloud/models/ListServicesResponseBodyServicesTags.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Score, score_);
       DARABONBA_PTR_TO_JSON(ServiceId, serviceId_);
       DARABONBA_PTR_TO_JSON(ServiceInfos, serviceInfos_);
+      DARABONBA_PTR_TO_JSON(ServiceLocaleConfigs, serviceLocaleConfigs_);
       DARABONBA_PTR_TO_JSON(ServiceProductUrl, serviceProductUrl_);
       DARABONBA_PTR_TO_JSON(ServiceType, serviceType_);
       DARABONBA_PTR_TO_JSON(Status, status_);
@@ -51,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Score, score_);
       DARABONBA_PTR_FROM_JSON(ServiceId, serviceId_);
       DARABONBA_PTR_FROM_JSON(ServiceInfos, serviceInfos_);
+      DARABONBA_PTR_FROM_JSON(ServiceLocaleConfigs, serviceLocaleConfigs_);
       DARABONBA_PTR_FROM_JSON(ServiceProductUrl, serviceProductUrl_);
       DARABONBA_PTR_FROM_JSON(ServiceType, serviceType_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -79,10 +82,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->categories_ != nullptr
         && this->commodity_ != nullptr && this->commodityCode_ != nullptr && this->deployFrom_ != nullptr && this->deployType_ != nullptr && this->publishTime_ != nullptr
-        && this->score_ != nullptr && this->serviceId_ != nullptr && this->serviceInfos_ != nullptr && this->serviceProductUrl_ != nullptr && this->serviceType_ != nullptr
-        && this->status_ != nullptr && this->supplierName_ != nullptr && this->supplierNameEng_ != nullptr && this->supplierUid_ != nullptr && this->supplierUrl_ != nullptr
-        && this->tags_ != nullptr && this->tenantType_ != nullptr && this->trialDuration_ != nullptr && this->trialType_ != nullptr && this->version_ != nullptr
-        && this->versionName_ != nullptr && this->virtualInternetService_ != nullptr; };
+        && this->score_ != nullptr && this->serviceId_ != nullptr && this->serviceInfos_ != nullptr && this->serviceLocaleConfigs_ != nullptr && this->serviceProductUrl_ != nullptr
+        && this->serviceType_ != nullptr && this->status_ != nullptr && this->supplierName_ != nullptr && this->supplierNameEng_ != nullptr && this->supplierUid_ != nullptr
+        && this->supplierUrl_ != nullptr && this->tags_ != nullptr && this->tenantType_ != nullptr && this->trialDuration_ != nullptr && this->trialType_ != nullptr
+        && this->version_ != nullptr && this->versionName_ != nullptr && this->virtualInternetService_ != nullptr; };
     // categories Field Functions 
     bool hasCategories() const { return this->categories_ != nullptr;};
     void deleteCategories() { this->categories_ = nullptr;};
@@ -148,6 +151,15 @@ namespace Models
     inline vector<Models::ListServicesResponseBodyServicesServiceInfos> serviceInfos() { DARABONBA_PTR_GET(serviceInfos_, vector<Models::ListServicesResponseBodyServicesServiceInfos>) };
     inline ListServicesResponseBodyServices& setServiceInfos(const vector<Models::ListServicesResponseBodyServicesServiceInfos> & serviceInfos) { DARABONBA_PTR_SET_VALUE(serviceInfos_, serviceInfos) };
     inline ListServicesResponseBodyServices& setServiceInfos(vector<Models::ListServicesResponseBodyServicesServiceInfos> && serviceInfos) { DARABONBA_PTR_SET_RVALUE(serviceInfos_, serviceInfos) };
+
+
+    // serviceLocaleConfigs Field Functions 
+    bool hasServiceLocaleConfigs() const { return this->serviceLocaleConfigs_ != nullptr;};
+    void deleteServiceLocaleConfigs() { this->serviceLocaleConfigs_ = nullptr;};
+    inline const vector<Models::ListServicesResponseBodyServicesServiceLocaleConfigs> & serviceLocaleConfigs() const { DARABONBA_PTR_GET_CONST(serviceLocaleConfigs_, vector<Models::ListServicesResponseBodyServicesServiceLocaleConfigs>) };
+    inline vector<Models::ListServicesResponseBodyServicesServiceLocaleConfigs> serviceLocaleConfigs() { DARABONBA_PTR_GET(serviceLocaleConfigs_, vector<Models::ListServicesResponseBodyServicesServiceLocaleConfigs>) };
+    inline ListServicesResponseBodyServices& setServiceLocaleConfigs(const vector<Models::ListServicesResponseBodyServicesServiceLocaleConfigs> & serviceLocaleConfigs) { DARABONBA_PTR_SET_VALUE(serviceLocaleConfigs_, serviceLocaleConfigs) };
+    inline ListServicesResponseBodyServices& setServiceLocaleConfigs(vector<Models::ListServicesResponseBodyServicesServiceLocaleConfigs> && serviceLocaleConfigs) { DARABONBA_PTR_SET_RVALUE(serviceLocaleConfigs_, serviceLocaleConfigs) };
 
 
     // serviceProductUrl Field Functions 
@@ -277,6 +289,7 @@ namespace Models
     std::shared_ptr<string> serviceId_ = nullptr;
     // The service information.
     std::shared_ptr<vector<Models::ListServicesResponseBodyServicesServiceInfos>> serviceInfos_ = nullptr;
+    std::shared_ptr<vector<Models::ListServicesResponseBodyServicesServiceLocaleConfigs>> serviceLocaleConfigs_ = nullptr;
     // The URL of the service page.
     std::shared_ptr<string> serviceProductUrl_ = nullptr;
     // The type of the service. Valid values:
