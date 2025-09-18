@@ -13,12 +13,14 @@ namespace Models
   class ReadNumGroupTotalResponseBodyData : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ReadNumGroupTotalResponseBodyData& obj) { 
+      DARABONBA_PTR_TO_JSON(GroupCode, groupCode_);
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(ReadCount, readCount_);
       DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
       DARABONBA_PTR_TO_JSON(UnReadCount, unReadCount_);
     };
     friend void from_json(const Darabonba::Json& j, ReadNumGroupTotalResponseBodyData& obj) { 
+      DARABONBA_PTR_FROM_JSON(GroupCode, groupCode_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(ReadCount, readCount_);
       DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
@@ -35,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->id_ != nullptr
-        && this->readCount_ != nullptr && this->totalCount_ != nullptr && this->unReadCount_ != nullptr; };
+    virtual bool empty() const override { this->groupCode_ != nullptr
+        && this->id_ != nullptr && this->readCount_ != nullptr && this->totalCount_ != nullptr && this->unReadCount_ != nullptr; };
+    // groupCode Field Functions 
+    bool hasGroupCode() const { return this->groupCode_ != nullptr;};
+    void deleteGroupCode() { this->groupCode_ = nullptr;};
+    inline string groupCode() const { DARABONBA_PTR_GET_DEFAULT(groupCode_, "") };
+    inline ReadNumGroupTotalResponseBodyData& setGroupCode(string groupCode) { DARABONBA_PTR_SET_VALUE(groupCode_, groupCode) };
+
+
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -66,6 +75,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> groupCode_ = nullptr;
     std::shared_ptr<int64_t> id_ = nullptr;
     std::shared_ptr<int64_t> readCount_ = nullptr;
     std::shared_ptr<int64_t> totalCount_ = nullptr;

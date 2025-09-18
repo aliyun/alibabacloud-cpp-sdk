@@ -21,6 +21,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClientSource, clientSource_);
       DARABONBA_PTR_TO_JSON(Content, content_);
       DARABONBA_PTR_TO_JSON(Cookies, cookies_);
+      DARABONBA_PTR_TO_JSON(GroupCode, groupCode_);
+      DARABONBA_PTR_TO_JSON(History, history_);
       DARABONBA_PTR_TO_JSON(Loc, loc_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
@@ -41,6 +43,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClientSource, clientSource_);
       DARABONBA_PTR_FROM_JSON(Content, content_);
       DARABONBA_PTR_FROM_JSON(Cookies, cookies_);
+      DARABONBA_PTR_FROM_JSON(GroupCode, groupCode_);
+      DARABONBA_PTR_FROM_JSON(History, history_);
       DARABONBA_PTR_FROM_JSON(Loc, loc_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
@@ -65,9 +69,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->acceptLanguage_ != nullptr
         && this->appName_ != nullptr && this->bizName_ != nullptr && this->callerProtocol_ != nullptr && this->classId_ != nullptr && this->clientSource_ != nullptr
-        && this->content_ != nullptr && this->cookies_ != nullptr && this->loc_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr
-        && this->page_ != nullptr && this->pageSize_ != nullptr && this->srcUrl_ != nullptr && this->status_ != nullptr && this->tenantCode_ != nullptr
-        && this->title_ != nullptr && this->uidType_ != nullptr; };
+        && this->content_ != nullptr && this->cookies_ != nullptr && this->groupCode_ != nullptr && this->history_ != nullptr && this->loc_ != nullptr
+        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->page_ != nullptr && this->pageSize_ != nullptr && this->srcUrl_ != nullptr
+        && this->status_ != nullptr && this->tenantCode_ != nullptr && this->title_ != nullptr && this->uidType_ != nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
@@ -122,6 +126,20 @@ namespace Models
     void deleteCookies() { this->cookies_ = nullptr;};
     inline string cookies() const { DARABONBA_PTR_GET_DEFAULT(cookies_, "") };
     inline ReadMessageListRequest& setCookies(string cookies) { DARABONBA_PTR_SET_VALUE(cookies_, cookies) };
+
+
+    // groupCode Field Functions 
+    bool hasGroupCode() const { return this->groupCode_ != nullptr;};
+    void deleteGroupCode() { this->groupCode_ = nullptr;};
+    inline string groupCode() const { DARABONBA_PTR_GET_DEFAULT(groupCode_, "") };
+    inline ReadMessageListRequest& setGroupCode(string groupCode) { DARABONBA_PTR_SET_VALUE(groupCode_, groupCode) };
+
+
+    // history Field Functions 
+    bool hasHistory() const { return this->history_ != nullptr;};
+    void deleteHistory() { this->history_ = nullptr;};
+    inline string history() const { DARABONBA_PTR_GET_DEFAULT(history_, "") };
+    inline ReadMessageListRequest& setHistory(string history) { DARABONBA_PTR_SET_VALUE(history_, history) };
 
 
     // loc Field Functions 
@@ -211,6 +229,8 @@ namespace Models
     std::shared_ptr<string> content_ = nullptr;
     // 系统参数，无需填写
     std::shared_ptr<string> cookies_ = nullptr;
+    std::shared_ptr<string> groupCode_ = nullptr;
+    std::shared_ptr<string> history_ = nullptr;
     // 栏位 nav代表控制台topbar
     std::shared_ptr<string> loc_ = nullptr;
     // 系统参数，无需填写

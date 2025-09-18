@@ -20,6 +20,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClassId, classId_);
       DARABONBA_PTR_TO_JSON(ClientSource, clientSource_);
       DARABONBA_PTR_TO_JSON(Cookies, cookies_);
+      DARABONBA_PTR_TO_JSON(GroupCode, groupCode_);
+      DARABONBA_PTR_TO_JSON(History, history_);
       DARABONBA_PTR_TO_JSON(MsgId, msgId_);
       DARABONBA_PTR_TO_JSON(SrcUrl, srcUrl_);
       DARABONBA_PTR_TO_JSON(Status, status_);
@@ -34,6 +36,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClassId, classId_);
       DARABONBA_PTR_FROM_JSON(ClientSource, clientSource_);
       DARABONBA_PTR_FROM_JSON(Cookies, cookies_);
+      DARABONBA_PTR_FROM_JSON(GroupCode, groupCode_);
+      DARABONBA_PTR_FROM_JSON(History, history_);
       DARABONBA_PTR_FROM_JSON(MsgId, msgId_);
       DARABONBA_PTR_FROM_JSON(SrcUrl, srcUrl_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -53,8 +57,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->acceptLanguage_ != nullptr
         && this->appName_ != nullptr && this->bizName_ != nullptr && this->callerProtocol_ != nullptr && this->classId_ != nullptr && this->clientSource_ != nullptr
-        && this->cookies_ != nullptr && this->msgId_ != nullptr && this->srcUrl_ != nullptr && this->status_ != nullptr && this->tenantCode_ != nullptr
-        && this->uidType_ != nullptr; };
+        && this->cookies_ != nullptr && this->groupCode_ != nullptr && this->history_ != nullptr && this->msgId_ != nullptr && this->srcUrl_ != nullptr
+        && this->status_ != nullptr && this->tenantCode_ != nullptr && this->uidType_ != nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
@@ -104,6 +108,20 @@ namespace Models
     inline ReadMessageContentRequest& setCookies(string cookies) { DARABONBA_PTR_SET_VALUE(cookies_, cookies) };
 
 
+    // groupCode Field Functions 
+    bool hasGroupCode() const { return this->groupCode_ != nullptr;};
+    void deleteGroupCode() { this->groupCode_ = nullptr;};
+    inline string groupCode() const { DARABONBA_PTR_GET_DEFAULT(groupCode_, "") };
+    inline ReadMessageContentRequest& setGroupCode(string groupCode) { DARABONBA_PTR_SET_VALUE(groupCode_, groupCode) };
+
+
+    // history Field Functions 
+    bool hasHistory() const { return this->history_ != nullptr;};
+    void deleteHistory() { this->history_ = nullptr;};
+    inline bool history() const { DARABONBA_PTR_GET_DEFAULT(history_, false) };
+    inline ReadMessageContentRequest& setHistory(bool history) { DARABONBA_PTR_SET_VALUE(history_, history) };
+
+
     // msgId Field Functions 
     bool hasMsgId() const { return this->msgId_ != nullptr;};
     void deleteMsgId() { this->msgId_ = nullptr;};
@@ -147,6 +165,8 @@ namespace Models
     std::shared_ptr<int64_t> classId_ = nullptr;
     std::shared_ptr<string> clientSource_ = nullptr;
     std::shared_ptr<string> cookies_ = nullptr;
+    std::shared_ptr<string> groupCode_ = nullptr;
+    std::shared_ptr<bool> history_ = nullptr;
     std::shared_ptr<string> msgId_ = nullptr;
     std::shared_ptr<string> srcUrl_ = nullptr;
     std::shared_ptr<int32_t> status_ = nullptr;

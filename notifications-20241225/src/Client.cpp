@@ -87,7 +87,7 @@ DelMessageResponse Client::delMessageWithOptions(const DelMessageRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DelMessage"},
     {"version" , "2024-12-25"},
@@ -98,7 +98,7 @@ DelMessageResponse Client::delMessageWithOptions(const DelMessageRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DelMessageResponse>();
 }
 
@@ -151,6 +151,10 @@ DeleteAllMessageResponse Client::deleteAllMessageWithOptions(const DeleteAllMess
     body["Cookies"] = request.cookies();
   }
 
+  if (!!request.hasGroupCode()) {
+    body["GroupCode"] = request.groupCode();
+  }
+
   if (!!request.hasSrcUrl()) {
     body["SrcUrl"] = request.srcUrl();
   }
@@ -165,7 +169,7 @@ DeleteAllMessageResponse Client::deleteAllMessageWithOptions(const DeleteAllMess
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteAllMessage"},
     {"version" , "2024-12-25"},
@@ -176,7 +180,7 @@ DeleteAllMessageResponse Client::deleteAllMessageWithOptions(const DeleteAllMess
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteAllMessageResponse>();
 }
 
@@ -229,6 +233,10 @@ ReadAllMessageResponse Client::readAllMessageWithOptions(const ReadAllMessageReq
     body["Cookies"] = request.cookies();
   }
 
+  if (!!request.hasGroupCode()) {
+    body["GroupCode"] = request.groupCode();
+  }
+
   if (!!request.hasSrcUrl()) {
     body["SrcUrl"] = request.srcUrl();
   }
@@ -243,7 +251,7 @@ ReadAllMessageResponse Client::readAllMessageWithOptions(const ReadAllMessageReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ReadAllMessage"},
     {"version" , "2024-12-25"},
@@ -254,7 +262,7 @@ ReadAllMessageResponse Client::readAllMessageWithOptions(const ReadAllMessageReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ReadAllMessageResponse>();
 }
 
@@ -317,7 +325,7 @@ ReadClassNameResponse Client::readClassNameWithOptions(const ReadClassNameReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ReadClassName"},
     {"version" , "2024-12-25"},
@@ -328,7 +336,7 @@ ReadClassNameResponse Client::readClassNameWithOptions(const ReadClassNameReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ReadClassNameResponse>();
 }
 
@@ -395,7 +403,7 @@ ReadMessageResponse Client::readMessageWithOptions(const ReadMessageRequest &req
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ReadMessage"},
     {"version" , "2024-12-25"},
@@ -406,7 +414,7 @@ ReadMessageResponse Client::readMessageWithOptions(const ReadMessageRequest &req
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ReadMessageResponse>();
 }
 
@@ -459,6 +467,14 @@ ReadMessageContentResponse Client::readMessageContentWithOptions(const ReadMessa
     body["Cookies"] = request.cookies();
   }
 
+  if (!!request.hasGroupCode()) {
+    body["GroupCode"] = request.groupCode();
+  }
+
+  if (!!request.hasHistory()) {
+    body["History"] = request.history();
+  }
+
   if (!!request.hasMsgId()) {
     body["MsgId"] = request.msgId();
   }
@@ -481,7 +497,7 @@ ReadMessageContentResponse Client::readMessageContentWithOptions(const ReadMessa
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ReadMessageContent"},
     {"version" , "2024-12-25"},
@@ -492,7 +508,7 @@ ReadMessageContentResponse Client::readMessageContentWithOptions(const ReadMessa
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ReadMessageContentResponse>();
 }
 
@@ -549,6 +565,14 @@ ReadMessageListResponse Client::readMessageListWithOptions(const ReadMessageList
     body["Cookies"] = request.cookies();
   }
 
+  if (!!request.hasGroupCode()) {
+    body["GroupCode"] = request.groupCode();
+  }
+
+  if (!!request.hasHistory()) {
+    body["History"] = request.history();
+  }
+
   if (!!request.hasLoc()) {
     body["Loc"] = request.loc();
   }
@@ -591,7 +615,7 @@ ReadMessageListResponse Client::readMessageListWithOptions(const ReadMessageList
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ReadMessageList"},
     {"version" , "2024-12-25"},
@@ -602,7 +626,7 @@ ReadMessageListResponse Client::readMessageListWithOptions(const ReadMessageList
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ReadMessageListResponse>();
 }
 
@@ -665,7 +689,7 @@ ReadMessageNewTotalResponse Client::readMessageNewTotalWithOptions(const ReadMes
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ReadMessageNewTotal"},
     {"version" , "2024-12-25"},
@@ -676,7 +700,7 @@ ReadMessageNewTotalResponse Client::readMessageNewTotalWithOptions(const ReadMes
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ReadMessageNewTotalResponse>();
 }
 
@@ -739,7 +763,7 @@ ReadNumGroupByClassResponse Client::readNumGroupByClassWithOptions(const ReadNum
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ReadNumGroupByClass"},
     {"version" , "2024-12-25"},
@@ -750,7 +774,7 @@ ReadNumGroupByClassResponse Client::readNumGroupByClassWithOptions(const ReadNum
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ReadNumGroupByClassResponse>();
 }
 
@@ -817,7 +841,7 @@ ReadNumGroupTotalResponse Client::readNumGroupTotalWithOptions(const ReadNumGrou
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ReadNumGroupTotal"},
     {"version" , "2024-12-25"},
@@ -828,7 +852,7 @@ ReadNumGroupTotalResponse Client::readNumGroupTotalWithOptions(const ReadNumGrou
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ReadNumGroupTotalResponse>();
 }
 

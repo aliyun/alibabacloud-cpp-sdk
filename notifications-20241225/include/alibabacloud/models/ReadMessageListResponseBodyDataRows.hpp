@@ -13,6 +13,7 @@ namespace Models
   class ReadMessageListResponseBodyDataRows : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ReadMessageListResponseBodyDataRows& obj) { 
+      DARABONBA_PTR_TO_JSON(CategoryCode, categoryCode_);
       DARABONBA_PTR_TO_JSON(CategoryName, categoryName_);
       DARABONBA_PTR_TO_JSON(Class, class_);
       DARABONBA_PTR_TO_JSON(ClassId, classId_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Titleh, titleh_);
     };
     friend void from_json(const Darabonba::Json& j, ReadMessageListResponseBodyDataRows& obj) { 
+      DARABONBA_PTR_FROM_JSON(CategoryCode, categoryCode_);
       DARABONBA_PTR_FROM_JSON(CategoryName, categoryName_);
       DARABONBA_PTR_FROM_JSON(Class, class_);
       DARABONBA_PTR_FROM_JSON(ClassId, classId_);
@@ -53,10 +55,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->categoryName_ != nullptr
-        && this->class_ != nullptr && this->classId_ != nullptr && this->content_ != nullptr && this->deleted_ != nullptr && this->gmtCreated_ != nullptr
-        && this->gmtUpdate_ != nullptr && this->massId_ != nullptr && this->memo_ != nullptr && this->msgId_ != nullptr && this->status_ != nullptr
-        && this->title_ != nullptr && this->titleh_ != nullptr; };
+    virtual bool empty() const override { this->categoryCode_ != nullptr
+        && this->categoryName_ != nullptr && this->class_ != nullptr && this->classId_ != nullptr && this->content_ != nullptr && this->deleted_ != nullptr
+        && this->gmtCreated_ != nullptr && this->gmtUpdate_ != nullptr && this->massId_ != nullptr && this->memo_ != nullptr && this->msgId_ != nullptr
+        && this->status_ != nullptr && this->title_ != nullptr && this->titleh_ != nullptr; };
+    // categoryCode Field Functions 
+    bool hasCategoryCode() const { return this->categoryCode_ != nullptr;};
+    void deleteCategoryCode() { this->categoryCode_ = nullptr;};
+    inline string categoryCode() const { DARABONBA_PTR_GET_DEFAULT(categoryCode_, "") };
+    inline ReadMessageListResponseBodyDataRows& setCategoryCode(string categoryCode) { DARABONBA_PTR_SET_VALUE(categoryCode_, categoryCode) };
+
+
     // categoryName Field Functions 
     bool hasCategoryName() const { return this->categoryName_ != nullptr;};
     void deleteCategoryName() { this->categoryName_ = nullptr;};
@@ -149,6 +158,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> categoryCode_ = nullptr;
     // CategoryName
     std::shared_ptr<string> categoryName_ = nullptr;
     // Class
