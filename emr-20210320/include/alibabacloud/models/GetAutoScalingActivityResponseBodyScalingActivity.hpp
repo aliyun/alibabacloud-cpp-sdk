@@ -1,0 +1,220 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_GETAUTOSCALINGACTIVITYRESPONSEBODYSCALINGACTIVITY_HPP_
+#define ALIBABACLOUD_MODELS_GETAUTOSCALINGACTIVITYRESPONSEBODYSCALINGACTIVITY_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/ScalingActivityResult.hpp>
+#include <alibabacloud/models/ScalingRule.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Emr20210320
+{
+namespace Models
+{
+  class GetAutoScalingActivityResponseBodyScalingActivity : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const GetAutoScalingActivityResponseBodyScalingActivity& obj) { 
+      DARABONBA_PTR_TO_JSON(ActivityId, activityId_);
+      DARABONBA_PTR_TO_JSON(ActivityResults, activityResults_);
+      DARABONBA_PTR_TO_JSON(ActivityState, activityState_);
+      DARABONBA_PTR_TO_JSON(ActivityType, activityType_);
+      DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
+      DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+      DARABONBA_PTR_TO_JSON(ExpectNum, expectNum_);
+      DARABONBA_PTR_TO_JSON(NodeGroupId, nodeGroupId_);
+      DARABONBA_PTR_TO_JSON(NodeGroupName, nodeGroupName_);
+      DARABONBA_PTR_TO_JSON(OperationId, operationId_);
+      DARABONBA_PTR_TO_JSON(PolicyType, policyType_);
+      DARABONBA_PTR_TO_JSON(RuleDetail, ruleDetail_);
+      DARABONBA_PTR_TO_JSON(RuleName, ruleName_);
+      DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+    };
+    friend void from_json(const Darabonba::Json& j, GetAutoScalingActivityResponseBodyScalingActivity& obj) { 
+      DARABONBA_PTR_FROM_JSON(ActivityId, activityId_);
+      DARABONBA_PTR_FROM_JSON(ActivityResults, activityResults_);
+      DARABONBA_PTR_FROM_JSON(ActivityState, activityState_);
+      DARABONBA_PTR_FROM_JSON(ActivityType, activityType_);
+      DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
+      DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+      DARABONBA_PTR_FROM_JSON(ExpectNum, expectNum_);
+      DARABONBA_PTR_FROM_JSON(NodeGroupId, nodeGroupId_);
+      DARABONBA_PTR_FROM_JSON(NodeGroupName, nodeGroupName_);
+      DARABONBA_PTR_FROM_JSON(OperationId, operationId_);
+      DARABONBA_PTR_FROM_JSON(PolicyType, policyType_);
+      DARABONBA_PTR_FROM_JSON(RuleDetail, ruleDetail_);
+      DARABONBA_PTR_FROM_JSON(RuleName, ruleName_);
+      DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+    };
+    GetAutoScalingActivityResponseBodyScalingActivity() = default ;
+    GetAutoScalingActivityResponseBodyScalingActivity(const GetAutoScalingActivityResponseBodyScalingActivity &) = default ;
+    GetAutoScalingActivityResponseBodyScalingActivity(GetAutoScalingActivityResponseBodyScalingActivity &&) = default ;
+    GetAutoScalingActivityResponseBodyScalingActivity(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetAutoScalingActivityResponseBodyScalingActivity() = default ;
+    GetAutoScalingActivityResponseBodyScalingActivity& operator=(const GetAutoScalingActivityResponseBodyScalingActivity &) = default ;
+    GetAutoScalingActivityResponseBodyScalingActivity& operator=(GetAutoScalingActivityResponseBodyScalingActivity &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->activityId_ != nullptr
+        && this->activityResults_ != nullptr && this->activityState_ != nullptr && this->activityType_ != nullptr && this->clusterId_ != nullptr && this->description_ != nullptr
+        && this->endTime_ != nullptr && this->expectNum_ != nullptr && this->nodeGroupId_ != nullptr && this->nodeGroupName_ != nullptr && this->operationId_ != nullptr
+        && this->policyType_ != nullptr && this->ruleDetail_ != nullptr && this->ruleName_ != nullptr && this->startTime_ != nullptr; };
+    // activityId Field Functions 
+    bool hasActivityId() const { return this->activityId_ != nullptr;};
+    void deleteActivityId() { this->activityId_ = nullptr;};
+    inline string activityId() const { DARABONBA_PTR_GET_DEFAULT(activityId_, "") };
+    inline GetAutoScalingActivityResponseBodyScalingActivity& setActivityId(string activityId) { DARABONBA_PTR_SET_VALUE(activityId_, activityId) };
+
+
+    // activityResults Field Functions 
+    bool hasActivityResults() const { return this->activityResults_ != nullptr;};
+    void deleteActivityResults() { this->activityResults_ = nullptr;};
+    inline const vector<Models::ScalingActivityResult> & activityResults() const { DARABONBA_PTR_GET_CONST(activityResults_, vector<Models::ScalingActivityResult>) };
+    inline vector<Models::ScalingActivityResult> activityResults() { DARABONBA_PTR_GET(activityResults_, vector<Models::ScalingActivityResult>) };
+    inline GetAutoScalingActivityResponseBodyScalingActivity& setActivityResults(const vector<Models::ScalingActivityResult> & activityResults) { DARABONBA_PTR_SET_VALUE(activityResults_, activityResults) };
+    inline GetAutoScalingActivityResponseBodyScalingActivity& setActivityResults(vector<Models::ScalingActivityResult> && activityResults) { DARABONBA_PTR_SET_RVALUE(activityResults_, activityResults) };
+
+
+    // activityState Field Functions 
+    bool hasActivityState() const { return this->activityState_ != nullptr;};
+    void deleteActivityState() { this->activityState_ = nullptr;};
+    inline string activityState() const { DARABONBA_PTR_GET_DEFAULT(activityState_, "") };
+    inline GetAutoScalingActivityResponseBodyScalingActivity& setActivityState(string activityState) { DARABONBA_PTR_SET_VALUE(activityState_, activityState) };
+
+
+    // activityType Field Functions 
+    bool hasActivityType() const { return this->activityType_ != nullptr;};
+    void deleteActivityType() { this->activityType_ = nullptr;};
+    inline string activityType() const { DARABONBA_PTR_GET_DEFAULT(activityType_, "") };
+    inline GetAutoScalingActivityResponseBodyScalingActivity& setActivityType(string activityType) { DARABONBA_PTR_SET_VALUE(activityType_, activityType) };
+
+
+    // clusterId Field Functions 
+    bool hasClusterId() const { return this->clusterId_ != nullptr;};
+    void deleteClusterId() { this->clusterId_ = nullptr;};
+    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline GetAutoScalingActivityResponseBodyScalingActivity& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
+
+
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline GetAutoScalingActivityResponseBodyScalingActivity& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // endTime Field Functions 
+    bool hasEndTime() const { return this->endTime_ != nullptr;};
+    void deleteEndTime() { this->endTime_ = nullptr;};
+    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline GetAutoScalingActivityResponseBodyScalingActivity& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+    // expectNum Field Functions 
+    bool hasExpectNum() const { return this->expectNum_ != nullptr;};
+    void deleteExpectNum() { this->expectNum_ = nullptr;};
+    inline int32_t expectNum() const { DARABONBA_PTR_GET_DEFAULT(expectNum_, 0) };
+    inline GetAutoScalingActivityResponseBodyScalingActivity& setExpectNum(int32_t expectNum) { DARABONBA_PTR_SET_VALUE(expectNum_, expectNum) };
+
+
+    // nodeGroupId Field Functions 
+    bool hasNodeGroupId() const { return this->nodeGroupId_ != nullptr;};
+    void deleteNodeGroupId() { this->nodeGroupId_ = nullptr;};
+    inline string nodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
+    inline GetAutoScalingActivityResponseBodyScalingActivity& setNodeGroupId(string nodeGroupId) { DARABONBA_PTR_SET_VALUE(nodeGroupId_, nodeGroupId) };
+
+
+    // nodeGroupName Field Functions 
+    bool hasNodeGroupName() const { return this->nodeGroupName_ != nullptr;};
+    void deleteNodeGroupName() { this->nodeGroupName_ = nullptr;};
+    inline string nodeGroupName() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupName_, "") };
+    inline GetAutoScalingActivityResponseBodyScalingActivity& setNodeGroupName(string nodeGroupName) { DARABONBA_PTR_SET_VALUE(nodeGroupName_, nodeGroupName) };
+
+
+    // operationId Field Functions 
+    bool hasOperationId() const { return this->operationId_ != nullptr;};
+    void deleteOperationId() { this->operationId_ = nullptr;};
+    inline string operationId() const { DARABONBA_PTR_GET_DEFAULT(operationId_, "") };
+    inline GetAutoScalingActivityResponseBodyScalingActivity& setOperationId(string operationId) { DARABONBA_PTR_SET_VALUE(operationId_, operationId) };
+
+
+    // policyType Field Functions 
+    bool hasPolicyType() const { return this->policyType_ != nullptr;};
+    void deletePolicyType() { this->policyType_ = nullptr;};
+    inline string policyType() const { DARABONBA_PTR_GET_DEFAULT(policyType_, "") };
+    inline GetAutoScalingActivityResponseBodyScalingActivity& setPolicyType(string policyType) { DARABONBA_PTR_SET_VALUE(policyType_, policyType) };
+
+
+    // ruleDetail Field Functions 
+    bool hasRuleDetail() const { return this->ruleDetail_ != nullptr;};
+    void deleteRuleDetail() { this->ruleDetail_ = nullptr;};
+    inline const Models::ScalingRule & ruleDetail() const { DARABONBA_PTR_GET_CONST(ruleDetail_, Models::ScalingRule) };
+    inline Models::ScalingRule ruleDetail() { DARABONBA_PTR_GET(ruleDetail_, Models::ScalingRule) };
+    inline GetAutoScalingActivityResponseBodyScalingActivity& setRuleDetail(const Models::ScalingRule & ruleDetail) { DARABONBA_PTR_SET_VALUE(ruleDetail_, ruleDetail) };
+    inline GetAutoScalingActivityResponseBodyScalingActivity& setRuleDetail(Models::ScalingRule && ruleDetail) { DARABONBA_PTR_SET_RVALUE(ruleDetail_, ruleDetail) };
+
+
+    // ruleName Field Functions 
+    bool hasRuleName() const { return this->ruleName_ != nullptr;};
+    void deleteRuleName() { this->ruleName_ = nullptr;};
+    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline GetAutoScalingActivityResponseBodyScalingActivity& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
+
+
+    // startTime Field Functions 
+    bool hasStartTime() const { return this->startTime_ != nullptr;};
+    void deleteStartTime() { this->startTime_ = nullptr;};
+    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline GetAutoScalingActivityResponseBodyScalingActivity& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+  protected:
+    // The ID of the scaling activity.
+    std::shared_ptr<string> activityId_ = nullptr;
+    // The instances that correspond to the scaling activity.
+    std::shared_ptr<vector<Models::ScalingActivityResult>> activityResults_ = nullptr;
+    // The status of the scaling activity. Valid values:
+    // 
+    // *   REJECTED
+    // *   SUCCESSFUL
+    // *   FAILED
+    // *   IN_PROGRESS
+    std::shared_ptr<string> activityState_ = nullptr;
+    // The type of the scaling activity. Valid value:
+    // 
+    // *   SCALE_OUT
+    // *   SCALE_IN
+    std::shared_ptr<string> activityType_ = nullptr;
+    // The cluster ID.
+    std::shared_ptr<string> clusterId_ = nullptr;
+    // The description of the scaling activity.
+    std::shared_ptr<string> description_ = nullptr;
+    // The time when scaling ended.
+    std::shared_ptr<int64_t> endTime_ = nullptr;
+    // The number of added or removed instances.
+    std::shared_ptr<int32_t> expectNum_ = nullptr;
+    // The ID of the node group.
+    std::shared_ptr<string> nodeGroupId_ = nullptr;
+    // The name of the node group.
+    std::shared_ptr<string> nodeGroupName_ = nullptr;
+    // The operation ID.
+    std::shared_ptr<string> operationId_ = nullptr;
+    // The policy type.
+    std::shared_ptr<string> policyType_ = nullptr;
+    // The description of the scaling rule.
+    std::shared_ptr<Models::ScalingRule> ruleDetail_ = nullptr;
+    // The name of the scaling rule.
+    std::shared_ptr<string> ruleName_ = nullptr;
+    // The time when scaling started.
+    std::shared_ptr<int64_t> startTime_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Emr20210320
+#endif
