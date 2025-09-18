@@ -103,13 +103,39 @@ namespace Models
 
 
   protected:
+    // Client IP pass-through protocol, supports:
+    // - **off**: No pass-through.
+    // - **PPv1**: PROXY Protocol v1, supports client IP pass-through for TCP protocol.
+    // - **PPv2**: PROXY Protocol v2, supports client IP pass-through for TCP and UDP protocols.
+    // - **SPP**: Simple Proxy Protocol, supports client IP pass-through for UDP protocol.
     std::shared_ptr<string> clientIPPassThroughMode_ = nullptr;
+    // Comment information for the rule.
     std::shared_ptr<string> comment_ = nullptr;
+    // Edge port. Supports:
+    // 
+    // - A single port, e.g., 80.
+    // - Port range, e.g., 81-85, representing ports 81, 82, 83, 84, 85.
+    // - Combination of ports and port ranges, separated by commas, e.g., 80,81-85,90, representing ports 80, 81, 82, 83, 84, 85, 90.
     std::shared_ptr<string> edgePort_ = nullptr;
+    // Forwarding rule protocol, with values:
+    // 
+    // - TCP: TCP protocol.
+    // - UDP: UDP protocol.
     std::shared_ptr<string> protocol_ = nullptr;
+    // Layer 4 acceleration rule ID.
     std::shared_ptr<int64_t> ruleId_ = nullptr;
+    // Specific value of the source, which needs to match the source type.
     std::shared_ptr<string> source_ = nullptr;
+    // Source port. Supports:
+    // 
+    // - A single port, when the source port is a single port, any valid combination of edge ports is supported.
+    // - Port range, only when the edge port is a port range, the source port can be set to a port range, and the range size must be consistent with the edge port. For example, if the edge port is 90-93, the source port cannot be set to 81-85 because the source port range is 5 and the edge port range is 3, which are inconsistent.
     std::shared_ptr<string> sourcePort_ = nullptr;
+    // Source type, supports:
+    // - **ip**: IP.
+    // - **domain**: Domain name.
+    // - **OP**: Origin pool.
+    // - **LB**: Load balancer.
     std::shared_ptr<string> sourceType_ = nullptr;
   };
 

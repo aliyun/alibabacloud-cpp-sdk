@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Ipv6, ipv6_);
       DARABONBA_PTR_TO_JSON(Rules, rules_);
       DARABONBA_PTR_TO_JSON(SiteId, siteId_);
+      DARABONBA_PTR_TO_JSON(StaticIp, staticIp_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateTransportLayerApplicationRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Ipv6, ipv6_);
       DARABONBA_PTR_FROM_JSON(Rules, rules_);
       DARABONBA_PTR_FROM_JSON(SiteId, siteId_);
+      DARABONBA_PTR_FROM_JSON(StaticIp, staticIp_);
     };
     UpdateTransportLayerApplicationRequest() = default ;
     UpdateTransportLayerApplicationRequest(const UpdateTransportLayerApplicationRequest &) = default ;
@@ -42,7 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->applicationId_ != nullptr
-        && this->crossBorderOptimization_ != nullptr && this->ipAccessRule_ != nullptr && this->ipv6_ != nullptr && this->rules_ != nullptr && this->siteId_ != nullptr; };
+        && this->crossBorderOptimization_ != nullptr && this->ipAccessRule_ != nullptr && this->ipv6_ != nullptr && this->rules_ != nullptr && this->siteId_ != nullptr
+        && this->staticIp_ != nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -87,15 +90,37 @@ namespace Models
     inline UpdateTransportLayerApplicationRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
+    // staticIp Field Functions 
+    bool hasStaticIp() const { return this->staticIp_ != nullptr;};
+    void deleteStaticIp() { this->staticIp_ = nullptr;};
+    inline string staticIp() const { DARABONBA_PTR_GET_DEFAULT(staticIp_, "") };
+    inline UpdateTransportLayerApplicationRequest& setStaticIp(string staticIp) { DARABONBA_PTR_SET_VALUE(staticIp_, staticIp) };
+
+
   protected:
+    // Transport layer application ID, which can be obtained by calling the [ListTransportLayerApplications](~~ListTransportLayerApplications~~) interface.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> applicationId_ = nullptr;
+    // Whether to enable China mainland network access optimization, default is disabled. Value range:
+    // 
+    // - on: Enabled.
+    // - off: Disabled.
     std::shared_ptr<string> crossBorderOptimization_ = nullptr;
+    // IP access rule switch. When enabled, the IP access rules in WAF will take effect on the transport layer application.
+    // 
+    // - on: Enabled.
+    // - off: Disabled.
     std::shared_ptr<string> ipAccessRule_ = nullptr;
+    // IPv6 switch.
     std::shared_ptr<string> ipv6_ = nullptr;
+    // Forwarding rule list. Details of each rule. Except for the comment, all other parameters are required.
     std::shared_ptr<vector<UpdateTransportLayerApplicationRequestRules>> rules_ = nullptr;
+    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> siteId_ = nullptr;
+    std::shared_ptr<string> staticIp_ = nullptr;
   };
 
   } // namespace Models

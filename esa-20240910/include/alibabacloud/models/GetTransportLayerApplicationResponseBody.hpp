@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/GetTransportLayerApplicationResponseBodyRules.hpp>
+#include <alibabacloud/models/GetTransportLayerApplicationResponseBodyStaticIpV4List.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -25,6 +26,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Rules, rules_);
       DARABONBA_PTR_TO_JSON(RulesCount, rulesCount_);
       DARABONBA_PTR_TO_JSON(SiteId, siteId_);
+      DARABONBA_PTR_TO_JSON(StaticIp, staticIp_);
+      DARABONBA_PTR_TO_JSON(StaticIpV4List, staticIpV4List_);
       DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, GetTransportLayerApplicationResponseBody& obj) { 
@@ -38,6 +41,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Rules, rules_);
       DARABONBA_PTR_FROM_JSON(RulesCount, rulesCount_);
       DARABONBA_PTR_FROM_JSON(SiteId, siteId_);
+      DARABONBA_PTR_FROM_JSON(StaticIp, staticIp_);
+      DARABONBA_PTR_FROM_JSON(StaticIpV4List, staticIpV4List_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
     };
     GetTransportLayerApplicationResponseBody() = default ;
@@ -53,7 +58,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->applicationId_ != nullptr
         && this->cname_ != nullptr && this->crossBorderOptimization_ != nullptr && this->ipAccessRule_ != nullptr && this->ipv6_ != nullptr && this->recordName_ != nullptr
-        && this->requestId_ != nullptr && this->rules_ != nullptr && this->rulesCount_ != nullptr && this->siteId_ != nullptr && this->status_ != nullptr; };
+        && this->requestId_ != nullptr && this->rules_ != nullptr && this->rulesCount_ != nullptr && this->siteId_ != nullptr && this->staticIp_ != nullptr
+        && this->staticIpV4List_ != nullptr && this->status_ != nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -126,6 +132,22 @@ namespace Models
     inline GetTransportLayerApplicationResponseBody& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
+    // staticIp Field Functions 
+    bool hasStaticIp() const { return this->staticIp_ != nullptr;};
+    void deleteStaticIp() { this->staticIp_ = nullptr;};
+    inline string staticIp() const { DARABONBA_PTR_GET_DEFAULT(staticIp_, "") };
+    inline GetTransportLayerApplicationResponseBody& setStaticIp(string staticIp) { DARABONBA_PTR_SET_VALUE(staticIp_, staticIp) };
+
+
+    // staticIpV4List Field Functions 
+    bool hasStaticIpV4List() const { return this->staticIpV4List_ != nullptr;};
+    void deleteStaticIpV4List() { this->staticIpV4List_ = nullptr;};
+    inline const vector<GetTransportLayerApplicationResponseBodyStaticIpV4List> & staticIpV4List() const { DARABONBA_PTR_GET_CONST(staticIpV4List_, vector<GetTransportLayerApplicationResponseBodyStaticIpV4List>) };
+    inline vector<GetTransportLayerApplicationResponseBodyStaticIpV4List> staticIpV4List() { DARABONBA_PTR_GET(staticIpV4List_, vector<GetTransportLayerApplicationResponseBodyStaticIpV4List>) };
+    inline GetTransportLayerApplicationResponseBody& setStaticIpV4List(const vector<GetTransportLayerApplicationResponseBodyStaticIpV4List> & staticIpV4List) { DARABONBA_PTR_SET_VALUE(staticIpV4List_, staticIpV4List) };
+    inline GetTransportLayerApplicationResponseBody& setStaticIpV4List(vector<GetTransportLayerApplicationResponseBodyStaticIpV4List> && staticIpV4List) { DARABONBA_PTR_SET_RVALUE(staticIpV4List_, staticIpV4List) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -134,17 +156,37 @@ namespace Models
 
 
   protected:
+    // Transport layer application ID.
     std::shared_ptr<int64_t> applicationId_ = nullptr;
+    // The CNAME domain corresponding to the transport layer acceleration application. This field is not empty only when the site is accessed via CNAME.
     std::shared_ptr<string> cname_ = nullptr;
+    // Whether to enable China mainland network access optimization, default is off. Value range:
+    // - on: Enabled.
+    // - off: Disabled.
     std::shared_ptr<string> crossBorderOptimization_ = nullptr;
+    // Switch for IP access rules. When turned on, the IP access rules in WAF take effect on the transport layer application.
+    // 
+    // - on: Turned on.
+    // - off: Turned off.
     std::shared_ptr<string> ipAccessRule_ = nullptr;
+    // IPv6 switch.
     std::shared_ptr<string> ipv6_ = nullptr;
+    // The domain name of the transport layer application.
     std::shared_ptr<string> recordName_ = nullptr;
     // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;
+    // List of forwarding rules.
     std::shared_ptr<vector<GetTransportLayerApplicationResponseBodyRules>> rules_ = nullptr;
+    // Number of forwarding rules contained in the transport layer acceleration application.
     std::shared_ptr<int32_t> rulesCount_ = nullptr;
+    // Site ID.
     std::shared_ptr<int64_t> siteId_ = nullptr;
+    std::shared_ptr<string> staticIp_ = nullptr;
+    std::shared_ptr<vector<GetTransportLayerApplicationResponseBodyStaticIpV4List>> staticIpV4List_ = nullptr;
+    // Status of the transport layer application
+    // 
+    // - **deploying**: Deploying. In this state, modification and deletion are not allowed.
+    // - **active**: Active.
     std::shared_ptr<string> status_ = nullptr;
   };
 

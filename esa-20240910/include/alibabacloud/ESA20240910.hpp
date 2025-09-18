@@ -1114,7 +1114,7 @@ namespace ESA20240910
       Models::CreateSlrRoleForRealtimeLogResponse createSlrRoleForRealtimeLog();
 
       /**
-       * @summary 创建四层应用
+       * @summary Create Transport Layer Application
        *
        * @param tmpReq CreateTransportLayerApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1123,7 +1123,7 @@ namespace ESA20240910
       Models::CreateTransportLayerApplicationResponse createTransportLayerApplicationWithOptions(const Models::CreateTransportLayerApplicationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建四层应用
+       * @summary Create Transport Layer Application
        *
        * @param request CreateTransportLayerApplicationRequest
        * @return CreateTransportLayerApplicationResponse
@@ -1975,7 +1975,7 @@ namespace ESA20240910
       Models::DeleteSiteOriginClientCertificateResponse deleteSiteOriginClientCertificate(const Models::DeleteSiteOriginClientCertificateRequest &request);
 
       /**
-       * @summary 删除四层应用
+       * @summary Delete Transport Layer Application
        *
        * @param request DeleteTransportLayerApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1984,7 +1984,7 @@ namespace ESA20240910
       Models::DeleteTransportLayerApplicationResponse deleteTransportLayerApplicationWithOptions(const Models::DeleteTransportLayerApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除四层应用
+       * @summary Delete Transport Layer Application
        *
        * @param request DeleteTransportLayerApplicationRequest
        * @return DeleteTransportLayerApplicationResponse
@@ -3633,7 +3633,7 @@ namespace ESA20240910
       Models::GetTieredCacheResponse getTieredCache(const Models::GetTieredCacheRequest &request);
 
       /**
-       * @summary 查询四层应用详情
+       * @summary Query details of the transport layer application
        *
        * @param request GetTransportLayerApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3642,7 +3642,7 @@ namespace ESA20240910
       Models::GetTransportLayerApplicationResponse getTransportLayerApplicationWithOptions(const Models::GetTransportLayerApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询四层应用详情
+       * @summary Query details of the transport layer application
        *
        * @param request GetTransportLayerApplicationRequest
        * @return GetTransportLayerApplicationResponse
@@ -4669,7 +4669,7 @@ namespace ESA20240910
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary 查询四层应用列表
+       * @summary List of Transport Layer Applications
        *
        * @param request ListTransportLayerApplicationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4678,7 +4678,7 @@ namespace ESA20240910
       Models::ListTransportLayerApplicationsResponse listTransportLayerApplicationsWithOptions(const Models::ListTransportLayerApplicationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询四层应用列表
+       * @summary List of Transport Layer Applications
        *
        * @param request ListTransportLayerApplicationsRequest
        * @return ListTransportLayerApplicationsResponse
@@ -6168,7 +6168,7 @@ namespace ESA20240910
       Models::UpdateTieredCacheResponse updateTieredCache(const Models::UpdateTieredCacheRequest &request);
 
       /**
-       * @summary 修改四层应用
+       * @summary Modify Transport Layer Application
        *
        * @param tmpReq UpdateTransportLayerApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6177,7 +6177,7 @@ namespace ESA20240910
       Models::UpdateTransportLayerApplicationResponse updateTransportLayerApplicationWithOptions(const Models::UpdateTransportLayerApplicationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改四层应用
+       * @summary Modify Transport Layer Application
        *
        * @param request UpdateTransportLayerApplicationRequest
        * @return UpdateTransportLayerApplicationResponse

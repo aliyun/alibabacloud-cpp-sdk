@@ -1273,6 +1273,7 @@
 #include <alibabacloud/models/GetSiteCustomLogResponseBodyLogCustomField.hpp>
 #include <alibabacloud/models/GetSiteOriginClientCertificateResponseBodyResult.hpp>
 #include <alibabacloud/models/GetTransportLayerApplicationResponseBodyRules.hpp>
+#include <alibabacloud/models/GetTransportLayerApplicationResponseBodyStaticIpV4list.hpp>
 #include <alibabacloud/models/GetWafFilterResponseBodyFilterFieldsLogicsValidator.hpp>
 #include <alibabacloud/models/GetWafFilterResponseBodyFilterFieldsLogics.hpp>
 #include <alibabacloud/models/GetWafFilterResponseBodyFilterFieldsSelectorData.hpp>
@@ -1361,6 +1362,7 @@
 #include <alibabacloud/models/ListTagResourcesRequestTag.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBodyTagResources.hpp>
 #include <alibabacloud/models/ListTransportLayerApplicationsResponseBodyApplicationsRules.hpp>
+#include <alibabacloud/models/ListTransportLayerApplicationsResponseBodyApplicationsStaticIpV4list.hpp>
 #include <alibabacloud/models/ListTransportLayerApplicationsResponseBodyApplications.hpp>
 #include <alibabacloud/models/ListUploadTasksResponseBodyTasks.hpp>
 #include <alibabacloud/models/ListUrlObservationsResponseBodyConfigs.hpp>

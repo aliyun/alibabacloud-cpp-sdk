@@ -3900,7 +3900,7 @@ CreateSlrRoleForRealtimeLogResponse Client::createSlrRoleForRealtimeLog() {
 }
 
 /**
- * @summary 创建四层应用
+ * @summary Create Transport Layer Application
  *
  * @param tmpReq CreateTransportLayerApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3939,6 +3939,10 @@ CreateTransportLayerApplicationResponse Client::createTransportLayerApplicationW
     query["SiteId"] = request.siteId();
   }
 
+  if (!!request.hasStaticIp()) {
+    query["StaticIp"] = request.staticIp();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -3957,7 +3961,7 @@ CreateTransportLayerApplicationResponse Client::createTransportLayerApplicationW
 }
 
 /**
- * @summary 创建四层应用
+ * @summary Create Transport Layer Application
  *
  * @param request CreateTransportLayerApplicationRequest
  * @return CreateTransportLayerApplicationResponse
@@ -6416,7 +6420,7 @@ DeleteSiteOriginClientCertificateResponse Client::deleteSiteOriginClientCertific
 }
 
 /**
- * @summary 删除四层应用
+ * @summary Delete Transport Layer Application
  *
  * @param request DeleteTransportLayerApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6451,7 +6455,7 @@ DeleteTransportLayerApplicationResponse Client::deleteTransportLayerApplicationW
 }
 
 /**
- * @summary 删除四层应用
+ * @summary Delete Transport Layer Application
  *
  * @param request DeleteTransportLayerApplicationRequest
  * @return DeleteTransportLayerApplicationResponse
@@ -10389,7 +10393,7 @@ GetTieredCacheResponse Client::getTieredCache(const GetTieredCacheRequest &reque
 }
 
 /**
- * @summary 查询四层应用详情
+ * @summary Query details of the transport layer application
  *
  * @param request GetTransportLayerApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10416,7 +10420,7 @@ GetTransportLayerApplicationResponse Client::getTransportLayerApplicationWithOpt
 }
 
 /**
- * @summary 查询四层应用详情
+ * @summary Query details of the transport layer application
  *
  * @param request GetTransportLayerApplicationRequest
  * @return GetTransportLayerApplicationResponse
@@ -12874,7 +12878,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary 查询四层应用列表
+ * @summary List of Transport Layer Applications
  *
  * @param request ListTransportLayerApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12901,7 +12905,7 @@ ListTransportLayerApplicationsResponse Client::listTransportLayerApplicationsWit
 }
 
 /**
- * @summary 查询四层应用列表
+ * @summary List of Transport Layer Applications
  *
  * @param request ListTransportLayerApplicationsRequest
  * @return ListTransportLayerApplicationsResponse
@@ -17964,7 +17968,7 @@ UpdateTieredCacheResponse Client::updateTieredCache(const UpdateTieredCacheReque
 }
 
 /**
- * @summary 修改四层应用
+ * @summary Modify Transport Layer Application
  *
  * @param tmpReq UpdateTransportLayerApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18003,6 +18007,10 @@ UpdateTransportLayerApplicationResponse Client::updateTransportLayerApplicationW
     query["SiteId"] = request.siteId();
   }
 
+  if (!!request.hasStaticIp()) {
+    query["StaticIp"] = request.staticIp();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -18021,7 +18029,7 @@ UpdateTransportLayerApplicationResponse Client::updateTransportLayerApplicationW
 }
 
 /**
- * @summary 修改四层应用
+ * @summary Modify Transport Layer Application
  *
  * @param request UpdateTransportLayerApplicationRequest
  * @return UpdateTransportLayerApplicationResponse

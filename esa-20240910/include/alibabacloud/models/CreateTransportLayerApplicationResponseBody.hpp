@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Layer 4 application ID
     std::shared_ptr<int64_t> applicationId_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

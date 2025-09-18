@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // List of transport layer applications.
     std::shared_ptr<vector<ListTransportLayerApplicationsResponseBodyApplications>> applications_ = nullptr;
+    // Current page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // Page size.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Total number of transport layer applications.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Application ID, which can be obtained by calling the [ListTransportLayerApplications](~~ListTransportLayerApplications~~) interface.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> applicationId_ = nullptr;
+    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> siteId_ = nullptr;
   };

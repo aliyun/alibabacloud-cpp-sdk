@@ -94,17 +94,50 @@ namespace Models
 
 
   protected:
+    // Client IP pass-through protocol, supporting:
+    // - **off**: No pass-through.
+    // - **PPv1**: PROXY Protocol v1, supports client IP pass-through for TCP protocol.
+    // - **PPv2**: PROXY Protocol v2, supports client IP pass-through for TCP and UDP protocols.
+    // - **SPP**: Simple Proxy Protocol, supports client IP pass-through for UDP protocol.
+    // 
     // This parameter is required.
     std::shared_ptr<string> clientIPPassThroughMode_ = nullptr;
+    // Comment information for the rule (optional).
     std::shared_ptr<string> comment_ = nullptr;
+    // Edge port. Supports:
+    // 
+    // - A single port, such as 80.
+    // - Port range, such as 81-85, representing ports 81, 82, 83, 84, and 85.
+    // - Combination of ports and port ranges, separated by commas, such as 80,81-85,90, representing ports 80, 81, 82, 83, 84, 85, and 90.
+    // 
+    // Edge ports within a single rule and between multiple rules must not overlap.
+    // 
     // This parameter is required.
     std::shared_ptr<string> edgePort_ = nullptr;
+    // Forwarding rule protocol, with values:
+    // 
+    // - TCP: TCP protocol.
+    // - UDP: UDP protocol.
+    // 
     // This parameter is required.
     std::shared_ptr<string> protocol_ = nullptr;
+    // Specific value of the origin, which needs to match the origin type.
+    // 
     // This parameter is required.
     std::shared_ptr<string> source_ = nullptr;
+    // Origin port. Supports:
+    // 
+    // - A single port, when the origin port is a single port, any valid combination of edge ports is supported.
+    // - Port range, only when the edge port is a port range, the origin port can be set to a port range, and the size of the range must match that of the edge port. For example, if the edge port is 90-93, the origin port cannot be set to 81-85 because the origin port range is 5 and the edge port range is 3, which do not match.
+    // 
     // This parameter is required.
     std::shared_ptr<string> sourcePort_ = nullptr;
+    // Origin type, supporting:
+    // - **ip**: IP address.
+    // - **domain**: Domain name.
+    // - **OP**: Origin pool.
+    // - **LB**: Load balancer.
+    // 
     // This parameter is required.
     std::shared_ptr<string> sourceType_ = nullptr;
   };
