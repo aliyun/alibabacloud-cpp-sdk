@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(SamplingRate, samplingRate_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
     };
     friend void from_json(const Darabonba::Json& j, CreateFlowLogRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
@@ -43,6 +44,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(SamplingRate, samplingRate_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
     };
     CreateFlowLogRequest() = default ;
     CreateFlowLogRequest(const CreateFlowLogRequest &) = default ;
@@ -58,7 +60,7 @@ namespace Models
     virtual bool empty() const override { this->clientToken_ != nullptr
         && this->description_ != nullptr && this->dryRun_ != nullptr && this->ecrId_ != nullptr && this->flowLogName_ != nullptr && this->instanceId_ != nullptr
         && this->instanceType_ != nullptr && this->interval_ != nullptr && this->logStoreName_ != nullptr && this->projectName_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->samplingRate_ != nullptr && this->tag_ != nullptr; };
+        && this->samplingRate_ != nullptr && this->tag_ != nullptr && this->version_ != nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -152,6 +154,13 @@ namespace Models
     inline CreateFlowLogRequest& setTag(vector<CreateFlowLogRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline CreateFlowLogRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
@@ -229,6 +238,7 @@ namespace Models
     // Default value: **1:4096**.
     std::shared_ptr<string> samplingRate_ = nullptr;
     std::shared_ptr<vector<CreateFlowLogRequestTag>> tag_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
   };
 
   } // namespace Models

@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeExpressConnectRouterRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
     };
     DescribeExpressConnectRouterRequest() = default ;
     DescribeExpressConnectRouterRequest(const DescribeExpressConnectRouterRequest &) = default ;
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->clientToken_ != nullptr
         && this->dryRun_ != nullptr && this->ecrId_ != nullptr && this->maxResults_ != nullptr && this->name_ != nullptr && this->nextToken_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->tag_ != nullptr; };
+        && this->resourceGroupId_ != nullptr && this->tag_ != nullptr && this->version_ != nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -106,6 +108,13 @@ namespace Models
     inline DescribeExpressConnectRouterRequest& setTag(vector<DescribeExpressConnectRouterRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline DescribeExpressConnectRouterRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
@@ -133,6 +142,7 @@ namespace Models
     std::shared_ptr<string> resourceGroupId_ = nullptr;
     // The resource tags. You can specify up to 20 tags.
     std::shared_ptr<vector<DescribeExpressConnectRouterRequestTag>> tag_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
   };
 
   } // namespace Models

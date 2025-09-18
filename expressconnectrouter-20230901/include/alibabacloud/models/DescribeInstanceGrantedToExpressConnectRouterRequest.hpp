@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(TagModels, tagModels_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeInstanceGrantedToExpressConnectRouterRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CallerType, callerType_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(TagModels, tagModels_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
     };
     DescribeInstanceGrantedToExpressConnectRouterRequest() = default ;
     DescribeInstanceGrantedToExpressConnectRouterRequest(const DescribeInstanceGrantedToExpressConnectRouterRequest &) = default ;
@@ -56,7 +58,7 @@ namespace Models
     virtual bool empty() const override { this->callerType_ != nullptr
         && this->clientToken_ != nullptr && this->dryRun_ != nullptr && this->ecrId_ != nullptr && this->instanceId_ != nullptr && this->instanceOwnerId_ != nullptr
         && this->instanceRegionId_ != nullptr && this->instanceType_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->tagModels_ != nullptr; };
+        && this->tagModels_ != nullptr && this->version_ != nullptr; };
     // callerType Field Functions 
     bool hasCallerType() const { return this->callerType_ != nullptr;};
     void deleteCallerType() { this->callerType_ = nullptr;};
@@ -143,6 +145,13 @@ namespace Models
     inline DescribeInstanceGrantedToExpressConnectRouterRequest& setTagModels(vector<DescribeInstanceGrantedToExpressConnectRouterRequestTagModels> && tagModels) { DARABONBA_PTR_SET_RVALUE(tagModels_, tagModels) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline DescribeInstanceGrantedToExpressConnectRouterRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
   protected:
     // The type of the user account. Valid values:
     // 
@@ -186,6 +195,7 @@ namespace Models
     std::shared_ptr<string> resourceGroupId_ = nullptr;
     // The tags.
     std::shared_ptr<vector<DescribeInstanceGrantedToExpressConnectRouterRequestTagModels>> tagModels_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
   };
 
   } // namespace Models

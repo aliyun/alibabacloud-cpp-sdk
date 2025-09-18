@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EcrId, ecrId_);
       DARABONBA_PTR_TO_JSON(TransitRouterId, transitRouterId_);
       DARABONBA_PTR_TO_JSON(TransitRouterOwnerId, transitRouterOwnerId_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
       DARABONBA_PTR_TO_JSON(VpcOwnerId, vpcOwnerId_);
     };
@@ -40,6 +41,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EcrId, ecrId_);
       DARABONBA_PTR_FROM_JSON(TransitRouterId, transitRouterId_);
       DARABONBA_PTR_FROM_JSON(TransitRouterOwnerId, transitRouterOwnerId_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
       DARABONBA_PTR_FROM_JSON(VpcOwnerId, vpcOwnerId_);
     };
@@ -57,7 +59,7 @@ namespace Models
     virtual bool empty() const override { this->allowedPrefixes_ != nullptr
         && this->allowedPrefixesMode_ != nullptr && this->associationRegionId_ != nullptr && this->cenId_ != nullptr && this->clientToken_ != nullptr && this->createAttachment_ != nullptr
         && this->description_ != nullptr && this->dryRun_ != nullptr && this->ecrId_ != nullptr && this->transitRouterId_ != nullptr && this->transitRouterOwnerId_ != nullptr
-        && this->vpcId_ != nullptr && this->vpcOwnerId_ != nullptr; };
+        && this->version_ != nullptr && this->vpcId_ != nullptr && this->vpcOwnerId_ != nullptr; };
     // allowedPrefixes Field Functions 
     bool hasAllowedPrefixes() const { return this->allowedPrefixes_ != nullptr;};
     void deleteAllowedPrefixes() { this->allowedPrefixes_ = nullptr;};
@@ -137,6 +139,13 @@ namespace Models
     inline CreateExpressConnectRouterAssociationRequest& setTransitRouterOwnerId(int64_t transitRouterOwnerId) { DARABONBA_PTR_SET_VALUE(transitRouterOwnerId_, transitRouterOwnerId) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline CreateExpressConnectRouterAssociationRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
@@ -194,6 +203,7 @@ namespace Models
     // 
     // >  If you want to connect to a network instance that belongs to a different account, this parameter is required.
     std::shared_ptr<int64_t> transitRouterOwnerId_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
     // The VPC ID.
     std::shared_ptr<string> vpcId_ = nullptr;
     // The ID of the Alibaba Cloud account that owns the VPC. Default value: ID of the Alibaba Cloud account that logs in.

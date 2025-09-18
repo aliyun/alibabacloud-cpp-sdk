@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EcrId, ecrId_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyExpressConnectRouterAssociationAllowedPrefixRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AllowedPrefixes, allowedPrefixes_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EcrId, ecrId_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
     };
     ModifyExpressConnectRouterAssociationAllowedPrefixRequest() = default ;
     ModifyExpressConnectRouterAssociationAllowedPrefixRequest(const ModifyExpressConnectRouterAssociationAllowedPrefixRequest &) = default ;
@@ -44,7 +46,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->allowedPrefixes_ != nullptr
         && this->allowedPrefixesMode_ != nullptr && this->associationId_ != nullptr && this->clientToken_ != nullptr && this->dryRun_ != nullptr && this->ecrId_ != nullptr
-        && this->ownerAccount_ != nullptr; };
+        && this->ownerAccount_ != nullptr && this->version_ != nullptr; };
     // allowedPrefixes Field Functions 
     bool hasAllowedPrefixes() const { return this->allowedPrefixes_ != nullptr;};
     void deleteAllowedPrefixes() { this->allowedPrefixes_ = nullptr;};
@@ -96,6 +98,13 @@ namespace Models
     inline ModifyExpressConnectRouterAssociationAllowedPrefixRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline ModifyExpressConnectRouterAssociationAllowedPrefixRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
   protected:
     // The allowed route prefixes.
     std::shared_ptr<vector<string>> allowedPrefixes_ = nullptr;
@@ -124,6 +133,7 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> ecrId_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
   };
 
   } // namespace Models

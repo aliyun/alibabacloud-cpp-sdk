@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EcrId, ecrId_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDisabledExpressConnectRouterRouteEntriesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EcrId, ecrId_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
     };
     DescribeDisabledExpressConnectRouterRouteEntriesRequest() = default ;
     DescribeDisabledExpressConnectRouterRouteEntriesRequest(const DescribeDisabledExpressConnectRouterRouteEntriesRequest &) = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->dryRun_ != nullptr && this->ecrId_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr; };
+        && this->dryRun_ != nullptr && this->ecrId_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->version_ != nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -74,6 +76,13 @@ namespace Models
     inline DescribeDisabledExpressConnectRouterRouteEntriesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline DescribeDisabledExpressConnectRouterRouteEntriesRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
@@ -97,6 +106,7 @@ namespace Models
     // *   You do not need to specify this parameter for the first request.
     // *   You must specify the token that is obtained from the previous query as the value of NextToken.
     std::shared_ptr<string> nextToken_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
   };
 
   } // namespace Models

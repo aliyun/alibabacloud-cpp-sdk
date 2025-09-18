@@ -19,12 +19,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EcrId, ecrId_);
       DARABONBA_PTR_TO_JSON(TransitModeList, transitModeList_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyExpressConnectRouterInterRegionTransitModeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EcrId, ecrId_);
       DARABONBA_PTR_FROM_JSON(TransitModeList, transitModeList_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
     };
     ModifyExpressConnectRouterInterRegionTransitModeRequest() = default ;
     ModifyExpressConnectRouterInterRegionTransitModeRequest(const ModifyExpressConnectRouterInterRegionTransitModeRequest &) = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->dryRun_ != nullptr && this->ecrId_ != nullptr && this->transitModeList_ != nullptr; };
+        && this->dryRun_ != nullptr && this->ecrId_ != nullptr && this->transitModeList_ != nullptr && this->version_ != nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -69,6 +71,13 @@ namespace Models
     inline ModifyExpressConnectRouterInterRegionTransitModeRequest& setTransitModeList(vector<ModifyExpressConnectRouterInterRegionTransitModeRequestTransitModeList> && transitModeList) { DARABONBA_PTR_SET_RVALUE(transitModeList_, transitModeList) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline ModifyExpressConnectRouterInterRegionTransitModeRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
@@ -87,6 +96,7 @@ namespace Models
     std::shared_ptr<string> ecrId_ = nullptr;
     // The cross-region forwarding modes.
     std::shared_ptr<vector<ModifyExpressConnectRouterInterRegionTransitModeRequestTransitModeList>> transitModeList_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
   };
 
   } // namespace Models

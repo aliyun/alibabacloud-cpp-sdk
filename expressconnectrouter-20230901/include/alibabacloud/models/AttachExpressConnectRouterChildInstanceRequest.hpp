@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EcrId, ecrId_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
     };
     friend void from_json(const Darabonba::Json& j, AttachExpressConnectRouterChildInstanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ChildInstanceId, childInstanceId_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EcrId, ecrId_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
     };
     AttachExpressConnectRouterChildInstanceRequest() = default ;
     AttachExpressConnectRouterChildInstanceRequest(const AttachExpressConnectRouterChildInstanceRequest &) = default ;
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->childInstanceId_ != nullptr
         && this->childInstanceOwnerId_ != nullptr && this->childInstanceRegionId_ != nullptr && this->childInstanceType_ != nullptr && this->clientToken_ != nullptr && this->description_ != nullptr
-        && this->dryRun_ != nullptr && this->ecrId_ != nullptr; };
+        && this->dryRun_ != nullptr && this->ecrId_ != nullptr && this->version_ != nullptr; };
     // childInstanceId Field Functions 
     bool hasChildInstanceId() const { return this->childInstanceId_ != nullptr;};
     void deleteChildInstanceId() { this->childInstanceId_ = nullptr;};
@@ -102,6 +104,13 @@ namespace Models
     inline AttachExpressConnectRouterChildInstanceRequest& setEcrId(string ecrId) { DARABONBA_PTR_SET_VALUE(ecrId_, ecrId) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline AttachExpressConnectRouterChildInstanceRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
   protected:
     // The VBR ID.
     // 
@@ -136,6 +145,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> ecrId_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
   };
 
   } // namespace Models

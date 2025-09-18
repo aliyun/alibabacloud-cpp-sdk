@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DeleteAttachment, deleteAttachment_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EcrId, ecrId_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteExpressConnectRouterAssociationRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AssociationId, associationId_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DeleteAttachment, deleteAttachment_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EcrId, ecrId_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
     };
     DeleteExpressConnectRouterAssociationRequest() = default ;
     DeleteExpressConnectRouterAssociationRequest(const DeleteExpressConnectRouterAssociationRequest &) = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->associationId_ != nullptr
-        && this->clientToken_ != nullptr && this->deleteAttachment_ != nullptr && this->dryRun_ != nullptr && this->ecrId_ != nullptr; };
+        && this->clientToken_ != nullptr && this->deleteAttachment_ != nullptr && this->dryRun_ != nullptr && this->ecrId_ != nullptr && this->version_ != nullptr; };
     // associationId Field Functions 
     bool hasAssociationId() const { return this->associationId_ != nullptr;};
     void deleteAssociationId() { this->associationId_ = nullptr;};
@@ -74,6 +76,13 @@ namespace Models
     inline DeleteExpressConnectRouterAssociationRequest& setEcrId(string ecrId) { DARABONBA_PTR_SET_VALUE(ecrId_, ecrId) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline DeleteExpressConnectRouterAssociationRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
   protected:
     // The ID of the association between the ECR and the VPC or TR.
     // 
@@ -99,6 +108,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> ecrId_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
   };
 
   } // namespace Models

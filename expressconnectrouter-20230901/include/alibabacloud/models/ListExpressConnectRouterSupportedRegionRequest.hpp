@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListExpressConnectRouterSupportedRegionRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(NodeType, nodeType_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
     };
     friend void from_json(const Darabonba::Json& j, ListExpressConnectRouterSupportedRegionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(NodeType, nodeType_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
     };
     ListExpressConnectRouterSupportedRegionRequest() = default ;
     ListExpressConnectRouterSupportedRegionRequest(const ListExpressConnectRouterSupportedRegionRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->nodeType_ != nullptr; };
+        && this->nodeType_ != nullptr && this->version_ != nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -45,6 +47,13 @@ namespace Models
     void deleteNodeType() { this->nodeType_ = nullptr;};
     inline string nodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
     inline ListExpressConnectRouterSupportedRegionRequest& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
+
+
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline ListExpressConnectRouterSupportedRegionRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
   protected:
@@ -62,6 +71,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> nodeType_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
   };
 
   } // namespace Models

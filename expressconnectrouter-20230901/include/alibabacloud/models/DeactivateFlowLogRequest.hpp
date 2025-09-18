@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EcrId, ecrId_);
       DARABONBA_PTR_TO_JSON(FlowLogId, flowLogId_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
     };
     friend void from_json(const Darabonba::Json& j, DeactivateFlowLogRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EcrId, ecrId_);
       DARABONBA_PTR_FROM_JSON(FlowLogId, flowLogId_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
     };
     DeactivateFlowLogRequest() = default ;
     DeactivateFlowLogRequest(const DeactivateFlowLogRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->dryRun_ != nullptr && this->ecrId_ != nullptr && this->flowLogId_ != nullptr; };
+        && this->dryRun_ != nullptr && this->ecrId_ != nullptr && this->flowLogId_ != nullptr && this->version_ != nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -65,6 +67,13 @@ namespace Models
     inline DeactivateFlowLogRequest& setFlowLogId(string flowLogId) { DARABONBA_PTR_SET_VALUE(flowLogId_, flowLogId) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline DeactivateFlowLogRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
@@ -85,6 +94,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> flowLogId_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
   };
 
   } // namespace Models

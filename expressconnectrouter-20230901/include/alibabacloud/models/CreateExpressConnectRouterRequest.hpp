@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
     };
     friend void from_json(const Darabonba::Json& j, CreateExpressConnectRouterRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AlibabaSideAsn, alibabaSideAsn_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
     };
     CreateExpressConnectRouterRequest() = default ;
     CreateExpressConnectRouterRequest(const CreateExpressConnectRouterRequest &) = default ;
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->alibabaSideAsn_ != nullptr
         && this->clientToken_ != nullptr && this->description_ != nullptr && this->dryRun_ != nullptr && this->name_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->tag_ != nullptr; };
+        && this->tag_ != nullptr && this->version_ != nullptr; };
     // alibabaSideAsn Field Functions 
     bool hasAlibabaSideAsn() const { return this->alibabaSideAsn_ != nullptr;};
     void deleteAlibabaSideAsn() { this->alibabaSideAsn_ = nullptr;};
@@ -97,6 +99,13 @@ namespace Models
     inline CreateExpressConnectRouterRequest& setTag(vector<CreateExpressConnectRouterRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline CreateExpressConnectRouterRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
   protected:
     // The autonomous system number (ASN) of the ECR. Valid values: 45104, 64512 to 65534, and 4200000000 to 4294967294. Default value: 45104. The value 65025 is reserved by Alibaba Cloud.
     // 
@@ -127,6 +136,7 @@ namespace Models
     // 
     // You can specify at most 20 tags in each call.
     std::shared_ptr<vector<CreateExpressConnectRouterRequestTag>> tag_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
   };
 
   } // namespace Models

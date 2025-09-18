@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EcrId, ecrId_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeExpressConnectRouterAllowedPrefixHistoryRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AssociationId, associationId_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EcrId, ecrId_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
     };
     DescribeExpressConnectRouterAllowedPrefixHistoryRequest() = default ;
     DescribeExpressConnectRouterAllowedPrefixHistoryRequest(const DescribeExpressConnectRouterAllowedPrefixHistoryRequest &) = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->associationId_ != nullptr
-        && this->clientToken_ != nullptr && this->dryRun_ != nullptr && this->ecrId_ != nullptr && this->instanceId_ != nullptr && this->instanceType_ != nullptr; };
+        && this->clientToken_ != nullptr && this->dryRun_ != nullptr && this->ecrId_ != nullptr && this->instanceId_ != nullptr && this->instanceType_ != nullptr
+        && this->version_ != nullptr; };
     // associationId Field Functions 
     bool hasAssociationId() const { return this->associationId_ != nullptr;};
     void deleteAssociationId() { this->associationId_ = nullptr;};
@@ -83,6 +86,13 @@ namespace Models
     inline DescribeExpressConnectRouterAllowedPrefixHistoryRequest& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline DescribeExpressConnectRouterAllowedPrefixHistoryRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
   protected:
     // The ID of the association between the ECR and the virtual private cloud (VPC) or transit router (TR).
     // 
@@ -112,6 +122,7 @@ namespace Models
     // *   **VPC**
     // *   **TR**
     std::shared_ptr<string> instanceType_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
   };
 
   } // namespace Models

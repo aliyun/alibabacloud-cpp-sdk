@@ -44,6 +44,11 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
  */
 ActivateFlowLogResponse Client::activateFlowLogWithOptions(const ActivateFlowLogRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.clientToken();
@@ -62,8 +67,9 @@ ActivateFlowLogResponse Client::activateFlowLogWithOptions(const ActivateFlowLog
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "ActivateFlowLog"},
     {"version" , "2023-09-01"},
@@ -100,6 +106,11 @@ ActivateFlowLogResponse Client::activateFlowLog(const ActivateFlowLogRequest &re
  */
 AttachExpressConnectRouterChildInstanceResponse Client::attachExpressConnectRouterChildInstanceWithOptions(const AttachExpressConnectRouterChildInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasChildInstanceId()) {
     body["ChildInstanceId"] = request.childInstanceId();
@@ -134,8 +145,9 @@ AttachExpressConnectRouterChildInstanceResponse Client::attachExpressConnectRout
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "AttachExpressConnectRouterChildInstance"},
     {"version" , "2023-09-01"},
@@ -172,6 +184,11 @@ AttachExpressConnectRouterChildInstanceResponse Client::attachExpressConnectRout
  */
 CheckAddRegionToExpressConnectRouterResponse Client::checkAddRegionToExpressConnectRouterWithOptions(const CheckAddRegionToExpressConnectRouterRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.clientToken();
@@ -190,8 +207,9 @@ CheckAddRegionToExpressConnectRouterResponse Client::checkAddRegionToExpressConn
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "CheckAddRegionToExpressConnectRouter"},
     {"version" , "2023-09-01"},
@@ -228,6 +246,11 @@ CheckAddRegionToExpressConnectRouterResponse Client::checkAddRegionToExpressConn
  */
 CreateExpressConnectRouterResponse Client::createExpressConnectRouterWithOptions(const CreateExpressConnectRouterRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasAlibabaSideAsn()) {
     body["AlibabaSideAsn"] = request.alibabaSideAsn();
@@ -258,8 +281,9 @@ CreateExpressConnectRouterResponse Client::createExpressConnectRouterWithOptions
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "CreateExpressConnectRouter"},
     {"version" , "2023-09-01"},
@@ -296,6 +320,11 @@ CreateExpressConnectRouterResponse Client::createExpressConnectRouter(const Crea
  */
 CreateExpressConnectRouterAssociationResponse Client::createExpressConnectRouterAssociationWithOptions(const CreateExpressConnectRouterAssociationRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasAllowedPrefixes()) {
     body["AllowedPrefixes"] = request.allowedPrefixes();
@@ -350,8 +379,9 @@ CreateExpressConnectRouterAssociationResponse Client::createExpressConnectRouter
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "CreateExpressConnectRouterAssociation"},
     {"version" , "2023-09-01"},
@@ -419,6 +449,10 @@ CreateFlowLogResponse Client::createFlowLogWithOptions(const CreateFlowLogReques
     query["Tag"] = request.tag();
   }
 
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.clientToken();
@@ -478,6 +512,11 @@ CreateFlowLogResponse Client::createFlowLog(const CreateFlowLogRequest &request)
  */
 DeactivateFlowLogResponse Client::deactivateFlowLogWithOptions(const DeactivateFlowLogRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.clientToken();
@@ -496,8 +535,9 @@ DeactivateFlowLogResponse Client::deactivateFlowLogWithOptions(const DeactivateF
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "DeactivateFlowLog"},
     {"version" , "2023-09-01"},
@@ -536,6 +576,11 @@ DeactivateFlowLogResponse Client::deactivateFlowLog(const DeactivateFlowLogReque
  */
 DeleteExpressConnectRouterResponse Client::deleteExpressConnectRouterWithOptions(const DeleteExpressConnectRouterRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.clientToken();
@@ -550,8 +595,9 @@ DeleteExpressConnectRouterResponse Client::deleteExpressConnectRouterWithOptions
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "DeleteExpressConnectRouter"},
     {"version" , "2023-09-01"},
@@ -590,6 +636,11 @@ DeleteExpressConnectRouterResponse Client::deleteExpressConnectRouter(const Dele
  */
 DeleteExpressConnectRouterAssociationResponse Client::deleteExpressConnectRouterAssociationWithOptions(const DeleteExpressConnectRouterAssociationRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasAssociationId()) {
     body["AssociationId"] = request.associationId();
@@ -612,8 +663,9 @@ DeleteExpressConnectRouterAssociationResponse Client::deleteExpressConnectRouter
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "DeleteExpressConnectRouterAssociation"},
     {"version" , "2023-09-01"},
@@ -651,6 +703,10 @@ DeleteFlowlogResponse Client::deleteFlowlogWithOptions(const DeleteFlowlogReques
   json query = {};
   if (!!request.hasFlowLogId()) {
     query["FlowLogId"] = request.flowLogId();
+  }
+
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
   }
 
   json body = {};
@@ -704,6 +760,11 @@ DeleteFlowlogResponse Client::deleteFlowlog(const DeleteFlowlogRequest &request)
  */
 DescribeDisabledExpressConnectRouterRouteEntriesResponse Client::describeDisabledExpressConnectRouterRouteEntriesWithOptions(const DescribeDisabledExpressConnectRouterRouteEntriesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.clientToken();
@@ -726,8 +787,9 @@ DescribeDisabledExpressConnectRouterRouteEntriesResponse Client::describeDisable
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "DescribeDisabledExpressConnectRouterRouteEntries"},
     {"version" , "2023-09-01"},
@@ -762,6 +824,11 @@ DescribeDisabledExpressConnectRouterRouteEntriesResponse Client::describeDisable
  */
 DescribeExpressConnectRouterResponse Client::describeExpressConnectRouterWithOptions(const DescribeExpressConnectRouterRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.clientToken();
@@ -796,8 +863,9 @@ DescribeExpressConnectRouterResponse Client::describeExpressConnectRouterWithOpt
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "DescribeExpressConnectRouter"},
     {"version" , "2023-09-01"},
@@ -832,6 +900,11 @@ DescribeExpressConnectRouterResponse Client::describeExpressConnectRouter(const 
  */
 DescribeExpressConnectRouterAllowedPrefixHistoryResponse Client::describeExpressConnectRouterAllowedPrefixHistoryWithOptions(const DescribeExpressConnectRouterAllowedPrefixHistoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasAssociationId()) {
     body["AssociationId"] = request.associationId();
@@ -858,8 +931,9 @@ DescribeExpressConnectRouterAllowedPrefixHistoryResponse Client::describeExpress
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "DescribeExpressConnectRouterAllowedPrefixHistory"},
     {"version" , "2023-09-01"},
@@ -894,6 +968,11 @@ DescribeExpressConnectRouterAllowedPrefixHistoryResponse Client::describeExpress
  */
 DescribeExpressConnectRouterAssociationResponse Client::describeExpressConnectRouterAssociationWithOptions(const DescribeExpressConnectRouterAssociationRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasAssociationId()) {
     body["AssociationId"] = request.associationId();
@@ -940,8 +1019,9 @@ DescribeExpressConnectRouterAssociationResponse Client::describeExpressConnectRo
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "DescribeExpressConnectRouterAssociation"},
     {"version" , "2023-09-01"},
@@ -976,6 +1056,11 @@ DescribeExpressConnectRouterAssociationResponse Client::describeExpressConnectRo
  */
 DescribeExpressConnectRouterChildInstanceResponse Client::describeExpressConnectRouterChildInstanceWithOptions(const DescribeExpressConnectRouterChildInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasAssociationId()) {
     body["AssociationId"] = request.associationId();
@@ -1014,8 +1099,9 @@ DescribeExpressConnectRouterChildInstanceResponse Client::describeExpressConnect
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "DescribeExpressConnectRouterChildInstance"},
     {"version" , "2023-09-01"},
@@ -1050,6 +1136,11 @@ DescribeExpressConnectRouterChildInstanceResponse Client::describeExpressConnect
  */
 DescribeExpressConnectRouterInterRegionTransitModeResponse Client::describeExpressConnectRouterInterRegionTransitModeWithOptions(const DescribeExpressConnectRouterInterRegionTransitModeRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.clientToken();
@@ -1064,8 +1155,9 @@ DescribeExpressConnectRouterInterRegionTransitModeResponse Client::describeExpre
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "DescribeExpressConnectRouterInterRegionTransitMode"},
     {"version" , "2023-09-01"},
@@ -1100,6 +1192,11 @@ DescribeExpressConnectRouterInterRegionTransitModeResponse Client::describeExpre
  */
 DescribeExpressConnectRouterRegionResponse Client::describeExpressConnectRouterRegionWithOptions(const DescribeExpressConnectRouterRegionRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.clientToken();
@@ -1114,8 +1211,9 @@ DescribeExpressConnectRouterRegionResponse Client::describeExpressConnectRouterR
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "DescribeExpressConnectRouterRegion"},
     {"version" , "2023-09-01"},
@@ -1150,6 +1248,11 @@ DescribeExpressConnectRouterRegionResponse Client::describeExpressConnectRouterR
  */
 DescribeExpressConnectRouterRouteEntriesResponse Client::describeExpressConnectRouterRouteEntriesWithOptions(const DescribeExpressConnectRouterRouteEntriesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasAsPath()) {
     body["AsPath"] = request.asPath();
@@ -1192,8 +1295,9 @@ DescribeExpressConnectRouterRouteEntriesResponse Client::describeExpressConnectR
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "DescribeExpressConnectRouterRouteEntries"},
     {"version" , "2023-09-01"},
@@ -1265,6 +1369,10 @@ DescribeFlowLogsResponse Client::describeFlowLogsWithOptions(const DescribeFlowL
     query["Tag"] = request.tag();
   }
 
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.clientToken();
@@ -1316,6 +1424,11 @@ DescribeFlowLogsResponse Client::describeFlowLogs(const DescribeFlowLogsRequest 
  */
 DescribeInstanceGrantedToExpressConnectRouterResponse Client::describeInstanceGrantedToExpressConnectRouterWithOptions(const DescribeInstanceGrantedToExpressConnectRouterRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasCallerType()) {
     body["CallerType"] = request.callerType();
@@ -1366,8 +1479,9 @@ DescribeInstanceGrantedToExpressConnectRouterResponse Client::describeInstanceGr
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "DescribeInstanceGrantedToExpressConnectRouter"},
     {"version" , "2023-09-01"},
@@ -1404,6 +1518,11 @@ DescribeInstanceGrantedToExpressConnectRouterResponse Client::describeInstanceGr
  */
 DetachExpressConnectRouterChildInstanceResponse Client::detachExpressConnectRouterChildInstanceWithOptions(const DetachExpressConnectRouterChildInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasChildInstanceId()) {
     body["ChildInstanceId"] = request.childInstanceId();
@@ -1426,8 +1545,9 @@ DetachExpressConnectRouterChildInstanceResponse Client::detachExpressConnectRout
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "DetachExpressConnectRouterChildInstance"},
     {"version" , "2023-09-01"},
@@ -1464,6 +1584,11 @@ DetachExpressConnectRouterChildInstanceResponse Client::detachExpressConnectRout
  */
 DisableExpressConnectRouterRouteEntriesResponse Client::disableExpressConnectRouterRouteEntriesWithOptions(const DisableExpressConnectRouterRouteEntriesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.clientToken();
@@ -1486,8 +1611,9 @@ DisableExpressConnectRouterRouteEntriesResponse Client::disableExpressConnectRou
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "DisableExpressConnectRouterRouteEntries"},
     {"version" , "2023-09-01"},
@@ -1522,6 +1648,11 @@ DisableExpressConnectRouterRouteEntriesResponse Client::disableExpressConnectRou
  */
 EnableExpressConnectRouterRouteEntriesResponse Client::enableExpressConnectRouterRouteEntriesWithOptions(const EnableExpressConnectRouterRouteEntriesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.clientToken();
@@ -1544,8 +1675,9 @@ EnableExpressConnectRouterRouteEntriesResponse Client::enableExpressConnectRoute
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "EnableExpressConnectRouterRouteEntries"},
     {"version" , "2023-09-01"},
@@ -1583,6 +1715,11 @@ EnableExpressConnectRouterRouteEntriesResponse Client::enableExpressConnectRoute
  */
 ForceDeleteExpressConnectRouterResponse Client::forceDeleteExpressConnectRouterWithOptions(const ForceDeleteExpressConnectRouterRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.clientToken();
@@ -1597,8 +1734,9 @@ ForceDeleteExpressConnectRouterResponse Client::forceDeleteExpressConnectRouterW
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "ForceDeleteExpressConnectRouter"},
     {"version" , "2023-09-01"},
@@ -1638,6 +1776,11 @@ ForceDeleteExpressConnectRouterResponse Client::forceDeleteExpressConnectRouter(
  */
 GrantInstanceToExpressConnectRouterResponse Client::grantInstanceToExpressConnectRouterWithOptions(const GrantInstanceToExpressConnectRouterRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.clientToken();
@@ -1668,8 +1811,9 @@ GrantInstanceToExpressConnectRouterResponse Client::grantInstanceToExpressConnec
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "GrantInstanceToExpressConnectRouter"},
     {"version" , "2023-09-01"},
@@ -1706,6 +1850,11 @@ GrantInstanceToExpressConnectRouterResponse Client::grantInstanceToExpressConnec
  */
 ListExpressConnectRouterSupportedRegionResponse Client::listExpressConnectRouterSupportedRegionWithOptions(const ListExpressConnectRouterSupportedRegionRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.clientToken();
@@ -1716,8 +1865,9 @@ ListExpressConnectRouterSupportedRegionResponse Client::listExpressConnectRouter
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "ListExpressConnectRouterSupportedRegion"},
     {"version" , "2023-09-01"},
@@ -1752,6 +1902,11 @@ ListExpressConnectRouterSupportedRegionResponse Client::listExpressConnectRouter
  */
 ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasMaxResults()) {
     body["MaxResults"] = request.maxResults();
@@ -1774,8 +1929,9 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "ListTagResources"},
     {"version" , "2023-09-01"},
@@ -1812,6 +1968,11 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
  */
 ModifyExpressConnectRouterResponse Client::modifyExpressConnectRouterWithOptions(const ModifyExpressConnectRouterRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.clientToken();
@@ -1834,8 +1995,9 @@ ModifyExpressConnectRouterResponse Client::modifyExpressConnectRouterWithOptions
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "ModifyExpressConnectRouter"},
     {"version" , "2023-09-01"},
@@ -1872,6 +2034,11 @@ ModifyExpressConnectRouterResponse Client::modifyExpressConnectRouter(const Modi
  */
 ModifyExpressConnectRouterAssociationResponse Client::modifyExpressConnectRouterAssociationWithOptions(const ModifyExpressConnectRouterAssociationRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasAssociationId()) {
     body["AssociationId"] = request.associationId();
@@ -1894,8 +2061,9 @@ ModifyExpressConnectRouterAssociationResponse Client::modifyExpressConnectRouter
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "ModifyExpressConnectRouterAssociation"},
     {"version" , "2023-09-01"},
@@ -1930,6 +2098,11 @@ ModifyExpressConnectRouterAssociationResponse Client::modifyExpressConnectRouter
  */
 ModifyExpressConnectRouterAssociationAllowedPrefixResponse Client::modifyExpressConnectRouterAssociationAllowedPrefixWithOptions(const ModifyExpressConnectRouterAssociationAllowedPrefixRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasAllowedPrefixes()) {
     body["AllowedPrefixes"] = request.allowedPrefixes();
@@ -1960,8 +2133,9 @@ ModifyExpressConnectRouterAssociationAllowedPrefixResponse Client::modifyExpress
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "ModifyExpressConnectRouterAssociationAllowedPrefix"},
     {"version" , "2023-09-01"},
@@ -1996,6 +2170,11 @@ ModifyExpressConnectRouterAssociationAllowedPrefixResponse Client::modifyExpress
  */
 ModifyExpressConnectRouterChildInstanceResponse Client::modifyExpressConnectRouterChildInstanceWithOptions(const ModifyExpressConnectRouterChildInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasChildInstanceId()) {
     body["ChildInstanceId"] = request.childInstanceId();
@@ -2022,8 +2201,9 @@ ModifyExpressConnectRouterChildInstanceResponse Client::modifyExpressConnectRout
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "ModifyExpressConnectRouterChildInstance"},
     {"version" , "2023-09-01"},
@@ -2058,6 +2238,11 @@ ModifyExpressConnectRouterChildInstanceResponse Client::modifyExpressConnectRout
  */
 ModifyExpressConnectRouterInterRegionTransitModeResponse Client::modifyExpressConnectRouterInterRegionTransitModeWithOptions(const ModifyExpressConnectRouterInterRegionTransitModeRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.clientToken();
@@ -2076,8 +2261,9 @@ ModifyExpressConnectRouterInterRegionTransitModeResponse Client::modifyExpressCo
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "ModifyExpressConnectRouterInterRegionTransitMode"},
     {"version" , "2023-09-01"},
@@ -2127,6 +2313,10 @@ ModifyFlowLogAttributeResponse Client::modifyFlowLogAttributeWithOptions(const M
 
   if (!!request.hasSamplingRate()) {
     query["SamplingRate"] = request.samplingRate();
+  }
+
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
   }
 
   json body = {};
@@ -2184,6 +2374,11 @@ ModifyFlowLogAttributeResponse Client::modifyFlowLogAttribute(const ModifyFlowLo
  */
 MoveResourceGroupResponse Client::moveResourceGroupWithOptions(const MoveResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.clientToken();
@@ -2206,8 +2401,9 @@ MoveResourceGroupResponse Client::moveResourceGroupWithOptions(const MoveResourc
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "MoveResourceGroup"},
     {"version" , "2023-09-01"},
@@ -2242,6 +2438,11 @@ MoveResourceGroupResponse Client::moveResourceGroup(const MoveResourceGroupReque
  */
 RevokeInstanceFromExpressConnectRouterResponse Client::revokeInstanceFromExpressConnectRouterWithOptions(const RevokeInstanceFromExpressConnectRouterRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.clientToken();
@@ -2272,8 +2473,9 @@ RevokeInstanceFromExpressConnectRouterResponse Client::revokeInstanceFromExpress
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "RevokeInstanceFromExpressConnectRouter"},
     {"version" , "2023-09-01"},
@@ -2310,6 +2512,11 @@ RevokeInstanceFromExpressConnectRouterResponse Client::revokeInstanceFromExpress
  */
 SynchronizeExpressConnectRouterInterRegionBandwidthResponse Client::synchronizeExpressConnectRouterInterRegionBandwidthWithOptions(const SynchronizeExpressConnectRouterInterRegionBandwidthRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.clientToken();
@@ -2324,8 +2531,9 @@ SynchronizeExpressConnectRouterInterRegionBandwidthResponse Client::synchronizeE
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "SynchronizeExpressConnectRouterInterRegionBandwidth"},
     {"version" , "2023-09-01"},
@@ -2362,6 +2570,11 @@ SynchronizeExpressConnectRouterInterRegionBandwidthResponse Client::synchronizeE
  */
 TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasClientToken()) {
     body["ClientToken"] = request.clientToken();
@@ -2384,8 +2597,9 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "TagResources"},
     {"version" , "2023-09-01"},
@@ -2420,6 +2634,11 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
  */
 UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.version();
+  }
+
   json body = {};
   if (!!request.hasAll()) {
     body["All"] = request.all();
@@ -2446,8 +2665,9 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "UntagResources"},
     {"version" , "2023-09-01"},

@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(TransitRouterId, transitRouterId_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeExpressConnectRouterAssociationRequest& obj) { 
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(TransitRouterId, transitRouterId_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
     };
     DescribeExpressConnectRouterAssociationRequest() = default ;
@@ -51,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->associationId_ != nullptr
         && this->associationNodeType_ != nullptr && this->associationRegionId_ != nullptr && this->cenId_ != nullptr && this->clientToken_ != nullptr && this->dryRun_ != nullptr
-        && this->ecrId_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->transitRouterId_ != nullptr && this->vpcId_ != nullptr; };
+        && this->ecrId_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->transitRouterId_ != nullptr && this->version_ != nullptr
+        && this->vpcId_ != nullptr; };
     // associationId Field Functions 
     bool hasAssociationId() const { return this->associationId_ != nullptr;};
     void deleteAssociationId() { this->associationId_ = nullptr;};
@@ -122,6 +125,13 @@ namespace Models
     inline DescribeExpressConnectRouterAssociationRequest& setTransitRouterId(string transitRouterId) { DARABONBA_PTR_SET_VALUE(transitRouterId_, transitRouterId) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline DescribeExpressConnectRouterAssociationRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
@@ -165,6 +175,7 @@ namespace Models
     std::shared_ptr<string> nextToken_ = nullptr;
     // The TR ID.
     std::shared_ptr<string> transitRouterId_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
     // The VPC ID.
     std::shared_ptr<string> vpcId_ = nullptr;
   };

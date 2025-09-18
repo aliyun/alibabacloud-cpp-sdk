@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(TagKey, tagKey_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
     };
     friend void from_json(const Darabonba::Json& j, UntagResourcesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(All, all_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(TagKey, tagKey_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
     };
     UntagResourcesRequest() = default ;
     UntagResourcesRequest(const UntagResourcesRequest &) = default ;
@@ -41,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->all_ != nullptr
-        && this->clientToken_ != nullptr && this->dryRun_ != nullptr && this->resourceId_ != nullptr && this->resourceType_ != nullptr && this->tagKey_ != nullptr; };
+        && this->clientToken_ != nullptr && this->dryRun_ != nullptr && this->resourceId_ != nullptr && this->resourceType_ != nullptr && this->tagKey_ != nullptr
+        && this->version_ != nullptr; };
     // all Field Functions 
     bool hasAll() const { return this->all_ != nullptr;};
     void deleteAll() { this->all_ = nullptr;};
@@ -88,6 +91,13 @@ namespace Models
     inline UntagResourcesRequest& setTagKey(vector<string> && tagKey) { DARABONBA_PTR_SET_RVALUE(tagKey_, tagKey) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline UntagResourcesRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
   protected:
     // Specifies whether to remove all tags. This parameter is valid only when the **TagKey** parameter is not specified. Valid values:
     // 
@@ -117,6 +127,7 @@ namespace Models
     std::shared_ptr<string> resourceType_ = nullptr;
     // The keys of the tags that you want to remove from the ECRs.
     std::shared_ptr<vector<string>> tagKey_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
   };
 
   } // namespace Models

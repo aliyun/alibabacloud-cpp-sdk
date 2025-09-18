@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(NexthopInstanceId, nexthopInstanceId_);
       DARABONBA_PTR_TO_JSON(QueryRegionId, queryRegionId_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeExpressConnectRouterRouteEntriesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AsPath, asPath_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(NexthopInstanceId, nexthopInstanceId_);
       DARABONBA_PTR_FROM_JSON(QueryRegionId, queryRegionId_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
     };
     DescribeExpressConnectRouterRouteEntriesRequest() = default ;
     DescribeExpressConnectRouterRouteEntriesRequest(const DescribeExpressConnectRouterRouteEntriesRequest &) = default ;
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->asPath_ != nullptr
         && this->clientToken_ != nullptr && this->community_ != nullptr && this->destinationCidrBlock_ != nullptr && this->dryRun_ != nullptr && this->ecrId_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->nexthopInstanceId_ != nullptr && this->queryRegionId_ != nullptr; };
+        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->nexthopInstanceId_ != nullptr && this->queryRegionId_ != nullptr && this->version_ != nullptr; };
     // asPath Field Functions 
     bool hasAsPath() const { return this->asPath_ != nullptr;};
     void deleteAsPath() { this->asPath_ = nullptr;};
@@ -120,6 +122,13 @@ namespace Models
     inline DescribeExpressConnectRouterRouteEntriesRequest& setQueryRegionId(string queryRegionId) { DARABONBA_PTR_SET_VALUE(queryRegionId_, queryRegionId) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline DescribeExpressConnectRouterRouteEntriesRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
   protected:
     // The Autonomous System (AS) path of the route.
     std::shared_ptr<string> asPath_ = nullptr;
@@ -153,6 +162,7 @@ namespace Models
     std::shared_ptr<string> nexthopInstanceId_ = nullptr;
     // The region ID of the ECR.
     std::shared_ptr<string> queryRegionId_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
   };
 
   } // namespace Models

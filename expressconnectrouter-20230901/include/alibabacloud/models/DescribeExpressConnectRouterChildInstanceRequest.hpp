@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EcrId, ecrId_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeExpressConnectRouterChildInstanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AssociationId, associationId_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EcrId, ecrId_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
     };
     DescribeExpressConnectRouterChildInstanceRequest() = default ;
     DescribeExpressConnectRouterChildInstanceRequest(const DescribeExpressConnectRouterChildInstanceRequest &) = default ;
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->associationId_ != nullptr
         && this->childInstanceId_ != nullptr && this->childInstanceRegionId_ != nullptr && this->childInstanceType_ != nullptr && this->clientToken_ != nullptr && this->dryRun_ != nullptr
-        && this->ecrId_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr; };
+        && this->ecrId_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->version_ != nullptr; };
     // associationId Field Functions 
     bool hasAssociationId() const { return this->associationId_ != nullptr;};
     void deleteAssociationId() { this->associationId_ = nullptr;};
@@ -111,6 +113,13 @@ namespace Models
     inline DescribeExpressConnectRouterChildInstanceRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline DescribeExpressConnectRouterChildInstanceRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
   protected:
     // The ID of the association between the ECR and the virtual private cloud (VPC) or transit router (TR).
     std::shared_ptr<string> associationId_ = nullptr;
@@ -142,6 +151,7 @@ namespace Models
     // *   If NextToken is empty, no next page exists.
     // *   If a value of NextToken is returned, the value indicates the token that is used for the next query.
     std::shared_ptr<string> nextToken_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
   };
 
   } // namespace Models
