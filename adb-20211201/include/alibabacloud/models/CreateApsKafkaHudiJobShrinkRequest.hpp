@@ -302,7 +302,6 @@ namespace Models
     std::shared_ptr<string> hudiAdvancedConfig_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> incrementalComputeUnit_ = nullptr;
-    // This parameter is required.
     std::shared_ptr<int32_t> jsonParseLevel_ = nullptr;
     std::shared_ptr<string> kafkaClusterId_ = nullptr;
     std::shared_ptr<string> kafkaTopic_ = nullptr;
