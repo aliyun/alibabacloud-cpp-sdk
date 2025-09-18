@@ -22,6 +22,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(HostId, hostId_);
       DARABONBA_PTR_TO_JSON(HostType, hostType_);
       DARABONBA_PTR_TO_JSON(InactiveDisks, inactiveDisks_);
+      DARABONBA_PTR_TO_JSON(MetricName, metricName_);
+      DARABONBA_PTR_TO_JSON(MetricValue, metricValue_);
       DARABONBA_PTR_TO_JSON(MigrationOptions, migrationOptions_);
       DARABONBA_PTR_TO_JSON(OnlineRepairPolicy, onlineRepairPolicy_);
       DARABONBA_PTR_TO_JSON(PunishDomain, punishDomain_);
@@ -38,6 +40,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(HostId, hostId_);
       DARABONBA_PTR_FROM_JSON(HostType, hostType_);
       DARABONBA_PTR_FROM_JSON(InactiveDisks, inactiveDisks_);
+      DARABONBA_PTR_FROM_JSON(MetricName, metricName_);
+      DARABONBA_PTR_FROM_JSON(MetricValue, metricValue_);
       DARABONBA_PTR_FROM_JSON(MigrationOptions, migrationOptions_);
       DARABONBA_PTR_FROM_JSON(OnlineRepairPolicy, onlineRepairPolicy_);
       DARABONBA_PTR_FROM_JSON(PunishDomain, punishDomain_);
@@ -59,8 +63,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->canAccept_ != nullptr
         && this->code_ != nullptr && this->device_ != nullptr && this->diskId_ != nullptr && this->hostId_ != nullptr && this->hostType_ != nullptr
-        && this->inactiveDisks_ != nullptr && this->migrationOptions_ != nullptr && this->onlineRepairPolicy_ != nullptr && this->punishDomain_ != nullptr && this->punishType_ != nullptr
-        && this->punishUrl_ != nullptr && this->rack_ != nullptr && this->responseResult_ != nullptr; };
+        && this->inactiveDisks_ != nullptr && this->metricName_ != nullptr && this->metricValue_ != nullptr && this->migrationOptions_ != nullptr && this->onlineRepairPolicy_ != nullptr
+        && this->punishDomain_ != nullptr && this->punishType_ != nullptr && this->punishUrl_ != nullptr && this->rack_ != nullptr && this->responseResult_ != nullptr; };
     // canAccept Field Functions 
     bool hasCanAccept() const { return this->canAccept_ != nullptr;};
     void deleteCanAccept() { this->canAccept_ = nullptr;};
@@ -110,6 +114,20 @@ namespace Models
     inline Models::DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttributeInactiveDisks inactiveDisks() { DARABONBA_PTR_GET(inactiveDisks_, Models::DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttributeInactiveDisks) };
     inline DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttribute& setInactiveDisks(const Models::DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttributeInactiveDisks & inactiveDisks) { DARABONBA_PTR_SET_VALUE(inactiveDisks_, inactiveDisks) };
     inline DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttribute& setInactiveDisks(Models::DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttributeInactiveDisks && inactiveDisks) { DARABONBA_PTR_SET_RVALUE(inactiveDisks_, inactiveDisks) };
+
+
+    // metricName Field Functions 
+    bool hasMetricName() const { return this->metricName_ != nullptr;};
+    void deleteMetricName() { this->metricName_ = nullptr;};
+    inline string metricName() const { DARABONBA_PTR_GET_DEFAULT(metricName_, "") };
+    inline DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttribute& setMetricName(string metricName) { DARABONBA_PTR_SET_VALUE(metricName_, metricName) };
+
+
+    // metricValue Field Functions 
+    bool hasMetricValue() const { return this->metricValue_ != nullptr;};
+    void deleteMetricValue() { this->metricValue_ = nullptr;};
+    inline string metricValue() const { DARABONBA_PTR_GET_DEFAULT(metricValue_, "") };
+    inline DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttribute& setMetricValue(string metricValue) { DARABONBA_PTR_SET_VALUE(metricValue_, metricValue) };
 
 
     // migrationOptions Field Functions 
@@ -181,6 +199,8 @@ namespace Models
     std::shared_ptr<string> hostType_ = nullptr;
     // The inactive disks that were released and whose data must be cleared.
     std::shared_ptr<Models::DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttributeInactiveDisks> inactiveDisks_ = nullptr;
+    std::shared_ptr<string> metricName_ = nullptr;
+    std::shared_ptr<string> metricValue_ = nullptr;
     // The migration solution of the instance. Valid value: MigrationPlan. Instances can be migrated only by using migration plans.
     std::shared_ptr<Models::DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttributeMigrationOptions> migrationOptions_ = nullptr;
     // The online repair policy for the damaged disk. Valid value: IsolateOnly, which indicates that damaged disks are isolated but not repaired.

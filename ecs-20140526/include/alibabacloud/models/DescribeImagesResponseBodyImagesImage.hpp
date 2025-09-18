@@ -36,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IsSubscribed, isSubscribed_);
       DARABONBA_PTR_TO_JSON(IsSupportCloudinit, isSupportCloudinit_);
       DARABONBA_PTR_TO_JSON(IsSupportIoOptimized, isSupportIoOptimized_);
+      DARABONBA_PTR_TO_JSON(LicenseType, licenseType_);
       DARABONBA_PTR_TO_JSON(LoginAsNonRootSupported, loginAsNonRootSupported_);
       DARABONBA_PTR_TO_JSON(OSName, OSName_);
       DARABONBA_PTR_TO_JSON(OSNameEn, OSNameEn_);
@@ -70,6 +71,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IsSubscribed, isSubscribed_);
       DARABONBA_PTR_FROM_JSON(IsSupportCloudinit, isSupportCloudinit_);
       DARABONBA_PTR_FROM_JSON(IsSupportIoOptimized, isSupportIoOptimized_);
+      DARABONBA_PTR_FROM_JSON(LicenseType, licenseType_);
       DARABONBA_PTR_FROM_JSON(LoginAsNonRootSupported, loginAsNonRootSupported_);
       DARABONBA_PTR_FROM_JSON(OSName, OSName_);
       DARABONBA_PTR_FROM_JSON(OSNameEn, OSNameEn_);
@@ -99,10 +101,10 @@ namespace Models
         && this->bootMode_ != nullptr && this->creationTime_ != nullptr && this->description_ != nullptr && this->detectionOptions_ != nullptr && this->diskDeviceMappings_ != nullptr
         && this->features_ != nullptr && this->imageFamily_ != nullptr && this->imageId_ != nullptr && this->imageName_ != nullptr && this->imageOwnerAlias_ != nullptr
         && this->imageOwnerId_ != nullptr && this->imageVersion_ != nullptr && this->isCopied_ != nullptr && this->isPublic_ != nullptr && this->isSelfShared_ != nullptr
-        && this->isSubscribed_ != nullptr && this->isSupportCloudinit_ != nullptr && this->isSupportIoOptimized_ != nullptr && this->loginAsNonRootSupported_ != nullptr && this->OSName_ != nullptr
-        && this->OSNameEn_ != nullptr && this->OSType_ != nullptr && this->platform_ != nullptr && this->productCode_ != nullptr && this->progress_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->size_ != nullptr && this->status_ != nullptr && this->supplierName_ != nullptr && this->tags_ != nullptr
-        && this->usage_ != nullptr; };
+        && this->isSubscribed_ != nullptr && this->isSupportCloudinit_ != nullptr && this->isSupportIoOptimized_ != nullptr && this->licenseType_ != nullptr && this->loginAsNonRootSupported_ != nullptr
+        && this->OSName_ != nullptr && this->OSNameEn_ != nullptr && this->OSType_ != nullptr && this->platform_ != nullptr && this->productCode_ != nullptr
+        && this->progress_ != nullptr && this->resourceGroupId_ != nullptr && this->size_ != nullptr && this->status_ != nullptr && this->supplierName_ != nullptr
+        && this->tags_ != nullptr && this->usage_ != nullptr; };
     // architecture Field Functions 
     bool hasArchitecture() const { return this->architecture_ != nullptr;};
     void deleteArchitecture() { this->architecture_ = nullptr;};
@@ -240,6 +242,13 @@ namespace Models
     void deleteIsSupportIoOptimized() { this->isSupportIoOptimized_ = nullptr;};
     inline bool isSupportIoOptimized() const { DARABONBA_PTR_GET_DEFAULT(isSupportIoOptimized_, false) };
     inline DescribeImagesResponseBodyImagesImage& setIsSupportIoOptimized(bool isSupportIoOptimized) { DARABONBA_PTR_SET_VALUE(isSupportIoOptimized_, isSupportIoOptimized) };
+
+
+    // licenseType Field Functions 
+    bool hasLicenseType() const { return this->licenseType_ != nullptr;};
+    void deleteLicenseType() { this->licenseType_ = nullptr;};
+    inline string licenseType() const { DARABONBA_PTR_GET_DEFAULT(licenseType_, "") };
+    inline DescribeImagesResponseBodyImagesImage& setLicenseType(string licenseType) { DARABONBA_PTR_SET_VALUE(licenseType_, licenseType) };
 
 
     // loginAsNonRootSupported Field Functions 
@@ -392,6 +401,7 @@ namespace Models
     std::shared_ptr<bool> isSupportCloudinit_ = nullptr;
     // Indicates whether the image can be used on I/O optimized instances.
     std::shared_ptr<bool> isSupportIoOptimized_ = nullptr;
+    std::shared_ptr<string> licenseType_ = nullptr;
     // Indicates whether the image supports logons of non-root users. Valid values:
     // 
     // *   true: The image supports logons of non-root users.

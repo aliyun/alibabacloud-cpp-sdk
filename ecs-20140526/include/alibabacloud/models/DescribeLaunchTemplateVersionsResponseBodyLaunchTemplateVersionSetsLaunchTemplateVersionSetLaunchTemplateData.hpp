@@ -7,6 +7,7 @@
 #include <alibabacloud/models/DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataImageOptions.hpp>
 #include <alibabacloud/models/DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataNetworkInterfaces.hpp>
 #include <alibabacloud/models/DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityGroupIds.hpp>
+#include <alibabacloud/models/DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityOptions.hpp>
 #include <alibabacloud/models/DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataTags.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -56,6 +57,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SecurityEnhancementStrategy, securityEnhancementStrategy_);
       DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_TO_JSON(SecurityGroupIds, securityGroupIds_);
+      DARABONBA_PTR_TO_JSON(SecurityOptions, securityOptions_);
       DARABONBA_PTR_TO_JSON(SpotDuration, spotDuration_);
       DARABONBA_PTR_TO_JSON(SpotPriceLimit, spotPriceLimit_);
       DARABONBA_PTR_TO_JSON(SpotStrategy, spotStrategy_);
@@ -103,6 +105,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SecurityEnhancementStrategy, securityEnhancementStrategy_);
       DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_FROM_JSON(SecurityGroupIds, securityGroupIds_);
+      DARABONBA_PTR_FROM_JSON(SecurityOptions, securityOptions_);
       DARABONBA_PTR_FROM_JSON(SpotDuration, spotDuration_);
       DARABONBA_PTR_FROM_JSON(SpotPriceLimit, spotPriceLimit_);
       DARABONBA_PTR_FROM_JSON(SpotStrategy, spotStrategy_);
@@ -131,8 +134,8 @@ namespace Models
         && this->internetMaxBandwidthIn_ != nullptr && this->internetMaxBandwidthOut_ != nullptr && this->ioOptimized_ != nullptr && this->ipv6AddressCount_ != nullptr && this->keyPairName_ != nullptr
         && this->networkInterfaces_ != nullptr && this->networkType_ != nullptr && this->passwordInherit_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr
         && this->privateIpAddress_ != nullptr && this->ramRoleName_ != nullptr && this->resourceGroupId_ != nullptr && this->securityEnhancementStrategy_ != nullptr && this->securityGroupId_ != nullptr
-        && this->securityGroupIds_ != nullptr && this->spotDuration_ != nullptr && this->spotPriceLimit_ != nullptr && this->spotStrategy_ != nullptr && this->tags_ != nullptr
-        && this->userData_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
+        && this->securityGroupIds_ != nullptr && this->securityOptions_ != nullptr && this->spotDuration_ != nullptr && this->spotPriceLimit_ != nullptr && this->spotStrategy_ != nullptr
+        && this->tags_ != nullptr && this->userData_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
     // systemDisk Field Functions 
     bool hasSystemDisk() const { return this->systemDisk_ != nullptr;};
     void deleteSystemDisk() { this->systemDisk_ = nullptr;};
@@ -402,6 +405,15 @@ namespace Models
     inline DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateData& setSecurityGroupIds(Models::DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityGroupIds && securityGroupIds) { DARABONBA_PTR_SET_RVALUE(securityGroupIds_, securityGroupIds) };
 
 
+    // securityOptions Field Functions 
+    bool hasSecurityOptions() const { return this->securityOptions_ != nullptr;};
+    void deleteSecurityOptions() { this->securityOptions_ = nullptr;};
+    inline const Models::DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityOptions & securityOptions() const { DARABONBA_PTR_GET_CONST(securityOptions_, Models::DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityOptions) };
+    inline Models::DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityOptions securityOptions() { DARABONBA_PTR_GET(securityOptions_, Models::DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityOptions) };
+    inline DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateData& setSecurityOptions(const Models::DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityOptions & securityOptions) { DARABONBA_PTR_SET_VALUE(securityOptions_, securityOptions) };
+    inline DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateData& setSecurityOptions(Models::DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityOptions && securityOptions) { DARABONBA_PTR_SET_RVALUE(securityOptions_, securityOptions) };
+
+
     // spotDuration Field Functions 
     bool hasSpotDuration() const { return this->spotDuration_ != nullptr;};
     void deleteSpotDuration() { this->spotDuration_ = nullptr;};
@@ -584,6 +596,7 @@ namespace Models
     // 
     // >  `SecurityGroupId` and `SecurityGroupIds` are mutually exclusive in the response.
     std::shared_ptr<Models::DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityGroupIds> securityGroupIds_ = nullptr;
+    std::shared_ptr<Models::DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityOptions> securityOptions_ = nullptr;
     // The protection period of the spot instance. Unit: hours. Valid values:
     // 
     // *   1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.

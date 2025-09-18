@@ -7,6 +7,7 @@
 #include <alibabacloud/models/CreateLaunchTemplateRequestDataDisk.hpp>
 #include <alibabacloud/models/CreateLaunchTemplateRequestImageOptions.hpp>
 #include <alibabacloud/models/CreateLaunchTemplateRequestNetworkInterface.hpp>
+#include <alibabacloud/models/CreateLaunchTemplateRequestSecurityOptions.hpp>
 #include <alibabacloud/models/CreateLaunchTemplateRequestTag.hpp>
 #include <alibabacloud/models/CreateLaunchTemplateRequestTemplateTag.hpp>
 using namespace std;
@@ -63,6 +64,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SecurityEnhancementStrategy, securityEnhancementStrategy_);
       DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_TO_JSON(SecurityGroupIds, securityGroupIds_);
+      DARABONBA_PTR_TO_JSON(SecurityOptions, securityOptions_);
       DARABONBA_PTR_TO_JSON(SpotDuration, spotDuration_);
       DARABONBA_PTR_TO_JSON(SpotPriceLimit, spotPriceLimit_);
       DARABONBA_PTR_TO_JSON(SpotStrategy, spotStrategy_);
@@ -119,6 +121,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SecurityEnhancementStrategy, securityEnhancementStrategy_);
       DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_FROM_JSON(SecurityGroupIds, securityGroupIds_);
+      DARABONBA_PTR_FROM_JSON(SecurityOptions, securityOptions_);
       DARABONBA_PTR_FROM_JSON(SpotDuration, spotDuration_);
       DARABONBA_PTR_FROM_JSON(SpotPriceLimit, spotPriceLimit_);
       DARABONBA_PTR_FROM_JSON(SpotStrategy, spotStrategy_);
@@ -151,9 +154,9 @@ namespace Models
         && this->launchTemplateName_ != nullptr && this->networkInterface_ != nullptr && this->networkType_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
         && this->passwordInherit_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr && this->privateIpAddress_ != nullptr && this->ramRoleName_ != nullptr
         && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->securityEnhancementStrategy_ != nullptr
-        && this->securityGroupId_ != nullptr && this->securityGroupIds_ != nullptr && this->spotDuration_ != nullptr && this->spotPriceLimit_ != nullptr && this->spotStrategy_ != nullptr
-        && this->tag_ != nullptr && this->templateResourceGroupId_ != nullptr && this->templateTag_ != nullptr && this->userData_ != nullptr && this->vSwitchId_ != nullptr
-        && this->versionDescription_ != nullptr && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
+        && this->securityGroupId_ != nullptr && this->securityGroupIds_ != nullptr && this->securityOptions_ != nullptr && this->spotDuration_ != nullptr && this->spotPriceLimit_ != nullptr
+        && this->spotStrategy_ != nullptr && this->tag_ != nullptr && this->templateResourceGroupId_ != nullptr && this->templateTag_ != nullptr && this->userData_ != nullptr
+        && this->vSwitchId_ != nullptr && this->versionDescription_ != nullptr && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
     // systemDisk Field Functions 
     bool hasSystemDisk() const { return this->systemDisk_ != nullptr;};
     void deleteSystemDisk() { this->systemDisk_ = nullptr;};
@@ -465,6 +468,15 @@ namespace Models
     inline CreateLaunchTemplateRequest& setSecurityGroupIds(vector<string> && securityGroupIds) { DARABONBA_PTR_SET_RVALUE(securityGroupIds_, securityGroupIds) };
 
 
+    // securityOptions Field Functions 
+    bool hasSecurityOptions() const { return this->securityOptions_ != nullptr;};
+    void deleteSecurityOptions() { this->securityOptions_ = nullptr;};
+    inline const CreateLaunchTemplateRequestSecurityOptions & securityOptions() const { DARABONBA_PTR_GET_CONST(securityOptions_, CreateLaunchTemplateRequestSecurityOptions) };
+    inline CreateLaunchTemplateRequestSecurityOptions securityOptions() { DARABONBA_PTR_GET(securityOptions_, CreateLaunchTemplateRequestSecurityOptions) };
+    inline CreateLaunchTemplateRequest& setSecurityOptions(const CreateLaunchTemplateRequestSecurityOptions & securityOptions) { DARABONBA_PTR_SET_VALUE(securityOptions_, securityOptions) };
+    inline CreateLaunchTemplateRequest& setSecurityOptions(CreateLaunchTemplateRequestSecurityOptions && securityOptions) { DARABONBA_PTR_SET_RVALUE(securityOptions_, securityOptions) };
+
+
     // spotDuration Field Functions 
     bool hasSpotDuration() const { return this->spotDuration_ != nullptr;};
     void deleteSpotDuration() { this->spotDuration_ = nullptr;};
@@ -717,6 +729,7 @@ namespace Models
     // 
     // > You cannot specify both the `SecurityGroupId` and `SecurityGroupIds.N` parameters.
     std::shared_ptr<vector<string>> securityGroupIds_ = nullptr;
+    std::shared_ptr<CreateLaunchTemplateRequestSecurityOptions> securityOptions_ = nullptr;
     // The protection period of the spot instance. Unit: hours. Default value: 1. Valid values:
     // 
     // *   1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.

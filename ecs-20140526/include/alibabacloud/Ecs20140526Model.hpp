@@ -1064,6 +1064,7 @@
 #include <alibabacloud/models/StartInstancesResponseBody.hpp>
 #include <alibabacloud/models/StartInstancesResponse.hpp>
 #include <alibabacloud/models/StartTerminalSessionRequest.hpp>
+#include <alibabacloud/models/StartTerminalSessionShrinkRequest.hpp>
 #include <alibabacloud/models/StartTerminalSessionResponseBody.hpp>
 #include <alibabacloud/models/StartTerminalSessionResponse.hpp>
 #include <alibabacloud/models/StopInstanceRequest.hpp>
@@ -1184,12 +1185,14 @@
 #include <alibabacloud/models/CreateLaunchTemplateRequestDataDisk.hpp>
 #include <alibabacloud/models/CreateLaunchTemplateRequestImageOptions.hpp>
 #include <alibabacloud/models/CreateLaunchTemplateRequestNetworkInterface.hpp>
+#include <alibabacloud/models/CreateLaunchTemplateRequestSecurityOptions.hpp>
 #include <alibabacloud/models/CreateLaunchTemplateRequestTag.hpp>
 #include <alibabacloud/models/CreateLaunchTemplateRequestTemplateTag.hpp>
 #include <alibabacloud/models/CreateLaunchTemplateVersionRequestSystemDisk.hpp>
 #include <alibabacloud/models/CreateLaunchTemplateVersionRequestDataDisk.hpp>
 #include <alibabacloud/models/CreateLaunchTemplateVersionRequestImageOptions.hpp>
 #include <alibabacloud/models/CreateLaunchTemplateVersionRequestNetworkInterface.hpp>
+#include <alibabacloud/models/CreateLaunchTemplateVersionRequestSecurityOptions.hpp>
 #include <alibabacloud/models/CreateLaunchTemplateVersionRequestTag.hpp>
 #include <alibabacloud/models/CreateNatGatewayRequestBandwidthPackage.hpp>
 #include <alibabacloud/models/CreateNatGatewayResponseBodyBandwidthPackageIds.hpp>
@@ -1615,6 +1618,7 @@
 #include <alibabacloud/models/DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataNetworkInterfacesNetworkInterface.hpp>
 #include <alibabacloud/models/DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataNetworkInterfaces.hpp>
 #include <alibabacloud/models/DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityGroupIds.hpp>
+#include <alibabacloud/models/DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityOptions.hpp>
 #include <alibabacloud/models/DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataTagsInstanceTag.hpp>
 #include <alibabacloud/models/DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataTags.hpp>
 #include <alibabacloud/models/DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateData.hpp>
@@ -1966,6 +1970,7 @@
 #include <alibabacloud/models/StartImagePipelineExecutionRequestTemplateTag.hpp>
 #include <alibabacloud/models/StartInstancesResponseBodyInstanceResponsesInstanceResponse.hpp>
 #include <alibabacloud/models/StartInstancesResponseBodyInstanceResponses.hpp>
+#include <alibabacloud/models/StartTerminalSessionRequestEncryptionOptions.hpp>
 #include <alibabacloud/models/StopInstancesResponseBodyInstanceResponsesInstanceResponse.hpp>
 #include <alibabacloud/models/StopInstancesResponseBodyInstanceResponses.hpp>
 #include <alibabacloud/models/TagResourcesRequestTag.hpp>

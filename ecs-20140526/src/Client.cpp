@@ -5313,6 +5313,10 @@ CreateLaunchTemplateResponse Client::createLaunchTemplateWithOptions(const Creat
     query["SecurityGroupIds"] = request.securityGroupIds();
   }
 
+  if (!!request.hasSecurityOptions()) {
+    query["SecurityOptions"] = request.securityOptions();
+  }
+
   if (!!request.hasSpotDuration()) {
     query["SpotDuration"] = request.spotDuration();
   }
@@ -5583,6 +5587,10 @@ CreateLaunchTemplateVersionResponse Client::createLaunchTemplateVersionWithOptio
 
   if (!!request.hasSecurityGroupIds()) {
     query["SecurityGroupIds"] = request.securityGroupIds();
+  }
+
+  if (!!request.hasSecurityOptions()) {
+    query["SecurityOptions"] = request.securityOptions();
   }
 
   if (!!request.hasSpotDuration()) {
@@ -33301,12 +33309,18 @@ StartInstancesResponse Client::startInstances(const StartInstancesRequest &reque
  * *   The port forwarding feature supports only TCP port forwarding. UDP port forwarding is not supported.
  * *   If you want to permanently close a session and invalidate the WebSocket URL, call the EndTerminalSession operation.
  *
- * @param request StartTerminalSessionRequest
+ * @param tmpReq StartTerminalSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartTerminalSessionResponse
  */
-StartTerminalSessionResponse Client::startTerminalSessionWithOptions(const StartTerminalSessionRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+StartTerminalSessionResponse Client::startTerminalSessionWithOptions(const StartTerminalSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  StartTerminalSessionShrinkRequest request = StartTerminalSessionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEncryptionOptions()) {
+    request.setEncryptionOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.encryptionOptions(), "EncryptionOptions", "json"));
+  }
+
   json query = {};
   if (!!request.hasCommandLine()) {
     query["CommandLine"] = request.commandLine();
@@ -33314,6 +33328,10 @@ StartTerminalSessionResponse Client::startTerminalSessionWithOptions(const Start
 
   if (!!request.hasConnectionType()) {
     query["ConnectionType"] = request.connectionType();
+  }
+
+  if (!!request.hasEncryptionOptionsShrink()) {
+    query["EncryptionOptions"] = request.encryptionOptionsShrink();
   }
 
   if (!!request.hasInstanceId()) {

@@ -9683,11 +9683,11 @@ namespace Ecs20140526
        * *   The port forwarding feature supports only TCP port forwarding. UDP port forwarding is not supported.
        * *   If you want to permanently close a session and invalidate the WebSocket URL, call the EndTerminalSession operation.
        *
-       * @param request StartTerminalSessionRequest
+       * @param tmpReq StartTerminalSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return StartTerminalSessionResponse
        */
-      Models::StartTerminalSessionResponse startTerminalSessionWithOptions(const Models::StartTerminalSessionRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::StartTerminalSessionResponse startTerminalSessionWithOptions(const Models::StartTerminalSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Creates a session by using the session management feature. When you call this operation, you can include the ID of an Elastic Compute Service (ECS) instance in the request to create a WebSocket session for the instance. The URL of the WebSocket session returned by the operation can be used to connect to the instance.

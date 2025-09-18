@@ -444,6 +444,9 @@ namespace Models
     std::shared_ptr<string> ioOptimized_ = nullptr;
     // The memory size of the instance. Unit: MiB.
     std::shared_ptr<int32_t> memory_ = nullptr;
+    // Details about network options.
+    // 
+    // >  This parameter is in invitational preview and is not publicly available.
     std::shared_ptr<DescribeInstanceAttributeResponseBodyNetworkOptions> networkOptions_ = nullptr;
     // The reason why the instance was locked. Valid values:
     // 
