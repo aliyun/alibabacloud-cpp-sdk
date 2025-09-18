@@ -944,6 +944,7 @@
 #include <alibabacloud/models/CreateEnsSaleControlRequestSaleControlsModuleValue.hpp>
 #include <alibabacloud/models/CreateEnsSaleControlRequestSaleControls.hpp>
 #include <alibabacloud/models/CreateFileSystemRequestOrderDetails.hpp>
+#include <alibabacloud/models/CreateFileSystemResponseBodyAllocationIds.hpp>
 #include <alibabacloud/models/CreateInstanceRequestDataDisk.hpp>
 #include <alibabacloud/models/CreateInstanceRequestSystemDisk.hpp>
 #include <alibabacloud/models/CreateInstanceResponseBodyInstanceIds.hpp>

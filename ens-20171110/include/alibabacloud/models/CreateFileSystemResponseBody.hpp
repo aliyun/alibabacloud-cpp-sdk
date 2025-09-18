@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATEFILESYSTEMRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/CreateFileSystemResponseBodyAllocationIds.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -15,12 +16,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateFileSystemResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AllocationId, allocationId_);
+      DARABONBA_PTR_TO_JSON(AllocationIds, allocationIds_);
       DARABONBA_PTR_TO_JSON(BizStatusCode, bizStatusCode_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(UnAllocationId, unAllocationId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateFileSystemResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AllocationId, allocationId_);
+      DARABONBA_PTR_FROM_JSON(AllocationIds, allocationIds_);
       DARABONBA_PTR_FROM_JSON(BizStatusCode, bizStatusCode_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(UnAllocationId, unAllocationId_);
@@ -37,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->allocationId_ != nullptr
-        && this->bizStatusCode_ != nullptr && this->requestId_ != nullptr && this->unAllocationId_ != nullptr; };
+        && this->allocationIds_ != nullptr && this->bizStatusCode_ != nullptr && this->requestId_ != nullptr && this->unAllocationId_ != nullptr; };
     // allocationId Field Functions 
     bool hasAllocationId() const { return this->allocationId_ != nullptr;};
     void deleteAllocationId() { this->allocationId_ = nullptr;};
@@ -45,6 +48,15 @@ namespace Models
     inline vector<string> allocationId() { DARABONBA_PTR_GET(allocationId_, vector<string>) };
     inline CreateFileSystemResponseBody& setAllocationId(const vector<string> & allocationId) { DARABONBA_PTR_SET_VALUE(allocationId_, allocationId) };
     inline CreateFileSystemResponseBody& setAllocationId(vector<string> && allocationId) { DARABONBA_PTR_SET_RVALUE(allocationId_, allocationId) };
+
+
+    // allocationIds Field Functions 
+    bool hasAllocationIds() const { return this->allocationIds_ != nullptr;};
+    void deleteAllocationIds() { this->allocationIds_ = nullptr;};
+    inline const vector<CreateFileSystemResponseBodyAllocationIds> & allocationIds() const { DARABONBA_PTR_GET_CONST(allocationIds_, vector<CreateFileSystemResponseBodyAllocationIds>) };
+    inline vector<CreateFileSystemResponseBodyAllocationIds> allocationIds() { DARABONBA_PTR_GET(allocationIds_, vector<CreateFileSystemResponseBodyAllocationIds>) };
+    inline CreateFileSystemResponseBody& setAllocationIds(const vector<CreateFileSystemResponseBodyAllocationIds> & allocationIds) { DARABONBA_PTR_SET_VALUE(allocationIds_, allocationIds) };
+    inline CreateFileSystemResponseBody& setAllocationIds(vector<CreateFileSystemResponseBodyAllocationIds> && allocationIds) { DARABONBA_PTR_SET_RVALUE(allocationIds_, allocationIds) };
 
 
     // bizStatusCode Field Functions 
@@ -73,6 +85,7 @@ namespace Models
   protected:
     // The information about the file system that was created.
     std::shared_ptr<vector<string>> allocationId_ = nullptr;
+    std::shared_ptr<vector<CreateFileSystemResponseBodyAllocationIds>> allocationIds_ = nullptr;
     // The status code for successful operations. Valid values:
     // 
     // *   PartSuccess: The operation is partially successful.
