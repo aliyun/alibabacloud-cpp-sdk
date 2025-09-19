@@ -57,6 +57,42 @@ namespace SysOM20231230
       Models::CheckInstanceSupportResponse checkInstanceSupport(const Models::CheckInstanceSupportRequest &request);
 
       /**
+       * @summary 新增推送告警的策略
+       *
+       * @param request CreateAlertStrategyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAlertStrategyResponse
+       */
+      Models::CreateAlertStrategyResponse createAlertStrategyWithOptions(const Models::CreateAlertStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新增推送告警的策略
+       *
+       * @param request CreateAlertStrategyRequest
+       * @return CreateAlertStrategyResponse
+       */
+      Models::CreateAlertStrategyResponse createAlertStrategy(const Models::CreateAlertStrategyRequest &request);
+
+      /**
+       * @summary 用户删除推送告警的策略
+       *
+       * @param request DeleteAlertStrategyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAlertStrategyResponse
+       */
+      Models::DeleteAlertStrategyResponse deleteAlertStrategyWithOptions(const Models::DeleteAlertStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用户删除推送告警的策略
+       *
+       * @param request DeleteAlertStrategyRequest
+       * @return DeleteAlertStrategyResponse
+       */
+      Models::DeleteAlertStrategyResponse deleteAlertStrategy(const Models::DeleteAlertStrategyRequest &request);
+
+      /**
        * @summary 获取copilot服务的返回结果
        *
        * @param request GenerateCopilotResponseRequest
@@ -173,6 +209,24 @@ namespace SysOM20231230
        * @return GetAgentTaskResponse
        */
       Models::GetAgentTaskResponse getAgentTask(const Models::GetAgentTaskRequest &request);
+
+      /**
+       * @summary 根据策略id，获取用户的一条告警
+       *
+       * @param request GetAlertStrategyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAlertStrategyResponse
+       */
+      Models::GetAlertStrategyResponse getAlertStrategyWithOptions(const Models::GetAlertStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据策略id，获取用户的一条告警
+       *
+       * @param request GetAlertStrategyRequest
+       * @return GetAlertStrategyResponse
+       */
+      Models::GetAlertStrategyResponse getAlertStrategy(const Models::GetAlertStrategyRequest &request);
 
       /**
        * @summary 获取copilot历史聊天记录
@@ -607,6 +661,58 @@ namespace SysOM20231230
       Models::ListAgentsResponse listAgents(const Models::ListAgentsRequest &request);
 
       /**
+       * @summary 获取所有告警项
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAlertItemsResponse
+       */
+      Models::ListAlertItemsResponse listAlertItemsWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取所有告警项
+       *
+       * @return ListAlertItemsResponse
+       */
+      Models::ListAlertItemsResponse listAlertItems();
+
+      /**
+       * @summary 用于获取用户所有推送告警的策略
+       *
+       * @param request ListAlertStrategiesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAlertStrategiesResponse
+       */
+      Models::ListAlertStrategiesResponse listAlertStrategiesWithOptions(const Models::ListAlertStrategiesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用于获取用户所有推送告警的策略
+       *
+       * @param request ListAlertStrategiesRequest
+       * @return ListAlertStrategiesResponse
+       */
+      Models::ListAlertStrategiesResponse listAlertStrategies(const Models::ListAlertStrategiesRequest &request);
+
+      /**
+       * @summary 此接口用于获取已纳管/未纳管实例列表并带有实例信息
+       *
+       * @param request ListAllInstancesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAllInstancesResponse
+       */
+      Models::ListAllInstancesResponse listAllInstancesWithOptions(const Models::ListAllInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 此接口用于获取已纳管/未纳管实例列表并带有实例信息
+       *
+       * @param request ListAllInstancesRequest
+       * @return ListAllInstancesResponse
+       */
+      Models::ListAllInstancesResponse listAllInstances(const Models::ListAllInstancesRequest &request);
+
+      /**
        * @summary 获取集群组件安装记录
        *
        * @param request ListClusterAgentInstallRecordsRequest
@@ -873,6 +979,42 @@ namespace SysOM20231230
        * @return UninstallAgentForClusterResponse
        */
       Models::UninstallAgentForClusterResponse uninstallAgentForCluster(const Models::UninstallAgentForClusterRequest &request);
+
+      /**
+       * @summary 用户更新推送告警策略的状态
+       *
+       * @param request UpdateAlertEnabledRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAlertEnabledResponse
+       */
+      Models::UpdateAlertEnabledResponse updateAlertEnabledWithOptions(const Models::UpdateAlertEnabledRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用户更新推送告警策略的状态
+       *
+       * @param request UpdateAlertEnabledRequest
+       * @return UpdateAlertEnabledResponse
+       */
+      Models::UpdateAlertEnabledResponse updateAlertEnabled(const Models::UpdateAlertEnabledRequest &request);
+
+      /**
+       * @summary 更新推送告警策略
+       *
+       * @param request UpdateAlertStrategyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAlertStrategyResponse
+       */
+      Models::UpdateAlertStrategyResponse updateAlertStrategyWithOptions(const Models::UpdateAlertStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新推送告警策略
+       *
+       * @param request UpdateAlertStrategyRequest
+       * @return UpdateAlertStrategyResponse
+       */
+      Models::UpdateAlertStrategyResponse updateAlertStrategy(const Models::UpdateAlertStrategyRequest &request);
 
       /**
        * @summary 异常项关注度更新

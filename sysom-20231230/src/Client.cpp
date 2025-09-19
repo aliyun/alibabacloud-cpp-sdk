@@ -139,6 +139,104 @@ CheckInstanceSupportResponse Client::checkInstanceSupport(const CheckInstanceSup
 }
 
 /**
+ * @summary 新增推送告警的策略
+ *
+ * @param request CreateAlertStrategyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAlertStrategyResponse
+ */
+CreateAlertStrategyResponse Client::createAlertStrategyWithOptions(const CreateAlertStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEnabled()) {
+    body["enabled"] = request.enabled();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.name();
+  }
+
+  if (!!request.hasStrategy()) {
+    body["strategy"] = request.strategy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateAlertStrategy"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/alertPusher/alert/createStrategy")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAlertStrategyResponse>();
+}
+
+/**
+ * @summary 新增推送告警的策略
+ *
+ * @param request CreateAlertStrategyRequest
+ * @return CreateAlertStrategyResponse
+ */
+CreateAlertStrategyResponse Client::createAlertStrategy(const CreateAlertStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createAlertStrategyWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 用户删除推送告警的策略
+ *
+ * @param request DeleteAlertStrategyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAlertStrategyResponse
+ */
+DeleteAlertStrategyResponse Client::deleteAlertStrategyWithOptions(const DeleteAlertStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["id"] = request.id();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAlertStrategy"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/alertPusher/alert/deleteStrategy")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAlertStrategyResponse>();
+}
+
+/**
+ * @summary 用户删除推送告警的策略
+ *
+ * @param request DeleteAlertStrategyRequest
+ * @return DeleteAlertStrategyResponse
+ */
+DeleteAlertStrategyResponse Client::deleteAlertStrategy(const DeleteAlertStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteAlertStrategyWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 获取copilot服务的返回结果
  *
  * @param request GenerateCopilotResponseRequest
@@ -479,6 +577,51 @@ GetAgentTaskResponse Client::getAgentTask(const GetAgentTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getAgentTaskWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 根据策略id，获取用户的一条告警
+ *
+ * @param request GetAlertStrategyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAlertStrategyResponse
+ */
+GetAlertStrategyResponse Client::getAlertStrategyWithOptions(const GetAlertStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["id"] = request.id();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAlertStrategy"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/alertPusher/alert/getStrategy")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAlertStrategyResponse>();
+}
+
+/**
+ * @summary 根据策略id，获取用户的一条告警
+ *
+ * @param request GetAlertStrategyRequest
+ * @return GetAlertStrategyResponse
+ */
+GetAlertStrategyResponse Client::getAlertStrategy(const GetAlertStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAlertStrategyWithOptions(request, headers, runtime);
 }
 
 /**
@@ -1876,6 +2019,180 @@ ListAgentsResponse Client::listAgents(const ListAgentsRequest &request) {
 }
 
 /**
+ * @summary 获取所有告警项
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAlertItemsResponse
+ */
+ListAlertItemsResponse Client::listAlertItemsWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAlertItems"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/alertPusher/alert/listItems")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAlertItemsResponse>();
+}
+
+/**
+ * @summary 获取所有告警项
+ *
+ * @return ListAlertItemsResponse
+ */
+ListAlertItemsResponse Client::listAlertItems() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listAlertItemsWithOptions(headers, runtime);
+}
+
+/**
+ * @summary 用于获取用户所有推送告警的策略
+ *
+ * @param request ListAlertStrategiesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAlertStrategiesResponse
+ */
+ListAlertStrategiesResponse Client::listAlertStrategiesWithOptions(const ListAlertStrategiesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrent()) {
+    query["current"] = request.current();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasName()) {
+    query["name"] = request.name();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAlertStrategies"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/alertPusher/alert/listStrategies")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAlertStrategiesResponse>();
+}
+
+/**
+ * @summary 用于获取用户所有推送告警的策略
+ *
+ * @param request ListAlertStrategiesRequest
+ * @return ListAlertStrategiesResponse
+ */
+ListAlertStrategiesResponse Client::listAlertStrategies(const ListAlertStrategiesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listAlertStrategiesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 此接口用于获取已纳管/未纳管实例列表并带有实例信息
+ *
+ * @param request ListAllInstancesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAllInstancesResponse
+ */
+ListAllInstancesResponse Client::listAllInstancesWithOptions(const ListAllInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrent()) {
+    query["current"] = request.current();
+  }
+
+  if (!!request.hasFilters()) {
+    query["filters"] = request.filters();
+  }
+
+  if (!!request.hasInstanceType()) {
+    query["instanceType"] = request.instanceType();
+  }
+
+  if (!!request.hasManagedType()) {
+    query["managedType"] = request.managedType();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasPluginId()) {
+    query["pluginId"] = request.pluginId();
+  }
+
+  if (!!request.hasRegion()) {
+    query["region"] = request.region();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAllInstances"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/am/instance/listAllInstances")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAllInstancesResponse>();
+}
+
+/**
+ * @summary 此接口用于获取已纳管/未纳管实例列表并带有实例信息
+ *
+ * @param request ListAllInstancesRequest
+ * @return ListAllInstancesResponse
+ */
+ListAllInstancesResponse Client::listAllInstances(const ListAllInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listAllInstancesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 获取集群组件安装记录
  *
  * @param request ListClusterAgentInstallRecordsRequest
@@ -2841,6 +3158,112 @@ UninstallAgentForClusterResponse Client::uninstallAgentForCluster(const Uninstal
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return uninstallAgentForClusterWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 用户更新推送告警策略的状态
+ *
+ * @param request UpdateAlertEnabledRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAlertEnabledResponse
+ */
+UpdateAlertEnabledResponse Client::updateAlertEnabledWithOptions(const UpdateAlertEnabledRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEnabled()) {
+    body["enabled"] = request.enabled();
+  }
+
+  if (!!request.hasId()) {
+    body["id"] = request.id();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAlertEnabled"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/alertPusher/alert/updateEnabled")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAlertEnabledResponse>();
+}
+
+/**
+ * @summary 用户更新推送告警策略的状态
+ *
+ * @param request UpdateAlertEnabledRequest
+ * @return UpdateAlertEnabledResponse
+ */
+UpdateAlertEnabledResponse Client::updateAlertEnabled(const UpdateAlertEnabledRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateAlertEnabledWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 更新推送告警策略
+ *
+ * @param request UpdateAlertStrategyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAlertStrategyResponse
+ */
+UpdateAlertStrategyResponse Client::updateAlertStrategyWithOptions(const UpdateAlertStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEnabled()) {
+    body["enabled"] = request.enabled();
+  }
+
+  if (!!request.hasId()) {
+    body["id"] = request.id();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.name();
+  }
+
+  if (!!request.hasStrategy()) {
+    body["strategy"] = request.strategy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAlertStrategy"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/alertPusher/alert/updateStrategy")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAlertStrategyResponse>();
+}
+
+/**
+ * @summary 更新推送告警策略
+ *
+ * @param request UpdateAlertStrategyRequest
+ * @return UpdateAlertStrategyResponse
+ */
+UpdateAlertStrategyResponse Client::updateAlertStrategy(const UpdateAlertStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateAlertStrategyWithOptions(request, headers, runtime);
 }
 
 /**

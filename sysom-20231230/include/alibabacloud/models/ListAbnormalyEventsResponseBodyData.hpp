@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/ListAbnormalyEventsResponseBodyDataOpts.hpp>
+#include <alibabacloud/models/ListAbnormalyEventsResponseBodyDataRawMetrics.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(namespace, namespace_);
       DARABONBA_PTR_TO_JSON(opts, opts_);
       DARABONBA_PTR_TO_JSON(pod, pod_);
+      DARABONBA_PTR_TO_JSON(raw_metrics, rawMetrics_);
       DARABONBA_PTR_TO_JSON(region_id, regionId_);
       DARABONBA_PTR_TO_JSON(type, type_);
       DARABONBA_PTR_TO_JSON(uuid, uuid_);
@@ -40,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(namespace, namespace_);
       DARABONBA_PTR_FROM_JSON(opts, opts_);
       DARABONBA_PTR_FROM_JSON(pod, pod_);
+      DARABONBA_PTR_FROM_JSON(raw_metrics, rawMetrics_);
       DARABONBA_PTR_FROM_JSON(region_id, regionId_);
       DARABONBA_PTR_FROM_JSON(type, type_);
       DARABONBA_PTR_FROM_JSON(uuid, uuid_);
@@ -57,8 +60,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->createdAt_ != nullptr
         && this->description_ != nullptr && this->diagStatus_ != nullptr && this->endAt_ != nullptr && this->instance_ != nullptr && this->item_ != nullptr
-        && this->level_ != nullptr && this->namespace_ != nullptr && this->opts_ != nullptr && this->pod_ != nullptr && this->regionId_ != nullptr
-        && this->type_ != nullptr && this->uuid_ != nullptr; };
+        && this->level_ != nullptr && this->namespace_ != nullptr && this->opts_ != nullptr && this->pod_ != nullptr && this->rawMetrics_ != nullptr
+        && this->regionId_ != nullptr && this->type_ != nullptr && this->uuid_ != nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -131,6 +134,15 @@ namespace Models
     inline ListAbnormalyEventsResponseBodyData& setPod(string pod) { DARABONBA_PTR_SET_VALUE(pod_, pod) };
 
 
+    // rawMetrics Field Functions 
+    bool hasRawMetrics() const { return this->rawMetrics_ != nullptr;};
+    void deleteRawMetrics() { this->rawMetrics_ = nullptr;};
+    inline const Models::ListAbnormalyEventsResponseBodyDataRawMetrics & rawMetrics() const { DARABONBA_PTR_GET_CONST(rawMetrics_, Models::ListAbnormalyEventsResponseBodyDataRawMetrics) };
+    inline Models::ListAbnormalyEventsResponseBodyDataRawMetrics rawMetrics() { DARABONBA_PTR_GET(rawMetrics_, Models::ListAbnormalyEventsResponseBodyDataRawMetrics) };
+    inline ListAbnormalyEventsResponseBodyData& setRawMetrics(const Models::ListAbnormalyEventsResponseBodyDataRawMetrics & rawMetrics) { DARABONBA_PTR_SET_VALUE(rawMetrics_, rawMetrics) };
+    inline ListAbnormalyEventsResponseBodyData& setRawMetrics(Models::ListAbnormalyEventsResponseBodyDataRawMetrics && rawMetrics) { DARABONBA_PTR_SET_RVALUE(rawMetrics_, rawMetrics) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -163,6 +175,7 @@ namespace Models
     std::shared_ptr<string> namespace_ = nullptr;
     std::shared_ptr<vector<Models::ListAbnormalyEventsResponseBodyDataOpts>> opts_ = nullptr;
     std::shared_ptr<string> pod_ = nullptr;
+    std::shared_ptr<Models::ListAbnormalyEventsResponseBodyDataRawMetrics> rawMetrics_ = nullptr;
     std::shared_ptr<string> regionId_ = nullptr;
     std::shared_ptr<string> type_ = nullptr;
     std::shared_ptr<string> uuid_ = nullptr;
