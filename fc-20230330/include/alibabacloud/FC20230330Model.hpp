@@ -19,6 +19,7 @@
 #include <alibabacloud/models/CreateCustomDomainInput.hpp>
 #include <alibabacloud/models/CreateFunctionInput.hpp>
 #include <alibabacloud/models/CreateLayerVersionInput.hpp>
+#include <alibabacloud/models/CreateSessionInput.hpp>
 #include <alibabacloud/models/CreateTriggerInput.hpp>
 #include <alibabacloud/models/CreateVpcBindingInput.hpp>
 #include <alibabacloud/models/CustomContainerConfig.hpp>
@@ -72,6 +73,7 @@
 #include <alibabacloud/models/ListResidentResourcePoolsOutput.hpp>
 #include <alibabacloud/models/ListScalingConfigStatusOutput.hpp>
 #include <alibabacloud/models/ListScalingConfigsOutput.hpp>
+#include <alibabacloud/models/ListSessionsOutput.hpp>
 #include <alibabacloud/models/ListTagResourcesOutput.hpp>
 #include <alibabacloud/models/ListTaggedResourcesOutput.hpp>
 #include <alibabacloud/models/ListTriggersOutput.hpp>
@@ -119,6 +121,7 @@
 #include <alibabacloud/models/ScalingStatus.hpp>
 #include <alibabacloud/models/ScheduledAction.hpp>
 #include <alibabacloud/models/ScheduledPolicy.hpp>
+#include <alibabacloud/models/Session.hpp>
 #include <alibabacloud/models/SourceConfig.hpp>
 #include <alibabacloud/models/SourceDtsparameters.hpp>
 #include <alibabacloud/models/SourceKafkaParameters.hpp>
@@ -139,6 +142,7 @@
 #include <alibabacloud/models/UpdateCustomDomainInput.hpp>
 #include <alibabacloud/models/UpdateFunctionInput.hpp>
 #include <alibabacloud/models/UpdateResidentResourcePoolInput.hpp>
+#include <alibabacloud/models/UpdateSessionInput.hpp>
 #include <alibabacloud/models/UpdateTriggerInput.hpp>
 #include <alibabacloud/models/Vpcconfig.hpp>
 #include <alibabacloud/models/Version.hpp>
@@ -154,6 +158,8 @@
 #include <alibabacloud/models/CreateFunctionResponse.hpp>
 #include <alibabacloud/models/CreateLayerVersionRequest.hpp>
 #include <alibabacloud/models/CreateLayerVersionResponse.hpp>
+#include <alibabacloud/models/CreateSessionRequest.hpp>
+#include <alibabacloud/models/CreateSessionResponse.hpp>
 #include <alibabacloud/models/CreateTriggerRequest.hpp>
 #include <alibabacloud/models/CreateTriggerResponse.hpp>
 #include <alibabacloud/models/CreateVpcBindingRequest.hpp>
@@ -170,6 +176,8 @@
 #include <alibabacloud/models/DeleteProvisionConfigResponse.hpp>
 #include <alibabacloud/models/DeleteScalingConfigRequest.hpp>
 #include <alibabacloud/models/DeleteScalingConfigResponse.hpp>
+#include <alibabacloud/models/DeleteSessionRequest.hpp>
+#include <alibabacloud/models/DeleteSessionResponse.hpp>
 #include <alibabacloud/models/DeleteTriggerResponse.hpp>
 #include <alibabacloud/models/DeleteVpcBindingResponse.hpp>
 #include <alibabacloud/models/DescribeRegionsRequest.hpp>
@@ -196,6 +204,8 @@
 #include <alibabacloud/models/GetProvisionConfigResponse.hpp>
 #include <alibabacloud/models/GetScalingConfigRequest.hpp>
 #include <alibabacloud/models/GetScalingConfigResponse.hpp>
+#include <alibabacloud/models/GetSessionRequest.hpp>
+#include <alibabacloud/models/GetSessionResponse.hpp>
 #include <alibabacloud/models/GetTriggerResponse.hpp>
 #include <alibabacloud/models/InvokeFunctionHeaders.hpp>
 #include <alibabacloud/models/InvokeFunctionRequest.hpp>
@@ -226,6 +236,8 @@
 #include <alibabacloud/models/ListProvisionConfigsResponse.hpp>
 #include <alibabacloud/models/ListScalingConfigsRequest.hpp>
 #include <alibabacloud/models/ListScalingConfigsResponse.hpp>
+#include <alibabacloud/models/ListSessionsRequest.hpp>
+#include <alibabacloud/models/ListSessionsResponse.hpp>
 #include <alibabacloud/models/ListTagResourcesRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesShrinkRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesResponse.hpp>
@@ -257,6 +269,8 @@
 #include <alibabacloud/models/UpdateCustomDomainResponse.hpp>
 #include <alibabacloud/models/UpdateFunctionRequest.hpp>
 #include <alibabacloud/models/UpdateFunctionResponse.hpp>
+#include <alibabacloud/models/UpdateSessionRequest.hpp>
+#include <alibabacloud/models/UpdateSessionResponse.hpp>
 #include <alibabacloud/models/UpdateTriggerRequest.hpp>
 #include <alibabacloud/models/UpdateTriggerResponse.hpp>
 #include <alibabacloud/models/DescribeRegionsOutputRegionsRegion.hpp>

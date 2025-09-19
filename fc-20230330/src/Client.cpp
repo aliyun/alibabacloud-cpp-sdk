@@ -247,6 +247,52 @@ CreateLayerVersionResponse Client::createLayerVersion(const string &layerName, c
 }
 
 /**
+ * @summary 创建会话资源
+ *
+ * @param request CreateSessionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSessionResponse
+ */
+CreateSessionResponse Client::createSessionWithOptions(const string &functionName, const CreateSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasQualifier()) {
+    query["qualifier"] = request.qualifier();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(request.body())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateSession"},
+    {"version" , "2023-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2023-03-30/functions/" , Darabonba::Http::URL::percentEncode(functionName) , "/sessions")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSessionResponse>();
+}
+
+/**
+ * @summary 创建会话资源
+ *
+ * @param request CreateSessionRequest
+ * @return CreateSessionResponse
+ */
+CreateSessionResponse Client::createSession(const string &functionName, const CreateSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createSessionWithOptions(functionName, request, headers, runtime);
+}
+
+/**
  * @summary 创建函数触发器。
  *
  * @param request CreateTriggerRequest
@@ -675,6 +721,51 @@ DeleteScalingConfigResponse Client::deleteScalingConfig(const string &functionNa
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteScalingConfigWithOptions(functionName, request, headers, runtime);
+}
+
+/**
+ * @summary 删除会话资源
+ *
+ * @param request DeleteSessionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSessionResponse
+ */
+DeleteSessionResponse Client::deleteSessionWithOptions(const string &functionName, const string &sessionId, const DeleteSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasQualifier()) {
+    query["qualifier"] = request.qualifier();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteSession"},
+    {"version" , "2023-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2023-03-30/functions/" , Darabonba::Http::URL::percentEncode(functionName) , "/sessions/" , Darabonba::Http::URL::percentEncode(sessionId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "none"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSessionResponse>();
+}
+
+/**
+ * @summary 删除会话资源
+ *
+ * @param request DeleteSessionRequest
+ * @return DeleteSessionResponse
+ */
+DeleteSessionResponse Client::deleteSession(const string &functionName, const string &sessionId, const DeleteSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteSessionWithOptions(functionName, sessionId, request, headers, runtime);
 }
 
 /**
@@ -1331,6 +1422,51 @@ GetScalingConfigResponse Client::getScalingConfig(const string &functionName, co
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getScalingConfigWithOptions(functionName, request, headers, runtime);
+}
+
+/**
+ * @summary 获取函数会话信息。
+ *
+ * @param request GetSessionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSessionResponse
+ */
+GetSessionResponse Client::getSessionWithOptions(const string &functionName, const string &sessionId, const GetSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasQualifier()) {
+    query["qualifier"] = request.qualifier();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSession"},
+    {"version" , "2023-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2023-03-30/functions/" , Darabonba::Http::URL::percentEncode(functionName) , "/sessions/" , Darabonba::Http::URL::percentEncode(sessionId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSessionResponse>();
+}
+
+/**
+ * @summary 获取函数会话信息。
+ *
+ * @param request GetSessionRequest
+ * @return GetSessionResponse
+ */
+GetSessionResponse Client::getSession(const string &functionName, const string &sessionId, const GetSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getSessionWithOptions(functionName, sessionId, request, headers, runtime);
 }
 
 /**
@@ -2183,6 +2319,67 @@ ListScalingConfigsResponse Client::listScalingConfigs(const ListScalingConfigsRe
 }
 
 /**
+ * @summary 列出函数会话信息
+ *
+ * @param request ListSessionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSessionsResponse
+ */
+ListSessionsResponse Client::listSessionsWithOptions(const string &functionName, const ListSessionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLimit()) {
+    query["limit"] = request.limit();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasQualifier()) {
+    query["qualifier"] = request.qualifier();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["sessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasSessionStatus()) {
+    query["sessionStatus"] = request.sessionStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSessions"},
+    {"version" , "2023-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2023-03-30/functions/" , Darabonba::Http::URL::percentEncode(functionName) , "/sessions")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSessionsResponse>();
+}
+
+/**
+ * @summary 列出函数会话信息
+ *
+ * @param request ListSessionsRequest
+ * @return ListSessionsResponse
+ */
+ListSessionsResponse Client::listSessions(const string &functionName, const ListSessionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listSessionsWithOptions(functionName, request, headers, runtime);
+}
+
+/**
  * @summary Lists all tagged resources.
  *
  * @param tmpReq ListTagResourcesRequest
@@ -2883,6 +3080,52 @@ UpdateFunctionResponse Client::updateFunction(const string &functionName, const 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateFunctionWithOptions(functionName, request, headers, runtime);
+}
+
+/**
+ * @summary 更新会话配置
+ *
+ * @param request UpdateSessionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateSessionResponse
+ */
+UpdateSessionResponse Client::updateSessionWithOptions(const string &functionName, const string &sessionId, const UpdateSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasQualifier()) {
+    query["qualifier"] = request.qualifier();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(request.body())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateSession"},
+    {"version" , "2023-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2023-03-30/functions/" , Darabonba::Http::URL::percentEncode(functionName) , "/sessions/" , Darabonba::Http::URL::percentEncode(sessionId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateSessionResponse>();
+}
+
+/**
+ * @summary 更新会话配置
+ *
+ * @param request UpdateSessionRequest
+ * @return UpdateSessionResponse
+ */
+UpdateSessionResponse Client::updateSession(const string &functionName, const string &sessionId, const UpdateSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateSessionWithOptions(functionName, sessionId, request, headers, runtime);
 }
 
 /**

@@ -119,6 +119,24 @@ namespace FC20230330
       Models::CreateLayerVersionResponse createLayerVersion(const string &layerName, const Models::CreateLayerVersionRequest &request);
 
       /**
+       * @summary 创建会话资源
+       *
+       * @param request CreateSessionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSessionResponse
+       */
+      Models::CreateSessionResponse createSessionWithOptions(const string &functionName, const Models::CreateSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建会话资源
+       *
+       * @param request CreateSessionRequest
+       * @return CreateSessionResponse
+       */
+      Models::CreateSessionResponse createSession(const string &functionName, const Models::CreateSessionRequest &request);
+
+      /**
        * @summary 创建函数触发器。
        *
        * @param request CreateTriggerRequest
@@ -303,6 +321,24 @@ namespace FC20230330
        * @return DeleteScalingConfigResponse
        */
       Models::DeleteScalingConfigResponse deleteScalingConfig(const string &functionName, const Models::DeleteScalingConfigRequest &request);
+
+      /**
+       * @summary 删除会话资源
+       *
+       * @param request DeleteSessionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSessionResponse
+       */
+      Models::DeleteSessionResponse deleteSessionWithOptions(const string &functionName, const string &sessionId, const Models::DeleteSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除会话资源
+       *
+       * @param request DeleteSessionRequest
+       * @return DeleteSessionResponse
+       */
+      Models::DeleteSessionResponse deleteSession(const string &functionName, const string &sessionId, const Models::DeleteSessionRequest &request);
 
       /**
        * @summary Deletes a trigger.
@@ -581,6 +617,24 @@ namespace FC20230330
       Models::GetScalingConfigResponse getScalingConfig(const string &functionName, const Models::GetScalingConfigRequest &request);
 
       /**
+       * @summary 获取函数会话信息。
+       *
+       * @param request GetSessionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSessionResponse
+       */
+      Models::GetSessionResponse getSessionWithOptions(const string &functionName, const string &sessionId, const Models::GetSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取函数会话信息。
+       *
+       * @param request GetSessionRequest
+       * @return GetSessionResponse
+       */
+      Models::GetSessionResponse getSession(const string &functionName, const string &sessionId, const Models::GetSessionRequest &request);
+
+      /**
        * @summary Queries information about a trigger.
        *
        * @param headers map
@@ -833,6 +887,24 @@ namespace FC20230330
        * @return ListScalingConfigsResponse
        */
       Models::ListScalingConfigsResponse listScalingConfigs(const Models::ListScalingConfigsRequest &request);
+
+      /**
+       * @summary 列出函数会话信息
+       *
+       * @param request ListSessionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSessionsResponse
+       */
+      Models::ListSessionsResponse listSessionsWithOptions(const string &functionName, const Models::ListSessionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出函数会话信息
+       *
+       * @param request ListSessionsRequest
+       * @return ListSessionsResponse
+       */
+      Models::ListSessionsResponse listSessions(const string &functionName, const Models::ListSessionsRequest &request);
 
       /**
        * @summary Lists all tagged resources.
@@ -1105,6 +1177,24 @@ namespace FC20230330
        * @return UpdateFunctionResponse
        */
       Models::UpdateFunctionResponse updateFunction(const string &functionName, const Models::UpdateFunctionRequest &request);
+
+      /**
+       * @summary 更新会话配置
+       *
+       * @param request UpdateSessionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateSessionResponse
+       */
+      Models::UpdateSessionResponse updateSessionWithOptions(const string &functionName, const string &sessionId, const Models::UpdateSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新会话配置
+       *
+       * @param request UpdateSessionRequest
+       * @return UpdateSessionResponse
+       */
+      Models::UpdateSessionResponse updateSession(const string &functionName, const string &sessionId, const Models::UpdateSessionRequest &request);
 
       /**
        * @summary Modifies a trigger.
