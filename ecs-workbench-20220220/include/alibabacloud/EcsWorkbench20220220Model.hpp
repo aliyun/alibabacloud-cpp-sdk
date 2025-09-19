@@ -1,0 +1,40 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_ECSWORKBENCH20220220MODEL_HPP_
+#define ALIBABACLOUD_ECSWORKBENCH20220220MODEL_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/models/GetInstanceRecordConfigRequest.hpp>
+#include <alibabacloud/models/GetInstanceRecordConfigResponseBody.hpp>
+#include <alibabacloud/models/GetInstanceRecordConfigResponse.hpp>
+#include <alibabacloud/models/ListInstanceRecordsRequest.hpp>
+#include <alibabacloud/models/ListInstanceRecordsResponseBody.hpp>
+#include <alibabacloud/models/ListInstanceRecordsResponse.hpp>
+#include <alibabacloud/models/ListTerminalCommandsRequest.hpp>
+#include <alibabacloud/models/ListTerminalCommandsResponseBody.hpp>
+#include <alibabacloud/models/ListTerminalCommandsResponse.hpp>
+#include <alibabacloud/models/LoginInstanceRequest.hpp>
+#include <alibabacloud/models/LoginInstanceResponseBody.hpp>
+#include <alibabacloud/models/LoginInstanceResponse.hpp>
+#include <alibabacloud/models/SetInstanceRecordConfigRequest.hpp>
+#include <alibabacloud/models/SetInstanceRecordConfigResponseBody.hpp>
+#include <alibabacloud/models/SetInstanceRecordConfigResponse.hpp>
+#include <alibabacloud/models/ViewInstanceRecordsRequest.hpp>
+#include <alibabacloud/models/ViewInstanceRecordsResponseBody.hpp>
+#include <alibabacloud/models/ViewInstanceRecordsResponse.hpp>
+#include <alibabacloud/models/GetInstanceRecordConfigResponseBodyRoot.hpp>
+#include <alibabacloud/models/ListInstanceRecordsResponseBodyRootRecordList.hpp>
+#include <alibabacloud/models/ListInstanceRecordsResponseBodyRoot.hpp>
+#include <alibabacloud/models/ListTerminalCommandsResponseBodyTerminalCommandList.hpp>
+#include <alibabacloud/models/LoginInstanceRequestInstanceLoginInfoEncryptionOptions.hpp>
+#include <alibabacloud/models/LoginInstanceRequestInstanceLoginInfoOptionsContainerInfo.hpp>
+#include <alibabacloud/models/LoginInstanceRequestInstanceLoginInfoOptions.hpp>
+#include <alibabacloud/models/LoginInstanceRequestInstanceLoginInfo.hpp>
+#include <alibabacloud/models/LoginInstanceRequestPartnerInfo.hpp>
+#include <alibabacloud/models/LoginInstanceRequestUserAccountOptions.hpp>
+#include <alibabacloud/models/LoginInstanceRequestUserAccount.hpp>
+#include <alibabacloud/models/LoginInstanceResponseBodyRootDisposableAccount.hpp>
+#include <alibabacloud/models/LoginInstanceResponseBodyRootInstanceLoginInfoListInstanceLoginView.hpp>
+#include <alibabacloud/models/LoginInstanceResponseBodyRootInstanceLoginInfoList.hpp>
+#include <alibabacloud/models/LoginInstanceResponseBodyRootSessionControl.hpp>
+#include <alibabacloud/models/LoginInstanceResponseBodyRoot.hpp>
+
+#endif
