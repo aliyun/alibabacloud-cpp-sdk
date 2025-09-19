@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(EnableInternet, enableInternet_);
       DARABONBA_PTR_TO_JSON(EnableIntranet, enableIntranet_);
+      DARABONBA_PTR_TO_JSON(GatewayType, gatewayType_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(Replicas, replicas_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(EnableInternet, enableInternet_);
       DARABONBA_PTR_FROM_JSON(EnableIntranet, enableIntranet_);
+      DARABONBA_PTR_FROM_JSON(GatewayType, gatewayType_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(Replicas, replicas_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->resourceName_ != nullptr
-        && this->autoRenewal_ != nullptr && this->chargeType_ != nullptr && this->enableInternet_ != nullptr && this->enableIntranet_ != nullptr && this->instanceType_ != nullptr
-        && this->name_ != nullptr && this->replicas_ != nullptr; };
+        && this->autoRenewal_ != nullptr && this->chargeType_ != nullptr && this->enableInternet_ != nullptr && this->enableIntranet_ != nullptr && this->gatewayType_ != nullptr
+        && this->instanceType_ != nullptr && this->name_ != nullptr && this->replicas_ != nullptr; };
     // resourceName Field Functions 
     bool hasResourceName() const { return this->resourceName_ != nullptr;};
     void deleteResourceName() { this->resourceName_ = nullptr;};
@@ -79,6 +81,13 @@ namespace Models
     void deleteEnableIntranet() { this->enableIntranet_ = nullptr;};
     inline bool enableIntranet() const { DARABONBA_PTR_GET_DEFAULT(enableIntranet_, false) };
     inline CreateGatewayRequest& setEnableIntranet(bool enableIntranet) { DARABONBA_PTR_SET_VALUE(enableIntranet_, enableIntranet) };
+
+
+    // gatewayType Field Functions 
+    bool hasGatewayType() const { return this->gatewayType_ != nullptr;};
+    void deleteGatewayType() { this->gatewayType_ = nullptr;};
+    inline string gatewayType() const { DARABONBA_PTR_GET_DEFAULT(gatewayType_, "") };
+    inline CreateGatewayRequest& setGatewayType(string gatewayType) { DARABONBA_PTR_SET_VALUE(gatewayType_, gatewayType) };
 
 
     // instanceType Field Functions 
@@ -129,14 +138,13 @@ namespace Models
     // *   true
     // *   false
     std::shared_ptr<bool> enableIntranet_ = nullptr;
+    std::shared_ptr<string> gatewayType_ = nullptr;
     // The instance type used by the private gateway. Valid values:
     // 
     // *   2c4g
     // *   4c8g
     // *   8c16g
     // *   16c32g
-    // 
-    // This parameter is required.
     std::shared_ptr<string> instanceType_ = nullptr;
     // The alias of the private gateway.
     std::shared_ptr<string> name_ = nullptr;

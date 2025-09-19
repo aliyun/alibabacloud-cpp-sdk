@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATEGATEWAYREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UPDATEGATEWAYREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -20,6 +21,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IsDefault, isDefault_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(Replicas, replicas_);
+      DARABONBA_PTR_TO_JSON(VSwitchIds, vSwitchIds_);
+      DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateGatewayRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EnableInternet, enableInternet_);
@@ -29,6 +32,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IsDefault, isDefault_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(Replicas, replicas_);
+      DARABONBA_PTR_FROM_JSON(VSwitchIds, vSwitchIds_);
+      DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
     };
     UpdateGatewayRequest() = default ;
     UpdateGatewayRequest(const UpdateGatewayRequest &) = default ;
@@ -43,7 +48,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->enableInternet_ != nullptr
         && this->enableIntranet_ != nullptr && this->enableSSLRedirection_ != nullptr && this->instanceType_ != nullptr && this->isDefault_ != nullptr && this->name_ != nullptr
-        && this->replicas_ != nullptr; };
+        && this->replicas_ != nullptr && this->vSwitchIds_ != nullptr && this->vpcId_ != nullptr; };
     // enableInternet Field Functions 
     bool hasEnableInternet() const { return this->enableInternet_ != nullptr;};
     void deleteEnableInternet() { this->enableInternet_ = nullptr;};
@@ -93,6 +98,22 @@ namespace Models
     inline UpdateGatewayRequest& setReplicas(int32_t replicas) { DARABONBA_PTR_SET_VALUE(replicas_, replicas) };
 
 
+    // vSwitchIds Field Functions 
+    bool hasVSwitchIds() const { return this->vSwitchIds_ != nullptr;};
+    void deleteVSwitchIds() { this->vSwitchIds_ = nullptr;};
+    inline const vector<string> & vSwitchIds() const { DARABONBA_PTR_GET_CONST(vSwitchIds_, vector<string>) };
+    inline vector<string> vSwitchIds() { DARABONBA_PTR_GET(vSwitchIds_, vector<string>) };
+    inline UpdateGatewayRequest& setVSwitchIds(const vector<string> & vSwitchIds) { DARABONBA_PTR_SET_VALUE(vSwitchIds_, vSwitchIds) };
+    inline UpdateGatewayRequest& setVSwitchIds(vector<string> && vSwitchIds) { DARABONBA_PTR_SET_RVALUE(vSwitchIds_, vSwitchIds) };
+
+
+    // vpcId Field Functions 
+    bool hasVpcId() const { return this->vpcId_ != nullptr;};
+    void deleteVpcId() { this->vpcId_ = nullptr;};
+    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline UpdateGatewayRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
+
+
   protected:
     // Specifies whether to enable Internet access. Default value: false.
     // 
@@ -123,6 +144,8 @@ namespace Models
     std::shared_ptr<string> name_ = nullptr;
     // The number of nodes in the private gateway.
     std::shared_ptr<int32_t> replicas_ = nullptr;
+    std::shared_ptr<vector<string>> vSwitchIds_ = nullptr;
+    std::shared_ptr<string> vpcId_ = nullptr;
   };
 
   } // namespace Models

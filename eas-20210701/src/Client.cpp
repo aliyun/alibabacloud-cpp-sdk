@@ -394,6 +394,10 @@ CreateGatewayResponse Client::createGatewayWithOptions(const CreateGatewayReques
     body["EnableIntranet"] = request.enableIntranet();
   }
 
+  if (!!request.hasGatewayType()) {
+    body["GatewayType"] = request.gatewayType();
+  }
+
   if (!!request.hasInstanceType()) {
     body["InstanceType"] = request.instanceType();
   }
@@ -2888,12 +2892,28 @@ ListBenchmarkTaskResponse Client::listBenchmarkTask(const ListBenchmarkTaskReque
 ListGatewayResponse Client::listGatewayWithOptions(const ListGatewayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasChargeType()) {
+    query["ChargeType"] = request.chargeType();
+  }
+
   if (!!request.hasGatewayId()) {
     query["GatewayId"] = request.gatewayId();
   }
 
   if (!!request.hasGatewayName()) {
     query["GatewayName"] = request.gatewayName();
+  }
+
+  if (!!request.hasGatewayType()) {
+    query["GatewayType"] = request.gatewayType();
+  }
+
+  if (!!request.hasInternetEnabled()) {
+    query["InternetEnabled"] = request.internetEnabled();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.order();
   }
 
   if (!!request.hasPageNumber()) {
@@ -2906,6 +2926,14 @@ ListGatewayResponse Client::listGatewayWithOptions(const ListGatewayRequest &req
 
   if (!!request.hasResourceName()) {
     query["ResourceName"] = request.resourceName();
+  }
+
+  if (!!request.hasSort()) {
+    query["Sort"] = request.sort();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4281,6 +4309,14 @@ UpdateGatewayResponse Client::updateGatewayWithOptions(const string &GatewayId, 
 
   if (!!request.hasReplicas()) {
     body["Replicas"] = request.replicas();
+  }
+
+  if (!!request.hasVSwitchIds()) {
+    body["VSwitchIds"] = request.vSwitchIds();
+  }
+
+  if (!!request.hasVpcId()) {
+    body["VpcId"] = request.vpcId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

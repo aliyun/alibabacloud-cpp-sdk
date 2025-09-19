@@ -13,18 +13,30 @@ namespace Models
   class ListGatewayRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListGatewayRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(GatewayId, gatewayId_);
       DARABONBA_PTR_TO_JSON(GatewayName, gatewayName_);
+      DARABONBA_PTR_TO_JSON(GatewayType, gatewayType_);
+      DARABONBA_PTR_TO_JSON(InternetEnabled, internetEnabled_);
+      DARABONBA_PTR_TO_JSON(Order, order_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ResourceName, resourceName_);
+      DARABONBA_PTR_TO_JSON(Sort, sort_);
+      DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, ListGatewayRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(GatewayId, gatewayId_);
       DARABONBA_PTR_FROM_JSON(GatewayName, gatewayName_);
+      DARABONBA_PTR_FROM_JSON(GatewayType, gatewayType_);
+      DARABONBA_PTR_FROM_JSON(InternetEnabled, internetEnabled_);
+      DARABONBA_PTR_FROM_JSON(Order, order_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ResourceName, resourceName_);
+      DARABONBA_PTR_FROM_JSON(Sort, sort_);
+      DARABONBA_PTR_FROM_JSON(Status, status_);
     };
     ListGatewayRequest() = default ;
     ListGatewayRequest(const ListGatewayRequest &) = default ;
@@ -37,8 +49,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->gatewayId_ != nullptr
-        && this->gatewayName_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->resourceName_ != nullptr; };
+    virtual bool empty() const override { this->chargeType_ != nullptr
+        && this->gatewayId_ != nullptr && this->gatewayName_ != nullptr && this->gatewayType_ != nullptr && this->internetEnabled_ != nullptr && this->order_ != nullptr
+        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->resourceName_ != nullptr && this->sort_ != nullptr && this->status_ != nullptr; };
+    // chargeType Field Functions 
+    bool hasChargeType() const { return this->chargeType_ != nullptr;};
+    void deleteChargeType() { this->chargeType_ = nullptr;};
+    inline string chargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
+    inline ListGatewayRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
+
+
     // gatewayId Field Functions 
     bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
     void deleteGatewayId() { this->gatewayId_ = nullptr;};
@@ -51,6 +71,27 @@ namespace Models
     void deleteGatewayName() { this->gatewayName_ = nullptr;};
     inline string gatewayName() const { DARABONBA_PTR_GET_DEFAULT(gatewayName_, "") };
     inline ListGatewayRequest& setGatewayName(string gatewayName) { DARABONBA_PTR_SET_VALUE(gatewayName_, gatewayName) };
+
+
+    // gatewayType Field Functions 
+    bool hasGatewayType() const { return this->gatewayType_ != nullptr;};
+    void deleteGatewayType() { this->gatewayType_ = nullptr;};
+    inline string gatewayType() const { DARABONBA_PTR_GET_DEFAULT(gatewayType_, "") };
+    inline ListGatewayRequest& setGatewayType(string gatewayType) { DARABONBA_PTR_SET_VALUE(gatewayType_, gatewayType) };
+
+
+    // internetEnabled Field Functions 
+    bool hasInternetEnabled() const { return this->internetEnabled_ != nullptr;};
+    void deleteInternetEnabled() { this->internetEnabled_ = nullptr;};
+    inline bool internetEnabled() const { DARABONBA_PTR_GET_DEFAULT(internetEnabled_, false) };
+    inline ListGatewayRequest& setInternetEnabled(bool internetEnabled) { DARABONBA_PTR_SET_VALUE(internetEnabled_, internetEnabled) };
+
+
+    // order Field Functions 
+    bool hasOrder() const { return this->order_ != nullptr;};
+    void deleteOrder() { this->order_ = nullptr;};
+    inline string order() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
+    inline ListGatewayRequest& setOrder(string order) { DARABONBA_PTR_SET_VALUE(order_, order) };
 
 
     // pageNumber Field Functions 
@@ -74,17 +115,37 @@ namespace Models
     inline ListGatewayRequest& setResourceName(string resourceName) { DARABONBA_PTR_SET_VALUE(resourceName_, resourceName) };
 
 
+    // sort Field Functions 
+    bool hasSort() const { return this->sort_ != nullptr;};
+    void deleteSort() { this->sort_ = nullptr;};
+    inline string sort() const { DARABONBA_PTR_GET_DEFAULT(sort_, "") };
+    inline ListGatewayRequest& setSort(string sort) { DARABONBA_PTR_SET_VALUE(sort_, sort) };
+
+
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline ListGatewayRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
   protected:
+    std::shared_ptr<string> chargeType_ = nullptr;
     // The private gateway ID. To obtain the private gateway ID, see the private_gateway_id parameter in the response parameters of the ListResources operation.
     std::shared_ptr<string> gatewayId_ = nullptr;
     // The private gateway alias.
     std::shared_ptr<string> gatewayName_ = nullptr;
+    std::shared_ptr<string> gatewayType_ = nullptr;
+    std::shared_ptr<bool> internetEnabled_ = nullptr;
+    std::shared_ptr<string> order_ = nullptr;
     // The page number. Default value: 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
     // The number of entries per page. Default value: 100.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     // The ID of the resource group. To obtain a resource group ID, see the ResourceId field in the response of the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation.
     std::shared_ptr<string> resourceName_ = nullptr;
+    std::shared_ptr<string> sort_ = nullptr;
+    std::shared_ptr<string> status_ = nullptr;
   };
 
   } // namespace Models

@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InternetDomain, internetDomain_);
       DARABONBA_PTR_TO_JSON(InternetEnabled, internetEnabled_);
       DARABONBA_PTR_TO_JSON(IntranetDomain, intranetDomain_);
+      DARABONBA_PTR_TO_JSON(IntranetEnabled, intranetEnabled_);
       DARABONBA_PTR_TO_JSON(IsDefault, isDefault_);
       DARABONBA_PTR_TO_JSON(Replicas, replicas_);
       DARABONBA_PTR_TO_JSON(SSLRedirectionEnabled, SSLRedirectionEnabled_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InternetDomain, internetDomain_);
       DARABONBA_PTR_FROM_JSON(InternetEnabled, internetEnabled_);
       DARABONBA_PTR_FROM_JSON(IntranetDomain, intranetDomain_);
+      DARABONBA_PTR_FROM_JSON(IntranetEnabled, intranetEnabled_);
       DARABONBA_PTR_FROM_JSON(IsDefault, isDefault_);
       DARABONBA_PTR_FROM_JSON(Replicas, replicas_);
       DARABONBA_PTR_FROM_JSON(SSLRedirectionEnabled, SSLRedirectionEnabled_);
@@ -55,8 +57,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->chargeType_ != nullptr
         && this->createTime_ != nullptr && this->gatewayId_ != nullptr && this->gatewayName_ != nullptr && this->instanceType_ != nullptr && this->internetDomain_ != nullptr
-        && this->internetEnabled_ != nullptr && this->intranetDomain_ != nullptr && this->isDefault_ != nullptr && this->replicas_ != nullptr && this->SSLRedirectionEnabled_ != nullptr
-        && this->status_ != nullptr && this->updateTime_ != nullptr; };
+        && this->internetEnabled_ != nullptr && this->intranetDomain_ != nullptr && this->intranetEnabled_ != nullptr && this->isDefault_ != nullptr && this->replicas_ != nullptr
+        && this->SSLRedirectionEnabled_ != nullptr && this->status_ != nullptr && this->updateTime_ != nullptr; };
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -111,6 +113,13 @@ namespace Models
     void deleteIntranetDomain() { this->intranetDomain_ = nullptr;};
     inline string intranetDomain() const { DARABONBA_PTR_GET_DEFAULT(intranetDomain_, "") };
     inline ListGatewayResponseBodyGateways& setIntranetDomain(string intranetDomain) { DARABONBA_PTR_SET_VALUE(intranetDomain_, intranetDomain) };
+
+
+    // intranetEnabled Field Functions 
+    bool hasIntranetEnabled() const { return this->intranetEnabled_ != nullptr;};
+    void deleteIntranetEnabled() { this->intranetEnabled_ = nullptr;};
+    inline bool intranetEnabled() const { DARABONBA_PTR_GET_DEFAULT(intranetEnabled_, false) };
+    inline ListGatewayResponseBodyGateways& setIntranetEnabled(bool intranetEnabled) { DARABONBA_PTR_SET_VALUE(intranetEnabled_, intranetEnabled) };
 
 
     // isDefault Field Functions 
@@ -168,6 +177,7 @@ namespace Models
     std::shared_ptr<bool> internetEnabled_ = nullptr;
     // The internal endpoint.
     std::shared_ptr<string> intranetDomain_ = nullptr;
+    std::shared_ptr<bool> intranetEnabled_ = nullptr;
     // Indicates whether it is the default private gateway.
     std::shared_ptr<bool> isDefault_ = nullptr;
     // The number of nodes in the private gateway.
