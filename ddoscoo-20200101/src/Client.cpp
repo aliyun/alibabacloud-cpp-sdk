@@ -425,6 +425,10 @@ ConfigL7UsKeepaliveResponse Client::configL7UsKeepaliveWithOptions(const ConfigL
     query["Domain"] = request.domain();
   }
 
+  if (!!request.hasDownstreamKeepalive()) {
+    query["DownstreamKeepalive"] = request.downstreamKeepalive();
+  }
+
   if (!!request.hasUpstreamKeepalive()) {
     query["UpstreamKeepalive"] = request.upstreamKeepalive();
   }

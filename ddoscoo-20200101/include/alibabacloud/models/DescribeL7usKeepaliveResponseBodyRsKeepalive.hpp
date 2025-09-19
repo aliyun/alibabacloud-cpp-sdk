@@ -13,11 +13,13 @@ namespace Models
   class DescribeL7UsKeepaliveResponseBodyRsKeepalive : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeL7UsKeepaliveResponseBodyRsKeepalive& obj) { 
+      DARABONBA_PTR_TO_JSON(DsKeepaliveTimeout, dsKeepaliveTimeout_);
       DARABONBA_PTR_TO_JSON(Enabled, enabled_);
       DARABONBA_PTR_TO_JSON(KeepaliveRequests, keepaliveRequests_);
       DARABONBA_PTR_TO_JSON(KeepaliveTimeout, keepaliveTimeout_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeL7UsKeepaliveResponseBodyRsKeepalive& obj) { 
+      DARABONBA_PTR_FROM_JSON(DsKeepaliveTimeout, dsKeepaliveTimeout_);
       DARABONBA_PTR_FROM_JSON(Enabled, enabled_);
       DARABONBA_PTR_FROM_JSON(KeepaliveRequests, keepaliveRequests_);
       DARABONBA_PTR_FROM_JSON(KeepaliveTimeout, keepaliveTimeout_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enabled_ != nullptr
-        && this->keepaliveRequests_ != nullptr && this->keepaliveTimeout_ != nullptr; };
+    virtual bool empty() const override { this->dsKeepaliveTimeout_ != nullptr
+        && this->enabled_ != nullptr && this->keepaliveRequests_ != nullptr && this->keepaliveTimeout_ != nullptr; };
+    // dsKeepaliveTimeout Field Functions 
+    bool hasDsKeepaliveTimeout() const { return this->dsKeepaliveTimeout_ != nullptr;};
+    void deleteDsKeepaliveTimeout() { this->dsKeepaliveTimeout_ = nullptr;};
+    inline int64_t dsKeepaliveTimeout() const { DARABONBA_PTR_GET_DEFAULT(dsKeepaliveTimeout_, 0L) };
+    inline DescribeL7UsKeepaliveResponseBodyRsKeepalive& setDsKeepaliveTimeout(int64_t dsKeepaliveTimeout) { DARABONBA_PTR_SET_VALUE(dsKeepaliveTimeout_, dsKeepaliveTimeout) };
+
+
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};
@@ -57,6 +66,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<int64_t> dsKeepaliveTimeout_ = nullptr;
     // Indicates whether Back-to-origin Persistent Connections is turned on. Valid values:
     // 
     // *   **true**

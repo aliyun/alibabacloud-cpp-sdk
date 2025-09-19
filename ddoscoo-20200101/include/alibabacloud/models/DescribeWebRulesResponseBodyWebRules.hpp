@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CcEnabled, ccEnabled_);
       DARABONBA_PTR_TO_JSON(CcRuleEnabled, ccRuleEnabled_);
       DARABONBA_PTR_TO_JSON(CcTemplate, ccTemplate_);
+      DARABONBA_PTR_TO_JSON(CertExpireTime, certExpireTime_);
       DARABONBA_PTR_TO_JSON(CertName, certName_);
       DARABONBA_PTR_TO_JSON(CertRegion, certRegion_);
       DARABONBA_PTR_TO_JSON(Cname, cname_);
@@ -40,6 +41,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Ssl13Enabled, ssl13Enabled_);
       DARABONBA_PTR_TO_JSON(SslCiphers, sslCiphers_);
       DARABONBA_PTR_TO_JSON(SslProtocols, sslProtocols_);
+      DARABONBA_PTR_TO_JSON(Tls13CustomCiphers, tls13CustomCiphers_);
       DARABONBA_PTR_TO_JSON(UserCertName, userCertName_);
       DARABONBA_PTR_TO_JSON(WhiteList, whiteList_);
     };
@@ -48,6 +50,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CcEnabled, ccEnabled_);
       DARABONBA_PTR_FROM_JSON(CcRuleEnabled, ccRuleEnabled_);
       DARABONBA_PTR_FROM_JSON(CcTemplate, ccTemplate_);
+      DARABONBA_PTR_FROM_JSON(CertExpireTime, certExpireTime_);
       DARABONBA_PTR_FROM_JSON(CertName, certName_);
       DARABONBA_PTR_FROM_JSON(CertRegion, certRegion_);
       DARABONBA_PTR_FROM_JSON(Cname, cname_);
@@ -67,6 +70,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Ssl13Enabled, ssl13Enabled_);
       DARABONBA_PTR_FROM_JSON(SslCiphers, sslCiphers_);
       DARABONBA_PTR_FROM_JSON(SslProtocols, sslProtocols_);
+      DARABONBA_PTR_FROM_JSON(Tls13CustomCiphers, tls13CustomCiphers_);
       DARABONBA_PTR_FROM_JSON(UserCertName, userCertName_);
       DARABONBA_PTR_FROM_JSON(WhiteList, whiteList_);
     };
@@ -82,11 +86,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->blackList_ != nullptr
-        && this->ccEnabled_ != nullptr && this->ccRuleEnabled_ != nullptr && this->ccTemplate_ != nullptr && this->certName_ != nullptr && this->certRegion_ != nullptr
-        && this->cname_ != nullptr && this->customCiphers_ != nullptr && this->domain_ != nullptr && this->gmCert_ != nullptr && this->http2Enable_ != nullptr
-        && this->http2HttpsEnable_ != nullptr && this->https2HttpEnable_ != nullptr && this->ocspEnabled_ != nullptr && this->policyMode_ != nullptr && this->proxyEnabled_ != nullptr
-        && this->proxyTypes_ != nullptr && this->punishReason_ != nullptr && this->punishStatus_ != nullptr && this->realServers_ != nullptr && this->ssl13Enabled_ != nullptr
-        && this->sslCiphers_ != nullptr && this->sslProtocols_ != nullptr && this->userCertName_ != nullptr && this->whiteList_ != nullptr; };
+        && this->ccEnabled_ != nullptr && this->ccRuleEnabled_ != nullptr && this->ccTemplate_ != nullptr && this->certExpireTime_ != nullptr && this->certName_ != nullptr
+        && this->certRegion_ != nullptr && this->cname_ != nullptr && this->customCiphers_ != nullptr && this->domain_ != nullptr && this->gmCert_ != nullptr
+        && this->http2Enable_ != nullptr && this->http2HttpsEnable_ != nullptr && this->https2HttpEnable_ != nullptr && this->ocspEnabled_ != nullptr && this->policyMode_ != nullptr
+        && this->proxyEnabled_ != nullptr && this->proxyTypes_ != nullptr && this->punishReason_ != nullptr && this->punishStatus_ != nullptr && this->realServers_ != nullptr
+        && this->ssl13Enabled_ != nullptr && this->sslCiphers_ != nullptr && this->sslProtocols_ != nullptr && this->tls13CustomCiphers_ != nullptr && this->userCertName_ != nullptr
+        && this->whiteList_ != nullptr; };
     // blackList Field Functions 
     bool hasBlackList() const { return this->blackList_ != nullptr;};
     void deleteBlackList() { this->blackList_ = nullptr;};
@@ -115,6 +120,13 @@ namespace Models
     void deleteCcTemplate() { this->ccTemplate_ = nullptr;};
     inline string ccTemplate() const { DARABONBA_PTR_GET_DEFAULT(ccTemplate_, "") };
     inline DescribeWebRulesResponseBodyWebRules& setCcTemplate(string ccTemplate) { DARABONBA_PTR_SET_VALUE(ccTemplate_, ccTemplate) };
+
+
+    // certExpireTime Field Functions 
+    bool hasCertExpireTime() const { return this->certExpireTime_ != nullptr;};
+    void deleteCertExpireTime() { this->certExpireTime_ = nullptr;};
+    inline int64_t certExpireTime() const { DARABONBA_PTR_GET_DEFAULT(certExpireTime_, 0L) };
+    inline DescribeWebRulesResponseBodyWebRules& setCertExpireTime(int64_t certExpireTime) { DARABONBA_PTR_SET_VALUE(certExpireTime_, certExpireTime) };
 
 
     // certName Field Functions 
@@ -258,6 +270,15 @@ namespace Models
     inline DescribeWebRulesResponseBodyWebRules& setSslProtocols(string sslProtocols) { DARABONBA_PTR_SET_VALUE(sslProtocols_, sslProtocols) };
 
 
+    // tls13CustomCiphers Field Functions 
+    bool hasTls13CustomCiphers() const { return this->tls13CustomCiphers_ != nullptr;};
+    void deleteTls13CustomCiphers() { this->tls13CustomCiphers_ = nullptr;};
+    inline const vector<string> & tls13CustomCiphers() const { DARABONBA_PTR_GET_CONST(tls13CustomCiphers_, vector<string>) };
+    inline vector<string> tls13CustomCiphers() { DARABONBA_PTR_GET(tls13CustomCiphers_, vector<string>) };
+    inline DescribeWebRulesResponseBodyWebRules& setTls13CustomCiphers(const vector<string> & tls13CustomCiphers) { DARABONBA_PTR_SET_VALUE(tls13CustomCiphers_, tls13CustomCiphers) };
+    inline DescribeWebRulesResponseBodyWebRules& setTls13CustomCiphers(vector<string> && tls13CustomCiphers) { DARABONBA_PTR_SET_RVALUE(tls13CustomCiphers_, tls13CustomCiphers) };
+
+
     // userCertName Field Functions 
     bool hasUserCertName() const { return this->userCertName_ != nullptr;};
     void deleteUserCertName() { this->userCertName_ = nullptr;};
@@ -294,6 +315,7 @@ namespace Models
     // *   **gf_sos_verify**: the Strict mode
     // *   **gf_sos_verify**: the Super Strict mode
     std::shared_ptr<string> ccTemplate_ = nullptr;
+    std::shared_ptr<int64_t> certExpireTime_ = nullptr;
     // The name of the SSL certificate.
     std::shared_ptr<string> certName_ = nullptr;
     // The region where the certificate is used. Valid values:
@@ -373,6 +395,7 @@ namespace Models
     // *   **tls1.1**: TLS 1.1 or later
     // *   **tls1.2**: TLS 1.2 or later
     std::shared_ptr<string> sslProtocols_ = nullptr;
+    std::shared_ptr<vector<string>> tls13CustomCiphers_ = nullptr;
     // The name of the certificate uploaded by the user to the certificate center.
     std::shared_ptr<string> userCertName_ = nullptr;
     // The IP addresses in the whitelist for the domain name.

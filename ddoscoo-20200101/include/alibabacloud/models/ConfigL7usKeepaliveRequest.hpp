@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ConfigL7UsKeepaliveRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Domain, domain_);
+      DARABONBA_PTR_TO_JSON(DownstreamKeepalive, downstreamKeepalive_);
       DARABONBA_PTR_TO_JSON(UpstreamKeepalive, upstreamKeepalive_);
     };
     friend void from_json(const Darabonba::Json& j, ConfigL7UsKeepaliveRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Domain, domain_);
+      DARABONBA_PTR_FROM_JSON(DownstreamKeepalive, downstreamKeepalive_);
       DARABONBA_PTR_FROM_JSON(UpstreamKeepalive, upstreamKeepalive_);
     };
     ConfigL7UsKeepaliveRequest() = default ;
@@ -32,12 +34,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->domain_ != nullptr
-        && this->upstreamKeepalive_ != nullptr; };
+        && this->downstreamKeepalive_ != nullptr && this->upstreamKeepalive_ != nullptr; };
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
     inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline ConfigL7UsKeepaliveRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
+
+
+    // downstreamKeepalive Field Functions 
+    bool hasDownstreamKeepalive() const { return this->downstreamKeepalive_ != nullptr;};
+    void deleteDownstreamKeepalive() { this->downstreamKeepalive_ = nullptr;};
+    inline string downstreamKeepalive() const { DARABONBA_PTR_GET_DEFAULT(downstreamKeepalive_, "") };
+    inline ConfigL7UsKeepaliveRequest& setDownstreamKeepalive(string downstreamKeepalive) { DARABONBA_PTR_SET_VALUE(downstreamKeepalive_, downstreamKeepalive) };
 
 
     // upstreamKeepalive Field Functions 
@@ -52,6 +61,7 @@ namespace Models
     // 
     // >  A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
     std::shared_ptr<string> domain_ = nullptr;
+    std::shared_ptr<string> downstreamKeepalive_ = nullptr;
     // The settings for back-to-origin persistent connections. The value is a string that consists of a JSON struct. The JSON struct contains the following fields:
     // 
     // *   **enabled**: the switch for back-to-origin persistent connections. This field is required, and the value is of the Boolean type.
