@@ -668,11 +668,11 @@ PushResponse Client::pushWithOptions(const PushRequest &tmpReq, const Darabonba:
   PushShrinkRequest request = PushShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAndroidOppoPrivateContentParameters()) {
-    request.setAndroidOppoPrivateContentParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.androidOppoPrivateContentParameters(), "androidOppoPrivateContentParameters", "json"));
+    request.setAndroidOppoPrivateContentParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.androidOppoPrivateContentParameters(), "AndroidOppoPrivateContentParameters", "json"));
   }
 
   if (!!tmpReq.hasAndroidOppoPrivateTitleParameters()) {
-    request.setAndroidOppoPrivateTitleParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.androidOppoPrivateTitleParameters(), "androidOppoPrivateTitleParameters", "json"));
+    request.setAndroidOppoPrivateTitleParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.androidOppoPrivateTitleParameters(), "AndroidOppoPrivateTitleParameters", "json"));
   }
 
   json query = {};
@@ -806,6 +806,18 @@ PushResponse Client::pushWithOptions(const PushRequest &tmpReq, const Darabonba:
 
   if (!!request.hasAndroidOpenUrl()) {
     query["AndroidOpenUrl"] = request.androidOpenUrl();
+  }
+
+  if (!!request.hasAndroidOppoPrivateContentParametersShrink()) {
+    query["AndroidOppoPrivateContentParameters"] = request.androidOppoPrivateContentParametersShrink();
+  }
+
+  if (!!request.hasAndroidOppoPrivateMsgTemplateId()) {
+    query["AndroidOppoPrivateMsgTemplateId"] = request.androidOppoPrivateMsgTemplateId();
+  }
+
+  if (!!request.hasAndroidOppoPrivateTitleParametersShrink()) {
+    query["AndroidOppoPrivateTitleParameters"] = request.androidOppoPrivateTitleParametersShrink();
   }
 
   if (!!request.hasAndroidPopupActivity()) {
@@ -1014,18 +1026,6 @@ PushResponse Client::pushWithOptions(const PushRequest &tmpReq, const Darabonba:
 
   if (!!request.hasTrim()) {
     query["Trim"] = request.trim();
-  }
-
-  if (!!request.hasAndroidOppoPrivateContentParametersShrink()) {
-    query["androidOppoPrivateContentParameters"] = request.androidOppoPrivateContentParametersShrink();
-  }
-
-  if (!!request.hasAndroidOppoPrivateMsgTemplateId()) {
-    query["androidOppoPrivateMsgTemplateId"] = request.androidOppoPrivateMsgTemplateId();
-  }
-
-  if (!!request.hasAndroidOppoPrivateTitleParametersShrink()) {
-    query["androidOppoPrivateTitleParameters"] = request.androidOppoPrivateTitleParametersShrink();
   }
 
   if (!!request.hasIOSApnsEnv()) {
