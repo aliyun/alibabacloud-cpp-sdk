@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const InitializeRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AppQualityCheck, appQualityCheck_);
       DARABONBA_PTR_TO_JSON(Authorize, authorize_);
+      DARABONBA_PTR_TO_JSON(AutoRegistration, autoRegistration_);
       DARABONBA_PTR_TO_JSON(CallbackToken, callbackToken_);
       DARABONBA_PTR_TO_JSON(CallbackUrl, callbackUrl_);
       DARABONBA_PTR_TO_JSON(ChameleonFrameEnable, chameleonFrameEnable_);
@@ -31,8 +32,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DocumentNumber, documentNumber_);
       DARABONBA_PTR_TO_JSON(EditOcrResult, editOcrResult_);
       DARABONBA_PTR_TO_JSON(ExperienceCode, experienceCode_);
+      DARABONBA_PTR_TO_JSON(FaceGroupCodes, faceGroupCodes_);
       DARABONBA_PTR_TO_JSON(FacePictureBase64, facePictureBase64_);
       DARABONBA_PTR_TO_JSON(FacePictureUrl, facePictureUrl_);
+      DARABONBA_PTR_TO_JSON(FaceRegisterGroupCode, faceRegisterGroupCode_);
+      DARABONBA_PTR_TO_JSON(FaceVerifyThreshold, faceVerifyThreshold_);
       DARABONBA_PTR_TO_JSON(IdFaceQuality, idFaceQuality_);
       DARABONBA_PTR_TO_JSON(IdSpoof, idSpoof_);
       DARABONBA_PTR_TO_JSON(IdThreshold, idThreshold_);
@@ -47,18 +51,24 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ProcedurePriority, procedurePriority_);
       DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
       DARABONBA_PTR_TO_JSON(ProductFlow, productFlow_);
+      DARABONBA_PTR_TO_JSON(ReturnFaces, returnFaces_);
       DARABONBA_PTR_TO_JSON(ReturnUrl, returnUrl_);
+      DARABONBA_PTR_TO_JSON(SaveFacePicture, saveFacePicture_);
       DARABONBA_PTR_TO_JSON(SceneCode, sceneCode_);
       DARABONBA_PTR_TO_JSON(SecurityLevel, securityLevel_);
       DARABONBA_PTR_TO_JSON(ShowAlbumIcon, showAlbumIcon_);
       DARABONBA_PTR_TO_JSON(ShowGuidePage, showGuidePage_);
       DARABONBA_PTR_TO_JSON(ShowOcrResult, showOcrResult_);
       DARABONBA_PTR_TO_JSON(StyleConfig, styleConfig_);
+      DARABONBA_PTR_TO_JSON(TargetFacePicture, targetFacePicture_);
+      DARABONBA_PTR_TO_JSON(TargetFacePictureUrl, targetFacePictureUrl_);
       DARABONBA_PTR_TO_JSON(UseNFC, useNFC_);
+      DARABONBA_PTR_TO_JSON(VerifyModel, verifyModel_);
     };
     friend void from_json(const Darabonba::Json& j, InitializeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppQualityCheck, appQualityCheck_);
       DARABONBA_PTR_FROM_JSON(Authorize, authorize_);
+      DARABONBA_PTR_FROM_JSON(AutoRegistration, autoRegistration_);
       DARABONBA_PTR_FROM_JSON(CallbackToken, callbackToken_);
       DARABONBA_PTR_FROM_JSON(CallbackUrl, callbackUrl_);
       DARABONBA_PTR_FROM_JSON(ChameleonFrameEnable, chameleonFrameEnable_);
@@ -74,8 +84,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DocumentNumber, documentNumber_);
       DARABONBA_PTR_FROM_JSON(EditOcrResult, editOcrResult_);
       DARABONBA_PTR_FROM_JSON(ExperienceCode, experienceCode_);
+      DARABONBA_PTR_FROM_JSON(FaceGroupCodes, faceGroupCodes_);
       DARABONBA_PTR_FROM_JSON(FacePictureBase64, facePictureBase64_);
       DARABONBA_PTR_FROM_JSON(FacePictureUrl, facePictureUrl_);
+      DARABONBA_PTR_FROM_JSON(FaceRegisterGroupCode, faceRegisterGroupCode_);
+      DARABONBA_PTR_FROM_JSON(FaceVerifyThreshold, faceVerifyThreshold_);
       DARABONBA_PTR_FROM_JSON(IdFaceQuality, idFaceQuality_);
       DARABONBA_PTR_FROM_JSON(IdSpoof, idSpoof_);
       DARABONBA_PTR_FROM_JSON(IdThreshold, idThreshold_);
@@ -90,14 +103,19 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ProcedurePriority, procedurePriority_);
       DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
       DARABONBA_PTR_FROM_JSON(ProductFlow, productFlow_);
+      DARABONBA_PTR_FROM_JSON(ReturnFaces, returnFaces_);
       DARABONBA_PTR_FROM_JSON(ReturnUrl, returnUrl_);
+      DARABONBA_PTR_FROM_JSON(SaveFacePicture, saveFacePicture_);
       DARABONBA_PTR_FROM_JSON(SceneCode, sceneCode_);
       DARABONBA_PTR_FROM_JSON(SecurityLevel, securityLevel_);
       DARABONBA_PTR_FROM_JSON(ShowAlbumIcon, showAlbumIcon_);
       DARABONBA_PTR_FROM_JSON(ShowGuidePage, showGuidePage_);
       DARABONBA_PTR_FROM_JSON(ShowOcrResult, showOcrResult_);
       DARABONBA_PTR_FROM_JSON(StyleConfig, styleConfig_);
+      DARABONBA_PTR_FROM_JSON(TargetFacePicture, targetFacePicture_);
+      DARABONBA_PTR_FROM_JSON(TargetFacePictureUrl, targetFacePictureUrl_);
       DARABONBA_PTR_FROM_JSON(UseNFC, useNFC_);
+      DARABONBA_PTR_FROM_JSON(VerifyModel, verifyModel_);
     };
     InitializeRequest() = default ;
     InitializeRequest(const InitializeRequest &) = default ;
@@ -111,14 +129,16 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->appQualityCheck_ != nullptr
-        && this->authorize_ != nullptr && this->callbackToken_ != nullptr && this->callbackUrl_ != nullptr && this->chameleonFrameEnable_ != nullptr && this->crop_ != nullptr
-        && this->dateOfBirth_ != nullptr && this->dateOfExpiry_ != nullptr && this->docName_ != nullptr && this->docNo_ != nullptr && this->docPageConfig_ != nullptr
-        && this->docScanMode_ != nullptr && this->docType_ != nullptr && this->docVideo_ != nullptr && this->documentNumber_ != nullptr && this->editOcrResult_ != nullptr
-        && this->experienceCode_ != nullptr && this->facePictureBase64_ != nullptr && this->facePictureUrl_ != nullptr && this->idFaceQuality_ != nullptr && this->idSpoof_ != nullptr
-        && this->idThreshold_ != nullptr && this->languageConfig_ != nullptr && this->MRTDInput_ != nullptr && this->merchantBizId_ != nullptr && this->merchantUserId_ != nullptr
-        && this->metaInfo_ != nullptr && this->model_ != nullptr && this->ocr_ != nullptr && this->pages_ != nullptr && this->procedurePriority_ != nullptr
-        && this->productCode_ != nullptr && this->productFlow_ != nullptr && this->returnUrl_ != nullptr && this->sceneCode_ != nullptr && this->securityLevel_ != nullptr
-        && this->showAlbumIcon_ != nullptr && this->showGuidePage_ != nullptr && this->showOcrResult_ != nullptr && this->styleConfig_ != nullptr && this->useNFC_ != nullptr; };
+        && this->authorize_ != nullptr && this->autoRegistration_ != nullptr && this->callbackToken_ != nullptr && this->callbackUrl_ != nullptr && this->chameleonFrameEnable_ != nullptr
+        && this->crop_ != nullptr && this->dateOfBirth_ != nullptr && this->dateOfExpiry_ != nullptr && this->docName_ != nullptr && this->docNo_ != nullptr
+        && this->docPageConfig_ != nullptr && this->docScanMode_ != nullptr && this->docType_ != nullptr && this->docVideo_ != nullptr && this->documentNumber_ != nullptr
+        && this->editOcrResult_ != nullptr && this->experienceCode_ != nullptr && this->faceGroupCodes_ != nullptr && this->facePictureBase64_ != nullptr && this->facePictureUrl_ != nullptr
+        && this->faceRegisterGroupCode_ != nullptr && this->faceVerifyThreshold_ != nullptr && this->idFaceQuality_ != nullptr && this->idSpoof_ != nullptr && this->idThreshold_ != nullptr
+        && this->languageConfig_ != nullptr && this->MRTDInput_ != nullptr && this->merchantBizId_ != nullptr && this->merchantUserId_ != nullptr && this->metaInfo_ != nullptr
+        && this->model_ != nullptr && this->ocr_ != nullptr && this->pages_ != nullptr && this->procedurePriority_ != nullptr && this->productCode_ != nullptr
+        && this->productFlow_ != nullptr && this->returnFaces_ != nullptr && this->returnUrl_ != nullptr && this->saveFacePicture_ != nullptr && this->sceneCode_ != nullptr
+        && this->securityLevel_ != nullptr && this->showAlbumIcon_ != nullptr && this->showGuidePage_ != nullptr && this->showOcrResult_ != nullptr && this->styleConfig_ != nullptr
+        && this->targetFacePicture_ != nullptr && this->targetFacePictureUrl_ != nullptr && this->useNFC_ != nullptr && this->verifyModel_ != nullptr; };
     // appQualityCheck Field Functions 
     bool hasAppQualityCheck() const { return this->appQualityCheck_ != nullptr;};
     void deleteAppQualityCheck() { this->appQualityCheck_ = nullptr;};
@@ -131,6 +151,13 @@ namespace Models
     void deleteAuthorize() { this->authorize_ = nullptr;};
     inline string authorize() const { DARABONBA_PTR_GET_DEFAULT(authorize_, "") };
     inline InitializeRequest& setAuthorize(string authorize) { DARABONBA_PTR_SET_VALUE(authorize_, authorize) };
+
+
+    // autoRegistration Field Functions 
+    bool hasAutoRegistration() const { return this->autoRegistration_ != nullptr;};
+    void deleteAutoRegistration() { this->autoRegistration_ = nullptr;};
+    inline string autoRegistration() const { DARABONBA_PTR_GET_DEFAULT(autoRegistration_, "") };
+    inline InitializeRequest& setAutoRegistration(string autoRegistration) { DARABONBA_PTR_SET_VALUE(autoRegistration_, autoRegistration) };
 
 
     // callbackToken Field Functions 
@@ -240,6 +267,13 @@ namespace Models
     inline InitializeRequest& setExperienceCode(string experienceCode) { DARABONBA_PTR_SET_VALUE(experienceCode_, experienceCode) };
 
 
+    // faceGroupCodes Field Functions 
+    bool hasFaceGroupCodes() const { return this->faceGroupCodes_ != nullptr;};
+    void deleteFaceGroupCodes() { this->faceGroupCodes_ = nullptr;};
+    inline string faceGroupCodes() const { DARABONBA_PTR_GET_DEFAULT(faceGroupCodes_, "") };
+    inline InitializeRequest& setFaceGroupCodes(string faceGroupCodes) { DARABONBA_PTR_SET_VALUE(faceGroupCodes_, faceGroupCodes) };
+
+
     // facePictureBase64 Field Functions 
     bool hasFacePictureBase64() const { return this->facePictureBase64_ != nullptr;};
     void deleteFacePictureBase64() { this->facePictureBase64_ = nullptr;};
@@ -252,6 +286,20 @@ namespace Models
     void deleteFacePictureUrl() { this->facePictureUrl_ = nullptr;};
     inline string facePictureUrl() const { DARABONBA_PTR_GET_DEFAULT(facePictureUrl_, "") };
     inline InitializeRequest& setFacePictureUrl(string facePictureUrl) { DARABONBA_PTR_SET_VALUE(facePictureUrl_, facePictureUrl) };
+
+
+    // faceRegisterGroupCode Field Functions 
+    bool hasFaceRegisterGroupCode() const { return this->faceRegisterGroupCode_ != nullptr;};
+    void deleteFaceRegisterGroupCode() { this->faceRegisterGroupCode_ = nullptr;};
+    inline string faceRegisterGroupCode() const { DARABONBA_PTR_GET_DEFAULT(faceRegisterGroupCode_, "") };
+    inline InitializeRequest& setFaceRegisterGroupCode(string faceRegisterGroupCode) { DARABONBA_PTR_SET_VALUE(faceRegisterGroupCode_, faceRegisterGroupCode) };
+
+
+    // faceVerifyThreshold Field Functions 
+    bool hasFaceVerifyThreshold() const { return this->faceVerifyThreshold_ != nullptr;};
+    void deleteFaceVerifyThreshold() { this->faceVerifyThreshold_ = nullptr;};
+    inline string faceVerifyThreshold() const { DARABONBA_PTR_GET_DEFAULT(faceVerifyThreshold_, "") };
+    inline InitializeRequest& setFaceVerifyThreshold(string faceVerifyThreshold) { DARABONBA_PTR_SET_VALUE(faceVerifyThreshold_, faceVerifyThreshold) };
 
 
     // idFaceQuality Field Functions 
@@ -352,11 +400,25 @@ namespace Models
     inline InitializeRequest& setProductFlow(string productFlow) { DARABONBA_PTR_SET_VALUE(productFlow_, productFlow) };
 
 
+    // returnFaces Field Functions 
+    bool hasReturnFaces() const { return this->returnFaces_ != nullptr;};
+    void deleteReturnFaces() { this->returnFaces_ = nullptr;};
+    inline string returnFaces() const { DARABONBA_PTR_GET_DEFAULT(returnFaces_, "") };
+    inline InitializeRequest& setReturnFaces(string returnFaces) { DARABONBA_PTR_SET_VALUE(returnFaces_, returnFaces) };
+
+
     // returnUrl Field Functions 
     bool hasReturnUrl() const { return this->returnUrl_ != nullptr;};
     void deleteReturnUrl() { this->returnUrl_ = nullptr;};
     inline string returnUrl() const { DARABONBA_PTR_GET_DEFAULT(returnUrl_, "") };
     inline InitializeRequest& setReturnUrl(string returnUrl) { DARABONBA_PTR_SET_VALUE(returnUrl_, returnUrl) };
+
+
+    // saveFacePicture Field Functions 
+    bool hasSaveFacePicture() const { return this->saveFacePicture_ != nullptr;};
+    void deleteSaveFacePicture() { this->saveFacePicture_ = nullptr;};
+    inline string saveFacePicture() const { DARABONBA_PTR_GET_DEFAULT(saveFacePicture_, "") };
+    inline InitializeRequest& setSaveFacePicture(string saveFacePicture) { DARABONBA_PTR_SET_VALUE(saveFacePicture_, saveFacePicture) };
 
 
     // sceneCode Field Functions 
@@ -401,6 +463,20 @@ namespace Models
     inline InitializeRequest& setStyleConfig(string styleConfig) { DARABONBA_PTR_SET_VALUE(styleConfig_, styleConfig) };
 
 
+    // targetFacePicture Field Functions 
+    bool hasTargetFacePicture() const { return this->targetFacePicture_ != nullptr;};
+    void deleteTargetFacePicture() { this->targetFacePicture_ = nullptr;};
+    inline string targetFacePicture() const { DARABONBA_PTR_GET_DEFAULT(targetFacePicture_, "") };
+    inline InitializeRequest& setTargetFacePicture(string targetFacePicture) { DARABONBA_PTR_SET_VALUE(targetFacePicture_, targetFacePicture) };
+
+
+    // targetFacePictureUrl Field Functions 
+    bool hasTargetFacePictureUrl() const { return this->targetFacePictureUrl_ != nullptr;};
+    void deleteTargetFacePictureUrl() { this->targetFacePictureUrl_ = nullptr;};
+    inline string targetFacePictureUrl() const { DARABONBA_PTR_GET_DEFAULT(targetFacePictureUrl_, "") };
+    inline InitializeRequest& setTargetFacePictureUrl(string targetFacePictureUrl) { DARABONBA_PTR_SET_VALUE(targetFacePictureUrl_, targetFacePictureUrl) };
+
+
     // useNFC Field Functions 
     bool hasUseNFC() const { return this->useNFC_ != nullptr;};
     void deleteUseNFC() { this->useNFC_ = nullptr;};
@@ -408,9 +484,17 @@ namespace Models
     inline InitializeRequest& setUseNFC(string useNFC) { DARABONBA_PTR_SET_VALUE(useNFC_, useNFC) };
 
 
+    // verifyModel Field Functions 
+    bool hasVerifyModel() const { return this->verifyModel_ != nullptr;};
+    void deleteVerifyModel() { this->verifyModel_ = nullptr;};
+    inline string verifyModel() const { DARABONBA_PTR_GET_DEFAULT(verifyModel_, "") };
+    inline InitializeRequest& setVerifyModel(string verifyModel) { DARABONBA_PTR_SET_VALUE(verifyModel_, verifyModel) };
+
+
   protected:
     std::shared_ptr<string> appQualityCheck_ = nullptr;
     std::shared_ptr<string> authorize_ = nullptr;
+    std::shared_ptr<string> autoRegistration_ = nullptr;
     std::shared_ptr<string> callbackToken_ = nullptr;
     std::shared_ptr<string> callbackUrl_ = nullptr;
     std::shared_ptr<string> chameleonFrameEnable_ = nullptr;
@@ -426,8 +510,11 @@ namespace Models
     std::shared_ptr<string> documentNumber_ = nullptr;
     std::shared_ptr<string> editOcrResult_ = nullptr;
     std::shared_ptr<string> experienceCode_ = nullptr;
+    std::shared_ptr<string> faceGroupCodes_ = nullptr;
     std::shared_ptr<string> facePictureBase64_ = nullptr;
     std::shared_ptr<string> facePictureUrl_ = nullptr;
+    std::shared_ptr<string> faceRegisterGroupCode_ = nullptr;
+    std::shared_ptr<string> faceVerifyThreshold_ = nullptr;
     std::shared_ptr<string> idFaceQuality_ = nullptr;
     std::shared_ptr<string> idSpoof_ = nullptr;
     std::shared_ptr<string> idThreshold_ = nullptr;
@@ -443,14 +530,19 @@ namespace Models
     std::shared_ptr<string> procedurePriority_ = nullptr;
     std::shared_ptr<string> productCode_ = nullptr;
     std::shared_ptr<string> productFlow_ = nullptr;
+    std::shared_ptr<string> returnFaces_ = nullptr;
     std::shared_ptr<string> returnUrl_ = nullptr;
+    std::shared_ptr<string> saveFacePicture_ = nullptr;
     std::shared_ptr<string> sceneCode_ = nullptr;
     std::shared_ptr<string> securityLevel_ = nullptr;
     std::shared_ptr<string> showAlbumIcon_ = nullptr;
     std::shared_ptr<string> showGuidePage_ = nullptr;
     std::shared_ptr<string> showOcrResult_ = nullptr;
     std::shared_ptr<string> styleConfig_ = nullptr;
+    std::shared_ptr<string> targetFacePicture_ = nullptr;
+    std::shared_ptr<string> targetFacePictureUrl_ = nullptr;
     std::shared_ptr<string> useNFC_ = nullptr;
+    std::shared_ptr<string> verifyModel_ = nullptr;
   };
 
   } // namespace Models

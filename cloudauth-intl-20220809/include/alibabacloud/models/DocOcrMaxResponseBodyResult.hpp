@@ -66,9 +66,16 @@ namespace Models
 
 
   protected:
+    // Card and document recognition result	Only returned when the interface response is successful
     std::shared_ptr<string> extIdInfo_ = nullptr;
+    // Whether the authentication passed.
+    // 
+    // - Y: Passed.
+    // - N: Not passed.
     std::shared_ptr<string> passed_ = nullptr;
+    // Sub-result code.
     std::shared_ptr<string> subCode_ = nullptr;
+    // Authentication ID
     std::shared_ptr<string> transactionId_ = nullptr;
   };
 

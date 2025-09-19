@@ -69,10 +69,13 @@ namespace Models
 
 
   protected:
+    // The [response code](https://www.alibabacloud.com/help/en/ekyc/latest/facecompare?spm=a3c0i.23458820.2359477120.28.21167d3fzUmXQC#c43fd16d07mae).
     std::shared_ptr<string> code_ = nullptr;
+    // The detailed description of the response code.
     std::shared_ptr<string> message_ = nullptr;
     // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;
+    // Result object
     std::shared_ptr<FaceCompareResponseBodyResult> result_ = nullptr;
   };
 

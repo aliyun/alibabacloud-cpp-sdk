@@ -84,13 +84,23 @@ namespace Models
 
 
   protected:
+    // Input the Base64 encoded format of the face image.
+    // > Choose one of FaceUrl or FaceBase64 to input.
     std::shared_ptr<string> faceBase64_ = nullptr;
+    // Input **IMAGE**, indicating a face image.
     std::shared_ptr<string> faceInputType_ = nullptr;
+    // Input the URL address of the face image.
+    // > Choose one of FaceUrl or FaceBase64 to input.
     std::shared_ptr<string> faceUrl_ = nullptr;
+    // A unique identifier for the merchant\\"s request, consisting of a 32-character alphanumeric combination. The first few characters are composed of a custom abbreviation defined by the merchant, the middle part can include a period of time, and the latter part can use a random or incremental sequence.
+    // 
     // This parameter is required.
     std::shared_ptr<string> merchantBizId_ = nullptr;
+    // The product solution to be integrated. Value: **FACE_DEEPFAKE**.
+    // 
     // This parameter is required.
     std::shared_ptr<string> productCode_ = nullptr;
+    // Your custom authentication scenario ID, used for querying related records by entering this scenario ID in the console later. Supports a combination of 10 characters, including letters, numbers, or underscores.
     std::shared_ptr<string> sceneCode_ = nullptr;
   };
 

@@ -69,9 +69,17 @@ namespace Models
 
 
   protected:
+    // The results of the passive liveness detection. The value is in the JSON format. For more information, see [ExtFaceInfo](https://www.alibabacloud.com/help/en/ekyc/latest/cadqvlft48igbpdc?spm=a2c63.p38356.0.i54#5ff42f7274agz).
     std::shared_ptr<Models::FaceLivenessResponseBodyResultExtFaceInfo> extFaceInfo_ = nullptr;
+    // The authentication result. Valid values:
+    // 
+    // - Y: The authentication is passed.
+    // 
+    // - N: The authentication is not passed.
     std::shared_ptr<string> passed_ = nullptr;
+    // The code that corresponds to the verification result. For more information, see [ResultObject.SubCode error codes](https://www.alibabacloud.com/help/en/ekyc/latest/cadqvlft48igbpdc?spm=a2c63.p38356.0.i54#5ff3e16174tl2).
     std::shared_ptr<string> subCode_ = nullptr;
+    // The transaction ID.
     std::shared_ptr<string> transactionId_ = nullptr;
   };
 

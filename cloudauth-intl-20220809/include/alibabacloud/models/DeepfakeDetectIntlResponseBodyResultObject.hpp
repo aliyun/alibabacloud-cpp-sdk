@@ -60,8 +60,22 @@ namespace Models
 
 
   protected:
+    // Risk result:
+    // 
+    // - **0**: Low risk
+    // - **1**: High risk
+    // - **2**: Suspicious
     std::shared_ptr<string> result_ = nullptr;
+    // Risk score map.
     std::shared_ptr<map<string, string>> riskScore_ = nullptr;
+    // Risk tags. Multiple tags are separated by commas (,). Includes:
+    // 
+    // - **SuspectDeepForgery** Suspected deep forgery  
+    // - **SuspectPSFace** Suspected synthetic attack  
+    // - **SuspectWarterMark** Suspected watermark presence  
+    // - **SuspectTemple** Suspected template attack  
+    // - **SuspectAIGCFace**  Suspected generated face  
+    // - **SuspectRemake**  Suspected rephotographed face
     std::shared_ptr<string> riskTag_ = nullptr;
   };
 

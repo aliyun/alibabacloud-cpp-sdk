@@ -57,8 +57,30 @@ namespace Models
 
 
   protected:
+    // The verification result. Valid values:
+    // 
+    // - **1**: Passed (billed)
+    // - **2**: Failed (The device is in a prohibited region) (billed)
+    // - **3**: Unknown (billed)
     std::shared_ptr<string> bizCode_ = nullptr;
+    // Verification details, including：
+    // 
+    // - **DistanceRange**：Position rang：[DistanceRange description](https://www.alibabacloud.com/help/zh/ekyc/latest/add-verify-pro-api?spm=a2c63.p38356.0.i27#ee274c08976er)。
+    // > If the input phone number or address is empty, or if no carrier information is found, this field will not be returned.
+    // 
+    // - **IspName**: The carrier name:
+    //    - **CMCC**: China Mobile
+    //    - **CTCC**: China Telecom
+    //    - **CUCC**: China Unicom
+    // > This parameter is not returned if the mobile phone number or address is empty in the request, or if carrier information is not found.
+    // 
+    // - **PhoneStatus**: The status of the mobile phone:
+    //   - **0**: Abnormal
+    //   - **1**: Normal
+    // 
+    // > This parameter is not returned if the mobile phone number is empty in the request.
     std::shared_ptr<string> detail_ = nullptr;
+    // The transaction ID
     std::shared_ptr<string> transactionId_ = nullptr;
   };
 

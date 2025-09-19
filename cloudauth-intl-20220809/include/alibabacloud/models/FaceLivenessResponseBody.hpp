@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // [The response code.](https://www.alibabacloud.com/help/en/ekyc/latest/cadqvlft48igbpdc?spm=a2c63.p38356.0.i54#3d0ed52f967g6)
     std::shared_ptr<string> code_ = nullptr;
+    // A detailed description of the response code.
     std::shared_ptr<string> message_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Result object
     std::shared_ptr<FaceLivenessResponseBodyResult> result_ = nullptr;
   };
 

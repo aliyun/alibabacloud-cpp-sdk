@@ -66,14 +66,21 @@ namespace Models
 
 
   protected:
+    // Country name
+    // - China
+    // 
     // This parameter is required.
     std::shared_ptr<string> defaultCountry_ = nullptr;
     // ADD_VERIFY
     // 
     // This parameter is required.
     std::shared_ptr<string> productCode_ = nullptr;
+    // Address 1
+    // 
     // This parameter is required.
     std::shared_ptr<string> text1_ = nullptr;
+    // Address 2
+    // 
     // This parameter is required.
     std::shared_ptr<string> text2_ = nullptr;
   };

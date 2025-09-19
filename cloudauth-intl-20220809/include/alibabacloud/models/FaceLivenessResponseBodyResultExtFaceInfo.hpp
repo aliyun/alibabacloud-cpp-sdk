@@ -75,10 +75,19 @@ namespace Models
 
 
   protected:
+    // The predicted age of the person in the image. The prediction may fail, resulting in an empty value.
     std::shared_ptr<int32_t> faceAge_ = nullptr;
+    // Indicates whether a presentation attack was detected on the captured face. Y means an attack was detected. N means no attack was detected.
     std::shared_ptr<string> faceAttack_ = nullptr;
+    // The predicted gender of the person in the image. The prediction may fail, resulting in an empty value.
+    // 
+    // - **M**: Male
+    // 
+    // - **F**: Female
     std::shared_ptr<string> faceGender_ = nullptr;
+    // Optional. The quality score of the live face. The value ranges from 0 to 100.
     std::shared_ptr<double> faceQualityScore_ = nullptr;
+    // Optional. Indicates whether the face is occluded. Y means the face is occluded. N means the face is not occluded.
     std::shared_ptr<string> occlusionResult_ = nullptr;
   };
 

@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The unique ID of the current business authentication. It is used with FACE_GUARD for verification during queries.
     std::shared_ptr<string> bizId_ = nullptr;
+    // The deviceToken obtained from the client SDK.
     std::shared_ptr<string> deviceToken_ = nullptr;
+    // A custom unique business identifier. It is used to locate and troubleshoot issues. The identifier can be a combination of letters and digits up to 32 characters long. Ensure that it is unique.
     std::shared_ptr<string> merchantBizId_ = nullptr;
+    // The product code. Set this to the static field **FACE_GUARD**.
     std::shared_ptr<string> productCode_ = nullptr;
   };
 

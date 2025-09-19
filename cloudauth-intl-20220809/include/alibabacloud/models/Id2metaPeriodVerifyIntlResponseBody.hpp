@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // [Return to Code](https://www.alibabacloud.com/help/en/ekyc/latest/dateverify?spm=a2c63.p38356.0.i32#22facb6ab6ui1).
     std::shared_ptr<string> code_ = nullptr;
+    // A detailed description of the response code.
     std::shared_ptr<string> message_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Return result
     std::shared_ptr<Id2MetaPeriodVerifyIntlResponseBodyResult> result_ = nullptr;
   };
 

@@ -84,11 +84,21 @@ namespace Models
 
 
   protected:
+    // 是否开启传入人脸图片质量检测
     std::shared_ptr<string> facePictureQualityCheck_ = nullptr;
+    // A custom unique business ID used for troubleshooting. It can be a combination of up to 32 letters and digits. Make sure that the ID is unique.
     std::shared_ptr<string> merchantBizId_ = nullptr;
     std::shared_ptr<string> sourceFacePicture_ = nullptr;
+    // The URL of the portrait photo. The URL must be an HTTP or HTTPS link accessible over the Internet.
+    // 
+    // > You must specify either SourceFacePicture or SourceFacePictureUrl.
     std::shared_ptr<string> sourceFacePictureUrl_ = nullptr;
     std::shared_ptr<string> targetFacePicture_ = nullptr;
+    // The URL of the base portrait photo. The URL must be an HTTP or HTTPS link accessible over the Internet.
+    // 
+    // 
+    // 
+    // > You must specify either TargetFacePicture or TargetFacePictureUrl.
     std::shared_ptr<string> targetFacePictureUrl_ = nullptr;
   };
 

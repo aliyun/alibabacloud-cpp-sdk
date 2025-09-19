@@ -75,10 +75,21 @@ namespace Models
 
 
   protected:
+    // Information about the face liveness verification result. For the JSON format, see the example on the right. For more information, see [ExtFaceInfo](https://www.alibabacloud.com/help/en/ekyc/latest/im1u641gyesiqmbg?spm=a2c63.p38356.0.i18#JJ40j).
     std::shared_ptr<string> extFaceInfo_ = nullptr;
+    // Information about the certificate detection result.
+    // 
+    // For the JSON format, see the example on the right. For more information, see [ExtIdInfo](https://www.alibabacloud.com/help/en/ekyc/latest/im1u641gyesiqmbg?spm=a2c63.p38356.0.i18#iWOBY).
     std::shared_ptr<string> extIdInfo_ = nullptr;
+    // The final authentication result. Valid values:
+    // 
+    // - **Y**: The authentication is passed.
+    // 
+    // - **N**: The authentication fails.
     std::shared_ptr<string> passed_ = nullptr;
+    // A description of the authentication result. For more information, see [Error codes for ResultObject.SubCode](https://www.alibabacloud.com/help/en/ekyc/latest/im1u641gyesiqmbg?spm=a2c63.p38356.0.i18#HCGLb).
     std::shared_ptr<string> subCode_ = nullptr;
+    // The transaction ID.
     std::shared_ptr<string> transactionId_ = nullptr;
   };
 

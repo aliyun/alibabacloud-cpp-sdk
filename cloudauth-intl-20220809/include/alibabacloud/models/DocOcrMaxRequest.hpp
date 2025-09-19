@@ -149,18 +149,53 @@ namespace Models
 
 
   protected:
+    // Page expected to be recognized
+    // 
+    // - 01 (default): ID portrait.
+    // 
+    // - 02: Back of the certificate
     std::shared_ptr<string> docPage_ = nullptr;
+    // Document type.
+    // Format: Country (region) code + document type abbreviation + page (optional)
+    // Note: If provided, it will automatically check if it matches the model recognition result; if empty, the document type will be returned after model recognition.
     std::shared_ptr<string> docType_ = nullptr;
+    // Document image, base64 encoded binary stream
     std::shared_ptr<string> idOcrPictureBase64_ = nullptr;
+    // Document image URL
     std::shared_ptr<string> idOcrPictureUrl_ = nullptr;
+    // Whether to turn on the certificate anti-counterfeiting function:
+    // 
+    // - T: open
+    // 
+    // - F (default): not turned on.
     std::shared_ptr<string> idSpoof_ = nullptr;
+    // Custom OCR quality detection threshold mode:
+    // 
+    // - 0: System default
+    // - 1: Strict mode
+    // - 2: Lenient mode
+    // - 3 (default): Disable quality detection
     std::shared_ptr<string> idThreshold_ = nullptr;
+    // A unique business identifier defined by the merchant, used for subsequent problem localization and troubleshooting. It supports a combination of letters and numbers, with a maximum length of 32 characters. Please ensure its uniqueness.
     std::shared_ptr<string> merchantBizId_ = nullptr;
+    // Your custom user ID or other identifiers that can uniquely identify a specific user, such as a phone number or email address. It is strongly recommended to pre-desensitize the value of this field, for example, by hashing it.
     std::shared_ptr<string> merchantUserId_ = nullptr;
+    // OCR recognition mode.
+    // 0: General document mode.
+    // 1: Custom mode.
     std::shared_ptr<string> ocrModel_ = nullptr;
+    // The product solution to be integrated.
+    // 
+    // Value: ID_OCR_MAX
     std::shared_ptr<string> productCode_ = nullptr;
+    // Prompt (for custom mode)
     std::shared_ptr<string> prompt_ = nullptr;
+    // Custom scene code, used to distinguish business scenarios, a 10-digit number.
     std::shared_ptr<string> sceneCode_ = nullptr;
+    // Whether to enable document anti-counterfeiting function, default is not enabled.
+    // 
+    // - T: Enable document anti-counterfeiting function.
+    // - F: Do not enable.
     std::shared_ptr<string> spoof_ = nullptr;
   };
 

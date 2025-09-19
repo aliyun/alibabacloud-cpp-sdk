@@ -38,6 +38,16 @@ namespace Models
 
 
   protected:
+    // The values of sameLevel include:
+    // - all: Exactly the same
+    // - prov: Provincial level
+    // - city: City level
+    // - district: District level
+    // - town: Town level
+    // - road: Road level
+    // - roadno: Road number
+    // - poi: Point of interest (e.g., residential area)
+    // - roomno: Room number
     std::shared_ptr<string> data_ = nullptr;
   };
 

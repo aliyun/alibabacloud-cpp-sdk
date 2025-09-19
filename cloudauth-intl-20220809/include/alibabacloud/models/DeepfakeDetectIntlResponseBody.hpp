@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // Return code: 200 indicates a successful request, any other value indicates failure.
     std::shared_ptr<string> code_ = nullptr;
+    // Return message.
     std::shared_ptr<string> message_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Returned result information.
     std::shared_ptr<DeepfakeDetectIntlResponseBodyResultObject> resultObject_ = nullptr;
   };
 

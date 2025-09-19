@@ -57,8 +57,15 @@ namespace Models
 
 
   protected:
+    // The face comparison score. The value ranges from 0 to 100.
     std::shared_ptr<double> faceComparisonScore_ = nullptr;
+    // The final authentication result. Valid values:
+    // 
+    // - **Y**: The authentication is passed.
+    // 
+    // - **N**: The authentication failed.
     std::shared_ptr<string> passed_ = nullptr;
+    // The transaction ID.
     std::shared_ptr<string> transactionId_ = nullptr;
   };
 

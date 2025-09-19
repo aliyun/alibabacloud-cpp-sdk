@@ -66,12 +66,32 @@ namespace Models
 
 
   protected:
+    // The mobile number.
+    // 
+    // >
+    // > - If **paramType** is set to **normal**, enter the plaintext value.
+    // > - If **paramType** is set to **md5**, enter the 32-bit lowercase MD5 string.
+    // 
     // This parameter is required.
     std::shared_ptr<string> mobile_ = nullptr;
+    // The parameter type:
+    // 
+    // - **normal**: plaintext
+    // 
+    // - **md5**: MD5-encrypted
+    // 
     // This parameter is required.
     std::shared_ptr<string> paramType_ = nullptr;
+    // The product to use. Set this parameter to the static value **MOBILE_2META**.
+    // 
     // This parameter is required.
     std::shared_ptr<string> productCode_ = nullptr;
+    // The name.
+    // 
+    // > 
+    // > - If **paramType** is set to **normal**, enter the plaintext value.
+    // > - If **paramType** is set to **md5**, enter the 32-bit lowercase MD5 string.
+    // 
     // This parameter is required.
     std::shared_ptr<string> userName_ = nullptr;
   };

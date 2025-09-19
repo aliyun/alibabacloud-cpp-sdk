@@ -69,10 +69,13 @@ namespace Models
 
 
   protected:
+    // The return code. A value of Success indicates that the API operation responded successfully. For more information about how to determine the authentication result, expand the **Return codes** section below.
     std::shared_ptr<string> code_ = nullptr;
+    // A detailed description of the return code.
     std::shared_ptr<string> message_ = nullptr;
     // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;
+    // Result object
     std::shared_ptr<FaceGuardRiskResponseBodyResult> result_ = nullptr;
   };
 

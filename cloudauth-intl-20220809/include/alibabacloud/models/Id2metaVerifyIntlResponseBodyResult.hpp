@@ -38,6 +38,13 @@ namespace Models
 
 
   protected:
+    // The verification result:
+    // 
+    // - 1: The information is consistent. This result is billable.
+    // 
+    // - 2: The information is inconsistent. This result is billable.
+    // 
+    // - 3: No record is found. This result is not billable.
     std::shared_ptr<string> bizCode_ = nullptr;
   };
 

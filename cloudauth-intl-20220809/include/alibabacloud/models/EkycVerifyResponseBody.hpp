@@ -69,10 +69,13 @@ namespace Models
 
 
   protected:
+    // The [response code](https://www.alibabacloud.com/help/en/ekyc/latest/im1u641gyesiqmbg?spm=a2c63.p38356.0.i18#GiGmf).
     std::shared_ptr<string> code_ = nullptr;
+    // A detailed description of the response code.
     std::shared_ptr<string> message_ = nullptr;
     // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;
+    // Result object
     std::shared_ptr<EkycVerifyResponseBodyResult> result_ = nullptr;
   };
 

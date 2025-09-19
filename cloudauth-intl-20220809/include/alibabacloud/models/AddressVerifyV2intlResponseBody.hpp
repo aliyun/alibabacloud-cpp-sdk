@@ -69,10 +69,13 @@ namespace Models
 
 
   protected:
+    // [Return Code](https://www.alibabacloud.com/help/zh/ekyc/latest/add-verify-pro-api?spm=a2c63.p38356.0.i4#ae60001a3804w)
     std::shared_ptr<string> code_ = nullptr;
+    // Detailed description of the return code
     std::shared_ptr<string> message_ = nullptr;
     // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;
+    // Result object
     std::shared_ptr<AddressVerifyV2IntlResponseBodyResult> result_ = nullptr;
   };
 

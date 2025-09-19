@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The result of the call.
     std::shared_ptr<string> result_ = nullptr;
   };
 

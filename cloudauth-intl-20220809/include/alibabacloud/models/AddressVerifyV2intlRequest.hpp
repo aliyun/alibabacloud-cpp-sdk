@@ -84,14 +84,27 @@ namespace Models
 
 
   protected:
+    // DeviceToken obtained via the client SDK
+    // 
     // This parameter is required.
     std::shared_ptr<string> deviceToken_ = nullptr;
+    // Supported: Chinese mobile phone numbers
     std::shared_ptr<string> mobile_ = nullptr;
+    // Fixed value: ADD_VERIFY_PRO
+    // 
     // This parameter is required.
     std::shared_ptr<string> productCode_ = nullptr;
+    // List of prohibited countries or regions
+    // 
     // This parameter is required.
     std::shared_ptr<string> regCountry_ = nullptr;
+    // Detailed address text content
     std::shared_ptr<string> text_ = nullptr;
+    // Address verification method:
+    // 
+    // - **HOME**: Home address verification
+    // 
+    // - **WORK**: Work address verification
     std::shared_ptr<string> verifyType_ = nullptr;
   };
 

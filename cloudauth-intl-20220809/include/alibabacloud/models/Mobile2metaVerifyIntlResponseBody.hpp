@@ -69,10 +69,13 @@ namespace Models
 
 
   protected:
+    // [Status codes](https://www.alibabacloud.com/help/en/ekyc/latest/mobile-2meta?spm=a2c63.p38356.0.i13#cbf2539971xzr).
     std::shared_ptr<string> code_ = nullptr;
+    // A detailed description of the response code.
     std::shared_ptr<string> message_ = nullptr;
     // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;
+    // Return result
     std::shared_ptr<Mobile2MetaVerifyIntlResponseBodyResult> result_ = nullptr;
   };
 

@@ -84,7 +84,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 地址相似比对
+ * @summary Address Similarity Comparison
+ *
+ * @description API for comparing two addresses, standardizing and checking address consistency.
  *
  * @param request AddressCompareIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -127,7 +129,9 @@ AddressCompareIntlResponse Client::addressCompareIntlWithOptions(const AddressCo
 }
 
 /**
- * @summary 地址相似比对
+ * @summary Address Similarity Comparison
+ *
+ * @description API for comparing two addresses, standardizing and checking address consistency.
  *
  * @param request AddressCompareIntlRequest
  * @return AddressCompareIntlResponse
@@ -224,7 +228,7 @@ AddressVerifyIntlResponse Client::addressVerifyIntl(const AddressVerifyIntlReque
 }
 
 /**
- * @summary 地址核验
+ * @summary This topic describes the address verification API operation, which verifies the region and address of a device using device data and carrier big data capabilities.
  *
  * @param request AddressVerifyV2IntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -275,7 +279,7 @@ AddressVerifyV2IntlResponse Client::addressVerifyV2IntlWithOptions(const Address
 }
 
 /**
- * @summary 地址核验
+ * @summary This topic describes the address verification API operation, which verifies the region and address of a device using device data and carrier big data capabilities.
  *
  * @param request AddressVerifyV2IntlRequest
  * @return AddressVerifyV2IntlResponse
@@ -762,7 +766,9 @@ CredentialVerifyIntlResponse Client::credentialVerifyIntlAdvance(const Credentia
 }
 
 /**
- * @summary 人脸凭证核验
+ * @summary Face Credential Verification
+ *
+ * @description Input a face image and use the algorithm to detect if there is a risk of deep forgery. This includes risk scenarios such as AIGC-generated faces, deepfake face swapping, template faces, and rephotographed faces, and outputs risk labels and confidence levels.
  *
  * @param request DeepfakeDetectIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -815,7 +821,9 @@ DeepfakeDetectIntlResponse Client::deepfakeDetectIntlWithOptions(const DeepfakeD
 }
 
 /**
- * @summary 人脸凭证核验
+ * @summary Face Credential Verification
+ *
+ * @description Input a face image and use the algorithm to detect if there is a risk of deep forgery. This includes risk scenarios such as AIGC-generated faces, deepfake face swapping, template faces, and rephotographed faces, and outputs risk labels and confidence levels.
  *
  * @param request DeepfakeDetectIntlRequest
  * @return DeepfakeDetectIntlResponse
@@ -960,7 +968,7 @@ DocOcrResponse Client::docOcr(const DocOcrRequest &request) {
 }
 
 /**
- * @summary 全球证件ocr识别接口
+ * @summary Global Document OCR Recognition Interface
  *
  * @param request DocOcrMaxRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1039,7 +1047,7 @@ DocOcrMaxResponse Client::docOcrMaxWithOptions(const DocOcrMaxRequest &request, 
 }
 
 /**
- * @summary 全球证件ocr识别接口
+ * @summary Global Document OCR Recognition Interface
  *
  * @param request DocOcrMaxRequest
  * @return DocOcrMaxResponse
@@ -1050,7 +1058,7 @@ DocOcrMaxResponse Client::docOcrMax(const DocOcrMaxRequest &request) {
 }
 
 /**
- * @summary ekyc纯服务端接口
+ * @summary This topic describes how to integrate with ID Verification using only the server-side API.
  *
  * @param request EkycVerifyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1131,7 +1139,7 @@ EkycVerifyResponse Client::ekycVerifyWithOptions(const EkycVerifyRequest &reques
 }
 
 /**
- * @summary ekyc纯服务端接口
+ * @summary This topic describes how to integrate with ID Verification using only the server-side API.
  *
  * @param request EkycVerifyRequest
  * @return EkycVerifyResponse
@@ -1142,7 +1150,7 @@ EkycVerifyResponse Client::ekycVerify(const EkycVerifyRequest &request) {
 }
 
 /**
- * @summary 人脸比对
+ * @summary This topic describes how to integrate FaceCompare using only the server-side API.
  *
  * @param request FaceCompareRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1195,7 +1203,7 @@ FaceCompareResponse Client::faceCompareWithOptions(const FaceCompareRequest &req
 }
 
 /**
- * @summary 人脸比对
+ * @summary This topic describes how to integrate FaceCompare using only the server-side API.
  *
  * @param request FaceCompareRequest
  * @return FaceCompareResponse
@@ -1206,7 +1214,7 @@ FaceCompareResponse Client::faceCompare(const FaceCompareRequest &request) {
 }
 
 /**
- * @summary 国际人脸保镖纯服务端接口
+ * @summary This topic describes how to set up the server for FACE_GUARD.
  *
  * @param request FaceGuardRiskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1249,7 +1257,7 @@ FaceGuardRiskResponse Client::faceGuardRiskWithOptions(const FaceGuardRiskReques
 }
 
 /**
- * @summary 国际人脸保镖纯服务端接口
+ * @summary This topic describes how to set up the server for FACE_GUARD.
  *
  * @param request FaceGuardRiskRequest
  * @return FaceGuardRiskResponse
@@ -1260,7 +1268,7 @@ FaceGuardRiskResponse Client::faceGuardRisk(const FaceGuardRiskRequest &request)
 }
 
 /**
- * @summary 静默活体API 纯服务端
+ * @summary Passive liveness detection (FaceLiveness) is a service that detects whether a pre-captured facial image, submitted to an API operation, is a real face. The algorithm primarily detects presentation attacks, such as screen replays and printed photos. This service is suitable for low-risk business scen
  *
  * @param request FaceLivenessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1321,7 +1329,7 @@ FaceLivenessResponse Client::faceLivenessWithOptions(const FaceLivenessRequest &
 }
 
 /**
- * @summary 静默活体API 纯服务端
+ * @summary Passive liveness detection (FaceLiveness) is a service that detects whether a pre-captured facial image, submitted to an API operation, is a real face. The algorithm primarily detects presentation attacks, such as screen replays and printed photos. This service is suitable for low-risk business scen
  *
  * @param request FaceLivenessRequest
  * @return FaceLivenessResponse
@@ -1386,7 +1394,7 @@ FraudResultCallBackResponse Client::fraudResultCallBack(const FraudResultCallBac
 }
 
 /**
- * @summary 身份二要素有效期核验
+ * @summary This operation verifies the authenticity and consistency of a name, ID card number, and the start and end dates of the ID card\\"s validity period against an authoritative source.
  *
  * @param request Id2MetaPeriodVerifyIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1449,7 +1457,7 @@ Id2MetaPeriodVerifyIntlResponse Client::id2MetaPeriodVerifyIntlWithOptions(const
 }
 
 /**
- * @summary 身份二要素有效期核验
+ * @summary This operation verifies the authenticity and consistency of a name, ID card number, and the start and end dates of the ID card\\"s validity period against an authoritative source.
  *
  * @param request Id2MetaPeriodVerifyIntlRequest
  * @return Id2MetaPeriodVerifyIntlResponse
@@ -1460,7 +1468,7 @@ Id2MetaPeriodVerifyIntlResponse Client::id2MetaPeriodVerifyIntl(const Id2MetaPer
 }
 
 /**
- * @summary 身份二要素国际版接口
+ * @summary Verifies that a name and an ID card number are consistent.
  *
  * @param request Id2MetaVerifyIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1503,7 +1511,7 @@ Id2MetaVerifyIntlResponse Client::id2MetaVerifyIntlWithOptions(const Id2MetaVeri
 }
 
 /**
- * @summary 身份二要素国际版接口
+ * @summary Verifies that a name and an ID card number are consistent.
  *
  * @param request Id2MetaVerifyIntlRequest
  * @return Id2MetaVerifyIntlResponse
@@ -1535,6 +1543,10 @@ InitializeResponse Client::initializeWithOptions(const InitializeRequest &tmpReq
 
   if (!!request.hasAuthorize()) {
     query["Authorize"] = request.authorize();
+  }
+
+  if (!!request.hasAutoRegistration()) {
+    query["AutoRegistration"] = request.autoRegistration();
   }
 
   if (!!request.hasCallbackToken()) {
@@ -1597,8 +1609,20 @@ InitializeResponse Client::initializeWithOptions(const InitializeRequest &tmpReq
     query["ExperienceCode"] = request.experienceCode();
   }
 
+  if (!!request.hasFaceGroupCodes()) {
+    query["FaceGroupCodes"] = request.faceGroupCodes();
+  }
+
   if (!!request.hasFacePictureUrl()) {
     query["FacePictureUrl"] = request.facePictureUrl();
+  }
+
+  if (!!request.hasFaceRegisterGroupCode()) {
+    query["FaceRegisterGroupCode"] = request.faceRegisterGroupCode();
+  }
+
+  if (!!request.hasFaceVerifyThreshold()) {
+    query["FaceVerifyThreshold"] = request.faceVerifyThreshold();
   }
 
   if (!!request.hasIdFaceQuality()) {
@@ -1657,8 +1681,16 @@ InitializeResponse Client::initializeWithOptions(const InitializeRequest &tmpReq
     query["ProductFlow"] = request.productFlow();
   }
 
+  if (!!request.hasReturnFaces()) {
+    query["ReturnFaces"] = request.returnFaces();
+  }
+
   if (!!request.hasReturnUrl()) {
     query["ReturnUrl"] = request.returnUrl();
+  }
+
+  if (!!request.hasSaveFacePicture()) {
+    query["SaveFacePicture"] = request.saveFacePicture();
   }
 
   if (!!request.hasSceneCode()) {
@@ -1685,8 +1717,20 @@ InitializeResponse Client::initializeWithOptions(const InitializeRequest &tmpReq
     query["StyleConfig"] = request.styleConfig();
   }
 
+  if (!!request.hasTargetFacePicture()) {
+    query["TargetFacePicture"] = request.targetFacePicture();
+  }
+
+  if (!!request.hasTargetFacePictureUrl()) {
+    query["TargetFacePictureUrl"] = request.targetFacePictureUrl();
+  }
+
   if (!!request.hasUseNFC()) {
     query["UseNFC"] = request.useNFC();
+  }
+
+  if (!!request.hasVerifyModel()) {
+    query["VerifyModel"] = request.verifyModel();
   }
 
   json body = {};
@@ -1724,7 +1768,7 @@ InitializeResponse Client::initialize(const InitializeRequest &request) {
 }
 
 /**
- * @summary 客户端连接保持
+ * @summary If your server makes infrequent calls to the ID Verification API, you can call the KeepaliveIntl operation to maintain the client connection.
  *
  * @param request KeepaliveIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1747,7 +1791,7 @@ KeepaliveIntlResponse Client::keepaliveIntlWithOptions(const Darabonba::RuntimeO
 }
 
 /**
- * @summary 客户端连接保持
+ * @summary If your server makes infrequent calls to the ID Verification API, you can call the KeepaliveIntl operation to maintain the client connection.
  *
  * @return KeepaliveIntlResponse
  */
@@ -1757,7 +1801,7 @@ KeepaliveIntlResponse Client::keepaliveIntl() {
 }
 
 /**
- * @summary 手机号二要素核验API
+ * @summary Verifies the authenticity and consistency of a mobile number and name against an authoritative data source.
  *
  * @param request Mobile2MetaVerifyIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1800,7 +1844,7 @@ Mobile2MetaVerifyIntlResponse Client::mobile2MetaVerifyIntlWithOptions(const Mob
 }
 
 /**
- * @summary 手机号二要素核验API
+ * @summary Verifies the authenticity and consistency of a mobile number and name against an authoritative data source.
  *
  * @param request Mobile2MetaVerifyIntlRequest
  * @return Mobile2MetaVerifyIntlResponse

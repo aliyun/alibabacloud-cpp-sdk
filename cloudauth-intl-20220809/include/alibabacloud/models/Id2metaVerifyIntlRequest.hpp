@@ -66,9 +66,19 @@ namespace Models
 
 
   protected:
+    // The ID card number.
+    // 
+    // > Only ID cards of residents in the Chinese mainland are supported.
     std::shared_ptr<string> identifyNum_ = nullptr;
+    // The parameter type.
+    // 
+    // **normal**: The original value in plaintext.
+    // 
+    // > Due to limitations of the authoritative data source, two-factor ID verification does not support MD5 encryption.
     std::shared_ptr<string> paramType_ = nullptr;
+    // The product plan. This is a static field. Set the value to **ID_2META**.
     std::shared_ptr<string> productCode_ = nullptr;
+    // The name.
     std::shared_ptr<string> userName_ = nullptr;
   };
 

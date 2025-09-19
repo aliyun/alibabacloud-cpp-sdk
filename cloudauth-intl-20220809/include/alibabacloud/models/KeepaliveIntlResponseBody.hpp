@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The [return code.](https://www.alibabacloud.com/help/en/ekyc/latest/client-connection-hold?spm=a3c0i.23458820.2359477120.1.48207d3ftEYld2#74d291dfaaxci)
     std::shared_ptr<string> code_ = nullptr;
+    // A detailed description of the Code.
     std::shared_ptr<string> message_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Return result
     std::shared_ptr<KeepaliveIntlResponseBodyResult> result_ = nullptr;
   };
 

@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // The final authentication result. Valid values:
+    // 
+    // - **Y**, via
+    // 
+    // - **N**: The authentication is not passed.
     std::shared_ptr<string> passed_ = nullptr;
+    // A description of the authentication result. For more information, see [ResultObject.SubCode error codes](https://www.alibabacloud.com/help/en/ekyc/latest/dateverify?spm=a2c63.p38356.0.i32#d1f36d445az8i).
     std::shared_ptr<string> subCode_ = nullptr;
   };
 

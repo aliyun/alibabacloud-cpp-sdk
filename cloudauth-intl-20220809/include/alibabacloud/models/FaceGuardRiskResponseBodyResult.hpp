@@ -66,9 +66,15 @@ namespace Models
 
 
   protected:
+    // The device risk probability predicted by the Device Guard algorithm. A higher score indicates a higher device risk.
+    // 
+    // Valid values: 0 to 100.
     std::shared_ptr<double> guardRiskScore_ = nullptr;
+    // Extended information. This is empty by default.
     std::shared_ptr<string> riskExtends_ = nullptr;
+    // The device risk tags. Multiple risk tags are separated by commas (**,**). For more information about the risk tags and their meanings, expand the **Risk tags (RiskTags)** section below.
     std::shared_ptr<string> riskTags_ = nullptr;
+    // The transaction ID.
     std::shared_ptr<string> transactionId_ = nullptr;
   };
 

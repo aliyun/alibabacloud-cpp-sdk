@@ -48,7 +48,21 @@ namespace Models
 
 
   protected:
+    // The verification result:
+    // 
+    // - 1: The information is consistent. (Billed)
+    // 
+    // - 2: The information is inconsistent. (Billed)
+    // 
+    // - 3: No record is found. (Not billed)
     std::shared_ptr<string> bizCode_ = nullptr;
+    // The carrier name:
+    // 
+    // - CMCC: China Mobile
+    // 
+    // - CUCC: China Unicom
+    // 
+    // - CTCC: China Telecom
     std::shared_ptr<string> ispName_ = nullptr;
   };
 

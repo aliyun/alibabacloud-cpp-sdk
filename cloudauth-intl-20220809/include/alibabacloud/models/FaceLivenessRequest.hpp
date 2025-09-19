@@ -103,13 +103,34 @@ namespace Models
 
 
   protected:
+    // Specifies whether to crop the facial image. The default value is F.
+    // 
+    // - **T**: allows cropping.
+    // 
+    // - **F**: Forbidden
     std::shared_ptr<string> crop_ = nullptr;
     std::shared_ptr<string> facePictureBase64_ = nullptr;
+    // The URL of the portrait image. The URL must be an HTTP or HTTPS link accessible over the Internet.
     std::shared_ptr<string> facePictureUrl_ = nullptr;
+    // Specifies whether to return the facial image quality score. The default value is F.
+    // 
+    // - **T**: returns the score.
+    // 
+    // - **F**: does not return the score.
     std::shared_ptr<string> faceQuality_ = nullptr;
+    // A custom unique business identifier. You can use this identifier to track and troubleshoot issues. The identifier can be up to 32 characters in length and can contain letters and digits. Make sure the identifier is unique.
+    // 
+    // > Alibaba Cloud servers do not check the uniqueness of this value. For better tracking, ensure this value is unique.
     std::shared_ptr<string> merchantBizId_ = nullptr;
+    // A  custom user ID or another identifier for a specific user, such as a mobile number or email address. For security, desensitize this value in advance, for example, by hashing it.
     std::shared_ptr<string> merchantUserId_ = nullptr;
+    // Specifies whether to enable occlusion detection. The default value is F.
+    // 
+    // - **T**: enables the feature.
+    // 
+    // - **F**: disables the feature.
     std::shared_ptr<string> occlusion_ = nullptr;
+    // The product solution to use. Set the value to **FACE_LIVENESS_MIN** to use the passive liveness detection API.
     std::shared_ptr<string> productCode_ = nullptr;
   };
 

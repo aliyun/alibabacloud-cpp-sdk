@@ -144,9 +144,27 @@ namespace Models
     // - Liveness detection retry
     // - Liveness detection loading
     std::shared_ptr<string> interruptPage_ = nullptr;
+    // The page where the authentication process stops. Possible English values:
+    // 
+    // The following are the values in an unordered list:
+    // 
+    // - LOADING
+    // 
+    // - GUIDE
+    // 
+    // - FACE
+    // 
+    // - OCR_SCAN
+    // 
+    // - OCR_RESULT
+    // 
+    // - NFC_INPUT
+    // 
+    // - NFC_READ
     std::shared_ptr<string> interruptPageEn_ = nullptr;
     // SDK operation log details
     std::shared_ptr<vector<string>> logInfo_ = nullptr;
+    // SDK Operation Log Details (English Version)
     std::shared_ptr<vector<string>> logInfoEn_ = nullptr;
     // SDK operation log statistics details
     std::shared_ptr<string> logStatisticsInfo_ = nullptr;
