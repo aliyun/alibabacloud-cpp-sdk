@@ -712,6 +712,10 @@ PushResponse Client::pushWithOptions(const PushRequest &tmpReq, const Darabonba:
     query["AndroidHonorTargetUserType"] = request.androidHonorTargetUserType();
   }
 
+  if (!!request.hasAndroidHuaweiLiveNotificationPayload()) {
+    query["AndroidHuaweiLiveNotificationPayload"] = request.androidHuaweiLiveNotificationPayload();
+  }
+
   if (!!request.hasAndroidHuaweiReceiptId()) {
     query["AndroidHuaweiReceiptId"] = request.androidHuaweiReceiptId();
   }
@@ -926,6 +930,10 @@ PushResponse Client::pushWithOptions(const PushRequest &tmpReq, const Darabonba:
 
   if (!!request.hasHarmonyInboxContent()) {
     query["HarmonyInboxContent"] = request.harmonyInboxContent();
+  }
+
+  if (!!request.hasHarmonyLiveViewPayload()) {
+    query["HarmonyLiveViewPayload"] = request.harmonyLiveViewPayload();
   }
 
   if (!!request.hasHarmonyNotificationSlotType()) {

@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AndroidBigTitle, androidBigTitle_);
       DARABONBA_PTR_TO_JSON(AndroidExtParameters, androidExtParameters_);
       DARABONBA_PTR_TO_JSON(AndroidHonorTargetUserType, androidHonorTargetUserType_);
+      DARABONBA_PTR_TO_JSON(AndroidHuaweiLiveNotificationPayload, androidHuaweiLiveNotificationPayload_);
       DARABONBA_PTR_TO_JSON(AndroidHuaweiReceiptId, androidHuaweiReceiptId_);
       DARABONBA_PTR_TO_JSON(AndroidHuaweiTargetUserType, androidHuaweiTargetUserType_);
       DARABONBA_PTR_TO_JSON(AndroidImageUrl, androidImageUrl_);
@@ -76,6 +77,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(HarmonyExtensionPush, harmonyExtensionPush_);
       DARABONBA_PTR_TO_JSON(HarmonyImageUrl, harmonyImageUrl_);
       DARABONBA_PTR_TO_JSON(HarmonyInboxContent, harmonyInboxContent_);
+      DARABONBA_PTR_TO_JSON(HarmonyLiveViewPayload, harmonyLiveViewPayload_);
       DARABONBA_PTR_TO_JSON(HarmonyNotificationSlotType, harmonyNotificationSlotType_);
       DARABONBA_PTR_TO_JSON(HarmonyNotifyId, harmonyNotifyId_);
       DARABONBA_PTR_TO_JSON(HarmonyReceiptId, harmonyReceiptId_);
@@ -128,6 +130,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AndroidBigTitle, androidBigTitle_);
       DARABONBA_PTR_FROM_JSON(AndroidExtParameters, androidExtParameters_);
       DARABONBA_PTR_FROM_JSON(AndroidHonorTargetUserType, androidHonorTargetUserType_);
+      DARABONBA_PTR_FROM_JSON(AndroidHuaweiLiveNotificationPayload, androidHuaweiLiveNotificationPayload_);
       DARABONBA_PTR_FROM_JSON(AndroidHuaweiReceiptId, androidHuaweiReceiptId_);
       DARABONBA_PTR_FROM_JSON(AndroidHuaweiTargetUserType, androidHuaweiTargetUserType_);
       DARABONBA_PTR_FROM_JSON(AndroidImageUrl, androidImageUrl_);
@@ -181,6 +184,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(HarmonyExtensionPush, harmonyExtensionPush_);
       DARABONBA_PTR_FROM_JSON(HarmonyImageUrl, harmonyImageUrl_);
       DARABONBA_PTR_FROM_JSON(HarmonyInboxContent, harmonyInboxContent_);
+      DARABONBA_PTR_FROM_JSON(HarmonyLiveViewPayload, harmonyLiveViewPayload_);
       DARABONBA_PTR_FROM_JSON(HarmonyNotificationSlotType, harmonyNotificationSlotType_);
       DARABONBA_PTR_FROM_JSON(HarmonyNotifyId, harmonyNotifyId_);
       DARABONBA_PTR_FROM_JSON(HarmonyReceiptId, harmonyReceiptId_);
@@ -236,26 +240,26 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->androidActivity_ != nullptr
         && this->androidBadgeAddNum_ != nullptr && this->androidBadgeClass_ != nullptr && this->androidBadgeSetNum_ != nullptr && this->androidBigBody_ != nullptr && this->androidBigPictureUrl_ != nullptr
-        && this->androidBigTitle_ != nullptr && this->androidExtParameters_ != nullptr && this->androidHonorTargetUserType_ != nullptr && this->androidHuaweiReceiptId_ != nullptr && this->androidHuaweiTargetUserType_ != nullptr
-        && this->androidImageUrl_ != nullptr && this->androidInboxBody_ != nullptr && this->androidMeizuNoticeMsgType_ != nullptr && this->androidMessageHuaweiCategory_ != nullptr && this->androidMessageHuaweiUrgency_ != nullptr
-        && this->androidMessageOppoCategory_ != nullptr && this->androidMessageOppoNotifyLevel_ != nullptr && this->androidMessageVivoCategory_ != nullptr && this->androidMusic_ != nullptr && this->androidNotificationBarPriority_ != nullptr
-        && this->androidNotificationBarType_ != nullptr && this->androidNotificationChannel_ != nullptr && this->androidNotificationGroup_ != nullptr && this->androidNotificationHonorChannel_ != nullptr && this->androidNotificationHuaweiChannel_ != nullptr
-        && this->androidNotificationNotifyId_ != nullptr && this->androidNotificationThreadId_ != nullptr && this->androidNotificationVivoChannel_ != nullptr && this->androidNotificationXiaomiChannel_ != nullptr && this->androidNotifyType_ != nullptr
-        && this->androidOpenType_ != nullptr && this->androidOpenUrl_ != nullptr && this->androidOppoPrivateContentParameters_ != nullptr && this->androidOppoPrivateMsgTemplateId_ != nullptr && this->androidOppoPrivateTitleParameters_ != nullptr
-        && this->androidPopupActivity_ != nullptr && this->androidPopupBody_ != nullptr && this->androidPopupTitle_ != nullptr && this->androidRemind_ != nullptr && this->androidRenderStyle_ != nullptr
-        && this->androidTargetUserType_ != nullptr && this->androidVivoPushMode_ != nullptr && this->androidVivoReceiptId_ != nullptr && this->androidXiaoMiActivity_ != nullptr && this->androidXiaoMiNotifyBody_ != nullptr
-        && this->androidXiaoMiNotifyTitle_ != nullptr && this->androidXiaomiBigPictureUrl_ != nullptr && this->androidXiaomiImageUrl_ != nullptr && this->body_ != nullptr && this->deviceType_ != nullptr
-        && this->expireTime_ != nullptr && this->harmonyAction_ != nullptr && this->harmonyActionType_ != nullptr && this->harmonyBadgeAddNum_ != nullptr && this->harmonyBadgeSetNum_ != nullptr
-        && this->harmonyCategory_ != nullptr && this->harmonyExtParameters_ != nullptr && this->harmonyExtensionExtraData_ != nullptr && this->harmonyExtensionPush_ != nullptr && this->harmonyImageUrl_ != nullptr
-        && this->harmonyInboxContent_ != nullptr && this->harmonyNotificationSlotType_ != nullptr && this->harmonyNotifyId_ != nullptr && this->harmonyReceiptId_ != nullptr && this->harmonyRemind_ != nullptr
-        && this->harmonyRemindBody_ != nullptr && this->harmonyRemindTitle_ != nullptr && this->harmonyRenderStyle_ != nullptr && this->harmonyTestMessage_ != nullptr && this->harmonyUri_ != nullptr
-        && this->jobKey_ != nullptr && this->pushTime_ != nullptr && this->pushType_ != nullptr && this->sendChannels_ != nullptr && this->sendSpeed_ != nullptr
-        && this->storeOffline_ != nullptr && this->target_ != nullptr && this->targetValue_ != nullptr && this->title_ != nullptr && this->trim_ != nullptr
-        && this->iOSApnsEnv_ != nullptr && this->iOSBadge_ != nullptr && this->iOSBadgeAutoIncrement_ != nullptr && this->iOSExtParameters_ != nullptr && this->iOSInterruptionLevel_ != nullptr
-        && this->iOSLiveActivityAttributes_ != nullptr && this->iOSLiveActivityAttributesType_ != nullptr && this->iOSLiveActivityContentState_ != nullptr && this->iOSLiveActivityDismissalDate_ != nullptr && this->iOSLiveActivityEvent_ != nullptr
-        && this->iOSLiveActivityId_ != nullptr && this->iOSLiveActivityStaleDate_ != nullptr && this->iOSMusic_ != nullptr && this->iOSMutableContent_ != nullptr && this->iOSNotificationCategory_ != nullptr
-        && this->iOSNotificationCollapseId_ != nullptr && this->iOSNotificationThreadId_ != nullptr && this->iOSRelevanceScore_ != nullptr && this->iOSRemind_ != nullptr && this->iOSRemindBody_ != nullptr
-        && this->iOSSilentNotification_ != nullptr && this->iOSSubtitle_ != nullptr; };
+        && this->androidBigTitle_ != nullptr && this->androidExtParameters_ != nullptr && this->androidHonorTargetUserType_ != nullptr && this->androidHuaweiLiveNotificationPayload_ != nullptr && this->androidHuaweiReceiptId_ != nullptr
+        && this->androidHuaweiTargetUserType_ != nullptr && this->androidImageUrl_ != nullptr && this->androidInboxBody_ != nullptr && this->androidMeizuNoticeMsgType_ != nullptr && this->androidMessageHuaweiCategory_ != nullptr
+        && this->androidMessageHuaweiUrgency_ != nullptr && this->androidMessageOppoCategory_ != nullptr && this->androidMessageOppoNotifyLevel_ != nullptr && this->androidMessageVivoCategory_ != nullptr && this->androidMusic_ != nullptr
+        && this->androidNotificationBarPriority_ != nullptr && this->androidNotificationBarType_ != nullptr && this->androidNotificationChannel_ != nullptr && this->androidNotificationGroup_ != nullptr && this->androidNotificationHonorChannel_ != nullptr
+        && this->androidNotificationHuaweiChannel_ != nullptr && this->androidNotificationNotifyId_ != nullptr && this->androidNotificationThreadId_ != nullptr && this->androidNotificationVivoChannel_ != nullptr && this->androidNotificationXiaomiChannel_ != nullptr
+        && this->androidNotifyType_ != nullptr && this->androidOpenType_ != nullptr && this->androidOpenUrl_ != nullptr && this->androidOppoPrivateContentParameters_ != nullptr && this->androidOppoPrivateMsgTemplateId_ != nullptr
+        && this->androidOppoPrivateTitleParameters_ != nullptr && this->androidPopupActivity_ != nullptr && this->androidPopupBody_ != nullptr && this->androidPopupTitle_ != nullptr && this->androidRemind_ != nullptr
+        && this->androidRenderStyle_ != nullptr && this->androidTargetUserType_ != nullptr && this->androidVivoPushMode_ != nullptr && this->androidVivoReceiptId_ != nullptr && this->androidXiaoMiActivity_ != nullptr
+        && this->androidXiaoMiNotifyBody_ != nullptr && this->androidXiaoMiNotifyTitle_ != nullptr && this->androidXiaomiBigPictureUrl_ != nullptr && this->androidXiaomiImageUrl_ != nullptr && this->body_ != nullptr
+        && this->deviceType_ != nullptr && this->expireTime_ != nullptr && this->harmonyAction_ != nullptr && this->harmonyActionType_ != nullptr && this->harmonyBadgeAddNum_ != nullptr
+        && this->harmonyBadgeSetNum_ != nullptr && this->harmonyCategory_ != nullptr && this->harmonyExtParameters_ != nullptr && this->harmonyExtensionExtraData_ != nullptr && this->harmonyExtensionPush_ != nullptr
+        && this->harmonyImageUrl_ != nullptr && this->harmonyInboxContent_ != nullptr && this->harmonyLiveViewPayload_ != nullptr && this->harmonyNotificationSlotType_ != nullptr && this->harmonyNotifyId_ != nullptr
+        && this->harmonyReceiptId_ != nullptr && this->harmonyRemind_ != nullptr && this->harmonyRemindBody_ != nullptr && this->harmonyRemindTitle_ != nullptr && this->harmonyRenderStyle_ != nullptr
+        && this->harmonyTestMessage_ != nullptr && this->harmonyUri_ != nullptr && this->jobKey_ != nullptr && this->pushTime_ != nullptr && this->pushType_ != nullptr
+        && this->sendChannels_ != nullptr && this->sendSpeed_ != nullptr && this->storeOffline_ != nullptr && this->target_ != nullptr && this->targetValue_ != nullptr
+        && this->title_ != nullptr && this->trim_ != nullptr && this->iOSApnsEnv_ != nullptr && this->iOSBadge_ != nullptr && this->iOSBadgeAutoIncrement_ != nullptr
+        && this->iOSExtParameters_ != nullptr && this->iOSInterruptionLevel_ != nullptr && this->iOSLiveActivityAttributes_ != nullptr && this->iOSLiveActivityAttributesType_ != nullptr && this->iOSLiveActivityContentState_ != nullptr
+        && this->iOSLiveActivityDismissalDate_ != nullptr && this->iOSLiveActivityEvent_ != nullptr && this->iOSLiveActivityId_ != nullptr && this->iOSLiveActivityStaleDate_ != nullptr && this->iOSMusic_ != nullptr
+        && this->iOSMutableContent_ != nullptr && this->iOSNotificationCategory_ != nullptr && this->iOSNotificationCollapseId_ != nullptr && this->iOSNotificationThreadId_ != nullptr && this->iOSRelevanceScore_ != nullptr
+        && this->iOSRemind_ != nullptr && this->iOSRemindBody_ != nullptr && this->iOSSilentNotification_ != nullptr && this->iOSSubtitle_ != nullptr; };
     // androidActivity Field Functions 
     bool hasAndroidActivity() const { return this->androidActivity_ != nullptr;};
     void deleteAndroidActivity() { this->androidActivity_ = nullptr;};
@@ -317,6 +321,13 @@ namespace Models
     void deleteAndroidHonorTargetUserType() { this->androidHonorTargetUserType_ = nullptr;};
     inline int32_t androidHonorTargetUserType() const { DARABONBA_PTR_GET_DEFAULT(androidHonorTargetUserType_, 0) };
     inline MassPushRequestPushTask& setAndroidHonorTargetUserType(int32_t androidHonorTargetUserType) { DARABONBA_PTR_SET_VALUE(androidHonorTargetUserType_, androidHonorTargetUserType) };
+
+
+    // androidHuaweiLiveNotificationPayload Field Functions 
+    bool hasAndroidHuaweiLiveNotificationPayload() const { return this->androidHuaweiLiveNotificationPayload_ != nullptr;};
+    void deleteAndroidHuaweiLiveNotificationPayload() { this->androidHuaweiLiveNotificationPayload_ = nullptr;};
+    inline string androidHuaweiLiveNotificationPayload() const { DARABONBA_PTR_GET_DEFAULT(androidHuaweiLiveNotificationPayload_, "") };
+    inline MassPushRequestPushTask& setAndroidHuaweiLiveNotificationPayload(string androidHuaweiLiveNotificationPayload) { DARABONBA_PTR_SET_VALUE(androidHuaweiLiveNotificationPayload_, androidHuaweiLiveNotificationPayload) };
 
 
     // androidHuaweiReceiptId Field Functions 
@@ -694,6 +705,13 @@ namespace Models
     inline MassPushRequestPushTask& setHarmonyInboxContent(string harmonyInboxContent) { DARABONBA_PTR_SET_VALUE(harmonyInboxContent_, harmonyInboxContent) };
 
 
+    // harmonyLiveViewPayload Field Functions 
+    bool hasHarmonyLiveViewPayload() const { return this->harmonyLiveViewPayload_ != nullptr;};
+    void deleteHarmonyLiveViewPayload() { this->harmonyLiveViewPayload_ = nullptr;};
+    inline string harmonyLiveViewPayload() const { DARABONBA_PTR_GET_DEFAULT(harmonyLiveViewPayload_, "") };
+    inline MassPushRequestPushTask& setHarmonyLiveViewPayload(string harmonyLiveViewPayload) { DARABONBA_PTR_SET_VALUE(harmonyLiveViewPayload_, harmonyLiveViewPayload) };
+
+
     // harmonyNotificationSlotType Field Functions 
     bool hasHarmonyNotificationSlotType() const { return this->harmonyNotificationSlotType_ != nullptr;};
     void deleteHarmonyNotificationSlotType() { this->harmonyNotificationSlotType_ = nullptr;};
@@ -991,6 +1009,7 @@ namespace Models
     std::shared_ptr<string> androidBigTitle_ = nullptr;
     std::shared_ptr<string> androidExtParameters_ = nullptr;
     std::shared_ptr<int32_t> androidHonorTargetUserType_ = nullptr;
+    std::shared_ptr<string> androidHuaweiLiveNotificationPayload_ = nullptr;
     std::shared_ptr<string> androidHuaweiReceiptId_ = nullptr;
     std::shared_ptr<int32_t> androidHuaweiTargetUserType_ = nullptr;
     std::shared_ptr<string> androidImageUrl_ = nullptr;
@@ -1045,6 +1064,7 @@ namespace Models
     std::shared_ptr<bool> harmonyExtensionPush_ = nullptr;
     std::shared_ptr<string> harmonyImageUrl_ = nullptr;
     std::shared_ptr<string> harmonyInboxContent_ = nullptr;
+    std::shared_ptr<string> harmonyLiveViewPayload_ = nullptr;
     std::shared_ptr<string> harmonyNotificationSlotType_ = nullptr;
     std::shared_ptr<int32_t> harmonyNotifyId_ = nullptr;
     std::shared_ptr<string> harmonyReceiptId_ = nullptr;
