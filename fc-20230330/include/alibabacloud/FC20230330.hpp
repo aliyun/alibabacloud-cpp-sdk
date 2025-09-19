@@ -287,6 +287,24 @@ namespace FC20230330
       Models::DeleteProvisionConfigResponse deleteProvisionConfig(const string &functionName, const Models::DeleteProvisionConfigRequest &request);
 
       /**
+       * @summary 删除弹性配置
+       *
+       * @param request DeleteScalingConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteScalingConfigResponse
+       */
+      Models::DeleteScalingConfigResponse deleteScalingConfigWithOptions(const string &functionName, const Models::DeleteScalingConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除弹性配置
+       *
+       * @param request DeleteScalingConfigRequest
+       * @return DeleteScalingConfigResponse
+       */
+      Models::DeleteScalingConfigResponse deleteScalingConfig(const string &functionName, const Models::DeleteScalingConfigRequest &request);
+
+      /**
        * @summary Deletes a trigger.
        *
        * @param headers map
@@ -545,6 +563,24 @@ namespace FC20230330
       Models::GetProvisionConfigResponse getProvisionConfig(const string &functionName, const Models::GetProvisionConfigRequest &request);
 
       /**
+       * @summary 获取弹性配置
+       *
+       * @param request GetScalingConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetScalingConfigResponse
+       */
+      Models::GetScalingConfigResponse getScalingConfigWithOptions(const string &functionName, const Models::GetScalingConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取弹性配置
+       *
+       * @param request GetScalingConfigRequest
+       * @return GetScalingConfigResponse
+       */
+      Models::GetScalingConfigResponse getScalingConfig(const string &functionName, const Models::GetScalingConfigRequest &request);
+
+      /**
        * @summary Queries information about a trigger.
        *
        * @param headers map
@@ -781,6 +817,24 @@ namespace FC20230330
       Models::ListProvisionConfigsResponse listProvisionConfigs(const Models::ListProvisionConfigsRequest &request);
 
       /**
+       * @summary 获取弹性配置列表
+       *
+       * @param request ListScalingConfigsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListScalingConfigsResponse
+       */
+      Models::ListScalingConfigsResponse listScalingConfigsWithOptions(const Models::ListScalingConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取弹性配置列表
+       *
+       * @param request ListScalingConfigsRequest
+       * @return ListScalingConfigsResponse
+       */
+      Models::ListScalingConfigsResponse listScalingConfigs(const Models::ListScalingConfigsRequest &request);
+
+      /**
        * @summary Lists all tagged resources.
        *
        * @param tmpReq ListTagResourcesRequest
@@ -921,6 +975,24 @@ namespace FC20230330
        * @return PutProvisionConfigResponse
        */
       Models::PutProvisionConfigResponse putProvisionConfig(const string &functionName, const Models::PutProvisionConfigRequest &request);
+
+      /**
+       * @summary 设置弹性配置
+       *
+       * @param request PutScalingConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PutScalingConfigResponse
+       */
+      Models::PutScalingConfigResponse putScalingConfigWithOptions(const string &functionName, const Models::PutScalingConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置弹性配置
+       *
+       * @param request PutScalingConfigRequest
+       * @return PutScalingConfigResponse
+       */
+      Models::PutScalingConfigResponse putScalingConfig(const string &functionName, const Models::PutScalingConfigRequest &request);
 
       /**
        * @summary Stops an asynchronous task.

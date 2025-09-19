@@ -633,6 +633,51 @@ DeleteProvisionConfigResponse Client::deleteProvisionConfig(const string &functi
 }
 
 /**
+ * @summary 删除弹性配置
+ *
+ * @param request DeleteScalingConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteScalingConfigResponse
+ */
+DeleteScalingConfigResponse Client::deleteScalingConfigWithOptions(const string &functionName, const DeleteScalingConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasQualifier()) {
+    query["qualifier"] = request.qualifier();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteScalingConfig"},
+    {"version" , "2023-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2023-03-30/functions/" , Darabonba::Http::URL::percentEncode(functionName) , "/scaling-config")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "none"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteScalingConfigResponse>();
+}
+
+/**
+ * @summary 删除弹性配置
+ *
+ * @param request DeleteScalingConfigRequest
+ * @return DeleteScalingConfigResponse
+ */
+DeleteScalingConfigResponse Client::deleteScalingConfig(const string &functionName, const DeleteScalingConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteScalingConfigWithOptions(functionName, request, headers, runtime);
+}
+
+/**
  * @summary Deletes a trigger.
  *
  * @param headers map
@@ -1241,6 +1286,51 @@ GetProvisionConfigResponse Client::getProvisionConfig(const string &functionName
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getProvisionConfigWithOptions(functionName, request, headers, runtime);
+}
+
+/**
+ * @summary 获取弹性配置
+ *
+ * @param request GetScalingConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetScalingConfigResponse
+ */
+GetScalingConfigResponse Client::getScalingConfigWithOptions(const string &functionName, const GetScalingConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasQualifier()) {
+    query["qualifier"] = request.qualifier();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetScalingConfig"},
+    {"version" , "2023-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2023-03-30/functions/" , Darabonba::Http::URL::percentEncode(functionName) , "/scaling-config")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetScalingConfigResponse>();
+}
+
+/**
+ * @summary 获取弹性配置
+ *
+ * @param request GetScalingConfigRequest
+ * @return GetScalingConfigResponse
+ */
+GetScalingConfigResponse Client::getScalingConfig(const string &functionName, const GetScalingConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getScalingConfigWithOptions(functionName, request, headers, runtime);
 }
 
 /**
@@ -2040,6 +2130,59 @@ ListProvisionConfigsResponse Client::listProvisionConfigs(const ListProvisionCon
 }
 
 /**
+ * @summary 获取弹性配置列表
+ *
+ * @param request ListScalingConfigsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListScalingConfigsResponse
+ */
+ListScalingConfigsResponse Client::listScalingConfigsWithOptions(const ListScalingConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFunctionName()) {
+    query["functionName"] = request.functionName();
+  }
+
+  if (!!request.hasLimit()) {
+    query["limit"] = request.limit();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.nextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListScalingConfigs"},
+    {"version" , "2023-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2023-03-30/scaling-configs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListScalingConfigsResponse>();
+}
+
+/**
+ * @summary 获取弹性配置列表
+ *
+ * @param request ListScalingConfigsRequest
+ * @return ListScalingConfigsResponse
+ */
+ListScalingConfigsResponse Client::listScalingConfigs(const ListScalingConfigsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listScalingConfigsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Lists all tagged resources.
  *
  * @param tmpReq ListTagResourcesRequest
@@ -2418,6 +2561,52 @@ PutProvisionConfigResponse Client::putProvisionConfig(const string &functionName
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return putProvisionConfigWithOptions(functionName, request, headers, runtime);
+}
+
+/**
+ * @summary 设置弹性配置
+ *
+ * @param request PutScalingConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PutScalingConfigResponse
+ */
+PutScalingConfigResponse Client::putScalingConfigWithOptions(const string &functionName, const PutScalingConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasQualifier()) {
+    query["qualifier"] = request.qualifier();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(request.body())}
+  }));
+  Params params = Params(json({
+    {"action" , "PutScalingConfig"},
+    {"version" , "2023-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2023-03-30/functions/" , Darabonba::Http::URL::percentEncode(functionName) , "/scaling-config")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PutScalingConfigResponse>();
+}
+
+/**
+ * @summary 设置弹性配置
+ *
+ * @param request PutScalingConfigRequest
+ * @return PutScalingConfigResponse
+ */
+PutScalingConfigResponse Client::putScalingConfig(const string &functionName, const PutScalingConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return putScalingConfigWithOptions(functionName, request, headers, runtime);
 }
 
 /**

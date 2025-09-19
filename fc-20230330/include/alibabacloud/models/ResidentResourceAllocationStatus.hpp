@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_RESIDENTRESOURCEALLOCATIONSTATUS_HPP_
 #define ALIBABACLOUD_MODELS_RESIDENTRESOURCEALLOCATIONSTATUS_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 #include <alibabacloud/models/ResidentResourceAllocation.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -44,15 +45,15 @@ namespace Models
     // lastAllocation Field Functions 
     bool hasLastAllocation() const { return this->lastAllocation_ != nullptr;};
     void deleteLastAllocation() { this->lastAllocation_ = nullptr;};
-    inline const ResidentResourceAllocation & lastAllocation() const { DARABONBA_PTR_GET_CONST(lastAllocation_, ResidentResourceAllocation) };
-    inline ResidentResourceAllocation lastAllocation() { DARABONBA_PTR_GET(lastAllocation_, ResidentResourceAllocation) };
-    inline ResidentResourceAllocationStatus& setLastAllocation(const ResidentResourceAllocation & lastAllocation) { DARABONBA_PTR_SET_VALUE(lastAllocation_, lastAllocation) };
-    inline ResidentResourceAllocationStatus& setLastAllocation(ResidentResourceAllocation && lastAllocation) { DARABONBA_PTR_SET_RVALUE(lastAllocation_, lastAllocation) };
+    inline const vector<ResidentResourceAllocation> & lastAllocation() const { DARABONBA_PTR_GET_CONST(lastAllocation_, vector<ResidentResourceAllocation>) };
+    inline vector<ResidentResourceAllocation> lastAllocation() { DARABONBA_PTR_GET(lastAllocation_, vector<ResidentResourceAllocation>) };
+    inline ResidentResourceAllocationStatus& setLastAllocation(const vector<ResidentResourceAllocation> & lastAllocation) { DARABONBA_PTR_SET_VALUE(lastAllocation_, lastAllocation) };
+    inline ResidentResourceAllocationStatus& setLastAllocation(vector<ResidentResourceAllocation> && lastAllocation) { DARABONBA_PTR_SET_RVALUE(lastAllocation_, lastAllocation) };
 
 
   protected:
     std::shared_ptr<string> lastAllocatedTime_ = nullptr;
-    std::shared_ptr<ResidentResourceAllocation> lastAllocation_ = nullptr;
+    std::shared_ptr<vector<ResidentResourceAllocation>> lastAllocation_ = nullptr;
   };
 
   } // namespace Models

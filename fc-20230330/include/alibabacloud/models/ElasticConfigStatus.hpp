@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(residentPoolId, residentPoolId_);
       DARABONBA_PTR_TO_JSON(scalingPolicies, scalingPolicies_);
       DARABONBA_PTR_TO_JSON(scheduledPolicies, scheduledPolicies_);
+      DARABONBA_PTR_TO_JSON(targetInstances, targetInstances_);
     };
     friend void from_json(const Darabonba::Json& j, ElasticConfigStatus& obj) { 
       DARABONBA_PTR_FROM_JSON(currentError, currentError_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(residentPoolId, residentPoolId_);
       DARABONBA_PTR_FROM_JSON(scalingPolicies, scalingPolicies_);
       DARABONBA_PTR_FROM_JSON(scheduledPolicies, scheduledPolicies_);
+      DARABONBA_PTR_FROM_JSON(targetInstances, targetInstances_);
     };
     ElasticConfigStatus() = default ;
     ElasticConfigStatus(const ElasticConfigStatus &) = default ;
@@ -46,7 +48,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->currentError_ != nullptr
         && this->currentInstances_ != nullptr && this->functionArn_ != nullptr && this->minInstances_ != nullptr && this->residentPoolId_ != nullptr && this->scalingPolicies_ != nullptr
-        && this->scheduledPolicies_ != nullptr; };
+        && this->scheduledPolicies_ != nullptr && this->targetInstances_ != nullptr; };
     // currentError Field Functions 
     bool hasCurrentError() const { return this->currentError_ != nullptr;};
     void deleteCurrentError() { this->currentError_ = nullptr;};
@@ -100,6 +102,13 @@ namespace Models
     inline ElasticConfigStatus& setScheduledPolicies(vector<ScheduledPolicy> && scheduledPolicies) { DARABONBA_PTR_SET_RVALUE(scheduledPolicies_, scheduledPolicies) };
 
 
+    // targetInstances Field Functions 
+    bool hasTargetInstances() const { return this->targetInstances_ != nullptr;};
+    void deleteTargetInstances() { this->targetInstances_ = nullptr;};
+    inline int64_t targetInstances() const { DARABONBA_PTR_GET_DEFAULT(targetInstances_, 0L) };
+    inline ElasticConfigStatus& setTargetInstances(int64_t targetInstances) { DARABONBA_PTR_SET_VALUE(targetInstances_, targetInstances) };
+
+
   protected:
     std::shared_ptr<string> currentError_ = nullptr;
     std::shared_ptr<int64_t> currentInstances_ = nullptr;
@@ -108,6 +117,7 @@ namespace Models
     std::shared_ptr<string> residentPoolId_ = nullptr;
     std::shared_ptr<vector<ScalingPolicy>> scalingPolicies_ = nullptr;
     std::shared_ptr<vector<ScheduledPolicy>> scheduledPolicies_ = nullptr;
+    std::shared_ptr<int64_t> targetInstances_ = nullptr;
   };
 
   } // namespace Models

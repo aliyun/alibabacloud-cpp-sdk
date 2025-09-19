@@ -71,6 +71,7 @@
 #include <alibabacloud/models/ListProvisionConfigsOutput.hpp>
 #include <alibabacloud/models/ListResidentResourcePoolsOutput.hpp>
 #include <alibabacloud/models/ListScalingConfigStatusOutput.hpp>
+#include <alibabacloud/models/ListScalingConfigsOutput.hpp>
 #include <alibabacloud/models/ListTagResourcesOutput.hpp>
 #include <alibabacloud/models/ListTaggedResourcesOutput.hpp>
 #include <alibabacloud/models/ListTriggersOutput.hpp>
@@ -167,6 +168,8 @@
 #include <alibabacloud/models/DeleteLayerVersionResponse.hpp>
 #include <alibabacloud/models/DeleteProvisionConfigRequest.hpp>
 #include <alibabacloud/models/DeleteProvisionConfigResponse.hpp>
+#include <alibabacloud/models/DeleteScalingConfigRequest.hpp>
+#include <alibabacloud/models/DeleteScalingConfigResponse.hpp>
 #include <alibabacloud/models/DeleteTriggerResponse.hpp>
 #include <alibabacloud/models/DeleteVpcBindingResponse.hpp>
 #include <alibabacloud/models/DescribeRegionsRequest.hpp>
@@ -191,6 +194,8 @@
 #include <alibabacloud/models/GetLayerVersionByArnResponse.hpp>
 #include <alibabacloud/models/GetProvisionConfigRequest.hpp>
 #include <alibabacloud/models/GetProvisionConfigResponse.hpp>
+#include <alibabacloud/models/GetScalingConfigRequest.hpp>
+#include <alibabacloud/models/GetScalingConfigResponse.hpp>
 #include <alibabacloud/models/GetTriggerResponse.hpp>
 #include <alibabacloud/models/InvokeFunctionHeaders.hpp>
 #include <alibabacloud/models/InvokeFunctionRequest.hpp>
@@ -219,6 +224,8 @@
 #include <alibabacloud/models/ListLayersResponse.hpp>
 #include <alibabacloud/models/ListProvisionConfigsRequest.hpp>
 #include <alibabacloud/models/ListProvisionConfigsResponse.hpp>
+#include <alibabacloud/models/ListScalingConfigsRequest.hpp>
+#include <alibabacloud/models/ListScalingConfigsResponse.hpp>
 #include <alibabacloud/models/ListTagResourcesRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesShrinkRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesResponse.hpp>
@@ -235,6 +242,8 @@
 #include <alibabacloud/models/PutLayerAclresponse.hpp>
 #include <alibabacloud/models/PutProvisionConfigRequest.hpp>
 #include <alibabacloud/models/PutProvisionConfigResponse.hpp>
+#include <alibabacloud/models/PutScalingConfigRequest.hpp>
+#include <alibabacloud/models/PutScalingConfigResponse.hpp>
 #include <alibabacloud/models/StopAsyncTaskRequest.hpp>
 #include <alibabacloud/models/StopAsyncTaskResponse.hpp>
 #include <alibabacloud/models/TagResourcesRequest.hpp>
