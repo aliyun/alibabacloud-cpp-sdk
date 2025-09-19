@@ -21,6 +21,23 @@ namespace WebsiteBuild20250429
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 绑定应用域名
+       *
+       * @param request BindAppDomainRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BindAppDomainResponse
+       */
+      Models::BindAppDomainResponse bindAppDomainWithOptions(const Models::BindAppDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 绑定应用域名
+       *
+       * @param request BindAppDomainRequest
+       * @return BindAppDomainResponse
+       */
+      Models::BindAppDomainResponse bindAppDomain(const Models::BindAppDomainRequest &request);
+
+      /**
        * @summary 提交创建Logo任务
        *
        * @param request CreateLogoTaskRequest
@@ -36,6 +53,57 @@ namespace WebsiteBuild20250429
        * @return CreateLogoTaskResponse
        */
       Models::CreateLogoTaskResponse createLogoTask(const Models::CreateLogoTaskRequest &request);
+
+      /**
+       * @summary 删除域名的SSL证书
+       *
+       * @param request DeleteAppDomainCertificateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAppDomainCertificateResponse
+       */
+      Models::DeleteAppDomainCertificateResponse deleteAppDomainCertificateWithOptions(const Models::DeleteAppDomainCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除域名的SSL证书
+       *
+       * @param request DeleteAppDomainCertificateRequest
+       * @return DeleteAppDomainCertificateResponse
+       */
+      Models::DeleteAppDomainCertificateResponse deleteAppDomainCertificate(const Models::DeleteAppDomainCertificateRequest &request);
+
+      /**
+       * @summary 删除域名的跳转规则
+       *
+       * @param request DeleteAppDomainRedirectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAppDomainRedirectResponse
+       */
+      Models::DeleteAppDomainRedirectResponse deleteAppDomainRedirectWithOptions(const Models::DeleteAppDomainRedirectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除域名的跳转规则
+       *
+       * @param request DeleteAppDomainRedirectRequest
+       * @return DeleteAppDomainRedirectResponse
+       */
+      Models::DeleteAppDomainRedirectResponse deleteAppDomainRedirect(const Models::DeleteAppDomainRedirectRequest &request);
+
+      /**
+       * @summary 查询域名的DNS解析记录
+       *
+       * @param request DescribeAppDomainDnsRecordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAppDomainDnsRecordResponse
+       */
+      Models::DescribeAppDomainDnsRecordResponse describeAppDomainDnsRecordWithOptions(const Models::DescribeAppDomainDnsRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询域名的DNS解析记录
+       *
+       * @param request DescribeAppDomainDnsRecordRequest
+       * @return DescribeAppDomainDnsRecordResponse
+       */
+      Models::DescribeAppDomainDnsRecordResponse describeAppDomainDnsRecord(const Models::DescribeAppDomainDnsRecordRequest &request);
 
       /**
        * @summary 查询Logo创建任务
@@ -106,6 +174,40 @@ namespace WebsiteBuild20250429
       Models::GetUserTmpIdentityForPartnerResponse getUserTmpIdentityForPartner(const Models::GetUserTmpIdentityForPartnerRequest &request);
 
       /**
+       * @summary 查询域名的跳转规则列表
+       *
+       * @param request ListAppDomainRedirectRecordsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAppDomainRedirectRecordsResponse
+       */
+      Models::ListAppDomainRedirectRecordsResponse listAppDomainRedirectRecordsWithOptions(const Models::ListAppDomainRedirectRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询域名的跳转规则列表
+       *
+       * @param request ListAppDomainRedirectRecordsRequest
+       * @return ListAppDomainRedirectRecordsResponse
+       */
+      Models::ListAppDomainRedirectRecordsResponse listAppDomainRedirectRecords(const Models::ListAppDomainRedirectRecordsRequest &request);
+
+      /**
+       * @summary 查询应用实例下的所有域名列表
+       *
+       * @param request ListAppInstanceDomainsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAppInstanceDomainsResponse
+       */
+      Models::ListAppInstanceDomainsResponse listAppInstanceDomainsWithOptions(const Models::ListAppInstanceDomainsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询应用实例下的所有域名列表
+       *
+       * @param request ListAppInstanceDomainsRequest
+       * @return ListAppInstanceDomainsResponse
+       */
+      Models::ListAppInstanceDomainsResponse listAppInstanceDomains(const Models::ListAppInstanceDomainsRequest &request);
+
+      /**
        * @summary 合作伙伴操作应用
        *
        * @param request OperateAppInstanceForPartnerRequest
@@ -157,6 +259,23 @@ namespace WebsiteBuild20250429
       Models::SearchImageResponse searchImage(const Models::SearchImageRequest &request);
 
       /**
+       * @summary 设置域名的SSL证书
+       *
+       * @param request SetAppDomainCertificateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetAppDomainCertificateResponse
+       */
+      Models::SetAppDomainCertificateResponse setAppDomainCertificateWithOptions(const Models::SetAppDomainCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置域名的SSL证书
+       *
+       * @param request SetAppDomainCertificateRequest
+       * @return SetAppDomainCertificateResponse
+       */
+      Models::SetAppDomainCertificateResponse setAppDomainCertificate(const Models::SetAppDomainCertificateRequest &request);
+
+      /**
        * @summary 合作伙伴同步应用实例
        *
        * @param tmpReq SyncAppInstanceForPartnerRequest
@@ -172,6 +291,23 @@ namespace WebsiteBuild20250429
        * @return SyncAppInstanceForPartnerResponse
        */
       Models::SyncAppInstanceForPartnerResponse syncAppInstanceForPartner(const Models::SyncAppInstanceForPartnerRequest &request);
+
+      /**
+       * @summary 解绑应用域名
+       *
+       * @param request UnbindAppDomainRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UnbindAppDomainResponse
+       */
+      Models::UnbindAppDomainResponse unbindAppDomainWithOptions(const Models::UnbindAppDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 解绑应用域名
+       *
+       * @param request UnbindAppDomainRequest
+       * @return UnbindAppDomainResponse
+       */
+      Models::UnbindAppDomainResponse unbindAppDomain(const Models::UnbindAppDomainRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace WebsiteBuild20250429

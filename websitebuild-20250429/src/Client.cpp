@@ -36,6 +36,60 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 绑定应用域名
+ *
+ * @param request BindAppDomainRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BindAppDomainResponse
+ */
+BindAppDomainResponse Client::bindAppDomainWithOptions(const BindAppDomainRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.bizId();
+  }
+
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.domainName();
+  }
+
+  if (!!request.hasExtend()) {
+    query["Extend"] = request.extend();
+  }
+
+  if (!!request.hasOperateType()) {
+    query["OperateType"] = request.operateType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BindAppDomain"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BindAppDomainResponse>();
+}
+
+/**
+ * @summary 绑定应用域名
+ *
+ * @param request BindAppDomainRequest
+ * @return BindAppDomainResponse
+ */
+BindAppDomainResponse Client::bindAppDomain(const BindAppDomainRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return bindAppDomainWithOptions(request, runtime);
+}
+
+/**
  * @summary 提交创建Logo任务
  *
  * @param request CreateLogoTaskRequest
@@ -87,6 +141,148 @@ CreateLogoTaskResponse Client::createLogoTaskWithOptions(const CreateLogoTaskReq
 CreateLogoTaskResponse Client::createLogoTask(const CreateLogoTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createLogoTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除域名的SSL证书
+ *
+ * @param request DeleteAppDomainCertificateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAppDomainCertificateResponse
+ */
+DeleteAppDomainCertificateResponse Client::deleteAppDomainCertificateWithOptions(const DeleteAppDomainCertificateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.bizId();
+  }
+
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.domainName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAppDomainCertificate"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAppDomainCertificateResponse>();
+}
+
+/**
+ * @summary 删除域名的SSL证书
+ *
+ * @param request DeleteAppDomainCertificateRequest
+ * @return DeleteAppDomainCertificateResponse
+ */
+DeleteAppDomainCertificateResponse Client::deleteAppDomainCertificate(const DeleteAppDomainCertificateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAppDomainCertificateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除域名的跳转规则
+ *
+ * @param request DeleteAppDomainRedirectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAppDomainRedirectResponse
+ */
+DeleteAppDomainRedirectResponse Client::deleteAppDomainRedirectWithOptions(const DeleteAppDomainRedirectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.bizId();
+  }
+
+  if (!!request.hasRecordId()) {
+    query["RecordId"] = request.recordId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAppDomainRedirect"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAppDomainRedirectResponse>();
+}
+
+/**
+ * @summary 删除域名的跳转规则
+ *
+ * @param request DeleteAppDomainRedirectRequest
+ * @return DeleteAppDomainRedirectResponse
+ */
+DeleteAppDomainRedirectResponse Client::deleteAppDomainRedirect(const DeleteAppDomainRedirectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAppDomainRedirectWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询域名的DNS解析记录
+ *
+ * @param request DescribeAppDomainDnsRecordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAppDomainDnsRecordResponse
+ */
+DescribeAppDomainDnsRecordResponse Client::describeAppDomainDnsRecordWithOptions(const DescribeAppDomainDnsRecordRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.bizId();
+  }
+
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.domainName();
+  }
+
+  if (!!request.hasPurpose()) {
+    query["Purpose"] = request.purpose();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAppDomainDnsRecord"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAppDomainDnsRecordResponse>();
+}
+
+/**
+ * @summary 查询域名的DNS解析记录
+ *
+ * @param request DescribeAppDomainDnsRecordRequest
+ * @return DescribeAppDomainDnsRecordResponse
+ */
+DescribeAppDomainDnsRecordResponse Client::describeAppDomainDnsRecord(const DescribeAppDomainDnsRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAppDomainDnsRecordWithOptions(request, runtime);
 }
 
 /**
@@ -283,6 +479,122 @@ GetUserTmpIdentityForPartnerResponse Client::getUserTmpIdentityForPartnerWithOpt
 GetUserTmpIdentityForPartnerResponse Client::getUserTmpIdentityForPartner(const GetUserTmpIdentityForPartnerRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getUserTmpIdentityForPartnerWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询域名的跳转规则列表
+ *
+ * @param request ListAppDomainRedirectRecordsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAppDomainRedirectRecordsResponse
+ */
+ListAppDomainRedirectRecordsResponse Client::listAppDomainRedirectRecordsWithOptions(const ListAppDomainRedirectRecordsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.bizId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAppDomainRedirectRecords"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAppDomainRedirectRecordsResponse>();
+}
+
+/**
+ * @summary 查询域名的跳转规则列表
+ *
+ * @param request ListAppDomainRedirectRecordsRequest
+ * @return ListAppDomainRedirectRecordsResponse
+ */
+ListAppDomainRedirectRecordsResponse Client::listAppDomainRedirectRecords(const ListAppDomainRedirectRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAppDomainRedirectRecordsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询应用实例下的所有域名列表
+ *
+ * @param request ListAppInstanceDomainsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAppInstanceDomainsResponse
+ */
+ListAppInstanceDomainsResponse Client::listAppInstanceDomainsWithOptions(const ListAppInstanceDomainsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.bizId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasOrderColumn()) {
+    query["OrderColumn"] = request.orderColumn();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.orderType();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.pageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAppInstanceDomains"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAppInstanceDomainsResponse>();
+}
+
+/**
+ * @summary 查询应用实例下的所有域名列表
+ *
+ * @param request ListAppInstanceDomainsRequest
+ * @return ListAppInstanceDomainsResponse
+ */
+ListAppInstanceDomainsResponse Client::listAppInstanceDomains(const ListAppInstanceDomainsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAppInstanceDomainsWithOptions(request, runtime);
 }
 
 /**
@@ -490,6 +802,68 @@ SearchImageResponse Client::searchImage(const SearchImageRequest &request) {
 }
 
 /**
+ * @summary 设置域名的SSL证书
+ *
+ * @param request SetAppDomainCertificateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetAppDomainCertificateResponse
+ */
+SetAppDomainCertificateResponse Client::setAppDomainCertificateWithOptions(const SetAppDomainCertificateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.bizId();
+  }
+
+  if (!!request.hasCertificateName()) {
+    query["CertificateName"] = request.certificateName();
+  }
+
+  if (!!request.hasCertificateType()) {
+    query["CertificateType"] = request.certificateType();
+  }
+
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.domainName();
+  }
+
+  if (!!request.hasPrivateKey()) {
+    query["PrivateKey"] = request.privateKey();
+  }
+
+  if (!!request.hasPublicKey()) {
+    query["PublicKey"] = request.publicKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetAppDomainCertificate"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetAppDomainCertificateResponse>();
+}
+
+/**
+ * @summary 设置域名的SSL证书
+ *
+ * @param request SetAppDomainCertificateRequest
+ * @return SetAppDomainCertificateResponse
+ */
+SetAppDomainCertificateResponse Client::setAppDomainCertificate(const SetAppDomainCertificateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setAppDomainCertificateWithOptions(request, runtime);
+}
+
+/**
  * @summary 合作伙伴同步应用实例
  *
  * @param tmpReq SyncAppInstanceForPartnerRequest
@@ -551,6 +925,52 @@ SyncAppInstanceForPartnerResponse Client::syncAppInstanceForPartnerWithOptions(c
 SyncAppInstanceForPartnerResponse Client::syncAppInstanceForPartner(const SyncAppInstanceForPartnerRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return syncAppInstanceForPartnerWithOptions(request, runtime);
+}
+
+/**
+ * @summary 解绑应用域名
+ *
+ * @param request UnbindAppDomainRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UnbindAppDomainResponse
+ */
+UnbindAppDomainResponse Client::unbindAppDomainWithOptions(const UnbindAppDomainRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.bizId();
+  }
+
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.domainName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UnbindAppDomain"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UnbindAppDomainResponse>();
+}
+
+/**
+ * @summary 解绑应用域名
+ *
+ * @param request UnbindAppDomainRequest
+ * @return UnbindAppDomainResponse
+ */
+UnbindAppDomainResponse Client::unbindAppDomain(const UnbindAppDomainRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return unbindAppDomainWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace WebsiteBuild20250429
