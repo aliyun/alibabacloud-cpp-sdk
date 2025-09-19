@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTTABLESINCATEGORYRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ListTablesInCategoryResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

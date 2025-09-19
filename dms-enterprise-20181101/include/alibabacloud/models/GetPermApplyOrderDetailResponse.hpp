@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETPERMAPPLYORDERDETAILRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetPermApplyOrderDetailResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

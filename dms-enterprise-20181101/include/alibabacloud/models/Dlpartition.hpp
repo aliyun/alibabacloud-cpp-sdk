@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DLPARTITION_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DLStorageDescriptor.hpp>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;

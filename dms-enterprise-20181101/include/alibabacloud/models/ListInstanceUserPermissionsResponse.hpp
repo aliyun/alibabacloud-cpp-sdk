@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTINSTANCEUSERPERMISSIONSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ListInstanceUserPermissionsResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

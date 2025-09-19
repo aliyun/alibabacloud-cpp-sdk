@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EnterpriseInternetUrl, enterpriseInternetUrl_);
       DARABONBA_PTR_TO_JSON(EnterpriseIntranetUrl, enterpriseIntranetUrl_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(InternetUrl, internetUrl_);
       DARABONBA_PTR_TO_JSON(IntranetUrl, intranetUrl_);
       DARABONBA_PTR_TO_JSON(MajorVersion, majorVersion_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EnterpriseInternetUrl, enterpriseInternetUrl_);
       DARABONBA_PTR_FROM_JSON(EnterpriseIntranetUrl, enterpriseIntranetUrl_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(InternetUrl, internetUrl_);
       DARABONBA_PTR_FROM_JSON(IntranetUrl, intranetUrl_);
       DARABONBA_PTR_FROM_JSON(MajorVersion, majorVersion_);
@@ -57,8 +59,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->appUuid_ != nullptr
         && this->createdTime_ != nullptr && this->edition_ != nullptr && this->enterpriseInternetUrl_ != nullptr && this->enterpriseIntranetUrl_ != nullptr && this->instanceId_ != nullptr
-        && this->internetUrl_ != nullptr && this->intranetUrl_ != nullptr && this->majorVersion_ != nullptr && this->securityGroupId_ != nullptr && this->vSwitchId_ != nullptr
-        && this->vpcId_ != nullptr && this->workspaceId_ != nullptr && this->zoneId_ != nullptr; };
+        && this->instanceName_ != nullptr && this->internetUrl_ != nullptr && this->intranetUrl_ != nullptr && this->majorVersion_ != nullptr && this->securityGroupId_ != nullptr
+        && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr && this->workspaceId_ != nullptr && this->zoneId_ != nullptr; };
     // appUuid Field Functions 
     bool hasAppUuid() const { return this->appUuid_ != nullptr;};
     void deleteAppUuid() { this->appUuid_ = nullptr;};
@@ -99,6 +101,13 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListDifyInstancesResponseBodyRootData& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // instanceName Field Functions 
+    bool hasInstanceName() const { return this->instanceName_ != nullptr;};
+    void deleteInstanceName() { this->instanceName_ = nullptr;};
+    inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline ListDifyInstancesResponseBodyRootData& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // internetUrl Field Functions 
@@ -164,6 +173,7 @@ namespace Models
     std::shared_ptr<string> enterpriseInternetUrl_ = nullptr;
     std::shared_ptr<string> enterpriseIntranetUrl_ = nullptr;
     std::shared_ptr<string> instanceId_ = nullptr;
+    std::shared_ptr<string> instanceName_ = nullptr;
     std::shared_ptr<string> internetUrl_ = nullptr;
     std::shared_ptr<string> intranetUrl_ = nullptr;
     std::shared_ptr<string> majorVersion_ = nullptr;

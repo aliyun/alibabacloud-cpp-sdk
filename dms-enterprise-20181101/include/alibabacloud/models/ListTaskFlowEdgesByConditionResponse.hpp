@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTTASKFLOWEDGESBYCONDITIONRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ListTaskFlowEdgesByConditionResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_RETRYDATACORRECTPRECHECKRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/RetryDataCorrectPreCheckResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

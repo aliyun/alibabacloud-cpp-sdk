@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DOWNLOADDATATRACKRESULTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DownloadDataTrackResultResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

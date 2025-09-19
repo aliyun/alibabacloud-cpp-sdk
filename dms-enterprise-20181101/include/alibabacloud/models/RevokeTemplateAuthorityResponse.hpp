@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_REVOKETEMPLATEAUTHORITYRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/RevokeTemplateAuthorityResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

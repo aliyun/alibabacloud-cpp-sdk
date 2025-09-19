@@ -4,7 +4,8 @@
 #include <darabonba/Core.hpp>
 #include <map>
 #include <vector>
-#include <alibabacloud/DmsEnterprise20181101.hpp>
+#include <alibabacloud/models/DLColumn.hpp>
+#include <alibabacloud/models/DLStorageDescriptor.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -3,7 +3,10 @@
 #define ALIBABACLOUD_MODELS_DLSTORAGEDESCRIPTOR_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/DmsEnterprise20181101.hpp>
+#include <alibabacloud/models/DLColumn.hpp>
+#include <alibabacloud/models/DLSerdeInfo.hpp>
+#include <alibabacloud/models/DLSkewedInfo.hpp>
+#include <alibabacloud/models/DLOrder.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

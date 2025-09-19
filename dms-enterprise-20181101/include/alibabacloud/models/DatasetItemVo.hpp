@@ -3,7 +3,8 @@
 #define ALIBABACLOUD_MODELS_DATASETITEMVO_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/DmsEnterprise20181101.hpp>
+#include <alibabacloud/models/AsyncTaskVO.hpp>
+#include <alibabacloud/models/ProjectDetailsLiteVO.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

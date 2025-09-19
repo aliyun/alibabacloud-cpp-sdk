@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETDATAEXPORTORDERDETAILRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetDataExportOrderDetailResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

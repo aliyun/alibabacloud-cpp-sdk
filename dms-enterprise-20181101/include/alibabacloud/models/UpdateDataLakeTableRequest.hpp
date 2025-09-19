@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATEDATALAKETABLEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UPDATEDATALAKETABLEREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/OpenStructDLTableInput.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

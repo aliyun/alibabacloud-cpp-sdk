@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTAUTHORIZEDUSERSFORDATABASERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ListAuthorizedUsersForDatabaseResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

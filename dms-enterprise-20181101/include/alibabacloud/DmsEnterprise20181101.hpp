@@ -185,6 +185,27 @@ namespace DmsEnterprise20181101
       Models::AnalyzeSQLLineageResponse analyzeSQLLineage(const Models::AnalyzeSQLLineageRequest &request);
 
       /**
+       * @summary 根据用户提供的数据库ID，回答对应引擎的语法问题
+       *
+       * @description 根据用户提供的数据库ID，回答对应引擎的语法问题
+       *
+       * @param request AnswerSqlSyntaxByMetaAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AnswerSqlSyntaxByMetaAgentResponse
+       */
+      Models::AnswerSqlSyntaxByMetaAgentResponse answerSqlSyntaxByMetaAgentWithOptions(const Models::AnswerSqlSyntaxByMetaAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据用户提供的数据库ID，回答对应引擎的语法问题
+       *
+       * @description 根据用户提供的数据库ID，回答对应引擎的语法问题
+       *
+       * @param request AnswerSqlSyntaxByMetaAgentRequest
+       * @return AnswerSqlSyntaxByMetaAgentResponse
+       */
+      Models::AnswerSqlSyntaxByMetaAgentResponse answerSqlSyntaxByMetaAgent(const Models::AnswerSqlSyntaxByMetaAgentRequest &request);
+
+      /**
        * @summary Reviews a ticket.
        *
        * @param request ApproveOrderRequest
@@ -1731,6 +1752,27 @@ namespace DmsEnterprise20181101
        * @return ExecuteStructSyncResponse
        */
       Models::ExecuteStructSyncResponse executeStructSync(const Models::ExecuteStructSyncRequest &request);
+
+      /**
+       * @summary 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+       *
+       * @description 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+       *
+       * @param request FixSqlByMetaAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return FixSqlByMetaAgentResponse
+       */
+      Models::FixSqlByMetaAgentResponse fixSqlByMetaAgentWithOptions(const Models::FixSqlByMetaAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+       *
+       * @description 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+       *
+       * @param request FixSqlByMetaAgentRequest
+       * @return FixSqlByMetaAgentResponse
+       */
+      Models::FixSqlByMetaAgentResponse fixSqlByMetaAgent(const Models::FixSqlByMetaAgentRequest &request);
 
       /**
        * @summary 数据库知识库补数据接口
@@ -4439,6 +4481,27 @@ namespace DmsEnterprise20181101
        * @return OfflineTaskFlowResponse
        */
       Models::OfflineTaskFlowResponse offlineTaskFlow(const Models::OfflineTaskFlowRequest &request);
+
+      /**
+       * @summary 根据用户提供的SQL数据库ID，分析SQL性能并优化
+       *
+       * @description 根据用户提供的SQL数据库ID，分析SQL性能并优化
+       *
+       * @param request OptimizeSqlByMetaAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OptimizeSqlByMetaAgentResponse
+       */
+      Models::OptimizeSqlByMetaAgentResponse optimizeSqlByMetaAgentWithOptions(const Models::OptimizeSqlByMetaAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据用户提供的SQL数据库ID，分析SQL性能并优化
+       *
+       * @description 根据用户提供的SQL数据库ID，分析SQL性能并优化
+       *
+       * @param request OptimizeSqlByMetaAgentRequest
+       * @return OptimizeSqlByMetaAgentResponse
+       */
+      Models::OptimizeSqlByMetaAgentResponse optimizeSqlByMetaAgent(const Models::OptimizeSqlByMetaAgentRequest &request);
 
       /**
        * @summary Pauses a SQL task for data change.

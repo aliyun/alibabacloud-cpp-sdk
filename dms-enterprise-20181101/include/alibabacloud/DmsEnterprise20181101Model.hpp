@@ -58,6 +58,9 @@
 #include <alibabacloud/models/AnalyzeSqllineageRequest.hpp>
 #include <alibabacloud/models/AnalyzeSqllineageResponseBody.hpp>
 #include <alibabacloud/models/AnalyzeSqllineageResponse.hpp>
+#include <alibabacloud/models/AnswerSqlSyntaxByMetaAgentRequest.hpp>
+#include <alibabacloud/models/AnswerSqlSyntaxByMetaAgentResponseBody.hpp>
+#include <alibabacloud/models/AnswerSqlSyntaxByMetaAgentResponse.hpp>
 #include <alibabacloud/models/ApproveOrderRequest.hpp>
 #include <alibabacloud/models/ApproveOrderResponseBody.hpp>
 #include <alibabacloud/models/ApproveOrderResponse.hpp>
@@ -319,6 +322,9 @@
 #include <alibabacloud/models/ExecuteStructSyncRequest.hpp>
 #include <alibabacloud/models/ExecuteStructSyncResponseBody.hpp>
 #include <alibabacloud/models/ExecuteStructSyncResponse.hpp>
+#include <alibabacloud/models/FixSqlByMetaAgentRequest.hpp>
+#include <alibabacloud/models/FixSqlByMetaAgentResponseBody.hpp>
+#include <alibabacloud/models/FixSqlByMetaAgentResponse.hpp>
 #include <alibabacloud/models/GenMetaKnowledgeAssetRequest.hpp>
 #include <alibabacloud/models/GenMetaKnowledgeAssetResponseBody.hpp>
 #include <alibabacloud/models/GenMetaKnowledgeAssetResponse.hpp>
@@ -780,6 +786,9 @@
 #include <alibabacloud/models/OfflineTaskFlowRequest.hpp>
 #include <alibabacloud/models/OfflineTaskFlowResponseBody.hpp>
 #include <alibabacloud/models/OfflineTaskFlowResponse.hpp>
+#include <alibabacloud/models/OptimizeSqlByMetaAgentRequest.hpp>
+#include <alibabacloud/models/OptimizeSqlByMetaAgentResponseBody.hpp>
+#include <alibabacloud/models/OptimizeSqlByMetaAgentResponse.hpp>
 #include <alibabacloud/models/PauseDataCorrectSqljobRequest.hpp>
 #include <alibabacloud/models/PauseDataCorrectSqljobResponseBody.hpp>
 #include <alibabacloud/models/PauseDataCorrectSqljobResponse.hpp>
@@ -985,6 +994,7 @@
 #include <alibabacloud/models/AnalyzeSqllineageResponseBodyLineageResultObjectMetadataFields.hpp>
 #include <alibabacloud/models/AnalyzeSqllineageResponseBodyLineageResultObjectMetadata.hpp>
 #include <alibabacloud/models/AnalyzeSqllineageResponseBodyLineageResult.hpp>
+#include <alibabacloud/models/AnswerSqlSyntaxByMetaAgentResponseBodyData.hpp>
 #include <alibabacloud/models/CreateAuthorityTemplateResponseBodyAuthorityTemplateView.hpp>
 #include <alibabacloud/models/CreateDataArchiveOrderRequestParamTableIncludes.hpp>
 #include <alibabacloud/models/CreateDataArchiveOrderRequestParamVariables.hpp>
@@ -1022,6 +1032,7 @@
 #include <alibabacloud/models/DescribeDifyRegionsResponseBodyData.hpp>
 #include <alibabacloud/models/DownloadDataTrackResultRequestColumnFilter.hpp>
 #include <alibabacloud/models/ExecuteScriptResponseBodyResults.hpp>
+#include <alibabacloud/models/FixSqlByMetaAgentResponseBodyData.hpp>
 #include <alibabacloud/models/GenerateSqlFromNlresponseBodyDataKnowledgeReferences.hpp>
 #include <alibabacloud/models/GenerateSqlFromNlresponseBodyDataSimilarSql.hpp>
 #include <alibabacloud/models/GenerateSqlFromNlresponseBodyDataTables.hpp>
@@ -1305,6 +1316,7 @@
 #include <alibabacloud/models/ListWorkFlowTemplatesResponseBodyWorkFlowTemplates.hpp>
 #include <alibabacloud/models/ListWorkspacesResponseBodyDataBaseWorkspaces.hpp>
 #include <alibabacloud/models/ListWorkspacesResponseBodyData.hpp>
+#include <alibabacloud/models/OptimizeSqlByMetaAgentResponseBodyData.hpp>
 #include <alibabacloud/models/PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserListAuditUser.hpp>
 #include <alibabacloud/models/PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserList.hpp>
 #include <alibabacloud/models/PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNode.hpp>

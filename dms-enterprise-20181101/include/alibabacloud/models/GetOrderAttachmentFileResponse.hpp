@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETORDERATTACHMENTFILERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GetOrderAttachmentFileResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

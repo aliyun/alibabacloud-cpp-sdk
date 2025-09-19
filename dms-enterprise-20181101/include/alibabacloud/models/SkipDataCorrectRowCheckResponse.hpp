@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_SKIPDATACORRECTROWCHECKRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/SkipDataCorrectRowCheckResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

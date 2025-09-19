@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_PUBLISHANDDEPLOYTASKFLOWRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/PublishAndDeployTaskFlowResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

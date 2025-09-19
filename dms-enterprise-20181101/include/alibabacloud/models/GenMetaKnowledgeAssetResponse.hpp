@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GENMETAKNOWLEDGEASSETRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GenMetaKnowledgeAssetResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

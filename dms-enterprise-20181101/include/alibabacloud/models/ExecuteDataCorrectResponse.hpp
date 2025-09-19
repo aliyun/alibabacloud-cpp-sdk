@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_EXECUTEDATACORRECTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ExecuteDataCorrectResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

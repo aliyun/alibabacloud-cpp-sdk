@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTTASKFLOWSBYPAGERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ListTaskFlowsByPageResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

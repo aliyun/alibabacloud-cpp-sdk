@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GENERATESQLFROMNLRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/GenerateSqlFromNLResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

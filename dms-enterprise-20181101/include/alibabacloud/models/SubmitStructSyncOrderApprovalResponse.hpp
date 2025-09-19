@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_SUBMITSTRUCTSYNCORDERAPPROVALRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/SubmitStructSyncOrderApprovalResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

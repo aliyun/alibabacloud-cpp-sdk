@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_EXECUTESTRUCTSYNCRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ExecuteStructSyncResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
