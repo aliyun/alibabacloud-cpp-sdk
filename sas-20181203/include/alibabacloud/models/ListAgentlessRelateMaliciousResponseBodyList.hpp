@@ -1,0 +1,283 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTAGENTLESSRELATEMALICIOUSRESPONSEBODYLIST_HPP_
+#define ALIBABACLOUD_MODELS_LISTAGENTLESSRELATEMALICIOUSRESPONSEBODYLIST_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/ListAgentlessRelateMaliciousResponseBodyListDetails.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Sas20181203
+{
+namespace Models
+{
+  class ListAgentlessRelateMaliciousResponseBodyList : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListAgentlessRelateMaliciousResponseBodyList& obj) { 
+      DARABONBA_PTR_TO_JSON(Details, details_);
+      DARABONBA_PTR_TO_JSON(DownloadUrl, downloadUrl_);
+      DARABONBA_PTR_TO_JSON(FilePath, filePath_);
+      DARABONBA_PTR_TO_JSON(FirstScanTimestamp, firstScanTimestamp_);
+      DARABONBA_PTR_TO_JSON(HighLight, highLight_);
+      DARABONBA_PTR_TO_JSON(Id, id_);
+      DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_TO_JSON(InternetIp, internetIp_);
+      DARABONBA_PTR_TO_JSON(IntranetIp, intranetIp_);
+      DARABONBA_PTR_TO_JSON(LatestScanTimestamp, latestScanTimestamp_);
+      DARABONBA_PTR_TO_JSON(Level, level_);
+      DARABONBA_PTR_TO_JSON(MaliciousMd5, maliciousMd5_);
+      DARABONBA_PTR_TO_JSON(MaliciousName, maliciousName_);
+      DARABONBA_PTR_TO_JSON(MaliciousType, maliciousType_);
+      DARABONBA_PTR_TO_JSON(OperateResult, operateResult_);
+      DARABONBA_PTR_TO_JSON(OperateTimestamp, operateTimestamp_);
+      DARABONBA_PTR_TO_JSON(Partition, partition_);
+      DARABONBA_PTR_TO_JSON(TargetId, targetId_);
+      DARABONBA_PTR_TO_JSON(TargetName, targetName_);
+      DARABONBA_PTR_TO_JSON(TargetType, targetType_);
+      DARABONBA_PTR_TO_JSON(Uuid, uuid_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListAgentlessRelateMaliciousResponseBodyList& obj) { 
+      DARABONBA_PTR_FROM_JSON(Details, details_);
+      DARABONBA_PTR_FROM_JSON(DownloadUrl, downloadUrl_);
+      DARABONBA_PTR_FROM_JSON(FilePath, filePath_);
+      DARABONBA_PTR_FROM_JSON(FirstScanTimestamp, firstScanTimestamp_);
+      DARABONBA_PTR_FROM_JSON(HighLight, highLight_);
+      DARABONBA_PTR_FROM_JSON(Id, id_);
+      DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_FROM_JSON(InternetIp, internetIp_);
+      DARABONBA_PTR_FROM_JSON(IntranetIp, intranetIp_);
+      DARABONBA_PTR_FROM_JSON(LatestScanTimestamp, latestScanTimestamp_);
+      DARABONBA_PTR_FROM_JSON(Level, level_);
+      DARABONBA_PTR_FROM_JSON(MaliciousMd5, maliciousMd5_);
+      DARABONBA_PTR_FROM_JSON(MaliciousName, maliciousName_);
+      DARABONBA_PTR_FROM_JSON(MaliciousType, maliciousType_);
+      DARABONBA_PTR_FROM_JSON(OperateResult, operateResult_);
+      DARABONBA_PTR_FROM_JSON(OperateTimestamp, operateTimestamp_);
+      DARABONBA_PTR_FROM_JSON(Partition, partition_);
+      DARABONBA_PTR_FROM_JSON(TargetId, targetId_);
+      DARABONBA_PTR_FROM_JSON(TargetName, targetName_);
+      DARABONBA_PTR_FROM_JSON(TargetType, targetType_);
+      DARABONBA_PTR_FROM_JSON(Uuid, uuid_);
+    };
+    ListAgentlessRelateMaliciousResponseBodyList() = default ;
+    ListAgentlessRelateMaliciousResponseBodyList(const ListAgentlessRelateMaliciousResponseBodyList &) = default ;
+    ListAgentlessRelateMaliciousResponseBodyList(ListAgentlessRelateMaliciousResponseBodyList &&) = default ;
+    ListAgentlessRelateMaliciousResponseBodyList(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListAgentlessRelateMaliciousResponseBodyList() = default ;
+    ListAgentlessRelateMaliciousResponseBodyList& operator=(const ListAgentlessRelateMaliciousResponseBodyList &) = default ;
+    ListAgentlessRelateMaliciousResponseBodyList& operator=(ListAgentlessRelateMaliciousResponseBodyList &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->details_ != nullptr
+        && this->downloadUrl_ != nullptr && this->filePath_ != nullptr && this->firstScanTimestamp_ != nullptr && this->highLight_ != nullptr && this->id_ != nullptr
+        && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->intranetIp_ != nullptr && this->latestScanTimestamp_ != nullptr && this->level_ != nullptr
+        && this->maliciousMd5_ != nullptr && this->maliciousName_ != nullptr && this->maliciousType_ != nullptr && this->operateResult_ != nullptr && this->operateTimestamp_ != nullptr
+        && this->partition_ != nullptr && this->targetId_ != nullptr && this->targetName_ != nullptr && this->targetType_ != nullptr && this->uuid_ != nullptr; };
+    // details Field Functions 
+    bool hasDetails() const { return this->details_ != nullptr;};
+    void deleteDetails() { this->details_ = nullptr;};
+    inline const vector<Models::ListAgentlessRelateMaliciousResponseBodyListDetails> & details() const { DARABONBA_PTR_GET_CONST(details_, vector<Models::ListAgentlessRelateMaliciousResponseBodyListDetails>) };
+    inline vector<Models::ListAgentlessRelateMaliciousResponseBodyListDetails> details() { DARABONBA_PTR_GET(details_, vector<Models::ListAgentlessRelateMaliciousResponseBodyListDetails>) };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setDetails(const vector<Models::ListAgentlessRelateMaliciousResponseBodyListDetails> & details) { DARABONBA_PTR_SET_VALUE(details_, details) };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setDetails(vector<Models::ListAgentlessRelateMaliciousResponseBodyListDetails> && details) { DARABONBA_PTR_SET_RVALUE(details_, details) };
+
+
+    // downloadUrl Field Functions 
+    bool hasDownloadUrl() const { return this->downloadUrl_ != nullptr;};
+    void deleteDownloadUrl() { this->downloadUrl_ = nullptr;};
+    inline string downloadUrl() const { DARABONBA_PTR_GET_DEFAULT(downloadUrl_, "") };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setDownloadUrl(string downloadUrl) { DARABONBA_PTR_SET_VALUE(downloadUrl_, downloadUrl) };
+
+
+    // filePath Field Functions 
+    bool hasFilePath() const { return this->filePath_ != nullptr;};
+    void deleteFilePath() { this->filePath_ = nullptr;};
+    inline string filePath() const { DARABONBA_PTR_GET_DEFAULT(filePath_, "") };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setFilePath(string filePath) { DARABONBA_PTR_SET_VALUE(filePath_, filePath) };
+
+
+    // firstScanTimestamp Field Functions 
+    bool hasFirstScanTimestamp() const { return this->firstScanTimestamp_ != nullptr;};
+    void deleteFirstScanTimestamp() { this->firstScanTimestamp_ = nullptr;};
+    inline int64_t firstScanTimestamp() const { DARABONBA_PTR_GET_DEFAULT(firstScanTimestamp_, 0L) };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setFirstScanTimestamp(int64_t firstScanTimestamp) { DARABONBA_PTR_SET_VALUE(firstScanTimestamp_, firstScanTimestamp) };
+
+
+    // highLight Field Functions 
+    bool hasHighLight() const { return this->highLight_ != nullptr;};
+    void deleteHighLight() { this->highLight_ = nullptr;};
+    inline string highLight() const { DARABONBA_PTR_GET_DEFAULT(highLight_, "") };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setHighLight(string highLight) { DARABONBA_PTR_SET_VALUE(highLight_, highLight) };
+
+
+    // id Field Functions 
+    bool hasId() const { return this->id_ != nullptr;};
+    void deleteId() { this->id_ = nullptr;};
+    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+    // instanceName Field Functions 
+    bool hasInstanceName() const { return this->instanceName_ != nullptr;};
+    void deleteInstanceName() { this->instanceName_ = nullptr;};
+    inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
+
+
+    // internetIp Field Functions 
+    bool hasInternetIp() const { return this->internetIp_ != nullptr;};
+    void deleteInternetIp() { this->internetIp_ = nullptr;};
+    inline string internetIp() const { DARABONBA_PTR_GET_DEFAULT(internetIp_, "") };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setInternetIp(string internetIp) { DARABONBA_PTR_SET_VALUE(internetIp_, internetIp) };
+
+
+    // intranetIp Field Functions 
+    bool hasIntranetIp() const { return this->intranetIp_ != nullptr;};
+    void deleteIntranetIp() { this->intranetIp_ = nullptr;};
+    inline string intranetIp() const { DARABONBA_PTR_GET_DEFAULT(intranetIp_, "") };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setIntranetIp(string intranetIp) { DARABONBA_PTR_SET_VALUE(intranetIp_, intranetIp) };
+
+
+    // latestScanTimestamp Field Functions 
+    bool hasLatestScanTimestamp() const { return this->latestScanTimestamp_ != nullptr;};
+    void deleteLatestScanTimestamp() { this->latestScanTimestamp_ = nullptr;};
+    inline int64_t latestScanTimestamp() const { DARABONBA_PTR_GET_DEFAULT(latestScanTimestamp_, 0L) };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setLatestScanTimestamp(int64_t latestScanTimestamp) { DARABONBA_PTR_SET_VALUE(latestScanTimestamp_, latestScanTimestamp) };
+
+
+    // level Field Functions 
+    bool hasLevel() const { return this->level_ != nullptr;};
+    void deleteLevel() { this->level_ = nullptr;};
+    inline string level() const { DARABONBA_PTR_GET_DEFAULT(level_, "") };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setLevel(string level) { DARABONBA_PTR_SET_VALUE(level_, level) };
+
+
+    // maliciousMd5 Field Functions 
+    bool hasMaliciousMd5() const { return this->maliciousMd5_ != nullptr;};
+    void deleteMaliciousMd5() { this->maliciousMd5_ = nullptr;};
+    inline string maliciousMd5() const { DARABONBA_PTR_GET_DEFAULT(maliciousMd5_, "") };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setMaliciousMd5(string maliciousMd5) { DARABONBA_PTR_SET_VALUE(maliciousMd5_, maliciousMd5) };
+
+
+    // maliciousName Field Functions 
+    bool hasMaliciousName() const { return this->maliciousName_ != nullptr;};
+    void deleteMaliciousName() { this->maliciousName_ = nullptr;};
+    inline string maliciousName() const { DARABONBA_PTR_GET_DEFAULT(maliciousName_, "") };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setMaliciousName(string maliciousName) { DARABONBA_PTR_SET_VALUE(maliciousName_, maliciousName) };
+
+
+    // maliciousType Field Functions 
+    bool hasMaliciousType() const { return this->maliciousType_ != nullptr;};
+    void deleteMaliciousType() { this->maliciousType_ = nullptr;};
+    inline string maliciousType() const { DARABONBA_PTR_GET_DEFAULT(maliciousType_, "") };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setMaliciousType(string maliciousType) { DARABONBA_PTR_SET_VALUE(maliciousType_, maliciousType) };
+
+
+    // operateResult Field Functions 
+    bool hasOperateResult() const { return this->operateResult_ != nullptr;};
+    void deleteOperateResult() { this->operateResult_ = nullptr;};
+    inline string operateResult() const { DARABONBA_PTR_GET_DEFAULT(operateResult_, "") };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setOperateResult(string operateResult) { DARABONBA_PTR_SET_VALUE(operateResult_, operateResult) };
+
+
+    // operateTimestamp Field Functions 
+    bool hasOperateTimestamp() const { return this->operateTimestamp_ != nullptr;};
+    void deleteOperateTimestamp() { this->operateTimestamp_ = nullptr;};
+    inline string operateTimestamp() const { DARABONBA_PTR_GET_DEFAULT(operateTimestamp_, "") };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setOperateTimestamp(string operateTimestamp) { DARABONBA_PTR_SET_VALUE(operateTimestamp_, operateTimestamp) };
+
+
+    // partition Field Functions 
+    bool hasPartition() const { return this->partition_ != nullptr;};
+    void deletePartition() { this->partition_ = nullptr;};
+    inline string partition() const { DARABONBA_PTR_GET_DEFAULT(partition_, "") };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setPartition(string partition) { DARABONBA_PTR_SET_VALUE(partition_, partition) };
+
+
+    // targetId Field Functions 
+    bool hasTargetId() const { return this->targetId_ != nullptr;};
+    void deleteTargetId() { this->targetId_ = nullptr;};
+    inline string targetId() const { DARABONBA_PTR_GET_DEFAULT(targetId_, "") };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setTargetId(string targetId) { DARABONBA_PTR_SET_VALUE(targetId_, targetId) };
+
+
+    // targetName Field Functions 
+    bool hasTargetName() const { return this->targetName_ != nullptr;};
+    void deleteTargetName() { this->targetName_ = nullptr;};
+    inline string targetName() const { DARABONBA_PTR_GET_DEFAULT(targetName_, "") };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setTargetName(string targetName) { DARABONBA_PTR_SET_VALUE(targetName_, targetName) };
+
+
+    // targetType Field Functions 
+    bool hasTargetType() const { return this->targetType_ != nullptr;};
+    void deleteTargetType() { this->targetType_ = nullptr;};
+    inline string targetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setTargetType(string targetType) { DARABONBA_PTR_SET_VALUE(targetType_, targetType) };
+
+
+    // uuid Field Functions 
+    bool hasUuid() const { return this->uuid_ != nullptr;};
+    void deleteUuid() { this->uuid_ = nullptr;};
+    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline ListAgentlessRelateMaliciousResponseBodyList& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
+
+
+  protected:
+    // The details of the alert events.
+    std::shared_ptr<vector<Models::ListAgentlessRelateMaliciousResponseBodyListDetails>> details_ = nullptr;
+    // The URL to download the malicious image sample.
+    std::shared_ptr<string> downloadUrl_ = nullptr;
+    // The file path.
+    std::shared_ptr<string> filePath_ = nullptr;
+    // The timestamp when the first scan was performed. Unit: milliseconds.
+    std::shared_ptr<int64_t> firstScanTimestamp_ = nullptr;
+    // The highlighted JSON string.
+    std::shared_ptr<string> highLight_ = nullptr;
+    // The event ID.
+    std::shared_ptr<int64_t> id_ = nullptr;
+    // The name of the asset.
+    std::shared_ptr<string> instanceName_ = nullptr;
+    // The public IP address of the server.
+    std::shared_ptr<string> internetIp_ = nullptr;
+    // The private IP address of the server.
+    std::shared_ptr<string> intranetIp_ = nullptr;
+    // The timestamp when the last scan was performed. Unit: milliseconds.
+    std::shared_ptr<int64_t> latestScanTimestamp_ = nullptr;
+    // The severity of the malicious file. Valid values:
+    // 
+    // *   serious
+    // *   suspicious
+    // *   remind
+    std::shared_ptr<string> level_ = nullptr;
+    // The MD5 hash value of the malicious file.
+    std::shared_ptr<string> maliciousMd5_ = nullptr;
+    // The name of the malicious file.
+    std::shared_ptr<string> maliciousName_ = nullptr;
+    // The type of the virus.
+    std::shared_ptr<string> maliciousType_ = nullptr;
+    // The handling result of the alert.
+    std::shared_ptr<string> operateResult_ = nullptr;
+    // The timestamp when the alert is handled. Unit: milliseconds.
+    std::shared_ptr<string> operateTimestamp_ = nullptr;
+    // The partition of the disk.
+    std::shared_ptr<string> partition_ = nullptr;
+    // The ID of the task object.
+    std::shared_ptr<string> targetId_ = nullptr;
+    // The name of the task object.
+    std::shared_ptr<string> targetName_ = nullptr;
+    // The type of the task object. Valid values:
+    // 
+    // *   **1**: snapshot.
+    // *   **2**: image.
+    std::shared_ptr<string> targetType_ = nullptr;
+    // The UUID of the server.
+    std::shared_ptr<string> uuid_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Sas20181203
+#endif

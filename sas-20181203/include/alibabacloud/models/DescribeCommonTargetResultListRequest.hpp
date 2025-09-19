@@ -1,0 +1,69 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBECOMMONTARGETRESULTLISTREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBECOMMONTARGETRESULTLISTREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Sas20181203
+{
+namespace Models
+{
+  class DescribeCommonTargetResultListRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeCommonTargetResultListRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
+      DARABONBA_PTR_TO_JSON(Type, type_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeCommonTargetResultListRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
+      DARABONBA_PTR_FROM_JSON(Type, type_);
+    };
+    DescribeCommonTargetResultListRequest() = default ;
+    DescribeCommonTargetResultListRequest(const DescribeCommonTargetResultListRequest &) = default ;
+    DescribeCommonTargetResultListRequest(DescribeCommonTargetResultListRequest &&) = default ;
+    DescribeCommonTargetResultListRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeCommonTargetResultListRequest() = default ;
+    DescribeCommonTargetResultListRequest& operator=(const DescribeCommonTargetResultListRequest &) = default ;
+    DescribeCommonTargetResultListRequest& operator=(DescribeCommonTargetResultListRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->sourceIp_ != nullptr
+        && this->type_ != nullptr; };
+    // sourceIp Field Functions 
+    bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
+    void deleteSourceIp() { this->sourceIp_ = nullptr;};
+    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline DescribeCommonTargetResultListRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
+
+
+    // type Field Functions 
+    bool hasType() const { return this->type_ != nullptr;};
+    void deleteType() { this->type_ = nullptr;};
+    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline DescribeCommonTargetResultListRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+  protected:
+    // The source IP address of the request.
+    std::shared_ptr<string> sourceIp_ = nullptr;
+    // The type of the configuration item. Valid values:
+    // 
+    // *   **webshell_timescan**: webshell detection and removal
+    // *   **aliscriptengine**: in-depth detection engine
+    // *   **alidetect**: installation scope of local file detection
+    // *   **alidetect-scan-enable**: detection scope of local file detection
+    // 
+    // >  You can call the [ListClientUserDefineRules](~~ListClientUserDefineRules~~) and [ListSystemClientRules](~~ListSystemClientRules~~) operations to obtain more types of custom and system configuration items.
+    // 
+    // This parameter is required.
+    std::shared_ptr<string> type_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Sas20181203
+#endif

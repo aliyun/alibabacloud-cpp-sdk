@@ -1,0 +1,153 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_PUBLICCREATEIMAGESCANTASKRESPONSEBODYDATA_HPP_
+#define ALIBABACLOUD_MODELS_PUBLICCREATEIMAGESCANTASKRESPONSEBODYDATA_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Sas20181203
+{
+namespace Models
+{
+  class PublicCreateImageScanTaskResponseBodyData : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const PublicCreateImageScanTaskResponseBodyData& obj) { 
+      DARABONBA_PTR_TO_JSON(CanCreate, canCreate_);
+      DARABONBA_PTR_TO_JSON(CollectTime, collectTime_);
+      DARABONBA_PTR_TO_JSON(ExecTime, execTime_);
+      DARABONBA_PTR_TO_JSON(FinishCount, finishCount_);
+      DARABONBA_PTR_TO_JSON(Progress, progress_);
+      DARABONBA_PTR_TO_JSON(Result, result_);
+      DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+      DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
+    };
+    friend void from_json(const Darabonba::Json& j, PublicCreateImageScanTaskResponseBodyData& obj) { 
+      DARABONBA_PTR_FROM_JSON(CanCreate, canCreate_);
+      DARABONBA_PTR_FROM_JSON(CollectTime, collectTime_);
+      DARABONBA_PTR_FROM_JSON(ExecTime, execTime_);
+      DARABONBA_PTR_FROM_JSON(FinishCount, finishCount_);
+      DARABONBA_PTR_FROM_JSON(Progress, progress_);
+      DARABONBA_PTR_FROM_JSON(Result, result_);
+      DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+      DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
+    };
+    PublicCreateImageScanTaskResponseBodyData() = default ;
+    PublicCreateImageScanTaskResponseBodyData(const PublicCreateImageScanTaskResponseBodyData &) = default ;
+    PublicCreateImageScanTaskResponseBodyData(PublicCreateImageScanTaskResponseBodyData &&) = default ;
+    PublicCreateImageScanTaskResponseBodyData(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~PublicCreateImageScanTaskResponseBodyData() = default ;
+    PublicCreateImageScanTaskResponseBodyData& operator=(const PublicCreateImageScanTaskResponseBodyData &) = default ;
+    PublicCreateImageScanTaskResponseBodyData& operator=(PublicCreateImageScanTaskResponseBodyData &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->canCreate_ != nullptr
+        && this->collectTime_ != nullptr && this->execTime_ != nullptr && this->finishCount_ != nullptr && this->progress_ != nullptr && this->result_ != nullptr
+        && this->status_ != nullptr && this->taskId_ != nullptr && this->totalCount_ != nullptr; };
+    // canCreate Field Functions 
+    bool hasCanCreate() const { return this->canCreate_ != nullptr;};
+    void deleteCanCreate() { this->canCreate_ = nullptr;};
+    inline bool canCreate() const { DARABONBA_PTR_GET_DEFAULT(canCreate_, false) };
+    inline PublicCreateImageScanTaskResponseBodyData& setCanCreate(bool canCreate) { DARABONBA_PTR_SET_VALUE(canCreate_, canCreate) };
+
+
+    // collectTime Field Functions 
+    bool hasCollectTime() const { return this->collectTime_ != nullptr;};
+    void deleteCollectTime() { this->collectTime_ = nullptr;};
+    inline int64_t collectTime() const { DARABONBA_PTR_GET_DEFAULT(collectTime_, 0L) };
+    inline PublicCreateImageScanTaskResponseBodyData& setCollectTime(int64_t collectTime) { DARABONBA_PTR_SET_VALUE(collectTime_, collectTime) };
+
+
+    // execTime Field Functions 
+    bool hasExecTime() const { return this->execTime_ != nullptr;};
+    void deleteExecTime() { this->execTime_ = nullptr;};
+    inline int64_t execTime() const { DARABONBA_PTR_GET_DEFAULT(execTime_, 0L) };
+    inline PublicCreateImageScanTaskResponseBodyData& setExecTime(int64_t execTime) { DARABONBA_PTR_SET_VALUE(execTime_, execTime) };
+
+
+    // finishCount Field Functions 
+    bool hasFinishCount() const { return this->finishCount_ != nullptr;};
+    void deleteFinishCount() { this->finishCount_ = nullptr;};
+    inline int32_t finishCount() const { DARABONBA_PTR_GET_DEFAULT(finishCount_, 0) };
+    inline PublicCreateImageScanTaskResponseBodyData& setFinishCount(int32_t finishCount) { DARABONBA_PTR_SET_VALUE(finishCount_, finishCount) };
+
+
+    // progress Field Functions 
+    bool hasProgress() const { return this->progress_ != nullptr;};
+    void deleteProgress() { this->progress_ = nullptr;};
+    inline int32_t progress() const { DARABONBA_PTR_GET_DEFAULT(progress_, 0) };
+    inline PublicCreateImageScanTaskResponseBodyData& setProgress(int32_t progress) { DARABONBA_PTR_SET_VALUE(progress_, progress) };
+
+
+    // result Field Functions 
+    bool hasResult() const { return this->result_ != nullptr;};
+    void deleteResult() { this->result_ = nullptr;};
+    inline string result() const { DARABONBA_PTR_GET_DEFAULT(result_, "") };
+    inline PublicCreateImageScanTaskResponseBodyData& setResult(string result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+
+
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline PublicCreateImageScanTaskResponseBodyData& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    // taskId Field Functions 
+    bool hasTaskId() const { return this->taskId_ != nullptr;};
+    void deleteTaskId() { this->taskId_ = nullptr;};
+    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline PublicCreateImageScanTaskResponseBodyData& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
+
+
+    // totalCount Field Functions 
+    bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+    void deleteTotalCount() { this->totalCount_ = nullptr;};
+    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline PublicCreateImageScanTaskResponseBodyData& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
+  protected:
+    // Indicates whether you can create more image scan tasks. Valid values:
+    // 
+    // *   **true**: yes
+    // *   **false**: no
+    // 
+    // > By default, a maximum of 10 image scan tasks can be running at the same time. If 10 image scan tasks are running, you cannot create an image scan task by calling this operation. You must wait for at least one of the 10 existing image scan tasks to complete before you can create an image scan task.
+    std::shared_ptr<bool> canCreate_ = nullptr;
+    // The timestamp when the image information was collected. Unit: milliseconds.
+    std::shared_ptr<int64_t> collectTime_ = nullptr;
+    // The timestamp when the image scan task started to run. Unit: milliseconds.
+    std::shared_ptr<int64_t> execTime_ = nullptr;
+    // The number of images that have been scanned.
+    std::shared_ptr<int32_t> finishCount_ = nullptr;
+    // The progress of the image scan task in percentage.
+    std::shared_ptr<int32_t> progress_ = nullptr;
+    // The result of the image scan task. Valid values:
+    // 
+    // *   **SUCCESS**: The task is successful.
+    // *   **TASK_NOT_SUPPORT_REGION**: The images are deployed in a region that is not supported by container image scan.
+    // 
+    // > For more information about the regions supported by container image scan, see the "Regions supported by container image scan" section in this topic.
+    std::shared_ptr<string> result_ = nullptr;
+    // The status of the image scan task. Valid values:
+    // 
+    // *   **INIT**: The task is being initialized.
+    // *   **PRE_ANALYZER**: The task is being pre-processed.
+    // *   **SUCCESS**: The task is successful.
+    // *   **FAIL**: The task fails.
+    std::shared_ptr<string> status_ = nullptr;
+    // The ID of the image scan task.
+    std::shared_ptr<string> taskId_ = nullptr;
+    // The total number of images to scan.
+    std::shared_ptr<int32_t> totalCount_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Sas20181203
+#endif
