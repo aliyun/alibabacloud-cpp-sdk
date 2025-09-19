@@ -404,6 +404,9 @@
 #include <alibabacloud/models/DescribeNameListVariablePageListRequest.hpp>
 #include <alibabacloud/models/DescribeNameListVariablePageListResponseBody.hpp>
 #include <alibabacloud/models/DescribeNameListVariablePageListResponse.hpp>
+#include <alibabacloud/models/DescribeOperationLogMonitoringRequest.hpp>
+#include <alibabacloud/models/DescribeOperationLogMonitoringResponseBody.hpp>
+#include <alibabacloud/models/DescribeOperationLogMonitoringResponse.hpp>
 #include <alibabacloud/models/DescribeOperationLogPageListRequest.hpp>
 #include <alibabacloud/models/DescribeOperationLogPageListResponseBody.hpp>
 #include <alibabacloud/models/DescribeOperationLogPageListResponse.hpp>
@@ -665,6 +668,9 @@
 #include <alibabacloud/models/DescribeVariableSceneListRequest.hpp>
 #include <alibabacloud/models/DescribeVariableSceneListResponseBody.hpp>
 #include <alibabacloud/models/DescribeVariableSceneListResponse.hpp>
+#include <alibabacloud/models/DescribeVersionPageListRequest.hpp>
+#include <alibabacloud/models/DescribeVersionPageListResponseBody.hpp>
+#include <alibabacloud/models/DescribeVersionPageListResponse.hpp>
 #include <alibabacloud/models/DownloadSmapleBatchRequest.hpp>
 #include <alibabacloud/models/DownloadSmapleBatchResponseBody.hpp>
 #include <alibabacloud/models/DownloadSmapleBatchResponse.hpp>
@@ -964,6 +970,7 @@
 #include <alibabacloud/models/DescribeNameListPageListResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DescribeNameListTypeListResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DescribeNameListVariablePageListResponseBodyResultObject.hpp>
+#include <alibabacloud/models/DescribeOperationLogMonitoringResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DescribeOperationLogPageListResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DescribeOperatorListResponseBodyResultObjectOperatorsRightVariables.hpp>
 #include <alibabacloud/models/DescribeOperatorListResponseBodyResultObjectOperators.hpp>
@@ -1062,6 +1069,7 @@
 #include <alibabacloud/models/DescribeVariableDetailResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DescribeVariableListResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DescribeVariableSceneListResponseBodyResultObject.hpp>
+#include <alibabacloud/models/DescribeVersionPageListResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DownloadSmapleBatchResponseBodyResultObject.hpp>
 #include <alibabacloud/models/ImportFieldResponseBodyResultObject.hpp>
 #include <alibabacloud/models/ModifyCustVariableResponseBodyResultObject.hpp>

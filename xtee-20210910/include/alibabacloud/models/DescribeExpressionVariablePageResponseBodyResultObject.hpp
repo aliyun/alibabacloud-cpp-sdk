@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEEXPRESSIONVARIABLEPAGERESPONSEBODYRESULTOBJECT_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEEXPRESSIONVARIABLEPAGERESPONSEBODYRESULTOBJECT_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -17,7 +18,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(eventName, eventName_);
       DARABONBA_PTR_TO_JSON(gmtModified, gmtModified_);
       DARABONBA_PTR_TO_JSON(id, id_);
+      DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(outputs, outputs_);
+      DARABONBA_PTR_TO_JSON(ruleList, ruleList_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(title, title_);
       DARABONBA_PTR_TO_JSON(version, version_);
@@ -27,7 +30,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(eventName, eventName_);
       DARABONBA_PTR_FROM_JSON(gmtModified, gmtModified_);
       DARABONBA_PTR_FROM_JSON(id, id_);
+      DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(outputs, outputs_);
+      DARABONBA_PTR_FROM_JSON(ruleList, ruleList_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(title, title_);
       DARABONBA_PTR_FROM_JSON(version, version_);
@@ -44,8 +49,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->description_ != nullptr
-        && this->eventName_ != nullptr && this->gmtModified_ != nullptr && this->id_ != nullptr && this->outputs_ != nullptr && this->status_ != nullptr
-        && this->title_ != nullptr && this->version_ != nullptr; };
+        && this->eventName_ != nullptr && this->gmtModified_ != nullptr && this->id_ != nullptr && this->name_ != nullptr && this->outputs_ != nullptr
+        && this->ruleList_ != nullptr && this->status_ != nullptr && this->title_ != nullptr && this->version_ != nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -74,11 +79,27 @@ namespace Models
     inline DescribeExpressionVariablePageResponseBodyResultObject& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
+    // name Field Functions 
+    bool hasName() const { return this->name_ != nullptr;};
+    void deleteName() { this->name_ = nullptr;};
+    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline DescribeExpressionVariablePageResponseBodyResultObject& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
     // outputs Field Functions 
     bool hasOutputs() const { return this->outputs_ != nullptr;};
     void deleteOutputs() { this->outputs_ = nullptr;};
     inline string outputs() const { DARABONBA_PTR_GET_DEFAULT(outputs_, "") };
     inline DescribeExpressionVariablePageResponseBodyResultObject& setOutputs(string outputs) { DARABONBA_PTR_SET_VALUE(outputs_, outputs) };
+
+
+    // ruleList Field Functions 
+    bool hasRuleList() const { return this->ruleList_ != nullptr;};
+    void deleteRuleList() { this->ruleList_ = nullptr;};
+    inline const vector<string> & ruleList() const { DARABONBA_PTR_GET_CONST(ruleList_, vector<string>) };
+    inline vector<string> ruleList() { DARABONBA_PTR_GET(ruleList_, vector<string>) };
+    inline DescribeExpressionVariablePageResponseBodyResultObject& setRuleList(const vector<string> & ruleList) { DARABONBA_PTR_SET_VALUE(ruleList_, ruleList) };
+    inline DescribeExpressionVariablePageResponseBodyResultObject& setRuleList(vector<string> && ruleList) { DARABONBA_PTR_SET_RVALUE(ruleList_, ruleList) };
 
 
     // status Field Functions 
@@ -109,10 +130,14 @@ namespace Models
     std::shared_ptr<string> eventName_ = nullptr;
     // Modification time.
     std::shared_ptr<int64_t> gmtModified_ = nullptr;
-    // Primary key of custom variable
+    // Primary key of custom variable.
     std::shared_ptr<int64_t> id_ = nullptr;
-    // Variable return type
+    // Query variable name.
+    std::shared_ptr<string> name_ = nullptr;
+    // Variable return type.
     std::shared_ptr<string> outputs_ = nullptr;
+    // Associated Strategies.
+    std::shared_ptr<vector<string>> ruleList_ = nullptr;
     // Status.
     std::shared_ptr<string> status_ = nullptr;
     // Title.

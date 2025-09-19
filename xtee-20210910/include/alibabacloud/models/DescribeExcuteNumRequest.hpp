@@ -84,12 +84,21 @@ namespace Models
 
 
   protected:
+    // Service code.
+    // 
     // This parameter is required.
     std::shared_ptr<string> code_ = nullptr;
+    // This field is currently unused and has no query significance.
     std::shared_ptr<string> degree_ = nullptr;
+    // End date, format yyyy-MM-dd, e.g., 2025-03-13.
     std::shared_ptr<string> endDate_ = nullptr;
+    // Set the language type for requests and received messages, default value is **zh**. Values:
+    // - **zh**: Chinese
+    // - **en**: English
     std::shared_ptr<string> lang_ = nullptr;
+    // Request source IP address.
     std::shared_ptr<string> sourceIp_ = nullptr;
+    // Start date, format yyyy-MM-dd, e.g., 2025-03-10.
     std::shared_ptr<string> startDate_ = nullptr;
   };
 

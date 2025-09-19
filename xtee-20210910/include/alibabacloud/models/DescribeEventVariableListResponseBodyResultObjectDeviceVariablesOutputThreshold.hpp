@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The minimum value.
     std::shared_ptr<double> maxValue_ = nullptr;
+    // The minimum value.
     std::shared_ptr<double> minValue_ = nullptr;
   };
 

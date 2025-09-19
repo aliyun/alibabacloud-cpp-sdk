@@ -305,36 +305,67 @@ namespace Models
 
 
   protected:
+    // Set the language type for request and response messages, default value is **zh**. Values:
+    // - **zh**: Chinese
+    // - **en**: English
     std::shared_ptr<string> lang_ = nullptr;
+    // Account ID (request_param.accountId), up to 50 characters, supports “*” and “?” wildcards.
     std::shared_ptr<string> accountIdPRP_ = nullptr;
+    // Start timestamp of the log. Unit: milliseconds.
     std::shared_ptr<int64_t> beginTime_ = nullptr;
+    // Full-text match 1, cannot exceed 30 characters.
     std::shared_ptr<string> condition1AL_ = nullptr;
+    // Full-text match 2, cannot exceed 30 characters.
     std::shared_ptr<string> condition2AL_ = nullptr;
+    // Full-text match 3, cannot exceed 30 characters.
     std::shared_ptr<string> condition3AL_ = nullptr;
+    // Current page number.
     std::shared_ptr<int32_t> currentPage_ = nullptr;
+    // Device type (request_param.deviceType), examples: 1. PC, 2. MOBILE.
     std::shared_ptr<string> deviceTypeLRP_ = nullptr;
+    // Email (request_param.email), up to 100 characters, supports “*” and “?” wildcards.
     std::shared_ptr<string> emailPRP_ = nullptr;
+    // End time, accurate to milliseconds (ms).
     std::shared_ptr<int64_t> endTime_ = nullptr;
+    // Login failure reason (-request_param.failReason).
     std::shared_ptr<string> failReasonLRP_ = nullptr;
+    // IP (request_param.ip), up to 20 characters, supports “*” and “?” wildcards.
     std::shared_ptr<string> ipPRP_ = nullptr;
+    // Login success indicator (request_param.loginResult).
     std::shared_ptr<string> loginResultARP_ = nullptr;
+    // Login verification method (-request_param.loginType).
     std::shared_ptr<string> loginTypeLRP_ = nullptr;
+    // Device MAC address (-request_param.mac), up to 30 characters, supports “*” and “?” wildcards.
     std::shared_ptr<string> macPRP_ = nullptr;
+    // Phone number (supports MD5 request_param.mobile/request_param.mobileMd5), up to 30 characters, supports “*” and “?” wildcards, searchable by mobile and mobileMd5 fields.
     std::shared_ptr<string> mobilePRP_ = nullptr;
+    // Account nickname (request_param.nickName), up to 50 characters, supports “*” and “?” wildcards.
     std::shared_ptr<string> nickNamePRP_ = nullptr;
+    // Operation source (request_param.operateSource), examples: 1. PC, 2. H5, 3. App.
     std::shared_ptr<string> operateSourceLRP_ = nullptr;
+    // Number of items per page, default value is 10.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // Referer (-request_param.refer), up to 50 characters, supports “*” and “?” wildcards.
     std::shared_ptr<string> referPRP_ = nullptr;
+    // Region code.
     std::shared_ptr<string> regId_ = nullptr;
+    // Account registration IP (request_param.registerIp), up to 20 characters, supports “*” and “?” wildcards.
     std::shared_ptr<string> registerIpPRP_ = nullptr;
-    // requestId。
+    // Request ID.
     std::shared_ptr<string> reqIdPBS_ = nullptr;
+    // End value of the score range (score), only non-negative integers are allowed, and the right interval must be greater than the left interval, with both intervals being closed.
     std::shared_ptr<int32_t> scoreEBS_ = nullptr;
+    // Starting value of the score range (score), only non-negative integers are allowed, the right interval must be greater than the left interval, both intervals are inclusive.
     std::shared_ptr<int32_t> scoreSBS_ = nullptr;
+    // Event name (instance_id).
     std::shared_ptr<string> serviceABS_ = nullptr;
+    // Risk tags (tags), data source DescribeTagsList.
     std::shared_ptr<string> tagsLBS_ = nullptr;
+    // Device ID (device_info.umid).
     std::shared_ptr<string> umidPDI_ = nullptr;
+    // User agent (-request_param.userAgent), up to 50 characters, supports “*” and “?” wildcards.
     std::shared_ptr<string> userAgentPRP_ = nullptr;
+    // Username type, login scenario (-request_param.userNameType).
     std::shared_ptr<string> userNameTypeLRP_ = nullptr;
   };
 

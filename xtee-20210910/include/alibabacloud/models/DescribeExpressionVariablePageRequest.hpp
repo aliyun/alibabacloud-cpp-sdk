@@ -111,21 +111,21 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> currentPage_ = nullptr;
-    // Event code
+    // Event code.
     std::shared_ptr<string> eventCode_ = nullptr;
-    // Variable return type
+    // Variable return type.
     std::shared_ptr<string> outputs_ = nullptr;
-    // Page size, with a default value of 10
+    // Page size, with a default value of 10.
     // 
     // This parameter is required.
     std::shared_ptr<string> pageSize_ = nullptr;
-    // Region code
+    // Region code.
     // 
     // This parameter is required.
     std::shared_ptr<string> regId_ = nullptr;
     // Status.
     std::shared_ptr<string> status_ = nullptr;
-    // Variable name/description
+    // Variable name/description.
     std::shared_ptr<string> value_ = nullptr;
   };
 

@@ -92,13 +92,13 @@ namespace Models
     std::shared_ptr<string> requestId_ = nullptr;
     // Current page number.
     std::shared_ptr<int32_t> currentPage_ = nullptr;
-    // Page size, default value is 10
+    // Page size, default value is 10.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
-    // Returned object
+    // Returned object.
     std::shared_ptr<vector<DescribeCustVariablePageResponseBodyResultObject>> resultObject_ = nullptr;
-    // Total number of items
+    // Total number of items.
     std::shared_ptr<int32_t> totalItem_ = nullptr;
-    // Total number of pages
+    // Total number of pages.
     std::shared_ptr<int32_t> totalPage_ = nullptr;
   };
 

@@ -265,30 +265,55 @@ namespace Models
 
 
   protected:
+    // Variable code.
     std::shared_ptr<string> code_ = nullptr;
+    // Data distribution display in JSON format. This field is not returned for this type of variable.
     std::shared_ptr<string> dataDisplay_ = nullptr;
+    // Variable definition ID. This type of variable does not return this field.
     std::shared_ptr<string> defineId_ = nullptr;
+    // Description information.
     std::shared_ptr<string> description_ = nullptr;
+    // The display type and grouping label.
     std::shared_ptr<string> displayType_ = nullptr;
+    // The display value of the calculation expression. This field is not returned for this type of variable.
     std::shared_ptr<string> expressionTitle_ = nullptr;
+    // The favorite flag.
     std::shared_ptr<bool> favoriteFlag_ = nullptr;
+    // The detailed information of the field in the field pool. This field is not returned for this type of variable.
     std::shared_ptr<string> fieldDetail_ = nullptr;
+    // The field rank.
     std::shared_ptr<int32_t> fieldRank_ = nullptr;
+    // The source of the field. This field is not returned for this type of variable.
     std::shared_ptr<string> fieldSource_ = nullptr;
+    // Field type.
     std::shared_ptr<string> fieldType_ = nullptr;
+    // Primary key ID.
     std::shared_ptr<int64_t> id_ = nullptr;
+    // The input type of the parameter. This field is not returned for this type of variable.
     std::shared_ptr<string> inputFieldType_ = nullptr;
+    // The required parameter. This field is not returned for this type of variable.
     std::shared_ptr<string> inputRequired_ = nullptr;
+    // Input for the variable. This field is not returned for this type of variable.
     std::shared_ptr<string> inputs_ = nullptr;
+    // Variable name.
     std::shared_ptr<string> name_ = nullptr;
+    // The outlier value. This field is not returned for this type of variable.
     std::shared_ptr<string> outlier_ = nullptr;
+    // The output value threshold.
     std::shared_ptr<Models::DescribeEventVariableListResponseBodyResultObjectDeviceVariablesOutputThreshold> outputThreshold_ = nullptr;
+    // Parent node. This field is not returned for this type of variable.
     std::shared_ptr<string> parentName_ = nullptr;
+    // The source type.
     std::shared_ptr<string> sourceType_ = nullptr;
+    // Title.
     std::shared_ptr<string> title_ = nullptr;
+    // Variable type.
     std::shared_ptr<string> type_ = nullptr;
+    // The variable metric information. This field is not returned for this type of variable.
     std::shared_ptr<Models::DescribeEventVariableListResponseBodyResultObjectDeviceVariablesVariableVelocity> variableVelocity_ = nullptr;
+    // The X label. This field is not returned for this type of variable.
     std::shared_ptr<string> xLabel_ = nullptr;
+    // The Y label. This field is not returned for this type of variable.
     std::shared_ptr<string> yLabel_ = nullptr;
   };
 

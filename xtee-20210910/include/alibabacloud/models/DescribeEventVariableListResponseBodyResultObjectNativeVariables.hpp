@@ -265,30 +265,55 @@ namespace Models
 
 
   protected:
+    // variable code.
     std::shared_ptr<string> code_ = nullptr;
+    // Data distribution display, in JSON format.
     std::shared_ptr<string> dataDisplay_ = nullptr;
+    // Associated variable definition ID.
     std::shared_ptr<string> defineId_ = nullptr;
+    // Variable description.
     std::shared_ptr<string> description_ = nullptr;
+    // Display type and group label.
     std::shared_ptr<string> displayType_ = nullptr;
+    // Calculate expression display value.
     std::shared_ptr<string> expressionTitle_ = nullptr;
+    // Favorite Identifier.
     std::shared_ptr<bool> favoriteFlag_ = nullptr;
+    // Field pool field details.
     std::shared_ptr<string> fieldDetail_ = nullptr;
+    // Field Sorting.
     std::shared_ptr<int32_t> fieldRank_ = nullptr;
+    // Variable source.
     std::shared_ptr<string> fieldSource_ = nullptr;
+    // Field type.
     std::shared_ptr<string> fieldType_ = nullptr;
+    // Variable ID.
     std::shared_ptr<int64_t> id_ = nullptr;
+    // Input field type, indicating the type of input parameters, mainly used for function categorization.
     std::shared_ptr<string> inputFieldType_ = nullptr;
+    // Required parameters.
     std::shared_ptr<string> inputRequired_ = nullptr;
+    // Input of the variable. Event field is not present.
     std::shared_ptr<string> inputs_ = nullptr;
+    // variable name.
     std::shared_ptr<string> name_ = nullptr;
+    // outlier.
     std::shared_ptr<string> outlier_ = nullptr;
+    // Output score threshold.
     std::shared_ptr<Models::DescribeEventVariableListResponseBodyResultObjectNativeVariablesOutputThreshold> outputThreshold_ = nullptr;
+    // Parent name.
     std::shared_ptr<string> parentName_ = nullptr;
+    // Variable source type.
     std::shared_ptr<string> sourceType_ = nullptr;
+    // Variable name.
     std::shared_ptr<string> title_ = nullptr;
+    // Variable type.
     std::shared_ptr<string> type_ = nullptr;
+    // Variable indicator information.
     std::shared_ptr<Models::DescribeEventVariableListResponseBodyResultObjectNativeVariablesVariableVelocity> variableVelocity_ = nullptr;
+    // x label.
     std::shared_ptr<string> xLabel_ = nullptr;
+    // y label.
     std::shared_ptr<string> yLabel_ = nullptr;
   };
 

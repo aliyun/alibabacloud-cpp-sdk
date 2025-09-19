@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(eventCode, eventCode_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(regId, regId_);
+      DARABONBA_PTR_TO_JSON(status, status_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeCustVariablePageRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(eventCode, eventCode_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(regId, regId_);
+      DARABONBA_PTR_FROM_JSON(status, status_);
     };
     DescribeCustVariablePageRequest() = default ;
     DescribeCustVariablePageRequest(const DescribeCustVariablePageRequest &) = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->lang_ != nullptr
         && this->createType_ != nullptr && this->currentPage_ != nullptr && this->description_ != nullptr && this->eventCode_ != nullptr && this->pageSize_ != nullptr
-        && this->regId_ != nullptr; };
+        && this->regId_ != nullptr && this->status_ != nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
@@ -93,23 +95,32 @@ namespace Models
     inline DescribeCustVariablePageRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
 
 
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline DescribeCustVariablePageRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
   protected:
     // Sets the language type for requests and received messages, default value is **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
     std::shared_ptr<string> lang_ = nullptr;
-    // Creation type
+    // Creation type.
     std::shared_ptr<string> createType_ = nullptr;
     // Pagination parameter, current page number.
     std::shared_ptr<int32_t> currentPage_ = nullptr;
-    // Description
+    // Description.
     std::shared_ptr<string> description_ = nullptr;
-    // Event code
+    // Event code.
     std::shared_ptr<string> eventCode_ = nullptr;
-    // Number of records per page, default value: 10
+    // Number of records per page, default value: 10.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
-    // Region code
+    // Region code.
     std::shared_ptr<string> regId_ = nullptr;
+    // status.
+    std::shared_ptr<string> status_ = nullptr;
   };
 
   } // namespace Models

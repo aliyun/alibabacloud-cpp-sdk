@@ -88,15 +88,15 @@ namespace Models
 
 
   protected:
-    // Request ID
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
     // Current page number.
     std::shared_ptr<int32_t> currentPage_ = nullptr;
-    // Page size, with a default value of 10
+    // Page size, with a default value of 10.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
-    // Returned object
+    // Returned object.
     std::shared_ptr<vector<DescribeExpressionVariablePageResponseBodyResultObject>> resultObject_ = nullptr;
-    // Total number of items
+    // Total number of items.
     std::shared_ptr<int32_t> totalItem_ = nullptr;
     // Total number of pages.
     std::shared_ptr<int32_t> totalPage_ = nullptr;

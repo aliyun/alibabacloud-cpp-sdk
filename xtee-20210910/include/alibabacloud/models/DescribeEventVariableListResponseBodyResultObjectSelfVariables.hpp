@@ -265,30 +265,55 @@ namespace Models
 
 
   protected:
+    // Variable code.
     std::shared_ptr<string> code_ = nullptr;
+    // Data distribution display, in JSON format. This field is not returned for this type of variable.
     std::shared_ptr<string> dataDisplay_ = nullptr;
+    // Variable definition ID. Only returned for custom system variables.
     std::shared_ptr<string> defineId_ = nullptr;
+    // Description of the variable.
     std::shared_ptr<string> description_ = nullptr;
+    // Display type and group label.
     std::shared_ptr<string> displayType_ = nullptr;
+    // Expression name.
     std::shared_ptr<string> expressionTitle_ = nullptr;
+    // Favorite identifier.
     std::shared_ptr<bool> favoriteFlag_ = nullptr;
+    // Details of the field pool. This type of variable does not return this field.
     std::shared_ptr<string> fieldDetail_ = nullptr;
+    // Field sorting.
     std::shared_ptr<int32_t> fieldRank_ = nullptr;
+    // Source of the field. This type of variable does not return this field.
     std::shared_ptr<string> fieldSource_ = nullptr;
+    // Field type.
     std::shared_ptr<string> fieldType_ = nullptr;
+    // Variable ID.
     std::shared_ptr<int64_t> id_ = nullptr;
+    // The input type of the parameter. This field is not returned for this type of variable.
     std::shared_ptr<string> inputFieldType_ = nullptr;
+    // Required parameter. This field is not returned for this type of variable.
     std::shared_ptr<string> inputRequired_ = nullptr;
+    // Input parameters. Only returned when custom system variables are defined.
     std::shared_ptr<string> inputs_ = nullptr;
+    // Variable name.
     std::shared_ptr<string> name_ = nullptr;
+    // Anomaly value. Returned when the variable is a custom variable (type= EXPRESSION).
     std::shared_ptr<string> outlier_ = nullptr;
+    // Output value threshold.
     std::shared_ptr<Models::DescribeEventVariableListResponseBodyResultObjectSelfVariablesOutputThreshold> outputThreshold_ = nullptr;
+    // Parent node. This field is not returned currently.
     std::shared_ptr<string> parentName_ = nullptr;
+    // Source type.
     std::shared_ptr<string> sourceType_ = nullptr;
+    // Title.
     std::shared_ptr<string> title_ = nullptr;
+    // Variable type.
     std::shared_ptr<string> type_ = nullptr;
+    // Variable metric information. This field is not returned for this type of variable.
     std::shared_ptr<Models::DescribeEventVariableListResponseBodyResultObjectSelfVariablesVariableVelocity> variableVelocity_ = nullptr;
+    // x label. This type of variable does not return this field.
     std::shared_ptr<string> xLabel_ = nullptr;
+    // y label. This type of variable does not return this field.
     std::shared_ptr<string> yLabel_ = nullptr;
   };
 

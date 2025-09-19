@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The IV value. This field is not returned for this type of variable.
     std::shared_ptr<string> iv_ = nullptr;
   };
 

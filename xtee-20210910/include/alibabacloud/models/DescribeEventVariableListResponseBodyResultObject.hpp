@@ -200,19 +200,33 @@ namespace Models
 
 
   protected:
+    // Action variable.
     std::shared_ptr<vector<Models::DescribeEventVariableListResponseBodyResultObjectActions>> actions_ = nullptr;
+    // Device variable.
     std::shared_ptr<vector<Models::DescribeEventVariableListResponseBodyResultObjectDeviceVariables>> deviceVariables_ = nullptr;
+    // Custom variable.
     std::shared_ptr<vector<Models::DescribeEventVariableListResponseBodyResultObjectExpressionVariables>> expressionVariables_ = nullptr;
+    // Favorite variables.
     std::shared_ptr<vector<Models::DescribeEventVariableListResponseBodyResultObjectFavoriteVariables>> favoriteVariables_ = nullptr;
+    // Intermediate variable return object.
     std::shared_ptr<vector<Models::DescribeEventVariableListResponseBodyResultObjectMiddleVariables>> middleVariables_ = nullptr;
+    // An array of model variables.
     std::shared_ptr<vector<Models::DescribeEventVariableListResponseBodyResultObjectModelVariables>> modelVariables_ = nullptr;
+    // List of name variables.
     std::shared_ptr<vector<Models::DescribeEventVariableListResponseBodyResultObjectNameList>> nameList_ = nullptr;
+    // List of available functions for the original variable.
     std::shared_ptr<vector<Models::DescribeEventVariableListResponseBodyResultObjectNativeVariableFunctions>> nativeVariableFunctions_ = nullptr;
+    // List of event fields.
     std::shared_ptr<vector<Models::DescribeEventVariableListResponseBodyResultObjectNativeVariables>> nativeVariables_ = nullptr;
+    // An array of custom query variables.
     std::shared_ptr<vector<Models::DescribeEventVariableListResponseBodyResultObjectQueryVariables>> queryVariables_ = nullptr;
+    // Custom variables (custom variables, cumulative variables, custom system variables).
     std::shared_ptr<vector<Models::DescribeEventVariableListResponseBodyResultObjectSelfVariables>> selfVariables_ = nullptr;
+    // System variables.
     std::shared_ptr<vector<Models::DescribeEventVariableListResponseBodyResultObjectSysVariables>> sysVariables_ = nullptr;
+    // Other related variables.
     Darabonba::Json thirdVariables_ = nullptr;
+    // An array of accumulated variables.
     std::shared_ptr<vector<Models::DescribeEventVariableListResponseBodyResultObjectVelocityVariables>> velocityVariables_ = nullptr;
   };
 

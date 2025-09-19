@@ -62,8 +62,11 @@ namespace Models
 
 
   protected:
+    // Service category names.
     std::shared_ptr<vector<string>> categories_ = nullptr;
+    // Returned data.
     std::shared_ptr<vector<string>> data_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

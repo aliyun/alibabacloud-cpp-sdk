@@ -4537,6 +4537,10 @@ DescribeCustVariablePageResponse Client::describeCustVariablePageWithOptions(con
     query["regId"] = request.regId();
   }
 
+  if (!!request.hasStatus()) {
+    query["status"] = request.status();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -5170,7 +5174,7 @@ DescribeEventLogDetailResponse Client::describeEventLogDetail(const DescribeEven
 }
 
 /**
- * @summary 查询事件历史列表
+ * @summary Query Event History List
  *
  * @param request DescribeEventLogPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5317,7 +5321,7 @@ DescribeEventLogPageResponse Client::describeEventLogPageWithOptions(const Descr
 }
 
 /**
- * @summary 查询事件历史列表
+ * @summary Query Event History List
  *
  * @param request DescribeEventLogPageRequest
  * @return DescribeEventLogPageResponse
@@ -5656,7 +5660,9 @@ DescribeEventUploadPolicyResponse Client::describeEventUploadPolicy(const Descri
 }
 
 /**
- * @summary 查询事件变量
+ * @summary Query event variables
+ *
+ * @description Cumulative Variable List Query
  *
  * @param request DescribeEventVariableListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5711,7 +5717,9 @@ DescribeEventVariableListResponse Client::describeEventVariableListWithOptions(c
 }
 
 /**
- * @summary 查询事件变量
+ * @summary Query event variables
+ *
+ * @description Cumulative Variable List Query
  *
  * @param request DescribeEventVariableListRequest
  * @return DescribeEventVariableListResponse
@@ -5900,6 +5908,8 @@ DescribeEventsVariableListResponse Client::describeEventsVariableList(const Desc
 }
 
 /**
+ * @summary Self-service call list.
+ *
  * @param request DescribeExcuteNumRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeExcuteNumResponse
@@ -5949,6 +5959,8 @@ DescribeExcuteNumResponse Client::describeExcuteNumWithOptions(const DescribeExc
 }
 
 /**
+ * @summary Self-service call list.
+ *
  * @param request DescribeExcuteNumRequest
  * @return DescribeExcuteNumResponse
  */
@@ -6154,7 +6166,7 @@ DescribeExpressionVariableFunctionListResponse Client::describeExpressionVariabl
 }
 
 /**
- * @summary Paged Query for Custom Variables
+ * @summary Paged Query for Custom Variables.
  *
  * @param request DescribeExpressionVariablePageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6213,7 +6225,7 @@ DescribeExpressionVariablePageResponse Client::describeExpressionVariablePageWit
 }
 
 /**
- * @summary Paged Query for Custom Variables
+ * @summary Paged Query for Custom Variables.
  *
  * @param request DescribeExpressionVariablePageRequest
  * @return DescribeExpressionVariablePageResponse
@@ -7948,6 +7960,64 @@ DescribeNameListVariablePageListResponse Client::describeNameListVariablePageLis
 }
 
 /**
+ * @summary Query Operation Log Monitoring Statistics
+ *
+ * @param request DescribeOperationLogMonitoringRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeOperationLogMonitoringResponse
+ */
+DescribeOperationLogMonitoringResponse Client::describeOperationLogMonitoringWithOptions(const DescribeOperationLogMonitoringRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasEndDate()) {
+    query["endDate"] = request.endDate();
+  }
+
+  if (!!request.hasRegId()) {
+    query["regId"] = request.regId();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["startDate"] = request.startDate();
+  }
+
+  if (!!request.hasUserNameSearch()) {
+    query["userNameSearch"] = request.userNameSearch();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeOperationLogMonitoring"},
+    {"version" , "2021-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeOperationLogMonitoringResponse>();
+}
+
+/**
+ * @summary Query Operation Log Monitoring Statistics
+ *
+ * @param request DescribeOperationLogMonitoringRequest
+ * @return DescribeOperationLogMonitoringResponse
+ */
+DescribeOperationLogMonitoringResponse Client::describeOperationLogMonitoring(const DescribeOperationLogMonitoringRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeOperationLogMonitoringWithOptions(request, runtime);
+}
+
+/**
  * @summary Query event list by event name
  *
  * @param request DescribeOperationLogPageListRequest
@@ -7969,6 +8039,10 @@ DescribeOperationLogPageListResponse Client::describeOperationLogPageListWithOpt
     query["endDate"] = request.endDate();
   }
 
+  if (!!request.hasOperationSummary()) {
+    query["operationSummary"] = request.operationSummary();
+  }
+
   if (!!request.hasPageSize()) {
     query["pageSize"] = request.pageSize();
   }
@@ -7979,6 +8053,10 @@ DescribeOperationLogPageListResponse Client::describeOperationLogPageListWithOpt
 
   if (!!request.hasStartDate()) {
     query["startDate"] = request.startDate();
+  }
+
+  if (!!request.hasUserNameSearch()) {
+    query["userNameSearch"] = request.userNameSearch();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9722,6 +9800,8 @@ DescribeSDKDownloadListResponse Client::describeSDKDownloadList(const DescribeSD
 }
 
 /**
+ * @summary Query SAF permissions.
+ *
  * @param request DescribeSafConsoleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeSafConsoleResponse
@@ -9759,6 +9839,8 @@ DescribeSafConsoleResponse Client::describeSafConsoleWithOptions(const DescribeS
 }
 
 /**
+ * @summary Query SAF permissions.
+ *
  * @param request DescribeSafConsoleRequest
  * @return DescribeSafConsoleResponse
  */
@@ -12795,6 +12877,84 @@ DescribeVariableSceneListResponse Client::describeVariableSceneListWithOptions(c
 DescribeVariableSceneListResponse Client::describeVariableSceneList(const DescribeVariableSceneListRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeVariableSceneListWithOptions(request, runtime);
+}
+
+/**
+ * @summary Variable Version List Query
+ *
+ * @param request DescribeVersionPageListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVersionPageListResponse
+ */
+DescribeVersionPageListResponse Client::describeVersionPageListWithOptions(const DescribeVersionPageListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["currentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasObjectCode()) {
+    query["objectCode"] = request.objectCode();
+  }
+
+  if (!!request.hasObjectId()) {
+    query["objectId"] = request.objectId();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasPaging()) {
+    query["paging"] = request.paging();
+  }
+
+  if (!!request.hasRegId()) {
+    query["regId"] = request.regId();
+  }
+
+  if (!!request.hasType()) {
+    query["type"] = request.type();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVersionPageList"},
+    {"version" , "2021-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVersionPageListResponse>();
+}
+
+/**
+ * @summary Variable Version List Query
+ *
+ * @param request DescribeVersionPageListRequest
+ * @return DescribeVersionPageListResponse
+ */
+DescribeVersionPageListResponse Client::describeVersionPageList(const DescribeVersionPageListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVersionPageListWithOptions(request, runtime);
 }
 
 /**

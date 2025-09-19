@@ -57,8 +57,14 @@ namespace Models
 
 
   protected:
+    // Set the language type for requests and received messages, default value is **zh**. Values:
+    // - **zh**: Chinese
+    // - **en**: English
     std::shared_ptr<string> lang_ = nullptr;
+    // Query content.
     std::shared_ptr<string> content_ = nullptr;
+    // Service to be called.
+    // 
     // This parameter is required.
     std::shared_ptr<string> service_ = nullptr;
   };

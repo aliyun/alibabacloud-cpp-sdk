@@ -94,14 +94,23 @@ namespace Models
 
 
   protected:
+    // Sets the language type for requests and received messages, with a default value of **zh**. The values are: - **zh**: Chinese - **en**: English
     std::shared_ptr<string> lang_ = nullptr;
+    // Create Type.
     std::shared_ptr<string> createType_ = nullptr;
+    // Filter object.
     std::shared_ptr<string> filterDTO_ = nullptr;
+    // Associated event eventCode.
+    // 
     // This parameter is required.
     std::shared_ptr<string> refObjId_ = nullptr;
+    // Association Type.
+    // 
     // This parameter is required.
     std::shared_ptr<string> refObjType_ = nullptr;
+    // Region Code.
     std::shared_ptr<string> regId_ = nullptr;
+    // type.
     std::shared_ptr<string> type_ = nullptr;
   };
 

@@ -16,17 +16,21 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(currentPage, currentPage_);
       DARABONBA_PTR_TO_JSON(endDate, endDate_);
+      DARABONBA_PTR_TO_JSON(operationSummary, operationSummary_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(regId, regId_);
       DARABONBA_PTR_TO_JSON(startDate, startDate_);
+      DARABONBA_PTR_TO_JSON(userNameSearch, userNameSearch_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeOperationLogPageListRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(currentPage, currentPage_);
       DARABONBA_PTR_FROM_JSON(endDate, endDate_);
+      DARABONBA_PTR_FROM_JSON(operationSummary, operationSummary_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(regId, regId_);
       DARABONBA_PTR_FROM_JSON(startDate, startDate_);
+      DARABONBA_PTR_FROM_JSON(userNameSearch, userNameSearch_);
     };
     DescribeOperationLogPageListRequest() = default ;
     DescribeOperationLogPageListRequest(const DescribeOperationLogPageListRequest &) = default ;
@@ -40,7 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->lang_ != nullptr
-        && this->currentPage_ != nullptr && this->endDate_ != nullptr && this->pageSize_ != nullptr && this->regId_ != nullptr && this->startDate_ != nullptr; };
+        && this->currentPage_ != nullptr && this->endDate_ != nullptr && this->operationSummary_ != nullptr && this->pageSize_ != nullptr && this->regId_ != nullptr
+        && this->startDate_ != nullptr && this->userNameSearch_ != nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
@@ -60,6 +65,13 @@ namespace Models
     void deleteEndDate() { this->endDate_ = nullptr;};
     inline int64_t endDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, 0L) };
     inline DescribeOperationLogPageListRequest& setEndDate(int64_t endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
+
+
+    // operationSummary Field Functions 
+    bool hasOperationSummary() const { return this->operationSummary_ != nullptr;};
+    void deleteOperationSummary() { this->operationSummary_ = nullptr;};
+    inline string operationSummary() const { DARABONBA_PTR_GET_DEFAULT(operationSummary_, "") };
+    inline DescribeOperationLogPageListRequest& setOperationSummary(string operationSummary) { DARABONBA_PTR_SET_VALUE(operationSummary_, operationSummary) };
 
 
     // pageSize Field Functions 
@@ -83,6 +95,13 @@ namespace Models
     inline DescribeOperationLogPageListRequest& setStartDate(int64_t startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
 
 
+    // userNameSearch Field Functions 
+    bool hasUserNameSearch() const { return this->userNameSearch_ != nullptr;};
+    void deleteUserNameSearch() { this->userNameSearch_ = nullptr;};
+    inline string userNameSearch() const { DARABONBA_PTR_GET_DEFAULT(userNameSearch_, "") };
+    inline DescribeOperationLogPageListRequest& setUserNameSearch(string userNameSearch) { DARABONBA_PTR_SET_VALUE(userNameSearch_, userNameSearch) };
+
+
   protected:
     // Set the language type for request and response messages, default value is **zh**. Values:
     // - **zh**: Chinese
@@ -92,12 +111,16 @@ namespace Models
     std::shared_ptr<int32_t> currentPage_ = nullptr;
     // End time.
     std::shared_ptr<int64_t> endDate_ = nullptr;
+    // Operation Summary.
+    std::shared_ptr<string> operationSummary_ = nullptr;
     // Page size, default value is 10
     std::shared_ptr<int32_t> pageSize_ = nullptr;
-    // Region code
+    // Region code.
     std::shared_ptr<string> regId_ = nullptr;
     // Start time.
     std::shared_ptr<int64_t> startDate_ = nullptr;
+    // User Name Search.
+    std::shared_ptr<string> userNameSearch_ = nullptr;
   };
 
   } // namespace Models

@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Return object.
     std::shared_ptr<DescribeEventVariableListResponseBodyResultObject> resultObject_ = nullptr;
   };
 

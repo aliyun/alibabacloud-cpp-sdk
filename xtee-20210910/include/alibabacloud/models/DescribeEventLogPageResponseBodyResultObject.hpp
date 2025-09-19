@@ -130,17 +130,27 @@ namespace Models
 
 
   protected:
+    // Account ID.
     std::shared_ptr<string> accountId_ = nullptr;
+    // Email.
     std::shared_ptr<string> email_ = nullptr;
-    // ip。
+    // IP address.
     std::shared_ptr<string> ip_ = nullptr;
+    // Mobile phone number.
     std::shared_ptr<string> mobile_ = nullptr;
+    // Nickname.
     std::shared_ptr<string> nickName_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Score.
     std::shared_ptr<string> score_ = nullptr;
+    // Event name.
     std::shared_ptr<string> service_ = nullptr;
+    // Tags.
     std::shared_ptr<string> tags_ = nullptr;
+    // Transaction time.
     std::shared_ptr<string> timestamp_ = nullptr;
+    // Device ID.
     std::shared_ptr<string> umid_ = nullptr;
   };
 

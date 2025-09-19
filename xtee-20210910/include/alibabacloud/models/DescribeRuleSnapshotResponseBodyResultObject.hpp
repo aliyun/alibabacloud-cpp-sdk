@@ -21,10 +21,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(logicExpression, logicExpression_);
       DARABONBA_PTR_TO_JSON(memo, memo_);
       DARABONBA_PTR_TO_JSON(ruleActions, ruleActions_);
+      DARABONBA_PTR_TO_JSON(ruleBody, ruleBody_);
       DARABONBA_PTR_TO_JSON(ruleExpressions, ruleExpressions_);
       DARABONBA_PTR_TO_JSON(ruleId, ruleId_);
       DARABONBA_PTR_TO_JSON(ruleName, ruleName_);
       DARABONBA_PTR_TO_JSON(ruleStatus, ruleStatus_);
+      DARABONBA_PTR_TO_JSON(ruleType, ruleType_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeRuleSnapshotResponseBodyResultObject& obj) { 
       DARABONBA_PTR_FROM_JSON(bizVersion, bizVersion_);
@@ -35,10 +37,12 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(logicExpression, logicExpression_);
       DARABONBA_PTR_FROM_JSON(memo, memo_);
       DARABONBA_PTR_FROM_JSON(ruleActions, ruleActions_);
+      DARABONBA_PTR_FROM_JSON(ruleBody, ruleBody_);
       DARABONBA_PTR_FROM_JSON(ruleExpressions, ruleExpressions_);
       DARABONBA_PTR_FROM_JSON(ruleId, ruleId_);
       DARABONBA_PTR_FROM_JSON(ruleName, ruleName_);
       DARABONBA_PTR_FROM_JSON(ruleStatus, ruleStatus_);
+      DARABONBA_PTR_FROM_JSON(ruleType, ruleType_);
     };
     DescribeRuleSnapshotResponseBodyResultObject() = default ;
     DescribeRuleSnapshotResponseBodyResultObject(const DescribeRuleSnapshotResponseBodyResultObject &) = default ;
@@ -53,8 +57,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->bizVersion_ != nullptr
         && this->eventCode_ != nullptr && this->eventName_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->logicExpression_ != nullptr
-        && this->memo_ != nullptr && this->ruleActions_ != nullptr && this->ruleExpressions_ != nullptr && this->ruleId_ != nullptr && this->ruleName_ != nullptr
-        && this->ruleStatus_ != nullptr; };
+        && this->memo_ != nullptr && this->ruleActions_ != nullptr && this->ruleBody_ != nullptr && this->ruleExpressions_ != nullptr && this->ruleId_ != nullptr
+        && this->ruleName_ != nullptr && this->ruleStatus_ != nullptr && this->ruleType_ != nullptr; };
     // bizVersion Field Functions 
     bool hasBizVersion() const { return this->bizVersion_ != nullptr;};
     void deleteBizVersion() { this->bizVersion_ = nullptr;};
@@ -111,6 +115,13 @@ namespace Models
     inline DescribeRuleSnapshotResponseBodyResultObject& setRuleActions(string ruleActions) { DARABONBA_PTR_SET_VALUE(ruleActions_, ruleActions) };
 
 
+    // ruleBody Field Functions 
+    bool hasRuleBody() const { return this->ruleBody_ != nullptr;};
+    void deleteRuleBody() { this->ruleBody_ = nullptr;};
+    inline string ruleBody() const { DARABONBA_PTR_GET_DEFAULT(ruleBody_, "") };
+    inline DescribeRuleSnapshotResponseBodyResultObject& setRuleBody(string ruleBody) { DARABONBA_PTR_SET_VALUE(ruleBody_, ruleBody) };
+
+
     // ruleExpressions Field Functions 
     bool hasRuleExpressions() const { return this->ruleExpressions_ != nullptr;};
     void deleteRuleExpressions() { this->ruleExpressions_ = nullptr;};
@@ -139,6 +150,13 @@ namespace Models
     inline DescribeRuleSnapshotResponseBodyResultObject& setRuleStatus(string ruleStatus) { DARABONBA_PTR_SET_VALUE(ruleStatus_, ruleStatus) };
 
 
+    // ruleType Field Functions 
+    bool hasRuleType() const { return this->ruleType_ != nullptr;};
+    void deleteRuleType() { this->ruleType_ = nullptr;};
+    inline string ruleType() const { DARABONBA_PTR_GET_DEFAULT(ruleType_, "") };
+    inline DescribeRuleSnapshotResponseBodyResultObject& setRuleType(string ruleType) { DARABONBA_PTR_SET_VALUE(ruleType_, ruleType) };
+
+
   protected:
     // Business version.
     std::shared_ptr<string> bizVersion_ = nullptr;
@@ -156,6 +174,8 @@ namespace Models
     std::shared_ptr<string> memo_ = nullptr;
     // Rule actions.
     std::shared_ptr<string> ruleActions_ = nullptr;
+    // DSL rule expression. This field is required when ruleType is DSL.
+    std::shared_ptr<string> ruleBody_ = nullptr;
     // Expression.
     std::shared_ptr<string> ruleExpressions_ = nullptr;
     // Policy ID
@@ -164,6 +184,8 @@ namespace Models
     std::shared_ptr<string> ruleName_ = nullptr;
     // Policy status
     std::shared_ptr<string> ruleStatus_ = nullptr;
+    // Rule type.
+    std::shared_ptr<string> ruleType_ = nullptr;
   };
 
   } // namespace Models

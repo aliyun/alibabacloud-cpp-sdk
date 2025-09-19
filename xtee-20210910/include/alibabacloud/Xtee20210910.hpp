@@ -1504,7 +1504,7 @@ namespace Xtee20210910
       Models::DescribeEventLogDetailResponse describeEventLogDetail(const Models::DescribeEventLogDetailRequest &request);
 
       /**
-       * @summary 查询事件历史列表
+       * @summary Query Event History List
        *
        * @param request DescribeEventLogPageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1513,7 +1513,7 @@ namespace Xtee20210910
       Models::DescribeEventLogPageResponse describeEventLogPageWithOptions(const Models::DescribeEventLogPageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询事件历史列表
+       * @summary Query Event History List
        *
        * @param request DescribeEventLogPageRequest
        * @return DescribeEventLogPageResponse
@@ -1623,7 +1623,9 @@ namespace Xtee20210910
       Models::DescribeEventUploadPolicyResponse describeEventUploadPolicy(const Models::DescribeEventUploadPolicyRequest &request);
 
       /**
-       * @summary 查询事件变量
+       * @summary Query event variables
+       *
+       * @description Cumulative Variable List Query
        *
        * @param request DescribeEventVariableListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1632,7 +1634,9 @@ namespace Xtee20210910
       Models::DescribeEventVariableListResponse describeEventVariableListWithOptions(const Models::DescribeEventVariableListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询事件变量
+       * @summary Query event variables
+       *
+       * @description Cumulative Variable List Query
        *
        * @param request DescribeEventVariableListRequest
        * @return DescribeEventVariableListResponse
@@ -1691,6 +1695,8 @@ namespace Xtee20210910
       Models::DescribeEventsVariableListResponse describeEventsVariableList(const Models::DescribeEventsVariableListRequest &request);
 
       /**
+       * @summary Self-service call list.
+       *
        * @param request DescribeExcuteNumRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeExcuteNumResponse
@@ -1698,6 +1704,8 @@ namespace Xtee20210910
       Models::DescribeExcuteNumResponse describeExcuteNumWithOptions(const Models::DescribeExcuteNumRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Self-service call list.
+       *
        * @param request DescribeExcuteNumRequest
        * @return DescribeExcuteNumResponse
        */
@@ -1772,7 +1780,7 @@ namespace Xtee20210910
       Models::DescribeExpressionVariableFunctionListResponse describeExpressionVariableFunctionList(const Models::DescribeExpressionVariableFunctionListRequest &request);
 
       /**
-       * @summary Paged Query for Custom Variables
+       * @summary Paged Query for Custom Variables.
        *
        * @param request DescribeExpressionVariablePageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1781,7 +1789,7 @@ namespace Xtee20210910
       Models::DescribeExpressionVariablePageResponse describeExpressionVariablePageWithOptions(const Models::DescribeExpressionVariablePageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Paged Query for Custom Variables
+       * @summary Paged Query for Custom Variables.
        *
        * @param request DescribeExpressionVariablePageRequest
        * @return DescribeExpressionVariablePageResponse
@@ -2301,6 +2309,23 @@ namespace Xtee20210910
        * @return DescribeNameListVariablePageListResponse
        */
       Models::DescribeNameListVariablePageListResponse describeNameListVariablePageList(const Models::DescribeNameListVariablePageListRequest &request);
+
+      /**
+       * @summary Query Operation Log Monitoring Statistics
+       *
+       * @param request DescribeOperationLogMonitoringRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeOperationLogMonitoringResponse
+       */
+      Models::DescribeOperationLogMonitoringResponse describeOperationLogMonitoringWithOptions(const Models::DescribeOperationLogMonitoringRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query Operation Log Monitoring Statistics
+       *
+       * @param request DescribeOperationLogMonitoringRequest
+       * @return DescribeOperationLogMonitoringResponse
+       */
+      Models::DescribeOperationLogMonitoringResponse describeOperationLogMonitoring(const Models::DescribeOperationLogMonitoringRequest &request);
 
       /**
        * @summary Query event list by event name
@@ -2864,6 +2889,8 @@ namespace Xtee20210910
       Models::DescribeSDKDownloadListResponse describeSDKDownloadList(const Models::DescribeSDKDownloadListRequest &request);
 
       /**
+       * @summary Query SAF permissions.
+       *
        * @param request DescribeSafConsoleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeSafConsoleResponse
@@ -2871,6 +2898,8 @@ namespace Xtee20210910
       Models::DescribeSafConsoleResponse describeSafConsoleWithOptions(const Models::DescribeSafConsoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Query SAF permissions.
+       *
        * @param request DescribeSafConsoleRequest
        * @return DescribeSafConsoleResponse
        */
@@ -3784,6 +3813,23 @@ namespace Xtee20210910
        * @return DescribeVariableSceneListResponse
        */
       Models::DescribeVariableSceneListResponse describeVariableSceneList(const Models::DescribeVariableSceneListRequest &request);
+
+      /**
+       * @summary Variable Version List Query
+       *
+       * @param request DescribeVersionPageListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVersionPageListResponse
+       */
+      Models::DescribeVersionPageListResponse describeVersionPageListWithOptions(const Models::DescribeVersionPageListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Variable Version List Query
+       *
+       * @param request DescribeVersionPageListRequest
+       * @return DescribeVersionPageListResponse
+       */
+      Models::DescribeVersionPageListResponse describeVersionPageList(const Models::DescribeVersionPageListRequest &request);
 
       /**
        * @summary Sample List Data Download

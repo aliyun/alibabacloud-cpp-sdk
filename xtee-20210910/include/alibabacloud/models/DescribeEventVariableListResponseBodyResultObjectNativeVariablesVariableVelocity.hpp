@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // iv value.
     std::shared_ptr<string> iv_ = nullptr;
   };
 
