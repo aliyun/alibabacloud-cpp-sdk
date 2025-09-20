@@ -323,6 +323,69 @@ ApplyFileUploadLeaseResponse Client::applyFileUploadLease(const string &Category
 }
 
 /**
+ * @summary 修改类目解析配置
+ *
+ * @param tmpReq ChangeParseSettingRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChangeParseSettingResponse
+ */
+ChangeParseSettingResponse Client::changeParseSettingWithOptions(const string &WorkspaceId, const ChangeParseSettingRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ChangeParseSettingShrinkRequest request = ChangeParseSettingShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasParserConfig()) {
+    request.setParserConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.parserConfig(), "ParserConfig", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasCategoryId()) {
+    body["CategoryId"] = request.categoryId();
+  }
+
+  if (!!request.hasFileType()) {
+    body["FileType"] = request.fileType();
+  }
+
+  if (!!request.hasParser()) {
+    body["Parser"] = request.parser();
+  }
+
+  if (!!request.hasParserConfigShrink()) {
+    body["ParserConfig"] = request.parserConfigShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ChangeParseSetting"},
+    {"version" , "2023-12-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/datacenter/parser/settings")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ChangeParseSettingResponse>();
+}
+
+/**
+ * @summary 修改类目解析配置
+ *
+ * @param request ChangeParseSettingRequest
+ * @return ChangeParseSettingResponse
+ */
+ChangeParseSettingResponse Client::changeParseSetting(const string &WorkspaceId, const ChangeParseSettingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return changeParseSettingWithOptions(WorkspaceId, request, headers, runtime);
+}
+
+/**
  * @summary 创建并发布智能体应用
  *
  * @param tmpReq CreateAndPulishAgentRequest
@@ -1239,6 +1302,51 @@ GetAlipayUrlResponse Client::getAlipayUrl(const GetAlipayUrlRequest &request) {
 }
 
 /**
+ * @summary 获取文件支持的解析器类型
+ *
+ * @param request GetAvailableParserTypesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAvailableParserTypesResponse
+ */
+GetAvailableParserTypesResponse Client::getAvailableParserTypesWithOptions(const string &WorkspaceId, const GetAvailableParserTypesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileType()) {
+    query["FileType"] = request.fileType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAvailableParserTypes"},
+    {"version" , "2023-12-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/datacenter/parser/parsertype")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAvailableParserTypesResponse>();
+}
+
+/**
+ * @summary 获取文件支持的解析器类型
+ *
+ * @param request GetAvailableParserTypesRequest
+ * @return GetAvailableParserTypesResponse
+ */
+GetAvailableParserTypesResponse Client::getAvailableParserTypes(const string &WorkspaceId, const GetAvailableParserTypesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAvailableParserTypesWithOptions(WorkspaceId, request, headers, runtime);
+}
+
+/**
  * @summary Queries the current status of a specified knowledge base creation or add document job.
  *
  * @description 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
@@ -1376,6 +1484,51 @@ GetMemoryNodeResponse Client::getMemoryNode(const string &workspaceId, const str
 }
 
 /**
+ * @summary 获取类目解析配置
+ *
+ * @param request GetParseSettingsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetParseSettingsResponse
+ */
+GetParseSettingsResponse Client::getParseSettingsWithOptions(const string &WorkspaceId, const GetParseSettingsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCategoryId()) {
+    query["CategoryId"] = request.categoryId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetParseSettings"},
+    {"version" , "2023-12-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/datacenter/parser/settings")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetParseSettingsResponse>();
+}
+
+/**
+ * @summary 获取类目解析配置
+ *
+ * @param request GetParseSettingsRequest
+ * @return GetParseSettingsResponse
+ */
+GetParseSettingsResponse Client::getParseSettings(const string &WorkspaceId, const GetParseSettingsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getParseSettingsWithOptions(WorkspaceId, request, headers, runtime);
+}
+
+/**
  * @summary Obtains a prompt template based on the template ID.
  *
  * @param headers map
@@ -1445,6 +1598,71 @@ GetPublishedAgentResponse Client::getPublishedAgent(const string &workspaceId, c
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getPublishedAgentWithOptions(workspaceId, appCode, headers, runtime);
+}
+
+/**
+ * @summary 高代码部署服务
+ *
+ * @param request HighCodeDeployRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return HighCodeDeployResponse
+ */
+HighCodeDeployResponse Client::highCodeDeployWithOptions(const string &workspaceId, const HighCodeDeployRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentDesc()) {
+    body["agentDesc"] = request.agentDesc();
+  }
+
+  if (!!request.hasAgentId()) {
+    body["agentId"] = request.agentId();
+  }
+
+  if (!!request.hasAgentName()) {
+    body["agentName"] = request.agentName();
+  }
+
+  if (!!request.hasSourceCodeName()) {
+    body["sourceCodeName"] = request.sourceCodeName();
+  }
+
+  if (!!request.hasSourceCodeOssUrl()) {
+    body["sourceCodeOssUrl"] = request.sourceCodeOssUrl();
+  }
+
+  if (!!request.hasTelemetryEnabled()) {
+    body["telemetryEnabled"] = request.telemetryEnabled();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "HighCodeDeploy"},
+    {"version" , "2023-12-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/highCode/publish")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<HighCodeDeployResponse>();
+}
+
+/**
+ * @summary 高代码部署服务
+ *
+ * @param request HighCodeDeployRequest
+ * @return HighCodeDeployResponse
+ */
+HighCodeDeployResponse Client::highCodeDeploy(const string &workspaceId, const HighCodeDeployRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return highCodeDeployWithOptions(workspaceId, request, headers, runtime);
 }
 
 /**

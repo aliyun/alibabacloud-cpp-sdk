@@ -115,6 +115,24 @@ namespace Bailian20231229
       Models::ApplyFileUploadLeaseResponse applyFileUploadLease(const string &CategoryId, const string &WorkspaceId, const Models::ApplyFileUploadLeaseRequest &request);
 
       /**
+       * @summary 修改类目解析配置
+       *
+       * @param tmpReq ChangeParseSettingRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChangeParseSettingResponse
+       */
+      Models::ChangeParseSettingResponse changeParseSettingWithOptions(const string &WorkspaceId, const Models::ChangeParseSettingRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改类目解析配置
+       *
+       * @param request ChangeParseSettingRequest
+       * @return ChangeParseSettingResponse
+       */
+      Models::ChangeParseSettingResponse changeParseSetting(const string &WorkspaceId, const Models::ChangeParseSettingRequest &request);
+
+      /**
        * @summary 创建并发布智能体应用
        *
        * @param tmpReq CreateAndPulishAgentRequest
@@ -449,6 +467,24 @@ namespace Bailian20231229
       Models::GetAlipayUrlResponse getAlipayUrl(const Models::GetAlipayUrlRequest &request);
 
       /**
+       * @summary 获取文件支持的解析器类型
+       *
+       * @param request GetAvailableParserTypesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAvailableParserTypesResponse
+       */
+      Models::GetAvailableParserTypesResponse getAvailableParserTypesWithOptions(const string &WorkspaceId, const Models::GetAvailableParserTypesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取文件支持的解析器类型
+       *
+       * @param request GetAvailableParserTypesRequest
+       * @return GetAvailableParserTypesResponse
+       */
+      Models::GetAvailableParserTypesResponse getAvailableParserTypes(const string &WorkspaceId, const Models::GetAvailableParserTypesRequest &request);
+
+      /**
        * @summary Queries the current status of a specified knowledge base creation or add document job.
        *
        * @description 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
@@ -507,6 +543,24 @@ namespace Bailian20231229
       Models::GetMemoryNodeResponse getMemoryNode(const string &workspaceId, const string &memoryId, const string &memoryNodeId);
 
       /**
+       * @summary 获取类目解析配置
+       *
+       * @param request GetParseSettingsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetParseSettingsResponse
+       */
+      Models::GetParseSettingsResponse getParseSettingsWithOptions(const string &WorkspaceId, const Models::GetParseSettingsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取类目解析配置
+       *
+       * @param request GetParseSettingsRequest
+       * @return GetParseSettingsResponse
+       */
+      Models::GetParseSettingsResponse getParseSettings(const string &WorkspaceId, const Models::GetParseSettingsRequest &request);
+
+      /**
        * @summary Obtains a prompt template based on the template ID.
        *
        * @param headers map
@@ -537,6 +591,24 @@ namespace Bailian20231229
        * @return GetPublishedAgentResponse
        */
       Models::GetPublishedAgentResponse getPublishedAgent(const string &workspaceId, const string &appCode);
+
+      /**
+       * @summary 高代码部署服务
+       *
+       * @param request HighCodeDeployRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return HighCodeDeployResponse
+       */
+      Models::HighCodeDeployResponse highCodeDeployWithOptions(const string &workspaceId, const Models::HighCodeDeployRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 高代码部署服务
+       *
+       * @param request HighCodeDeployRequest
+       * @return HighCodeDeployResponse
+       */
+      Models::HighCodeDeployResponse highCodeDeploy(const string &workspaceId, const Models::HighCodeDeployRequest &request);
 
       /**
        * @summary ListCategory
