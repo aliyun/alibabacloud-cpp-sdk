@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(Bandwidth, bandwidth_);
+      DARABONBA_PTR_TO_JSON(ChannelCookie, channelCookie_);
       DARABONBA_PTR_TO_JSON(InternetChargeType, internetChargeType_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(Bandwidth, bandwidth_);
+      DARABONBA_PTR_FROM_JSON(ChannelCookie, channelCookie_);
       DARABONBA_PTR_FROM_JSON(InternetChargeType, internetChargeType_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
@@ -50,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->autoPay_ != nullptr
-        && this->autoRenew_ != nullptr && this->bandwidth_ != nullptr && this->internetChargeType_ != nullptr && this->officeSiteId_ != nullptr && this->payType_ != nullptr
-        && this->period_ != nullptr && this->periodUnit_ != nullptr && this->promotionId_ != nullptr && this->regionId_ != nullptr && this->resellerOwnerUid_ != nullptr; };
+        && this->autoRenew_ != nullptr && this->bandwidth_ != nullptr && this->channelCookie_ != nullptr && this->internetChargeType_ != nullptr && this->officeSiteId_ != nullptr
+        && this->payType_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr && this->promotionId_ != nullptr && this->regionId_ != nullptr
+        && this->resellerOwnerUid_ != nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -71,6 +74,13 @@ namespace Models
     void deleteBandwidth() { this->bandwidth_ = nullptr;};
     inline int32_t bandwidth() const { DARABONBA_PTR_GET_DEFAULT(bandwidth_, 0) };
     inline CreateNetworkPackageRequest& setBandwidth(int32_t bandwidth) { DARABONBA_PTR_SET_VALUE(bandwidth_, bandwidth) };
+
+
+    // channelCookie Field Functions 
+    bool hasChannelCookie() const { return this->channelCookie_ != nullptr;};
+    void deleteChannelCookie() { this->channelCookie_ = nullptr;};
+    inline string channelCookie() const { DARABONBA_PTR_GET_DEFAULT(channelCookie_, "") };
+    inline CreateNetworkPackageRequest& setChannelCookie(string channelCookie) { DARABONBA_PTR_SET_VALUE(channelCookie_, channelCookie) };
 
 
     // internetChargeType Field Functions 
@@ -182,6 +192,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<int32_t> bandwidth_ = nullptr;
+    std::shared_ptr<string> channelCookie_ = nullptr;
     // The charge type of the premium bandwidth plan.
     // 
     // *   Valid value when the `PayType` parameter is set to `PrePaid`:

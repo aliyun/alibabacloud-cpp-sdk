@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(BundleId, bundleId_);
       DARABONBA_PTR_TO_JSON(BundleModels, bundleModels_);
+      DARABONBA_PTR_TO_JSON(ChannelCookie, channelCookie_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(DesktopAttachment, desktopAttachment_);
       DARABONBA_PTR_TO_JSON(DesktopMemberIp, desktopMemberIp_);
@@ -65,6 +66,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(BundleId, bundleId_);
       DARABONBA_PTR_FROM_JSON(BundleModels, bundleModels_);
+      DARABONBA_PTR_FROM_JSON(ChannelCookie, channelCookie_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(DesktopAttachment, desktopAttachment_);
       DARABONBA_PTR_FROM_JSON(DesktopMemberIp, desktopMemberIp_);
@@ -110,13 +112,13 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->amount_ != nullptr
         && this->appRuleId_ != nullptr && this->autoPay_ != nullptr && this->autoRenew_ != nullptr && this->bundleId_ != nullptr && this->bundleModels_ != nullptr
-        && this->chargeType_ != nullptr && this->desktopAttachment_ != nullptr && this->desktopMemberIp_ != nullptr && this->desktopName_ != nullptr && this->desktopNameSuffix_ != nullptr
-        && this->desktopTimers_ != nullptr && this->directoryId_ != nullptr && this->endUserId_ != nullptr && this->extendInfo_ != nullptr && this->groupId_ != nullptr
-        && this->hostname_ != nullptr && this->monthDesktopSetting_ != nullptr && this->officeSiteId_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr
-        && this->policyGroupId_ != nullptr && this->promotionId_ != nullptr && this->qosRuleId_ != nullptr && this->regionId_ != nullptr && this->resellerOwnerUid_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->savingPlanId_ != nullptr && this->snapshotPolicyId_ != nullptr && this->tag_ != nullptr && this->timerGroupId_ != nullptr
-        && this->userAssignMode_ != nullptr && this->userCommands_ != nullptr && this->userName_ != nullptr && this->volumeEncryptionEnabled_ != nullptr && this->volumeEncryptionKey_ != nullptr
-        && this->vpcId_ != nullptr; };
+        && this->channelCookie_ != nullptr && this->chargeType_ != nullptr && this->desktopAttachment_ != nullptr && this->desktopMemberIp_ != nullptr && this->desktopName_ != nullptr
+        && this->desktopNameSuffix_ != nullptr && this->desktopTimers_ != nullptr && this->directoryId_ != nullptr && this->endUserId_ != nullptr && this->extendInfo_ != nullptr
+        && this->groupId_ != nullptr && this->hostname_ != nullptr && this->monthDesktopSetting_ != nullptr && this->officeSiteId_ != nullptr && this->period_ != nullptr
+        && this->periodUnit_ != nullptr && this->policyGroupId_ != nullptr && this->promotionId_ != nullptr && this->qosRuleId_ != nullptr && this->regionId_ != nullptr
+        && this->resellerOwnerUid_ != nullptr && this->resourceGroupId_ != nullptr && this->savingPlanId_ != nullptr && this->snapshotPolicyId_ != nullptr && this->tag_ != nullptr
+        && this->timerGroupId_ != nullptr && this->userAssignMode_ != nullptr && this->userCommands_ != nullptr && this->userName_ != nullptr && this->volumeEncryptionEnabled_ != nullptr
+        && this->volumeEncryptionKey_ != nullptr && this->vpcId_ != nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -159,6 +161,13 @@ namespace Models
     inline vector<CreateDesktopsRequestBundleModels> bundleModels() { DARABONBA_PTR_GET(bundleModels_, vector<CreateDesktopsRequestBundleModels>) };
     inline CreateDesktopsRequest& setBundleModels(const vector<CreateDesktopsRequestBundleModels> & bundleModels) { DARABONBA_PTR_SET_VALUE(bundleModels_, bundleModels) };
     inline CreateDesktopsRequest& setBundleModels(vector<CreateDesktopsRequestBundleModels> && bundleModels) { DARABONBA_PTR_SET_RVALUE(bundleModels_, bundleModels) };
+
+
+    // channelCookie Field Functions 
+    bool hasChannelCookie() const { return this->channelCookie_ != nullptr;};
+    void deleteChannelCookie() { this->channelCookie_ = nullptr;};
+    inline string channelCookie() const { DARABONBA_PTR_GET_DEFAULT(channelCookie_, "") };
+    inline CreateDesktopsRequest& setChannelCookie(string channelCookie) { DARABONBA_PTR_SET_VALUE(channelCookie_, channelCookie) };
 
 
     // chargeType Field Functions 
@@ -402,6 +411,7 @@ namespace Models
     std::shared_ptr<string> bundleId_ = nullptr;
     // The cloud computer templates.
     std::shared_ptr<vector<CreateDesktopsRequestBundleModels>> bundleModels_ = nullptr;
+    std::shared_ptr<string> channelCookie_ = nullptr;
     // The billing method of the cloud computers.
     // 
     // Default value: PostPaid. Valid values:

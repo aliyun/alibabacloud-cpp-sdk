@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyAutoSnapshotPolicyRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CronExpression, cronExpression_);
+      DARABONBA_PTR_TO_JSON(DiskType, diskType_);
       DARABONBA_PTR_TO_JSON(PolicyId, policyId_);
       DARABONBA_PTR_TO_JSON(PolicyName, policyName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ModifyAutoSnapshotPolicyRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CronExpression, cronExpression_);
+      DARABONBA_PTR_FROM_JSON(DiskType, diskType_);
       DARABONBA_PTR_FROM_JSON(PolicyId, policyId_);
       DARABONBA_PTR_FROM_JSON(PolicyName, policyName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->cronExpression_ != nullptr
-        && this->policyId_ != nullptr && this->policyName_ != nullptr && this->regionId_ != nullptr && this->retentionDays_ != nullptr; };
+        && this->diskType_ != nullptr && this->policyId_ != nullptr && this->policyName_ != nullptr && this->regionId_ != nullptr && this->retentionDays_ != nullptr; };
     // cronExpression Field Functions 
     bool hasCronExpression() const { return this->cronExpression_ != nullptr;};
     void deleteCronExpression() { this->cronExpression_ = nullptr;};
     inline string cronExpression() const { DARABONBA_PTR_GET_DEFAULT(cronExpression_, "") };
     inline ModifyAutoSnapshotPolicyRequest& setCronExpression(string cronExpression) { DARABONBA_PTR_SET_VALUE(cronExpression_, cronExpression) };
+
+
+    // diskType Field Functions 
+    bool hasDiskType() const { return this->diskType_ != nullptr;};
+    void deleteDiskType() { this->diskType_ = nullptr;};
+    inline string diskType() const { DARABONBA_PTR_GET_DEFAULT(diskType_, "") };
+    inline ModifyAutoSnapshotPolicyRequest& setDiskType(string diskType) { DARABONBA_PTR_SET_VALUE(diskType_, diskType) };
 
 
     // policyId Field Functions 
@@ -77,6 +86,7 @@ namespace Models
   protected:
     // The CRON expression.
     std::shared_ptr<string> cronExpression_ = nullptr;
+    std::shared_ptr<string> diskType_ = nullptr;
     // The ID of the automatic snapshot policy.
     // 
     // This parameter is required.

@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_TO_JSON(CronExpression, cronExpression_);
       DARABONBA_PTR_TO_JSON(DesktopNum, desktopNum_);
+      DARABONBA_PTR_TO_JSON(DiskType, diskType_);
       DARABONBA_PTR_TO_JSON(PolicyId, policyId_);
       DARABONBA_PTR_TO_JSON(PolicyName, policyName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_FROM_JSON(CronExpression, cronExpression_);
       DARABONBA_PTR_FROM_JSON(DesktopNum, desktopNum_);
+      DARABONBA_PTR_FROM_JSON(DiskType, diskType_);
       DARABONBA_PTR_FROM_JSON(PolicyId, policyId_);
       DARABONBA_PTR_FROM_JSON(PolicyName, policyName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->creationTime_ != nullptr
-        && this->cronExpression_ != nullptr && this->desktopNum_ != nullptr && this->policyId_ != nullptr && this->policyName_ != nullptr && this->regionId_ != nullptr
-        && this->retentionDays_ != nullptr && this->status_ != nullptr && this->timePoints_ != nullptr; };
+        && this->cronExpression_ != nullptr && this->desktopNum_ != nullptr && this->diskType_ != nullptr && this->policyId_ != nullptr && this->policyName_ != nullptr
+        && this->regionId_ != nullptr && this->retentionDays_ != nullptr && this->status_ != nullptr && this->timePoints_ != nullptr; };
     // creationTime Field Functions 
     bool hasCreationTime() const { return this->creationTime_ != nullptr;};
     void deleteCreationTime() { this->creationTime_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     void deleteDesktopNum() { this->desktopNum_ = nullptr;};
     inline int32_t desktopNum() const { DARABONBA_PTR_GET_DEFAULT(desktopNum_, 0) };
     inline DescribeAutoSnapshotPolicyResponseBodyAutoSnapshotPolicies& setDesktopNum(int32_t desktopNum) { DARABONBA_PTR_SET_VALUE(desktopNum_, desktopNum) };
+
+
+    // diskType Field Functions 
+    bool hasDiskType() const { return this->diskType_ != nullptr;};
+    void deleteDiskType() { this->diskType_ = nullptr;};
+    inline string diskType() const { DARABONBA_PTR_GET_DEFAULT(diskType_, "") };
+    inline DescribeAutoSnapshotPolicyResponseBodyAutoSnapshotPolicies& setDiskType(string diskType) { DARABONBA_PTR_SET_VALUE(diskType_, diskType) };
 
 
     // policyId Field Functions 
@@ -118,6 +127,7 @@ namespace Models
     std::shared_ptr<string> cronExpression_ = nullptr;
     // The number of cloud computers to which the automatic snapshot policy is applied.
     std::shared_ptr<int32_t> desktopNum_ = nullptr;
+    std::shared_ptr<string> diskType_ = nullptr;
     // The ID of the automatic snapshot policy.
     std::shared_ptr<string> policyId_ = nullptr;
     // The name of the automatic snapshot policy.

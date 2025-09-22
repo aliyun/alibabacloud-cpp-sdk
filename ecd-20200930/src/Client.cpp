@@ -1947,6 +1947,10 @@ CreateAutoSnapshotPolicyResponse Client::createAutoSnapshotPolicyWithOptions(con
     query["CronExpression"] = request.cronExpression();
   }
 
+  if (!!request.hasDiskType()) {
+    query["DiskType"] = request.diskType();
+  }
+
   if (!!request.hasPolicyName()) {
     query["PolicyName"] = request.policyName();
   }
@@ -3545,6 +3549,10 @@ CreateDesktopsResponse Client::createDesktopsWithOptions(const CreateDesktopsReq
     query["BundleModels"] = request.bundleModels();
   }
 
+  if (!!request.hasChannelCookie()) {
+    query["ChannelCookie"] = request.channelCookie();
+  }
+
   if (!!request.hasChargeType()) {
     query["ChargeType"] = request.chargeType();
   }
@@ -4185,6 +4193,10 @@ CreateNetworkPackageResponse Client::createNetworkPackageWithOptions(const Creat
 
   if (!!request.hasBandwidth()) {
     query["Bandwidth"] = request.bandwidth();
+  }
+
+  if (!!request.hasChannelCookie()) {
+    query["ChannelCookie"] = request.channelCookie();
   }
 
   if (!!request.hasInternetChargeType()) {
@@ -13211,6 +13223,10 @@ ModifyAutoSnapshotPolicyResponse Client::modifyAutoSnapshotPolicyWithOptions(con
   json query = {};
   if (!!request.hasCronExpression()) {
     query["CronExpression"] = request.cronExpression();
+  }
+
+  if (!!request.hasDiskType()) {
+    query["DiskType"] = request.diskType();
   }
 
   if (!!request.hasPolicyId()) {
