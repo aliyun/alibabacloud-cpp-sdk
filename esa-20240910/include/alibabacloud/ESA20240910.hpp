@@ -3333,6 +3333,23 @@ namespace ESA20240910
       Models::GetRoutineResponse getRoutine(const Models::GetRoutineRequest &request);
 
       /**
+       * @summary 查询Routine某版本代码
+       *
+       * @param request GetRoutineCodeVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRoutineCodeVersionResponse
+       */
+      Models::GetRoutineCodeVersionResponse getRoutineCodeVersionWithOptions(const Models::GetRoutineCodeVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Routine某版本代码
+       *
+       * @param request GetRoutineCodeVersionRequest
+       * @return GetRoutineCodeVersionResponse
+       */
+      Models::GetRoutineCodeVersionResponse getRoutineCodeVersion(const Models::GetRoutineCodeVersionRequest &request);
+
+      /**
        * @summary 查询单条边缘函数路由配置
        *
        * @param request GetRoutineRouteRequest
@@ -5954,6 +5971,23 @@ namespace ESA20240910
        * @return UpdateRewriteUrlRuleResponse
        */
       Models::UpdateRewriteUrlRuleResponse updateRewriteUrlRule(const Models::UpdateRewriteUrlRuleRequest &request);
+
+      /**
+       * @summary 修改Routine描述信息
+       *
+       * @param request UpdateRoutineConfigDescriptionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateRoutineConfigDescriptionResponse
+       */
+      Models::UpdateRoutineConfigDescriptionResponse updateRoutineConfigDescriptionWithOptions(const Models::UpdateRoutineConfigDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改Routine描述信息
+       *
+       * @param request UpdateRoutineConfigDescriptionRequest
+       * @return UpdateRoutineConfigDescriptionResponse
+       */
+      Models::UpdateRoutineConfigDescriptionResponse updateRoutineConfigDescription(const Models::UpdateRoutineConfigDescriptionRequest &request);
 
       /**
        * @summary 修改边缘函数路由配置

@@ -9737,6 +9737,52 @@ GetRoutineResponse Client::getRoutine(const GetRoutineRequest &request) {
 }
 
 /**
+ * @summary 查询Routine某版本代码
+ *
+ * @param request GetRoutineCodeVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRoutineCodeVersionResponse
+ */
+GetRoutineCodeVersionResponse Client::getRoutineCodeVersionWithOptions(const GetRoutineCodeVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCodeVersion()) {
+    body["CodeVersion"] = request.codeVersion();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.name();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetRoutineCodeVersion"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRoutineCodeVersionResponse>();
+}
+
+/**
+ * @summary 查询Routine某版本代码
+ *
+ * @param request GetRoutineCodeVersionRequest
+ * @return GetRoutineCodeVersionResponse
+ */
+GetRoutineCodeVersionResponse Client::getRoutineCodeVersion(const GetRoutineCodeVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getRoutineCodeVersionWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询单条边缘函数路由配置
  *
  * @param request GetRoutineRouteRequest
@@ -14014,6 +14060,10 @@ PurchaseRatePlanResponse Client::purchaseRatePlanWithOptions(const PurchaseRateP
     query["AutoRenew"] = request.autoRenew();
   }
 
+  if (!!request.hasChannel()) {
+    query["Channel"] = request.channel();
+  }
+
   if (!!request.hasChargeType()) {
     query["ChargeType"] = request.chargeType();
   }
@@ -17333,6 +17383,52 @@ UpdateRewriteUrlRuleResponse Client::updateRewriteUrlRuleWithOptions(const Updat
 UpdateRewriteUrlRuleResponse Client::updateRewriteUrlRule(const UpdateRewriteUrlRuleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateRewriteUrlRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改Routine描述信息
+ *
+ * @param request UpdateRoutineConfigDescriptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateRoutineConfigDescriptionResponse
+ */
+UpdateRoutineConfigDescriptionResponse Client::updateRoutineConfigDescriptionWithOptions(const UpdateRoutineConfigDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.description();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.name();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateRoutineConfigDescription"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateRoutineConfigDescriptionResponse>();
+}
+
+/**
+ * @summary 修改Routine描述信息
+ *
+ * @param request UpdateRoutineConfigDescriptionRequest
+ * @return UpdateRoutineConfigDescriptionResponse
+ */
+UpdateRoutineConfigDescriptionResponse Client::updateRoutineConfigDescription(const UpdateRoutineConfigDescriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateRoutineConfigDescriptionWithOptions(request, runtime);
 }
 
 /**

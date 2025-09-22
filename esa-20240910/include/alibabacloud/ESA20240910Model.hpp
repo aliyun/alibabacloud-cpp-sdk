@@ -583,6 +583,9 @@
 #include <alibabacloud/models/GetRoutineRequest.hpp>
 #include <alibabacloud/models/GetRoutineResponseBody.hpp>
 #include <alibabacloud/models/GetRoutineResponse.hpp>
+#include <alibabacloud/models/GetRoutineCodeVersionRequest.hpp>
+#include <alibabacloud/models/GetRoutineCodeVersionResponseBody.hpp>
+#include <alibabacloud/models/GetRoutineCodeVersionResponse.hpp>
 #include <alibabacloud/models/GetRoutineRouteRequest.hpp>
 #include <alibabacloud/models/GetRoutineRouteResponseBody.hpp>
 #include <alibabacloud/models/GetRoutineRouteResponse.hpp>
@@ -1032,6 +1035,9 @@
 #include <alibabacloud/models/UpdateRewriteUrlRuleRequest.hpp>
 #include <alibabacloud/models/UpdateRewriteUrlRuleResponseBody.hpp>
 #include <alibabacloud/models/UpdateRewriteUrlRuleResponse.hpp>
+#include <alibabacloud/models/UpdateRoutineConfigDescriptionRequest.hpp>
+#include <alibabacloud/models/UpdateRoutineConfigDescriptionResponseBody.hpp>
+#include <alibabacloud/models/UpdateRoutineConfigDescriptionResponse.hpp>
 #include <alibabacloud/models/UpdateRoutineRouteRequest.hpp>
 #include <alibabacloud/models/UpdateRoutineRouteResponseBody.hpp>
 #include <alibabacloud/models/UpdateRoutineRouteResponse.hpp>

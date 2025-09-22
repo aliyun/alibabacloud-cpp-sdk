@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Amount, amount_);
       DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
+      DARABONBA_PTR_TO_JSON(Channel, channel_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(Coverage, coverage_);
       DARABONBA_PTR_TO_JSON(Period, period_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Amount, amount_);
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
+      DARABONBA_PTR_FROM_JSON(Channel, channel_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(Coverage, coverage_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->amount_ != nullptr
-        && this->autoPay_ != nullptr && this->autoRenew_ != nullptr && this->chargeType_ != nullptr && this->coverage_ != nullptr && this->period_ != nullptr
-        && this->planCode_ != nullptr && this->planName_ != nullptr && this->siteName_ != nullptr && this->type_ != nullptr; };
+        && this->autoPay_ != nullptr && this->autoRenew_ != nullptr && this->channel_ != nullptr && this->chargeType_ != nullptr && this->coverage_ != nullptr
+        && this->period_ != nullptr && this->planCode_ != nullptr && this->planName_ != nullptr && this->siteName_ != nullptr && this->type_ != nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -69,6 +71,13 @@ namespace Models
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
     inline bool autoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
     inline PurchaseRatePlanRequest& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
+
+
+    // channel Field Functions 
+    bool hasChannel() const { return this->channel_ != nullptr;};
+    void deleteChannel() { this->channel_ = nullptr;};
+    inline string channel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
+    inline PurchaseRatePlanRequest& setChannel(string channel) { DARABONBA_PTR_SET_VALUE(channel_, channel) };
 
 
     // chargeType Field Functions 
@@ -128,6 +137,7 @@ namespace Models
     // - true: Enable auto-renewal.
     // - false: Disable auto-renewal.
     std::shared_ptr<bool> autoRenew_ = nullptr;
+    std::shared_ptr<string> channel_ = nullptr;
     // The billing method. Valid values:
     // 
     // *   PREPAY: subscription.
