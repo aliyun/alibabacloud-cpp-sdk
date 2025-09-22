@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateSAMLProviderResponseBodySAMLProvider& obj) { 
       DARABONBA_PTR_TO_JSON(Arn, arn_);
+      DARABONBA_PTR_TO_JSON(AuthnSignAlgo, authnSignAlgo_);
       DARABONBA_PTR_TO_JSON(CreateDate, createDate_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(SAMLProviderName, SAMLProviderName_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateSAMLProviderResponseBodySAMLProvider& obj) { 
       DARABONBA_PTR_FROM_JSON(Arn, arn_);
+      DARABONBA_PTR_FROM_JSON(AuthnSignAlgo, authnSignAlgo_);
       DARABONBA_PTR_FROM_JSON(CreateDate, createDate_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(SAMLProviderName, SAMLProviderName_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->arn_ != nullptr
-        && this->createDate_ != nullptr && this->description_ != nullptr && this->SAMLProviderName_ != nullptr && this->updateDate_ != nullptr; };
+        && this->authnSignAlgo_ != nullptr && this->createDate_ != nullptr && this->description_ != nullptr && this->SAMLProviderName_ != nullptr && this->updateDate_ != nullptr; };
     // arn Field Functions 
     bool hasArn() const { return this->arn_ != nullptr;};
     void deleteArn() { this->arn_ = nullptr;};
     inline string arn() const { DARABONBA_PTR_GET_DEFAULT(arn_, "") };
     inline CreateSAMLProviderResponseBodySAMLProvider& setArn(string arn) { DARABONBA_PTR_SET_VALUE(arn_, arn) };
+
+
+    // authnSignAlgo Field Functions 
+    bool hasAuthnSignAlgo() const { return this->authnSignAlgo_ != nullptr;};
+    void deleteAuthnSignAlgo() { this->authnSignAlgo_ = nullptr;};
+    inline string authnSignAlgo() const { DARABONBA_PTR_GET_DEFAULT(authnSignAlgo_, "") };
+    inline CreateSAMLProviderResponseBodySAMLProvider& setAuthnSignAlgo(string authnSignAlgo) { DARABONBA_PTR_SET_VALUE(authnSignAlgo_, authnSignAlgo) };
 
 
     // createDate Field Functions 
@@ -77,6 +86,7 @@ namespace Models
   protected:
     // The Alibaba Cloud Resource Name (ARN) of the IdP.
     std::shared_ptr<string> arn_ = nullptr;
+    std::shared_ptr<string> authnSignAlgo_ = nullptr;
     // The creation time. The time is displayed in UTC.
     std::shared_ptr<string> createDate_ = nullptr;
     // The description.

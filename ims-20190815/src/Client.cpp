@@ -647,6 +647,10 @@ CreateOIDCProviderResponse Client::createOIDCProvider(const CreateOIDCProviderRe
 CreateSAMLProviderResponse Client::createSAMLProviderWithOptions(const CreateSAMLProviderRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthnSignAlgo()) {
+    query["AuthnSignAlgo"] = request.authnSignAlgo();
+  }
+
   if (!!request.hasDescription()) {
     query["Description"] = request.description();
   }
@@ -3950,6 +3954,10 @@ SetSecurityPreferenceResponse Client::setSecurityPreference(const SetSecurityPre
 SetUserSsoSettingsResponse Client::setUserSsoSettingsWithOptions(const SetUserSsoSettingsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthnSignAlgo()) {
+    query["AuthnSignAlgo"] = request.authnSignAlgo();
+  }
+
   if (!!request.hasAuxiliaryDomain()) {
     query["AuxiliaryDomain"] = request.auxiliaryDomain();
   }
@@ -4614,6 +4622,10 @@ UpdatePasskeyResponse Client::updatePasskey(const UpdatePasskeyRequest &request)
 UpdateSAMLProviderResponse Client::updateSAMLProviderWithOptions(const UpdateSAMLProviderRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthnSignAlgo()) {
+    query["AuthnSignAlgo"] = request.authnSignAlgo();
+  }
+
   if (!!request.hasNewDescription()) {
     query["NewDescription"] = request.newDescription();
   }

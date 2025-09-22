@@ -13,12 +13,14 @@ namespace Models
   class GetUserSsoSettingsResponseBodyUserSsoSettings : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetUserSsoSettingsResponseBodyUserSsoSettings& obj) { 
+      DARABONBA_PTR_TO_JSON(AuthnSignAlgo, authnSignAlgo_);
       DARABONBA_PTR_TO_JSON(AuxiliaryDomain, auxiliaryDomain_);
       DARABONBA_PTR_TO_JSON(MetadataDocument, metadataDocument_);
       DARABONBA_PTR_TO_JSON(SsoEnabled, ssoEnabled_);
       DARABONBA_PTR_TO_JSON(SsoLoginWithDomain, ssoLoginWithDomain_);
     };
     friend void from_json(const Darabonba::Json& j, GetUserSsoSettingsResponseBodyUserSsoSettings& obj) { 
+      DARABONBA_PTR_FROM_JSON(AuthnSignAlgo, authnSignAlgo_);
       DARABONBA_PTR_FROM_JSON(AuxiliaryDomain, auxiliaryDomain_);
       DARABONBA_PTR_FROM_JSON(MetadataDocument, metadataDocument_);
       DARABONBA_PTR_FROM_JSON(SsoEnabled, ssoEnabled_);
@@ -35,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->auxiliaryDomain_ != nullptr
-        && this->metadataDocument_ != nullptr && this->ssoEnabled_ != nullptr && this->ssoLoginWithDomain_ != nullptr; };
+    virtual bool empty() const override { this->authnSignAlgo_ != nullptr
+        && this->auxiliaryDomain_ != nullptr && this->metadataDocument_ != nullptr && this->ssoEnabled_ != nullptr && this->ssoLoginWithDomain_ != nullptr; };
+    // authnSignAlgo Field Functions 
+    bool hasAuthnSignAlgo() const { return this->authnSignAlgo_ != nullptr;};
+    void deleteAuthnSignAlgo() { this->authnSignAlgo_ = nullptr;};
+    inline string authnSignAlgo() const { DARABONBA_PTR_GET_DEFAULT(authnSignAlgo_, "") };
+    inline GetUserSsoSettingsResponseBodyUserSsoSettings& setAuthnSignAlgo(string authnSignAlgo) { DARABONBA_PTR_SET_VALUE(authnSignAlgo_, authnSignAlgo) };
+
+
     // auxiliaryDomain Field Functions 
     bool hasAuxiliaryDomain() const { return this->auxiliaryDomain_ != nullptr;};
     void deleteAuxiliaryDomain() { this->auxiliaryDomain_ = nullptr;};
@@ -66,6 +75,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> authnSignAlgo_ = nullptr;
     // The auxiliary domain name.
     std::shared_ptr<string> auxiliaryDomain_ = nullptr;
     // The metadata file, which is Base64-encoded.
