@@ -140,6 +140,40 @@ namespace RdsAi20250507
       Models::DescribeInstanceIpWhitelistResponse describeInstanceIpWhitelist(const Models::DescribeInstanceIpWhitelistRequest &request);
 
       /**
+       * @summary 查看实例存储配置
+       *
+       * @param request DescribeInstanceStorageConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInstanceStorageConfigResponse
+       */
+      Models::DescribeInstanceStorageConfigResponse describeInstanceStorageConfigWithOptions(const Models::DescribeInstanceStorageConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看实例存储配置
+       *
+       * @param request DescribeInstanceStorageConfigRequest
+       * @return DescribeInstanceStorageConfigResponse
+       */
+      Models::DescribeInstanceStorageConfigResponse describeInstanceStorageConfig(const Models::DescribeInstanceStorageConfigRequest &request);
+
+      /**
+       * @summary 修改Supabase Auth相关配置
+       *
+       * @param tmpReq ModifyInstanceAuthConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyInstanceAuthConfigResponse
+       */
+      Models::ModifyInstanceAuthConfigResponse modifyInstanceAuthConfigWithOptions(const Models::ModifyInstanceAuthConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改Supabase Auth相关配置
+       *
+       * @param request ModifyInstanceAuthConfigRequest
+       * @return ModifyInstanceAuthConfigResponse
+       */
+      Models::ModifyInstanceAuthConfigResponse modifyInstanceAuthConfig(const Models::ModifyInstanceAuthConfigRequest &request);
+
+      /**
        * @summary 修改服务白名单
        *
        * @param request ModifyInstanceIpWhitelistRequest
@@ -155,6 +189,91 @@ namespace RdsAi20250507
        * @return ModifyInstanceIpWhitelistResponse
        */
       Models::ModifyInstanceIpWhitelistResponse modifyInstanceIpWhitelist(const Models::ModifyInstanceIpWhitelistRequest &request);
+
+      /**
+       * @summary 修改实例存储配置
+       *
+       * @param tmpReq ModifyInstanceStorageConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyInstanceStorageConfigResponse
+       */
+      Models::ModifyInstanceStorageConfigResponse modifyInstanceStorageConfigWithOptions(const Models::ModifyInstanceStorageConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改实例存储配置
+       *
+       * @param request ModifyInstanceStorageConfigRequest
+       * @return ModifyInstanceStorageConfigResponse
+       */
+      Models::ModifyInstanceStorageConfigResponse modifyInstanceStorageConfig(const Models::ModifyInstanceStorageConfigRequest &request);
+
+      /**
+       * @summary 重置实例密码
+       *
+       * @param request ResetInstancePasswordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResetInstancePasswordResponse
+       */
+      Models::ResetInstancePasswordResponse resetInstancePasswordWithOptions(const Models::ResetInstancePasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重置实例密码
+       *
+       * @param request ResetInstancePasswordRequest
+       * @return ResetInstancePasswordResponse
+       */
+      Models::ResetInstancePasswordResponse resetInstancePassword(const Models::ResetInstancePasswordRequest &request);
+
+      /**
+       * @summary 重启实例
+       *
+       * @param request RestartInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RestartInstanceResponse
+       */
+      Models::RestartInstanceResponse restartInstanceWithOptions(const Models::RestartInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重启实例
+       *
+       * @param request RestartInstanceRequest
+       * @return RestartInstanceResponse
+       */
+      Models::RestartInstanceResponse restartInstance(const Models::RestartInstanceRequest &request);
+
+      /**
+       * @summary 启动实例
+       *
+       * @param request StartInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StartInstanceResponse
+       */
+      Models::StartInstanceResponse startInstanceWithOptions(const Models::StartInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启动实例
+       *
+       * @param request StartInstanceRequest
+       * @return StartInstanceResponse
+       */
+      Models::StartInstanceResponse startInstance(const Models::StartInstanceRequest &request);
+
+      /**
+       * @summary 暂停实例
+       *
+       * @param request StopInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopInstanceResponse
+       */
+      Models::StopInstanceResponse stopInstanceWithOptions(const Models::StopInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 暂停实例
+       *
+       * @param request StopInstanceRequest
+       * @return StopInstanceResponse
+       */
+      Models::StopInstanceResponse stopInstance(const Models::StopInstanceRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace RdsAi20250507

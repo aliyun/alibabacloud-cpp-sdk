@@ -424,6 +424,108 @@ DescribeInstanceIpWhitelistResponse Client::describeInstanceIpWhitelist(const De
 }
 
 /**
+ * @summary 查看实例存储配置
+ *
+ * @param request DescribeInstanceStorageConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInstanceStorageConfigResponse
+ */
+DescribeInstanceStorageConfigResponse Client::describeInstanceStorageConfigWithOptions(const DescribeInstanceStorageConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.instanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInstanceStorageConfig"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInstanceStorageConfigResponse>();
+}
+
+/**
+ * @summary 查看实例存储配置
+ *
+ * @param request DescribeInstanceStorageConfigRequest
+ * @return DescribeInstanceStorageConfigResponse
+ */
+DescribeInstanceStorageConfigResponse Client::describeInstanceStorageConfig(const DescribeInstanceStorageConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInstanceStorageConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改Supabase Auth相关配置
+ *
+ * @param tmpReq ModifyInstanceAuthConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyInstanceAuthConfigResponse
+ */
+ModifyInstanceAuthConfigResponse Client::modifyInstanceAuthConfigWithOptions(const ModifyInstanceAuthConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyInstanceAuthConfigShrinkRequest request = ModifyInstanceAuthConfigShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasConfigList()) {
+    request.setConfigListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.configList(), "ConfigList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasConfigListShrink()) {
+    query["ConfigList"] = request.configListShrink();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.instanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyInstanceAuthConfig"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyInstanceAuthConfigResponse>();
+}
+
+/**
+ * @summary 修改Supabase Auth相关配置
+ *
+ * @param request ModifyInstanceAuthConfigRequest
+ * @return ModifyInstanceAuthConfigResponse
+ */
+ModifyInstanceAuthConfigResponse Client::modifyInstanceAuthConfig(const ModifyInstanceAuthConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyInstanceAuthConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary 修改服务白名单
  *
  * @param request ModifyInstanceIpWhitelistRequest
@@ -483,6 +585,254 @@ ModifyInstanceIpWhitelistResponse Client::modifyInstanceIpWhitelistWithOptions(c
 ModifyInstanceIpWhitelistResponse Client::modifyInstanceIpWhitelist(const ModifyInstanceIpWhitelistRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyInstanceIpWhitelistWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改实例存储配置
+ *
+ * @param tmpReq ModifyInstanceStorageConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyInstanceStorageConfigResponse
+ */
+ModifyInstanceStorageConfigResponse Client::modifyInstanceStorageConfigWithOptions(const ModifyInstanceStorageConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyInstanceStorageConfigShrinkRequest request = ModifyInstanceStorageConfigShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasConfigList()) {
+    request.setConfigListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.configList(), "ConfigList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasConfigListShrink()) {
+    query["ConfigList"] = request.configListShrink();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.instanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyInstanceStorageConfig"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyInstanceStorageConfigResponse>();
+}
+
+/**
+ * @summary 修改实例存储配置
+ *
+ * @param request ModifyInstanceStorageConfigRequest
+ * @return ModifyInstanceStorageConfigResponse
+ */
+ModifyInstanceStorageConfigResponse Client::modifyInstanceStorageConfig(const ModifyInstanceStorageConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyInstanceStorageConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 重置实例密码
+ *
+ * @param request ResetInstancePasswordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResetInstancePasswordResponse
+ */
+ResetInstancePasswordResponse Client::resetInstancePasswordWithOptions(const ResetInstancePasswordRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDashboardPassword()) {
+    query["DashboardPassword"] = request.dashboardPassword();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.instanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ResetInstancePassword"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResetInstancePasswordResponse>();
+}
+
+/**
+ * @summary 重置实例密码
+ *
+ * @param request ResetInstancePasswordRequest
+ * @return ResetInstancePasswordResponse
+ */
+ResetInstancePasswordResponse Client::resetInstancePassword(const ResetInstancePasswordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return resetInstancePasswordWithOptions(request, runtime);
+}
+
+/**
+ * @summary 重启实例
+ *
+ * @param request RestartInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RestartInstanceResponse
+ */
+RestartInstanceResponse Client::restartInstanceWithOptions(const RestartInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.instanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RestartInstance"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RestartInstanceResponse>();
+}
+
+/**
+ * @summary 重启实例
+ *
+ * @param request RestartInstanceRequest
+ * @return RestartInstanceResponse
+ */
+RestartInstanceResponse Client::restartInstance(const RestartInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return restartInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 启动实例
+ *
+ * @param request StartInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartInstanceResponse
+ */
+StartInstanceResponse Client::startInstanceWithOptions(const StartInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.instanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StartInstance"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartInstanceResponse>();
+}
+
+/**
+ * @summary 启动实例
+ *
+ * @param request StartInstanceRequest
+ * @return StartInstanceResponse
+ */
+StartInstanceResponse Client::startInstance(const StartInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return startInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 暂停实例
+ *
+ * @param request StopInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopInstanceResponse
+ */
+StopInstanceResponse Client::stopInstanceWithOptions(const StopInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.instanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StopInstance"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopInstanceResponse>();
+}
+
+/**
+ * @summary 暂停实例
+ *
+ * @param request StopInstanceRequest
+ * @return StopInstanceResponse
+ */
+StopInstanceResponse Client::stopInstance(const StopInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return stopInstanceWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace RdsAi20250507
