@@ -95,6 +95,24 @@ namespace PaiDlc20201203
       Models::DeleteTensorboardResponse deleteTensorboard(const string &TensorboardId, const Models::DeleteTensorboardRequest &request);
 
       /**
+       * @summary 获取 Dashboard 链接
+       *
+       * @param request GetDashboardRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDashboardResponse
+       */
+      Models::GetDashboardResponse getDashboardWithOptions(const string &jobId, const Models::GetDashboardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取 Dashboard 链接
+       *
+       * @param request GetDashboardRequest
+       * @return GetDashboardResponse
+       */
+      Models::GetDashboardResponse getDashboard(const string &jobId, const Models::GetDashboardRequest &request);
+
+      /**
        * @summary Obtains the configuration and runtime information of a job.
        *
        * @param request GetJobRequest

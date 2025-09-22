@@ -413,6 +413,55 @@ DeleteTensorboardResponse Client::deleteTensorboard(const string &TensorboardId,
 }
 
 /**
+ * @summary 获取 Dashboard 链接
+ *
+ * @param request GetDashboardRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDashboardResponse
+ */
+GetDashboardResponse Client::getDashboardWithOptions(const string &jobId, const GetDashboardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIsShared()) {
+    query["isShared"] = request.isShared();
+  }
+
+  if (!!request.hasToken()) {
+    query["token"] = request.token();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDashboard"},
+    {"version" , "2020-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Http::URL::percentEncode(jobId) , "/dashboard")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDashboardResponse>();
+}
+
+/**
+ * @summary 获取 Dashboard 链接
+ *
+ * @param request GetDashboardRequest
+ * @return GetDashboardResponse
+ */
+GetDashboardResponse Client::getDashboard(const string &jobId, const GetDashboardRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getDashboardWithOptions(jobId, request, headers, runtime);
+}
+
+/**
  * @summary Obtains the configuration and runtime information of a job.
  *
  * @param request GetJobRequest

@@ -72,6 +72,9 @@
 #include <alibabacloud/models/DeleteTensorboardRequest.hpp>
 #include <alibabacloud/models/DeleteTensorboardResponseBody.hpp>
 #include <alibabacloud/models/DeleteTensorboardResponse.hpp>
+#include <alibabacloud/models/GetDashboardRequest.hpp>
+#include <alibabacloud/models/GetDashboardResponseBody.hpp>
+#include <alibabacloud/models/GetDashboardResponse.hpp>
 #include <alibabacloud/models/GetJobRequest.hpp>
 #include <alibabacloud/models/GetJobResponseBody.hpp>
 #include <alibabacloud/models/GetJobResponse.hpp>
