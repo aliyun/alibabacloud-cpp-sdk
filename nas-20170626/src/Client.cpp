@@ -19,9 +19,38 @@ namespace NAS20170626
 AlibabaCloud::NAS20170626::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"cn-chengdu" , "nas.aliyuncs.com"},
-    {"me-east-1" , "nas.ap-northeast-1.aliyuncs.com"},
-    {"cn-hangzhou-finance" , "nas.aliyuncs.com"}
+    {"cn-hangzhou-finance" , "nas.cn-hangzhou-dg-a01.aliyuncs.com"},
+    {"ap-northeast-2-pop" , "nas.aliyuncs.com"},
+    {"ap-southeast-2" , "nas.aliyuncs.com"},
+    {"cn-beijing-finance-pop" , "nas.aliyuncs.com"},
+    {"cn-beijing-gov-1" , "nas.aliyuncs.com"},
+    {"cn-beijing-nu16-b01" , "nas.aliyuncs.com"},
+    {"cn-edge-1" , "nas.aliyuncs.com"},
+    {"cn-fujian" , "nas.aliyuncs.com"},
+    {"cn-haidian-cm12-c01" , "nas.aliyuncs.com"},
+    {"cn-hangzhou-bj-b01" , "nas.aliyuncs.com"},
+    {"cn-hangzhou-internal-prod-1" , "nas.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-1" , "nas.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-2" , "nas.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-3" , "nas.aliyuncs.com"},
+    {"cn-hangzhou-test-306" , "nas.aliyuncs.com"},
+    {"cn-hongkong-finance-pop" , "nas.aliyuncs.com"},
+    {"cn-qingdao-nebula" , "nas.aliyuncs.com"},
+    {"cn-shanghai-et15-b01" , "nas.aliyuncs.com"},
+    {"cn-shanghai-et2-b01" , "nas.aliyuncs.com"},
+    {"cn-shanghai-inner" , "nas.aliyuncs.com"},
+    {"cn-shanghai-internal-test-1" , "nas.aliyuncs.com"},
+    {"cn-shenzhen-inner" , "nas.aliyuncs.com"},
+    {"cn-shenzhen-st4-d01" , "nas.aliyuncs.com"},
+    {"cn-shenzhen-su18-b01" , "nas.aliyuncs.com"},
+    {"cn-wuhan" , "nas.aliyuncs.com"},
+    {"cn-yushanfang" , "nas.aliyuncs.com"},
+    {"cn-zhangbei" , "nas.aliyuncs.com"},
+    {"cn-zhangbei-na61-b01" , "nas.aliyuncs.com"},
+    {"cn-zhangjiakou-na62-a01" , "nas.aliyuncs.com"},
+    {"cn-zhengzhou-nebula-1" , "nas.aliyuncs.com"},
+    {"eu-west-1-oxs" , "nas.aliyuncs.com"},
+    {"rus-west-1-pop" , "nas.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("nas", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -1413,6 +1442,10 @@ CreateDataFlowTaskResponse Client::createDataFlowTaskWithOptions(const CreateDat
 
   if (!!request.hasTaskAction()) {
     query["TaskAction"] = request.taskAction();
+  }
+
+  if (!!request.hasTransferFileListPath()) {
+    query["TransferFileListPath"] = request.transferFileListPath();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

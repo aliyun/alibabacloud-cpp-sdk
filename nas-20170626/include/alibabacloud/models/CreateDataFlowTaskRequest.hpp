@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Includes, includes_);
       DARABONBA_PTR_TO_JSON(SrcTaskId, srcTaskId_);
       DARABONBA_PTR_TO_JSON(TaskAction, taskAction_);
+      DARABONBA_PTR_TO_JSON(TransferFileListPath, transferFileListPath_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDataFlowTaskRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Includes, includes_);
       DARABONBA_PTR_FROM_JSON(SrcTaskId, srcTaskId_);
       DARABONBA_PTR_FROM_JSON(TaskAction, taskAction_);
+      DARABONBA_PTR_FROM_JSON(TransferFileListPath, transferFileListPath_);
     };
     CreateDataFlowTaskRequest() = default ;
     CreateDataFlowTaskRequest(const CreateDataFlowTaskRequest &) = default ;
@@ -56,7 +58,7 @@ namespace Models
     virtual bool empty() const override { this->clientToken_ != nullptr
         && this->conflictPolicy_ != nullptr && this->createDirIfNotExist_ != nullptr && this->dataFlowId_ != nullptr && this->dataType_ != nullptr && this->directory_ != nullptr
         && this->dryRun_ != nullptr && this->dstDirectory_ != nullptr && this->entryList_ != nullptr && this->fileSystemId_ != nullptr && this->includes_ != nullptr
-        && this->srcTaskId_ != nullptr && this->taskAction_ != nullptr; };
+        && this->srcTaskId_ != nullptr && this->taskAction_ != nullptr && this->transferFileListPath_ != nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -146,6 +148,13 @@ namespace Models
     void deleteTaskAction() { this->taskAction_ = nullptr;};
     inline string taskAction() const { DARABONBA_PTR_GET_DEFAULT(taskAction_, "") };
     inline CreateDataFlowTaskRequest& setTaskAction(string taskAction) { DARABONBA_PTR_SET_VALUE(taskAction_, taskAction) };
+
+
+    // transferFileListPath Field Functions 
+    bool hasTransferFileListPath() const { return this->transferFileListPath_ != nullptr;};
+    void deleteTransferFileListPath() { this->transferFileListPath_ = nullptr;};
+    inline string transferFileListPath() const { DARABONBA_PTR_GET_DEFAULT(transferFileListPath_, "") };
+    inline CreateDataFlowTaskRequest& setTransferFileListPath(string transferFileListPath) { DARABONBA_PTR_SET_VALUE(transferFileListPath_, transferFileListPath) };
 
 
   protected:
@@ -261,6 +270,7 @@ namespace Models
     // 
     // >  Only CPFS for LINGJUN V2.6.0 and later support StreamImport and StreamExport.
     std::shared_ptr<string> taskAction_ = nullptr;
+    std::shared_ptr<string> transferFileListPath_ = nullptr;
   };
 
   } // namespace Models

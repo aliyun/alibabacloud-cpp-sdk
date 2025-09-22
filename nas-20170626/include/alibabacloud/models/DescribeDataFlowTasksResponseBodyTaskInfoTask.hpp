@@ -37,6 +37,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(TaskAction, taskAction_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+      DARABONBA_PTR_TO_JSON(TransferFileListPath, transferFileListPath_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDataFlowTasksResponseBodyTaskInfoTask& obj) { 
       DARABONBA_PTR_FROM_JSON(ConflictPolicy, conflictPolicy_);
@@ -61,6 +62,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(TaskAction, taskAction_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+      DARABONBA_PTR_FROM_JSON(TransferFileListPath, transferFileListPath_);
     };
     DescribeDataFlowTasksResponseBodyTaskInfoTask() = default ;
     DescribeDataFlowTasksResponseBodyTaskInfoTask(const DescribeDataFlowTasksResponseBodyTaskInfoTask &) = default ;
@@ -78,7 +80,7 @@ namespace Models
         && this->endTime_ != nullptr && this->errorMsg_ != nullptr && this->fileSystemPath_ != nullptr && this->filesystemId_ != nullptr && this->fsPath_ != nullptr
         && this->includes_ != nullptr && this->originator_ != nullptr && this->progress_ != nullptr && this->progressStats_ != nullptr && this->reportPath_ != nullptr
         && this->reports_ != nullptr && this->sourceStorage_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->taskAction_ != nullptr
-        && this->taskId_ != nullptr; };
+        && this->taskId_ != nullptr && this->transferFileListPath_ != nullptr; };
     // conflictPolicy Field Functions 
     bool hasConflictPolicy() const { return this->conflictPolicy_ != nullptr;};
     void deleteConflictPolicy() { this->conflictPolicy_ = nullptr;};
@@ -237,6 +239,13 @@ namespace Models
     inline DescribeDataFlowTasksResponseBodyTaskInfoTask& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
+    // transferFileListPath Field Functions 
+    bool hasTransferFileListPath() const { return this->transferFileListPath_ != nullptr;};
+    void deleteTransferFileListPath() { this->transferFileListPath_ = nullptr;};
+    inline string transferFileListPath() const { DARABONBA_PTR_GET_DEFAULT(transferFileListPath_, "") };
+    inline DescribeDataFlowTasksResponseBodyTaskInfoTask& setTransferFileListPath(string transferFileListPath) { DARABONBA_PTR_SET_VALUE(transferFileListPath_, transferFileListPath) };
+
+
   protected:
     // The conflict policy for files with the same name. Valid values:
     // 
@@ -347,6 +356,7 @@ namespace Models
     std::shared_ptr<string> taskAction_ = nullptr;
     // The ID of the data flow task.
     std::shared_ptr<string> taskId_ = nullptr;
+    std::shared_ptr<string> transferFileListPath_ = nullptr;
   };
 
   } // namespace Models
