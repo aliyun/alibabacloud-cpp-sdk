@@ -509,6 +509,52 @@ ImageModerationResponse Client::imageModeration(const ImageModerationRequest &re
 }
 
 /**
+ * @summary 图片审核
+ *
+ * @param request ImageQueueModerationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ImageQueueModerationResponse
+ */
+ImageQueueModerationResponse Client::imageQueueModerationWithOptions(const ImageQueueModerationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasService()) {
+    body["Service"] = request.service();
+  }
+
+  if (!!request.hasServiceParameters()) {
+    body["ServiceParameters"] = request.serviceParameters();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ImageQueueModeration"},
+    {"version" , "2022-03-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ImageQueueModerationResponse>();
+}
+
+/**
+ * @summary 图片审核
+ *
+ * @param request ImageQueueModerationRequest
+ * @return ImageQueueModerationResponse
+ */
+ImageQueueModerationResponse Client::imageQueueModeration(const ImageQueueModerationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return imageQueueModerationWithOptions(request, runtime);
+}
+
+/**
  * @summary Content Security Manual Review Result Callback Interface
  *
  * @param request ManualCallbackRequest

@@ -208,6 +208,23 @@ namespace Green20220302
       Models::ImageModerationResponse imageModeration(const Models::ImageModerationRequest &request);
 
       /**
+       * @summary 图片审核
+       *
+       * @param request ImageQueueModerationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ImageQueueModerationResponse
+       */
+      Models::ImageQueueModerationResponse imageQueueModerationWithOptions(const Models::ImageQueueModerationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 图片审核
+       *
+       * @param request ImageQueueModerationRequest
+       * @return ImageQueueModerationResponse
+       */
+      Models::ImageQueueModerationResponse imageQueueModeration(const Models::ImageQueueModerationRequest &request);
+
+      /**
        * @summary Content Security Manual Review Result Callback Interface
        *
        * @param request ManualCallbackRequest
