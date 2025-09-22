@@ -1,0 +1,62 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_CHATREFDOCPAGENUM_HPP_
+#define ALIBABACLOUD_MODELS_CHATREFDOCPAGENUM_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/ChatRefDocPostion.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace EnergyExpertExternal20220923
+{
+namespace Models
+{
+  class ChatRefDocPageNum : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ChatRefDocPageNum& obj) { 
+      DARABONBA_PTR_TO_JSON(num, num_);
+      DARABONBA_PTR_TO_JSON(pos, pos_);
+    };
+    friend void from_json(const Darabonba::Json& j, ChatRefDocPageNum& obj) { 
+      DARABONBA_PTR_FROM_JSON(num, num_);
+      DARABONBA_PTR_FROM_JSON(pos, pos_);
+    };
+    ChatRefDocPageNum() = default ;
+    ChatRefDocPageNum(const ChatRefDocPageNum &) = default ;
+    ChatRefDocPageNum(ChatRefDocPageNum &&) = default ;
+    ChatRefDocPageNum(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ChatRefDocPageNum() = default ;
+    ChatRefDocPageNum& operator=(const ChatRefDocPageNum &) = default ;
+    ChatRefDocPageNum& operator=(ChatRefDocPageNum &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->num_ != nullptr
+        && this->pos_ != nullptr; };
+    // num Field Functions 
+    bool hasNum() const { return this->num_ != nullptr;};
+    void deleteNum() { this->num_ = nullptr;};
+    inline int32_t num() const { DARABONBA_PTR_GET_DEFAULT(num_, 0) };
+    inline ChatRefDocPageNum& setNum(int32_t num) { DARABONBA_PTR_SET_VALUE(num_, num) };
+
+
+    // pos Field Functions 
+    bool hasPos() const { return this->pos_ != nullptr;};
+    void deletePos() { this->pos_ = nullptr;};
+    inline const vector<vector<ChatRefDocPostion>> & pos() const { DARABONBA_PTR_GET_CONST(pos_, vector<vector<ChatRefDocPostion>>) };
+    inline vector<vector<ChatRefDocPostion>> pos() { DARABONBA_PTR_GET(pos_, vector<vector<ChatRefDocPostion>>) };
+    inline ChatRefDocPageNum& setPos(const vector<vector<ChatRefDocPostion>> & pos) { DARABONBA_PTR_SET_VALUE(pos_, pos) };
+    inline ChatRefDocPageNum& setPos(vector<vector<ChatRefDocPostion>> && pos) { DARABONBA_PTR_SET_RVALUE(pos_, pos) };
+
+
+  protected:
+    std::shared_ptr<int32_t> num_ = nullptr;
+    std::shared_ptr<vector<vector<ChatRefDocPostion>>> pos_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace EnergyExpertExternal20220923
+#endif
