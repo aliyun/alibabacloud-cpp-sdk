@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_IMAGEQUEUEMODERATIONRESPONSEBODYDATA_HPP_
 #define ALIBABACLOUD_MODELS_IMAGEQUEUEMODERATIONRESPONSEBODYDATA_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ImageQueueModerationResponseBodyDataExt.hpp>
 #include <vector>
 #include <alibabacloud/models/ImageQueueModerationResponseBodyDataResult.hpp>
 using namespace std;
@@ -17,15 +16,15 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ImageQueueModerationResponseBodyData& obj) { 
       DARABONBA_PTR_TO_JSON(DataId, dataId_);
-      DARABONBA_PTR_TO_JSON(Ext, ext_);
-      DARABONBA_PTR_TO_JSON(ManualTaskId, manualTaskId_);
+      DARABONBA_PTR_TO_JSON(Frame, frame_);
+      DARABONBA_PTR_TO_JSON(FrameNum, frameNum_);
       DARABONBA_PTR_TO_JSON(Result, result_);
       DARABONBA_PTR_TO_JSON(RiskLevel, riskLevel_);
     };
     friend void from_json(const Darabonba::Json& j, ImageQueueModerationResponseBodyData& obj) { 
       DARABONBA_PTR_FROM_JSON(DataId, dataId_);
-      DARABONBA_PTR_FROM_JSON(Ext, ext_);
-      DARABONBA_PTR_FROM_JSON(ManualTaskId, manualTaskId_);
+      DARABONBA_PTR_FROM_JSON(Frame, frame_);
+      DARABONBA_PTR_FROM_JSON(FrameNum, frameNum_);
       DARABONBA_PTR_FROM_JSON(Result, result_);
       DARABONBA_PTR_FROM_JSON(RiskLevel, riskLevel_);
     };
@@ -41,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->dataId_ != nullptr
-        && this->ext_ != nullptr && this->manualTaskId_ != nullptr && this->result_ != nullptr && this->riskLevel_ != nullptr; };
+        && this->frame_ != nullptr && this->frameNum_ != nullptr && this->result_ != nullptr && this->riskLevel_ != nullptr; };
     // dataId Field Functions 
     bool hasDataId() const { return this->dataId_ != nullptr;};
     void deleteDataId() { this->dataId_ = nullptr;};
@@ -49,20 +48,18 @@ namespace Models
     inline ImageQueueModerationResponseBodyData& setDataId(string dataId) { DARABONBA_PTR_SET_VALUE(dataId_, dataId) };
 
 
-    // ext Field Functions 
-    bool hasExt() const { return this->ext_ != nullptr;};
-    void deleteExt() { this->ext_ = nullptr;};
-    inline const Models::ImageQueueModerationResponseBodyDataExt & ext() const { DARABONBA_PTR_GET_CONST(ext_, Models::ImageQueueModerationResponseBodyDataExt) };
-    inline Models::ImageQueueModerationResponseBodyDataExt ext() { DARABONBA_PTR_GET(ext_, Models::ImageQueueModerationResponseBodyDataExt) };
-    inline ImageQueueModerationResponseBodyData& setExt(const Models::ImageQueueModerationResponseBodyDataExt & ext) { DARABONBA_PTR_SET_VALUE(ext_, ext) };
-    inline ImageQueueModerationResponseBodyData& setExt(Models::ImageQueueModerationResponseBodyDataExt && ext) { DARABONBA_PTR_SET_RVALUE(ext_, ext) };
+    // frame Field Functions 
+    bool hasFrame() const { return this->frame_ != nullptr;};
+    void deleteFrame() { this->frame_ = nullptr;};
+    inline string frame() const { DARABONBA_PTR_GET_DEFAULT(frame_, "") };
+    inline ImageQueueModerationResponseBodyData& setFrame(string frame) { DARABONBA_PTR_SET_VALUE(frame_, frame) };
 
 
-    // manualTaskId Field Functions 
-    bool hasManualTaskId() const { return this->manualTaskId_ != nullptr;};
-    void deleteManualTaskId() { this->manualTaskId_ = nullptr;};
-    inline string manualTaskId() const { DARABONBA_PTR_GET_DEFAULT(manualTaskId_, "") };
-    inline ImageQueueModerationResponseBodyData& setManualTaskId(string manualTaskId) { DARABONBA_PTR_SET_VALUE(manualTaskId_, manualTaskId) };
+    // frameNum Field Functions 
+    bool hasFrameNum() const { return this->frameNum_ != nullptr;};
+    void deleteFrameNum() { this->frameNum_ = nullptr;};
+    inline int32_t frameNum() const { DARABONBA_PTR_GET_DEFAULT(frameNum_, 0) };
+    inline ImageQueueModerationResponseBodyData& setFrameNum(int32_t frameNum) { DARABONBA_PTR_SET_VALUE(frameNum_, frameNum) };
 
 
     // result Field Functions 
@@ -83,8 +80,8 @@ namespace Models
 
   protected:
     std::shared_ptr<string> dataId_ = nullptr;
-    std::shared_ptr<Models::ImageQueueModerationResponseBodyDataExt> ext_ = nullptr;
-    std::shared_ptr<string> manualTaskId_ = nullptr;
+    std::shared_ptr<string> frame_ = nullptr;
+    std::shared_ptr<int32_t> frameNum_ = nullptr;
     std::shared_ptr<vector<Models::ImageQueueModerationResponseBodyDataResult>> result_ = nullptr;
     std::shared_ptr<string> riskLevel_ = nullptr;
   };
