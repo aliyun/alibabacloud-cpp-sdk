@@ -5410,6 +5410,56 @@ DescribeVodUserDomainsResponse Client::describeVodUserDomains(const DescribeVodU
 }
 
 /**
+ * @summary 获取域名Vip
+ *
+ * @param request DescribeVodUserVipsByDomainRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVodUserVipsByDomainResponse
+ */
+DescribeVodUserVipsByDomainResponse Client::describeVodUserVipsByDomainWithOptions(const DescribeVodUserVipsByDomainRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAvailable()) {
+    query["Available"] = request.available();
+  }
+
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.domainName();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVodUserVipsByDomain"},
+    {"version" , "2017-03-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVodUserVipsByDomainResponse>();
+}
+
+/**
+ * @summary 获取域名Vip
+ *
+ * @param request DescribeVodUserVipsByDomainRequest
+ * @return DescribeVodUserVipsByDomainResponse
+ */
+DescribeVodUserVipsByDomainResponse Client::describeVodUserVipsByDomain(const DescribeVodUserVipsByDomainRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVodUserVipsByDomainWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the ownership verification content.
  *
  * @description *   This operation is available only in the **China (Shanghai)** region.

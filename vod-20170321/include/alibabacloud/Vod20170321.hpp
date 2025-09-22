@@ -2138,6 +2138,23 @@ namespace Vod20170321
       Models::DescribeVodUserDomainsResponse describeVodUserDomains(const Models::DescribeVodUserDomainsRequest &request);
 
       /**
+       * @summary 获取域名Vip
+       *
+       * @param request DescribeVodUserVipsByDomainRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVodUserVipsByDomainResponse
+       */
+      Models::DescribeVodUserVipsByDomainResponse describeVodUserVipsByDomainWithOptions(const Models::DescribeVodUserVipsByDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取域名Vip
+       *
+       * @param request DescribeVodUserVipsByDomainRequest
+       * @return DescribeVodUserVipsByDomainResponse
+       */
+      Models::DescribeVodUserVipsByDomainResponse describeVodUserVipsByDomain(const Models::DescribeVodUserVipsByDomainRequest &request);
+
+      /**
        * @summary Queries the ownership verification content.
        *
        * @description *   This operation is available only in the **China (Shanghai)** region.

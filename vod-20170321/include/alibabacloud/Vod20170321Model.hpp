@@ -253,6 +253,9 @@
 #include <alibabacloud/models/DescribeVodUserDomainsRequest.hpp>
 #include <alibabacloud/models/DescribeVodUserDomainsResponseBody.hpp>
 #include <alibabacloud/models/DescribeVodUserDomainsResponse.hpp>
+#include <alibabacloud/models/DescribeVodUserVipsByDomainRequest.hpp>
+#include <alibabacloud/models/DescribeVodUserVipsByDomainResponseBody.hpp>
+#include <alibabacloud/models/DescribeVodUserVipsByDomainResponse.hpp>
 #include <alibabacloud/models/DescribeVodVerifyContentRequest.hpp>
 #include <alibabacloud/models/DescribeVodVerifyContentResponseBody.hpp>
 #include <alibabacloud/models/DescribeVodVerifyContentResponse.hpp>
@@ -655,6 +658,7 @@
 #include <alibabacloud/models/DescribeVodUserDomainsResponseBodyDomainsPageDataSources.hpp>
 #include <alibabacloud/models/DescribeVodUserDomainsResponseBodyDomainsPageData.hpp>
 #include <alibabacloud/models/DescribeVodUserDomainsResponseBodyDomains.hpp>
+#include <alibabacloud/models/DescribeVodUserVipsByDomainResponseBodyVips.hpp>
 #include <alibabacloud/models/GetAiimageJobsResponseBodyAiimageJobList.hpp>
 #include <alibabacloud/models/GetAimediaAuditJobResponseBodyMediaAuditJobDataAudioResult.hpp>
 #include <alibabacloud/models/GetAimediaAuditJobResponseBodyMediaAuditJobDataImageResultResult.hpp>
