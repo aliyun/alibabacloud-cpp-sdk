@@ -84,14 +84,28 @@ namespace Models
 
 
   protected:
+    // Base64 encoded image. If you choose to upload the photo via IdOcrPictureBase64 (photo Base64 encoding), please check the photo size and do not upload overly large photos.
     std::shared_ptr<string> credentialOcrPictureBase64_ = nullptr;
+    // Image URL, accessible over the public network via HTTP or HTTPS links.
     std::shared_ptr<string> credentialOcrPictureUrl_ = nullptr;
+    // Voucher type.
+    // - Transaction Voucher: 01 (including: water, electricity, gas, credit card, and other types of e-bill images)
+    // 
     // This parameter is required.
     std::shared_ptr<string> docType_ = nullptr;
+    // Whether to enable tampering detection
+    // - true: Enable
+    // - false: Disable
+    // 
     // This parameter is required.
     std::shared_ptr<string> fraudCheck_ = nullptr;
+    // Extraction type:
+    // - 0101: E-bill Address & Name Module (extracts address and name modules through intelligent analysis)
+    // 
     // This parameter is required.
     std::shared_ptr<string> ocrArea_ = nullptr;
+    // The product solution to be integrated. Value: CREDENTIAL_RECOGNITION.
+    // 
     // This parameter is required.
     std::shared_ptr<string> productCode_ = nullptr;
   };

@@ -66,9 +66,15 @@ namespace Models
 
 
   protected:
+    // Return code
     std::shared_ptr<string> code_ = nullptr;
+    // Return message
     std::shared_ptr<string> message_ = nullptr;
+    // Request ID
     std::shared_ptr<string> requestId_ = nullptr;
+    // Whether the call was successful.
+    // - **true**: Call succeeded.
+    // - **false**: Call failed.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

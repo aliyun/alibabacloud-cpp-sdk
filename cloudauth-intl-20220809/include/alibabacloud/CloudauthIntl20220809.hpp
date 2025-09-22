@@ -158,7 +158,9 @@ namespace CloudauthIntl20220809
       Models::CheckVerifyLogResponse checkVerifyLog(const Models::CheckVerifyLogRequest &request);
 
       /**
-       * @summary 凭证识别
+       * @summary Credential Recognition
+       *
+       * @description Detects whether a voucher (such as water, electricity, gas, credit card, etc., e-bills) is forged using AI technology and extracts key information from the voucher.
        *
        * @param request CredentialRecognitionIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -167,7 +169,9 @@ namespace CloudauthIntl20220809
       Models::CredentialRecognitionIntlResponse credentialRecognitionIntlWithOptions(const Models::CredentialRecognitionIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 凭证识别
+       * @summary Credential Recognition
+       *
+       * @description Detects whether a voucher (such as water, electricity, gas, credit card, etc., e-bills) is forged using AI technology and extracts key information from the voucher.
        *
        * @param request CredentialRecognitionIntlRequest
        * @return CredentialRecognitionIntlResponse
@@ -338,7 +342,7 @@ namespace CloudauthIntl20220809
       Models::FaceLivenessResponse faceLiveness(const Models::FaceLivenessRequest &request);
 
       /**
-       * @summary 防伪回调接口
+       * @summary Anti-Fraud Callback Interface
        *
        * @param request FraudResultCallBackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -347,7 +351,7 @@ namespace CloudauthIntl20220809
       Models::FraudResultCallBackResponse fraudResultCallBackWithOptions(const Models::FraudResultCallBackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 防伪回调接口
+       * @summary Anti-Fraud Callback Interface
        *
        * @param request FraudResultCallBackRequest
        * @return FraudResultCallBackResponse

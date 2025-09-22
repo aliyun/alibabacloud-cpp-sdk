@@ -57,8 +57,13 @@ namespace Models
 
 
   protected:
+    // Identified key information in JSON format.
     std::shared_ptr<string> extIdInfo_ = nullptr;
+    // Authentication result description
     std::shared_ptr<string> subCode_ = nullptr;
+    // Extraction result. Values:
+    // - S: Success.
+    // - F: Failure.
     std::shared_ptr<string> success_ = nullptr;
   };
 

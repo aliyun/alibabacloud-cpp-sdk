@@ -66,9 +66,17 @@ namespace Models
 
 
   protected:
+    // Unique identifier for real-person authentication, corresponding to Ant\\"s verifyId.
     std::shared_ptr<string> certifyId_ = nullptr;
+    // Extended parameters, in JSON string format.
     std::shared_ptr<string> extParams_ = nullptr;
+    // Whether the anti-fraud check passed
+    // - PASS (Passed)
+    // - REJECT (Rejected)
     std::shared_ptr<string> resultCode_ = nullptr;
+    // Environment routing parameter
+    // - staging (Staging environment)
+    // - production (Production environment)
     std::shared_ptr<string> verifyDeployEnv_ = nullptr;
   };
 

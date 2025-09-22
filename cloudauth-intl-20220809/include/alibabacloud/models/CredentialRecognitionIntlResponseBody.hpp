@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // Return code.
     std::shared_ptr<string> code_ = nullptr;
+    // Response message for the returned information.
     std::shared_ptr<string> message_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Returned result.
     std::shared_ptr<CredentialRecognitionIntlResponseBodyResult> result_ = nullptr;
   };
 

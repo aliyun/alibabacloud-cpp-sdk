@@ -552,7 +552,9 @@ CheckVerifyLogResponse Client::checkVerifyLog(const CheckVerifyLogRequest &reque
 }
 
 /**
- * @summary 凭证识别
+ * @summary Credential Recognition
+ *
+ * @description Detects whether a voucher (such as water, electricity, gas, credit card, etc., e-bills) is forged using AI technology and extracts key information from the voucher.
  *
  * @param request CredentialRecognitionIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -605,7 +607,9 @@ CredentialRecognitionIntlResponse Client::credentialRecognitionIntlWithOptions(c
 }
 
 /**
- * @summary 凭证识别
+ * @summary Credential Recognition
+ *
+ * @description Detects whether a voucher (such as water, electricity, gas, credit card, etc., e-bills) is forged using AI technology and extracts key information from the voucher.
  *
  * @param request CredentialRecognitionIntlRequest
  * @return CredentialRecognitionIntlResponse
@@ -1340,7 +1344,7 @@ FaceLivenessResponse Client::faceLiveness(const FaceLivenessRequest &request) {
 }
 
 /**
- * @summary 防伪回调接口
+ * @summary Anti-Fraud Callback Interface
  *
  * @param request FraudResultCallBackRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1383,7 +1387,7 @@ FraudResultCallBackResponse Client::fraudResultCallBackWithOptions(const FraudRe
 }
 
 /**
- * @summary 防伪回调接口
+ * @summary Anti-Fraud Callback Interface
  *
  * @param request FraudResultCallBackRequest
  * @return FraudResultCallBackResponse
