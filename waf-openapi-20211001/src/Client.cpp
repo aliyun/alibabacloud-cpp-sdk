@@ -9257,6 +9257,10 @@ DescribeTemplateResourceCountResponse Client::describeTemplateResourceCount(cons
 DescribeTemplateResourcesResponse Client::describeTemplateResourcesWithOptions(const DescribeTemplateResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAssetApi()) {
+    query["AssetApi"] = request.assetApi();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.instanceId();
   }
@@ -12229,6 +12233,10 @@ ModifyResourceLogStatusResponse Client::modifyResourceLogStatus(const ModifyReso
 ModifyTemplateResourcesResponse Client::modifyTemplateResourcesWithOptions(const ModifyTemplateResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBindAssets()) {
+    query["BindAssets"] = request.bindAssets();
+  }
+
   if (!!request.hasBindResourceGroups()) {
     query["BindResourceGroups"] = request.bindResourceGroups();
   }
@@ -12251,6 +12259,10 @@ ModifyTemplateResourcesResponse Client::modifyTemplateResourcesWithOptions(const
 
   if (!!request.hasTemplateId()) {
     query["TemplateId"] = request.templateId();
+  }
+
+  if (!!request.hasUnbindAssets()) {
+    query["UnbindAssets"] = request.unbindAssets();
   }
 
   if (!!request.hasUnbindResourceGroups()) {

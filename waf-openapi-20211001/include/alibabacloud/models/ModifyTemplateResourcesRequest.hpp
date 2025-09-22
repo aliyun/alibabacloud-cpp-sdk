@@ -14,22 +14,26 @@ namespace Models
   class ModifyTemplateResourcesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyTemplateResourcesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BindAssets, bindAssets_);
       DARABONBA_PTR_TO_JSON(BindResourceGroups, bindResourceGroups_);
       DARABONBA_PTR_TO_JSON(BindResources, bindResources_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
+      DARABONBA_PTR_TO_JSON(UnbindAssets, unbindAssets_);
       DARABONBA_PTR_TO_JSON(UnbindResourceGroups, unbindResourceGroups_);
       DARABONBA_PTR_TO_JSON(UnbindResources, unbindResources_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyTemplateResourcesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BindAssets, bindAssets_);
       DARABONBA_PTR_FROM_JSON(BindResourceGroups, bindResourceGroups_);
       DARABONBA_PTR_FROM_JSON(BindResources, bindResources_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
       DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
+      DARABONBA_PTR_FROM_JSON(UnbindAssets, unbindAssets_);
       DARABONBA_PTR_FROM_JSON(UnbindResourceGroups, unbindResourceGroups_);
       DARABONBA_PTR_FROM_JSON(UnbindResources, unbindResources_);
     };
@@ -44,9 +48,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bindResourceGroups_ != nullptr
-        && this->bindResources_ != nullptr && this->instanceId_ != nullptr && this->regionId_ != nullptr && this->resourceManagerResourceGroupId_ != nullptr && this->templateId_ != nullptr
-        && this->unbindResourceGroups_ != nullptr && this->unbindResources_ != nullptr; };
+    virtual bool empty() const override { this->bindAssets_ != nullptr
+        && this->bindResourceGroups_ != nullptr && this->bindResources_ != nullptr && this->instanceId_ != nullptr && this->regionId_ != nullptr && this->resourceManagerResourceGroupId_ != nullptr
+        && this->templateId_ != nullptr && this->unbindAssets_ != nullptr && this->unbindResourceGroups_ != nullptr && this->unbindResources_ != nullptr; };
+    // bindAssets Field Functions 
+    bool hasBindAssets() const { return this->bindAssets_ != nullptr;};
+    void deleteBindAssets() { this->bindAssets_ = nullptr;};
+    inline const vector<string> & bindAssets() const { DARABONBA_PTR_GET_CONST(bindAssets_, vector<string>) };
+    inline vector<string> bindAssets() { DARABONBA_PTR_GET(bindAssets_, vector<string>) };
+    inline ModifyTemplateResourcesRequest& setBindAssets(const vector<string> & bindAssets) { DARABONBA_PTR_SET_VALUE(bindAssets_, bindAssets) };
+    inline ModifyTemplateResourcesRequest& setBindAssets(vector<string> && bindAssets) { DARABONBA_PTR_SET_RVALUE(bindAssets_, bindAssets) };
+
+
     // bindResourceGroups Field Functions 
     bool hasBindResourceGroups() const { return this->bindResourceGroups_ != nullptr;};
     void deleteBindResourceGroups() { this->bindResourceGroups_ = nullptr;};
@@ -93,6 +106,15 @@ namespace Models
     inline ModifyTemplateResourcesRequest& setTemplateId(int64_t templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
+    // unbindAssets Field Functions 
+    bool hasUnbindAssets() const { return this->unbindAssets_ != nullptr;};
+    void deleteUnbindAssets() { this->unbindAssets_ = nullptr;};
+    inline const vector<string> & unbindAssets() const { DARABONBA_PTR_GET_CONST(unbindAssets_, vector<string>) };
+    inline vector<string> unbindAssets() { DARABONBA_PTR_GET(unbindAssets_, vector<string>) };
+    inline ModifyTemplateResourcesRequest& setUnbindAssets(const vector<string> & unbindAssets) { DARABONBA_PTR_SET_VALUE(unbindAssets_, unbindAssets) };
+    inline ModifyTemplateResourcesRequest& setUnbindAssets(vector<string> && unbindAssets) { DARABONBA_PTR_SET_RVALUE(unbindAssets_, unbindAssets) };
+
+
     // unbindResourceGroups Field Functions 
     bool hasUnbindResourceGroups() const { return this->unbindResourceGroups_ != nullptr;};
     void deleteUnbindResourceGroups() { this->unbindResourceGroups_ = nullptr;};
@@ -112,6 +134,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<vector<string>> bindAssets_ = nullptr;
     // The protected object groups that you want to associate with the template. Specify the value in the [**"group1","group2",...**] format.
     std::shared_ptr<vector<string>> bindResourceGroups_ = nullptr;
     // The protected objects that you want to associate with the template. Specify the value in the [**"XX1","XX2",...**] format.
@@ -133,6 +156,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<int64_t> templateId_ = nullptr;
+    std::shared_ptr<vector<string>> unbindAssets_ = nullptr;
     // The protected object groups that you want to disassociate from the template. Specify the value in the [**"group1","group2",...**] format.
     std::shared_ptr<vector<string>> unbindResourceGroups_ = nullptr;
     // The protected objects that you want to disassociate from the template. Specify the value in the [**"XX1","XX2",...**] format.

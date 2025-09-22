@@ -13,6 +13,7 @@ namespace Models
   class DescribeTemplateResourcesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeTemplateResourcesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AssetApi, assetApi_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeTemplateResourcesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AssetApi, assetApi_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
@@ -43,9 +45,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->instanceId_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->regionId_ != nullptr && this->resource_ != nullptr && this->resourceManagerResourceGroupId_ != nullptr
-        && this->resourceType_ != nullptr && this->templateId_ != nullptr; };
+    virtual bool empty() const override { this->assetApi_ != nullptr
+        && this->instanceId_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->regionId_ != nullptr && this->resource_ != nullptr
+        && this->resourceManagerResourceGroupId_ != nullptr && this->resourceType_ != nullptr && this->templateId_ != nullptr; };
+    // assetApi Field Functions 
+    bool hasAssetApi() const { return this->assetApi_ != nullptr;};
+    void deleteAssetApi() { this->assetApi_ = nullptr;};
+    inline string assetApi() const { DARABONBA_PTR_GET_DEFAULT(assetApi_, "") };
+    inline DescribeTemplateResourcesRequest& setAssetApi(string assetApi) { DARABONBA_PTR_SET_VALUE(assetApi_, assetApi) };
+
+
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -103,6 +112,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> assetApi_ = nullptr;
     // The ID of the Web Application Firewall (WAF) instance.
     // 
     // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.

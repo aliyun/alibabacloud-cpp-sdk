@@ -13,11 +13,13 @@ namespace Models
   class DescribeTemplateResourceCountResponseBodyResourceCount : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeTemplateResourceCountResponseBodyResourceCount& obj) { 
+      DARABONBA_PTR_TO_JSON(AssetCount, assetCount_);
       DARABONBA_PTR_TO_JSON(GroupCount, groupCount_);
       DARABONBA_PTR_TO_JSON(SingleCount, singleCount_);
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeTemplateResourceCountResponseBodyResourceCount& obj) { 
+      DARABONBA_PTR_FROM_JSON(AssetCount, assetCount_);
       DARABONBA_PTR_FROM_JSON(GroupCount, groupCount_);
       DARABONBA_PTR_FROM_JSON(SingleCount, singleCount_);
       DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->groupCount_ != nullptr
-        && this->singleCount_ != nullptr && this->templateId_ != nullptr; };
+    virtual bool empty() const override { this->assetCount_ != nullptr
+        && this->groupCount_ != nullptr && this->singleCount_ != nullptr && this->templateId_ != nullptr; };
+    // assetCount Field Functions 
+    bool hasAssetCount() const { return this->assetCount_ != nullptr;};
+    void deleteAssetCount() { this->assetCount_ = nullptr;};
+    inline int32_t assetCount() const { DARABONBA_PTR_GET_DEFAULT(assetCount_, 0) };
+    inline DescribeTemplateResourceCountResponseBodyResourceCount& setAssetCount(int32_t assetCount) { DARABONBA_PTR_SET_VALUE(assetCount_, assetCount) };
+
+
     // groupCount Field Functions 
     bool hasGroupCount() const { return this->groupCount_ != nullptr;};
     void deleteGroupCount() { this->groupCount_ = nullptr;};
@@ -57,6 +66,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<int32_t> assetCount_ = nullptr;
     // The number of protected object groups.
     std::shared_ptr<int32_t> groupCount_ = nullptr;
     // The number of protected objects.
