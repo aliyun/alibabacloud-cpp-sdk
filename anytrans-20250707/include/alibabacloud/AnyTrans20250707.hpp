@@ -183,6 +183,42 @@ namespace AnyTrans20250707
       Models::SubmitLongTextTranslateTaskResponse submitLongTextTranslateTask(const Models::SubmitLongTextTranslateTaskRequest &request);
 
       /**
+       * @summary 通义多模态翻译术语编辑
+       *
+       * @param tmpReq TermEditRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TermEditResponse
+       */
+      Models::TermEditResponse termEditWithOptions(const Models::TermEditRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通义多模态翻译术语编辑
+       *
+       * @param request TermEditRequest
+       * @return TermEditResponse
+       */
+      Models::TermEditResponse termEdit(const Models::TermEditRequest &request);
+
+      /**
+       * @summary 通义多模态翻译术语查询
+       *
+       * @param request TermQueryRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TermQueryResponse
+       */
+      Models::TermQueryResponse termQueryWithOptions(const Models::TermQueryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通义多模态翻译术语查询
+       *
+       * @param request TermQueryRequest
+       * @return TermQueryResponse
+       */
+      Models::TermQueryResponse termQuery(const Models::TermQueryRequest &request);
+
+      /**
        * @summary 通义多模态翻译文本翻译
        *
        * @param tmpReq TextTranslateRequest

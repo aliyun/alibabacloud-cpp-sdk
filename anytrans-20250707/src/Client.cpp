@@ -615,6 +615,138 @@ SubmitLongTextTranslateTaskResponse Client::submitLongTextTranslateTask(const Su
 }
 
 /**
+ * @summary 通义多模态翻译术语编辑
+ *
+ * @param tmpReq TermEditRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TermEditResponse
+ */
+TermEditResponse Client::termEditWithOptions(const TermEditRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  TermEditShrinkRequest request = TermEditShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasExt()) {
+    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ext(), "ext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAction()) {
+    body["action"] = request.action();
+  }
+
+  if (!!request.hasExtShrink()) {
+    body["ext"] = request.extShrink();
+  }
+
+  if (!!request.hasScene()) {
+    body["scene"] = request.scene();
+  }
+
+  if (!!request.hasSourceLanguage()) {
+    body["sourceLanguage"] = request.sourceLanguage();
+  }
+
+  if (!!request.hasTargetLanguage()) {
+    body["targetLanguage"] = request.targetLanguage();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["workspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TermEdit"},
+    {"version" , "2025-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/anytrans/translate/intervene/edit")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TermEditResponse>();
+}
+
+/**
+ * @summary 通义多模态翻译术语编辑
+ *
+ * @param request TermEditRequest
+ * @return TermEditResponse
+ */
+TermEditResponse Client::termEdit(const TermEditRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return termEditWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 通义多模态翻译术语查询
+ *
+ * @param request TermQueryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TermQueryResponse
+ */
+TermQueryResponse Client::termQueryWithOptions(const TermQueryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasScene()) {
+    body["scene"] = request.scene();
+  }
+
+  if (!!request.hasSourceLanguage()) {
+    body["sourceLanguage"] = request.sourceLanguage();
+  }
+
+  if (!!request.hasTargetLanguage()) {
+    body["targetLanguage"] = request.targetLanguage();
+  }
+
+  if (!!request.hasText()) {
+    body["text"] = request.text();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["workspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TermQuery"},
+    {"version" , "2025-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/anytrans/translate/intervene/query")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TermQueryResponse>();
+}
+
+/**
+ * @summary 通义多模态翻译术语查询
+ *
+ * @param request TermQueryRequest
+ * @return TermQueryResponse
+ */
+TermQueryResponse Client::termQuery(const TermQueryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return termQueryWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 通义多模态翻译文本翻译
  *
  * @param tmpReq TextTranslateRequest
