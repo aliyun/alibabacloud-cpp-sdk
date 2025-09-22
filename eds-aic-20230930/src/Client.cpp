@@ -2818,6 +2818,64 @@ ExpandDataVolumeResponse Client::expandDataVolume(const ExpandDataVolumeRequest 
 }
 
 /**
+ * @summary 扩容实例的独立机身存储
+ *
+ * @param request ExpandPhoneDataVolumeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExpandPhoneDataVolumeResponse
+ */
+ExpandPhoneDataVolumeResponse Client::expandPhoneDataVolumeWithOptions(const ExpandPhoneDataVolumeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoPay()) {
+    query["AutoPay"] = request.autoPay();
+  }
+
+  if (!!request.hasBizRegionId()) {
+    query["BizRegionId"] = request.bizRegionId();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.instanceIds();
+  }
+
+  if (!!request.hasPhoneDataVolume()) {
+    query["PhoneDataVolume"] = request.phoneDataVolume();
+  }
+
+  if (!!request.hasPromotionId()) {
+    query["PromotionId"] = request.promotionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ExpandPhoneDataVolume"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExpandPhoneDataVolumeResponse>();
+}
+
+/**
+ * @summary 扩容实例的独立机身存储
+ *
+ * @param request ExpandPhoneDataVolumeRequest
+ * @return ExpandPhoneDataVolumeResponse
+ */
+ExpandPhoneDataVolumeResponse Client::expandPhoneDataVolume(const ExpandPhoneDataVolumeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return expandPhoneDataVolumeWithOptions(request, runtime);
+}
+
+/**
  * @summary Pulls a file from a cloud phone instance and stores it in Object Storage Service (OSS).
  *
  * @description Currently, this operation allows you to retrieve files or folders from cloud phone instances and save them directly to OSS.

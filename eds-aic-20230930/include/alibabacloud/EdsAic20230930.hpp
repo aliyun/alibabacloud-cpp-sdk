@@ -841,6 +841,23 @@ namespace EdsAic20230930
       Models::ExpandDataVolumeResponse expandDataVolume(const Models::ExpandDataVolumeRequest &request);
 
       /**
+       * @summary 扩容实例的独立机身存储
+       *
+       * @param request ExpandPhoneDataVolumeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExpandPhoneDataVolumeResponse
+       */
+      Models::ExpandPhoneDataVolumeResponse expandPhoneDataVolumeWithOptions(const Models::ExpandPhoneDataVolumeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 扩容实例的独立机身存储
+       *
+       * @param request ExpandPhoneDataVolumeRequest
+       * @return ExpandPhoneDataVolumeResponse
+       */
+      Models::ExpandPhoneDataVolumeResponse expandPhoneDataVolume(const Models::ExpandPhoneDataVolumeRequest &request);
+
+      /**
        * @summary Pulls a file from a cloud phone instance and stores it in Object Storage Service (OSS).
        *
        * @description Currently, this operation allows you to retrieve files or folders from cloud phone instances and save them directly to OSS.

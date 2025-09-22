@@ -135,6 +135,9 @@
 #include <alibabacloud/models/ExpandDataVolumeRequest.hpp>
 #include <alibabacloud/models/ExpandDataVolumeResponseBody.hpp>
 #include <alibabacloud/models/ExpandDataVolumeResponse.hpp>
+#include <alibabacloud/models/ExpandPhoneDataVolumeRequest.hpp>
+#include <alibabacloud/models/ExpandPhoneDataVolumeResponseBody.hpp>
+#include <alibabacloud/models/ExpandPhoneDataVolumeResponse.hpp>
 #include <alibabacloud/models/FetchFileRequest.hpp>
 #include <alibabacloud/models/FetchFileResponseBody.hpp>
 #include <alibabacloud/models/FetchFileResponse.hpp>
@@ -328,6 +331,7 @@
 #include <alibabacloud/models/ModifySystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos.hpp>
 #include <alibabacloud/models/ModifySystemPropertyTemplateRequestSystemPropertyInfo.hpp>
 #include <alibabacloud/models/RecoveryFileResponseBodyData.hpp>
+#include <alibabacloud/models/RunCommandResponseBodyRunCommandInfos.hpp>
 #include <alibabacloud/models/SendFileResponseBodyData.hpp>
 #include <alibabacloud/models/SetAdbSecureResponseBodyData.hpp>
 #include <alibabacloud/models/TagResourcesRequestTag.hpp>
