@@ -6,6 +6,9 @@
 #include <alibabacloud/models/BatchTranslateShrinkRequest.hpp>
 #include <alibabacloud/models/BatchTranslateResponseBody.hpp>
 #include <alibabacloud/models/BatchTranslateResponse.hpp>
+#include <alibabacloud/models/GetDocTranslateTaskRequest.hpp>
+#include <alibabacloud/models/GetDocTranslateTaskResponseBody.hpp>
+#include <alibabacloud/models/GetDocTranslateTaskResponse.hpp>
 #include <alibabacloud/models/GetHtmlTranslateTaskRequest.hpp>
 #include <alibabacloud/models/GetHtmlTranslateTaskResponseBody.hpp>
 #include <alibabacloud/models/GetHtmlTranslateTaskResponse.hpp>
@@ -15,6 +18,10 @@
 #include <alibabacloud/models/GetLongTextTranslateTaskRequest.hpp>
 #include <alibabacloud/models/GetLongTextTranslateTaskResponseBody.hpp>
 #include <alibabacloud/models/GetLongTextTranslateTaskResponse.hpp>
+#include <alibabacloud/models/SubmitDocTranslateTaskRequest.hpp>
+#include <alibabacloud/models/SubmitDocTranslateTaskShrinkRequest.hpp>
+#include <alibabacloud/models/SubmitDocTranslateTaskResponseBody.hpp>
+#include <alibabacloud/models/SubmitDocTranslateTaskResponse.hpp>
 #include <alibabacloud/models/SubmitHtmlTranslateTaskRequest.hpp>
 #include <alibabacloud/models/SubmitHtmlTranslateTaskShrinkRequest.hpp>
 #include <alibabacloud/models/SubmitHtmlTranslateTaskResponseBody.hpp>
@@ -38,6 +45,7 @@
 #include <alibabacloud/models/BatchTranslateResponseBodyDataTranslationListUsage.hpp>
 #include <alibabacloud/models/BatchTranslateResponseBodyDataTranslationList.hpp>
 #include <alibabacloud/models/BatchTranslateResponseBodyData.hpp>
+#include <alibabacloud/models/GetDocTranslateTaskResponseBodyData.hpp>
 #include <alibabacloud/models/GetHtmlTranslateTaskResponseBodyDataUsage.hpp>
 #include <alibabacloud/models/GetHtmlTranslateTaskResponseBodyData.hpp>
 #include <alibabacloud/models/GetImageTranslateTaskResponseBodyDataTranslationBoundingBoxesDownLeft.hpp>
@@ -52,6 +60,11 @@
 #include <alibabacloud/models/GetImageTranslateTaskResponseBodyData.hpp>
 #include <alibabacloud/models/GetLongTextTranslateTaskResponseBodyDataUsage.hpp>
 #include <alibabacloud/models/GetLongTextTranslateTaskResponseBodyData.hpp>
+#include <alibabacloud/models/SubmitDocTranslateTaskRequestExtExamples.hpp>
+#include <alibabacloud/models/SubmitDocTranslateTaskRequestExtTerminologies.hpp>
+#include <alibabacloud/models/SubmitDocTranslateTaskRequestExtTextTransform.hpp>
+#include <alibabacloud/models/SubmitDocTranslateTaskRequestExt.hpp>
+#include <alibabacloud/models/SubmitDocTranslateTaskResponseBodyData.hpp>
 #include <alibabacloud/models/SubmitHtmlTranslateTaskRequestExtExamples.hpp>
 #include <alibabacloud/models/SubmitHtmlTranslateTaskRequestExtTerminologies.hpp>
 #include <alibabacloud/models/SubmitHtmlTranslateTaskRequestExtTextTransform.hpp>

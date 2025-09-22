@@ -39,6 +39,24 @@ namespace AnyTrans20250707
       Models::BatchTranslateResponse batchTranslate(const Models::BatchTranslateRequest &request);
 
       /**
+       * @summary 通义多模态翻译获文档翻译任务
+       *
+       * @param request GetDocTranslateTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDocTranslateTaskResponse
+       */
+      Models::GetDocTranslateTaskResponse getDocTranslateTaskWithOptions(const Models::GetDocTranslateTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通义多模态翻译获文档翻译任务
+       *
+       * @param request GetDocTranslateTaskRequest
+       * @return GetDocTranslateTaskResponse
+       */
+      Models::GetDocTranslateTaskResponse getDocTranslateTask(const Models::GetDocTranslateTaskRequest &request);
+
+      /**
        * @summary 通义多模态翻译获取html翻译结果
        *
        * @param request GetHtmlTranslateTaskRequest
@@ -91,6 +109,24 @@ namespace AnyTrans20250707
        * @return GetLongTextTranslateTaskResponse
        */
       Models::GetLongTextTranslateTaskResponse getLongTextTranslateTask(const Models::GetLongTextTranslateTaskRequest &request);
+
+      /**
+       * @summary 通义多模态翻译提交文档翻译任务
+       *
+       * @param tmpReq SubmitDocTranslateTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitDocTranslateTaskResponse
+       */
+      Models::SubmitDocTranslateTaskResponse submitDocTranslateTaskWithOptions(const Models::SubmitDocTranslateTaskRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通义多模态翻译提交文档翻译任务
+       *
+       * @param request SubmitDocTranslateTaskRequest
+       * @return SubmitDocTranslateTaskResponse
+       */
+      Models::SubmitDocTranslateTaskResponse submitDocTranslateTask(const Models::SubmitDocTranslateTaskRequest &request);
 
       /**
        * @summary 通义多模态翻译提交html翻译任务
