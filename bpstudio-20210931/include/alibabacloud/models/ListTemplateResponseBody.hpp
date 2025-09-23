@@ -46,8 +46,8 @@ namespace Models
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int32_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
-    inline ListTemplateResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline ListTemplateResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
@@ -89,7 +89,7 @@ namespace Models
 
   protected:
     // The HTTP status code.
-    std::shared_ptr<int32_t> code_ = nullptr;
+    std::shared_ptr<string> code_ = nullptr;
     // The details about templates.
     std::shared_ptr<vector<ListTemplateResponseBodyData>> data_ = nullptr;
     // The returned message.

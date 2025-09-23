@@ -38,8 +38,8 @@ namespace Models
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int32_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
-    inline ReConfigApplicationResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline ReConfigApplicationResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    std::shared_ptr<int32_t> code_ = nullptr;
+    std::shared_ptr<string> code_ = nullptr;
     std::shared_ptr<string> message_ = nullptr;
     // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;

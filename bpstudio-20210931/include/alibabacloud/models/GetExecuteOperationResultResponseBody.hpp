@@ -41,8 +41,8 @@ namespace Models
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int32_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
-    inline GetExecuteOperationResultResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline GetExecuteOperationResultResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
@@ -70,7 +70,7 @@ namespace Models
 
   protected:
     // The HTTP status code. A value of 200 indicates that the request is successful.
-    std::shared_ptr<int32_t> code_ = nullptr;
+    std::shared_ptr<string> code_ = nullptr;
     // The detailed result of the queried operation.
     std::shared_ptr<GetExecuteOperationResultResponseBodyData> data_ = nullptr;
     // The error message.

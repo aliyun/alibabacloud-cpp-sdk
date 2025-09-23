@@ -40,8 +40,8 @@ namespace Models
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int64_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0L) };
-    inline ChangeResourceGroupResponseBody& setCode(int64_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline ChangeResourceGroupResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
@@ -67,7 +67,7 @@ namespace Models
 
   protected:
     // The HTTP status code. A value of 200 indicates that the request is successful. Other values indicate that the request failed.
-    std::shared_ptr<int64_t> code_ = nullptr;
+    std::shared_ptr<string> code_ = nullptr;
     // No business data is returned for this parameter.
     std::shared_ptr<string> data_ = nullptr;
     // The error message returned if the request failed.
