@@ -13,6 +13,7 @@ namespace Models
   class BatchTranslateShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const BatchTranslateShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(appName, appName_);
       DARABONBA_PTR_TO_JSON(ext, extShrink_);
       DARABONBA_PTR_TO_JSON(format, format_);
       DARABONBA_PTR_TO_JSON(scene, scene_);
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, BatchTranslateShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(appName, appName_);
       DARABONBA_PTR_FROM_JSON(ext, extShrink_);
       DARABONBA_PTR_FROM_JSON(format, format_);
       DARABONBA_PTR_FROM_JSON(scene, scene_);
@@ -41,9 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->extShrink_ != nullptr
-        && this->format_ != nullptr && this->scene_ != nullptr && this->sourceLanguage_ != nullptr && this->targetLanguage_ != nullptr && this->textShrink_ != nullptr
-        && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { this->appName_ != nullptr
+        && this->extShrink_ != nullptr && this->format_ != nullptr && this->scene_ != nullptr && this->sourceLanguage_ != nullptr && this->targetLanguage_ != nullptr
+        && this->textShrink_ != nullptr && this->workspaceId_ != nullptr; };
+    // appName Field Functions 
+    bool hasAppName() const { return this->appName_ != nullptr;};
+    void deleteAppName() { this->appName_ = nullptr;};
+    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline BatchTranslateShrinkRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
+
+
     // extShrink Field Functions 
     bool hasExtShrink() const { return this->extShrink_ != nullptr;};
     void deleteExtShrink() { this->extShrink_ = nullptr;};
@@ -94,6 +103,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> appName_ = nullptr;
     std::shared_ptr<string> extShrink_ = nullptr;
     std::shared_ptr<string> format_ = nullptr;
     std::shared_ptr<string> scene_ = nullptr;

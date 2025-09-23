@@ -45,6 +45,7 @@
 #include <alibabacloud/models/TextTranslateShrinkRequest.hpp>
 #include <alibabacloud/models/TextTranslateResponseBody.hpp>
 #include <alibabacloud/models/TextTranslateResponse.hpp>
+#include <alibabacloud/models/BatchTranslateRequestExtConfig.hpp>
 #include <alibabacloud/models/BatchTranslateRequestExtExamples.hpp>
 #include <alibabacloud/models/BatchTranslateRequestExtTerminologies.hpp>
 #include <alibabacloud/models/BatchTranslateRequestExtTextTransform.hpp>
@@ -67,11 +68,10 @@
 #include <alibabacloud/models/GetImageTranslateTaskResponseBodyData.hpp>
 #include <alibabacloud/models/GetLongTextTranslateTaskResponseBodyDataUsage.hpp>
 #include <alibabacloud/models/GetLongTextTranslateTaskResponseBodyData.hpp>
-#include <alibabacloud/models/SubmitDocTranslateTaskRequestExtExamples.hpp>
 #include <alibabacloud/models/SubmitDocTranslateTaskRequestExtTerminologies.hpp>
-#include <alibabacloud/models/SubmitDocTranslateTaskRequestExtTextTransform.hpp>
 #include <alibabacloud/models/SubmitDocTranslateTaskRequestExt.hpp>
 #include <alibabacloud/models/SubmitDocTranslateTaskResponseBodyData.hpp>
+#include <alibabacloud/models/SubmitHtmlTranslateTaskRequestExtConfig.hpp>
 #include <alibabacloud/models/SubmitHtmlTranslateTaskRequestExtExamples.hpp>
 #include <alibabacloud/models/SubmitHtmlTranslateTaskRequestExtTerminologies.hpp>
 #include <alibabacloud/models/SubmitHtmlTranslateTaskRequestExtTextTransform.hpp>
@@ -82,6 +82,7 @@
 #include <alibabacloud/models/SubmitImageTranslateTaskRequestExtTextTransform.hpp>
 #include <alibabacloud/models/SubmitImageTranslateTaskRequestExt.hpp>
 #include <alibabacloud/models/SubmitImageTranslateTaskResponseBodyData.hpp>
+#include <alibabacloud/models/SubmitLongTextTranslateTaskRequestExtConfig.hpp>
 #include <alibabacloud/models/SubmitLongTextTranslateTaskRequestExtExamples.hpp>
 #include <alibabacloud/models/SubmitLongTextTranslateTaskRequestExtTerminologies.hpp>
 #include <alibabacloud/models/SubmitLongTextTranslateTaskRequestExtTextTransform.hpp>
@@ -93,6 +94,7 @@
 #include <alibabacloud/models/TermEditResponseBodyData.hpp>
 #include <alibabacloud/models/TermQueryResponseBodyDataTerms.hpp>
 #include <alibabacloud/models/TermQueryResponseBodyData.hpp>
+#include <alibabacloud/models/TextTranslateRequestExtConfig.hpp>
 #include <alibabacloud/models/TextTranslateRequestExtExamples.hpp>
 #include <alibabacloud/models/TextTranslateRequestExtTerminologies.hpp>
 #include <alibabacloud/models/TextTranslateRequestExtTextTransform.hpp>

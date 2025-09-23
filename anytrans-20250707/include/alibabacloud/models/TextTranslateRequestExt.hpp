@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_TEXTTRANSLATEREQUESTEXT_HPP_
 #define ALIBABACLOUD_MODELS_TEXTTRANSLATEREQUESTEXT_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/TextTranslateRequestExtConfig.hpp>
 #include <vector>
 #include <alibabacloud/models/TextTranslateRequestExtExamples.hpp>
 #include <alibabacloud/models/TextTranslateRequestExtTerminologies.hpp>
@@ -17,6 +18,7 @@ namespace Models
   class TextTranslateRequestExt : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const TextTranslateRequestExt& obj) { 
+      DARABONBA_PTR_TO_JSON(config, config_);
       DARABONBA_PTR_TO_JSON(domainHint, domainHint_);
       DARABONBA_PTR_TO_JSON(examples, examples_);
       DARABONBA_PTR_TO_JSON(sensitives, sensitives_);
@@ -24,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(textTransform, textTransform_);
     };
     friend void from_json(const Darabonba::Json& j, TextTranslateRequestExt& obj) { 
+      DARABONBA_PTR_FROM_JSON(config, config_);
       DARABONBA_PTR_FROM_JSON(domainHint, domainHint_);
       DARABONBA_PTR_FROM_JSON(examples, examples_);
       DARABONBA_PTR_FROM_JSON(sensitives, sensitives_);
@@ -41,8 +44,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->domainHint_ != nullptr
-        && this->examples_ != nullptr && this->sensitives_ != nullptr && this->terminologies_ != nullptr && this->textTransform_ != nullptr; };
+    virtual bool empty() const override { this->config_ != nullptr
+        && this->domainHint_ != nullptr && this->examples_ != nullptr && this->sensitives_ != nullptr && this->terminologies_ != nullptr && this->textTransform_ != nullptr; };
+    // config Field Functions 
+    bool hasConfig() const { return this->config_ != nullptr;};
+    void deleteConfig() { this->config_ = nullptr;};
+    inline const Models::TextTranslateRequestExtConfig & config() const { DARABONBA_PTR_GET_CONST(config_, Models::TextTranslateRequestExtConfig) };
+    inline Models::TextTranslateRequestExtConfig config() { DARABONBA_PTR_GET(config_, Models::TextTranslateRequestExtConfig) };
+    inline TextTranslateRequestExt& setConfig(const Models::TextTranslateRequestExtConfig & config) { DARABONBA_PTR_SET_VALUE(config_, config) };
+    inline TextTranslateRequestExt& setConfig(Models::TextTranslateRequestExtConfig && config) { DARABONBA_PTR_SET_RVALUE(config_, config) };
+
+
     // domainHint Field Functions 
     bool hasDomainHint() const { return this->domainHint_ != nullptr;};
     void deleteDomainHint() { this->domainHint_ = nullptr;};
@@ -87,6 +99,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<Models::TextTranslateRequestExtConfig> config_ = nullptr;
     std::shared_ptr<string> domainHint_ = nullptr;
     std::shared_ptr<vector<Models::TextTranslateRequestExtExamples>> examples_ = nullptr;
     std::shared_ptr<vector<string>> sensitives_ = nullptr;

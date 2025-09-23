@@ -56,6 +56,10 @@ BatchTranslateResponse Client::batchTranslateWithOptions(const BatchTranslateReq
   }
 
   json body = {};
+  if (!!request.hasAppName()) {
+    body["appName"] = request.appName();
+  }
+
   if (!!request.hasExtShrink()) {
     body["ext"] = request.extShrink();
   }
