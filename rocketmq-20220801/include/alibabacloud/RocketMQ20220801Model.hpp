@@ -52,6 +52,12 @@
 #include <alibabacloud/models/DeleteInstanceIpWhitelistResponse.hpp>
 #include <alibabacloud/models/DeleteTopicResponseBody.hpp>
 #include <alibabacloud/models/DeleteTopicResponse.hpp>
+#include <alibabacloud/models/ExecuteMigrationOperationRequest.hpp>
+#include <alibabacloud/models/ExecuteMigrationOperationResponseBody.hpp>
+#include <alibabacloud/models/ExecuteMigrationOperationResponse.hpp>
+#include <alibabacloud/models/FinishMigrationStageRequest.hpp>
+#include <alibabacloud/models/FinishMigrationStageResponseBody.hpp>
+#include <alibabacloud/models/FinishMigrationStageResponse.hpp>
 #include <alibabacloud/models/GetConsumerGroupResponseBody.hpp>
 #include <alibabacloud/models/GetConsumerGroupResponse.hpp>
 #include <alibabacloud/models/GetConsumerGroupLagRequest.hpp>
@@ -123,6 +129,9 @@
 #include <alibabacloud/models/ListMetricMetaRequest.hpp>
 #include <alibabacloud/models/ListMetricMetaResponseBody.hpp>
 #include <alibabacloud/models/ListMetricMetaResponse.hpp>
+#include <alibabacloud/models/ListMigrationOperationsRequest.hpp>
+#include <alibabacloud/models/ListMigrationOperationsResponseBody.hpp>
+#include <alibabacloud/models/ListMigrationOperationsResponse.hpp>
 #include <alibabacloud/models/ListRegionsResponseBody.hpp>
 #include <alibabacloud/models/ListRegionsResponse.hpp>
 #include <alibabacloud/models/ListTagResourcesRequest.hpp>
@@ -189,6 +198,10 @@
 #include <alibabacloud/models/CreateInstanceRequestNetworkInfo.hpp>
 #include <alibabacloud/models/CreateInstanceRequestProductInfo.hpp>
 #include <alibabacloud/models/CreateInstanceRequestTags.hpp>
+#include <alibabacloud/models/ExecuteMigrationOperationRequestOperationParam.hpp>
+#include <alibabacloud/models/ExecuteMigrationOperationResponseBodyDataOperationParam.hpp>
+#include <alibabacloud/models/ExecuteMigrationOperationResponseBodyDataOperationResult.hpp>
+#include <alibabacloud/models/ExecuteMigrationOperationResponseBodyData.hpp>
 #include <alibabacloud/models/GetConsumerGroupResponseBodyDataConsumeRetryPolicy.hpp>
 #include <alibabacloud/models/GetConsumerGroupResponseBodyData.hpp>
 #include <alibabacloud/models/GetConsumerGroupLagResponseBodyDataTotalLag.hpp>
@@ -263,6 +276,10 @@
 #include <alibabacloud/models/ListMessagesResponseBodyData.hpp>
 #include <alibabacloud/models/ListMetricMetaResponseBodyDataList.hpp>
 #include <alibabacloud/models/ListMetricMetaResponseBodyData.hpp>
+#include <alibabacloud/models/ListMigrationOperationsResponseBodyDataListOperationParam.hpp>
+#include <alibabacloud/models/ListMigrationOperationsResponseBodyDataListOperationResult.hpp>
+#include <alibabacloud/models/ListMigrationOperationsResponseBodyDataList.hpp>
+#include <alibabacloud/models/ListMigrationOperationsResponseBodyData.hpp>
 #include <alibabacloud/models/ListRegionsResponseBodyDataTags.hpp>
 #include <alibabacloud/models/ListRegionsResponseBodyData.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBodyDataTagResources.hpp>

@@ -367,6 +367,42 @@ namespace RocketMQ20220801
       Models::DeleteTopicResponse deleteTopic(const string &instanceId, const string &topicName);
 
       /**
+       * @summary 执行迁移操作
+       *
+       * @param request ExecuteMigrationOperationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExecuteMigrationOperationResponse
+       */
+      Models::ExecuteMigrationOperationResponse executeMigrationOperationWithOptions(const string &migrationId, const string &stageType, const string &operationId, const Models::ExecuteMigrationOperationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 执行迁移操作
+       *
+       * @param request ExecuteMigrationOperationRequest
+       * @return ExecuteMigrationOperationResponse
+       */
+      Models::ExecuteMigrationOperationResponse executeMigrationOperation(const string &migrationId, const string &stageType, const string &operationId, const Models::ExecuteMigrationOperationRequest &request);
+
+      /**
+       * @summary 完成当前迁移阶段
+       *
+       * @param request FinishMigrationStageRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return FinishMigrationStageResponse
+       */
+      Models::FinishMigrationStageResponse finishMigrationStageWithOptions(const string &migrationId, const string &stageType, const Models::FinishMigrationStageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 完成当前迁移阶段
+       *
+       * @param request FinishMigrationStageRequest
+       * @return FinishMigrationStageResponse
+       */
+      Models::FinishMigrationStageResponse finishMigrationStage(const string &migrationId, const string &stageType, const Models::FinishMigrationStageRequest &request);
+
+      /**
        * @summary Queries the details of a specified consumer group.
        *
        * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -831,6 +867,24 @@ namespace RocketMQ20220801
        * @return ListMetricMetaResponse
        */
       Models::ListMetricMetaResponse listMetricMeta(const Models::ListMetricMetaRequest &request);
+
+      /**
+       * @summary 查询迁移操作列表
+       *
+       * @param request ListMigrationOperationsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMigrationOperationsResponse
+       */
+      Models::ListMigrationOperationsResponse listMigrationOperationsWithOptions(const string &migrationId, const string &stageType, const Models::ListMigrationOperationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询迁移操作列表
+       *
+       * @param request ListMigrationOperationsRequest
+       * @return ListMigrationOperationsResponse
+       */
+      Models::ListMigrationOperationsResponse listMigrationOperations(const string &migrationId, const string &stageType, const Models::ListMigrationOperationsRequest &request);
 
       /**
        * @summary Queries regions in which ApsaraMQ for RocketMQ is available.

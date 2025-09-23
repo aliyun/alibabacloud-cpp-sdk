@@ -983,6 +983,102 @@ DeleteTopicResponse Client::deleteTopic(const string &instanceId, const string &
 }
 
 /**
+ * @summary 执行迁移操作
+ *
+ * @param request ExecuteMigrationOperationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExecuteMigrationOperationResponse
+ */
+ExecuteMigrationOperationResponse Client::executeMigrationOperationWithOptions(const string &migrationId, const string &stageType, const string &operationId, const ExecuteMigrationOperationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["instanceId"] = request.instanceId();
+  }
+
+  json body = {};
+  if (!!request.hasOperationParam()) {
+    body["operationParam"] = request.operationParam();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ExecuteMigrationOperation"},
+    {"version" , "2022-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/migrations/" , Darabonba::Http::URL::percentEncode(migrationId) , "/stages/" , Darabonba::Http::URL::percentEncode(stageType) , "/operations/" , Darabonba::Http::URL::percentEncode(operationId) , "/execute")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExecuteMigrationOperationResponse>();
+}
+
+/**
+ * @summary 执行迁移操作
+ *
+ * @param request ExecuteMigrationOperationRequest
+ * @return ExecuteMigrationOperationResponse
+ */
+ExecuteMigrationOperationResponse Client::executeMigrationOperation(const string &migrationId, const string &stageType, const string &operationId, const ExecuteMigrationOperationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return executeMigrationOperationWithOptions(migrationId, stageType, operationId, request, headers, runtime);
+}
+
+/**
+ * @summary 完成当前迁移阶段
+ *
+ * @param request FinishMigrationStageRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return FinishMigrationStageResponse
+ */
+FinishMigrationStageResponse Client::finishMigrationStageWithOptions(const string &migrationId, const string &stageType, const FinishMigrationStageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["instanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "FinishMigrationStage"},
+    {"version" , "2022-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/migrations/" , Darabonba::Http::URL::percentEncode(migrationId) , "/stages/" , Darabonba::Http::URL::percentEncode(stageType) , "/finish")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<FinishMigrationStageResponse>();
+}
+
+/**
+ * @summary 完成当前迁移阶段
+ *
+ * @param request FinishMigrationStageRequest
+ * @return FinishMigrationStageResponse
+ */
+FinishMigrationStageResponse Client::finishMigrationStage(const string &migrationId, const string &stageType, const FinishMigrationStageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return finishMigrationStageWithOptions(migrationId, stageType, request, headers, runtime);
+}
+
+/**
  * @summary Queries the details of a specified consumer group.
  *
  * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -2233,6 +2329,67 @@ ListMetricMetaResponse Client::listMetricMeta(const ListMetricMetaRequest &reque
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listMetricMetaWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询迁移操作列表
+ *
+ * @param request ListMigrationOperationsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMigrationOperationsResponse
+ */
+ListMigrationOperationsResponse Client::listMigrationOperationsWithOptions(const string &migrationId, const string &stageType, const ListMigrationOperationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFilter()) {
+    query["filter"] = request.filter();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["instanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasOperationType()) {
+    query["operationType"] = request.operationType();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMigrationOperations"},
+    {"version" , "2022-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/migrations/" , Darabonba::Http::URL::percentEncode(migrationId) , "/stages/" , Darabonba::Http::URL::percentEncode(stageType) , "/operations")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMigrationOperationsResponse>();
+}
+
+/**
+ * @summary 查询迁移操作列表
+ *
+ * @param request ListMigrationOperationsRequest
+ * @return ListMigrationOperationsResponse
+ */
+ListMigrationOperationsResponse Client::listMigrationOperations(const string &migrationId, const string &stageType, const ListMigrationOperationsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMigrationOperationsWithOptions(migrationId, stageType, request, headers, runtime);
 }
 
 /**
