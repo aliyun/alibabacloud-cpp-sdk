@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBClusterVersion, DBClusterVersion_);
       DARABONBA_PTR_TO_JSON(DiskEncryption, diskEncryption_);
       DARABONBA_PTR_TO_JSON(EnableDefaultResourcePool, enableDefaultResourcePool_);
+      DARABONBA_PTR_TO_JSON(EnableSSL, enableSSL_);
       DARABONBA_PTR_TO_JSON(KmsId, kmsId_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(Period, period_);
@@ -53,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DBClusterVersion, DBClusterVersion_);
       DARABONBA_PTR_FROM_JSON(DiskEncryption, diskEncryption_);
       DARABONBA_PTR_FROM_JSON(EnableDefaultResourcePool, enableDefaultResourcePool_);
+      DARABONBA_PTR_FROM_JSON(EnableSSL, enableSSL_);
       DARABONBA_PTR_FROM_JSON(KmsId, kmsId_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
@@ -87,11 +89,11 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->backupSetId_ != nullptr
         && this->cloneSourceRegionId_ != nullptr && this->computeResource_ != nullptr && this->DBClusterDescription_ != nullptr && this->DBClusterNetworkType_ != nullptr && this->DBClusterVersion_ != nullptr
-        && this->diskEncryption_ != nullptr && this->enableDefaultResourcePool_ != nullptr && this->kmsId_ != nullptr && this->payType_ != nullptr && this->period_ != nullptr
-        && this->productForm_ != nullptr && this->productVersion_ != nullptr && this->regionId_ != nullptr && this->reservedNodeCount_ != nullptr && this->reservedNodeSize_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->restoreToTime_ != nullptr && this->restoreType_ != nullptr && this->secondaryVSwitchId_ != nullptr && this->secondaryZoneId_ != nullptr
-        && this->sourceDbClusterId_ != nullptr && this->storageResource_ != nullptr && this->tag_ != nullptr && this->usedTime_ != nullptr && this->VPCId_ != nullptr
-        && this->vSwitchId_ != nullptr && this->zoneId_ != nullptr; };
+        && this->diskEncryption_ != nullptr && this->enableDefaultResourcePool_ != nullptr && this->enableSSL_ != nullptr && this->kmsId_ != nullptr && this->payType_ != nullptr
+        && this->period_ != nullptr && this->productForm_ != nullptr && this->productVersion_ != nullptr && this->regionId_ != nullptr && this->reservedNodeCount_ != nullptr
+        && this->reservedNodeSize_ != nullptr && this->resourceGroupId_ != nullptr && this->restoreToTime_ != nullptr && this->restoreType_ != nullptr && this->secondaryVSwitchId_ != nullptr
+        && this->secondaryZoneId_ != nullptr && this->sourceDbClusterId_ != nullptr && this->storageResource_ != nullptr && this->tag_ != nullptr && this->usedTime_ != nullptr
+        && this->VPCId_ != nullptr && this->vSwitchId_ != nullptr && this->zoneId_ != nullptr; };
     // backupSetId Field Functions 
     bool hasBackupSetId() const { return this->backupSetId_ != nullptr;};
     void deleteBackupSetId() { this->backupSetId_ = nullptr;};
@@ -146,6 +148,13 @@ namespace Models
     void deleteEnableDefaultResourcePool() { this->enableDefaultResourcePool_ = nullptr;};
     inline bool enableDefaultResourcePool() const { DARABONBA_PTR_GET_DEFAULT(enableDefaultResourcePool_, false) };
     inline CreateDBClusterRequest& setEnableDefaultResourcePool(bool enableDefaultResourcePool) { DARABONBA_PTR_SET_VALUE(enableDefaultResourcePool_, enableDefaultResourcePool) };
+
+
+    // enableSSL Field Functions 
+    bool hasEnableSSL() const { return this->enableSSL_ != nullptr;};
+    void deleteEnableSSL() { this->enableSSL_ = nullptr;};
+    inline bool enableSSL() const { DARABONBA_PTR_GET_DEFAULT(enableSSL_, false) };
+    inline CreateDBClusterRequest& setEnableSSL(bool enableSSL) { DARABONBA_PTR_SET_VALUE(enableSSL_, enableSSL) };
 
 
     // kmsId Field Functions 
@@ -321,6 +330,7 @@ namespace Models
     // *   **true** (default)
     // *   **false**
     std::shared_ptr<bool> enableDefaultResourcePool_ = nullptr;
+    std::shared_ptr<bool> enableSSL_ = nullptr;
     // The ID of the key that is used to encrypt disk data.
     // 
     // >  This parameter must be specified only when disk encryption is enabled.

@@ -61,6 +61,10 @@
 #include <alibabacloud/models/CheckSampleDataSetRequest.hpp>
 #include <alibabacloud/models/CheckSampleDataSetResponseBody.hpp>
 #include <alibabacloud/models/CheckSampleDataSetResponse.hpp>
+#include <alibabacloud/models/ConfigureResultExportRequest.hpp>
+#include <alibabacloud/models/ConfigureResultExportShrinkRequest.hpp>
+#include <alibabacloud/models/ConfigureResultExportResponseBody.hpp>
+#include <alibabacloud/models/ConfigureResultExportResponse.hpp>
 #include <alibabacloud/models/CreateApsjobRequest.hpp>
 #include <alibabacloud/models/CreateApsjobResponseBody.hpp>
 #include <alibabacloud/models/CreateApsjobResponse.hpp>
@@ -85,6 +89,9 @@
 #include <alibabacloud/models/CreateApsSlsAdbjobShrinkRequest.hpp>
 #include <alibabacloud/models/CreateApsSlsAdbjobResponseBody.hpp>
 #include <alibabacloud/models/CreateApsSlsAdbjobResponse.hpp>
+#include <alibabacloud/models/CreateBackupRequest.hpp>
+#include <alibabacloud/models/CreateBackupResponseBody.hpp>
+#include <alibabacloud/models/CreateBackupResponse.hpp>
 #include <alibabacloud/models/CreateDbclusterRequest.hpp>
 #include <alibabacloud/models/CreateDbclusterResponseBody.hpp>
 #include <alibabacloud/models/CreateDbclusterResponse.hpp>
@@ -358,6 +365,9 @@
 #include <alibabacloud/models/DescribeResourceGroupSpecRequest.hpp>
 #include <alibabacloud/models/DescribeResourceGroupSpecResponseBody.hpp>
 #include <alibabacloud/models/DescribeResourceGroupSpecResponse.hpp>
+#include <alibabacloud/models/DescribeResultExportConfigRequest.hpp>
+#include <alibabacloud/models/DescribeResultExportConfigResponseBody.hpp>
+#include <alibabacloud/models/DescribeResultExportConfigResponse.hpp>
 #include <alibabacloud/models/DescribeSqlpatternsRequest.hpp>
 #include <alibabacloud/models/DescribeSqlpatternsResponseBody.hpp>
 #include <alibabacloud/models/DescribeSqlpatternsResponse.hpp>
@@ -710,6 +720,11 @@
 #include <alibabacloud/models/OperatorNodeStats.hpp>
 #include <alibabacloud/models/OpenStructMvDetailModelBaseTableInfos.hpp>
 #include <alibabacloud/models/CancelSparkReplStatementResponseBodyData.hpp>
+#include <alibabacloud/models/ConfigureResultExportRequestOssInfo.hpp>
+#include <alibabacloud/models/ConfigureResultExportRequestSlsInfo.hpp>
+#include <alibabacloud/models/ConfigureResultExportResponseBodyDataOssInfo.hpp>
+#include <alibabacloud/models/ConfigureResultExportResponseBodyDataSlsInfo.hpp>
+#include <alibabacloud/models/ConfigureResultExportResponseBodyData.hpp>
 #include <alibabacloud/models/CreateApsDatasoureRequestDatabricksInfo.hpp>
 #include <alibabacloud/models/CreateApsDatasoureRequestHiveInfo.hpp>
 #include <alibabacloud/models/CreateApsDatasoureRequestKafkaInfo.hpp>
@@ -865,6 +880,9 @@
 #include <alibabacloud/models/DescribeRegionsResponseBodyRegionsRegion.hpp>
 #include <alibabacloud/models/DescribeRegionsResponseBodyRegions.hpp>
 #include <alibabacloud/models/DescribeResourceGroupSpecResponseBodySpecs.hpp>
+#include <alibabacloud/models/DescribeResultExportConfigResponseBodyDataOssInfo.hpp>
+#include <alibabacloud/models/DescribeResultExportConfigResponseBodyDataSlsInfo.hpp>
+#include <alibabacloud/models/DescribeResultExportConfigResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeSqlpatternsResponseBodyPatternDetails.hpp>
 #include <alibabacloud/models/DescribeSchemasResponseBodyItemsSchema.hpp>
 #include <alibabacloud/models/DescribeSchemasResponseBodyItems.hpp>

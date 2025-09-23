@@ -611,6 +611,74 @@ CheckSampleDataSetResponse Client::checkSampleDataSet(const CheckSampleDataSetRe
 }
 
 /**
+ * @summary 配置导出的SLS 或者OSS 信息，实例级别唯一，遵循一次配置多次使用的原则
+ *
+ * @param tmpReq ConfigureResultExportRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ConfigureResultExportResponse
+ */
+ConfigureResultExportResponse Client::configureResultExportWithOptions(const ConfigureResultExportRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ConfigureResultExportShrinkRequest request = ConfigureResultExportShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasOssInfo()) {
+    request.setOssInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ossInfo(), "OssInfo", "json"));
+  }
+
+  if (!!tmpReq.hasSlsInfo()) {
+    request.setSlsInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.slsInfo(), "SlsInfo", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasDBClusterId()) {
+    body["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasExportType()) {
+    body["ExportType"] = request.exportType();
+  }
+
+  if (!!request.hasOssInfoShrink()) {
+    body["OssInfo"] = request.ossInfoShrink();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasSlsInfoShrink()) {
+    body["SlsInfo"] = request.slsInfoShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ConfigureResultExport"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ConfigureResultExportResponse>();
+}
+
+/**
+ * @summary 配置导出的SLS 或者OSS 信息，实例级别唯一，遵循一次配置多次使用的原则
+ *
+ * @param request ConfigureResultExportRequest
+ * @return ConfigureResultExportResponse
+ */
+ConfigureResultExportResponse Client::configureResultExport(const ConfigureResultExportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return configureResultExportWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an AnalyticDB Pipeline Service (APS) job.
  *
  * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
@@ -1391,6 +1459,68 @@ CreateApsSlsADBJobResponse Client::createApsSlsADBJob(const CreateApsSlsADBJobRe
 }
 
 /**
+ * @summary 手动创建备份集
+ *
+ * @param request CreateBackupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateBackupResponse
+ */
+CreateBackupResponse Client::createBackupWithOptions(const CreateBackupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateBackup"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateBackupResponse>();
+}
+
+/**
+ * @summary 手动创建备份集
+ *
+ * @param request CreateBackupRequest
+ * @return CreateBackupResponse
+ */
+CreateBackupResponse Client::createBackup(const CreateBackupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createBackupWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an AnalyticDB for MySQL Data Lakehouse Edition cluster.
  *
  * @description CreateDBCluster
@@ -1432,6 +1562,10 @@ CreateDBClusterResponse Client::createDBClusterWithOptions(const CreateDBCluster
 
   if (!!request.hasEnableDefaultResourcePool()) {
     query["EnableDefaultResourcePool"] = request.enableDefaultResourcePool();
+  }
+
+  if (!!request.hasEnableSSL()) {
+    query["EnableSSL"] = request.enableSSL();
   }
 
   if (!!request.hasKmsId()) {
@@ -7305,6 +7439,56 @@ DescribeResourceGroupSpecResponse Client::describeResourceGroupSpecWithOptions(c
 DescribeResourceGroupSpecResponse Client::describeResourceGroupSpec(const DescribeResourceGroupSpecRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeResourceGroupSpecWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取用户配置的导出信息
+ *
+ * @param request DescribeResultExportConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeResultExportConfigResponse
+ */
+DescribeResultExportConfigResponse Client::describeResultExportConfigWithOptions(const DescribeResultExportConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasExportType()) {
+    query["ExportType"] = request.exportType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeResultExportConfig"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeResultExportConfigResponse>();
+}
+
+/**
+ * @summary 获取用户配置的导出信息
+ *
+ * @param request DescribeResultExportConfigRequest
+ * @return DescribeResultExportConfigResponse
+ */
+DescribeResultExportConfigResponse Client::describeResultExportConfig(const DescribeResultExportConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeResultExportConfigWithOptions(request, runtime);
 }
 
 /**

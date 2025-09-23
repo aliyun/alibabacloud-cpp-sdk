@@ -215,6 +215,23 @@ namespace Adb20211201
       Models::CheckSampleDataSetResponse checkSampleDataSet(const Models::CheckSampleDataSetRequest &request);
 
       /**
+       * @summary 配置导出的SLS 或者OSS 信息，实例级别唯一，遵循一次配置多次使用的原则
+       *
+       * @param tmpReq ConfigureResultExportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ConfigureResultExportResponse
+       */
+      Models::ConfigureResultExportResponse configureResultExportWithOptions(const Models::ConfigureResultExportRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 配置导出的SLS 或者OSS 信息，实例级别唯一，遵循一次配置多次使用的原则
+       *
+       * @param request ConfigureResultExportRequest
+       * @return ConfigureResultExportResponse
+       */
+      Models::ConfigureResultExportResponse configureResultExport(const Models::ConfigureResultExportRequest &request);
+
+      /**
        * @summary Creates an AnalyticDB Pipeline Service (APS) job.
        *
        * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
@@ -348,6 +365,23 @@ namespace Adb20211201
        * @return CreateApsSlsADBJobResponse
        */
       Models::CreateApsSlsADBJobResponse createApsSlsADBJob(const Models::CreateApsSlsADBJobRequest &request);
+
+      /**
+       * @summary 手动创建备份集
+       *
+       * @param request CreateBackupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateBackupResponse
+       */
+      Models::CreateBackupResponse createBackupWithOptions(const Models::CreateBackupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 手动创建备份集
+       *
+       * @param request CreateBackupRequest
+       * @return CreateBackupResponse
+       */
+      Models::CreateBackupResponse createBackup(const Models::CreateBackupRequest &request);
 
       /**
        * @summary Creates an AnalyticDB for MySQL Data Lakehouse Edition cluster.
@@ -2159,6 +2193,23 @@ namespace Adb20211201
        * @return DescribeResourceGroupSpecResponse
        */
       Models::DescribeResourceGroupSpecResponse describeResourceGroupSpec(const Models::DescribeResourceGroupSpecRequest &request);
+
+      /**
+       * @summary 获取用户配置的导出信息
+       *
+       * @param request DescribeResultExportConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeResultExportConfigResponse
+       */
+      Models::DescribeResultExportConfigResponse describeResultExportConfigWithOptions(const Models::DescribeResultExportConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取用户配置的导出信息
+       *
+       * @param request DescribeResultExportConfigRequest
+       * @return DescribeResultExportConfigResponse
+       */
+      Models::DescribeResultExportConfigResponse describeResultExportConfig(const Models::DescribeResultExportConfigRequest &request);
 
       /**
        * @summary Queries a list of SQL patterns for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster within a time range.

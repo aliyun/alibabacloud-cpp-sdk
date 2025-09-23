@@ -17,10 +17,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const OpenStructMvDetailModel& obj) { 
       DARABONBA_PTR_TO_JSON(BaseTableInfos, baseTableInfos_);
       DARABONBA_PTR_TO_JSON(BaseTableNames, baseTableNames_);
+      DARABONBA_PTR_TO_JSON(EnableDelayAlert, enableDelayAlert_);
+      DARABONBA_PTR_TO_JSON(EnableFailureAlert, enableFailureAlert_);
       DARABONBA_PTR_TO_JSON(ExplicitHit, explicitHit_);
       DARABONBA_PTR_TO_JSON(FirstRefreshTime, firstRefreshTime_);
       DARABONBA_PTR_TO_JSON(ImplicitHit, implicitHit_);
       DARABONBA_PTR_TO_JSON(IsInactive, isInactive_);
+      DARABONBA_PTR_TO_JSON(LatencyTolerance, latencyTolerance_);
       DARABONBA_PTR_TO_JSON(LocalSize, localSize_);
       DARABONBA_PTR_TO_JSON(QueryRewriteEnabled, queryRewriteEnabled_);
       DARABONBA_PTR_TO_JSON(RefreshInterval, refreshInterval_);
@@ -33,10 +36,13 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, OpenStructMvDetailModel& obj) { 
       DARABONBA_PTR_FROM_JSON(BaseTableInfos, baseTableInfos_);
       DARABONBA_PTR_FROM_JSON(BaseTableNames, baseTableNames_);
+      DARABONBA_PTR_FROM_JSON(EnableDelayAlert, enableDelayAlert_);
+      DARABONBA_PTR_FROM_JSON(EnableFailureAlert, enableFailureAlert_);
       DARABONBA_PTR_FROM_JSON(ExplicitHit, explicitHit_);
       DARABONBA_PTR_FROM_JSON(FirstRefreshTime, firstRefreshTime_);
       DARABONBA_PTR_FROM_JSON(ImplicitHit, implicitHit_);
       DARABONBA_PTR_FROM_JSON(IsInactive, isInactive_);
+      DARABONBA_PTR_FROM_JSON(LatencyTolerance, latencyTolerance_);
       DARABONBA_PTR_FROM_JSON(LocalSize, localSize_);
       DARABONBA_PTR_FROM_JSON(QueryRewriteEnabled, queryRewriteEnabled_);
       DARABONBA_PTR_FROM_JSON(RefreshInterval, refreshInterval_);
@@ -58,9 +64,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->baseTableInfos_ != nullptr
-        && this->baseTableNames_ != nullptr && this->explicitHit_ != nullptr && this->firstRefreshTime_ != nullptr && this->implicitHit_ != nullptr && this->isInactive_ != nullptr
-        && this->localSize_ != nullptr && this->queryRewriteEnabled_ != nullptr && this->refreshInterval_ != nullptr && this->refreshState_ != nullptr && this->remoteSize_ != nullptr
-        && this->resourceGroup_ != nullptr && this->tableEngine_ != nullptr && this->updatedAt_ != nullptr; };
+        && this->baseTableNames_ != nullptr && this->enableDelayAlert_ != nullptr && this->enableFailureAlert_ != nullptr && this->explicitHit_ != nullptr && this->firstRefreshTime_ != nullptr
+        && this->implicitHit_ != nullptr && this->isInactive_ != nullptr && this->latencyTolerance_ != nullptr && this->localSize_ != nullptr && this->queryRewriteEnabled_ != nullptr
+        && this->refreshInterval_ != nullptr && this->refreshState_ != nullptr && this->remoteSize_ != nullptr && this->resourceGroup_ != nullptr && this->tableEngine_ != nullptr
+        && this->updatedAt_ != nullptr; };
     // baseTableInfos Field Functions 
     bool hasBaseTableInfos() const { return this->baseTableInfos_ != nullptr;};
     void deleteBaseTableInfos() { this->baseTableInfos_ = nullptr;};
@@ -77,6 +84,20 @@ namespace Models
     inline vector<vector<string>> baseTableNames() { DARABONBA_PTR_GET(baseTableNames_, vector<vector<string>>) };
     inline OpenStructMvDetailModel& setBaseTableNames(const vector<vector<string>> & baseTableNames) { DARABONBA_PTR_SET_VALUE(baseTableNames_, baseTableNames) };
     inline OpenStructMvDetailModel& setBaseTableNames(vector<vector<string>> && baseTableNames) { DARABONBA_PTR_SET_RVALUE(baseTableNames_, baseTableNames) };
+
+
+    // enableDelayAlert Field Functions 
+    bool hasEnableDelayAlert() const { return this->enableDelayAlert_ != nullptr;};
+    void deleteEnableDelayAlert() { this->enableDelayAlert_ = nullptr;};
+    inline int32_t enableDelayAlert() const { DARABONBA_PTR_GET_DEFAULT(enableDelayAlert_, 0) };
+    inline OpenStructMvDetailModel& setEnableDelayAlert(int32_t enableDelayAlert) { DARABONBA_PTR_SET_VALUE(enableDelayAlert_, enableDelayAlert) };
+
+
+    // enableFailureAlert Field Functions 
+    bool hasEnableFailureAlert() const { return this->enableFailureAlert_ != nullptr;};
+    void deleteEnableFailureAlert() { this->enableFailureAlert_ = nullptr;};
+    inline int32_t enableFailureAlert() const { DARABONBA_PTR_GET_DEFAULT(enableFailureAlert_, 0) };
+    inline OpenStructMvDetailModel& setEnableFailureAlert(int32_t enableFailureAlert) { DARABONBA_PTR_SET_VALUE(enableFailureAlert_, enableFailureAlert) };
 
 
     // explicitHit Field Functions 
@@ -105,6 +126,13 @@ namespace Models
     void deleteIsInactive() { this->isInactive_ = nullptr;};
     inline bool isInactive() const { DARABONBA_PTR_GET_DEFAULT(isInactive_, false) };
     inline OpenStructMvDetailModel& setIsInactive(bool isInactive) { DARABONBA_PTR_SET_VALUE(isInactive_, isInactive) };
+
+
+    // latencyTolerance Field Functions 
+    bool hasLatencyTolerance() const { return this->latencyTolerance_ != nullptr;};
+    void deleteLatencyTolerance() { this->latencyTolerance_ = nullptr;};
+    inline int32_t latencyTolerance() const { DARABONBA_PTR_GET_DEFAULT(latencyTolerance_, 0) };
+    inline OpenStructMvDetailModel& setLatencyTolerance(int32_t latencyTolerance) { DARABONBA_PTR_SET_VALUE(latencyTolerance_, latencyTolerance) };
 
 
     // localSize Field Functions 
@@ -166,10 +194,13 @@ namespace Models
   protected:
     std::shared_ptr<vector<OpenStructMvDetailModelBaseTableInfos>> baseTableInfos_ = nullptr;
     std::shared_ptr<vector<vector<string>>> baseTableNames_ = nullptr;
+    std::shared_ptr<int32_t> enableDelayAlert_ = nullptr;
+    std::shared_ptr<int32_t> enableFailureAlert_ = nullptr;
     std::shared_ptr<int64_t> explicitHit_ = nullptr;
     std::shared_ptr<string> firstRefreshTime_ = nullptr;
     std::shared_ptr<int64_t> implicitHit_ = nullptr;
     std::shared_ptr<bool> isInactive_ = nullptr;
+    std::shared_ptr<int32_t> latencyTolerance_ = nullptr;
     std::shared_ptr<int64_t> localSize_ = nullptr;
     std::shared_ptr<bool> queryRewriteEnabled_ = nullptr;
     std::shared_ptr<string> refreshInterval_ = nullptr;
