@@ -14,15 +14,23 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const RestartDBNodeRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DBNodeId, DBNodeId_);
+      DARABONBA_PTR_TO_JSON(FromTimeService, fromTimeService_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_TO_JSON(PlannedEndTime, plannedEndTime_);
+      DARABONBA_PTR_TO_JSON(PlannedStartTime, plannedStartTime_);
+      DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
     };
     friend void from_json(const Darabonba::Json& j, RestartDBNodeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBNodeId, DBNodeId_);
+      DARABONBA_PTR_FROM_JSON(FromTimeService, fromTimeService_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_FROM_JSON(PlannedEndTime, plannedEndTime_);
+      DARABONBA_PTR_FROM_JSON(PlannedStartTime, plannedStartTime_);
+      DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
     };
@@ -38,12 +46,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->DBNodeId_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+        && this->fromTimeService_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->plannedEndTime_ != nullptr && this->plannedStartTime_ != nullptr
+        && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
     // DBNodeId Field Functions 
     bool hasDBNodeId() const { return this->DBNodeId_ != nullptr;};
     void deleteDBNodeId() { this->DBNodeId_ = nullptr;};
     inline string DBNodeId() const { DARABONBA_PTR_GET_DEFAULT(DBNodeId_, "") };
     inline RestartDBNodeRequest& setDBNodeId(string DBNodeId) { DARABONBA_PTR_SET_VALUE(DBNodeId_, DBNodeId) };
+
+
+    // fromTimeService Field Functions 
+    bool hasFromTimeService() const { return this->fromTimeService_ != nullptr;};
+    void deleteFromTimeService() { this->fromTimeService_ = nullptr;};
+    inline string fromTimeService() const { DARABONBA_PTR_GET_DEFAULT(fromTimeService_, "") };
+    inline RestartDBNodeRequest& setFromTimeService(string fromTimeService) { DARABONBA_PTR_SET_VALUE(fromTimeService_, fromTimeService) };
 
 
     // ownerAccount Field Functions 
@@ -58,6 +74,27 @@ namespace Models
     void deleteOwnerId() { this->ownerId_ = nullptr;};
     inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline RestartDBNodeRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
+
+
+    // plannedEndTime Field Functions 
+    bool hasPlannedEndTime() const { return this->plannedEndTime_ != nullptr;};
+    void deletePlannedEndTime() { this->plannedEndTime_ = nullptr;};
+    inline string plannedEndTime() const { DARABONBA_PTR_GET_DEFAULT(plannedEndTime_, "") };
+    inline RestartDBNodeRequest& setPlannedEndTime(string plannedEndTime) { DARABONBA_PTR_SET_VALUE(plannedEndTime_, plannedEndTime) };
+
+
+    // plannedStartTime Field Functions 
+    bool hasPlannedStartTime() const { return this->plannedStartTime_ != nullptr;};
+    void deletePlannedStartTime() { this->plannedStartTime_ = nullptr;};
+    inline string plannedStartTime() const { DARABONBA_PTR_GET_DEFAULT(plannedStartTime_, "") };
+    inline RestartDBNodeRequest& setPlannedStartTime(string plannedStartTime) { DARABONBA_PTR_SET_VALUE(plannedStartTime_, plannedStartTime) };
+
+
+    // regionId Field Functions 
+    bool hasRegionId() const { return this->regionId_ != nullptr;};
+    void deleteRegionId() { this->regionId_ = nullptr;};
+    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline RestartDBNodeRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceOwnerAccount Field Functions 
@@ -81,8 +118,12 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> DBNodeId_ = nullptr;
+    std::shared_ptr<string> fromTimeService_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
+    std::shared_ptr<string> plannedEndTime_ = nullptr;
+    std::shared_ptr<string> plannedStartTime_ = nullptr;
+    std::shared_ptr<string> regionId_ = nullptr;
     std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
   };

@@ -21,6 +21,70 @@ namespace Polardb20170801
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @param request AbortDBClusterMigrationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AbortDBClusterMigrationResponse
+       */
+      Models::AbortDBClusterMigrationResponse abortDBClusterMigrationWithOptions(const Models::AbortDBClusterMigrationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request AbortDBClusterMigrationRequest
+       * @return AbortDBClusterMigrationResponse
+       */
+      Models::AbortDBClusterMigrationResponse abortDBClusterMigration(const Models::AbortDBClusterMigrationRequest &request);
+
+      /**
+       * @summary 添加角色权限
+       *
+       * @param request AddEncryptionDBRolePrivilegeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddEncryptionDBRolePrivilegeResponse
+       */
+      Models::AddEncryptionDBRolePrivilegeResponse addEncryptionDBRolePrivilegeWithOptions(const Models::AddEncryptionDBRolePrivilegeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加角色权限
+       *
+       * @param request AddEncryptionDBRolePrivilegeRequest
+       * @return AddEncryptionDBRolePrivilegeResponse
+       */
+      Models::AddEncryptionDBRolePrivilegeResponse addEncryptionDBRolePrivilege(const Models::AddEncryptionDBRolePrivilegeRequest &request);
+
+      /**
+       * @summary 添加sql防火墙配置
+       *
+       * @param request AddFirewallRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddFirewallRulesResponse
+       */
+      Models::AddFirewallRulesResponse addFirewallRulesWithOptions(const Models::AddFirewallRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加sql防火墙配置
+       *
+       * @param request AddFirewallRulesRequest
+       * @return AddFirewallRulesResponse
+       */
+      Models::AddFirewallRulesResponse addFirewallRules(const Models::AddFirewallRulesRequest &request);
+
+      /**
+       * @summary 添加SQL限流规则
+       *
+       * @param request AddSQLRateLimitingRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddSQLRateLimitingRulesResponse
+       */
+      Models::AddSQLRateLimitingRulesResponse addSQLRateLimitingRulesWithOptions(const Models::AddSQLRateLimitingRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加SQL限流规则
+       *
+       * @param request AddSQLRateLimitingRulesRequest
+       * @return AddSQLRateLimitingRulesResponse
+       */
+      Models::AddSQLRateLimitingRulesResponse addSQLRateLimitingRules(const Models::AddSQLRateLimitingRulesRequest &request);
+
+      /**
        * @summary Cancels O\\&M events at a time.
        *
        * @param request CancelActiveOperationTasksRequest
@@ -36,6 +100,23 @@ namespace Polardb20170801
        * @return CancelActiveOperationTasksResponse
        */
       Models::CancelActiveOperationTasksResponse cancelActiveOperationTasks(const Models::CancelActiveOperationTasksRequest &request);
+
+      /**
+       * @summary 取消周期任务策略
+       *
+       * @param request CancelCronJobPolicyServerlessRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelCronJobPolicyServerlessResponse
+       */
+      Models::CancelCronJobPolicyServerlessResponse cancelCronJobPolicyServerlessWithOptions(const Models::CancelCronJobPolicyServerlessRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消周期任务策略
+       *
+       * @param request CancelCronJobPolicyServerlessRequest
+       * @return CancelCronJobPolicyServerlessResponse
+       */
+      Models::CancelCronJobPolicyServerlessResponse cancelCronJobPolicyServerless(const Models::CancelCronJobPolicyServerlessRequest &request);
 
       /**
        * @summary Cancels scheduled tasks that are not yet started.
@@ -70,6 +151,23 @@ namespace Polardb20170801
        * @return CheckAccountNameResponse
        */
       Models::CheckAccountNameResponse checkAccountName(const Models::CheckAccountNameRequest &request);
+
+      /**
+       * @summary 检查连接串
+       *
+       * @param request CheckConnectionStringRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckConnectionStringResponse
+       */
+      Models::CheckConnectionStringResponse checkConnectionStringWithOptions(const Models::CheckConnectionStringRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 检查连接串
+       *
+       * @param request CheckConnectionStringRequest
+       * @return CheckConnectionStringResponse
+       */
+      Models::CheckConnectionStringResponse checkConnectionString(const Models::CheckConnectionStringRequest &request);
 
       /**
        * @summary Checks whether a database name is valid or whether the name is already used by another database in the current cluster.
@@ -165,6 +263,19 @@ namespace Polardb20170801
       Models::CloseDBClusterMigrationResponse closeDBClusterMigration(const Models::CloseDBClusterMigrationRequest &request);
 
       /**
+       * @param request ContinueDBClusterMigrationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ContinueDBClusterMigrationResponse
+       */
+      Models::ContinueDBClusterMigrationResponse continueDBClusterMigrationWithOptions(const Models::ContinueDBClusterMigrationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request ContinueDBClusterMigrationRequest
+       * @return ContinueDBClusterMigrationResponse
+       */
+      Models::ContinueDBClusterMigrationResponse continueDBClusterMigration(const Models::ContinueDBClusterMigrationRequest &request);
+
+      /**
        * @summary Creates a database account for a PolarDB cluster.
        *
        * @param request CreateAccountRequest
@@ -241,6 +352,23 @@ namespace Polardb20170801
        * @return CreateColdStorageInstanceResponse
        */
       Models::CreateColdStorageInstanceResponse createColdStorageInstance(const Models::CreateColdStorageInstanceRequest &request);
+
+      /**
+       * @summary serverless创建周期任务策略
+       *
+       * @param request CreateCronJobPolicyServerlessRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCronJobPolicyServerlessResponse
+       */
+      Models::CreateCronJobPolicyServerlessResponse createCronJobPolicyServerlessWithOptions(const Models::CreateCronJobPolicyServerlessRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary serverless创建周期任务策略
+       *
+       * @param request CreateCronJobPolicyServerlessRequest
+       * @return CreateCronJobPolicyServerlessResponse
+       */
+      Models::CreateCronJobPolicyServerlessResponse createCronJobPolicyServerless(const Models::CreateCronJobPolicyServerlessRequest &request);
 
       /**
        * @summary CreateDBCluster.
@@ -367,6 +495,23 @@ namespace Polardb20170801
       Models::CreateDatabaseResponse createDatabase(const Models::CreateDatabaseRequest &request);
 
       /**
+       * @summary 创建插件
+       *
+       * @param request CreateExtensionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateExtensionsResponse
+       */
+      Models::CreateExtensionsResponse createExtensionsWithOptions(const Models::CreateExtensionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建插件
+       *
+       * @param request CreateExtensionsRequest
+       * @return CreateExtensionsResponse
+       */
+      Models::CreateExtensionsResponse createExtensions(const Models::CreateExtensionsRequest &request);
+
+      /**
        * @summary 创建全球数据网络
        *
        * @param request CreateGlobalDataNetworkRequest
@@ -420,6 +565,23 @@ namespace Polardb20170801
        * @return CreateGlobalSecurityIPGroupResponse
        */
       Models::CreateGlobalSecurityIPGroupResponse createGlobalSecurityIPGroup(const Models::CreateGlobalSecurityIPGroupRequest &request);
+
+      /**
+       * @summary 创建网络通道
+       *
+       * @param request CreateNetworkChannelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateNetworkChannelResponse
+       */
+      Models::CreateNetworkChannelResponse createNetworkChannelWithOptions(const Models::CreateNetworkChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建网络通道
+       *
+       * @param request CreateNetworkChannelRequest
+       * @return CreateNetworkChannelResponse
+       */
+      Models::CreateNetworkChannelResponse createNetworkChannel(const Models::CreateNetworkChannelRequest &request);
 
       /**
        * @summary Creates or obtains a virtual license order.
@@ -677,6 +839,57 @@ namespace Polardb20170801
       Models::DeleteDatabaseResponse deleteDatabase(const Models::DeleteDatabaseRequest &request);
 
       /**
+       * @summary 删除角色
+       *
+       * @param request DeleteEncryptionDBRolePrivilegeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteEncryptionDBRolePrivilegeResponse
+       */
+      Models::DeleteEncryptionDBRolePrivilegeResponse deleteEncryptionDBRolePrivilegeWithOptions(const Models::DeleteEncryptionDBRolePrivilegeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除角色
+       *
+       * @param request DeleteEncryptionDBRolePrivilegeRequest
+       * @return DeleteEncryptionDBRolePrivilegeResponse
+       */
+      Models::DeleteEncryptionDBRolePrivilegeResponse deleteEncryptionDBRolePrivilege(const Models::DeleteEncryptionDBRolePrivilegeRequest &request);
+
+      /**
+       * @summary 删除插件
+       *
+       * @param request DeleteExtensionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteExtensionsResponse
+       */
+      Models::DeleteExtensionsResponse deleteExtensionsWithOptions(const Models::DeleteExtensionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除插件
+       *
+       * @param request DeleteExtensionsRequest
+       * @return DeleteExtensionsResponse
+       */
+      Models::DeleteExtensionsResponse deleteExtensions(const Models::DeleteExtensionsRequest &request);
+
+      /**
+       * @summary 删除sql防火墙
+       *
+       * @param request DeleteFirewallRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteFirewallRulesResponse
+       */
+      Models::DeleteFirewallRulesResponse deleteFirewallRulesWithOptions(const Models::DeleteFirewallRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除sql防火墙
+       *
+       * @param request DeleteFirewallRulesRequest
+       * @return DeleteFirewallRulesResponse
+       */
+      Models::DeleteFirewallRulesResponse deleteFirewallRules(const Models::DeleteFirewallRulesRequest &request);
+
+      /**
        * @summary DeleteGlobalDataNetwork
        *
        * @param request DeleteGlobalDataNetworkRequest
@@ -749,6 +962,23 @@ namespace Polardb20170801
       Models::DeleteMaskingRulesResponse deleteMaskingRules(const Models::DeleteMaskingRulesRequest &request);
 
       /**
+       * @summary 删除网络通道
+       *
+       * @param request DeleteNetworkChannelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteNetworkChannelResponse
+       */
+      Models::DeleteNetworkChannelResponse deleteNetworkChannelWithOptions(const Models::DeleteNetworkChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除网络通道
+       *
+       * @param request DeleteNetworkChannelRequest
+       * @return DeleteNetworkChannelResponse
+       */
+      Models::DeleteNetworkChannelResponse deleteNetworkChannel(const Models::DeleteNetworkChannelRequest &request);
+
+      /**
        * @summary Deletes a parameter template of a PolarDB cluster.
        *
        * @description You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
@@ -772,6 +1002,40 @@ namespace Polardb20170801
       Models::DeleteParameterGroupResponse deleteParameterGroup(const Models::DeleteParameterGroupRequest &request);
 
       /**
+       * @summary 删除SQL限流规则
+       *
+       * @param request DeleteSQLRateLimitingRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSQLRateLimitingRulesResponse
+       */
+      Models::DeleteSQLRateLimitingRulesResponse deleteSQLRateLimitingRulesWithOptions(const Models::DeleteSQLRateLimitingRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除SQL限流规则
+       *
+       * @param request DeleteSQLRateLimitingRulesRequest
+       * @return DeleteSQLRateLimitingRulesResponse
+       */
+      Models::DeleteSQLRateLimitingRulesResponse deleteSQLRateLimitingRules(const Models::DeleteSQLRateLimitingRulesRequest &request);
+
+      /**
+       * @summary 查看custom实例详情
+       *
+       * @param request DescribeAIDBClusterAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAIDBClusterAttributeResponse
+       */
+      Models::DescribeAIDBClusterAttributeResponse describeAIDBClusterAttributeWithOptions(const Models::DescribeAIDBClusterAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看custom实例详情
+       *
+       * @param request DescribeAIDBClusterAttributeRequest
+       * @return DescribeAIDBClusterAttributeResponse
+       */
+      Models::DescribeAIDBClusterAttributeResponse describeAIDBClusterAttribute(const Models::DescribeAIDBClusterAttributeRequest &request);
+
+      /**
        * @summary 获取ai容器性能指标
        *
        * @param request DescribeAIDBClusterPerformanceRequest
@@ -787,6 +1051,23 @@ namespace Polardb20170801
        * @return DescribeAIDBClusterPerformanceResponse
        */
       Models::DescribeAIDBClusterPerformanceResponse describeAIDBClusterPerformance(const Models::DescribeAIDBClusterPerformanceRequest &request);
+
+      /**
+       * @summary 查看custom集群列表
+       *
+       * @param request DescribeAIDBClustersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAIDBClustersResponse
+       */
+      Models::DescribeAIDBClustersResponse describeAIDBClustersWithOptions(const Models::DescribeAIDBClustersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看custom集群列表
+       *
+       * @param request DescribeAIDBClustersRequest
+       * @return DescribeAIDBClustersResponse
+       */
+      Models::DescribeAIDBClustersResponse describeAIDBClusters(const Models::DescribeAIDBClustersRequest &request);
 
       /**
        * @summary Queries the status of the PolarDB for AI feature.
@@ -857,6 +1138,23 @@ namespace Polardb20170801
       Models::DescribeActivationCodesResponse describeActivationCodes(const Models::DescribeActivationCodesRequest &request);
 
       /**
+       * @summary 获取用户的运维配置信息，目前包括主动运维窗口信息
+       *
+       * @param request DescribeActiveOperationMaintainConfRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeActiveOperationMaintainConfResponse
+       */
+      Models::DescribeActiveOperationMaintainConfResponse describeActiveOperationMaintainConfWithOptions(const Models::DescribeActiveOperationMaintainConfRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取用户的运维配置信息，目前包括主动运维窗口信息
+       *
+       * @param request DescribeActiveOperationMaintainConfRequest
+       * @return DescribeActiveOperationMaintainConfResponse
+       */
+      Models::DescribeActiveOperationMaintainConfResponse describeActiveOperationMaintainConf(const Models::DescribeActiveOperationMaintainConfRequest &request);
+
+      /**
        * @summary 用户侧查询运维任务
        *
        * @param request DescribeActiveOperationTasksRequest
@@ -889,6 +1187,23 @@ namespace Polardb20170801
        * @return DescribeAutoRenewAttributeResponse
        */
       Models::DescribeAutoRenewAttributeResponse describeAutoRenewAttribute(const Models::DescribeAutoRenewAttributeRequest &request);
+
+      /**
+       * @summary 查询可用跨地域备份地域列表
+       *
+       * @param request DescribeAvailableCrossRegionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAvailableCrossRegionsResponse
+       */
+      Models::DescribeAvailableCrossRegionsResponse describeAvailableCrossRegionsWithOptions(const Models::DescribeAvailableCrossRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询可用跨地域备份地域列表
+       *
+       * @param request DescribeAvailableCrossRegionsRequest
+       * @return DescribeAvailableCrossRegionsResponse
+       */
+      Models::DescribeAvailableCrossRegionsResponse describeAvailableCrossRegions(const Models::DescribeAvailableCrossRegionsRequest &request);
 
       /**
        * @summary Queries backup logs and the URLs to download the backup logs.
@@ -1010,6 +1325,91 @@ namespace Polardb20170801
       Models::DescribeClassListResponse describeClassList(const Models::DescribeClassListRequest &request);
 
       /**
+       * @summary 查询冷存储实例信息
+       *
+       * @param request DescribeColdStorageInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeColdStorageInstanceResponse
+       */
+      Models::DescribeColdStorageInstanceResponse describeColdStorageInstanceWithOptions(const Models::DescribeColdStorageInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询冷存储实例信息
+       *
+       * @param request DescribeColdStorageInstanceRequest
+       * @return DescribeColdStorageInstanceResponse
+       */
+      Models::DescribeColdStorageInstanceResponse describeColdStorageInstance(const Models::DescribeColdStorageInstanceRequest &request);
+
+      /**
+       * @summary 查询周期任务策略
+       *
+       * @param request DescribeCronJobPolicyServerlessRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCronJobPolicyServerlessResponse
+       */
+      Models::DescribeCronJobPolicyServerlessResponse describeCronJobPolicyServerlessWithOptions(const Models::DescribeCronJobPolicyServerlessRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询周期任务策略
+       *
+       * @param request DescribeCronJobPolicyServerlessRequest
+       * @return DescribeCronJobPolicyServerlessResponse
+       */
+      Models::DescribeCronJobPolicyServerlessResponse describeCronJobPolicyServerless(const Models::DescribeCronJobPolicyServerlessRequest &request);
+
+      /**
+       * @summary 查询跨云支持的规格列表
+       *
+       * @param request DescribeCrossCloudLevelsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCrossCloudLevelsResponse
+       */
+      Models::DescribeCrossCloudLevelsResponse describeCrossCloudLevelsWithOptions(const Models::DescribeCrossCloudLevelsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询跨云支持的规格列表
+       *
+       * @param request DescribeCrossCloudLevelsRequest
+       * @return DescribeCrossCloudLevelsResponse
+       */
+      Models::DescribeCrossCloudLevelsResponse describeCrossCloudLevels(const Models::DescribeCrossCloudLevelsRequest &request);
+
+      /**
+       * @summary 查看跨云开区信息
+       *
+       * @param request DescribeCrossCloudRegionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCrossCloudRegionResponse
+       */
+      Models::DescribeCrossCloudRegionResponse describeCrossCloudRegionWithOptions(const Models::DescribeCrossCloudRegionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看跨云开区信息
+       *
+       * @param request DescribeCrossCloudRegionRequest
+       * @return DescribeCrossCloudRegionResponse
+       */
+      Models::DescribeCrossCloudRegionResponse describeCrossCloudRegion(const Models::DescribeCrossCloudRegionRequest &request);
+
+      /**
+       * @summary 查询跨云地域映射
+       *
+       * @param request DescribeCrossCloudRegionMappingToAliyunRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCrossCloudRegionMappingToAliyunResponse
+       */
+      Models::DescribeCrossCloudRegionMappingToAliyunResponse describeCrossCloudRegionMappingToAliyunWithOptions(const Models::DescribeCrossCloudRegionMappingToAliyunRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询跨云地域映射
+       *
+       * @param request DescribeCrossCloudRegionMappingToAliyunRequest
+       * @return DescribeCrossCloudRegionMappingToAliyunResponse
+       */
+      Models::DescribeCrossCloudRegionMappingToAliyunResponse describeCrossCloudRegionMappingToAliyun(const Models::DescribeCrossCloudRegionMappingToAliyunRequest &request);
+
+      /**
        * @summary Queries the IP address whitelists and security groups of a PolarDB cluster.
        *
        * @param request DescribeDBClusterAccessWhitelistRequest
@@ -1095,6 +1495,23 @@ namespace Polardb20170801
       Models::DescribeDBClusterConnectivityResponse describeDBClusterConnectivity(const Models::DescribeDBClusterConnectivityRequest &request);
 
       /**
+       * @summary DescribeDBClusterEncryptionKey
+       *
+       * @param request DescribeDBClusterEncryptionKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDBClusterEncryptionKeyResponse
+       */
+      Models::DescribeDBClusterEncryptionKeyResponse describeDBClusterEncryptionKeyWithOptions(const Models::DescribeDBClusterEncryptionKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DescribeDBClusterEncryptionKey
+       *
+       * @param request DescribeDBClusterEncryptionKeyRequest
+       * @return DescribeDBClusterEncryptionKeyResponse
+       */
+      Models::DescribeDBClusterEncryptionKeyResponse describeDBClusterEncryptionKey(const Models::DescribeDBClusterEncryptionKeyRequest &request);
+
+      /**
        * @summary Queries the endpoints of a PolarDB cluster.
        *
        * @param request DescribeDBClusterEndpointsRequest
@@ -1148,6 +1565,19 @@ namespace Polardb20170801
        * @return DescribeDBClusterMonitorResponse
        */
       Models::DescribeDBClusterMonitorResponse describeDBClusterMonitor(const Models::DescribeDBClusterMonitorRequest &request);
+
+      /**
+       * @param request DescribeDBClusterNetInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDBClusterNetInfoResponse
+       */
+      Models::DescribeDBClusterNetInfoResponse describeDBClusterNetInfoWithOptions(const Models::DescribeDBClusterNetInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DescribeDBClusterNetInfoRequest
+       * @return DescribeDBClusterNetInfoResponse
+       */
+      Models::DescribeDBClusterNetInfoResponse describeDBClusterNetInfo(const Models::DescribeDBClusterNetInfoRequest &request);
 
       /**
        * @summary Queries the parameters of a PolarDB cluster.
@@ -1208,6 +1638,23 @@ namespace Polardb20170801
        * @return DescribeDBClusterPerformanceResponse
        */
       Models::DescribeDBClusterPerformanceResponse describeDBClusterPerformance(const Models::DescribeDBClusterPerformanceRequest &request);
+
+      /**
+       * @summary 查询代理详情
+       *
+       * @param request DescribeDBClusterProxyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDBClusterProxyResponse
+       */
+      Models::DescribeDBClusterProxyResponse describeDBClusterProxyWithOptions(const Models::DescribeDBClusterProxyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询代理详情
+       *
+       * @param request DescribeDBClusterProxyRequest
+       * @return DescribeDBClusterProxyResponse
+       */
+      Models::DescribeDBClusterProxyResponse describeDBClusterProxy(const Models::DescribeDBClusterProxyRequest &request);
 
       /**
        * @summary Queries the Secure Sockets Layer (SSL) settings of a PolarDB cluster.
@@ -1329,6 +1776,19 @@ namespace Polardb20170801
       Models::DescribeDBInitializeVariableResponse describeDBInitializeVariable(const Models::DescribeDBInitializeVariableRequest &request);
 
       /**
+       * @param request DescribeDBInstancePerformanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDBInstancePerformanceResponse
+       */
+      Models::DescribeDBInstancePerformanceResponse describeDBInstancePerformanceWithOptions(const Models::DescribeDBInstancePerformanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DescribeDBInstancePerformanceRequest
+       * @return DescribeDBInstancePerformanceResponse
+       */
+      Models::DescribeDBInstancePerformanceResponse describeDBInstancePerformance(const Models::DescribeDBInstancePerformanceRequest &request);
+
+      /**
        * @summary Queries the database links of a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
        *
        * @description > You can query only the database links that use a PolarDB for Oracle cluster as the source.
@@ -1348,6 +1808,40 @@ namespace Polardb20170801
        * @return DescribeDBLinksResponse
        */
       Models::DescribeDBLinksResponse describeDBLinks(const Models::DescribeDBLinksRequest &request);
+
+      /**
+       * @summary 查询实例日志
+       *
+       * @param request DescribeDBLogFilesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDBLogFilesResponse
+       */
+      Models::DescribeDBLogFilesResponse describeDBLogFilesWithOptions(const Models::DescribeDBLogFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询实例日志
+       *
+       * @param request DescribeDBLogFilesRequest
+       * @return DescribeDBLogFilesResponse
+       */
+      Models::DescribeDBLogFilesResponse describeDBLogFiles(const Models::DescribeDBLogFilesRequest &request);
+
+      /**
+       * @summary 查询可用内核小版本列表
+       *
+       * @param request DescribeDBMiniEngineVersionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDBMiniEngineVersionsResponse
+       */
+      Models::DescribeDBMiniEngineVersionsResponse describeDBMiniEngineVersionsWithOptions(const Models::DescribeDBMiniEngineVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询可用内核小版本列表
+       *
+       * @param request DescribeDBMiniEngineVersionsRequest
+       * @return DescribeDBMiniEngineVersionsResponse
+       */
+      Models::DescribeDBMiniEngineVersionsResponse describeDBMiniEngineVersions(const Models::DescribeDBMiniEngineVersionsRequest &request);
 
       /**
        * @summary Queries the performance data of a node in a PolarDB cluster.
@@ -1488,6 +1982,74 @@ namespace Polardb20170801
       Models::DescribeDetachedBackupsResponse describeDetachedBackups(const Models::DescribeDetachedBackupsRequest &request);
 
       /**
+       * @summary 获取角色权限列表
+       *
+       * @param request DescribeEncryptionDBRolePrivilegeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeEncryptionDBRolePrivilegeResponse
+       */
+      Models::DescribeEncryptionDBRolePrivilegeResponse describeEncryptionDBRolePrivilegeWithOptions(const Models::DescribeEncryptionDBRolePrivilegeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取角色权限列表
+       *
+       * @param request DescribeEncryptionDBRolePrivilegeRequest
+       * @return DescribeEncryptionDBRolePrivilegeResponse
+       */
+      Models::DescribeEncryptionDBRolePrivilegeResponse describeEncryptionDBRolePrivilege(const Models::DescribeEncryptionDBRolePrivilegeRequest &request);
+
+      /**
+       * @summary 获取加密信息
+       *
+       * @param request DescribeEncryptionDBSecretRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeEncryptionDBSecretResponse
+       */
+      Models::DescribeEncryptionDBSecretResponse describeEncryptionDBSecretWithOptions(const Models::DescribeEncryptionDBSecretRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取加密信息
+       *
+       * @param request DescribeEncryptionDBSecretRequest
+       * @return DescribeEncryptionDBSecretResponse
+       */
+      Models::DescribeEncryptionDBSecretResponse describeEncryptionDBSecret(const Models::DescribeEncryptionDBSecretRequest &request);
+
+      /**
+       * @summary 查询插件详情
+       *
+       * @param request DescribeExtensionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeExtensionsResponse
+       */
+      Models::DescribeExtensionsResponse describeExtensionsWithOptions(const Models::DescribeExtensionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询插件详情
+       *
+       * @param request DescribeExtensionsRequest
+       * @return DescribeExtensionsResponse
+       */
+      Models::DescribeExtensionsResponse describeExtensions(const Models::DescribeExtensionsRequest &request);
+
+      /**
+       * @summary 查询sql防火墙信息
+       *
+       * @param request DescribeFirewallRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeFirewallRulesResponse
+       */
+      Models::DescribeFirewallRulesResponse describeFirewallRulesWithOptions(const Models::DescribeFirewallRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询sql防火墙信息
+       *
+       * @param request DescribeFirewallRulesRequest
+       * @return DescribeFirewallRulesResponse
+       */
+      Models::DescribeFirewallRulesResponse describeFirewallRules(const Models::DescribeFirewallRulesRequest &request);
+
+      /**
        * @summary DescribeGlobalDataNetworkList
        *
        * @param request DescribeGlobalDataNetworkListRequest
@@ -1607,6 +2169,23 @@ namespace Polardb20170801
       Models::DescribeHistoryTasksResponse describeHistoryTasks(const Models::DescribeHistoryTasksRequest &request);
 
       /**
+       * @summary 任务中心任务统计
+       *
+       * @param request DescribeHistoryTasksStatRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeHistoryTasksStatResponse
+       */
+      Models::DescribeHistoryTasksStatResponse describeHistoryTasksStatWithOptions(const Models::DescribeHistoryTasksStatRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 任务中心任务统计
+       *
+       * @param request DescribeHistoryTasksStatRequest
+       * @return DescribeHistoryTasksStatResponse
+       */
+      Models::DescribeHistoryTasksStatResponse describeHistoryTasksStat(const Models::DescribeHistoryTasksStatRequest &request);
+
+      /**
        * @summary Queries the information of a license order.
        *
        * @param request DescribeLicenseOrderDetailsRequest
@@ -1639,6 +2218,23 @@ namespace Polardb20170801
        * @return DescribeLicenseOrdersResponse
        */
       Models::DescribeLicenseOrdersResponse describeLicenseOrders(const Models::DescribeLicenseOrdersRequest &request);
+
+      /**
+       * @summary 查询库表恢复可恢复时间范围
+       *
+       * @param request DescribeLocalAvailableRecoveryTimeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeLocalAvailableRecoveryTimeResponse
+       */
+      Models::DescribeLocalAvailableRecoveryTimeResponse describeLocalAvailableRecoveryTimeWithOptions(const Models::DescribeLocalAvailableRecoveryTimeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询库表恢复可恢复时间范围
+       *
+       * @param request DescribeLocalAvailableRecoveryTimeRequest
+       * @return DescribeLocalAvailableRecoveryTimeResponse
+       */
+      Models::DescribeLocalAvailableRecoveryTimeResponse describeLocalAvailableRecoveryTime(const Models::DescribeLocalAvailableRecoveryTimeRequest &request);
 
       /**
        * @summary Queries the retention policy of log backups in a PolarDB cluster.
@@ -1690,6 +2286,40 @@ namespace Polardb20170801
        * @return DescribeMetaListResponse
        */
       Models::DescribeMetaListResponse describeMetaList(const Models::DescribeMetaListRequest &request);
+
+      /**
+       * @summary 查询参数修改历史
+       *
+       * @param request DescribeModifyParameterLogRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeModifyParameterLogResponse
+       */
+      Models::DescribeModifyParameterLogResponse describeModifyParameterLogWithOptions(const Models::DescribeModifyParameterLogRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询参数修改历史
+       *
+       * @param request DescribeModifyParameterLogRequest
+       * @return DescribeModifyParameterLogResponse
+       */
+      Models::DescribeModifyParameterLogResponse describeModifyParameterLog(const Models::DescribeModifyParameterLogRequest &request);
+
+      /**
+       * @summary 查询网络通道
+       *
+       * @param request DescribeNetworkChannelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeNetworkChannelResponse
+       */
+      Models::DescribeNetworkChannelResponse describeNetworkChannelWithOptions(const Models::DescribeNetworkChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询网络通道
+       *
+       * @param request DescribeNetworkChannelRequest
+       * @return DescribeNetworkChannelResponse
+       */
+      Models::DescribeNetworkChannelResponse describeNetworkChannel(const Models::DescribeNetworkChannelRequest &request);
 
       /**
        * @summary Queries the information about a parameter template.
@@ -1806,6 +2436,32 @@ namespace Polardb20170801
       Models::DescribePolarSQLCollectorPolicyResponse describePolarSQLCollectorPolicy(const Models::DescribePolarSQLCollectorPolicyRequest &request);
 
       /**
+       * @param request DescribeRdsVSwitchsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRdsVSwitchsResponse
+       */
+      Models::DescribeRdsVSwitchsResponse describeRdsVSwitchsWithOptions(const Models::DescribeRdsVSwitchsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DescribeRdsVSwitchsRequest
+       * @return DescribeRdsVSwitchsResponse
+       */
+      Models::DescribeRdsVSwitchsResponse describeRdsVSwitchs(const Models::DescribeRdsVSwitchsRequest &request);
+
+      /**
+       * @param request DescribeRdsVpcsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRdsVpcsResponse
+       */
+      Models::DescribeRdsVpcsResponse describeRdsVpcsWithOptions(const Models::DescribeRdsVpcsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DescribeRdsVpcsRequest
+       * @return DescribeRdsVpcsResponse
+       */
+      Models::DescribeRdsVpcsResponse describeRdsVpcs(const Models::DescribeRdsVpcsRequest &request);
+
+      /**
        * @summary Queries the regions and zones available for PolarDB.
        *
        * @param request DescribeRegionsRequest
@@ -1821,6 +2477,39 @@ namespace Polardb20170801
        * @return DescribeRegionsResponse
        */
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
+
+      /**
+       * @summary 查询资源包列表
+       *
+       * @param request DescribeResourcePackagesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeResourcePackagesResponse
+       */
+      Models::DescribeResourcePackagesResponse describeResourcePackagesWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询资源包列表
+       *
+       * @return DescribeResourcePackagesResponse
+       */
+      Models::DescribeResourcePackagesResponse describeResourcePackages();
+
+      /**
+       * @summary 查询SQL限流规则信息
+       *
+       * @param request DescribeSQLRateLimitingRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSQLRateLimitingRulesResponse
+       */
+      Models::DescribeSQLRateLimitingRulesResponse describeSQLRateLimitingRulesWithOptions(const Models::DescribeSQLRateLimitingRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询SQL限流规则信息
+       *
+       * @param request DescribeSQLRateLimitingRulesRequest
+       * @return DescribeSQLRateLimitingRulesResponse
+       */
+      Models::DescribeSQLRateLimitingRulesResponse describeSQLRateLimitingRules(const Models::DescribeSQLRateLimitingRulesRequest &request);
 
       /**
        * @summary Queries the details of all scheduled tasks.
@@ -1907,6 +2596,23 @@ namespace Polardb20170801
       Models::DescribeTasksResponse describeTasks(const Models::DescribeTasksRequest &request);
 
       /**
+       * @summary 查询校验报告
+       *
+       * @param request DescribeUpgradeReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeUpgradeReportResponse
+       */
+      Models::DescribeUpgradeReportResponse describeUpgradeReportWithOptions(const Models::DescribeUpgradeReportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询校验报告
+       *
+       * @param request DescribeUpgradeReportRequest
+       * @return DescribeUpgradeReportResponse
+       */
+      Models::DescribeUpgradeReportResponse describeUpgradeReport(const Models::DescribeUpgradeReportRequest &request);
+
+      /**
        * @summary Queries the Key Management Service (KMS)-managed customer master keys (CMKs) that are used to encrypt data in a PolarDB cluster.
        *
        * @param request DescribeUserEncryptionKeyListRequest
@@ -1922,6 +2628,23 @@ namespace Polardb20170801
        * @return DescribeUserEncryptionKeyListResponse
        */
       Models::DescribeUserEncryptionKeyListResponse describeUserEncryptionKeyList(const Models::DescribeUserEncryptionKeyListRequest &request);
+
+      /**
+       * @summary 查询交换机信息
+       *
+       * @param request DescribeVSwitchListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVSwitchListResponse
+       */
+      Models::DescribeVSwitchListResponse describeVSwitchListWithOptions(const Models::DescribeVSwitchListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询交换机信息
+       *
+       * @param request DescribeVSwitchListRequest
+       * @return DescribeVSwitchListResponse
+       */
+      Models::DescribeVSwitchListResponse describeVSwitchList(const Models::DescribeVSwitchListRequest &request);
 
       /**
        * @summary Queries a vSwitch.
@@ -1941,6 +2664,57 @@ namespace Polardb20170801
       Models::DescribeVSwitchesResponse describeVSwitches(const Models::DescribeVSwitchesRequest &request);
 
       /**
+       * @summary 查询vpc
+       *
+       * @param request DescribeVpcsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVpcsResponse
+       */
+      Models::DescribeVpcsResponse describeVpcsWithOptions(const Models::DescribeVpcsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询vpc
+       *
+       * @param request DescribeVpcsRequest
+       * @return DescribeVpcsResponse
+       */
+      Models::DescribeVpcsResponse describeVpcs(const Models::DescribeVpcsRequest &request);
+
+      /**
+       * @summary 获取可用区
+       *
+       * @param request DescribeZonesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeZonesResponse
+       */
+      Models::DescribeZonesResponse describeZonesWithOptions(const Models::DescribeZonesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取可用区
+       *
+       * @param request DescribeZonesRequest
+       * @return DescribeZonesResponse
+       */
+      Models::DescribeZonesResponse describeZones(const Models::DescribeZonesRequest &request);
+
+      /**
+       * @summary 关闭集群的关系性
+       *
+       * @param request DisableDBClusterOrcaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableDBClusterOrcaResponse
+       */
+      Models::DisableDBClusterOrcaResponse disableDBClusterOrcaWithOptions(const Models::DisableDBClusterOrcaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 关闭集群的关系性
+       *
+       * @param request DisableDBClusterOrcaRequest
+       * @return DisableDBClusterOrcaResponse
+       */
+      Models::DisableDBClusterOrcaResponse disableDBClusterOrca(const Models::DisableDBClusterOrcaRequest &request);
+
+      /**
        * @summary Disables a stable serverless cluster.
        *
        * @param request DisableDBClusterServerlessRequest
@@ -1956,6 +2730,23 @@ namespace Polardb20170801
        * @return DisableDBClusterServerlessResponse
        */
       Models::DisableDBClusterServerlessResponse disableDBClusterServerless(const Models::DisableDBClusterServerlessRequest &request);
+
+      /**
+       * @summary 开启集群的关系性
+       *
+       * @param request EnableDBClusterOrcaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableDBClusterOrcaResponse
+       */
+      Models::EnableDBClusterOrcaResponse enableDBClusterOrcaWithOptions(const Models::EnableDBClusterOrcaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开启集群的关系性
+       *
+       * @param request EnableDBClusterOrcaRequest
+       * @return EnableDBClusterOrcaResponse
+       */
+      Models::EnableDBClusterOrcaResponse enableDBClusterOrca(const Models::EnableDBClusterOrcaRequest &request);
 
       /**
        * @summary Enables a stable serverless cluster.
@@ -1992,6 +2783,23 @@ namespace Polardb20170801
       Models::EnableFirewallRulesResponse enableFirewallRules(const Models::EnableFirewallRulesRequest &request);
 
       /**
+       * @summary 启用/禁用SQL限流规则
+       *
+       * @param request EnableSQLRateLimitingRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableSQLRateLimitingRulesResponse
+       */
+      Models::EnableSQLRateLimitingRulesResponse enableSQLRateLimitingRulesWithOptions(const Models::EnableSQLRateLimitingRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启用/禁用SQL限流规则
+       *
+       * @param request EnableSQLRateLimitingRulesRequest
+       * @return EnableSQLRateLimitingRulesResponse
+       */
+      Models::EnableSQLRateLimitingRulesResponse enableSQLRateLimitingRules(const Models::EnableSQLRateLimitingRulesRequest &request);
+
+      /**
        * @summary Evaluates available resources.
        *
        * @param request EvaluateRegionResourceRequest
@@ -2009,6 +2817,23 @@ namespace Polardb20170801
       Models::EvaluateRegionResourceResponse evaluateRegionResource(const Models::EvaluateRegionResourceRequest &request);
 
       /**
+       * @summary 调用跨云 OpenAPI
+       *
+       * @param request ExecuteCrossCloudOpenAPIRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExecuteCrossCloudOpenAPIResponse
+       */
+      Models::ExecuteCrossCloudOpenAPIResponse executeCrossCloudOpenAPIWithOptions(const Models::ExecuteCrossCloudOpenAPIRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 调用跨云 OpenAPI
+       *
+       * @param request ExecuteCrossCloudOpenAPIRequest
+       * @return ExecuteCrossCloudOpenAPIResponse
+       */
+      Models::ExecuteCrossCloudOpenAPIResponse executeCrossCloudOpenAPI(const Models::ExecuteCrossCloudOpenAPIRequest &request);
+
+      /**
        * @summary Performs a manual failover to promote a read-only node to the primary node in a PolarDB cluster.
        *
        * @param request FailoverDBClusterRequest
@@ -2024,6 +2849,23 @@ namespace Polardb20170801
        * @return FailoverDBClusterResponse
        */
       Models::FailoverDBClusterResponse failoverDBCluster(const Models::FailoverDBClusterRequest &request);
+
+      /**
+       * @summary 生成校验报告
+       *
+       * @param request GenerateUpgradeReportForSyncCloneRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateUpgradeReportForSyncCloneResponse
+       */
+      Models::GenerateUpgradeReportForSyncCloneResponse generateUpgradeReportForSyncCloneWithOptions(const Models::GenerateUpgradeReportForSyncCloneRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 生成校验报告
+       *
+       * @param request GenerateUpgradeReportForSyncCloneRequest
+       * @return GenerateUpgradeReportForSyncCloneResponse
+       */
+      Models::GenerateUpgradeReportForSyncCloneResponse generateUpgradeReportForSyncClone(const Models::GenerateUpgradeReportForSyncCloneRequest &request);
 
       /**
        * @summary Grants a standard account the permissions to access one or more databases in a specified PolarDB cluster.
@@ -2055,6 +2897,23 @@ namespace Polardb20170801
       Models::GrantAccountPrivilegeResponse grantAccountPrivilege(const Models::GrantAccountPrivilegeRequest &request);
 
       /**
+       * @summary 查询订单
+       *
+       * @param request ListOrdersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListOrdersResponse
+       */
+      Models::ListOrdersResponse listOrdersWithOptions(const Models::ListOrdersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询订单
+       *
+       * @param request ListOrdersRequest
+       * @return ListOrdersResponse
+       */
+      Models::ListOrdersResponse listOrders(const Models::ListOrdersRequest &request);
+
+      /**
        * @summary Queries the tags that are added to one or more PolarDB clusters, or the PolarDB clusters to which one or more tags are added.
        *
        * @param request ListTagResourcesRequest
@@ -2070,6 +2929,19 @@ namespace Polardb20170801
        * @return ListTagResourcesResponse
        */
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
+
+      /**
+       * @param request ListTagResourcesForRegionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTagResourcesForRegionResponse
+       */
+      Models::ListTagResourcesForRegionResponse listTagResourcesForRegionWithOptions(const Models::ListTagResourcesForRegionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request ListTagResourcesForRegionRequest
+       * @return ListTagResourcesForRegionResponse
+       */
+      Models::ListTagResourcesForRegionResponse listTagResourcesForRegion(const Models::ListTagResourcesForRegionRequest &request);
 
       /**
        * @summary Manually starts a cluster.
@@ -2089,6 +2961,23 @@ namespace Polardb20170801
       Models::ManuallyStartDBClusterResponse manuallyStartDBCluster(const Models::ManuallyStartDBClusterRequest &request);
 
       /**
+       * @summary 修改AI实例名称
+       *
+       * @param request ModifyAIDBClusterDescriptionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAIDBClusterDescriptionResponse
+       */
+      Models::ModifyAIDBClusterDescriptionResponse modifyAIDBClusterDescriptionWithOptions(const Models::ModifyAIDBClusterDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改AI实例名称
+       *
+       * @param request ModifyAIDBClusterDescriptionRequest
+       * @return ModifyAIDBClusterDescriptionResponse
+       */
+      Models::ModifyAIDBClusterDescriptionResponse modifyAIDBClusterDescription(const Models::ModifyAIDBClusterDescriptionRequest &request);
+
+      /**
        * @summary Modifies the description of a database account of a PolarDB cluster.
        *
        * @param request ModifyAccountDescriptionRequest
@@ -2106,6 +2995,19 @@ namespace Polardb20170801
       Models::ModifyAccountDescriptionResponse modifyAccountDescription(const Models::ModifyAccountDescriptionRequest &request);
 
       /**
+       * @param request ModifyAccountLockStateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAccountLockStateResponse
+       */
+      Models::ModifyAccountLockStateResponse modifyAccountLockStateWithOptions(const Models::ModifyAccountLockStateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request ModifyAccountLockStateRequest
+       * @return ModifyAccountLockStateResponse
+       */
+      Models::ModifyAccountLockStateResponse modifyAccountLockState(const Models::ModifyAccountLockStateRequest &request);
+
+      /**
        * @summary Changes the password of a database account for a specified PolarDB cluster.
        *
        * @param request ModifyAccountPasswordRequest
@@ -2121,6 +3023,23 @@ namespace Polardb20170801
        * @return ModifyAccountPasswordResponse
        */
       Models::ModifyAccountPasswordResponse modifyAccountPassword(const Models::ModifyAccountPasswordRequest &request);
+
+      /**
+       * @summary 配置用户的运维信息，目前包括主动运维窗口信息
+       *
+       * @param request ModifyActiveOperationMaintainConfRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyActiveOperationMaintainConfResponse
+       */
+      Models::ModifyActiveOperationMaintainConfResponse modifyActiveOperationMaintainConfWithOptions(const Models::ModifyActiveOperationMaintainConfRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 配置用户的运维信息，目前包括主动运维窗口信息
+       *
+       * @param request ModifyActiveOperationMaintainConfRequest
+       * @return ModifyActiveOperationMaintainConfResponse
+       */
+      Models::ModifyActiveOperationMaintainConfResponse modifyActiveOperationMaintainConf(const Models::ModifyActiveOperationMaintainConfRequest &request);
 
       /**
        * @summary Modifies the switching time of scheduled O\\&M events for an instance.
@@ -2176,6 +3095,23 @@ namespace Polardb20170801
        * @return ModifyBackupPolicyResponse
        */
       Models::ModifyBackupPolicyResponse modifyBackupPolicy(const Models::ModifyBackupPolicyRequest &request);
+
+      /**
+       * @summary 修改周期任务策略
+       *
+       * @param request ModifyCronJobPolicyServerlessRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyCronJobPolicyServerlessResponse
+       */
+      Models::ModifyCronJobPolicyServerlessResponse modifyCronJobPolicyServerlessWithOptions(const Models::ModifyCronJobPolicyServerlessRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改周期任务策略
+       *
+       * @param request ModifyCronJobPolicyServerlessRequest
+       * @return ModifyCronJobPolicyServerlessResponse
+       */
+      Models::ModifyCronJobPolicyServerlessResponse modifyCronJobPolicyServerless(const Models::ModifyCronJobPolicyServerlessRequest &request);
 
       /**
        * @summary Modifies the configurations of a PolarDB for MySQL cluster.
@@ -2358,6 +3294,23 @@ namespace Polardb20170801
        * @return ModifyDBClusterMigrationResponse
        */
       Models::ModifyDBClusterMigrationResponse modifyDBClusterMigration(const Models::ModifyDBClusterMigrationRequest &request);
+
+      /**
+       * @summary 修改dts源实例、目标实例
+       *
+       * @param request ModifyDBClusterMigrationEndpointRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyDBClusterMigrationEndpointResponse
+       */
+      Models::ModifyDBClusterMigrationEndpointResponse modifyDBClusterMigrationEndpointWithOptions(const Models::ModifyDBClusterMigrationEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改dts源实例、目标实例
+       *
+       * @param request ModifyDBClusterMigrationEndpointRequest
+       * @return ModifyDBClusterMigrationEndpointResponse
+       */
+      Models::ModifyDBClusterMigrationEndpointResponse modifyDBClusterMigrationEndpoint(const Models::ModifyDBClusterMigrationEndpointRequest &request);
 
       /**
        * @summary Modifies the interval at which the monitoring data of a PolarDB cluster is collected.
@@ -2551,6 +3504,23 @@ namespace Polardb20170801
       Models::ModifyDBClusterTDEResponse modifyDBClusterTDE(const Models::ModifyDBClusterTDERequest &request);
 
       /**
+       * @summary 修改集群VSwitch参数
+       *
+       * @param request ModifyDBClusterVpcRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyDBClusterVpcResponse
+       */
+      Models::ModifyDBClusterVpcResponse modifyDBClusterVpcWithOptions(const Models::ModifyDBClusterVpcRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改集群VSwitch参数
+       *
+       * @param request ModifyDBClusterVpcRequest
+       * @return ModifyDBClusterVpcResponse
+       */
+      Models::ModifyDBClusterVpcResponse modifyDBClusterVpc(const Models::ModifyDBClusterVpcRequest &request);
+
+      /**
        * @summary Modifies the description of a database in a PolarDB for MySQL cluster.
        *
        * @param request ModifyDBDescriptionRequest
@@ -2602,6 +3572,19 @@ namespace Polardb20170801
       Models::ModifyDBNodeClassResponse modifyDBNodeClass(const Models::ModifyDBNodeClassRequest &request);
 
       /**
+       * @param request ModifyDBNodeConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyDBNodeConfigResponse
+       */
+      Models::ModifyDBNodeConfigResponse modifyDBNodeConfigWithOptions(const Models::ModifyDBNodeConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request ModifyDBNodeConfigRequest
+       * @return ModifyDBNodeConfigResponse
+       */
+      Models::ModifyDBNodeConfigResponse modifyDBNodeConfig(const Models::ModifyDBNodeConfigRequest &request);
+
+      /**
        * @summary 修改物理节点描述
        *
        * @param request ModifyDBNodeDescriptionRequest
@@ -2636,6 +3619,23 @@ namespace Polardb20170801
       Models::ModifyDBNodeHotReplicaModeResponse modifyDBNodeHotReplicaMode(const Models::ModifyDBNodeHotReplicaModeRequest &request);
 
       /**
+       * @summary 修改节点的Scc
+       *
+       * @param request ModifyDBNodeSccModeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyDBNodeSccModeResponse
+       */
+      Models::ModifyDBNodeSccModeResponse modifyDBNodeSccModeWithOptions(const Models::ModifyDBNodeSccModeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改节点的Scc
+       *
+       * @param request ModifyDBNodeSccModeRequest
+       * @return ModifyDBNodeSccModeResponse
+       */
+      Models::ModifyDBNodeSccModeResponse modifyDBNodeSccMode(const Models::ModifyDBNodeSccModeRequest &request);
+
+      /**
        * @summary Changes the specifications of a node in a PolarDB cluster.
        *
        * @param request ModifyDBNodesClassRequest
@@ -2668,6 +3668,57 @@ namespace Polardb20170801
        * @return ModifyDBNodesParametersResponse
        */
       Models::ModifyDBNodesParametersResponse modifyDBNodesParameters(const Models::ModifyDBNodesParametersRequest &request);
+
+      /**
+       * @summary 变更角色权限
+       *
+       * @param request ModifyEncryptionDBRolePrivilegeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyEncryptionDBRolePrivilegeResponse
+       */
+      Models::ModifyEncryptionDBRolePrivilegeResponse modifyEncryptionDBRolePrivilegeWithOptions(const Models::ModifyEncryptionDBRolePrivilegeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 变更角色权限
+       *
+       * @param request ModifyEncryptionDBRolePrivilegeRequest
+       * @return ModifyEncryptionDBRolePrivilegeResponse
+       */
+      Models::ModifyEncryptionDBRolePrivilegeResponse modifyEncryptionDBRolePrivilege(const Models::ModifyEncryptionDBRolePrivilegeRequest &request);
+
+      /**
+       * @summary 变更加密策略
+       *
+       * @param request ModifyEncryptionDBSecretRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyEncryptionDBSecretResponse
+       */
+      Models::ModifyEncryptionDBSecretResponse modifyEncryptionDBSecretWithOptions(const Models::ModifyEncryptionDBSecretRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 变更加密策略
+       *
+       * @param request ModifyEncryptionDBSecretRequest
+       * @return ModifyEncryptionDBSecretResponse
+       */
+      Models::ModifyEncryptionDBSecretResponse modifyEncryptionDBSecret(const Models::ModifyEncryptionDBSecretRequest &request);
+
+      /**
+       * @summary 修改sql防火墙配置
+       *
+       * @param request ModifyFirewallRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyFirewallRulesResponse
+       */
+      Models::ModifyFirewallRulesResponse modifyFirewallRulesWithOptions(const Models::ModifyFirewallRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改sql防火墙配置
+       *
+       * @param request ModifyFirewallRulesRequest
+       * @return ModifyFirewallRulesResponse
+       */
+      Models::ModifyFirewallRulesResponse modifyFirewallRules(const Models::ModifyFirewallRulesRequest &request);
 
       /**
        * @summary Modifies a global database network (GDN).
@@ -2789,6 +3840,57 @@ namespace Polardb20170801
       Models::ModifyPendingMaintenanceActionResponse modifyPendingMaintenanceAction(const Models::ModifyPendingMaintenanceActionRequest &request);
 
       /**
+       * @summary 配置资源包
+       *
+       * @param request ModifyResourcePackageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyResourcePackageResponse
+       */
+      Models::ModifyResourcePackageResponse modifyResourcePackageWithOptions(const Models::ModifyResourcePackageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 配置资源包
+       *
+       * @param request ModifyResourcePackageRequest
+       * @return ModifyResourcePackageResponse
+       */
+      Models::ModifyResourcePackageResponse modifyResourcePackage(const Models::ModifyResourcePackageRequest &request);
+
+      /**
+       * @summary 修改SQL限流规则
+       *
+       * @param request ModifySQLRateLimitingRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifySQLRateLimitingRulesResponse
+       */
+      Models::ModifySQLRateLimitingRulesResponse modifySQLRateLimitingRulesWithOptions(const Models::ModifySQLRateLimitingRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改SQL限流规则
+       *
+       * @param request ModifySQLRateLimitingRulesRequest
+       * @return ModifySQLRateLimitingRulesResponse
+       */
+      Models::ModifySQLRateLimitingRulesResponse modifySQLRateLimitingRules(const Models::ModifySQLRateLimitingRulesRequest &request);
+
+      /**
+       * @summary 修改目标计划任务
+       *
+       * @param request ModifyScheduleTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyScheduleTaskResponse
+       */
+      Models::ModifyScheduleTaskResponse modifyScheduleTaskWithOptions(const Models::ModifyScheduleTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改目标计划任务
+       *
+       * @param request ModifyScheduleTaskRequest
+       * @return ModifyScheduleTaskResponse
+       */
+      Models::ModifyScheduleTaskResponse modifyScheduleTask(const Models::ModifyScheduleTaskRequest &request);
+
+      /**
        * @summary Enables the PolarDB for AI feature for a cluster.
        *
        * @param request OpenAITaskRequest
@@ -2882,6 +3984,19 @@ namespace Polardb20170801
        * @return ResetAccountResponse
        */
       Models::ResetAccountResponse resetAccount(const Models::ResetAccountRequest &request);
+
+      /**
+       * @param request ResetAccountPasswordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResetAccountPasswordResponse
+       */
+      Models::ResetAccountPasswordResponse resetAccountPasswordWithOptions(const Models::ResetAccountPasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request ResetAccountPasswordRequest
+       * @return ResetAccountPasswordResponse
+       */
+      Models::ResetAccountPasswordResponse resetAccountPassword(const Models::ResetAccountPasswordRequest &request);
 
       /**
        * @summary Rebuilds a secondary cluster in a Global Database Network (GDN).
@@ -3058,6 +4173,23 @@ namespace Polardb20170801
        * @return UntagResourcesResponse
        */
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
+
+      /**
+       * @summary 更新插件
+       *
+       * @param request UpdateExtensionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateExtensionsResponse
+       */
+      Models::UpdateExtensionsResponse updateExtensionsWithOptions(const Models::UpdateExtensionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新插件
+       *
+       * @param request UpdateExtensionsRequest
+       * @return UpdateExtensionsResponse
+       */
+      Models::UpdateExtensionsResponse updateExtensions(const Models::UpdateExtensionsRequest &request);
 
       /**
        * @summary Upgrades the kernel version of a PolarDB for MySQL cluster.

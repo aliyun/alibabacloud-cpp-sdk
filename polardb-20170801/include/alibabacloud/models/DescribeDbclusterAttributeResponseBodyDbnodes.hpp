@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AddedCpuCores, addedCpuCores_);
       DARABONBA_PTR_TO_JSON(CpuCores, cpuCores_);
       DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
+      DARABONBA_PTR_TO_JSON(DBNodeCXLRemoteMemory, DBNodeCXLRemoteMemory_);
       DARABONBA_PTR_TO_JSON(DBNodeClass, DBNodeClass_);
       DARABONBA_PTR_TO_JSON(DBNodeDescription, DBNodeDescription_);
       DARABONBA_PTR_TO_JSON(DBNodeId, DBNodeId_);
@@ -44,6 +45,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AddedCpuCores, addedCpuCores_);
       DARABONBA_PTR_FROM_JSON(CpuCores, cpuCores_);
       DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
+      DARABONBA_PTR_FROM_JSON(DBNodeCXLRemoteMemory, DBNodeCXLRemoteMemory_);
       DARABONBA_PTR_FROM_JSON(DBNodeClass, DBNodeClass_);
       DARABONBA_PTR_FROM_JSON(DBNodeDescription, DBNodeDescription_);
       DARABONBA_PTR_FROM_JSON(DBNodeId, DBNodeId_);
@@ -80,11 +82,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->addedCpuCores_ != nullptr
-        && this->cpuCores_ != nullptr && this->creationTime_ != nullptr && this->DBNodeClass_ != nullptr && this->DBNodeDescription_ != nullptr && this->DBNodeId_ != nullptr
-        && this->DBNodeRole_ != nullptr && this->DBNodeStatus_ != nullptr && this->failoverPriority_ != nullptr && this->hotReplicaMode_ != nullptr && this->imciSwitch_ != nullptr
-        && this->masterId_ != nullptr && this->maxConnections_ != nullptr && this->maxIOPS_ != nullptr && this->memorySize_ != nullptr && this->mirrorInsName_ != nullptr
-        && this->multiMasterLocalStandby_ != nullptr && this->multiMasterPrimaryNode_ != nullptr && this->orca_ != nullptr && this->remoteMemorySize_ != nullptr && this->sccMode_ != nullptr
-        && this->serverWeight_ != nullptr && this->serverlessType_ != nullptr && this->subCluster_ != nullptr && this->subGroupDescription_ != nullptr && this->zoneId_ != nullptr; };
+        && this->cpuCores_ != nullptr && this->creationTime_ != nullptr && this->DBNodeCXLRemoteMemory_ != nullptr && this->DBNodeClass_ != nullptr && this->DBNodeDescription_ != nullptr
+        && this->DBNodeId_ != nullptr && this->DBNodeRole_ != nullptr && this->DBNodeStatus_ != nullptr && this->failoverPriority_ != nullptr && this->hotReplicaMode_ != nullptr
+        && this->imciSwitch_ != nullptr && this->masterId_ != nullptr && this->maxConnections_ != nullptr && this->maxIOPS_ != nullptr && this->memorySize_ != nullptr
+        && this->mirrorInsName_ != nullptr && this->multiMasterLocalStandby_ != nullptr && this->multiMasterPrimaryNode_ != nullptr && this->orca_ != nullptr && this->remoteMemorySize_ != nullptr
+        && this->sccMode_ != nullptr && this->serverWeight_ != nullptr && this->serverlessType_ != nullptr && this->subCluster_ != nullptr && this->subGroupDescription_ != nullptr
+        && this->zoneId_ != nullptr; };
     // addedCpuCores Field Functions 
     bool hasAddedCpuCores() const { return this->addedCpuCores_ != nullptr;};
     void deleteAddedCpuCores() { this->addedCpuCores_ = nullptr;};
@@ -104,6 +107,13 @@ namespace Models
     void deleteCreationTime() { this->creationTime_ = nullptr;};
     inline string creationTime() const { DARABONBA_PTR_GET_DEFAULT(creationTime_, "") };
     inline DescribeDBClusterAttributeResponseBodyDBNodes& setCreationTime(string creationTime) { DARABONBA_PTR_SET_VALUE(creationTime_, creationTime) };
+
+
+    // DBNodeCXLRemoteMemory Field Functions 
+    bool hasDBNodeCXLRemoteMemory() const { return this->DBNodeCXLRemoteMemory_ != nullptr;};
+    void deleteDBNodeCXLRemoteMemory() { this->DBNodeCXLRemoteMemory_ = nullptr;};
+    inline string DBNodeCXLRemoteMemory() const { DARABONBA_PTR_GET_DEFAULT(DBNodeCXLRemoteMemory_, "") };
+    inline DescribeDBClusterAttributeResponseBodyDBNodes& setDBNodeCXLRemoteMemory(string DBNodeCXLRemoteMemory) { DARABONBA_PTR_SET_VALUE(DBNodeCXLRemoteMemory_, DBNodeCXLRemoteMemory) };
 
 
     // DBNodeClass Field Functions 
@@ -274,6 +284,7 @@ namespace Models
     std::shared_ptr<string> cpuCores_ = nullptr;
     // Node creation time.
     std::shared_ptr<string> creationTime_ = nullptr;
+    std::shared_ptr<string> DBNodeCXLRemoteMemory_ = nullptr;
     // Node specification.
     std::shared_ptr<string> DBNodeClass_ = nullptr;
     std::shared_ptr<string> DBNodeDescription_ = nullptr;
