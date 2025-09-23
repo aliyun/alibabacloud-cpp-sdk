@@ -31,19 +31,25 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AvgPhysicalIOReads, avgPhysicalIOReads_);
       DARABONBA_PTR_TO_JSON(AvgQueryTime, avgQueryTime_);
       DARABONBA_PTR_TO_JSON(AvgQueryTimeSeconds, avgQueryTimeSeconds_);
+      DARABONBA_PTR_TO_JSON(AvgRequestSize, avgRequestSize_);
+      DARABONBA_PTR_TO_JSON(AvgResponseSize, avgResponseSize_);
       DARABONBA_PTR_TO_JSON(AvgReturnNum, avgReturnNum_);
       DARABONBA_PTR_TO_JSON(AvgRows, avgRows_);
       DARABONBA_PTR_TO_JSON(AvgRowsCountAffected, avgRowsCountAffected_);
       DARABONBA_PTR_TO_JSON(AvgRowsExamined, avgRowsExamined_);
       DARABONBA_PTR_TO_JSON(AvgRowsSent, avgRowsSent_);
+      DARABONBA_PTR_TO_JSON(AvgRt, avgRt_);
       DARABONBA_PTR_TO_JSON(AvgScnt, avgScnt_);
       DARABONBA_PTR_TO_JSON(CPUTime, CPUTime_);
       DARABONBA_PTR_TO_JSON(CPUTimeSeconds, CPUTimeSeconds_);
+      DARABONBA_PTR_TO_JSON(ClientIp, clientIp_);
+      DARABONBA_PTR_TO_JSON(Cmd, cmd_);
       DARABONBA_PTR_TO_JSON(Command, command_);
       DARABONBA_PTR_TO_JSON(Count, count_);
       DARABONBA_PTR_TO_JSON(CountRate, countRate_);
       DARABONBA_PTR_TO_JSON(DBName, DBName_);
       DARABONBA_PTR_TO_JSON(Database, database_);
+      DARABONBA_PTR_TO_JSON(DbId, dbId_);
       DARABONBA_PTR_TO_JSON(DbInstanceName, dbInstanceName_);
       DARABONBA_PTR_TO_JSON(DocExamined, docExamined_);
       DARABONBA_PTR_TO_JSON(DocsExamined, docsExamined_);
@@ -72,11 +78,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MaxPhysicalIOReads, maxPhysicalIOReads_);
       DARABONBA_PTR_TO_JSON(MaxQueryTime, maxQueryTime_);
       DARABONBA_PTR_TO_JSON(MaxQueryTimeSeconds, maxQueryTimeSeconds_);
+      DARABONBA_PTR_TO_JSON(MaxRequestSize, maxRequestSize_);
+      DARABONBA_PTR_TO_JSON(MaxResponseSize, maxResponseSize_);
       DARABONBA_PTR_TO_JSON(MaxReturnNum, maxReturnNum_);
       DARABONBA_PTR_TO_JSON(MaxRows, maxRows_);
       DARABONBA_PTR_TO_JSON(MaxRowsCountAffected, maxRowsCountAffected_);
       DARABONBA_PTR_TO_JSON(MaxRowsExamined, maxRowsExamined_);
       DARABONBA_PTR_TO_JSON(MaxRowsSent, maxRowsSent_);
+      DARABONBA_PTR_TO_JSON(MaxRt, maxRt_);
       DARABONBA_PTR_TO_JSON(MaxScnt, maxScnt_);
       DARABONBA_PTR_TO_JSON(Namespace, namespace_);
       DARABONBA_PTR_TO_JSON(NodeType, nodeType_);
@@ -106,6 +115,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TableName, tableName_);
       DARABONBA_PTR_TO_JSON(ThreadId, threadId_);
       DARABONBA_PTR_TO_JSON(Timestamp, timestamp_);
+      DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
       DARABONBA_PTR_TO_JSON(Trend, trend_);
       DARABONBA_PTR_TO_JSON(User, user_);
     };
@@ -124,19 +134,25 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AvgPhysicalIOReads, avgPhysicalIOReads_);
       DARABONBA_PTR_FROM_JSON(AvgQueryTime, avgQueryTime_);
       DARABONBA_PTR_FROM_JSON(AvgQueryTimeSeconds, avgQueryTimeSeconds_);
+      DARABONBA_PTR_FROM_JSON(AvgRequestSize, avgRequestSize_);
+      DARABONBA_PTR_FROM_JSON(AvgResponseSize, avgResponseSize_);
       DARABONBA_PTR_FROM_JSON(AvgReturnNum, avgReturnNum_);
       DARABONBA_PTR_FROM_JSON(AvgRows, avgRows_);
       DARABONBA_PTR_FROM_JSON(AvgRowsCountAffected, avgRowsCountAffected_);
       DARABONBA_PTR_FROM_JSON(AvgRowsExamined, avgRowsExamined_);
       DARABONBA_PTR_FROM_JSON(AvgRowsSent, avgRowsSent_);
+      DARABONBA_PTR_FROM_JSON(AvgRt, avgRt_);
       DARABONBA_PTR_FROM_JSON(AvgScnt, avgScnt_);
       DARABONBA_PTR_FROM_JSON(CPUTime, CPUTime_);
       DARABONBA_PTR_FROM_JSON(CPUTimeSeconds, CPUTimeSeconds_);
+      DARABONBA_PTR_FROM_JSON(ClientIp, clientIp_);
+      DARABONBA_PTR_FROM_JSON(Cmd, cmd_);
       DARABONBA_PTR_FROM_JSON(Command, command_);
       DARABONBA_PTR_FROM_JSON(Count, count_);
       DARABONBA_PTR_FROM_JSON(CountRate, countRate_);
       DARABONBA_PTR_FROM_JSON(DBName, DBName_);
       DARABONBA_PTR_FROM_JSON(Database, database_);
+      DARABONBA_PTR_FROM_JSON(DbId, dbId_);
       DARABONBA_PTR_FROM_JSON(DbInstanceName, dbInstanceName_);
       DARABONBA_PTR_FROM_JSON(DocExamined, docExamined_);
       DARABONBA_PTR_FROM_JSON(DocsExamined, docsExamined_);
@@ -165,11 +181,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MaxPhysicalIOReads, maxPhysicalIOReads_);
       DARABONBA_PTR_FROM_JSON(MaxQueryTime, maxQueryTime_);
       DARABONBA_PTR_FROM_JSON(MaxQueryTimeSeconds, maxQueryTimeSeconds_);
+      DARABONBA_PTR_FROM_JSON(MaxRequestSize, maxRequestSize_);
+      DARABONBA_PTR_FROM_JSON(MaxResponseSize, maxResponseSize_);
       DARABONBA_PTR_FROM_JSON(MaxReturnNum, maxReturnNum_);
       DARABONBA_PTR_FROM_JSON(MaxRows, maxRows_);
       DARABONBA_PTR_FROM_JSON(MaxRowsCountAffected, maxRowsCountAffected_);
       DARABONBA_PTR_FROM_JSON(MaxRowsExamined, maxRowsExamined_);
       DARABONBA_PTR_FROM_JSON(MaxRowsSent, maxRowsSent_);
+      DARABONBA_PTR_FROM_JSON(MaxRt, maxRt_);
       DARABONBA_PTR_FROM_JSON(MaxScnt, maxScnt_);
       DARABONBA_PTR_FROM_JSON(Namespace, namespace_);
       DARABONBA_PTR_FROM_JSON(NodeType, nodeType_);
@@ -199,6 +218,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(TableName, tableName_);
       DARABONBA_PTR_FROM_JSON(ThreadId, threadId_);
       DARABONBA_PTR_FROM_JSON(Timestamp, timestamp_);
+      DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
       DARABONBA_PTR_FROM_JSON(Trend, trend_);
       DARABONBA_PTR_FROM_JSON(User, user_);
     };
@@ -216,22 +236,24 @@ namespace Models
     virtual bool empty() const override { this->accountName_ != nullptr
         && this->avgCPUTime_ != nullptr && this->avgCPUTimeSeconds_ != nullptr && this->avgDocExamined_ != nullptr && this->avgFrows_ != nullptr && this->avgIOWrites_ != nullptr
         && this->avgKeysExamined_ != nullptr && this->avgLastRowsCountAffected_ != nullptr && this->avgLockTime_ != nullptr && this->avgLockTimeSeconds_ != nullptr && this->avgLogicalIOReads_ != nullptr
-        && this->avgPhysicalIOReads_ != nullptr && this->avgQueryTime_ != nullptr && this->avgQueryTimeSeconds_ != nullptr && this->avgReturnNum_ != nullptr && this->avgRows_ != nullptr
-        && this->avgRowsCountAffected_ != nullptr && this->avgRowsExamined_ != nullptr && this->avgRowsSent_ != nullptr && this->avgScnt_ != nullptr && this->CPUTime_ != nullptr
-        && this->CPUTimeSeconds_ != nullptr && this->command_ != nullptr && this->count_ != nullptr && this->countRate_ != nullptr && this->DBName_ != nullptr
-        && this->database_ != nullptr && this->dbInstanceName_ != nullptr && this->docExamined_ != nullptr && this->docsExamined_ != nullptr && this->frows_ != nullptr
-        && this->histogram_ != nullptr && this->hostAddress_ != nullptr && this->hostInsId_ != nullptr && this->IOWrites_ != nullptr && this->insName_ != nullptr
-        && this->insRole_ != nullptr && this->keysExamined_ != nullptr && this->lastRowsCountAffected_ != nullptr && this->lockTime_ != nullptr && this->lockTimeSeconds_ != nullptr
-        && this->logicalIOReads_ != nullptr && this->maxCPUTime_ != nullptr && this->maxCPUTimeSeconds_ != nullptr && this->maxDocExamined_ != nullptr && this->maxFrows_ != nullptr
-        && this->maxIOWrites_ != nullptr && this->maxKeysExamined_ != nullptr && this->maxLastRowsCountAffected_ != nullptr && this->maxLockTime_ != nullptr && this->maxLockTimeSeconds_ != nullptr
-        && this->maxLogicalIOReads_ != nullptr && this->maxPhysicalIOReads_ != nullptr && this->maxQueryTime_ != nullptr && this->maxQueryTimeSeconds_ != nullptr && this->maxReturnNum_ != nullptr
-        && this->maxRows_ != nullptr && this->maxRowsCountAffected_ != nullptr && this->maxRowsExamined_ != nullptr && this->maxRowsSent_ != nullptr && this->maxScnt_ != nullptr
-        && this->namespace_ != nullptr && this->nodeType_ != nullptr && this->opType_ != nullptr && this->originAlias_ != nullptr && this->physicalIOReads_ != nullptr
-        && this->psql_ != nullptr && this->queryId_ != nullptr && this->queryStartTime_ != nullptr && this->queryTime_ != nullptr && this->queryTimeRate_ != nullptr
-        && this->queryTimeSeconds_ != nullptr && this->returnItemNumbers_ != nullptr && this->returnNum_ != nullptr && this->rows_ != nullptr && this->rowsCountAffected_ != nullptr
-        && this->rowsExamined_ != nullptr && this->rowsSent_ != nullptr && this->ruleId_ != nullptr && this->SQLText_ != nullptr && this->scheme_ != nullptr
-        && this->scnt_ != nullptr && this->sqlId_ != nullptr && this->sqlTag_ != nullptr && this->sqlType_ != nullptr && this->subInstanceId_ != nullptr
-        && this->tableName_ != nullptr && this->threadId_ != nullptr && this->timestamp_ != nullptr && this->trend_ != nullptr && this->user_ != nullptr; };
+        && this->avgPhysicalIOReads_ != nullptr && this->avgQueryTime_ != nullptr && this->avgQueryTimeSeconds_ != nullptr && this->avgRequestSize_ != nullptr && this->avgResponseSize_ != nullptr
+        && this->avgReturnNum_ != nullptr && this->avgRows_ != nullptr && this->avgRowsCountAffected_ != nullptr && this->avgRowsExamined_ != nullptr && this->avgRowsSent_ != nullptr
+        && this->avgRt_ != nullptr && this->avgScnt_ != nullptr && this->CPUTime_ != nullptr && this->CPUTimeSeconds_ != nullptr && this->clientIp_ != nullptr
+        && this->cmd_ != nullptr && this->command_ != nullptr && this->count_ != nullptr && this->countRate_ != nullptr && this->DBName_ != nullptr
+        && this->database_ != nullptr && this->dbId_ != nullptr && this->dbInstanceName_ != nullptr && this->docExamined_ != nullptr && this->docsExamined_ != nullptr
+        && this->frows_ != nullptr && this->histogram_ != nullptr && this->hostAddress_ != nullptr && this->hostInsId_ != nullptr && this->IOWrites_ != nullptr
+        && this->insName_ != nullptr && this->insRole_ != nullptr && this->keysExamined_ != nullptr && this->lastRowsCountAffected_ != nullptr && this->lockTime_ != nullptr
+        && this->lockTimeSeconds_ != nullptr && this->logicalIOReads_ != nullptr && this->maxCPUTime_ != nullptr && this->maxCPUTimeSeconds_ != nullptr && this->maxDocExamined_ != nullptr
+        && this->maxFrows_ != nullptr && this->maxIOWrites_ != nullptr && this->maxKeysExamined_ != nullptr && this->maxLastRowsCountAffected_ != nullptr && this->maxLockTime_ != nullptr
+        && this->maxLockTimeSeconds_ != nullptr && this->maxLogicalIOReads_ != nullptr && this->maxPhysicalIOReads_ != nullptr && this->maxQueryTime_ != nullptr && this->maxQueryTimeSeconds_ != nullptr
+        && this->maxRequestSize_ != nullptr && this->maxResponseSize_ != nullptr && this->maxReturnNum_ != nullptr && this->maxRows_ != nullptr && this->maxRowsCountAffected_ != nullptr
+        && this->maxRowsExamined_ != nullptr && this->maxRowsSent_ != nullptr && this->maxRt_ != nullptr && this->maxScnt_ != nullptr && this->namespace_ != nullptr
+        && this->nodeType_ != nullptr && this->opType_ != nullptr && this->originAlias_ != nullptr && this->physicalIOReads_ != nullptr && this->psql_ != nullptr
+        && this->queryId_ != nullptr && this->queryStartTime_ != nullptr && this->queryTime_ != nullptr && this->queryTimeRate_ != nullptr && this->queryTimeSeconds_ != nullptr
+        && this->returnItemNumbers_ != nullptr && this->returnNum_ != nullptr && this->rows_ != nullptr && this->rowsCountAffected_ != nullptr && this->rowsExamined_ != nullptr
+        && this->rowsSent_ != nullptr && this->ruleId_ != nullptr && this->SQLText_ != nullptr && this->scheme_ != nullptr && this->scnt_ != nullptr
+        && this->sqlId_ != nullptr && this->sqlTag_ != nullptr && this->sqlType_ != nullptr && this->subInstanceId_ != nullptr && this->tableName_ != nullptr
+        && this->threadId_ != nullptr && this->timestamp_ != nullptr && this->totalCount_ != nullptr && this->trend_ != nullptr && this->user_ != nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
@@ -330,6 +352,20 @@ namespace Models
     inline DescribeSlowLogStatisticResponseBodyDataDataLogs& setAvgQueryTimeSeconds(double avgQueryTimeSeconds) { DARABONBA_PTR_SET_VALUE(avgQueryTimeSeconds_, avgQueryTimeSeconds) };
 
 
+    // avgRequestSize Field Functions 
+    bool hasAvgRequestSize() const { return this->avgRequestSize_ != nullptr;};
+    void deleteAvgRequestSize() { this->avgRequestSize_ = nullptr;};
+    inline double avgRequestSize() const { DARABONBA_PTR_GET_DEFAULT(avgRequestSize_, 0.0) };
+    inline DescribeSlowLogStatisticResponseBodyDataDataLogs& setAvgRequestSize(double avgRequestSize) { DARABONBA_PTR_SET_VALUE(avgRequestSize_, avgRequestSize) };
+
+
+    // avgResponseSize Field Functions 
+    bool hasAvgResponseSize() const { return this->avgResponseSize_ != nullptr;};
+    void deleteAvgResponseSize() { this->avgResponseSize_ = nullptr;};
+    inline double avgResponseSize() const { DARABONBA_PTR_GET_DEFAULT(avgResponseSize_, 0.0) };
+    inline DescribeSlowLogStatisticResponseBodyDataDataLogs& setAvgResponseSize(double avgResponseSize) { DARABONBA_PTR_SET_VALUE(avgResponseSize_, avgResponseSize) };
+
+
     // avgReturnNum Field Functions 
     bool hasAvgReturnNum() const { return this->avgReturnNum_ != nullptr;};
     void deleteAvgReturnNum() { this->avgReturnNum_ = nullptr;};
@@ -365,6 +401,13 @@ namespace Models
     inline DescribeSlowLogStatisticResponseBodyDataDataLogs& setAvgRowsSent(double avgRowsSent) { DARABONBA_PTR_SET_VALUE(avgRowsSent_, avgRowsSent) };
 
 
+    // avgRt Field Functions 
+    bool hasAvgRt() const { return this->avgRt_ != nullptr;};
+    void deleteAvgRt() { this->avgRt_ = nullptr;};
+    inline double avgRt() const { DARABONBA_PTR_GET_DEFAULT(avgRt_, 0.0) };
+    inline DescribeSlowLogStatisticResponseBodyDataDataLogs& setAvgRt(double avgRt) { DARABONBA_PTR_SET_VALUE(avgRt_, avgRt) };
+
+
     // avgScnt Field Functions 
     bool hasAvgScnt() const { return this->avgScnt_ != nullptr;};
     void deleteAvgScnt() { this->avgScnt_ = nullptr;};
@@ -384,6 +427,20 @@ namespace Models
     void deleteCPUTimeSeconds() { this->CPUTimeSeconds_ = nullptr;};
     inline double CPUTimeSeconds() const { DARABONBA_PTR_GET_DEFAULT(CPUTimeSeconds_, 0.0) };
     inline DescribeSlowLogStatisticResponseBodyDataDataLogs& setCPUTimeSeconds(double CPUTimeSeconds) { DARABONBA_PTR_SET_VALUE(CPUTimeSeconds_, CPUTimeSeconds) };
+
+
+    // clientIp Field Functions 
+    bool hasClientIp() const { return this->clientIp_ != nullptr;};
+    void deleteClientIp() { this->clientIp_ = nullptr;};
+    inline string clientIp() const { DARABONBA_PTR_GET_DEFAULT(clientIp_, "") };
+    inline DescribeSlowLogStatisticResponseBodyDataDataLogs& setClientIp(string clientIp) { DARABONBA_PTR_SET_VALUE(clientIp_, clientIp) };
+
+
+    // cmd Field Functions 
+    bool hasCmd() const { return this->cmd_ != nullptr;};
+    void deleteCmd() { this->cmd_ = nullptr;};
+    inline string cmd() const { DARABONBA_PTR_GET_DEFAULT(cmd_, "") };
+    inline DescribeSlowLogStatisticResponseBodyDataDataLogs& setCmd(string cmd) { DARABONBA_PTR_SET_VALUE(cmd_, cmd) };
 
 
     // command Field Functions 
@@ -419,6 +476,13 @@ namespace Models
     void deleteDatabase() { this->database_ = nullptr;};
     inline string database() const { DARABONBA_PTR_GET_DEFAULT(database_, "") };
     inline DescribeSlowLogStatisticResponseBodyDataDataLogs& setDatabase(string database) { DARABONBA_PTR_SET_VALUE(database_, database) };
+
+
+    // dbId Field Functions 
+    bool hasDbId() const { return this->dbId_ != nullptr;};
+    void deleteDbId() { this->dbId_ = nullptr;};
+    inline string dbId() const { DARABONBA_PTR_GET_DEFAULT(dbId_, "") };
+    inline DescribeSlowLogStatisticResponseBodyDataDataLogs& setDbId(string dbId) { DARABONBA_PTR_SET_VALUE(dbId_, dbId) };
 
 
     // dbInstanceName Field Functions 
@@ -619,6 +683,20 @@ namespace Models
     inline DescribeSlowLogStatisticResponseBodyDataDataLogs& setMaxQueryTimeSeconds(double maxQueryTimeSeconds) { DARABONBA_PTR_SET_VALUE(maxQueryTimeSeconds_, maxQueryTimeSeconds) };
 
 
+    // maxRequestSize Field Functions 
+    bool hasMaxRequestSize() const { return this->maxRequestSize_ != nullptr;};
+    void deleteMaxRequestSize() { this->maxRequestSize_ = nullptr;};
+    inline double maxRequestSize() const { DARABONBA_PTR_GET_DEFAULT(maxRequestSize_, 0.0) };
+    inline DescribeSlowLogStatisticResponseBodyDataDataLogs& setMaxRequestSize(double maxRequestSize) { DARABONBA_PTR_SET_VALUE(maxRequestSize_, maxRequestSize) };
+
+
+    // maxResponseSize Field Functions 
+    bool hasMaxResponseSize() const { return this->maxResponseSize_ != nullptr;};
+    void deleteMaxResponseSize() { this->maxResponseSize_ = nullptr;};
+    inline double maxResponseSize() const { DARABONBA_PTR_GET_DEFAULT(maxResponseSize_, 0.0) };
+    inline DescribeSlowLogStatisticResponseBodyDataDataLogs& setMaxResponseSize(double maxResponseSize) { DARABONBA_PTR_SET_VALUE(maxResponseSize_, maxResponseSize) };
+
+
     // maxReturnNum Field Functions 
     bool hasMaxReturnNum() const { return this->maxReturnNum_ != nullptr;};
     void deleteMaxReturnNum() { this->maxReturnNum_ = nullptr;};
@@ -652,6 +730,13 @@ namespace Models
     void deleteMaxRowsSent() { this->maxRowsSent_ = nullptr;};
     inline int64_t maxRowsSent() const { DARABONBA_PTR_GET_DEFAULT(maxRowsSent_, 0L) };
     inline DescribeSlowLogStatisticResponseBodyDataDataLogs& setMaxRowsSent(int64_t maxRowsSent) { DARABONBA_PTR_SET_VALUE(maxRowsSent_, maxRowsSent) };
+
+
+    // maxRt Field Functions 
+    bool hasMaxRt() const { return this->maxRt_ != nullptr;};
+    void deleteMaxRt() { this->maxRt_ = nullptr;};
+    inline double maxRt() const { DARABONBA_PTR_GET_DEFAULT(maxRt_, 0.0) };
+    inline DescribeSlowLogStatisticResponseBodyDataDataLogs& setMaxRt(double maxRt) { DARABONBA_PTR_SET_VALUE(maxRt_, maxRt) };
 
 
     // maxScnt Field Functions 
@@ -859,6 +944,13 @@ namespace Models
     inline DescribeSlowLogStatisticResponseBodyDataDataLogs& setTimestamp(int64_t timestamp) { DARABONBA_PTR_SET_VALUE(timestamp_, timestamp) };
 
 
+    // totalCount Field Functions 
+    bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+    void deleteTotalCount() { this->totalCount_ = nullptr;};
+    inline int64_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+    inline DescribeSlowLogStatisticResponseBodyDataDataLogs& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
     // trend Field Functions 
     bool hasTrend() const { return this->trend_ != nullptr;};
     void deleteTrend() { this->trend_ = nullptr;};
@@ -890,19 +982,25 @@ namespace Models
     std::shared_ptr<double> avgPhysicalIOReads_ = nullptr;
     std::shared_ptr<double> avgQueryTime_ = nullptr;
     std::shared_ptr<double> avgQueryTimeSeconds_ = nullptr;
+    std::shared_ptr<double> avgRequestSize_ = nullptr;
+    std::shared_ptr<double> avgResponseSize_ = nullptr;
     std::shared_ptr<double> avgReturnNum_ = nullptr;
     std::shared_ptr<double> avgRows_ = nullptr;
     std::shared_ptr<double> avgRowsCountAffected_ = nullptr;
     std::shared_ptr<double> avgRowsExamined_ = nullptr;
     std::shared_ptr<double> avgRowsSent_ = nullptr;
+    std::shared_ptr<double> avgRt_ = nullptr;
     std::shared_ptr<double> avgScnt_ = nullptr;
     std::shared_ptr<double> CPUTime_ = nullptr;
     std::shared_ptr<double> CPUTimeSeconds_ = nullptr;
+    std::shared_ptr<string> clientIp_ = nullptr;
+    std::shared_ptr<string> cmd_ = nullptr;
     std::shared_ptr<string> command_ = nullptr;
     std::shared_ptr<int64_t> count_ = nullptr;
     std::shared_ptr<double> countRate_ = nullptr;
     std::shared_ptr<string> DBName_ = nullptr;
     std::shared_ptr<string> database_ = nullptr;
+    std::shared_ptr<string> dbId_ = nullptr;
     std::shared_ptr<string> dbInstanceName_ = nullptr;
     std::shared_ptr<int64_t> docExamined_ = nullptr;
     std::shared_ptr<int64_t> docsExamined_ = nullptr;
@@ -931,11 +1029,14 @@ namespace Models
     std::shared_ptr<int64_t> maxPhysicalIOReads_ = nullptr;
     std::shared_ptr<double> maxQueryTime_ = nullptr;
     std::shared_ptr<double> maxQueryTimeSeconds_ = nullptr;
+    std::shared_ptr<double> maxRequestSize_ = nullptr;
+    std::shared_ptr<double> maxResponseSize_ = nullptr;
     std::shared_ptr<int64_t> maxReturnNum_ = nullptr;
     std::shared_ptr<int64_t> maxRows_ = nullptr;
     std::shared_ptr<int64_t> maxRowsCountAffected_ = nullptr;
     std::shared_ptr<int64_t> maxRowsExamined_ = nullptr;
     std::shared_ptr<int64_t> maxRowsSent_ = nullptr;
+    std::shared_ptr<double> maxRt_ = nullptr;
     std::shared_ptr<int64_t> maxScnt_ = nullptr;
     std::shared_ptr<string> namespace_ = nullptr;
     std::shared_ptr<string> nodeType_ = nullptr;
@@ -966,6 +1067,7 @@ namespace Models
     std::shared_ptr<string> tableName_ = nullptr;
     std::shared_ptr<string> threadId_ = nullptr;
     std::shared_ptr<int64_t> timestamp_ = nullptr;
+    std::shared_ptr<int64_t> totalCount_ = nullptr;
     std::shared_ptr<vector<Models::DescribeSlowLogStatisticResponseBodyDataDataLogsTrend>> trend_ = nullptr;
     std::shared_ptr<string> user_ = nullptr;
   };
