@@ -1,0 +1,58 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DETECTWORKWEARADVANCEREQUESTCLOTHES_HPP_
+#define ALIBABACLOUD_MODELS_DETECTWORKWEARADVANCEREQUESTCLOTHES_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Objectdet20191230
+{
+namespace Models
+{
+  class DetectWorkwearAdvanceRequestClothes : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DetectWorkwearAdvanceRequestClothes& obj) { 
+      DARABONBA_PTR_TO_JSON(MaxNum, maxNum_);
+      DARABONBA_PTR_TO_JSON(Threshold, threshold_);
+    };
+    friend void from_json(const Darabonba::Json& j, DetectWorkwearAdvanceRequestClothes& obj) { 
+      DARABONBA_PTR_FROM_JSON(MaxNum, maxNum_);
+      DARABONBA_PTR_FROM_JSON(Threshold, threshold_);
+    };
+    DetectWorkwearAdvanceRequestClothes() = default ;
+    DetectWorkwearAdvanceRequestClothes(const DetectWorkwearAdvanceRequestClothes &) = default ;
+    DetectWorkwearAdvanceRequestClothes(DetectWorkwearAdvanceRequestClothes &&) = default ;
+    DetectWorkwearAdvanceRequestClothes(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DetectWorkwearAdvanceRequestClothes() = default ;
+    DetectWorkwearAdvanceRequestClothes& operator=(const DetectWorkwearAdvanceRequestClothes &) = default ;
+    DetectWorkwearAdvanceRequestClothes& operator=(DetectWorkwearAdvanceRequestClothes &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->maxNum_ != nullptr
+        && this->threshold_ != nullptr; };
+    // maxNum Field Functions 
+    bool hasMaxNum() const { return this->maxNum_ != nullptr;};
+    void deleteMaxNum() { this->maxNum_ = nullptr;};
+    inline int64_t maxNum() const { DARABONBA_PTR_GET_DEFAULT(maxNum_, 0L) };
+    inline DetectWorkwearAdvanceRequestClothes& setMaxNum(int64_t maxNum) { DARABONBA_PTR_SET_VALUE(maxNum_, maxNum) };
+
+
+    // threshold Field Functions 
+    bool hasThreshold() const { return this->threshold_ != nullptr;};
+    void deleteThreshold() { this->threshold_ = nullptr;};
+    inline double threshold() const { DARABONBA_PTR_GET_DEFAULT(threshold_, 0.0) };
+    inline DetectWorkwearAdvanceRequestClothes& setThreshold(double threshold) { DARABONBA_PTR_SET_VALUE(threshold_, threshold) };
+
+
+  protected:
+    std::shared_ptr<int64_t> maxNum_ = nullptr;
+    std::shared_ptr<double> threshold_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Objectdet20191230
+#endif
