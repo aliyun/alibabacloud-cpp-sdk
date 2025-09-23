@@ -40,6 +40,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(functionName, functionName_);
       DARABONBA_PTR_TO_JSON(gpuConfig, gpuConfig_);
       DARABONBA_PTR_TO_JSON(handler, handler_);
+      DARABONBA_PTR_TO_JSON(idleTimeout, idleTimeout_);
       DARABONBA_PTR_TO_JSON(instanceConcurrency, instanceConcurrency_);
       DARABONBA_PTR_TO_JSON(instanceIsolationMode, instanceIsolationMode_);
       DARABONBA_PTR_TO_JSON(instanceLifecycleConfig, instanceLifecycleConfig_);
@@ -73,6 +74,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(functionName, functionName_);
       DARABONBA_PTR_FROM_JSON(gpuConfig, gpuConfig_);
       DARABONBA_PTR_FROM_JSON(handler, handler_);
+      DARABONBA_PTR_FROM_JSON(idleTimeout, idleTimeout_);
       DARABONBA_PTR_FROM_JSON(instanceConcurrency, instanceConcurrency_);
       DARABONBA_PTR_FROM_JSON(instanceIsolationMode, instanceIsolationMode_);
       DARABONBA_PTR_FROM_JSON(instanceLifecycleConfig, instanceLifecycleConfig_);
@@ -106,10 +108,11 @@ namespace Models
     virtual bool empty() const override { this->code_ != nullptr
         && this->cpu_ != nullptr && this->customContainerConfig_ != nullptr && this->customDNS_ != nullptr && this->customRuntimeConfig_ != nullptr && this->description_ != nullptr
         && this->disableOndemand_ != nullptr && this->diskSize_ != nullptr && this->enableLongLiving_ != nullptr && this->environmentVariables_ != nullptr && this->functionName_ != nullptr
-        && this->gpuConfig_ != nullptr && this->handler_ != nullptr && this->instanceConcurrency_ != nullptr && this->instanceIsolationMode_ != nullptr && this->instanceLifecycleConfig_ != nullptr
-        && this->internetAccess_ != nullptr && this->layers_ != nullptr && this->logConfig_ != nullptr && this->memorySize_ != nullptr && this->nasConfig_ != nullptr
-        && this->ossMountConfig_ != nullptr && this->resourceGroupId_ != nullptr && this->role_ != nullptr && this->runtime_ != nullptr && this->sessionAffinity_ != nullptr
-        && this->sessionAffinityConfig_ != nullptr && this->tags_ != nullptr && this->timeout_ != nullptr && this->tracingConfig_ != nullptr && this->vpcConfig_ != nullptr; };
+        && this->gpuConfig_ != nullptr && this->handler_ != nullptr && this->idleTimeout_ != nullptr && this->instanceConcurrency_ != nullptr && this->instanceIsolationMode_ != nullptr
+        && this->instanceLifecycleConfig_ != nullptr && this->internetAccess_ != nullptr && this->layers_ != nullptr && this->logConfig_ != nullptr && this->memorySize_ != nullptr
+        && this->nasConfig_ != nullptr && this->ossMountConfig_ != nullptr && this->resourceGroupId_ != nullptr && this->role_ != nullptr && this->runtime_ != nullptr
+        && this->sessionAffinity_ != nullptr && this->sessionAffinityConfig_ != nullptr && this->tags_ != nullptr && this->timeout_ != nullptr && this->tracingConfig_ != nullptr
+        && this->vpcConfig_ != nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -211,6 +214,13 @@ namespace Models
     void deleteHandler() { this->handler_ = nullptr;};
     inline string handler() const { DARABONBA_PTR_GET_DEFAULT(handler_, "") };
     inline CreateFunctionInput& setHandler(string handler) { DARABONBA_PTR_SET_VALUE(handler_, handler) };
+
+
+    // idleTimeout Field Functions 
+    bool hasIdleTimeout() const { return this->idleTimeout_ != nullptr;};
+    void deleteIdleTimeout() { this->idleTimeout_ = nullptr;};
+    inline int32_t idleTimeout() const { DARABONBA_PTR_GET_DEFAULT(idleTimeout_, 0) };
+    inline CreateFunctionInput& setIdleTimeout(int32_t idleTimeout) { DARABONBA_PTR_SET_VALUE(idleTimeout_, idleTimeout) };
 
 
     // instanceConcurrency Field Functions 
@@ -371,6 +381,7 @@ namespace Models
     std::shared_ptr<GPUConfig> gpuConfig_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> handler_ = nullptr;
+    std::shared_ptr<int32_t> idleTimeout_ = nullptr;
     std::shared_ptr<int32_t> instanceConcurrency_ = nullptr;
     std::shared_ptr<string> instanceIsolationMode_ = nullptr;
     std::shared_ptr<InstanceLifecycleConfig> instanceLifecycleConfig_ = nullptr;
