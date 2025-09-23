@@ -16,17 +16,23 @@ namespace Models
   class CreateClusterRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateClusterRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(ClusterName, clusterName_);
       DARABONBA_PTR_TO_JSON(ClusterSpec, clusterSpec_);
+      DARABONBA_PTR_TO_JSON(Duration, duration_);
       DARABONBA_PTR_TO_JSON(EngineType, engineType_);
+      DARABONBA_PTR_TO_JSON(PricingCycle, pricingCycle_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(VSwitches, vSwitches_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateClusterRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(ClusterName, clusterName_);
       DARABONBA_PTR_FROM_JSON(ClusterSpec, clusterSpec_);
+      DARABONBA_PTR_FROM_JSON(Duration, duration_);
       DARABONBA_PTR_FROM_JSON(EngineType, engineType_);
+      DARABONBA_PTR_FROM_JSON(PricingCycle, pricingCycle_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(VSwitches, vSwitches_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
@@ -42,8 +48,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterName_ != nullptr
-        && this->clusterSpec_ != nullptr && this->engineType_ != nullptr && this->tag_ != nullptr && this->vSwitches_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { this->chargeType_ != nullptr
+        && this->clusterName_ != nullptr && this->clusterSpec_ != nullptr && this->duration_ != nullptr && this->engineType_ != nullptr && this->pricingCycle_ != nullptr
+        && this->tag_ != nullptr && this->vSwitches_ != nullptr && this->vpcId_ != nullptr; };
+    // chargeType Field Functions 
+    bool hasChargeType() const { return this->chargeType_ != nullptr;};
+    void deleteChargeType() { this->chargeType_ = nullptr;};
+    inline string chargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
+    inline CreateClusterRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
+
+
     // clusterName Field Functions 
     bool hasClusterName() const { return this->clusterName_ != nullptr;};
     void deleteClusterName() { this->clusterName_ = nullptr;};
@@ -58,11 +72,25 @@ namespace Models
     inline CreateClusterRequest& setClusterSpec(string clusterSpec) { DARABONBA_PTR_SET_VALUE(clusterSpec_, clusterSpec) };
 
 
+    // duration Field Functions 
+    bool hasDuration() const { return this->duration_ != nullptr;};
+    void deleteDuration() { this->duration_ = nullptr;};
+    inline int32_t duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
+    inline CreateClusterRequest& setDuration(int32_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
+
+
     // engineType Field Functions 
     bool hasEngineType() const { return this->engineType_ != nullptr;};
     void deleteEngineType() { this->engineType_ = nullptr;};
     inline string engineType() const { DARABONBA_PTR_GET_DEFAULT(engineType_, "") };
     inline CreateClusterRequest& setEngineType(string engineType) { DARABONBA_PTR_SET_VALUE(engineType_, engineType) };
+
+
+    // pricingCycle Field Functions 
+    bool hasPricingCycle() const { return this->pricingCycle_ != nullptr;};
+    void deletePricingCycle() { this->pricingCycle_ = nullptr;};
+    inline string pricingCycle() const { DARABONBA_PTR_GET_DEFAULT(pricingCycle_, "") };
+    inline CreateClusterRequest& setPricingCycle(string pricingCycle) { DARABONBA_PTR_SET_VALUE(pricingCycle_, pricingCycle) };
 
 
     // tag Field Functions 
@@ -91,12 +119,15 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> chargeType_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> clusterName_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> clusterSpec_ = nullptr;
+    std::shared_ptr<int32_t> duration_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> engineType_ = nullptr;
+    std::shared_ptr<string> pricingCycle_ = nullptr;
     std::shared_ptr<vector<CreateClusterRequestTag>> tag_ = nullptr;
     // This parameter is required.
     std::shared_ptr<vector<CreateClusterRequestVSwitches>> vSwitches_ = nullptr;

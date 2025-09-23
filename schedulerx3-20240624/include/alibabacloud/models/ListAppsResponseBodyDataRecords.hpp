@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MaxJobs, maxJobs_);
       DARABONBA_PTR_TO_JSON(Title, title_);
       DARABONBA_PTR_TO_JSON(Updater, updater_);
+      DARABONBA_PTR_TO_JSON(WorkerRegistry, workerRegistry_);
     };
     friend void from_json(const Darabonba::Json& j, ListAppsResponseBodyDataRecords& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessToken, accessToken_);
@@ -43,6 +44,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MaxJobs, maxJobs_);
       DARABONBA_PTR_FROM_JSON(Title, title_);
       DARABONBA_PTR_FROM_JSON(Updater, updater_);
+      DARABONBA_PTR_FROM_JSON(WorkerRegistry, workerRegistry_);
     };
     ListAppsResponseBodyDataRecords() = default ;
     ListAppsResponseBodyDataRecords(const ListAppsResponseBodyDataRecords &) = default ;
@@ -58,7 +60,7 @@ namespace Models
     virtual bool empty() const override { this->accessToken_ != nullptr
         && this->appName_ != nullptr && this->appType_ != nullptr && this->creator_ != nullptr && this->enableLog_ != nullptr && this->executorNum_ != nullptr
         && this->id_ != nullptr && this->jobNum_ != nullptr && this->labelRouteStrategy_ != nullptr && this->leader_ != nullptr && this->maxConcurrency_ != nullptr
-        && this->maxJobs_ != nullptr && this->title_ != nullptr && this->updater_ != nullptr; };
+        && this->maxJobs_ != nullptr && this->title_ != nullptr && this->updater_ != nullptr && this->workerRegistry_ != nullptr; };
     // accessToken Field Functions 
     bool hasAccessToken() const { return this->accessToken_ != nullptr;};
     void deleteAccessToken() { this->accessToken_ = nullptr;};
@@ -157,6 +159,13 @@ namespace Models
     inline ListAppsResponseBodyDataRecords& setUpdater(string updater) { DARABONBA_PTR_SET_VALUE(updater_, updater) };
 
 
+    // workerRegistry Field Functions 
+    bool hasWorkerRegistry() const { return this->workerRegistry_ != nullptr;};
+    void deleteWorkerRegistry() { this->workerRegistry_ = nullptr;};
+    inline string workerRegistry() const { DARABONBA_PTR_GET_DEFAULT(workerRegistry_, "") };
+    inline ListAppsResponseBodyDataRecords& setWorkerRegistry(string workerRegistry) { DARABONBA_PTR_SET_VALUE(workerRegistry_, workerRegistry) };
+
+
   protected:
     // AccessToken
     std::shared_ptr<string> accessToken_ = nullptr;
@@ -173,6 +182,7 @@ namespace Models
     std::shared_ptr<int32_t> maxJobs_ = nullptr;
     std::shared_ptr<string> title_ = nullptr;
     std::shared_ptr<string> updater_ = nullptr;
+    std::shared_ptr<string> workerRegistry_ = nullptr;
   };
 
   } // namespace Models

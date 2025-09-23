@@ -126,6 +126,10 @@ CreateClusterResponse Client::createClusterWithOptions(const CreateClusterReques
   }
 
   json body = {};
+  if (!!request.hasChargeType()) {
+    body["ChargeType"] = request.chargeType();
+  }
+
   if (!!request.hasClusterName()) {
     body["ClusterName"] = request.clusterName();
   }
@@ -134,8 +138,16 @@ CreateClusterResponse Client::createClusterWithOptions(const CreateClusterReques
     body["ClusterSpec"] = request.clusterSpec();
   }
 
+  if (!!request.hasDuration()) {
+    body["Duration"] = request.duration();
+  }
+
   if (!!request.hasEngineType()) {
     body["EngineType"] = request.engineType();
+  }
+
+  if (!!request.hasPricingCycle()) {
+    body["PricingCycle"] = request.pricingCycle();
   }
 
   if (!!request.hasVSwitchesShrink()) {

@@ -19,17 +19,21 @@ namespace Models
   class GetJobExecutionProgressResponseBodyData : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetJobExecutionProgressResponseBodyData& obj) { 
+      DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(JobDescription, jobDescription_);
       DARABONBA_PTR_TO_JSON(RootProgress, rootProgress_);
       DARABONBA_PTR_TO_JSON(ShardingProgress, shardingProgress_);
+      DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(TaskProgress, taskProgress_);
       DARABONBA_PTR_TO_JSON(TotalProgress, totalProgress_);
       DARABONBA_PTR_TO_JSON(WorkerProgress, workerProgress_);
     };
     friend void from_json(const Darabonba::Json& j, GetJobExecutionProgressResponseBodyData& obj) { 
+      DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(JobDescription, jobDescription_);
       DARABONBA_PTR_FROM_JSON(RootProgress, rootProgress_);
       DARABONBA_PTR_FROM_JSON(ShardingProgress, shardingProgress_);
+      DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(TaskProgress, taskProgress_);
       DARABONBA_PTR_FROM_JSON(TotalProgress, totalProgress_);
       DARABONBA_PTR_FROM_JSON(WorkerProgress, workerProgress_);
@@ -45,8 +49,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->jobDescription_ != nullptr
-        && this->rootProgress_ != nullptr && this->shardingProgress_ != nullptr && this->taskProgress_ != nullptr && this->totalProgress_ != nullptr && this->workerProgress_ != nullptr; };
+    virtual bool empty() const override { this->endTime_ != nullptr
+        && this->jobDescription_ != nullptr && this->rootProgress_ != nullptr && this->shardingProgress_ != nullptr && this->startTime_ != nullptr && this->taskProgress_ != nullptr
+        && this->totalProgress_ != nullptr && this->workerProgress_ != nullptr; };
+    // endTime Field Functions 
+    bool hasEndTime() const { return this->endTime_ != nullptr;};
+    void deleteEndTime() { this->endTime_ = nullptr;};
+    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline GetJobExecutionProgressResponseBodyData& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
     // jobDescription Field Functions 
     bool hasJobDescription() const { return this->jobDescription_ != nullptr;};
     void deleteJobDescription() { this->jobDescription_ = nullptr;};
@@ -70,6 +82,13 @@ namespace Models
     inline vector<Models::GetJobExecutionProgressResponseBodyDataShardingProgress> shardingProgress() { DARABONBA_PTR_GET(shardingProgress_, vector<Models::GetJobExecutionProgressResponseBodyDataShardingProgress>) };
     inline GetJobExecutionProgressResponseBodyData& setShardingProgress(const vector<Models::GetJobExecutionProgressResponseBodyDataShardingProgress> & shardingProgress) { DARABONBA_PTR_SET_VALUE(shardingProgress_, shardingProgress) };
     inline GetJobExecutionProgressResponseBodyData& setShardingProgress(vector<Models::GetJobExecutionProgressResponseBodyDataShardingProgress> && shardingProgress) { DARABONBA_PTR_SET_RVALUE(shardingProgress_, shardingProgress) };
+
+
+    // startTime Field Functions 
+    bool hasStartTime() const { return this->startTime_ != nullptr;};
+    void deleteStartTime() { this->startTime_ = nullptr;};
+    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline GetJobExecutionProgressResponseBodyData& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // taskProgress Field Functions 
@@ -100,9 +119,11 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> endTime_ = nullptr;
     std::shared_ptr<string> jobDescription_ = nullptr;
     std::shared_ptr<Models::GetJobExecutionProgressResponseBodyDataRootProgress> rootProgress_ = nullptr;
     std::shared_ptr<vector<Models::GetJobExecutionProgressResponseBodyDataShardingProgress>> shardingProgress_ = nullptr;
+    std::shared_ptr<string> startTime_ = nullptr;
     std::shared_ptr<vector<Models::GetJobExecutionProgressResponseBodyDataTaskProgress>> taskProgress_ = nullptr;
     std::shared_ptr<Models::GetJobExecutionProgressResponseBodyDataTotalProgress> totalProgress_ = nullptr;
     std::shared_ptr<vector<Models::GetJobExecutionProgressResponseBodyDataWorkerProgress>> workerProgress_ = nullptr;
