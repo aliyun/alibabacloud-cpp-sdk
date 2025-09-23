@@ -5,6 +5,9 @@
 #include <alibabacloud/models/ColumnMetadata.hpp>
 #include <alibabacloud/models/Field.hpp>
 #include <alibabacloud/models/StatementData.hpp>
+#include <alibabacloud/models/AddAinodeRequest.hpp>
+#include <alibabacloud/models/AddAinodeResponseBody.hpp>
+#include <alibabacloud/models/AddAinodeResponse.hpp>
 #include <alibabacloud/models/AllocateInstancePublicConnectionRequest.hpp>
 #include <alibabacloud/models/AllocateInstancePublicConnectionResponseBody.hpp>
 #include <alibabacloud/models/AllocateInstancePublicConnectionResponse.hpp>
@@ -74,6 +77,10 @@
 #include <alibabacloud/models/CreateJdbcdataSourceRequest.hpp>
 #include <alibabacloud/models/CreateJdbcdataSourceResponseBody.hpp>
 #include <alibabacloud/models/CreateJdbcdataSourceResponse.hpp>
+#include <alibabacloud/models/CreateModelServiceRequest.hpp>
+#include <alibabacloud/models/CreateModelServiceShrinkRequest.hpp>
+#include <alibabacloud/models/CreateModelServiceResponseBody.hpp>
+#include <alibabacloud/models/CreateModelServiceResponse.hpp>
 #include <alibabacloud/models/CreateNamespaceRequest.hpp>
 #include <alibabacloud/models/CreateNamespaceResponseBody.hpp>
 #include <alibabacloud/models/CreateNamespaceResponse.hpp>
@@ -105,6 +112,9 @@
 #include <alibabacloud/models/CreateVectorIndexRequest.hpp>
 #include <alibabacloud/models/CreateVectorIndexResponseBody.hpp>
 #include <alibabacloud/models/CreateVectorIndexResponse.hpp>
+#include <alibabacloud/models/DeleteAinodeRequest.hpp>
+#include <alibabacloud/models/DeleteAinodeResponseBody.hpp>
+#include <alibabacloud/models/DeleteAinodeResponse.hpp>
 #include <alibabacloud/models/DeleteAccountRequest.hpp>
 #include <alibabacloud/models/DeleteAccountResponseBody.hpp>
 #include <alibabacloud/models/DeleteAccountResponse.hpp>
@@ -147,6 +157,9 @@
 #include <alibabacloud/models/DeleteJdbcdataSourceRequest.hpp>
 #include <alibabacloud/models/DeleteJdbcdataSourceResponseBody.hpp>
 #include <alibabacloud/models/DeleteJdbcdataSourceResponse.hpp>
+#include <alibabacloud/models/DeleteModelServiceRequest.hpp>
+#include <alibabacloud/models/DeleteModelServiceResponseBody.hpp>
+#include <alibabacloud/models/DeleteModelServiceResponse.hpp>
 #include <alibabacloud/models/DeleteNamespaceRequest.hpp>
 #include <alibabacloud/models/DeleteNamespaceResponseBody.hpp>
 #include <alibabacloud/models/DeleteNamespaceResponse.hpp>
@@ -307,6 +320,9 @@
 #include <alibabacloud/models/DescribeLogBackupsRequest.hpp>
 #include <alibabacloud/models/DescribeLogBackupsResponseBody.hpp>
 #include <alibabacloud/models/DescribeLogBackupsResponse.hpp>
+#include <alibabacloud/models/DescribeModelServiceRequest.hpp>
+#include <alibabacloud/models/DescribeModelServiceResponseBody.hpp>
+#include <alibabacloud/models/DescribeModelServiceResponse.hpp>
 #include <alibabacloud/models/DescribeModifyParameterLogRequest.hpp>
 #include <alibabacloud/models/DescribeModifyParameterLogResponseBody.hpp>
 #include <alibabacloud/models/DescribeModifyParameterLogResponse.hpp>
@@ -423,6 +439,9 @@
 #include <alibabacloud/models/InitVectorDatabaseRequest.hpp>
 #include <alibabacloud/models/InitVectorDatabaseResponseBody.hpp>
 #include <alibabacloud/models/InitVectorDatabaseResponse.hpp>
+#include <alibabacloud/models/ListAinodePoolsRequest.hpp>
+#include <alibabacloud/models/ListAinodePoolsResponseBody.hpp>
+#include <alibabacloud/models/ListAinodePoolsResponse.hpp>
 #include <alibabacloud/models/ListBackupJobsRequest.hpp>
 #include <alibabacloud/models/ListBackupJobsResponseBody.hpp>
 #include <alibabacloud/models/ListBackupJobsResponse.hpp>
@@ -450,6 +469,9 @@
 #include <alibabacloud/models/ListInstanceExtensionsRequest.hpp>
 #include <alibabacloud/models/ListInstanceExtensionsResponseBody.hpp>
 #include <alibabacloud/models/ListInstanceExtensionsResponse.hpp>
+#include <alibabacloud/models/ListModelServicesRequest.hpp>
+#include <alibabacloud/models/ListModelServicesResponseBody.hpp>
+#include <alibabacloud/models/ListModelServicesResponse.hpp>
 #include <alibabacloud/models/ListNamespacesRequest.hpp>
 #include <alibabacloud/models/ListNamespacesResponseBody.hpp>
 #include <alibabacloud/models/ListNamespacesResponse.hpp>
@@ -474,6 +496,9 @@
 #include <alibabacloud/models/ListSupabaseProjectsRequest.hpp>
 #include <alibabacloud/models/ListSupabaseProjectsResponseBody.hpp>
 #include <alibabacloud/models/ListSupabaseProjectsResponse.hpp>
+#include <alibabacloud/models/ListSupportModelsRequest.hpp>
+#include <alibabacloud/models/ListSupportModelsResponseBody.hpp>
+#include <alibabacloud/models/ListSupportModelsResponse.hpp>
 #include <alibabacloud/models/ListTablesRequest.hpp>
 #include <alibabacloud/models/ListTablesResponseBody.hpp>
 #include <alibabacloud/models/ListTablesResponse.hpp>
@@ -663,6 +688,7 @@
 #include <alibabacloud/models/UpsertCollectionDataAsyncAdvanceRequest.hpp>
 #include <alibabacloud/models/UpsertCollectionDataAsyncResponseBody.hpp>
 #include <alibabacloud/models/UpsertCollectionDataAsyncResponse.hpp>
+#include <alibabacloud/models/AddAinodeRequestAinodeSpecInfos.hpp>
 #include <alibabacloud/models/CreateCollectionRequestSparseVectorIndexConfig.hpp>
 #include <alibabacloud/models/CreateDbinstanceRequestAinodeSpecInfos.hpp>
 #include <alibabacloud/models/CreateDbinstanceRequestTag.hpp>
@@ -777,6 +803,8 @@
 #include <alibabacloud/models/GetUploadDocumentJobResponseBodyUsage.hpp>
 #include <alibabacloud/models/GetUpsertCollectionDataJobResponseBodyJob.hpp>
 #include <alibabacloud/models/HandleActiveSqlrecordResponseBodyResults.hpp>
+#include <alibabacloud/models/ListAinodePoolsResponseBodyAinodePoolInfosAinodeInfos.hpp>
+#include <alibabacloud/models/ListAinodePoolsResponseBodyAinodePoolInfos.hpp>
 #include <alibabacloud/models/ListBackupJobsResponseBodyItemsBackupJob.hpp>
 #include <alibabacloud/models/ListBackupJobsResponseBodyItems.hpp>
 #include <alibabacloud/models/ListCollectionsResponseBodyCollections.hpp>
@@ -790,6 +818,7 @@
 #include <alibabacloud/models/ListIndicesResponseBodyIndicesIndices.hpp>
 #include <alibabacloud/models/ListIndicesResponseBodyIndices.hpp>
 #include <alibabacloud/models/ListInstanceExtensionsResponseBodyItems.hpp>
+#include <alibabacloud/models/ListModelServicesResponseBodyModelServices.hpp>
 #include <alibabacloud/models/ListNamespacesResponseBodyNamespaces.hpp>
 #include <alibabacloud/models/ListRemoteAdbdataSourcesResponseBodyDataSourceItemsRemoteDataSources.hpp>
 #include <alibabacloud/models/ListRemoteAdbdataSourcesResponseBodyDataSourceItems.hpp>
@@ -800,6 +829,7 @@
 #include <alibabacloud/models/ListStreamingDataSourcesResponseBodyDataSourceItems.hpp>
 #include <alibabacloud/models/ListStreamingJobsResponseBodyJobItems.hpp>
 #include <alibabacloud/models/ListSupabaseProjectsResponseBodyItems.hpp>
+#include <alibabacloud/models/ListSupportModelsResponseBodyModelNames.hpp>
 #include <alibabacloud/models/ListTablesResponseBodyTables.hpp>
 #include <alibabacloud/models/ListTagResourcesRequestTag.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBodyTagResourcesTagResource.hpp>

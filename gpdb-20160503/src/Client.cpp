@@ -99,6 +99,56 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 添加AI节点
+ *
+ * @param request AddAINodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddAINodeResponse
+ */
+AddAINodeResponse Client::addAINodeWithOptions(const AddAINodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAINodePoolId()) {
+    query["AINodePoolId"] = request.AINodePoolId();
+  }
+
+  if (!!request.hasAINodeSpecInfos()) {
+    query["AINodeSpecInfos"] = request.AINodeSpecInfos();
+  }
+
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddAINode"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddAINodeResponse>();
+}
+
+/**
+ * @summary 添加AI节点
+ *
+ * @param request AddAINodeRequest
+ * @return AddAINodeResponse
+ */
+AddAINodeResponse Client::addAINode(const AddAINodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addAINodeWithOptions(request, runtime);
+}
+
+/**
  * @summary Allocates a public endpoint for an AnalyticDB for PostgreSQL instance.
  *
  * @description You can call this operation to apply for a public endpoint for an AnalyticDB for PostgreSQL instance. Both the primary and instance endpoints of an AnalyticDB for PostgreSQL instance can be public endpoints. For more information, see [Endpoints of an instance and its primary coordinator node](https://help.aliyun.com/document_detail/204879.html).
@@ -1803,6 +1853,100 @@ CreateJDBCDataSourceResponse Client::createJDBCDataSource(const CreateJDBCDataSo
 }
 
 /**
+ * @summary 创建模型服务
+ *
+ * @param tmpReq CreateModelServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateModelServiceResponse
+ */
+CreateModelServiceResponse Client::createModelServiceWithOptions(const CreateModelServiceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateModelServiceShrinkRequest request = CreateModelServiceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAiNodes()) {
+    request.setAiNodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.aiNodes(), "AiNodes", "json"));
+  }
+
+  if (!!tmpReq.hasModelParams()) {
+    request.setModelParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.modelParams(), "ModelParams", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAiNodesShrink()) {
+    query["AiNodes"] = request.aiNodesShrink();
+  }
+
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
+  if (!!request.hasEnablePublicConnection()) {
+    query["EnablePublicConnection"] = request.enablePublicConnection();
+  }
+
+  if (!!request.hasInferenceEngine()) {
+    query["InferenceEngine"] = request.inferenceEngine();
+  }
+
+  if (!!request.hasModelName()) {
+    query["ModelName"] = request.modelName();
+  }
+
+  if (!!request.hasModelParamsShrink()) {
+    query["ModelParams"] = request.modelParamsShrink();
+  }
+
+  if (!!request.hasReplicas()) {
+    query["Replicas"] = request.replicas();
+  }
+
+  if (!!request.hasSecurityIPList()) {
+    query["SecurityIPList"] = request.securityIPList();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["ResourceGroupId"] = request.resourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateModelService"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateModelServiceResponse>();
+}
+
+/**
+ * @summary 创建模型服务
+ *
+ * @param request CreateModelServiceRequest
+ * @return CreateModelServiceResponse
+ */
+CreateModelServiceResponse Client::createModelService(const CreateModelServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createModelServiceWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a vector namespace.
  *
  * @param request CreateNamespaceRequest
@@ -2566,6 +2710,60 @@ CreateVectorIndexResponse Client::createVectorIndexWithOptions(const CreateVecto
 CreateVectorIndexResponse Client::createVectorIndex(const CreateVectorIndexRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createVectorIndexWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除AI节点
+ *
+ * @param request DeleteAINodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAINodeResponse
+ */
+DeleteAINodeResponse Client::deleteAINodeWithOptions(const DeleteAINodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAINodeNum()) {
+    query["AINodeNum"] = request.AINodeNum();
+  }
+
+  if (!!request.hasAINodePoolId()) {
+    query["AINodePoolId"] = request.AINodePoolId();
+  }
+
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasNodeNames()) {
+    query["NodeNames"] = request.nodeNames();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAINode"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAINodeResponse>();
+}
+
+/**
+ * @summary 删除AI节点
+ *
+ * @param request DeleteAINodeRequest
+ * @return DeleteAINodeResponse
+ */
+DeleteAINodeResponse Client::deleteAINode(const DeleteAINodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAINodeWithOptions(request, runtime);
 }
 
 /**
@@ -3372,6 +3570,52 @@ DeleteJDBCDataSourceResponse Client::deleteJDBCDataSourceWithOptions(const Delet
 DeleteJDBCDataSourceResponse Client::deleteJDBCDataSource(const DeleteJDBCDataSourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteJDBCDataSourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除模型服务
+ *
+ * @param request DeleteModelServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteModelServiceResponse
+ */
+DeleteModelServiceResponse Client::deleteModelServiceWithOptions(const DeleteModelServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasModelServiceId()) {
+    query["ModelServiceId"] = request.modelServiceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteModelService"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteModelServiceResponse>();
+}
+
+/**
+ * @summary 删除模型服务
+ *
+ * @param request DeleteModelServiceRequest
+ * @return DeleteModelServiceResponse
+ */
+DeleteModelServiceResponse Client::deleteModelService(const DeleteModelServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteModelServiceWithOptions(request, runtime);
 }
 
 /**
@@ -6529,6 +6773,52 @@ DescribeLogBackupsResponse Client::describeLogBackups(const DescribeLogBackupsRe
 }
 
 /**
+ * @summary 查询模型服务
+ *
+ * @param request DescribeModelServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeModelServiceResponse
+ */
+DescribeModelServiceResponse Client::describeModelServiceWithOptions(const DescribeModelServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasModelServiceId()) {
+    query["ModelServiceId"] = request.modelServiceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeModelService"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeModelServiceResponse>();
+}
+
+/**
+ * @summary 查询模型服务
+ *
+ * @param request DescribeModelServiceRequest
+ * @return DescribeModelServiceResponse
+ */
+DescribeModelServiceResponse Client::describeModelService(const DescribeModelServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeModelServiceWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the parameter modification logs of an AnalyticDB for PostgreSQL instance.
  *
  * @param request DescribeModifyParameterLogRequest
@@ -9039,6 +9329,52 @@ InitVectorDatabaseResponse Client::initVectorDatabase(const InitVectorDatabaseRe
 }
 
 /**
+ * @summary 列举AI节点池
+ *
+ * @param request ListAINodePoolsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAINodePoolsResponse
+ */
+ListAINodePoolsResponse Client::listAINodePoolsWithOptions(const ListAINodePoolsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAINodePools"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAINodePoolsResponse>();
+}
+
+/**
+ * @summary 列举AI节点池
+ *
+ * @param request ListAINodePoolsRequest
+ * @return ListAINodePoolsResponse
+ */
+ListAINodePoolsResponse Client::listAINodePools(const ListAINodePoolsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAINodePoolsWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取备份任务列表
  *
  * @param request ListBackupJobsRequest
@@ -9577,6 +9913,60 @@ ListInstanceExtensionsResponse Client::listInstanceExtensions(const ListInstance
 }
 
 /**
+ * @summary 查询模型服务
+ *
+ * @param request ListModelServicesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListModelServicesResponse
+ */
+ListModelServicesResponse Client::listModelServicesWithOptions(const ListModelServicesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListModelServices"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListModelServicesResponse>();
+}
+
+/**
+ * @summary 查询模型服务
+ *
+ * @param request ListModelServicesRequest
+ * @return ListModelServicesResponse
+ */
+ListModelServicesResponse Client::listModelServices(const ListModelServicesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listModelServicesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of namespaces.
  *
  * @param request ListNamespacesRequest
@@ -10022,6 +10412,48 @@ ListSupabaseProjectsResponse Client::listSupabaseProjectsWithOptions(const ListS
 ListSupabaseProjectsResponse Client::listSupabaseProjects(const ListSupabaseProjectsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listSupabaseProjectsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取支持的模型列表
+ *
+ * @param request ListSupportModelsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSupportModelsResponse
+ */
+ListSupportModelsResponse Client::listSupportModelsWithOptions(const ListSupportModelsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSupportModels"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSupportModelsResponse>();
+}
+
+/**
+ * @summary 获取支持的模型列表
+ *
+ * @param request ListSupportModelsRequest
+ * @return ListSupportModelsResponse
+ */
+ListSupportModelsResponse Client::listSupportModels(const ListSupportModelsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSupportModelsWithOptions(request, runtime);
 }
 
 /**

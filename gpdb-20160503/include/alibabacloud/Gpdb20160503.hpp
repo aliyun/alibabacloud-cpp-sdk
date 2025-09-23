@@ -23,6 +23,23 @@ namespace Gpdb20160503
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 添加AI节点
+       *
+       * @param request AddAINodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddAINodeResponse
+       */
+      Models::AddAINodeResponse addAINodeWithOptions(const Models::AddAINodeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加AI节点
+       *
+       * @param request AddAINodeRequest
+       * @return AddAINodeResponse
+       */
+      Models::AddAINodeResponse addAINode(const Models::AddAINodeRequest &request);
+
+      /**
        * @summary Allocates a public endpoint for an AnalyticDB for PostgreSQL instance.
        *
        * @description You can call this operation to apply for a public endpoint for an AnalyticDB for PostgreSQL instance. Both the primary and instance endpoints of an AnalyticDB for PostgreSQL instance can be public endpoints. For more information, see [Endpoints of an instance and its primary coordinator node](https://help.aliyun.com/document_detail/204879.html).
@@ -439,6 +456,23 @@ namespace Gpdb20160503
       Models::CreateJDBCDataSourceResponse createJDBCDataSource(const Models::CreateJDBCDataSourceRequest &request);
 
       /**
+       * @summary 创建模型服务
+       *
+       * @param tmpReq CreateModelServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateModelServiceResponse
+       */
+      Models::CreateModelServiceResponse createModelServiceWithOptions(const Models::CreateModelServiceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建模型服务
+       *
+       * @param request CreateModelServiceRequest
+       * @return CreateModelServiceResponse
+       */
+      Models::CreateModelServiceResponse createModelService(const Models::CreateModelServiceRequest &request);
+
+      /**
        * @summary Creates a vector namespace.
        *
        * @param request CreateNamespaceRequest
@@ -615,6 +649,23 @@ namespace Gpdb20160503
        * @return CreateVectorIndexResponse
        */
       Models::CreateVectorIndexResponse createVectorIndex(const Models::CreateVectorIndexRequest &request);
+
+      /**
+       * @summary 删除AI节点
+       *
+       * @param request DeleteAINodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAINodeResponse
+       */
+      Models::DeleteAINodeResponse deleteAINodeWithOptions(const Models::DeleteAINodeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除AI节点
+       *
+       * @param request DeleteAINodeRequest
+       * @return DeleteAINodeResponse
+       */
+      Models::DeleteAINodeResponse deleteAINode(const Models::DeleteAINodeRequest &request);
 
       /**
        * @summary 删除数据库账号
@@ -871,6 +922,23 @@ namespace Gpdb20160503
        * @return DeleteJDBCDataSourceResponse
        */
       Models::DeleteJDBCDataSourceResponse deleteJDBCDataSource(const Models::DeleteJDBCDataSourceRequest &request);
+
+      /**
+       * @summary 删除模型服务
+       *
+       * @param request DeleteModelServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteModelServiceResponse
+       */
+      Models::DeleteModelServiceResponse deleteModelServiceWithOptions(const Models::DeleteModelServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除模型服务
+       *
+       * @param request DeleteModelServiceRequest
+       * @return DeleteModelServiceResponse
+       */
+      Models::DeleteModelServiceResponse deleteModelService(const Models::DeleteModelServiceRequest &request);
 
       /**
        * @summary Deletes a namespace.
@@ -1940,6 +2008,23 @@ namespace Gpdb20160503
       Models::DescribeLogBackupsResponse describeLogBackups(const Models::DescribeLogBackupsRequest &request);
 
       /**
+       * @summary 查询模型服务
+       *
+       * @param request DescribeModelServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeModelServiceResponse
+       */
+      Models::DescribeModelServiceResponse describeModelServiceWithOptions(const Models::DescribeModelServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询模型服务
+       *
+       * @param request DescribeModelServiceRequest
+       * @return DescribeModelServiceResponse
+       */
+      Models::DescribeModelServiceResponse describeModelService(const Models::DescribeModelServiceRequest &request);
+
+      /**
        * @summary Queries the parameter modification logs of an AnalyticDB for PostgreSQL instance.
        *
        * @param request DescribeModifyParameterLogRequest
@@ -2694,6 +2779,23 @@ namespace Gpdb20160503
       Models::InitVectorDatabaseResponse initVectorDatabase(const Models::InitVectorDatabaseRequest &request);
 
       /**
+       * @summary 列举AI节点池
+       *
+       * @param request ListAINodePoolsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAINodePoolsResponse
+       */
+      Models::ListAINodePoolsResponse listAINodePoolsWithOptions(const Models::ListAINodePoolsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列举AI节点池
+       *
+       * @param request ListAINodePoolsRequest
+       * @return ListAINodePoolsResponse
+       */
+      Models::ListAINodePoolsResponse listAINodePools(const Models::ListAINodePoolsRequest &request);
+
+      /**
        * @summary 获取备份任务列表
        *
        * @param request ListBackupJobsRequest
@@ -2847,6 +2949,23 @@ namespace Gpdb20160503
       Models::ListInstanceExtensionsResponse listInstanceExtensions(const Models::ListInstanceExtensionsRequest &request);
 
       /**
+       * @summary 查询模型服务
+       *
+       * @param request ListModelServicesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListModelServicesResponse
+       */
+      Models::ListModelServicesResponse listModelServicesWithOptions(const Models::ListModelServicesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询模型服务
+       *
+       * @param request ListModelServicesRequest
+       * @return ListModelServicesResponse
+       */
+      Models::ListModelServicesResponse listModelServices(const Models::ListModelServicesRequest &request);
+
+      /**
        * @summary Queries a list of namespaces.
        *
        * @param request ListNamespacesRequest
@@ -2981,6 +3100,23 @@ namespace Gpdb20160503
        * @return ListSupabaseProjectsResponse
        */
       Models::ListSupabaseProjectsResponse listSupabaseProjects(const Models::ListSupabaseProjectsRequest &request);
+
+      /**
+       * @summary 获取支持的模型列表
+       *
+       * @param request ListSupportModelsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSupportModelsResponse
+       */
+      Models::ListSupportModelsResponse listSupportModelsWithOptions(const Models::ListSupportModelsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取支持的模型列表
+       *
+       * @param request ListSupportModelsRequest
+       * @return ListSupportModelsResponse
+       */
+      Models::ListSupportModelsResponse listSupportModels(const Models::ListSupportModelsRequest &request);
 
       /**
        * @summary Queries a list of tables in a database.
