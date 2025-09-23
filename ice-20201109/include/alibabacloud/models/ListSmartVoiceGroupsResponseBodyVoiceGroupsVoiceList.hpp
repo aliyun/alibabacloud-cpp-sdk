@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SupportSampleRate, supportSampleRate_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(Voice, voice_);
+      DARABONBA_PTR_TO_JSON(VoiceSource, voiceSource_);
       DARABONBA_PTR_TO_JSON(VoiceType, voiceType_);
       DARABONBA_PTR_TO_JSON(VoiceUrl, voiceUrl_);
     };
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SupportSampleRate, supportSampleRate_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(Voice, voice_);
+      DARABONBA_PTR_FROM_JSON(VoiceSource, voiceSource_);
       DARABONBA_PTR_FROM_JSON(VoiceType, voiceType_);
       DARABONBA_PTR_FROM_JSON(VoiceUrl, voiceUrl_);
     };
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->desc_ != nullptr
         && this->name_ != nullptr && this->remark_ != nullptr && this->supportSampleRate_ != nullptr && this->tag_ != nullptr && this->voice_ != nullptr
-        && this->voiceType_ != nullptr && this->voiceUrl_ != nullptr; };
+        && this->voiceSource_ != nullptr && this->voiceType_ != nullptr && this->voiceUrl_ != nullptr; };
     // desc Field Functions 
     bool hasDesc() const { return this->desc_ != nullptr;};
     void deleteDesc() { this->desc_ = nullptr;};
@@ -88,6 +90,13 @@ namespace Models
     inline ListSmartVoiceGroupsResponseBodyVoiceGroupsVoiceList& setVoice(string voice) { DARABONBA_PTR_SET_VALUE(voice_, voice) };
 
 
+    // voiceSource Field Functions 
+    bool hasVoiceSource() const { return this->voiceSource_ != nullptr;};
+    void deleteVoiceSource() { this->voiceSource_ = nullptr;};
+    inline string voiceSource() const { DARABONBA_PTR_GET_DEFAULT(voiceSource_, "") };
+    inline ListSmartVoiceGroupsResponseBodyVoiceGroupsVoiceList& setVoiceSource(string voiceSource) { DARABONBA_PTR_SET_VALUE(voiceSource_, voiceSource) };
+
+
     // voiceType Field Functions 
     bool hasVoiceType() const { return this->voiceType_ != nullptr;};
     void deleteVoiceType() { this->voiceType_ = nullptr;};
@@ -114,6 +123,7 @@ namespace Models
     std::shared_ptr<string> tag_ = nullptr;
     // The speaker ID.
     std::shared_ptr<string> voice_ = nullptr;
+    std::shared_ptr<string> voiceSource_ = nullptr;
     // The speaker type.
     // 
     // Valid values:
