@@ -367,6 +367,56 @@ AsyncEditTimelineResponse Client::asyncEditTimeline(const AsyncEditTimelineReque
 }
 
 /**
+ * @summary 上传招标书文件
+ *
+ * @param request AsyncUploadTenderDocRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AsyncUploadTenderDocResponse
+ */
+AsyncUploadTenderDocResponse Client::asyncUploadTenderDocWithOptions(const AsyncUploadTenderDocRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFileKey()) {
+    body["FileKey"] = request.fileKey();
+  }
+
+  if (!!request.hasTenderDocName()) {
+    body["TenderDocName"] = request.tenderDocName();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "AsyncUploadTenderDoc"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AsyncUploadTenderDocResponse>();
+}
+
+/**
+ * @summary 上传招标书文件
+ *
+ * @param request AsyncUploadTenderDocRequest
+ * @return AsyncUploadTenderDocResponse
+ */
+AsyncUploadTenderDocResponse Client::asyncUploadTenderDoc(const AsyncUploadTenderDocRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return asyncUploadTenderDocWithOptions(request, runtime);
+}
+
+/**
  * @summary 上传剪辑素材
  *
  * @param tmpReq AsyncUploadVideoRequest
@@ -432,6 +482,60 @@ AsyncUploadVideoResponse Client::asyncUploadVideoWithOptions(const AsyncUploadVi
 AsyncUploadVideoResponse Client::asyncUploadVideo(const AsyncUploadVideoRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return asyncUploadVideoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 标书写作接口
+ *
+ * @param request AsyncWritingBiddingDocRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AsyncWritingBiddingDocResponse
+ */
+AsyncWritingBiddingDocResponse Client::asyncWritingBiddingDocWithOptions(const AsyncWritingBiddingDocRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCompanyKeyword()) {
+    body["CompanyKeyword"] = request.companyKeyword();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "AsyncWritingBiddingDoc"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AsyncWritingBiddingDocResponse>();
+}
+
+/**
+ * @summary 标书写作接口
+ *
+ * @param request AsyncWritingBiddingDocRequest
+ * @return AsyncWritingBiddingDocResponse
+ */
+AsyncWritingBiddingDocResponse Client::asyncWritingBiddingDoc(const AsyncWritingBiddingDocRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return asyncWritingBiddingDocWithOptions(request, runtime);
 }
 
 /**
@@ -1611,6 +1715,52 @@ DownloadAuditNoteResponse Client::downloadAuditNote(const DownloadAuditNoteReque
 }
 
 /**
+ * @summary 标书下载接口
+ *
+ * @param request DownloadBiddingDocRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DownloadBiddingDocResponse
+ */
+DownloadBiddingDocResponse Client::downloadBiddingDocWithOptions(const DownloadBiddingDocRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DownloadBiddingDoc"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DownloadBiddingDocResponse>();
+}
+
+/**
+ * @summary 标书下载接口
+ *
+ * @param request DownloadBiddingDocRequest
+ * @return DownloadBiddingDocResponse
+ */
+DownloadBiddingDocResponse Client::downloadBiddingDoc(const DownloadBiddingDocRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return downloadBiddingDocWithOptions(request, runtime);
+}
+
+/**
  * @summary 编辑审核自定义词库记录
  *
  * @param tmpReq EditAuditTermsRequest
@@ -1676,6 +1826,64 @@ EditAuditTermsResponse Client::editAuditTermsWithOptions(const EditAuditTermsReq
 EditAuditTermsResponse Client::editAuditTerms(const EditAuditTermsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return editAuditTermsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 编辑标书内容接口
+ *
+ * @param request EditBiddingDocRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EditBiddingDocResponse
+ */
+EditBiddingDocResponse Client::editBiddingDocWithOptions(const EditBiddingDocRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasContent()) {
+    body["Content"] = request.content();
+  }
+
+  if (!!request.hasContentFormat()) {
+    body["ContentFormat"] = request.contentFormat();
+  }
+
+  if (!!request.hasContentType()) {
+    body["ContentType"] = request.contentType();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "EditBiddingDoc"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EditBiddingDocResponse>();
+}
+
+/**
+ * @summary 编辑标书内容接口
+ *
+ * @param request EditBiddingDocRequest
+ * @return EditBiddingDocResponse
+ */
+EditBiddingDocResponse Client::editBiddingDoc(const EditBiddingDocRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return editBiddingDocWithOptions(request, runtime);
 }
 
 /**
@@ -2720,6 +2928,98 @@ GetAvailableAuditNotesResponse Client::getAvailableAuditNotesWithOptions(const G
 GetAvailableAuditNotesResponse Client::getAvailableAuditNotes(const GetAvailableAuditNotesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getAvailableAuditNotesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获得标书写作结果接口
+ *
+ * @param request GetBiddingDocInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetBiddingDocInfoResponse
+ */
+GetBiddingDocInfoResponse Client::getBiddingDocInfoWithOptions(const GetBiddingDocInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetBiddingDocInfo"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetBiddingDocInfoResponse>();
+}
+
+/**
+ * @summary 获得标书写作结果接口
+ *
+ * @param request GetBiddingDocInfoRequest
+ * @return GetBiddingDocInfoResponse
+ */
+GetBiddingDocInfoResponse Client::getBiddingDocInfo(const GetBiddingDocInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getBiddingDocInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获得标书功能剩余额度
+ *
+ * @param request GetBiddingRemainLimitNumRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetBiddingRemainLimitNumResponse
+ */
+GetBiddingRemainLimitNumResponse Client::getBiddingRemainLimitNumWithOptions(const GetBiddingRemainLimitNumRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasApiName()) {
+    body["ApiName"] = request.apiName();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetBiddingRemainLimitNum"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetBiddingRemainLimitNumResponse>();
+}
+
+/**
+ * @summary 获得标书功能剩余额度
+ *
+ * @param request GetBiddingRemainLimitNumRequest
+ * @return GetBiddingRemainLimitNumResponse
+ */
+GetBiddingRemainLimitNumResponse Client::getBiddingRemainLimitNum(const GetBiddingRemainLimitNumRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getBiddingRemainLimitNumWithOptions(request, runtime);
 }
 
 /**
@@ -4590,6 +4890,84 @@ ListAuditTermsResponse Client::listAuditTermsWithOptions(const ListAuditTermsReq
 ListAuditTermsResponse Client::listAuditTerms(const ListAuditTermsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listAuditTermsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获得标书写作任务列表
+ *
+ * @param request ListBiddingDocRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListBiddingDocResponse
+ */
+ListBiddingDocResponse Client::listBiddingDocWithOptions(const ListBiddingDocRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCreateTimeEnd()) {
+    body["CreateTimeEnd"] = request.createTimeEnd();
+  }
+
+  if (!!request.hasCreateTimeStart()) {
+    body["CreateTimeStart"] = request.createTimeStart();
+  }
+
+  if (!!request.hasCurrent()) {
+    body["Current"] = request.current();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasSize()) {
+    body["Size"] = request.size();
+  }
+
+  if (!!request.hasSkip()) {
+    body["Skip"] = request.skip();
+  }
+
+  if (!!request.hasTaskName()) {
+    body["TaskName"] = request.taskName();
+  }
+
+  if (!!request.hasTaskStatus()) {
+    body["TaskStatus"] = request.taskStatus();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListBiddingDoc"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListBiddingDocResponse>();
+}
+
+/**
+ * @summary 获得标书写作任务列表
+ *
+ * @param request ListBiddingDocRequest
+ * @return ListBiddingDocResponse
+ */
+ListBiddingDocResponse Client::listBiddingDoc(const ListBiddingDocRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listBiddingDocWithOptions(request, runtime);
 }
 
 /**

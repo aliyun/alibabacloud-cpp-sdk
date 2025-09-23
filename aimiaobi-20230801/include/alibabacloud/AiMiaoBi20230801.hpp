@@ -106,6 +106,23 @@ namespace AiMiaoBi20230801
       Models::AsyncEditTimelineResponse asyncEditTimeline(const Models::AsyncEditTimelineRequest &request);
 
       /**
+       * @summary 上传招标书文件
+       *
+       * @param request AsyncUploadTenderDocRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AsyncUploadTenderDocResponse
+       */
+      Models::AsyncUploadTenderDocResponse asyncUploadTenderDocWithOptions(const Models::AsyncUploadTenderDocRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 上传招标书文件
+       *
+       * @param request AsyncUploadTenderDocRequest
+       * @return AsyncUploadTenderDocResponse
+       */
+      Models::AsyncUploadTenderDocResponse asyncUploadTenderDoc(const Models::AsyncUploadTenderDocRequest &request);
+
+      /**
        * @summary 上传剪辑素材
        *
        * @param tmpReq AsyncUploadVideoRequest
@@ -121,6 +138,23 @@ namespace AiMiaoBi20230801
        * @return AsyncUploadVideoResponse
        */
       Models::AsyncUploadVideoResponse asyncUploadVideo(const Models::AsyncUploadVideoRequest &request);
+
+      /**
+       * @summary 标书写作接口
+       *
+       * @param request AsyncWritingBiddingDocRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AsyncWritingBiddingDocResponse
+       */
+      Models::AsyncWritingBiddingDocResponse asyncWritingBiddingDocWithOptions(const Models::AsyncWritingBiddingDocRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 标书写作接口
+       *
+       * @param request AsyncWritingBiddingDocRequest
+       * @return AsyncWritingBiddingDocResponse
+       */
+      Models::AsyncWritingBiddingDocResponse asyncWritingBiddingDoc(const Models::AsyncWritingBiddingDocRequest &request);
 
       /**
        * @summary 取消异步任务
@@ -514,6 +548,23 @@ namespace AiMiaoBi20230801
       Models::DownloadAuditNoteResponse downloadAuditNote(const Models::DownloadAuditNoteRequest &request);
 
       /**
+       * @summary 标书下载接口
+       *
+       * @param request DownloadBiddingDocRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DownloadBiddingDocResponse
+       */
+      Models::DownloadBiddingDocResponse downloadBiddingDocWithOptions(const Models::DownloadBiddingDocRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 标书下载接口
+       *
+       * @param request DownloadBiddingDocRequest
+       * @return DownloadBiddingDocResponse
+       */
+      Models::DownloadBiddingDocResponse downloadBiddingDoc(const Models::DownloadBiddingDocRequest &request);
+
+      /**
        * @summary 编辑审核自定义词库记录
        *
        * @param tmpReq EditAuditTermsRequest
@@ -529,6 +580,23 @@ namespace AiMiaoBi20230801
        * @return EditAuditTermsResponse
        */
       Models::EditAuditTermsResponse editAuditTerms(const Models::EditAuditTermsRequest &request);
+
+      /**
+       * @summary 编辑标书内容接口
+       *
+       * @param request EditBiddingDocRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EditBiddingDocResponse
+       */
+      Models::EditBiddingDocResponse editBiddingDocWithOptions(const Models::EditBiddingDocRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 编辑标书内容接口
+       *
+       * @param request EditBiddingDocRequest
+       * @return EditBiddingDocResponse
+       */
+      Models::EditBiddingDocResponse editBiddingDoc(const Models::EditBiddingDocRequest &request);
 
       /**
        * @summary 导出企业VOC分析任务明细列表
@@ -869,6 +937,40 @@ namespace AiMiaoBi20230801
        * @return GetAvailableAuditNotesResponse
        */
       Models::GetAvailableAuditNotesResponse getAvailableAuditNotes(const Models::GetAvailableAuditNotesRequest &request);
+
+      /**
+       * @summary 获得标书写作结果接口
+       *
+       * @param request GetBiddingDocInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetBiddingDocInfoResponse
+       */
+      Models::GetBiddingDocInfoResponse getBiddingDocInfoWithOptions(const Models::GetBiddingDocInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获得标书写作结果接口
+       *
+       * @param request GetBiddingDocInfoRequest
+       * @return GetBiddingDocInfoResponse
+       */
+      Models::GetBiddingDocInfoResponse getBiddingDocInfo(const Models::GetBiddingDocInfoRequest &request);
+
+      /**
+       * @summary 获得标书功能剩余额度
+       *
+       * @param request GetBiddingRemainLimitNumRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetBiddingRemainLimitNumResponse
+       */
+      Models::GetBiddingRemainLimitNumResponse getBiddingRemainLimitNumWithOptions(const Models::GetBiddingRemainLimitNumRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获得标书功能剩余额度
+       *
+       * @param request GetBiddingRemainLimitNumRequest
+       * @return GetBiddingRemainLimitNumResponse
+       */
+      Models::GetBiddingRemainLimitNumResponse getBiddingRemainLimitNum(const Models::GetBiddingRemainLimitNumRequest &request);
 
       /**
        * @summary 获取某次标签挖掘结果分类
@@ -1481,6 +1583,23 @@ namespace AiMiaoBi20230801
        * @return ListAuditTermsResponse
        */
       Models::ListAuditTermsResponse listAuditTerms(const Models::ListAuditTermsRequest &request);
+
+      /**
+       * @summary 获得标书写作任务列表
+       *
+       * @param request ListBiddingDocRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListBiddingDocResponse
+       */
+      Models::ListBiddingDocResponse listBiddingDocWithOptions(const Models::ListBiddingDocRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获得标书写作任务列表
+       *
+       * @param request ListBiddingDocRequest
+       * @return ListBiddingDocResponse
+       */
+      Models::ListBiddingDocResponse listBiddingDoc(const Models::ListBiddingDocRequest &request);
 
       /**
        * @summary 获取系统自定义预设
