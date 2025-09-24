@@ -223,6 +223,40 @@ namespace CloudauthIntl20220809
       Models::DeepfakeDetectIntlResponse deepfakeDetectIntl(const Models::DeepfakeDetectIntlRequest &request);
 
       /**
+       * @summary Delete Face Group
+       *
+       * @param request DeleteFaceGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteFaceGroupResponse
+       */
+      Models::DeleteFaceGroupResponse deleteFaceGroupWithOptions(const Models::DeleteFaceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Delete Face Group
+       *
+       * @param request DeleteFaceGroupRequest
+       * @return DeleteFaceGroupResponse
+       */
+      Models::DeleteFaceGroupResponse deleteFaceGroup(const Models::DeleteFaceGroupRequest &request);
+
+      /**
+       * @summary Delete Face
+       *
+       * @param request DeleteFaceRecordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteFaceRecordResponse
+       */
+      Models::DeleteFaceRecordResponse deleteFaceRecordWithOptions(const Models::DeleteFaceRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Delete Face
+       *
+       * @param request DeleteFaceRecordRequest
+       * @return DeleteFaceRecordResponse
+       */
+      Models::DeleteFaceRecordResponse deleteFaceRecord(const Models::DeleteFaceRecordRequest &request);
+
+      /**
        * @summary Delete user authentication record results
        *
        * @param request DeleteVerifyResultRequest
@@ -306,6 +340,23 @@ namespace CloudauthIntl20220809
        * @return FaceCompareResponse
        */
       Models::FaceCompareResponse faceCompare(const Models::FaceCompareRequest &request);
+
+      /**
+       * @summary Face Duplication Detection API
+       *
+       * @param request FaceDuplicationCheckIntlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return FaceDuplicationCheckIntlResponse
+       */
+      Models::FaceDuplicationCheckIntlResponse faceDuplicationCheckIntlWithOptions(const Models::FaceDuplicationCheckIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Face Duplication Detection API
+       *
+       * @param request FaceDuplicationCheckIntlRequest
+       * @return FaceDuplicationCheckIntlResponse
+       */
+      Models::FaceDuplicationCheckIntlResponse faceDuplicationCheckIntl(const Models::FaceDuplicationCheckIntlRequest &request);
 
       /**
        * @summary This topic describes how to set up the server for FACE_GUARD.
@@ -393,7 +444,7 @@ namespace CloudauthIntl20220809
       Models::Id2MetaVerifyIntlResponse id2MetaVerifyIntl(const Models::Id2MetaVerifyIntlRequest &request);
 
       /**
-       * @summary 认证初始化
+       * @summary Authentication Initialization
        *
        * @param tmpReq InitializeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -402,7 +453,7 @@ namespace CloudauthIntl20220809
       Models::InitializeResponse initializeWithOptions(const Models::InitializeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 认证初始化
+       * @summary Authentication Initialization
        *
        * @param request InitializeRequest
        * @return InitializeResponse
@@ -458,6 +509,91 @@ namespace CloudauthIntl20220809
        * @return Mobile3MetaVerifyIntlResponse
        */
       Models::Mobile3MetaVerifyIntlResponse mobile3MetaVerifyIntl(const Models::Mobile3MetaVerifyIntlRequest &request);
+
+      /**
+       * @summary 修改人脸库
+       *
+       * @param request ModifyFaceGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyFaceGroupResponse
+       */
+      Models::ModifyFaceGroupResponse modifyFaceGroupWithOptions(const Models::ModifyFaceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改人脸库
+       *
+       * @param request ModifyFaceGroupRequest
+       * @return ModifyFaceGroupResponse
+       */
+      Models::ModifyFaceGroupResponse modifyFaceGroup(const Models::ModifyFaceGroupRequest &request);
+
+      /**
+       * @summary 新增人脸
+       *
+       * @param request ModifyFaceRecordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyFaceRecordResponse
+       */
+      Models::ModifyFaceRecordResponse modifyFaceRecordWithOptions(const Models::ModifyFaceRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新增人脸
+       *
+       * @param request ModifyFaceRecordRequest
+       * @return ModifyFaceRecordResponse
+       */
+      Models::ModifyFaceRecordResponse modifyFaceRecord(const Models::ModifyFaceRecordRequest &request);
+
+      /**
+       * @summary 查询人脸库
+       *
+       * @param request QueryFaceGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryFaceGroupResponse
+       */
+      Models::QueryFaceGroupResponse queryFaceGroupWithOptions(const Models::QueryFaceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询人脸库
+       *
+       * @param request QueryFaceGroupRequest
+       * @return QueryFaceGroupResponse
+       */
+      Models::QueryFaceGroupResponse queryFaceGroup(const Models::QueryFaceGroupRequest &request);
+
+      /**
+       * @summary 查询人脸记录
+       *
+       * @param request QueryFaceRecordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryFaceRecordResponse
+       */
+      Models::QueryFaceRecordResponse queryFaceRecordWithOptions(const Models::QueryFaceRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询人脸记录
+       *
+       * @param request QueryFaceRecordRequest
+       * @return QueryFaceRecordResponse
+       */
+      Models::QueryFaceRecordResponse queryFaceRecord(const Models::QueryFaceRecordRequest &request);
+
+      /**
+       * @summary 获取临时token
+       *
+       * @param request TempAccessTokenIntlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TempAccessTokenIntlResponse
+       */
+      Models::TempAccessTokenIntlResponse tempAccessTokenIntlWithOptions(const Models::TempAccessTokenIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取临时token
+       *
+       * @param request TempAccessTokenIntlRequest
+       * @return TempAccessTokenIntlResponse
+       */
+      Models::TempAccessTokenIntlResponse tempAccessTokenIntl(const Models::TempAccessTokenIntlRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace CloudauthIntl20220809

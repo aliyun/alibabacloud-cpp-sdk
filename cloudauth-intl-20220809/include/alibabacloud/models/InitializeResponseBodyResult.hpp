@@ -66,9 +66,15 @@ namespace Models
 
 
   protected:
+    // Client configuration
     std::shared_ptr<string> clientCfg_ = nullptr;
+    // Standard encryption protocol for authentication.
+    // 
+    // > This field is required when integrating with H5 web pages using iframe embedding.
     std::shared_ptr<string> protocol_ = nullptr;
+    // Authentication ID
     std::shared_ptr<string> transactionId_ = nullptr;
+    // Web authentication URL
     std::shared_ptr<string> transactionUrl_ = nullptr;
   };
 

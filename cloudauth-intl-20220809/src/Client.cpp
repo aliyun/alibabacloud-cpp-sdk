@@ -838,6 +838,90 @@ DeepfakeDetectIntlResponse Client::deepfakeDetectIntl(const DeepfakeDetectIntlRe
 }
 
 /**
+ * @summary Delete Face Group
+ *
+ * @param request DeleteFaceGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteFaceGroupResponse
+ */
+DeleteFaceGroupResponse Client::deleteFaceGroupWithOptions(const DeleteFaceGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.id();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteFaceGroup"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteFaceGroupResponse>();
+}
+
+/**
+ * @summary Delete Face Group
+ *
+ * @param request DeleteFaceGroupRequest
+ * @return DeleteFaceGroupResponse
+ */
+DeleteFaceGroupResponse Client::deleteFaceGroup(const DeleteFaceGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteFaceGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary Delete Face
+ *
+ * @param request DeleteFaceRecordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteFaceRecordResponse
+ */
+DeleteFaceRecordResponse Client::deleteFaceRecordWithOptions(const DeleteFaceRecordRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.id();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteFaceRecord"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteFaceRecordResponse>();
+}
+
+/**
+ * @summary Delete Face
+ *
+ * @param request DeleteFaceRecordRequest
+ * @return DeleteFaceRecordResponse
+ */
+DeleteFaceRecordResponse Client::deleteFaceRecord(const DeleteFaceRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteFaceRecordWithOptions(request, runtime);
+}
+
+/**
  * @summary Delete user authentication record results
  *
  * @param request DeleteVerifyResultRequest
@@ -1218,6 +1302,110 @@ FaceCompareResponse Client::faceCompare(const FaceCompareRequest &request) {
 }
 
 /**
+ * @summary Face Duplication Detection API
+ *
+ * @param request FaceDuplicationCheckIntlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return FaceDuplicationCheckIntlResponse
+ */
+FaceDuplicationCheckIntlResponse Client::faceDuplicationCheckIntlWithOptions(const FaceDuplicationCheckIntlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.productCode();
+  }
+
+  json body = {};
+  if (!!request.hasAutoRegistration()) {
+    body["AutoRegistration"] = request.autoRegistration();
+  }
+
+  if (!!request.hasFaceGroupCodes()) {
+    body["FaceGroupCodes"] = request.faceGroupCodes();
+  }
+
+  if (!!request.hasFaceRegisterGroupCode()) {
+    body["FaceRegisterGroupCode"] = request.faceRegisterGroupCode();
+  }
+
+  if (!!request.hasFaceVerifyThreshold()) {
+    body["FaceVerifyThreshold"] = request.faceVerifyThreshold();
+  }
+
+  if (!!request.hasLiveness()) {
+    body["Liveness"] = request.liveness();
+  }
+
+  if (!!request.hasMerchantBizId()) {
+    body["MerchantBizId"] = request.merchantBizId();
+  }
+
+  if (!!request.hasMerchantUserId()) {
+    body["MerchantUserId"] = request.merchantUserId();
+  }
+
+  if (!!request.hasReturnFaces()) {
+    body["ReturnFaces"] = request.returnFaces();
+  }
+
+  if (!!request.hasSaveFacePicture()) {
+    body["SaveFacePicture"] = request.saveFacePicture();
+  }
+
+  if (!!request.hasSceneCode()) {
+    body["SceneCode"] = request.sceneCode();
+  }
+
+  if (!!request.hasSourceFacePicture()) {
+    body["SourceFacePicture"] = request.sourceFacePicture();
+  }
+
+  if (!!request.hasSourceFacePictureUrl()) {
+    body["SourceFacePictureUrl"] = request.sourceFacePictureUrl();
+  }
+
+  if (!!request.hasTargetFacePicture()) {
+    body["TargetFacePicture"] = request.targetFacePicture();
+  }
+
+  if (!!request.hasTargetFacePictureUrl()) {
+    body["TargetFacePictureUrl"] = request.targetFacePictureUrl();
+  }
+
+  if (!!request.hasVerifyModel()) {
+    body["VerifyModel"] = request.verifyModel();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "FaceDuplicationCheckIntl"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<FaceDuplicationCheckIntlResponse>();
+}
+
+/**
+ * @summary Face Duplication Detection API
+ *
+ * @param request FaceDuplicationCheckIntlRequest
+ * @return FaceDuplicationCheckIntlResponse
+ */
+FaceDuplicationCheckIntlResponse Client::faceDuplicationCheckIntl(const FaceDuplicationCheckIntlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return faceDuplicationCheckIntlWithOptions(request, runtime);
+}
+
+/**
  * @summary This topic describes how to set up the server for FACE_GUARD.
  *
  * @param request FaceGuardRiskRequest
@@ -1526,7 +1714,7 @@ Id2MetaVerifyIntlResponse Client::id2MetaVerifyIntl(const Id2MetaVerifyIntlReque
 }
 
 /**
- * @summary 认证初始化
+ * @summary Authentication Initialization
  *
  * @param tmpReq InitializeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1761,7 +1949,7 @@ InitializeResponse Client::initializeWithOptions(const InitializeRequest &tmpReq
 }
 
 /**
- * @summary 认证初始化
+ * @summary Authentication Initialization
  *
  * @param request InitializeRequest
  * @return InitializeResponse
@@ -1914,6 +2102,276 @@ Mobile3MetaVerifyIntlResponse Client::mobile3MetaVerifyIntlWithOptions(const Mob
 Mobile3MetaVerifyIntlResponse Client::mobile3MetaVerifyIntl(const Mobile3MetaVerifyIntlRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return mobile3MetaVerifyIntlWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改人脸库
+ *
+ * @param request ModifyFaceGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyFaceGroupResponse
+ */
+ModifyFaceGroupResponse Client::modifyFaceGroupWithOptions(const ModifyFaceGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.description();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.id();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.name();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ModifyFaceGroup"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyFaceGroupResponse>();
+}
+
+/**
+ * @summary 修改人脸库
+ *
+ * @param request ModifyFaceGroupRequest
+ * @return ModifyFaceGroupResponse
+ */
+ModifyFaceGroupResponse Client::modifyFaceGroup(const ModifyFaceGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyFaceGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 新增人脸
+ *
+ * @param request ModifyFaceRecordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyFaceRecordResponse
+ */
+ModifyFaceRecordResponse Client::modifyFaceRecordWithOptions(const ModifyFaceRecordRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFaceGroupCode()) {
+    body["FaceGroupCode"] = request.faceGroupCode();
+  }
+
+  if (!!request.hasImgOssInfos()) {
+    body["ImgOssInfos"] = request.imgOssInfos();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ModifyFaceRecord"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyFaceRecordResponse>();
+}
+
+/**
+ * @summary 新增人脸
+ *
+ * @param request ModifyFaceRecordRequest
+ * @return ModifyFaceRecordResponse
+ */
+ModifyFaceRecordResponse Client::modifyFaceRecord(const ModifyFaceRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyFaceRecordWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询人脸库
+ *
+ * @param request QueryFaceGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryFaceGroupResponse
+ */
+QueryFaceGroupResponse Client::queryFaceGroupWithOptions(const QueryFaceGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasGroupCode()) {
+    query["GroupCode"] = request.groupCode();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.name();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryFaceGroup"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryFaceGroupResponse>();
+}
+
+/**
+ * @summary 查询人脸库
+ *
+ * @param request QueryFaceGroupRequest
+ * @return QueryFaceGroupResponse
+ */
+QueryFaceGroupResponse Client::queryFaceGroup(const QueryFaceGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryFaceGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询人脸记录
+ *
+ * @param request QueryFaceRecordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryFaceRecordResponse
+ */
+QueryFaceRecordResponse Client::queryFaceRecordWithOptions(const QueryFaceRecordRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasFaceGroupCode()) {
+    query["FaceGroupCode"] = request.faceGroupCode();
+  }
+
+  if (!!request.hasFaceId()) {
+    query["FaceId"] = request.faceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasMerchantUserId()) {
+    query["MerchantUserId"] = request.merchantUserId();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegistrationType()) {
+    query["RegistrationType"] = request.registrationType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryFaceRecord"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryFaceRecordResponse>();
+}
+
+/**
+ * @summary 查询人脸记录
+ *
+ * @param request QueryFaceRecordRequest
+ * @return QueryFaceRecordResponse
+ */
+QueryFaceRecordResponse Client::queryFaceRecord(const QueryFaceRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryFaceRecordWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取临时token
+ *
+ * @param request TempAccessTokenIntlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TempAccessTokenIntlResponse
+ */
+TempAccessTokenIntlResponse Client::tempAccessTokenIntlWithOptions(const TempAccessTokenIntlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasType()) {
+    body["Type"] = request.type();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "TempAccessTokenIntl"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TempAccessTokenIntlResponse>();
+}
+
+/**
+ * @summary 获取临时token
+ *
+ * @param request TempAccessTokenIntlRequest
+ * @return TempAccessTokenIntlResponse
+ */
+TempAccessTokenIntlResponse Client::tempAccessTokenIntl(const TempAccessTokenIntlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return tempAccessTokenIntlWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace CloudauthIntl20220809

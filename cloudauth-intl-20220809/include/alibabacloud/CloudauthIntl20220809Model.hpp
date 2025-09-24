@@ -33,6 +33,12 @@
 #include <alibabacloud/models/DeepfakeDetectIntlRequest.hpp>
 #include <alibabacloud/models/DeepfakeDetectIntlResponseBody.hpp>
 #include <alibabacloud/models/DeepfakeDetectIntlResponse.hpp>
+#include <alibabacloud/models/DeleteFaceGroupRequest.hpp>
+#include <alibabacloud/models/DeleteFaceGroupResponseBody.hpp>
+#include <alibabacloud/models/DeleteFaceGroupResponse.hpp>
+#include <alibabacloud/models/DeleteFaceRecordRequest.hpp>
+#include <alibabacloud/models/DeleteFaceRecordResponseBody.hpp>
+#include <alibabacloud/models/DeleteFaceRecordResponse.hpp>
 #include <alibabacloud/models/DeleteVerifyResultRequest.hpp>
 #include <alibabacloud/models/DeleteVerifyResultResponseBody.hpp>
 #include <alibabacloud/models/DeleteVerifyResultResponse.hpp>
@@ -48,6 +54,9 @@
 #include <alibabacloud/models/FaceCompareRequest.hpp>
 #include <alibabacloud/models/FaceCompareResponseBody.hpp>
 #include <alibabacloud/models/FaceCompareResponse.hpp>
+#include <alibabacloud/models/FaceDuplicationCheckIntlRequest.hpp>
+#include <alibabacloud/models/FaceDuplicationCheckIntlResponseBody.hpp>
+#include <alibabacloud/models/FaceDuplicationCheckIntlResponse.hpp>
 #include <alibabacloud/models/FaceGuardRiskRequest.hpp>
 #include <alibabacloud/models/FaceGuardRiskResponseBody.hpp>
 #include <alibabacloud/models/FaceGuardRiskResponse.hpp>
@@ -75,6 +84,21 @@
 #include <alibabacloud/models/Mobile3metaVerifyIntlRequest.hpp>
 #include <alibabacloud/models/Mobile3metaVerifyIntlResponseBody.hpp>
 #include <alibabacloud/models/Mobile3metaVerifyIntlResponse.hpp>
+#include <alibabacloud/models/ModifyFaceGroupRequest.hpp>
+#include <alibabacloud/models/ModifyFaceGroupResponseBody.hpp>
+#include <alibabacloud/models/ModifyFaceGroupResponse.hpp>
+#include <alibabacloud/models/ModifyFaceRecordRequest.hpp>
+#include <alibabacloud/models/ModifyFaceRecordResponseBody.hpp>
+#include <alibabacloud/models/ModifyFaceRecordResponse.hpp>
+#include <alibabacloud/models/QueryFaceGroupRequest.hpp>
+#include <alibabacloud/models/QueryFaceGroupResponseBody.hpp>
+#include <alibabacloud/models/QueryFaceGroupResponse.hpp>
+#include <alibabacloud/models/QueryFaceRecordRequest.hpp>
+#include <alibabacloud/models/QueryFaceRecordResponseBody.hpp>
+#include <alibabacloud/models/QueryFaceRecordResponse.hpp>
+#include <alibabacloud/models/TempAccessTokenIntlRequest.hpp>
+#include <alibabacloud/models/TempAccessTokenIntlResponseBody.hpp>
+#include <alibabacloud/models/TempAccessTokenIntlResponse.hpp>
 #include <alibabacloud/models/AddressCompareIntlResponseBodyResult.hpp>
 #include <alibabacloud/models/AddressVerifyIntlResponseBodyResultObject.hpp>
 #include <alibabacloud/models/AddressVerifyV2intlResponseBodyResult.hpp>
@@ -90,6 +114,7 @@
 #include <alibabacloud/models/DocOcrMaxResponseBodyResult.hpp>
 #include <alibabacloud/models/EkycVerifyResponseBodyResult.hpp>
 #include <alibabacloud/models/FaceCompareResponseBodyResult.hpp>
+#include <alibabacloud/models/FaceDuplicationCheckIntlResponseBodyResult.hpp>
 #include <alibabacloud/models/FaceGuardRiskResponseBodyResult.hpp>
 #include <alibabacloud/models/FaceLivenessResponseBodyResultExtFaceInfo.hpp>
 #include <alibabacloud/models/FaceLivenessResponseBodyResult.hpp>
@@ -99,5 +124,8 @@
 #include <alibabacloud/models/KeepaliveIntlResponseBodyResult.hpp>
 #include <alibabacloud/models/Mobile2metaVerifyIntlResponseBodyResult.hpp>
 #include <alibabacloud/models/Mobile3metaVerifyIntlResponseBodyResult.hpp>
+#include <alibabacloud/models/QueryFaceGroupResponseBodyItems.hpp>
+#include <alibabacloud/models/QueryFaceRecordResponseBodyItems.hpp>
+#include <alibabacloud/models/TempAccessTokenIntlResponseBodyData.hpp>
 
 #endif

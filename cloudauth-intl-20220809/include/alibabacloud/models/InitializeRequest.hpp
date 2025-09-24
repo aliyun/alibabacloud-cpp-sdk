@@ -492,56 +492,196 @@ namespace Models
 
 
   protected:
+    // <warning>This feature is currently not supported by **Web SDK**. Please refer to the App SDK integration if needed.</warning>
+    // 
+    // Whether to enable strict face quality detection:
+    // - Y: Enable (default)
+    // - N: Disable
     std::shared_ptr<string> appQualityCheck_ = nullptr;
+    // Whether to enable authoritative identity verification, currently applicable only to the second-generation ID card in mainland China. (IDV product input parameter)
     std::shared_ptr<string> authorize_ = nullptr;
+    // Whether to enable automatic registration
     std::shared_ptr<string> autoRegistration_ = nullptr;
+    // Security Token, used for preventing duplication and tampering. If this parameter is passed, the CallbackToken field will be displayed in the callback address.
     std::shared_ptr<string> callbackToken_ = nullptr;
+    // Callback notification address for authentication results. The default callback request method is GET, and the callback address must start with https. After completing the authentication, the platform will call back this address and automatically add the transactionId, passed, and subcode fields.
     std::shared_ptr<string> callbackUrl_ = nullptr;
+    // Whether to enable adaptive color-changing window border
+    // - **Y**: Enable
+    // - **N**: Disable
     std::shared_ptr<string> chameleonFrameEnable_ = nullptr;
+    // Whether to crop. (IDV product input parameter)
     std::shared_ptr<string> crop_ = nullptr;
+    // Date of birth on the document
+    // 
+    // **MRTDInput = 2** is required.
     std::shared_ptr<string> dateOfBirth_ = nullptr;
+    // Expiration date on the document
+    // 
+    // **MRTDInput = 2** is required.
     std::shared_ptr<string> dateOfExpiry_ = nullptr;
+    // User\\"s real name.
     std::shared_ptr<string> docName_ = nullptr;
+    // User\\"s document number.
     std::shared_ptr<string> docNo_ = nullptr;
+    // Customer-defined input to specify whether to collect more pages
     std::shared_ptr<vector<string>> docPageConfig_ = nullptr;
+    // Document capture mode.
+    // 
+    // - manual: Manual capture.
+    // - auto: Automatic capture (default)
     std::shared_ptr<string> docScanMode_ = nullptr;
+    // Document type, uniquely identified by an 8-digit combination.
+    // Note: This parameter is required only when ProductCode is KYC_GLOBAL, OCR_GLOBAL, or IDR_GLOBAL.
     std::shared_ptr<string> docType_ = nullptr;
+    // Whether to require a video for evidence.
+    // 
+    // - N: Not required (default).
+    // 
+    // - Y: During the authentication process, a 1~2 second video of the user\\"s face will be captured and returned via the query interface.
+    // 
+    // > Due to the large size of the video file, the system may discard it when the network is unstable, prioritizing the transmission of necessary images for authentication.
     std::shared_ptr<string> docVideo_ = nullptr;
+    // Document number
+    // 
+    // **MRTDInput = 2** is required.
     std::shared_ptr<string> documentNumber_ = nullptr;
+    // In the document OCR recognition step, whether the recognition result page is editable:
+    // 
+    // - **0**: Not editable
+    // 
+    // - **1** (default): Editable
     std::shared_ptr<string> editOcrResult_ = nullptr;
+    // Experience code
     std::shared_ptr<string> experienceCode_ = nullptr;
+    // Face library to be compared
     std::shared_ptr<string> faceGroupCodes_ = nullptr;
+    // Base64 encoded face image. If you choose to pass the face image via FacePictureBase64, please check the image size and do not upload images larger than 1 MB.
+    // When productCode is FV_GLOBAL, choose one of the parameters between FacePictureBase64 and FacePictureUrl to pass in.
     std::shared_ptr<string> facePictureBase64_ = nullptr;
+    // Face image URL. A publicly accessible HTTP or HTTPS link. When productCode is FV_GLOBAL, choose one of the parameters between FacePictureUrl and FacePictureBase to pass in.
     std::shared_ptr<string> facePictureUrl_ = nullptr;
+    // Face library for registration.
     std::shared_ptr<string> faceRegisterGroupCode_ = nullptr;
+    // Face verification threshold
     std::shared_ptr<string> faceVerifyThreshold_ = nullptr;
+    // Face image quality. (IDV product input parameter)
     std::shared_ptr<string> idFaceQuality_ = nullptr;
+    // Whether to enable certificate anti-counterfeiting detection. (IDV product input parameter)
     std::shared_ptr<string> idSpoof_ = nullptr;
+    // Custom OCR quality detection threshold mode:
+    // - **0**: Standard mode
+    // - **1**: Strict mode
+    // - **2**: Lenient mode
+    // - **3** (default): Disable quality detection
     std::shared_ptr<string> idThreshold_ = nullptr;
+    // Language configuration. (IDV product input parameter)
     std::shared_ptr<string> languageConfig_ = nullptr;
+    // Source of MRTD verification parameters. This parameter is required to decrypt information when reading the document chip via NFC.
+    // 
+    // - **0**: User input
+    // 
+    // - **1**: OCR read
+    // 
+    // - **2**: Passed through the API
     std::shared_ptr<string> MRTDInput_ = nullptr;
+    // A unique business identifier defined by the merchant, used for subsequent troubleshooting. It supports a combination of letters and numbers, with a maximum length of 32 characters. Please ensure its uniqueness.
     std::shared_ptr<string> merchantBizId_ = nullptr;
+    // Your custom user ID or other identifiers that can recognize specific users, such as phone numbers or email addresses. It is strongly recommended to pre-desensitize the value of this field, for example, by hashing it.
     std::shared_ptr<string> merchantUserId_ = nullptr;
+    // Metainfo environment parameter, which needs to be obtained through the client SDK.
     std::shared_ptr<string> metaInfo_ = nullptr;
+    // The type of liveness detection to be performed:
+    // 
+    // - **LIVENESS** (default): Blinking action liveness detection.
+    // 
+    // - **PHOTINUS_LIVENESS**: Blinking action liveness + photinus liveness dual detection.
+    // 
+    // - **PHOTINUS_FAR_NEAR_LIVENESS**:
+    // Blinking action + far/near + photinus liveness detection.
+    // (Only supported by APP SDK or Flutter integration based on APP SDK)
+    // 
+    // > 
+    // > - For supported SDK versions, see [SDK Publishing Record](https://www.alibabacloud.com/help/zh/ekyc/latest/sdk-publishing-record?spm=a2c63.p38356.0.i99).
+    // > - PC does not support photinus liveness dual detection.
     std::shared_ptr<string> model_ = nullptr;
-    // OCR。
+    // Whether to enable OCR. (IDV product input parameter)
     std::shared_ptr<string> ocr_ = nullptr;
+    // Page configuration for collection, multiple pages are connected using commas. The value range is as follows:
+    // - **01**: Front side of the document
+    // 
+    // - **01,02**: Front and back sides of the document
+    // 
+    // > When this value is 01,02, currently only Chinese and Vietnamese IDs are supported.
     std::shared_ptr<string> pages_ = nullptr;
+    // When compatibility issues occur with H5-based mobile authentication, whether to allow a fallback handling method.
+    // 
+    // - **url** (default): Support fallback. The page displays the authentication URL, which users can copy and open in another browser to continue the authentication process.
+    // 
+    // - **keep**: Do not support fallback. Directly return the error reason and end the authentication process.
+    // 
+    // 
+    // > 
+    // > - This switch is not supported on PC.
+    // > - If the business scenario involves completing authentication through an embedded web page in an app, it is recommended to set this parameter to `keep` to disallow URL fallback.
     std::shared_ptr<string> procedurePriority_ = nullptr;
+    // The product solution to be integrated. The values are as follows:
+    // 
+    // - KYC_GLOBAL (eKYC product solution)
+    // - FV_GLOBAL (Live Face Verification)
+    // - FL_GLOBAL (Liveness Detection)
+    // - IDR_GLOBAL (Single Document Verification)
+    // - OCR_GLOBAL (Single Document OCR)
     std::shared_ptr<string> productCode_ = nullptr;
+    // Supports card and face sequential arrangement:
+    // 
+    // - DOC_FACE (default)
+    // - FACE_DOC
+    // 
+    // Note: This parameter is required only when ProductCode is KYC_GLOBAL.
     std::shared_ptr<string> productFlow_ = nullptr;
+    // Number of duplicate faces returned
     std::shared_ptr<string> returnFaces_ = nullptr;
+    // Client-side callback address.
     std::shared_ptr<string> returnUrl_ = nullptr;
+    // Whether to save the face image
     std::shared_ptr<string> saveFacePicture_ = nullptr;
+    // Scene code. (IDV product input parameter)
     std::shared_ptr<string> sceneCode_ = nullptr;
+    // Represents different security levels in the authentication process. The available values are as follows:
+    // 
+    // 01: Normal mode (default).
+    // 02: Secure mode, a relatively strict mode, suitable for high-risk scenarios. (IDV product input parameter)
     std::shared_ptr<string> securityLevel_ = nullptr;
+    // In the document OCR recognition step, whether to display the album upload entry:
+    // 
+    // - **1**: Display (default)
+    // 
+    // - **0**: Do not display
     std::shared_ptr<string> showAlbumIcon_ = nullptr;
+    // Switch to control whether to display the guide page:
+    // 
+    // - **1**: Display (default)
+    // 
+    // - **0**: Do not display
     std::shared_ptr<string> showGuidePage_ = nullptr;
+    // In the document OCR recognition step, whether to display the recognition result page:
+    // 
+    // - **1**: Display (default)
+    // 
+    // - **0**: Do not display
     std::shared_ptr<string> showOcrResult_ = nullptr;
+    // Custom UI configuration. Based on the configuration template, convert your custom UI configuration into a JSON string and pass it through this interface. For more information, see [IDV UI Customization](https://www.alibabacloud.com/help/zh/ekyc/latest/idv-kyc-custom-skin?spm=a2c63.p38356.0.i60).
     std::shared_ptr<string> styleConfig_ = nullptr;
+    // Base64 encoding of the portrait photo.
     std::shared_ptr<string> targetFacePicture_ = nullptr;
+    // Portrait image URL, accessible via public HTTP or HTTPS link.
     std::shared_ptr<string> targetFacePictureUrl_ = nullptr;
+    // When **DocType**=01000000 (global passport), you can choose whether to enable NFC verification.
+    // - **Y** (enable)
+    // - **N** (disable)
     std::shared_ptr<string> useNFC_ = nullptr;
+    // Type of verification
     std::shared_ptr<string> verifyModel_ = nullptr;
   };
 
