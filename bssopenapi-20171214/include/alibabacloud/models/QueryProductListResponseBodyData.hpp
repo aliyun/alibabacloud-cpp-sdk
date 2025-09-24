@@ -1,0 +1,85 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_QUERYPRODUCTLISTRESPONSEBODYDATA_HPP_
+#define ALIBABACLOUD_MODELS_QUERYPRODUCTLISTRESPONSEBODYDATA_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/models/QueryProductListResponseBodyDataProductList.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace BssOpenApi20171214
+{
+namespace Models
+{
+  class QueryProductListResponseBodyData : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const QueryProductListResponseBodyData& obj) { 
+      DARABONBA_PTR_TO_JSON(PageNum, pageNum_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ProductList, productList_);
+      DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
+    };
+    friend void from_json(const Darabonba::Json& j, QueryProductListResponseBodyData& obj) { 
+      DARABONBA_PTR_FROM_JSON(PageNum, pageNum_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ProductList, productList_);
+      DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
+    };
+    QueryProductListResponseBodyData() = default ;
+    QueryProductListResponseBodyData(const QueryProductListResponseBodyData &) = default ;
+    QueryProductListResponseBodyData(QueryProductListResponseBodyData &&) = default ;
+    QueryProductListResponseBodyData(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~QueryProductListResponseBodyData() = default ;
+    QueryProductListResponseBodyData& operator=(const QueryProductListResponseBodyData &) = default ;
+    QueryProductListResponseBodyData& operator=(QueryProductListResponseBodyData &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->pageNum_ != nullptr
+        && this->pageSize_ != nullptr && this->productList_ != nullptr && this->totalCount_ != nullptr; };
+    // pageNum Field Functions 
+    bool hasPageNum() const { return this->pageNum_ != nullptr;};
+    void deletePageNum() { this->pageNum_ = nullptr;};
+    inline int32_t pageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
+    inline QueryProductListResponseBodyData& setPageNum(int32_t pageNum) { DARABONBA_PTR_SET_VALUE(pageNum_, pageNum) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline QueryProductListResponseBodyData& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // productList Field Functions 
+    bool hasProductList() const { return this->productList_ != nullptr;};
+    void deleteProductList() { this->productList_ = nullptr;};
+    inline const Models::QueryProductListResponseBodyDataProductList & productList() const { DARABONBA_PTR_GET_CONST(productList_, Models::QueryProductListResponseBodyDataProductList) };
+    inline Models::QueryProductListResponseBodyDataProductList productList() { DARABONBA_PTR_GET(productList_, Models::QueryProductListResponseBodyDataProductList) };
+    inline QueryProductListResponseBodyData& setProductList(const Models::QueryProductListResponseBodyDataProductList & productList) { DARABONBA_PTR_SET_VALUE(productList_, productList) };
+    inline QueryProductListResponseBodyData& setProductList(Models::QueryProductListResponseBodyDataProductList && productList) { DARABONBA_PTR_SET_RVALUE(productList_, productList) };
+
+
+    // totalCount Field Functions 
+    bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+    void deleteTotalCount() { this->totalCount_ = nullptr;};
+    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline QueryProductListResponseBodyData& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
+  protected:
+    // The page number of the returned page.
+    std::shared_ptr<int32_t> pageNum_ = nullptr;
+    // The number of entries returned on each page.
+    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The service definitions.
+    std::shared_ptr<Models::QueryProductListResponseBodyDataProductList> productList_ = nullptr;
+    // The total number of services.
+    std::shared_ptr<int32_t> totalCount_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace BssOpenApi20171214
+#endif
