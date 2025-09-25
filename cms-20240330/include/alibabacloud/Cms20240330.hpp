@@ -21,6 +21,42 @@ namespace Cms20240330
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 安装接入组件，代表进行一次接入
+       *
+       * @param request CreateAddonReleaseRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAddonReleaseResponse
+       */
+      Models::CreateAddonReleaseResponse createAddonReleaseWithOptions(const string &policyId, const Models::CreateAddonReleaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 安装接入组件，代表进行一次接入
+       *
+       * @param request CreateAddonReleaseRequest
+       * @return CreateAddonReleaseResponse
+       */
+      Models::CreateAddonReleaseResponse createAddonRelease(const string &policyId, const Models::CreateAddonReleaseRequest &request);
+
+      /**
+       * @summary 创建聚合任务组
+       *
+       * @param request CreateAggTaskGroupRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAggTaskGroupResponse
+       */
+      Models::CreateAggTaskGroupResponse createAggTaskGroupWithOptions(const string &instanceId, const Models::CreateAggTaskGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建聚合任务组
+       *
+       * @param request CreateAggTaskGroupRequest
+       * @return CreateAggTaskGroupResponse
+       */
+      Models::CreateAggTaskGroupResponse createAggTaskGroup(const string &instanceId, const Models::CreateAggTaskGroupRequest &request);
+
+      /**
        * @summary 创建EntityStore相关存储
        *
        * @param headers map
@@ -35,6 +71,24 @@ namespace Cms20240330
        * @return CreateEntityStoreResponse
        */
       Models::CreateEntityStoreResponse createEntityStore(const string &workspaceName);
+
+      /**
+       * @summary 创建接入中心策略
+       *
+       * @param request CreateIntegrationPolicyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateIntegrationPolicyResponse
+       */
+      Models::CreateIntegrationPolicyResponse createIntegrationPolicyWithOptions(const Models::CreateIntegrationPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建接入中心策略
+       *
+       * @param request CreateIntegrationPolicyRequest
+       * @return CreateIntegrationPolicyResponse
+       */
+      Models::CreateIntegrationPolicyResponse createIntegrationPolicy(const Models::CreateIntegrationPolicyRequest &request);
 
       /**
        * @summary 创建Prometheus监控实例
@@ -53,6 +107,42 @@ namespace Cms20240330
        * @return CreatePrometheusInstanceResponse
        */
       Models::CreatePrometheusInstanceResponse createPrometheusInstance(const Models::CreatePrometheusInstanceRequest &request);
+
+      /**
+       * @summary 创建prometheus视图
+       *
+       * @param request CreatePrometheusViewRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePrometheusViewResponse
+       */
+      Models::CreatePrometheusViewResponse createPrometheusViewWithOptions(const Models::CreatePrometheusViewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建prometheus视图
+       *
+       * @param request CreatePrometheusViewRequest
+       * @return CreatePrometheusViewResponse
+       */
+      Models::CreatePrometheusViewResponse createPrometheusView(const Models::CreatePrometheusViewRequest &request);
+
+      /**
+       * @summary 创建Prometheus监控实例
+       *
+       * @param request CreatePrometheusVirtualInstanceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePrometheusVirtualInstanceResponse
+       */
+      Models::CreatePrometheusVirtualInstanceResponse createPrometheusVirtualInstanceWithOptions(const Models::CreatePrometheusVirtualInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建Prometheus监控实例
+       *
+       * @param request CreatePrometheusVirtualInstanceRequest
+       * @return CreatePrometheusVirtualInstanceResponse
+       */
+      Models::CreatePrometheusVirtualInstanceResponse createPrometheusVirtualInstance(const Models::CreatePrometheusVirtualInstanceRequest &request);
 
       /**
        * @summary 创建Service
@@ -109,6 +199,40 @@ namespace Cms20240330
       Models::CreateUmodelResponse createUmodel(const string &workspace, const Models::CreateUmodelRequest &request);
 
       /**
+       * @summary 删除addon release信息
+       *
+       * @param request DeleteAddonReleaseRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAddonReleaseResponse
+       */
+      Models::DeleteAddonReleaseResponse deleteAddonReleaseWithOptions(const string &policyId, const Models::DeleteAddonReleaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除addon release信息
+       *
+       * @param request DeleteAddonReleaseRequest
+       * @return DeleteAddonReleaseResponse
+       */
+      Models::DeleteAddonReleaseResponse deleteAddonRelease(const string &policyId, const Models::DeleteAddonReleaseRequest &request);
+
+      /**
+       * @summary 删除聚合任务组
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAggTaskGroupResponse
+       */
+      Models::DeleteAggTaskGroupResponse deleteAggTaskGroupWithOptions(const string &instanceId, const string &groupId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除聚合任务组
+       *
+       * @return DeleteAggTaskGroupResponse
+       */
+      Models::DeleteAggTaskGroupResponse deleteAggTaskGroup(const string &instanceId, const string &groupId);
+
+      /**
        * @summary 删除EntityStore相关存储
        *
        * @param headers map
@@ -123,6 +247,56 @@ namespace Cms20240330
        * @return DeleteEntityStoreResponse
        */
       Models::DeleteEntityStoreResponse deleteEntityStore(const string &workspaceName);
+
+      /**
+       * @summary 删除接入中心策略
+       *
+       * @param request DeleteIntegrationPolicyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteIntegrationPolicyResponse
+       */
+      Models::DeleteIntegrationPolicyResponse deleteIntegrationPolicyWithOptions(const string &policyId, const Models::DeleteIntegrationPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除接入中心策略
+       *
+       * @param request DeleteIntegrationPolicyRequest
+       * @return DeleteIntegrationPolicyResponse
+       */
+      Models::DeleteIntegrationPolicyResponse deleteIntegrationPolicy(const string &policyId, const Models::DeleteIntegrationPolicyRequest &request);
+
+      /**
+       * @summary 删除prom实例
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeletePrometheusInstanceResponse
+       */
+      Models::DeletePrometheusInstanceResponse deletePrometheusInstanceWithOptions(const string &prometheusInstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除prom实例
+       *
+       * @return DeletePrometheusInstanceResponse
+       */
+      Models::DeletePrometheusInstanceResponse deletePrometheusInstance(const string &prometheusInstanceId);
+
+      /**
+       * @summary 删除prometheus视图实例
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeletePrometheusViewResponse
+       */
+      Models::DeletePrometheusViewResponse deletePrometheusViewWithOptions(const string &prometheusViewId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除prometheus视图实例
+       *
+       * @return DeletePrometheusViewResponse
+       */
+      Models::DeletePrometheusViewResponse deletePrometheusView(const string &prometheusViewId);
 
       /**
        * @summary 删除Service
@@ -191,6 +365,38 @@ namespace Cms20240330
       Models::DeleteWorkspaceResponse deleteWorkspace(const string &workspaceName);
 
       /**
+       * @summary 查看addon release(查看接入状态)
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAddonReleaseResponse
+       */
+      Models::GetAddonReleaseResponse getAddonReleaseWithOptions(const string &releaseName, const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看addon release(查看接入状态)
+       *
+       * @return GetAddonReleaseResponse
+       */
+      Models::GetAddonReleaseResponse getAddonRelease(const string &releaseName, const string &policyId);
+
+      /**
+       * @summary 描述聚合任务组
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAggTaskGroupResponse
+       */
+      Models::GetAggTaskGroupResponse getAggTaskGroupWithOptions(const string &instanceId, const string &groupId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 描述聚合任务组
+       *
+       * @return GetAggTaskGroupResponse
+       */
+      Models::GetAggTaskGroupResponse getAggTaskGroup(const string &instanceId, const string &groupId);
+
+      /**
        * @summary 获取EntityStore相关存储信息
        *
        * @param headers map
@@ -223,6 +429,58 @@ namespace Cms20240330
        * @return GetEntityStoreDataResponse
        */
       Models::GetEntityStoreDataResponse getEntityStoreData(const string &workspace, const Models::GetEntityStoreDataRequest &request);
+
+      /**
+       * @summary 查询接入中心策略列表信息
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetIntegrationPolicyResponse
+       */
+      Models::GetIntegrationPolicyResponse getIntegrationPolicyWithOptions(const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询接入中心策略列表信息
+       *
+       * @return GetIntegrationPolicyResponse
+       */
+      Models::GetIntegrationPolicyResponse getIntegrationPolicy(const string &policyId);
+
+      /**
+       * @summary 查询指定环境实例
+       *
+       * @param request GetPrometheusInstanceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPrometheusInstanceResponse
+       */
+      Models::GetPrometheusInstanceResponse getPrometheusInstanceWithOptions(const string &prometheusInstanceId, const Models::GetPrometheusInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询指定环境实例
+       *
+       * @param request GetPrometheusInstanceRequest
+       * @return GetPrometheusInstanceResponse
+       */
+      Models::GetPrometheusInstanceResponse getPrometheusInstance(const string &prometheusInstanceId, const Models::GetPrometheusInstanceRequest &request);
+
+      /**
+       * @summary 查询指定Prometheus视图实例
+       *
+       * @param request GetPrometheusViewRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPrometheusViewResponse
+       */
+      Models::GetPrometheusViewResponse getPrometheusViewWithOptions(const string &prometheusViewId, const Models::GetPrometheusViewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询指定Prometheus视图实例
+       *
+       * @param request GetPrometheusViewRequest
+       * @return GetPrometheusViewResponse
+       */
+      Models::GetPrometheusViewResponse getPrometheusView(const string &prometheusViewId, const Models::GetPrometheusViewRequest &request);
 
       /**
        * @summary 查询 Service
@@ -307,6 +565,42 @@ namespace Cms20240330
       Models::GetWorkspaceResponse getWorkspace(const string &workspaceName);
 
       /**
+       * @summary addon的release列表
+       *
+       * @param request ListAddonReleasesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAddonReleasesResponse
+       */
+      Models::ListAddonReleasesResponse listAddonReleasesWithOptions(const string &policyId, const Models::ListAddonReleasesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary addon的release列表
+       *
+       * @param request ListAddonReleasesRequest
+       * @return ListAddonReleasesResponse
+       */
+      Models::ListAddonReleasesResponse listAddonReleases(const string &policyId, const Models::ListAddonReleasesRequest &request);
+
+      /**
+       * @summary 列举聚合任务组
+       *
+       * @param tmpReq ListAggTaskGroupsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAggTaskGroupsResponse
+       */
+      Models::ListAggTaskGroupsResponse listAggTaskGroupsWithOptions(const string &instanceId, const Models::ListAggTaskGroupsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列举聚合任务组
+       *
+       * @param request ListAggTaskGroupsRequest
+       * @return ListAggTaskGroupsResponse
+       */
+      Models::ListAggTaskGroupsResponse listAggTaskGroups(const string &instanceId, const Models::ListAggTaskGroupsRequest &request);
+
+      /**
        * @summary 查询告警动作
        *
        * @param tmpReq ListAlertActionsRequest
@@ -323,6 +617,132 @@ namespace Cms20240330
        * @return ListAlertActionsResponse
        */
       Models::ListAlertActionsResponse listAlertActions(const Models::ListAlertActionsRequest &request);
+
+      /**
+       * @summary 获取接入中心策略的存储要求信息
+       *
+       * @param request ListIntegrationPolicyCustomScrapeJobRulesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListIntegrationPolicyCustomScrapeJobRulesResponse
+       */
+      Models::ListIntegrationPolicyCustomScrapeJobRulesResponse listIntegrationPolicyCustomScrapeJobRulesWithOptions(const string &policyId, const Models::ListIntegrationPolicyCustomScrapeJobRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取接入中心策略的存储要求信息
+       *
+       * @param request ListIntegrationPolicyCustomScrapeJobRulesRequest
+       * @return ListIntegrationPolicyCustomScrapeJobRulesResponse
+       */
+      Models::ListIntegrationPolicyCustomScrapeJobRulesResponse listIntegrationPolicyCustomScrapeJobRules(const string &policyId, const Models::ListIntegrationPolicyCustomScrapeJobRulesRequest &request);
+
+      /**
+       * @summary 获取接入中心策略的PodMonitor资源
+       *
+       * @param request ListIntegrationPolicyPodMonitorsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListIntegrationPolicyPodMonitorsResponse
+       */
+      Models::ListIntegrationPolicyPodMonitorsResponse listIntegrationPolicyPodMonitorsWithOptions(const string &policyId, const Models::ListIntegrationPolicyPodMonitorsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取接入中心策略的PodMonitor资源
+       *
+       * @param request ListIntegrationPolicyPodMonitorsRequest
+       * @return ListIntegrationPolicyPodMonitorsResponse
+       */
+      Models::ListIntegrationPolicyPodMonitorsResponse listIntegrationPolicyPodMonitors(const string &policyId, const Models::ListIntegrationPolicyPodMonitorsRequest &request);
+
+      /**
+       * @summary 获取接入中心策略的存储要求信息
+       *
+       * @param request ListIntegrationPolicyStorageRequirementsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListIntegrationPolicyStorageRequirementsResponse
+       */
+      Models::ListIntegrationPolicyStorageRequirementsResponse listIntegrationPolicyStorageRequirementsWithOptions(const string &policyId, const Models::ListIntegrationPolicyStorageRequirementsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取接入中心策略的存储要求信息
+       *
+       * @param request ListIntegrationPolicyStorageRequirementsRequest
+       * @return ListIntegrationPolicyStorageRequirementsResponse
+       */
+      Models::ListIntegrationPolicyStorageRequirementsResponse listIntegrationPolicyStorageRequirements(const string &policyId, const Models::ListIntegrationPolicyStorageRequirementsRequest &request);
+
+      /**
+       * @summary 获取Prometheus实例大盘列表
+       *
+       * @param request ListPrometheusDashboardsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPrometheusDashboardsResponse
+       */
+      Models::ListPrometheusDashboardsResponse listPrometheusDashboardsWithOptions(const string &prometheusInstanceId, const Models::ListPrometheusDashboardsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取Prometheus实例大盘列表
+       *
+       * @param request ListPrometheusDashboardsRequest
+       * @return ListPrometheusDashboardsResponse
+       */
+      Models::ListPrometheusDashboardsResponse listPrometheusDashboards(const string &prometheusInstanceId, const Models::ListPrometheusDashboardsRequest &request);
+
+      /**
+       * @summary 获取Prometheus实例信息列表
+       *
+       * @param tmpReq ListPrometheusInstancesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPrometheusInstancesResponse
+       */
+      Models::ListPrometheusInstancesResponse listPrometheusInstancesWithOptions(const Models::ListPrometheusInstancesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取Prometheus实例信息列表
+       *
+       * @param request ListPrometheusInstancesRequest
+       * @return ListPrometheusInstancesResponse
+       */
+      Models::ListPrometheusInstancesResponse listPrometheusInstances(const Models::ListPrometheusInstancesRequest &request);
+
+      /**
+       * @summary 获取Prometheus视图实例信息列表
+       *
+       * @param tmpReq ListPrometheusViewsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPrometheusViewsResponse
+       */
+      Models::ListPrometheusViewsResponse listPrometheusViewsWithOptions(const Models::ListPrometheusViewsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取Prometheus视图实例信息列表
+       *
+       * @param request ListPrometheusViewsRequest
+       * @return ListPrometheusViewsResponse
+       */
+      Models::ListPrometheusViewsResponse listPrometheusViews(const Models::ListPrometheusViewsRequest &request);
+
+      /**
+       * @summary 获取Prometheus虚拟实例
+       *
+       * @param request ListPrometheusVirtualInstancesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPrometheusVirtualInstancesResponse
+       */
+      Models::ListPrometheusVirtualInstancesResponse listPrometheusVirtualInstancesWithOptions(const Models::ListPrometheusVirtualInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取Prometheus虚拟实例
+       *
+       * @param request ListPrometheusVirtualInstancesRequest
+       * @return ListPrometheusVirtualInstancesResponse
+       */
+      Models::ListPrometheusVirtualInstancesResponse listPrometheusVirtualInstances(const Models::ListPrometheusVirtualInstancesRequest &request);
 
       /**
        * @summary 列出资源Service
@@ -377,6 +797,114 @@ namespace Cms20240330
        * @return PutWorkspaceResponse
        */
       Models::PutWorkspaceResponse putWorkspace(const string &workspaceName, const Models::PutWorkspaceRequest &request);
+
+      /**
+       * @summary 升级接入组件
+       *
+       * @param request UpdateAddonReleaseRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAddonReleaseResponse
+       */
+      Models::UpdateAddonReleaseResponse updateAddonReleaseWithOptions(const string &releaseName, const string &policyId, const Models::UpdateAddonReleaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 升级接入组件
+       *
+       * @param request UpdateAddonReleaseRequest
+       * @return UpdateAddonReleaseResponse
+       */
+      Models::UpdateAddonReleaseResponse updateAddonRelease(const string &releaseName, const string &policyId, const Models::UpdateAddonReleaseRequest &request);
+
+      /**
+       * @summary 应用聚合任务组
+       *
+       * @param request UpdateAggTaskGroupRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAggTaskGroupResponse
+       */
+      Models::UpdateAggTaskGroupResponse updateAggTaskGroupWithOptions(const string &instanceId, const string &groupId, const Models::UpdateAggTaskGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 应用聚合任务组
+       *
+       * @param request UpdateAggTaskGroupRequest
+       * @return UpdateAggTaskGroupResponse
+       */
+      Models::UpdateAggTaskGroupResponse updateAggTaskGroup(const string &instanceId, const string &groupId, const Models::UpdateAggTaskGroupRequest &request);
+
+      /**
+       * @summary 更新聚合任务组状态
+       *
+       * @param request UpdateAggTaskGroupStatusRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAggTaskGroupStatusResponse
+       */
+      Models::UpdateAggTaskGroupStatusResponse updateAggTaskGroupStatusWithOptions(const string &instanceId, const string &groupId, const Models::UpdateAggTaskGroupStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新聚合任务组状态
+       *
+       * @param request UpdateAggTaskGroupStatusRequest
+       * @return UpdateAggTaskGroupStatusResponse
+       */
+      Models::UpdateAggTaskGroupStatusResponse updateAggTaskGroupStatus(const string &instanceId, const string &groupId, const Models::UpdateAggTaskGroupStatusRequest &request);
+
+      /**
+       * @summary 更新指定策略
+       *
+       * @param request UpdateIntegrationPolicyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateIntegrationPolicyResponse
+       */
+      Models::UpdateIntegrationPolicyResponse updateIntegrationPolicyWithOptions(const string &integrationPolicyId, const Models::UpdateIntegrationPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新指定策略
+       *
+       * @param request UpdateIntegrationPolicyRequest
+       * @return UpdateIntegrationPolicyResponse
+       */
+      Models::UpdateIntegrationPolicyResponse updateIntegrationPolicy(const string &integrationPolicyId, const Models::UpdateIntegrationPolicyRequest &request);
+
+      /**
+       * @summary 更新Prom实例信息
+       *
+       * @param request UpdatePrometheusInstanceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePrometheusInstanceResponse
+       */
+      Models::UpdatePrometheusInstanceResponse updatePrometheusInstanceWithOptions(const string &prometheusInstanceId, const Models::UpdatePrometheusInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新Prom实例信息
+       *
+       * @param request UpdatePrometheusInstanceRequest
+       * @return UpdatePrometheusInstanceResponse
+       */
+      Models::UpdatePrometheusInstanceResponse updatePrometheusInstance(const string &prometheusInstanceId, const Models::UpdatePrometheusInstanceRequest &request);
+
+      /**
+       * @summary 更新Prom视图实例信息
+       *
+       * @param request UpdatePrometheusViewRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePrometheusViewResponse
+       */
+      Models::UpdatePrometheusViewResponse updatePrometheusViewWithOptions(const string &prometheusViewId, const Models::UpdatePrometheusViewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新Prom视图实例信息
+       *
+       * @param request UpdatePrometheusViewRequest
+       * @return UpdatePrometheusViewResponse
+       */
+      Models::UpdatePrometheusViewResponse updatePrometheusView(const string &prometheusViewId, const Models::UpdatePrometheusViewRequest &request);
 
       /**
        * @summary 更新UpdateService

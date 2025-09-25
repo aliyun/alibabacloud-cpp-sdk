@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETENTITYSTOREDATARESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/GetEntityStoreDataResponseBodyResponseStatus.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -17,11 +18,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(data, data_);
       DARABONBA_PTR_TO_JSON(header, header_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(responseStatus, responseStatus_);
     };
     friend void from_json(const Darabonba::Json& j, GetEntityStoreDataResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(data, data_);
       DARABONBA_PTR_FROM_JSON(header, header_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(responseStatus, responseStatus_);
     };
     GetEntityStoreDataResponseBody() = default ;
     GetEntityStoreDataResponseBody(const GetEntityStoreDataResponseBody &) = default ;
@@ -35,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->data_ != nullptr
-        && this->header_ != nullptr && this->requestId_ != nullptr; };
+        && this->header_ != nullptr && this->requestId_ != nullptr && this->responseStatus_ != nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
@@ -61,10 +64,20 @@ namespace Models
     inline GetEntityStoreDataResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // responseStatus Field Functions 
+    bool hasResponseStatus() const { return this->responseStatus_ != nullptr;};
+    void deleteResponseStatus() { this->responseStatus_ = nullptr;};
+    inline const GetEntityStoreDataResponseBodyResponseStatus & responseStatus() const { DARABONBA_PTR_GET_CONST(responseStatus_, GetEntityStoreDataResponseBodyResponseStatus) };
+    inline GetEntityStoreDataResponseBodyResponseStatus responseStatus() { DARABONBA_PTR_GET(responseStatus_, GetEntityStoreDataResponseBodyResponseStatus) };
+    inline GetEntityStoreDataResponseBody& setResponseStatus(const GetEntityStoreDataResponseBodyResponseStatus & responseStatus) { DARABONBA_PTR_SET_VALUE(responseStatus_, responseStatus) };
+    inline GetEntityStoreDataResponseBody& setResponseStatus(GetEntityStoreDataResponseBodyResponseStatus && responseStatus) { DARABONBA_PTR_SET_RVALUE(responseStatus_, responseStatus) };
+
+
   protected:
     std::shared_ptr<vector<vector<string>>> data_ = nullptr;
     std::shared_ptr<vector<string>> header_ = nullptr;
     std::shared_ptr<string> requestId_ = nullptr;
+    std::shared_ptr<GetEntityStoreDataResponseBodyResponseStatus> responseStatus_ = nullptr;
   };
 
   } // namespace Models

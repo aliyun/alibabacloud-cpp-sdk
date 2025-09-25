@@ -3,7 +3,8 @@
 #define ALIBABACLOUD_MODELS_INCIDENTPLANSTRUCT_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/Cms20240330.hpp>
+#include <alibabacloud/models/IncidentPlanCorporationStruct.hpp>
+#include <alibabacloud/models/IncidentPlanFieldPath.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

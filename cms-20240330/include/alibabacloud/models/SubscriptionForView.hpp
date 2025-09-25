@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_SUBSCRIPTIONFORVIEW_HPP_
 #define ALIBABACLOUD_MODELS_SUBSCRIPTIONFORVIEW_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/FilterSetting.hpp>
 #include <alibabacloud/models/SubscriptionForViewPushingSetting.hpp>
 using namespace std;
 using json = nlohmann::json;

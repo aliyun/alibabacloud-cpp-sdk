@@ -3,7 +3,8 @@
 #define ALIBABACLOUD_MODELS_TRANSFORMERFORMODIFY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/Cms20240330.hpp>
+#include <alibabacloud/models/TransformAction.hpp>
+#include <alibabacloud/models/FilterSetting.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

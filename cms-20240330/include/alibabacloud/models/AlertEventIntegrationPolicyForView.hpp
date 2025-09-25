@@ -2,8 +2,9 @@
 #ifndef ALIBABACLOUD_MODELS_ALERTEVENTINTEGRATIONPOLICYFORVIEW_HPP_
 #define ALIBABACLOUD_MODELS_ALERTEVENTINTEGRATIONPOLICYFORVIEW_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/FilterSetting.hpp>
 #include <vector>
-#include <alibabacloud/Cms20240330.hpp>
+#include <alibabacloud/models/TransformAction.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

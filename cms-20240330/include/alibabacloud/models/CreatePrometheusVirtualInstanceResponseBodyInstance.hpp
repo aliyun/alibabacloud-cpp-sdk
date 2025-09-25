@@ -1,0 +1,98 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_CREATEPROMETHEUSVIRTUALINSTANCERESPONSEBODYINSTANCE_HPP_
+#define ALIBABACLOUD_MODELS_CREATEPROMETHEUSVIRTUALINSTANCERESPONSEBODYINSTANCE_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Cms20240330
+{
+namespace Models
+{
+  class CreatePrometheusVirtualInstanceResponseBodyInstance : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const CreatePrometheusVirtualInstanceResponseBodyInstance& obj) { 
+      DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
+      DARABONBA_PTR_TO_JSON(httpApiUrl, httpApiUrl_);
+      DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(namespace, namespace_);
+      DARABONBA_PTR_TO_JSON(regionId, regionId_);
+      DARABONBA_PTR_TO_JSON(userId, userId_);
+    };
+    friend void from_json(const Darabonba::Json& j, CreatePrometheusVirtualInstanceResponseBodyInstance& obj) { 
+      DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
+      DARABONBA_PTR_FROM_JSON(httpApiUrl, httpApiUrl_);
+      DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(namespace, namespace_);
+      DARABONBA_PTR_FROM_JSON(regionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(userId, userId_);
+    };
+    CreatePrometheusVirtualInstanceResponseBodyInstance() = default ;
+    CreatePrometheusVirtualInstanceResponseBodyInstance(const CreatePrometheusVirtualInstanceResponseBodyInstance &) = default ;
+    CreatePrometheusVirtualInstanceResponseBodyInstance(CreatePrometheusVirtualInstanceResponseBodyInstance &&) = default ;
+    CreatePrometheusVirtualInstanceResponseBodyInstance(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreatePrometheusVirtualInstanceResponseBodyInstance() = default ;
+    CreatePrometheusVirtualInstanceResponseBodyInstance& operator=(const CreatePrometheusVirtualInstanceResponseBodyInstance &) = default ;
+    CreatePrometheusVirtualInstanceResponseBodyInstance& operator=(CreatePrometheusVirtualInstanceResponseBodyInstance &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->createdAt_ != nullptr
+        && this->httpApiUrl_ != nullptr && this->instanceId_ != nullptr && this->namespace_ != nullptr && this->regionId_ != nullptr && this->userId_ != nullptr; };
+    // createdAt Field Functions 
+    bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
+    void deleteCreatedAt() { this->createdAt_ = nullptr;};
+    inline string createdAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, "") };
+    inline CreatePrometheusVirtualInstanceResponseBodyInstance& setCreatedAt(string createdAt) { DARABONBA_PTR_SET_VALUE(createdAt_, createdAt) };
+
+
+    // httpApiUrl Field Functions 
+    bool hasHttpApiUrl() const { return this->httpApiUrl_ != nullptr;};
+    void deleteHttpApiUrl() { this->httpApiUrl_ = nullptr;};
+    inline string httpApiUrl() const { DARABONBA_PTR_GET_DEFAULT(httpApiUrl_, "") };
+    inline CreatePrometheusVirtualInstanceResponseBodyInstance& setHttpApiUrl(string httpApiUrl) { DARABONBA_PTR_SET_VALUE(httpApiUrl_, httpApiUrl) };
+
+
+    // instanceId Field Functions 
+    bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+    void deleteInstanceId() { this->instanceId_ = nullptr;};
+    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline CreatePrometheusVirtualInstanceResponseBodyInstance& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // namespace Field Functions 
+    bool hasNamespace() const { return this->namespace_ != nullptr;};
+    void deleteNamespace() { this->namespace_ = nullptr;};
+    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline CreatePrometheusVirtualInstanceResponseBodyInstance& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
+
+
+    // regionId Field Functions 
+    bool hasRegionId() const { return this->regionId_ != nullptr;};
+    void deleteRegionId() { this->regionId_ = nullptr;};
+    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline CreatePrometheusVirtualInstanceResponseBodyInstance& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+    // userId Field Functions 
+    bool hasUserId() const { return this->userId_ != nullptr;};
+    void deleteUserId() { this->userId_ = nullptr;};
+    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline CreatePrometheusVirtualInstanceResponseBodyInstance& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
+
+
+  protected:
+    std::shared_ptr<string> createdAt_ = nullptr;
+    std::shared_ptr<string> httpApiUrl_ = nullptr;
+    std::shared_ptr<string> instanceId_ = nullptr;
+    std::shared_ptr<string> namespace_ = nullptr;
+    std::shared_ptr<string> regionId_ = nullptr;
+    std::shared_ptr<string> userId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Cms20240330
+#endif

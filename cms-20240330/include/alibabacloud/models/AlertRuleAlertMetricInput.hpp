@@ -3,7 +3,8 @@
 #define ALIBABACLOUD_MODELS_ALERTRULEALERTMETRICINPUT_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/Cms20240330.hpp>
+#include <alibabacloud/models/AlertRuleAlertMetricInputFilterValue.hpp>
+#include <alibabacloud/models/AlertRuleAlertMetricInputParamValue.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

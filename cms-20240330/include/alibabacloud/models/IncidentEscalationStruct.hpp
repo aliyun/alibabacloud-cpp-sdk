@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_INCIDENTESCALATIONSTRUCT_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/Cms20240330.hpp>
+#include <alibabacloud/models/IncidentEscalationStageStruct.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

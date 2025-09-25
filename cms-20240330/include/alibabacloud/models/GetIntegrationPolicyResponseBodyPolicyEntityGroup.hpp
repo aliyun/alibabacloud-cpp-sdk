@@ -1,0 +1,122 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_GETINTEGRATIONPOLICYRESPONSEBODYPOLICYENTITYGROUP_HPP_
+#define ALIBABACLOUD_MODELS_GETINTEGRATIONPOLICYRESPONSEBODYPOLICYENTITYGROUP_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/models/GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRules.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Cms20240330
+{
+namespace Models
+{
+  class GetIntegrationPolicyResponseBodyPolicyEntityGroup : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const GetIntegrationPolicyResponseBodyPolicyEntityGroup& obj) { 
+      DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(entityGroupId, entityGroupId_);
+      DARABONBA_PTR_TO_JSON(entityGroupName, entityGroupName_);
+      DARABONBA_PTR_TO_JSON(entityRules, entityRules_);
+      DARABONBA_PTR_TO_JSON(query, query_);
+      DARABONBA_PTR_TO_JSON(regionId, regionId_);
+      DARABONBA_PTR_TO_JSON(userId, userId_);
+      DARABONBA_PTR_TO_JSON(workspace, workspace_);
+    };
+    friend void from_json(const Darabonba::Json& j, GetIntegrationPolicyResponseBodyPolicyEntityGroup& obj) { 
+      DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(entityGroupId, entityGroupId_);
+      DARABONBA_PTR_FROM_JSON(entityGroupName, entityGroupName_);
+      DARABONBA_PTR_FROM_JSON(entityRules, entityRules_);
+      DARABONBA_PTR_FROM_JSON(query, query_);
+      DARABONBA_PTR_FROM_JSON(regionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(userId, userId_);
+      DARABONBA_PTR_FROM_JSON(workspace, workspace_);
+    };
+    GetIntegrationPolicyResponseBodyPolicyEntityGroup() = default ;
+    GetIntegrationPolicyResponseBodyPolicyEntityGroup(const GetIntegrationPolicyResponseBodyPolicyEntityGroup &) = default ;
+    GetIntegrationPolicyResponseBodyPolicyEntityGroup(GetIntegrationPolicyResponseBodyPolicyEntityGroup &&) = default ;
+    GetIntegrationPolicyResponseBodyPolicyEntityGroup(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetIntegrationPolicyResponseBodyPolicyEntityGroup() = default ;
+    GetIntegrationPolicyResponseBodyPolicyEntityGroup& operator=(const GetIntegrationPolicyResponseBodyPolicyEntityGroup &) = default ;
+    GetIntegrationPolicyResponseBodyPolicyEntityGroup& operator=(GetIntegrationPolicyResponseBodyPolicyEntityGroup &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->description_ != nullptr
+        && this->entityGroupId_ != nullptr && this->entityGroupName_ != nullptr && this->entityRules_ != nullptr && this->query_ != nullptr && this->regionId_ != nullptr
+        && this->userId_ != nullptr && this->workspace_ != nullptr; };
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline GetIntegrationPolicyResponseBodyPolicyEntityGroup& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // entityGroupId Field Functions 
+    bool hasEntityGroupId() const { return this->entityGroupId_ != nullptr;};
+    void deleteEntityGroupId() { this->entityGroupId_ = nullptr;};
+    inline string entityGroupId() const { DARABONBA_PTR_GET_DEFAULT(entityGroupId_, "") };
+    inline GetIntegrationPolicyResponseBodyPolicyEntityGroup& setEntityGroupId(string entityGroupId) { DARABONBA_PTR_SET_VALUE(entityGroupId_, entityGroupId) };
+
+
+    // entityGroupName Field Functions 
+    bool hasEntityGroupName() const { return this->entityGroupName_ != nullptr;};
+    void deleteEntityGroupName() { this->entityGroupName_ = nullptr;};
+    inline string entityGroupName() const { DARABONBA_PTR_GET_DEFAULT(entityGroupName_, "") };
+    inline GetIntegrationPolicyResponseBodyPolicyEntityGroup& setEntityGroupName(string entityGroupName) { DARABONBA_PTR_SET_VALUE(entityGroupName_, entityGroupName) };
+
+
+    // entityRules Field Functions 
+    bool hasEntityRules() const { return this->entityRules_ != nullptr;};
+    void deleteEntityRules() { this->entityRules_ = nullptr;};
+    inline const Models::GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRules & entityRules() const { DARABONBA_PTR_GET_CONST(entityRules_, Models::GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRules) };
+    inline Models::GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRules entityRules() { DARABONBA_PTR_GET(entityRules_, Models::GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRules) };
+    inline GetIntegrationPolicyResponseBodyPolicyEntityGroup& setEntityRules(const Models::GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRules & entityRules) { DARABONBA_PTR_SET_VALUE(entityRules_, entityRules) };
+    inline GetIntegrationPolicyResponseBodyPolicyEntityGroup& setEntityRules(Models::GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRules && entityRules) { DARABONBA_PTR_SET_RVALUE(entityRules_, entityRules) };
+
+
+    // query Field Functions 
+    bool hasQuery() const { return this->query_ != nullptr;};
+    void deleteQuery() { this->query_ = nullptr;};
+    inline string query() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
+    inline GetIntegrationPolicyResponseBodyPolicyEntityGroup& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
+
+
+    // regionId Field Functions 
+    bool hasRegionId() const { return this->regionId_ != nullptr;};
+    void deleteRegionId() { this->regionId_ = nullptr;};
+    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline GetIntegrationPolicyResponseBodyPolicyEntityGroup& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+    // userId Field Functions 
+    bool hasUserId() const { return this->userId_ != nullptr;};
+    void deleteUserId() { this->userId_ = nullptr;};
+    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline GetIntegrationPolicyResponseBodyPolicyEntityGroup& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
+
+
+    // workspace Field Functions 
+    bool hasWorkspace() const { return this->workspace_ != nullptr;};
+    void deleteWorkspace() { this->workspace_ = nullptr;};
+    inline string workspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+    inline GetIntegrationPolicyResponseBodyPolicyEntityGroup& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
+
+
+  protected:
+    std::shared_ptr<string> description_ = nullptr;
+    std::shared_ptr<string> entityGroupId_ = nullptr;
+    std::shared_ptr<string> entityGroupName_ = nullptr;
+    std::shared_ptr<Models::GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRules> entityRules_ = nullptr;
+    std::shared_ptr<string> query_ = nullptr;
+    std::shared_ptr<string> regionId_ = nullptr;
+    std::shared_ptr<string> userId_ = nullptr;
+    std::shared_ptr<string> workspace_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Cms20240330
+#endif

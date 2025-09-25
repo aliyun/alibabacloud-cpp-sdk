@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MAINTAINWINDOWFORVIEW_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/MaintainWindowForViewEffectTimeRange.hpp>
+#include <alibabacloud/models/FilterSetting.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

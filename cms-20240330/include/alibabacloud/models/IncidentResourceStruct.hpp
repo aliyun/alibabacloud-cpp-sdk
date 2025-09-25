@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_INCIDENTRESOURCESTRUCT_HPP_
 #define ALIBABACLOUD_MODELS_INCIDENTRESOURCESTRUCT_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/IncidentResourceDetail.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

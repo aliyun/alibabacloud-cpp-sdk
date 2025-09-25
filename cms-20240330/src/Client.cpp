@@ -38,6 +38,198 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 安装接入组件，代表进行一次接入
+ *
+ * @param request CreateAddonReleaseRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAddonReleaseResponse
+ */
+CreateAddonReleaseResponse Client::createAddonReleaseWithOptions(const string &policyId, const CreateAddonReleaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAddonName()) {
+    body["addonName"] = request.addonName();
+  }
+
+  if (!!request.hasAliyunLang()) {
+    body["aliyunLang"] = request.aliyunLang();
+  }
+
+  if (!!request.hasDryRun()) {
+    body["dryRun"] = request.dryRun();
+  }
+
+  if (!!request.hasEntityRules()) {
+    body["entityRules"] = request.entityRules();
+  }
+
+  if (!!request.hasEnvType()) {
+    body["envType"] = request.envType();
+  }
+
+  if (!!request.hasParentAddonReleaseId()) {
+    body["parentAddonReleaseId"] = request.parentAddonReleaseId();
+  }
+
+  if (!!request.hasReleaseName()) {
+    body["releaseName"] = request.releaseName();
+  }
+
+  if (!!request.hasValues()) {
+    body["values"] = request.values();
+  }
+
+  if (!!request.hasVersion()) {
+    body["version"] = request.version();
+  }
+
+  if (!!request.hasWorkspace()) {
+    body["workspace"] = request.workspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateAddonRelease"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/integration-policies/" , Darabonba::Http::URL::percentEncode(policyId) , "/addon-releases")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAddonReleaseResponse>();
+}
+
+/**
+ * @summary 安装接入组件，代表进行一次接入
+ *
+ * @param request CreateAddonReleaseRequest
+ * @return CreateAddonReleaseResponse
+ */
+CreateAddonReleaseResponse Client::createAddonRelease(const string &policyId, const CreateAddonReleaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createAddonReleaseWithOptions(policyId, request, headers, runtime);
+}
+
+/**
+ * @summary 创建聚合任务组
+ *
+ * @param request CreateAggTaskGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAggTaskGroupResponse
+ */
+CreateAggTaskGroupResponse Client::createAggTaskGroupWithOptions(const string &instanceId, const CreateAggTaskGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOverrideIfExists()) {
+    query["overrideIfExists"] = request.overrideIfExists();
+  }
+
+  json body = {};
+  if (!!request.hasAggTaskGroupConfig()) {
+    body["aggTaskGroupConfig"] = request.aggTaskGroupConfig();
+  }
+
+  if (!!request.hasAggTaskGroupConfigType()) {
+    body["aggTaskGroupConfigType"] = request.aggTaskGroupConfigType();
+  }
+
+  if (!!request.hasAggTaskGroupName()) {
+    body["aggTaskGroupName"] = request.aggTaskGroupName();
+  }
+
+  if (!!request.hasCronExpr()) {
+    body["cronExpr"] = request.cronExpr();
+  }
+
+  if (!!request.hasDelay()) {
+    body["delay"] = request.delay();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.description();
+  }
+
+  if (!!request.hasFromTime()) {
+    body["fromTime"] = request.fromTime();
+  }
+
+  if (!!request.hasMaxRetries()) {
+    body["maxRetries"] = request.maxRetries();
+  }
+
+  if (!!request.hasMaxRunTimeInSeconds()) {
+    body["maxRunTimeInSeconds"] = request.maxRunTimeInSeconds();
+  }
+
+  if (!!request.hasPrecheckString()) {
+    body["precheckString"] = request.precheckString();
+  }
+
+  if (!!request.hasScheduleMode()) {
+    body["scheduleMode"] = request.scheduleMode();
+  }
+
+  if (!!request.hasScheduleTimeExpr()) {
+    body["scheduleTimeExpr"] = request.scheduleTimeExpr();
+  }
+
+  if (!!request.hasStatus()) {
+    body["status"] = request.status();
+  }
+
+  if (!!request.hasTags()) {
+    body["tags"] = request.tags();
+  }
+
+  if (!!request.hasTargetPrometheusId()) {
+    body["targetPrometheusId"] = request.targetPrometheusId();
+  }
+
+  if (!!request.hasToTime()) {
+    body["toTime"] = request.toTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateAggTaskGroup"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/prometheus-instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/agg-task-groups")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAggTaskGroupResponse>();
+}
+
+/**
+ * @summary 创建聚合任务组
+ *
+ * @param request CreateAggTaskGroupRequest
+ * @return CreateAggTaskGroupResponse
+ */
+CreateAggTaskGroupResponse Client::createAggTaskGroup(const string &instanceId, const CreateAggTaskGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createAggTaskGroupWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary 创建EntityStore相关存储
  *
  * @param headers map
@@ -47,7 +239,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 CreateEntityStoreResponse Client::createEntityStoreWithOptions(const string &workspaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateEntityStore"},
     {"version" , "2024-03-30"},
@@ -58,7 +250,7 @@ CreateEntityStoreResponse Client::createEntityStoreWithOptions(const string &wor
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateEntityStoreResponse>();
 }
 
@@ -71,6 +263,71 @@ CreateEntityStoreResponse Client::createEntityStore(const string &workspaceName)
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createEntityStoreWithOptions(workspaceName, headers, runtime);
+}
+
+/**
+ * @summary 创建接入中心策略
+ *
+ * @param request CreateIntegrationPolicyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateIntegrationPolicyResponse
+ */
+CreateIntegrationPolicyResponse Client::createIntegrationPolicyWithOptions(const CreateIntegrationPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEntityGroup()) {
+    body["entityGroup"] = request.entityGroup();
+  }
+
+  if (!!request.hasPolicyName()) {
+    body["policyName"] = request.policyName();
+  }
+
+  if (!!request.hasPolicyType()) {
+    body["policyType"] = request.policyType();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["resourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasTags()) {
+    body["tags"] = request.tags();
+  }
+
+  if (!!request.hasWorkspace()) {
+    body["workspace"] = request.workspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateIntegrationPolicy"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/integration-policies")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateIntegrationPolicyResponse>();
+}
+
+/**
+ * @summary 创建接入中心策略
+ *
+ * @param request CreateIntegrationPolicyRequest
+ * @return CreateIntegrationPolicyResponse
+ */
+CreateIntegrationPolicyResponse Client::createIntegrationPolicy(const CreateIntegrationPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createIntegrationPolicyWithOptions(request, headers, runtime);
 }
 
 /**
@@ -146,7 +403,7 @@ CreatePrometheusInstanceResponse Client::createPrometheusInstanceWithOptions(con
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreatePrometheusInstanceResponse>();
 }
 
@@ -160,6 +417,132 @@ CreatePrometheusInstanceResponse Client::createPrometheusInstance(const CreatePr
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createPrometheusInstanceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建prometheus视图
+ *
+ * @param request CreatePrometheusViewRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePrometheusViewResponse
+ */
+CreatePrometheusViewResponse Client::createPrometheusViewWithOptions(const CreatePrometheusViewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAuthFreeReadPolicy()) {
+    body["authFreeReadPolicy"] = request.authFreeReadPolicy();
+  }
+
+  if (!!request.hasEnableAuthFreeRead()) {
+    body["enableAuthFreeRead"] = request.enableAuthFreeRead();
+  }
+
+  if (!!request.hasEnableAuthToken()) {
+    body["enableAuthToken"] = request.enableAuthToken();
+  }
+
+  if (!!request.hasPrometheusInstances()) {
+    body["prometheusInstances"] = request.prometheusInstances();
+  }
+
+  if (!!request.hasPrometheusViewName()) {
+    body["prometheusViewName"] = request.prometheusViewName();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["resourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasStatus()) {
+    body["status"] = request.status();
+  }
+
+  if (!!request.hasTags()) {
+    body["tags"] = request.tags();
+  }
+
+  if (!!request.hasVersion()) {
+    body["version"] = request.version();
+  }
+
+  if (!!request.hasWorkspace()) {
+    body["workspace"] = request.workspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreatePrometheusView"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/prometheus-views")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePrometheusViewResponse>();
+}
+
+/**
+ * @summary 创建prometheus视图
+ *
+ * @param request CreatePrometheusViewRequest
+ * @return CreatePrometheusViewResponse
+ */
+CreatePrometheusViewResponse Client::createPrometheusView(const CreatePrometheusViewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createPrometheusViewWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建Prometheus监控实例
+ *
+ * @param request CreatePrometheusVirtualInstanceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePrometheusVirtualInstanceResponse
+ */
+CreatePrometheusVirtualInstanceResponse Client::createPrometheusVirtualInstanceWithOptions(const CreatePrometheusVirtualInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasNamespace()) {
+    body["namespace"] = request._namespace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreatePrometheusVirtualInstance"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/virtual-instances")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePrometheusVirtualInstanceResponse>();
+}
+
+/**
+ * @summary 创建Prometheus监控实例
+ *
+ * @param request CreatePrometheusVirtualInstanceRequest
+ * @return CreatePrometheusVirtualInstanceResponse
+ */
+CreatePrometheusVirtualInstanceResponse Client::createPrometheusVirtualInstance(const CreatePrometheusVirtualInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createPrometheusVirtualInstanceWithOptions(request, headers, runtime);
 }
 
 /**
@@ -215,7 +598,7 @@ CreateServiceResponse Client::createServiceWithOptions(const string &workspace, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateServiceResponse>();
 }
 
@@ -253,7 +636,7 @@ CreateTicketResponse Client::createTicketWithOptions(const CreateTicketRequest &
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateTicket"},
     {"version" , "2024-03-30"},
@@ -264,7 +647,7 @@ CreateTicketResponse Client::createTicketWithOptions(const CreateTicketRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateTicketResponse>();
 }
 
@@ -309,7 +692,7 @@ CreateUmodelResponse Client::createUmodelWithOptions(const string &workspace, co
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateUmodelResponse>();
 }
 
@@ -326,6 +709,95 @@ CreateUmodelResponse Client::createUmodel(const string &workspace, const CreateU
 }
 
 /**
+ * @summary 删除addon release信息
+ *
+ * @param request DeleteAddonReleaseRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAddonReleaseResponse
+ */
+DeleteAddonReleaseResponse Client::deleteAddonReleaseWithOptions(const string &policyId, const DeleteAddonReleaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAddonName()) {
+    query["addonName"] = request.addonName();
+  }
+
+  if (!!request.hasForce()) {
+    query["force"] = request.force();
+  }
+
+  if (!!request.hasReleaseName()) {
+    query["releaseName"] = request.releaseName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAddonRelease"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/integration-policies/" , Darabonba::Http::URL::percentEncode(policyId) , "/addon-releases")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAddonReleaseResponse>();
+}
+
+/**
+ * @summary 删除addon release信息
+ *
+ * @param request DeleteAddonReleaseRequest
+ * @return DeleteAddonReleaseResponse
+ */
+DeleteAddonReleaseResponse Client::deleteAddonRelease(const string &policyId, const DeleteAddonReleaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteAddonReleaseWithOptions(policyId, request, headers, runtime);
+}
+
+/**
+ * @summary 删除聚合任务组
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAggTaskGroupResponse
+ */
+DeleteAggTaskGroupResponse Client::deleteAggTaskGroupWithOptions(const string &instanceId, const string &groupId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAggTaskGroup"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/prometheus-instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/agg-task-groups/" , Darabonba::Http::URL::percentEncode(groupId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAggTaskGroupResponse>();
+}
+
+/**
+ * @summary 删除聚合任务组
+ *
+ * @return DeleteAggTaskGroupResponse
+ */
+DeleteAggTaskGroupResponse Client::deleteAggTaskGroup(const string &instanceId, const string &groupId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteAggTaskGroupWithOptions(instanceId, groupId, headers, runtime);
+}
+
+/**
  * @summary 删除EntityStore相关存储
  *
  * @param headers map
@@ -335,7 +807,7 @@ CreateUmodelResponse Client::createUmodel(const string &workspace, const CreateU
 DeleteEntityStoreResponse Client::deleteEntityStoreWithOptions(const string &workspaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteEntityStore"},
     {"version" , "2024-03-30"},
@@ -346,7 +818,7 @@ DeleteEntityStoreResponse Client::deleteEntityStoreWithOptions(const string &wor
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteEntityStoreResponse>();
 }
 
@@ -362,6 +834,123 @@ DeleteEntityStoreResponse Client::deleteEntityStore(const string &workspaceName)
 }
 
 /**
+ * @summary 删除接入中心策略
+ *
+ * @param request DeleteIntegrationPolicyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteIntegrationPolicyResponse
+ */
+DeleteIntegrationPolicyResponse Client::deleteIntegrationPolicyWithOptions(const string &policyId, const DeleteIntegrationPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasForce()) {
+    query["force"] = request.force();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteIntegrationPolicy"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/integration-policies/" , Darabonba::Http::URL::percentEncode(policyId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteIntegrationPolicyResponse>();
+}
+
+/**
+ * @summary 删除接入中心策略
+ *
+ * @param request DeleteIntegrationPolicyRequest
+ * @return DeleteIntegrationPolicyResponse
+ */
+DeleteIntegrationPolicyResponse Client::deleteIntegrationPolicy(const string &policyId, const DeleteIntegrationPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteIntegrationPolicyWithOptions(policyId, request, headers, runtime);
+}
+
+/**
+ * @summary 删除prom实例
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeletePrometheusInstanceResponse
+ */
+DeletePrometheusInstanceResponse Client::deletePrometheusInstanceWithOptions(const string &prometheusInstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeletePrometheusInstance"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/prometheus-instances/" , Darabonba::Http::URL::percentEncode(prometheusInstanceId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeletePrometheusInstanceResponse>();
+}
+
+/**
+ * @summary 删除prom实例
+ *
+ * @return DeletePrometheusInstanceResponse
+ */
+DeletePrometheusInstanceResponse Client::deletePrometheusInstance(const string &prometheusInstanceId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deletePrometheusInstanceWithOptions(prometheusInstanceId, headers, runtime);
+}
+
+/**
+ * @summary 删除prometheus视图实例
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeletePrometheusViewResponse
+ */
+DeletePrometheusViewResponse Client::deletePrometheusViewWithOptions(const string &prometheusViewId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeletePrometheusView"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/prometheus-views/" , Darabonba::Http::URL::percentEncode(prometheusViewId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeletePrometheusViewResponse>();
+}
+
+/**
+ * @summary 删除prometheus视图实例
+ *
+ * @return DeletePrometheusViewResponse
+ */
+DeletePrometheusViewResponse Client::deletePrometheusView(const string &prometheusViewId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deletePrometheusViewWithOptions(prometheusViewId, headers, runtime);
+}
+
+/**
  * @summary 删除Service
  *
  * @param headers map
@@ -371,7 +960,7 @@ DeleteEntityStoreResponse Client::deleteEntityStore(const string &workspaceName)
 DeleteServiceResponse Client::deleteServiceWithOptions(const string &workspace, const string &serviceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteService"},
     {"version" , "2024-03-30"},
@@ -382,7 +971,7 @@ DeleteServiceResponse Client::deleteServiceWithOptions(const string &workspace, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteServiceResponse>();
 }
 
@@ -407,7 +996,7 @@ DeleteServiceResponse Client::deleteService(const string &workspace, const strin
 DeleteUmodelResponse Client::deleteUmodelWithOptions(const string &workspace, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteUmodel"},
     {"version" , "2024-03-30"},
@@ -418,7 +1007,7 @@ DeleteUmodelResponse Client::deleteUmodelWithOptions(const string &workspace, co
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteUmodelResponse>();
 }
 
@@ -459,7 +1048,7 @@ DeleteUmodelDataResponse Client::deleteUmodelDataWithOptions(const string &works
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteUmodelData"},
     {"version" , "2024-03-30"},
@@ -470,7 +1059,7 @@ DeleteUmodelDataResponse Client::deleteUmodelDataWithOptions(const string &works
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteUmodelDataResponse>();
 }
 
@@ -496,7 +1085,7 @@ DeleteUmodelDataResponse Client::deleteUmodelData(const string &workspace, const
 DeleteWorkspaceResponse Client::deleteWorkspaceWithOptions(const string &workspaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteWorkspace"},
     {"version" , "2024-03-30"},
@@ -507,7 +1096,7 @@ DeleteWorkspaceResponse Client::deleteWorkspaceWithOptions(const string &workspa
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteWorkspaceResponse>();
 }
 
@@ -523,6 +1112,78 @@ DeleteWorkspaceResponse Client::deleteWorkspace(const string &workspaceName) {
 }
 
 /**
+ * @summary 查看addon release(查看接入状态)
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAddonReleaseResponse
+ */
+GetAddonReleaseResponse Client::getAddonReleaseWithOptions(const string &releaseName, const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAddonRelease"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/integration-policies/" , Darabonba::Http::URL::percentEncode(policyId) , "/addon-releases/" , Darabonba::Http::URL::percentEncode(releaseName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAddonReleaseResponse>();
+}
+
+/**
+ * @summary 查看addon release(查看接入状态)
+ *
+ * @return GetAddonReleaseResponse
+ */
+GetAddonReleaseResponse Client::getAddonRelease(const string &releaseName, const string &policyId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAddonReleaseWithOptions(releaseName, policyId, headers, runtime);
+}
+
+/**
+ * @summary 描述聚合任务组
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAggTaskGroupResponse
+ */
+GetAggTaskGroupResponse Client::getAggTaskGroupWithOptions(const string &instanceId, const string &groupId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAggTaskGroup"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/prometheus-instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/agg-task-groups/" , Darabonba::Http::URL::percentEncode(groupId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAggTaskGroupResponse>();
+}
+
+/**
+ * @summary 描述聚合任务组
+ *
+ * @return GetAggTaskGroupResponse
+ */
+GetAggTaskGroupResponse Client::getAggTaskGroup(const string &instanceId, const string &groupId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAggTaskGroupWithOptions(instanceId, groupId, headers, runtime);
+}
+
+/**
  * @summary 获取EntityStore相关存储信息
  *
  * @param headers map
@@ -532,7 +1193,7 @@ DeleteWorkspaceResponse Client::deleteWorkspace(const string &workspaceName) {
 GetEntityStoreResponse Client::getEntityStoreWithOptions(const string &workspaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetEntityStore"},
     {"version" , "2024-03-30"},
@@ -543,7 +1204,7 @@ GetEntityStoreResponse Client::getEntityStoreWithOptions(const string &workspace
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetEntityStoreResponse>();
 }
 
@@ -604,7 +1265,7 @@ GetEntityStoreDataResponse Client::getEntityStoreDataWithOptions(const string &w
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetEntityStoreDataResponse>();
 }
 
@@ -621,6 +1282,140 @@ GetEntityStoreDataResponse Client::getEntityStoreData(const string &workspace, c
 }
 
 /**
+ * @summary 查询接入中心策略列表信息
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetIntegrationPolicyResponse
+ */
+GetIntegrationPolicyResponse Client::getIntegrationPolicyWithOptions(const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetIntegrationPolicy"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/integration-policies/" , Darabonba::Http::URL::percentEncode(policyId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetIntegrationPolicyResponse>();
+}
+
+/**
+ * @summary 查询接入中心策略列表信息
+ *
+ * @return GetIntegrationPolicyResponse
+ */
+GetIntegrationPolicyResponse Client::getIntegrationPolicy(const string &policyId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getIntegrationPolicyWithOptions(policyId, headers, runtime);
+}
+
+/**
+ * @summary 查询指定环境实例
+ *
+ * @param request GetPrometheusInstanceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPrometheusInstanceResponse
+ */
+GetPrometheusInstanceResponse Client::getPrometheusInstanceWithOptions(const string &prometheusInstanceId, const GetPrometheusInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAliyunLang()) {
+    query["aliyunLang"] = request.aliyunLang();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["resourceGroupId"] = request.resourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPrometheusInstance"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/prometheus-instances/" , Darabonba::Http::URL::percentEncode(prometheusInstanceId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPrometheusInstanceResponse>();
+}
+
+/**
+ * @summary 查询指定环境实例
+ *
+ * @param request GetPrometheusInstanceRequest
+ * @return GetPrometheusInstanceResponse
+ */
+GetPrometheusInstanceResponse Client::getPrometheusInstance(const string &prometheusInstanceId, const GetPrometheusInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getPrometheusInstanceWithOptions(prometheusInstanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询指定Prometheus视图实例
+ *
+ * @param request GetPrometheusViewRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPrometheusViewResponse
+ */
+GetPrometheusViewResponse Client::getPrometheusViewWithOptions(const string &prometheusViewId, const GetPrometheusViewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAliyunLang()) {
+    query["aliyunLang"] = request.aliyunLang();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["resourceGroupId"] = request.resourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPrometheusView"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/prometheus-views/" , Darabonba::Http::URL::percentEncode(prometheusViewId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPrometheusViewResponse>();
+}
+
+/**
+ * @summary 查询指定Prometheus视图实例
+ *
+ * @param request GetPrometheusViewRequest
+ * @return GetPrometheusViewResponse
+ */
+GetPrometheusViewResponse Client::getPrometheusView(const string &prometheusViewId, const GetPrometheusViewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getPrometheusViewWithOptions(prometheusViewId, request, headers, runtime);
+}
+
+/**
  * @summary 查询 Service
  *
  * @param headers map
@@ -630,7 +1425,7 @@ GetEntityStoreDataResponse Client::getEntityStoreData(const string &workspace, c
 GetServiceResponse Client::getServiceWithOptions(const string &workspace, const string &serviceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetService"},
     {"version" , "2024-03-30"},
@@ -641,7 +1436,7 @@ GetServiceResponse Client::getServiceWithOptions(const string &workspace, const 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetServiceResponse>();
 }
 
@@ -666,7 +1461,7 @@ GetServiceResponse Client::getService(const string &workspace, const string &ser
 GetServiceObservabilityResponse Client::getServiceObservabilityWithOptions(const string &workspace, const string &type, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetServiceObservability"},
     {"version" , "2024-03-30"},
@@ -677,7 +1472,7 @@ GetServiceObservabilityResponse Client::getServiceObservabilityWithOptions(const
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetServiceObservabilityResponse>();
 }
 
@@ -702,7 +1497,7 @@ GetServiceObservabilityResponse Client::getServiceObservability(const string &wo
 GetUmodelResponse Client::getUmodelWithOptions(const string &workspace, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetUmodel"},
     {"version" , "2024-03-30"},
@@ -713,7 +1508,7 @@ GetUmodelResponse Client::getUmodelWithOptions(const string &workspace, const ma
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetUmodelResponse>();
 }
 
@@ -763,7 +1558,7 @@ GetUmodelDataResponse Client::getUmodelDataWithOptions(const string &workspace, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetUmodelDataResponse>();
 }
 
@@ -789,7 +1584,7 @@ GetUmodelDataResponse Client::getUmodelData(const string &workspace, const GetUm
 GetWorkspaceResponse Client::getWorkspaceWithOptions(const string &workspaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetWorkspace"},
     {"version" , "2024-03-30"},
@@ -800,7 +1595,7 @@ GetWorkspaceResponse Client::getWorkspaceWithOptions(const string &workspaceName
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetWorkspaceResponse>();
 }
 
@@ -813,6 +1608,134 @@ GetWorkspaceResponse Client::getWorkspace(const string &workspaceName) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getWorkspaceWithOptions(workspaceName, headers, runtime);
+}
+
+/**
+ * @summary addon的release列表
+ *
+ * @param request ListAddonReleasesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAddonReleasesResponse
+ */
+ListAddonReleasesResponse Client::listAddonReleasesWithOptions(const string &policyId, const ListAddonReleasesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAddonName()) {
+    query["addonName"] = request.addonName();
+  }
+
+  if (!!request.hasParentAddonReleaseId()) {
+    query["parentAddonReleaseId"] = request.parentAddonReleaseId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAddonReleases"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/integration-policies/" , Darabonba::Http::URL::percentEncode(policyId) , "/addon-releases")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAddonReleasesResponse>();
+}
+
+/**
+ * @summary addon的release列表
+ *
+ * @param request ListAddonReleasesRequest
+ * @return ListAddonReleasesResponse
+ */
+ListAddonReleasesResponse Client::listAddonReleases(const string &policyId, const ListAddonReleasesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listAddonReleasesWithOptions(policyId, request, headers, runtime);
+}
+
+/**
+ * @summary 列举聚合任务组
+ *
+ * @param tmpReq ListAggTaskGroupsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAggTaskGroupsResponse
+ */
+ListAggTaskGroupsResponse Client::listAggTaskGroupsWithOptions(const string &instanceId, const ListAggTaskGroupsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListAggTaskGroupsShrinkRequest request = ListAggTaskGroupsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTags()) {
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "tags", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasFilterAggTaskGroupIds()) {
+    query["filterAggTaskGroupIds"] = request.filterAggTaskGroupIds();
+  }
+
+  if (!!request.hasFilterAggTaskGroupNames()) {
+    query["filterAggTaskGroupNames"] = request.filterAggTaskGroupNames();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasQuery()) {
+    query["query"] = request.query();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.status();
+  }
+
+  if (!!request.hasTagsShrink()) {
+    query["tags"] = request.tagsShrink();
+  }
+
+  if (!!request.hasTargetPrometheusId()) {
+    query["targetPrometheusId"] = request.targetPrometheusId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAggTaskGroups"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/prometheus-instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/agg-task-groups")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAggTaskGroupsResponse>();
+}
+
+/**
+ * @summary 列举聚合任务组
+ *
+ * @param request ListAggTaskGroupsRequest
+ * @return ListAggTaskGroupsResponse
+ */
+ListAggTaskGroupsResponse Client::listAggTaskGroups(const string &instanceId, const ListAggTaskGroupsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listAggTaskGroupsWithOptions(instanceId, request, headers, runtime);
 }
 
 /**
@@ -855,7 +1778,7 @@ ListAlertActionsResponse Client::listAlertActionsWithOptions(const ListAlertActi
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListAlertActions"},
     {"version" , "2024-03-30"},
@@ -866,7 +1789,7 @@ ListAlertActionsResponse Client::listAlertActionsWithOptions(const ListAlertActi
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListAlertActionsResponse>();
 }
 
@@ -880,6 +1803,429 @@ ListAlertActionsResponse Client::listAlertActions(const ListAlertActionsRequest 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listAlertActionsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取接入中心策略的存储要求信息
+ *
+ * @param request ListIntegrationPolicyCustomScrapeJobRulesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListIntegrationPolicyCustomScrapeJobRulesResponse
+ */
+ListIntegrationPolicyCustomScrapeJobRulesResponse Client::listIntegrationPolicyCustomScrapeJobRulesWithOptions(const string &policyId, const ListIntegrationPolicyCustomScrapeJobRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAddonReleaseName()) {
+    query["addonReleaseName"] = request.addonReleaseName();
+  }
+
+  if (!!request.hasEncryptYaml()) {
+    query["encryptYaml"] = request.encryptYaml();
+  }
+
+  if (!!request.hasNamespace()) {
+    query["namespace"] = request._namespace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListIntegrationPolicyCustomScrapeJobRules"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/integration-policies/" , Darabonba::Http::URL::percentEncode(policyId) , "/custom-scrape-job-rules")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListIntegrationPolicyCustomScrapeJobRulesResponse>();
+}
+
+/**
+ * @summary 获取接入中心策略的存储要求信息
+ *
+ * @param request ListIntegrationPolicyCustomScrapeJobRulesRequest
+ * @return ListIntegrationPolicyCustomScrapeJobRulesResponse
+ */
+ListIntegrationPolicyCustomScrapeJobRulesResponse Client::listIntegrationPolicyCustomScrapeJobRules(const string &policyId, const ListIntegrationPolicyCustomScrapeJobRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listIntegrationPolicyCustomScrapeJobRulesWithOptions(policyId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取接入中心策略的PodMonitor资源
+ *
+ * @param request ListIntegrationPolicyPodMonitorsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListIntegrationPolicyPodMonitorsResponse
+ */
+ListIntegrationPolicyPodMonitorsResponse Client::listIntegrationPolicyPodMonitorsWithOptions(const string &policyId, const ListIntegrationPolicyPodMonitorsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAddonReleaseName()) {
+    query["addonReleaseName"] = request.addonReleaseName();
+  }
+
+  if (!!request.hasEncryptYaml()) {
+    query["encryptYaml"] = request.encryptYaml();
+  }
+
+  if (!!request.hasNamespace()) {
+    query["namespace"] = request._namespace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListIntegrationPolicyPodMonitors"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/integration-policies/" , Darabonba::Http::URL::percentEncode(policyId) , "/pod-monitors")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListIntegrationPolicyPodMonitorsResponse>();
+}
+
+/**
+ * @summary 获取接入中心策略的PodMonitor资源
+ *
+ * @param request ListIntegrationPolicyPodMonitorsRequest
+ * @return ListIntegrationPolicyPodMonitorsResponse
+ */
+ListIntegrationPolicyPodMonitorsResponse Client::listIntegrationPolicyPodMonitors(const string &policyId, const ListIntegrationPolicyPodMonitorsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listIntegrationPolicyPodMonitorsWithOptions(policyId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取接入中心策略的存储要求信息
+ *
+ * @param request ListIntegrationPolicyStorageRequirementsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListIntegrationPolicyStorageRequirementsResponse
+ */
+ListIntegrationPolicyStorageRequirementsResponse Client::listIntegrationPolicyStorageRequirementsWithOptions(const string &policyId, const ListIntegrationPolicyStorageRequirementsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAddonName()) {
+    query["addonName"] = request.addonName();
+  }
+
+  if (!!request.hasAddonReleaseName()) {
+    query["addonReleaseName"] = request.addonReleaseName();
+  }
+
+  if (!!request.hasStorageType()) {
+    query["storageType"] = request.storageType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListIntegrationPolicyStorageRequirements"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/integration-policies/" , Darabonba::Http::URL::percentEncode(policyId) , "/storage-requirements")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListIntegrationPolicyStorageRequirementsResponse>();
+}
+
+/**
+ * @summary 获取接入中心策略的存储要求信息
+ *
+ * @param request ListIntegrationPolicyStorageRequirementsRequest
+ * @return ListIntegrationPolicyStorageRequirementsResponse
+ */
+ListIntegrationPolicyStorageRequirementsResponse Client::listIntegrationPolicyStorageRequirements(const string &policyId, const ListIntegrationPolicyStorageRequirementsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listIntegrationPolicyStorageRequirementsWithOptions(policyId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取Prometheus实例大盘列表
+ *
+ * @param request ListPrometheusDashboardsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPrometheusDashboardsResponse
+ */
+ListPrometheusDashboardsResponse Client::listPrometheusDashboardsWithOptions(const string &prometheusInstanceId, const ListPrometheusDashboardsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAliyunLang()) {
+    query["aliyunLang"] = request.aliyunLang();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["resourceGroupId"] = request.resourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPrometheusDashboards"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/prometheus-instances/" , Darabonba::Http::URL::percentEncode(prometheusInstanceId) , "/dashboards")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPrometheusDashboardsResponse>();
+}
+
+/**
+ * @summary 获取Prometheus实例大盘列表
+ *
+ * @param request ListPrometheusDashboardsRequest
+ * @return ListPrometheusDashboardsResponse
+ */
+ListPrometheusDashboardsResponse Client::listPrometheusDashboards(const string &prometheusInstanceId, const ListPrometheusDashboardsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listPrometheusDashboardsWithOptions(prometheusInstanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取Prometheus实例信息列表
+ *
+ * @param tmpReq ListPrometheusInstancesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPrometheusInstancesResponse
+ */
+ListPrometheusInstancesResponse Client::listPrometheusInstancesWithOptions(const ListPrometheusInstancesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListPrometheusInstancesShrinkRequest request = ListPrometheusInstancesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTag()) {
+    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tag(), "tag", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasFilterRegionIds()) {
+    query["filterRegionIds"] = request.filterRegionIds();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPrometheusInstanceIds()) {
+    query["prometheusInstanceIds"] = request.prometheusInstanceIds();
+  }
+
+  if (!!request.hasPrometheusInstanceName()) {
+    query["prometheusInstanceName"] = request.prometheusInstanceName();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["resourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["resourceType"] = request.resourceType();
+  }
+
+  if (!!request.hasTagShrink()) {
+    query["tag"] = request.tagShrink();
+  }
+
+  if (!!request.hasVersion()) {
+    query["version"] = request.version();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPrometheusInstances"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/prometheus-instances")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPrometheusInstancesResponse>();
+}
+
+/**
+ * @summary 获取Prometheus实例信息列表
+ *
+ * @param request ListPrometheusInstancesRequest
+ * @return ListPrometheusInstancesResponse
+ */
+ListPrometheusInstancesResponse Client::listPrometheusInstances(const ListPrometheusInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listPrometheusInstancesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取Prometheus视图实例信息列表
+ *
+ * @param tmpReq ListPrometheusViewsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPrometheusViewsResponse
+ */
+ListPrometheusViewsResponse Client::listPrometheusViewsWithOptions(const ListPrometheusViewsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListPrometheusViewsShrinkRequest request = ListPrometheusViewsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTag()) {
+    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tag(), "tag", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasFilterRegionIds()) {
+    query["filterRegionIds"] = request.filterRegionIds();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPrometheusViewIds()) {
+    query["prometheusViewIds"] = request.prometheusViewIds();
+  }
+
+  if (!!request.hasPrometheusViewName()) {
+    query["prometheusViewName"] = request.prometheusViewName();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["resourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["resourceType"] = request.resourceType();
+  }
+
+  if (!!request.hasTagShrink()) {
+    query["tag"] = request.tagShrink();
+  }
+
+  if (!!request.hasVersion()) {
+    query["version"] = request.version();
+  }
+
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.workspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPrometheusViews"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/prometheus-views")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPrometheusViewsResponse>();
+}
+
+/**
+ * @summary 获取Prometheus视图实例信息列表
+ *
+ * @param request ListPrometheusViewsRequest
+ * @return ListPrometheusViewsResponse
+ */
+ListPrometheusViewsResponse Client::listPrometheusViews(const ListPrometheusViewsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listPrometheusViewsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取Prometheus虚拟实例
+ *
+ * @param request ListPrometheusVirtualInstancesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPrometheusVirtualInstancesResponse
+ */
+ListPrometheusVirtualInstancesResponse Client::listPrometheusVirtualInstancesWithOptions(const ListPrometheusVirtualInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNamespace()) {
+    query["namespace"] = request._namespace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPrometheusVirtualInstances"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/virtual-instances")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPrometheusVirtualInstancesResponse>();
+}
+
+/**
+ * @summary 获取Prometheus虚拟实例
+ *
+ * @param request ListPrometheusVirtualInstancesRequest
+ * @return ListPrometheusVirtualInstancesResponse
+ */
+ListPrometheusVirtualInstancesResponse Client::listPrometheusVirtualInstances(const ListPrometheusVirtualInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listPrometheusVirtualInstancesWithOptions(request, headers, runtime);
 }
 
 /**
@@ -908,7 +2254,7 @@ ListServicesResponse Client::listServicesWithOptions(const string &workspace, co
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListServices"},
     {"version" , "2024-03-30"},
@@ -919,7 +2265,7 @@ ListServicesResponse Client::listServicesWithOptions(const string &workspace, co
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListServicesResponse>();
 }
 
@@ -975,7 +2321,7 @@ ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesReq
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListWorkspaces"},
     {"version" , "2024-03-30"},
@@ -986,7 +2332,7 @@ ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesReq
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListWorkspacesResponse>();
 }
 
@@ -1039,7 +2385,7 @@ PutWorkspaceResponse Client::putWorkspaceWithOptions(const string &workspaceName
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PutWorkspaceResponse>();
 }
 
@@ -1053,6 +2399,424 @@ PutWorkspaceResponse Client::putWorkspace(const string &workspaceName, const Put
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return putWorkspaceWithOptions(workspaceName, request, headers, runtime);
+}
+
+/**
+ * @summary 升级接入组件
+ *
+ * @param request UpdateAddonReleaseRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAddonReleaseResponse
+ */
+UpdateAddonReleaseResponse Client::updateAddonReleaseWithOptions(const string &releaseName, const string &policyId, const UpdateAddonReleaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAddonVersion()) {
+    body["addonVersion"] = request.addonVersion();
+  }
+
+  if (!!request.hasDryRun()) {
+    body["dryRun"] = request.dryRun();
+  }
+
+  if (!!request.hasEntityRules()) {
+    body["entityRules"] = request.entityRules();
+  }
+
+  if (!!request.hasValues()) {
+    body["values"] = request.values();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAddonRelease"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/integration-policies/" , Darabonba::Http::URL::percentEncode(policyId) , "/addon-releases/" , Darabonba::Http::URL::percentEncode(releaseName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAddonReleaseResponse>();
+}
+
+/**
+ * @summary 升级接入组件
+ *
+ * @param request UpdateAddonReleaseRequest
+ * @return UpdateAddonReleaseResponse
+ */
+UpdateAddonReleaseResponse Client::updateAddonRelease(const string &releaseName, const string &policyId, const UpdateAddonReleaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateAddonReleaseWithOptions(releaseName, policyId, request, headers, runtime);
+}
+
+/**
+ * @summary 应用聚合任务组
+ *
+ * @param request UpdateAggTaskGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAggTaskGroupResponse
+ */
+UpdateAggTaskGroupResponse Client::updateAggTaskGroupWithOptions(const string &instanceId, const string &groupId, const UpdateAggTaskGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAggTaskGroupConfig()) {
+    body["aggTaskGroupConfig"] = request.aggTaskGroupConfig();
+  }
+
+  if (!!request.hasAggTaskGroupConfigType()) {
+    body["aggTaskGroupConfigType"] = request.aggTaskGroupConfigType();
+  }
+
+  if (!!request.hasAggTaskGroupName()) {
+    body["aggTaskGroupName"] = request.aggTaskGroupName();
+  }
+
+  if (!!request.hasCronExpr()) {
+    body["cronExpr"] = request.cronExpr();
+  }
+
+  if (!!request.hasDelay()) {
+    body["delay"] = request.delay();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.description();
+  }
+
+  if (!!request.hasFromTime()) {
+    body["fromTime"] = request.fromTime();
+  }
+
+  if (!!request.hasMaxRetries()) {
+    body["maxRetries"] = request.maxRetries();
+  }
+
+  if (!!request.hasMaxRunTimeInSeconds()) {
+    body["maxRunTimeInSeconds"] = request.maxRunTimeInSeconds();
+  }
+
+  if (!!request.hasPrecheckString()) {
+    body["precheckString"] = request.precheckString();
+  }
+
+  if (!!request.hasScheduleMode()) {
+    body["scheduleMode"] = request.scheduleMode();
+  }
+
+  if (!!request.hasScheduleTimeExpr()) {
+    body["scheduleTimeExpr"] = request.scheduleTimeExpr();
+  }
+
+  if (!!request.hasStatus()) {
+    body["status"] = request.status();
+  }
+
+  if (!!request.hasTags()) {
+    body["tags"] = request.tags();
+  }
+
+  if (!!request.hasTargetPrometheusId()) {
+    body["targetPrometheusId"] = request.targetPrometheusId();
+  }
+
+  if (!!request.hasToTime()) {
+    body["toTime"] = request.toTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAggTaskGroup"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/prometheus-instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/agg-task-groups/" , Darabonba::Http::URL::percentEncode(groupId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAggTaskGroupResponse>();
+}
+
+/**
+ * @summary 应用聚合任务组
+ *
+ * @param request UpdateAggTaskGroupRequest
+ * @return UpdateAggTaskGroupResponse
+ */
+UpdateAggTaskGroupResponse Client::updateAggTaskGroup(const string &instanceId, const string &groupId, const UpdateAggTaskGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateAggTaskGroupWithOptions(instanceId, groupId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新聚合任务组状态
+ *
+ * @param request UpdateAggTaskGroupStatusRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAggTaskGroupStatusResponse
+ */
+UpdateAggTaskGroupStatusResponse Client::updateAggTaskGroupStatusWithOptions(const string &instanceId, const string &groupId, const UpdateAggTaskGroupStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasStatus()) {
+    body["status"] = request.status();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAggTaskGroupStatus"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/prometheus-instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/agg-task-groups/" , Darabonba::Http::URL::percentEncode(groupId) , "/status")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAggTaskGroupStatusResponse>();
+}
+
+/**
+ * @summary 更新聚合任务组状态
+ *
+ * @param request UpdateAggTaskGroupStatusRequest
+ * @return UpdateAggTaskGroupStatusResponse
+ */
+UpdateAggTaskGroupStatusResponse Client::updateAggTaskGroupStatus(const string &instanceId, const string &groupId, const UpdateAggTaskGroupStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateAggTaskGroupStatusWithOptions(instanceId, groupId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新指定策略
+ *
+ * @param request UpdateIntegrationPolicyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateIntegrationPolicyResponse
+ */
+UpdateIntegrationPolicyResponse Client::updateIntegrationPolicyWithOptions(const string &integrationPolicyId, const UpdateIntegrationPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFeePackage()) {
+    body["feePackage"] = request.feePackage();
+  }
+
+  if (!!request.hasPolicyName()) {
+    body["policyName"] = request.policyName();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["resourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasTags()) {
+    body["tags"] = request.tags();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateIntegrationPolicy"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/integration-policies/" , Darabonba::Http::URL::percentEncode(integrationPolicyId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateIntegrationPolicyResponse>();
+}
+
+/**
+ * @summary 更新指定策略
+ *
+ * @param request UpdateIntegrationPolicyRequest
+ * @return UpdateIntegrationPolicyResponse
+ */
+UpdateIntegrationPolicyResponse Client::updateIntegrationPolicy(const string &integrationPolicyId, const UpdateIntegrationPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateIntegrationPolicyWithOptions(integrationPolicyId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新Prom实例信息
+ *
+ * @param request UpdatePrometheusInstanceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdatePrometheusInstanceResponse
+ */
+UpdatePrometheusInstanceResponse Client::updatePrometheusInstanceWithOptions(const string &prometheusInstanceId, const UpdatePrometheusInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasArchiveDuration()) {
+    body["archiveDuration"] = request.archiveDuration();
+  }
+
+  if (!!request.hasAuthFreeReadPolicy()) {
+    body["authFreeReadPolicy"] = request.authFreeReadPolicy();
+  }
+
+  if (!!request.hasAuthFreeWritePolicy()) {
+    body["authFreeWritePolicy"] = request.authFreeWritePolicy();
+  }
+
+  if (!!request.hasEnableAuthFreeRead()) {
+    body["enableAuthFreeRead"] = request.enableAuthFreeRead();
+  }
+
+  if (!!request.hasEnableAuthFreeWrite()) {
+    body["enableAuthFreeWrite"] = request.enableAuthFreeWrite();
+  }
+
+  if (!!request.hasEnableAuthToken()) {
+    body["enableAuthToken"] = request.enableAuthToken();
+  }
+
+  if (!!request.hasPaymentType()) {
+    body["paymentType"] = request.paymentType();
+  }
+
+  if (!!request.hasPrometheusInstanceName()) {
+    body["prometheusInstanceName"] = request.prometheusInstanceName();
+  }
+
+  if (!!request.hasStatus()) {
+    body["status"] = request.status();
+  }
+
+  if (!!request.hasStorageDuration()) {
+    body["storageDuration"] = request.storageDuration();
+  }
+
+  if (!!request.hasWorkspace()) {
+    body["workspace"] = request.workspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdatePrometheusInstance"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/prometheus-instances/" , Darabonba::Http::URL::percentEncode(prometheusInstanceId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdatePrometheusInstanceResponse>();
+}
+
+/**
+ * @summary 更新Prom实例信息
+ *
+ * @param request UpdatePrometheusInstanceRequest
+ * @return UpdatePrometheusInstanceResponse
+ */
+UpdatePrometheusInstanceResponse Client::updatePrometheusInstance(const string &prometheusInstanceId, const UpdatePrometheusInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updatePrometheusInstanceWithOptions(prometheusInstanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新Prom视图实例信息
+ *
+ * @param request UpdatePrometheusViewRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdatePrometheusViewResponse
+ */
+UpdatePrometheusViewResponse Client::updatePrometheusViewWithOptions(const string &prometheusViewId, const UpdatePrometheusViewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAuthFreeReadPolicy()) {
+    body["authFreeReadPolicy"] = request.authFreeReadPolicy();
+  }
+
+  if (!!request.hasEnableAuthFreeRead()) {
+    body["enableAuthFreeRead"] = request.enableAuthFreeRead();
+  }
+
+  if (!!request.hasEnableAuthToken()) {
+    body["enableAuthToken"] = request.enableAuthToken();
+  }
+
+  if (!!request.hasPrometheusInstances()) {
+    body["prometheusInstances"] = request.prometheusInstances();
+  }
+
+  if (!!request.hasPrometheusViewName()) {
+    body["prometheusViewName"] = request.prometheusViewName();
+  }
+
+  if (!!request.hasStatus()) {
+    body["status"] = request.status();
+  }
+
+  if (!!request.hasWorkspace()) {
+    body["workspace"] = request.workspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdatePrometheusView"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/prometheus-views/" , Darabonba::Http::URL::percentEncode(prometheusViewId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdatePrometheusViewResponse>();
+}
+
+/**
+ * @summary 更新Prom视图实例信息
+ *
+ * @param request UpdatePrometheusViewRequest
+ * @return UpdatePrometheusViewResponse
+ */
+UpdatePrometheusViewResponse Client::updatePrometheusView(const string &prometheusViewId, const UpdatePrometheusViewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updatePrometheusViewWithOptions(prometheusViewId, request, headers, runtime);
 }
 
 /**
@@ -1096,7 +2860,7 @@ UpdateServiceResponse Client::updateServiceWithOptions(const string &workspace, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateServiceResponse>();
 }
 
@@ -1141,7 +2905,7 @@ UpdateUmodelResponse Client::updateUmodelWithOptions(const string &workspace, co
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateUmodelResponse>();
 }
 
@@ -1192,7 +2956,7 @@ UpsertUmodelDataResponse Client::upsertUmodelDataWithOptions(const string &works
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpsertUmodelDataResponse>();
 }
 

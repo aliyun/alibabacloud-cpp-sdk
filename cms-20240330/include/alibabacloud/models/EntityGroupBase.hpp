@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/EntityGroupBaseEntityQueries.hpp>
+#include <alibabacloud/models/EntityDiscoverRule.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

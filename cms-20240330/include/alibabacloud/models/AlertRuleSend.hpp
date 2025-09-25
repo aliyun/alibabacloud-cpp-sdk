@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_ALERTRULESEND_HPP_
 #define ALIBABACLOUD_MODELS_ALERTRULESEND_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AlertRuleAction.hpp>
+#include <alibabacloud/models/AlertRuleNotification.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_TRANSFORMACTION_HPP_
 #define ALIBABACLOUD_MODELS_TRANSFORMACTION_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/FilterSetting.hpp>
 #include <map>
 using namespace std;
 using json = nlohmann::json;

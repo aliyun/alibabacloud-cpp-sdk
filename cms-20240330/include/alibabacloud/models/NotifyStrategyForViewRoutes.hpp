@@ -5,6 +5,7 @@
 #include <vector>
 #include <alibabacloud/models/NotifyStrategyForViewRoutesChannels.hpp>
 #include <alibabacloud/models/NotifyStrategyForViewRoutesEffectTimeRange.hpp>
+#include <alibabacloud/models/FilterSetting.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

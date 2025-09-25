@@ -28,9 +28,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(noDataAlertLevel, noDataAlertLevel_);
       DARABONBA_PTR_TO_JSON(noDataAppendValue, noDataAppendValue_);
       DARABONBA_PTR_TO_JSON(noDataPolicy, noDataPolicy_);
+      DARABONBA_PTR_TO_JSON(oper, oper_);
       DARABONBA_PTR_TO_JSON(relation, relation_);
       DARABONBA_PTR_TO_JSON(simpleEscalation, simpleEscalation_);
       DARABONBA_PTR_TO_JSON(type, type_);
+      DARABONBA_PTR_TO_JSON(value, value_);
     };
     friend void from_json(const Darabonba::Json& j, AlertRuleCondition& obj) { 
       DARABONBA_PTR_FROM_JSON(alertCount, alertCount_);
@@ -42,9 +44,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(noDataAlertLevel, noDataAlertLevel_);
       DARABONBA_PTR_FROM_JSON(noDataAppendValue, noDataAppendValue_);
       DARABONBA_PTR_FROM_JSON(noDataPolicy, noDataPolicy_);
+      DARABONBA_PTR_FROM_JSON(oper, oper_);
       DARABONBA_PTR_FROM_JSON(relation, relation_);
       DARABONBA_PTR_FROM_JSON(simpleEscalation, simpleEscalation_);
       DARABONBA_PTR_FROM_JSON(type, type_);
+      DARABONBA_PTR_FROM_JSON(value, value_);
     };
     AlertRuleCondition() = default ;
     AlertRuleCondition(const AlertRuleCondition &) = default ;
@@ -59,8 +63,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->alertCount_ != nullptr
         && this->caseList_ != nullptr && this->compareList_ != nullptr && this->compositeEscalation_ != nullptr && this->escalationType_ != nullptr && this->expressEscalation_ != nullptr
-        && this->noDataAlertLevel_ != nullptr && this->noDataAppendValue_ != nullptr && this->noDataPolicy_ != nullptr && this->relation_ != nullptr && this->simpleEscalation_ != nullptr
-        && this->type_ != nullptr; };
+        && this->noDataAlertLevel_ != nullptr && this->noDataAppendValue_ != nullptr && this->noDataPolicy_ != nullptr && this->oper_ != nullptr && this->relation_ != nullptr
+        && this->simpleEscalation_ != nullptr && this->type_ != nullptr && this->value_ != nullptr; };
     // alertCount Field Functions 
     bool hasAlertCount() const { return this->alertCount_ != nullptr;};
     void deleteAlertCount() { this->alertCount_ = nullptr;};
@@ -132,6 +136,13 @@ namespace Models
     inline AlertRuleCondition& setNoDataPolicy(string noDataPolicy) { DARABONBA_PTR_SET_VALUE(noDataPolicy_, noDataPolicy) };
 
 
+    // oper Field Functions 
+    bool hasOper() const { return this->oper_ != nullptr;};
+    void deleteOper() { this->oper_ = nullptr;};
+    inline string oper() const { DARABONBA_PTR_GET_DEFAULT(oper_, "") };
+    inline AlertRuleCondition& setOper(string oper) { DARABONBA_PTR_SET_VALUE(oper_, oper) };
+
+
     // relation Field Functions 
     bool hasRelation() const { return this->relation_ != nullptr;};
     void deleteRelation() { this->relation_ = nullptr;};
@@ -155,6 +166,13 @@ namespace Models
     inline AlertRuleCondition& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
+    // value Field Functions 
+    bool hasValue() const { return this->value_ != nullptr;};
+    void deleteValue() { this->value_ = nullptr;};
+    inline double value() const { DARABONBA_PTR_GET_DEFAULT(value_, 0.0) };
+    inline AlertRuleCondition& setValue(double value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
   protected:
     // type=SLS_CONDITION时指定，满足条件几次后告警，默认为1
     std::shared_ptr<int32_t> alertCount_ = nullptr;
@@ -168,12 +186,14 @@ namespace Models
     std::shared_ptr<string> noDataAlertLevel_ = nullptr;
     std::shared_ptr<string> noDataAppendValue_ = nullptr;
     std::shared_ptr<string> noDataPolicy_ = nullptr;
+    std::shared_ptr<string> oper_ = nullptr;
     std::shared_ptr<string> relation_ = nullptr;
     std::shared_ptr<AlertRuleConditionSimpleEscalation> simpleEscalation_ = nullptr;
     // 规则条件类型，可选值：SLS_CONDITION
     // 
     // This parameter is required.
     std::shared_ptr<string> type_ = nullptr;
+    std::shared_ptr<double> value_ = nullptr;
   };
 
   } // namespace Models
