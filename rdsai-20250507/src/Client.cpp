@@ -424,6 +424,98 @@ DescribeInstanceIpWhitelistResponse Client::describeInstanceIpWhitelist(const De
 }
 
 /**
+ * @summary 查看实例RAG配置
+ *
+ * @param request DescribeInstanceRAGConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInstanceRAGConfigResponse
+ */
+DescribeInstanceRAGConfigResponse Client::describeInstanceRAGConfigWithOptions(const DescribeInstanceRAGConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.instanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInstanceRAGConfig"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInstanceRAGConfigResponse>();
+}
+
+/**
+ * @summary 查看实例RAG配置
+ *
+ * @param request DescribeInstanceRAGConfigRequest
+ * @return DescribeInstanceRAGConfigResponse
+ */
+DescribeInstanceRAGConfigResponse Client::describeInstanceRAGConfig(const DescribeInstanceRAGConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInstanceRAGConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查看实例SSL配置
+ *
+ * @param request DescribeInstanceSSLRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInstanceSSLResponse
+ */
+DescribeInstanceSSLResponse Client::describeInstanceSSLWithOptions(const DescribeInstanceSSLRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.instanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInstanceSSL"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInstanceSSLResponse>();
+}
+
+/**
+ * @summary 查看实例SSL配置
+ *
+ * @param request DescribeInstanceSSLRequest
+ * @return DescribeInstanceSSLResponse
+ */
+DescribeInstanceSSLResponse Client::describeInstanceSSL(const DescribeInstanceSSLRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInstanceSSLWithOptions(request, runtime);
+}
+
+/**
  * @summary 查看实例存储配置
  *
  * @param request DescribeInstanceStorageConfigRequest
@@ -585,6 +677,132 @@ ModifyInstanceIpWhitelistResponse Client::modifyInstanceIpWhitelistWithOptions(c
 ModifyInstanceIpWhitelistResponse Client::modifyInstanceIpWhitelist(const ModifyInstanceIpWhitelistRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyInstanceIpWhitelistWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改实例RAG配置
+ *
+ * @param tmpReq ModifyInstanceRAGConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyInstanceRAGConfigResponse
+ */
+ModifyInstanceRAGConfigResponse Client::modifyInstanceRAGConfigWithOptions(const ModifyInstanceRAGConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyInstanceRAGConfigShrinkRequest request = ModifyInstanceRAGConfigShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasConfigList()) {
+    request.setConfigListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.configList(), "ConfigList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasConfigListShrink()) {
+    query["ConfigList"] = request.configListShrink();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.instanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyInstanceRAGConfig"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyInstanceRAGConfigResponse>();
+}
+
+/**
+ * @summary 修改实例RAG配置
+ *
+ * @param request ModifyInstanceRAGConfigRequest
+ * @return ModifyInstanceRAGConfigResponse
+ */
+ModifyInstanceRAGConfigResponse Client::modifyInstanceRAGConfig(const ModifyInstanceRAGConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyInstanceRAGConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改实例SSL配置
+ *
+ * @param request ModifyInstanceSSLRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyInstanceSSLResponse
+ */
+ModifyInstanceSSLResponse Client::modifyInstanceSSLWithOptions(const ModifyInstanceSSLRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCAType()) {
+    query["CAType"] = request.CAType();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.instanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasSSLEnabled()) {
+    query["SSLEnabled"] = request.SSLEnabled();
+  }
+
+  if (!!request.hasServerCert()) {
+    query["ServerCert"] = request.serverCert();
+  }
+
+  if (!!request.hasServerKey()) {
+    query["ServerKey"] = request.serverKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyInstanceSSL"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyInstanceSSLResponse>();
+}
+
+/**
+ * @summary 修改实例SSL配置
+ *
+ * @param request ModifyInstanceSSLRequest
+ * @return ModifyInstanceSSLResponse
+ */
+ModifyInstanceSSLResponse Client::modifyInstanceSSL(const ModifyInstanceSSLRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyInstanceSSLWithOptions(request, runtime);
 }
 
 /**

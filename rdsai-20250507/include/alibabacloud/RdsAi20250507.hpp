@@ -140,6 +140,40 @@ namespace RdsAi20250507
       Models::DescribeInstanceIpWhitelistResponse describeInstanceIpWhitelist(const Models::DescribeInstanceIpWhitelistRequest &request);
 
       /**
+       * @summary 查看实例RAG配置
+       *
+       * @param request DescribeInstanceRAGConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInstanceRAGConfigResponse
+       */
+      Models::DescribeInstanceRAGConfigResponse describeInstanceRAGConfigWithOptions(const Models::DescribeInstanceRAGConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看实例RAG配置
+       *
+       * @param request DescribeInstanceRAGConfigRequest
+       * @return DescribeInstanceRAGConfigResponse
+       */
+      Models::DescribeInstanceRAGConfigResponse describeInstanceRAGConfig(const Models::DescribeInstanceRAGConfigRequest &request);
+
+      /**
+       * @summary 查看实例SSL配置
+       *
+       * @param request DescribeInstanceSSLRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInstanceSSLResponse
+       */
+      Models::DescribeInstanceSSLResponse describeInstanceSSLWithOptions(const Models::DescribeInstanceSSLRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看实例SSL配置
+       *
+       * @param request DescribeInstanceSSLRequest
+       * @return DescribeInstanceSSLResponse
+       */
+      Models::DescribeInstanceSSLResponse describeInstanceSSL(const Models::DescribeInstanceSSLRequest &request);
+
+      /**
        * @summary 查看实例存储配置
        *
        * @param request DescribeInstanceStorageConfigRequest
@@ -189,6 +223,40 @@ namespace RdsAi20250507
        * @return ModifyInstanceIpWhitelistResponse
        */
       Models::ModifyInstanceIpWhitelistResponse modifyInstanceIpWhitelist(const Models::ModifyInstanceIpWhitelistRequest &request);
+
+      /**
+       * @summary 修改实例RAG配置
+       *
+       * @param tmpReq ModifyInstanceRAGConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyInstanceRAGConfigResponse
+       */
+      Models::ModifyInstanceRAGConfigResponse modifyInstanceRAGConfigWithOptions(const Models::ModifyInstanceRAGConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改实例RAG配置
+       *
+       * @param request ModifyInstanceRAGConfigRequest
+       * @return ModifyInstanceRAGConfigResponse
+       */
+      Models::ModifyInstanceRAGConfigResponse modifyInstanceRAGConfig(const Models::ModifyInstanceRAGConfigRequest &request);
+
+      /**
+       * @summary 修改实例SSL配置
+       *
+       * @param request ModifyInstanceSSLRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyInstanceSSLResponse
+       */
+      Models::ModifyInstanceSSLResponse modifyInstanceSSLWithOptions(const Models::ModifyInstanceSSLRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改实例SSL配置
+       *
+       * @param request ModifyInstanceSSLRequest
+       * @return ModifyInstanceSSLResponse
+       */
+      Models::ModifyInstanceSSLResponse modifyInstanceSSL(const Models::ModifyInstanceSSLRequest &request);
 
       /**
        * @summary 修改实例存储配置

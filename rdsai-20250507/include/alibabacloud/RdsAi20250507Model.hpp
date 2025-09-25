@@ -24,6 +24,12 @@
 #include <alibabacloud/models/DescribeInstanceIpWhitelistRequest.hpp>
 #include <alibabacloud/models/DescribeInstanceIpWhitelistResponseBody.hpp>
 #include <alibabacloud/models/DescribeInstanceIpWhitelistResponse.hpp>
+#include <alibabacloud/models/DescribeInstanceRagconfigRequest.hpp>
+#include <alibabacloud/models/DescribeInstanceRagconfigResponseBody.hpp>
+#include <alibabacloud/models/DescribeInstanceRagconfigResponse.hpp>
+#include <alibabacloud/models/DescribeInstanceSslrequest.hpp>
+#include <alibabacloud/models/DescribeInstanceSslresponseBody.hpp>
+#include <alibabacloud/models/DescribeInstanceSslresponse.hpp>
 #include <alibabacloud/models/DescribeInstanceStorageConfigRequest.hpp>
 #include <alibabacloud/models/DescribeInstanceStorageConfigResponseBody.hpp>
 #include <alibabacloud/models/DescribeInstanceStorageConfigResponse.hpp>
@@ -34,6 +40,13 @@
 #include <alibabacloud/models/ModifyInstanceIpWhitelistRequest.hpp>
 #include <alibabacloud/models/ModifyInstanceIpWhitelistResponseBody.hpp>
 #include <alibabacloud/models/ModifyInstanceIpWhitelistResponse.hpp>
+#include <alibabacloud/models/ModifyInstanceRagconfigRequest.hpp>
+#include <alibabacloud/models/ModifyInstanceRagconfigShrinkRequest.hpp>
+#include <alibabacloud/models/ModifyInstanceRagconfigResponseBody.hpp>
+#include <alibabacloud/models/ModifyInstanceRagconfigResponse.hpp>
+#include <alibabacloud/models/ModifyInstanceSslrequest.hpp>
+#include <alibabacloud/models/ModifyInstanceSslresponseBody.hpp>
+#include <alibabacloud/models/ModifyInstanceSslresponse.hpp>
 #include <alibabacloud/models/ModifyInstanceStorageConfigRequest.hpp>
 #include <alibabacloud/models/ModifyInstanceStorageConfigShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyInstanceStorageConfigResponseBody.hpp>
@@ -56,8 +69,10 @@
 #include <alibabacloud/models/DescribeInstanceAuthInfoResponseBodyConfigList.hpp>
 #include <alibabacloud/models/DescribeInstanceEndpointsResponseBodyInstanceEndpoints.hpp>
 #include <alibabacloud/models/DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups.hpp>
+#include <alibabacloud/models/DescribeInstanceRagconfigResponseBodyConfigList.hpp>
 #include <alibabacloud/models/DescribeInstanceStorageConfigResponseBodyConfigList.hpp>
 #include <alibabacloud/models/ModifyInstanceAuthConfigRequestConfigList.hpp>
+#include <alibabacloud/models/ModifyInstanceRagconfigRequestConfigList.hpp>
 #include <alibabacloud/models/ModifyInstanceStorageConfigRequestConfigList.hpp>
 
 #endif
