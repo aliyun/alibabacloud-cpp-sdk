@@ -75,10 +75,20 @@ namespace Models
 
 
   protected:
+    // Identity verification result:
+    // - 1: Consistent
+    // - 2: Inconsistent
+    // - 3: No Record Found
     std::shared_ptr<string> bizCode_ = nullptr;
+    // Submitted ID card information for verification.
     std::shared_ptr<string> cardInfo_ = nullptr;
+    // Image comparison score.
     std::shared_ptr<string> faceDetail_ = nullptr;
+    // ID card information read by OCR.
     std::shared_ptr<string> ocrCardInfo_ = nullptr;
+    // Returned photo URLs.
+    // - certUrl  Front side
+    // - certNationalUrl  National emblem side
     std::shared_ptr<string> pictureInfo_ = nullptr;
   };
 

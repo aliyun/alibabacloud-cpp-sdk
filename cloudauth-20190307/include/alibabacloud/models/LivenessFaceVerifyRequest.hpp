@@ -158,19 +158,37 @@ namespace Models
 
 
   protected:
+    // Unique identifier for real-person authentication.
     std::shared_ptr<string> certifyId_ = nullptr;
+    // Whether to allow cropping of the face image:
+    // 
+    // - T: Allow cropping
+    // 
+    // - F (default): Do not allow cropping.
     std::shared_ptr<string> crop_ = nullptr;
+    // Device token, used for risk identification.
     std::shared_ptr<string> deviceToken_ = nullptr;
+    // Base64 encoded photo.
     std::shared_ptr<string> faceContrastPicture_ = nullptr;
+    // Image URL.
     std::shared_ptr<string> faceContrastPictureUrl_ = nullptr;
+    // User\\"s network IP address.
     std::shared_ptr<string> ip_ = nullptr;
+    // User\\"s mobile phone number.
     std::shared_ptr<string> mobile_ = nullptr;
+    // Liveness detection parameters.
     std::shared_ptr<string> model_ = nullptr;
+    // Authorized OSS bucket name.
     std::shared_ptr<string> ossBucketName_ = nullptr;
+    // Authorized OSS file name.
     std::shared_ptr<string> ossObjectName_ = nullptr;
+    // A unique business identifier defined by the client side, used for subsequent troubleshooting. The value should be a combination of letters and numbers up to 32 characters long, ensuring uniqueness.
     std::shared_ptr<string> outerOrderNo_ = nullptr;
+    // Fixed value: LR_FR_MIN.
     std::shared_ptr<string> productCode_ = nullptr;
+    // Authentication scenario ID. This ID is automatically generated after creating an authentication scenario in the console.
     std::shared_ptr<int64_t> sceneId_ = nullptr;
+    // Your custom user ID (up to 100 characters), please ensure it is unique.
     std::shared_ptr<string> userId_ = nullptr;
   };
 

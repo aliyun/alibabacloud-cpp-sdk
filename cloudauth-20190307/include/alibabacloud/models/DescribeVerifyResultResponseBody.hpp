@@ -87,11 +87,35 @@ namespace Models
 
 
   protected:
+    // The comparison score between the face photo submitted during the authentication process and the authoritative data, with a value range of **0** to **100**.
+    // Confidence threshold references:
+    // - When the false acceptance rate is 0.001%, the corresponding threshold is 95. - When the false acceptance rate is 0.01%, the corresponding threshold is 90. - When the false acceptance rate is 0.1%, the corresponding threshold is 80. - When the false acceptance rate is 1%, the corresponding threshold is 60.
+    // > This field only indicates the comparison result between the face and the authoritative data, for your reference only. It is generally not recommended to use this value alone as the standard for whether the authentication passes. For a comprehensive authentication result, please refer to the **VerifyStatus** field. The **VerifyStatus** result integrates the comparison of the face with the authoritative data and various other strategies, which can enhance security levels.
     std::shared_ptr<float> authorityComparisionScore_ = nullptr;
+    // The comparison score between the face photo submitted during the authentication process and the face in the retained face image. The value range is **0**~**100**.
+    // 
+    // Confidence threshold reference:
+    // 
+    // - When the false recognition rate is 0.001%, the corresponding threshold is 95.
+    // - When the false recognition rate is 0.01%, the corresponding threshold is 90.
+    // - When the false recognition rate is 0.1%, the corresponding threshold is 80.
+    // - When the false recognition rate is 1%, the corresponding threshold is 60.
     std::shared_ptr<float> faceComparisonScore_ = nullptr;
+    // The comparison score between the face photo submitted during the authentication process and the face on the ID card\\"s face side. The value range is **0**~**100**.
+    // 
+    // Confidence threshold reference:
+    // 
+    // - When the false recognition rate is 0.001%, the corresponding threshold is 95.
+    // - When the false recognition rate is 0.01%, the corresponding threshold is 90.
+    // - When the false recognition rate is 0.1%, the corresponding threshold is 80.
+    // - When the false recognition rate is 1%, the corresponding threshold is 60.
     std::shared_ptr<float> idCardFaceComparisonScore_ = nullptr;
+    // Authentication materials.
     std::shared_ptr<DescribeVerifyResultResponseBodyMaterial> material_ = nullptr;
+    // The ID of this request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Authentication status, values:
+    // - **-1**: Not authenticated - **1**: Authentication passed - **2** to **n**: Authentication failed for various reasons. For detailed descriptions, see the authentication status explanation.
     std::shared_ptr<int32_t> verifyStatus_ = nullptr;
   };
 

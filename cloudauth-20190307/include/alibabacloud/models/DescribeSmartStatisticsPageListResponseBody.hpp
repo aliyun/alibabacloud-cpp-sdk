@@ -88,11 +88,17 @@ namespace Models
 
 
   protected:
+    // Current page number.
     std::shared_ptr<int32_t> currentPage_ = nullptr;
+    // Returned data list.
     std::shared_ptr<vector<DescribeSmartStatisticsPageListResponseBodyItems>> items_ = nullptr;
+    // Number of items displayed per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // ID of this request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Total count.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
+    // Total number of pages.
     std::shared_ptr<int32_t> totalPage_ = nullptr;
   };
 

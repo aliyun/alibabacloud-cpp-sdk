@@ -66,9 +66,17 @@ namespace Models
 
 
   protected:
+    // Unique identifier for the real-person authentication request.
     std::shared_ptr<string> certifyId_ = nullptr;
+    // Attachment information of the face authentication subject, including data such as face quality, face attack, face or OCR image, and intent verification.
     std::shared_ptr<string> materialInfo_ = nullptr;
+    // Authentication result, values:
+    // 
+    // - T: Passed
+    // 
+    // - F: Not passed
     std::shared_ptr<string> passed_ = nullptr;
+    // Authentication result code.
     std::shared_ptr<string> subCode_ = nullptr;
   };
 

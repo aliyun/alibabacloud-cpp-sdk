@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // Verification scenario name.
     std::shared_ptr<string> bizName_ = nullptr;
+    // Verification scenario identifier.
     std::shared_ptr<string> bizType_ = nullptr;
+    // ID of this request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Authentication solution name.
     std::shared_ptr<string> solution_ = nullptr;
+    // Authentication steps
     std::shared_ptr<vector<string>> stepList_ = nullptr;
   };
 

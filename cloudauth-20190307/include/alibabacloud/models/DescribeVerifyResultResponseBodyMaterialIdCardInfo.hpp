@@ -121,15 +121,27 @@ namespace Models
 
 
   protected:
+    // Address.
     std::shared_ptr<string> address_ = nullptr;
+    // Issuing authority.
     std::shared_ptr<string> authority_ = nullptr;
+    // HTTP/HTTPS link to the image of the back side (national emblem side) of the ID card. The link is valid for 5 minutes, and it is recommended to store it for business use to avoid any impact.
+    // > If the HTTP/HTTPS link to the front-facing portrait image expires, you can call DescribeVerifyResult again to get the link.
     std::shared_ptr<string> backImageUrl_ = nullptr;
+    // Date of birth.
     std::shared_ptr<string> birth_ = nullptr;
+    // The end date of the document\\"s validity period. Format: yyyymmdd.
     std::shared_ptr<string> endDate_ = nullptr;
+    // HTTP/HTTPS link to the image of the front side (portrait side) of the ID card. The link is valid for 5 minutes, and it is recommended to store it for business use to avoid any impact.
+    // > If the HTTP/HTTPS link to the front-facing portrait image expires, you can call DescribeVerifyResult again to get the link.
     std::shared_ptr<string> frontImageUrl_ = nullptr;
+    // Name.
     std::shared_ptr<string> name_ = nullptr;
+    // Nationality.
     std::shared_ptr<string> nationality_ = nullptr;
+    // ID card number.
     std::shared_ptr<string> number_ = nullptr;
+    // Start date of the document\\"s validity. Format: yyyymmdd.
     std::shared_ptr<string> startDate_ = nullptr;
   };
 

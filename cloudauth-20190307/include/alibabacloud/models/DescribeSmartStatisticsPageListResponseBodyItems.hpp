@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // Date. Format: <i>month/day</i>
     std::shared_ptr<string> date_ = nullptr;
+    // Pass rate.
     std::shared_ptr<string> passRate_ = nullptr;
+    // Product solution Code, please refer to the Enhanced Real Person Help Documentation.
     std::shared_ptr<string> productCode_ = nullptr;
+    // Scene ID.
     std::shared_ptr<int64_t> sceneId_ = nullptr;
+    // Scene name.
     std::shared_ptr<string> sceneName_ = nullptr;
+    // Number of successful calls.
     std::shared_ptr<int32_t> successCount_ = nullptr;
+    // Total count.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

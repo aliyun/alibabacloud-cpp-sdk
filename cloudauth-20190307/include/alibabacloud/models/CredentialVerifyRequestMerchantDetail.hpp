@@ -48,7 +48,11 @@ namespace Models
 
 
   protected:
+    // The private key of the certificate.
+    // 
+    // >  If this parameter is specified, you must also specify **CertName** and **Cert**. If **CertName**, **Cert**, and **Key** are specified, you do not need to specify **CertId**.
     std::shared_ptr<string> key_ = nullptr;
+    // Keyword value.
     std::shared_ptr<string> value_ = nullptr;
   };
 

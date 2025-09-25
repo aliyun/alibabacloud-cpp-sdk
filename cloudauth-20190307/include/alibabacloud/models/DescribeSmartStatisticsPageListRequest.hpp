@@ -84,15 +84,26 @@ namespace Models
 
 
   protected:
+    // Current page number.
+    // 
     // This parameter is required.
     std::shared_ptr<string> currentPage_ = nullptr;
+    // End time, using UTC format, in the form of yyyy-MM-ddTHH:mm:ssZ.
+    // 
     // This parameter is required.
     std::shared_ptr<string> endDate_ = nullptr;
+    // Number of items per page.
+    // 
     // This parameter is required.
     std::shared_ptr<string> pageSize_ = nullptr;
+    // Scene ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> sceneId_ = nullptr;
+    // ServiceCode for the real person cloud product, only value: **cloudauthst**.
     std::shared_ptr<string> serviceCode_ = nullptr;
+    // Start time, using UTC format, in the form of yyyy-MM-ddTHH:mm:ssZ.
+    // 
     // This parameter is required.
     std::shared_ptr<string> startDate_ = nullptr;
   };

@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // Information about the OSS upload Token.
     std::shared_ptr<DescribeOssUploadTokenResponseBodyOssUploadToken> ossUploadToken_ = nullptr;
+    // The ID of this request.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

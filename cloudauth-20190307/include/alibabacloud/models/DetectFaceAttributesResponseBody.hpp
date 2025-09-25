@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // HTTP status code.
     std::shared_ptr<string> code_ = nullptr;
+    // Returned data.
     std::shared_ptr<DetectFaceAttributesResponseBodyData> data_ = nullptr;
+    // Error code.
     std::shared_ptr<string> message_ = nullptr;
+    // ID of this request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Whether the response was successful.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Date.
     std::shared_ptr<string> date_ = nullptr;
+    // Product scheme code, please refer to the financial-grade real-person help documentation.
     std::shared_ptr<string> productCode_ = nullptr;
+    // Scene ID.
     std::shared_ptr<string> sceneId_ = nullptr;
+    // Scene name.
     std::shared_ptr<string> sceneName_ = nullptr;
+    // Number of successful calls.
     std::shared_ptr<string> successCount_ = nullptr;
+    // Total count.
     std::shared_ptr<string> totalCount_ = nullptr;
   };
 

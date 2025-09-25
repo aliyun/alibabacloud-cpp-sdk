@@ -158,19 +158,86 @@ namespace Models
 
 
   protected:
+    // Relevant certificate number.
     std::shared_ptr<string> certNum_ = nullptr;
+    // - 01: Personal ID cards
+    //   - **0101**: ID card
+    //   - **0102**: Bank card
+    //   - **0104**: Teacher qualification certificate
+    //   - **0107**: Student ID card
+    // - 02: Business scenario
+    //   - **0201**: Storefront photo
+    //   - **0202**: Counter photo
+    //   - **0203**: Scene photo
+    // - 03: Corporate qualifications
+    //   - **0301**: Business license
     std::shared_ptr<string> credName_ = nullptr;
+    // Credential type:
+    // 
+    // - 01: Personal ID cards
+    // - 02: Business scenario
+    // - 03: Corporate qualifications
     std::shared_ptr<string> credType_ = nullptr;
+    // ID number:
+    // 
+    // Note
+    // Only supports the ID numbers of second-generation resident IDs and Hong Kong, Macao, and Taiwan residence permits.
+    // 
+    // - When paramType is normal: enter the plaintext ID number.
+    // 
+    // - When paramType is md5: first 6 digits of the ID number (plaintext) + date of birth (ciphertext) + last 4 digits of the ID number (plaintext).
     std::shared_ptr<string> identifyNum_ = nullptr;
+    // Base64 encoded image, choose one from `imageUrl`, `imageFile`, or `imageContext`.
     std::shared_ptr<string> imageContext_ = nullptr;
+    // Image URL, choose one from `imageUrl`, `imageFile`, or `imageContext`.
     std::shared_ptr<string> imageUrl_ = nullptr;
+    // Whether to enable authoritative authentication
+    // 
+    // - ****0****: No
+    // - **1**: Yes
     std::shared_ptr<string> isCheck_ = nullptr;
+    // Whether to enable OCR recognition.
+    // 
+    // - **0**: No
+    // - **1**: Yes
+    // 
+    // > IsOCR can be set to 1 only when **CredType** is 01.
     std::shared_ptr<string> isOCR_ = nullptr;
+    // Merchant details:
+    // 
+    // 
+    // > This field is required when PromptModel is set to DEFAULT.
     std::shared_ptr<string> merchantDetailShrink_ = nullptr;
+    // Merchant ID. 
+    // 
+    // > This field is required when ****CredName**** is set to **02**.
     std::shared_ptr<string> merchantId_ = nullptr;
+    // Invocation mode:
+    // 
+    // - **ANTI_FAKE_CHECK**: Image anti-forgery check
+    // 
+    // - **ANTI_FAKE_VL**: Image anti-forgery check and semantic understanding
+    // 
+    // - **IMAGE_VL_COG**: Image semantic understanding
+    // 
+    // Default value: ANTI_FAKE_CHECK
+    // 
+    // > When **CredType** is set to 02, **ProductCode** can only be ANTI_FAKE_VL or IMAGE_VL_COG.
     std::shared_ptr<string> productCode_ = nullptr;
+    // Customer-defined prompt content for image semantic understanding.
+    // 
+    // 
+    // > This field is required when PromptModel is set to CUSTOM.
     std::shared_ptr<string> prompt_ = nullptr;
+    // Prompt acquisition method for image semantic understanding:
+    // 
+    // - **DEFAULT**: System default
+    // 
+    // - **CUSTOM**: Customer-defined
+    // 
+    // > When **ProductCode** is set to **ANTI_FAKE_VL** or **IMAGE_VL_COG**, this parameter must be provided.
     std::shared_ptr<string> promptModel_ = nullptr;
+    // UserName
     std::shared_ptr<string> userName_ = nullptr;
   };
 

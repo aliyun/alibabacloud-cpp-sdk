@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // OSS upload token information.
     std::shared_ptr<DescribeVerifyTokenResponseBodyOssUploadToken> ossUploadToken_ = nullptr;
+    // The ID of this request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The entry link for the original H5 verification scheme, which has been discontinued and no longer supports new integrations. If you need to integrate an H5 verification scheme, it is recommended to use the [PC or mobile H5 web integration solution](https://help.aliyun.com/document_detail/173779.html) of financial-grade real-person authentication.
     std::shared_ptr<string> verifyPageUrl_ = nullptr;
+    // The token for this verification, used to link various interfaces in the verification request, valid for 30 minutes.
     std::shared_ptr<string> verifyToken_ = nullptr;
   };
 

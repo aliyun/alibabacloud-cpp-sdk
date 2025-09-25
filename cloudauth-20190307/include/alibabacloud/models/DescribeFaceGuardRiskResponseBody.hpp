@@ -69,10 +69,13 @@ namespace Models
 
 
   protected:
+    // Return code, **200** indicates successful response from the interface.
     std::shared_ptr<string> code_ = nullptr;
+    // Return message.
     std::shared_ptr<string> message_ = nullptr;
-    // Id of the request
+    // ID of the request
     std::shared_ptr<string> requestId_ = nullptr;
+    // Returned result information.
     std::shared_ptr<DescribeFaceGuardRiskResponseBodyResultObject> resultObject_ = nullptr;
   };
 

@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // Return code: 200 indicates success, other values indicate failure.
     std::shared_ptr<string> code_ = nullptr;
+    // Error message
     std::shared_ptr<string> message_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Returned result information
     std::shared_ptr<DescribeFaceVerifyResponseBodyResultObject> resultObject_ = nullptr;
   };
 

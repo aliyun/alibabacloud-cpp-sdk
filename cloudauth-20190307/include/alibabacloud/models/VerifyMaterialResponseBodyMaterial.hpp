@@ -97,12 +97,29 @@ namespace Models
 
 
   protected:
+    // Global camera image captured by the real-person authentication SDK.
+    // 
+    // > This parameter will take effect after configuration. If you need to use this parameter, please submit a [ticket](https://selfservice.console.aliyun.com/ticket/category/cloudauth/today) to contact us.
     std::shared_ptr<string> faceGlobalUrl_ = nullptr;
+    // HTTP or HTTPS link to the frontal face image, corresponding to the request parameter **FaceImageUrl**. The link is valid for 5 minutes, and it is recommended to store it in your business to avoid affecting usage.
     std::shared_ptr<string> faceImageUrl_ = nullptr;
+    // Whether the face is wearing a mask. Values:
+    // - **true**: Wearing a mask
+    // - **false**: Not wearing a mask
     std::shared_ptr<string> faceMask_ = nullptr;
+    // The quality of the frontal face image. Possible values:
+    // - **UNQUALIFIED**: Poor quality
+    // - **LOW**: Low
+    // - **NORMAL**: Average
+    // - **HIGH**: High
     std::shared_ptr<string> faceQuality_ = nullptr;
+    // OCR result of the ID card information.
+    // 
+    // > If there is no front or back of the ID card during the verification process, the OCR result of the ID card information will not be returned. Even if the front and back of the ID card are present during the verification process, it does not guarantee that all the information on the ID card will be returned. Due to issues such as poor ID card photography, the OCR may fail to recognize some information, leading to incomplete OCR results. It is recommended that the business side does not heavily rely on the ID card OCR information.
     std::shared_ptr<Models::VerifyMaterialResponseBodyMaterialIdCardInfo> idCardInfo_ = nullptr;
+    // Name, corresponding to the request parameter **Name**.
     std::shared_ptr<string> idCardName_ = nullptr;
+    // ID number, corresponding to the request parameter **IdCardNumber**.
     std::shared_ptr<string> idCardNumber_ = nullptr;
   };
 

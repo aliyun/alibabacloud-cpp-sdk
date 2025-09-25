@@ -87,11 +87,34 @@ namespace Models
 
 
   protected:
+    // Comparison score between the facial photo submitted during the authentication process and authoritative data, with a range of **0**~**100**.
+    // 
+    // Confidence threshold references:
+    // - False recognition rate 0.001% corresponds to a threshold of 95.
+    // - False recognition rate 0.01% corresponds to a threshold of 90.
+    // - False recognition rate 0.1% corresponds to a threshold of 80.
+    // - False recognition rate 1% corresponds to a threshold of 60.
+    // 
+    // > This field only indicates the comparison result between the face and authoritative data, serving as a reference score. It is generally not recommended to use this score alone as the pass/fail criterion. For the comprehensive authentication result, please refer to the **VerifyStatus** field. The **VerifyStatus** result integrates the face-to-authoritative data comparison and other various strategies, enhancing security levels.
     std::shared_ptr<float> authorityComparisionScore_ = nullptr;
+    // Comparison score between the facial photo submitted during the authentication process and the face on the portrait side of the ID card image, with a range of **0**~**100**.
+    // 
+    // Confidence threshold references:
+    // - False recognition rate 0.001% corresponds to a threshold of 95.
+    // - False recognition rate 0.01% corresponds to a threshold of 90.
+    // - False recognition rate 0.1% corresponds to a threshold of 80.
+    // - False recognition rate 1% corresponds to a threshold of 60.
     std::shared_ptr<float> idCardFaceComparisonScore_ = nullptr;
+    // Authentication materials.
     std::shared_ptr<VerifyMaterialResponseBodyMaterial> material_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Authentication status. Values:
+    // 
+    // - **1**: Authentication passed.
+    // - **2**~**n**: Authentication failed due to various reasons. For detailed descriptions, see the **Authentication Status Explanation** below.
     std::shared_ptr<int32_t> verifyStatus_ = nullptr;
+    // Token for this authentication, used to link various interfaces in the authentication request, valid for 30 minutes.
     std::shared_ptr<string> verifyToken_ = nullptr;
   };
 

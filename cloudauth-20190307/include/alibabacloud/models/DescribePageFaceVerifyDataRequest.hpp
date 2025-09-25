@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Current page number, default is 1.
     std::shared_ptr<int64_t> currentPage_ = nullptr;
+    // Required, end time, format is yyyy-MM-dd, default is yyyy-MM-dd 00:00:00, the query interval cannot exceed 90 days.
     std::shared_ptr<string> endDate_ = nullptr;
+    // Number of items per page, default is 10.
     std::shared_ptr<int64_t> pageSize_ = nullptr;
+    // Product code.
     std::shared_ptr<string> productCode_ = nullptr;
+    // Scene ID.
     std::shared_ptr<int64_t> sceneId_ = nullptr;
+    // Required, start time, format is yyyy-MM-dd, default is yyyy-MM-dd 00:00:00, the query interval cannot exceed 90 days.
     std::shared_ptr<string> startDate_ = nullptr;
   };
 

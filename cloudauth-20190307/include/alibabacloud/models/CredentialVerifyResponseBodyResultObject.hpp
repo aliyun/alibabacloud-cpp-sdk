@@ -109,13 +109,32 @@ namespace Models
 
 
   protected:
+    // Additional information in JSON format.
     std::shared_ptr<string> materialInfo_ = nullptr;
+    // OCR recognition result.
     std::shared_ptr<string> ocrInfo_ = nullptr;
+    // Risk result
+    // 
+    // - **0**: Low risk
+    // - **1**: High risk
+    // - **2**: Suspicious
     std::shared_ptr<string> result_ = nullptr;
+    // Risk score map.
     std::shared_ptr<map<string, string>> riskScore_ = nullptr;
+    // Risk tags, separated by commas (,), including:
+    // 
+    // - **PS**: Image manipulation.
+    // - **SCREEN_PHOTO**: Screen recapture.
+    // - **SCREENSHOT**: Screenshot.
+    // - **WATERMARK**: Watermark.
+    // - **SAME_BACKGROUND**: Similar background.
+    // - **ORIGINAL_PHOTO**: Not the original image
     std::shared_ptr<string> riskTag_ = nullptr;
+    // Authority verification details.
     std::shared_ptr<string> verifyDetail_ = nullptr;
+    // The verification result.
     std::shared_ptr<string> verifyResult_ = nullptr;
+    // Qwen interpretation.
     std::shared_ptr<Models::CredentialVerifyResponseBodyResultObjectVlResult> vlResult_ = nullptr;
   };
 

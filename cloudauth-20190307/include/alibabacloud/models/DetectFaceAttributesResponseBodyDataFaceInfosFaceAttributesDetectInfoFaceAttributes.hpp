@@ -109,13 +109,34 @@ namespace Models
 
 
   protected:
+    // Face blur level, with higher values indicating more blurriness. Typically, a value ≥2.0 is considered quite blurry. It is recommended to adjust based on actual business data testing.
     std::shared_ptr<float> blur_ = nullptr;
+    // A score ranging from 0 to 100. The higher the score, the better the quality. It is recommended to consider a score of 50 or above as acceptable quality.
     std::shared_ptr<float> facequal_ = nullptr;
+    // Whether it is a human face. Values:
+    // 
+    // - **None**: Not a human face
+    // - **Face**: Human face
+    // - **Profile**: Profile (head turned left or right by more than 30°)
+    // 
+    // > If no face is detected, the `faceInfos` in the response will be empty; here, `None` means that a face was detected but is considered to be a cartoon, pet, etc.
     std::shared_ptr<string> facetype_ = nullptr;
+    // Whether wearing glasses. Values:
+    // 
+    // - **None**: Not wearing glasses
+    // - **Wear**: Wearing regular glasses
+    // - **Sunglass**: Wearing sunglasses
     std::shared_ptr<string> glasses_ = nullptr;
+    // Face pose.
     std::shared_ptr<Models::DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributesHeadpose> headpose_ = nullptr;
+    // A score ranging from 0 to 100. The higher the score, the more complete the face. It is recommended to consider a score of 70 or above as acceptable completeness.
     std::shared_ptr<int32_t> integrity_ = nullptr;
+    // Whether wearing a mask. Values:
+    // 
+    // - Wear: Wearing a mask.
+    // - None: Not wearing a mask.
     std::shared_ptr<string> respirator_ = nullptr;
+    // Whether smiling.
     std::shared_ptr<Models::DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributesSmiling> smiling_ = nullptr;
   };
 

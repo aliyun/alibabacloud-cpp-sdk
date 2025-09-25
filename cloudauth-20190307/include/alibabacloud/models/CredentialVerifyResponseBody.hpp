@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // Return code: 200 for success, others for failure.
     std::shared_ptr<string> code_ = nullptr;
+    // Return message.
     std::shared_ptr<string> message_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Returned result
     std::shared_ptr<CredentialVerifyResponseBodyResultObject> resultObject_ = nullptr;
   };
 

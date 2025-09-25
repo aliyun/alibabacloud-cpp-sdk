@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // Address.
     std::shared_ptr<string> address_ = nullptr;
+    // Issuing authority.
     std::shared_ptr<string> authority_ = nullptr;
+    // HTTP or HTTPS link to the national emblem side of the ID card. The link is valid for 5 minutes. It is recommended to store it in your business system to avoid any impact on usage.
     std::shared_ptr<string> backImageUrl_ = nullptr;
+    // Date of birth.
     std::shared_ptr<string> birth_ = nullptr;
+    // End date of the document\\"s validity period. Format: yyyymmdd.
     std::shared_ptr<string> endDate_ = nullptr;
+    // HTTP or HTTPS link to the portrait side of the ID card. The link is valid for 5 minutes. It is recommended to store it in your business system to avoid any impact on usage.
     std::shared_ptr<string> frontImageUrl_ = nullptr;
+    // Name.
     std::shared_ptr<string> name_ = nullptr;
+    // Nationality.
     std::shared_ptr<string> nationality_ = nullptr;
+    // ID number.
     std::shared_ptr<string> number_ = nullptr;
+    // Start date of the document\\"s validity period. Format: yyyymmdd.
     std::shared_ptr<string> startDate_ = nullptr;
   };
 

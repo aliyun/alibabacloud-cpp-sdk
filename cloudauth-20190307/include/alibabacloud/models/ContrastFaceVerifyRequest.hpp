@@ -204,24 +204,59 @@ namespace Models
 
 
   protected:
+    // Real name.
     std::shared_ptr<string> certName_ = nullptr;
+    // ID number
     std::shared_ptr<string> certNo_ = nullptr;
+    // Type of identification. Currently, only IDENTITY_CARD is supported and must be provided.
     std::shared_ptr<string> certType_ = nullptr;
+    // The CertifyId of a previously passed real-person authentication, with the photo taken during that authentication used as the comparison photo. 
+    // > Among the four ways to input images (FaceContrastPicture, FaceContrastPictureUrl, CertifyId, OSS), choose one to provide.
     std::shared_ptr<string> certifyId_ = nullptr;
+    // Allow face image cropping:
+    // 
+    // -  **T** – Cropping is allowed.
+    // -  **F** (default) – Cropping is not allowed.
     std::shared_ptr<string> crop_ = nullptr;
+    // Risk Identification - Device Token
     std::shared_ptr<string> deviceToken_ = nullptr;
+    // Encryption type. Leave it empty if no encryption is required.
+    // 
+    // If you enable encrypted transmission, you must specify the encryption algorithm; currently, only the SM2 (Chinese national standard) algorithm is supported.
+    // 
+    // When an encryption algorithm is specified, encrypt both **CertName** and **CertNo** and submit the resulting ciphertext. For more details on parameter encryption, see the [Parameter Encryption documentation](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/description-of-parameter-encryption?spm=a2c4g.11186623.0.0.49541a8554cELI#task-2229332).
     std::shared_ptr<string> encryptType_ = nullptr;
+    // Local video file.
     std::shared_ptr<string> faceContrastFile_ = nullptr;
+    // Base64 encoded photo
     std::shared_ptr<string> faceContrastPicture_ = nullptr;
+    // OSS photo URL, currently only supports authorized OSS photo URLs.
+    // > Among the four ways to input images (FaceContrastPicture, FaceContrastPictureUrl, CertifyId, OSS), choose one to input.
     std::shared_ptr<string> faceContrastPictureUrl_ = nullptr;
+    // User IP.
     std::shared_ptr<string> ip_ = nullptr;
+    // User\\"s phone number.
     std::shared_ptr<string> mobile_ = nullptr;
+    // Liveness detection type. Possible values:
+    // 
+    // • **NO_LIVENESS** – Liveness detection is disabled.
+    // 
+    // • **FRONT_CAMERA_LIVENESS** (default) – Liveness detection on face images captured with the mobile device’s front camera.
+    // 
+    // • **REAR_CAMERA_LIVENESS** – Liveness detection on face images captured in other scenarios (e.g., via the rear camera).
     std::shared_ptr<string> model_ = nullptr;
+    // Authorized OSS space Bucket name. In the methods of passing images, including FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS, choose one to pass in.
     std::shared_ptr<string> ossBucketName_ = nullptr;
+    // Filename of the authorized OSS space.
+    // > Among the four ways to input images (FaceContrastPicture, FaceContrastPictureUrl, CertifyId, OSS), choose one to input.
     std::shared_ptr<string> ossObjectName_ = nullptr;
+    // A unique identifier for the merchant\\"s request. It is a 32-character alphanumeric combination. The first few characters are a custom abbreviation defined by the merchant, followed by a period, and the latter part can be a random or incrementing sequence.
     std::shared_ptr<string> outerOrderNo_ = nullptr;
+    // Fixed value: ID_MIN.
     std::shared_ptr<string> productCode_ = nullptr;
+    // Authentication scenario ID.
     std::shared_ptr<int64_t> sceneId_ = nullptr;
+    // Custom user ID defined by the customer\\"s business.
     std::shared_ptr<string> userId_ = nullptr;
   };
 

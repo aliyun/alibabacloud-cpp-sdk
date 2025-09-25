@@ -66,9 +66,15 @@ namespace Models
 
 
   protected:
+    // Authentication ID
     std::shared_ptr<string> bizId_ = nullptr;
+    // Risk identification - device token.
     std::shared_ptr<string> deviceToken_ = nullptr;
+    // This identifier is used for subsequent troubleshooting, and you need to ensure that this value is unique in your business.
+    // 
+    // Supports the use of English letters (including uppercase and lowercase) and numbers, with a maximum length of 32 characters.
     std::shared_ptr<string> outerOrderNo_ = nullptr;
+    // Product code, fixed value: FACE_GUARD
     std::shared_ptr<string> productCode_ = nullptr;
   };
 

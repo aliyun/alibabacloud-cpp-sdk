@@ -103,18 +103,33 @@ namespace Models
 
 
   protected:
+    // A unique ID that identifies a single authentication task, not exceeding 64 characters. For a single authentication task, the system supports unlimited submissions until the final authentication is passed and the task is completed.
+    // 
+    // > Different BizIds are required for different authentication tasks.
+    // 
     // This parameter is required.
     std::shared_ptr<string> bizId_ = nullptr;
+    // Identifier for the business scenario using the real-person authentication service. Please refer to [Business Setup](https://help.aliyun.com/document_detail/127885.html) and complete the creation in the console first.
+    // 
     // This parameter is required.
     std::shared_ptr<string> bizType_ = nullptr;
+    // HTTP or HTTPS link to the frontal face image.
+    // 
     // This parameter is required.
     std::shared_ptr<string> faceImageUrl_ = nullptr;
+    // HTTP or HTTPS link to the national emblem side of the ID card.
     std::shared_ptr<string> idCardBackImageUrl_ = nullptr;
+    // HTTP or HTTPS link to the portrait side of the ID card image.
     std::shared_ptr<string> idCardFrontImageUrl_ = nullptr;
+    // ID number.
+    // 
     // This parameter is required.
     std::shared_ptr<string> idCardNumber_ = nullptr;
+    // Name.
+    // 
     // This parameter is required.
     std::shared_ptr<string> name_ = nullptr;
+    // The ID of the end user, such as the account ID of the end user.
     std::shared_ptr<string> userId_ = nullptr;
   };
 

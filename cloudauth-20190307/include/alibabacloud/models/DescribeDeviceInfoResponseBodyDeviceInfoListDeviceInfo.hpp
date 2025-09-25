@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Authorization start date.
     std::shared_ptr<string> beginDay_ = nullptr;
+    // Corresponds to the BizType in the request.
     std::shared_ptr<string> bizType_ = nullptr;
+    // Corresponds to the DeviceId in the request.
     std::shared_ptr<string> deviceId_ = nullptr;
+    // Authorization expiration date.
     std::shared_ptr<string> expiredDay_ = nullptr;
+    // Corresponds to the UserDeviceId in the request.
     std::shared_ptr<string> userDeviceId_ = nullptr;
   };
 

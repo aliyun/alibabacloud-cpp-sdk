@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Height of the face rectangle.
     std::shared_ptr<int32_t> height_ = nullptr;
+    // Distance from the top-left corner of the face rectangle to the left edge of the original image, in pixels.
     std::shared_ptr<int32_t> left_ = nullptr;
+    // Distance from the top-left corner of the face rectangle to the top edge of the original image, in pixels.
     std::shared_ptr<int32_t> top_ = nullptr;
+    // Width of the face rectangle.
     std::shared_ptr<int32_t> width_ = nullptr;
   };
 

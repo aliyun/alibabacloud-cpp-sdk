@@ -88,6 +88,10 @@
 #include <alibabacloud/models/Id2metaVerifyWithOcradvanceRequest.hpp>
 #include <alibabacloud/models/Id2metaVerifyWithOcrresponseBody.hpp>
 #include <alibabacloud/models/Id2metaVerifyWithOcrresponse.hpp>
+#include <alibabacloud/models/Id3metaVerifyRequest.hpp>
+#include <alibabacloud/models/Id3metaVerifyAdvanceRequest.hpp>
+#include <alibabacloud/models/Id3metaVerifyResponseBody.hpp>
+#include <alibabacloud/models/Id3metaVerifyResponse.hpp>
 #include <alibabacloud/models/InitCardVerifyRequest.hpp>
 #include <alibabacloud/models/InitCardVerifyResponseBody.hpp>
 #include <alibabacloud/models/InitCardVerifyResponse.hpp>
@@ -189,6 +193,7 @@
 #include <alibabacloud/models/Id2metaStandardVerifyResponseBodyResultObject.hpp>
 #include <alibabacloud/models/Id2metaVerifyResponseBodyResultObject.hpp>
 #include <alibabacloud/models/Id2metaVerifyWithOcrresponseBodyResultObject.hpp>
+#include <alibabacloud/models/Id3metaVerifyResponseBodyResultObject.hpp>
 #include <alibabacloud/models/InitCardVerifyResponseBodyResultObject.hpp>
 #include <alibabacloud/models/InitFaceVerifyResponseBodyResultObject.hpp>
 #include <alibabacloud/models/LivenessFaceVerifyResponseBodyResultObject.hpp>

@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Unique identifier for the real-person verification request.
     std::shared_ptr<string> certifyId_ = nullptr;
+    // Information about the authenticated entity, which is usually empty in general authentication scenarios.
     std::shared_ptr<string> identityInfo_ = nullptr;
+    // Attachment information of the authenticated entity, mainly image materials, in JSON format, as follows.
     std::shared_ptr<string> materialInfo_ = nullptr;
+    // Whether it passed, T for pass, F for fail.
     std::shared_ptr<string> passed_ = nullptr;
+    // Description of the authentication result. For details, see the SubCode explanation below.
     std::shared_ptr<string> subCode_ = nullptr;
   };
 

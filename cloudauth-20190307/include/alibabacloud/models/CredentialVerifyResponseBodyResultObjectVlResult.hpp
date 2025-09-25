@@ -48,7 +48,16 @@ namespace Models
 
 
   protected:
+    // Indicates whether the call was successful. Valid values:
+    // 
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     std::shared_ptr<bool> success_ = nullptr;
+    // Image understanding result:
+    // 
+    // - When PromptModel is DEFAULT, the output format refers to the example on the right.
+    // 
+    // - When PromptModel is CUSTOM, the output format follows the agreed format of the Prompt.
     std::shared_ptr<string> vlContent_ = nullptr;
   };
 

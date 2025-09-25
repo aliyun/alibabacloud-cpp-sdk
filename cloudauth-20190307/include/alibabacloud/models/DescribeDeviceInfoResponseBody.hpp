@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // The current page number being queried.
     std::shared_ptr<int32_t> currentPage_ = nullptr;
+    // Array of device information.
     std::shared_ptr<DescribeDeviceInfoResponseBodyDeviceInfoList> deviceInfoList_ = nullptr;
+    // Number of items per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The ID of this request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Total count.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

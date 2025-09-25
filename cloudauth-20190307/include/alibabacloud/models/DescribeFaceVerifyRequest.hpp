@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Unique identifier for real-person authentication.
     std::shared_ptr<string> certifyId_ = nullptr;
+    // Image return type.
     std::shared_ptr<string> pictureReturnType_ = nullptr;
+    // Authentication scene ID.
     std::shared_ptr<int64_t> sceneId_ = nullptr;
   };
 

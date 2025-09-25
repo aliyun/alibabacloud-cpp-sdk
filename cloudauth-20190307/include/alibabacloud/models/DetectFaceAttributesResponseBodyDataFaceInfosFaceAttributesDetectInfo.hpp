@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // Face attributes.
     std::shared_ptr<Models::DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributes> faceAttributes_ = nullptr;
+    // Position of the face in the original image.
     std::shared_ptr<Models::DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceRect> faceRect_ = nullptr;
   };
 

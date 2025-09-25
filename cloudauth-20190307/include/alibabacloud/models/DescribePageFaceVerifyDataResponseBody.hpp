@@ -116,14 +116,23 @@ namespace Models
 
 
   protected:
+    // Return code
     std::shared_ptr<string> code_ = nullptr;
+    // Current page number.
     std::shared_ptr<string> currentPage_ = nullptr;
+    // List of returned data.
     std::shared_ptr<vector<DescribePageFaceVerifyDataResponseBodyItems>> items_ = nullptr;
+    // Return message.
     std::shared_ptr<string> message_ = nullptr;
+    // Number of items per page.
     std::shared_ptr<string> pageSize_ = nullptr;
+    // ID of this request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Whether the response was successful.
     std::shared_ptr<string> success_ = nullptr;
+    // Total count.
     std::shared_ptr<string> totalCount_ = nullptr;
+    // Total number of pages.
     std::shared_ptr<string> totalPage_ = nullptr;
   };
 

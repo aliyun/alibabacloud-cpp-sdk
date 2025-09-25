@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Pitch angle, in degrees.
     std::shared_ptr<float> pitchAngle_ = nullptr;
+    // Roll angle, in degrees.
     std::shared_ptr<float> rollAngle_ = nullptr;
+    // Yaw angle, in degrees.
     std::shared_ptr<float> yawAngle_ = nullptr;
   };
 

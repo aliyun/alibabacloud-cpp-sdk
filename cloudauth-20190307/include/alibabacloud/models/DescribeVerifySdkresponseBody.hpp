@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of this request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The SDK download URL. When not empty, it indicates that the generation is complete.
     std::shared_ptr<string> sdkUrl_ = nullptr;
   };
 

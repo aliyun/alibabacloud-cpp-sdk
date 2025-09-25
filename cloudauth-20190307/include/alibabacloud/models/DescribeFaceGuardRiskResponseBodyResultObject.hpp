@@ -57,8 +57,15 @@ namespace Models
 
 
   protected:
+    // Unique real-person authentication identifier.
     std::shared_ptr<string> certifyId_ = nullptr;
+    // Extended information, in JSON format. (Customized return based on tenant requirements)
     std::shared_ptr<string> riskExtends_ = nullptr;
+    // Device risk tags.
+    // 
+    // - Multiple device risk tags are separated by commas (,). For example, “ROOT,VPN,HOOK”,
+    // 
+    // - For more information about device risk tags and their meanings, please refer to the official documentation on Face Guard Tag Descriptions.
     std::shared_ptr<string> riskTags_ = nullptr;
   };
 

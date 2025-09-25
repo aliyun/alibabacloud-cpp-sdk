@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The task ID for generating the SDK.
+    // 
     // This parameter is required.
     std::shared_ptr<string> taskId_ = nullptr;
   };

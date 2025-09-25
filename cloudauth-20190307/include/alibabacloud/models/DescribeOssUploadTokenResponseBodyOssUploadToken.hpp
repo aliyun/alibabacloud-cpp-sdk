@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // OSS bucket for file storage.
     std::shared_ptr<string> bucket_ = nullptr;
+    // Access endpoint.
     std::shared_ptr<string> endPoint_ = nullptr;
+    // Expiration time.
     std::shared_ptr<int64_t> expired_ = nullptr;
+    // The Key required for file upload.
     std::shared_ptr<string> key_ = nullptr;
+    // File storage path.
     std::shared_ptr<string> path_ = nullptr;
+    // The Secret required for file upload.
     std::shared_ptr<string> secret_ = nullptr;
+    // The Token required for file upload.
     std::shared_ptr<string> token_ = nullptr;
   };
 

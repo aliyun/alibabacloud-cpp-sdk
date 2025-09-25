@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // Face detection results.
     std::shared_ptr<Models::DetectFaceAttributesResponseBodyDataFaceInfos> faceInfos_ = nullptr;
+    // Original image height, in pixels.
     std::shared_ptr<int32_t> imgHeight_ = nullptr;
+    // Original image width, in pixels.
     std::shared_ptr<int32_t> imgWidth_ = nullptr;
   };
 

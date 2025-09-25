@@ -48,7 +48,18 @@ namespace Models
 
 
   protected:
+    // Unique identifier for real-person authentication.
     std::shared_ptr<string> certifyId_ = nullptr;
+    // URL for real-person authentication in a Web browser, which will redirect according to the ReturnUrl parameter after authentication.
+    // 
+    // >Notice: 
+    // 
+    // - The CertifyUrl returned by the initialization interface is valid for **30 minutes and can only be used once**. Please use it within the validity period to avoid reuse.
+    // - This parameter requires the correct input of **MetaInfo** to return a CertifyUrl that matches the client. If you cannot obtain it, please check whether **MetaInfo** and other input parameters are correct.
+    // 
+    // - The domain name of this URL may change with service updates. To ensure normal service availability, it is recommended not to apply access control to this domain name.
+    // 
+    // - When redirecting in the browser, try not to use incognito mode or modify the URL, as this may result in a **signature error**.
     std::shared_ptr<string> certifyUrl_ = nullptr;
   };
 

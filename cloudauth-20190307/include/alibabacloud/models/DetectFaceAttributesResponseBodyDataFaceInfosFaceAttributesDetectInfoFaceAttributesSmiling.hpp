@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Smile threshold.
     std::shared_ptr<float> threshold_ = nullptr;
+    // Smile score.
     std::shared_ptr<float> value_ = nullptr;
   };
 

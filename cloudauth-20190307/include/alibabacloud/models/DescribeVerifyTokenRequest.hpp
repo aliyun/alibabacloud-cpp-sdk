@@ -167,22 +167,41 @@ namespace Models
 
 
   protected:
+    // Verification ID. A unique ID that identifies a verification task, not exceeding 64 characters. For a single verification task, the system supports unlimited submissions until the final verification is passed and the task is completed.
+    // 
+    // > Different BizIds are required for different verification tasks.
+    // 
     // This parameter is required.
     std::shared_ptr<string> bizId_ = nullptr;
+    // Identifier for the business scenario using the real person authentication service. Please refer to [Business Settings](https://help.aliyun.com/document_detail/127885.html) and complete the creation in the console first.
+    // 
     // This parameter is required.
     std::shared_ptr<string> bizType_ = nullptr;
+    // Callback seed.
     std::shared_ptr<string> callbackSeed_ = nullptr;
+    // Callback URL.
     std::shared_ptr<string> callbackUrl_ = nullptr;
+    // HTTP or HTTPS link to the retained portrait photo.
     std::shared_ptr<string> faceRetainedImageUrl_ = nullptr;
+    // Redirect URL for failed verification.
     std::shared_ptr<string> failedRedirectUrl_ = nullptr;
+    // HTTP or HTTPS link to the national emblem side of the ID card image.
     std::shared_ptr<string> idCardBackImageUrl_ = nullptr;
+    // HTTP or HTTPS link to the portrait side of the ID card image.
     std::shared_ptr<string> idCardFrontImageUrl_ = nullptr;
+    // ID card number.
     std::shared_ptr<string> idCardNumber_ = nullptr;
+    // Name.
     std::shared_ptr<string> name_ = nullptr;
+    // Redirect URL upon successful verification.
     std::shared_ptr<string> passedRedirectUrl_ = nullptr;
+    // ID of the end user, such as the account ID of the end user.
     std::shared_ptr<string> userId_ = nullptr;
+    // User IP.
     std::shared_ptr<string> userIp_ = nullptr;
+    // User phone number.
     std::shared_ptr<string> userPhoneNumber_ = nullptr;
+    // User registration time. Expressed in timestamp format, unit: milliseconds.
     std::shared_ptr<int64_t> userRegistTime_ = nullptr;
   };
 

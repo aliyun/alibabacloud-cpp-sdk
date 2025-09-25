@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The key that can be used for authorization activation. The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
     std::shared_ptr<string> authKey_ = nullptr;
+    // The ID of this request.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

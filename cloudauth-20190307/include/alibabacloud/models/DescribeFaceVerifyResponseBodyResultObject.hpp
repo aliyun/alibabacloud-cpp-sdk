@@ -103,13 +103,27 @@ namespace Models
 
 
   protected:
+    // Device risk label.
     std::shared_ptr<string> deviceRisk_ = nullptr;
+    // Device token.
     std::shared_ptr<string> deviceToken_ = nullptr;
+    // Information about the authenticated subject, usually empty in general authentication scenarios.
     std::shared_ptr<string> identityInfo_ = nullptr;
+    // Attachment information of the authenticated subject, mainly image materials. JSON format, see example below.
     std::shared_ptr<string> materialInfo_ = nullptr;
+    // Whether it passed, T for pass, F for fail.
     std::shared_ptr<string> passed_ = nullptr;
+    // Description of the authentication result. For details, see the SubCode explanation below.
     std::shared_ptr<string> subCode_ = nullptr;
+    // Whether the response was successful.
     std::shared_ptr<string> success_ = nullptr;
+    // Records the identity information and corresponding encoding entered by the user under the rare character mode. The returned data is a JSON formatted string, which will be an empty string if there are no rare characters in the name.
+    // 
+    // - name: Refers to the name entered by the user.
+    // 
+    // - verifyName: Refers to the final name encoding after verification. For example, if a rare character is verified through transcoding: “Mr. Wang”, the actual verified name is “Wang Xiansheng”.
+    // 
+    // - number: Refers to the identification number entered by the user.
     std::shared_ptr<string> userInfo_ = nullptr;
   };
 

@@ -109,13 +109,31 @@ namespace Models
 
 
   protected:
+    // The global camera image captured by the real-person authentication SDK.
+    // 
+    // > This parameter will only take effect after configuration. If you need to use this parameter, please submit a [ticket](https://selfservice.console.aliyun.com/ticket/category/cloudauth/today) to contact us.
     std::shared_ptr<string> faceGlobalUrl_ = nullptr;
+    // The HTTP or HTTPS link to the frontal face image. The link is valid for 5 minutes, and it is recommended to store it elsewhere to avoid any impact on usage.
+    // > If the HTTP or HTTPS link to the frontal face image expires, you can call [DescribeVerifyResult](https://help.aliyun.com/document_detail/154606.html) again to get the link.
     std::shared_ptr<string> faceImageUrl_ = nullptr;
+    // Whether the face is wearing a mask. Values:
+    // - **true**: Wearing a mask
+    // - **false**: Not wearing a mask
     std::shared_ptr<bool> faceMask_ = nullptr;
+    // The quality of the frontal face image. Values:
+    // - **UNQUALIFIED**: Poor quality
+    // - **LOW**: Low
+    // - **NORMAL**: Normal
+    // - **HIGH**: High
     std::shared_ptr<string> faceQuality_ = nullptr;
+    // OCR results of the ID card information.
+    // > If there is no front and back information of the ID card during the authentication process, the real-person authentication service will not return the OCR results of the ID card. Even if there is front and back information of the ID card during the authentication process, the real-person authentication service does not guarantee to return all the information on the ID card. Due to issues with ID card photography, the OCR may fail to recognize some information, resulting in incomplete OCR information. It is recommended that your business does not strongly rely on the ID card OCR information.
     std::shared_ptr<Models::DescribeVerifyResultResponseBodyMaterialIdCardInfo> idCardInfo_ = nullptr;
+    // Name.
     std::shared_ptr<string> idCardName_ = nullptr;
+    // ID number.
     std::shared_ptr<string> idCardNumber_ = nullptr;
+    // The URL addresses of the recorded videos returned by the historical RPH5BioOnly solution.
     std::shared_ptr<vector<string>> videoUrls_ = nullptr;
   };
 
