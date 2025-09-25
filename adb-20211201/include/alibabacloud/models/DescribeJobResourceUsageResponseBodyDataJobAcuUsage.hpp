@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(JobId, jobId_);
       DARABONBA_PTR_TO_JSON(JobStartTime, jobStartTime_);
       DARABONBA_PTR_TO_JSON(ResourceGroupName, resourceGroupName_);
+      DARABONBA_PTR_TO_JSON(UseCachePool, useCachePool_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeJobResourceUsageResponseBodyDataJobAcuUsage& obj) { 
       DARABONBA_PTR_FROM_JSON(AcuUsageDetail, acuUsageDetail_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(JobId, jobId_);
       DARABONBA_PTR_FROM_JSON(JobStartTime, jobStartTime_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupName, resourceGroupName_);
+      DARABONBA_PTR_FROM_JSON(UseCachePool, useCachePool_);
     };
     DescribeJobResourceUsageResponseBodyDataJobAcuUsage() = default ;
     DescribeJobResourceUsageResponseBodyDataJobAcuUsage(const DescribeJobResourceUsageResponseBodyDataJobAcuUsage &) = default ;
@@ -39,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->acuUsageDetail_ != nullptr
-        && this->jobEndTime_ != nullptr && this->jobId_ != nullptr && this->jobStartTime_ != nullptr && this->resourceGroupName_ != nullptr; };
+        && this->jobEndTime_ != nullptr && this->jobId_ != nullptr && this->jobStartTime_ != nullptr && this->resourceGroupName_ != nullptr && this->useCachePool_ != nullptr; };
     // acuUsageDetail Field Functions 
     bool hasAcuUsageDetail() const { return this->acuUsageDetail_ != nullptr;};
     void deleteAcuUsageDetail() { this->acuUsageDetail_ = nullptr;};
@@ -77,6 +79,13 @@ namespace Models
     inline DescribeJobResourceUsageResponseBodyDataJobAcuUsage& setResourceGroupName(string resourceGroupName) { DARABONBA_PTR_SET_VALUE(resourceGroupName_, resourceGroupName) };
 
 
+    // useCachePool Field Functions 
+    bool hasUseCachePool() const { return this->useCachePool_ != nullptr;};
+    void deleteUseCachePool() { this->useCachePool_ = nullptr;};
+    inline bool useCachePool() const { DARABONBA_PTR_GET_DEFAULT(useCachePool_, false) };
+    inline DescribeJobResourceUsageResponseBodyDataJobAcuUsage& setUseCachePool(bool useCachePool) { DARABONBA_PTR_SET_VALUE(useCachePool_, useCachePool) };
+
+
   protected:
     // The ACU usage.
     std::shared_ptr<Models::DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail> acuUsageDetail_ = nullptr;
@@ -88,6 +97,7 @@ namespace Models
     std::shared_ptr<string> jobStartTime_ = nullptr;
     // The name of the job resource group.
     std::shared_ptr<string> resourceGroupName_ = nullptr;
+    std::shared_ptr<bool> useCachePool_ = nullptr;
   };
 
   } // namespace Models

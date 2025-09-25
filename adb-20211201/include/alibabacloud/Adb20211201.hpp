@@ -2311,6 +2311,23 @@ namespace Adb20211201
       Models::DescribeSparkAppTypeResponse describeSparkAppType(const Models::DescribeSparkAppTypeRequest &request);
 
       /**
+       * @summary 查询Spark审计日志
+       *
+       * @param request DescribeSparkAuditLogRecordsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSparkAuditLogRecordsResponse
+       */
+      Models::DescribeSparkAuditLogRecordsResponse describeSparkAuditLogRecordsWithOptions(const Models::DescribeSparkAuditLogRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Spark审计日志
+       *
+       * @param request DescribeSparkAuditLogRecordsRequest
+       * @return DescribeSparkAuditLogRecordsResponse
+       */
+      Models::DescribeSparkAuditLogRecordsResponse describeSparkAuditLogRecords(const Models::DescribeSparkAuditLogRecordsRequest &request);
+
+      /**
        * @summary Queries the execution logs of Spark code.
        *
        * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
@@ -4171,6 +4188,23 @@ namespace Adb20211201
        * @return ModifyPerformanceViewResponse
        */
       Models::ModifyPerformanceViewResponse modifyPerformanceView(const Models::ModifyPerformanceViewRequest &request);
+
+      /**
+       * @summary 修改SQL脚本模板位置
+       *
+       * @param request ModifySqlTemplatePositionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifySqlTemplatePositionResponse
+       */
+      Models::ModifySqlTemplatePositionResponse modifySqlTemplatePositionWithOptions(const Models::ModifySqlTemplatePositionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改SQL脚本模板位置
+       *
+       * @param request ModifySqlTemplatePositionRequest
+       * @return ModifySqlTemplatePositionResponse
+       */
+      Models::ModifySqlTemplatePositionResponse modifySqlTemplatePosition(const Models::ModifySqlTemplatePositionRequest &request);
 
       /**
        * @summary Modifies the vSwitches that are connected to elastic network interfaces (ENIs).

@@ -7784,6 +7784,128 @@ DescribeSparkAppTypeResponse Client::describeSparkAppType(const DescribeSparkApp
 }
 
 /**
+ * @summary 查询Spark审计日志
+ *
+ * @param request DescribeSparkAuditLogRecordsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSparkAuditLogRecordsResponse
+ */
+DescribeSparkAuditLogRecordsResponse Client::describeSparkAuditLogRecordsWithOptions(const DescribeSparkAuditLogRecordsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientIp()) {
+    query["ClientIp"] = request.clientIp();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.order();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasProcessId()) {
+    query["ProcessId"] = request.processId();
+  }
+
+  if (!!request.hasProxyUser()) {
+    query["ProxyUser"] = request.proxyUser();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceGroupName()) {
+    query["ResourceGroupName"] = request.resourceGroupName();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasSQLText()) {
+    query["SQLText"] = request.SQLText();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasStatementId()) {
+    query["StatementId"] = request.statementId();
+  }
+
+  if (!!request.hasStatementSource()) {
+    query["StatementSource"] = request.statementSource();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  if (!!request.hasTotalTime()) {
+    query["TotalTime"] = request.totalTime();
+  }
+
+  if (!!request.hasUser()) {
+    query["User"] = request.user();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSparkAuditLogRecords"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSparkAuditLogRecordsResponse>();
+}
+
+/**
+ * @summary 查询Spark审计日志
+ *
+ * @param request DescribeSparkAuditLogRecordsRequest
+ * @return DescribeSparkAuditLogRecordsResponse
+ */
+DescribeSparkAuditLogRecordsResponse Client::describeSparkAuditLogRecords(const DescribeSparkAuditLogRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSparkAuditLogRecordsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the execution logs of Spark code.
  *
  * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
@@ -13237,6 +13359,60 @@ ModifyPerformanceViewResponse Client::modifyPerformanceViewWithOptions(const Mod
 ModifyPerformanceViewResponse Client::modifyPerformanceView(const ModifyPerformanceViewRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyPerformanceViewWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改SQL脚本模板位置
+ *
+ * @param request ModifySqlTemplatePositionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifySqlTemplatePositionResponse
+ */
+ModifySqlTemplatePositionResponse Client::modifySqlTemplatePositionWithOptions(const ModifySqlTemplatePositionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasTargetTemplateGroupId()) {
+    query["TargetTemplateGroupId"] = request.targetTemplateGroupId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.templateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifySqlTemplatePosition"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifySqlTemplatePositionResponse>();
+}
+
+/**
+ * @summary 修改SQL脚本模板位置
+ *
+ * @param request ModifySqlTemplatePositionRequest
+ * @return ModifySqlTemplatePositionResponse
+ */
+ModifySqlTemplatePositionResponse Client::modifySqlTemplatePosition(const ModifySqlTemplatePositionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifySqlTemplatePositionWithOptions(request, runtime);
 }
 
 /**

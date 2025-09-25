@@ -383,6 +383,9 @@
 #include <alibabacloud/models/DescribeSparkAppTypeRequest.hpp>
 #include <alibabacloud/models/DescribeSparkAppTypeResponseBody.hpp>
 #include <alibabacloud/models/DescribeSparkAppTypeResponse.hpp>
+#include <alibabacloud/models/DescribeSparkAuditLogRecordsRequest.hpp>
+#include <alibabacloud/models/DescribeSparkAuditLogRecordsResponseBody.hpp>
+#include <alibabacloud/models/DescribeSparkAuditLogRecordsResponse.hpp>
 #include <alibabacloud/models/DescribeSparkCodeLogRequest.hpp>
 #include <alibabacloud/models/DescribeSparkCodeLogResponseBody.hpp>
 #include <alibabacloud/models/DescribeSparkCodeLogResponse.hpp>
@@ -659,6 +662,9 @@
 #include <alibabacloud/models/ModifyPerformanceViewShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyPerformanceViewResponseBody.hpp>
 #include <alibabacloud/models/ModifyPerformanceViewResponse.hpp>
+#include <alibabacloud/models/ModifySqlTemplatePositionRequest.hpp>
+#include <alibabacloud/models/ModifySqlTemplatePositionResponseBody.hpp>
+#include <alibabacloud/models/ModifySqlTemplatePositionResponse.hpp>
 #include <alibabacloud/models/ModifyUserEniVswitchOptionsRequest.hpp>
 #include <alibabacloud/models/ModifyUserEniVswitchOptionsResponseBody.hpp>
 #include <alibabacloud/models/ModifyUserEniVswitchOptionsResponse.hpp>
@@ -886,6 +892,7 @@
 #include <alibabacloud/models/DescribeSqlpatternsResponseBodyPatternDetails.hpp>
 #include <alibabacloud/models/DescribeSchemasResponseBodyItemsSchema.hpp>
 #include <alibabacloud/models/DescribeSchemasResponseBodyItems.hpp>
+#include <alibabacloud/models/DescribeSparkAuditLogRecordsResponseBodyItems.hpp>
 #include <alibabacloud/models/DescribeSparkSqldiagnosisAttributeResponseBodyOperatorListSortedByMetrics.hpp>
 #include <alibabacloud/models/DescribeSparkSqldiagnosisListResponseBodySqldiagnosisList.hpp>
 #include <alibabacloud/models/DescribeSqlPatternResponseBodyItems.hpp>
