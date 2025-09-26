@@ -5,6 +5,8 @@
 #include <alibabacloud/models/GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesColumnInfo.hpp>
 #include <alibabacloud/models/GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesDatabaseInfo.hpp>
 #include <alibabacloud/models/GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesInstanceInfo.hpp>
+#include <alibabacloud/models/GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowInfo.hpp>
+#include <alibabacloud/models/GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowValueInfo.hpp>
 #include <alibabacloud/models/GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesTableInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -20,12 +22,16 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ColumnInfo, columnInfo_);
       DARABONBA_PTR_TO_JSON(DatabaseInfo, databaseInfo_);
       DARABONBA_PTR_TO_JSON(InstanceInfo, instanceInfo_);
+      DARABONBA_PTR_TO_JSON(RowInfo, rowInfo_);
+      DARABONBA_PTR_TO_JSON(RowValueInfo, rowValueInfo_);
       DARABONBA_PTR_TO_JSON(TableInfo, tableInfo_);
     };
     friend void from_json(const Darabonba::Json& j, GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResources& obj) { 
       DARABONBA_PTR_FROM_JSON(ColumnInfo, columnInfo_);
       DARABONBA_PTR_FROM_JSON(DatabaseInfo, databaseInfo_);
       DARABONBA_PTR_FROM_JSON(InstanceInfo, instanceInfo_);
+      DARABONBA_PTR_FROM_JSON(RowInfo, rowInfo_);
+      DARABONBA_PTR_FROM_JSON(RowValueInfo, rowValueInfo_);
       DARABONBA_PTR_FROM_JSON(TableInfo, tableInfo_);
     };
     GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResources() = default ;
@@ -40,7 +46,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->columnInfo_ != nullptr
-        && this->databaseInfo_ != nullptr && this->instanceInfo_ != nullptr && this->tableInfo_ != nullptr; };
+        && this->databaseInfo_ != nullptr && this->instanceInfo_ != nullptr && this->rowInfo_ != nullptr && this->rowValueInfo_ != nullptr && this->tableInfo_ != nullptr; };
     // columnInfo Field Functions 
     bool hasColumnInfo() const { return this->columnInfo_ != nullptr;};
     void deleteColumnInfo() { this->columnInfo_ = nullptr;};
@@ -68,6 +74,24 @@ namespace Models
     inline GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResources& setInstanceInfo(Models::GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesInstanceInfo && instanceInfo) { DARABONBA_PTR_SET_RVALUE(instanceInfo_, instanceInfo) };
 
 
+    // rowInfo Field Functions 
+    bool hasRowInfo() const { return this->rowInfo_ != nullptr;};
+    void deleteRowInfo() { this->rowInfo_ = nullptr;};
+    inline const Models::GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowInfo & rowInfo() const { DARABONBA_PTR_GET_CONST(rowInfo_, Models::GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowInfo) };
+    inline Models::GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowInfo rowInfo() { DARABONBA_PTR_GET(rowInfo_, Models::GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowInfo) };
+    inline GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResources& setRowInfo(const Models::GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowInfo & rowInfo) { DARABONBA_PTR_SET_VALUE(rowInfo_, rowInfo) };
+    inline GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResources& setRowInfo(Models::GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowInfo && rowInfo) { DARABONBA_PTR_SET_RVALUE(rowInfo_, rowInfo) };
+
+
+    // rowValueInfo Field Functions 
+    bool hasRowValueInfo() const { return this->rowValueInfo_ != nullptr;};
+    void deleteRowValueInfo() { this->rowValueInfo_ = nullptr;};
+    inline const Models::GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowValueInfo & rowValueInfo() const { DARABONBA_PTR_GET_CONST(rowValueInfo_, Models::GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowValueInfo) };
+    inline Models::GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowValueInfo rowValueInfo() { DARABONBA_PTR_GET(rowValueInfo_, Models::GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowValueInfo) };
+    inline GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResources& setRowValueInfo(const Models::GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowValueInfo & rowValueInfo) { DARABONBA_PTR_SET_VALUE(rowValueInfo_, rowValueInfo) };
+    inline GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResources& setRowValueInfo(Models::GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowValueInfo && rowValueInfo) { DARABONBA_PTR_SET_RVALUE(rowValueInfo_, rowValueInfo) };
+
+
     // tableInfo Field Functions 
     bool hasTableInfo() const { return this->tableInfo_ != nullptr;};
     void deleteTableInfo() { this->tableInfo_ = nullptr;};
@@ -84,6 +108,8 @@ namespace Models
     std::shared_ptr<Models::GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesDatabaseInfo> databaseInfo_ = nullptr;
     // The information about the instance.
     std::shared_ptr<Models::GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesInstanceInfo> instanceInfo_ = nullptr;
+    std::shared_ptr<Models::GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowInfo> rowInfo_ = nullptr;
+    std::shared_ptr<Models::GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowValueInfo> rowValueInfo_ = nullptr;
     // The information about the table.
     std::shared_ptr<Models::GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesTableInfo> tableInfo_ = nullptr;
   };
