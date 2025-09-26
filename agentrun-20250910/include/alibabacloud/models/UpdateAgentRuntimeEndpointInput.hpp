@@ -1,0 +1,83 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_UPDATEAGENTRUNTIMEENDPOINTINPUT_HPP_
+#define ALIBABACLOUD_MODELS_UPDATEAGENTRUNTIMEENDPOINTINPUT_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/models/RoutingConfiguration.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace AgentRun20250910
+{
+namespace Models
+{
+  class UpdateAgentRuntimeEndpointInput : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const UpdateAgentRuntimeEndpointInput& obj) { 
+      DARABONBA_PTR_TO_JSON(agentRuntimeEndpointName, agentRuntimeEndpointName_);
+      DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(routingConfiguration, routingConfiguration_);
+      DARABONBA_PTR_TO_JSON(targetVersion, targetVersion_);
+    };
+    friend void from_json(const Darabonba::Json& j, UpdateAgentRuntimeEndpointInput& obj) { 
+      DARABONBA_PTR_FROM_JSON(agentRuntimeEndpointName, agentRuntimeEndpointName_);
+      DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(routingConfiguration, routingConfiguration_);
+      DARABONBA_PTR_FROM_JSON(targetVersion, targetVersion_);
+    };
+    UpdateAgentRuntimeEndpointInput() = default ;
+    UpdateAgentRuntimeEndpointInput(const UpdateAgentRuntimeEndpointInput &) = default ;
+    UpdateAgentRuntimeEndpointInput(UpdateAgentRuntimeEndpointInput &&) = default ;
+    UpdateAgentRuntimeEndpointInput(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~UpdateAgentRuntimeEndpointInput() = default ;
+    UpdateAgentRuntimeEndpointInput& operator=(const UpdateAgentRuntimeEndpointInput &) = default ;
+    UpdateAgentRuntimeEndpointInput& operator=(UpdateAgentRuntimeEndpointInput &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->agentRuntimeEndpointName_ != nullptr
+        && this->description_ != nullptr && this->routingConfiguration_ != nullptr && this->targetVersion_ != nullptr; };
+    // agentRuntimeEndpointName Field Functions 
+    bool hasAgentRuntimeEndpointName() const { return this->agentRuntimeEndpointName_ != nullptr;};
+    void deleteAgentRuntimeEndpointName() { this->agentRuntimeEndpointName_ = nullptr;};
+    inline string agentRuntimeEndpointName() const { DARABONBA_PTR_GET_DEFAULT(agentRuntimeEndpointName_, "") };
+    inline UpdateAgentRuntimeEndpointInput& setAgentRuntimeEndpointName(string agentRuntimeEndpointName) { DARABONBA_PTR_SET_VALUE(agentRuntimeEndpointName_, agentRuntimeEndpointName) };
+
+
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline UpdateAgentRuntimeEndpointInput& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // routingConfiguration Field Functions 
+    bool hasRoutingConfiguration() const { return this->routingConfiguration_ != nullptr;};
+    void deleteRoutingConfiguration() { this->routingConfiguration_ = nullptr;};
+    inline const RoutingConfiguration & routingConfiguration() const { DARABONBA_PTR_GET_CONST(routingConfiguration_, RoutingConfiguration) };
+    inline RoutingConfiguration routingConfiguration() { DARABONBA_PTR_GET(routingConfiguration_, RoutingConfiguration) };
+    inline UpdateAgentRuntimeEndpointInput& setRoutingConfiguration(const RoutingConfiguration & routingConfiguration) { DARABONBA_PTR_SET_VALUE(routingConfiguration_, routingConfiguration) };
+    inline UpdateAgentRuntimeEndpointInput& setRoutingConfiguration(RoutingConfiguration && routingConfiguration) { DARABONBA_PTR_SET_RVALUE(routingConfiguration_, routingConfiguration) };
+
+
+    // targetVersion Field Functions 
+    bool hasTargetVersion() const { return this->targetVersion_ != nullptr;};
+    void deleteTargetVersion() { this->targetVersion_ = nullptr;};
+    inline string targetVersion() const { DARABONBA_PTR_GET_DEFAULT(targetVersion_, "") };
+    inline UpdateAgentRuntimeEndpointInput& setTargetVersion(string targetVersion) { DARABONBA_PTR_SET_VALUE(targetVersion_, targetVersion) };
+
+
+  protected:
+    std::shared_ptr<string> agentRuntimeEndpointName_ = nullptr;
+    std::shared_ptr<string> description_ = nullptr;
+    // 智能体运行时端点的路由配置，支持多版本权重分配
+    std::shared_ptr<RoutingConfiguration> routingConfiguration_ = nullptr;
+    // 智能体运行时的目标版本
+    std::shared_ptr<string> targetVersion_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace AgentRun20250910
+#endif
