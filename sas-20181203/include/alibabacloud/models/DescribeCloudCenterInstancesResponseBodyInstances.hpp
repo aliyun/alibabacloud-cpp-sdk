@@ -66,6 +66,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Uuid, uuid_);
       DARABONBA_PTR_TO_JSON(Vendor, vendor_);
       DARABONBA_PTR_TO_JSON(VendorName, vendorName_);
+      DARABONBA_PTR_TO_JSON(VendorUid, vendorUid_);
+      DARABONBA_PTR_TO_JSON(VendorUserName, vendorUserName_);
       DARABONBA_PTR_TO_JSON(VpcInstanceId, vpcInstanceId_);
       DARABONBA_PTR_TO_JSON(VulCount, vulCount_);
       DARABONBA_PTR_TO_JSON(VulStatus, vulStatus_);
@@ -124,6 +126,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Uuid, uuid_);
       DARABONBA_PTR_FROM_JSON(Vendor, vendor_);
       DARABONBA_PTR_FROM_JSON(VendorName, vendorName_);
+      DARABONBA_PTR_FROM_JSON(VendorUid, vendorUid_);
+      DARABONBA_PTR_FROM_JSON(VendorUserName, vendorUserName_);
       DARABONBA_PTR_FROM_JSON(VpcInstanceId, vpcInstanceId_);
       DARABONBA_PTR_FROM_JSON(VulCount, vulCount_);
       DARABONBA_PTR_FROM_JSON(VulStatus, vulStatus_);
@@ -150,7 +154,8 @@ namespace Models
         && this->osName_ != nullptr && this->podCount_ != nullptr && this->postPaidFlag_ != nullptr && this->region_ != nullptr && this->regionId_ != nullptr
         && this->regionName_ != nullptr && this->riskCount_ != nullptr && this->riskStatus_ != nullptr && this->safeEventCount_ != nullptr && this->serviceId_ != nullptr
         && this->status_ != nullptr && this->tag_ != nullptr && this->tagId_ != nullptr && this->tagResources_ != nullptr && this->uuid_ != nullptr
-        && this->vendor_ != nullptr && this->vendorName_ != nullptr && this->vpcInstanceId_ != nullptr && this->vulCount_ != nullptr && this->vulStatus_ != nullptr; };
+        && this->vendor_ != nullptr && this->vendorName_ != nullptr && this->vendorUid_ != nullptr && this->vendorUserName_ != nullptr && this->vpcInstanceId_ != nullptr
+        && this->vulCount_ != nullptr && this->vulStatus_ != nullptr; };
     // alarmStatus Field Functions 
     bool hasAlarmStatus() const { return this->alarmStatus_ != nullptr;};
     void deleteAlarmStatus() { this->alarmStatus_ = nullptr;};
@@ -522,6 +527,20 @@ namespace Models
     inline DescribeCloudCenterInstancesResponseBodyInstances& setVendorName(string vendorName) { DARABONBA_PTR_SET_VALUE(vendorName_, vendorName) };
 
 
+    // vendorUid Field Functions 
+    bool hasVendorUid() const { return this->vendorUid_ != nullptr;};
+    void deleteVendorUid() { this->vendorUid_ = nullptr;};
+    inline string vendorUid() const { DARABONBA_PTR_GET_DEFAULT(vendorUid_, "") };
+    inline DescribeCloudCenterInstancesResponseBodyInstances& setVendorUid(string vendorUid) { DARABONBA_PTR_SET_VALUE(vendorUid_, vendorUid) };
+
+
+    // vendorUserName Field Functions 
+    bool hasVendorUserName() const { return this->vendorUserName_ != nullptr;};
+    void deleteVendorUserName() { this->vendorUserName_ = nullptr;};
+    inline string vendorUserName() const { DARABONBA_PTR_GET_DEFAULT(vendorUserName_, "") };
+    inline DescribeCloudCenterInstancesResponseBodyInstances& setVendorUserName(string vendorUserName) { DARABONBA_PTR_SET_VALUE(vendorUserName_, vendorUserName) };
+
+
     // vpcInstanceId Field Functions 
     bool hasVpcInstanceId() const { return this->vpcInstanceId_ != nullptr;};
     void deleteVpcInstanceId() { this->vpcInstanceId_ = nullptr;};
@@ -788,6 +807,8 @@ namespace Models
     // - **VOLCENGINE**: VOLCENGINE Cloud
     // - **google**: GOOGLE Cloud
     std::shared_ptr<string> vendorName_ = nullptr;
+    std::shared_ptr<string> vendorUid_ = nullptr;
+    std::shared_ptr<string> vendorUserName_ = nullptr;
     // The ID of the VPC to which the asset belongs.
     std::shared_ptr<string> vpcInstanceId_ = nullptr;
     // The number of vulnerabilities that are detected on the asset.

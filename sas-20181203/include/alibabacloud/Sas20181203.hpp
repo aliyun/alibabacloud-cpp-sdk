@@ -10191,7 +10191,7 @@ namespace Sas20181203
       Models::GetTenantCheckAvailableResponse getTenantCheckAvailable();
 
       /**
-       * @summary 获取语言设置
+       * @summary Queries the language settings of log analysis.
        *
        * @param request GetUserLangRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10200,7 +10200,7 @@ namespace Sas20181203
       Models::GetUserLangResponse getUserLangWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取语言设置
+       * @summary Queries the language settings of log analysis.
        *
        * @return GetUserLangResponse
        */

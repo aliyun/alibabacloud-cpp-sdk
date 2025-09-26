@@ -26,6 +26,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Vendor, vendor_);
       DARABONBA_PTR_TO_JSON(VendorAuthAlias, vendorAuthAlias_);
+      DARABONBA_PTR_TO_JSON(VendorUid, vendorUid_);
+      DARABONBA_PTR_TO_JSON(VendorUserName, vendorUserName_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs& obj) { 
       DARABONBA_PTR_FROM_JSON(AkType, akType_);
@@ -39,6 +41,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Vendor, vendor_);
       DARABONBA_PTR_FROM_JSON(VendorAuthAlias, vendorAuthAlias_);
+      DARABONBA_PTR_FROM_JSON(VendorUid, vendorUid_);
+      DARABONBA_PTR_FROM_JSON(VendorUserName, vendorUserName_);
     };
     DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs() = default ;
     DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs(const DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs &) = default ;
@@ -53,7 +57,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->akType_ != nullptr
         && this->authId_ != nullptr && this->authModules_ != nullptr && this->ctdrCloudUserId_ != nullptr && this->extendInfo_ != nullptr && this->message_ != nullptr
-        && this->secretId_ != nullptr && this->serviceStatus_ != nullptr && this->status_ != nullptr && this->vendor_ != nullptr && this->vendorAuthAlias_ != nullptr; };
+        && this->secretId_ != nullptr && this->serviceStatus_ != nullptr && this->status_ != nullptr && this->vendor_ != nullptr && this->vendorAuthAlias_ != nullptr
+        && this->vendorUid_ != nullptr && this->vendorUserName_ != nullptr; };
     // akType Field Functions 
     bool hasAkType() const { return this->akType_ != nullptr;};
     void deleteAkType() { this->akType_ = nullptr;};
@@ -133,6 +138,20 @@ namespace Models
     inline DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs& setVendorAuthAlias(string vendorAuthAlias) { DARABONBA_PTR_SET_VALUE(vendorAuthAlias_, vendorAuthAlias) };
 
 
+    // vendorUid Field Functions 
+    bool hasVendorUid() const { return this->vendorUid_ != nullptr;};
+    void deleteVendorUid() { this->vendorUid_ = nullptr;};
+    inline string vendorUid() const { DARABONBA_PTR_GET_DEFAULT(vendorUid_, "") };
+    inline DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs& setVendorUid(string vendorUid) { DARABONBA_PTR_SET_VALUE(vendorUid_, vendorUid) };
+
+
+    // vendorUserName Field Functions 
+    bool hasVendorUserName() const { return this->vendorUserName_ != nullptr;};
+    void deleteVendorUserName() { this->vendorUserName_ = nullptr;};
+    inline string vendorUserName() const { DARABONBA_PTR_GET_DEFAULT(vendorUserName_, "") };
+    inline DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs& setVendorUserName(string vendorUserName) { DARABONBA_PTR_SET_VALUE(vendorUserName_, vendorUserName) };
+
+
   protected:
     // The type of the account to which the AccessKey pair belongs. Valid values:
     // 
@@ -170,6 +189,8 @@ namespace Models
     std::shared_ptr<string> vendor_ = nullptr;
     // The name of the AccessKey pair.
     std::shared_ptr<string> vendorAuthAlias_ = nullptr;
+    std::shared_ptr<string> vendorUid_ = nullptr;
+    std::shared_ptr<string> vendorUserName_ = nullptr;
   };
 
   } // namespace Models

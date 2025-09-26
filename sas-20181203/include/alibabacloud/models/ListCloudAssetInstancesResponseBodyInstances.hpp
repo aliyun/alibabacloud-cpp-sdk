@@ -28,6 +28,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SecurityInfo, securityInfo_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(Vendor, vendor_);
+      DARABONBA_PTR_TO_JSON(VendorUid, vendorUid_);
+      DARABONBA_PTR_TO_JSON(VendorUserName, vendorUserName_);
     };
     friend void from_json(const Darabonba::Json& j, ListCloudAssetInstancesResponseBodyInstances& obj) { 
       DARABONBA_PTR_FROM_JSON(AlarmStatus, alarmStatus_);
@@ -44,6 +46,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SecurityInfo, securityInfo_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(Vendor, vendor_);
+      DARABONBA_PTR_FROM_JSON(VendorUid, vendorUid_);
+      DARABONBA_PTR_FROM_JSON(VendorUserName, vendorUserName_);
     };
     ListCloudAssetInstancesResponseBodyInstances() = default ;
     ListCloudAssetInstancesResponseBodyInstances(const ListCloudAssetInstancesResponseBodyInstances &) = default ;
@@ -59,7 +63,7 @@ namespace Models
     virtual bool empty() const override { this->alarmStatus_ != nullptr
         && this->assetSubType_ != nullptr && this->assetSubTypeName_ != nullptr && this->assetType_ != nullptr && this->assetTypeName_ != nullptr && this->createdTime_ != nullptr
         && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->regionId_ != nullptr && this->riskStatus_ != nullptr
-        && this->securityInfo_ != nullptr && this->tags_ != nullptr && this->vendor_ != nullptr; };
+        && this->securityInfo_ != nullptr && this->tags_ != nullptr && this->vendor_ != nullptr && this->vendorUid_ != nullptr && this->vendorUserName_ != nullptr; };
     // alarmStatus Field Functions 
     bool hasAlarmStatus() const { return this->alarmStatus_ != nullptr;};
     void deleteAlarmStatus() { this->alarmStatus_ = nullptr;};
@@ -158,6 +162,20 @@ namespace Models
     void deleteVendor() { this->vendor_ = nullptr;};
     inline int32_t vendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, 0) };
     inline ListCloudAssetInstancesResponseBodyInstances& setVendor(int32_t vendor) { DARABONBA_PTR_SET_VALUE(vendor_, vendor) };
+
+
+    // vendorUid Field Functions 
+    bool hasVendorUid() const { return this->vendorUid_ != nullptr;};
+    void deleteVendorUid() { this->vendorUid_ = nullptr;};
+    inline string vendorUid() const { DARABONBA_PTR_GET_DEFAULT(vendorUid_, "") };
+    inline ListCloudAssetInstancesResponseBodyInstances& setVendorUid(string vendorUid) { DARABONBA_PTR_SET_VALUE(vendorUid_, vendorUid) };
+
+
+    // vendorUserName Field Functions 
+    bool hasVendorUserName() const { return this->vendorUserName_ != nullptr;};
+    void deleteVendorUserName() { this->vendorUserName_ = nullptr;};
+    inline string vendorUserName() const { DARABONBA_PTR_GET_DEFAULT(vendorUserName_, "") };
+    inline ListCloudAssetInstancesResponseBodyInstances& setVendorUserName(string vendorUserName) { DARABONBA_PTR_SET_VALUE(vendorUserName_, vendorUserName) };
 
 
   protected:
@@ -329,6 +347,8 @@ namespace Models
     // *   **3**, **4**, **5**, and **7**: other cloud asset
     // *   **8**: a lightweight cloud asset
     std::shared_ptr<int32_t> vendor_ = nullptr;
+    std::shared_ptr<string> vendorUid_ = nullptr;
+    std::shared_ptr<string> vendorUserName_ = nullptr;
   };
 
   } // namespace Models

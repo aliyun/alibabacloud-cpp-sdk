@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The language settings.
     std::shared_ptr<GetUserLangResponseBodySasUserLang> sasUserLang_ = nullptr;
   };
 

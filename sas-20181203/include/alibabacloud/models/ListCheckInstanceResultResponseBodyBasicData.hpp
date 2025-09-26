@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(StatusMessage, statusMessage_);
+      DARABONBA_PTR_TO_JSON(VendorUserName, vendorUserName_);
     };
     friend void from_json(const Darabonba::Json& j, ListCheckInstanceResultResponseBodyBasicData& obj) { 
       DARABONBA_PTR_FROM_JSON(Id, id_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(StatusMessage, statusMessage_);
+      DARABONBA_PTR_FROM_JSON(VendorUserName, vendorUserName_);
     };
     ListCheckInstanceResultResponseBodyBasicData() = default ;
     ListCheckInstanceResultResponseBodyBasicData(const ListCheckInstanceResultResponseBodyBasicData &) = default ;
@@ -44,7 +46,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->id_ != nullptr
         && this->instanceId_ != nullptr && this->instanceInfo_ != nullptr && this->instanceName_ != nullptr && this->regionId_ != nullptr && this->status_ != nullptr
-        && this->statusMessage_ != nullptr; };
+        && this->statusMessage_ != nullptr && this->vendorUserName_ != nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -96,6 +98,13 @@ namespace Models
     inline ListCheckInstanceResultResponseBodyBasicData& setStatusMessage(string statusMessage) { DARABONBA_PTR_SET_VALUE(statusMessage_, statusMessage) };
 
 
+    // vendorUserName Field Functions 
+    bool hasVendorUserName() const { return this->vendorUserName_ != nullptr;};
+    void deleteVendorUserName() { this->vendorUserName_ = nullptr;};
+    inline string vendorUserName() const { DARABONBA_PTR_GET_DEFAULT(vendorUserName_, "") };
+    inline ListCheckInstanceResultResponseBodyBasicData& setVendorUserName(string vendorUserName) { DARABONBA_PTR_SET_VALUE(vendorUserName_, vendorUserName) };
+
+
   protected:
     // The ID of the check result for the instance.
     std::shared_ptr<int64_t> id_ = nullptr;
@@ -117,6 +126,7 @@ namespace Models
     std::shared_ptr<string> status_ = nullptr;
     // The exception message of the check item.
     std::shared_ptr<string> statusMessage_ = nullptr;
+    std::shared_ptr<string> vendorUserName_ = nullptr;
   };
 
   } // namespace Models

@@ -31035,7 +31035,7 @@ GetTenantCheckAvailableResponse Client::getTenantCheckAvailable() {
 }
 
 /**
- * @summary 获取语言设置
+ * @summary Queries the language settings of log analysis.
  *
  * @param request GetUserLangRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31058,7 +31058,7 @@ GetUserLangResponse Client::getUserLangWithOptions(const Darabonba::RuntimeOptio
 }
 
 /**
- * @summary 获取语言设置
+ * @summary Queries the language settings of log analysis.
  *
  * @return GetUserLangResponse
  */

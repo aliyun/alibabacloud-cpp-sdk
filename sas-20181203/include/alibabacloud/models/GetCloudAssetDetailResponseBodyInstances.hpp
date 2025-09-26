@@ -23,10 +23,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(InternetIp, internetIp_);
+      DARABONBA_PTR_TO_JSON(OriginalAssetInfo, originalAssetInfo_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RiskStatus, riskStatus_);
       DARABONBA_PTR_TO_JSON(SecurityInfo, securityInfo_);
       DARABONBA_PTR_TO_JSON(Vendor, vendor_);
+      DARABONBA_PTR_TO_JSON(VendorUid, vendorUid_);
+      DARABONBA_PTR_TO_JSON(VendorUserName, vendorUserName_);
     };
     friend void from_json(const Darabonba::Json& j, GetCloudAssetDetailResponseBodyInstances& obj) { 
       DARABONBA_PTR_FROM_JSON(AlarmStatus, alarmStatus_);
@@ -39,10 +42,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(InternetIp, internetIp_);
+      DARABONBA_PTR_FROM_JSON(OriginalAssetInfo, originalAssetInfo_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RiskStatus, riskStatus_);
       DARABONBA_PTR_FROM_JSON(SecurityInfo, securityInfo_);
       DARABONBA_PTR_FROM_JSON(Vendor, vendor_);
+      DARABONBA_PTR_FROM_JSON(VendorUid, vendorUid_);
+      DARABONBA_PTR_FROM_JSON(VendorUserName, vendorUserName_);
     };
     GetCloudAssetDetailResponseBodyInstances() = default ;
     GetCloudAssetDetailResponseBodyInstances(const GetCloudAssetDetailResponseBodyInstances &) = default ;
@@ -57,8 +63,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->alarmStatus_ != nullptr
         && this->assetSubType_ != nullptr && this->assetSubTypeName_ != nullptr && this->assetType_ != nullptr && this->assetTypeName_ != nullptr && this->createdTime_ != nullptr
-        && this->detailLink_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->regionId_ != nullptr
-        && this->riskStatus_ != nullptr && this->securityInfo_ != nullptr && this->vendor_ != nullptr; };
+        && this->detailLink_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->originalAssetInfo_ != nullptr
+        && this->regionId_ != nullptr && this->riskStatus_ != nullptr && this->securityInfo_ != nullptr && this->vendor_ != nullptr && this->vendorUid_ != nullptr
+        && this->vendorUserName_ != nullptr; };
     // alarmStatus Field Functions 
     bool hasAlarmStatus() const { return this->alarmStatus_ != nullptr;};
     void deleteAlarmStatus() { this->alarmStatus_ = nullptr;};
@@ -129,6 +136,13 @@ namespace Models
     inline GetCloudAssetDetailResponseBodyInstances& setInternetIp(string internetIp) { DARABONBA_PTR_SET_VALUE(internetIp_, internetIp) };
 
 
+    // originalAssetInfo Field Functions 
+    bool hasOriginalAssetInfo() const { return this->originalAssetInfo_ != nullptr;};
+    void deleteOriginalAssetInfo() { this->originalAssetInfo_ = nullptr;};
+    inline string originalAssetInfo() const { DARABONBA_PTR_GET_DEFAULT(originalAssetInfo_, "") };
+    inline GetCloudAssetDetailResponseBodyInstances& setOriginalAssetInfo(string originalAssetInfo) { DARABONBA_PTR_SET_VALUE(originalAssetInfo_, originalAssetInfo) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -155,6 +169,20 @@ namespace Models
     void deleteVendor() { this->vendor_ = nullptr;};
     inline int32_t vendor() const { DARABONBA_PTR_GET_DEFAULT(vendor_, 0) };
     inline GetCloudAssetDetailResponseBodyInstances& setVendor(int32_t vendor) { DARABONBA_PTR_SET_VALUE(vendor_, vendor) };
+
+
+    // vendorUid Field Functions 
+    bool hasVendorUid() const { return this->vendorUid_ != nullptr;};
+    void deleteVendorUid() { this->vendorUid_ = nullptr;};
+    inline string vendorUid() const { DARABONBA_PTR_GET_DEFAULT(vendorUid_, "") };
+    inline GetCloudAssetDetailResponseBodyInstances& setVendorUid(string vendorUid) { DARABONBA_PTR_SET_VALUE(vendorUid_, vendorUid) };
+
+
+    // vendorUserName Field Functions 
+    bool hasVendorUserName() const { return this->vendorUserName_ != nullptr;};
+    void deleteVendorUserName() { this->vendorUserName_ = nullptr;};
+    inline string vendorUserName() const { DARABONBA_PTR_GET_DEFAULT(vendorUserName_, "") };
+    inline GetCloudAssetDetailResponseBodyInstances& setVendorUserName(string vendorUserName) { DARABONBA_PTR_SET_VALUE(vendorUserName_, vendorUserName) };
 
 
   protected:
@@ -207,6 +235,7 @@ namespace Models
     std::shared_ptr<string> instanceName_ = nullptr;
     // The public IP address of the instance.
     std::shared_ptr<string> internetIp_ = nullptr;
+    std::shared_ptr<string> originalAssetInfo_ = nullptr;
     // The region in which the cloud asset resides.
     // 
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
@@ -226,6 +255,8 @@ namespace Models
     // *   **3**, **4**, **5**, and **7**: third-party service provider.
     // *   **8**: simple application server.
     std::shared_ptr<int32_t> vendor_ = nullptr;
+    std::shared_ptr<string> vendorUid_ = nullptr;
+    std::shared_ptr<string> vendorUserName_ = nullptr;
   };
 
   } // namespace Models

@@ -38,6 +38,10 @@ namespace Models
 
 
   protected:
+    // The language specified for log analysis. Valid values:
+    // 
+    // *   zh: Chinese
+    // *   en: English
     std::shared_ptr<string> lang_ = nullptr;
   };
 
