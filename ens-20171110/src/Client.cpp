@@ -784,6 +784,166 @@ AuthorizeSecurityGroupEgressResponse Client::authorizeSecurityGroupEgress(const 
 }
 
 /**
+ * @summary 因底层升级批量迁移
+ *
+ * @param tmpReq BatchEventMigrateInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchEventMigrateInstanceResponse
+ */
+BatchEventMigrateInstanceResponse Client::batchEventMigrateInstanceWithOptions(const BatchEventMigrateInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchEventMigrateInstanceShrinkRequest request = BatchEventMigrateInstanceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEventInfos()) {
+    request.setEventInfosShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.eventInfos(), "EventInfos", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasEventInfosShrink()) {
+    query["EventInfos"] = request.eventInfosShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BatchEventMigrateInstance"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchEventMigrateInstanceResponse>();
+}
+
+/**
+ * @summary 因底层升级批量迁移
+ *
+ * @param request BatchEventMigrateInstanceRequest
+ * @return BatchEventMigrateInstanceResponse
+ */
+BatchEventMigrateInstanceResponse Client::batchEventMigrateInstance(const BatchEventMigrateInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchEventMigrateInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量因系统维护实例重启
+ *
+ * @description ## 请求说明
+ * - `Action` 参数固定为 `BatchEventRebootInstance`。
+ * - `Version` 参数固定为 `2017-11-10`。
+ * - `EventInfos` 是一个数组，每个元素包含需要重启实例的信息，包括事件ID、资源ID、操作类型（立即执行或预约执行）以及可选的计划时间戳（毫秒）。
+ * - 如果选择预约执行，则必须提供 `PlanTime` 字段的时间戳。
+ * - 返回结果中，`Results` 数组包含了每个请求的结果信息，包括消息、资源ID、事件ID和状态码。
+ * - 错误情况下，返回相应的错误代码和消息。
+ *
+ * @param tmpReq BatchEventRebootInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchEventRebootInstanceResponse
+ */
+BatchEventRebootInstanceResponse Client::batchEventRebootInstanceWithOptions(const BatchEventRebootInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchEventRebootInstanceShrinkRequest request = BatchEventRebootInstanceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEventInfos()) {
+    request.setEventInfosShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.eventInfos(), "EventInfos", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasEventInfosShrink()) {
+    query["EventInfos"] = request.eventInfosShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BatchEventRebootInstance"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchEventRebootInstanceResponse>();
+}
+
+/**
+ * @summary 批量因系统维护实例重启
+ *
+ * @description ## 请求说明
+ * - `Action` 参数固定为 `BatchEventRebootInstance`。
+ * - `Version` 参数固定为 `2017-11-10`。
+ * - `EventInfos` 是一个数组，每个元素包含需要重启实例的信息，包括事件ID、资源ID、操作类型（立即执行或预约执行）以及可选的计划时间戳（毫秒）。
+ * - 如果选择预约执行，则必须提供 `PlanTime` 字段的时间戳。
+ * - 返回结果中，`Results` 数组包含了每个请求的结果信息，包括消息、资源ID、事件ID和状态码。
+ * - 错误情况下，返回相应的错误代码和消息。
+ *
+ * @param request BatchEventRebootInstanceRequest
+ * @return BatchEventRebootInstanceResponse
+ */
+BatchEventRebootInstanceResponse Client::batchEventRebootInstance(const BatchEventRebootInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchEventRebootInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量操作重新部署
+ *
+ * @param tmpReq BatchEventRedeployInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchEventRedeployInstanceResponse
+ */
+BatchEventRedeployInstanceResponse Client::batchEventRedeployInstanceWithOptions(const BatchEventRedeployInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchEventRedeployInstanceShrinkRequest request = BatchEventRedeployInstanceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEventInfos()) {
+    request.setEventInfosShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.eventInfos(), "EventInfos", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasEventInfosShrink()) {
+    query["EventInfos"] = request.eventInfosShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BatchEventRedeployInstance"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchEventRedeployInstanceResponse>();
+}
+
+/**
+ * @summary 批量操作重新部署
+ *
+ * @param request BatchEventRedeployInstanceRequest
+ * @return BatchEventRedeployInstanceResponse
+ */
+BatchEventRedeployInstanceResponse Client::batchEventRedeployInstance(const BatchEventRedeployInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchEventRedeployInstanceWithOptions(request, runtime);
+}
+
+/**
  * @summary 清理分发数据
  *
  * @param request CleanDistDataRequest
@@ -6060,6 +6220,10 @@ DescribeEnsNetDistrictResponse Client::describeEnsNetDistrictWithOptions(const D
     query["NetDistrictCode"] = request.netDistrictCode();
   }
 
+  if (!!request.hasNetDistrictCodeNode()) {
+    query["NetDistrictCodeNode"] = request.netDistrictCodeNode();
+  }
+
   if (!!request.hasNetLevelCode()) {
     query["NetLevelCode"] = request.netLevelCode();
   }
@@ -7195,6 +7359,86 @@ DescribeHaVipsResponse Client::describeHaVipsWithOptions(const DescribeHaVipsReq
 DescribeHaVipsResponse Client::describeHaVips(const DescribeHaVipsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeHaVipsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询事件列表
+ *
+ * @param tmpReq DescribeHistoryEventsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeHistoryEventsResponse
+ */
+DescribeHistoryEventsResponse Client::describeHistoryEventsWithOptions(const DescribeHistoryEventsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribeHistoryEventsShrinkRequest request = DescribeHistoryEventsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEventLevels()) {
+    request.setEventLevelsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.eventLevels(), "EventLevels", "simple"));
+  }
+
+  if (!!tmpReq.hasEventStatus()) {
+    request.setEventStatusShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.eventStatus(), "EventStatus", "simple"));
+  }
+
+  if (!!tmpReq.hasEventTypes()) {
+    request.setEventTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.eventTypes(), "EventTypes", "simple"));
+  }
+
+  if (!!tmpReq.hasResourceIds()) {
+    request.setResourceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceIds(), "ResourceIds", "simple"));
+  }
+
+  json query = {};
+  if (!!request.hasEventLevelsShrink()) {
+    query["EventLevels"] = request.eventLevelsShrink();
+  }
+
+  if (!!request.hasEventStatusShrink()) {
+    query["EventStatus"] = request.eventStatusShrink();
+  }
+
+  if (!!request.hasEventTypesShrink()) {
+    query["EventTypes"] = request.eventTypesShrink();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasResourceIdsShrink()) {
+    query["ResourceIds"] = request.resourceIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeHistoryEvents"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeHistoryEventsResponse>();
+}
+
+/**
+ * @summary 查询事件列表
+ *
+ * @param request DescribeHistoryEventsRequest
+ * @return DescribeHistoryEventsResponse
+ */
+DescribeHistoryEventsResponse Client::describeHistoryEvents(const DescribeHistoryEventsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeHistoryEventsWithOptions(request, runtime);
 }
 
 /**
@@ -10305,6 +10549,188 @@ DistApplicationDataResponse Client::distApplicationDataWithOptions(const DistApp
 DistApplicationDataResponse Client::distApplicationData(const DistApplicationDataRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return distApplicationDataWithOptions(request, runtime);
+}
+
+/**
+ * @summary 因底层升级需要迁移
+ *
+ * @param request EventMigrateInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EventMigrateInstanceResponse
+ */
+EventMigrateInstanceResponse Client::eventMigrateInstanceWithOptions(const EventMigrateInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDataPolicy()) {
+    query["DataPolicy"] = request.dataPolicy();
+  }
+
+  if (!!request.hasEventId()) {
+    query["EventId"] = request.eventId();
+  }
+
+  if (!!request.hasOpsType()) {
+    query["OpsType"] = request.opsType();
+  }
+
+  if (!!request.hasPassword()) {
+    query["Password"] = request.password();
+  }
+
+  if (!!request.hasPlanTime()) {
+    query["PlanTime"] = request.planTime();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.resourceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EventMigrateInstance"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EventMigrateInstanceResponse>();
+}
+
+/**
+ * @summary 因底层升级需要迁移
+ *
+ * @param request EventMigrateInstanceRequest
+ * @return EventMigrateInstanceResponse
+ */
+EventMigrateInstanceResponse Client::eventMigrateInstance(const EventMigrateInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return eventMigrateInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 因系统维护实例重启
+ *
+ * @description ## 请求说明
+ * - 该API用于触发一个实例的重启事件。
+ * - `OpsType`参数可选，若不提供，默认为`scheduled`（预约执行）。
+ * - 当选择`scheduled`时，必须提供`PlanTime`参数，格式为时间戳（毫秒）。
+ * - 如果需要立即执行重启，请设置`OpsType`为`immediate`。
+ *
+ * @param request EventRebootInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EventRebootInstanceResponse
+ */
+EventRebootInstanceResponse Client::eventRebootInstanceWithOptions(const EventRebootInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEventId()) {
+    query["EventId"] = request.eventId();
+  }
+
+  if (!!request.hasOpsType()) {
+    query["OpsType"] = request.opsType();
+  }
+
+  if (!!request.hasPlanTime()) {
+    query["PlanTime"] = request.planTime();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.resourceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EventRebootInstance"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EventRebootInstanceResponse>();
+}
+
+/**
+ * @summary 因系统维护实例重启
+ *
+ * @description ## 请求说明
+ * - 该API用于触发一个实例的重启事件。
+ * - `OpsType`参数可选，若不提供，默认为`scheduled`（预约执行）。
+ * - 当选择`scheduled`时，必须提供`PlanTime`参数，格式为时间戳（毫秒）。
+ * - 如果需要立即执行重启，请设置`OpsType`为`immediate`。
+ *
+ * @param request EventRebootInstanceRequest
+ * @return EventRebootInstanceResponse
+ */
+EventRebootInstanceResponse Client::eventRebootInstance(const EventRebootInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return eventRebootInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 节点内迁移
+ *
+ * @param request EventRedeployInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EventRedeployInstanceResponse
+ */
+EventRedeployInstanceResponse Client::eventRedeployInstanceWithOptions(const EventRedeployInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEventId()) {
+    query["EventId"] = request.eventId();
+  }
+
+  if (!!request.hasOpsType()) {
+    query["OpsType"] = request.opsType();
+  }
+
+  if (!!request.hasPlanTime()) {
+    query["PlanTime"] = request.planTime();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.resourceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EventRedeployInstance"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EventRedeployInstanceResponse>();
+}
+
+/**
+ * @summary 节点内迁移
+ *
+ * @param request EventRedeployInstanceRequest
+ * @return EventRedeployInstanceResponse
+ */
+EventRedeployInstanceResponse Client::eventRedeployInstance(const EventRedeployInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return eventRedeployInstanceWithOptions(request, runtime);
 }
 
 /**

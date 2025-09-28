@@ -304,6 +304,73 @@ namespace Ens20171110
       Models::AuthorizeSecurityGroupEgressResponse authorizeSecurityGroupEgress(const Models::AuthorizeSecurityGroupEgressRequest &request);
 
       /**
+       * @summary 因底层升级批量迁移
+       *
+       * @param tmpReq BatchEventMigrateInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchEventMigrateInstanceResponse
+       */
+      Models::BatchEventMigrateInstanceResponse batchEventMigrateInstanceWithOptions(const Models::BatchEventMigrateInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 因底层升级批量迁移
+       *
+       * @param request BatchEventMigrateInstanceRequest
+       * @return BatchEventMigrateInstanceResponse
+       */
+      Models::BatchEventMigrateInstanceResponse batchEventMigrateInstance(const Models::BatchEventMigrateInstanceRequest &request);
+
+      /**
+       * @summary 批量因系统维护实例重启
+       *
+       * @description ## 请求说明
+       * - `Action` 参数固定为 `BatchEventRebootInstance`。
+       * - `Version` 参数固定为 `2017-11-10`。
+       * - `EventInfos` 是一个数组，每个元素包含需要重启实例的信息，包括事件ID、资源ID、操作类型（立即执行或预约执行）以及可选的计划时间戳（毫秒）。
+       * - 如果选择预约执行，则必须提供 `PlanTime` 字段的时间戳。
+       * - 返回结果中，`Results` 数组包含了每个请求的结果信息，包括消息、资源ID、事件ID和状态码。
+       * - 错误情况下，返回相应的错误代码和消息。
+       *
+       * @param tmpReq BatchEventRebootInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchEventRebootInstanceResponse
+       */
+      Models::BatchEventRebootInstanceResponse batchEventRebootInstanceWithOptions(const Models::BatchEventRebootInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量因系统维护实例重启
+       *
+       * @description ## 请求说明
+       * - `Action` 参数固定为 `BatchEventRebootInstance`。
+       * - `Version` 参数固定为 `2017-11-10`。
+       * - `EventInfos` 是一个数组，每个元素包含需要重启实例的信息，包括事件ID、资源ID、操作类型（立即执行或预约执行）以及可选的计划时间戳（毫秒）。
+       * - 如果选择预约执行，则必须提供 `PlanTime` 字段的时间戳。
+       * - 返回结果中，`Results` 数组包含了每个请求的结果信息，包括消息、资源ID、事件ID和状态码。
+       * - 错误情况下，返回相应的错误代码和消息。
+       *
+       * @param request BatchEventRebootInstanceRequest
+       * @return BatchEventRebootInstanceResponse
+       */
+      Models::BatchEventRebootInstanceResponse batchEventRebootInstance(const Models::BatchEventRebootInstanceRequest &request);
+
+      /**
+       * @summary 批量操作重新部署
+       *
+       * @param tmpReq BatchEventRedeployInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchEventRedeployInstanceResponse
+       */
+      Models::BatchEventRedeployInstanceResponse batchEventRedeployInstanceWithOptions(const Models::BatchEventRedeployInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量操作重新部署
+       *
+       * @param request BatchEventRedeployInstanceRequest
+       * @return BatchEventRedeployInstanceResponse
+       */
+      Models::BatchEventRedeployInstanceResponse batchEventRedeployInstance(const Models::BatchEventRedeployInstanceRequest &request);
+
+      /**
        * @summary 清理分发数据
        *
        * @param request CleanDistDataRequest
@@ -2380,6 +2447,23 @@ namespace Ens20171110
       Models::DescribeHaVipsResponse describeHaVips(const Models::DescribeHaVipsRequest &request);
 
       /**
+       * @summary 查询事件列表
+       *
+       * @param tmpReq DescribeHistoryEventsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeHistoryEventsResponse
+       */
+      Models::DescribeHistoryEventsResponse describeHistoryEventsWithOptions(const Models::DescribeHistoryEventsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询事件列表
+       *
+       * @param request DescribeHistoryEventsRequest
+       * @return DescribeHistoryEventsResponse
+       */
+      Models::DescribeHistoryEventsResponse describeHistoryEvents(const Models::DescribeHistoryEventsRequest &request);
+
+      /**
        * @summary Queries available images.
        *
        * @param request DescribeImageInfosRequest
@@ -3467,6 +3551,69 @@ namespace Ens20171110
        * @return DistApplicationDataResponse
        */
       Models::DistApplicationDataResponse distApplicationData(const Models::DistApplicationDataRequest &request);
+
+      /**
+       * @summary 因底层升级需要迁移
+       *
+       * @param request EventMigrateInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EventMigrateInstanceResponse
+       */
+      Models::EventMigrateInstanceResponse eventMigrateInstanceWithOptions(const Models::EventMigrateInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 因底层升级需要迁移
+       *
+       * @param request EventMigrateInstanceRequest
+       * @return EventMigrateInstanceResponse
+       */
+      Models::EventMigrateInstanceResponse eventMigrateInstance(const Models::EventMigrateInstanceRequest &request);
+
+      /**
+       * @summary 因系统维护实例重启
+       *
+       * @description ## 请求说明
+       * - 该API用于触发一个实例的重启事件。
+       * - `OpsType`参数可选，若不提供，默认为`scheduled`（预约执行）。
+       * - 当选择`scheduled`时，必须提供`PlanTime`参数，格式为时间戳（毫秒）。
+       * - 如果需要立即执行重启，请设置`OpsType`为`immediate`。
+       *
+       * @param request EventRebootInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EventRebootInstanceResponse
+       */
+      Models::EventRebootInstanceResponse eventRebootInstanceWithOptions(const Models::EventRebootInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 因系统维护实例重启
+       *
+       * @description ## 请求说明
+       * - 该API用于触发一个实例的重启事件。
+       * - `OpsType`参数可选，若不提供，默认为`scheduled`（预约执行）。
+       * - 当选择`scheduled`时，必须提供`PlanTime`参数，格式为时间戳（毫秒）。
+       * - 如果需要立即执行重启，请设置`OpsType`为`immediate`。
+       *
+       * @param request EventRebootInstanceRequest
+       * @return EventRebootInstanceResponse
+       */
+      Models::EventRebootInstanceResponse eventRebootInstance(const Models::EventRebootInstanceRequest &request);
+
+      /**
+       * @summary 节点内迁移
+       *
+       * @param request EventRedeployInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EventRedeployInstanceResponse
+       */
+      Models::EventRedeployInstanceResponse eventRedeployInstanceWithOptions(const Models::EventRedeployInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 节点内迁移
+       *
+       * @param request EventRedeployInstanceRequest
+       * @return EventRedeployInstanceResponse
+       */
+      Models::EventRedeployInstanceResponse eventRedeployInstance(const Models::EventRedeployInstanceRequest &request);
 
       /**
        * @summary Exports billing details within a specific time range.

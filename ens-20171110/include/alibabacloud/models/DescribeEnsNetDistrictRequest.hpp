@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeEnsNetDistrictRequest& obj) { 
       DARABONBA_PTR_TO_JSON(NetDistrictCode, netDistrictCode_);
+      DARABONBA_PTR_TO_JSON(NetDistrictCodeNode, netDistrictCodeNode_);
       DARABONBA_PTR_TO_JSON(NetLevelCode, netLevelCode_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeEnsNetDistrictRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(NetDistrictCode, netDistrictCode_);
+      DARABONBA_PTR_FROM_JSON(NetDistrictCodeNode, netDistrictCodeNode_);
       DARABONBA_PTR_FROM_JSON(NetLevelCode, netLevelCode_);
     };
     DescribeEnsNetDistrictRequest() = default ;
@@ -32,12 +34,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->netDistrictCode_ != nullptr
-        && this->netLevelCode_ != nullptr; };
+        && this->netDistrictCodeNode_ != nullptr && this->netLevelCode_ != nullptr; };
     // netDistrictCode Field Functions 
     bool hasNetDistrictCode() const { return this->netDistrictCode_ != nullptr;};
     void deleteNetDistrictCode() { this->netDistrictCode_ = nullptr;};
     inline string netDistrictCode() const { DARABONBA_PTR_GET_DEFAULT(netDistrictCode_, "") };
     inline DescribeEnsNetDistrictRequest& setNetDistrictCode(string netDistrictCode) { DARABONBA_PTR_SET_VALUE(netDistrictCode_, netDistrictCode) };
+
+
+    // netDistrictCodeNode Field Functions 
+    bool hasNetDistrictCodeNode() const { return this->netDistrictCodeNode_ != nullptr;};
+    void deleteNetDistrictCodeNode() { this->netDistrictCodeNode_ = nullptr;};
+    inline bool netDistrictCodeNode() const { DARABONBA_PTR_GET_DEFAULT(netDistrictCodeNode_, false) };
+    inline DescribeEnsNetDistrictRequest& setNetDistrictCodeNode(bool netDistrictCodeNode) { DARABONBA_PTR_SET_VALUE(netDistrictCodeNode_, netDistrictCodeNode) };
 
 
     // netLevelCode Field Functions 
@@ -54,6 +63,7 @@ namespace Models
     // 
     // If you specify this parameter, only nodes in the regions of the level that is specified by this parameter are queried.
     std::shared_ptr<string> netDistrictCode_ = nullptr;
+    std::shared_ptr<bool> netDistrictCodeNode_ = nullptr;
     // The level of the region.
     // 
     // *   **Big**: area
