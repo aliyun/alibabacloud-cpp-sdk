@@ -16,6 +16,7 @@ namespace Models
   class ListExecutorsResponseBodyExecutors : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListExecutorsResponseBodyExecutors& obj) { 
+      DARABONBA_PTR_TO_JSON(AllocationSpec, allocationSpec_);
       DARABONBA_PTR_TO_JSON(AppName, appName_);
       DARABONBA_PTR_TO_JSON(ArrayIndex, arrayIndex_);
       DARABONBA_PTR_TO_JSON(BlockDuration, blockDuration_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VswitchId, vswitchId_);
     };
     friend void from_json(const Darabonba::Json& j, ListExecutorsResponseBodyExecutors& obj) { 
+      DARABONBA_PTR_FROM_JSON(AllocationSpec, allocationSpec_);
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
       DARABONBA_PTR_FROM_JSON(ArrayIndex, arrayIndex_);
       DARABONBA_PTR_FROM_JSON(BlockDuration, blockDuration_);
@@ -76,12 +78,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appName_ != nullptr
-        && this->arrayIndex_ != nullptr && this->blockDuration_ != nullptr && this->createTime_ != nullptr && this->endTime_ != nullptr && this->executorId_ != nullptr
-        && this->expirationTime_ != nullptr && this->externalIpAddress_ != nullptr && this->hostName_ != nullptr && this->image_ != nullptr && this->ipAddress_ != nullptr
-        && this->jobId_ != nullptr && this->jobName_ != nullptr && this->preemptible_ != nullptr && this->resource_ != nullptr && this->resourceType_ != nullptr
-        && this->startTime_ != nullptr && this->status_ != nullptr && this->statusReason_ != nullptr && this->tags_ != nullptr && this->taskName_ != nullptr
-        && this->taskSustainable_ != nullptr && this->vswitchId_ != nullptr; };
+    virtual bool empty() const override { this->allocationSpec_ != nullptr
+        && this->appName_ != nullptr && this->arrayIndex_ != nullptr && this->blockDuration_ != nullptr && this->createTime_ != nullptr && this->endTime_ != nullptr
+        && this->executorId_ != nullptr && this->expirationTime_ != nullptr && this->externalIpAddress_ != nullptr && this->hostName_ != nullptr && this->image_ != nullptr
+        && this->ipAddress_ != nullptr && this->jobId_ != nullptr && this->jobName_ != nullptr && this->preemptible_ != nullptr && this->resource_ != nullptr
+        && this->resourceType_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->statusReason_ != nullptr && this->tags_ != nullptr
+        && this->taskName_ != nullptr && this->taskSustainable_ != nullptr && this->vswitchId_ != nullptr; };
+    // allocationSpec Field Functions 
+    bool hasAllocationSpec() const { return this->allocationSpec_ != nullptr;};
+    void deleteAllocationSpec() { this->allocationSpec_ = nullptr;};
+    inline string allocationSpec() const { DARABONBA_PTR_GET_DEFAULT(allocationSpec_, "") };
+    inline ListExecutorsResponseBodyExecutors& setAllocationSpec(string allocationSpec) { DARABONBA_PTR_SET_VALUE(allocationSpec_, allocationSpec) };
+
+
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -254,6 +263,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> allocationSpec_ = nullptr;
     std::shared_ptr<string> appName_ = nullptr;
     std::shared_ptr<int32_t> arrayIndex_ = nullptr;
     std::shared_ptr<int32_t> blockDuration_ = nullptr;

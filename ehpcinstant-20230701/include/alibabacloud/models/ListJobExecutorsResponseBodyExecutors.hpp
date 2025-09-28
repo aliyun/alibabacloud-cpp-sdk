@@ -15,6 +15,7 @@ namespace Models
   class ListJobExecutorsResponseBodyExecutors : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListJobExecutorsResponseBodyExecutors& obj) { 
+      DARABONBA_PTR_TO_JSON(AllocationSpec, allocationSpec_);
       DARABONBA_PTR_TO_JSON(ArrayIndex, arrayIndex_);
       DARABONBA_PTR_TO_JSON(BlockDuration, blockDuration_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Tags, tags_);
     };
     friend void from_json(const Darabonba::Json& j, ListJobExecutorsResponseBodyExecutors& obj) { 
+      DARABONBA_PTR_FROM_JSON(AllocationSpec, allocationSpec_);
       DARABONBA_PTR_FROM_JSON(ArrayIndex, arrayIndex_);
       DARABONBA_PTR_FROM_JSON(BlockDuration, blockDuration_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
@@ -57,10 +59,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->arrayIndex_ != nullptr
-        && this->blockDuration_ != nullptr && this->createTime_ != nullptr && this->endTime_ != nullptr && this->executorId_ != nullptr && this->expirationTime_ != nullptr
-        && this->externalIpAddress_ != nullptr && this->hostName_ != nullptr && this->ipAddress_ != nullptr && this->preemptible_ != nullptr && this->startTime_ != nullptr
-        && this->status_ != nullptr && this->statusReason_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { this->allocationSpec_ != nullptr
+        && this->arrayIndex_ != nullptr && this->blockDuration_ != nullptr && this->createTime_ != nullptr && this->endTime_ != nullptr && this->executorId_ != nullptr
+        && this->expirationTime_ != nullptr && this->externalIpAddress_ != nullptr && this->hostName_ != nullptr && this->ipAddress_ != nullptr && this->preemptible_ != nullptr
+        && this->startTime_ != nullptr && this->status_ != nullptr && this->statusReason_ != nullptr && this->tags_ != nullptr; };
+    // allocationSpec Field Functions 
+    bool hasAllocationSpec() const { return this->allocationSpec_ != nullptr;};
+    void deleteAllocationSpec() { this->allocationSpec_ = nullptr;};
+    inline string allocationSpec() const { DARABONBA_PTR_GET_DEFAULT(allocationSpec_, "") };
+    inline ListJobExecutorsResponseBodyExecutors& setAllocationSpec(string allocationSpec) { DARABONBA_PTR_SET_VALUE(allocationSpec_, allocationSpec) };
+
+
     // arrayIndex Field Functions 
     bool hasArrayIndex() const { return this->arrayIndex_ != nullptr;};
     void deleteArrayIndex() { this->arrayIndex_ = nullptr;};
@@ -168,6 +177,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> allocationSpec_ = nullptr;
     std::shared_ptr<int32_t> arrayIndex_ = nullptr;
     std::shared_ptr<int32_t> blockDuration_ = nullptr;
     std::shared_ptr<string> createTime_ = nullptr;

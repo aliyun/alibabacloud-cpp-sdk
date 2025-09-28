@@ -17,12 +17,16 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateJobRequestTasksTaskSpecResource& obj) { 
       DARABONBA_PTR_TO_JSON(Cores, cores_);
       DARABONBA_PTR_TO_JSON(Disks, disks_);
+      DARABONBA_PTR_TO_JSON(EnableHT, enableHT_);
+      DARABONBA_PTR_TO_JSON(HostNamePrefix, hostNamePrefix_);
       DARABONBA_PTR_TO_JSON(InstanceTypes, instanceTypes_);
       DARABONBA_PTR_TO_JSON(Memory, memory_);
     };
     friend void from_json(const Darabonba::Json& j, CreateJobRequestTasksTaskSpecResource& obj) { 
       DARABONBA_PTR_FROM_JSON(Cores, cores_);
       DARABONBA_PTR_FROM_JSON(Disks, disks_);
+      DARABONBA_PTR_FROM_JSON(EnableHT, enableHT_);
+      DARABONBA_PTR_FROM_JSON(HostNamePrefix, hostNamePrefix_);
       DARABONBA_PTR_FROM_JSON(InstanceTypes, instanceTypes_);
       DARABONBA_PTR_FROM_JSON(Memory, memory_);
     };
@@ -38,7 +42,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->cores_ != nullptr
-        && this->disks_ != nullptr && this->instanceTypes_ != nullptr && this->memory_ != nullptr; };
+        && this->disks_ != nullptr && this->enableHT_ != nullptr && this->hostNamePrefix_ != nullptr && this->instanceTypes_ != nullptr && this->memory_ != nullptr; };
     // cores Field Functions 
     bool hasCores() const { return this->cores_ != nullptr;};
     void deleteCores() { this->cores_ = nullptr;};
@@ -53,6 +57,20 @@ namespace Models
     inline vector<Models::CreateJobRequestTasksTaskSpecResourceDisks> disks() { DARABONBA_PTR_GET(disks_, vector<Models::CreateJobRequestTasksTaskSpecResourceDisks>) };
     inline CreateJobRequestTasksTaskSpecResource& setDisks(const vector<Models::CreateJobRequestTasksTaskSpecResourceDisks> & disks) { DARABONBA_PTR_SET_VALUE(disks_, disks) };
     inline CreateJobRequestTasksTaskSpecResource& setDisks(vector<Models::CreateJobRequestTasksTaskSpecResourceDisks> && disks) { DARABONBA_PTR_SET_RVALUE(disks_, disks) };
+
+
+    // enableHT Field Functions 
+    bool hasEnableHT() const { return this->enableHT_ != nullptr;};
+    void deleteEnableHT() { this->enableHT_ = nullptr;};
+    inline bool enableHT() const { DARABONBA_PTR_GET_DEFAULT(enableHT_, false) };
+    inline CreateJobRequestTasksTaskSpecResource& setEnableHT(bool enableHT) { DARABONBA_PTR_SET_VALUE(enableHT_, enableHT) };
+
+
+    // hostNamePrefix Field Functions 
+    bool hasHostNamePrefix() const { return this->hostNamePrefix_ != nullptr;};
+    void deleteHostNamePrefix() { this->hostNamePrefix_ = nullptr;};
+    inline string hostNamePrefix() const { DARABONBA_PTR_GET_DEFAULT(hostNamePrefix_, "") };
+    inline CreateJobRequestTasksTaskSpecResource& setHostNamePrefix(string hostNamePrefix) { DARABONBA_PTR_SET_VALUE(hostNamePrefix_, hostNamePrefix) };
 
 
     // instanceTypes Field Functions 
@@ -74,6 +92,8 @@ namespace Models
   protected:
     std::shared_ptr<float> cores_ = nullptr;
     std::shared_ptr<vector<Models::CreateJobRequestTasksTaskSpecResourceDisks>> disks_ = nullptr;
+    std::shared_ptr<bool> enableHT_ = nullptr;
+    std::shared_ptr<string> hostNamePrefix_ = nullptr;
     std::shared_ptr<vector<string>> instanceTypes_ = nullptr;
     std::shared_ptr<float> memory_ = nullptr;
   };
