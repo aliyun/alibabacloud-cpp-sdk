@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IsSasDaAccount, isSasDaAccount_);
       DARABONBA_PTR_TO_JSON(IsSiemControlAccount, isSiemControlAccount_);
       DARABONBA_PTR_TO_JSON(IsSiemDaAccount, isSiemDaAccount_);
+      DARABONBA_PTR_TO_JSON(PostBasicService, postBasicService_);
       DARABONBA_PTR_TO_JSON(PostPayModuleSwitch, postPayModuleSwitch_);
       DARABONBA_PTR_TO_JSON(SaleInstance, saleInstance_);
       DARABONBA_PTR_TO_JSON(SasVersion, sasVersion_);
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IsSasDaAccount, isSasDaAccount_);
       DARABONBA_PTR_FROM_JSON(IsSiemControlAccount, isSiemControlAccount_);
       DARABONBA_PTR_FROM_JSON(IsSiemDaAccount, isSiemDaAccount_);
+      DARABONBA_PTR_FROM_JSON(PostBasicService, postBasicService_);
       DARABONBA_PTR_FROM_JSON(PostPayModuleSwitch, postPayModuleSwitch_);
       DARABONBA_PTR_FROM_JSON(SaleInstance, saleInstance_);
       DARABONBA_PTR_FROM_JSON(SasVersion, sasVersion_);
@@ -60,7 +62,7 @@ namespace Models
     virtual bool empty() const override { this->accountId_ != nullptr
         && this->buySas_ != nullptr && this->buySasNew_ != nullptr && this->chargeType_ != nullptr && this->displayName_ != nullptr && this->folderId_ != nullptr
         && this->instanceBuyType_ != nullptr && this->isMaAccount_ != nullptr && this->isMarked_ != nullptr && this->isSasDaAccount_ != nullptr && this->isSiemControlAccount_ != nullptr
-        && this->isSiemDaAccount_ != nullptr && this->postPayModuleSwitch_ != nullptr && this->saleInstance_ != nullptr && this->sasVersion_ != nullptr; };
+        && this->isSiemDaAccount_ != nullptr && this->postBasicService_ != nullptr && this->postPayModuleSwitch_ != nullptr && this->saleInstance_ != nullptr && this->sasVersion_ != nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
@@ -145,6 +147,13 @@ namespace Models
     inline ListAccountsInResourceDirectoryResponseBodyAccounts& setIsSiemDaAccount(string isSiemDaAccount) { DARABONBA_PTR_SET_VALUE(isSiemDaAccount_, isSiemDaAccount) };
 
 
+    // postBasicService Field Functions 
+    bool hasPostBasicService() const { return this->postBasicService_ != nullptr;};
+    void deletePostBasicService() { this->postBasicService_ = nullptr;};
+    inline int32_t postBasicService() const { DARABONBA_PTR_GET_DEFAULT(postBasicService_, 0) };
+    inline ListAccountsInResourceDirectoryResponseBodyAccounts& setPostBasicService(int32_t postBasicService) { DARABONBA_PTR_SET_VALUE(postBasicService_, postBasicService) };
+
+
     // postPayModuleSwitch Field Functions 
     bool hasPostPayModuleSwitch() const { return this->postPayModuleSwitch_ != nullptr;};
     void deletePostPayModuleSwitch() { this->postPayModuleSwitch_ = nullptr;};
@@ -199,6 +208,7 @@ namespace Models
     // *   **yes**
     // *   **no**
     std::shared_ptr<string> isSiemDaAccount_ = nullptr;
+    std::shared_ptr<int32_t> postBasicService_ = nullptr;
     std::shared_ptr<string> postPayModuleSwitch_ = nullptr;
     std::shared_ptr<string> saleInstance_ = nullptr;
     // The edition of Security Center that you use. Valid value:

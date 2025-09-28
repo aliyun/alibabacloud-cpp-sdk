@@ -2983,6 +2983,7 @@
 #include <alibabacloud/models/DescribeMatchedMaliciousNamesResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeModuleConfigResponseBodyModuleConfigListItems.hpp>
 #include <alibabacloud/models/DescribeModuleConfigResponseBodyModuleConfigList.hpp>
+#include <alibabacloud/models/DescribeMonitorAccountsResponseBodyAccountIdInfos.hpp>
 #include <alibabacloud/models/DescribeNoticeConfigResponseBodyNoticeConfigList.hpp>
 #include <alibabacloud/models/DescribeNsasSuspEventTypeResponseBodyEventTypes.hpp>
 #include <alibabacloud/models/DescribeOfflineMachinesResponseBodyMachineList.hpp>

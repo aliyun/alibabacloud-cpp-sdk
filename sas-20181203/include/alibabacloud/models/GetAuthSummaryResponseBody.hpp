@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AllowUpgradePartialBuy, allowUpgradePartialBuy_);
       DARABONBA_PTR_TO_JSON(AllowUserUnbind, allowUserUnbind_);
       DARABONBA_PTR_TO_JSON(AutoBind, autoBind_);
+      DARABONBA_PTR_TO_JSON(ClusterNodeCheck, clusterNodeCheck_);
       DARABONBA_PTR_TO_JSON(DefaultAuthToAll, defaultAuthToAll_);
       DARABONBA_PTR_TO_JSON(HasPreBindSetting, hasPreBindSetting_);
       DARABONBA_PTR_TO_JSON(HighestVersion, highestVersion_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AllowUpgradePartialBuy, allowUpgradePartialBuy_);
       DARABONBA_PTR_FROM_JSON(AllowUserUnbind, allowUserUnbind_);
       DARABONBA_PTR_FROM_JSON(AutoBind, autoBind_);
+      DARABONBA_PTR_FROM_JSON(ClusterNodeCheck, clusterNodeCheck_);
       DARABONBA_PTR_FROM_JSON(DefaultAuthToAll, defaultAuthToAll_);
       DARABONBA_PTR_FROM_JSON(HasPreBindSetting, hasPreBindSetting_);
       DARABONBA_PTR_FROM_JSON(HighestVersion, highestVersion_);
@@ -64,9 +66,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->allowPartialBuy_ != nullptr
-        && this->allowUpgradePartialBuy_ != nullptr && this->allowUserUnbind_ != nullptr && this->autoBind_ != nullptr && this->defaultAuthToAll_ != nullptr && this->hasPreBindSetting_ != nullptr
-        && this->highestVersion_ != nullptr && this->invalidBindStatus_ != nullptr && this->isMultiVersion_ != nullptr && this->machine_ != nullptr && this->postPaidHighestVersion_ != nullptr
-        && this->postPaidHostAutoBind_ != nullptr && this->postPaidHostAutoBindVersion_ != nullptr && this->postPaidVersionSummary_ != nullptr && this->requestId_ != nullptr && this->versionSummary_ != nullptr; };
+        && this->allowUpgradePartialBuy_ != nullptr && this->allowUserUnbind_ != nullptr && this->autoBind_ != nullptr && this->clusterNodeCheck_ != nullptr && this->defaultAuthToAll_ != nullptr
+        && this->hasPreBindSetting_ != nullptr && this->highestVersion_ != nullptr && this->invalidBindStatus_ != nullptr && this->isMultiVersion_ != nullptr && this->machine_ != nullptr
+        && this->postPaidHighestVersion_ != nullptr && this->postPaidHostAutoBind_ != nullptr && this->postPaidHostAutoBindVersion_ != nullptr && this->postPaidVersionSummary_ != nullptr && this->requestId_ != nullptr
+        && this->versionSummary_ != nullptr; };
     // allowPartialBuy Field Functions 
     bool hasAllowPartialBuy() const { return this->allowPartialBuy_ != nullptr;};
     void deleteAllowPartialBuy() { this->allowPartialBuy_ = nullptr;};
@@ -93,6 +96,13 @@ namespace Models
     void deleteAutoBind() { this->autoBind_ = nullptr;};
     inline int32_t autoBind() const { DARABONBA_PTR_GET_DEFAULT(autoBind_, 0) };
     inline GetAuthSummaryResponseBody& setAutoBind(int32_t autoBind) { DARABONBA_PTR_SET_VALUE(autoBind_, autoBind) };
+
+
+    // clusterNodeCheck Field Functions 
+    bool hasClusterNodeCheck() const { return this->clusterNodeCheck_ != nullptr;};
+    void deleteClusterNodeCheck() { this->clusterNodeCheck_ = nullptr;};
+    inline int32_t clusterNodeCheck() const { DARABONBA_PTR_GET_DEFAULT(clusterNodeCheck_, 0) };
+    inline GetAuthSummaryResponseBody& setClusterNodeCheck(int32_t clusterNodeCheck) { DARABONBA_PTR_SET_VALUE(clusterNodeCheck_, clusterNodeCheck) };
 
 
     // defaultAuthToAll Field Functions 
@@ -206,6 +216,7 @@ namespace Models
     // *   **0**: disabled
     // *   **1**: enabled
     std::shared_ptr<int32_t> autoBind_ = nullptr;
+    std::shared_ptr<int32_t> clusterNodeCheck_ = nullptr;
     // Indicates whether the protection quota is supported for all assets. Valid values:
     // 
     // *   **0**: no
