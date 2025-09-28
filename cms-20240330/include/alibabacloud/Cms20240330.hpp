@@ -619,6 +619,24 @@ namespace Cms20240330
       Models::ListAlertActionsResponse listAlertActions(const Models::ListAlertActionsRequest &request);
 
       /**
+       * @summary 查询接入中心策略列表信息
+       *
+       * @param tmpReq ListIntegrationPoliciesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListIntegrationPoliciesResponse
+       */
+      Models::ListIntegrationPoliciesResponse listIntegrationPoliciesWithOptions(const Models::ListIntegrationPoliciesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询接入中心策略列表信息
+       *
+       * @param request ListIntegrationPoliciesRequest
+       * @return ListIntegrationPoliciesResponse
+       */
+      Models::ListIntegrationPoliciesResponse listIntegrationPolicies(const Models::ListIntegrationPoliciesRequest &request);
+
+      /**
        * @summary 获取接入中心策略的存储要求信息
        *
        * @param request ListIntegrationPolicyCustomScrapeJobRulesRequest
@@ -635,6 +653,24 @@ namespace Cms20240330
        * @return ListIntegrationPolicyCustomScrapeJobRulesResponse
        */
       Models::ListIntegrationPolicyCustomScrapeJobRulesResponse listIntegrationPolicyCustomScrapeJobRules(const string &policyId, const Models::ListIntegrationPolicyCustomScrapeJobRulesRequest &request);
+
+      /**
+       * @summary 策略大盘列表
+       *
+       * @param request ListIntegrationPolicyDashboardsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListIntegrationPolicyDashboardsResponse
+       */
+      Models::ListIntegrationPolicyDashboardsResponse listIntegrationPolicyDashboardsWithOptions(const string &policyId, const Models::ListIntegrationPolicyDashboardsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 策略大盘列表
+       *
+       * @param request ListIntegrationPolicyDashboardsRequest
+       * @return ListIntegrationPolicyDashboardsResponse
+       */
+      Models::ListIntegrationPolicyDashboardsResponse listIntegrationPolicyDashboards(const string &policyId, const Models::ListIntegrationPolicyDashboardsRequest &request);
 
       /**
        * @summary 获取接入中心策略的PodMonitor资源

@@ -1806,6 +1806,105 @@ ListAlertActionsResponse Client::listAlertActions(const ListAlertActionsRequest 
 }
 
 /**
+ * @summary 查询接入中心策略列表信息
+ *
+ * @param tmpReq ListIntegrationPoliciesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListIntegrationPoliciesResponse
+ */
+ListIntegrationPoliciesResponse Client::listIntegrationPoliciesWithOptions(const ListIntegrationPoliciesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListIntegrationPoliciesShrinkRequest request = ListIntegrationPoliciesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTag()) {
+    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tag(), "tag", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAddonName()) {
+    query["addonName"] = request.addonName();
+  }
+
+  if (!!request.hasEntityGroupIds()) {
+    query["entityGroupIds"] = request.entityGroupIds();
+  }
+
+  if (!!request.hasFilterRegionIds()) {
+    query["filterRegionIds"] = request.filterRegionIds();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPolicyId()) {
+    query["policyId"] = request.policyId();
+  }
+
+  if (!!request.hasPolicyName()) {
+    query["policyName"] = request.policyName();
+  }
+
+  if (!!request.hasPolicyType()) {
+    query["policyType"] = request.policyType();
+  }
+
+  if (!!request.hasPrometheusInstanceId()) {
+    query["prometheusInstanceId"] = request.prometheusInstanceId();
+  }
+
+  if (!!request.hasQuery()) {
+    query["query"] = request.query();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["resourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasTagShrink()) {
+    query["tag"] = request.tagShrink();
+  }
+
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.workspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListIntegrationPolicies"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/integration-policies")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListIntegrationPoliciesResponse>();
+}
+
+/**
+ * @summary 查询接入中心策略列表信息
+ *
+ * @param request ListIntegrationPoliciesRequest
+ * @return ListIntegrationPoliciesResponse
+ */
+ListIntegrationPoliciesResponse Client::listIntegrationPolicies(const ListIntegrationPoliciesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listIntegrationPoliciesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 获取接入中心策略的存储要求信息
  *
  * @param request ListIntegrationPolicyCustomScrapeJobRulesRequest
@@ -1856,6 +1955,55 @@ ListIntegrationPolicyCustomScrapeJobRulesResponse Client::listIntegrationPolicyC
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listIntegrationPolicyCustomScrapeJobRulesWithOptions(policyId, request, headers, runtime);
+}
+
+/**
+ * @summary 策略大盘列表
+ *
+ * @param request ListIntegrationPolicyDashboardsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListIntegrationPolicyDashboardsResponse
+ */
+ListIntegrationPolicyDashboardsResponse Client::listIntegrationPolicyDashboardsWithOptions(const string &policyId, const ListIntegrationPolicyDashboardsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAddonName()) {
+    query["addonName"] = request.addonName();
+  }
+
+  if (!!request.hasScene()) {
+    query["scene"] = request.scene();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListIntegrationPolicyDashboards"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/integration-policies/" , Darabonba::Http::URL::percentEncode(policyId) , "/dashboards")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListIntegrationPolicyDashboardsResponse>();
+}
+
+/**
+ * @summary 策略大盘列表
+ *
+ * @param request ListIntegrationPolicyDashboardsRequest
+ * @return ListIntegrationPolicyDashboardsResponse
+ */
+ListIntegrationPolicyDashboardsResponse Client::listIntegrationPolicyDashboards(const string &policyId, const ListIntegrationPolicyDashboardsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listIntegrationPolicyDashboardsWithOptions(policyId, request, headers, runtime);
 }
 
 /**
