@@ -127,6 +127,8 @@ namespace Models
     // The name of the certificate. The name can be up to 64 characters in length, and can contain all types of characters, such as letters, digits, and underscores (_).
     // 
     // >  The name must be unique within an Alibaba Cloud account.
+    // 
+    // This parameter is required.
     std::shared_ptr<string> name_ = nullptr;
     // the resource group id.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
