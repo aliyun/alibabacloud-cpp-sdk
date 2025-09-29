@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const RunSearchGenerationShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AgentContext, agentContextShrink_);
       DARABONBA_PTR_TO_JSON(ChatConfig, chatConfigShrink_);
+      DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_TO_JSON(ModelId, modelId_);
       DARABONBA_PTR_TO_JSON(OriginalSessionId, originalSessionId_);
       DARABONBA_PTR_TO_JSON(Prompt, prompt_);
@@ -24,6 +25,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, RunSearchGenerationShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentContext, agentContextShrink_);
       DARABONBA_PTR_FROM_JSON(ChatConfig, chatConfigShrink_);
+      DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_FROM_JSON(ModelId, modelId_);
       DARABONBA_PTR_FROM_JSON(OriginalSessionId, originalSessionId_);
       DARABONBA_PTR_FROM_JSON(Prompt, prompt_);
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->agentContextShrink_ != nullptr
-        && this->chatConfigShrink_ != nullptr && this->modelId_ != nullptr && this->originalSessionId_ != nullptr && this->prompt_ != nullptr && this->taskId_ != nullptr
-        && this->workspaceId_ != nullptr; };
+        && this->chatConfigShrink_ != nullptr && this->fileUrl_ != nullptr && this->modelId_ != nullptr && this->originalSessionId_ != nullptr && this->prompt_ != nullptr
+        && this->taskId_ != nullptr && this->workspaceId_ != nullptr; };
     // agentContextShrink Field Functions 
     bool hasAgentContextShrink() const { return this->agentContextShrink_ != nullptr;};
     void deleteAgentContextShrink() { this->agentContextShrink_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     void deleteChatConfigShrink() { this->chatConfigShrink_ = nullptr;};
     inline string chatConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(chatConfigShrink_, "") };
     inline RunSearchGenerationShrinkRequest& setChatConfigShrink(string chatConfigShrink) { DARABONBA_PTR_SET_VALUE(chatConfigShrink_, chatConfigShrink) };
+
+
+    // fileUrl Field Functions 
+    bool hasFileUrl() const { return this->fileUrl_ != nullptr;};
+    void deleteFileUrl() { this->fileUrl_ = nullptr;};
+    inline string fileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
+    inline RunSearchGenerationShrinkRequest& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
 
 
     // modelId Field Functions 
@@ -96,6 +105,7 @@ namespace Models
   protected:
     std::shared_ptr<string> agentContextShrink_ = nullptr;
     std::shared_ptr<string> chatConfigShrink_ = nullptr;
+    std::shared_ptr<string> fileUrl_ = nullptr;
     std::shared_ptr<string> modelId_ = nullptr;
     std::shared_ptr<string> originalSessionId_ = nullptr;
     std::shared_ptr<string> prompt_ = nullptr;

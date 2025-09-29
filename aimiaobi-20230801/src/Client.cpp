@@ -9743,6 +9743,10 @@ FutrueGenerator<RunSearchGenerationResponse> Client::runSearchGenerationWithSSE(
     body["ChatConfig"] = request.chatConfigShrink();
   }
 
+  if (!!request.hasFileUrl()) {
+    body["FileUrl"] = request.fileUrl();
+  }
+
   if (!!request.hasModelId()) {
     body["ModelId"] = request.modelId();
   }
@@ -9818,6 +9822,10 @@ RunSearchGenerationResponse Client::runSearchGenerationWithOptions(const RunSear
 
   if (!!request.hasChatConfigShrink()) {
     body["ChatConfig"] = request.chatConfigShrink();
+  }
+
+  if (!!request.hasFileUrl()) {
+    body["FileUrl"] = request.fileUrl();
   }
 
   if (!!request.hasModelId()) {

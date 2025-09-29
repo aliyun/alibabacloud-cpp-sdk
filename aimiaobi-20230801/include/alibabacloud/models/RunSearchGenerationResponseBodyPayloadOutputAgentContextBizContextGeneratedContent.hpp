@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_RUNSEARCHGENERATIONRESPONSEBODYPAYLOADOUTPUTAGENTCONTEXTBIZCONTEXTGENERATEDCONTENT_HPP_
 #define ALIBABACLOUD_MODELS_RUNSEARCHGENERATIONRESPONSEBODYPAYLOADOUTPUTAGENTCONTEXTBIZCONTEXTGENERATEDCONTENT_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResult.hpp>
 #include <alibabacloud/models/RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResult.hpp>
 #include <alibabacloud/models/RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResult.hpp>
 #include <alibabacloud/models/RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResult.hpp>
@@ -21,6 +22,7 @@ namespace Models
   class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContent : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContent& obj) { 
+      DARABONBA_PTR_TO_JSON(AudioSearchResult, audioSearchResult_);
       DARABONBA_PTR_TO_JSON(ClusterTopicResult, clusterTopicResult_);
       DARABONBA_PTR_TO_JSON(ExcerptResult, excerptResult_);
       DARABONBA_PTR_TO_JSON(ImageSearchResult, imageSearchResult_);
@@ -31,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VideoSearchResult, videoSearchResult_);
     };
     friend void from_json(const Darabonba::Json& j, RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContent& obj) { 
+      DARABONBA_PTR_FROM_JSON(AudioSearchResult, audioSearchResult_);
       DARABONBA_PTR_FROM_JSON(ClusterTopicResult, clusterTopicResult_);
       DARABONBA_PTR_FROM_JSON(ExcerptResult, excerptResult_);
       DARABONBA_PTR_FROM_JSON(ImageSearchResult, imageSearchResult_);
@@ -51,9 +54,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterTopicResult_ != nullptr
-        && this->excerptResult_ != nullptr && this->imageSearchResult_ != nullptr && this->newsElementResult_ != nullptr && this->textGenerateResult_ != nullptr && this->textSearchResult_ != nullptr
-        && this->timelineResult_ != nullptr && this->videoSearchResult_ != nullptr; };
+    virtual bool empty() const override { this->audioSearchResult_ != nullptr
+        && this->clusterTopicResult_ != nullptr && this->excerptResult_ != nullptr && this->imageSearchResult_ != nullptr && this->newsElementResult_ != nullptr && this->textGenerateResult_ != nullptr
+        && this->textSearchResult_ != nullptr && this->timelineResult_ != nullptr && this->videoSearchResult_ != nullptr; };
+    // audioSearchResult Field Functions 
+    bool hasAudioSearchResult() const { return this->audioSearchResult_ != nullptr;};
+    void deleteAudioSearchResult() { this->audioSearchResult_ = nullptr;};
+    inline const Models::RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResult & audioSearchResult() const { DARABONBA_PTR_GET_CONST(audioSearchResult_, Models::RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResult) };
+    inline Models::RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResult audioSearchResult() { DARABONBA_PTR_GET(audioSearchResult_, Models::RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResult) };
+    inline RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContent& setAudioSearchResult(const Models::RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResult & audioSearchResult) { DARABONBA_PTR_SET_VALUE(audioSearchResult_, audioSearchResult) };
+    inline RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContent& setAudioSearchResult(Models::RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResult && audioSearchResult) { DARABONBA_PTR_SET_RVALUE(audioSearchResult_, audioSearchResult) };
+
+
     // clusterTopicResult Field Functions 
     bool hasClusterTopicResult() const { return this->clusterTopicResult_ != nullptr;};
     void deleteClusterTopicResult() { this->clusterTopicResult_ = nullptr;};
@@ -127,6 +139,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<Models::RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResult> audioSearchResult_ = nullptr;
     std::shared_ptr<Models::RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResult> clusterTopicResult_ = nullptr;
     std::shared_ptr<Models::RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResult> excerptResult_ = nullptr;
     std::shared_ptr<Models::RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResult> imageSearchResult_ = nullptr;

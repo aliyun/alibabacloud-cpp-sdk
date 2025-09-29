@@ -3,6 +3,8 @@
 #define ALIBABACLOUD_MODELS_RUNSEARCHGENERATIONRESPONSEBODYPAYLOADOUTPUT_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/RunSearchGenerationResponseBodyPayloadOutputAgentContext.hpp>
+#include <vector>
+#include <alibabacloud/models/RunSearchGenerationResponseBodyPayloadOutputMessages.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -15,9 +17,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const RunSearchGenerationResponseBodyPayloadOutput& obj) { 
       DARABONBA_PTR_TO_JSON(AgentContext, agentContext_);
+      DARABONBA_PTR_TO_JSON(Messages, messages_);
     };
     friend void from_json(const Darabonba::Json& j, RunSearchGenerationResponseBodyPayloadOutput& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentContext, agentContext_);
+      DARABONBA_PTR_FROM_JSON(Messages, messages_);
     };
     RunSearchGenerationResponseBodyPayloadOutput() = default ;
     RunSearchGenerationResponseBodyPayloadOutput(const RunSearchGenerationResponseBodyPayloadOutput &) = default ;
@@ -30,7 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentContext_ != nullptr; };
+    virtual bool empty() const override { this->agentContext_ != nullptr
+        && this->messages_ != nullptr; };
     // agentContext Field Functions 
     bool hasAgentContext() const { return this->agentContext_ != nullptr;};
     void deleteAgentContext() { this->agentContext_ = nullptr;};
@@ -40,8 +45,18 @@ namespace Models
     inline RunSearchGenerationResponseBodyPayloadOutput& setAgentContext(Models::RunSearchGenerationResponseBodyPayloadOutputAgentContext && agentContext) { DARABONBA_PTR_SET_RVALUE(agentContext_, agentContext) };
 
 
+    // messages Field Functions 
+    bool hasMessages() const { return this->messages_ != nullptr;};
+    void deleteMessages() { this->messages_ = nullptr;};
+    inline const vector<Models::RunSearchGenerationResponseBodyPayloadOutputMessages> & messages() const { DARABONBA_PTR_GET_CONST(messages_, vector<Models::RunSearchGenerationResponseBodyPayloadOutputMessages>) };
+    inline vector<Models::RunSearchGenerationResponseBodyPayloadOutputMessages> messages() { DARABONBA_PTR_GET(messages_, vector<Models::RunSearchGenerationResponseBodyPayloadOutputMessages>) };
+    inline RunSearchGenerationResponseBodyPayloadOutput& setMessages(const vector<Models::RunSearchGenerationResponseBodyPayloadOutputMessages> & messages) { DARABONBA_PTR_SET_VALUE(messages_, messages) };
+    inline RunSearchGenerationResponseBodyPayloadOutput& setMessages(vector<Models::RunSearchGenerationResponseBodyPayloadOutputMessages> && messages) { DARABONBA_PTR_SET_RVALUE(messages_, messages) };
+
+
   protected:
     std::shared_ptr<Models::RunSearchGenerationResponseBodyPayloadOutputAgentContext> agentContext_ = nullptr;
+    std::shared_ptr<vector<Models::RunSearchGenerationResponseBodyPayloadOutputMessages>> messages_ = nullptr;
   };
 
   } // namespace Models

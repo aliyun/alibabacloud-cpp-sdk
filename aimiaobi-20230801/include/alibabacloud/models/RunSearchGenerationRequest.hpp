@@ -17,6 +17,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const RunSearchGenerationRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AgentContext, agentContext_);
       DARABONBA_PTR_TO_JSON(ChatConfig, chatConfig_);
+      DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_TO_JSON(ModelId, modelId_);
       DARABONBA_PTR_TO_JSON(OriginalSessionId, originalSessionId_);
       DARABONBA_PTR_TO_JSON(Prompt, prompt_);
@@ -26,6 +27,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, RunSearchGenerationRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentContext, agentContext_);
       DARABONBA_PTR_FROM_JSON(ChatConfig, chatConfig_);
+      DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_FROM_JSON(ModelId, modelId_);
       DARABONBA_PTR_FROM_JSON(OriginalSessionId, originalSessionId_);
       DARABONBA_PTR_FROM_JSON(Prompt, prompt_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->agentContext_ != nullptr
-        && this->chatConfig_ != nullptr && this->modelId_ != nullptr && this->originalSessionId_ != nullptr && this->prompt_ != nullptr && this->taskId_ != nullptr
-        && this->workspaceId_ != nullptr; };
+        && this->chatConfig_ != nullptr && this->fileUrl_ != nullptr && this->modelId_ != nullptr && this->originalSessionId_ != nullptr && this->prompt_ != nullptr
+        && this->taskId_ != nullptr && this->workspaceId_ != nullptr; };
     // agentContext Field Functions 
     bool hasAgentContext() const { return this->agentContext_ != nullptr;};
     void deleteAgentContext() { this->agentContext_ = nullptr;};
@@ -62,6 +64,13 @@ namespace Models
     inline RunSearchGenerationRequestChatConfig chatConfig() { DARABONBA_PTR_GET(chatConfig_, RunSearchGenerationRequestChatConfig) };
     inline RunSearchGenerationRequest& setChatConfig(const RunSearchGenerationRequestChatConfig & chatConfig) { DARABONBA_PTR_SET_VALUE(chatConfig_, chatConfig) };
     inline RunSearchGenerationRequest& setChatConfig(RunSearchGenerationRequestChatConfig && chatConfig) { DARABONBA_PTR_SET_RVALUE(chatConfig_, chatConfig) };
+
+
+    // fileUrl Field Functions 
+    bool hasFileUrl() const { return this->fileUrl_ != nullptr;};
+    void deleteFileUrl() { this->fileUrl_ = nullptr;};
+    inline string fileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
+    inline RunSearchGenerationRequest& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
 
 
     // modelId Field Functions 
@@ -102,6 +111,7 @@ namespace Models
   protected:
     std::shared_ptr<RunSearchGenerationRequestAgentContext> agentContext_ = nullptr;
     std::shared_ptr<RunSearchGenerationRequestChatConfig> chatConfig_ = nullptr;
+    std::shared_ptr<string> fileUrl_ = nullptr;
     std::shared_ptr<string> modelId_ = nullptr;
     std::shared_ptr<string> originalSessionId_ = nullptr;
     std::shared_ptr<string> prompt_ = nullptr;

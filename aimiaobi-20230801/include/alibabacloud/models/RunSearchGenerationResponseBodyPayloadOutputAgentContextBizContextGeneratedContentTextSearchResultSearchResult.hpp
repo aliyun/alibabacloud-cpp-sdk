@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SearchSourceType, searchSourceType_);
       DARABONBA_PTR_TO_JSON(Summary, summary_);
       DARABONBA_PTR_TO_JSON(Title, title_);
+      DARABONBA_PTR_TO_JSON(TraceabilityId, traceabilityId_);
       DARABONBA_PTR_TO_JSON(Url, url_);
     };
     friend void from_json(const Darabonba::Json& j, RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextSearchResultSearchResult& obj) { 
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SearchSourceType, searchSourceType_);
       DARABONBA_PTR_FROM_JSON(Summary, summary_);
       DARABONBA_PTR_FROM_JSON(Title, title_);
+      DARABONBA_PTR_FROM_JSON(TraceabilityId, traceabilityId_);
       DARABONBA_PTR_FROM_JSON(Url, url_);
     };
     RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextSearchResultSearchResult() = default ;
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->content_ != nullptr
         && this->docId_ != nullptr && this->docUuid_ != nullptr && this->pubTime_ != nullptr && this->searchSource_ != nullptr && this->searchSourceName_ != nullptr
-        && this->searchSourceType_ != nullptr && this->summary_ != nullptr && this->title_ != nullptr && this->url_ != nullptr; };
+        && this->searchSourceType_ != nullptr && this->summary_ != nullptr && this->title_ != nullptr && this->traceabilityId_ != nullptr && this->url_ != nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -113,6 +115,13 @@ namespace Models
     inline RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextSearchResultSearchResult& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
+    // traceabilityId Field Functions 
+    bool hasTraceabilityId() const { return this->traceabilityId_ != nullptr;};
+    void deleteTraceabilityId() { this->traceabilityId_ = nullptr;};
+    inline string traceabilityId() const { DARABONBA_PTR_GET_DEFAULT(traceabilityId_, "") };
+    inline RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextSearchResultSearchResult& setTraceabilityId(string traceabilityId) { DARABONBA_PTR_SET_VALUE(traceabilityId_, traceabilityId) };
+
+
     // url Field Functions 
     bool hasUrl() const { return this->url_ != nullptr;};
     void deleteUrl() { this->url_ = nullptr;};
@@ -130,6 +139,7 @@ namespace Models
     std::shared_ptr<string> searchSourceType_ = nullptr;
     std::shared_ptr<string> summary_ = nullptr;
     std::shared_ptr<string> title_ = nullptr;
+    std::shared_ptr<string> traceabilityId_ = nullptr;
     std::shared_ptr<string> url_ = nullptr;
   };
 

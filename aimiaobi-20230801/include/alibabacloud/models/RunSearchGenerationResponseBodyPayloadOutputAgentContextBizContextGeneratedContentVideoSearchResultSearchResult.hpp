@@ -20,12 +20,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClipInfos, clipInfos_);
       DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_TO_JSON(MediaId, mediaId_);
+      DARABONBA_PTR_TO_JSON(TraceabilityId, traceabilityId_);
     };
     friend void from_json(const Darabonba::Json& j, RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResult& obj) { 
       DARABONBA_PTR_FROM_JSON(Article, article_);
       DARABONBA_PTR_FROM_JSON(ClipInfos, clipInfos_);
       DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_FROM_JSON(MediaId, mediaId_);
+      DARABONBA_PTR_FROM_JSON(TraceabilityId, traceabilityId_);
     };
     RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResult() = default ;
     RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResult(const RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResult &) = default ;
@@ -39,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->article_ != nullptr
-        && this->clipInfos_ != nullptr && this->fileUrl_ != nullptr && this->mediaId_ != nullptr; };
+        && this->clipInfos_ != nullptr && this->fileUrl_ != nullptr && this->mediaId_ != nullptr && this->traceabilityId_ != nullptr; };
     // article Field Functions 
     bool hasArticle() const { return this->article_ != nullptr;};
     void deleteArticle() { this->article_ = nullptr;};
@@ -72,11 +74,19 @@ namespace Models
     inline RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResult& setMediaId(string mediaId) { DARABONBA_PTR_SET_VALUE(mediaId_, mediaId) };
 
 
+    // traceabilityId Field Functions 
+    bool hasTraceabilityId() const { return this->traceabilityId_ != nullptr;};
+    void deleteTraceabilityId() { this->traceabilityId_ = nullptr;};
+    inline string traceabilityId() const { DARABONBA_PTR_GET_DEFAULT(traceabilityId_, "") };
+    inline RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResult& setTraceabilityId(string traceabilityId) { DARABONBA_PTR_SET_VALUE(traceabilityId_, traceabilityId) };
+
+
   protected:
     std::shared_ptr<Models::RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResultArticle> article_ = nullptr;
     std::shared_ptr<vector<Models::RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResultClipInfos>> clipInfos_ = nullptr;
     std::shared_ptr<string> fileUrl_ = nullptr;
     std::shared_ptr<string> mediaId_ = nullptr;
+    std::shared_ptr<string> traceabilityId_ = nullptr;
   };
 
   } // namespace Models

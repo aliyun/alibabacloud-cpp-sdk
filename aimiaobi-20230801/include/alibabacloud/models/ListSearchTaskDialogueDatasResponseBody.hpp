@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/ListSearchTaskDialogueDatasResponseBodyArticles.hpp>
+#include <alibabacloud/models/ListSearchTaskDialogueDatasResponseBodyAudios.hpp>
 #include <alibabacloud/models/ListSearchTaskDialogueDatasResponseBodyImages.hpp>
 #include <alibabacloud/models/ListSearchTaskDialogueDatasResponseBodyVideos.hpp>
 using namespace std;
@@ -18,6 +19,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListSearchTaskDialogueDatasResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Articles, articles_);
+      DARABONBA_PTR_TO_JSON(Audios, audios_);
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(HttpStatusCode, httpStatusCode_);
       DARABONBA_PTR_TO_JSON(Images, images_);
@@ -33,6 +35,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListSearchTaskDialogueDatasResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Articles, articles_);
+      DARABONBA_PTR_FROM_JSON(Audios, audios_);
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(HttpStatusCode, httpStatusCode_);
       DARABONBA_PTR_FROM_JSON(Images, images_);
@@ -58,9 +61,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->articles_ != nullptr
-        && this->code_ != nullptr && this->httpStatusCode_ != nullptr && this->images_ != nullptr && this->message_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->realtimeSearch_ != nullptr && this->requestId_ != nullptr && this->searchType_ != nullptr && this->success_ != nullptr
-        && this->totalCount_ != nullptr && this->videos_ != nullptr; };
+        && this->audios_ != nullptr && this->code_ != nullptr && this->httpStatusCode_ != nullptr && this->images_ != nullptr && this->message_ != nullptr
+        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->realtimeSearch_ != nullptr && this->requestId_ != nullptr && this->searchType_ != nullptr
+        && this->success_ != nullptr && this->totalCount_ != nullptr && this->videos_ != nullptr; };
     // articles Field Functions 
     bool hasArticles() const { return this->articles_ != nullptr;};
     void deleteArticles() { this->articles_ = nullptr;};
@@ -68,6 +71,15 @@ namespace Models
     inline vector<ListSearchTaskDialogueDatasResponseBodyArticles> articles() { DARABONBA_PTR_GET(articles_, vector<ListSearchTaskDialogueDatasResponseBodyArticles>) };
     inline ListSearchTaskDialogueDatasResponseBody& setArticles(const vector<ListSearchTaskDialogueDatasResponseBodyArticles> & articles) { DARABONBA_PTR_SET_VALUE(articles_, articles) };
     inline ListSearchTaskDialogueDatasResponseBody& setArticles(vector<ListSearchTaskDialogueDatasResponseBodyArticles> && articles) { DARABONBA_PTR_SET_RVALUE(articles_, articles) };
+
+
+    // audios Field Functions 
+    bool hasAudios() const { return this->audios_ != nullptr;};
+    void deleteAudios() { this->audios_ = nullptr;};
+    inline const vector<ListSearchTaskDialogueDatasResponseBodyAudios> & audios() const { DARABONBA_PTR_GET_CONST(audios_, vector<ListSearchTaskDialogueDatasResponseBodyAudios>) };
+    inline vector<ListSearchTaskDialogueDatasResponseBodyAudios> audios() { DARABONBA_PTR_GET(audios_, vector<ListSearchTaskDialogueDatasResponseBodyAudios>) };
+    inline ListSearchTaskDialogueDatasResponseBody& setAudios(const vector<ListSearchTaskDialogueDatasResponseBodyAudios> & audios) { DARABONBA_PTR_SET_VALUE(audios_, audios) };
+    inline ListSearchTaskDialogueDatasResponseBody& setAudios(vector<ListSearchTaskDialogueDatasResponseBodyAudios> && audios) { DARABONBA_PTR_SET_RVALUE(audios_, audios) };
 
 
     // code Field Functions 
@@ -160,6 +172,7 @@ namespace Models
 
   protected:
     std::shared_ptr<vector<ListSearchTaskDialogueDatasResponseBodyArticles>> articles_ = nullptr;
+    std::shared_ptr<vector<ListSearchTaskDialogueDatasResponseBodyAudios>> audios_ = nullptr;
     std::shared_ptr<string> code_ = nullptr;
     std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
     std::shared_ptr<vector<ListSearchTaskDialogueDatasResponseBodyImages>> images_ = nullptr;
