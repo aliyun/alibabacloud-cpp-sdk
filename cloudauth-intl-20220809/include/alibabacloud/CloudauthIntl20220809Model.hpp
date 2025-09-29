@@ -23,9 +23,15 @@
 #include <alibabacloud/models/CheckVerifyLogRequest.hpp>
 #include <alibabacloud/models/CheckVerifyLogResponseBody.hpp>
 #include <alibabacloud/models/CheckVerifyLogResponse.hpp>
+#include <alibabacloud/models/CredentialGetResultIntlRequest.hpp>
+#include <alibabacloud/models/CredentialGetResultIntlResponseBody.hpp>
+#include <alibabacloud/models/CredentialGetResultIntlResponse.hpp>
 #include <alibabacloud/models/CredentialRecognitionIntlRequest.hpp>
 #include <alibabacloud/models/CredentialRecognitionIntlResponseBody.hpp>
 #include <alibabacloud/models/CredentialRecognitionIntlResponse.hpp>
+#include <alibabacloud/models/CredentialSubmitIntlRequest.hpp>
+#include <alibabacloud/models/CredentialSubmitIntlResponseBody.hpp>
+#include <alibabacloud/models/CredentialSubmitIntlResponse.hpp>
 #include <alibabacloud/models/CredentialVerifyIntlRequest.hpp>
 #include <alibabacloud/models/CredentialVerifyIntlAdvanceRequest.hpp>
 #include <alibabacloud/models/CredentialVerifyIntlResponseBody.hpp>
@@ -54,6 +60,9 @@
 #include <alibabacloud/models/FaceCompareRequest.hpp>
 #include <alibabacloud/models/FaceCompareResponseBody.hpp>
 #include <alibabacloud/models/FaceCompareResponse.hpp>
+#include <alibabacloud/models/FaceCrossCompareIntlRequest.hpp>
+#include <alibabacloud/models/FaceCrossCompareIntlResponseBody.hpp>
+#include <alibabacloud/models/FaceCrossCompareIntlResponse.hpp>
 #include <alibabacloud/models/FaceDuplicationCheckIntlRequest.hpp>
 #include <alibabacloud/models/FaceDuplicationCheckIntlResponseBody.hpp>
 #include <alibabacloud/models/FaceDuplicationCheckIntlResponse.hpp>
@@ -99,6 +108,9 @@
 #include <alibabacloud/models/TempAccessTokenIntlRequest.hpp>
 #include <alibabacloud/models/TempAccessTokenIntlResponseBody.hpp>
 #include <alibabacloud/models/TempAccessTokenIntlResponse.hpp>
+#include <alibabacloud/models/TempOssUrlIntlRequest.hpp>
+#include <alibabacloud/models/TempOssUrlIntlResponseBody.hpp>
+#include <alibabacloud/models/TempOssUrlIntlResponse.hpp>
 #include <alibabacloud/models/AddressCompareIntlResponseBodyResult.hpp>
 #include <alibabacloud/models/AddressVerifyIntlResponseBodyResultObject.hpp>
 #include <alibabacloud/models/AddressVerifyV2intlResponseBodyResult.hpp>
@@ -106,7 +118,9 @@
 #include <alibabacloud/models/CardOcrResponseBodyResult.hpp>
 #include <alibabacloud/models/CheckResultResponseBodyResult.hpp>
 #include <alibabacloud/models/CheckVerifyLogResponseBodyResult.hpp>
+#include <alibabacloud/models/CredentialGetResultIntlResponseBodyResult.hpp>
 #include <alibabacloud/models/CredentialRecognitionIntlResponseBodyResult.hpp>
+#include <alibabacloud/models/CredentialSubmitIntlResponseBodyResult.hpp>
 #include <alibabacloud/models/CredentialVerifyIntlResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DeepfakeDetectIntlResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DeleteVerifyResultResponseBodyResult.hpp>
@@ -114,6 +128,7 @@
 #include <alibabacloud/models/DocOcrMaxResponseBodyResult.hpp>
 #include <alibabacloud/models/EkycVerifyResponseBodyResult.hpp>
 #include <alibabacloud/models/FaceCompareResponseBodyResult.hpp>
+#include <alibabacloud/models/FaceCrossCompareIntlResponseBodyResult.hpp>
 #include <alibabacloud/models/FaceDuplicationCheckIntlResponseBodyResult.hpp>
 #include <alibabacloud/models/FaceGuardRiskResponseBodyResult.hpp>
 #include <alibabacloud/models/FaceLivenessResponseBodyResultExtFaceInfo.hpp>
@@ -127,5 +142,6 @@
 #include <alibabacloud/models/QueryFaceGroupResponseBodyItems.hpp>
 #include <alibabacloud/models/QueryFaceRecordResponseBodyItems.hpp>
 #include <alibabacloud/models/TempAccessTokenIntlResponseBodyData.hpp>
+#include <alibabacloud/models/TempOssUrlIntlResponseBodyData.hpp>
 
 #endif

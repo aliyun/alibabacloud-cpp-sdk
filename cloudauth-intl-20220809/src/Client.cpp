@@ -552,6 +552,48 @@ CheckVerifyLogResponse Client::checkVerifyLog(const CheckVerifyLogRequest &reque
 }
 
 /**
+ * @summary 凭证识别查询
+ *
+ * @param request CredentialGetResultIntlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CredentialGetResultIntlResponse
+ */
+CredentialGetResultIntlResponse Client::credentialGetResultIntlWithOptions(const CredentialGetResultIntlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTransactionId()) {
+    query["TransactionId"] = request.transactionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CredentialGetResultIntl"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CredentialGetResultIntlResponse>();
+}
+
+/**
+ * @summary 凭证识别查询
+ *
+ * @param request CredentialGetResultIntlRequest
+ * @return CredentialGetResultIntlResponse
+ */
+CredentialGetResultIntlResponse Client::credentialGetResultIntl(const CredentialGetResultIntlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return credentialGetResultIntlWithOptions(request, runtime);
+}
+
+/**
  * @summary Credential Recognition
  *
  * @description Detects whether a voucher (such as water, electricity, gas, credit card, etc., e-bills) is forged using AI technology and extracts key information from the voucher.
@@ -617,6 +659,78 @@ CredentialRecognitionIntlResponse Client::credentialRecognitionIntlWithOptions(c
 CredentialRecognitionIntlResponse Client::credentialRecognitionIntl(const CredentialRecognitionIntlRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return credentialRecognitionIntlWithOptions(request, runtime);
+}
+
+/**
+ * @summary 凭证识别提交
+ *
+ * @param request CredentialSubmitIntlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CredentialSubmitIntlResponse
+ */
+CredentialSubmitIntlResponse Client::credentialSubmitIntlWithOptions(const CredentialSubmitIntlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDocType()) {
+    query["DocType"] = request.docType();
+  }
+
+  if (!!request.hasFraudCheck()) {
+    query["FraudCheck"] = request.fraudCheck();
+  }
+
+  if (!!request.hasMerchantBizId()) {
+    query["MerchantBizId"] = request.merchantBizId();
+  }
+
+  if (!!request.hasOcrArea()) {
+    query["OcrArea"] = request.ocrArea();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.productCode();
+  }
+
+  if (!!request.hasSceneCode()) {
+    query["SceneCode"] = request.sceneCode();
+  }
+
+  json body = {};
+  if (!!request.hasCredentialOcrPictureBase64()) {
+    body["CredentialOcrPictureBase64"] = request.credentialOcrPictureBase64();
+  }
+
+  if (!!request.hasCredentialOcrPictureUrl()) {
+    body["CredentialOcrPictureUrl"] = request.credentialOcrPictureUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CredentialSubmitIntl"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CredentialSubmitIntlResponse>();
+}
+
+/**
+ * @summary 凭证识别提交
+ *
+ * @param request CredentialSubmitIntlRequest
+ * @return CredentialSubmitIntlResponse
+ */
+CredentialSubmitIntlResponse Client::credentialSubmitIntl(const CredentialSubmitIntlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return credentialSubmitIntlWithOptions(request, runtime);
 }
 
 /**
@@ -1299,6 +1413,88 @@ FaceCompareResponse Client::faceCompareWithOptions(const FaceCompareRequest &req
 FaceCompareResponse Client::faceCompare(const FaceCompareRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return faceCompareWithOptions(request, runtime);
+}
+
+/**
+ * @summary 人脸交叉比对
+ *
+ * @param request FaceCrossCompareIntlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return FaceCrossCompareIntlResponse
+ */
+FaceCrossCompareIntlResponse Client::faceCrossCompareIntlWithOptions(const FaceCrossCompareIntlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCompareModel()) {
+    query["CompareModel"] = request.compareModel();
+  }
+
+  if (!!request.hasFaceVerifyThreshold()) {
+    query["FaceVerifyThreshold"] = request.faceVerifyThreshold();
+  }
+
+  if (!!request.hasMerchantBizId()) {
+    query["MerchantBizId"] = request.merchantBizId();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.productCode();
+  }
+
+  if (!!request.hasSceneCode()) {
+    query["SceneCode"] = request.sceneCode();
+  }
+
+  if (!!request.hasSourceAFacePicture()) {
+    query["SourceAFacePicture"] = request.sourceAFacePicture();
+  }
+
+  if (!!request.hasSourceAFacePictureUrl()) {
+    query["SourceAFacePictureUrl"] = request.sourceAFacePictureUrl();
+  }
+
+  if (!!request.hasSourceBFacePicture()) {
+    query["SourceBFacePicture"] = request.sourceBFacePicture();
+  }
+
+  if (!!request.hasSourceBFacePictureUrl()) {
+    query["SourceBFacePictureUrl"] = request.sourceBFacePictureUrl();
+  }
+
+  if (!!request.hasSourceCFacePicture()) {
+    query["SourceCFacePicture"] = request.sourceCFacePicture();
+  }
+
+  if (!!request.hasSourceCFacePictureUrl()) {
+    query["SourceCFacePictureUrl"] = request.sourceCFacePictureUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "FaceCrossCompareIntl"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<FaceCrossCompareIntlResponse>();
+}
+
+/**
+ * @summary 人脸交叉比对
+ *
+ * @param request FaceCrossCompareIntlRequest
+ * @return FaceCrossCompareIntlResponse
+ */
+FaceCrossCompareIntlResponse Client::faceCrossCompareIntl(const FaceCrossCompareIntlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return faceCrossCompareIntlWithOptions(request, runtime);
 }
 
 /**
@@ -2372,6 +2568,48 @@ TempAccessTokenIntlResponse Client::tempAccessTokenIntlWithOptions(const TempAcc
 TempAccessTokenIntlResponse Client::tempAccessTokenIntl(const TempAccessTokenIntlRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return tempAccessTokenIntlWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取文件临时地址
+ *
+ * @param request TempOssUrlIntlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TempOssUrlIntlResponse
+ */
+TempOssUrlIntlResponse Client::tempOssUrlIntlWithOptions(const TempOssUrlIntlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasObjectName()) {
+    body["ObjectName"] = request.objectName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "TempOssUrlIntl"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TempOssUrlIntlResponse>();
+}
+
+/**
+ * @summary 获取文件临时地址
+ *
+ * @param request TempOssUrlIntlRequest
+ * @return TempOssUrlIntlResponse
+ */
+TempOssUrlIntlResponse Client::tempOssUrlIntl(const TempOssUrlIntlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return tempOssUrlIntlWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace CloudauthIntl20220809

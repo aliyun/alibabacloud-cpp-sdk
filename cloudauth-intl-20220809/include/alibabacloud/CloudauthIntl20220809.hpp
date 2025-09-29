@@ -158,6 +158,23 @@ namespace CloudauthIntl20220809
       Models::CheckVerifyLogResponse checkVerifyLog(const Models::CheckVerifyLogRequest &request);
 
       /**
+       * @summary 凭证识别查询
+       *
+       * @param request CredentialGetResultIntlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CredentialGetResultIntlResponse
+       */
+      Models::CredentialGetResultIntlResponse credentialGetResultIntlWithOptions(const Models::CredentialGetResultIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 凭证识别查询
+       *
+       * @param request CredentialGetResultIntlRequest
+       * @return CredentialGetResultIntlResponse
+       */
+      Models::CredentialGetResultIntlResponse credentialGetResultIntl(const Models::CredentialGetResultIntlRequest &request);
+
+      /**
        * @summary Credential Recognition
        *
        * @description Detects whether a voucher (such as water, electricity, gas, credit card, etc., e-bills) is forged using AI technology and extracts key information from the voucher.
@@ -177,6 +194,23 @@ namespace CloudauthIntl20220809
        * @return CredentialRecognitionIntlResponse
        */
       Models::CredentialRecognitionIntlResponse credentialRecognitionIntl(const Models::CredentialRecognitionIntlRequest &request);
+
+      /**
+       * @summary 凭证识别提交
+       *
+       * @param request CredentialSubmitIntlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CredentialSubmitIntlResponse
+       */
+      Models::CredentialSubmitIntlResponse credentialSubmitIntlWithOptions(const Models::CredentialSubmitIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 凭证识别提交
+       *
+       * @param request CredentialSubmitIntlRequest
+       * @return CredentialSubmitIntlResponse
+       */
+      Models::CredentialSubmitIntlResponse credentialSubmitIntl(const Models::CredentialSubmitIntlRequest &request);
 
       /**
        * @summary Credential Verification
@@ -340,6 +374,23 @@ namespace CloudauthIntl20220809
        * @return FaceCompareResponse
        */
       Models::FaceCompareResponse faceCompare(const Models::FaceCompareRequest &request);
+
+      /**
+       * @summary 人脸交叉比对
+       *
+       * @param request FaceCrossCompareIntlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return FaceCrossCompareIntlResponse
+       */
+      Models::FaceCrossCompareIntlResponse faceCrossCompareIntlWithOptions(const Models::FaceCrossCompareIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 人脸交叉比对
+       *
+       * @param request FaceCrossCompareIntlRequest
+       * @return FaceCrossCompareIntlResponse
+       */
+      Models::FaceCrossCompareIntlResponse faceCrossCompareIntl(const Models::FaceCrossCompareIntlRequest &request);
 
       /**
        * @summary Face Duplication Detection API
@@ -594,6 +645,23 @@ namespace CloudauthIntl20220809
        * @return TempAccessTokenIntlResponse
        */
       Models::TempAccessTokenIntlResponse tempAccessTokenIntl(const Models::TempAccessTokenIntlRequest &request);
+
+      /**
+       * @summary 获取文件临时地址
+       *
+       * @param request TempOssUrlIntlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TempOssUrlIntlResponse
+       */
+      Models::TempOssUrlIntlResponse tempOssUrlIntlWithOptions(const Models::TempOssUrlIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取文件临时地址
+       *
+       * @param request TempOssUrlIntlRequest
+       * @return TempOssUrlIntlResponse
+       */
+      Models::TempOssUrlIntlResponse tempOssUrlIntl(const Models::TempOssUrlIntlRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace CloudauthIntl20220809
