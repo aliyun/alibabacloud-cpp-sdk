@@ -19,8 +19,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(catalog, catalog_);
       DARABONBA_PTR_TO_JSON(database, database_);
       DARABONBA_PTR_TO_JSON(endpoint, endpoint_);
+      DARABONBA_PTR_TO_JSON(format, format_);
       DARABONBA_PTR_TO_JSON(ossPath, ossPath_);
       DARABONBA_PTR_TO_JSON(partition, partition_);
+      DARABONBA_PTR_TO_JSON(path, path_);
       DARABONBA_PTR_TO_JSON(project, project_);
       DARABONBA_PTR_TO_JSON(table, table_);
       DARABONBA_PTR_TO_JSON(tableFormat, tableFormat_);
@@ -33,8 +35,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(catalog, catalog_);
       DARABONBA_PTR_FROM_JSON(database, database_);
       DARABONBA_PTR_FROM_JSON(endpoint, endpoint_);
+      DARABONBA_PTR_FROM_JSON(format, format_);
       DARABONBA_PTR_FROM_JSON(ossPath, ossPath_);
       DARABONBA_PTR_FROM_JSON(partition, partition_);
+      DARABONBA_PTR_FROM_JSON(path, path_);
       DARABONBA_PTR_FROM_JSON(project, project_);
       DARABONBA_PTR_FROM_JSON(table, table_);
       DARABONBA_PTR_FROM_JSON(tableFormat, tableFormat_);
@@ -53,8 +57,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->accessKey_ != nullptr
         && this->accessSecret_ != nullptr && this->bucket_ != nullptr && this->catalog_ != nullptr && this->database_ != nullptr && this->endpoint_ != nullptr
-        && this->ossPath_ != nullptr && this->partition_ != nullptr && this->project_ != nullptr && this->table_ != nullptr && this->tableFormat_ != nullptr
-        && this->tag_ != nullptr; };
+        && this->format_ != nullptr && this->ossPath_ != nullptr && this->partition_ != nullptr && this->path_ != nullptr && this->project_ != nullptr
+        && this->table_ != nullptr && this->tableFormat_ != nullptr && this->tag_ != nullptr; };
     // accessKey Field Functions 
     bool hasAccessKey() const { return this->accessKey_ != nullptr;};
     void deleteAccessKey() { this->accessKey_ = nullptr;};
@@ -97,6 +101,13 @@ namespace Models
     inline CreateTableRequestDataSourceConfig& setEndpoint(string endpoint) { DARABONBA_PTR_SET_VALUE(endpoint_, endpoint) };
 
 
+    // format Field Functions 
+    bool hasFormat() const { return this->format_ != nullptr;};
+    void deleteFormat() { this->format_ = nullptr;};
+    inline string format() const { DARABONBA_PTR_GET_DEFAULT(format_, "") };
+    inline CreateTableRequestDataSourceConfig& setFormat(string format) { DARABONBA_PTR_SET_VALUE(format_, format) };
+
+
     // ossPath Field Functions 
     bool hasOssPath() const { return this->ossPath_ != nullptr;};
     void deleteOssPath() { this->ossPath_ = nullptr;};
@@ -109,6 +120,13 @@ namespace Models
     void deletePartition() { this->partition_ = nullptr;};
     inline string partition() const { DARABONBA_PTR_GET_DEFAULT(partition_, "") };
     inline CreateTableRequestDataSourceConfig& setPartition(string partition) { DARABONBA_PTR_SET_VALUE(partition_, partition) };
+
+
+    // path Field Functions 
+    bool hasPath() const { return this->path_ != nullptr;};
+    void deletePath() { this->path_ = nullptr;};
+    inline string path() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+    inline CreateTableRequestDataSourceConfig& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
 
 
     // project Field Functions 
@@ -150,10 +168,12 @@ namespace Models
     std::shared_ptr<string> database_ = nullptr;
     // The endpoint of the MaxCompute data source.
     std::shared_ptr<string> endpoint_ = nullptr;
+    std::shared_ptr<string> format_ = nullptr;
     // The Object Storage Service (OSS) path.
     std::shared_ptr<string> ossPath_ = nullptr;
     // The partition in the MaxCompute table. This parameter is required if type is set to odps.
     std::shared_ptr<string> partition_ = nullptr;
+    std::shared_ptr<string> path_ = nullptr;
     // The name of the MaxCompute project that is used as the data source.
     std::shared_ptr<string> project_ = nullptr;
     // The name of the MaxCompute table that is used as the data source.
