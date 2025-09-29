@@ -73,6 +73,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Progress, progress_);
       DARABONBA_PTR_TO_JSON(ProtocolType, protocolType_);
       DARABONBA_PTR_TO_JSON(ResourceGroups, resourceGroups_);
+      DARABONBA_PTR_TO_JSON(SerialNumber, serialNumber_);
       DARABONBA_PTR_TO_JSON(SessionType, sessionType_);
       DARABONBA_PTR_TO_JSON(Sessions, sessions_);
       DARABONBA_PTR_TO_JSON(SnapshotPolicyId, snapshotPolicyId_);
@@ -140,6 +141,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Progress, progress_);
       DARABONBA_PTR_FROM_JSON(ProtocolType, protocolType_);
       DARABONBA_PTR_FROM_JSON(ResourceGroups, resourceGroups_);
+      DARABONBA_PTR_FROM_JSON(SerialNumber, serialNumber_);
       DARABONBA_PTR_FROM_JSON(SessionType, sessionType_);
       DARABONBA_PTR_FROM_JSON(Sessions, sessions_);
       DARABONBA_PTR_FROM_JSON(SnapshotPolicyId, snapshotPolicyId_);
@@ -176,9 +178,9 @@ namespace Models
         && this->networkInterfaceId_ != nullptr && this->networkInterfaceIp_ != nullptr && this->officeSiteId_ != nullptr && this->officeSiteName_ != nullptr && this->officeSiteType_ != nullptr
         && this->officeSiteVpcType_ != nullptr && this->osType_ != nullptr && this->osUpdate_ != nullptr && this->platform_ != nullptr && this->policyGroupId_ != nullptr
         && this->policyGroupIdList_ != nullptr && this->policyGroupName_ != nullptr && this->policyGroupNameList_ != nullptr && this->progress_ != nullptr && this->protocolType_ != nullptr
-        && this->resourceGroups_ != nullptr && this->sessionType_ != nullptr && this->sessions_ != nullptr && this->snapshotPolicyId_ != nullptr && this->snapshotPolicyName_ != nullptr
-        && this->standardStartTime_ != nullptr && this->startTime_ != nullptr && this->supportHibernation_ != nullptr && this->systemDiskCategory_ != nullptr && this->systemDiskSize_ != nullptr
-        && this->tags_ != nullptr && this->volumeEncryptionEnabled_ != nullptr && this->volumeEncryptionKey_ != nullptr && this->zoneType_ != nullptr; };
+        && this->resourceGroups_ != nullptr && this->serialNumber_ != nullptr && this->sessionType_ != nullptr && this->sessions_ != nullptr && this->snapshotPolicyId_ != nullptr
+        && this->snapshotPolicyName_ != nullptr && this->standardStartTime_ != nullptr && this->startTime_ != nullptr && this->supportHibernation_ != nullptr && this->systemDiskCategory_ != nullptr
+        && this->systemDiskSize_ != nullptr && this->tags_ != nullptr && this->volumeEncryptionEnabled_ != nullptr && this->volumeEncryptionKey_ != nullptr && this->zoneType_ != nullptr; };
     // bindAmount Field Functions 
     bool hasBindAmount() const { return this->bindAmount_ != nullptr;};
     void deleteBindAmount() { this->bindAmount_ = nullptr;};
@@ -561,6 +563,13 @@ namespace Models
     inline DescribeDesktopsResponseBodyDesktops& setResourceGroups(vector<Models::DescribeDesktopsResponseBodyDesktopsResourceGroups> && resourceGroups) { DARABONBA_PTR_SET_RVALUE(resourceGroups_, resourceGroups) };
 
 
+    // serialNumber Field Functions 
+    bool hasSerialNumber() const { return this->serialNumber_ != nullptr;};
+    void deleteSerialNumber() { this->serialNumber_ = nullptr;};
+    inline string serialNumber() const { DARABONBA_PTR_GET_DEFAULT(serialNumber_, "") };
+    inline DescribeDesktopsResponseBodyDesktops& setSerialNumber(string serialNumber) { DARABONBA_PTR_SET_VALUE(serialNumber_, serialNumber) };
+
+
     // sessionType Field Functions 
     bool hasSessionType() const { return this->sessionType_ != nullptr;};
     void deleteSessionType() { this->sessionType_ = nullptr;};
@@ -819,6 +828,7 @@ namespace Models
     std::shared_ptr<string> protocolType_ = nullptr;
     // The information about the enterprise resource groups.
     std::shared_ptr<vector<Models::DescribeDesktopsResponseBodyDesktopsResourceGroups>> resourceGroups_ = nullptr;
+    std::shared_ptr<string> serialNumber_ = nullptr;
     // The type of the session.
     // 
     // Valid values:
