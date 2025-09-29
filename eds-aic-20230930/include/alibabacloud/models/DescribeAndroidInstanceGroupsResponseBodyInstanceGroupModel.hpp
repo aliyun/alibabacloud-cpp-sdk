@@ -31,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GmtExpired, gmtExpired_);
       DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
+      DARABONBA_PTR_TO_JSON(ImageVersion, imageVersion_);
       DARABONBA_PTR_TO_JSON(InstalledAppList, installedAppList_);
       DARABONBA_PTR_TO_JSON(InstanceGroupId, instanceGroupId_);
       DARABONBA_PTR_TO_JSON(InstanceGroupName, instanceGroupName_);
@@ -68,6 +69,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GmtExpired, gmtExpired_);
       DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
+      DARABONBA_PTR_FROM_JSON(ImageVersion, imageVersion_);
       DARABONBA_PTR_FROM_JSON(InstalledAppList, installedAppList_);
       DARABONBA_PTR_FROM_JSON(InstanceGroupId, instanceGroupId_);
       DARABONBA_PTR_FROM_JSON(InstanceGroupName, instanceGroupName_);
@@ -103,11 +105,11 @@ namespace Models
     virtual bool empty() const override { this->appInstanceGroupId_ != nullptr
         && this->architectureType_ != nullptr && this->availableInstanceAmount_ != nullptr && this->bandwidthPackageId_ != nullptr && this->bandwidthPackageStatus_ != nullptr && this->bandwidthPackageType_ != nullptr
         && this->chargeType_ != nullptr && this->cpu_ != nullptr && this->disks_ != nullptr && this->enableIpv6_ != nullptr && this->errorCode_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtExpired_ != nullptr && this->gmtModified_ != nullptr && this->imageId_ != nullptr && this->installedAppList_ != nullptr
-        && this->instanceGroupId_ != nullptr && this->instanceGroupName_ != nullptr && this->instanceGroupSpec_ != nullptr && this->instanceGroupSpecDescribe_ != nullptr && this->instanceGroupStatus_ != nullptr
-        && this->ipv6Bandwidth_ != nullptr && this->memory_ != nullptr && this->networkType_ != nullptr && this->numberOfInstances_ != nullptr && this->officeSiteId_ != nullptr
-        && this->policyGroupId_ != nullptr && this->regionId_ != nullptr && this->renderingType_ != nullptr && this->resolutionHeight_ != nullptr && this->resolutionWidth_ != nullptr
-        && this->saleMode_ != nullptr && this->systemVersion_ != nullptr && this->tags_ != nullptr && this->vSwitchId_ != nullptr; };
+        && this->gmtCreate_ != nullptr && this->gmtExpired_ != nullptr && this->gmtModified_ != nullptr && this->imageId_ != nullptr && this->imageVersion_ != nullptr
+        && this->installedAppList_ != nullptr && this->instanceGroupId_ != nullptr && this->instanceGroupName_ != nullptr && this->instanceGroupSpec_ != nullptr && this->instanceGroupSpecDescribe_ != nullptr
+        && this->instanceGroupStatus_ != nullptr && this->ipv6Bandwidth_ != nullptr && this->memory_ != nullptr && this->networkType_ != nullptr && this->numberOfInstances_ != nullptr
+        && this->officeSiteId_ != nullptr && this->policyGroupId_ != nullptr && this->regionId_ != nullptr && this->renderingType_ != nullptr && this->resolutionHeight_ != nullptr
+        && this->resolutionWidth_ != nullptr && this->saleMode_ != nullptr && this->systemVersion_ != nullptr && this->tags_ != nullptr && this->vSwitchId_ != nullptr; };
     // appInstanceGroupId Field Functions 
     bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
     void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};
@@ -213,6 +215,13 @@ namespace Models
     void deleteImageId() { this->imageId_ = nullptr;};
     inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
+
+
+    // imageVersion Field Functions 
+    bool hasImageVersion() const { return this->imageVersion_ != nullptr;};
+    void deleteImageVersion() { this->imageVersion_ = nullptr;};
+    inline string imageVersion() const { DARABONBA_PTR_GET_DEFAULT(imageVersion_, "") };
+    inline DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel& setImageVersion(string imageVersion) { DARABONBA_PTR_SET_VALUE(imageVersion_, imageVersion) };
 
 
     // installedAppList Field Functions 
@@ -386,6 +395,7 @@ namespace Models
     std::shared_ptr<string> gmtModified_ = nullptr;
     // The ID of the image.
     std::shared_ptr<string> imageId_ = nullptr;
+    std::shared_ptr<string> imageVersion_ = nullptr;
     // The list of installed applications.
     std::shared_ptr<string> installedAppList_ = nullptr;
     // The ID of the instance group.

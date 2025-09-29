@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BackupFileName, backupFileName_);
       DARABONBA_PTR_TO_JSON(BackupFilePath, backupFilePath_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(ExcludeSourceFilePathList, excludeSourceFilePathList_);
       DARABONBA_PTR_TO_JSON(SourceAppList, sourceAppList_);
       DARABONBA_PTR_TO_JSON(SourceFilePathList, sourceFilePathList_);
       DARABONBA_PTR_TO_JSON(UploadEndpoint, uploadEndpoint_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BackupFileName, backupFileName_);
       DARABONBA_PTR_FROM_JSON(BackupFilePath, backupFilePath_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(ExcludeSourceFilePathList, excludeSourceFilePathList_);
       DARABONBA_PTR_FROM_JSON(SourceAppList, sourceAppList_);
       DARABONBA_PTR_FROM_JSON(SourceFilePathList, sourceFilePathList_);
       DARABONBA_PTR_FROM_JSON(UploadEndpoint, uploadEndpoint_);
@@ -47,8 +49,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->androidInstanceIdList_ != nullptr
-        && this->backupAll_ != nullptr && this->backupFileName_ != nullptr && this->backupFilePath_ != nullptr && this->description_ != nullptr && this->sourceAppList_ != nullptr
-        && this->sourceFilePathList_ != nullptr && this->uploadEndpoint_ != nullptr && this->uploadType_ != nullptr; };
+        && this->backupAll_ != nullptr && this->backupFileName_ != nullptr && this->backupFilePath_ != nullptr && this->description_ != nullptr && this->excludeSourceFilePathList_ != nullptr
+        && this->sourceAppList_ != nullptr && this->sourceFilePathList_ != nullptr && this->uploadEndpoint_ != nullptr && this->uploadType_ != nullptr; };
     // androidInstanceIdList Field Functions 
     bool hasAndroidInstanceIdList() const { return this->androidInstanceIdList_ != nullptr;};
     void deleteAndroidInstanceIdList() { this->androidInstanceIdList_ = nullptr;};
@@ -84,6 +86,15 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline BackupFileRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // excludeSourceFilePathList Field Functions 
+    bool hasExcludeSourceFilePathList() const { return this->excludeSourceFilePathList_ != nullptr;};
+    void deleteExcludeSourceFilePathList() { this->excludeSourceFilePathList_ = nullptr;};
+    inline const vector<string> & excludeSourceFilePathList() const { DARABONBA_PTR_GET_CONST(excludeSourceFilePathList_, vector<string>) };
+    inline vector<string> excludeSourceFilePathList() { DARABONBA_PTR_GET(excludeSourceFilePathList_, vector<string>) };
+    inline BackupFileRequest& setExcludeSourceFilePathList(const vector<string> & excludeSourceFilePathList) { DARABONBA_PTR_SET_VALUE(excludeSourceFilePathList_, excludeSourceFilePathList) };
+    inline BackupFileRequest& setExcludeSourceFilePathList(vector<string> && excludeSourceFilePathList) { DARABONBA_PTR_SET_RVALUE(excludeSourceFilePathList_, excludeSourceFilePathList) };
 
 
     // sourceAppList Field Functions 
@@ -135,6 +146,7 @@ namespace Models
     std::shared_ptr<string> backupFilePath_ = nullptr;
     // The description of the backup file.
     std::shared_ptr<string> description_ = nullptr;
+    std::shared_ptr<vector<string>> excludeSourceFilePathList_ = nullptr;
     // The names of the application packages that you want to back up.
     std::shared_ptr<vector<string>> sourceAppList_ = nullptr;
     // The paths to the source files.

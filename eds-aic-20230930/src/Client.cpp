@@ -175,6 +175,10 @@ BackupFileResponse Client::backupFileWithOptions(const BackupFileRequest &reques
     query["Description"] = request.description();
   }
 
+  if (!!request.hasExcludeSourceFilePathList()) {
+    query["ExcludeSourceFilePathList"] = request.excludeSourceFilePathList();
+  }
+
   if (!!request.hasSourceAppList()) {
     query["SourceAppList"] = request.sourceAppList();
   }
