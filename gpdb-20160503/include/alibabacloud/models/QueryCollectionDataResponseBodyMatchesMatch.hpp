@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_QUERYCOLLECTIONDATARESPONSEBODYMATCHESMATCH_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/QueryCollectionDataResponseBodyMatchesMatchSparseValues.hpp>
 #include <alibabacloud/models/QueryCollectionDataResponseBodyMatchesMatchValues.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -19,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Metadata, metadata_);
       DARABONBA_ANY_TO_JSON(MetadataV2, metadataV2_);
       DARABONBA_PTR_TO_JSON(Score, score_);
+      DARABONBA_PTR_TO_JSON(SparseValues, sparseValues_);
       DARABONBA_PTR_TO_JSON(Values, values_);
     };
     friend void from_json(const Darabonba::Json& j, QueryCollectionDataResponseBodyMatchesMatch& obj) { 
@@ -26,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Metadata, metadata_);
       DARABONBA_ANY_FROM_JSON(MetadataV2, metadataV2_);
       DARABONBA_PTR_FROM_JSON(Score, score_);
+      DARABONBA_PTR_FROM_JSON(SparseValues, sparseValues_);
       DARABONBA_PTR_FROM_JSON(Values, values_);
     };
     QueryCollectionDataResponseBodyMatchesMatch() = default ;
@@ -40,7 +43,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->id_ != nullptr
-        && this->metadata_ != nullptr && this->metadataV2_ != nullptr && this->score_ != nullptr && this->values_ != nullptr; };
+        && this->metadata_ != nullptr && this->metadataV2_ != nullptr && this->score_ != nullptr && this->sparseValues_ != nullptr && this->values_ != nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -73,6 +76,15 @@ namespace Models
     inline QueryCollectionDataResponseBodyMatchesMatch& setScore(double score) { DARABONBA_PTR_SET_VALUE(score_, score) };
 
 
+    // sparseValues Field Functions 
+    bool hasSparseValues() const { return this->sparseValues_ != nullptr;};
+    void deleteSparseValues() { this->sparseValues_ = nullptr;};
+    inline const Models::QueryCollectionDataResponseBodyMatchesMatchSparseValues & sparseValues() const { DARABONBA_PTR_GET_CONST(sparseValues_, Models::QueryCollectionDataResponseBodyMatchesMatchSparseValues) };
+    inline Models::QueryCollectionDataResponseBodyMatchesMatchSparseValues sparseValues() { DARABONBA_PTR_GET(sparseValues_, Models::QueryCollectionDataResponseBodyMatchesMatchSparseValues) };
+    inline QueryCollectionDataResponseBodyMatchesMatch& setSparseValues(const Models::QueryCollectionDataResponseBodyMatchesMatchSparseValues & sparseValues) { DARABONBA_PTR_SET_VALUE(sparseValues_, sparseValues) };
+    inline QueryCollectionDataResponseBodyMatchesMatch& setSparseValues(Models::QueryCollectionDataResponseBodyMatchesMatchSparseValues && sparseValues) { DARABONBA_PTR_SET_RVALUE(sparseValues_, sparseValues) };
+
+
     // values Field Functions 
     bool hasValues() const { return this->values_ != nullptr;};
     void deleteValues() { this->values_ = nullptr;};
@@ -90,6 +102,7 @@ namespace Models
     Darabonba::Json metadataV2_ = nullptr;
     // The similarity score of this data, which is related to the algorithm `(l2/ip/cosine)` specified when creating the index.
     std::shared_ptr<double> score_ = nullptr;
+    std::shared_ptr<Models::QueryCollectionDataResponseBodyMatchesMatchSparseValues> sparseValues_ = nullptr;
     // List of vector data.
     std::shared_ptr<Models::QueryCollectionDataResponseBodyMatchesMatchValues> values_ = nullptr;
   };

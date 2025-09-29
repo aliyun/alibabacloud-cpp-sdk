@@ -838,6 +838,9 @@
 #include <alibabacloud/models/ModifyRemoteAdbdataSourceResponseBodyDataSourceItem.hpp>
 #include <alibabacloud/models/QueryCollectionDataRequestRelationalTableFilter.hpp>
 #include <alibabacloud/models/QueryCollectionDataRequestSparseVector.hpp>
+#include <alibabacloud/models/QueryCollectionDataResponseBodyMatchesMatchSparseValuesIndices.hpp>
+#include <alibabacloud/models/QueryCollectionDataResponseBodyMatchesMatchSparseValuesValues.hpp>
+#include <alibabacloud/models/QueryCollectionDataResponseBodyMatchesMatchSparseValues.hpp>
 #include <alibabacloud/models/QueryCollectionDataResponseBodyMatchesMatchValues.hpp>
 #include <alibabacloud/models/QueryCollectionDataResponseBodyMatchesMatch.hpp>
 #include <alibabacloud/models/QueryCollectionDataResponseBodyMatches.hpp>

@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(HybridSearch, hybridSearch_);
       DARABONBA_PTR_TO_JSON(HybridSearchArgs, hybridSearchArgs_);
       DARABONBA_PTR_TO_JSON(IncludeMetadataFields, includeMetadataFields_);
+      DARABONBA_PTR_TO_JSON(IncludeSparseValues, includeSparseValues_);
       DARABONBA_PTR_TO_JSON(IncludeValues, includeValues_);
       DARABONBA_PTR_TO_JSON(Metrics, metrics_);
       DARABONBA_PTR_TO_JSON(Namespace, namespace_);
@@ -46,6 +47,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(HybridSearch, hybridSearch_);
       DARABONBA_PTR_FROM_JSON(HybridSearchArgs, hybridSearchArgs_);
       DARABONBA_PTR_FROM_JSON(IncludeMetadataFields, includeMetadataFields_);
+      DARABONBA_PTR_FROM_JSON(IncludeSparseValues, includeSparseValues_);
       DARABONBA_PTR_FROM_JSON(IncludeValues, includeValues_);
       DARABONBA_PTR_FROM_JSON(Metrics, metrics_);
       DARABONBA_PTR_FROM_JSON(Namespace, namespace_);
@@ -73,9 +75,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->collection_ != nullptr
         && this->content_ != nullptr && this->DBInstanceId_ != nullptr && this->filter_ != nullptr && this->hybridSearch_ != nullptr && this->hybridSearchArgs_ != nullptr
-        && this->includeMetadataFields_ != nullptr && this->includeValues_ != nullptr && this->metrics_ != nullptr && this->namespace_ != nullptr && this->namespacePassword_ != nullptr
-        && this->offset_ != nullptr && this->orderBy_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->relationalTableFilter_ != nullptr
-        && this->sparseVector_ != nullptr && this->topK_ != nullptr && this->vector_ != nullptr && this->workspaceId_ != nullptr; };
+        && this->includeMetadataFields_ != nullptr && this->includeSparseValues_ != nullptr && this->includeValues_ != nullptr && this->metrics_ != nullptr && this->namespace_ != nullptr
+        && this->namespacePassword_ != nullptr && this->offset_ != nullptr && this->orderBy_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr
+        && this->relationalTableFilter_ != nullptr && this->sparseVector_ != nullptr && this->topK_ != nullptr && this->vector_ != nullptr && this->workspaceId_ != nullptr; };
     // collection Field Functions 
     bool hasCollection() const { return this->collection_ != nullptr;};
     void deleteCollection() { this->collection_ = nullptr;};
@@ -125,6 +127,13 @@ namespace Models
     void deleteIncludeMetadataFields() { this->includeMetadataFields_ = nullptr;};
     inline string includeMetadataFields() const { DARABONBA_PTR_GET_DEFAULT(includeMetadataFields_, "") };
     inline QueryCollectionDataRequest& setIncludeMetadataFields(string includeMetadataFields) { DARABONBA_PTR_SET_VALUE(includeMetadataFields_, includeMetadataFields) };
+
+
+    // includeSparseValues Field Functions 
+    bool hasIncludeSparseValues() const { return this->includeSparseValues_ != nullptr;};
+    void deleteIncludeSparseValues() { this->includeSparseValues_ = nullptr;};
+    inline bool includeSparseValues() const { DARABONBA_PTR_GET_DEFAULT(includeSparseValues_, false) };
+    inline QueryCollectionDataRequest& setIncludeSparseValues(bool includeSparseValues) { DARABONBA_PTR_SET_VALUE(includeSparseValues_, includeSparseValues) };
 
 
     // includeValues Field Functions 
@@ -272,6 +281,7 @@ namespace Models
     std::shared_ptr<map<string, Darabonba::Json>> hybridSearchArgs_ = nullptr;
     // Defaults to empty, indicating the metadata fields to return. Multiple fields should be separated by commas.
     std::shared_ptr<string> includeMetadataFields_ = nullptr;
+    std::shared_ptr<bool> includeSparseValues_ = nullptr;
     // Whether to return vector data. Value descriptions:
     // - **true**: Return vector data.
     // - **false**: Do not return vector data, used for full-text search scenarios.

@@ -12410,6 +12410,10 @@ QueryCollectionDataResponse Client::queryCollectionDataWithOptions(const QueryCo
     query["IncludeMetadataFields"] = request.includeMetadataFields();
   }
 
+  if (!!request.hasIncludeSparseValues()) {
+    query["IncludeSparseValues"] = request.includeSparseValues();
+  }
+
   if (!!request.hasIncludeValues()) {
     query["IncludeValues"] = request.includeValues();
   }
