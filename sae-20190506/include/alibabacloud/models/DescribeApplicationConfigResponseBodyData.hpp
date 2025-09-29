@@ -40,6 +40,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Cpu, cpu_);
       DARABONBA_PTR_TO_JSON(CustomHostAlias, customHostAlias_);
       DARABONBA_PTR_TO_JSON(CustomImageNetworkType, customImageNetworkType_);
+      DARABONBA_PTR_TO_JSON(DeploymentName, deploymentName_);
       DARABONBA_PTR_TO_JSON(DiskSize, diskSize_);
       DARABONBA_PTR_TO_JSON(Dotnet, dotnet_);
       DARABONBA_PTR_TO_JSON(EdasContainerVersion, edasContainerVersion_);
@@ -134,6 +135,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
       DARABONBA_PTR_FROM_JSON(CustomHostAlias, customHostAlias_);
       DARABONBA_PTR_FROM_JSON(CustomImageNetworkType, customImageNetworkType_);
+      DARABONBA_PTR_FROM_JSON(DeploymentName, deploymentName_);
       DARABONBA_PTR_FROM_JSON(DiskSize, diskSize_);
       DARABONBA_PTR_FROM_JSON(Dotnet, dotnet_);
       DARABONBA_PTR_FROM_JSON(EdasContainerVersion, edasContainerVersion_);
@@ -225,22 +227,22 @@ namespace Models
         && this->acrInstanceId_ != nullptr && this->appDescription_ != nullptr && this->appId_ != nullptr && this->appName_ != nullptr && this->appSource_ != nullptr
         && this->associateEip_ != nullptr && this->baseAppId_ != nullptr && this->batchWaitTime_ != nullptr && this->clusterId_ != nullptr && this->cmsServiceId_ != nullptr
         && this->command_ != nullptr && this->commandArgs_ != nullptr && this->configMapMountDesc_ != nullptr && this->cpu_ != nullptr && this->customHostAlias_ != nullptr
-        && this->customImageNetworkType_ != nullptr && this->diskSize_ != nullptr && this->dotnet_ != nullptr && this->edasContainerVersion_ != nullptr && this->emptyDirDesc_ != nullptr
-        && this->enableAhas_ != nullptr && this->enableCpuBurst_ != nullptr && this->enableGreyTagRoute_ != nullptr && this->enableIdle_ != nullptr && this->enableNewArms_ != nullptr
-        && this->enablePrometheus_ != nullptr && this->envs_ != nullptr && this->gpuCount_ != nullptr && this->gpuType_ != nullptr && this->headlessPvtzDiscovery_ != nullptr
-        && this->html_ != nullptr && this->imagePullSecrets_ != nullptr && this->imageUrl_ != nullptr && this->initContainersConfig_ != nullptr && this->isStateful_ != nullptr
-        && this->jarStartArgs_ != nullptr && this->jarStartOptions_ != nullptr && this->jdk_ != nullptr && this->kafkaConfigs_ != nullptr && this->liveness_ != nullptr
-        && this->memory_ != nullptr && this->microRegistration_ != nullptr && this->microRegistrationConfig_ != nullptr && this->microserviceEngineConfig_ != nullptr && this->minReadyInstanceRatio_ != nullptr
-        && this->minReadyInstances_ != nullptr && this->mountDesc_ != nullptr && this->mountHost_ != nullptr && this->mseApplicationId_ != nullptr && this->mseApplicationName_ != nullptr
-        && this->namespaceId_ != nullptr && this->nasConfigs_ != nullptr && this->nasId_ != nullptr && this->newSaeVersion_ != nullptr && this->oidcRoleName_ != nullptr
-        && this->ossAkId_ != nullptr && this->ossAkSecret_ != nullptr && this->ossMountDescs_ != nullptr && this->packageType_ != nullptr && this->packageUrl_ != nullptr
-        && this->packageVersion_ != nullptr && this->php_ != nullptr && this->phpArmsConfigLocation_ != nullptr && this->phpConfig_ != nullptr && this->phpConfigLocation_ != nullptr
-        && this->postStart_ != nullptr && this->preStop_ != nullptr && this->programmingLanguage_ != nullptr && this->pvtzDiscovery_ != nullptr && this->python_ != nullptr
-        && this->pythonModules_ != nullptr && this->readiness_ != nullptr && this->regionId_ != nullptr && this->replicas_ != nullptr && this->resourceType_ != nullptr
-        && this->secretMountDesc_ != nullptr && this->securityGroupId_ != nullptr && this->serviceTags_ != nullptr && this->sidecarContainersConfig_ != nullptr && this->slsConfigs_ != nullptr
-        && this->startupProbe_ != nullptr && this->swimlanePvtzDiscovery_ != nullptr && this->tags_ != nullptr && this->terminationGracePeriodSeconds_ != nullptr && this->timezone_ != nullptr
-        && this->tomcatConfig_ != nullptr && this->updateStrategy_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr && this->warStartOptions_ != nullptr
-        && this->webContainer_ != nullptr; };
+        && this->customImageNetworkType_ != nullptr && this->deploymentName_ != nullptr && this->diskSize_ != nullptr && this->dotnet_ != nullptr && this->edasContainerVersion_ != nullptr
+        && this->emptyDirDesc_ != nullptr && this->enableAhas_ != nullptr && this->enableCpuBurst_ != nullptr && this->enableGreyTagRoute_ != nullptr && this->enableIdle_ != nullptr
+        && this->enableNewArms_ != nullptr && this->enablePrometheus_ != nullptr && this->envs_ != nullptr && this->gpuCount_ != nullptr && this->gpuType_ != nullptr
+        && this->headlessPvtzDiscovery_ != nullptr && this->html_ != nullptr && this->imagePullSecrets_ != nullptr && this->imageUrl_ != nullptr && this->initContainersConfig_ != nullptr
+        && this->isStateful_ != nullptr && this->jarStartArgs_ != nullptr && this->jarStartOptions_ != nullptr && this->jdk_ != nullptr && this->kafkaConfigs_ != nullptr
+        && this->liveness_ != nullptr && this->memory_ != nullptr && this->microRegistration_ != nullptr && this->microRegistrationConfig_ != nullptr && this->microserviceEngineConfig_ != nullptr
+        && this->minReadyInstanceRatio_ != nullptr && this->minReadyInstances_ != nullptr && this->mountDesc_ != nullptr && this->mountHost_ != nullptr && this->mseApplicationId_ != nullptr
+        && this->mseApplicationName_ != nullptr && this->namespaceId_ != nullptr && this->nasConfigs_ != nullptr && this->nasId_ != nullptr && this->newSaeVersion_ != nullptr
+        && this->oidcRoleName_ != nullptr && this->ossAkId_ != nullptr && this->ossAkSecret_ != nullptr && this->ossMountDescs_ != nullptr && this->packageType_ != nullptr
+        && this->packageUrl_ != nullptr && this->packageVersion_ != nullptr && this->php_ != nullptr && this->phpArmsConfigLocation_ != nullptr && this->phpConfig_ != nullptr
+        && this->phpConfigLocation_ != nullptr && this->postStart_ != nullptr && this->preStop_ != nullptr && this->programmingLanguage_ != nullptr && this->pvtzDiscovery_ != nullptr
+        && this->python_ != nullptr && this->pythonModules_ != nullptr && this->readiness_ != nullptr && this->regionId_ != nullptr && this->replicas_ != nullptr
+        && this->resourceType_ != nullptr && this->secretMountDesc_ != nullptr && this->securityGroupId_ != nullptr && this->serviceTags_ != nullptr && this->sidecarContainersConfig_ != nullptr
+        && this->slsConfigs_ != nullptr && this->startupProbe_ != nullptr && this->swimlanePvtzDiscovery_ != nullptr && this->tags_ != nullptr && this->terminationGracePeriodSeconds_ != nullptr
+        && this->timezone_ != nullptr && this->tomcatConfig_ != nullptr && this->updateStrategy_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr
+        && this->warStartOptions_ != nullptr && this->webContainer_ != nullptr; };
     // acrAssumeRoleArn Field Functions 
     bool hasAcrAssumeRoleArn() const { return this->acrAssumeRoleArn_ != nullptr;};
     void deleteAcrAssumeRoleArn() { this->acrAssumeRoleArn_ = nullptr;};
@@ -360,6 +362,13 @@ namespace Models
     void deleteCustomImageNetworkType() { this->customImageNetworkType_ = nullptr;};
     inline string customImageNetworkType() const { DARABONBA_PTR_GET_DEFAULT(customImageNetworkType_, "") };
     inline DescribeApplicationConfigResponseBodyData& setCustomImageNetworkType(string customImageNetworkType) { DARABONBA_PTR_SET_VALUE(customImageNetworkType_, customImageNetworkType) };
+
+
+    // deploymentName Field Functions 
+    bool hasDeploymentName() const { return this->deploymentName_ != nullptr;};
+    void deleteDeploymentName() { this->deploymentName_ = nullptr;};
+    inline string deploymentName() const { DARABONBA_PTR_GET_DEFAULT(deploymentName_, "") };
+    inline DescribeApplicationConfigResponseBodyData& setDeploymentName(string deploymentName) { DARABONBA_PTR_SET_VALUE(deploymentName_, deploymentName) };
 
 
     // diskSize Field Functions 
@@ -974,6 +983,7 @@ namespace Models
     // 
     // - intranet: private network image.
     std::shared_ptr<string> customImageNetworkType_ = nullptr;
+    std::shared_ptr<string> deploymentName_ = nullptr;
     // The disk size. Unit: GB.
     std::shared_ptr<int32_t> diskSize_ = nullptr;
     // The version of .NET.
