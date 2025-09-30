@@ -19,7 +19,6 @@ namespace Gpdb20160503
 
       Client(AlibabaCloud::OpenApi::Utils::Models::Config &config);
 
-      Darabonba::Json _postOSSObject(const string &bucketName, const Darabonba::Json &form);
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
@@ -143,6 +142,59 @@ namespace Gpdb20160503
        * @return CancelUpsertCollectionDataJobResponse
        */
       Models::CancelUpsertCollectionDataJobResponse cancelUpsertCollectionDataJob(const Models::CancelUpsertCollectionDataJobRequest &request);
+
+      /**
+       * @summary 通过结合知识库和大模型，提供智能问答服务。
+       *
+       * @description 通过结合知识库和大模型，提供智能问答服务。
+       *
+       * @param tmpReq ChatWithKnowledgeBaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatWithKnowledgeBaseResponse
+       */
+      Models::ChatWithKnowledgeBaseResponse chatWithKnowledgeBaseWithOptions(const Models::ChatWithKnowledgeBaseRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通过结合知识库和大模型，提供智能问答服务。
+       *
+       * @description 通过结合知识库和大模型，提供智能问答服务。
+       *
+       * @param request ChatWithKnowledgeBaseRequest
+       * @return ChatWithKnowledgeBaseResponse
+       */
+      Models::ChatWithKnowledgeBaseResponse chatWithKnowledgeBase(const Models::ChatWithKnowledgeBaseRequest &request);
+
+      /**
+       * @summary 通过结合知识库和大模型，提供智能问答服务。
+       *
+       * @description 通过结合知识库和大模型，提供智能问答服务。
+       *
+       * @param tmpReq ChatWithKnowledgeBaseStreamRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatWithKnowledgeBaseStreamResponse
+       */
+      FutrueGenerator<Models::ChatWithKnowledgeBaseStreamResponse> chatWithKnowledgeBaseStreamWithSSE(const Models::ChatWithKnowledgeBaseStreamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通过结合知识库和大模型，提供智能问答服务。
+       *
+       * @description 通过结合知识库和大模型，提供智能问答服务。
+       *
+       * @param tmpReq ChatWithKnowledgeBaseStreamRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatWithKnowledgeBaseStreamResponse
+       */
+      Models::ChatWithKnowledgeBaseStreamResponse chatWithKnowledgeBaseStreamWithOptions(const Models::ChatWithKnowledgeBaseStreamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通过结合知识库和大模型，提供智能问答服务。
+       *
+       * @description 通过结合知识库和大模型，提供智能问答服务。
+       *
+       * @param request ChatWithKnowledgeBaseStreamRequest
+       * @return ChatWithKnowledgeBaseStreamResponse
+       */
+      Models::ChatWithKnowledgeBaseStreamResponse chatWithKnowledgeBaseStream(const Models::ChatWithKnowledgeBaseStreamRequest &request);
 
       /**
        * @summary Checks the configurations of a Hadoop data source.

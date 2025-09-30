@@ -1,0 +1,150 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_CHATWITHKNOWLEDGEBASEREQUESTMODELPARAMS_HPP_
+#define ALIBABACLOUD_MODELS_CHATWITHKNOWLEDGEBASEREQUESTMODELPARAMS_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/ChatWithKnowledgeBaseRequestModelParamsMessages.hpp>
+#include <alibabacloud/models/ChatWithKnowledgeBaseRequestModelParamsTools.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Gpdb20160503
+{
+namespace Models
+{
+  class ChatWithKnowledgeBaseRequestModelParams : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ChatWithKnowledgeBaseRequestModelParams& obj) { 
+      DARABONBA_PTR_TO_JSON(MaxTokens, maxTokens_);
+      DARABONBA_PTR_TO_JSON(Messages, messages_);
+      DARABONBA_PTR_TO_JSON(Model, model_);
+      DARABONBA_PTR_TO_JSON(N, n_);
+      DARABONBA_PTR_TO_JSON(PresencePenalty, presencePenalty_);
+      DARABONBA_PTR_TO_JSON(Seed, seed_);
+      DARABONBA_PTR_TO_JSON(Stop, stop_);
+      DARABONBA_PTR_TO_JSON(Temperature, temperature_);
+      DARABONBA_PTR_TO_JSON(Tools, tools_);
+      DARABONBA_PTR_TO_JSON(TopP, topP_);
+    };
+    friend void from_json(const Darabonba::Json& j, ChatWithKnowledgeBaseRequestModelParams& obj) { 
+      DARABONBA_PTR_FROM_JSON(MaxTokens, maxTokens_);
+      DARABONBA_PTR_FROM_JSON(Messages, messages_);
+      DARABONBA_PTR_FROM_JSON(Model, model_);
+      DARABONBA_PTR_FROM_JSON(N, n_);
+      DARABONBA_PTR_FROM_JSON(PresencePenalty, presencePenalty_);
+      DARABONBA_PTR_FROM_JSON(Seed, seed_);
+      DARABONBA_PTR_FROM_JSON(Stop, stop_);
+      DARABONBA_PTR_FROM_JSON(Temperature, temperature_);
+      DARABONBA_PTR_FROM_JSON(Tools, tools_);
+      DARABONBA_PTR_FROM_JSON(TopP, topP_);
+    };
+    ChatWithKnowledgeBaseRequestModelParams() = default ;
+    ChatWithKnowledgeBaseRequestModelParams(const ChatWithKnowledgeBaseRequestModelParams &) = default ;
+    ChatWithKnowledgeBaseRequestModelParams(ChatWithKnowledgeBaseRequestModelParams &&) = default ;
+    ChatWithKnowledgeBaseRequestModelParams(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ChatWithKnowledgeBaseRequestModelParams() = default ;
+    ChatWithKnowledgeBaseRequestModelParams& operator=(const ChatWithKnowledgeBaseRequestModelParams &) = default ;
+    ChatWithKnowledgeBaseRequestModelParams& operator=(ChatWithKnowledgeBaseRequestModelParams &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->maxTokens_ != nullptr
+        && this->messages_ != nullptr && this->model_ != nullptr && this->n_ != nullptr && this->presencePenalty_ != nullptr && this->seed_ != nullptr
+        && this->stop_ != nullptr && this->temperature_ != nullptr && this->tools_ != nullptr && this->topP_ != nullptr; };
+    // maxTokens Field Functions 
+    bool hasMaxTokens() const { return this->maxTokens_ != nullptr;};
+    void deleteMaxTokens() { this->maxTokens_ = nullptr;};
+    inline int64_t maxTokens() const { DARABONBA_PTR_GET_DEFAULT(maxTokens_, 0L) };
+    inline ChatWithKnowledgeBaseRequestModelParams& setMaxTokens(int64_t maxTokens) { DARABONBA_PTR_SET_VALUE(maxTokens_, maxTokens) };
+
+
+    // messages Field Functions 
+    bool hasMessages() const { return this->messages_ != nullptr;};
+    void deleteMessages() { this->messages_ = nullptr;};
+    inline const vector<Models::ChatWithKnowledgeBaseRequestModelParamsMessages> & messages() const { DARABONBA_PTR_GET_CONST(messages_, vector<Models::ChatWithKnowledgeBaseRequestModelParamsMessages>) };
+    inline vector<Models::ChatWithKnowledgeBaseRequestModelParamsMessages> messages() { DARABONBA_PTR_GET(messages_, vector<Models::ChatWithKnowledgeBaseRequestModelParamsMessages>) };
+    inline ChatWithKnowledgeBaseRequestModelParams& setMessages(const vector<Models::ChatWithKnowledgeBaseRequestModelParamsMessages> & messages) { DARABONBA_PTR_SET_VALUE(messages_, messages) };
+    inline ChatWithKnowledgeBaseRequestModelParams& setMessages(vector<Models::ChatWithKnowledgeBaseRequestModelParamsMessages> && messages) { DARABONBA_PTR_SET_RVALUE(messages_, messages) };
+
+
+    // model Field Functions 
+    bool hasModel() const { return this->model_ != nullptr;};
+    void deleteModel() { this->model_ = nullptr;};
+    inline string model() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
+    inline ChatWithKnowledgeBaseRequestModelParams& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
+
+
+    // n Field Functions 
+    bool hasN() const { return this->n_ != nullptr;};
+    void deleteN() { this->n_ = nullptr;};
+    inline int64_t n() const { DARABONBA_PTR_GET_DEFAULT(n_, 0L) };
+    inline ChatWithKnowledgeBaseRequestModelParams& setN(int64_t n) { DARABONBA_PTR_SET_VALUE(n_, n) };
+
+
+    // presencePenalty Field Functions 
+    bool hasPresencePenalty() const { return this->presencePenalty_ != nullptr;};
+    void deletePresencePenalty() { this->presencePenalty_ = nullptr;};
+    inline double presencePenalty() const { DARABONBA_PTR_GET_DEFAULT(presencePenalty_, 0.0) };
+    inline ChatWithKnowledgeBaseRequestModelParams& setPresencePenalty(double presencePenalty) { DARABONBA_PTR_SET_VALUE(presencePenalty_, presencePenalty) };
+
+
+    // seed Field Functions 
+    bool hasSeed() const { return this->seed_ != nullptr;};
+    void deleteSeed() { this->seed_ = nullptr;};
+    inline int64_t seed() const { DARABONBA_PTR_GET_DEFAULT(seed_, 0L) };
+    inline ChatWithKnowledgeBaseRequestModelParams& setSeed(int64_t seed) { DARABONBA_PTR_SET_VALUE(seed_, seed) };
+
+
+    // stop Field Functions 
+    bool hasStop() const { return this->stop_ != nullptr;};
+    void deleteStop() { this->stop_ = nullptr;};
+    inline const vector<string> & stop() const { DARABONBA_PTR_GET_CONST(stop_, vector<string>) };
+    inline vector<string> stop() { DARABONBA_PTR_GET(stop_, vector<string>) };
+    inline ChatWithKnowledgeBaseRequestModelParams& setStop(const vector<string> & stop) { DARABONBA_PTR_SET_VALUE(stop_, stop) };
+    inline ChatWithKnowledgeBaseRequestModelParams& setStop(vector<string> && stop) { DARABONBA_PTR_SET_RVALUE(stop_, stop) };
+
+
+    // temperature Field Functions 
+    bool hasTemperature() const { return this->temperature_ != nullptr;};
+    void deleteTemperature() { this->temperature_ = nullptr;};
+    inline double temperature() const { DARABONBA_PTR_GET_DEFAULT(temperature_, 0.0) };
+    inline ChatWithKnowledgeBaseRequestModelParams& setTemperature(double temperature) { DARABONBA_PTR_SET_VALUE(temperature_, temperature) };
+
+
+    // tools Field Functions 
+    bool hasTools() const { return this->tools_ != nullptr;};
+    void deleteTools() { this->tools_ = nullptr;};
+    inline const vector<Models::ChatWithKnowledgeBaseRequestModelParamsTools> & tools() const { DARABONBA_PTR_GET_CONST(tools_, vector<Models::ChatWithKnowledgeBaseRequestModelParamsTools>) };
+    inline vector<Models::ChatWithKnowledgeBaseRequestModelParamsTools> tools() { DARABONBA_PTR_GET(tools_, vector<Models::ChatWithKnowledgeBaseRequestModelParamsTools>) };
+    inline ChatWithKnowledgeBaseRequestModelParams& setTools(const vector<Models::ChatWithKnowledgeBaseRequestModelParamsTools> & tools) { DARABONBA_PTR_SET_VALUE(tools_, tools) };
+    inline ChatWithKnowledgeBaseRequestModelParams& setTools(vector<Models::ChatWithKnowledgeBaseRequestModelParamsTools> && tools) { DARABONBA_PTR_SET_RVALUE(tools_, tools) };
+
+
+    // topP Field Functions 
+    bool hasTopP() const { return this->topP_ != nullptr;};
+    void deleteTopP() { this->topP_ = nullptr;};
+    inline double topP() const { DARABONBA_PTR_GET_DEFAULT(topP_, 0.0) };
+    inline ChatWithKnowledgeBaseRequestModelParams& setTopP(double topP) { DARABONBA_PTR_SET_VALUE(topP_, topP) };
+
+
+  protected:
+    std::shared_ptr<int64_t> maxTokens_ = nullptr;
+    // This parameter is required.
+    std::shared_ptr<vector<Models::ChatWithKnowledgeBaseRequestModelParamsMessages>> messages_ = nullptr;
+    // This parameter is required.
+    std::shared_ptr<string> model_ = nullptr;
+    std::shared_ptr<int64_t> n_ = nullptr;
+    std::shared_ptr<double> presencePenalty_ = nullptr;
+    std::shared_ptr<int64_t> seed_ = nullptr;
+    std::shared_ptr<vector<string>> stop_ = nullptr;
+    std::shared_ptr<double> temperature_ = nullptr;
+    std::shared_ptr<vector<Models::ChatWithKnowledgeBaseRequestModelParamsTools>> tools_ = nullptr;
+    std::shared_ptr<double> topP_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Gpdb20160503
+#endif

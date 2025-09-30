@@ -3,18 +3,16 @@
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
 #include <map>
-#include <darabonba/http/Form.hpp>
-#include <darabonba/Convert.hpp>
-#include <darabonba/Stream.hpp>
-#include <darabonba/XML.hpp>
 #include <darabonba/Runtime.hpp>
 #include <alibabacloud/credential/Credential.hpp>
 #include <darabonba/http/FileField.hpp>
+#include <darabonba/Convert.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace Darabonba::Http;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using namespace AlibabaCloud::Credential::Models;
 using namespace AlibabaCloud::OpenApi::Exceptions;
 using namespace AlibabaCloud::Gpdb20160503::Models;
@@ -47,44 +45,6 @@ AlibabaCloud::Gpdb20160503::Client::Client(AlibabaCloud::OpenApi::Utils::Models:
 }
 
 
-Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba::Json &form) {
-Darabonba::RuntimeOptions runtime_(json({}));
-
-  Darabonba::Http::Request request_ = Darabonba::Http::Request();
-  string boundary = Darabonba::Http::Form::getBoundary();
-  request_.setProtocol("HTTPS");
-  request_.setMethod("POST");
-  request_.setPathname(DARA_STRING_TEMPLATE("/"));
-  request_.setHeaders(json({
-    {"host" , Darabonba::Convert::stringVal(form["host"])},
-    {"date" , Utils::Utils::getDateUTCString()},
-    {"user-agent" , Utils::Utils::getUserAgent("")}
-  }).get<map<string, string>>());
-  request_.addHeader("content-type", DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary));
-  request_.setBody(Darabonba::Http::Form::toFileForm(form, boundary));
-  auto futureResp_ = Darabonba::Core::doAction(request_, runtime_);
-  shared_ptr<Darabonba::Http::MCurlResponse> response_ = futureResp_.get();
-
-  json respMap = nullptr;
-  string bodyStr = Darabonba::Stream::readAsString(response_->body());
-  if ((response_->statusCode() >= 400) && (response_->statusCode() < 600)) {
-    respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
-    json err = json(respMap["Error"]);
-    throw ClientException(json({
-      {"code" , Darabonba::Convert::stringVal(err["Code"])},
-      {"message" , Darabonba::Convert::stringVal(err["Message"])},
-      {"data" , json({
-        {"httpCode" , response_->statusCode()},
-        {"requestId" , Darabonba::Convert::stringVal(err["RequestId"])},
-        {"hostId" , Darabonba::Convert::stringVal(err["HostId"])}
-      })}
-    }));
-  }
-
-  respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
-  return Darabonba::Core::merge(respMap
-  );
-}
 
 string Client::getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint) {
   if (!Darabonba::isNull(endpoint)) {
@@ -502,6 +462,233 @@ CancelUpsertCollectionDataJobResponse Client::cancelUpsertCollectionDataJobWithO
 CancelUpsertCollectionDataJobResponse Client::cancelUpsertCollectionDataJob(const CancelUpsertCollectionDataJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return cancelUpsertCollectionDataJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 通过结合知识库和大模型，提供智能问答服务。
+ *
+ * @description 通过结合知识库和大模型，提供智能问答服务。
+ *
+ * @param tmpReq ChatWithKnowledgeBaseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChatWithKnowledgeBaseResponse
+ */
+ChatWithKnowledgeBaseResponse Client::chatWithKnowledgeBaseWithOptions(const ChatWithKnowledgeBaseRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ChatWithKnowledgeBaseShrinkRequest request = ChatWithKnowledgeBaseShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasKnowledgeParams()) {
+    request.setKnowledgeParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.knowledgeParams(), "KnowledgeParams", "json"));
+  }
+
+  if (!!tmpReq.hasModelParams()) {
+    request.setModelParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.modelParams(), "ModelParams", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasIncludeKnowledgeBaseResults()) {
+    query["IncludeKnowledgeBaseResults"] = request.includeKnowledgeBaseResults();
+  }
+
+  if (!!request.hasKnowledgeParamsShrink()) {
+    query["KnowledgeParams"] = request.knowledgeParamsShrink();
+  }
+
+  if (!!request.hasModelParamsShrink()) {
+    query["ModelParams"] = request.modelParamsShrink();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPromptParams()) {
+    query["PromptParams"] = request.promptParams();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ChatWithKnowledgeBase"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ChatWithKnowledgeBaseResponse>();
+}
+
+/**
+ * @summary 通过结合知识库和大模型，提供智能问答服务。
+ *
+ * @description 通过结合知识库和大模型，提供智能问答服务。
+ *
+ * @param request ChatWithKnowledgeBaseRequest
+ * @return ChatWithKnowledgeBaseResponse
+ */
+ChatWithKnowledgeBaseResponse Client::chatWithKnowledgeBase(const ChatWithKnowledgeBaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return chatWithKnowledgeBaseWithOptions(request, runtime);
+}
+
+/**
+ * @summary 通过结合知识库和大模型，提供智能问答服务。
+ *
+ * @description 通过结合知识库和大模型，提供智能问答服务。
+ *
+ * @param tmpReq ChatWithKnowledgeBaseStreamRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChatWithKnowledgeBaseStreamResponse
+ */
+FutrueGenerator<ChatWithKnowledgeBaseStreamResponse> Client::chatWithKnowledgeBaseStreamWithSSE(const ChatWithKnowledgeBaseStreamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ChatWithKnowledgeBaseStreamShrinkRequest request = ChatWithKnowledgeBaseStreamShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasKnowledgeParams()) {
+    request.setKnowledgeParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.knowledgeParams(), "KnowledgeParams", "json"));
+  }
+
+  if (!!tmpReq.hasModelParams()) {
+    request.setModelParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.modelParams(), "ModelParams", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasIncludeKnowledgeBaseResults()) {
+    query["IncludeKnowledgeBaseResults"] = request.includeKnowledgeBaseResults();
+  }
+
+  if (!!request.hasKnowledgeParamsShrink()) {
+    query["KnowledgeParams"] = request.knowledgeParamsShrink();
+  }
+
+  if (!!request.hasModelParamsShrink()) {
+    query["ModelParams"] = request.modelParamsShrink();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPromptParams()) {
+    query["PromptParams"] = request.promptParams();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ChatWithKnowledgeBaseStream"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<ChatWithKnowledgeBaseStreamResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
+}
+
+/**
+ * @summary 通过结合知识库和大模型，提供智能问答服务。
+ *
+ * @description 通过结合知识库和大模型，提供智能问答服务。
+ *
+ * @param tmpReq ChatWithKnowledgeBaseStreamRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChatWithKnowledgeBaseStreamResponse
+ */
+ChatWithKnowledgeBaseStreamResponse Client::chatWithKnowledgeBaseStreamWithOptions(const ChatWithKnowledgeBaseStreamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ChatWithKnowledgeBaseStreamShrinkRequest request = ChatWithKnowledgeBaseStreamShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasKnowledgeParams()) {
+    request.setKnowledgeParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.knowledgeParams(), "KnowledgeParams", "json"));
+  }
+
+  if (!!tmpReq.hasModelParams()) {
+    request.setModelParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.modelParams(), "ModelParams", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasIncludeKnowledgeBaseResults()) {
+    query["IncludeKnowledgeBaseResults"] = request.includeKnowledgeBaseResults();
+  }
+
+  if (!!request.hasKnowledgeParamsShrink()) {
+    query["KnowledgeParams"] = request.knowledgeParamsShrink();
+  }
+
+  if (!!request.hasModelParamsShrink()) {
+    query["ModelParams"] = request.modelParamsShrink();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPromptParams()) {
+    query["PromptParams"] = request.promptParams();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ChatWithKnowledgeBaseStream"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ChatWithKnowledgeBaseStreamResponse>();
+}
+
+/**
+ * @summary 通过结合知识库和大模型，提供智能问答服务。
+ *
+ * @description 通过结合知识库和大模型，提供智能问答服务。
+ *
+ * @param request ChatWithKnowledgeBaseStreamRequest
+ * @return ChatWithKnowledgeBaseStreamResponse
+ */
+ChatWithKnowledgeBaseStreamResponse Client::chatWithKnowledgeBaseStream(const ChatWithKnowledgeBaseStreamRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return chatWithKnowledgeBaseStreamWithOptions(request, runtime);
 }
 
 /**
