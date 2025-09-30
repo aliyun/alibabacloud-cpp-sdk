@@ -779,6 +779,24 @@ namespace QuanMiaoLightApp20240801
        * @return UpdateVideoAnalysisTaskResponse
        */
       Models::UpdateVideoAnalysisTaskResponse updateVideoAnalysisTask(const string &workspaceId, const Models::UpdateVideoAnalysisTaskRequest &request);
+
+      /**
+       * @summary 视频理解-批量修改任务状态
+       *
+       * @param tmpReq UpdateVideoAnalysisTasksRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateVideoAnalysisTasksResponse
+       */
+      Models::UpdateVideoAnalysisTasksResponse updateVideoAnalysisTasksWithOptions(const string &workspaceId, const Models::UpdateVideoAnalysisTasksRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 视频理解-批量修改任务状态
+       *
+       * @param request UpdateVideoAnalysisTasksRequest
+       * @return UpdateVideoAnalysisTasksResponse
+       */
+      Models::UpdateVideoAnalysisTasksResponse updateVideoAnalysisTasks(const string &workspaceId, const Models::UpdateVideoAnalysisTasksRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace QuanMiaoLightApp20240801

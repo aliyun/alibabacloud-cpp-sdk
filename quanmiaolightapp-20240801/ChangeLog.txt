@@ -1,3 +1,7 @@
+2025-09-30 Version: 2.6.0
+- Support API UpdateVideoAnalysisTasks.
+
+
 2025-09-03 Version: 2.5.1
 - Generated cpp 2024-08-01 for QuanMiaoLightApp.
 

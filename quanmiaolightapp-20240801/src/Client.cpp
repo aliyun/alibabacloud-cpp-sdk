@@ -3412,5 +3412,60 @@ UpdateVideoAnalysisTaskResponse Client::updateVideoAnalysisTask(const string &wo
   map<string, string> headers = {};
   return updateVideoAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
 }
+
+/**
+ * @summary 视频理解-批量修改任务状态
+ *
+ * @param tmpReq UpdateVideoAnalysisTasksRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateVideoAnalysisTasksResponse
+ */
+UpdateVideoAnalysisTasksResponse Client::updateVideoAnalysisTasksWithOptions(const string &workspaceId, const UpdateVideoAnalysisTasksRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateVideoAnalysisTasksShrinkRequest request = UpdateVideoAnalysisTasksShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTaskIds()) {
+    request.setTaskIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.taskIds(), "taskIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasTaskIdsShrink()) {
+    body["taskIds"] = request.taskIdsShrink();
+  }
+
+  if (!!request.hasTaskStatus()) {
+    body["taskStatus"] = request.taskStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateVideoAnalysisTasks"},
+    {"version" , "2024-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/quanmiao/lightapp/videoAnalysis/updateVideoAnalysisTasks")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateVideoAnalysisTasksResponse>();
+}
+
+/**
+ * @summary 视频理解-批量修改任务状态
+ *
+ * @param request UpdateVideoAnalysisTasksRequest
+ * @return UpdateVideoAnalysisTasksResponse
+ */
+UpdateVideoAnalysisTasksResponse Client::updateVideoAnalysisTasks(const string &workspaceId, const UpdateVideoAnalysisTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateVideoAnalysisTasksWithOptions(workspaceId, request, headers, runtime);
+}
 } // namespace AlibabaCloud
 } // namespace QuanMiaoLightApp20240801

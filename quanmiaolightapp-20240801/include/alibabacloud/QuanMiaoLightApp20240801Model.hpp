@@ -117,6 +117,10 @@
 #include <alibabacloud/models/UpdateVideoAnalysisTaskRequest.hpp>
 #include <alibabacloud/models/UpdateVideoAnalysisTaskResponseBody.hpp>
 #include <alibabacloud/models/UpdateVideoAnalysisTaskResponse.hpp>
+#include <alibabacloud/models/UpdateVideoAnalysisTasksRequest.hpp>
+#include <alibabacloud/models/UpdateVideoAnalysisTasksShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateVideoAnalysisTasksResponseBody.hpp>
+#include <alibabacloud/models/UpdateVideoAnalysisTasksResponse.hpp>
 #include <alibabacloud/models/GenerateBroadcastNewsResponseBodyDataHotTopicSummariesImages.hpp>
 #include <alibabacloud/models/GenerateBroadcastNewsResponseBodyDataHotTopicSummaries.hpp>
 #include <alibabacloud/models/GenerateBroadcastNewsResponseBodyDataUsage.hpp>
@@ -293,5 +297,6 @@
 #include <alibabacloud/models/SubmitVideoAnalysisTaskRequestVideoRoles.hpp>
 #include <alibabacloud/models/SubmitVideoAnalysisTaskResponseBodyData.hpp>
 #include <alibabacloud/models/UpdateVideoAnalysisTaskResponseBodyData.hpp>
+#include <alibabacloud/models/UpdateVideoAnalysisTasksResponseBodyData.hpp>
 
 #endif
