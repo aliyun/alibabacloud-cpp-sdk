@@ -148,6 +148,23 @@ namespace AppstreamCenter20210901
       Models::DeleteAppInstancesResponse deleteAppInstances(const Models::DeleteAppInstancesRequest &request);
 
       /**
+       * @summary 删除工作站
+       *
+       * @param request DeleteWuyingServerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteWuyingServerResponse
+       */
+      Models::DeleteWuyingServerResponse deleteWuyingServerWithOptions(const Models::DeleteWuyingServerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除工作站
+       *
+       * @param request DeleteWuyingServerRequest
+       * @return DeleteWuyingServerResponse
+       */
+      Models::DeleteWuyingServerResponse deleteWuyingServer(const Models::DeleteWuyingServerRequest &request);
+
+      /**
        * @summary 获取交付组详情
        *
        * @param request GetAppInstanceGroupRequest

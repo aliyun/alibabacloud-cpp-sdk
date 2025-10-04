@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(DataDisk, dataDisk_);
+      DARABONBA_PTR_TO_JSON(IdempotenceToken, idempotenceToken_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(Password, password_);
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(DataDisk, dataDisk_);
+      DARABONBA_PTR_FROM_JSON(IdempotenceToken, idempotenceToken_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(Password, password_);
@@ -69,9 +71,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->amount_ != nullptr
         && this->autoPay_ != nullptr && this->autoRenew_ != nullptr && this->bizRegionId_ != nullptr && this->chargeType_ != nullptr && this->dataDisk_ != nullptr
-        && this->imageId_ != nullptr && this->officeSiteId_ != nullptr && this->password_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr
-        && this->promotionId_ != nullptr && this->serverInstanceType_ != nullptr && this->systemDiskCategory_ != nullptr && this->systemDiskPerformanceLevel_ != nullptr && this->systemDiskSize_ != nullptr
-        && this->vSwitchIds_ != nullptr && this->virtualNodePoolId_ != nullptr && this->wuyingServerName_ != nullptr; };
+        && this->idempotenceToken_ != nullptr && this->imageId_ != nullptr && this->officeSiteId_ != nullptr && this->password_ != nullptr && this->period_ != nullptr
+        && this->periodUnit_ != nullptr && this->promotionId_ != nullptr && this->serverInstanceType_ != nullptr && this->systemDiskCategory_ != nullptr && this->systemDiskPerformanceLevel_ != nullptr
+        && this->systemDiskSize_ != nullptr && this->vSwitchIds_ != nullptr && this->virtualNodePoolId_ != nullptr && this->wuyingServerName_ != nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -114,6 +116,13 @@ namespace Models
     inline vector<CreateWuyingServerRequestDataDisk> dataDisk() { DARABONBA_PTR_GET(dataDisk_, vector<CreateWuyingServerRequestDataDisk>) };
     inline CreateWuyingServerRequest& setDataDisk(const vector<CreateWuyingServerRequestDataDisk> & dataDisk) { DARABONBA_PTR_SET_VALUE(dataDisk_, dataDisk) };
     inline CreateWuyingServerRequest& setDataDisk(vector<CreateWuyingServerRequestDataDisk> && dataDisk) { DARABONBA_PTR_SET_RVALUE(dataDisk_, dataDisk) };
+
+
+    // idempotenceToken Field Functions 
+    bool hasIdempotenceToken() const { return this->idempotenceToken_ != nullptr;};
+    void deleteIdempotenceToken() { this->idempotenceToken_ = nullptr;};
+    inline string idempotenceToken() const { DARABONBA_PTR_GET_DEFAULT(idempotenceToken_, "") };
+    inline CreateWuyingServerRequest& setIdempotenceToken(string idempotenceToken) { DARABONBA_PTR_SET_VALUE(idempotenceToken_, idempotenceToken) };
 
 
     // imageId Field Functions 
@@ -216,6 +225,7 @@ namespace Models
     std::shared_ptr<string> bizRegionId_ = nullptr;
     std::shared_ptr<string> chargeType_ = nullptr;
     std::shared_ptr<vector<CreateWuyingServerRequestDataDisk>> dataDisk_ = nullptr;
+    std::shared_ptr<string> idempotenceToken_ = nullptr;
     std::shared_ptr<string> imageId_ = nullptr;
     std::shared_ptr<string> officeSiteId_ = nullptr;
     std::shared_ptr<string> password_ = nullptr;

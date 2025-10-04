@@ -25,6 +25,9 @@
 #include <alibabacloud/models/DeleteAppInstancesRequest.hpp>
 #include <alibabacloud/models/DeleteAppInstancesResponseBody.hpp>
 #include <alibabacloud/models/DeleteAppInstancesResponse.hpp>
+#include <alibabacloud/models/DeleteWuyingServerRequest.hpp>
+#include <alibabacloud/models/DeleteWuyingServerResponseBody.hpp>
+#include <alibabacloud/models/DeleteWuyingServerResponse.hpp>
 #include <alibabacloud/models/GetAppInstanceGroupRequest.hpp>
 #include <alibabacloud/models/GetAppInstanceGroupResponseBody.hpp>
 #include <alibabacloud/models/GetAppInstanceGroupResponse.hpp>

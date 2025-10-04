@@ -444,6 +444,10 @@ CreateWuyingServerResponse Client::createWuyingServerWithOptions(const CreateWuy
     bodyFlat["DataDisk"] = request.dataDisk();
   }
 
+  if (!!request.hasIdempotenceToken()) {
+    body["IdempotenceToken"] = request.idempotenceToken();
+  }
+
   if (!!request.hasImageId()) {
     body["ImageId"] = request.imageId();
   }
@@ -629,6 +633,48 @@ DeleteAppInstancesResponse Client::deleteAppInstancesWithOptions(const DeleteApp
 DeleteAppInstancesResponse Client::deleteAppInstances(const DeleteAppInstancesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteAppInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除工作站
+ *
+ * @param request DeleteWuyingServerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteWuyingServerResponse
+ */
+DeleteWuyingServerResponse Client::deleteWuyingServerWithOptions(const DeleteWuyingServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasWuyingServerId()) {
+    body["WuyingServerId"] = request.wuyingServerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteWuyingServer"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteWuyingServerResponse>();
+}
+
+/**
+ * @summary 删除工作站
+ *
+ * @param request DeleteWuyingServerRequest
+ * @return DeleteWuyingServerResponse
+ */
+DeleteWuyingServerResponse Client::deleteWuyingServer(const DeleteWuyingServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteWuyingServerWithOptions(request, runtime);
 }
 
 /**
