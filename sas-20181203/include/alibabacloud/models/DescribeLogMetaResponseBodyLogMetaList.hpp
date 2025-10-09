@@ -133,7 +133,6 @@ namespace Models
     // The category of logs. Valid values:
     // 
     // *   **host**
-    // *   **network**
     // *   **security**
     std::shared_ptr<string> category_ = nullptr;
     // The time period after which logs in hot storage are moved to cold storage. Unit: days.

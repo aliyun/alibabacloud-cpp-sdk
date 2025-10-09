@@ -43,6 +43,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(StrictMode, strictMode_);
+      DARABONBA_PTR_TO_JSON(SupportOperateCodeList, supportOperateCodeList_);
       DARABONBA_PTR_TO_JSON(TacticId, tacticId_);
       DARABONBA_PTR_TO_JSON(TargetType, targetType_);
       DARABONBA_PTR_TO_JSON(TimeEnd, timeEnd_);
@@ -80,6 +81,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(StrictMode, strictMode_);
+      DARABONBA_PTR_FROM_JSON(SupportOperateCodeList, supportOperateCodeList_);
       DARABONBA_PTR_FROM_JSON(TacticId, tacticId_);
       DARABONBA_PTR_FROM_JSON(TargetType, targetType_);
       DARABONBA_PTR_FROM_JSON(TimeEnd, timeEnd_);
@@ -104,8 +106,8 @@ namespace Models
         && this->lang_ != nullptr && this->levels_ != nullptr && this->multiAccountActionType_ != nullptr && this->name_ != nullptr && this->operateErrorCodeList_ != nullptr
         && this->operateTimeEnd_ != nullptr && this->operateTimeStart_ != nullptr && this->pageSize_ != nullptr && this->parentEventTypes_ != nullptr && this->remark_ != nullptr
         && this->resourceDirectoryAccountId_ != nullptr && this->sortColumn_ != nullptr && this->sortType_ != nullptr && this->source_ != nullptr && this->sourceAliUids_ != nullptr
-        && this->sourceIp_ != nullptr && this->status_ != nullptr && this->strictMode_ != nullptr && this->tacticId_ != nullptr && this->targetType_ != nullptr
-        && this->timeEnd_ != nullptr && this->timeStart_ != nullptr && this->uniqueInfo_ != nullptr && this->uuids_ != nullptr; };
+        && this->sourceIp_ != nullptr && this->status_ != nullptr && this->strictMode_ != nullptr && this->supportOperateCodeList_ != nullptr && this->tacticId_ != nullptr
+        && this->targetType_ != nullptr && this->timeEnd_ != nullptr && this->timeStart_ != nullptr && this->uniqueInfo_ != nullptr && this->uuids_ != nullptr; };
     // alarmUniqueInfo Field Functions 
     bool hasAlarmUniqueInfo() const { return this->alarmUniqueInfo_ != nullptr;};
     void deleteAlarmUniqueInfo() { this->alarmUniqueInfo_ = nullptr;};
@@ -315,6 +317,15 @@ namespace Models
     inline DescribeSuspEventsRequest& setStrictMode(string strictMode) { DARABONBA_PTR_SET_VALUE(strictMode_, strictMode) };
 
 
+    // supportOperateCodeList Field Functions 
+    bool hasSupportOperateCodeList() const { return this->supportOperateCodeList_ != nullptr;};
+    void deleteSupportOperateCodeList() { this->supportOperateCodeList_ = nullptr;};
+    inline const vector<string> & supportOperateCodeList() const { DARABONBA_PTR_GET_CONST(supportOperateCodeList_, vector<string>) };
+    inline vector<string> supportOperateCodeList() { DARABONBA_PTR_GET(supportOperateCodeList_, vector<string>) };
+    inline DescribeSuspEventsRequest& setSupportOperateCodeList(const vector<string> & supportOperateCodeList) { DARABONBA_PTR_SET_VALUE(supportOperateCodeList_, supportOperateCodeList) };
+    inline DescribeSuspEventsRequest& setSupportOperateCodeList(vector<string> && supportOperateCodeList) { DARABONBA_PTR_SET_RVALUE(supportOperateCodeList_, supportOperateCodeList) };
+
+
     // tacticId Field Functions 
     bool hasTacticId() const { return this->tacticId_ != nullptr;};
     void deleteTacticId() { this->tacticId_ = nullptr;};
@@ -497,6 +508,7 @@ namespace Models
     // *   N: no
     // *   Y: Yes
     std::shared_ptr<string> strictMode_ = nullptr;
+    std::shared_ptr<vector<string>> supportOperateCodeList_ = nullptr;
     // The tactic ID of ATT\\&CK.
     std::shared_ptr<string> tacticId_ = nullptr;
     // The item that is used to search for the container. Valid values:

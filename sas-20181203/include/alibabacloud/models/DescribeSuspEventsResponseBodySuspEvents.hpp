@@ -68,6 +68,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SecurityEventIds, securityEventIds_);
       DARABONBA_PTR_TO_JSON(SourceAliUid, sourceAliUid_);
       DARABONBA_PTR_TO_JSON(Stages, stages_);
+      DARABONBA_PTR_TO_JSON(SupportOperateCode, supportOperateCode_);
       DARABONBA_PTR_TO_JSON(TacticItems, tacticItems_);
       DARABONBA_PTR_TO_JSON(UniqueInfo, uniqueInfo_);
       DARABONBA_PTR_TO_JSON(Uuid, uuid_);
@@ -125,6 +126,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SecurityEventIds, securityEventIds_);
       DARABONBA_PTR_FROM_JSON(SourceAliUid, sourceAliUid_);
       DARABONBA_PTR_FROM_JSON(Stages, stages_);
+      DARABONBA_PTR_FROM_JSON(SupportOperateCode, supportOperateCode_);
       DARABONBA_PTR_FROM_JSON(TacticItems, tacticItems_);
       DARABONBA_PTR_FROM_JSON(UniqueInfo, uniqueInfo_);
       DARABONBA_PTR_FROM_JSON(Uuid, uuid_);
@@ -152,7 +154,7 @@ namespace Models
         && this->lastTimeStamp_ != nullptr && this->level_ != nullptr && this->maliciousRuleStatus_ != nullptr && this->markList_ != nullptr && this->markMisRules_ != nullptr
         && this->name_ != nullptr && this->occurrenceTime_ != nullptr && this->occurrenceTimeStamp_ != nullptr && this->operateErrorCode_ != nullptr && this->operateMsg_ != nullptr
         && this->operateTime_ != nullptr && this->saleVersion_ != nullptr && this->securityEventIds_ != nullptr && this->sourceAliUid_ != nullptr && this->stages_ != nullptr
-        && this->tacticItems_ != nullptr && this->uniqueInfo_ != nullptr && this->uuid_ != nullptr && this->clusterId_ != nullptr; };
+        && this->supportOperateCode_ != nullptr && this->tacticItems_ != nullptr && this->uniqueInfo_ != nullptr && this->uuid_ != nullptr && this->clusterId_ != nullptr; };
     // advanced Field Functions 
     bool hasAdvanced() const { return this->advanced_ != nullptr;};
     void deleteAdvanced() { this->advanced_ = nullptr;};
@@ -516,6 +518,13 @@ namespace Models
     inline DescribeSuspEventsResponseBodySuspEvents& setStages(string stages) { DARABONBA_PTR_SET_VALUE(stages_, stages) };
 
 
+    // supportOperateCode Field Functions 
+    bool hasSupportOperateCode() const { return this->supportOperateCode_ != nullptr;};
+    void deleteSupportOperateCode() { this->supportOperateCode_ = nullptr;};
+    inline string supportOperateCode() const { DARABONBA_PTR_GET_DEFAULT(supportOperateCode_, "") };
+    inline DescribeSuspEventsResponseBodySuspEvents& setSupportOperateCode(string supportOperateCode) { DARABONBA_PTR_SET_VALUE(supportOperateCode_, supportOperateCode) };
+
+
     // tacticItems Field Functions 
     bool hasTacticItems() const { return this->tacticItems_ != nullptr;};
     void deleteTacticItems() { this->tacticItems_ = nullptr;};
@@ -686,6 +695,7 @@ namespace Models
     std::shared_ptr<int64_t> sourceAliUid_ = nullptr;
     // The stage at which the attack is detected.
     std::shared_ptr<string> stages_ = nullptr;
+    std::shared_ptr<string> supportOperateCode_ = nullptr;
     // The display name of the attack stage.
     std::shared_ptr<vector<Models::DescribeSuspEventsResponseBodySuspEventsTacticItems>> tacticItems_ = nullptr;
     // The unique key of the alert.

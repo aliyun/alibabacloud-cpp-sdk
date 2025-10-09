@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBENSASSUSPEVENTTYPEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBENSASSUSPEVENTTYPEREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(Remark, remark_);
       DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
+      DARABONBA_PTR_TO_JSON(SupportOperateCodeList, supportOperateCodeList_);
       DARABONBA_PTR_TO_JSON(Uuids, uuids_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeNsasSuspEventTypeRequest& obj) { 
@@ -32,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
       DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
+      DARABONBA_PTR_FROM_JSON(SupportOperateCodeList, supportOperateCodeList_);
       DARABONBA_PTR_FROM_JSON(Uuids, uuids_);
     };
     DescribeNsasSuspEventTypeRequest() = default ;
@@ -47,7 +50,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->containerFieldName_ != nullptr
         && this->containerFieldValue_ != nullptr && this->from_ != nullptr && this->lang_ != nullptr && this->multiAccountActionType_ != nullptr && this->name_ != nullptr
-        && this->remark_ != nullptr && this->sourceIp_ != nullptr && this->uuids_ != nullptr; };
+        && this->remark_ != nullptr && this->sourceIp_ != nullptr && this->supportOperateCodeList_ != nullptr && this->uuids_ != nullptr; };
     // containerFieldName Field Functions 
     bool hasContainerFieldName() const { return this->containerFieldName_ != nullptr;};
     void deleteContainerFieldName() { this->containerFieldName_ = nullptr;};
@@ -104,6 +107,15 @@ namespace Models
     inline DescribeNsasSuspEventTypeRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
+    // supportOperateCodeList Field Functions 
+    bool hasSupportOperateCodeList() const { return this->supportOperateCodeList_ != nullptr;};
+    void deleteSupportOperateCodeList() { this->supportOperateCodeList_ = nullptr;};
+    inline const vector<string> & supportOperateCodeList() const { DARABONBA_PTR_GET_CONST(supportOperateCodeList_, vector<string>) };
+    inline vector<string> supportOperateCodeList() { DARABONBA_PTR_GET(supportOperateCodeList_, vector<string>) };
+    inline DescribeNsasSuspEventTypeRequest& setSupportOperateCodeList(const vector<string> & supportOperateCodeList) { DARABONBA_PTR_SET_VALUE(supportOperateCodeList_, supportOperateCodeList) };
+    inline DescribeNsasSuspEventTypeRequest& setSupportOperateCodeList(vector<string> && supportOperateCodeList) { DARABONBA_PTR_SET_RVALUE(supportOperateCodeList_, supportOperateCodeList) };
+
+
     // uuids Field Functions 
     bool hasUuids() const { return this->uuids_ != nullptr;};
     void deleteUuids() { this->uuids_ = nullptr;};
@@ -136,6 +148,7 @@ namespace Models
     std::shared_ptr<string> remark_ = nullptr;
     // The source IP address of the request.
     std::shared_ptr<string> sourceIp_ = nullptr;
+    std::shared_ptr<vector<string>> supportOperateCodeList_ = nullptr;
     // The UUIDs of servers. Separate multiple UUIDs with commas (,).
     // 
     // > You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of servers.

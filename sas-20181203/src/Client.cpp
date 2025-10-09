@@ -17920,6 +17920,10 @@ DescribeNsasSuspEventTypeResponse Client::describeNsasSuspEventTypeWithOptions(c
     query["SourceIp"] = request.sourceIp();
   }
 
+  if (!!request.hasSupportOperateCodeList()) {
+    query["SupportOperateCodeList"] = request.supportOperateCodeList();
+  }
+
   if (!!request.hasUuids()) {
     query["Uuids"] = request.uuids();
   }
@@ -21890,6 +21894,10 @@ DescribeSuspEventsResponse Client::describeSuspEventsWithOptions(const DescribeS
 
   if (!!request.hasStrictMode()) {
     query["StrictMode"] = request.strictMode();
+  }
+
+  if (!!request.hasSupportOperateCodeList()) {
+    query["SupportOperateCodeList"] = request.supportOperateCodeList();
   }
 
   if (!!request.hasTargetType()) {

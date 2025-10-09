@@ -15,6 +15,7 @@ namespace Models
   class DescribeSuspEventDetailResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeSuspEventDetailResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AlarmUniqueInfo, alarmUniqueInfo_);
       DARABONBA_PTR_TO_JSON(CanBeDealOnLine, canBeDealOnLine_);
       DARABONBA_PTR_TO_JSON(DataSource, dataSource_);
       DARABONBA_PTR_TO_JSON(Details, details_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Uuid, uuid_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeSuspEventDetailResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AlarmUniqueInfo, alarmUniqueInfo_);
       DARABONBA_PTR_FROM_JSON(CanBeDealOnLine, canBeDealOnLine_);
       DARABONBA_PTR_FROM_JSON(DataSource, dataSource_);
       DARABONBA_PTR_FROM_JSON(Details, details_);
@@ -65,11 +67,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->canBeDealOnLine_ != nullptr
-        && this->dataSource_ != nullptr && this->details_ != nullptr && this->eventDesc_ != nullptr && this->eventName_ != nullptr && this->eventStatus_ != nullptr
-        && this->eventTypeDesc_ != nullptr && this->id_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->intranetIp_ != nullptr
-        && this->lastTime_ != nullptr && this->level_ != nullptr && this->operateErrorCode_ != nullptr && this->operateMsg_ != nullptr && this->requestId_ != nullptr
-        && this->saleVersion_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { this->alarmUniqueInfo_ != nullptr
+        && this->canBeDealOnLine_ != nullptr && this->dataSource_ != nullptr && this->details_ != nullptr && this->eventDesc_ != nullptr && this->eventName_ != nullptr
+        && this->eventStatus_ != nullptr && this->eventTypeDesc_ != nullptr && this->id_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr
+        && this->intranetIp_ != nullptr && this->lastTime_ != nullptr && this->level_ != nullptr && this->operateErrorCode_ != nullptr && this->operateMsg_ != nullptr
+        && this->requestId_ != nullptr && this->saleVersion_ != nullptr && this->uuid_ != nullptr; };
+    // alarmUniqueInfo Field Functions 
+    bool hasAlarmUniqueInfo() const { return this->alarmUniqueInfo_ != nullptr;};
+    void deleteAlarmUniqueInfo() { this->alarmUniqueInfo_ = nullptr;};
+    inline string alarmUniqueInfo() const { DARABONBA_PTR_GET_DEFAULT(alarmUniqueInfo_, "") };
+    inline DescribeSuspEventDetailResponseBody& setAlarmUniqueInfo(string alarmUniqueInfo) { DARABONBA_PTR_SET_VALUE(alarmUniqueInfo_, alarmUniqueInfo) };
+
+
     // canBeDealOnLine Field Functions 
     bool hasCanBeDealOnLine() const { return this->canBeDealOnLine_ != nullptr;};
     void deleteCanBeDealOnLine() { this->canBeDealOnLine_ = nullptr;};
@@ -199,6 +208,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> alarmUniqueInfo_ = nullptr;
     // Indicates whether the online processing of exceptions is supported, such as blocking an exception, adding an exception to the whitelist, and ignoring an exception. Valid values:
     // 
     // *   **true**: The online processing of exceptions is supported.
