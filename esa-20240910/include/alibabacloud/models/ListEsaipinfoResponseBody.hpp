@@ -52,7 +52,11 @@ namespace Models
 
 
   protected:
+    // The objects that are returned.
     std::shared_ptr<vector<ListESAIPInfoResponseBodyContent>> content_ = nullptr;
+    // The request ID.
+    // 
+    // Example D03F9502-6653-127C-8A5F-0647197\\*\\*\\*\\*\\*
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

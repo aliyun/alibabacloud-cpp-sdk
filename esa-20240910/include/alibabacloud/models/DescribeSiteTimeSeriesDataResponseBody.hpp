@@ -101,12 +101,14 @@ namespace Models
 
 
   protected:
+    // The returned data.
     std::shared_ptr<vector<DescribeSiteTimeSeriesDataResponseBodyData>> data_ = nullptr;
     std::shared_ptr<string> endTime_ = nullptr;
     std::shared_ptr<int64_t> interval_ = nullptr;
     std::shared_ptr<string> requestId_ = nullptr;
     std::shared_ptr<float> samplingRate_ = nullptr;
     std::shared_ptr<string> startTime_ = nullptr;
+    // The queried summary data.
     std::shared_ptr<vector<DescribeSiteTimeSeriesDataResponseBodySummarizedData>> summarizedData_ = nullptr;
   };
 

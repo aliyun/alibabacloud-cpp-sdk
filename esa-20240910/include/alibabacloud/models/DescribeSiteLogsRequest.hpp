@@ -75,11 +75,23 @@ namespace Models
 
 
   protected:
+    // The end of the time range to query.
+    // 
+    // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+    // 
+    // >  The end time must be later than the start time.
     std::shared_ptr<string> endTime_ = nullptr;
+    // The page number. Pages start from page 1.
     std::shared_ptr<int64_t> pageNumber_ = nullptr;
+    // The number of entries per page. Default value: 300. Valid values: 1 to 1000.
     std::shared_ptr<int64_t> pageSize_ = nullptr;
+    // The ID of the website. You can call the ListSites operation to obtain.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> siteId_ = nullptr;
+    // The beginning of the time range to query.
+    // 
+    // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     std::shared_ptr<string> startTime_ = nullptr;
   };
 

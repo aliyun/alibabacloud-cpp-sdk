@@ -51,7 +51,11 @@ namespace Models
 
 
   protected:
+    // The dimensions at which you want to query the data.
     std::shared_ptr<vector<string>> dimension_ = nullptr;
+    // The metric to query.
+    // 
+    // >  For more information, see [Data analysis field description](https://help.aliyun.com/document_detail/2878520.html).
     std::shared_ptr<string> fieldName_ = nullptr;
   };
 

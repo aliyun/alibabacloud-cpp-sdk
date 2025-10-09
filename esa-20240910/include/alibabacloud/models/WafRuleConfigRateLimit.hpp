@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_WAFRULECONFIGRATELIMIT_HPP_
 #define ALIBABACLOUD_MODELS_WAFRULECONFIGRATELIMIT_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/WafRuleMatch2.hpp>
+#include <alibabacloud/models/WafRatelimitCharacteristics.hpp>
 #include <alibabacloud/models/WafRuleConfigRateLimitThreshold.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -44,10 +44,10 @@ namespace Models
     // characteristics Field Functions 
     bool hasCharacteristics() const { return this->characteristics_ != nullptr;};
     void deleteCharacteristics() { this->characteristics_ = nullptr;};
-    inline const Models::WafRuleMatch2 & characteristics() const { DARABONBA_PTR_GET_CONST(characteristics_, Models::WafRuleMatch2) };
-    inline Models::WafRuleMatch2 characteristics() { DARABONBA_PTR_GET(characteristics_, Models::WafRuleMatch2) };
-    inline WafRuleConfigRateLimit& setCharacteristics(const Models::WafRuleMatch2 & characteristics) { DARABONBA_PTR_SET_VALUE(characteristics_, characteristics) };
-    inline WafRuleConfigRateLimit& setCharacteristics(Models::WafRuleMatch2 && characteristics) { DARABONBA_PTR_SET_RVALUE(characteristics_, characteristics) };
+    inline const Models::WafRatelimitCharacteristics & characteristics() const { DARABONBA_PTR_GET_CONST(characteristics_, Models::WafRatelimitCharacteristics) };
+    inline Models::WafRatelimitCharacteristics characteristics() { DARABONBA_PTR_GET(characteristics_, Models::WafRatelimitCharacteristics) };
+    inline WafRuleConfigRateLimit& setCharacteristics(const Models::WafRatelimitCharacteristics & characteristics) { DARABONBA_PTR_SET_VALUE(characteristics_, characteristics) };
+    inline WafRuleConfigRateLimit& setCharacteristics(Models::WafRatelimitCharacteristics && characteristics) { DARABONBA_PTR_SET_RVALUE(characteristics_, characteristics) };
 
 
     // interval Field Functions 
@@ -81,7 +81,7 @@ namespace Models
 
 
   protected:
-    std::shared_ptr<Models::WafRuleMatch2> characteristics_ = nullptr;
+    std::shared_ptr<Models::WafRatelimitCharacteristics> characteristics_ = nullptr;
     std::shared_ptr<int32_t> interval_ = nullptr;
     std::shared_ptr<bool> onHit_ = nullptr;
     std::shared_ptr<int32_t> TTL_ = nullptr;

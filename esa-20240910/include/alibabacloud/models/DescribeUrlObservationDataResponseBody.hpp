@@ -70,9 +70,15 @@ namespace Models
 
 
   protected:
+    // The end of the time range during which data was queried.
+    // 
+    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The time must be in UTC.
     std::shared_ptr<string> endTime_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The create time. The time is in the yyyy-MM-ddTHH:mm:ssZ format.
     std::shared_ptr<string> startTime_ = nullptr;
+    // The objects that are returned.
     std::shared_ptr<vector<DescribeUrlObservationDataResponseBodyUrlDetailData>> urlDetailData_ = nullptr;
   };
 

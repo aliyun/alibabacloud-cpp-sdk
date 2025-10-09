@@ -79,11 +79,15 @@ namespace Models
 
 
   protected:
+    // The code versions of the routine.
     std::shared_ptr<vector<ListRoutineCodeVersionsResponseBodyCodeVersions>> codeVersions_ = nullptr;
+    // The page number. Pages start from page 1. Default value: 1.
     std::shared_ptr<int64_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int64_t> pageSize_ = nullptr;
-    // Id of the request
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The total number of code versions returned.
     std::shared_ptr<int64_t> totalCount_ = nullptr;
   };
 

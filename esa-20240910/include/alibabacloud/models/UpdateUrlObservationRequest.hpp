@@ -57,10 +57,19 @@ namespace Models
 
 
   protected:
+    // The ID of the configuration. You can call the [ListUrlObservations](~~ListUrlObservations~~) operation to obtain the ID.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> configId_ = nullptr;
+    // SDK integration. Valid values:
+    // 
+    // *   **automatic** (Recommended)
+    // *   **manual**
+    // 
     // This parameter is required.
     std::shared_ptr<string> sdkType_ = nullptr;
+    // The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> siteId_ = nullptr;
   };

@@ -140,18 +140,43 @@ namespace Models
 
 
   protected:
+    // Set custom end parameters for FLV files.
     std::shared_ptr<string> flvSeekEnd_ = nullptr;
+    // The custom start parameter for FLV files.
     std::shared_ptr<string> flvSeekStart_ = nullptr;
+    // FLV seeking. Valid values:
+    // 
+    // *   by_byte: seek by byte
+    // *   by_time: seek by time.
     std::shared_ptr<string> flvVideoSeekMode_ = nullptr;
+    // Customize the mp4 end parameter.
     std::shared_ptr<string> mp4SeekEnd_ = nullptr;
+    // Customize the mp4 start parameter.
     std::shared_ptr<string> mp4SeekStart_ = nullptr;
+    // The content of the rule. A conditional expression is used to match a user request. You do not need to set this parameter when you add global configuration. Use cases:
+    // 
+    // *   true: Match all incoming requests.
+    // *   Set the value to a custom expression, for example:(http.host eq "video.example.com"): Match the specified request.
     std::shared_ptr<string> rule_ = nullptr;
+    // Specifies whether to enable the rule. Valid values: You do not need to set this parameter when you add global configuration. Specifies whether to check the image used by the instance supports hot migration. Valid values:
+    // 
+    // *   on
+    // *   off
     std::shared_ptr<string> ruleEnable_ = nullptr;
+    // The name of the scheduling rule. You do not need to set this parameter when you add global configuration.
     std::shared_ptr<string> ruleName_ = nullptr;
+    // The order in which the rule is executed. A smaller value gives priority to the rule.
     std::shared_ptr<int32_t> sequence_ = nullptr;
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> siteId_ = nullptr;
+    // The version number of the website configurations. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
     std::shared_ptr<int32_t> siteVersion_ = nullptr;
+    // Video seeking. Valid values:
+    // 
+    // *   on
+    // *   off
     std::shared_ptr<string> videoSeekEnable_ = nullptr;
   };
 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The page number returned.
     std::shared_ptr<int32_t> pageIndex_ = nullptr;
+    // The number of entries per page. Default value: **300**. Valid values: **1 to 1000**.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The total number of entries returned.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

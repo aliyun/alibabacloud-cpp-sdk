@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // Measures the maximum layout mutation score for every unexpected layout change that occurs throughout the life of the page.
     std::shared_ptr<float> CLS_ = nullptr;
+    // The platform of the device.
     std::shared_ptr<string> clientPlatform_ = nullptr;
+    // The country or region to which the IP address belongs.
     std::shared_ptr<string> country_ = nullptr;
+    // Measures the time between when the page is loaded and when any part of the page\\"s content is rendered on the screen. Unit: ms.
     std::shared_ptr<float> FCP_ = nullptr;
+    // Measures the time between when the user first interacts with the page and when the browser is actually able to start processing an event handler in response to that interaction. Unit: ms.
     std::shared_ptr<float> FID_ = nullptr;
+    // Measures the responsiveness of the page, or how long it takes for the page to respond to user input visibly. Unit: ms.
     std::shared_ptr<float> INP_ = nullptr;
+    // Reports the rendering time of the largest image or text block visible in the viewport. Unit: ms.
     std::shared_ptr<float> LCP_ = nullptr;
+    // This metric measures the time between when a resource initiates a request and when the first byte of the response starts to arrive. Unit: ms.
     std::shared_ptr<float> TTFB_ = nullptr;
+    // The URL of the web page to monitor.
     std::shared_ptr<string> url_ = nullptr;
   };
 

@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // The end time of the reservation. The input is UTC time. It takes +8 hours to enter Beijing time. For example, if the current time is 2006-01-02 06:04:05 , you need to enter "2006-01-02T14:04:05Z".
     std::shared_ptr<string> durationTime_ = nullptr;
+    // Whether to enable resource reservation.
     std::shared_ptr<bool> enable_ = nullptr;
+    // Whether to enable resource reservation permanently.
     std::shared_ptr<bool> forever_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Reserved resource list.
     std::shared_ptr<vector<GetEdgeContainerAppResourceReserveResponseBodyReserveSet>> reserveSet_ = nullptr;
   };
 

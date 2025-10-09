@@ -79,10 +79,19 @@ namespace Models
 
 
   protected:
+    // The returned data.
     std::shared_ptr<vector<DescribeSiteTopDataResponseBodyData>> data_ = nullptr;
+    // The end of the time range during which data was queried.
+    // 
+    // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     std::shared_ptr<string> endTime_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The sampling rate.
     std::shared_ptr<float> samplingRate_ = nullptr;
+    // The beginning of the time range during which data was queried.
+    // 
+    // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     std::shared_ptr<string> startTime_ = nullptr;
   };
 

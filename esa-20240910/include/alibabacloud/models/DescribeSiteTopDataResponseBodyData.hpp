@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // The returned data.
     std::shared_ptr<vector<Models::DescribeSiteTopDataResponseBodyDataDetailData>> detailData_ = nullptr;
+    // The dimension at which data was queried.
     std::shared_ptr<string> dimensionName_ = nullptr;
+    // The metric name.
     std::shared_ptr<string> fieldName_ = nullptr;
   };
 

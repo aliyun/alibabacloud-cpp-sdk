@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // The page number. Default value: 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page. Maximum value: 500. Default value: 500.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The function name.
+    // 
     // This parameter is required.
     std::shared_ptr<string> routineName_ = nullptr;
   };

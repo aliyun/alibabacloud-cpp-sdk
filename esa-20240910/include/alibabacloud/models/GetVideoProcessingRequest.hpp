@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The configuration ID. You can call the [ListVideoProcessings](~~ListVideoProcessings~~) operation to obtain the configuration ID.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> configId_ = nullptr;
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> siteId_ = nullptr;
   };

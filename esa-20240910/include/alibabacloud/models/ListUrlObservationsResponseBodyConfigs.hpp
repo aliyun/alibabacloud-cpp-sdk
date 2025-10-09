@@ -57,8 +57,14 @@ namespace Models
 
 
   protected:
+    // The configuration ID.
     std::shared_ptr<int64_t> configId_ = nullptr;
+    // SDK integration. Valid values:
+    // 
+    // *   **automatic**
+    // *   **manual**
     std::shared_ptr<string> sdkType_ = nullptr;
+    // The URL of the web page to monitor.
     std::shared_ptr<string> url_ = nullptr;
   };
 

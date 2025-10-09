@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // Queries the regions of deployment.
     std::shared_ptr<vector<GetEdgeContainerAppResourceStatusResponseBodyRegions>> regions_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

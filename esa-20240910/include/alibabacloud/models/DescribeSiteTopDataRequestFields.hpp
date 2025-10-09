@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The dimensions at which you want to query data.
     std::shared_ptr<vector<string>> dimension_ = nullptr;
+    // The metric name.
     std::shared_ptr<string> fieldName_ = nullptr;
   };
 

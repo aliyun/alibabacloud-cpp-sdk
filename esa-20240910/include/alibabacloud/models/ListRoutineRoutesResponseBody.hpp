@@ -88,11 +88,17 @@ namespace Models
 
 
   protected:
+    // The returned configurations.
     std::shared_ptr<vector<ListRoutineRoutesResponseBodyConfigs>> configs_ = nullptr;
+    // The page number of the returned page.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The total number of entries returned.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int32_t> totalPage_ = nullptr;
   };
 

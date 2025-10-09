@@ -140,17 +140,44 @@ namespace Models
 
 
   protected:
+    // Bypass mode. Valid values:
+    // 
+    // *   on
+    // *   off
     std::shared_ptr<string> bypass_ = nullptr;
+    // The configuration ID.
     std::shared_ptr<int64_t> configId_ = nullptr;
+    // The configuration type to query. Valid values:
+    // 
+    // *   global: global configurations.
+    // *   rule: queries rule configurations.
     std::shared_ptr<string> configType_ = nullptr;
+    // The exception origin fetch switch. After you turn on this switch, if a function exception occurs, such as CPU usage exceeding the upper limit, requests are sent back to the origin. Valid values:
+    // 
+    // *   on
+    // *   off
     std::shared_ptr<string> fallback_ = nullptr;
+    // The configuration mode. Valid values: Valid values:
+    // 
+    // *   simple
+    // *   custom
     std::shared_ptr<string> mode_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The routing switch. Valid values:
+    // 
+    // *   on
+    // *   off
     std::shared_ptr<string> routeEnable_ = nullptr;
+    // The route name.
     std::shared_ptr<string> routeName_ = nullptr;
+    // The function name.
     std::shared_ptr<string> routineName_ = nullptr;
+    // The rule content.
     std::shared_ptr<string> rule_ = nullptr;
+    // The order in which the rule is executed.
     std::shared_ptr<int32_t> sequence_ = nullptr;
+    // The version number of the website.
     std::shared_ptr<int32_t> siteVersion_ = nullptr;
   };
 

@@ -50,7 +50,9 @@ namespace Models
 
 
   protected:
+    // The dimension value.
     std::shared_ptr<string> dimensionValue_ = nullptr;
+    // The queried numeric value.
     Darabonba::Json value_ = nullptr;
   };
 

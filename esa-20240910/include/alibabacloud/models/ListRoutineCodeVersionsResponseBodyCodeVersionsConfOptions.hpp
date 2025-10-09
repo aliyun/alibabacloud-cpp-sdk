@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Code version configuration items NotFoundStrategy.
     std::shared_ptr<string> notFoundStrategy_ = nullptr;
   };
 

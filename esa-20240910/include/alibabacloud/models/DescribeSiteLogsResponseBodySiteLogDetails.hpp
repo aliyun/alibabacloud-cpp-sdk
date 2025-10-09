@@ -82,10 +82,15 @@ namespace Models
 
 
   protected:
+    // The total number of entries returned on the current page.
     std::shared_ptr<int32_t> logCount_ = nullptr;
+    // The details of the website log files.
     std::shared_ptr<vector<Models::DescribeSiteLogsResponseBodySiteLogDetailsLogInfos>> logInfos_ = nullptr;
+    // Pagination information.
     std::shared_ptr<Models::DescribeSiteLogsResponseBodySiteLogDetailsPageInfos> pageInfos_ = nullptr;
+    // The website ID.
     std::shared_ptr<int64_t> siteId_ = nullptr;
+    // The website name.
     std::shared_ptr<string> siteName_ = nullptr;
   };
 

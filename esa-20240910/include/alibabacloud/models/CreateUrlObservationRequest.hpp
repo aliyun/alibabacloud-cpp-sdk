@@ -57,10 +57,19 @@ namespace Models
 
 
   protected:
+    // SDK integration. Supported
+    // 
+    // *   **automatic**
+    // *   **manual**
+    // 
     // This parameter is required.
     std::shared_ptr<string> sdkType_ = nullptr;
+    // The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> siteId_ = nullptr;
+    // The URL of the web page to monitor.
+    // 
     // This parameter is required.
     std::shared_ptr<string> url_ = nullptr;
   };

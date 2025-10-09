@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // The configuration ID.
     std::shared_ptr<int64_t> configId_ = nullptr;
     // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;

@@ -195,23 +195,41 @@ namespace Models
 
 
   protected:
+    // The certificate ID on Certificate Management Service.
     std::shared_ptr<string> casId_ = nullptr;
+    // The Common Name of the certificate.
     std::shared_ptr<string> commonName_ = nullptr;
+    // The creation time.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The SHA-256 fingerprint of the certificate.
     std::shared_ptr<string> fingerprintSha256_ = nullptr;
+    // The ID of the certificate.
     std::shared_ptr<string> id_ = nullptr;
+    // The certificate authority (CA) that issued the certificate.
     std::shared_ptr<string> issuer_ = nullptr;
+    // The Common Name of the certificate issuer.
     std::shared_ptr<string> issuerCN_ = nullptr;
+    // The certificate name.
     std::shared_ptr<string> name_ = nullptr;
+    // The time when the certificate expires.
     std::shared_ptr<string> notAfter_ = nullptr;
+    // The time when the certificate takes effect.
     std::shared_ptr<string> notBefore_ = nullptr;
+    // The public key algorithm of the certificate.
     std::shared_ptr<string> pubAlg_ = nullptr;
+    // The region where the certificate is stored.
     std::shared_ptr<string> region_ = nullptr;
+    // The Subject Alternative Name (SAN) of the certificate.
     std::shared_ptr<string> SAN_ = nullptr;
+    // The serial number of the certificate.
     std::shared_ptr<string> serialNumber_ = nullptr;
+    // The signature algorithm of the certificate.
     std::shared_ptr<string> sigAlg_ = nullptr;
+    // The status of the certificate.
     std::shared_ptr<string> status_ = nullptr;
+    // The type of the SSL certificate. Valid values:
     std::shared_ptr<string> type_ = nullptr;
+    // The update time.
     std::shared_ptr<string> updateTime_ = nullptr;
   };
 

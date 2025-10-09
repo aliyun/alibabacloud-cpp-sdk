@@ -965,7 +965,7 @@ namespace ESA20240910
       Models::CreateRoutineRelatedRecordResponse createRoutineRelatedRecord(const Models::CreateRoutineRelatedRecordRequest &request);
 
       /**
-       * @summary 新增边缘函数路由配置
+       * @summary Adds edge function routing configurations.
        *
        * @param request CreateRoutineRouteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -974,7 +974,7 @@ namespace ESA20240910
       Models::CreateRoutineRouteResponse createRoutineRouteWithOptions(const Models::CreateRoutineRouteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增边缘函数路由配置
+       * @summary Adds edge function routing configurations.
        *
        * @param request CreateRoutineRouteRequest
        * @return CreateRoutineRouteResponse
@@ -1131,7 +1131,7 @@ namespace ESA20240910
       Models::CreateTransportLayerApplicationResponse createTransportLayerApplication(const Models::CreateTransportLayerApplicationRequest &request);
 
       /**
-       * @summary 创建网页监测配置
+       * @summary Create a web page monitoring configuration.
        *
        * @param request CreateUrlObservationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1140,7 +1140,7 @@ namespace ESA20240910
       Models::CreateUrlObservationResponse createUrlObservationWithOptions(const Models::CreateUrlObservationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建网页监测配置
+       * @summary Create a web page monitoring configuration.
        *
        * @param request CreateUrlObservationRequest
        * @return CreateUrlObservationResponse
@@ -1185,7 +1185,7 @@ namespace ESA20240910
       Models::CreateUserDeliveryTaskResponse createUserDeliveryTask(const Models::CreateUserDeliveryTaskRequest &request);
 
       /**
-       * @summary 新增站点视频处理配置
+       * @summary Add video processing configurations for a website.
        *
        * @param request CreateVideoProcessingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1194,7 +1194,7 @@ namespace ESA20240910
       Models::CreateVideoProcessingResponse createVideoProcessingWithOptions(const Models::CreateVideoProcessingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增站点视频处理配置
+       * @summary Add video processing configurations for a website.
        *
        * @param request CreateVideoProcessingRequest
        * @return CreateVideoProcessingResponse
@@ -1873,7 +1873,7 @@ namespace ESA20240910
       Models::DeleteRoutineRelatedRecordResponse deleteRoutineRelatedRecord(const Models::DeleteRoutineRelatedRecordRequest &request);
 
       /**
-       * @summary 删除边缘函数路由配置
+       * @summary Deletes the route configuration of an edge function.
        *
        * @param request DeleteRoutineRouteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1882,7 +1882,7 @@ namespace ESA20240910
       Models::DeleteRoutineRouteResponse deleteRoutineRouteWithOptions(const Models::DeleteRoutineRouteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除边缘函数路由配置
+       * @summary Deletes the route configuration of an edge function.
        *
        * @param request DeleteRoutineRouteRequest
        * @return DeleteRoutineRouteResponse
@@ -1992,7 +1992,7 @@ namespace ESA20240910
       Models::DeleteTransportLayerApplicationResponse deleteTransportLayerApplication(const Models::DeleteTransportLayerApplicationRequest &request);
 
       /**
-       * @summary 删除网页监测配置
+       * @summary Deletes page monitoring configurations.
        *
        * @param request DeleteUrlObservationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2001,7 +2001,7 @@ namespace ESA20240910
       Models::DeleteUrlObservationResponse deleteUrlObservationWithOptions(const Models::DeleteUrlObservationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除网页监测配置
+       * @summary Deletes page monitoring configurations.
        *
        * @param request DeleteUrlObservationRequest
        * @return DeleteUrlObservationResponse
@@ -2036,7 +2036,7 @@ namespace ESA20240910
       Models::DeleteUserDeliveryTaskResponse deleteUserDeliveryTask(const Models::DeleteUserDeliveryTaskRequest &request);
 
       /**
-       * @summary 删除站点视频处理配置
+       * @summary Deletes a video processing configuration.
        *
        * @param request DeleteVideoProcessingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2045,7 +2045,7 @@ namespace ESA20240910
       Models::DeleteVideoProcessingResponse deleteVideoProcessingWithOptions(const Models::DeleteVideoProcessingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除站点视频处理配置
+       * @summary Deletes a video processing configuration.
        *
        * @param request DeleteVideoProcessingRequest
        * @return DeleteVideoProcessingResponse
@@ -2206,7 +2206,7 @@ namespace ESA20240910
       Models::DescribeDDoSL7QpsListResponse describeDDoSL7QpsList(const Models::DescribeDDoSL7QpsListRequest &request);
 
       /**
-       * @summary 将天眼提供给XCDN边缘容器的监控OpenAPI适配成青蓝的OpenAPI
+       * @summary Provides monitoring data for metrics of ESA edge containers.
        *
        * @param request DescribeEdgeContainerAppStatsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2215,7 +2215,7 @@ namespace ESA20240910
       Models::DescribeEdgeContainerAppStatsResponse describeEdgeContainerAppStatsWithOptions(const Models::DescribeEdgeContainerAppStatsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将天眼提供给XCDN边缘容器的监控OpenAPI适配成青蓝的OpenAPI
+       * @summary Provides monitoring data for metrics of ESA edge containers.
        *
        * @param request DescribeEdgeContainerAppStatsRequest
        * @return DescribeEdgeContainerAppStatsResponse
@@ -2328,7 +2328,12 @@ namespace ESA20240910
       Models::DescribeRatePlanInstanceStatusResponse describeRatePlanInstanceStatus(const Models::DescribeRatePlanInstanceStatusRequest &request);
 
       /**
-       * @summary 查询站点离线日志
+       * @summary Queries the URLs from which you can download the raw access logs of a website.
+       *
+       * @description *   If you do not specify StartTime or EndTime, the log data generated in the last 24 hours is queried. If you specify StartTime and EndTime, the log data generated within the specified time range is queried.
+       * *   The log data is collected every hour.
+       * *   You can call this operation up to 50 times per second per account.
+       * *   You can query only logs in the last month. The time range cannot exceed 31 days.
        *
        * @param request DescribeSiteLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2337,7 +2342,12 @@ namespace ESA20240910
       Models::DescribeSiteLogsResponse describeSiteLogsWithOptions(const Models::DescribeSiteLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点离线日志
+       * @summary Queries the URLs from which you can download the raw access logs of a website.
+       *
+       * @description *   If you do not specify StartTime or EndTime, the log data generated in the last 24 hours is queried. If you specify StartTime and EndTime, the log data generated within the specified time range is queried.
+       * *   The log data is collected every hour.
+       * *   You can call this operation up to 50 times per second per account.
+       * *   You can query only logs in the last month. The time range cannot exceed 31 days.
        *
        * @param request DescribeSiteLogsRequest
        * @return DescribeSiteLogsResponse
@@ -2346,6 +2356,15 @@ namespace ESA20240910
 
       /**
        * @summary 获取时序数据
+       *
+       * @description *   If you do not specify StartTime or EndTime, the request returns the data collected in the last 24 hours. If you specify StartTime and EndTime, the request returns the data collected within the specified time range.
+       * *   The time interval at which data is returned varies according to the span of StartTime and EndTime.
+       *     *   If Time span ≤ 3 hours, the data is returned at a 1-minute interval.
+       *     *   If 3 hours < Time span ≤ 12 hours, the data is returned at a 5-minute interval.
+       *     *   If 12 hours < Time span ≤ 24 hours, the data is returned at a 15-minute interval.
+       *     *   If 1 day < Time span ≤ 10 days, the data is returned at an hourly interval.
+       *     *   If 10 days < Time span ≤ 31 days, the data is returned at a daily interval.
+       * *   Data analysis may be sampled due to a large number of visits during the query period.
        *
        * @param tmpReq DescribeSiteTimeSeriesDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2356,13 +2375,24 @@ namespace ESA20240910
       /**
        * @summary 获取时序数据
        *
+       * @description *   If you do not specify StartTime or EndTime, the request returns the data collected in the last 24 hours. If you specify StartTime and EndTime, the request returns the data collected within the specified time range.
+       * *   The time interval at which data is returned varies according to the span of StartTime and EndTime.
+       *     *   If Time span ≤ 3 hours, the data is returned at a 1-minute interval.
+       *     *   If 3 hours < Time span ≤ 12 hours, the data is returned at a 5-minute interval.
+       *     *   If 12 hours < Time span ≤ 24 hours, the data is returned at a 15-minute interval.
+       *     *   If 1 day < Time span ≤ 10 days, the data is returned at an hourly interval.
+       *     *   If 10 days < Time span ≤ 31 days, the data is returned at a daily interval.
+       * *   Data analysis may be sampled due to a large number of visits during the query period.
+       *
        * @param request DescribeSiteTimeSeriesDataRequest
        * @return DescribeSiteTimeSeriesDataResponse
        */
       Models::DescribeSiteTimeSeriesDataResponse describeSiteTimeSeriesData(const Models::DescribeSiteTimeSeriesDataRequest &request);
 
       /**
-       * @summary 获取Top数据
+       * @summary Queries the top-ranking records in a traffic analytics report by website or Alibaba Cloud account.
+       *
+       * @description *   If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the previous 24 hours. If you specify both parameters, the request returns the data collected within the specified time range.
        *
        * @param tmpReq DescribeSiteTopDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2371,7 +2401,9 @@ namespace ESA20240910
       Models::DescribeSiteTopDataResponse describeSiteTopDataWithOptions(const Models::DescribeSiteTopDataRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Top数据
+       * @summary Queries the top-ranking records in a traffic analytics report by website or Alibaba Cloud account.
+       *
+       * @description *   If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the previous 24 hours. If you specify both parameters, the request returns the data collected within the specified time range.
        *
        * @param request DescribeSiteTopDataRequest
        * @return DescribeSiteTopDataResponse
@@ -2379,7 +2411,9 @@ namespace ESA20240910
       Models::DescribeSiteTopDataResponse describeSiteTopData(const Models::DescribeSiteTopDataRequest &request);
 
       /**
-       * @summary 查询网页观测质量数据
+       * @summary Queries the page monitoring data.
+       *
+       * @description If you do not specify the StartTime or EndTime parameter, this operation returns the data collected within the last 24 hours. If you specify both parameters, this operation returns the data collected within the specified time range.
        *
        * @param request DescribeUrlObservationDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2388,7 +2422,9 @@ namespace ESA20240910
       Models::DescribeUrlObservationDataResponse describeUrlObservationDataWithOptions(const Models::DescribeUrlObservationDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询网页观测质量数据
+       * @summary Queries the page monitoring data.
+       *
+       * @description If you do not specify the StartTime or EndTime parameter, this operation returns the data collected within the last 24 hours. If you specify both parameters, this operation returns the data collected within the specified time range.
        *
        * @param request DescribeUrlObservationDataRequest
        * @return DescribeUrlObservationDataResponse
@@ -2633,7 +2669,7 @@ namespace ESA20240910
       Models::GetCompressionRuleResponse getCompressionRule(const Models::GetCompressionRuleRequest &request);
 
       /**
-       * @summary 查询站点中国大陆网络接入优化配置
+       * @summary Queries the configuration of Chinese mainland access optimization.
        *
        * @param request GetCrossBorderOptimizationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2642,7 +2678,7 @@ namespace ESA20240910
       Models::GetCrossBorderOptimizationResponse getCrossBorderOptimizationWithOptions(const Models::GetCrossBorderOptimizationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点中国大陆网络接入优化配置
+       * @summary Queries the configuration of Chinese mainland access optimization.
        *
        * @param request GetCrossBorderOptimizationRequest
        * @return GetCrossBorderOptimizationResponse
@@ -2701,7 +2737,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppLogRiverResponse getEdgeContainerAppLogRiver(const Models::GetEdgeContainerAppLogRiverRequest &request);
 
       /**
-       * @summary 获取边缘容器资源预留配置
+       * @summary Obtain the resource reservation configuration of the edge container.
        *
        * @param request GetEdgeContainerAppResourceReserveRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2710,7 +2746,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppResourceReserveResponse getEdgeContainerAppResourceReserveWithOptions(const Models::GetEdgeContainerAppResourceReserveRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取边缘容器资源预留配置
+       * @summary Obtain the resource reservation configuration of the edge container.
        *
        * @param request GetEdgeContainerAppResourceReserveRequest
        * @return GetEdgeContainerAppResourceReserveResponse
@@ -2718,7 +2754,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppResourceReserveResponse getEdgeContainerAppResourceReserve(const Models::GetEdgeContainerAppResourceReserveRequest &request);
 
       /**
-       * @summary 获取边缘容器应用资源分布
+       * @summary Obtains the distribution of edge container application resources.
        *
        * @param request GetEdgeContainerAppResourceStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2727,7 +2763,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppResourceStatusResponse getEdgeContainerAppResourceStatusWithOptions(const Models::GetEdgeContainerAppResourceStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取边缘容器应用资源分布
+       * @summary Obtains the distribution of edge container application resources.
        *
        * @param request GetEdgeContainerAppResourceStatusRequest
        * @return GetEdgeContainerAppResourceStatusResponse
@@ -3350,7 +3386,7 @@ namespace ESA20240910
       Models::GetRoutineCodeVersionResponse getRoutineCodeVersion(const Models::GetRoutineCodeVersionRequest &request);
 
       /**
-       * @summary 查询单条边缘函数路由配置
+       * @summary Queries the route configurations of a single edge function.
        *
        * @param request GetRoutineRouteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3359,7 +3395,7 @@ namespace ESA20240910
       Models::GetRoutineRouteResponse getRoutineRouteWithOptions(const Models::GetRoutineRouteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询单条边缘函数路由配置
+       * @summary Queries the route configurations of a single edge function.
        *
        * @param request GetRoutineRouteRequest
        * @return GetRoutineRouteResponse
@@ -3730,7 +3766,7 @@ namespace ESA20240910
       Models::GetUserLogDeliveryQuotaResponse getUserLogDeliveryQuota(const Models::GetUserLogDeliveryQuotaRequest &request);
 
       /**
-       * @summary 查询站点视频处理配置详情
+       * @summary Queries the video processing configuration details of a site.
        *
        * @param request GetVideoProcessingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3739,7 +3775,7 @@ namespace ESA20240910
       Models::GetVideoProcessingResponse getVideoProcessingWithOptions(const Models::GetVideoProcessingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点视频处理配置详情
+       * @summary Queries the video processing configuration details of a site.
        *
        * @param request GetVideoProcessingRequest
        * @return GetVideoProcessingResponse
@@ -3882,7 +3918,7 @@ namespace ESA20240910
       Models::ListCertificatesResponse listCertificates(const Models::ListCertificatesRequest &request);
 
       /**
-       * @summary 查询匹配记录名的站点证书列表
+       * @summary Lists certificates that match specified records for a website. You can specify multiple records at a time.
        *
        * @param request ListCertificatesByRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3891,7 +3927,7 @@ namespace ESA20240910
       Models::ListCertificatesByRecordResponse listCertificatesByRecordWithOptions(const Models::ListCertificatesByRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询匹配记录名的站点证书列表
+       * @summary Lists certificates that match specified records for a website. You can specify multiple records at a time.
        *
        * @param request ListCertificatesByRecordRequest
        * @return ListCertificatesByRecordResponse
@@ -3967,7 +4003,9 @@ namespace ESA20240910
       Models::ListCompressionRulesResponse listCompressionRules(const Models::ListCompressionRulesRequest &request);
 
       /**
-       * @summary 批量查询IP是否为VIP
+       * @summary Batch query whether the IP address is included in the ESA resolution result.
+       *
+       * @description This interface is used to check whether the vs_addr parameter in the vipInfo collection is vip.
        *
        * @param request ListESAIPInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3976,7 +4014,9 @@ namespace ESA20240910
       Models::ListESAIPInfoResponse listESAIPInfoWithOptions(const Models::ListESAIPInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量查询IP是否为VIP
+       * @summary Batch query whether the IP address is included in the ESA resolution result.
+       *
+       * @description This interface is used to check whether the vs_addr parameter in the vipInfo collection is vip.
        *
        * @param request ListESAIPInfoRequest
        * @return ListESAIPInfoResponse
@@ -4533,7 +4573,11 @@ namespace ESA20240910
       Models::ListRoutineCanaryAreasResponse listRoutineCanaryAreas();
 
       /**
-       * @summary 查询Routine的代码版本列表
+       * @summary Queries the code versions of a function (routine) by page.
+       *
+       * @description Call this operation to query the code versions of a specific function. Paged query and fuzzy search are supported. You can configure `Name` to specify the name of a function.
+       * Specify `PageNumber` and `PageSize` to control the number of entries returned in a request, and use `SearchKeyWord` to specify a keyword for fuzzy search.
+       * The response includes the number, description, and creation time of each code version.
        *
        * @param request ListRoutineCodeVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4542,7 +4586,11 @@ namespace ESA20240910
       Models::ListRoutineCodeVersionsResponse listRoutineCodeVersionsWithOptions(const Models::ListRoutineCodeVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Routine的代码版本列表
+       * @summary Queries the code versions of a function (routine) by page.
+       *
+       * @description Call this operation to query the code versions of a specific function. Paged query and fuzzy search are supported. You can configure `Name` to specify the name of a function.
+       * Specify `PageNumber` and `PageSize` to control the number of entries returned in a request, and use `SearchKeyWord` to specify a keyword for fuzzy search.
+       * The response includes the number, description, and creation time of each code version.
        *
        * @param request ListRoutineCodeVersionsRequest
        * @return ListRoutineCodeVersionsResponse
@@ -4550,7 +4598,9 @@ namespace ESA20240910
       Models::ListRoutineCodeVersionsResponse listRoutineCodeVersions(const Models::ListRoutineCodeVersionsRequest &request);
 
       /**
-       * @summary 查询函数关联域名列表
+       * @summary The records associated with the function.
+       *
+       * @description You can call this operation to query the routes associated with a function. You can specify paged query parameters to obtain the specified number of routes or specify a keyword for fuzzy search to filter specific routes.
        *
        * @param request ListRoutineRelatedRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4559,7 +4609,9 @@ namespace ESA20240910
       Models::ListRoutineRelatedRecordsResponse listRoutineRelatedRecordsWithOptions(const Models::ListRoutineRelatedRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询函数关联域名列表
+       * @summary The records associated with the function.
+       *
+       * @description You can call this operation to query the routes associated with a function. You can specify paged query parameters to obtain the specified number of routes or specify a keyword for fuzzy search to filter specific routes.
        *
        * @param request ListRoutineRelatedRecordsRequest
        * @return ListRoutineRelatedRecordsResponse
@@ -4567,7 +4619,7 @@ namespace ESA20240910
       Models::ListRoutineRelatedRecordsResponse listRoutineRelatedRecords(const Models::ListRoutineRelatedRecordsRequest &request);
 
       /**
-       * @summary 查询边缘程序的函数路由列表
+       * @summary Queries the routes of an edge function.
        *
        * @param request ListRoutineRoutesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4576,7 +4628,7 @@ namespace ESA20240910
       Models::ListRoutineRoutesResponse listRoutineRoutesWithOptions(const Models::ListRoutineRoutesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询边缘程序的函数路由列表
+       * @summary Queries the routes of an edge function.
        *
        * @param request ListRoutineRoutesRequest
        * @return ListRoutineRoutesResponse
@@ -4635,7 +4687,7 @@ namespace ESA20240910
       Models::ListSiteDeliveryTasksResponse listSiteDeliveryTasks(const Models::ListSiteDeliveryTasksRequest &request);
 
       /**
-       * @summary 查询站点的函数路由列表
+       * @summary Queries the edge function routes for a website.
        *
        * @param request ListSiteRoutesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4644,7 +4696,7 @@ namespace ESA20240910
       Models::ListSiteRoutesResponse listSiteRoutesWithOptions(const Models::ListSiteRoutesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点的函数路由列表
+       * @summary Queries the edge function routes for a website.
        *
        * @param request ListSiteRoutesRequest
        * @return ListSiteRoutesResponse
@@ -4720,7 +4772,7 @@ namespace ESA20240910
       Models::ListUploadTasksResponse listUploadTasks(const Models::ListUploadTasksRequest &request);
 
       /**
-       * @summary 查询网页观测配置列表
+       * @summary Queries the list of page monitoring configurations.
        *
        * @param request ListUrlObservationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4729,7 +4781,7 @@ namespace ESA20240910
       Models::ListUrlObservationsResponse listUrlObservationsWithOptions(const Models::ListUrlObservationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询网页观测配置列表
+       * @summary Queries the list of page monitoring configurations.
        *
        * @param request ListUrlObservationsRequest
        * @return ListUrlObservationsResponse
@@ -4771,7 +4823,9 @@ namespace ESA20240910
       Models::ListUserRatePlanInstancesResponse listUserRatePlanInstances(const Models::ListUserRatePlanInstancesRequest &request);
 
       /**
-       * @summary 查询用户的Routine列表
+       * @summary Queries the functions created in your account and the maximum number of functions supported by your plan. You can call this operation to perform a paged query.
+       *
+       * @description You can call this operation to perform a paged query to query all functions created in your account, the maximum number of functions supported by the billing plan that you use, and the number of functions already created. You can specify `PageNumber` and `PageSize` to control the number of entries to be returned in the response and specify `SearchKeyWord` to perform a fuzzy search to filter specific routine names.
        *
        * @param request ListUserRoutinesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4780,7 +4834,9 @@ namespace ESA20240910
       Models::ListUserRoutinesResponse listUserRoutinesWithOptions(const Models::ListUserRoutinesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询用户的Routine列表
+       * @summary Queries the functions created in your account and the maximum number of functions supported by your plan. You can call this operation to perform a paged query.
+       *
+       * @description You can call this operation to perform a paged query to query all functions created in your account, the maximum number of functions supported by the billing plan that you use, and the number of functions already created. You can specify `PageNumber` and `PageSize` to control the number of entries to be returned in the response and specify `SearchKeyWord` to perform a fuzzy search to filter specific routine names.
        *
        * @param request ListUserRoutinesRequest
        * @return ListUserRoutinesResponse
@@ -4788,7 +4844,7 @@ namespace ESA20240910
       Models::ListUserRoutinesResponse listUserRoutines(const Models::ListUserRoutinesRequest &request);
 
       /**
-       * @summary 查询站点视频处理配置列表
+       * @summary Queries the video processing configurations of a site.
        *
        * @param request ListVideoProcessingsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4797,7 +4853,7 @@ namespace ESA20240910
       Models::ListVideoProcessingsResponse listVideoProcessingsWithOptions(const Models::ListVideoProcessingsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点视频处理配置列表
+       * @summary Queries the video processing configurations of a site.
        *
        * @param request ListVideoProcessingsRequest
        * @return ListVideoProcessingsResponse
@@ -5579,7 +5635,7 @@ namespace ESA20240910
       Models::UpdateEdgeContainerAppLogRiverResponse updateEdgeContainerAppLogRiver(const Models::UpdateEdgeContainerAppLogRiverRequest &request);
 
       /**
-       * @summary 更新边缘容器资源预留配置
+       * @summary Updates the resource reservation configuration of an edge container.
        *
        * @param tmpReq UpdateEdgeContainerAppResourceReserveRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5588,7 +5644,7 @@ namespace ESA20240910
       Models::UpdateEdgeContainerAppResourceReserveResponse updateEdgeContainerAppResourceReserveWithOptions(const Models::UpdateEdgeContainerAppResourceReserveRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新边缘容器资源预留配置
+       * @summary Updates the resource reservation configuration of an edge container.
        *
        * @param request UpdateEdgeContainerAppResourceReserveRequest
        * @return UpdateEdgeContainerAppResourceReserveResponse
@@ -5990,7 +6046,7 @@ namespace ESA20240910
       Models::UpdateRoutineConfigDescriptionResponse updateRoutineConfigDescription(const Models::UpdateRoutineConfigDescriptionRequest &request);
 
       /**
-       * @summary 修改边缘函数路由配置
+       * @summary Modifies the route configuration of an edge function.
        *
        * @param request UpdateRoutineRouteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5999,7 +6055,7 @@ namespace ESA20240910
       Models::UpdateRoutineRouteResponse updateRoutineRouteWithOptions(const Models::UpdateRoutineRouteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改边缘函数路由配置
+       * @summary Modifies the route configuration of an edge function.
        *
        * @param request UpdateRoutineRouteRequest
        * @return UpdateRoutineRouteResponse
@@ -6024,7 +6080,7 @@ namespace ESA20240910
       Models::UpdateScheduledPreloadExecutionResponse updateScheduledPreloadExecution(const Models::UpdateScheduledPreloadExecutionRequest &request);
 
       /**
-       * @summary 修改站点放行搜索引擎爬虫配置
+       * @summary Modifies the search engine crawler configuration for a website.
        *
        * @param request UpdateSeoBypassRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6033,7 +6089,7 @@ namespace ESA20240910
       Models::UpdateSeoBypassResponse updateSeoBypassWithOptions(const Models::UpdateSeoBypassRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改站点放行搜索引擎爬虫配置
+       * @summary Modifies the search engine crawler configuration for a website.
        *
        * @param request UpdateSeoBypassRequest
        * @return UpdateSeoBypassResponse
@@ -6219,7 +6275,7 @@ namespace ESA20240910
       Models::UpdateTransportLayerApplicationResponse updateTransportLayerApplication(const Models::UpdateTransportLayerApplicationRequest &request);
 
       /**
-       * @summary 更新网页监测配置
+       * @summary Updates the webpage monitoring configuration.
        *
        * @param request UpdateUrlObservationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6228,7 +6284,7 @@ namespace ESA20240910
       Models::UpdateUrlObservationResponse updateUrlObservationWithOptions(const Models::UpdateUrlObservationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新网页监测配置
+       * @summary Updates the webpage monitoring configuration.
        *
        * @param request UpdateUrlObservationRequest
        * @return UpdateUrlObservationResponse
@@ -6276,7 +6332,7 @@ namespace ESA20240910
       Models::UpdateUserDeliveryTaskStatusResponse updateUserDeliveryTaskStatus(const Models::UpdateUserDeliveryTaskStatusRequest &request);
 
       /**
-       * @summary 修改站点视频处理配置
+       * @summary Modifies the video processing configuration of the site.
        *
        * @param request UpdateVideoProcessingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6285,7 +6341,7 @@ namespace ESA20240910
       Models::UpdateVideoProcessingResponse updateVideoProcessingWithOptions(const Models::UpdateVideoProcessingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改站点视频处理配置
+       * @summary Modifies the video processing configuration of the site.
        *
        * @param request UpdateVideoProcessingRequest
        * @return UpdateVideoProcessingResponse

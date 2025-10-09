@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The name of the function.
+    // 
     // This parameter is required.
     std::shared_ptr<string> name_ = nullptr;
+    // The page number of the returned page. Default value: 1
     std::shared_ptr<int64_t> pageNumber_ = nullptr;
+    // The number of entries per page. Valid values: an integer from 1 to 20.
     std::shared_ptr<int64_t> pageSize_ = nullptr;
+    // The keyword used for fuzzy search.
     std::shared_ptr<string> searchKeyWord_ = nullptr;
   };
 

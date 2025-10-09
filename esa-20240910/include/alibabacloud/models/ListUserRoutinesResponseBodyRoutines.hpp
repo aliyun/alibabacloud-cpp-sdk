@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The time when the function was created.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The default record name to access.
     std::shared_ptr<string> defaultRelatedRecord_ = nullptr;
+    // The function description.
     std::shared_ptr<string> description_ = nullptr;
+    // Specifies whether to include the Assets file tag.
     std::shared_ptr<bool> hasAssets_ = nullptr;
+    // The function name.
     std::shared_ptr<string> routineName_ = nullptr;
   };
 

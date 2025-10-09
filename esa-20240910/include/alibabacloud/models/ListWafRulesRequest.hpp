@@ -105,6 +105,8 @@ namespace Models
     // 
     // - http_anti_scan: Scan protection
     // - http_bot: Bots
+    // 
+    // This parameter is required.
     std::shared_ptr<string> phase_ = nullptr;
     // Query filter conditions.
     std::shared_ptr<ListWafRulesRequestQueryArgs> queryArgs_ = nullptr;

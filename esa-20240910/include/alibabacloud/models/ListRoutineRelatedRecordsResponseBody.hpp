@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // The page number. Pages start from page 1. Default value: 1.
     std::shared_ptr<int64_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int64_t> pageSize_ = nullptr;
+    // The list of records associated with the edge function.
     std::shared_ptr<vector<ListRoutineRelatedRecordsResponseBodyRelatedRecords>> relatedRecords_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The total number of entries.
     std::shared_ptr<int64_t> totalCount_ = nullptr;
   };
 

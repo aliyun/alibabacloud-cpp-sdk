@@ -112,15 +112,35 @@ namespace Models
 
 
   protected:
+    // Bypass mode. Valid values:
+    // 
+    // *   on
+    // *   off
     std::shared_ptr<string> bypass_ = nullptr;
+    // The ID of the configuration.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> configId_ = nullptr;
+    // The exception origin switch. After you turn on this switch, if a function exception occurs, such as CPU usage exceeding the upper limit, requests are sent to the origin. Valid values:
+    // 
+    // *   on
+    // *   off
     std::shared_ptr<string> fallback_ = nullptr;
+    // The routing switch. Valid values:
+    // 
+    // *   on
+    // *   off
     std::shared_ptr<string> routeEnable_ = nullptr;
+    // The name of the route.
     std::shared_ptr<string> routeName_ = nullptr;
+    // The name of the function.
     std::shared_ptr<string> routineName_ = nullptr;
+    // The content of the rule.
     std::shared_ptr<string> rule_ = nullptr;
+    // The order in which the rule is executed.
     std::shared_ptr<int32_t> sequence_ = nullptr;
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> siteId_ = nullptr;
   };

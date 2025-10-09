@@ -48,7 +48,12 @@ namespace Models
 
 
   protected:
+    // Whether the IP address in the parameter belongs to ESA POPs.
+    // 
+    // *   **true**
+    // *   **false**
     std::shared_ptr<string> cdnIp_ = nullptr;
+    // The IP addresses.
     std::shared_ptr<string> ip_ = nullptr;
   };
 

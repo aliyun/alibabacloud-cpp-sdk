@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+    // 
     // This parameter is required.
     std::shared_ptr<string> appId_ = nullptr;
   };

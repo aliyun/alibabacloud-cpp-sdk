@@ -130,16 +130,38 @@ namespace Models
 
 
   protected:
+    // The bypass mode. Valid values:
+    // 
+    // *   on
+    // *   off
     std::shared_ptr<string> bypass_ = nullptr;
+    // The configuration ID.
     std::shared_ptr<int64_t> configId_ = nullptr;
+    // The configuration type to query. Valid values:
+    // 
+    // *   global: global configurations.
+    // *   rule: queries rule configurations.
     std::shared_ptr<string> configType_ = nullptr;
     std::shared_ptr<string> fallback_ = nullptr;
+    // The configuration mode. Specifies whether to check the image used by the instance supports hot migration. Valid values:
+    // 
+    // *   simple: Simple Mode
+    // *   custom: Custom Mode
     std::shared_ptr<string> mode_ = nullptr;
+    // The route switch. Valid values:
+    // 
+    // *   on
+    // *   off
     std::shared_ptr<string> routeEnable_ = nullptr;
+    // The route name.
     std::shared_ptr<string> routeName_ = nullptr;
+    // The function name.
     std::shared_ptr<string> routineName_ = nullptr;
+    // The rule content.
     std::shared_ptr<string> rule_ = nullptr;
+    // The order in which the rule is executed.
     std::shared_ptr<int32_t> sequence_ = nullptr;
+    // The version number of the website.
     std::shared_ptr<int32_t> siteVersion_ = nullptr;
   };
 

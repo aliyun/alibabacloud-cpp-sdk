@@ -57,8 +57,55 @@ namespace Models
 
 
   protected:
+    // The following ISPs are supported. You do not need to enter this field for overseas and special administrative regions. ISP:
+    // 
+    // *   China Mobile: cmcc
+    // *   China Telecom: chinanet
+    // *   China Unicom: unicom
     std::shared_ptr<string> isp_ = nullptr;
+    // Chinese mainland:
+    // 
+    // *   East China: huadong
+    // *   South China: huanan
+    // *   Central China: huazhong
+    // *   North China: huabei
+    // *   Northwest: xibei
+    // *   Southwest: xinan
+    // *   Northeast China: dongbei
+    // 
+    // Special Administrative Regions and Overseas:
+    // 
+    // *   Taiwan, China: tw
+    // *   Macau China: mo
+    // *   Hong Kong, China: hk
+    // *   Japan: jp
+    // *   United States: us
+    // *   Thailand: th
+    // *   Korea: kr
+    // *   Russia: ru
+    // *   Singapore: sg
+    // *   France: fr
+    // *   Spain: es
+    // *   Italy: it
+    // *   Sweden: se
+    // *   UAE: ae
+    // *   Indonesia: id
+    // *   Chile: cl
+    // *   Philippines: ph
+    // *   Malaysia: my
+    // *   Vietnam: vn
+    // *   Argentina: ar
+    // *   Australia: au
+    // *   Brazil: br
+    // *   Colombia: co
+    // *   Germany: de
+    // *   UK: gb
+    // *   Peru: pe
+    // *   Saudi Arabia: sa
+    // *   Netherlands: nl
+    // *   South Africa: za
     std::shared_ptr<string> region_ = nullptr;
+    // The number of container replicas.
     std::shared_ptr<int32_t> replicas_ = nullptr;
   };
 

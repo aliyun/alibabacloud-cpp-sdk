@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The record ID of the domain name.
     std::shared_ptr<int64_t> recordId_ = nullptr;
+    // The name of the record.
     std::shared_ptr<string> recordName_ = nullptr;
+    // The website ID.
     std::shared_ptr<int64_t> siteId_ = nullptr;
+    // The website name.
     std::shared_ptr<string> siteName_ = nullptr;
   };
 

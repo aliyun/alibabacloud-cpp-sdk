@@ -52,8 +52,9 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The information about the website log files.
     std::shared_ptr<vector<DescribeSiteLogsResponseBodySiteLogDetails>> siteLogDetails_ = nullptr;
   };
 

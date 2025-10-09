@@ -76,6 +76,8 @@ namespace Models
 
   protected:
     std::shared_ptr<string> endTime_ = nullptr;
+    // The metric to query.
+    // 
     // This parameter is required.
     std::shared_ptr<string> fieldsShrink_ = nullptr;
     std::shared_ptr<string> interval_ = nullptr;

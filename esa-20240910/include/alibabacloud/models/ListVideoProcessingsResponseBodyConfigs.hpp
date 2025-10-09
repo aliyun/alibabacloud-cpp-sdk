@@ -149,18 +149,43 @@ namespace Models
 
 
   protected:
+    // The configuration ID.
     std::shared_ptr<int64_t> configId_ = nullptr;
+    // The type of the configuration. Valid values:
+    // 
+    // *   global: global configuration.
+    // *   rule: rule configuration.
     std::shared_ptr<string> configType_ = nullptr;
+    // The custom end parameter for FLV files.
     std::shared_ptr<string> flvSeekEnd_ = nullptr;
+    // The custom start parameter for FLV files.
     std::shared_ptr<string> flvSeekStart_ = nullptr;
+    // FLV seeking. Valid values:
+    // 
+    // *   by_byte: Seek by byte.
+    // *   by_time: Seek by time.
     std::shared_ptr<string> flvVideoSeekMode_ = nullptr;
+    // Customize the mp4 end parameter.
     std::shared_ptr<string> mp4SeekEnd_ = nullptr;
+    // Customize the mp4 start parameter.
     std::shared_ptr<string> mp4SeekStart_ = nullptr;
+    // The rule content.
     std::shared_ptr<string> rule_ = nullptr;
+    // Indicates whether the rule is enabled. Valid values:
+    // 
+    // *   on
+    // *   off
     std::shared_ptr<string> ruleEnable_ = nullptr;
+    // The rule name.
     std::shared_ptr<string> ruleName_ = nullptr;
+    // The order in which the rule is executed. The smaller the value, the higher the priority.
     std::shared_ptr<int32_t> sequence_ = nullptr;
+    // The version number of the website configurations.
     std::shared_ptr<int32_t> siteVersion_ = nullptr;
+    // Video seeking. Valid values:
+    // 
+    // *   on
+    // *   off
     std::shared_ptr<string> videoSeekEnable_ = nullptr;
   };
 

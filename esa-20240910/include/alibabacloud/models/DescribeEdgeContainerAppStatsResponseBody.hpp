@@ -116,12 +116,19 @@ namespace Models
 
 
   protected:
+    // Average CPU limit ratio
     std::shared_ptr<double> cpuUsageSecondsQuotaRateAvg_ = nullptr;
+    // Average number of CPU cores
     std::shared_ptr<double> cpuUsageSecondsTotalAvg_ = nullptr;
+    // Average read IO
     std::shared_ptr<double> fsReadsBytesAvgAvg_ = nullptr;
+    // Average write IO
     std::shared_ptr<double> fsWritesBytesAvgAvg_ = nullptr;
+    // Average memory usage
     std::shared_ptr<double> memoryRssAvg_ = nullptr;
+    // Average memory limit proportion
     std::shared_ptr<double> memoryRssQuotaRateAvg_ = nullptr;
+    // Average PodReady rate
     std::shared_ptr<double> podReadyRateAvg_ = nullptr;
     std::shared_ptr<vector<DescribeEdgeContainerAppStatsResponseBodyPoints>> points_ = nullptr;
     // Id of the request

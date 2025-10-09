@@ -140,19 +140,45 @@ namespace Models
 
 
   protected:
+    // The ID of the configuration. You can call the [ListVideoProcessings](~~ListVideoProcessings~~) operation to obtain the ID.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> configId_ = nullptr;
+    // The custom end parameter for FLV files.
     std::shared_ptr<string> flvSeekEnd_ = nullptr;
+    // The custom start parameter for FLV files.
     std::shared_ptr<string> flvSeekStart_ = nullptr;
+    // FLV Seeking Valid values:
+    // 
+    // *   by_byte: Seek by byte.
+    // *   by_time: Seek by time.
     std::shared_ptr<string> flvVideoSeekMode_ = nullptr;
+    // Customize the mp4 end parameter.
     std::shared_ptr<string> mp4SeekEnd_ = nullptr;
+    // Customize the mp4 start parameter.
     std::shared_ptr<string> mp4SeekStart_ = nullptr;
+    // The content of the rule. A conditional expression is used to match a user request. You do not need to set this parameter when you add global configuration. Two scenarios:
+    // 
+    // *   true: Match all incoming requests
+    // *   Set the value to a custom expression, for example: (http.host eq "video.example.com"): Match the specified request
     std::shared_ptr<string> rule_ = nullptr;
+    // Specifies whether to enable the rule. Valid values: You do not need to set this parameter when you add global configuration. Valid values:
+    // 
+    // *   on
+    // *   off
     std::shared_ptr<string> ruleEnable_ = nullptr;
+    // The rule name. You do not need to set this parameter when you add global configuration.
     std::shared_ptr<string> ruleName_ = nullptr;
+    // The order in which the rule is executed. A smaller value gives priority to the rule.
     std::shared_ptr<int32_t> sequence_ = nullptr;
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> siteId_ = nullptr;
+    // Video seeking. Valid values:
+    // 
+    // *   on
+    // *   off
     std::shared_ptr<string> videoSeekEnable_ = nullptr;
   };
 

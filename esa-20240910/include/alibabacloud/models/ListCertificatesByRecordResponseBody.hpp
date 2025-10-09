@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The queried certificates.
     std::shared_ptr<vector<ListCertificatesByRecordResponseBodyResult>> result_ = nullptr;
+    // The website ID,
     std::shared_ptr<int64_t> siteId_ = nullptr;
+    // The website name.
     std::shared_ptr<string> siteName_ = nullptr;
+    // The total number of records that you specified.
     std::shared_ptr<int64_t> totalCount_ = nullptr;
   };
 

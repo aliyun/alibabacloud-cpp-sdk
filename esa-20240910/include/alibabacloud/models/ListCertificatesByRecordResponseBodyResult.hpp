@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // The number of certificates that are being requested.
     std::shared_ptr<int64_t> applylingCount_ = nullptr;
+    // The certificates that match the specified records.
     std::shared_ptr<vector<Models::ListCertificatesByRecordResponseBodyResultCertificates>> certificates_ = nullptr;
+    // The number of certificates that match the specified records.
     std::shared_ptr<int64_t> count_ = nullptr;
+    // The name of the record.
     std::shared_ptr<string> recordName_ = nullptr;
+    // Certificate configuration status. Possible values: none; configured; applying; failed.
     std::shared_ptr<string> status_ = nullptr;
   };
 

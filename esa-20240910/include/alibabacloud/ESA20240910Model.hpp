@@ -5,6 +5,7 @@
 #include <alibabacloud/models/WafBatchRuleShared.hpp>
 #include <alibabacloud/models/WafQuotaInteger.hpp>
 #include <alibabacloud/models/WafQuotaString.hpp>
+#include <alibabacloud/models/WafRatelimitCharacteristics.hpp>
 #include <alibabacloud/models/WafRuleConfig.hpp>
 #include <alibabacloud/models/WafRuleMatch.hpp>
 #include <alibabacloud/models/WafRuleMatch2.hpp>
@@ -1129,6 +1130,9 @@
 #include <alibabacloud/models/VerifySiteResponse.hpp>
 #include <alibabacloud/models/WafBatchRuleSharedActionsResponse.hpp>
 #include <alibabacloud/models/WafBatchRuleSharedActions.hpp>
+#include <alibabacloud/models/WafRatelimitCharacteristicsCriteriaCriteriaCriteria.hpp>
+#include <alibabacloud/models/WafRatelimitCharacteristicsCriteriaCriteria.hpp>
+#include <alibabacloud/models/WafRatelimitCharacteristicsCriteria.hpp>
 #include <alibabacloud/models/WafRuleConfigActionsBypass.hpp>
 #include <alibabacloud/models/WafRuleConfigActionsResponse.hpp>
 #include <alibabacloud/models/WafRuleConfigActions.hpp>

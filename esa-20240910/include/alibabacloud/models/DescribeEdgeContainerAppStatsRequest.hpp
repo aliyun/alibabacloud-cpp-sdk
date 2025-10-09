@@ -102,6 +102,7 @@ namespace Models
     std::shared_ptr<string> isp_ = nullptr;
     std::shared_ptr<string> locate_ = nullptr;
     std::shared_ptr<string> startTime_ = nullptr;
+    // The tenant ID.
     std::shared_ptr<string> tenant_ = nullptr;
   };
 

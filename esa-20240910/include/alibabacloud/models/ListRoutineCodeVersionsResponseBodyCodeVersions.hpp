@@ -97,12 +97,19 @@ namespace Models
 
 
   protected:
+    // The ID of the code version build.
     std::shared_ptr<int64_t> buildId_ = nullptr;
+    // The description of the code version.
     std::shared_ptr<string> codeDescription_ = nullptr;
+    // The version of the code.
     std::shared_ptr<string> codeVersion_ = nullptr;
+    // Code version configuration items.
     std::shared_ptr<Models::ListRoutineCodeVersionsResponseBodyCodeVersionsConfOptions> confOptions_ = nullptr;
+    // The time when the code version was created.
     std::shared_ptr<string> createTime_ = nullptr;
+    // Additional information about the code version.
     std::shared_ptr<string> extraInfo_ = nullptr;
+    // The status of the code version.
     std::shared_ptr<string> status_ = nullptr;
   };
 

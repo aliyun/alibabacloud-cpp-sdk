@@ -75,10 +75,17 @@ namespace Models
 
 
   protected:
+    // The end time.
     std::shared_ptr<string> endTime_ = nullptr;
+    // The name of the log file.
     std::shared_ptr<string> logName_ = nullptr;
+    // The log path.
+    // 
+    // >  Take note of the Expires field (expiration timestamp) in this parameter. If the log download URL expires, you must reobtain the URL.
     std::shared_ptr<string> logPath_ = nullptr;
+    // The size of the log file. Unit: bytes.
     std::shared_ptr<int32_t> logSize_ = nullptr;
+    // The create time.
     std::shared_ptr<string> startTime_ = nullptr;
   };
 

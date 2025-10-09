@@ -84,11 +84,23 @@ namespace Models
 
 
   protected:
+    // The configuration ID.
     std::shared_ptr<int64_t> configId_ = nullptr;
+    // The configuration type. You can use this parameter to query global configurations or feature configurations. This parameter takes effect only if the functionName parameter is passed.
+    // 
+    // Valid values:
+    // 
+    // *   global
+    // *   rule
     std::shared_ptr<string> configType_ = nullptr;
+    // The page number. Default value: 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page. Maximum value: 500. Default value: 500.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The rule name. This parameter takes effect only when parameter functionName is specified.
     std::shared_ptr<string> routeName_ = nullptr;
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> siteId_ = nullptr;
   };

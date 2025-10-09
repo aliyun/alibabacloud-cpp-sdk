@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
     std::shared_ptr<string> appId_ = nullptr;
+    // The end time of the reservation. The input time is UTC. It takes +8 hours to enter Beijing time. For example, if the current time is 2006-01-02 06:04:05, you need to enter "2006-01-02T14:04:05Z".
     std::shared_ptr<string> durationTime_ = nullptr;
+    // Whether to enable resource reservation.
     std::shared_ptr<bool> enable_ = nullptr;
+    // Whether to permanently enable the reservation. Once it is enabled, you are not allowed to set the reservation deadline.
     std::shared_ptr<bool> forever_ = nullptr;
+    // Reserved resource list.
     std::shared_ptr<vector<UpdateEdgeContainerAppResourceReserveRequestReserveSet>> reserveSet_ = nullptr;
   };
 

@@ -88,12 +88,17 @@ namespace Models
 
 
   protected:
+    // The configurations of the feature.
     std::shared_ptr<vector<ListUrlObservationsResponseBodyConfigs>> configs_ = nullptr;
+    // The number of the returned page.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;
+    // The total number of entries returned.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
+    // The total number of pages returned.
     std::shared_ptr<int32_t> totalPage_ = nullptr;
   };
 
