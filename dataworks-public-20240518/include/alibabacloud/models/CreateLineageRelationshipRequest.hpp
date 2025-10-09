@@ -1,0 +1,77 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_CREATELINEAGERELATIONSHIPREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_CREATELINEAGERELATIONSHIPREQUEST_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/models/LineageEntity.hpp>
+#include <alibabacloud/models/LineageTask.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace DataworksPublic20240518
+{
+namespace Models
+{
+  class CreateLineageRelationshipRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const CreateLineageRelationshipRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DstEntity, dstEntity_);
+      DARABONBA_PTR_TO_JSON(SrcEntity, srcEntity_);
+      DARABONBA_PTR_TO_JSON(Task, task_);
+    };
+    friend void from_json(const Darabonba::Json& j, CreateLineageRelationshipRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DstEntity, dstEntity_);
+      DARABONBA_PTR_FROM_JSON(SrcEntity, srcEntity_);
+      DARABONBA_PTR_FROM_JSON(Task, task_);
+    };
+    CreateLineageRelationshipRequest() = default ;
+    CreateLineageRelationshipRequest(const CreateLineageRelationshipRequest &) = default ;
+    CreateLineageRelationshipRequest(CreateLineageRelationshipRequest &&) = default ;
+    CreateLineageRelationshipRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateLineageRelationshipRequest() = default ;
+    CreateLineageRelationshipRequest& operator=(const CreateLineageRelationshipRequest &) = default ;
+    CreateLineageRelationshipRequest& operator=(CreateLineageRelationshipRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->dstEntity_ != nullptr
+        && this->srcEntity_ != nullptr && this->task_ != nullptr; };
+    // dstEntity Field Functions 
+    bool hasDstEntity() const { return this->dstEntity_ != nullptr;};
+    void deleteDstEntity() { this->dstEntity_ = nullptr;};
+    inline const LineageEntity & dstEntity() const { DARABONBA_PTR_GET_CONST(dstEntity_, LineageEntity) };
+    inline LineageEntity dstEntity() { DARABONBA_PTR_GET(dstEntity_, LineageEntity) };
+    inline CreateLineageRelationshipRequest& setDstEntity(const LineageEntity & dstEntity) { DARABONBA_PTR_SET_VALUE(dstEntity_, dstEntity) };
+    inline CreateLineageRelationshipRequest& setDstEntity(LineageEntity && dstEntity) { DARABONBA_PTR_SET_RVALUE(dstEntity_, dstEntity) };
+
+
+    // srcEntity Field Functions 
+    bool hasSrcEntity() const { return this->srcEntity_ != nullptr;};
+    void deleteSrcEntity() { this->srcEntity_ = nullptr;};
+    inline const LineageEntity & srcEntity() const { DARABONBA_PTR_GET_CONST(srcEntity_, LineageEntity) };
+    inline LineageEntity srcEntity() { DARABONBA_PTR_GET(srcEntity_, LineageEntity) };
+    inline CreateLineageRelationshipRequest& setSrcEntity(const LineageEntity & srcEntity) { DARABONBA_PTR_SET_VALUE(srcEntity_, srcEntity) };
+    inline CreateLineageRelationshipRequest& setSrcEntity(LineageEntity && srcEntity) { DARABONBA_PTR_SET_RVALUE(srcEntity_, srcEntity) };
+
+
+    // task Field Functions 
+    bool hasTask() const { return this->task_ != nullptr;};
+    void deleteTask() { this->task_ = nullptr;};
+    inline const LineageTask & task() const { DARABONBA_PTR_GET_CONST(task_, LineageTask) };
+    inline LineageTask task() { DARABONBA_PTR_GET(task_, LineageTask) };
+    inline CreateLineageRelationshipRequest& setTask(const LineageTask & task) { DARABONBA_PTR_SET_VALUE(task_, task) };
+    inline CreateLineageRelationshipRequest& setTask(LineageTask && task) { DARABONBA_PTR_SET_RVALUE(task_, task) };
+
+
+  protected:
+    std::shared_ptr<LineageEntity> dstEntity_ = nullptr;
+    std::shared_ptr<LineageEntity> srcEntity_ = nullptr;
+    // The task information.
+    std::shared_ptr<LineageTask> task_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace DataworksPublic20240518
+#endif

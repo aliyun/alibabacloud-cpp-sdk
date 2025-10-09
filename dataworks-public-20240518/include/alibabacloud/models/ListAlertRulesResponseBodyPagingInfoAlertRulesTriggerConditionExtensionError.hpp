@@ -1,0 +1,63 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTALERTRULESRESPONSEBODYPAGINGINFOALERTRULESTRIGGERCONDITIONEXTENSIONERROR_HPP_
+#define ALIBABACLOUD_MODELS_LISTALERTRULESRESPONSEBODYPAGINGINFOALERTRULESTRIGGERCONDITIONEXTENSIONERROR_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace DataworksPublic20240518
+{
+namespace Models
+{
+  class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError& obj) { 
+      DARABONBA_PTR_TO_JSON(AutoRerunAlertEnabled, autoRerunAlertEnabled_);
+      DARABONBA_PTR_TO_JSON(StreamTaskIds, streamTaskIds_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError& obj) { 
+      DARABONBA_PTR_FROM_JSON(AutoRerunAlertEnabled, autoRerunAlertEnabled_);
+      DARABONBA_PTR_FROM_JSON(StreamTaskIds, streamTaskIds_);
+    };
+    ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError() = default ;
+    ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError(const ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError &) = default ;
+    ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError(ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError &&) = default ;
+    ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError() = default ;
+    ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError& operator=(const ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError &) = default ;
+    ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError& operator=(ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->autoRerunAlertEnabled_ != nullptr
+        && this->streamTaskIds_ != nullptr; };
+    // autoRerunAlertEnabled Field Functions 
+    bool hasAutoRerunAlertEnabled() const { return this->autoRerunAlertEnabled_ != nullptr;};
+    void deleteAutoRerunAlertEnabled() { this->autoRerunAlertEnabled_ = nullptr;};
+    inline bool autoRerunAlertEnabled() const { DARABONBA_PTR_GET_DEFAULT(autoRerunAlertEnabled_, false) };
+    inline ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError& setAutoRerunAlertEnabled(bool autoRerunAlertEnabled) { DARABONBA_PTR_SET_VALUE(autoRerunAlertEnabled_, autoRerunAlertEnabled) };
+
+
+    // streamTaskIds Field Functions 
+    bool hasStreamTaskIds() const { return this->streamTaskIds_ != nullptr;};
+    void deleteStreamTaskIds() { this->streamTaskIds_ = nullptr;};
+    inline const vector<int64_t> & streamTaskIds() const { DARABONBA_PTR_GET_CONST(streamTaskIds_, vector<int64_t>) };
+    inline vector<int64_t> streamTaskIds() { DARABONBA_PTR_GET(streamTaskIds_, vector<int64_t>) };
+    inline ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError& setStreamTaskIds(const vector<int64_t> & streamTaskIds) { DARABONBA_PTR_SET_VALUE(streamTaskIds_, streamTaskIds) };
+    inline ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError& setStreamTaskIds(vector<int64_t> && streamTaskIds) { DARABONBA_PTR_SET_RVALUE(streamTaskIds_, streamTaskIds) };
+
+
+  protected:
+    // Indicates whether an alert is triggered if a batch synchronization task is automatically rerun upon a failure.
+    std::shared_ptr<bool> autoRerunAlertEnabled_ = nullptr;
+    // The IDs of the real-time computing tasks. This parameter is required when you monitor real-time computing tasks.
+    std::shared_ptr<vector<int64_t>> streamTaskIds_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace DataworksPublic20240518
+#endif
