@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Ip, ip_);
       DARABONBA_PTR_TO_JSON(NodeName, nodeName_);
       DARABONBA_PTR_TO_JSON(PodId, podId_);
+      DARABONBA_PTR_TO_JSON(PodIp, podIp_);
       DARABONBA_PTR_TO_JSON(PodUid, podUid_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(SubStatus, subStatus_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Ip, ip_);
       DARABONBA_PTR_FROM_JSON(NodeName, nodeName_);
       DARABONBA_PTR_FROM_JSON(PodId, podId_);
+      DARABONBA_PTR_FROM_JSON(PodIp, podIp_);
       DARABONBA_PTR_FROM_JSON(PodUid, podUid_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(SubStatus, subStatus_);
@@ -53,7 +55,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->gmtCreateTime_ != nullptr
         && this->gmtFinishTime_ != nullptr && this->gmtStartTime_ != nullptr && this->historyPods_ != nullptr && this->ip_ != nullptr && this->nodeName_ != nullptr
-        && this->podId_ != nullptr && this->podUid_ != nullptr && this->status_ != nullptr && this->subStatus_ != nullptr && this->type_ != nullptr; };
+        && this->podId_ != nullptr && this->podIp_ != nullptr && this->podUid_ != nullptr && this->status_ != nullptr && this->subStatus_ != nullptr
+        && this->type_ != nullptr; };
     // gmtCreateTime Field Functions 
     bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
@@ -105,6 +108,13 @@ namespace Models
     inline PodItem& setPodId(string podId) { DARABONBA_PTR_SET_VALUE(podId_, podId) };
 
 
+    // podIp Field Functions 
+    bool hasPodIp() const { return this->podIp_ != nullptr;};
+    void deletePodIp() { this->podIp_ = nullptr;};
+    inline string podIp() const { DARABONBA_PTR_GET_DEFAULT(podIp_, "") };
+    inline PodItem& setPodIp(string podIp) { DARABONBA_PTR_SET_VALUE(podIp_, podIp) };
+
+
     // podUid Field Functions 
     bool hasPodUid() const { return this->podUid_ != nullptr;};
     void deletePodUid() { this->podUid_ = nullptr;};
@@ -141,6 +151,7 @@ namespace Models
     std::shared_ptr<string> ip_ = nullptr;
     std::shared_ptr<string> nodeName_ = nullptr;
     std::shared_ptr<string> podId_ = nullptr;
+    std::shared_ptr<string> podIp_ = nullptr;
     std::shared_ptr<string> podUid_ = nullptr;
     std::shared_ptr<string> status_ = nullptr;
     std::shared_ptr<string> subStatus_ = nullptr;

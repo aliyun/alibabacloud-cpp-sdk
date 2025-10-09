@@ -38,6 +38,7 @@
 #include <alibabacloud/models/LogInfo.hpp>
 #include <alibabacloud/models/Member.hpp>
 #include <alibabacloud/models/Metric.hpp>
+#include <alibabacloud/models/ModelConfig.hpp>
 #include <alibabacloud/models/NodeMetric.hpp>
 #include <alibabacloud/models/PodItem.hpp>
 #include <alibabacloud/models/PodMetric.hpp>

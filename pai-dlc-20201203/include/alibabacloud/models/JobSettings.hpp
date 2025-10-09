@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_JOBSETTINGS_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/DataJuicerConfig.hpp>
+#include <alibabacloud/models/ModelConfig.hpp>
 #include <map>
 using namespace std;
 using json = nlohmann::json;
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ErrorMonitoringArgs, errorMonitoringArgs_);
       DARABONBA_PTR_TO_JSON(JobReservedMinutes, jobReservedMinutes_);
       DARABONBA_PTR_TO_JSON(JobReservedPolicy, jobReservedPolicy_);
+      DARABONBA_PTR_TO_JSON(ModelConfig, modelConfig_);
       DARABONBA_PTR_TO_JSON(OversoldType, oversoldType_);
       DARABONBA_PTR_TO_JSON(PipelineId, pipelineId_);
       DARABONBA_PTR_TO_JSON(SanityCheckArgs, sanityCheckArgs_);
@@ -55,6 +57,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ErrorMonitoringArgs, errorMonitoringArgs_);
       DARABONBA_PTR_FROM_JSON(JobReservedMinutes, jobReservedMinutes_);
       DARABONBA_PTR_FROM_JSON(JobReservedPolicy, jobReservedPolicy_);
+      DARABONBA_PTR_FROM_JSON(ModelConfig, modelConfig_);
       DARABONBA_PTR_FROM_JSON(OversoldType, oversoldType_);
       DARABONBA_PTR_FROM_JSON(PipelineId, pipelineId_);
       DARABONBA_PTR_FROM_JSON(SanityCheckArgs, sanityCheckArgs_);
@@ -75,7 +78,8 @@ namespace Models
         && this->allocateAllRDMADevices_ != nullptr && this->businessUserId_ != nullptr && this->caller_ != nullptr && this->dataJuicerConfig_ != nullptr && this->disableEcsStockCheck_ != nullptr
         && this->driver_ != nullptr && this->enableCPUAffinity_ != nullptr && this->enableDSWDev_ != nullptr && this->enableErrorMonitoringInAIMaster_ != nullptr && this->enableOssAppend_ != nullptr
         && this->enableRDMA_ != nullptr && this->enableSanityCheck_ != nullptr && this->enableTideResource_ != nullptr && this->errorMonitoringArgs_ != nullptr && this->jobReservedMinutes_ != nullptr
-        && this->jobReservedPolicy_ != nullptr && this->oversoldType_ != nullptr && this->pipelineId_ != nullptr && this->sanityCheckArgs_ != nullptr && this->tags_ != nullptr; };
+        && this->jobReservedPolicy_ != nullptr && this->modelConfig_ != nullptr && this->oversoldType_ != nullptr && this->pipelineId_ != nullptr && this->sanityCheckArgs_ != nullptr
+        && this->tags_ != nullptr; };
     // advancedSettings Field Functions 
     bool hasAdvancedSettings() const { return this->advancedSettings_ != nullptr;};
     void deleteAdvancedSettings() { this->advancedSettings_ = nullptr;};
@@ -199,6 +203,15 @@ namespace Models
     inline JobSettings& setJobReservedPolicy(string jobReservedPolicy) { DARABONBA_PTR_SET_VALUE(jobReservedPolicy_, jobReservedPolicy) };
 
 
+    // modelConfig Field Functions 
+    bool hasModelConfig() const { return this->modelConfig_ != nullptr;};
+    void deleteModelConfig() { this->modelConfig_ = nullptr;};
+    inline const ModelConfig & modelConfig() const { DARABONBA_PTR_GET_CONST(modelConfig_, ModelConfig) };
+    inline ModelConfig modelConfig() { DARABONBA_PTR_GET(modelConfig_, ModelConfig) };
+    inline JobSettings& setModelConfig(const ModelConfig & modelConfig) { DARABONBA_PTR_SET_VALUE(modelConfig_, modelConfig) };
+    inline JobSettings& setModelConfig(ModelConfig && modelConfig) { DARABONBA_PTR_SET_RVALUE(modelConfig_, modelConfig) };
+
+
     // oversoldType Field Functions 
     bool hasOversoldType() const { return this->oversoldType_ != nullptr;};
     void deleteOversoldType() { this->oversoldType_ = nullptr;};
@@ -247,6 +260,7 @@ namespace Models
     std::shared_ptr<string> errorMonitoringArgs_ = nullptr;
     std::shared_ptr<int32_t> jobReservedMinutes_ = nullptr;
     std::shared_ptr<string> jobReservedPolicy_ = nullptr;
+    std::shared_ptr<ModelConfig> modelConfig_ = nullptr;
     std::shared_ptr<string> oversoldType_ = nullptr;
     std::shared_ptr<string> pipelineId_ = nullptr;
     std::shared_ptr<string> sanityCheckArgs_ = nullptr;
