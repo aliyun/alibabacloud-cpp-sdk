@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateNacosMcpServerRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AcceptLanguage, acceptLanguage_);
+      DARABONBA_PTR_TO_JSON(EncryptToolSpec, encryptToolSpec_);
       DARABONBA_PTR_TO_JSON(EndpointSpecification, endpointSpecification_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(NamespaceId, namespaceId_);
@@ -24,6 +25,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateNacosMcpServerRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AcceptLanguage, acceptLanguage_);
+      DARABONBA_PTR_FROM_JSON(EncryptToolSpec, encryptToolSpec_);
       DARABONBA_PTR_FROM_JSON(EndpointSpecification, endpointSpecification_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(NamespaceId, namespaceId_);
@@ -44,13 +46,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->acceptLanguage_ != nullptr
-        && this->endpointSpecification_ != nullptr && this->instanceId_ != nullptr && this->namespaceId_ != nullptr && this->serverName_ != nullptr && this->serverSpecification_ != nullptr
-        && this->toolSpecification_ != nullptr && this->yamlConfig_ != nullptr; };
+        && this->encryptToolSpec_ != nullptr && this->endpointSpecification_ != nullptr && this->instanceId_ != nullptr && this->namespaceId_ != nullptr && this->serverName_ != nullptr
+        && this->serverSpecification_ != nullptr && this->toolSpecification_ != nullptr && this->yamlConfig_ != nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
     inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline CreateNacosMcpServerRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
+
+
+    // encryptToolSpec Field Functions 
+    bool hasEncryptToolSpec() const { return this->encryptToolSpec_ != nullptr;};
+    void deleteEncryptToolSpec() { this->encryptToolSpec_ = nullptr;};
+    inline bool encryptToolSpec() const { DARABONBA_PTR_GET_DEFAULT(encryptToolSpec_, false) };
+    inline CreateNacosMcpServerRequest& setEncryptToolSpec(bool encryptToolSpec) { DARABONBA_PTR_SET_VALUE(encryptToolSpec_, encryptToolSpec) };
 
 
     // endpointSpecification Field Functions 
@@ -104,6 +113,7 @@ namespace Models
 
   protected:
     std::shared_ptr<string> acceptLanguage_ = nullptr;
+    std::shared_ptr<bool> encryptToolSpec_ = nullptr;
     std::shared_ptr<string> endpointSpecification_ = nullptr;
     std::shared_ptr<string> instanceId_ = nullptr;
     std::shared_ptr<string> namespaceId_ = nullptr;

@@ -2841,6 +2841,10 @@ CreateNacosMcpServerResponse Client::createNacosMcpServerWithOptions(const Creat
     query["AcceptLanguage"] = request.acceptLanguage();
   }
 
+  if (!!request.hasEncryptToolSpec()) {
+    query["EncryptToolSpec"] = request.encryptToolSpec();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.instanceId();
   }
