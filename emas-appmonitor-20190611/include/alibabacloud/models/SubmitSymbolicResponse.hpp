@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_SUBMITSYMBOLICRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/SubmitSymbolicResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -79,7 +79,7 @@ GetErrorResponse Client::getErrorWithOptions(const GetErrorRequest &request, con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetError"},
     {"version" , "2019-06-11"},
@@ -90,7 +90,7 @@ GetErrorResponse Client::getErrorWithOptions(const GetErrorRequest &request, con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetErrorResponse>();
 }
 
@@ -163,7 +163,7 @@ GetErrorsResponse Client::getErrorsWithOptions(const GetErrorsRequest &tmpReq, c
   );
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetErrors"},
     {"version" , "2019-06-11"},
@@ -174,7 +174,7 @@ GetErrorsResponse Client::getErrorsWithOptions(const GetErrorsRequest &tmpReq, c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetErrorsResponse>();
 }
 
@@ -235,7 +235,7 @@ GetIssueResponse Client::getIssueWithOptions(const GetIssueRequest &tmpReq, cons
   );
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetIssue"},
     {"version" , "2019-06-11"},
@@ -246,7 +246,7 @@ GetIssueResponse Client::getIssueWithOptions(const GetIssueRequest &tmpReq, cons
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetIssueResponse>();
 }
 
@@ -327,7 +327,7 @@ GetIssuesResponse Client::getIssuesWithOptions(const GetIssuesRequest &tmpReq, c
   );
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetIssues"},
     {"version" , "2019-06-11"},
@@ -338,7 +338,7 @@ GetIssuesResponse Client::getIssuesWithOptions(const GetIssuesRequest &tmpReq, c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetIssuesResponse>();
 }
 
@@ -413,7 +413,7 @@ GetSymbolicFilesResponse Client::getSymbolicFilesWithOptions(const GetSymbolicFi
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetSymbolicFiles"},
     {"version" , "2019-06-11"},
@@ -424,7 +424,7 @@ GetSymbolicFilesResponse Client::getSymbolicFilesWithOptions(const GetSymbolicFi
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetSymbolicFilesResponse>();
 }
 
@@ -440,6 +440,8 @@ GetSymbolicFilesResponse Client::getSymbolicFiles(const GetSymbolicFilesRequest 
 }
 
 /**
+ * @summary RequestUploadToken
+ *
  * @param request RequestUploadTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RequestUploadTokenResponse
@@ -457,7 +459,7 @@ RequestUploadTokenResponse Client::requestUploadTokenWithOptions(const RequestUp
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RequestUploadToken"},
     {"version" , "2019-06-11"},
@@ -468,11 +470,13 @@ RequestUploadTokenResponse Client::requestUploadTokenWithOptions(const RequestUp
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RequestUploadTokenResponse>();
 }
 
 /**
+ * @summary RequestUploadToken
+ *
  * @param request RequestUploadTokenRequest
  * @return RequestUploadTokenResponse
  */
@@ -482,6 +486,8 @@ RequestUploadTokenResponse Client::requestUploadToken(const RequestUploadTokenRe
 }
 
 /**
+ * @summary SubmitSymbolic
+ *
  * @param request SubmitSymbolicRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SubmitSymbolicResponse
@@ -523,7 +529,7 @@ SubmitSymbolicResponse Client::submitSymbolicWithOptions(const SubmitSymbolicReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "SubmitSymbolic"},
     {"version" , "2019-06-11"},
@@ -534,11 +540,13 @@ SubmitSymbolicResponse Client::submitSymbolicWithOptions(const SubmitSymbolicReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SubmitSymbolicResponse>();
 }
 
 /**
+ * @summary SubmitSymbolic
+ *
  * @param request SubmitSymbolicRequest
  * @return SubmitSymbolicResponse
  */

@@ -91,6 +91,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InMainProcess, inMainProcess_);
       DARABONBA_PTR_TO_JSON(InstallSdCard, installSdCard_);
       DARABONBA_PTR_TO_JSON(IsBackTrace, isBackTrace_);
+      DARABONBA_PTR_TO_JSON(IsJailbroken, isJailbroken_);
+      DARABONBA_PTR_TO_JSON(IsSimulator, isSimulator_);
       DARABONBA_PTR_TO_JSON(IsSpeedVersion, isSpeedVersion_);
       DARABONBA_PTR_TO_JSON(Isp, isp_);
       DARABONBA_PTR_TO_JSON(JsBacktrace, jsBacktrace_);
@@ -235,6 +237,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InMainProcess, inMainProcess_);
       DARABONBA_PTR_FROM_JSON(InstallSdCard, installSdCard_);
       DARABONBA_PTR_FROM_JSON(IsBackTrace, isBackTrace_);
+      DARABONBA_PTR_FROM_JSON(IsJailbroken, isJailbroken_);
+      DARABONBA_PTR_FROM_JSON(IsSimulator, isSimulator_);
       DARABONBA_PTR_FROM_JSON(IsSpeedVersion, isSpeedVersion_);
       DARABONBA_PTR_FROM_JSON(Isp, isp_);
       DARABONBA_PTR_FROM_JSON(JsBacktrace, jsBacktrace_);
@@ -327,20 +331,20 @@ namespace Models
         && this->featureScene_ != nullptr && this->fileName_ != nullptr && this->filePath_ != nullptr && this->filename_ != nullptr && this->flutterRoute_ != nullptr
         && this->forceGround_ != nullptr && this->foreGround_ != nullptr && this->h5FullUrl_ != nullptr && this->h5ShortUrl_ != nullptr && this->hasOpenMultiProcessMode_ != nullptr
         && this->hasSdCard_ != nullptr && this->hasSgSecurityConfigKey_ != nullptr && this->imei_ != nullptr && this->imsi_ != nullptr && this->inMainProcess_ != nullptr
-        && this->installSdCard_ != nullptr && this->isBackTrace_ != nullptr && this->isSpeedVersion_ != nullptr && this->isp_ != nullptr && this->jsBacktrace_ != nullptr
-        && this->language_ != nullptr && this->launchedTime_ != nullptr && this->lineNo_ != nullptr && this->logHash_ != nullptr && this->mainLog_ != nullptr
-        && this->memoryMap_ != nullptr && this->moreInfo1_ != nullptr && this->moreInfo2_ != nullptr && this->moreInfo3_ != nullptr && this->nativeAllThreadDump_ != nullptr
-        && this->nativeMaps_ != nullptr && this->needReCluster_ != nullptr && this->openedFileCount_ != nullptr && this->operations_ != nullptr && this->originData_ != nullptr
-        && this->originUri_ != nullptr && this->os_ != nullptr && this->osVersion_ != nullptr && this->page_ != nullptr && this->parentProcessName_ != nullptr
-        && this->pid_ != nullptr && this->platform_ != nullptr && this->processName_ != nullptr && this->province_ != nullptr && this->reason_ != nullptr
-        && this->reportContent_ != nullptr && this->reportType_ != nullptr && this->resolution_ != nullptr && this->rootDirectory_ != nullptr && this->runtimeExtData_ != nullptr
-        && this->sceneValue_ != nullptr && this->sdkType_ != nullptr && this->sdkVersion_ != nullptr && this->seq_ != nullptr && this->serverTime_ != nullptr
-        && this->sessionId_ != nullptr && this->simpleReportContent_ != nullptr && this->soLibBuild_ != nullptr && this->speedFlags_ != nullptr && this->stack_ != nullptr
-        && this->status_ != nullptr && this->structuredStack_ != nullptr && this->summary_ != nullptr && this->symbolicFileType_ != nullptr && this->sysLog_ != nullptr
-        && this->threadName_ != nullptr && this->threads_ != nullptr && this->tid_ != nullptr && this->track_ != nullptr && this->triggeredTime_ != nullptr
-        && this->uploadTime_ != nullptr && this->uri_ != nullptr && this->user_ != nullptr && this->userId_ != nullptr && this->userNick_ != nullptr
-        && this->utdid_ != nullptr && this->uuid_ != nullptr && this->view_ != nullptr && this->weexFullUrl_ != nullptr && this->weexShortUrl_ != nullptr
-        && this->writeLimit_ != nullptr; };
+        && this->installSdCard_ != nullptr && this->isBackTrace_ != nullptr && this->isJailbroken_ != nullptr && this->isSimulator_ != nullptr && this->isSpeedVersion_ != nullptr
+        && this->isp_ != nullptr && this->jsBacktrace_ != nullptr && this->language_ != nullptr && this->launchedTime_ != nullptr && this->lineNo_ != nullptr
+        && this->logHash_ != nullptr && this->mainLog_ != nullptr && this->memoryMap_ != nullptr && this->moreInfo1_ != nullptr && this->moreInfo2_ != nullptr
+        && this->moreInfo3_ != nullptr && this->nativeAllThreadDump_ != nullptr && this->nativeMaps_ != nullptr && this->needReCluster_ != nullptr && this->openedFileCount_ != nullptr
+        && this->operations_ != nullptr && this->originData_ != nullptr && this->originUri_ != nullptr && this->os_ != nullptr && this->osVersion_ != nullptr
+        && this->page_ != nullptr && this->parentProcessName_ != nullptr && this->pid_ != nullptr && this->platform_ != nullptr && this->processName_ != nullptr
+        && this->province_ != nullptr && this->reason_ != nullptr && this->reportContent_ != nullptr && this->reportType_ != nullptr && this->resolution_ != nullptr
+        && this->rootDirectory_ != nullptr && this->runtimeExtData_ != nullptr && this->sceneValue_ != nullptr && this->sdkType_ != nullptr && this->sdkVersion_ != nullptr
+        && this->seq_ != nullptr && this->serverTime_ != nullptr && this->sessionId_ != nullptr && this->simpleReportContent_ != nullptr && this->soLibBuild_ != nullptr
+        && this->speedFlags_ != nullptr && this->stack_ != nullptr && this->status_ != nullptr && this->structuredStack_ != nullptr && this->summary_ != nullptr
+        && this->symbolicFileType_ != nullptr && this->sysLog_ != nullptr && this->threadName_ != nullptr && this->threads_ != nullptr && this->tid_ != nullptr
+        && this->track_ != nullptr && this->triggeredTime_ != nullptr && this->uploadTime_ != nullptr && this->uri_ != nullptr && this->user_ != nullptr
+        && this->userId_ != nullptr && this->userNick_ != nullptr && this->utdid_ != nullptr && this->uuid_ != nullptr && this->view_ != nullptr
+        && this->weexFullUrl_ != nullptr && this->weexShortUrl_ != nullptr && this->writeLimit_ != nullptr; };
     // access Field Functions 
     bool hasAccess() const { return this->access_ != nullptr;};
     void deleteAccess() { this->access_ = nullptr;};
@@ -887,6 +891,20 @@ namespace Models
     inline GetErrorResponseBodyModel& setIsBackTrace(int32_t isBackTrace) { DARABONBA_PTR_SET_VALUE(isBackTrace_, isBackTrace) };
 
 
+    // isJailbroken Field Functions 
+    bool hasIsJailbroken() const { return this->isJailbroken_ != nullptr;};
+    void deleteIsJailbroken() { this->isJailbroken_ = nullptr;};
+    inline int32_t isJailbroken() const { DARABONBA_PTR_GET_DEFAULT(isJailbroken_, 0) };
+    inline GetErrorResponseBodyModel& setIsJailbroken(int32_t isJailbroken) { DARABONBA_PTR_SET_VALUE(isJailbroken_, isJailbroken) };
+
+
+    // isSimulator Field Functions 
+    bool hasIsSimulator() const { return this->isSimulator_ != nullptr;};
+    void deleteIsSimulator() { this->isSimulator_ = nullptr;};
+    inline int32_t isSimulator() const { DARABONBA_PTR_GET_DEFAULT(isSimulator_, 0) };
+    inline GetErrorResponseBodyModel& setIsSimulator(int32_t isSimulator) { DARABONBA_PTR_SET_VALUE(isSimulator_, isSimulator) };
+
+
     // isSpeedVersion Field Functions 
     bool hasIsSpeedVersion() const { return this->isSpeedVersion_ != nullptr;};
     void deleteIsSpeedVersion() { this->isSpeedVersion_ = nullptr;};
@@ -1420,6 +1438,8 @@ namespace Models
     std::shared_ptr<int32_t> inMainProcess_ = nullptr;
     std::shared_ptr<int32_t> installSdCard_ = nullptr;
     std::shared_ptr<int32_t> isBackTrace_ = nullptr;
+    std::shared_ptr<int32_t> isJailbroken_ = nullptr;
+    std::shared_ptr<int32_t> isSimulator_ = nullptr;
     std::shared_ptr<int32_t> isSpeedVersion_ = nullptr;
     // ISP
     std::shared_ptr<string> isp_ = nullptr;

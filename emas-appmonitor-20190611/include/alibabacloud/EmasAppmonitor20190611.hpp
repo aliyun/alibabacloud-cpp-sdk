@@ -106,6 +106,8 @@ namespace EmasAppmonitor20190611
       Models::GetSymbolicFilesResponse getSymbolicFiles(const Models::GetSymbolicFilesRequest &request);
 
       /**
+       * @summary RequestUploadToken
+       *
        * @param request RequestUploadTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RequestUploadTokenResponse
@@ -113,12 +115,16 @@ namespace EmasAppmonitor20190611
       Models::RequestUploadTokenResponse requestUploadTokenWithOptions(const Models::RequestUploadTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary RequestUploadToken
+       *
        * @param request RequestUploadTokenRequest
        * @return RequestUploadTokenResponse
        */
       Models::RequestUploadTokenResponse requestUploadToken(const Models::RequestUploadTokenRequest &request);
 
       /**
+       * @summary SubmitSymbolic
+       *
        * @param request SubmitSymbolicRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SubmitSymbolicResponse
@@ -126,6 +132,8 @@ namespace EmasAppmonitor20190611
       Models::SubmitSymbolicResponse submitSymbolicWithOptions(const Models::SubmitSymbolicRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary SubmitSymbolic
+       *
        * @param request SubmitSymbolicRequest
        * @return SubmitSymbolicResponse
        */

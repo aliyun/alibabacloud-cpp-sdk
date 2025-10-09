@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_EVENTRULE_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/EmasAppmonitor20190611.hpp>
+#include <alibabacloud/models/ConditionalRule.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
