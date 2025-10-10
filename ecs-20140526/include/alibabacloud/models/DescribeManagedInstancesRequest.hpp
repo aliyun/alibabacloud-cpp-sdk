@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InstanceIp, instanceIp_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_TO_JSON(MachineId, machineId_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(OsType, osType_);
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InstanceIp, instanceIp_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_FROM_JSON(MachineId, machineId_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(OsType, osType_);
@@ -62,9 +64,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->activationId_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceIp_ != nullptr && this->instanceName_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr
-        && this->osType_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->tag_ != nullptr; };
+        && this->instanceId_ != nullptr && this->instanceIp_ != nullptr && this->instanceName_ != nullptr && this->machineId_ != nullptr && this->maxResults_ != nullptr
+        && this->nextToken_ != nullptr && this->osType_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->pageNumber_ != nullptr
+        && this->pageSize_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
+        && this->tag_ != nullptr; };
     // activationId Field Functions 
     bool hasActivationId() const { return this->activationId_ != nullptr;};
     void deleteActivationId() { this->activationId_ = nullptr;};
@@ -93,6 +96,13 @@ namespace Models
     void deleteInstanceName() { this->instanceName_ = nullptr;};
     inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline DescribeManagedInstancesRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
+
+
+    // machineId Field Functions 
+    bool hasMachineId() const { return this->machineId_ != nullptr;};
+    void deleteMachineId() { this->machineId_ = nullptr;};
+    inline string machineId() const { DARABONBA_PTR_GET_DEFAULT(machineId_, "") };
+    inline DescribeManagedInstancesRequest& setMachineId(string machineId) { DARABONBA_PTR_SET_VALUE(machineId_, machineId) };
 
 
     // maxResults Field Functions 
@@ -190,6 +200,7 @@ namespace Models
     std::shared_ptr<string> instanceIp_ = nullptr;
     // The name of the managed instance.
     std::shared_ptr<string> instanceName_ = nullptr;
+    std::shared_ptr<string> machineId_ = nullptr;
     // The maximum number of entries per page.
     // 
     // Valid values: 1 to 50.

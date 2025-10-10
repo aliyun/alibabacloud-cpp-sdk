@@ -98,6 +98,8 @@ namespace Models
     // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
     // The total number of entries returned.
+    // 
+    // > For paginated queries using MaxResults and NextToken, the TotalCount value in the response is invalid and should be ignored.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

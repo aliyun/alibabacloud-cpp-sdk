@@ -7,6 +7,7 @@
 #include <alibabacloud/models/CreateAutoProvisioningGroupRequestLaunchConfigurationDataDisk.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupRequestLaunchConfigurationSystemDisk.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupRequestLaunchConfigurationTag.hpp>
+#include <alibabacloud/models/CreateAutoProvisioningGroupRequestLaunchConfigurationCpuOptions.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupRequestLaunchConfigurationImageOptions.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupRequestLaunchConfigurationSchedulerOptions.hpp>
 using namespace std;
@@ -53,6 +54,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(UserData, userData_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(AutoRenewPeriod, autoRenewPeriod_);
+      DARABONBA_PTR_TO_JSON(CpuOptions, cpuOptions_);
       DARABONBA_PTR_TO_JSON(ImageOptions, imageOptions_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
@@ -94,6 +96,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(UserData, userData_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(AutoRenewPeriod, autoRenewPeriod_);
+      DARABONBA_PTR_FROM_JSON(CpuOptions, cpuOptions_);
       DARABONBA_PTR_FROM_JSON(ImageOptions, imageOptions_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
@@ -119,8 +122,8 @@ namespace Models
         && this->password_ != nullptr && this->passwordInherit_ != nullptr && this->ramRoleName_ != nullptr && this->resourceGroupId_ != nullptr && this->securityEnhancementStrategy_ != nullptr
         && this->securityGroupId_ != nullptr && this->securityGroupIds_ != nullptr && this->systemDisk_ != nullptr && this->systemDiskCategory_ != nullptr && this->systemDiskDescription_ != nullptr
         && this->systemDiskName_ != nullptr && this->systemDiskPerformanceLevel_ != nullptr && this->systemDiskSize_ != nullptr && this->tag_ != nullptr && this->userData_ != nullptr
-        && this->autoRenew_ != nullptr && this->autoRenewPeriod_ != nullptr && this->imageOptions_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr
-        && this->schedulerOptions_ != nullptr && this->spotDuration_ != nullptr && this->spotInterruptionBehavior_ != nullptr; };
+        && this->autoRenew_ != nullptr && this->autoRenewPeriod_ != nullptr && this->cpuOptions_ != nullptr && this->imageOptions_ != nullptr && this->period_ != nullptr
+        && this->periodUnit_ != nullptr && this->schedulerOptions_ != nullptr && this->spotDuration_ != nullptr && this->spotInterruptionBehavior_ != nullptr; };
     // arn Field Functions 
     bool hasArn() const { return this->arn_ != nullptr;};
     void deleteArn() { this->arn_ = nullptr;};
@@ -364,6 +367,15 @@ namespace Models
     inline CreateAutoProvisioningGroupRequestLaunchConfiguration& setAutoRenewPeriod(int32_t autoRenewPeriod) { DARABONBA_PTR_SET_VALUE(autoRenewPeriod_, autoRenewPeriod) };
 
 
+    // cpuOptions Field Functions 
+    bool hasCpuOptions() const { return this->cpuOptions_ != nullptr;};
+    void deleteCpuOptions() { this->cpuOptions_ = nullptr;};
+    inline const Models::CreateAutoProvisioningGroupRequestLaunchConfigurationCpuOptions & cpuOptions() const { DARABONBA_PTR_GET_CONST(cpuOptions_, Models::CreateAutoProvisioningGroupRequestLaunchConfigurationCpuOptions) };
+    inline Models::CreateAutoProvisioningGroupRequestLaunchConfigurationCpuOptions cpuOptions() { DARABONBA_PTR_GET(cpuOptions_, Models::CreateAutoProvisioningGroupRequestLaunchConfigurationCpuOptions) };
+    inline CreateAutoProvisioningGroupRequestLaunchConfiguration& setCpuOptions(const Models::CreateAutoProvisioningGroupRequestLaunchConfigurationCpuOptions & cpuOptions) { DARABONBA_PTR_SET_VALUE(cpuOptions_, cpuOptions) };
+    inline CreateAutoProvisioningGroupRequestLaunchConfiguration& setCpuOptions(Models::CreateAutoProvisioningGroupRequestLaunchConfigurationCpuOptions && cpuOptions) { DARABONBA_PTR_SET_RVALUE(cpuOptions_, cpuOptions) };
+
+
     // imageOptions Field Functions 
     bool hasImageOptions() const { return this->imageOptions_ != nullptr;};
     void deleteImageOptions() { this->imageOptions_ = nullptr;};
@@ -583,6 +595,7 @@ namespace Models
     // 
     // Default value: 1.
     std::shared_ptr<int32_t> autoRenewPeriod_ = nullptr;
+    std::shared_ptr<Models::CreateAutoProvisioningGroupRequestLaunchConfigurationCpuOptions> cpuOptions_ = nullptr;
     // The image options.
     // 
     // When you specify this parameter, take note of the following items:

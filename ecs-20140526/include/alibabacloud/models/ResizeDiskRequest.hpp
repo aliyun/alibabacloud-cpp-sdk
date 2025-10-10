@@ -157,7 +157,7 @@ namespace Models
     std::shared_ptr<int64_t> ownerId_ = nullptr;
     std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
-    // The method that you want to use to resize the disk. Valid values:
+    // The method that you want to use to resize the disk. Specifies whether to check the image used by the instance supports hot migration. Valid values:
     // 
     // *   offline (default): resizes the disk offline. After you resize a disk offline, you must [restart the associated instance](https://help.aliyun.com/document_detail/25440.html) in the ECS console or by calling the [RebootInstance](https://help.aliyun.com/document_detail/25502.html) operation for the resizing operation to take effect.
     // *   online: resizes the disk online. After you resize a disk online, the resizing operation immediately takes effect. You do not need to restart the associated instance. You can resize ultra disks, standard SSDs, ESSDs, and elastic ephemeral disks online.

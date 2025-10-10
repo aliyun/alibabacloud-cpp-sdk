@@ -1124,6 +1124,7 @@
 #include <alibabacloud/models/CreateAutoProvisioningGroupRequestLaunchConfigurationDataDisk.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupRequestLaunchConfigurationSystemDisk.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupRequestLaunchConfigurationTag.hpp>
+#include <alibabacloud/models/CreateAutoProvisioningGroupRequestLaunchConfigurationCpuOptions.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupRequestLaunchConfigurationImageOptions.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupRequestLaunchConfigurationSchedulerOptions.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupRequestLaunchConfiguration.hpp>
@@ -1138,6 +1139,7 @@
 #include <alibabacloud/models/CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationDataDisk.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSystemDisk.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationTag.hpp>
+#include <alibabacloud/models/CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationCpuOptions.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationImageOptions.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSchedulerOptions.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration.hpp>

@@ -836,7 +836,7 @@ namespace Models
     std::shared_ptr<string> tenancy_ = nullptr;
     // Specifies whether to use the system configurations for virtual machines. Alibaba Cloud provides the Network Time Protocol (NTP) and Key Management Service (KMS) system configurations for Windows and the NTP and Yellowdog Updater, Modified (YUM) system configurations for Linux.
     std::shared_ptr<bool> useAdditionalService_ = nullptr;
-    // The user data of the instance. The user data must be encoded in Base64. The maximum size of raw data is 16 KB.
+    // The user data of the instance. The user data must be encoded in Base64. The maximum size of raw data is 32 KB.
     std::shared_ptr<string> userData_ = nullptr;
     // The ID of the vSwitch to which to connect the instance. This parameter is required when you create an instance in a VPC. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) operation to query available vSwitches.
     // 
