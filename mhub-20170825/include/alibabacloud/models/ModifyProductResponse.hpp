@@ -1,0 +1,74 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_MODIFYPRODUCTRESPONSE_HPP_
+#define ALIBABACLOUD_MODELS_MODIFYPRODUCTRESPONSE_HPP_
+#include <darabonba/Core.hpp>
+#include <map>
+#include <alibabacloud/models/ModifyProductResponseBody.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Mhub20170825
+{
+namespace Models
+{
+  class ModifyProductResponse : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ModifyProductResponse& obj) { 
+      DARABONBA_PTR_TO_JSON(headers, headers_);
+      DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
+      DARABONBA_PTR_TO_JSON(body, body_);
+    };
+    friend void from_json(const Darabonba::Json& j, ModifyProductResponse& obj) { 
+      DARABONBA_PTR_FROM_JSON(headers, headers_);
+      DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
+      DARABONBA_PTR_FROM_JSON(body, body_);
+    };
+    ModifyProductResponse() = default ;
+    ModifyProductResponse(const ModifyProductResponse &) = default ;
+    ModifyProductResponse(ModifyProductResponse &&) = default ;
+    ModifyProductResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ModifyProductResponse() = default ;
+    ModifyProductResponse& operator=(const ModifyProductResponse &) = default ;
+    ModifyProductResponse& operator=(ModifyProductResponse &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->headers_ != nullptr
+        && this->statusCode_ != nullptr && this->body_ != nullptr; };
+    // headers Field Functions 
+    bool hasHeaders() const { return this->headers_ != nullptr;};
+    void deleteHeaders() { this->headers_ = nullptr;};
+    inline const map<string, string> & headers() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
+    inline map<string, string> headers() { DARABONBA_PTR_GET(headers_, map<string, string>) };
+    inline ModifyProductResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
+    inline ModifyProductResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
+
+
+    // statusCode Field Functions 
+    bool hasStatusCode() const { return this->statusCode_ != nullptr;};
+    void deleteStatusCode() { this->statusCode_ = nullptr;};
+    inline int32_t statusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
+    inline ModifyProductResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+
+
+    // body Field Functions 
+    bool hasBody() const { return this->body_ != nullptr;};
+    void deleteBody() { this->body_ = nullptr;};
+    inline const ModifyProductResponseBody & body() const { DARABONBA_PTR_GET_CONST(body_, ModifyProductResponseBody) };
+    inline ModifyProductResponseBody body() { DARABONBA_PTR_GET(body_, ModifyProductResponseBody) };
+    inline ModifyProductResponse& setBody(const ModifyProductResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline ModifyProductResponse& setBody(ModifyProductResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+
+
+  protected:
+    std::shared_ptr<map<string, string>> headers_ = nullptr;
+    std::shared_ptr<int32_t> statusCode_ = nullptr;
+    std::shared_ptr<ModifyProductResponseBody> body_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Mhub20170825
+#endif
