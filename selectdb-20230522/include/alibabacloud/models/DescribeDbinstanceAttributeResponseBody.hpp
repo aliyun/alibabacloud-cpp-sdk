@@ -39,6 +39,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(ResourceCpu, resourceCpu_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_TO_JSON(SecGroupConnValid, secGroupConnValid_);
       DARABONBA_PTR_TO_JSON(Serverless, serverless_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(StorageSize, storageSize_);
@@ -71,6 +72,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(ResourceCpu, resourceCpu_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(SecGroupConnValid, secGroupConnValid_);
       DARABONBA_PTR_FROM_JSON(Serverless, serverless_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(StorageSize, storageSize_);
@@ -96,8 +98,8 @@ namespace Models
         && this->description_ != nullptr && this->engine_ != nullptr && this->engineMinorVersion_ != nullptr && this->engineVersion_ != nullptr && this->expireTime_ != nullptr
         && this->gmtModified_ != nullptr && this->lockMode_ != nullptr && this->lockReason_ != nullptr && this->maintainEndtime_ != nullptr && this->maintainStarttime_ != nullptr
         && this->multiZone_ != nullptr && this->objectStoreSize_ != nullptr && this->regionId_ != nullptr && this->requestId_ != nullptr && this->resourceCpu_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->serverless_ != nullptr && this->status_ != nullptr && this->storageSize_ != nullptr && this->subDomain_ != nullptr
-        && this->tags_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
+        && this->resourceGroupId_ != nullptr && this->secGroupConnValid_ != nullptr && this->serverless_ != nullptr && this->status_ != nullptr && this->storageSize_ != nullptr
+        && this->subDomain_ != nullptr && this->tags_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
     // canUpgradeVersions Field Functions 
     bool hasCanUpgradeVersions() const { return this->canUpgradeVersions_ != nullptr;};
     void deleteCanUpgradeVersions() { this->canUpgradeVersions_ = nullptr;};
@@ -258,6 +260,13 @@ namespace Models
     inline DescribeDBInstanceAttributeResponseBody& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
+    // secGroupConnValid Field Functions 
+    bool hasSecGroupConnValid() const { return this->secGroupConnValid_ != nullptr;};
+    void deleteSecGroupConnValid() { this->secGroupConnValid_ = nullptr;};
+    inline string secGroupConnValid() const { DARABONBA_PTR_GET_DEFAULT(secGroupConnValid_, "") };
+    inline DescribeDBInstanceAttributeResponseBody& setSecGroupConnValid(string secGroupConnValid) { DARABONBA_PTR_SET_VALUE(secGroupConnValid_, secGroupConnValid) };
+
+
     // serverless Field Functions 
     bool hasServerless() const { return this->serverless_ != nullptr;};
     void deleteServerless() { this->serverless_ = nullptr;};
@@ -362,6 +371,7 @@ namespace Models
     std::shared_ptr<int64_t> resourceCpu_ = nullptr;
     // The ID of the resource group to which the instance belongs.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    std::shared_ptr<string> secGroupConnValid_ = nullptr;
     std::shared_ptr<bool> serverless_ = nullptr;
     // The state of the instance. Valid values:
     // 
