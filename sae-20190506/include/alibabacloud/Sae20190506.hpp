@@ -57,6 +57,24 @@ namespace Sae20190506
       Models::AbortChangeOrderResponse abortChangeOrder(const Models::AbortChangeOrderRequest &request);
 
       /**
+       * @summary 批量重启应用
+       *
+       * @param request BatchRestartApplicationsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchRestartApplicationsResponse
+       */
+      Models::BatchRestartApplicationsResponse batchRestartApplicationsWithOptions(const Models::BatchRestartApplicationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量重启应用
+       *
+       * @param request BatchRestartApplicationsRequest
+       * @return BatchRestartApplicationsResponse
+       */
+      Models::BatchRestartApplicationsResponse batchRestartApplications(const Models::BatchRestartApplicationsRequest &request);
+
+      /**
        * @summary Starts multiple applications at a time.
        *
        * @param request BatchStartApplicationsRequest

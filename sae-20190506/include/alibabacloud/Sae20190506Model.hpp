@@ -167,6 +167,9 @@
 #include <alibabacloud/models/AbortChangeOrderRequest.hpp>
 #include <alibabacloud/models/AbortChangeOrderResponseBody.hpp>
 #include <alibabacloud/models/AbortChangeOrderResponse.hpp>
+#include <alibabacloud/models/BatchRestartApplicationsRequest.hpp>
+#include <alibabacloud/models/BatchRestartApplicationsResponseBody.hpp>
+#include <alibabacloud/models/BatchRestartApplicationsResponse.hpp>
 #include <alibabacloud/models/BatchStartApplicationsRequest.hpp>
 #include <alibabacloud/models/BatchStartApplicationsResponseBody.hpp>
 #include <alibabacloud/models/BatchStartApplicationsResponse.hpp>
@@ -619,6 +622,7 @@
 #include <alibabacloud/models/SubmenuItems.hpp>
 #include <alibabacloud/models/AbortAndRollbackChangeOrderResponseBodyData.hpp>
 #include <alibabacloud/models/AbortChangeOrderResponseBodyData.hpp>
+#include <alibabacloud/models/BatchRestartApplicationsResponseBodyData.hpp>
 #include <alibabacloud/models/BatchStartApplicationsResponseBodyData.hpp>
 #include <alibabacloud/models/BatchStopApplicationsResponseBodyData.hpp>
 #include <alibabacloud/models/BindNlbResponseBodyData.hpp>
