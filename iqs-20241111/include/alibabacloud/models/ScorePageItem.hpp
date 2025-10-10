@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(mime, mime_);
       DARABONBA_PTR_TO_JSON(pageMap, pageMap_);
       DARABONBA_PTR_TO_JSON(publishTime, publishTime_);
+      DARABONBA_PTR_TO_JSON(richMainBody, richMainBody_);
       DARABONBA_PTR_TO_JSON(score, score_);
       DARABONBA_PTR_TO_JSON(siteLabel, siteLabel_);
       DARABONBA_PTR_TO_JSON(snippet, snippet_);
@@ -51,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(mime, mime_);
       DARABONBA_PTR_FROM_JSON(pageMap, pageMap_);
       DARABONBA_PTR_FROM_JSON(publishTime, publishTime_);
+      DARABONBA_PTR_FROM_JSON(richMainBody, richMainBody_);
       DARABONBA_PTR_FROM_JSON(score, score_);
       DARABONBA_PTR_FROM_JSON(siteLabel, siteLabel_);
       DARABONBA_PTR_FROM_JSON(snippet, snippet_);
@@ -71,8 +73,8 @@ namespace Models
     virtual bool empty() const override { this->cardType_ != nullptr
         && this->displayLink_ != nullptr && this->hostAuthorityScore_ != nullptr && this->hostLogo_ != nullptr && this->hostname_ != nullptr && this->htmlSnippet_ != nullptr
         && this->htmlTitle_ != nullptr && this->images_ != nullptr && this->link_ != nullptr && this->mainText_ != nullptr && this->markdownText_ != nullptr
-        && this->mime_ != nullptr && this->pageMap_ != nullptr && this->publishTime_ != nullptr && this->score_ != nullptr && this->siteLabel_ != nullptr
-        && this->snippet_ != nullptr && this->summary_ != nullptr && this->title_ != nullptr; };
+        && this->mime_ != nullptr && this->pageMap_ != nullptr && this->publishTime_ != nullptr && this->richMainBody_ != nullptr && this->score_ != nullptr
+        && this->siteLabel_ != nullptr && this->snippet_ != nullptr && this->summary_ != nullptr && this->title_ != nullptr; };
     // cardType Field Functions 
     bool hasCardType() const { return this->cardType_ != nullptr;};
     void deleteCardType() { this->cardType_ = nullptr;};
@@ -175,6 +177,13 @@ namespace Models
     inline ScorePageItem& setPublishTime(int64_t publishTime) { DARABONBA_PTR_SET_VALUE(publishTime_, publishTime) };
 
 
+    // richMainBody Field Functions 
+    bool hasRichMainBody() const { return this->richMainBody_ != nullptr;};
+    void deleteRichMainBody() { this->richMainBody_ = nullptr;};
+    inline string richMainBody() const { DARABONBA_PTR_GET_DEFAULT(richMainBody_, "") };
+    inline ScorePageItem& setRichMainBody(string richMainBody) { DARABONBA_PTR_SET_VALUE(richMainBody_, richMainBody) };
+
+
     // score Field Functions 
     bool hasScore() const { return this->score_ != nullptr;};
     void deleteScore() { this->score_ = nullptr;};
@@ -231,6 +240,7 @@ namespace Models
     std::shared_ptr<map<string, string>> pageMap_ = nullptr;
     // This parameter is required.
     std::shared_ptr<int64_t> publishTime_ = nullptr;
+    std::shared_ptr<string> richMainBody_ = nullptr;
     std::shared_ptr<double> score_ = nullptr;
     std::shared_ptr<string> siteLabel_ = nullptr;
     std::shared_ptr<string> snippet_ = nullptr;
