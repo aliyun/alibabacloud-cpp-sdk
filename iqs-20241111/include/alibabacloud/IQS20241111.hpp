@@ -121,6 +121,24 @@ namespace IQS20241111
       Models::GlobalSearchResponse globalSearch(const Models::GlobalSearchRequest &request);
 
       /**
+       * @summary 页面读取
+       *
+       * @param request ReadPageBasicRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ReadPageBasicResponse
+       */
+      Models::ReadPageBasicResponse readPageBasicWithOptions(const Models::ReadPageBasicRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 页面读取
+       *
+       * @param request ReadPageBasicRequest
+       * @return ReadPageBasicResponse
+       */
+      Models::ReadPageBasicResponse readPageBasic(const Models::ReadPageBasicRequest &request);
+
+      /**
        * @summary 通晓统一搜索API
        *
        * @param request UnifiedSearchRequest

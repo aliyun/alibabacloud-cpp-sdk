@@ -250,6 +250,10 @@ GenericSearchResponse Client::genericSearchWithOptions(const GenericSearchReques
     query["returnMarkdownText"] = request.returnMarkdownText();
   }
 
+  if (!!request.hasReturnRichMainBody()) {
+    query["returnRichMainBody"] = request.returnRichMainBody();
+  }
+
   if (!!request.hasReturnSummary()) {
     query["returnSummary"] = request.returnSummary();
   }
@@ -396,6 +400,46 @@ GlobalSearchResponse Client::globalSearch(const GlobalSearchRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return globalSearchWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 页面读取
+ *
+ * @param request ReadPageBasicRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ReadPageBasicResponse
+ */
+ReadPageBasicResponse Client::readPageBasicWithOptions(const ReadPageBasicRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.body())}
+  }));
+  Params params = Params(json({
+    {"action" , "ReadPageBasic"},
+    {"version" , "2024-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/linked-retrieval/linked-retrieval-entry/v1/iqs/readpage/basic")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ReadPageBasicResponse>();
+}
+
+/**
+ * @summary 页面读取
+ *
+ * @param request ReadPageBasicRequest
+ * @return ReadPageBasicResponse
+ */
+ReadPageBasicResponse Client::readPageBasic(const ReadPageBasicRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return readPageBasicWithOptions(request, headers, runtime);
 }
 
 /**

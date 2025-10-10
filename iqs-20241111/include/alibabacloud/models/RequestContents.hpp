@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(mainText, mainText_);
       DARABONBA_PTR_TO_JSON(markdownText, markdownText_);
       DARABONBA_PTR_TO_JSON(rerankScore, rerankScore_);
+      DARABONBA_PTR_TO_JSON(richMainBody, richMainBody_);
       DARABONBA_PTR_TO_JSON(summary, summary_);
     };
     friend void from_json(const Darabonba::Json& j, RequestContents& obj) { 
       DARABONBA_PTR_FROM_JSON(mainText, mainText_);
       DARABONBA_PTR_FROM_JSON(markdownText, markdownText_);
       DARABONBA_PTR_FROM_JSON(rerankScore, rerankScore_);
+      DARABONBA_PTR_FROM_JSON(richMainBody, richMainBody_);
       DARABONBA_PTR_FROM_JSON(summary, summary_);
     };
     RequestContents() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->mainText_ != nullptr
-        && this->markdownText_ != nullptr && this->rerankScore_ != nullptr && this->summary_ != nullptr; };
+        && this->markdownText_ != nullptr && this->rerankScore_ != nullptr && this->richMainBody_ != nullptr && this->summary_ != nullptr; };
     // mainText Field Functions 
     bool hasMainText() const { return this->mainText_ != nullptr;};
     void deleteMainText() { this->mainText_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline RequestContents& setRerankScore(bool rerankScore) { DARABONBA_PTR_SET_VALUE(rerankScore_, rerankScore) };
 
 
+    // richMainBody Field Functions 
+    bool hasRichMainBody() const { return this->richMainBody_ != nullptr;};
+    void deleteRichMainBody() { this->richMainBody_ = nullptr;};
+    inline bool richMainBody() const { DARABONBA_PTR_GET_DEFAULT(richMainBody_, false) };
+    inline RequestContents& setRichMainBody(bool richMainBody) { DARABONBA_PTR_SET_VALUE(richMainBody_, richMainBody) };
+
+
     // summary Field Functions 
     bool hasSummary() const { return this->summary_ != nullptr;};
     void deleteSummary() { this->summary_ = nullptr;};
@@ -69,6 +78,7 @@ namespace Models
     std::shared_ptr<bool> mainText_ = nullptr;
     std::shared_ptr<bool> markdownText_ = nullptr;
     std::shared_ptr<bool> rerankScore_ = nullptr;
+    std::shared_ptr<bool> richMainBody_ = nullptr;
     std::shared_ptr<bool> summary_ = nullptr;
   };
 

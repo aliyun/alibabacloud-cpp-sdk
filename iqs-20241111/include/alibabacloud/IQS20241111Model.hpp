@@ -12,6 +12,8 @@
 #include <alibabacloud/models/GlobalSearchResult.hpp>
 #include <alibabacloud/models/IncludeImage.hpp>
 #include <alibabacloud/models/QueryContext.hpp>
+#include <alibabacloud/models/ReadPageBody.hpp>
+#include <alibabacloud/models/ReadPageItem.hpp>
 #include <alibabacloud/models/RequestContents.hpp>
 #include <alibabacloud/models/SceneItem.hpp>
 #include <alibabacloud/models/ScorePageItem.hpp>
@@ -39,12 +41,16 @@
 #include <alibabacloud/models/GetIqsUsageResponse.hpp>
 #include <alibabacloud/models/GlobalSearchRequest.hpp>
 #include <alibabacloud/models/GlobalSearchResponse.hpp>
+#include <alibabacloud/models/ReadPageBasicRequest.hpp>
+#include <alibabacloud/models/ReadPageBasicResponseBody.hpp>
+#include <alibabacloud/models/ReadPageBasicResponse.hpp>
 #include <alibabacloud/models/UnifiedSearchRequest.hpp>
 #include <alibabacloud/models/UnifiedSearchResponse.hpp>
 #include <alibabacloud/models/GetIqsUsageResultRecords.hpp>
 #include <alibabacloud/models/GlobalQueryContextOriginalQuery.hpp>
 #include <alibabacloud/models/QueryContextOriginalQuery.hpp>
 #include <alibabacloud/models/QueryContextRewrite.hpp>
+#include <alibabacloud/models/ReadPageBodyReadability.hpp>
 #include <alibabacloud/models/AiSearchResponseBodyHeaderQueryContextOriginalQuery.hpp>
 #include <alibabacloud/models/AiSearchResponseBodyHeaderQueryContextRewrite.hpp>
 #include <alibabacloud/models/AiSearchResponseBodyHeaderQueryContext.hpp>

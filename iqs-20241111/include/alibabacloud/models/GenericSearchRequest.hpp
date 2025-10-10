@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(query, query_);
       DARABONBA_PTR_TO_JSON(returnMainText, returnMainText_);
       DARABONBA_PTR_TO_JSON(returnMarkdownText, returnMarkdownText_);
+      DARABONBA_PTR_TO_JSON(returnRichMainBody, returnRichMainBody_);
       DARABONBA_PTR_TO_JSON(returnSummary, returnSummary_);
       DARABONBA_PTR_TO_JSON(sessionId, sessionId_);
       DARABONBA_PTR_TO_JSON(timeRange, timeRange_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(query, query_);
       DARABONBA_PTR_FROM_JSON(returnMainText, returnMainText_);
       DARABONBA_PTR_FROM_JSON(returnMarkdownText, returnMarkdownText_);
+      DARABONBA_PTR_FROM_JSON(returnRichMainBody, returnRichMainBody_);
       DARABONBA_PTR_FROM_JSON(returnSummary, returnSummary_);
       DARABONBA_PTR_FROM_JSON(sessionId, sessionId_);
       DARABONBA_PTR_FROM_JSON(timeRange, timeRange_);
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->enableRerank_ != nullptr
         && this->industry_ != nullptr && this->page_ != nullptr && this->query_ != nullptr && this->returnMainText_ != nullptr && this->returnMarkdownText_ != nullptr
-        && this->returnSummary_ != nullptr && this->sessionId_ != nullptr && this->timeRange_ != nullptr; };
+        && this->returnRichMainBody_ != nullptr && this->returnSummary_ != nullptr && this->sessionId_ != nullptr && this->timeRange_ != nullptr; };
     // enableRerank Field Functions 
     bool hasEnableRerank() const { return this->enableRerank_ != nullptr;};
     void deleteEnableRerank() { this->enableRerank_ = nullptr;};
@@ -90,6 +92,13 @@ namespace Models
     inline GenericSearchRequest& setReturnMarkdownText(bool returnMarkdownText) { DARABONBA_PTR_SET_VALUE(returnMarkdownText_, returnMarkdownText) };
 
 
+    // returnRichMainBody Field Functions 
+    bool hasReturnRichMainBody() const { return this->returnRichMainBody_ != nullptr;};
+    void deleteReturnRichMainBody() { this->returnRichMainBody_ = nullptr;};
+    inline bool returnRichMainBody() const { DARABONBA_PTR_GET_DEFAULT(returnRichMainBody_, false) };
+    inline GenericSearchRequest& setReturnRichMainBody(bool returnRichMainBody) { DARABONBA_PTR_SET_VALUE(returnRichMainBody_, returnRichMainBody) };
+
+
     // returnSummary Field Functions 
     bool hasReturnSummary() const { return this->returnSummary_ != nullptr;};
     void deleteReturnSummary() { this->returnSummary_ = nullptr;};
@@ -119,6 +128,7 @@ namespace Models
     std::shared_ptr<string> query_ = nullptr;
     std::shared_ptr<bool> returnMainText_ = nullptr;
     std::shared_ptr<bool> returnMarkdownText_ = nullptr;
+    std::shared_ptr<bool> returnRichMainBody_ = nullptr;
     std::shared_ptr<bool> returnSummary_ = nullptr;
     std::shared_ptr<string> sessionId_ = nullptr;
     std::shared_ptr<string> timeRange_ = nullptr;
