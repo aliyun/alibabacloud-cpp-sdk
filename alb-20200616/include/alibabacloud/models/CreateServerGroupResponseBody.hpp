@@ -1,0 +1,71 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_CREATESERVERGROUPRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_CREATESERVERGROUPRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Alb20200616
+{
+namespace Models
+{
+  class CreateServerGroupResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const CreateServerGroupResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(JobId, jobId_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(ServerGroupId, serverGroupId_);
+    };
+    friend void from_json(const Darabonba::Json& j, CreateServerGroupResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(JobId, jobId_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(ServerGroupId, serverGroupId_);
+    };
+    CreateServerGroupResponseBody() = default ;
+    CreateServerGroupResponseBody(const CreateServerGroupResponseBody &) = default ;
+    CreateServerGroupResponseBody(CreateServerGroupResponseBody &&) = default ;
+    CreateServerGroupResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateServerGroupResponseBody() = default ;
+    CreateServerGroupResponseBody& operator=(const CreateServerGroupResponseBody &) = default ;
+    CreateServerGroupResponseBody& operator=(CreateServerGroupResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { this->jobId_ != nullptr
+        && this->requestId_ != nullptr && this->serverGroupId_ != nullptr; };
+    // jobId Field Functions 
+    bool hasJobId() const { return this->jobId_ != nullptr;};
+    void deleteJobId() { this->jobId_ = nullptr;};
+    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline CreateServerGroupResponseBody& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline CreateServerGroupResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // serverGroupId Field Functions 
+    bool hasServerGroupId() const { return this->serverGroupId_ != nullptr;};
+    void deleteServerGroupId() { this->serverGroupId_ = nullptr;};
+    inline string serverGroupId() const { DARABONBA_PTR_GET_DEFAULT(serverGroupId_, "") };
+    inline CreateServerGroupResponseBody& setServerGroupId(string serverGroupId) { DARABONBA_PTR_SET_VALUE(serverGroupId_, serverGroupId) };
+
+
+  protected:
+    // The ID of the asynchronous job.
+    std::shared_ptr<string> jobId_ = nullptr;
+    // The request ID.
+    std::shared_ptr<string> requestId_ = nullptr;
+    // The ID of the server group.
+    std::shared_ptr<string> serverGroupId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Alb20200616
+#endif
