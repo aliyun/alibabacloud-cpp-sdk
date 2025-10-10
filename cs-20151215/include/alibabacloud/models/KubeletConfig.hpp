@@ -44,6 +44,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(registryPullQPS, registryPullQPS_);
       DARABONBA_PTR_TO_JSON(reservedMemory, reservedMemory_);
       DARABONBA_PTR_TO_JSON(serializeImagePulls, serializeImagePulls_);
+      DARABONBA_PTR_TO_JSON(serverTLSBootstrap, serverTLSBootstrap_);
       DARABONBA_ANY_TO_JSON(systemReserved, systemReserved_);
       DARABONBA_PTR_TO_JSON(topologyManagerPolicy, topologyManagerPolicy_);
       DARABONBA_PTR_TO_JSON(tracing, tracing_);
@@ -77,6 +78,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(registryPullQPS, registryPullQPS_);
       DARABONBA_PTR_FROM_JSON(reservedMemory, reservedMemory_);
       DARABONBA_PTR_FROM_JSON(serializeImagePulls, serializeImagePulls_);
+      DARABONBA_PTR_FROM_JSON(serverTLSBootstrap, serverTLSBootstrap_);
       DARABONBA_ANY_FROM_JSON(systemReserved, systemReserved_);
       DARABONBA_PTR_FROM_JSON(topologyManagerPolicy, topologyManagerPolicy_);
       DARABONBA_PTR_FROM_JSON(tracing, tracing_);
@@ -98,7 +100,8 @@ namespace Models
         && this->evictionHard_ != nullptr && this->evictionSoft_ != nullptr && this->evictionSoftGracePeriod_ != nullptr && this->featureGates_ != nullptr && this->imageGCHighThresholdPercent_ != nullptr
         && this->imageGCLowThresholdPercent_ != nullptr && this->kubeAPIBurst_ != nullptr && this->kubeAPIQPS_ != nullptr && this->kubeReserved_ != nullptr && this->maxPods_ != nullptr
         && this->memoryManagerPolicy_ != nullptr && this->podPidsLimit_ != nullptr && this->readOnlyPort_ != nullptr && this->registryBurst_ != nullptr && this->registryPullQPS_ != nullptr
-        && this->reservedMemory_ != nullptr && this->serializeImagePulls_ != nullptr && this->systemReserved_ != nullptr && this->topologyManagerPolicy_ != nullptr && this->tracing_ != nullptr; };
+        && this->reservedMemory_ != nullptr && this->serializeImagePulls_ != nullptr && this->serverTLSBootstrap_ != nullptr && this->systemReserved_ != nullptr && this->topologyManagerPolicy_ != nullptr
+        && this->tracing_ != nullptr; };
     // allowedUnsafeSysctls Field Functions 
     bool hasAllowedUnsafeSysctls() const { return this->allowedUnsafeSysctls_ != nullptr;};
     void deleteAllowedUnsafeSysctls() { this->allowedUnsafeSysctls_ = nullptr;};
@@ -311,6 +314,13 @@ namespace Models
     inline KubeletConfig& setSerializeImagePulls(bool serializeImagePulls) { DARABONBA_PTR_SET_VALUE(serializeImagePulls_, serializeImagePulls) };
 
 
+    // serverTLSBootstrap Field Functions 
+    bool hasServerTLSBootstrap() const { return this->serverTLSBootstrap_ != nullptr;};
+    void deleteServerTLSBootstrap() { this->serverTLSBootstrap_ = nullptr;};
+    inline bool serverTLSBootstrap() const { DARABONBA_PTR_GET_DEFAULT(serverTLSBootstrap_, false) };
+    inline KubeletConfig& setServerTLSBootstrap(bool serverTLSBootstrap) { DARABONBA_PTR_SET_VALUE(serverTLSBootstrap_, serverTLSBootstrap) };
+
+
     // systemReserved Field Functions 
     bool hasSystemReserved() const { return this->systemReserved_ != nullptr;};
     void deleteSystemReserved() { this->systemReserved_ = nullptr;};
@@ -365,6 +375,7 @@ namespace Models
     std::shared_ptr<int64_t> registryPullQPS_ = nullptr;
     std::shared_ptr<vector<KubeletConfigReservedMemory>> reservedMemory_ = nullptr;
     std::shared_ptr<bool> serializeImagePulls_ = nullptr;
+    std::shared_ptr<bool> serverTLSBootstrap_ = nullptr;
     Darabonba::Json systemReserved_ = nullptr;
     std::shared_ptr<string> topologyManagerPolicy_ = nullptr;
     std::shared_ptr<KubeletConfigTracing> tracing_ = nullptr;

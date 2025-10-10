@@ -7,6 +7,7 @@
 #include <alibabacloud/models/InstanceMetadataOptions.hpp>
 #include <alibabacloud/models/InstancePatterns.hpp>
 #include <alibabacloud/models/CreateClusterNodePoolRequestScalingGroupPrivatePoolOptions.hpp>
+#include <alibabacloud/models/CreateClusterNodePoolRequestScalingGroupResourcePoolOptions.hpp>
 #include <alibabacloud/models/CreateClusterNodePoolRequestScalingGroupSpotPriceLimit.hpp>
 #include <alibabacloud/models/CreateClusterNodePoolRequestScalingGroupTags.hpp>
 using namespace std;
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(private_pool_options, privatePoolOptions_);
       DARABONBA_PTR_TO_JSON(ram_role_name, ramRoleName_);
       DARABONBA_PTR_TO_JSON(rds_instances, rdsInstances_);
+      DARABONBA_PTR_TO_JSON(resource_pool_options, resourcePoolOptions_);
       DARABONBA_PTR_TO_JSON(scaling_policy, scalingPolicy_);
       DARABONBA_PTR_TO_JSON(security_group_id, securityGroupId_);
       DARABONBA_PTR_TO_JSON(security_group_ids, securityGroupIds_);
@@ -96,6 +98,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(private_pool_options, privatePoolOptions_);
       DARABONBA_PTR_FROM_JSON(ram_role_name, ramRoleName_);
       DARABONBA_PTR_FROM_JSON(rds_instances, rdsInstances_);
+      DARABONBA_PTR_FROM_JSON(resource_pool_options, resourcePoolOptions_);
       DARABONBA_PTR_FROM_JSON(scaling_policy, scalingPolicy_);
       DARABONBA_PTR_FROM_JSON(security_group_id, securityGroupId_);
       DARABONBA_PTR_FROM_JSON(security_group_ids, securityGroupIds_);
@@ -134,11 +137,11 @@ namespace Models
         && this->instancePatterns_ != nullptr && this->instanceTypes_ != nullptr && this->internetChargeType_ != nullptr && this->internetMaxBandwidthOut_ != nullptr && this->keyPair_ != nullptr
         && this->loginAsNonRoot_ != nullptr && this->loginPassword_ != nullptr && this->multiAzPolicy_ != nullptr && this->onDemandBaseCapacity_ != nullptr && this->onDemandPercentageAboveBaseCapacity_ != nullptr
         && this->period_ != nullptr && this->periodUnit_ != nullptr && this->platform_ != nullptr && this->privatePoolOptions_ != nullptr && this->ramRoleName_ != nullptr
-        && this->rdsInstances_ != nullptr && this->scalingPolicy_ != nullptr && this->securityGroupId_ != nullptr && this->securityGroupIds_ != nullptr && this->securityHardeningOs_ != nullptr
-        && this->socEnabled_ != nullptr && this->spotInstancePools_ != nullptr && this->spotInstanceRemedy_ != nullptr && this->spotPriceLimit_ != nullptr && this->spotStrategy_ != nullptr
-        && this->systemDiskBurstingEnabled_ != nullptr && this->systemDiskCategories_ != nullptr && this->systemDiskCategory_ != nullptr && this->systemDiskEncryptAlgorithm_ != nullptr && this->systemDiskEncrypted_ != nullptr
-        && this->systemDiskKmsKeyId_ != nullptr && this->systemDiskPerformanceLevel_ != nullptr && this->systemDiskProvisionedIops_ != nullptr && this->systemDiskSize_ != nullptr && this->tags_ != nullptr
-        && this->vswitchIds_ != nullptr; };
+        && this->rdsInstances_ != nullptr && this->resourcePoolOptions_ != nullptr && this->scalingPolicy_ != nullptr && this->securityGroupId_ != nullptr && this->securityGroupIds_ != nullptr
+        && this->securityHardeningOs_ != nullptr && this->socEnabled_ != nullptr && this->spotInstancePools_ != nullptr && this->spotInstanceRemedy_ != nullptr && this->spotPriceLimit_ != nullptr
+        && this->spotStrategy_ != nullptr && this->systemDiskBurstingEnabled_ != nullptr && this->systemDiskCategories_ != nullptr && this->systemDiskCategory_ != nullptr && this->systemDiskEncryptAlgorithm_ != nullptr
+        && this->systemDiskEncrypted_ != nullptr && this->systemDiskKmsKeyId_ != nullptr && this->systemDiskPerformanceLevel_ != nullptr && this->systemDiskProvisionedIops_ != nullptr && this->systemDiskSize_ != nullptr
+        && this->tags_ != nullptr && this->vswitchIds_ != nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -338,6 +341,15 @@ namespace Models
     inline vector<string> rdsInstances() { DARABONBA_PTR_GET(rdsInstances_, vector<string>) };
     inline CreateClusterNodePoolRequestScalingGroup& setRdsInstances(const vector<string> & rdsInstances) { DARABONBA_PTR_SET_VALUE(rdsInstances_, rdsInstances) };
     inline CreateClusterNodePoolRequestScalingGroup& setRdsInstances(vector<string> && rdsInstances) { DARABONBA_PTR_SET_RVALUE(rdsInstances_, rdsInstances) };
+
+
+    // resourcePoolOptions Field Functions 
+    bool hasResourcePoolOptions() const { return this->resourcePoolOptions_ != nullptr;};
+    void deleteResourcePoolOptions() { this->resourcePoolOptions_ = nullptr;};
+    inline const Models::CreateClusterNodePoolRequestScalingGroupResourcePoolOptions & resourcePoolOptions() const { DARABONBA_PTR_GET_CONST(resourcePoolOptions_, Models::CreateClusterNodePoolRequestScalingGroupResourcePoolOptions) };
+    inline Models::CreateClusterNodePoolRequestScalingGroupResourcePoolOptions resourcePoolOptions() { DARABONBA_PTR_GET(resourcePoolOptions_, Models::CreateClusterNodePoolRequestScalingGroupResourcePoolOptions) };
+    inline CreateClusterNodePoolRequestScalingGroup& setResourcePoolOptions(const Models::CreateClusterNodePoolRequestScalingGroupResourcePoolOptions & resourcePoolOptions) { DARABONBA_PTR_SET_VALUE(resourcePoolOptions_, resourcePoolOptions) };
+    inline CreateClusterNodePoolRequestScalingGroup& setResourcePoolOptions(Models::CreateClusterNodePoolRequestScalingGroupResourcePoolOptions && resourcePoolOptions) { DARABONBA_PTR_SET_RVALUE(resourcePoolOptions_, resourcePoolOptions) };
 
 
     // scalingPolicy Field Functions 
@@ -616,6 +628,7 @@ namespace Models
     std::shared_ptr<string> ramRoleName_ = nullptr;
     // The IDs of ApsaraDB RDS instances.
     std::shared_ptr<vector<string>> rdsInstances_ = nullptr;
+    std::shared_ptr<Models::CreateClusterNodePoolRequestScalingGroupResourcePoolOptions> resourcePoolOptions_ = nullptr;
     // The scaling mode of the scaling group. Valid values:
     // 
     // *   `release`: the standard mode. ECS instances are created and released based on resource usage.

@@ -6,6 +6,7 @@
 #include <alibabacloud/models/DataDisk.hpp>
 #include <alibabacloud/models/InstancePatterns.hpp>
 #include <alibabacloud/models/ModifyClusterNodePoolRequestScalingGroupPrivatePoolOptions.hpp>
+#include <alibabacloud/models/ModifyClusterNodePoolRequestScalingGroupResourcePoolOptions.hpp>
 #include <alibabacloud/models/ModifyClusterNodePoolRequestScalingGroupSpotPriceLimit.hpp>
 #include <alibabacloud/models/Tag.hpp>
 using namespace std;
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(platform, platform_);
       DARABONBA_PTR_TO_JSON(private_pool_options, privatePoolOptions_);
       DARABONBA_PTR_TO_JSON(rds_instances, rdsInstances_);
+      DARABONBA_PTR_TO_JSON(resource_pool_options, resourcePoolOptions_);
       DARABONBA_PTR_TO_JSON(scaling_policy, scalingPolicy_);
       DARABONBA_PTR_TO_JSON(security_group_ids, securityGroupIds_);
       DARABONBA_PTR_TO_JSON(spot_instance_pools, spotInstancePools_);
@@ -84,6 +86,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(platform, platform_);
       DARABONBA_PTR_FROM_JSON(private_pool_options, privatePoolOptions_);
       DARABONBA_PTR_FROM_JSON(rds_instances, rdsInstances_);
+      DARABONBA_PTR_FROM_JSON(resource_pool_options, resourcePoolOptions_);
       DARABONBA_PTR_FROM_JSON(scaling_policy, scalingPolicy_);
       DARABONBA_PTR_FROM_JSON(security_group_ids, securityGroupIds_);
       DARABONBA_PTR_FROM_JSON(spot_instance_pools, spotInstancePools_);
@@ -118,10 +121,10 @@ namespace Models
         && this->imageId_ != nullptr && this->imageType_ != nullptr && this->instanceChargeType_ != nullptr && this->instancePatterns_ != nullptr && this->instanceTypes_ != nullptr
         && this->internetChargeType_ != nullptr && this->internetMaxBandwidthOut_ != nullptr && this->keyPair_ != nullptr && this->loginPassword_ != nullptr && this->multiAzPolicy_ != nullptr
         && this->onDemandBaseCapacity_ != nullptr && this->onDemandPercentageAboveBaseCapacity_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr && this->platform_ != nullptr
-        && this->privatePoolOptions_ != nullptr && this->rdsInstances_ != nullptr && this->scalingPolicy_ != nullptr && this->securityGroupIds_ != nullptr && this->spotInstancePools_ != nullptr
-        && this->spotInstanceRemedy_ != nullptr && this->spotPriceLimit_ != nullptr && this->spotStrategy_ != nullptr && this->systemDiskBurstingEnabled_ != nullptr && this->systemDiskCategories_ != nullptr
-        && this->systemDiskCategory_ != nullptr && this->systemDiskEncryptAlgorithm_ != nullptr && this->systemDiskEncrypted_ != nullptr && this->systemDiskKmsKeyId_ != nullptr && this->systemDiskPerformanceLevel_ != nullptr
-        && this->systemDiskProvisionedIops_ != nullptr && this->systemDiskSize_ != nullptr && this->tags_ != nullptr && this->vswitchIds_ != nullptr; };
+        && this->privatePoolOptions_ != nullptr && this->rdsInstances_ != nullptr && this->resourcePoolOptions_ != nullptr && this->scalingPolicy_ != nullptr && this->securityGroupIds_ != nullptr
+        && this->spotInstancePools_ != nullptr && this->spotInstanceRemedy_ != nullptr && this->spotPriceLimit_ != nullptr && this->spotStrategy_ != nullptr && this->systemDiskBurstingEnabled_ != nullptr
+        && this->systemDiskCategories_ != nullptr && this->systemDiskCategory_ != nullptr && this->systemDiskEncryptAlgorithm_ != nullptr && this->systemDiskEncrypted_ != nullptr && this->systemDiskKmsKeyId_ != nullptr
+        && this->systemDiskPerformanceLevel_ != nullptr && this->systemDiskProvisionedIops_ != nullptr && this->systemDiskSize_ != nullptr && this->tags_ != nullptr && this->vswitchIds_ != nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -291,6 +294,15 @@ namespace Models
     inline vector<string> rdsInstances() { DARABONBA_PTR_GET(rdsInstances_, vector<string>) };
     inline ModifyClusterNodePoolRequestScalingGroup& setRdsInstances(const vector<string> & rdsInstances) { DARABONBA_PTR_SET_VALUE(rdsInstances_, rdsInstances) };
     inline ModifyClusterNodePoolRequestScalingGroup& setRdsInstances(vector<string> && rdsInstances) { DARABONBA_PTR_SET_RVALUE(rdsInstances_, rdsInstances) };
+
+
+    // resourcePoolOptions Field Functions 
+    bool hasResourcePoolOptions() const { return this->resourcePoolOptions_ != nullptr;};
+    void deleteResourcePoolOptions() { this->resourcePoolOptions_ = nullptr;};
+    inline const Models::ModifyClusterNodePoolRequestScalingGroupResourcePoolOptions & resourcePoolOptions() const { DARABONBA_PTR_GET_CONST(resourcePoolOptions_, Models::ModifyClusterNodePoolRequestScalingGroupResourcePoolOptions) };
+    inline Models::ModifyClusterNodePoolRequestScalingGroupResourcePoolOptions resourcePoolOptions() { DARABONBA_PTR_GET(resourcePoolOptions_, Models::ModifyClusterNodePoolRequestScalingGroupResourcePoolOptions) };
+    inline ModifyClusterNodePoolRequestScalingGroup& setResourcePoolOptions(const Models::ModifyClusterNodePoolRequestScalingGroupResourcePoolOptions & resourcePoolOptions) { DARABONBA_PTR_SET_VALUE(resourcePoolOptions_, resourcePoolOptions) };
+    inline ModifyClusterNodePoolRequestScalingGroup& setResourcePoolOptions(Models::ModifyClusterNodePoolRequestScalingGroupResourcePoolOptions && resourcePoolOptions) { DARABONBA_PTR_SET_RVALUE(resourcePoolOptions_, resourcePoolOptions) };
 
 
     // scalingPolicy Field Functions 
@@ -533,6 +545,7 @@ namespace Models
     std::shared_ptr<Models::ModifyClusterNodePoolRequestScalingGroupPrivatePoolOptions> privatePoolOptions_ = nullptr;
     // The IDs of ApsaraDB RDS instances.
     std::shared_ptr<vector<string>> rdsInstances_ = nullptr;
+    std::shared_ptr<Models::ModifyClusterNodePoolRequestScalingGroupResourcePoolOptions> resourcePoolOptions_ = nullptr;
     // The scaling mode of the scaling group. Valid values:
     // 
     // *   `release`: the standard mode. ECS instances are created and released based on resource usage.

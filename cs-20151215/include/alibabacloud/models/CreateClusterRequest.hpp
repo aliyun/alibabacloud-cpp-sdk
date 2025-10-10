@@ -1123,8 +1123,6 @@ namespace Models
     // *   `Kubernetes`: ACK dedicated cluster.
     // *   `ManagedKubernetes`: ACK managed cluster. ACK managed clusters include ACK Basic clusters, ACK Pro clusters, ACK Serverless clusters (Basic Edition and Pro Edition), ACK Edge clusters (Basic Edition and Pro Edition), and ACK Lingjun clusters (Pro Edition).
     // *   `ExternalKubernetes`: registered cluster.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> clusterType_ = nullptr;
     // The pod CIDR block. You can specify 10.0.0.0/8, 172.16-31.0.0/12-16, 192.168.0.0/16, or their subnets as the pod CIDR block. The pod CIDR block cannot overlap with the CIDR block of the VPC in which the cluster is deployed and the CIDR blocks of existing clusters in the VPC. You cannot modify the pod CIDR block after you create the cluster.
     // 
@@ -1482,8 +1480,6 @@ namespace Models
     // The Service CIDR block. Valid values: 10.0.0.0/16-24, 172.16-31.0.0/16-24, and 192.168.0.0/16-24. The Service CIDR block cannot overlap with the VPC CIDR block (10.1.0.0/21) or the CIDR blocks of existing clusters in the VPC. You cannot modify the Service CIDR block after the cluster is created.
     // 
     // By default, the Service CIDR block is set to 172.19.0.0/20.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> serviceCidr_ = nullptr;
     // The methods for implementing service discovery in `ACK Serverless` clusters.
     // 

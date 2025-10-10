@@ -323,24 +323,6 @@ namespace CS20151215
       Models::CreateClusterNodePoolResponse createClusterNodePool(const string &ClusterId, const Models::CreateClusterNodePoolRequest &request);
 
       /**
-       * @summary You can call the CreateEdgeMachine operation to activate a cloud-native box.
-       *
-       * @param request CreateEdgeMachineRequest
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CreateEdgeMachineResponse
-       */
-      Models::CreateEdgeMachineResponse createEdgeMachineWithOptions(const Models::CreateEdgeMachineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary You can call the CreateEdgeMachine operation to activate a cloud-native box.
-       *
-       * @param request CreateEdgeMachineRequest
-       * @return CreateEdgeMachineResponse
-       */
-      Models::CreateEdgeMachineResponse createEdgeMachine(const Models::CreateEdgeMachineRequest &request);
-
-      /**
        * @deprecated OpenAPI CreateKubernetesTrigger is deprecated
        *
        * @summary You can call the CreateKubernetesTrigger operation to create a trigger for an application.
@@ -531,24 +513,6 @@ namespace CS20151215
        * @return DeleteClusterNodesResponse
        */
       Models::DeleteClusterNodesResponse deleteClusterNodes(const string &ClusterId, const Models::DeleteClusterNodesRequest &request);
-
-      /**
-       * @summary You can call the DeleteEdgeMachine operation to delete a cloud-native box.
-       *
-       * @param request DeleteEdgeMachineRequest
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteEdgeMachineResponse
-       */
-      Models::DeleteEdgeMachineResponse deleteEdgeMachineWithOptions(const string &edgeMachineid, const Models::DeleteEdgeMachineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary You can call the DeleteEdgeMachine operation to delete a cloud-native box.
-       *
-       * @param request DeleteEdgeMachineRequest
-       * @return DeleteEdgeMachineResponse
-       */
-      Models::DeleteEdgeMachineResponse deleteEdgeMachine(const string &edgeMachineid, const Models::DeleteEdgeMachineRequest &request);
 
       /**
        * @deprecated OpenAPI DeleteKubernetesTrigger is deprecated
@@ -1059,76 +1023,6 @@ namespace CS20151215
       Models::DescribeClustersV1Response describeClustersV1(const Models::DescribeClustersV1Request &request);
 
       /**
-       * @deprecated OpenAPI DescribeEdgeMachineActiveProcess is deprecated
-       *
-       * @summary You can call the DescribeEdgeMachineActiveProcess operation to query the activation progress of a cloud-native box.
-       *
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeEdgeMachineActiveProcessResponse
-       */
-      Models::DescribeEdgeMachineActiveProcessResponse describeEdgeMachineActiveProcessWithOptions(const string &edgeMachineid, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @deprecated OpenAPI DescribeEdgeMachineActiveProcess is deprecated
-       *
-       * @summary You can call the DescribeEdgeMachineActiveProcess operation to query the activation progress of a cloud-native box.
-       *
-       * @return DescribeEdgeMachineActiveProcessResponse
-       */
-      Models::DescribeEdgeMachineActiveProcessResponse describeEdgeMachineActiveProcess(const string &edgeMachineid);
-
-      /**
-       * @summary You can call the DescribeEdgeMachineModels operation to query the cloud-native box models.
-       *
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeEdgeMachineModelsResponse
-       */
-      Models::DescribeEdgeMachineModelsResponse describeEdgeMachineModelsWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary You can call the DescribeEdgeMachineModels operation to query the cloud-native box models.
-       *
-       * @return DescribeEdgeMachineModelsResponse
-       */
-      Models::DescribeEdgeMachineModelsResponse describeEdgeMachineModels();
-
-      /**
-       * @summary You can call the DescribeEdgeMachineTunnelConfigDetail operation to obtain the SSH token of a cloud-native box.
-       *
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeEdgeMachineTunnelConfigDetailResponse
-       */
-      Models::DescribeEdgeMachineTunnelConfigDetailResponse describeEdgeMachineTunnelConfigDetailWithOptions(const string &edgeMachineid, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary You can call the DescribeEdgeMachineTunnelConfigDetail operation to obtain the SSH token of a cloud-native box.
-       *
-       * @return DescribeEdgeMachineTunnelConfigDetailResponse
-       */
-      Models::DescribeEdgeMachineTunnelConfigDetailResponse describeEdgeMachineTunnelConfigDetail(const string &edgeMachineid);
-
-      /**
-       * @summary You can call the DescribeEdgeMachines operation to query a list of cloud-native boxes.
-       *
-       * @param request DescribeEdgeMachinesRequest
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeEdgeMachinesResponse
-       */
-      Models::DescribeEdgeMachinesResponse describeEdgeMachinesWithOptions(const Models::DescribeEdgeMachinesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary You can call the DescribeEdgeMachines operation to query a list of cloud-native boxes.
-       *
-       * @param request DescribeEdgeMachinesRequest
-       * @return DescribeEdgeMachinesResponse
-       */
-      Models::DescribeEdgeMachinesResponse describeEdgeMachines(const Models::DescribeEdgeMachinesRequest &request);
-
-      /**
        * @summary Queries the detailed information about a type of events, including the severity level, status, and time. Events are generated when clusters are created, modified, and updated, node pools are created and scaled out, and components are installed.
        *
        * @param request DescribeEventsRequest
@@ -1471,28 +1365,6 @@ namespace CS20151215
        * @return DescribeUserQuotaResponse
        */
       Models::DescribeUserQuotaResponse describeUserQuota();
-
-      /**
-       * @deprecated OpenAPI EdgeClusterAddEdgeMachine is deprecated
-       *
-       * @summary You can call the EdgeClusterAddEdgeMachine operation to add a cloud-native box to a Container Service for Kubernetes (ACK) Edge cluster.
-       *
-       * @param request EdgeClusterAddEdgeMachineRequest
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return EdgeClusterAddEdgeMachineResponse
-       */
-      Models::EdgeClusterAddEdgeMachineResponse edgeClusterAddEdgeMachineWithOptions(const string &clusterid, const string &edgeMachineid, const Models::EdgeClusterAddEdgeMachineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @deprecated OpenAPI EdgeClusterAddEdgeMachine is deprecated
-       *
-       * @summary You can call the EdgeClusterAddEdgeMachine operation to add a cloud-native box to a Container Service for Kubernetes (ACK) Edge cluster.
-       *
-       * @param request EdgeClusterAddEdgeMachineRequest
-       * @return EdgeClusterAddEdgeMachineResponse
-       */
-      Models::EdgeClusterAddEdgeMachineResponse edgeClusterAddEdgeMachine(const string &clusterid, const string &edgeMachineid, const Models::EdgeClusterAddEdgeMachineRequest &request);
 
       /**
        * @summary Patches node vulnerabilities in a node pool to enhance node security. Cloud Security provided by Alibaba Cloud periodically scans Elastic Compute Service (ECS) instances for vulnerabilities and provides suggestions on how to patch the detected vulnerabilities. Vulnerability patching may require node restarts. Make sure that your cluster has sufficient idle nodes for node draining.
@@ -1941,28 +1813,6 @@ namespace CS20151215
       Models::ModifyClusterAddonResponse modifyClusterAddon(const string &clusterId, const string &componentId, const Models::ModifyClusterAddonRequest &request);
 
       /**
-       * @deprecated OpenAPI ModifyClusterConfiguration is deprecated
-       *
-       * @summary This API operation applies only to Container Service for Kubernetes (ACK) managed clusters.
-       *
-       * @param request ModifyClusterConfigurationRequest
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ModifyClusterConfigurationResponse
-       */
-      Models::ModifyClusterConfigurationResponse modifyClusterConfigurationWithOptions(const string &ClusterId, const Models::ModifyClusterConfigurationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @deprecated OpenAPI ModifyClusterConfiguration is deprecated
-       *
-       * @summary This API operation applies only to Container Service for Kubernetes (ACK) managed clusters.
-       *
-       * @param request ModifyClusterConfigurationRequest
-       * @return ModifyClusterConfigurationResponse
-       */
-      Models::ModifyClusterConfigurationResponse modifyClusterConfiguration(const string &ClusterId, const Models::ModifyClusterConfigurationRequest &request);
-
-      /**
        * @summary You can call the ModifyClusterNodePool operation to modify the configuration of a node pool with the specified node pool ID.
        *
        * @param request ModifyClusterNodePoolRequest
@@ -2307,28 +2157,6 @@ namespace CS20151215
        * @return RunClusterInspectResponse
        */
       Models::RunClusterInspectResponse runClusterInspect(const string &clusterId, const Models::RunClusterInspectRequest &request);
-
-      /**
-       * @deprecated OpenAPI ScaleCluster is deprecated
-       *
-       * @summary 扩容Kubernetes集群
-       *
-       * @param request ScaleClusterRequest
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ScaleClusterResponse
-       */
-      Models::ScaleClusterResponse scaleClusterWithOptions(const string &ClusterId, const Models::ScaleClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @deprecated OpenAPI ScaleCluster is deprecated
-       *
-       * @summary 扩容Kubernetes集群
-       *
-       * @param request ScaleClusterRequest
-       * @return ScaleClusterResponse
-       */
-      Models::ScaleClusterResponse scaleCluster(const string &ClusterId, const Models::ScaleClusterRequest &request);
 
       /**
        * @summary Scales out a node pool.

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_CS20151215MODEL_HPP_
 #define ALIBABACLOUD_CS20151215MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/Hugepage.hpp>
 #include <alibabacloud/models/InstanceMetadataOptions.hpp>
 #include <alibabacloud/models/Addon.hpp>
 #include <alibabacloud/models/ContainerdConfig.hpp>
@@ -52,9 +53,6 @@
 #include <alibabacloud/models/CreateClusterNodePoolRequest.hpp>
 #include <alibabacloud/models/CreateClusterNodePoolResponseBody.hpp>
 #include <alibabacloud/models/CreateClusterNodePoolResponse.hpp>
-#include <alibabacloud/models/CreateEdgeMachineRequest.hpp>
-#include <alibabacloud/models/CreateEdgeMachineResponseBody.hpp>
-#include <alibabacloud/models/CreateEdgeMachineResponse.hpp>
 #include <alibabacloud/models/CreateKubernetesTriggerRequest.hpp>
 #include <alibabacloud/models/CreateKubernetesTriggerResponseBody.hpp>
 #include <alibabacloud/models/CreateKubernetesTriggerResponse.hpp>
@@ -82,8 +80,6 @@
 #include <alibabacloud/models/DeleteClusterNodesRequest.hpp>
 #include <alibabacloud/models/DeleteClusterNodesResponseBody.hpp>
 #include <alibabacloud/models/DeleteClusterNodesResponse.hpp>
-#include <alibabacloud/models/DeleteEdgeMachineRequest.hpp>
-#include <alibabacloud/models/DeleteEdgeMachineResponse.hpp>
 #include <alibabacloud/models/DeleteKubernetesTriggerResponse.hpp>
 #include <alibabacloud/models/DeletePolicyInstanceRequest.hpp>
 #include <alibabacloud/models/DeletePolicyInstanceResponseBody.hpp>
@@ -146,15 +142,6 @@
 #include <alibabacloud/models/DescribeClustersV1request.hpp>
 #include <alibabacloud/models/DescribeClustersV1responseBody.hpp>
 #include <alibabacloud/models/DescribeClustersV1response.hpp>
-#include <alibabacloud/models/DescribeEdgeMachineActiveProcessResponseBody.hpp>
-#include <alibabacloud/models/DescribeEdgeMachineActiveProcessResponse.hpp>
-#include <alibabacloud/models/DescribeEdgeMachineModelsResponseBody.hpp>
-#include <alibabacloud/models/DescribeEdgeMachineModelsResponse.hpp>
-#include <alibabacloud/models/DescribeEdgeMachineTunnelConfigDetailResponseBody.hpp>
-#include <alibabacloud/models/DescribeEdgeMachineTunnelConfigDetailResponse.hpp>
-#include <alibabacloud/models/DescribeEdgeMachinesRequest.hpp>
-#include <alibabacloud/models/DescribeEdgeMachinesResponseBody.hpp>
-#include <alibabacloud/models/DescribeEdgeMachinesResponse.hpp>
 #include <alibabacloud/models/DescribeEventsRequest.hpp>
 #include <alibabacloud/models/DescribeEventsResponseBody.hpp>
 #include <alibabacloud/models/DescribeEventsResponse.hpp>
@@ -196,9 +183,6 @@
 #include <alibabacloud/models/DescribeUserPermissionResponse.hpp>
 #include <alibabacloud/models/DescribeUserQuotaResponseBody.hpp>
 #include <alibabacloud/models/DescribeUserQuotaResponse.hpp>
-#include <alibabacloud/models/EdgeClusterAddEdgeMachineRequest.hpp>
-#include <alibabacloud/models/EdgeClusterAddEdgeMachineResponseBody.hpp>
-#include <alibabacloud/models/EdgeClusterAddEdgeMachineResponse.hpp>
 #include <alibabacloud/models/FixNodePoolVulsRequest.hpp>
 #include <alibabacloud/models/FixNodePoolVulsResponseBody.hpp>
 #include <alibabacloud/models/FixNodePoolVulsResponse.hpp>
@@ -260,8 +244,6 @@
 #include <alibabacloud/models/ModifyClusterResponse.hpp>
 #include <alibabacloud/models/ModifyClusterAddonRequest.hpp>
 #include <alibabacloud/models/ModifyClusterAddonResponse.hpp>
-#include <alibabacloud/models/ModifyClusterConfigurationRequest.hpp>
-#include <alibabacloud/models/ModifyClusterConfigurationResponse.hpp>
 #include <alibabacloud/models/ModifyClusterNodePoolRequest.hpp>
 #include <alibabacloud/models/ModifyClusterNodePoolResponseBody.hpp>
 #include <alibabacloud/models/ModifyClusterNodePoolResponse.hpp>
@@ -299,9 +281,6 @@
 #include <alibabacloud/models/RunClusterInspectRequest.hpp>
 #include <alibabacloud/models/RunClusterInspectResponseBody.hpp>
 #include <alibabacloud/models/RunClusterInspectResponse.hpp>
-#include <alibabacloud/models/ScaleClusterRequest.hpp>
-#include <alibabacloud/models/ScaleClusterResponseBody.hpp>
-#include <alibabacloud/models/ScaleClusterResponse.hpp>
 #include <alibabacloud/models/ScaleClusterNodePoolRequest.hpp>
 #include <alibabacloud/models/ScaleClusterNodePoolResponseBody.hpp>
 #include <alibabacloud/models/ScaleClusterNodePoolResponse.hpp>
@@ -371,6 +350,7 @@
 #include <alibabacloud/models/NodepoolNodeConfig.hpp>
 #include <alibabacloud/models/NodepoolNodepoolInfo.hpp>
 #include <alibabacloud/models/NodepoolScalingGroupPrivatePoolOptions.hpp>
+#include <alibabacloud/models/NodepoolScalingGroupResourcePoolOptions.hpp>
 #include <alibabacloud/models/NodepoolScalingGroupSpotPriceLimit.hpp>
 #include <alibabacloud/models/NodepoolScalingGroupTags.hpp>
 #include <alibabacloud/models/NodepoolScalingGroup.hpp>
@@ -398,6 +378,7 @@
 #include <alibabacloud/models/CreateClusterNodePoolRequestNodeConfig.hpp>
 #include <alibabacloud/models/CreateClusterNodePoolRequestNodepoolInfo.hpp>
 #include <alibabacloud/models/CreateClusterNodePoolRequestScalingGroupPrivatePoolOptions.hpp>
+#include <alibabacloud/models/CreateClusterNodePoolRequestScalingGroupResourcePoolOptions.hpp>
 #include <alibabacloud/models/CreateClusterNodePoolRequestScalingGroupSpotPriceLimit.hpp>
 #include <alibabacloud/models/CreateClusterNodePoolRequestScalingGroupTags.hpp>
 #include <alibabacloud/models/CreateClusterNodePoolRequestScalingGroup.hpp>
@@ -427,9 +408,11 @@
 #include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyManagementUpgradeConfig.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyManagement.hpp>
+#include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyNodeConfigNodeOsConfig.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyNodeConfig.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyNodepoolInfo.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyScalingGroupPrivatePoolOptions.hpp>
+#include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyScalingGroupResourcePoolOptions.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyScalingGroupSpotPriceLimit.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyScalingGroup.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyStatus.hpp>
@@ -443,9 +426,11 @@
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoVulFixPolicy.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsManagementUpgradeConfig.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsManagement.hpp>
+#include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfigNodeOsConfig.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfig.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsNodepoolInfo.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroupPrivatePoolOptions.hpp>
+#include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroupResourcePoolOptions.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroupSpotPriceLimit.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsStatus.hpp>
@@ -469,9 +454,6 @@
 #include <alibabacloud/models/DescribeClustersV1responseBodyClustersOperationPolicy.hpp>
 #include <alibabacloud/models/DescribeClustersV1responseBodyClusters.hpp>
 #include <alibabacloud/models/DescribeClustersV1responseBodyPageInfo.hpp>
-#include <alibabacloud/models/DescribeEdgeMachineModelsResponseBodyModels.hpp>
-#include <alibabacloud/models/DescribeEdgeMachinesResponseBodyEdgeMachines.hpp>
-#include <alibabacloud/models/DescribeEdgeMachinesResponseBodyPageInfo.hpp>
 #include <alibabacloud/models/DescribeEventsResponseBodyEventsData.hpp>
 #include <alibabacloud/models/DescribeEventsResponseBodyEvents.hpp>
 #include <alibabacloud/models/DescribeEventsResponseBodyPageInfo.hpp>
@@ -532,8 +514,6 @@
 #include <alibabacloud/models/ModifyClusterRequestOperationPolicyClusterAutoUpgrade.hpp>
 #include <alibabacloud/models/ModifyClusterRequestOperationPolicy.hpp>
 #include <alibabacloud/models/ModifyClusterRequestSystemEventsLogging.hpp>
-#include <alibabacloud/models/ModifyClusterConfigurationRequestCustomizeConfigConfigs.hpp>
-#include <alibabacloud/models/ModifyClusterConfigurationRequestCustomizeConfig.hpp>
 #include <alibabacloud/models/ModifyClusterNodePoolRequestAutoScaling.hpp>
 #include <alibabacloud/models/ModifyClusterNodePoolRequestKubernetesConfig.hpp>
 #include <alibabacloud/models/ModifyClusterNodePoolRequestManagementAutoRepairPolicy.hpp>
@@ -543,15 +523,13 @@
 #include <alibabacloud/models/ModifyClusterNodePoolRequestManagement.hpp>
 #include <alibabacloud/models/ModifyClusterNodePoolRequestNodepoolInfo.hpp>
 #include <alibabacloud/models/ModifyClusterNodePoolRequestScalingGroupPrivatePoolOptions.hpp>
+#include <alibabacloud/models/ModifyClusterNodePoolRequestScalingGroupResourcePoolOptions.hpp>
 #include <alibabacloud/models/ModifyClusterNodePoolRequestScalingGroupSpotPriceLimit.hpp>
 #include <alibabacloud/models/ModifyClusterNodePoolRequestScalingGroup.hpp>
 #include <alibabacloud/models/ModifyClusterNodePoolRequestTeeConfig.hpp>
 #include <alibabacloud/models/ModifyNodePoolNodeConfigRequestOsConfig.hpp>
 #include <alibabacloud/models/ModifyNodePoolNodeConfigRequestRollingPolicy.hpp>
 #include <alibabacloud/models/RepairClusterNodePoolRequestOperations.hpp>
-#include <alibabacloud/models/ScaleClusterRequestTags.hpp>
-#include <alibabacloud/models/ScaleClusterRequestTaints.hpp>
-#include <alibabacloud/models/ScaleClusterRequestWorkerDataDisks.hpp>
 #include <alibabacloud/models/ScaleOutClusterRequestWorkerDataDisks.hpp>
 #include <alibabacloud/models/UnInstallClusterAddonsRequestAddons.hpp>
 #include <alibabacloud/models/UpdateUserPermissionsRequestBody.hpp>
