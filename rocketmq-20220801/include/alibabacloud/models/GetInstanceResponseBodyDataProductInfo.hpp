@@ -14,8 +14,10 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetInstanceResponseBodyDataProductInfo& obj) { 
       DARABONBA_PTR_TO_JSON(autoScaling, autoScaling_);
+      DARABONBA_PTR_TO_JSON(capacityType, capacityType_);
       DARABONBA_PTR_TO_JSON(messageRetentionTime, messageRetentionTime_);
       DARABONBA_PTR_TO_JSON(msgProcessSpec, msgProcessSpec_);
+      DARABONBA_PTR_TO_JSON(provisionedCapacity, provisionedCapacity_);
       DARABONBA_PTR_TO_JSON(sendReceiveRatio, sendReceiveRatio_);
       DARABONBA_PTR_TO_JSON(storageEncryption, storageEncryption_);
       DARABONBA_PTR_TO_JSON(storageSecretKey, storageSecretKey_);
@@ -24,8 +26,10 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, GetInstanceResponseBodyDataProductInfo& obj) { 
       DARABONBA_PTR_FROM_JSON(autoScaling, autoScaling_);
+      DARABONBA_PTR_FROM_JSON(capacityType, capacityType_);
       DARABONBA_PTR_FROM_JSON(messageRetentionTime, messageRetentionTime_);
       DARABONBA_PTR_FROM_JSON(msgProcessSpec, msgProcessSpec_);
+      DARABONBA_PTR_FROM_JSON(provisionedCapacity, provisionedCapacity_);
       DARABONBA_PTR_FROM_JSON(sendReceiveRatio, sendReceiveRatio_);
       DARABONBA_PTR_FROM_JSON(storageEncryption, storageEncryption_);
       DARABONBA_PTR_FROM_JSON(storageSecretKey, storageSecretKey_);
@@ -44,13 +48,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->autoScaling_ != nullptr
-        && this->messageRetentionTime_ != nullptr && this->msgProcessSpec_ != nullptr && this->sendReceiveRatio_ != nullptr && this->storageEncryption_ != nullptr && this->storageSecretKey_ != nullptr
-        && this->supportAutoScaling_ != nullptr && this->traceOn_ != nullptr; };
+        && this->capacityType_ != nullptr && this->messageRetentionTime_ != nullptr && this->msgProcessSpec_ != nullptr && this->provisionedCapacity_ != nullptr && this->sendReceiveRatio_ != nullptr
+        && this->storageEncryption_ != nullptr && this->storageSecretKey_ != nullptr && this->supportAutoScaling_ != nullptr && this->traceOn_ != nullptr; };
     // autoScaling Field Functions 
     bool hasAutoScaling() const { return this->autoScaling_ != nullptr;};
     void deleteAutoScaling() { this->autoScaling_ = nullptr;};
     inline bool autoScaling() const { DARABONBA_PTR_GET_DEFAULT(autoScaling_, false) };
     inline GetInstanceResponseBodyDataProductInfo& setAutoScaling(bool autoScaling) { DARABONBA_PTR_SET_VALUE(autoScaling_, autoScaling) };
+
+
+    // capacityType Field Functions 
+    bool hasCapacityType() const { return this->capacityType_ != nullptr;};
+    void deleteCapacityType() { this->capacityType_ = nullptr;};
+    inline string capacityType() const { DARABONBA_PTR_GET_DEFAULT(capacityType_, "") };
+    inline GetInstanceResponseBodyDataProductInfo& setCapacityType(string capacityType) { DARABONBA_PTR_SET_VALUE(capacityType_, capacityType) };
 
 
     // messageRetentionTime Field Functions 
@@ -65,6 +76,13 @@ namespace Models
     void deleteMsgProcessSpec() { this->msgProcessSpec_ = nullptr;};
     inline string msgProcessSpec() const { DARABONBA_PTR_GET_DEFAULT(msgProcessSpec_, "") };
     inline GetInstanceResponseBodyDataProductInfo& setMsgProcessSpec(string msgProcessSpec) { DARABONBA_PTR_SET_VALUE(msgProcessSpec_, msgProcessSpec) };
+
+
+    // provisionedCapacity Field Functions 
+    bool hasProvisionedCapacity() const { return this->provisionedCapacity_ != nullptr;};
+    void deleteProvisionedCapacity() { this->provisionedCapacity_ = nullptr;};
+    inline int64_t provisionedCapacity() const { DARABONBA_PTR_GET_DEFAULT(provisionedCapacity_, 0L) };
+    inline GetInstanceResponseBodyDataProductInfo& setProvisionedCapacity(int64_t provisionedCapacity) { DARABONBA_PTR_SET_VALUE(provisionedCapacity_, provisionedCapacity) };
 
 
     // sendReceiveRatio Field Functions 
@@ -112,6 +130,7 @@ namespace Models
     // 
     // This parameter is valid only when the supportAutoScaling parameter is set to enable.
     std::shared_ptr<bool> autoScaling_ = nullptr;
+    std::shared_ptr<string> capacityType_ = nullptr;
     // The retention period of messages. Unit: hours.
     // 
     // For information about the valid values of this parameter, see the "Limits on resource quotas" section in [Usage limits](https://help.aliyun.com/document_detail/440347.html).
@@ -120,6 +139,7 @@ namespace Models
     std::shared_ptr<int32_t> messageRetentionTime_ = nullptr;
     // The computing specification that is used to send and receive messages. For information about the upper limit of TPS, see [Instance specifications](https://help.aliyun.com/document_detail/444715.html).
     std::shared_ptr<string> msgProcessSpec_ = nullptr;
+    std::shared_ptr<int64_t> provisionedCapacity_ = nullptr;
     // The ratio between sent messages and received messages in the instance.
     std::shared_ptr<float> sendReceiveRatio_ = nullptr;
     // Indicates whether storage encryption is enabled.
