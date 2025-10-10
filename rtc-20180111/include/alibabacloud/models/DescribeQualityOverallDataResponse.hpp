@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEQUALITYOVERALLDATARESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DescribeQualityOverallDataResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

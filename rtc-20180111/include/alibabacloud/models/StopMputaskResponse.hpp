@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_STOPMPUTASKRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/StopMPUTaskResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

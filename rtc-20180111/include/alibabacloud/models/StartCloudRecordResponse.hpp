@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_STARTCLOUDRECORDRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/StartCloudRecordResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

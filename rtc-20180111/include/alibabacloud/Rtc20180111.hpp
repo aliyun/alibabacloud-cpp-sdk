@@ -1503,11 +1503,11 @@ namespace Rtc20180111
       /**
        * @summary NotifyAgent
        *
-       * @param request NotifyAgentRequest
+       * @param tmpReq NotifyAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return NotifyAgentResponse
        */
-      Models::NotifyAgentResponse notifyAgentWithOptions(const Models::NotifyAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::NotifyAgentResponse notifyAgentWithOptions(const Models::NotifyAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary NotifyAgent

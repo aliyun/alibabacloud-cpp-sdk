@@ -302,6 +302,7 @@
 #include <alibabacloud/models/ModifyMpulayoutResponseBody.hpp>
 #include <alibabacloud/models/ModifyMpulayoutResponse.hpp>
 #include <alibabacloud/models/NotifyAgentRequest.hpp>
+#include <alibabacloud/models/NotifyAgentShrinkRequest.hpp>
 #include <alibabacloud/models/NotifyAgentResponseBody.hpp>
 #include <alibabacloud/models/NotifyAgentResponse.hpp>
 #include <alibabacloud/models/RemoveTerminalsRequest.hpp>
@@ -389,9 +390,12 @@
 #include <alibabacloud/models/AddRecordTemplateRequestClockWidgets.hpp>
 #include <alibabacloud/models/AddRecordTemplateRequestWatermarks.hpp>
 #include <alibabacloud/models/CreateAppAgentTemplateRequestAgentSilenceConfig.hpp>
+#include <alibabacloud/models/CreateAppAgentTemplateRequestAmbientSoundConfig.hpp>
 #include <alibabacloud/models/CreateAppAgentTemplateRequestAsrConfigVadConfig.hpp>
 #include <alibabacloud/models/CreateAppAgentTemplateRequestAsrConfigWordWeights.hpp>
 #include <alibabacloud/models/CreateAppAgentTemplateRequestAsrConfig.hpp>
+#include <alibabacloud/models/CreateAppAgentTemplateRequestBackChannelConfig.hpp>
+#include <alibabacloud/models/CreateAppAgentTemplateRequestInterruptConfig.hpp>
 #include <alibabacloud/models/CreateAppAgentTemplateRequestLlmConfig.hpp>
 #include <alibabacloud/models/CreateAppAgentTemplateRequestTtsConfig.hpp>
 #include <alibabacloud/models/CreateAppLayoutRequestLayoutPanes.hpp>
@@ -408,9 +412,12 @@
 #include <alibabacloud/models/DescribeAllCallbackResponseBodyCallbacksSubEvent.hpp>
 #include <alibabacloud/models/DescribeAllCallbackResponseBodyCallbacks.hpp>
 #include <alibabacloud/models/DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig.hpp>
+#include <alibabacloud/models/DescribeAppAgentTemplatesResponseBodyTemplatesAmbientSoundConfig.hpp>
 #include <alibabacloud/models/DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfigVadConfig.hpp>
 #include <alibabacloud/models/DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfigWordWeights.hpp>
 #include <alibabacloud/models/DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfig.hpp>
+#include <alibabacloud/models/DescribeAppAgentTemplatesResponseBodyTemplatesBackChannelConfig.hpp>
+#include <alibabacloud/models/DescribeAppAgentTemplatesResponseBodyTemplatesInterruptConfig.hpp>
 #include <alibabacloud/models/DescribeAppAgentTemplatesResponseBodyTemplatesLlmConfig.hpp>
 #include <alibabacloud/models/DescribeAppAgentTemplatesResponseBodyTemplatesTtsConfig.hpp>
 #include <alibabacloud/models/DescribeAppAgentTemplatesResponseBodyTemplates.hpp>
@@ -522,9 +529,12 @@
 #include <alibabacloud/models/DescribeUsageOverallDataResponseBodyUsageOverallData.hpp>
 #include <alibabacloud/models/DescribeUserInfoInChannelResponseBodyProperty.hpp>
 #include <alibabacloud/models/ModifyAppAgentTemplateRequestAgentSilenceConfig.hpp>
+#include <alibabacloud/models/ModifyAppAgentTemplateRequestAmbientSoundConfig.hpp>
 #include <alibabacloud/models/ModifyAppAgentTemplateRequestAsrConfigVadConfig.hpp>
 #include <alibabacloud/models/ModifyAppAgentTemplateRequestAsrConfigWordWeights.hpp>
 #include <alibabacloud/models/ModifyAppAgentTemplateRequestAsrConfig.hpp>
+#include <alibabacloud/models/ModifyAppAgentTemplateRequestBackChannelConfig.hpp>
+#include <alibabacloud/models/ModifyAppAgentTemplateRequestInterruptConfig.hpp>
 #include <alibabacloud/models/ModifyAppAgentTemplateRequestLlmConfig.hpp>
 #include <alibabacloud/models/ModifyAppAgentTemplateRequestTtsConfig.hpp>
 #include <alibabacloud/models/ModifyAppLayoutRequestLayoutPanes.hpp>
@@ -535,6 +545,7 @@
 #include <alibabacloud/models/ModifyCloudNotePhrasesRequestPhraseWordWeights.hpp>
 #include <alibabacloud/models/ModifyCloudNotePhrasesRequestPhrase.hpp>
 #include <alibabacloud/models/ModifyMpulayoutRequestPanes.hpp>
+#include <alibabacloud/models/NotifyAgentRequestBackgroundMusic.hpp>
 #include <alibabacloud/models/RemoveTerminalsResponseBodyTerminalsTerminal.hpp>
 #include <alibabacloud/models/RemoveTerminalsResponseBodyTerminals.hpp>
 #include <alibabacloud/models/RemoveUsersRequestUsers.hpp>
@@ -543,6 +554,9 @@
 #include <alibabacloud/models/StartAgentRequestVoiceChatConfigAsrconfigVadConfig.hpp>
 #include <alibabacloud/models/StartAgentRequestVoiceChatConfigAsrconfig.hpp>
 #include <alibabacloud/models/StartAgentRequestVoiceChatConfigAgentSilenceConfig.hpp>
+#include <alibabacloud/models/StartAgentRequestVoiceChatConfigAmbientSoundConfig.hpp>
+#include <alibabacloud/models/StartAgentRequestVoiceChatConfigBackChannelConfig.hpp>
+#include <alibabacloud/models/StartAgentRequestVoiceChatConfigInterruptConfig.hpp>
 #include <alibabacloud/models/StartAgentRequestVoiceChatConfigLlmconfig.hpp>
 #include <alibabacloud/models/StartAgentRequestVoiceChatConfigTtsconfig.hpp>
 #include <alibabacloud/models/StartAgentRequestVoiceChatConfig.hpp>

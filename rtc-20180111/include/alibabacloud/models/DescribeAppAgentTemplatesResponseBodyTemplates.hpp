@@ -3,7 +3,10 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEAPPAGENTTEMPLATESRESPONSEBODYTEMPLATES_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig.hpp>
+#include <alibabacloud/models/DescribeAppAgentTemplatesResponseBodyTemplatesAmbientSoundConfig.hpp>
 #include <alibabacloud/models/DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfig.hpp>
+#include <alibabacloud/models/DescribeAppAgentTemplatesResponseBodyTemplatesBackChannelConfig.hpp>
+#include <alibabacloud/models/DescribeAppAgentTemplatesResponseBodyTemplatesInterruptConfig.hpp>
 #include <alibabacloud/models/DescribeAppAgentTemplatesResponseBodyTemplatesLlmConfig.hpp>
 #include <alibabacloud/models/DescribeAppAgentTemplatesResponseBodyTemplatesTtsConfig.hpp>
 using namespace std;
@@ -18,11 +21,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeAppAgentTemplatesResponseBodyTemplates& obj) { 
       DARABONBA_PTR_TO_JSON(AgentSilenceConfig, agentSilenceConfig_);
+      DARABONBA_PTR_TO_JSON(AmbientSoundConfig, ambientSoundConfig_);
       DARABONBA_PTR_TO_JSON(AsrConfig, asrConfig_);
+      DARABONBA_PTR_TO_JSON(BackChannelConfig, backChannelConfig_);
       DARABONBA_PTR_TO_JSON(ChatMode, chatMode_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(Greeting, greeting_);
       DARABONBA_PTR_TO_JSON(Id, id_);
+      DARABONBA_PTR_TO_JSON(InterruptConfig, interruptConfig_);
       DARABONBA_PTR_TO_JSON(InterruptMode, interruptMode_);
       DARABONBA_PTR_TO_JSON(LlmConfig, llmConfig_);
       DARABONBA_PTR_TO_JSON(Name, name_);
@@ -31,11 +37,14 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeAppAgentTemplatesResponseBodyTemplates& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentSilenceConfig, agentSilenceConfig_);
+      DARABONBA_PTR_FROM_JSON(AmbientSoundConfig, ambientSoundConfig_);
       DARABONBA_PTR_FROM_JSON(AsrConfig, asrConfig_);
+      DARABONBA_PTR_FROM_JSON(BackChannelConfig, backChannelConfig_);
       DARABONBA_PTR_FROM_JSON(ChatMode, chatMode_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(Greeting, greeting_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
+      DARABONBA_PTR_FROM_JSON(InterruptConfig, interruptConfig_);
       DARABONBA_PTR_FROM_JSON(InterruptMode, interruptMode_);
       DARABONBA_PTR_FROM_JSON(LlmConfig, llmConfig_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -54,8 +63,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->agentSilenceConfig_ != nullptr
-        && this->asrConfig_ != nullptr && this->chatMode_ != nullptr && this->createTime_ != nullptr && this->greeting_ != nullptr && this->id_ != nullptr
-        && this->interruptMode_ != nullptr && this->llmConfig_ != nullptr && this->name_ != nullptr && this->ttsConfig_ != nullptr && this->type_ != nullptr; };
+        && this->ambientSoundConfig_ != nullptr && this->asrConfig_ != nullptr && this->backChannelConfig_ != nullptr && this->chatMode_ != nullptr && this->createTime_ != nullptr
+        && this->greeting_ != nullptr && this->id_ != nullptr && this->interruptConfig_ != nullptr && this->interruptMode_ != nullptr && this->llmConfig_ != nullptr
+        && this->name_ != nullptr && this->ttsConfig_ != nullptr && this->type_ != nullptr; };
     // agentSilenceConfig Field Functions 
     bool hasAgentSilenceConfig() const { return this->agentSilenceConfig_ != nullptr;};
     void deleteAgentSilenceConfig() { this->agentSilenceConfig_ = nullptr;};
@@ -65,6 +75,15 @@ namespace Models
     inline DescribeAppAgentTemplatesResponseBodyTemplates& setAgentSilenceConfig(Models::DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig && agentSilenceConfig) { DARABONBA_PTR_SET_RVALUE(agentSilenceConfig_, agentSilenceConfig) };
 
 
+    // ambientSoundConfig Field Functions 
+    bool hasAmbientSoundConfig() const { return this->ambientSoundConfig_ != nullptr;};
+    void deleteAmbientSoundConfig() { this->ambientSoundConfig_ = nullptr;};
+    inline const Models::DescribeAppAgentTemplatesResponseBodyTemplatesAmbientSoundConfig & ambientSoundConfig() const { DARABONBA_PTR_GET_CONST(ambientSoundConfig_, Models::DescribeAppAgentTemplatesResponseBodyTemplatesAmbientSoundConfig) };
+    inline Models::DescribeAppAgentTemplatesResponseBodyTemplatesAmbientSoundConfig ambientSoundConfig() { DARABONBA_PTR_GET(ambientSoundConfig_, Models::DescribeAppAgentTemplatesResponseBodyTemplatesAmbientSoundConfig) };
+    inline DescribeAppAgentTemplatesResponseBodyTemplates& setAmbientSoundConfig(const Models::DescribeAppAgentTemplatesResponseBodyTemplatesAmbientSoundConfig & ambientSoundConfig) { DARABONBA_PTR_SET_VALUE(ambientSoundConfig_, ambientSoundConfig) };
+    inline DescribeAppAgentTemplatesResponseBodyTemplates& setAmbientSoundConfig(Models::DescribeAppAgentTemplatesResponseBodyTemplatesAmbientSoundConfig && ambientSoundConfig) { DARABONBA_PTR_SET_RVALUE(ambientSoundConfig_, ambientSoundConfig) };
+
+
     // asrConfig Field Functions 
     bool hasAsrConfig() const { return this->asrConfig_ != nullptr;};
     void deleteAsrConfig() { this->asrConfig_ = nullptr;};
@@ -72,6 +91,15 @@ namespace Models
     inline Models::DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfig asrConfig() { DARABONBA_PTR_GET(asrConfig_, Models::DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfig) };
     inline DescribeAppAgentTemplatesResponseBodyTemplates& setAsrConfig(const Models::DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfig & asrConfig) { DARABONBA_PTR_SET_VALUE(asrConfig_, asrConfig) };
     inline DescribeAppAgentTemplatesResponseBodyTemplates& setAsrConfig(Models::DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfig && asrConfig) { DARABONBA_PTR_SET_RVALUE(asrConfig_, asrConfig) };
+
+
+    // backChannelConfig Field Functions 
+    bool hasBackChannelConfig() const { return this->backChannelConfig_ != nullptr;};
+    void deleteBackChannelConfig() { this->backChannelConfig_ = nullptr;};
+    inline const Models::DescribeAppAgentTemplatesResponseBodyTemplatesBackChannelConfig & backChannelConfig() const { DARABONBA_PTR_GET_CONST(backChannelConfig_, Models::DescribeAppAgentTemplatesResponseBodyTemplatesBackChannelConfig) };
+    inline Models::DescribeAppAgentTemplatesResponseBodyTemplatesBackChannelConfig backChannelConfig() { DARABONBA_PTR_GET(backChannelConfig_, Models::DescribeAppAgentTemplatesResponseBodyTemplatesBackChannelConfig) };
+    inline DescribeAppAgentTemplatesResponseBodyTemplates& setBackChannelConfig(const Models::DescribeAppAgentTemplatesResponseBodyTemplatesBackChannelConfig & backChannelConfig) { DARABONBA_PTR_SET_VALUE(backChannelConfig_, backChannelConfig) };
+    inline DescribeAppAgentTemplatesResponseBodyTemplates& setBackChannelConfig(Models::DescribeAppAgentTemplatesResponseBodyTemplatesBackChannelConfig && backChannelConfig) { DARABONBA_PTR_SET_RVALUE(backChannelConfig_, backChannelConfig) };
 
 
     // chatMode Field Functions 
@@ -100,6 +128,15 @@ namespace Models
     void deleteId() { this->id_ = nullptr;};
     inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline DescribeAppAgentTemplatesResponseBodyTemplates& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+    // interruptConfig Field Functions 
+    bool hasInterruptConfig() const { return this->interruptConfig_ != nullptr;};
+    void deleteInterruptConfig() { this->interruptConfig_ = nullptr;};
+    inline const Models::DescribeAppAgentTemplatesResponseBodyTemplatesInterruptConfig & interruptConfig() const { DARABONBA_PTR_GET_CONST(interruptConfig_, Models::DescribeAppAgentTemplatesResponseBodyTemplatesInterruptConfig) };
+    inline Models::DescribeAppAgentTemplatesResponseBodyTemplatesInterruptConfig interruptConfig() { DARABONBA_PTR_GET(interruptConfig_, Models::DescribeAppAgentTemplatesResponseBodyTemplatesInterruptConfig) };
+    inline DescribeAppAgentTemplatesResponseBodyTemplates& setInterruptConfig(const Models::DescribeAppAgentTemplatesResponseBodyTemplatesInterruptConfig & interruptConfig) { DARABONBA_PTR_SET_VALUE(interruptConfig_, interruptConfig) };
+    inline DescribeAppAgentTemplatesResponseBodyTemplates& setInterruptConfig(Models::DescribeAppAgentTemplatesResponseBodyTemplatesInterruptConfig && interruptConfig) { DARABONBA_PTR_SET_RVALUE(interruptConfig_, interruptConfig) };
 
 
     // interruptMode Field Functions 
@@ -143,11 +180,14 @@ namespace Models
 
   protected:
     std::shared_ptr<Models::DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig> agentSilenceConfig_ = nullptr;
+    std::shared_ptr<Models::DescribeAppAgentTemplatesResponseBodyTemplatesAmbientSoundConfig> ambientSoundConfig_ = nullptr;
     std::shared_ptr<Models::DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfig> asrConfig_ = nullptr;
+    std::shared_ptr<Models::DescribeAppAgentTemplatesResponseBodyTemplatesBackChannelConfig> backChannelConfig_ = nullptr;
     std::shared_ptr<int32_t> chatMode_ = nullptr;
     std::shared_ptr<string> createTime_ = nullptr;
     std::shared_ptr<string> greeting_ = nullptr;
     std::shared_ptr<string> id_ = nullptr;
+    std::shared_ptr<Models::DescribeAppAgentTemplatesResponseBodyTemplatesInterruptConfig> interruptConfig_ = nullptr;
     std::shared_ptr<int32_t> interruptMode_ = nullptr;
     std::shared_ptr<Models::DescribeAppAgentTemplatesResponseBodyTemplatesLlmConfig> llmConfig_ = nullptr;
     std::shared_ptr<string> name_ = nullptr;

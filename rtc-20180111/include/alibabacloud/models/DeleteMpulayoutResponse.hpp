@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DELETEMPULAYOUTRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/DeleteMPULayoutResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

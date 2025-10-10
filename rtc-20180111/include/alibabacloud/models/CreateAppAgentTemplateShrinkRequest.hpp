@@ -14,10 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateAppAgentTemplateShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AgentSilenceConfig, agentSilenceConfigShrink_);
+      DARABONBA_PTR_TO_JSON(AmbientSoundConfig, ambientSoundConfigShrink_);
       DARABONBA_PTR_TO_JSON(AppId, appId_);
       DARABONBA_PTR_TO_JSON(AsrConfig, asrConfigShrink_);
+      DARABONBA_PTR_TO_JSON(BackChannelConfig, backChannelConfigShrink_);
       DARABONBA_PTR_TO_JSON(ChatMode, chatMode_);
       DARABONBA_PTR_TO_JSON(Greeting, greeting_);
+      DARABONBA_PTR_TO_JSON(InterruptConfig, interruptConfigShrink_);
       DARABONBA_PTR_TO_JSON(InterruptMode, interruptMode_);
       DARABONBA_PTR_TO_JSON(LlmConfig, llmConfigShrink_);
       DARABONBA_PTR_TO_JSON(Name, name_);
@@ -26,10 +29,13 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateAppAgentTemplateShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentSilenceConfig, agentSilenceConfigShrink_);
+      DARABONBA_PTR_FROM_JSON(AmbientSoundConfig, ambientSoundConfigShrink_);
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
       DARABONBA_PTR_FROM_JSON(AsrConfig, asrConfigShrink_);
+      DARABONBA_PTR_FROM_JSON(BackChannelConfig, backChannelConfigShrink_);
       DARABONBA_PTR_FROM_JSON(ChatMode, chatMode_);
       DARABONBA_PTR_FROM_JSON(Greeting, greeting_);
+      DARABONBA_PTR_FROM_JSON(InterruptConfig, interruptConfigShrink_);
       DARABONBA_PTR_FROM_JSON(InterruptMode, interruptMode_);
       DARABONBA_PTR_FROM_JSON(LlmConfig, llmConfigShrink_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -48,13 +54,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->agentSilenceConfigShrink_ != nullptr
-        && this->appId_ != nullptr && this->asrConfigShrink_ != nullptr && this->chatMode_ != nullptr && this->greeting_ != nullptr && this->interruptMode_ != nullptr
-        && this->llmConfigShrink_ != nullptr && this->name_ != nullptr && this->ttsConfigShrink_ != nullptr && this->type_ != nullptr; };
+        && this->ambientSoundConfigShrink_ != nullptr && this->appId_ != nullptr && this->asrConfigShrink_ != nullptr && this->backChannelConfigShrink_ != nullptr && this->chatMode_ != nullptr
+        && this->greeting_ != nullptr && this->interruptConfigShrink_ != nullptr && this->interruptMode_ != nullptr && this->llmConfigShrink_ != nullptr && this->name_ != nullptr
+        && this->ttsConfigShrink_ != nullptr && this->type_ != nullptr; };
     // agentSilenceConfigShrink Field Functions 
     bool hasAgentSilenceConfigShrink() const { return this->agentSilenceConfigShrink_ != nullptr;};
     void deleteAgentSilenceConfigShrink() { this->agentSilenceConfigShrink_ = nullptr;};
     inline string agentSilenceConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(agentSilenceConfigShrink_, "") };
     inline CreateAppAgentTemplateShrinkRequest& setAgentSilenceConfigShrink(string agentSilenceConfigShrink) { DARABONBA_PTR_SET_VALUE(agentSilenceConfigShrink_, agentSilenceConfigShrink) };
+
+
+    // ambientSoundConfigShrink Field Functions 
+    bool hasAmbientSoundConfigShrink() const { return this->ambientSoundConfigShrink_ != nullptr;};
+    void deleteAmbientSoundConfigShrink() { this->ambientSoundConfigShrink_ = nullptr;};
+    inline string ambientSoundConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(ambientSoundConfigShrink_, "") };
+    inline CreateAppAgentTemplateShrinkRequest& setAmbientSoundConfigShrink(string ambientSoundConfigShrink) { DARABONBA_PTR_SET_VALUE(ambientSoundConfigShrink_, ambientSoundConfigShrink) };
 
 
     // appId Field Functions 
@@ -71,6 +85,13 @@ namespace Models
     inline CreateAppAgentTemplateShrinkRequest& setAsrConfigShrink(string asrConfigShrink) { DARABONBA_PTR_SET_VALUE(asrConfigShrink_, asrConfigShrink) };
 
 
+    // backChannelConfigShrink Field Functions 
+    bool hasBackChannelConfigShrink() const { return this->backChannelConfigShrink_ != nullptr;};
+    void deleteBackChannelConfigShrink() { this->backChannelConfigShrink_ = nullptr;};
+    inline string backChannelConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(backChannelConfigShrink_, "") };
+    inline CreateAppAgentTemplateShrinkRequest& setBackChannelConfigShrink(string backChannelConfigShrink) { DARABONBA_PTR_SET_VALUE(backChannelConfigShrink_, backChannelConfigShrink) };
+
+
     // chatMode Field Functions 
     bool hasChatMode() const { return this->chatMode_ != nullptr;};
     void deleteChatMode() { this->chatMode_ = nullptr;};
@@ -83,6 +104,13 @@ namespace Models
     void deleteGreeting() { this->greeting_ = nullptr;};
     inline string greeting() const { DARABONBA_PTR_GET_DEFAULT(greeting_, "") };
     inline CreateAppAgentTemplateShrinkRequest& setGreeting(string greeting) { DARABONBA_PTR_SET_VALUE(greeting_, greeting) };
+
+
+    // interruptConfigShrink Field Functions 
+    bool hasInterruptConfigShrink() const { return this->interruptConfigShrink_ != nullptr;};
+    void deleteInterruptConfigShrink() { this->interruptConfigShrink_ = nullptr;};
+    inline string interruptConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(interruptConfigShrink_, "") };
+    inline CreateAppAgentTemplateShrinkRequest& setInterruptConfigShrink(string interruptConfigShrink) { DARABONBA_PTR_SET_VALUE(interruptConfigShrink_, interruptConfigShrink) };
 
 
     // interruptMode Field Functions 
@@ -122,11 +150,14 @@ namespace Models
 
   protected:
     std::shared_ptr<string> agentSilenceConfigShrink_ = nullptr;
+    std::shared_ptr<string> ambientSoundConfigShrink_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> appId_ = nullptr;
     std::shared_ptr<string> asrConfigShrink_ = nullptr;
+    std::shared_ptr<string> backChannelConfigShrink_ = nullptr;
     std::shared_ptr<int32_t> chatMode_ = nullptr;
     std::shared_ptr<string> greeting_ = nullptr;
+    std::shared_ptr<string> interruptConfigShrink_ = nullptr;
     std::shared_ptr<int32_t> interruptMode_ = nullptr;
     std::shared_ptr<string> llmConfigShrink_ = nullptr;
     // This parameter is required.

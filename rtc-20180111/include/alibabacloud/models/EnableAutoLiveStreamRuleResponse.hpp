@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_ENABLEAUTOLIVESTREAMRULERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/EnableAutoLiveStreamRuleResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

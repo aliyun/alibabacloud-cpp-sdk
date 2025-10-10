@@ -3,7 +3,10 @@
 #define ALIBABACLOUD_MODELS_MODIFYAPPAGENTTEMPLATEREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/ModifyAppAgentTemplateRequestAgentSilenceConfig.hpp>
+#include <alibabacloud/models/ModifyAppAgentTemplateRequestAmbientSoundConfig.hpp>
 #include <alibabacloud/models/ModifyAppAgentTemplateRequestAsrConfig.hpp>
+#include <alibabacloud/models/ModifyAppAgentTemplateRequestBackChannelConfig.hpp>
+#include <alibabacloud/models/ModifyAppAgentTemplateRequestInterruptConfig.hpp>
 #include <alibabacloud/models/ModifyAppAgentTemplateRequestLlmConfig.hpp>
 #include <alibabacloud/models/ModifyAppAgentTemplateRequestTtsConfig.hpp>
 using namespace std;
@@ -18,11 +21,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyAppAgentTemplateRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AgentSilenceConfig, agentSilenceConfig_);
+      DARABONBA_PTR_TO_JSON(AmbientSoundConfig, ambientSoundConfig_);
       DARABONBA_PTR_TO_JSON(AppId, appId_);
       DARABONBA_PTR_TO_JSON(AsrConfig, asrConfig_);
+      DARABONBA_PTR_TO_JSON(BackChannelConfig, backChannelConfig_);
       DARABONBA_PTR_TO_JSON(ChatMode, chatMode_);
       DARABONBA_PTR_TO_JSON(Greeting, greeting_);
       DARABONBA_PTR_TO_JSON(Id, id_);
+      DARABONBA_PTR_TO_JSON(InterruptConfig, interruptConfig_);
       DARABONBA_PTR_TO_JSON(InterruptMode, interruptMode_);
       DARABONBA_PTR_TO_JSON(LlmConfig, llmConfig_);
       DARABONBA_PTR_TO_JSON(Name, name_);
@@ -31,11 +37,14 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ModifyAppAgentTemplateRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentSilenceConfig, agentSilenceConfig_);
+      DARABONBA_PTR_FROM_JSON(AmbientSoundConfig, ambientSoundConfig_);
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
       DARABONBA_PTR_FROM_JSON(AsrConfig, asrConfig_);
+      DARABONBA_PTR_FROM_JSON(BackChannelConfig, backChannelConfig_);
       DARABONBA_PTR_FROM_JSON(ChatMode, chatMode_);
       DARABONBA_PTR_FROM_JSON(Greeting, greeting_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
+      DARABONBA_PTR_FROM_JSON(InterruptConfig, interruptConfig_);
       DARABONBA_PTR_FROM_JSON(InterruptMode, interruptMode_);
       DARABONBA_PTR_FROM_JSON(LlmConfig, llmConfig_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -54,8 +63,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->agentSilenceConfig_ != nullptr
-        && this->appId_ != nullptr && this->asrConfig_ != nullptr && this->chatMode_ != nullptr && this->greeting_ != nullptr && this->id_ != nullptr
-        && this->interruptMode_ != nullptr && this->llmConfig_ != nullptr && this->name_ != nullptr && this->ttsConfig_ != nullptr && this->type_ != nullptr; };
+        && this->ambientSoundConfig_ != nullptr && this->appId_ != nullptr && this->asrConfig_ != nullptr && this->backChannelConfig_ != nullptr && this->chatMode_ != nullptr
+        && this->greeting_ != nullptr && this->id_ != nullptr && this->interruptConfig_ != nullptr && this->interruptMode_ != nullptr && this->llmConfig_ != nullptr
+        && this->name_ != nullptr && this->ttsConfig_ != nullptr && this->type_ != nullptr; };
     // agentSilenceConfig Field Functions 
     bool hasAgentSilenceConfig() const { return this->agentSilenceConfig_ != nullptr;};
     void deleteAgentSilenceConfig() { this->agentSilenceConfig_ = nullptr;};
@@ -63,6 +73,15 @@ namespace Models
     inline ModifyAppAgentTemplateRequestAgentSilenceConfig agentSilenceConfig() { DARABONBA_PTR_GET(agentSilenceConfig_, ModifyAppAgentTemplateRequestAgentSilenceConfig) };
     inline ModifyAppAgentTemplateRequest& setAgentSilenceConfig(const ModifyAppAgentTemplateRequestAgentSilenceConfig & agentSilenceConfig) { DARABONBA_PTR_SET_VALUE(agentSilenceConfig_, agentSilenceConfig) };
     inline ModifyAppAgentTemplateRequest& setAgentSilenceConfig(ModifyAppAgentTemplateRequestAgentSilenceConfig && agentSilenceConfig) { DARABONBA_PTR_SET_RVALUE(agentSilenceConfig_, agentSilenceConfig) };
+
+
+    // ambientSoundConfig Field Functions 
+    bool hasAmbientSoundConfig() const { return this->ambientSoundConfig_ != nullptr;};
+    void deleteAmbientSoundConfig() { this->ambientSoundConfig_ = nullptr;};
+    inline const ModifyAppAgentTemplateRequestAmbientSoundConfig & ambientSoundConfig() const { DARABONBA_PTR_GET_CONST(ambientSoundConfig_, ModifyAppAgentTemplateRequestAmbientSoundConfig) };
+    inline ModifyAppAgentTemplateRequestAmbientSoundConfig ambientSoundConfig() { DARABONBA_PTR_GET(ambientSoundConfig_, ModifyAppAgentTemplateRequestAmbientSoundConfig) };
+    inline ModifyAppAgentTemplateRequest& setAmbientSoundConfig(const ModifyAppAgentTemplateRequestAmbientSoundConfig & ambientSoundConfig) { DARABONBA_PTR_SET_VALUE(ambientSoundConfig_, ambientSoundConfig) };
+    inline ModifyAppAgentTemplateRequest& setAmbientSoundConfig(ModifyAppAgentTemplateRequestAmbientSoundConfig && ambientSoundConfig) { DARABONBA_PTR_SET_RVALUE(ambientSoundConfig_, ambientSoundConfig) };
 
 
     // appId Field Functions 
@@ -79,6 +98,15 @@ namespace Models
     inline ModifyAppAgentTemplateRequestAsrConfig asrConfig() { DARABONBA_PTR_GET(asrConfig_, ModifyAppAgentTemplateRequestAsrConfig) };
     inline ModifyAppAgentTemplateRequest& setAsrConfig(const ModifyAppAgentTemplateRequestAsrConfig & asrConfig) { DARABONBA_PTR_SET_VALUE(asrConfig_, asrConfig) };
     inline ModifyAppAgentTemplateRequest& setAsrConfig(ModifyAppAgentTemplateRequestAsrConfig && asrConfig) { DARABONBA_PTR_SET_RVALUE(asrConfig_, asrConfig) };
+
+
+    // backChannelConfig Field Functions 
+    bool hasBackChannelConfig() const { return this->backChannelConfig_ != nullptr;};
+    void deleteBackChannelConfig() { this->backChannelConfig_ = nullptr;};
+    inline const ModifyAppAgentTemplateRequestBackChannelConfig & backChannelConfig() const { DARABONBA_PTR_GET_CONST(backChannelConfig_, ModifyAppAgentTemplateRequestBackChannelConfig) };
+    inline ModifyAppAgentTemplateRequestBackChannelConfig backChannelConfig() { DARABONBA_PTR_GET(backChannelConfig_, ModifyAppAgentTemplateRequestBackChannelConfig) };
+    inline ModifyAppAgentTemplateRequest& setBackChannelConfig(const ModifyAppAgentTemplateRequestBackChannelConfig & backChannelConfig) { DARABONBA_PTR_SET_VALUE(backChannelConfig_, backChannelConfig) };
+    inline ModifyAppAgentTemplateRequest& setBackChannelConfig(ModifyAppAgentTemplateRequestBackChannelConfig && backChannelConfig) { DARABONBA_PTR_SET_RVALUE(backChannelConfig_, backChannelConfig) };
 
 
     // chatMode Field Functions 
@@ -100,6 +128,15 @@ namespace Models
     void deleteId() { this->id_ = nullptr;};
     inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline ModifyAppAgentTemplateRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+    // interruptConfig Field Functions 
+    bool hasInterruptConfig() const { return this->interruptConfig_ != nullptr;};
+    void deleteInterruptConfig() { this->interruptConfig_ = nullptr;};
+    inline const ModifyAppAgentTemplateRequestInterruptConfig & interruptConfig() const { DARABONBA_PTR_GET_CONST(interruptConfig_, ModifyAppAgentTemplateRequestInterruptConfig) };
+    inline ModifyAppAgentTemplateRequestInterruptConfig interruptConfig() { DARABONBA_PTR_GET(interruptConfig_, ModifyAppAgentTemplateRequestInterruptConfig) };
+    inline ModifyAppAgentTemplateRequest& setInterruptConfig(const ModifyAppAgentTemplateRequestInterruptConfig & interruptConfig) { DARABONBA_PTR_SET_VALUE(interruptConfig_, interruptConfig) };
+    inline ModifyAppAgentTemplateRequest& setInterruptConfig(ModifyAppAgentTemplateRequestInterruptConfig && interruptConfig) { DARABONBA_PTR_SET_RVALUE(interruptConfig_, interruptConfig) };
 
 
     // interruptMode Field Functions 
@@ -143,13 +180,16 @@ namespace Models
 
   protected:
     std::shared_ptr<ModifyAppAgentTemplateRequestAgentSilenceConfig> agentSilenceConfig_ = nullptr;
+    std::shared_ptr<ModifyAppAgentTemplateRequestAmbientSoundConfig> ambientSoundConfig_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> appId_ = nullptr;
     std::shared_ptr<ModifyAppAgentTemplateRequestAsrConfig> asrConfig_ = nullptr;
+    std::shared_ptr<ModifyAppAgentTemplateRequestBackChannelConfig> backChannelConfig_ = nullptr;
     std::shared_ptr<int32_t> chatMode_ = nullptr;
     std::shared_ptr<string> greeting_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> id_ = nullptr;
+    std::shared_ptr<ModifyAppAgentTemplateRequestInterruptConfig> interruptConfig_ = nullptr;
     std::shared_ptr<int32_t> interruptMode_ = nullptr;
     std::shared_ptr<ModifyAppAgentTemplateRequestLlmConfig> llmConfig_ = nullptr;
     // This parameter is required.
