@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(markdownText, markdownText_);
       DARABONBA_PTR_TO_JSON(publishedTime, publishedTime_);
       DARABONBA_PTR_TO_JSON(rerankScore, rerankScore_);
+      DARABONBA_PTR_TO_JSON(richMainBody, richMainBody_);
       DARABONBA_PTR_TO_JSON(snippet, snippet_);
       DARABONBA_PTR_TO_JSON(summary, summary_);
       DARABONBA_PTR_TO_JSON(title, title_);
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(markdownText, markdownText_);
       DARABONBA_PTR_FROM_JSON(publishedTime, publishedTime_);
       DARABONBA_PTR_FROM_JSON(rerankScore, rerankScore_);
+      DARABONBA_PTR_FROM_JSON(richMainBody, richMainBody_);
       DARABONBA_PTR_FROM_JSON(snippet, snippet_);
       DARABONBA_PTR_FROM_JSON(summary, summary_);
       DARABONBA_PTR_FROM_JSON(title, title_);
@@ -54,8 +56,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->hostAuthorityScore_ != nullptr
         && this->hostLogo_ != nullptr && this->hostname_ != nullptr && this->images_ != nullptr && this->link_ != nullptr && this->mainText_ != nullptr
-        && this->markdownText_ != nullptr && this->publishedTime_ != nullptr && this->rerankScore_ != nullptr && this->snippet_ != nullptr && this->summary_ != nullptr
-        && this->title_ != nullptr; };
+        && this->markdownText_ != nullptr && this->publishedTime_ != nullptr && this->rerankScore_ != nullptr && this->richMainBody_ != nullptr && this->snippet_ != nullptr
+        && this->summary_ != nullptr && this->title_ != nullptr; };
     // hostAuthorityScore Field Functions 
     bool hasHostAuthorityScore() const { return this->hostAuthorityScore_ != nullptr;};
     void deleteHostAuthorityScore() { this->hostAuthorityScore_ = nullptr;};
@@ -121,6 +123,13 @@ namespace Models
     inline UnifiedPageItem& setRerankScore(double rerankScore) { DARABONBA_PTR_SET_VALUE(rerankScore_, rerankScore) };
 
 
+    // richMainBody Field Functions 
+    bool hasRichMainBody() const { return this->richMainBody_ != nullptr;};
+    void deleteRichMainBody() { this->richMainBody_ = nullptr;};
+    inline string richMainBody() const { DARABONBA_PTR_GET_DEFAULT(richMainBody_, "") };
+    inline UnifiedPageItem& setRichMainBody(string richMainBody) { DARABONBA_PTR_SET_VALUE(richMainBody_, richMainBody) };
+
+
     // snippet Field Functions 
     bool hasSnippet() const { return this->snippet_ != nullptr;};
     void deleteSnippet() { this->snippet_ = nullptr;};
@@ -152,6 +161,7 @@ namespace Models
     std::shared_ptr<string> markdownText_ = nullptr;
     std::shared_ptr<string> publishedTime_ = nullptr;
     std::shared_ptr<double> rerankScore_ = nullptr;
+    std::shared_ptr<string> richMainBody_ = nullptr;
     std::shared_ptr<string> snippet_ = nullptr;
     std::shared_ptr<string> summary_ = nullptr;
     std::shared_ptr<string> title_ = nullptr;
