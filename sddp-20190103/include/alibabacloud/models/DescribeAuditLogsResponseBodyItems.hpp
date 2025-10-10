@@ -25,9 +25,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ExecuteStatus, executeStatus_);
       DARABONBA_PTR_TO_JSON(ExecuteTime, executeTime_);
       DARABONBA_PTR_TO_JSON(InWhiteList, inWhiteList_);
+      DARABONBA_PTR_TO_JSON(InstanceAuditStatus, instanceAuditStatus_);
       DARABONBA_PTR_TO_JSON(InstanceDescription, instanceDescription_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(IpType, ipType_);
+      DARABONBA_PTR_TO_JSON(LogSource, logSource_);
       DARABONBA_PTR_TO_JSON(LogTime, logTime_);
       DARABONBA_PTR_TO_JSON(MemberAccount, memberAccount_);
       DARABONBA_PTR_TO_JSON(Message, message_);
@@ -60,9 +62,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ExecuteStatus, executeStatus_);
       DARABONBA_PTR_FROM_JSON(ExecuteTime, executeTime_);
       DARABONBA_PTR_FROM_JSON(InWhiteList, inWhiteList_);
+      DARABONBA_PTR_FROM_JSON(InstanceAuditStatus, instanceAuditStatus_);
       DARABONBA_PTR_FROM_JSON(InstanceDescription, instanceDescription_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(IpType, ipType_);
+      DARABONBA_PTR_FROM_JSON(LogSource, logSource_);
       DARABONBA_PTR_FROM_JSON(LogTime, logTime_);
       DARABONBA_PTR_FROM_JSON(MemberAccount, memberAccount_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
@@ -96,11 +100,11 @@ namespace Models
     virtual bool empty() const override { this->clientIp_ != nullptr
         && this->clientPort_ != nullptr && this->clientUa_ != nullptr && this->columnName_ != nullptr && this->creationTime_ != nullptr && this->dataSet_ != nullptr
         && this->databaseName_ != nullptr && this->dbType_ != nullptr && this->effectRow_ != nullptr && this->executeStatus_ != nullptr && this->executeTime_ != nullptr
-        && this->inWhiteList_ != nullptr && this->instanceDescription_ != nullptr && this->instanceName_ != nullptr && this->ipType_ != nullptr && this->logTime_ != nullptr
-        && this->memberAccount_ != nullptr && this->message_ != nullptr && this->modelName_ != nullptr && this->operateType_ != nullptr && this->ossObjectKey_ != nullptr
-        && this->packageName_ != nullptr && this->productCode_ != nullptr && this->productId_ != nullptr && this->ruleCategory_ != nullptr && this->ruleId_ != nullptr
-        && this->ruleName_ != nullptr && this->sqlText_ != nullptr && this->tableName_ != nullptr && this->userId_ != nullptr && this->userName_ != nullptr
-        && this->warnLevel_ != nullptr && this->warnLevelName_ != nullptr; };
+        && this->inWhiteList_ != nullptr && this->instanceAuditStatus_ != nullptr && this->instanceDescription_ != nullptr && this->instanceName_ != nullptr && this->ipType_ != nullptr
+        && this->logSource_ != nullptr && this->logTime_ != nullptr && this->memberAccount_ != nullptr && this->message_ != nullptr && this->modelName_ != nullptr
+        && this->operateType_ != nullptr && this->ossObjectKey_ != nullptr && this->packageName_ != nullptr && this->productCode_ != nullptr && this->productId_ != nullptr
+        && this->ruleCategory_ != nullptr && this->ruleId_ != nullptr && this->ruleName_ != nullptr && this->sqlText_ != nullptr && this->tableName_ != nullptr
+        && this->userId_ != nullptr && this->userName_ != nullptr && this->warnLevel_ != nullptr && this->warnLevelName_ != nullptr; };
     // clientIp Field Functions 
     bool hasClientIp() const { return this->clientIp_ != nullptr;};
     void deleteClientIp() { this->clientIp_ = nullptr;};
@@ -185,6 +189,13 @@ namespace Models
     inline DescribeAuditLogsResponseBodyItems& setInWhiteList(bool inWhiteList) { DARABONBA_PTR_SET_VALUE(inWhiteList_, inWhiteList) };
 
 
+    // instanceAuditStatus Field Functions 
+    bool hasInstanceAuditStatus() const { return this->instanceAuditStatus_ != nullptr;};
+    void deleteInstanceAuditStatus() { this->instanceAuditStatus_ = nullptr;};
+    inline string instanceAuditStatus() const { DARABONBA_PTR_GET_DEFAULT(instanceAuditStatus_, "") };
+    inline DescribeAuditLogsResponseBodyItems& setInstanceAuditStatus(string instanceAuditStatus) { DARABONBA_PTR_SET_VALUE(instanceAuditStatus_, instanceAuditStatus) };
+
+
     // instanceDescription Field Functions 
     bool hasInstanceDescription() const { return this->instanceDescription_ != nullptr;};
     void deleteInstanceDescription() { this->instanceDescription_ = nullptr;};
@@ -204,6 +215,13 @@ namespace Models
     void deleteIpType() { this->ipType_ = nullptr;};
     inline string ipType() const { DARABONBA_PTR_GET_DEFAULT(ipType_, "") };
     inline DescribeAuditLogsResponseBodyItems& setIpType(string ipType) { DARABONBA_PTR_SET_VALUE(ipType_, ipType) };
+
+
+    // logSource Field Functions 
+    bool hasLogSource() const { return this->logSource_ != nullptr;};
+    void deleteLogSource() { this->logSource_ = nullptr;};
+    inline string logSource() const { DARABONBA_PTR_GET_DEFAULT(logSource_, "") };
+    inline DescribeAuditLogsResponseBodyItems& setLogSource(string logSource) { DARABONBA_PTR_SET_VALUE(logSource_, logSource) };
 
 
     // logTime Field Functions 
@@ -345,9 +363,11 @@ namespace Models
     std::shared_ptr<int32_t> executeStatus_ = nullptr;
     std::shared_ptr<int64_t> executeTime_ = nullptr;
     std::shared_ptr<bool> inWhiteList_ = nullptr;
+    std::shared_ptr<string> instanceAuditStatus_ = nullptr;
     std::shared_ptr<string> instanceDescription_ = nullptr;
     std::shared_ptr<string> instanceName_ = nullptr;
     std::shared_ptr<string> ipType_ = nullptr;
+    std::shared_ptr<string> logSource_ = nullptr;
     std::shared_ptr<int64_t> logTime_ = nullptr;
     std::shared_ptr<string> memberAccount_ = nullptr;
     std::shared_ptr<string> message_ = nullptr;

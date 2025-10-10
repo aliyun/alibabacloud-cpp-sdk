@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IpType, ipType_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(LoadWhiteList, loadWhiteList_);
+      DARABONBA_PTR_TO_JSON(LogSource, logSource_);
       DARABONBA_PTR_TO_JSON(MemberAccount, memberAccount_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(OperateType, operateType_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
       DARABONBA_PTR_TO_JSON(ProductId, productId_);
+      DARABONBA_PTR_TO_JSON(RuleAggQuery, ruleAggQuery_);
       DARABONBA_PTR_TO_JSON(RuleCategory, ruleCategory_);
       DARABONBA_PTR_TO_JSON(RuleID, ruleID_);
       DARABONBA_PTR_TO_JSON(RuleName, ruleName_);
@@ -52,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IpType, ipType_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(LoadWhiteList, loadWhiteList_);
+      DARABONBA_PTR_FROM_JSON(LogSource, logSource_);
       DARABONBA_PTR_FROM_JSON(MemberAccount, memberAccount_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(OperateType, operateType_);
@@ -59,6 +62,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
       DARABONBA_PTR_FROM_JSON(ProductId, productId_);
+      DARABONBA_PTR_FROM_JSON(RuleAggQuery, ruleAggQuery_);
       DARABONBA_PTR_FROM_JSON(RuleCategory, ruleCategory_);
       DARABONBA_PTR_FROM_JSON(RuleID, ruleID_);
       DARABONBA_PTR_FROM_JSON(RuleName, ruleName_);
@@ -80,9 +84,10 @@ namespace Models
     virtual bool empty() const override { this->asyncRequestId_ != nullptr
         && this->clientIp_ != nullptr && this->clientUa_ != nullptr && this->currentPage_ != nullptr && this->databaseName_ != nullptr && this->effectRowRange_ != nullptr
         && this->endTime_ != nullptr && this->executeTimeRange_ != nullptr && this->instanceName_ != nullptr && this->ipType_ != nullptr && this->lang_ != nullptr
-        && this->loadWhiteList_ != nullptr && this->memberAccount_ != nullptr && this->message_ != nullptr && this->operateType_ != nullptr && this->ossObjectKey_ != nullptr
-        && this->pageSize_ != nullptr && this->productCode_ != nullptr && this->productId_ != nullptr && this->ruleCategory_ != nullptr && this->ruleID_ != nullptr
-        && this->ruleName_ != nullptr && this->sqlText_ != nullptr && this->startTime_ != nullptr && this->userName_ != nullptr; };
+        && this->loadWhiteList_ != nullptr && this->logSource_ != nullptr && this->memberAccount_ != nullptr && this->message_ != nullptr && this->operateType_ != nullptr
+        && this->ossObjectKey_ != nullptr && this->pageSize_ != nullptr && this->productCode_ != nullptr && this->productId_ != nullptr && this->ruleAggQuery_ != nullptr
+        && this->ruleCategory_ != nullptr && this->ruleID_ != nullptr && this->ruleName_ != nullptr && this->sqlText_ != nullptr && this->startTime_ != nullptr
+        && this->userName_ != nullptr; };
     // asyncRequestId Field Functions 
     bool hasAsyncRequestId() const { return this->asyncRequestId_ != nullptr;};
     void deleteAsyncRequestId() { this->asyncRequestId_ = nullptr;};
@@ -167,6 +172,13 @@ namespace Models
     inline DescribeAuditLogsRequest& setLoadWhiteList(bool loadWhiteList) { DARABONBA_PTR_SET_VALUE(loadWhiteList_, loadWhiteList) };
 
 
+    // logSource Field Functions 
+    bool hasLogSource() const { return this->logSource_ != nullptr;};
+    void deleteLogSource() { this->logSource_ = nullptr;};
+    inline string logSource() const { DARABONBA_PTR_GET_DEFAULT(logSource_, "") };
+    inline DescribeAuditLogsRequest& setLogSource(string logSource) { DARABONBA_PTR_SET_VALUE(logSource_, logSource) };
+
+
     // memberAccount Field Functions 
     bool hasMemberAccount() const { return this->memberAccount_ != nullptr;};
     void deleteMemberAccount() { this->memberAccount_ = nullptr;};
@@ -214,6 +226,13 @@ namespace Models
     void deleteProductId() { this->productId_ = nullptr;};
     inline int64_t productId() const { DARABONBA_PTR_GET_DEFAULT(productId_, 0L) };
     inline DescribeAuditLogsRequest& setProductId(int64_t productId) { DARABONBA_PTR_SET_VALUE(productId_, productId) };
+
+
+    // ruleAggQuery Field Functions 
+    bool hasRuleAggQuery() const { return this->ruleAggQuery_ != nullptr;};
+    void deleteRuleAggQuery() { this->ruleAggQuery_ = nullptr;};
+    inline bool ruleAggQuery() const { DARABONBA_PTR_GET_DEFAULT(ruleAggQuery_, false) };
+    inline DescribeAuditLogsRequest& setRuleAggQuery(bool ruleAggQuery) { DARABONBA_PTR_SET_VALUE(ruleAggQuery_, ruleAggQuery) };
 
 
     // ruleCategory Field Functions 
@@ -271,6 +290,7 @@ namespace Models
     std::shared_ptr<string> ipType_ = nullptr;
     std::shared_ptr<string> lang_ = nullptr;
     std::shared_ptr<bool> loadWhiteList_ = nullptr;
+    std::shared_ptr<string> logSource_ = nullptr;
     std::shared_ptr<string> memberAccount_ = nullptr;
     std::shared_ptr<string> message_ = nullptr;
     std::shared_ptr<string> operateType_ = nullptr;
@@ -278,6 +298,7 @@ namespace Models
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     std::shared_ptr<string> productCode_ = nullptr;
     std::shared_ptr<int64_t> productId_ = nullptr;
+    std::shared_ptr<bool> ruleAggQuery_ = nullptr;
     std::shared_ptr<string> ruleCategory_ = nullptr;
     std::shared_ptr<string> ruleID_ = nullptr;
     std::shared_ptr<string> ruleName_ = nullptr;

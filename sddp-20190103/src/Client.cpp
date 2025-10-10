@@ -670,6 +670,10 @@ DescribeAuditLogsResponse Client::describeAuditLogsWithOptions(const DescribeAud
     query["LoadWhiteList"] = request.loadWhiteList();
   }
 
+  if (!!request.hasLogSource()) {
+    query["LogSource"] = request.logSource();
+  }
+
   if (!!request.hasMemberAccount()) {
     query["MemberAccount"] = request.memberAccount();
   }
@@ -696,6 +700,10 @@ DescribeAuditLogsResponse Client::describeAuditLogsWithOptions(const DescribeAud
 
   if (!!request.hasProductId()) {
     query["ProductId"] = request.productId();
+  }
+
+  if (!!request.hasRuleAggQuery()) {
+    query["RuleAggQuery"] = request.ruleAggQuery();
   }
 
   if (!!request.hasRuleCategory()) {
