@@ -20,11 +20,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Keywords, keywordsShrink_);
       DARABONBA_PTR_TO_JSON(Language, language_);
       DARABONBA_PTR_TO_JSON(MiniDocs, miniDocsShrink_);
+      DARABONBA_PTR_TO_JSON(OutlineList, outlineListShrink_);
       DARABONBA_PTR_TO_JSON(Outlines, outlinesShrink_);
       DARABONBA_PTR_TO_JSON(Prompt, prompt_);
       DARABONBA_PTR_TO_JSON(PromptMode, promptMode_);
       DARABONBA_PTR_TO_JSON(SearchSources, searchSourcesShrink_);
       DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
+      DARABONBA_PTR_TO_JSON(SourceTraceMethod, sourceTraceMethod_);
       DARABONBA_PTR_TO_JSON(Step, step_);
       DARABONBA_PTR_TO_JSON(Summarization, summarizationShrink_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
@@ -42,11 +44,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Keywords, keywordsShrink_);
       DARABONBA_PTR_FROM_JSON(Language, language_);
       DARABONBA_PTR_FROM_JSON(MiniDocs, miniDocsShrink_);
+      DARABONBA_PTR_FROM_JSON(OutlineList, outlineListShrink_);
       DARABONBA_PTR_FROM_JSON(Outlines, outlinesShrink_);
       DARABONBA_PTR_FROM_JSON(Prompt, prompt_);
       DARABONBA_PTR_FROM_JSON(PromptMode, promptMode_);
       DARABONBA_PTR_FROM_JSON(SearchSources, searchSourcesShrink_);
       DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
+      DARABONBA_PTR_FROM_JSON(SourceTraceMethod, sourceTraceMethod_);
       DARABONBA_PTR_FROM_JSON(Step, step_);
       DARABONBA_PTR_FROM_JSON(Summarization, summarizationShrink_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
@@ -69,9 +73,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->articlesShrink_ != nullptr
         && this->distributeWriting_ != nullptr && this->gcNumberSize_ != nullptr && this->gcNumberSizeTag_ != nullptr && this->keywordsShrink_ != nullptr && this->language_ != nullptr
-        && this->miniDocsShrink_ != nullptr && this->outlinesShrink_ != nullptr && this->prompt_ != nullptr && this->promptMode_ != nullptr && this->searchSourcesShrink_ != nullptr
-        && this->sessionId_ != nullptr && this->step_ != nullptr && this->summarizationShrink_ != nullptr && this->taskId_ != nullptr && this->useSearch_ != nullptr
-        && this->workspaceId_ != nullptr && this->writingParamsShrink_ != nullptr && this->writingScene_ != nullptr && this->writingStyle_ != nullptr; };
+        && this->miniDocsShrink_ != nullptr && this->outlineListShrink_ != nullptr && this->outlinesShrink_ != nullptr && this->prompt_ != nullptr && this->promptMode_ != nullptr
+        && this->searchSourcesShrink_ != nullptr && this->sessionId_ != nullptr && this->sourceTraceMethod_ != nullptr && this->step_ != nullptr && this->summarizationShrink_ != nullptr
+        && this->taskId_ != nullptr && this->useSearch_ != nullptr && this->workspaceId_ != nullptr && this->writingParamsShrink_ != nullptr && this->writingScene_ != nullptr
+        && this->writingStyle_ != nullptr; };
     // articlesShrink Field Functions 
     bool hasArticlesShrink() const { return this->articlesShrink_ != nullptr;};
     void deleteArticlesShrink() { this->articlesShrink_ = nullptr;};
@@ -121,6 +126,13 @@ namespace Models
     inline RunWritingV2ShrinkRequest& setMiniDocsShrink(string miniDocsShrink) { DARABONBA_PTR_SET_VALUE(miniDocsShrink_, miniDocsShrink) };
 
 
+    // outlineListShrink Field Functions 
+    bool hasOutlineListShrink() const { return this->outlineListShrink_ != nullptr;};
+    void deleteOutlineListShrink() { this->outlineListShrink_ = nullptr;};
+    inline string outlineListShrink() const { DARABONBA_PTR_GET_DEFAULT(outlineListShrink_, "") };
+    inline RunWritingV2ShrinkRequest& setOutlineListShrink(string outlineListShrink) { DARABONBA_PTR_SET_VALUE(outlineListShrink_, outlineListShrink) };
+
+
     // outlinesShrink Field Functions 
     bool hasOutlinesShrink() const { return this->outlinesShrink_ != nullptr;};
     void deleteOutlinesShrink() { this->outlinesShrink_ = nullptr;};
@@ -154,6 +166,13 @@ namespace Models
     void deleteSessionId() { this->sessionId_ = nullptr;};
     inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline RunWritingV2ShrinkRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
+
+
+    // sourceTraceMethod Field Functions 
+    bool hasSourceTraceMethod() const { return this->sourceTraceMethod_ != nullptr;};
+    void deleteSourceTraceMethod() { this->sourceTraceMethod_ = nullptr;};
+    inline string sourceTraceMethod() const { DARABONBA_PTR_GET_DEFAULT(sourceTraceMethod_, "") };
+    inline RunWritingV2ShrinkRequest& setSourceTraceMethod(string sourceTraceMethod) { DARABONBA_PTR_SET_VALUE(sourceTraceMethod_, sourceTraceMethod) };
 
 
     // step Field Functions 
@@ -220,11 +239,13 @@ namespace Models
     std::shared_ptr<string> keywordsShrink_ = nullptr;
     std::shared_ptr<string> language_ = nullptr;
     std::shared_ptr<string> miniDocsShrink_ = nullptr;
+    std::shared_ptr<string> outlineListShrink_ = nullptr;
     std::shared_ptr<string> outlinesShrink_ = nullptr;
     std::shared_ptr<string> prompt_ = nullptr;
     std::shared_ptr<string> promptMode_ = nullptr;
     std::shared_ptr<string> searchSourcesShrink_ = nullptr;
     std::shared_ptr<string> sessionId_ = nullptr;
+    std::shared_ptr<string> sourceTraceMethod_ = nullptr;
     std::shared_ptr<string> step_ = nullptr;
     std::shared_ptr<string> summarizationShrink_ = nullptr;
     std::shared_ptr<string> taskId_ = nullptr;

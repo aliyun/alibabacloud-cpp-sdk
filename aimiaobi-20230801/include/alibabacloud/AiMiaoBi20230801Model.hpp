@@ -2,6 +2,11 @@
 #ifndef ALIBABACLOUD_AIMIAOBI20230801MODEL_HPP_
 #define ALIBABACLOUD_AIMIAOBI20230801MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/GenerateTraceability.hpp>
+#include <alibabacloud/models/OutlineSearchResult.hpp>
+#include <alibabacloud/models/OutlineWritingArticle.hpp>
+#include <alibabacloud/models/TopicSelection.hpp>
+#include <alibabacloud/models/WritingOutline.hpp>
 #include <alibabacloud/models/WritingStyleTemplateDefine.hpp>
 #include <alibabacloud/models/WritingStyleTemplateField.hpp>
 #include <alibabacloud/models/AddAuditTermsRequest.hpp>
@@ -624,6 +629,8 @@
 #include <alibabacloud/models/ValidateUploadTemplateRequest.hpp>
 #include <alibabacloud/models/ValidateUploadTemplateResponseBody.hpp>
 #include <alibabacloud/models/ValidateUploadTemplateResponse.hpp>
+#include <alibabacloud/models/GenerateTraceabilityNews.hpp>
+#include <alibabacloud/models/TopicSelectionOutlines.hpp>
 #include <alibabacloud/models/WritingStyleTemplateDefineExample.hpp>
 #include <alibabacloud/models/WritingStyleTemplateFieldEnums.hpp>
 #include <alibabacloud/models/WritingStyleTemplateFieldStyle.hpp>

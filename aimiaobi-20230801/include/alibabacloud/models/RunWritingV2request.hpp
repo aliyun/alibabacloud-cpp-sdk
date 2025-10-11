@@ -5,6 +5,7 @@
 #include <vector>
 #include <alibabacloud/models/RunWritingV2RequestArticles.hpp>
 #include <alibabacloud/models/RunWritingV2RequestMiniDocs.hpp>
+#include <alibabacloud/models/WritingOutline.hpp>
 #include <alibabacloud/models/RunWritingV2RequestOutlines.hpp>
 #include <alibabacloud/models/RunWritingV2RequestSearchSources.hpp>
 #include <alibabacloud/models/RunWritingV2RequestSummarization.hpp>
@@ -27,11 +28,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Keywords, keywords_);
       DARABONBA_PTR_TO_JSON(Language, language_);
       DARABONBA_PTR_TO_JSON(MiniDocs, miniDocs_);
+      DARABONBA_PTR_TO_JSON(OutlineList, outlineList_);
       DARABONBA_PTR_TO_JSON(Outlines, outlines_);
       DARABONBA_PTR_TO_JSON(Prompt, prompt_);
       DARABONBA_PTR_TO_JSON(PromptMode, promptMode_);
       DARABONBA_PTR_TO_JSON(SearchSources, searchSources_);
       DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
+      DARABONBA_PTR_TO_JSON(SourceTraceMethod, sourceTraceMethod_);
       DARABONBA_PTR_TO_JSON(Step, step_);
       DARABONBA_PTR_TO_JSON(Summarization, summarization_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
@@ -49,11 +52,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Keywords, keywords_);
       DARABONBA_PTR_FROM_JSON(Language, language_);
       DARABONBA_PTR_FROM_JSON(MiniDocs, miniDocs_);
+      DARABONBA_PTR_FROM_JSON(OutlineList, outlineList_);
       DARABONBA_PTR_FROM_JSON(Outlines, outlines_);
       DARABONBA_PTR_FROM_JSON(Prompt, prompt_);
       DARABONBA_PTR_FROM_JSON(PromptMode, promptMode_);
       DARABONBA_PTR_FROM_JSON(SearchSources, searchSources_);
       DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
+      DARABONBA_PTR_FROM_JSON(SourceTraceMethod, sourceTraceMethod_);
       DARABONBA_PTR_FROM_JSON(Step, step_);
       DARABONBA_PTR_FROM_JSON(Summarization, summarization_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
@@ -76,9 +81,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->articles_ != nullptr
         && this->distributeWriting_ != nullptr && this->gcNumberSize_ != nullptr && this->gcNumberSizeTag_ != nullptr && this->keywords_ != nullptr && this->language_ != nullptr
-        && this->miniDocs_ != nullptr && this->outlines_ != nullptr && this->prompt_ != nullptr && this->promptMode_ != nullptr && this->searchSources_ != nullptr
-        && this->sessionId_ != nullptr && this->step_ != nullptr && this->summarization_ != nullptr && this->taskId_ != nullptr && this->useSearch_ != nullptr
-        && this->workspaceId_ != nullptr && this->writingParams_ != nullptr && this->writingScene_ != nullptr && this->writingStyle_ != nullptr; };
+        && this->miniDocs_ != nullptr && this->outlineList_ != nullptr && this->outlines_ != nullptr && this->prompt_ != nullptr && this->promptMode_ != nullptr
+        && this->searchSources_ != nullptr && this->sessionId_ != nullptr && this->sourceTraceMethod_ != nullptr && this->step_ != nullptr && this->summarization_ != nullptr
+        && this->taskId_ != nullptr && this->useSearch_ != nullptr && this->workspaceId_ != nullptr && this->writingParams_ != nullptr && this->writingScene_ != nullptr
+        && this->writingStyle_ != nullptr; };
     // articles Field Functions 
     bool hasArticles() const { return this->articles_ != nullptr;};
     void deleteArticles() { this->articles_ = nullptr;};
@@ -134,6 +140,15 @@ namespace Models
     inline RunWritingV2Request& setMiniDocs(vector<RunWritingV2RequestMiniDocs> && miniDocs) { DARABONBA_PTR_SET_RVALUE(miniDocs_, miniDocs) };
 
 
+    // outlineList Field Functions 
+    bool hasOutlineList() const { return this->outlineList_ != nullptr;};
+    void deleteOutlineList() { this->outlineList_ = nullptr;};
+    inline const vector<WritingOutline> & outlineList() const { DARABONBA_PTR_GET_CONST(outlineList_, vector<WritingOutline>) };
+    inline vector<WritingOutline> outlineList() { DARABONBA_PTR_GET(outlineList_, vector<WritingOutline>) };
+    inline RunWritingV2Request& setOutlineList(const vector<WritingOutline> & outlineList) { DARABONBA_PTR_SET_VALUE(outlineList_, outlineList) };
+    inline RunWritingV2Request& setOutlineList(vector<WritingOutline> && outlineList) { DARABONBA_PTR_SET_RVALUE(outlineList_, outlineList) };
+
+
     // outlines Field Functions 
     bool hasOutlines() const { return this->outlines_ != nullptr;};
     void deleteOutlines() { this->outlines_ = nullptr;};
@@ -171,6 +186,13 @@ namespace Models
     void deleteSessionId() { this->sessionId_ = nullptr;};
     inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline RunWritingV2Request& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
+
+
+    // sourceTraceMethod Field Functions 
+    bool hasSourceTraceMethod() const { return this->sourceTraceMethod_ != nullptr;};
+    void deleteSourceTraceMethod() { this->sourceTraceMethod_ = nullptr;};
+    inline string sourceTraceMethod() const { DARABONBA_PTR_GET_DEFAULT(sourceTraceMethod_, "") };
+    inline RunWritingV2Request& setSourceTraceMethod(string sourceTraceMethod) { DARABONBA_PTR_SET_VALUE(sourceTraceMethod_, sourceTraceMethod) };
 
 
     // step Field Functions 
@@ -241,11 +263,13 @@ namespace Models
     std::shared_ptr<vector<string>> keywords_ = nullptr;
     std::shared_ptr<string> language_ = nullptr;
     std::shared_ptr<vector<RunWritingV2RequestMiniDocs>> miniDocs_ = nullptr;
+    std::shared_ptr<vector<WritingOutline>> outlineList_ = nullptr;
     std::shared_ptr<vector<RunWritingV2RequestOutlines>> outlines_ = nullptr;
     std::shared_ptr<string> prompt_ = nullptr;
     std::shared_ptr<string> promptMode_ = nullptr;
     std::shared_ptr<vector<RunWritingV2RequestSearchSources>> searchSources_ = nullptr;
     std::shared_ptr<string> sessionId_ = nullptr;
+    std::shared_ptr<string> sourceTraceMethod_ = nullptr;
     std::shared_ptr<string> step_ = nullptr;
     std::shared_ptr<vector<RunWritingV2RequestSummarization>> summarization_ = nullptr;
     std::shared_ptr<string> taskId_ = nullptr;

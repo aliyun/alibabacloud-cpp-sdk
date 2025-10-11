@@ -11161,6 +11161,10 @@ FutrueGenerator<RunWritingV2Response> Client::runWritingV2WithSSE(const RunWriti
     request.setMiniDocsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.miniDocs(), "MiniDocs", "json"));
   }
 
+  if (!!tmpReq.hasOutlineList()) {
+    request.setOutlineListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.outlineList(), "OutlineList", "json"));
+  }
+
   if (!!tmpReq.hasOutlines()) {
     request.setOutlinesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.outlines(), "Outlines", "json"));
   }
@@ -11206,6 +11210,10 @@ FutrueGenerator<RunWritingV2Response> Client::runWritingV2WithSSE(const RunWriti
     body["MiniDocs"] = request.miniDocsShrink();
   }
 
+  if (!!request.hasOutlineListShrink()) {
+    body["OutlineList"] = request.outlineListShrink();
+  }
+
   if (!!request.hasOutlinesShrink()) {
     body["Outlines"] = request.outlinesShrink();
   }
@@ -11224,6 +11232,10 @@ FutrueGenerator<RunWritingV2Response> Client::runWritingV2WithSSE(const RunWriti
 
   if (!!request.hasSessionId()) {
     body["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasSourceTraceMethod()) {
+    body["SourceTraceMethod"] = request.sourceTraceMethod();
   }
 
   if (!!request.hasStep()) {
@@ -11310,6 +11322,10 @@ RunWritingV2Response Client::runWritingV2WithOptions(const RunWritingV2Request &
     request.setMiniDocsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.miniDocs(), "MiniDocs", "json"));
   }
 
+  if (!!tmpReq.hasOutlineList()) {
+    request.setOutlineListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.outlineList(), "OutlineList", "json"));
+  }
+
   if (!!tmpReq.hasOutlines()) {
     request.setOutlinesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.outlines(), "Outlines", "json"));
   }
@@ -11355,6 +11371,10 @@ RunWritingV2Response Client::runWritingV2WithOptions(const RunWritingV2Request &
     body["MiniDocs"] = request.miniDocsShrink();
   }
 
+  if (!!request.hasOutlineListShrink()) {
+    body["OutlineList"] = request.outlineListShrink();
+  }
+
   if (!!request.hasOutlinesShrink()) {
     body["Outlines"] = request.outlinesShrink();
   }
@@ -11373,6 +11393,10 @@ RunWritingV2Response Client::runWritingV2WithOptions(const RunWritingV2Request &
 
   if (!!request.hasSessionId()) {
     body["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasSourceTraceMethod()) {
+    body["SourceTraceMethod"] = request.sourceTraceMethod();
   }
 
   if (!!request.hasStep()) {
