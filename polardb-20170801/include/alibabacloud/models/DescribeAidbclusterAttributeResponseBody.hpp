@@ -33,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MaxQPM, maxQPM_);
       DARABONBA_PTR_TO_JSON(ModelName, modelName_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
+      DARABONBA_PTR_TO_JSON(PublicIp, publicIp_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(RunType, runType_);
@@ -60,6 +61,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MaxQPM, maxQPM_);
       DARABONBA_PTR_FROM_JSON(ModelName, modelName_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
+      DARABONBA_PTR_FROM_JSON(PublicIp, publicIp_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(RunType, runType_);
@@ -85,8 +87,8 @@ namespace Models
         && this->creationTime_ != nullptr && this->DBClusterDescription_ != nullptr && this->DBClusterId_ != nullptr && this->DBClusterStatus_ != nullptr && this->DBNodes_ != nullptr
         && this->DBVersion_ != nullptr && this->endpointList_ != nullptr && this->expireTime_ != nullptr && this->expired_ != nullptr && this->internalIp_ != nullptr
         && this->kubeClusterId_ != nullptr && this->lockMode_ != nullptr && this->maxQPM_ != nullptr && this->modelName_ != nullptr && this->payType_ != nullptr
-        && this->regionId_ != nullptr && this->requestId_ != nullptr && this->runType_ != nullptr && this->storageType_ != nullptr && this->VPCId_ != nullptr
-        && this->vSwitchId_ != nullptr && this->volumes_ != nullptr && this->zoneId_ != nullptr && this->zoneIds_ != nullptr; };
+        && this->publicIp_ != nullptr && this->regionId_ != nullptr && this->requestId_ != nullptr && this->runType_ != nullptr && this->storageType_ != nullptr
+        && this->VPCId_ != nullptr && this->vSwitchId_ != nullptr && this->volumes_ != nullptr && this->zoneId_ != nullptr && this->zoneIds_ != nullptr; };
     // aiNodeType Field Functions 
     bool hasAiNodeType() const { return this->aiNodeType_ != nullptr;};
     void deleteAiNodeType() { this->aiNodeType_ = nullptr;};
@@ -203,6 +205,13 @@ namespace Models
     inline DescribeAIDBClusterAttributeResponseBody& setPayType(string payType) { DARABONBA_PTR_SET_VALUE(payType_, payType) };
 
 
+    // publicIp Field Functions 
+    bool hasPublicIp() const { return this->publicIp_ != nullptr;};
+    void deletePublicIp() { this->publicIp_ = nullptr;};
+    inline string publicIp() const { DARABONBA_PTR_GET_DEFAULT(publicIp_, "") };
+    inline DescribeAIDBClusterAttributeResponseBody& setPublicIp(string publicIp) { DARABONBA_PTR_SET_VALUE(publicIp_, publicIp) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -285,6 +294,7 @@ namespace Models
     std::shared_ptr<string> maxQPM_ = nullptr;
     std::shared_ptr<string> modelName_ = nullptr;
     std::shared_ptr<string> payType_ = nullptr;
+    std::shared_ptr<string> publicIp_ = nullptr;
     std::shared_ptr<string> regionId_ = nullptr;
     // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;

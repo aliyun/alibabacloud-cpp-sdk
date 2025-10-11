@@ -85,6 +85,23 @@ namespace Polardb20170801
       Models::AddSQLRateLimitingRulesResponse addSQLRateLimitingRules(const Models::AddSQLRateLimitingRulesRequest &request);
 
       /**
+       * @summary 挂载PolarFS到PolarDB应用
+       *
+       * @param request AttachApplicationPolarFSRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AttachApplicationPolarFSResponse
+       */
+      Models::AttachApplicationPolarFSResponse attachApplicationPolarFSWithOptions(const Models::AttachApplicationPolarFSRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 挂载PolarFS到PolarDB应用
+       *
+       * @param request AttachApplicationPolarFSRequest
+       * @return AttachApplicationPolarFSResponse
+       */
+      Models::AttachApplicationPolarFSResponse attachApplicationPolarFS(const Models::AttachApplicationPolarFSRequest &request);
+
+      /**
        * @summary Cancels O\\&M events at a time.
        *
        * @param request CancelActiveOperationTasksRequest
@@ -308,6 +325,40 @@ namespace Polardb20170801
        * @return CreateActivationCodeResponse
        */
       Models::CreateActivationCodeResponse createActivationCode(const Models::CreateActivationCodeRequest &request);
+
+      /**
+       * @summary 创建PolarDB应用
+       *
+       * @param tmpReq CreateApplicationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateApplicationResponse
+       */
+      Models::CreateApplicationResponse createApplicationWithOptions(const Models::CreateApplicationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建PolarDB应用
+       *
+       * @param request CreateApplicationRequest
+       * @return CreateApplicationResponse
+       */
+      Models::CreateApplicationResponse createApplication(const Models::CreateApplicationRequest &request);
+
+      /**
+       * @summary 创建PolarDB应用终端节点地址
+       *
+       * @param request CreateApplicationEndpointAddressRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateApplicationEndpointAddressResponse
+       */
+      Models::CreateApplicationEndpointAddressResponse createApplicationEndpointAddressWithOptions(const Models::CreateApplicationEndpointAddressRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建PolarDB应用终端节点地址
+       *
+       * @param request CreateApplicationEndpointAddressRequest
+       * @return CreateApplicationEndpointAddressResponse
+       */
+      Models::CreateApplicationEndpointAddressResponse createApplicationEndpointAddress(const Models::CreateApplicationEndpointAddressRequest &request);
 
       /**
        * @summary Creates a full snapshot backup for a PolarDB cluster.
@@ -658,6 +709,23 @@ namespace Polardb20170801
       Models::CreateStoragePlanResponse createStoragePlan(const Models::CreateStoragePlanRequest &request);
 
       /**
+       * @summary 删除AI集群实例
+       *
+       * @param request DeleteAIDBClusterRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAIDBClusterResponse
+       */
+      Models::DeleteAIDBClusterResponse deleteAIDBClusterWithOptions(const Models::DeleteAIDBClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除AI集群实例
+       *
+       * @param request DeleteAIDBClusterRequest
+       * @return DeleteAIDBClusterResponse
+       */
+      Models::DeleteAIDBClusterResponse deleteAIDBCluster(const Models::DeleteAIDBClusterRequest &request);
+
+      /**
        * @summary Deletes a database account for a PolarDB cluster.
        *
        * @description > Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
@@ -694,6 +762,23 @@ namespace Polardb20170801
        * @return DeleteApplicationResponse
        */
       Models::DeleteApplicationResponse deleteApplication(const Models::DeleteApplicationRequest &request);
+
+      /**
+       * @summary 删除PolarDB应用终端地址
+       *
+       * @param request DeleteApplicationEndpointAddressRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteApplicationEndpointAddressResponse
+       */
+      Models::DeleteApplicationEndpointAddressResponse deleteApplicationEndpointAddressWithOptions(const Models::DeleteApplicationEndpointAddressRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除PolarDB应用终端地址
+       *
+       * @param request DeleteApplicationEndpointAddressRequest
+       * @return DeleteApplicationEndpointAddressResponse
+       */
+      Models::DeleteApplicationEndpointAddressResponse deleteApplicationEndpointAddress(const Models::DeleteApplicationEndpointAddressRequest &request);
 
       /**
        * @summary Deletes the backup sets of a PolarDB cluster.
@@ -1170,6 +1255,57 @@ namespace Polardb20170801
        * @return DescribeActiveOperationTasksResponse
        */
       Models::DescribeActiveOperationTasksResponse describeActiveOperationTasks(const Models::DescribeActiveOperationTasksRequest &request);
+
+      /**
+       * @summary 获取应用详情
+       *
+       * @param request DescribeApplicationAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeApplicationAttributeResponse
+       */
+      Models::DescribeApplicationAttributeResponse describeApplicationAttributeWithOptions(const Models::DescribeApplicationAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取应用详情
+       *
+       * @param request DescribeApplicationAttributeRequest
+       * @return DescribeApplicationAttributeResponse
+       */
+      Models::DescribeApplicationAttributeResponse describeApplicationAttribute(const Models::DescribeApplicationAttributeRequest &request);
+
+      /**
+       * @summary 获取应用组件参数
+       *
+       * @param tmpReq DescribeApplicationParametersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeApplicationParametersResponse
+       */
+      Models::DescribeApplicationParametersResponse describeApplicationParametersWithOptions(const Models::DescribeApplicationParametersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取应用组件参数
+       *
+       * @param request DescribeApplicationParametersRequest
+       * @return DescribeApplicationParametersResponse
+       */
+      Models::DescribeApplicationParametersResponse describeApplicationParameters(const Models::DescribeApplicationParametersRequest &request);
+
+      /**
+       * @summary 获取当前地域所有PolarDB实例的应用列表
+       *
+       * @param request DescribeApplicationsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeApplicationsResponse
+       */
+      Models::DescribeApplicationsResponse describeApplicationsWithOptions(const Models::DescribeApplicationsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取当前地域所有PolarDB实例的应用列表
+       *
+       * @param request DescribeApplicationsRequest
+       * @return DescribeApplicationsResponse
+       */
+      Models::DescribeApplicationsResponse describeApplications(const Models::DescribeApplicationsRequest &request);
 
       /**
        * @summary Queries the auto-renewal attributes of a subscription PolarDB cluster.
@@ -3057,6 +3193,57 @@ namespace Polardb20170801
        * @return ModifyActiveOperationTasksResponse
        */
       Models::ModifyActiveOperationTasksResponse modifyActiveOperationTasks(const Models::ModifyActiveOperationTasksRequest &request);
+
+      /**
+       * @summary 修改应用描述
+       *
+       * @param request ModifyApplicationDescriptionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyApplicationDescriptionResponse
+       */
+      Models::ModifyApplicationDescriptionResponse modifyApplicationDescriptionWithOptions(const Models::ModifyApplicationDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改应用描述
+       *
+       * @param request ModifyApplicationDescriptionRequest
+       * @return ModifyApplicationDescriptionResponse
+       */
+      Models::ModifyApplicationDescriptionResponse modifyApplicationDescription(const Models::ModifyApplicationDescriptionRequest &request);
+
+      /**
+       * @summary 修改PolarDB应用参数
+       *
+       * @param tmpReq ModifyApplicationParameterRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyApplicationParameterResponse
+       */
+      Models::ModifyApplicationParameterResponse modifyApplicationParameterWithOptions(const Models::ModifyApplicationParameterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改PolarDB应用参数
+       *
+       * @param request ModifyApplicationParameterRequest
+       * @return ModifyApplicationParameterResponse
+       */
+      Models::ModifyApplicationParameterResponse modifyApplicationParameter(const Models::ModifyApplicationParameterRequest &request);
+
+      /**
+       * @summary 修改应用白名单
+       *
+       * @param request ModifyApplicationWhitelistRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyApplicationWhitelistResponse
+       */
+      Models::ModifyApplicationWhitelistResponse modifyApplicationWhitelistWithOptions(const Models::ModifyApplicationWhitelistRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改应用白名单
+       *
+       * @param request ModifyApplicationWhitelistRequest
+       * @return ModifyApplicationWhitelistResponse
+       */
+      Models::ModifyApplicationWhitelistResponse modifyApplicationWhitelist(const Models::ModifyApplicationWhitelistRequest &request);
 
       /**
        * @summary Modifies the auto-renewal attributes of a subscription PolarDB cluster.

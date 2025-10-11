@@ -346,6 +346,60 @@ AddSQLRateLimitingRulesResponse Client::addSQLRateLimitingRules(const AddSQLRate
 }
 
 /**
+ * @summary 挂载PolarFS到PolarDB应用
+ *
+ * @param request AttachApplicationPolarFSRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AttachApplicationPolarFSResponse
+ */
+AttachApplicationPolarFSResponse Client::attachApplicationPolarFSWithOptions(const AttachApplicationPolarFSRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasPolarFSAccessKeyId()) {
+    query["PolarFSAccessKeyId"] = request.polarFSAccessKeyId();
+  }
+
+  if (!!request.hasPolarFSAccessKeySecret()) {
+    query["PolarFSAccessKeySecret"] = request.polarFSAccessKeySecret();
+  }
+
+  if (!!request.hasPolarFSInstanceId()) {
+    query["PolarFSInstanceId"] = request.polarFSInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AttachApplicationPolarFS"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AttachApplicationPolarFSResponse>();
+}
+
+/**
+ * @summary 挂载PolarFS到PolarDB应用
+ *
+ * @param request AttachApplicationPolarFSRequest
+ * @return AttachApplicationPolarFSResponse
+ */
+AttachApplicationPolarFSResponse Client::attachApplicationPolarFS(const AttachApplicationPolarFSRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return attachApplicationPolarFSWithOptions(request, runtime);
+}
+
+/**
  * @summary Cancels O\\&M events at a time.
  *
  * @param request CancelActiveOperationTasksRequest
@@ -1217,6 +1271,168 @@ CreateActivationCodeResponse Client::createActivationCodeWithOptions(const Creat
 CreateActivationCodeResponse Client::createActivationCode(const CreateActivationCodeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createActivationCodeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建PolarDB应用
+ *
+ * @param tmpReq CreateApplicationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateApplicationResponse
+ */
+CreateApplicationResponse Client::createApplicationWithOptions(const CreateApplicationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateApplicationShrinkRequest request = CreateApplicationShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasComponents()) {
+    request.setComponentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.components(), "Components", "json"));
+  }
+
+  if (!!tmpReq.hasEndpoints()) {
+    request.setEndpointsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.endpoints(), "Endpoints", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApplicationType()) {
+    query["ApplicationType"] = request.applicationType();
+  }
+
+  if (!!request.hasArchitecture()) {
+    query["Architecture"] = request.architecture();
+  }
+
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.autoRenew();
+  }
+
+  if (!!request.hasComponentsShrink()) {
+    query["Components"] = request.componentsShrink();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.dryRun();
+  }
+
+  if (!!request.hasEndpointsShrink()) {
+    query["Endpoints"] = request.endpointsShrink();
+  }
+
+  if (!!request.hasPayType()) {
+    query["PayType"] = request.payType();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.period();
+  }
+
+  if (!!request.hasPolarFSInstanceId()) {
+    query["PolarFSInstanceId"] = request.polarFSInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasUsedTime()) {
+    query["UsedTime"] = request.usedTime();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.vSwitchId();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.zoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateApplication"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateApplicationResponse>();
+}
+
+/**
+ * @summary 创建PolarDB应用
+ *
+ * @param request CreateApplicationRequest
+ * @return CreateApplicationResponse
+ */
+CreateApplicationResponse Client::createApplication(const CreateApplicationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createApplicationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建PolarDB应用终端节点地址
+ *
+ * @param request CreateApplicationEndpointAddressRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateApplicationEndpointAddressResponse
+ */
+CreateApplicationEndpointAddressResponse Client::createApplicationEndpointAddressWithOptions(const CreateApplicationEndpointAddressRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasEndpointId()) {
+    query["EndpointId"] = request.endpointId();
+  }
+
+  if (!!request.hasNetType()) {
+    query["NetType"] = request.netType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateApplicationEndpointAddress"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateApplicationEndpointAddressResponse>();
+}
+
+/**
+ * @summary 创建PolarDB应用终端节点地址
+ *
+ * @param request CreateApplicationEndpointAddressRequest
+ * @return CreateApplicationEndpointAddressResponse
+ */
+CreateApplicationEndpointAddressResponse Client::createApplicationEndpointAddress(const CreateApplicationEndpointAddressRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createApplicationEndpointAddressWithOptions(request, runtime);
 }
 
 /**
@@ -2934,6 +3150,48 @@ CreateStoragePlanResponse Client::createStoragePlan(const CreateStoragePlanReque
 }
 
 /**
+ * @summary 删除AI集群实例
+ *
+ * @param request DeleteAIDBClusterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAIDBClusterResponse
+ */
+DeleteAIDBClusterResponse Client::deleteAIDBClusterWithOptions(const DeleteAIDBClusterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAIDBCluster"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAIDBClusterResponse>();
+}
+
+/**
+ * @summary 删除AI集群实例
+ *
+ * @param request DeleteAIDBClusterRequest
+ * @return DeleteAIDBClusterResponse
+ */
+DeleteAIDBClusterResponse Client::deleteAIDBCluster(const DeleteAIDBClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAIDBClusterWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a database account for a PolarDB cluster.
  *
  * @description > Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
@@ -3039,6 +3297,56 @@ DeleteApplicationResponse Client::deleteApplicationWithOptions(const DeleteAppli
 DeleteApplicationResponse Client::deleteApplication(const DeleteApplicationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteApplicationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除PolarDB应用终端地址
+ *
+ * @param request DeleteApplicationEndpointAddressRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteApplicationEndpointAddressResponse
+ */
+DeleteApplicationEndpointAddressResponse Client::deleteApplicationEndpointAddressWithOptions(const DeleteApplicationEndpointAddressRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasEndpointId()) {
+    query["EndpointId"] = request.endpointId();
+  }
+
+  if (!!request.hasNetType()) {
+    query["NetType"] = request.netType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteApplicationEndpointAddress"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteApplicationEndpointAddressResponse>();
+}
+
+/**
+ * @summary 删除PolarDB应用终端地址
+ *
+ * @param request DeleteApplicationEndpointAddressRequest
+ * @return DeleteApplicationEndpointAddressResponse
+ */
+DeleteApplicationEndpointAddressResponse Client::deleteApplicationEndpointAddress(const DeleteApplicationEndpointAddressRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteApplicationEndpointAddressWithOptions(request, runtime);
 }
 
 /**
@@ -4781,6 +5089,158 @@ DescribeActiveOperationTasksResponse Client::describeActiveOperationTasksWithOpt
 DescribeActiveOperationTasksResponse Client::describeActiveOperationTasks(const DescribeActiveOperationTasksRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeActiveOperationTasksWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取应用详情
+ *
+ * @param request DescribeApplicationAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeApplicationAttributeResponse
+ */
+DescribeApplicationAttributeResponse Client::describeApplicationAttributeWithOptions(const DescribeApplicationAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeApplicationAttribute"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeApplicationAttributeResponse>();
+}
+
+/**
+ * @summary 获取应用详情
+ *
+ * @param request DescribeApplicationAttributeRequest
+ * @return DescribeApplicationAttributeResponse
+ */
+DescribeApplicationAttributeResponse Client::describeApplicationAttribute(const DescribeApplicationAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeApplicationAttributeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取应用组件参数
+ *
+ * @param tmpReq DescribeApplicationParametersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeApplicationParametersResponse
+ */
+DescribeApplicationParametersResponse Client::describeApplicationParametersWithOptions(const DescribeApplicationParametersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribeApplicationParametersShrinkRequest request = DescribeApplicationParametersShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasComponentIdList()) {
+    request.setComponentIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.componentIdList(), "ComponentIdList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasComponentIdListShrink()) {
+    query["ComponentIdList"] = request.componentIdListShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeApplicationParameters"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeApplicationParametersResponse>();
+}
+
+/**
+ * @summary 获取应用组件参数
+ *
+ * @param request DescribeApplicationParametersRequest
+ * @return DescribeApplicationParametersResponse
+ */
+DescribeApplicationParametersResponse Client::describeApplicationParameters(const DescribeApplicationParametersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeApplicationParametersWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取当前地域所有PolarDB实例的应用列表
+ *
+ * @param request DescribeApplicationsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeApplicationsResponse
+ */
+DescribeApplicationsResponse Client::describeApplicationsWithOptions(const DescribeApplicationsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationIds()) {
+    query["ApplicationIds"] = request.applicationIds();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeApplications"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeApplicationsResponse>();
+}
+
+/**
+ * @summary 获取当前地域所有PolarDB实例的应用列表
+ *
+ * @param request DescribeApplicationsRequest
+ * @return DescribeApplicationsResponse
+ */
+DescribeApplicationsResponse Client::describeApplications(const DescribeApplicationsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeApplicationsWithOptions(request, runtime);
 }
 
 /**
@@ -12190,6 +12650,174 @@ ModifyActiveOperationTasksResponse Client::modifyActiveOperationTasksWithOptions
 ModifyActiveOperationTasksResponse Client::modifyActiveOperationTasks(const ModifyActiveOperationTasksRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyActiveOperationTasksWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改应用描述
+ *
+ * @param request ModifyApplicationDescriptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyApplicationDescriptionResponse
+ */
+ModifyApplicationDescriptionResponse Client::modifyApplicationDescriptionWithOptions(const ModifyApplicationDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyApplicationDescription"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyApplicationDescriptionResponse>();
+}
+
+/**
+ * @summary 修改应用描述
+ *
+ * @param request ModifyApplicationDescriptionRequest
+ * @return ModifyApplicationDescriptionResponse
+ */
+ModifyApplicationDescriptionResponse Client::modifyApplicationDescription(const ModifyApplicationDescriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyApplicationDescriptionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改PolarDB应用参数
+ *
+ * @param tmpReq ModifyApplicationParameterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyApplicationParameterResponse
+ */
+ModifyApplicationParameterResponse Client::modifyApplicationParameterWithOptions(const ModifyApplicationParameterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyApplicationParameterShrinkRequest request = ModifyApplicationParameterShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasParameters()) {
+    request.setParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.parameters(), "Parameters", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasParameterName()) {
+    query["ParameterName"] = request.parameterName();
+  }
+
+  if (!!request.hasParameterValue()) {
+    query["ParameterValue"] = request.parameterValue();
+  }
+
+  if (!!request.hasParametersShrink()) {
+    query["Parameters"] = request.parametersShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyApplicationParameter"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyApplicationParameterResponse>();
+}
+
+/**
+ * @summary 修改PolarDB应用参数
+ *
+ * @param request ModifyApplicationParameterRequest
+ * @return ModifyApplicationParameterResponse
+ */
+ModifyApplicationParameterResponse Client::modifyApplicationParameter(const ModifyApplicationParameterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyApplicationParameterWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改应用白名单
+ *
+ * @param request ModifyApplicationWhitelistRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyApplicationWhitelistResponse
+ */
+ModifyApplicationWhitelistResponse Client::modifyApplicationWhitelistWithOptions(const ModifyApplicationWhitelistRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasComponentId()) {
+    query["ComponentId"] = request.componentId();
+  }
+
+  if (!!request.hasModifyMode()) {
+    query["ModifyMode"] = request.modifyMode();
+  }
+
+  if (!!request.hasSecurityGroups()) {
+    query["SecurityGroups"] = request.securityGroups();
+  }
+
+  if (!!request.hasSecurityIPArrayName()) {
+    query["SecurityIPArrayName"] = request.securityIPArrayName();
+  }
+
+  if (!!request.hasSecurityIPList()) {
+    query["SecurityIPList"] = request.securityIPList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyApplicationWhitelist"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyApplicationWhitelistResponse>();
+}
+
+/**
+ * @summary 修改应用白名单
+ *
+ * @param request ModifyApplicationWhitelistRequest
+ * @return ModifyApplicationWhitelistResponse
+ */
+ModifyApplicationWhitelistResponse Client::modifyApplicationWhitelist(const ModifyApplicationWhitelistRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyApplicationWhitelistWithOptions(request, runtime);
 }
 
 /**
