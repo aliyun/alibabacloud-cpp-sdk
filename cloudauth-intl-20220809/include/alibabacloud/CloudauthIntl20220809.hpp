@@ -257,6 +257,25 @@ namespace CloudauthIntl20220809
       Models::DeepfakeDetectIntlResponse deepfakeDetectIntl(const Models::DeepfakeDetectIntlRequest &request);
 
       /**
+       * @summary deepfake文件流api
+       *
+       * @param request DeepfakeDetectIntlStreamRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeepfakeDetectIntlStreamResponse
+       */
+      Models::DeepfakeDetectIntlStreamResponse deepfakeDetectIntlStreamWithOptions(const Models::DeepfakeDetectIntlStreamRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary deepfake文件流api
+       *
+       * @param request DeepfakeDetectIntlStreamRequest
+       * @return DeepfakeDetectIntlStreamResponse
+       */
+      Models::DeepfakeDetectIntlStreamResponse deepfakeDetectIntlStream(const Models::DeepfakeDetectIntlStreamRequest &request);
+
+      Models::DeepfakeDetectIntlStreamResponse deepfakeDetectIntlStreamAdvance(const Models::DeepfakeDetectIntlStreamAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
        * @summary Delete Face Group
        *
        * @param request DeleteFaceGroupRequest

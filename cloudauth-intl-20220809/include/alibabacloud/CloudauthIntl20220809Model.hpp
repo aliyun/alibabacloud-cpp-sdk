@@ -39,6 +39,10 @@
 #include <alibabacloud/models/DeepfakeDetectIntlRequest.hpp>
 #include <alibabacloud/models/DeepfakeDetectIntlResponseBody.hpp>
 #include <alibabacloud/models/DeepfakeDetectIntlResponse.hpp>
+#include <alibabacloud/models/DeepfakeDetectIntlStreamRequest.hpp>
+#include <alibabacloud/models/DeepfakeDetectIntlStreamAdvanceRequest.hpp>
+#include <alibabacloud/models/DeepfakeDetectIntlStreamResponseBody.hpp>
+#include <alibabacloud/models/DeepfakeDetectIntlStreamResponse.hpp>
 #include <alibabacloud/models/DeleteFaceGroupRequest.hpp>
 #include <alibabacloud/models/DeleteFaceGroupResponseBody.hpp>
 #include <alibabacloud/models/DeleteFaceGroupResponse.hpp>
@@ -123,6 +127,7 @@
 #include <alibabacloud/models/CredentialSubmitIntlResponseBodyResult.hpp>
 #include <alibabacloud/models/CredentialVerifyIntlResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DeepfakeDetectIntlResponseBodyResultObject.hpp>
+#include <alibabacloud/models/DeepfakeDetectIntlStreamResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DeleteVerifyResultResponseBodyResult.hpp>
 #include <alibabacloud/models/DocOcrResponseBodyResult.hpp>
 #include <alibabacloud/models/DocOcrMaxResponseBodyResult.hpp>

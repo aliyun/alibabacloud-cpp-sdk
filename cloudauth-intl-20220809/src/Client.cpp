@@ -952,6 +952,158 @@ DeepfakeDetectIntlResponse Client::deepfakeDetectIntl(const DeepfakeDetectIntlRe
 }
 
 /**
+ * @summary deepfake文件流api
+ *
+ * @param request DeepfakeDetectIntlStreamRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeepfakeDetectIntlStreamResponse
+ */
+DeepfakeDetectIntlStreamResponse Client::deepfakeDetectIntlStreamWithOptions(const DeepfakeDetectIntlStreamRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFaceBase64()) {
+    body["FaceBase64"] = request.faceBase64();
+  }
+
+  if (!!request.hasFaceFile()) {
+    body["FaceFile"] = request.faceFile();
+  }
+
+  if (!!request.hasFaceInputType()) {
+    body["FaceInputType"] = request.faceInputType();
+  }
+
+  if (!!request.hasFaceUrl()) {
+    body["FaceUrl"] = request.faceUrl();
+  }
+
+  if (!!request.hasMerchantBizId()) {
+    body["MerchantBizId"] = request.merchantBizId();
+  }
+
+  if (!!request.hasProductCode()) {
+    body["ProductCode"] = request.productCode();
+  }
+
+  if (!!request.hasSceneCode()) {
+    body["SceneCode"] = request.sceneCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeepfakeDetectIntlStream"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeepfakeDetectIntlStreamResponse>();
+}
+
+/**
+ * @summary deepfake文件流api
+ *
+ * @param request DeepfakeDetectIntlStreamRequest
+ * @return DeepfakeDetectIntlStreamResponse
+ */
+DeepfakeDetectIntlStreamResponse Client::deepfakeDetectIntlStream(const DeepfakeDetectIntlStreamRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deepfakeDetectIntlStreamWithOptions(request, runtime);
+}
+
+DeepfakeDetectIntlStreamResponse Client::deepfakeDetectIntlStreamAdvance(const DeepfakeDetectIntlStreamAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  // Step 0: init client
+  if (Darabonba::isNull(_credential)) {
+    throw ClientException(json({
+      {"code" , "InvalidCredentials"},
+      {"message" , "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
+    }).get<map<string, string>>());
+  }
+
+  CredentialModel credentialModel = _credential->getCredential();
+  string accessKeyId = credentialModel.accessKeyId();
+  string accessKeySecret = credentialModel.accessKeySecret();
+  string securityToken = credentialModel.securityToken();
+  string credentialType = credentialModel.type();
+  string openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+    openPlatformEndpoint = "openplatform.aliyuncs.com";
+  }
+
+  if (Darabonba::isNull(credentialType)) {
+    credentialType = "access_key";
+  }
+
+  AlibabaCloud::OpenApi::Utils::Models::Config authConfig = AlibabaCloud::OpenApi::Utils::Models::Config(json({
+    {"accessKeyId" , accessKeyId},
+    {"accessKeySecret" , accessKeySecret},
+    {"securityToken" , securityToken},
+    {"type" , credentialType},
+    {"endpoint" , openPlatformEndpoint},
+    {"protocol" , _protocol},
+    {"regionId" , _regionId}
+  }).get<map<string, string>>());
+  shared_ptr<OpenApiClient> authClient = make_shared<OpenApiClient>(authConfig);
+  map<string, string> authRequest = json({
+    {"Product" , "Cloudauth-intl"},
+    {"RegionId" , _regionId}
+  }).get<map<string, string>>();
+  OpenApiRequest authReq = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(authRequest)}
+  }).get<map<string, map<string, string>>>());
+  Params authParams = Params(json({
+    {"action" , "AuthorizeFileUpload"},
+    {"version" , "2019-12-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  json authResponse = {};
+  Darabonba::Http::FileField fileObj = FileField();
+  json ossHeader = {};
+  json tmpBody = {};
+  bool useAccelerate = false;
+  map<string, string> authResponseBody = {};
+  DeepfakeDetectIntlStreamRequest deepfakeDetectIntlStreamReq = DeepfakeDetectIntlStreamRequest();
+  Utils::Utils::convert(request, deepfakeDetectIntlStreamReq);
+  if (!!request.hasFaceFileObject()) {
+    authResponse = authClient->callApi(authParams, authReq, runtime);
+    tmpBody = json(authResponse.at("body"));
+    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
+    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
+    fileObj = FileField(json({
+      {"filename" , authResponseBody.at("ObjectKey")},
+      {"content" , request.faceFileObject()},
+      {"contentType" , ""}
+    }));
+    ossHeader = json({
+      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
+      {"policy" , authResponseBody.at("EncodedPolicy")},
+      {"Signature" , authResponseBody.at("Signature")},
+      {"key" , authResponseBody.at("ObjectKey")},
+      {"file" , fileObj},
+      {"success_action_status" , "201"}
+    });
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    deepfakeDetectIntlStreamReq.setFaceFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
+  }
+
+  DeepfakeDetectIntlStreamResponse deepfakeDetectIntlStreamResp = deepfakeDetectIntlStreamWithOptions(deepfakeDetectIntlStreamReq, runtime);
+  return deepfakeDetectIntlStreamResp;
+}
+
+/**
  * @summary Delete Face Group
  *
  * @param request DeleteFaceGroupRequest
