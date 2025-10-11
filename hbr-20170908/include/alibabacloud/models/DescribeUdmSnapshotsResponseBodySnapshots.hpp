@@ -16,6 +16,9 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeUdmSnapshotsResponseBodySnapshots& obj) { 
       DARABONBA_PTR_TO_JSON(ActualBytes, actualBytes_);
       DARABONBA_PTR_TO_JSON(AdvancedRetentionType, advancedRetentionType_);
+      DARABONBA_PTR_TO_JSON(ArchiveErrorMessage, archiveErrorMessage_);
+      DARABONBA_PTR_TO_JSON(ArchiveStatus, archiveStatus_);
+      DARABONBA_PTR_TO_JSON(ArchiveTriggerTime, archiveTriggerTime_);
       DARABONBA_PTR_TO_JSON(BackupType, backupType_);
       DARABONBA_PTR_TO_JSON(BytesTotal, bytesTotal_);
       DARABONBA_PTR_TO_JSON(CanBeDeleted, canBeDeleted_);
@@ -43,6 +46,9 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeUdmSnapshotsResponseBodySnapshots& obj) { 
       DARABONBA_PTR_FROM_JSON(ActualBytes, actualBytes_);
       DARABONBA_PTR_FROM_JSON(AdvancedRetentionType, advancedRetentionType_);
+      DARABONBA_PTR_FROM_JSON(ArchiveErrorMessage, archiveErrorMessage_);
+      DARABONBA_PTR_FROM_JSON(ArchiveStatus, archiveStatus_);
+      DARABONBA_PTR_FROM_JSON(ArchiveTriggerTime, archiveTriggerTime_);
       DARABONBA_PTR_FROM_JSON(BackupType, backupType_);
       DARABONBA_PTR_FROM_JSON(BytesTotal, bytesTotal_);
       DARABONBA_PTR_FROM_JSON(CanBeDeleted, canBeDeleted_);
@@ -79,11 +85,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->actualBytes_ != nullptr
-        && this->advancedRetentionType_ != nullptr && this->backupType_ != nullptr && this->bytesTotal_ != nullptr && this->canBeDeleted_ != nullptr && this->completeTime_ != nullptr
-        && this->createTime_ != nullptr && this->createdTime_ != nullptr && this->detail_ != nullptr && this->diskId_ != nullptr && this->expireTime_ != nullptr
-        && this->instanceId_ != nullptr && this->jobId_ != nullptr && this->nativeSnapshotId_ != nullptr && this->nativeSnapshotInfo_ != nullptr && this->parentSnapshotHash_ != nullptr
-        && this->prefix_ != nullptr && this->realSnapshotTime_ != nullptr && this->retention_ != nullptr && this->snapshotHash_ != nullptr && this->snapshotId_ != nullptr
-        && this->sourceType_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->updatedTime_ != nullptr; };
+        && this->advancedRetentionType_ != nullptr && this->archiveErrorMessage_ != nullptr && this->archiveStatus_ != nullptr && this->archiveTriggerTime_ != nullptr && this->backupType_ != nullptr
+        && this->bytesTotal_ != nullptr && this->canBeDeleted_ != nullptr && this->completeTime_ != nullptr && this->createTime_ != nullptr && this->createdTime_ != nullptr
+        && this->detail_ != nullptr && this->diskId_ != nullptr && this->expireTime_ != nullptr && this->instanceId_ != nullptr && this->jobId_ != nullptr
+        && this->nativeSnapshotId_ != nullptr && this->nativeSnapshotInfo_ != nullptr && this->parentSnapshotHash_ != nullptr && this->prefix_ != nullptr && this->realSnapshotTime_ != nullptr
+        && this->retention_ != nullptr && this->snapshotHash_ != nullptr && this->snapshotId_ != nullptr && this->sourceType_ != nullptr && this->startTime_ != nullptr
+        && this->status_ != nullptr && this->updatedTime_ != nullptr; };
     // actualBytes Field Functions 
     bool hasActualBytes() const { return this->actualBytes_ != nullptr;};
     void deleteActualBytes() { this->actualBytes_ = nullptr;};
@@ -96,6 +103,27 @@ namespace Models
     void deleteAdvancedRetentionType() { this->advancedRetentionType_ = nullptr;};
     inline string advancedRetentionType() const { DARABONBA_PTR_GET_DEFAULT(advancedRetentionType_, "") };
     inline DescribeUdmSnapshotsResponseBodySnapshots& setAdvancedRetentionType(string advancedRetentionType) { DARABONBA_PTR_SET_VALUE(advancedRetentionType_, advancedRetentionType) };
+
+
+    // archiveErrorMessage Field Functions 
+    bool hasArchiveErrorMessage() const { return this->archiveErrorMessage_ != nullptr;};
+    void deleteArchiveErrorMessage() { this->archiveErrorMessage_ = nullptr;};
+    inline string archiveErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(archiveErrorMessage_, "") };
+    inline DescribeUdmSnapshotsResponseBodySnapshots& setArchiveErrorMessage(string archiveErrorMessage) { DARABONBA_PTR_SET_VALUE(archiveErrorMessage_, archiveErrorMessage) };
+
+
+    // archiveStatus Field Functions 
+    bool hasArchiveStatus() const { return this->archiveStatus_ != nullptr;};
+    void deleteArchiveStatus() { this->archiveStatus_ = nullptr;};
+    inline string archiveStatus() const { DARABONBA_PTR_GET_DEFAULT(archiveStatus_, "") };
+    inline DescribeUdmSnapshotsResponseBodySnapshots& setArchiveStatus(string archiveStatus) { DARABONBA_PTR_SET_VALUE(archiveStatus_, archiveStatus) };
+
+
+    // archiveTriggerTime Field Functions 
+    bool hasArchiveTriggerTime() const { return this->archiveTriggerTime_ != nullptr;};
+    void deleteArchiveTriggerTime() { this->archiveTriggerTime_ = nullptr;};
+    inline int64_t archiveTriggerTime() const { DARABONBA_PTR_GET_DEFAULT(archiveTriggerTime_, 0L) };
+    inline DescribeUdmSnapshotsResponseBodySnapshots& setArchiveTriggerTime(int64_t archiveTriggerTime) { DARABONBA_PTR_SET_VALUE(archiveTriggerTime_, archiveTriggerTime) };
 
 
     // backupType Field Functions 
@@ -270,6 +298,9 @@ namespace Models
     // *   **MONTHLY**: monthly backups
     // *   **YEARLY**: yearly backups
     std::shared_ptr<string> advancedRetentionType_ = nullptr;
+    std::shared_ptr<string> archiveErrorMessage_ = nullptr;
+    std::shared_ptr<string> archiveStatus_ = nullptr;
+    std::shared_ptr<int64_t> archiveTriggerTime_ = nullptr;
     // The backup type. Valid value: **COMPLETE**, which indicates full backup.
     std::shared_ptr<string> backupType_ = nullptr;
     // The total amount of data. Unit: bytes.
