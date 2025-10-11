@@ -91,6 +91,8 @@
 #include <alibabacloud/models/OutputCodeLocation.hpp>
 #include <alibabacloud/models/OutputFuncCode.hpp>
 #include <alibabacloud/models/PathConfig.hpp>
+#include <alibabacloud/models/PolarFsConfig.hpp>
+#include <alibabacloud/models/PolarFsMountConfig.hpp>
 #include <alibabacloud/models/ProvisionConfig.hpp>
 #include <alibabacloud/models/PublishVersionInput.hpp>
 #include <alibabacloud/models/PutAsyncInvokeConfigInput.hpp>

@@ -13,6 +13,7 @@
 #include <alibabacloud/models/LogConfig.hpp>
 #include <alibabacloud/models/NASConfig.hpp>
 #include <alibabacloud/models/OSSMountConfig.hpp>
+#include <alibabacloud/models/PolarFsConfig.hpp>
 #include <alibabacloud/models/TracingConfig.hpp>
 #include <alibabacloud/models/VPCConfig.hpp>
 using namespace std;
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(customDNS, customDNS_);
       DARABONBA_PTR_TO_JSON(customRuntimeConfig, customRuntimeConfig_);
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(disableInjectCredentials, disableInjectCredentials_);
       DARABONBA_PTR_TO_JSON(disableOndemand, disableOndemand_);
       DARABONBA_PTR_TO_JSON(diskSize, diskSize_);
       DARABONBA_PTR_TO_JSON(enableLongLiving, enableLongLiving_);
@@ -48,6 +50,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(memorySize, memorySize_);
       DARABONBA_PTR_TO_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_TO_JSON(ossMountConfig, ossMountConfig_);
+      DARABONBA_PTR_TO_JSON(polarFsConfig, polarFsConfig_);
       DARABONBA_PTR_TO_JSON(role, role_);
       DARABONBA_PTR_TO_JSON(runtime, runtime_);
       DARABONBA_PTR_TO_JSON(sessionAffinity, sessionAffinity_);
@@ -63,6 +66,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(customDNS, customDNS_);
       DARABONBA_PTR_FROM_JSON(customRuntimeConfig, customRuntimeConfig_);
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(disableInjectCredentials, disableInjectCredentials_);
       DARABONBA_PTR_FROM_JSON(disableOndemand, disableOndemand_);
       DARABONBA_PTR_FROM_JSON(diskSize, diskSize_);
       DARABONBA_PTR_FROM_JSON(enableLongLiving, enableLongLiving_);
@@ -79,6 +83,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(memorySize, memorySize_);
       DARABONBA_PTR_FROM_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_FROM_JSON(ossMountConfig, ossMountConfig_);
+      DARABONBA_PTR_FROM_JSON(polarFsConfig, polarFsConfig_);
       DARABONBA_PTR_FROM_JSON(role, role_);
       DARABONBA_PTR_FROM_JSON(runtime, runtime_);
       DARABONBA_PTR_FROM_JSON(sessionAffinity, sessionAffinity_);
@@ -100,11 +105,11 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->code_ != nullptr
         && this->cpu_ != nullptr && this->customContainerConfig_ != nullptr && this->customDNS_ != nullptr && this->customRuntimeConfig_ != nullptr && this->description_ != nullptr
-        && this->disableOndemand_ != nullptr && this->diskSize_ != nullptr && this->enableLongLiving_ != nullptr && this->environmentVariables_ != nullptr && this->gpuConfig_ != nullptr
-        && this->handler_ != nullptr && this->idleTimeout_ != nullptr && this->instanceConcurrency_ != nullptr && this->instanceIsolationMode_ != nullptr && this->instanceLifecycleConfig_ != nullptr
-        && this->internetAccess_ != nullptr && this->layers_ != nullptr && this->logConfig_ != nullptr && this->memorySize_ != nullptr && this->nasConfig_ != nullptr
-        && this->ossMountConfig_ != nullptr && this->role_ != nullptr && this->runtime_ != nullptr && this->sessionAffinity_ != nullptr && this->sessionAffinityConfig_ != nullptr
-        && this->timeout_ != nullptr && this->tracingConfig_ != nullptr && this->vpcConfig_ != nullptr; };
+        && this->disableInjectCredentials_ != nullptr && this->disableOndemand_ != nullptr && this->diskSize_ != nullptr && this->enableLongLiving_ != nullptr && this->environmentVariables_ != nullptr
+        && this->gpuConfig_ != nullptr && this->handler_ != nullptr && this->idleTimeout_ != nullptr && this->instanceConcurrency_ != nullptr && this->instanceIsolationMode_ != nullptr
+        && this->instanceLifecycleConfig_ != nullptr && this->internetAccess_ != nullptr && this->layers_ != nullptr && this->logConfig_ != nullptr && this->memorySize_ != nullptr
+        && this->nasConfig_ != nullptr && this->ossMountConfig_ != nullptr && this->polarFsConfig_ != nullptr && this->role_ != nullptr && this->runtime_ != nullptr
+        && this->sessionAffinity_ != nullptr && this->sessionAffinityConfig_ != nullptr && this->timeout_ != nullptr && this->tracingConfig_ != nullptr && this->vpcConfig_ != nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -153,6 +158,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateFunctionInput& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // disableInjectCredentials Field Functions 
+    bool hasDisableInjectCredentials() const { return this->disableInjectCredentials_ != nullptr;};
+    void deleteDisableInjectCredentials() { this->disableInjectCredentials_ = nullptr;};
+    inline string disableInjectCredentials() const { DARABONBA_PTR_GET_DEFAULT(disableInjectCredentials_, "") };
+    inline UpdateFunctionInput& setDisableInjectCredentials(string disableInjectCredentials) { DARABONBA_PTR_SET_VALUE(disableInjectCredentials_, disableInjectCredentials) };
 
 
     // disableOndemand Field Functions 
@@ -281,6 +293,15 @@ namespace Models
     inline UpdateFunctionInput& setOssMountConfig(OSSMountConfig && ossMountConfig) { DARABONBA_PTR_SET_RVALUE(ossMountConfig_, ossMountConfig) };
 
 
+    // polarFsConfig Field Functions 
+    bool hasPolarFsConfig() const { return this->polarFsConfig_ != nullptr;};
+    void deletePolarFsConfig() { this->polarFsConfig_ = nullptr;};
+    inline const PolarFsConfig & polarFsConfig() const { DARABONBA_PTR_GET_CONST(polarFsConfig_, PolarFsConfig) };
+    inline PolarFsConfig polarFsConfig() { DARABONBA_PTR_GET(polarFsConfig_, PolarFsConfig) };
+    inline UpdateFunctionInput& setPolarFsConfig(const PolarFsConfig & polarFsConfig) { DARABONBA_PTR_SET_VALUE(polarFsConfig_, polarFsConfig) };
+    inline UpdateFunctionInput& setPolarFsConfig(PolarFsConfig && polarFsConfig) { DARABONBA_PTR_SET_RVALUE(polarFsConfig_, polarFsConfig) };
+
+
     // role Field Functions 
     bool hasRole() const { return this->role_ != nullptr;};
     void deleteRole() { this->role_ = nullptr;};
@@ -341,6 +362,7 @@ namespace Models
     std::shared_ptr<CustomDNS> customDNS_ = nullptr;
     std::shared_ptr<CustomRuntimeConfig> customRuntimeConfig_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
+    std::shared_ptr<string> disableInjectCredentials_ = nullptr;
     std::shared_ptr<bool> disableOndemand_ = nullptr;
     std::shared_ptr<int32_t> diskSize_ = nullptr;
     std::shared_ptr<bool> enableLongLiving_ = nullptr;
@@ -357,6 +379,7 @@ namespace Models
     std::shared_ptr<int32_t> memorySize_ = nullptr;
     std::shared_ptr<NASConfig> nasConfig_ = nullptr;
     std::shared_ptr<OSSMountConfig> ossMountConfig_ = nullptr;
+    std::shared_ptr<PolarFsConfig> polarFsConfig_ = nullptr;
     std::shared_ptr<string> role_ = nullptr;
     std::shared_ptr<string> runtime_ = nullptr;
     std::shared_ptr<string> sessionAffinity_ = nullptr;

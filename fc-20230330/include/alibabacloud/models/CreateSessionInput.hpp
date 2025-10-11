@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATESESSIONINPUT_HPP_
 #define ALIBABACLOUD_MODELS_CREATESESSIONINPUT_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/NASConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -13,10 +14,12 @@ namespace Models
   class CreateSessionInput : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateSessionInput& obj) { 
+      DARABONBA_PTR_TO_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_TO_JSON(sessionIdleTimeoutInSeconds, sessionIdleTimeoutInSeconds_);
       DARABONBA_PTR_TO_JSON(sessionTTLInSeconds, sessionTTLInSeconds_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSessionInput& obj) { 
+      DARABONBA_PTR_FROM_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_FROM_JSON(sessionIdleTimeoutInSeconds, sessionIdleTimeoutInSeconds_);
       DARABONBA_PTR_FROM_JSON(sessionTTLInSeconds, sessionTTLInSeconds_);
     };
@@ -31,8 +34,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->sessionIdleTimeoutInSeconds_ != nullptr
-        && this->sessionTTLInSeconds_ != nullptr; };
+    virtual bool empty() const override { this->nasConfig_ != nullptr
+        && this->sessionIdleTimeoutInSeconds_ != nullptr && this->sessionTTLInSeconds_ != nullptr; };
+    // nasConfig Field Functions 
+    bool hasNasConfig() const { return this->nasConfig_ != nullptr;};
+    void deleteNasConfig() { this->nasConfig_ = nullptr;};
+    inline const NASConfig & nasConfig() const { DARABONBA_PTR_GET_CONST(nasConfig_, NASConfig) };
+    inline NASConfig nasConfig() { DARABONBA_PTR_GET(nasConfig_, NASConfig) };
+    inline CreateSessionInput& setNasConfig(const NASConfig & nasConfig) { DARABONBA_PTR_SET_VALUE(nasConfig_, nasConfig) };
+    inline CreateSessionInput& setNasConfig(NASConfig && nasConfig) { DARABONBA_PTR_SET_RVALUE(nasConfig_, nasConfig) };
+
+
     // sessionIdleTimeoutInSeconds Field Functions 
     bool hasSessionIdleTimeoutInSeconds() const { return this->sessionIdleTimeoutInSeconds_ != nullptr;};
     void deleteSessionIdleTimeoutInSeconds() { this->sessionIdleTimeoutInSeconds_ = nullptr;};
@@ -48,6 +60,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<NASConfig> nasConfig_ = nullptr;
     std::shared_ptr<int64_t> sessionIdleTimeoutInSeconds_ = nullptr;
     std::shared_ptr<int64_t> sessionTTLInSeconds_ = nullptr;
   };

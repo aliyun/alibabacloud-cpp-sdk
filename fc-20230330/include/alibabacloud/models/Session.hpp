@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_SESSION_HPP_
 #define ALIBABACLOUD_MODELS_SESSION_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/NASConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -17,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(createdTime, createdTime_);
       DARABONBA_PTR_TO_JSON(functionName, functionName_);
       DARABONBA_PTR_TO_JSON(lastModifiedTime, lastModifiedTime_);
+      DARABONBA_PTR_TO_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_TO_JSON(qualifier, qualifier_);
       DARABONBA_PTR_TO_JSON(sessionAffinityType, sessionAffinityType_);
       DARABONBA_PTR_TO_JSON(sessionId, sessionId_);
@@ -29,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(createdTime, createdTime_);
       DARABONBA_PTR_FROM_JSON(functionName, functionName_);
       DARABONBA_PTR_FROM_JSON(lastModifiedTime, lastModifiedTime_);
+      DARABONBA_PTR_FROM_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_FROM_JSON(qualifier, qualifier_);
       DARABONBA_PTR_FROM_JSON(sessionAffinityType, sessionAffinityType_);
       DARABONBA_PTR_FROM_JSON(sessionId, sessionId_);
@@ -48,8 +51,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->containerId_ != nullptr
-        && this->createdTime_ != nullptr && this->functionName_ != nullptr && this->lastModifiedTime_ != nullptr && this->qualifier_ != nullptr && this->sessionAffinityType_ != nullptr
-        && this->sessionId_ != nullptr && this->sessionIdleTimeoutInSeconds_ != nullptr && this->sessionStatus_ != nullptr && this->sessionTTLInSeconds_ != nullptr; };
+        && this->createdTime_ != nullptr && this->functionName_ != nullptr && this->lastModifiedTime_ != nullptr && this->nasConfig_ != nullptr && this->qualifier_ != nullptr
+        && this->sessionAffinityType_ != nullptr && this->sessionId_ != nullptr && this->sessionIdleTimeoutInSeconds_ != nullptr && this->sessionStatus_ != nullptr && this->sessionTTLInSeconds_ != nullptr; };
     // containerId Field Functions 
     bool hasContainerId() const { return this->containerId_ != nullptr;};
     void deleteContainerId() { this->containerId_ = nullptr;};
@@ -76,6 +79,15 @@ namespace Models
     void deleteLastModifiedTime() { this->lastModifiedTime_ = nullptr;};
     inline string lastModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(lastModifiedTime_, "") };
     inline Session& setLastModifiedTime(string lastModifiedTime) { DARABONBA_PTR_SET_VALUE(lastModifiedTime_, lastModifiedTime) };
+
+
+    // nasConfig Field Functions 
+    bool hasNasConfig() const { return this->nasConfig_ != nullptr;};
+    void deleteNasConfig() { this->nasConfig_ = nullptr;};
+    inline const NASConfig & nasConfig() const { DARABONBA_PTR_GET_CONST(nasConfig_, NASConfig) };
+    inline NASConfig nasConfig() { DARABONBA_PTR_GET(nasConfig_, NASConfig) };
+    inline Session& setNasConfig(const NASConfig & nasConfig) { DARABONBA_PTR_SET_VALUE(nasConfig_, nasConfig) };
+    inline Session& setNasConfig(NASConfig && nasConfig) { DARABONBA_PTR_SET_RVALUE(nasConfig_, nasConfig) };
 
 
     // qualifier Field Functions 
@@ -125,6 +137,7 @@ namespace Models
     std::shared_ptr<string> createdTime_ = nullptr;
     std::shared_ptr<string> functionName_ = nullptr;
     std::shared_ptr<string> lastModifiedTime_ = nullptr;
+    std::shared_ptr<NASConfig> nasConfig_ = nullptr;
     std::shared_ptr<string> qualifier_ = nullptr;
     std::shared_ptr<string> sessionAffinityType_ = nullptr;
     std::shared_ptr<string> sessionId_ = nullptr;
