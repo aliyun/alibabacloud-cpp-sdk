@@ -18,11 +18,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Amount, amount_);
       DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
+      DARABONBA_PTR_TO_JSON(Bandwidth, bandwidth_);
       DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(DataDisk, dataDisk_);
       DARABONBA_PTR_TO_JSON(IdempotenceToken, idempotenceToken_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
+      DARABONBA_PTR_TO_JSON(NetworkStrategyType, networkStrategyType_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(Password, password_);
       DARABONBA_PTR_TO_JSON(Period, period_);
@@ -40,11 +42,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Amount, amount_);
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
+      DARABONBA_PTR_FROM_JSON(Bandwidth, bandwidth_);
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(DataDisk, dataDisk_);
       DARABONBA_PTR_FROM_JSON(IdempotenceToken, idempotenceToken_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
+      DARABONBA_PTR_FROM_JSON(NetworkStrategyType, networkStrategyType_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(Password, password_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
@@ -70,10 +74,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->amount_ != nullptr
-        && this->autoPay_ != nullptr && this->autoRenew_ != nullptr && this->bizRegionId_ != nullptr && this->chargeType_ != nullptr && this->dataDisk_ != nullptr
-        && this->idempotenceToken_ != nullptr && this->imageId_ != nullptr && this->officeSiteId_ != nullptr && this->password_ != nullptr && this->period_ != nullptr
-        && this->periodUnit_ != nullptr && this->promotionId_ != nullptr && this->serverInstanceType_ != nullptr && this->systemDiskCategory_ != nullptr && this->systemDiskPerformanceLevel_ != nullptr
-        && this->systemDiskSize_ != nullptr && this->vSwitchIds_ != nullptr && this->virtualNodePoolId_ != nullptr && this->wuyingServerName_ != nullptr; };
+        && this->autoPay_ != nullptr && this->autoRenew_ != nullptr && this->bandwidth_ != nullptr && this->bizRegionId_ != nullptr && this->chargeType_ != nullptr
+        && this->dataDisk_ != nullptr && this->idempotenceToken_ != nullptr && this->imageId_ != nullptr && this->networkStrategyType_ != nullptr && this->officeSiteId_ != nullptr
+        && this->password_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr && this->promotionId_ != nullptr && this->serverInstanceType_ != nullptr
+        && this->systemDiskCategory_ != nullptr && this->systemDiskPerformanceLevel_ != nullptr && this->systemDiskSize_ != nullptr && this->vSwitchIds_ != nullptr && this->virtualNodePoolId_ != nullptr
+        && this->wuyingServerName_ != nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -93,6 +98,13 @@ namespace Models
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
     inline bool autoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
     inline CreateWuyingServerRequest& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
+
+
+    // bandwidth Field Functions 
+    bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
+    void deleteBandwidth() { this->bandwidth_ = nullptr;};
+    inline int32_t bandwidth() const { DARABONBA_PTR_GET_DEFAULT(bandwidth_, 0) };
+    inline CreateWuyingServerRequest& setBandwidth(int32_t bandwidth) { DARABONBA_PTR_SET_VALUE(bandwidth_, bandwidth) };
 
 
     // bizRegionId Field Functions 
@@ -130,6 +142,13 @@ namespace Models
     void deleteImageId() { this->imageId_ = nullptr;};
     inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline CreateWuyingServerRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
+
+
+    // networkStrategyType Field Functions 
+    bool hasNetworkStrategyType() const { return this->networkStrategyType_ != nullptr;};
+    void deleteNetworkStrategyType() { this->networkStrategyType_ = nullptr;};
+    inline string networkStrategyType() const { DARABONBA_PTR_GET_DEFAULT(networkStrategyType_, "") };
+    inline CreateWuyingServerRequest& setNetworkStrategyType(string networkStrategyType) { DARABONBA_PTR_SET_VALUE(networkStrategyType_, networkStrategyType) };
 
 
     // officeSiteId Field Functions 
@@ -222,11 +241,13 @@ namespace Models
     std::shared_ptr<int32_t> amount_ = nullptr;
     std::shared_ptr<bool> autoPay_ = nullptr;
     std::shared_ptr<bool> autoRenew_ = nullptr;
+    std::shared_ptr<int32_t> bandwidth_ = nullptr;
     std::shared_ptr<string> bizRegionId_ = nullptr;
     std::shared_ptr<string> chargeType_ = nullptr;
     std::shared_ptr<vector<CreateWuyingServerRequestDataDisk>> dataDisk_ = nullptr;
     std::shared_ptr<string> idempotenceToken_ = nullptr;
     std::shared_ptr<string> imageId_ = nullptr;
+    std::shared_ptr<string> networkStrategyType_ = nullptr;
     std::shared_ptr<string> officeSiteId_ = nullptr;
     std::shared_ptr<string> password_ = nullptr;
     std::shared_ptr<int32_t> period_ = nullptr;

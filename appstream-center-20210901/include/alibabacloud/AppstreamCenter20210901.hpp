@@ -165,6 +165,23 @@ namespace AppstreamCenter20210901
       Models::DeleteWuyingServerResponse deleteWuyingServer(const Models::DeleteWuyingServerRequest &request);
 
       /**
+       * @summary 查询无影工作站EIP信息
+       *
+       * @param request DescribeWuyingServerEipInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeWuyingServerEipInfoResponse
+       */
+      Models::DescribeWuyingServerEipInfoResponse describeWuyingServerEipInfoWithOptions(const Models::DescribeWuyingServerEipInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询无影工作站EIP信息
+       *
+       * @param request DescribeWuyingServerEipInfoRequest
+       * @return DescribeWuyingServerEipInfoResponse
+       */
+      Models::DescribeWuyingServerEipInfoResponse describeWuyingServerEipInfo(const Models::DescribeWuyingServerEipInfoRequest &request);
+
+      /**
        * @summary 获取交付组详情
        *
        * @param request GetAppInstanceGroupRequest

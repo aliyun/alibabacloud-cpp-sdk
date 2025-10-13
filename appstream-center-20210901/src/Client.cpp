@@ -431,6 +431,10 @@ CreateWuyingServerResponse Client::createWuyingServerWithOptions(const CreateWuy
     body["AutoRenew"] = request.autoRenew();
   }
 
+  if (!!request.hasBandwidth()) {
+    body["Bandwidth"] = request.bandwidth();
+  }
+
   if (!!request.hasBizRegionId()) {
     body["BizRegionId"] = request.bizRegionId();
   }
@@ -450,6 +454,10 @@ CreateWuyingServerResponse Client::createWuyingServerWithOptions(const CreateWuy
 
   if (!!request.hasImageId()) {
     body["ImageId"] = request.imageId();
+  }
+
+  if (!!request.hasNetworkStrategyType()) {
+    body["NetworkStrategyType"] = request.networkStrategyType();
   }
 
   if (!!request.hasOfficeSiteId()) {
@@ -675,6 +683,52 @@ DeleteWuyingServerResponse Client::deleteWuyingServerWithOptions(const DeleteWuy
 DeleteWuyingServerResponse Client::deleteWuyingServer(const DeleteWuyingServerRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteWuyingServerWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询无影工作站EIP信息
+ *
+ * @param request DescribeWuyingServerEipInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeWuyingServerEipInfoResponse
+ */
+DescribeWuyingServerEipInfoResponse Client::describeWuyingServerEipInfoWithOptions(const DescribeWuyingServerEipInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasIsp()) {
+    body["Isp"] = request.isp();
+  }
+
+  if (!!request.hasWuyingServerId()) {
+    body["WuyingServerId"] = request.wuyingServerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DescribeWuyingServerEipInfo"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeWuyingServerEipInfoResponse>();
+}
+
+/**
+ * @summary 查询无影工作站EIP信息
+ *
+ * @param request DescribeWuyingServerEipInfoRequest
+ * @return DescribeWuyingServerEipInfoResponse
+ */
+DescribeWuyingServerEipInfoResponse Client::describeWuyingServerEipInfo(const DescribeWuyingServerEipInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeWuyingServerEipInfoWithOptions(request, runtime);
 }
 
 /**

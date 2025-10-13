@@ -28,6 +28,9 @@
 #include <alibabacloud/models/DeleteWuyingServerRequest.hpp>
 #include <alibabacloud/models/DeleteWuyingServerResponseBody.hpp>
 #include <alibabacloud/models/DeleteWuyingServerResponse.hpp>
+#include <alibabacloud/models/DescribeWuyingServerEipInfoRequest.hpp>
+#include <alibabacloud/models/DescribeWuyingServerEipInfoResponseBody.hpp>
+#include <alibabacloud/models/DescribeWuyingServerEipInfoResponse.hpp>
 #include <alibabacloud/models/GetAppInstanceGroupRequest.hpp>
 #include <alibabacloud/models/GetAppInstanceGroupResponseBody.hpp>
 #include <alibabacloud/models/GetAppInstanceGroupResponse.hpp>
@@ -155,6 +158,7 @@
 #include <alibabacloud/models/CreateWuyingServerRequestDataDisk.hpp>
 #include <alibabacloud/models/CreateWuyingServerResponseBodyData.hpp>
 #include <alibabacloud/models/DeleteAppInstancesResponseBodyDeleteAppInstanceModels.hpp>
+#include <alibabacloud/models/DescribeWuyingServerEipInfoResponseBodyEipInfoModel.hpp>
 #include <alibabacloud/models/GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps.hpp>
 #include <alibabacloud/models/GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedulesTimerPeriods.hpp>
 #include <alibabacloud/models/GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedules.hpp>
