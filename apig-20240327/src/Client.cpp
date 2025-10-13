@@ -73,7 +73,7 @@ AddGatewaySecurityGroupRuleResponse Client::addGatewaySecurityGroupRuleWithOptio
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddGatewaySecurityGroupRuleResponse>();
 }
 
@@ -107,7 +107,7 @@ BatchDeleteConsumerAuthorizationRuleResponse Client::batchDeleteConsumerAuthoriz
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "BatchDeleteConsumerAuthorizationRule"},
     {"version" , "2024-03-27"},
@@ -118,7 +118,7 @@ BatchDeleteConsumerAuthorizationRuleResponse Client::batchDeleteConsumerAuthoriz
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<BatchDeleteConsumerAuthorizationRuleResponse>();
 }
 
@@ -164,7 +164,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ChangeResourceGroup"},
     {"version" , "2024-03-27"},
@@ -175,7 +175,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ChangeResourceGroupResponse>();
 }
 
@@ -248,7 +248,7 @@ CreateAndAttachPolicyResponse Client::createAndAttachPolicyWithOptions(const Cre
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateAndAttachPolicyResponse>();
 }
 
@@ -317,7 +317,7 @@ CreateConsumerResponse Client::createConsumerWithOptions(const CreateConsumerReq
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateConsumerResponse>();
 }
 
@@ -378,7 +378,7 @@ CreateConsumerAuthorizationRuleResponse Client::createConsumerAuthorizationRuleW
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateConsumerAuthorizationRuleResponse>();
 }
 
@@ -423,7 +423,7 @@ CreateConsumerAuthorizationRulesResponse Client::createConsumerAuthorizationRule
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateConsumerAuthorizationRulesResponse>();
 }
 
@@ -518,7 +518,7 @@ CreateDomainResponse Client::createDomainWithOptions(const CreateDomainRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateDomainResponse>();
 }
 
@@ -585,7 +585,7 @@ CreateEnvironmentResponse Client::createEnvironmentWithOptions(const CreateEnvir
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateEnvironmentResponse>();
 }
 
@@ -618,6 +618,10 @@ CreateGatewayResponse Client::createGatewayWithOptions(const CreateGatewayReques
   json body = {};
   if (!!request.hasChargeType()) {
     body["chargeType"] = request.chargeType();
+  }
+
+  if (!!request.hasGatewayEdition()) {
+    body["gatewayEdition"] = request.gatewayEdition();
   }
 
   if (!!request.hasGatewayType()) {
@@ -670,7 +674,7 @@ CreateGatewayResponse Client::createGatewayWithOptions(const CreateGatewayReques
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateGatewayResponse>();
 }
 
@@ -725,6 +729,10 @@ CreateHttpApiResponse Client::createHttpApiWithOptions(const CreateHttpApiReques
     body["enableAuth"] = request.enableAuth();
   }
 
+  if (!!request.hasFirstByteTimeout()) {
+    body["firstByteTimeout"] = request.firstByteTimeout();
+  }
+
   if (!!request.hasIngressConfig()) {
     body["ingressConfig"] = request.ingressConfig();
   }
@@ -771,7 +779,7 @@ CreateHttpApiResponse Client::createHttpApiWithOptions(const CreateHttpApiReques
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateHttpApiResponse>();
 }
 
@@ -816,7 +824,7 @@ CreateHttpApiOperationResponse Client::createHttpApiOperationWithOptions(const s
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateHttpApiOperationResponse>();
 }
 
@@ -889,7 +897,7 @@ CreateHttpApiRouteResponse Client::createHttpApiRouteWithOptions(const string &h
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateHttpApiRouteResponse>();
 }
 
@@ -903,6 +911,91 @@ CreateHttpApiRouteResponse Client::createHttpApiRoute(const string &httpApiId, c
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createHttpApiRouteWithOptions(httpApiId, request, headers, runtime);
+}
+
+/**
+ * @summary 创建MCP server
+ *
+ * @param request CreateMcpServerRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMcpServerResponse
+ */
+CreateMcpServerResponse Client::createMcpServerWithOptions(const CreateMcpServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAssembledSources()) {
+    body["assembledSources"] = request.assembledSources();
+  }
+
+  if (!!request.hasBackendConfig()) {
+    body["backendConfig"] = request.backendConfig();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.description();
+  }
+
+  if (!!request.hasDomainIds()) {
+    body["domainIds"] = request.domainIds();
+  }
+
+  if (!!request.hasExposedUriPath()) {
+    body["exposedUriPath"] = request.exposedUriPath();
+  }
+
+  if (!!request.hasGatewayId()) {
+    body["gatewayId"] = request.gatewayId();
+  }
+
+  if (!!request.hasMatch()) {
+    body["match"] = request.match();
+  }
+
+  if (!!request.hasMcpStatisticsEnable()) {
+    body["mcpStatisticsEnable"] = request.mcpStatisticsEnable();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.name();
+  }
+
+  if (!!request.hasProtocol()) {
+    body["protocol"] = request.protocol();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.type();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateMcpServer"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/mcp-servers")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMcpServerResponse>();
+}
+
+/**
+ * @summary 创建MCP server
+ *
+ * @param request CreateMcpServerRequest
+ * @return CreateMcpServerResponse
+ */
+CreateMcpServerResponse Client::createMcpServer(const CreateMcpServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createMcpServerWithOptions(request, headers, runtime);
 }
 
 /**
@@ -958,7 +1051,7 @@ CreatePluginAttachmentResponse Client::createPluginAttachmentWithOptions(const C
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreatePluginAttachmentResponse>();
 }
 
@@ -1015,7 +1108,7 @@ CreatePolicyResponse Client::createPolicyWithOptions(const CreatePolicyRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreatePolicyResponse>();
 }
 
@@ -1076,7 +1169,7 @@ CreatePolicyAttachmentResponse Client::createPolicyAttachmentWithOptions(const C
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreatePolicyAttachmentResponse>();
 }
 
@@ -1135,7 +1228,7 @@ CreateServiceResponse Client::createServiceWithOptions(const CreateServiceReques
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateServiceResponse>();
 }
 
@@ -1163,7 +1256,7 @@ CreateServiceResponse Client::createService(const CreateServiceRequest &request)
 DeleteConsumerResponse Client::deleteConsumerWithOptions(const string &consumerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteConsumer"},
     {"version" , "2024-03-27"},
@@ -1174,7 +1267,7 @@ DeleteConsumerResponse Client::deleteConsumerWithOptions(const string &consumerI
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteConsumerResponse>();
 }
 
@@ -1199,7 +1292,7 @@ DeleteConsumerResponse Client::deleteConsumer(const string &consumerId) {
 DeleteConsumerAuthorizationRuleResponse Client::deleteConsumerAuthorizationRuleWithOptions(const string &consumerAuthorizationRuleId, const string &consumerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteConsumerAuthorizationRule"},
     {"version" , "2024-03-27"},
@@ -1210,7 +1303,7 @@ DeleteConsumerAuthorizationRuleResponse Client::deleteConsumerAuthorizationRuleW
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteConsumerAuthorizationRuleResponse>();
 }
 
@@ -1235,7 +1328,7 @@ DeleteConsumerAuthorizationRuleResponse Client::deleteConsumerAuthorizationRule(
 DeleteDomainResponse Client::deleteDomainWithOptions(const string &domainId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteDomain"},
     {"version" , "2024-03-27"},
@@ -1246,7 +1339,7 @@ DeleteDomainResponse Client::deleteDomainWithOptions(const string &domainId, con
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteDomainResponse>();
 }
 
@@ -1273,7 +1366,7 @@ DeleteDomainResponse Client::deleteDomain(const string &domainId) {
 DeleteEnvironmentResponse Client::deleteEnvironmentWithOptions(const string &environmentId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteEnvironment"},
     {"version" , "2024-03-27"},
@@ -1284,7 +1377,7 @@ DeleteEnvironmentResponse Client::deleteEnvironmentWithOptions(const string &env
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteEnvironmentResponse>();
 }
 
@@ -1311,7 +1404,7 @@ DeleteEnvironmentResponse Client::deleteEnvironment(const string &environmentId)
 DeleteGatewayResponse Client::deleteGatewayWithOptions(const string &gatewayId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteGateway"},
     {"version" , "2024-03-27"},
@@ -1322,7 +1415,7 @@ DeleteGatewayResponse Client::deleteGatewayWithOptions(const string &gatewayId, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteGatewayResponse>();
 }
 
@@ -1355,7 +1448,7 @@ DeleteGatewaySecurityGroupRuleResponse Client::deleteGatewaySecurityGroupRuleWit
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteGatewaySecurityGroupRule"},
     {"version" , "2024-03-27"},
@@ -1366,7 +1459,7 @@ DeleteGatewaySecurityGroupRuleResponse Client::deleteGatewaySecurityGroupRuleWit
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteGatewaySecurityGroupRuleResponse>();
 }
 
@@ -1392,7 +1485,7 @@ DeleteGatewaySecurityGroupRuleResponse Client::deleteGatewaySecurityGroupRule(co
 DeleteHttpApiResponse Client::deleteHttpApiWithOptions(const string &httpApiId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteHttpApi"},
     {"version" , "2024-03-27"},
@@ -1403,7 +1496,7 @@ DeleteHttpApiResponse Client::deleteHttpApiWithOptions(const string &httpApiId, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteHttpApiResponse>();
 }
 
@@ -1428,7 +1521,7 @@ DeleteHttpApiResponse Client::deleteHttpApi(const string &httpApiId) {
 DeleteHttpApiOperationResponse Client::deleteHttpApiOperationWithOptions(const string &httpApiId, const string &operationId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteHttpApiOperation"},
     {"version" , "2024-03-27"},
@@ -1439,7 +1532,7 @@ DeleteHttpApiOperationResponse Client::deleteHttpApiOperationWithOptions(const s
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteHttpApiOperationResponse>();
 }
 
@@ -1464,7 +1557,7 @@ DeleteHttpApiOperationResponse Client::deleteHttpApiOperation(const string &http
 DeleteHttpApiRouteResponse Client::deleteHttpApiRouteWithOptions(const string &httpApiId, const string &routeId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteHttpApiRoute"},
     {"version" , "2024-03-27"},
@@ -1475,7 +1568,7 @@ DeleteHttpApiRouteResponse Client::deleteHttpApiRouteWithOptions(const string &h
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteHttpApiRouteResponse>();
 }
 
@@ -1491,6 +1584,42 @@ DeleteHttpApiRouteResponse Client::deleteHttpApiRoute(const string &httpApiId, c
 }
 
 /**
+ * @summary 删除MCP server
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMcpServerResponse
+ */
+DeleteMcpServerResponse Client::deleteMcpServerWithOptions(const string &mcpServerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteMcpServer"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/mcp-servers/" , Darabonba::Http::URL::percentEncode(mcpServerId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMcpServerResponse>();
+}
+
+/**
+ * @summary 删除MCP server
+ *
+ * @return DeleteMcpServerResponse
+ */
+DeleteMcpServerResponse Client::deleteMcpServer(const string &mcpServerId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteMcpServerWithOptions(mcpServerId, headers, runtime);
+}
+
+/**
  * @summary 删除挂载规则API
  *
  * @param headers map
@@ -1500,7 +1629,7 @@ DeleteHttpApiRouteResponse Client::deleteHttpApiRoute(const string &httpApiId, c
 DeletePluginAttachmentResponse Client::deletePluginAttachmentWithOptions(const string &pluginAttachmentId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeletePluginAttachment"},
     {"version" , "2024-03-27"},
@@ -1511,7 +1640,7 @@ DeletePluginAttachmentResponse Client::deletePluginAttachmentWithOptions(const s
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeletePluginAttachmentResponse>();
 }
 
@@ -1536,7 +1665,7 @@ DeletePluginAttachmentResponse Client::deletePluginAttachment(const string &plug
 DeletePolicyResponse Client::deletePolicyWithOptions(const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeletePolicy"},
     {"version" , "2024-03-27"},
@@ -1547,7 +1676,7 @@ DeletePolicyResponse Client::deletePolicyWithOptions(const string &policyId, con
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeletePolicyResponse>();
 }
 
@@ -1572,7 +1701,7 @@ DeletePolicyResponse Client::deletePolicy(const string &policyId) {
 DeletePolicyAttachmentResponse Client::deletePolicyAttachmentWithOptions(const string &policyAttachmentId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeletePolicyAttachment"},
     {"version" , "2024-03-27"},
@@ -1583,7 +1712,7 @@ DeletePolicyAttachmentResponse Client::deletePolicyAttachmentWithOptions(const s
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeletePolicyAttachmentResponse>();
 }
 
@@ -1608,7 +1737,7 @@ DeletePolicyAttachmentResponse Client::deletePolicyAttachment(const string &poli
 DeleteServiceResponse Client::deleteServiceWithOptions(const string &serviceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteService"},
     {"version" , "2024-03-27"},
@@ -1619,7 +1748,7 @@ DeleteServiceResponse Client::deleteServiceWithOptions(const string &serviceId, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteServiceResponse>();
 }
 
@@ -1671,7 +1800,7 @@ DeployHttpApiResponse Client::deployHttpApiWithOptions(const string &httpApiId, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeployHttpApiResponse>();
 }
 
@@ -1688,6 +1817,42 @@ DeployHttpApiResponse Client::deployHttpApi(const string &httpApiId, const Deplo
 }
 
 /**
+ * @summary 发布MCP server
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeployMcpServerResponse
+ */
+DeployMcpServerResponse Client::deployMcpServerWithOptions(const string &mcpServerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeployMcpServer"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/mcp-servers/" , Darabonba::Http::URL::percentEncode(mcpServerId) , "/deploy")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeployMcpServerResponse>();
+}
+
+/**
+ * @summary 发布MCP server
+ *
+ * @return DeployMcpServerResponse
+ */
+DeployMcpServerResponse Client::deployMcpServer(const string &mcpServerId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deployMcpServerWithOptions(mcpServerId, headers, runtime);
+}
+
+/**
  * @summary Export HTTP API
  *
  * @param headers map
@@ -1697,7 +1862,7 @@ DeployHttpApiResponse Client::deployHttpApi(const string &httpApiId, const Deplo
 ExportHttpApiResponse Client::exportHttpApiWithOptions(const string &httpApiId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ExportHttpApi"},
     {"version" , "2024-03-27"},
@@ -1708,7 +1873,7 @@ ExportHttpApiResponse Client::exportHttpApiWithOptions(const string &httpApiId, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ExportHttpApiResponse>();
 }
 
@@ -1733,7 +1898,7 @@ ExportHttpApiResponse Client::exportHttpApi(const string &httpApiId) {
 GetConsumerResponse Client::getConsumerWithOptions(const string &consumerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetConsumer"},
     {"version" , "2024-03-27"},
@@ -1744,7 +1909,7 @@ GetConsumerResponse Client::getConsumerWithOptions(const string &consumerId, con
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetConsumerResponse>();
 }
 
@@ -1769,7 +1934,7 @@ GetConsumerResponse Client::getConsumer(const string &consumerId) {
 GetConsumerAuthorizationRuleResponse Client::getConsumerAuthorizationRuleWithOptions(const string &consumerAuthorizationRuleId, const string &consumerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetConsumerAuthorizationRule"},
     {"version" , "2024-03-27"},
@@ -1780,7 +1945,7 @@ GetConsumerAuthorizationRuleResponse Client::getConsumerAuthorizationRuleWithOpt
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetConsumerAuthorizationRuleResponse>();
 }
 
@@ -1851,7 +2016,7 @@ GetDashboardResponse Client::getDashboardWithOptions(const string &gatewayId, co
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetDashboard"},
     {"version" , "2024-03-27"},
@@ -1862,7 +2027,7 @@ GetDashboardResponse Client::getDashboardWithOptions(const string &gatewayId, co
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetDashboardResponse>();
 }
 
@@ -1896,7 +2061,7 @@ GetDomainResponse Client::getDomainWithOptions(const string &domainId, const Get
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetDomain"},
     {"version" , "2024-03-27"},
@@ -1907,7 +2072,7 @@ GetDomainResponse Client::getDomainWithOptions(const string &domainId, const Get
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetDomainResponse>();
 }
 
@@ -1947,7 +2112,7 @@ GetEnvironmentResponse Client::getEnvironmentWithOptions(const string &environme
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetEnvironment"},
     {"version" , "2024-03-27"},
@@ -1958,7 +2123,7 @@ GetEnvironmentResponse Client::getEnvironmentWithOptions(const string &environme
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetEnvironmentResponse>();
 }
 
@@ -1986,7 +2151,7 @@ GetEnvironmentResponse Client::getEnvironment(const string &environmentId, const
 GetGatewayResponse Client::getGatewayWithOptions(const string &gatewayId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetGateway"},
     {"version" , "2024-03-27"},
@@ -1997,7 +2162,7 @@ GetGatewayResponse Client::getGatewayWithOptions(const string &gatewayId, const 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetGatewayResponse>();
 }
 
@@ -2022,7 +2187,7 @@ GetGatewayResponse Client::getGateway(const string &gatewayId) {
 GetHttpApiResponse Client::getHttpApiWithOptions(const string &httpApiId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetHttpApi"},
     {"version" , "2024-03-27"},
@@ -2033,7 +2198,7 @@ GetHttpApiResponse Client::getHttpApiWithOptions(const string &httpApiId, const 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetHttpApiResponse>();
 }
 
@@ -2058,7 +2223,7 @@ GetHttpApiResponse Client::getHttpApi(const string &httpApiId) {
 GetHttpApiOperationResponse Client::getHttpApiOperationWithOptions(const string &httpApiId, const string &operationId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetHttpApiOperation"},
     {"version" , "2024-03-27"},
@@ -2069,7 +2234,7 @@ GetHttpApiOperationResponse Client::getHttpApiOperationWithOptions(const string 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetHttpApiOperationResponse>();
 }
 
@@ -2094,7 +2259,7 @@ GetHttpApiOperationResponse Client::getHttpApiOperation(const string &httpApiId,
 GetHttpApiRouteResponse Client::getHttpApiRouteWithOptions(const string &httpApiId, const string &routeId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetHttpApiRoute"},
     {"version" , "2024-03-27"},
@@ -2105,7 +2270,7 @@ GetHttpApiRouteResponse Client::getHttpApiRouteWithOptions(const string &httpApi
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetHttpApiRouteResponse>();
 }
 
@@ -2121,6 +2286,42 @@ GetHttpApiRouteResponse Client::getHttpApiRoute(const string &httpApiId, const s
 }
 
 /**
+ * @summary 获取MCP server
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMcpServerResponse
+ */
+GetMcpServerResponse Client::getMcpServerWithOptions(const string &mcpServerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMcpServer"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/mcp-servers/" , Darabonba::Http::URL::percentEncode(mcpServerId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMcpServerResponse>();
+}
+
+/**
+ * @summary 获取MCP server
+ *
+ * @return GetMcpServerResponse
+ */
+GetMcpServerResponse Client::getMcpServer(const string &mcpServerId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMcpServerWithOptions(mcpServerId, headers, runtime);
+}
+
+/**
  * @summary GetPluginAttachment。
  *
  * @param headers map
@@ -2130,7 +2331,7 @@ GetHttpApiRouteResponse Client::getHttpApiRoute(const string &httpApiId, const s
 GetPluginAttachmentResponse Client::getPluginAttachmentWithOptions(const string &pluginAttachmentId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetPluginAttachment"},
     {"version" , "2024-03-27"},
@@ -2141,7 +2342,7 @@ GetPluginAttachmentResponse Client::getPluginAttachmentWithOptions(const string 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetPluginAttachmentResponse>();
 }
 
@@ -2166,7 +2367,7 @@ GetPluginAttachmentResponse Client::getPluginAttachment(const string &pluginAtta
 GetPolicyResponse Client::getPolicyWithOptions(const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetPolicy"},
     {"version" , "2024-03-27"},
@@ -2177,7 +2378,7 @@ GetPolicyResponse Client::getPolicyWithOptions(const string &policyId, const map
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetPolicyResponse>();
 }
 
@@ -2202,7 +2403,7 @@ GetPolicyResponse Client::getPolicy(const string &policyId) {
 GetPolicyAttachmentResponse Client::getPolicyAttachmentWithOptions(const string &policyAttachmentId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetPolicyAttachment"},
     {"version" , "2024-03-27"},
@@ -2213,7 +2414,7 @@ GetPolicyAttachmentResponse Client::getPolicyAttachmentWithOptions(const string 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetPolicyAttachmentResponse>();
 }
 
@@ -2246,7 +2447,7 @@ GetResourceOverviewResponse Client::getResourceOverviewWithOptions(const GetReso
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetResourceOverview"},
     {"version" , "2024-03-27"},
@@ -2257,7 +2458,7 @@ GetResourceOverviewResponse Client::getResourceOverviewWithOptions(const GetReso
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetResourceOverviewResponse>();
 }
 
@@ -2283,7 +2484,7 @@ GetResourceOverviewResponse Client::getResourceOverview(const GetResourceOvervie
 GetServiceResponse Client::getServiceWithOptions(const string &serviceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetService"},
     {"version" , "2024-03-27"},
@@ -2294,7 +2495,7 @@ GetServiceResponse Client::getServiceWithOptions(const string &serviceId, const 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetServiceResponse>();
 }
 
@@ -2327,7 +2528,7 @@ GetTraceConfigResponse Client::getTraceConfigWithOptions(const string &gatewayId
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetTraceConfig"},
     {"version" , "2024-03-27"},
@@ -2338,7 +2539,7 @@ GetTraceConfigResponse Client::getTraceConfigWithOptions(const string &gatewayId
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetTraceConfigResponse>();
 }
 
@@ -2375,6 +2576,10 @@ ImportHttpApiResponse Client::importHttpApiWithOptions(const ImportHttpApiReques
 
   if (!!request.hasDryRun()) {
     body["dryRun"] = request.dryRun();
+  }
+
+  if (!!request.hasGatewayId()) {
+    body["gatewayId"] = request.gatewayId();
   }
 
   if (!!request.hasMcpRouteId()) {
@@ -2427,7 +2632,7 @@ ImportHttpApiResponse Client::importHttpApiWithOptions(const ImportHttpApiReques
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ImportHttpApiResponse>();
 }
 
@@ -2441,6 +2646,55 @@ ImportHttpApiResponse Client::importHttpApi(const ImportHttpApiRequest &request)
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return importHttpApiWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary InstallPlugin
+ *
+ * @param request InstallPluginRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InstallPluginResponse
+ */
+InstallPluginResponse Client::installPluginWithOptions(const InstallPluginRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasGatewayIds()) {
+    body["gatewayIds"] = request.gatewayIds();
+  }
+
+  if (!!request.hasPluginClassId()) {
+    body["pluginClassId"] = request.pluginClassId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "InstallPlugin"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/plugins/")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InstallPluginResponse>();
+}
+
+/**
+ * @summary InstallPlugin
+ *
+ * @param request InstallPluginRequest
+ * @return InstallPluginResponse
+ */
+InstallPluginResponse Client::installPlugin(const InstallPluginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return installPluginWithOptions(request, headers, runtime);
 }
 
 /**
@@ -2473,7 +2727,7 @@ ListConsumersResponse Client::listConsumersWithOptions(const ListConsumersReques
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListConsumers"},
     {"version" , "2024-03-27"},
@@ -2484,7 +2738,7 @@ ListConsumersResponse Client::listConsumersWithOptions(const ListConsumersReques
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListConsumersResponse>();
 }
 
@@ -2538,7 +2792,7 @@ ListDomainsResponse Client::listDomainsWithOptions(const ListDomainsRequest &req
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListDomains"},
     {"version" , "2024-03-27"},
@@ -2549,7 +2803,7 @@ ListDomainsResponse Client::listDomainsWithOptions(const ListDomainsRequest &req
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListDomainsResponse>();
 }
 
@@ -2613,7 +2867,7 @@ ListEnvironmentsResponse Client::listEnvironmentsWithOptions(const ListEnvironme
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListEnvironments"},
     {"version" , "2024-03-27"},
@@ -2624,7 +2878,7 @@ ListEnvironmentsResponse Client::listEnvironmentsWithOptions(const ListEnvironme
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListEnvironmentsResponse>();
 }
 
@@ -2694,7 +2948,7 @@ ListGatewaysResponse Client::listGatewaysWithOptions(const ListGatewaysRequest &
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListGateways"},
     {"version" , "2024-03-27"},
@@ -2705,7 +2959,7 @@ ListGatewaysResponse Client::listGatewaysWithOptions(const ListGatewaysRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListGatewaysResponse>();
 }
 
@@ -2734,6 +2988,10 @@ ListHttpApiOperationsResponse Client::listHttpApiOperationsWithOptions(const str
   json query = {};
   if (!!request.hasConsumerAuthorizationRuleId()) {
     query["consumerAuthorizationRuleId"] = request.consumerAuthorizationRuleId();
+  }
+
+  if (!!request.hasEnableAuth()) {
+    query["enableAuth"] = request.enableAuth();
   }
 
   if (!!request.hasForDeploy()) {
@@ -2783,7 +3041,7 @@ ListHttpApiOperationsResponse Client::listHttpApiOperationsWithOptions(const str
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListHttpApiOperations"},
     {"version" , "2024-03-27"},
@@ -2794,7 +3052,7 @@ ListHttpApiOperationsResponse Client::listHttpApiOperationsWithOptions(const str
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListHttpApiOperationsResponse>();
 }
 
@@ -2880,7 +3138,7 @@ ListHttpApiRoutesResponse Client::listHttpApiRoutesWithOptions(const string &htt
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListHttpApiRoutes"},
     {"version" , "2024-03-27"},
@@ -2891,7 +3149,7 @@ ListHttpApiRoutesResponse Client::listHttpApiRoutesWithOptions(const string &htt
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListHttpApiRoutesResponse>();
 }
 
@@ -2989,7 +3247,7 @@ ListHttpApisResponse Client::listHttpApisWithOptions(const ListHttpApisRequest &
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListHttpApis"},
     {"version" , "2024-03-27"},
@@ -3000,7 +3258,7 @@ ListHttpApisResponse Client::listHttpApisWithOptions(const ListHttpApisRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListHttpApisResponse>();
 }
 
@@ -3014,6 +3272,75 @@ ListHttpApisResponse Client::listHttpApis(const ListHttpApisRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listHttpApisWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取MCP server列表
+ *
+ * @param request ListMcpServersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMcpServersResponse
+ */
+ListMcpServersResponse Client::listMcpServersWithOptions(const ListMcpServersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCreateFromTypes()) {
+    query["createFromTypes"] = request.createFromTypes();
+  }
+
+  if (!!request.hasDeployStatuses()) {
+    query["deployStatuses"] = request.deployStatuses();
+  }
+
+  if (!!request.hasGatewayId()) {
+    query["gatewayId"] = request.gatewayId();
+  }
+
+  if (!!request.hasNameLike()) {
+    query["nameLike"] = request.nameLike();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasType()) {
+    query["type"] = request.type();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMcpServers"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/mcp-servers")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMcpServersResponse>();
+}
+
+/**
+ * @summary 获取MCP server列表
+ *
+ * @param request ListMcpServersRequest
+ * @return ListMcpServersResponse
+ */
+ListMcpServersResponse Client::listMcpServers(const ListMcpServersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMcpServersWithOptions(request, headers, runtime);
 }
 
 /**
@@ -3066,7 +3393,7 @@ ListPluginAttachmentsResponse Client::listPluginAttachmentsWithOptions(const Lis
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListPluginAttachments"},
     {"version" , "2024-03-27"},
@@ -3077,7 +3404,7 @@ ListPluginAttachmentsResponse Client::listPluginAttachmentsWithOptions(const Lis
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListPluginAttachmentsResponse>();
 }
 
@@ -3147,7 +3474,7 @@ ListPluginsResponse Client::listPluginsWithOptions(const ListPluginsRequest &req
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListPlugins"},
     {"version" , "2024-03-27"},
@@ -3158,7 +3485,7 @@ ListPluginsResponse Client::listPluginsWithOptions(const ListPluginsRequest &req
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListPluginsResponse>();
 }
 
@@ -3212,7 +3539,7 @@ ListPoliciesResponse Client::listPoliciesWithOptions(const ListPoliciesRequest &
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListPolicies"},
     {"version" , "2024-03-27"},
@@ -3223,7 +3550,7 @@ ListPoliciesResponse Client::listPoliciesWithOptions(const ListPoliciesRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListPoliciesResponse>();
 }
 
@@ -3281,7 +3608,7 @@ ListPolicyClassesResponse Client::listPolicyClassesWithOptions(const ListPolicyC
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListPolicyClasses"},
     {"version" , "2024-03-27"},
@@ -3292,7 +3619,7 @@ ListPolicyClassesResponse Client::listPolicyClassesWithOptions(const ListPolicyC
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListPolicyClassesResponse>();
 }
 
@@ -3350,7 +3677,7 @@ ListServicesResponse Client::listServicesWithOptions(const ListServicesRequest &
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListServices"},
     {"version" , "2024-03-27"},
@@ -3361,7 +3688,7 @@ ListServicesResponse Client::listServicesWithOptions(const ListServicesRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListServicesResponse>();
 }
 
@@ -3407,7 +3734,7 @@ ListSslCertsResponse Client::listSslCertsWithOptions(const ListSslCertsRequest &
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListSslCerts"},
     {"version" , "2024-03-27"},
@@ -3418,7 +3745,7 @@ ListSslCertsResponse Client::listSslCertsWithOptions(const ListSslCertsRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListSslCertsResponse>();
 }
 
@@ -3444,7 +3771,7 @@ ListSslCertsResponse Client::listSslCerts(const ListSslCertsRequest &request) {
 ListZonesResponse Client::listZonesWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListZones"},
     {"version" , "2024-03-27"},
@@ -3455,7 +3782,7 @@ ListZonesResponse Client::listZonesWithOptions(const map<string, string> &header
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListZonesResponse>();
 }
 
@@ -3528,7 +3855,7 @@ QueryConsumerAuthorizationRulesResponse Client::queryConsumerAuthorizationRulesW
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryConsumerAuthorizationRules"},
     {"version" , "2024-03-27"},
@@ -3539,7 +3866,7 @@ QueryConsumerAuthorizationRulesResponse Client::queryConsumerAuthorizationRulesW
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryConsumerAuthorizationRulesResponse>();
 }
 
@@ -3565,7 +3892,7 @@ QueryConsumerAuthorizationRulesResponse Client::queryConsumerAuthorizationRules(
 RemoveConsumerAuthorizationRuleResponse Client::removeConsumerAuthorizationRuleWithOptions(const string &consumerAuthorizationRuleId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "RemoveConsumerAuthorizationRule"},
     {"version" , "2024-03-27"},
@@ -3576,7 +3903,7 @@ RemoveConsumerAuthorizationRuleResponse Client::removeConsumerAuthorizationRuleW
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RemoveConsumerAuthorizationRuleResponse>();
 }
 
@@ -3601,7 +3928,7 @@ RemoveConsumerAuthorizationRuleResponse Client::removeConsumerAuthorizationRule(
 RestartGatewayResponse Client::restartGatewayWithOptions(const string &gatewayId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "RestartGateway"},
     {"version" , "2024-03-27"},
@@ -3612,7 +3939,7 @@ RestartGatewayResponse Client::restartGatewayWithOptions(const string &gatewayId
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RestartGatewayResponse>();
 }
 
@@ -3625,6 +3952,42 @@ RestartGatewayResponse Client::restartGateway(const string &gatewayId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return restartGatewayWithOptions(gatewayId, headers, runtime);
+}
+
+/**
+ * @summary 取消发布MCP server
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UnDeployMcpServerResponse
+ */
+UnDeployMcpServerResponse Client::unDeployMcpServerWithOptions(const string &mcpServerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UnDeployMcpServer"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/mcp-servers/" , Darabonba::Http::URL::percentEncode(mcpServerId) , "/undeploy")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UnDeployMcpServerResponse>();
+}
+
+/**
+ * @summary 取消发布MCP server
+ *
+ * @return UnDeployMcpServerResponse
+ */
+UnDeployMcpServerResponse Client::unDeployMcpServer(const string &mcpServerId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return unDeployMcpServerWithOptions(mcpServerId, headers, runtime);
 }
 
 /**
@@ -3668,7 +4031,7 @@ UndeployHttpApiResponse Client::undeployHttpApiWithOptions(const string &httpApi
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UndeployHttpApiResponse>();
 }
 
@@ -3682,6 +4045,42 @@ UndeployHttpApiResponse Client::undeployHttpApi(const string &httpApiId, const U
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return undeployHttpApiWithOptions(httpApiId, request, headers, runtime);
+}
+
+/**
+ * @summary UninstallPlugin
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UninstallPluginResponse
+ */
+UninstallPluginResponse Client::uninstallPluginWithOptions(const string &pluginId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UninstallPlugin"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/plugins/" , Darabonba::Http::URL::percentEncode(pluginId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UninstallPluginResponse>();
+}
+
+/**
+ * @summary UninstallPlugin
+ *
+ * @return UninstallPluginResponse
+ */
+UninstallPluginResponse Client::uninstallPlugin(const string &pluginId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return uninstallPluginWithOptions(pluginId, headers, runtime);
 }
 
 /**
@@ -3737,7 +4136,7 @@ UpdateAndAttachPolicyResponse Client::updateAndAttachPolicyWithOptions(const str
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateAndAttachPolicyResponse>();
 }
 
@@ -3798,7 +4197,7 @@ UpdateConsumerResponse Client::updateConsumerWithOptions(const string &consumerI
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateConsumerResponse>();
 }
 
@@ -3851,7 +4250,7 @@ UpdateConsumerAuthorizationRuleResponse Client::updateConsumerAuthorizationRuleW
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateConsumerAuthorizationRuleResponse>();
 }
 
@@ -3932,7 +4331,7 @@ UpdateDomainResponse Client::updateDomainWithOptions(const string &domainId, con
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateDomainResponse>();
 }
 
@@ -3983,7 +4382,7 @@ UpdateEnvironmentResponse Client::updateEnvironmentWithOptions(const string &env
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateEnvironmentResponse>();
 }
 
@@ -4030,7 +4429,7 @@ UpdateGatewayFeatureResponse Client::updateGatewayFeatureWithOptions(const strin
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateGatewayFeatureResponse>();
 }
 
@@ -4064,7 +4463,7 @@ UpdateGatewayNameResponse Client::updateGatewayNameWithOptions(const string &gat
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateGatewayName"},
     {"version" , "2024-03-27"},
@@ -4075,7 +4474,7 @@ UpdateGatewayNameResponse Client::updateGatewayNameWithOptions(const string &gat
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateGatewayNameResponse>();
 }
 
@@ -4130,6 +4529,10 @@ UpdateHttpApiResponse Client::updateHttpApiWithOptions(const string &httpApiId, 
     body["enableAuth"] = request.enableAuth();
   }
 
+  if (!!request.hasFirstByteTimeout()) {
+    body["firstByteTimeout"] = request.firstByteTimeout();
+  }
+
   if (!!request.hasIngressConfig()) {
     body["ingressConfig"] = request.ingressConfig();
   }
@@ -4164,7 +4567,7 @@ UpdateHttpApiResponse Client::updateHttpApiWithOptions(const string &httpApiId, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateHttpApiResponse>();
 }
 
@@ -4209,7 +4612,7 @@ UpdateHttpApiOperationResponse Client::updateHttpApiOperationWithOptions(const s
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateHttpApiOperationResponse>();
 }
 
@@ -4282,7 +4685,7 @@ UpdateHttpApiRouteResponse Client::updateHttpApiRouteWithOptions(const string &h
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateHttpApiRouteResponse>();
 }
 
@@ -4296,6 +4699,83 @@ UpdateHttpApiRouteResponse Client::updateHttpApiRoute(const string &httpApiId, c
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateHttpApiRouteWithOptions(httpApiId, routeId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新MCP server
+ *
+ * @param request UpdateMcpServerRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMcpServerResponse
+ */
+UpdateMcpServerResponse Client::updateMcpServerWithOptions(const string &mcpServerId, const UpdateMcpServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAssembledSources()) {
+    body["assembledSources"] = request.assembledSources();
+  }
+
+  if (!!request.hasBackendConfig()) {
+    body["backendConfig"] = request.backendConfig();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.description();
+  }
+
+  if (!!request.hasDomainIds()) {
+    body["domainIds"] = request.domainIds();
+  }
+
+  if (!!request.hasExposedUriPath()) {
+    body["exposedUriPath"] = request.exposedUriPath();
+  }
+
+  if (!!request.hasMatch()) {
+    body["match"] = request.match();
+  }
+
+  if (!!request.hasMcpStatisticsEnable()) {
+    body["mcpStatisticsEnable"] = request.mcpStatisticsEnable();
+  }
+
+  if (!!request.hasProtocol()) {
+    body["protocol"] = request.protocol();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.type();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateMcpServer"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/mcp-servers/" , Darabonba::Http::URL::percentEncode(mcpServerId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMcpServerResponse>();
+}
+
+/**
+ * @summary 更新MCP server
+ *
+ * @param request UpdateMcpServerRequest
+ * @return UpdateMcpServerResponse
+ */
+UpdateMcpServerResponse Client::updateMcpServer(const string &mcpServerId, const UpdateMcpServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateMcpServerWithOptions(mcpServerId, request, headers, runtime);
 }
 
 /**
@@ -4335,7 +4815,7 @@ UpdatePluginAttachmentResponse Client::updatePluginAttachmentWithOptions(const s
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdatePluginAttachmentResponse>();
 }
 
@@ -4388,7 +4868,7 @@ UpdatePolicyResponse Client::updatePolicyWithOptions(const string &policyId, con
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdatePolicyResponse>();
 }
 
@@ -4422,7 +4902,7 @@ UpgradeGatewayResponse Client::upgradeGatewayWithOptions(const string &gatewayId
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpgradeGateway"},
     {"version" , "2024-03-27"},
@@ -4433,7 +4913,7 @@ UpgradeGatewayResponse Client::upgradeGatewayWithOptions(const string &gatewayId
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpgradeGatewayResponse>();
 }
 

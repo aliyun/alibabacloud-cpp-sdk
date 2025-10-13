@@ -3,6 +3,10 @@
 #define ALIBABACLOUD_MODELS_SERVICE_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/AgentServiceConfig.hpp>
+#include <alibabacloud/models/AiServiceConfig.hpp>
+#include <alibabacloud/models/ServiceHealthCheck.hpp>
+#include <alibabacloud/models/LabelDetail.hpp>
 #include <alibabacloud/models/ServicePorts.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -27,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(labelDetails, labelDetails_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(namespace, namespace_);
+      DARABONBA_PTR_TO_JSON(outlierEndpoints, outlierEndpoints_);
       DARABONBA_PTR_TO_JSON(ports, ports_);
       DARABONBA_PTR_TO_JSON(protocol, protocol_);
       DARABONBA_PTR_TO_JSON(qualifier, qualifier_);
@@ -49,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(labelDetails, labelDetails_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(namespace, namespace_);
+      DARABONBA_PTR_FROM_JSON(outlierEndpoints, outlierEndpoints_);
       DARABONBA_PTR_FROM_JSON(ports, ports_);
       DARABONBA_PTR_FROM_JSON(protocol, protocol_);
       DARABONBA_PTR_FROM_JSON(qualifier, qualifier_);
@@ -72,8 +78,8 @@ namespace Models
     virtual bool empty() const override { this->addresses_ != nullptr
         && this->agentServiceConfig_ != nullptr && this->aiServiceConfig_ != nullptr && this->createTimestamp_ != nullptr && this->expressType_ != nullptr && this->gatewayId_ != nullptr
         && this->groupName_ != nullptr && this->healthCheck_ != nullptr && this->healthStatus_ != nullptr && this->labelDetails_ != nullptr && this->name_ != nullptr
-        && this->namespace_ != nullptr && this->ports_ != nullptr && this->protocol_ != nullptr && this->qualifier_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->serviceId_ != nullptr && this->sourceType_ != nullptr && this->unhealthyEndpoints_ != nullptr && this->updateTimestamp_ != nullptr; };
+        && this->namespace_ != nullptr && this->outlierEndpoints_ != nullptr && this->ports_ != nullptr && this->protocol_ != nullptr && this->qualifier_ != nullptr
+        && this->resourceGroupId_ != nullptr && this->serviceId_ != nullptr && this->sourceType_ != nullptr && this->unhealthyEndpoints_ != nullptr && this->updateTimestamp_ != nullptr; };
     // addresses Field Functions 
     bool hasAddresses() const { return this->addresses_ != nullptr;};
     void deleteAddresses() { this->addresses_ = nullptr;};
@@ -148,10 +154,10 @@ namespace Models
     // labelDetails Field Functions 
     bool hasLabelDetails() const { return this->labelDetails_ != nullptr;};
     void deleteLabelDetails() { this->labelDetails_ = nullptr;};
-    inline const LabelDetail & labelDetails() const { DARABONBA_PTR_GET_CONST(labelDetails_, LabelDetail) };
-    inline LabelDetail labelDetails() { DARABONBA_PTR_GET(labelDetails_, LabelDetail) };
-    inline Service& setLabelDetails(const LabelDetail & labelDetails) { DARABONBA_PTR_SET_VALUE(labelDetails_, labelDetails) };
-    inline Service& setLabelDetails(LabelDetail && labelDetails) { DARABONBA_PTR_SET_RVALUE(labelDetails_, labelDetails) };
+    inline const vector<LabelDetail> & labelDetails() const { DARABONBA_PTR_GET_CONST(labelDetails_, vector<LabelDetail>) };
+    inline vector<LabelDetail> labelDetails() { DARABONBA_PTR_GET(labelDetails_, vector<LabelDetail>) };
+    inline Service& setLabelDetails(const vector<LabelDetail> & labelDetails) { DARABONBA_PTR_SET_VALUE(labelDetails_, labelDetails) };
+    inline Service& setLabelDetails(vector<LabelDetail> && labelDetails) { DARABONBA_PTR_SET_RVALUE(labelDetails_, labelDetails) };
 
 
     // name Field Functions 
@@ -166,6 +172,15 @@ namespace Models
     void deleteNamespace() { this->namespace_ = nullptr;};
     inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline Service& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
+
+
+    // outlierEndpoints Field Functions 
+    bool hasOutlierEndpoints() const { return this->outlierEndpoints_ != nullptr;};
+    void deleteOutlierEndpoints() { this->outlierEndpoints_ = nullptr;};
+    inline const vector<string> & outlierEndpoints() const { DARABONBA_PTR_GET_CONST(outlierEndpoints_, vector<string>) };
+    inline vector<string> outlierEndpoints() { DARABONBA_PTR_GET(outlierEndpoints_, vector<string>) };
+    inline Service& setOutlierEndpoints(const vector<string> & outlierEndpoints) { DARABONBA_PTR_SET_VALUE(outlierEndpoints_, outlierEndpoints) };
+    inline Service& setOutlierEndpoints(vector<string> && outlierEndpoints) { DARABONBA_PTR_SET_RVALUE(outlierEndpoints_, outlierEndpoints) };
 
 
     // ports Field Functions 
@@ -238,9 +253,10 @@ namespace Models
     std::shared_ptr<string> groupName_ = nullptr;
     std::shared_ptr<ServiceHealthCheck> healthCheck_ = nullptr;
     std::shared_ptr<string> healthStatus_ = nullptr;
-    std::shared_ptr<LabelDetail> labelDetails_ = nullptr;
+    std::shared_ptr<vector<LabelDetail>> labelDetails_ = nullptr;
     std::shared_ptr<string> name_ = nullptr;
     std::shared_ptr<string> namespace_ = nullptr;
+    std::shared_ptr<vector<string>> outlierEndpoints_ = nullptr;
     std::shared_ptr<vector<ServicePorts>> ports_ = nullptr;
     std::shared_ptr<string> protocol_ = nullptr;
     std::shared_ptr<string> qualifier_ = nullptr;

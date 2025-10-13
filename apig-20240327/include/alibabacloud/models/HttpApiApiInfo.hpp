@@ -3,10 +3,13 @@
 #define ALIBABACLOUD_MODELS_HTTPAPIAPIINFO_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/AuthConfig.hpp>
 #include <map>
-#include <alibabacloud/APIG20240327.hpp>
+#include <alibabacloud/models/HttpApiApiInfoDeployCntMapValue.hpp>
+#include <alibabacloud/models/HttpApiDeployConfig.hpp>
 #include <alibabacloud/models/HttpApiApiInfoEnvironments.hpp>
 #include <alibabacloud/models/HttpApiApiInfoIngressInfo.hpp>
+#include <alibabacloud/models/HttpApiVersionInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

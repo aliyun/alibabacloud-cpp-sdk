@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_QUERYCONSUMERAUTHORIZATIONRULESRESPONSEBODYDATAITEMSRESOURCEINFO_HPP_
 #define ALIBABACLOUD_MODELS_QUERYCONSUMERAUTHORIZATIONRULESRESPONSEBODYDATAITEMSRESOURCEINFO_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/HttpApiOperationInfo.hpp>
+#include <alibabacloud/models/HttpRoute.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -19,6 +19,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateGatewayRequest& obj) { 
       DARABONBA_PTR_TO_JSON(chargeType, chargeType_);
+      DARABONBA_PTR_TO_JSON(gatewayEdition, gatewayEdition_);
       DARABONBA_PTR_TO_JSON(gatewayType, gatewayType_);
       DARABONBA_PTR_TO_JSON(logConfig, logConfig_);
       DARABONBA_PTR_TO_JSON(name, name_);
@@ -31,6 +32,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateGatewayRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(chargeType, chargeType_);
+      DARABONBA_PTR_FROM_JSON(gatewayEdition, gatewayEdition_);
       DARABONBA_PTR_FROM_JSON(gatewayType, gatewayType_);
       DARABONBA_PTR_FROM_JSON(logConfig, logConfig_);
       DARABONBA_PTR_FROM_JSON(name, name_);
@@ -53,13 +55,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->chargeType_ != nullptr
-        && this->gatewayType_ != nullptr && this->logConfig_ != nullptr && this->name_ != nullptr && this->networkAccessConfig_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->spec_ != nullptr && this->tag_ != nullptr && this->vpcId_ != nullptr && this->zoneConfig_ != nullptr; };
+        && this->gatewayEdition_ != nullptr && this->gatewayType_ != nullptr && this->logConfig_ != nullptr && this->name_ != nullptr && this->networkAccessConfig_ != nullptr
+        && this->resourceGroupId_ != nullptr && this->spec_ != nullptr && this->tag_ != nullptr && this->vpcId_ != nullptr && this->zoneConfig_ != nullptr; };
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
     inline string chargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
     inline CreateGatewayRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
+
+
+    // gatewayEdition Field Functions 
+    bool hasGatewayEdition() const { return this->gatewayEdition_ != nullptr;};
+    void deleteGatewayEdition() { this->gatewayEdition_ = nullptr;};
+    inline string gatewayEdition() const { DARABONBA_PTR_GET_DEFAULT(gatewayEdition_, "") };
+    inline CreateGatewayRequest& setGatewayEdition(string gatewayEdition) { DARABONBA_PTR_SET_VALUE(gatewayEdition_, gatewayEdition) };
 
 
     // gatewayType Field Functions 
@@ -135,6 +144,7 @@ namespace Models
 
   protected:
     std::shared_ptr<string> chargeType_ = nullptr;
+    std::shared_ptr<string> gatewayEdition_ = nullptr;
     std::shared_ptr<string> gatewayType_ = nullptr;
     std::shared_ptr<CreateGatewayRequestLogConfig> logConfig_ = nullptr;
     std::shared_ptr<string> name_ = nullptr;

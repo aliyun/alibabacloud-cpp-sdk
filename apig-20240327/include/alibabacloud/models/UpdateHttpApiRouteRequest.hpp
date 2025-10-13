@@ -4,7 +4,8 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/UpdateHttpApiRouteRequestBackendConfig.hpp>
 #include <vector>
-#include <alibabacloud/APIG20240327.hpp>
+#include <alibabacloud/models/HttpApiDeployConfig.hpp>
+#include <alibabacloud/models/HttpRouteMatch.hpp>
 #include <alibabacloud/models/UpdateHttpApiRouteRequestMcpRouteConfig.hpp>
 using namespace std;
 using json = nlohmann::json;

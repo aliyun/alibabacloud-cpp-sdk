@@ -3,8 +3,10 @@
 #define ALIBABACLOUD_MODELS_CREATEHTTPAPIREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/APIG20240327.hpp>
+#include <alibabacloud/models/AuthConfig.hpp>
+#include <alibabacloud/models/HttpApiDeployConfig.hpp>
 #include <alibabacloud/models/CreateHttpApiRequestIngressConfig.hpp>
+#include <alibabacloud/models/HttpApiVersionConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -23,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(deployConfigs, deployConfigs_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(enableAuth, enableAuth_);
+      DARABONBA_PTR_TO_JSON(firstByteTimeout, firstByteTimeout_);
       DARABONBA_PTR_TO_JSON(ingressConfig, ingressConfig_);
       DARABONBA_PTR_TO_JSON(modelCategory, modelCategory_);
       DARABONBA_PTR_TO_JSON(name, name_);
@@ -40,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(deployConfigs, deployConfigs_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(enableAuth, enableAuth_);
+      DARABONBA_PTR_FROM_JSON(firstByteTimeout, firstByteTimeout_);
       DARABONBA_PTR_FROM_JSON(ingressConfig, ingressConfig_);
       DARABONBA_PTR_FROM_JSON(modelCategory, modelCategory_);
       DARABONBA_PTR_FROM_JSON(name, name_);
@@ -62,8 +66,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->agentProtocols_ != nullptr
         && this->aiProtocols_ != nullptr && this->authConfig_ != nullptr && this->basePath_ != nullptr && this->deployConfigs_ != nullptr && this->description_ != nullptr
-        && this->enableAuth_ != nullptr && this->ingressConfig_ != nullptr && this->modelCategory_ != nullptr && this->name_ != nullptr && this->protocols_ != nullptr
-        && this->removeBasePathOnForward_ != nullptr && this->resourceGroupId_ != nullptr && this->type_ != nullptr && this->versionConfig_ != nullptr; };
+        && this->enableAuth_ != nullptr && this->firstByteTimeout_ != nullptr && this->ingressConfig_ != nullptr && this->modelCategory_ != nullptr && this->name_ != nullptr
+        && this->protocols_ != nullptr && this->removeBasePathOnForward_ != nullptr && this->resourceGroupId_ != nullptr && this->type_ != nullptr && this->versionConfig_ != nullptr; };
     // agentProtocols Field Functions 
     bool hasAgentProtocols() const { return this->agentProtocols_ != nullptr;};
     void deleteAgentProtocols() { this->agentProtocols_ = nullptr;};
@@ -119,6 +123,13 @@ namespace Models
     void deleteEnableAuth() { this->enableAuth_ = nullptr;};
     inline bool enableAuth() const { DARABONBA_PTR_GET_DEFAULT(enableAuth_, false) };
     inline CreateHttpApiRequest& setEnableAuth(bool enableAuth) { DARABONBA_PTR_SET_VALUE(enableAuth_, enableAuth) };
+
+
+    // firstByteTimeout Field Functions 
+    bool hasFirstByteTimeout() const { return this->firstByteTimeout_ != nullptr;};
+    void deleteFirstByteTimeout() { this->firstByteTimeout_ = nullptr;};
+    inline int32_t firstByteTimeout() const { DARABONBA_PTR_GET_DEFAULT(firstByteTimeout_, 0) };
+    inline CreateHttpApiRequest& setFirstByteTimeout(int32_t firstByteTimeout) { DARABONBA_PTR_SET_VALUE(firstByteTimeout_, firstByteTimeout) };
 
 
     // ingressConfig Field Functions 
@@ -199,6 +210,7 @@ namespace Models
     std::shared_ptr<string> description_ = nullptr;
     // Specifies whether to enable authentication.
     std::shared_ptr<bool> enableAuth_ = nullptr;
+    std::shared_ptr<int32_t> firstByteTimeout_ = nullptr;
     // The HTTP Ingress configurations.
     std::shared_ptr<CreateHttpApiRequestIngressConfig> ingressConfig_ = nullptr;
     std::shared_ptr<string> modelCategory_ = nullptr;

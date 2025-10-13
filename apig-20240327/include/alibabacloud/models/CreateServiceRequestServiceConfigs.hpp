@@ -3,6 +3,8 @@
 #define ALIBABACLOUD_MODELS_CREATESERVICEREQUESTSERVICECONFIGS_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/AgentServiceConfig.hpp>
+#include <alibabacloud/models/AiServiceConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

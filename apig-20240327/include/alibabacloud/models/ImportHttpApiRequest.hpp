@@ -2,7 +2,10 @@
 #ifndef ALIBABACLOUD_MODELS_IMPORTHTTPAPIREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_IMPORTHTTPAPIREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/HttpApiDeployConfig.hpp>
 #include <alibabacloud/models/ImportHttpApiRequestSpecOssConfig.hpp>
+#include <alibabacloud/models/HttpApiVersionConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -17,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(deployConfigs, deployConfigs_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(dryRun, dryRun_);
+      DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_TO_JSON(mcpRouteId, mcpRouteId_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
@@ -31,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(deployConfigs, deployConfigs_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(dryRun, dryRun_);
+      DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_FROM_JSON(mcpRouteId, mcpRouteId_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
@@ -53,16 +58,16 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->deployConfigs_ != nullptr
-        && this->description_ != nullptr && this->dryRun_ != nullptr && this->mcpRouteId_ != nullptr && this->name_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->specContentBase64_ != nullptr && this->specFileUrl_ != nullptr && this->specOssConfig_ != nullptr && this->strategy_ != nullptr && this->targetHttpApiId_ != nullptr
-        && this->versionConfig_ != nullptr; };
+        && this->description_ != nullptr && this->dryRun_ != nullptr && this->gatewayId_ != nullptr && this->mcpRouteId_ != nullptr && this->name_ != nullptr
+        && this->resourceGroupId_ != nullptr && this->specContentBase64_ != nullptr && this->specFileUrl_ != nullptr && this->specOssConfig_ != nullptr && this->strategy_ != nullptr
+        && this->targetHttpApiId_ != nullptr && this->versionConfig_ != nullptr; };
     // deployConfigs Field Functions 
     bool hasDeployConfigs() const { return this->deployConfigs_ != nullptr;};
     void deleteDeployConfigs() { this->deployConfigs_ = nullptr;};
-    inline const HttpApiDeployConfig & deployConfigs() const { DARABONBA_PTR_GET_CONST(deployConfigs_, HttpApiDeployConfig) };
-    inline HttpApiDeployConfig deployConfigs() { DARABONBA_PTR_GET(deployConfigs_, HttpApiDeployConfig) };
-    inline ImportHttpApiRequest& setDeployConfigs(const HttpApiDeployConfig & deployConfigs) { DARABONBA_PTR_SET_VALUE(deployConfigs_, deployConfigs) };
-    inline ImportHttpApiRequest& setDeployConfigs(HttpApiDeployConfig && deployConfigs) { DARABONBA_PTR_SET_RVALUE(deployConfigs_, deployConfigs) };
+    inline const vector<HttpApiDeployConfig> & deployConfigs() const { DARABONBA_PTR_GET_CONST(deployConfigs_, vector<HttpApiDeployConfig>) };
+    inline vector<HttpApiDeployConfig> deployConfigs() { DARABONBA_PTR_GET(deployConfigs_, vector<HttpApiDeployConfig>) };
+    inline ImportHttpApiRequest& setDeployConfigs(const vector<HttpApiDeployConfig> & deployConfigs) { DARABONBA_PTR_SET_VALUE(deployConfigs_, deployConfigs) };
+    inline ImportHttpApiRequest& setDeployConfigs(vector<HttpApiDeployConfig> && deployConfigs) { DARABONBA_PTR_SET_RVALUE(deployConfigs_, deployConfigs) };
 
 
     // description Field Functions 
@@ -77,6 +82,13 @@ namespace Models
     void deleteDryRun() { this->dryRun_ = nullptr;};
     inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline ImportHttpApiRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
+    // gatewayId Field Functions 
+    bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
+    void deleteGatewayId() { this->gatewayId_ = nullptr;};
+    inline string gatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
+    inline ImportHttpApiRequest& setGatewayId(string gatewayId) { DARABONBA_PTR_SET_VALUE(gatewayId_, gatewayId) };
 
 
     // mcpRouteId Field Functions 
@@ -148,11 +160,12 @@ namespace Models
 
   protected:
     // The deployment configuration.
-    std::shared_ptr<HttpApiDeployConfig> deployConfigs_ = nullptr;
+    std::shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ = nullptr;
     // The API description, which cannot exceed 255 bytes in length. If you do not specify a description, a description is extracted from the definition file.
     std::shared_ptr<string> description_ = nullptr;
     // Specifies whether to perform a dry run. If this parameter is set to true, a dry run is performed without importing the file.
     std::shared_ptr<bool> dryRun_ = nullptr;
+    std::shared_ptr<string> gatewayId_ = nullptr;
     // The MCP route ID.
     std::shared_ptr<string> mcpRouteId_ = nullptr;
     // The API name. If you do not specify a name, a name is extracted from the definition file. If a name and a versioning configuration already exist, the existing API definition is updated based on the strategy field.

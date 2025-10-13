@@ -2,6 +2,9 @@
 #ifndef ALIBABACLOUD_MODELS_GETCONSUMERRESPONSEBODYDATA_HPP_
 #define ALIBABACLOUD_MODELS_GETCONSUMERRESPONSEBODYDATA_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AkSkIdentityConfig.hpp>
+#include <alibabacloud/models/ApiKeyIdentityConfig.hpp>
+#include <alibabacloud/models/JwtIdentityConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

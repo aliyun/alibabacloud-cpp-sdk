@@ -267,6 +267,24 @@ namespace APIG20240327
       Models::CreateHttpApiRouteResponse createHttpApiRoute(const string &httpApiId, const Models::CreateHttpApiRouteRequest &request);
 
       /**
+       * @summary 创建MCP server
+       *
+       * @param request CreateMcpServerRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMcpServerResponse
+       */
+      Models::CreateMcpServerResponse createMcpServerWithOptions(const Models::CreateMcpServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建MCP server
+       *
+       * @param request CreateMcpServerRequest
+       * @return CreateMcpServerResponse
+       */
+      Models::CreateMcpServerResponse createMcpServer(const Models::CreateMcpServerRequest &request);
+
+      /**
        * @summary 创建API
        *
        * @param request CreatePluginAttachmentRequest
@@ -493,6 +511,22 @@ namespace APIG20240327
       Models::DeleteHttpApiRouteResponse deleteHttpApiRoute(const string &httpApiId, const string &routeId);
 
       /**
+       * @summary 删除MCP server
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMcpServerResponse
+       */
+      Models::DeleteMcpServerResponse deleteMcpServerWithOptions(const string &mcpServerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除MCP server
+       *
+       * @return DeleteMcpServerResponse
+       */
+      Models::DeleteMcpServerResponse deleteMcpServer(const string &mcpServerId);
+
+      /**
        * @summary 删除挂载规则API
        *
        * @param headers map
@@ -573,6 +607,22 @@ namespace APIG20240327
        * @return DeployHttpApiResponse
        */
       Models::DeployHttpApiResponse deployHttpApi(const string &httpApiId, const Models::DeployHttpApiRequest &request);
+
+      /**
+       * @summary 发布MCP server
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeployMcpServerResponse
+       */
+      Models::DeployMcpServerResponse deployMcpServerWithOptions(const string &mcpServerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 发布MCP server
+       *
+       * @return DeployMcpServerResponse
+       */
+      Models::DeployMcpServerResponse deployMcpServer(const string &mcpServerId);
 
       /**
        * @summary Export HTTP API
@@ -745,6 +795,22 @@ namespace APIG20240327
       Models::GetHttpApiRouteResponse getHttpApiRoute(const string &httpApiId, const string &routeId);
 
       /**
+       * @summary 获取MCP server
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMcpServerResponse
+       */
+      Models::GetMcpServerResponse getMcpServerWithOptions(const string &mcpServerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取MCP server
+       *
+       * @return GetMcpServerResponse
+       */
+      Models::GetMcpServerResponse getMcpServer(const string &mcpServerId);
+
+      /**
        * @summary GetPluginAttachment。
        *
        * @param headers map
@@ -861,6 +927,24 @@ namespace APIG20240327
        * @return ImportHttpApiResponse
        */
       Models::ImportHttpApiResponse importHttpApi(const Models::ImportHttpApiRequest &request);
+
+      /**
+       * @summary InstallPlugin
+       *
+       * @param request InstallPluginRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InstallPluginResponse
+       */
+      Models::InstallPluginResponse installPluginWithOptions(const Models::InstallPluginRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary InstallPlugin
+       *
+       * @param request InstallPluginRequest
+       * @return InstallPluginResponse
+       */
+      Models::InstallPluginResponse installPlugin(const Models::InstallPluginRequest &request);
 
       /**
        * @summary 查询消费者列表
@@ -991,6 +1075,24 @@ namespace APIG20240327
        * @return ListHttpApisResponse
        */
       Models::ListHttpApisResponse listHttpApis(const Models::ListHttpApisRequest &request);
+
+      /**
+       * @summary 获取MCP server列表
+       *
+       * @param request ListMcpServersRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMcpServersResponse
+       */
+      Models::ListMcpServersResponse listMcpServersWithOptions(const Models::ListMcpServersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取MCP server列表
+       *
+       * @param request ListMcpServersRequest
+       * @return ListMcpServersResponse
+       */
+      Models::ListMcpServersResponse listMcpServers(const Models::ListMcpServersRequest &request);
 
       /**
        * @summary 获取挂载列表
@@ -1167,6 +1269,22 @@ namespace APIG20240327
       Models::RestartGatewayResponse restartGateway(const string &gatewayId);
 
       /**
+       * @summary 取消发布MCP server
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UnDeployMcpServerResponse
+       */
+      Models::UnDeployMcpServerResponse unDeployMcpServerWithOptions(const string &mcpServerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消发布MCP server
+       *
+       * @return UnDeployMcpServerResponse
+       */
+      Models::UnDeployMcpServerResponse unDeployMcpServer(const string &mcpServerId);
+
+      /**
        * @summary Unpublishes an HTTP API.
        *
        * @param request UndeployHttpApiRequest
@@ -1183,6 +1301,22 @@ namespace APIG20240327
        * @return UndeployHttpApiResponse
        */
       Models::UndeployHttpApiResponse undeployHttpApi(const string &httpApiId, const Models::UndeployHttpApiRequest &request);
+
+      /**
+       * @summary UninstallPlugin
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UninstallPluginResponse
+       */
+      Models::UninstallPluginResponse uninstallPluginWithOptions(const string &pluginId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary UninstallPlugin
+       *
+       * @return UninstallPluginResponse
+       */
+      Models::UninstallPluginResponse uninstallPlugin(const string &pluginId);
 
       /**
        * @summary UpdateAndAttachPolicy
@@ -1367,6 +1501,24 @@ namespace APIG20240327
        * @return UpdateHttpApiRouteResponse
        */
       Models::UpdateHttpApiRouteResponse updateHttpApiRoute(const string &httpApiId, const string &routeId, const Models::UpdateHttpApiRouteRequest &request);
+
+      /**
+       * @summary 更新MCP server
+       *
+       * @param request UpdateMcpServerRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMcpServerResponse
+       */
+      Models::UpdateMcpServerResponse updateMcpServerWithOptions(const string &mcpServerId, const Models::UpdateMcpServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新MCP server
+       *
+       * @param request UpdateMcpServerRequest
+       * @return UpdateMcpServerResponse
+       */
+      Models::UpdateMcpServerResponse updateMcpServer(const string &mcpServerId, const Models::UpdateMcpServerRequest &request);
 
       /**
        * @summary 更新挂载规则API

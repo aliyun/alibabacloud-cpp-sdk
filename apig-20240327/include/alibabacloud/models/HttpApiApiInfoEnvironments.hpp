@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_HTTPAPIAPIINFOENVIRONMENTS_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/APIG20240327.hpp>
+#include <alibabacloud/models/HttpApiDomainInfo.hpp>
 #include <alibabacloud/models/HttpApiApiInfoEnvironmentsGatewayInfo.hpp>
 #include <alibabacloud/models/HttpApiApiInfoEnvironmentsServiceConfigs.hpp>
 #include <alibabacloud/models/HttpApiApiInfoEnvironmentsSubDomains.hpp>

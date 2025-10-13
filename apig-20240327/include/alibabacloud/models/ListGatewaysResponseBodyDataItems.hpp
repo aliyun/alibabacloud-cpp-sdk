@@ -5,7 +5,7 @@
 #include <vector>
 #include <alibabacloud/models/ListGatewaysResponseBodyDataItemsLoadBalancers.hpp>
 #include <alibabacloud/models/ListGatewaysResponseBodyDataItemsSecurityGroup.hpp>
-#include <alibabacloud/APIG20240327.hpp>
+#include <alibabacloud/models/SubDomainInfo.hpp>
 #include <alibabacloud/models/ListGatewaysResponseBodyDataItemsTags.hpp>
 #include <alibabacloud/models/ListGatewaysResponseBodyDataItemsVSwitch.hpp>
 #include <alibabacloud/models/ListGatewaysResponseBodyDataItemsVpc.hpp>
@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(createFrom, createFrom_);
       DARABONBA_PTR_TO_JSON(createTimestamp, createTimestamp_);
       DARABONBA_PTR_TO_JSON(expireTimestamp, expireTimestamp_);
+      DARABONBA_PTR_TO_JSON(gatewayEdition, gatewayEdition_);
       DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_TO_JSON(gatewayType, gatewayType_);
       DARABONBA_PTR_TO_JSON(legacy, legacy_);
@@ -49,6 +50,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(createFrom, createFrom_);
       DARABONBA_PTR_FROM_JSON(createTimestamp, createTimestamp_);
       DARABONBA_PTR_FROM_JSON(expireTimestamp, expireTimestamp_);
+      DARABONBA_PTR_FROM_JSON(gatewayEdition, gatewayEdition_);
       DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_FROM_JSON(gatewayType, gatewayType_);
       DARABONBA_PTR_FROM_JSON(legacy, legacy_);
@@ -80,11 +82,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->chargeType_ != nullptr
-        && this->createFrom_ != nullptr && this->createTimestamp_ != nullptr && this->expireTimestamp_ != nullptr && this->gatewayId_ != nullptr && this->gatewayType_ != nullptr
-        && this->legacy_ != nullptr && this->loadBalancers_ != nullptr && this->name_ != nullptr && this->replicas_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->securityGroup_ != nullptr && this->spec_ != nullptr && this->status_ != nullptr && this->subDomainInfos_ != nullptr && this->tags_ != nullptr
-        && this->targetVersion_ != nullptr && this->updateTimestamp_ != nullptr && this->vSwitch_ != nullptr && this->version_ != nullptr && this->vpc_ != nullptr
-        && this->zones_ != nullptr; };
+        && this->createFrom_ != nullptr && this->createTimestamp_ != nullptr && this->expireTimestamp_ != nullptr && this->gatewayEdition_ != nullptr && this->gatewayId_ != nullptr
+        && this->gatewayType_ != nullptr && this->legacy_ != nullptr && this->loadBalancers_ != nullptr && this->name_ != nullptr && this->replicas_ != nullptr
+        && this->resourceGroupId_ != nullptr && this->securityGroup_ != nullptr && this->spec_ != nullptr && this->status_ != nullptr && this->subDomainInfos_ != nullptr
+        && this->tags_ != nullptr && this->targetVersion_ != nullptr && this->updateTimestamp_ != nullptr && this->vSwitch_ != nullptr && this->version_ != nullptr
+        && this->vpc_ != nullptr && this->zones_ != nullptr; };
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -111,6 +113,13 @@ namespace Models
     void deleteExpireTimestamp() { this->expireTimestamp_ = nullptr;};
     inline int64_t expireTimestamp() const { DARABONBA_PTR_GET_DEFAULT(expireTimestamp_, 0L) };
     inline ListGatewaysResponseBodyDataItems& setExpireTimestamp(int64_t expireTimestamp) { DARABONBA_PTR_SET_VALUE(expireTimestamp_, expireTimestamp) };
+
+
+    // gatewayEdition Field Functions 
+    bool hasGatewayEdition() const { return this->gatewayEdition_ != nullptr;};
+    void deleteGatewayEdition() { this->gatewayEdition_ = nullptr;};
+    inline string gatewayEdition() const { DARABONBA_PTR_GET_DEFAULT(gatewayEdition_, "") };
+    inline ListGatewaysResponseBodyDataItems& setGatewayEdition(string gatewayEdition) { DARABONBA_PTR_SET_VALUE(gatewayEdition_, gatewayEdition) };
 
 
     // gatewayId Field Functions 
@@ -267,6 +276,7 @@ namespace Models
     std::shared_ptr<int64_t> createTimestamp_ = nullptr;
     // The time when the instance expires. This value is a UNIX timestamp. Unit: milliseconds.
     std::shared_ptr<int64_t> expireTimestamp_ = nullptr;
+    std::shared_ptr<string> gatewayEdition_ = nullptr;
     // The instance ID.
     std::shared_ptr<string> gatewayId_ = nullptr;
     std::shared_ptr<string> gatewayType_ = nullptr;

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_HTTPAPIPUBLISHREVISIONINFODNSCONFIGS_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/HttpApiBackendMatchConditions.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

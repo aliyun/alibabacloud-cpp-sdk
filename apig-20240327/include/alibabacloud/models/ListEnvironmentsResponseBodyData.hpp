@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTENVIRONMENTSRESPONSEBODYDATA_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/APIG20240327.hpp>
+#include <alibabacloud/models/EnvironmentInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

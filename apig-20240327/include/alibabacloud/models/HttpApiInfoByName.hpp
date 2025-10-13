@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_HTTPAPIINFOBYNAME_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/APIG20240327.hpp>
+#include <alibabacloud/models/HttpApiApiInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -3,6 +3,8 @@
 #define ALIBABACLOUD_MODELS_AISERVICECONFIG_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/AiServiceConfigBedrockServiceConfig.hpp>
+#include <alibabacloud/models/AiServiceConfigPaiEASServiceConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -16,14 +18,18 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const AiServiceConfig& obj) { 
       DARABONBA_PTR_TO_JSON(address, address_);
       DARABONBA_PTR_TO_JSON(apiKeys, apiKeys_);
+      DARABONBA_PTR_TO_JSON(bedrockServiceConfig, bedrockServiceConfig_);
       DARABONBA_PTR_TO_JSON(enableHealthCheck, enableHealthCheck_);
+      DARABONBA_PTR_TO_JSON(paiEASServiceConfig, paiEASServiceConfig_);
       DARABONBA_PTR_TO_JSON(protocols, protocols_);
       DARABONBA_PTR_TO_JSON(provider, provider_);
     };
     friend void from_json(const Darabonba::Json& j, AiServiceConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(address, address_);
       DARABONBA_PTR_FROM_JSON(apiKeys, apiKeys_);
+      DARABONBA_PTR_FROM_JSON(bedrockServiceConfig, bedrockServiceConfig_);
       DARABONBA_PTR_FROM_JSON(enableHealthCheck, enableHealthCheck_);
+      DARABONBA_PTR_FROM_JSON(paiEASServiceConfig, paiEASServiceConfig_);
       DARABONBA_PTR_FROM_JSON(protocols, protocols_);
       DARABONBA_PTR_FROM_JSON(provider, provider_);
     };
@@ -39,7 +45,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->address_ != nullptr
-        && this->apiKeys_ != nullptr && this->enableHealthCheck_ != nullptr && this->protocols_ != nullptr && this->provider_ != nullptr; };
+        && this->apiKeys_ != nullptr && this->bedrockServiceConfig_ != nullptr && this->enableHealthCheck_ != nullptr && this->paiEASServiceConfig_ != nullptr && this->protocols_ != nullptr
+        && this->provider_ != nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
@@ -56,11 +63,29 @@ namespace Models
     inline AiServiceConfig& setApiKeys(vector<string> && apiKeys) { DARABONBA_PTR_SET_RVALUE(apiKeys_, apiKeys) };
 
 
+    // bedrockServiceConfig Field Functions 
+    bool hasBedrockServiceConfig() const { return this->bedrockServiceConfig_ != nullptr;};
+    void deleteBedrockServiceConfig() { this->bedrockServiceConfig_ = nullptr;};
+    inline const AiServiceConfigBedrockServiceConfig & bedrockServiceConfig() const { DARABONBA_PTR_GET_CONST(bedrockServiceConfig_, AiServiceConfigBedrockServiceConfig) };
+    inline AiServiceConfigBedrockServiceConfig bedrockServiceConfig() { DARABONBA_PTR_GET(bedrockServiceConfig_, AiServiceConfigBedrockServiceConfig) };
+    inline AiServiceConfig& setBedrockServiceConfig(const AiServiceConfigBedrockServiceConfig & bedrockServiceConfig) { DARABONBA_PTR_SET_VALUE(bedrockServiceConfig_, bedrockServiceConfig) };
+    inline AiServiceConfig& setBedrockServiceConfig(AiServiceConfigBedrockServiceConfig && bedrockServiceConfig) { DARABONBA_PTR_SET_RVALUE(bedrockServiceConfig_, bedrockServiceConfig) };
+
+
     // enableHealthCheck Field Functions 
     bool hasEnableHealthCheck() const { return this->enableHealthCheck_ != nullptr;};
     void deleteEnableHealthCheck() { this->enableHealthCheck_ = nullptr;};
     inline bool enableHealthCheck() const { DARABONBA_PTR_GET_DEFAULT(enableHealthCheck_, false) };
     inline AiServiceConfig& setEnableHealthCheck(bool enableHealthCheck) { DARABONBA_PTR_SET_VALUE(enableHealthCheck_, enableHealthCheck) };
+
+
+    // paiEASServiceConfig Field Functions 
+    bool hasPaiEASServiceConfig() const { return this->paiEASServiceConfig_ != nullptr;};
+    void deletePaiEASServiceConfig() { this->paiEASServiceConfig_ = nullptr;};
+    inline const AiServiceConfigPaiEASServiceConfig & paiEASServiceConfig() const { DARABONBA_PTR_GET_CONST(paiEASServiceConfig_, AiServiceConfigPaiEASServiceConfig) };
+    inline AiServiceConfigPaiEASServiceConfig paiEASServiceConfig() { DARABONBA_PTR_GET(paiEASServiceConfig_, AiServiceConfigPaiEASServiceConfig) };
+    inline AiServiceConfig& setPaiEASServiceConfig(const AiServiceConfigPaiEASServiceConfig & paiEASServiceConfig) { DARABONBA_PTR_SET_VALUE(paiEASServiceConfig_, paiEASServiceConfig) };
+    inline AiServiceConfig& setPaiEASServiceConfig(AiServiceConfigPaiEASServiceConfig && paiEASServiceConfig) { DARABONBA_PTR_SET_RVALUE(paiEASServiceConfig_, paiEASServiceConfig) };
 
 
     // protocols Field Functions 
@@ -82,7 +107,9 @@ namespace Models
   protected:
     std::shared_ptr<string> address_ = nullptr;
     std::shared_ptr<vector<string>> apiKeys_ = nullptr;
+    std::shared_ptr<AiServiceConfigBedrockServiceConfig> bedrockServiceConfig_ = nullptr;
     std::shared_ptr<bool> enableHealthCheck_ = nullptr;
+    std::shared_ptr<AiServiceConfigPaiEASServiceConfig> paiEASServiceConfig_ = nullptr;
     std::shared_ptr<vector<string>> protocols_ = nullptr;
     std::shared_ptr<string> provider_ = nullptr;
   };

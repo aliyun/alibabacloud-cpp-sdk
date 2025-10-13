@@ -4,7 +4,10 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/HttpApiDeployConfigCustomDomainInfos.hpp>
+#include <alibabacloud/models/GatewayInfo.hpp>
+#include <alibabacloud/models/HttpApiMockContract.hpp>
 #include <alibabacloud/models/HttpApiDeployConfigPolicyConfigs.hpp>
+#include <alibabacloud/models/Backend.hpp>
 #include <alibabacloud/models/HttpApiDeployConfigServiceConfigs.hpp>
 #include <alibabacloud/models/HttpApiDeployConfigSubDomains.hpp>
 using namespace std;

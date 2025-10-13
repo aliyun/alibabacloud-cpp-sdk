@@ -12,6 +12,7 @@
 #include <alibabacloud/models/AuthorizationResourceInfo.hpp>
 #include <alibabacloud/models/Backend.hpp>
 #include <alibabacloud/models/CheckServiceLinkedRoleResult.hpp>
+#include <alibabacloud/models/ConsumerConfig.hpp>
 #include <alibabacloud/models/ConsumerInfo.hpp>
 #include <alibabacloud/models/DashboardFilter.hpp>
 #include <alibabacloud/models/DomainInfo.hpp>
@@ -37,7 +38,9 @@
 #include <alibabacloud/models/HttpRoute.hpp>
 #include <alibabacloud/models/HttpRouteMatch.hpp>
 #include <alibabacloud/models/JwtIdentityConfig.hpp>
+#include <alibabacloud/models/Kmsconfig.hpp>
 #include <alibabacloud/models/LabelDetail.hpp>
+#include <alibabacloud/models/McpServerConfig.hpp>
 #include <alibabacloud/models/ParentResourceInfo.hpp>
 #include <alibabacloud/models/PluginClassInfo.hpp>
 #include <alibabacloud/models/PolicyClassInfo.hpp>
@@ -91,6 +94,9 @@
 #include <alibabacloud/models/CreateHttpApiRouteRequest.hpp>
 #include <alibabacloud/models/CreateHttpApiRouteResponseBody.hpp>
 #include <alibabacloud/models/CreateHttpApiRouteResponse.hpp>
+#include <alibabacloud/models/CreateMcpServerRequest.hpp>
+#include <alibabacloud/models/CreateMcpServerResponseBody.hpp>
+#include <alibabacloud/models/CreateMcpServerResponse.hpp>
 #include <alibabacloud/models/CreatePluginAttachmentRequest.hpp>
 #include <alibabacloud/models/CreatePluginAttachmentResponseBody.hpp>
 #include <alibabacloud/models/CreatePluginAttachmentResponse.hpp>
@@ -122,6 +128,8 @@
 #include <alibabacloud/models/DeleteHttpApiOperationResponse.hpp>
 #include <alibabacloud/models/DeleteHttpApiRouteResponseBody.hpp>
 #include <alibabacloud/models/DeleteHttpApiRouteResponse.hpp>
+#include <alibabacloud/models/DeleteMcpServerResponseBody.hpp>
+#include <alibabacloud/models/DeleteMcpServerResponse.hpp>
 #include <alibabacloud/models/DeletePluginAttachmentResponseBody.hpp>
 #include <alibabacloud/models/DeletePluginAttachmentResponse.hpp>
 #include <alibabacloud/models/DeletePolicyResponseBody.hpp>
@@ -133,6 +141,8 @@
 #include <alibabacloud/models/DeployHttpApiRequest.hpp>
 #include <alibabacloud/models/DeployHttpApiResponseBody.hpp>
 #include <alibabacloud/models/DeployHttpApiResponse.hpp>
+#include <alibabacloud/models/DeployMcpServerResponseBody.hpp>
+#include <alibabacloud/models/DeployMcpServerResponse.hpp>
 #include <alibabacloud/models/ExportHttpApiResponseBody.hpp>
 #include <alibabacloud/models/ExportHttpApiResponse.hpp>
 #include <alibabacloud/models/GetConsumerResponseBody.hpp>
@@ -157,6 +167,8 @@
 #include <alibabacloud/models/GetHttpApiOperationResponse.hpp>
 #include <alibabacloud/models/GetHttpApiRouteResponseBody.hpp>
 #include <alibabacloud/models/GetHttpApiRouteResponse.hpp>
+#include <alibabacloud/models/GetMcpServerResponseBody.hpp>
+#include <alibabacloud/models/GetMcpServerResponse.hpp>
 #include <alibabacloud/models/GetPluginAttachmentResponseBody.hpp>
 #include <alibabacloud/models/GetPluginAttachmentResponse.hpp>
 #include <alibabacloud/models/GetPolicyResponseBody.hpp>
@@ -174,6 +186,9 @@
 #include <alibabacloud/models/ImportHttpApiRequest.hpp>
 #include <alibabacloud/models/ImportHttpApiResponseBody.hpp>
 #include <alibabacloud/models/ImportHttpApiResponse.hpp>
+#include <alibabacloud/models/InstallPluginRequest.hpp>
+#include <alibabacloud/models/InstallPluginResponseBody.hpp>
+#include <alibabacloud/models/InstallPluginResponse.hpp>
 #include <alibabacloud/models/ListConsumersRequest.hpp>
 #include <alibabacloud/models/ListConsumersResponseBody.hpp>
 #include <alibabacloud/models/ListConsumersResponse.hpp>
@@ -196,6 +211,9 @@
 #include <alibabacloud/models/ListHttpApisRequest.hpp>
 #include <alibabacloud/models/ListHttpApisResponseBody.hpp>
 #include <alibabacloud/models/ListHttpApisResponse.hpp>
+#include <alibabacloud/models/ListMcpServersRequest.hpp>
+#include <alibabacloud/models/ListMcpServersResponseBody.hpp>
+#include <alibabacloud/models/ListMcpServersResponse.hpp>
 #include <alibabacloud/models/ListPluginAttachmentsRequest.hpp>
 #include <alibabacloud/models/ListPluginAttachmentsResponseBody.hpp>
 #include <alibabacloud/models/ListPluginAttachmentsResponse.hpp>
@@ -223,9 +241,13 @@
 #include <alibabacloud/models/RemoveConsumerAuthorizationRuleResponse.hpp>
 #include <alibabacloud/models/RestartGatewayResponseBody.hpp>
 #include <alibabacloud/models/RestartGatewayResponse.hpp>
+#include <alibabacloud/models/UnDeployMcpServerResponseBody.hpp>
+#include <alibabacloud/models/UnDeployMcpServerResponse.hpp>
 #include <alibabacloud/models/UndeployHttpApiRequest.hpp>
 #include <alibabacloud/models/UndeployHttpApiResponseBody.hpp>
 #include <alibabacloud/models/UndeployHttpApiResponse.hpp>
+#include <alibabacloud/models/UninstallPluginResponseBody.hpp>
+#include <alibabacloud/models/UninstallPluginResponse.hpp>
 #include <alibabacloud/models/UpdateAndAttachPolicyRequest.hpp>
 #include <alibabacloud/models/UpdateAndAttachPolicyResponseBody.hpp>
 #include <alibabacloud/models/UpdateAndAttachPolicyResponse.hpp>
@@ -256,6 +278,9 @@
 #include <alibabacloud/models/UpdateHttpApiRouteRequest.hpp>
 #include <alibabacloud/models/UpdateHttpApiRouteResponseBody.hpp>
 #include <alibabacloud/models/UpdateHttpApiRouteResponse.hpp>
+#include <alibabacloud/models/UpdateMcpServerRequest.hpp>
+#include <alibabacloud/models/UpdateMcpServerResponseBody.hpp>
+#include <alibabacloud/models/UpdateMcpServerResponse.hpp>
 #include <alibabacloud/models/UpdatePluginAttachmentRequest.hpp>
 #include <alibabacloud/models/UpdatePluginAttachmentResponseBody.hpp>
 #include <alibabacloud/models/UpdatePluginAttachmentResponse.hpp>
@@ -268,6 +293,8 @@
 #include <alibabacloud/models/AgentServiceConfigDashScopeConfigAppCredentials.hpp>
 #include <alibabacloud/models/AgentServiceConfigDashScopeConfig.hpp>
 #include <alibabacloud/models/AgentServiceConfigDifyConfig.hpp>
+#include <alibabacloud/models/AiServiceConfigBedrockServiceConfig.hpp>
+#include <alibabacloud/models/AiServiceConfigPaiEasserviceConfig.hpp>
 #include <alibabacloud/models/ApiKeyIdentityConfigApikeySource.hpp>
 #include <alibabacloud/models/ApiKeyIdentityConfigCredentials.hpp>
 #include <alibabacloud/models/ApiRouteConflictInfoConflictsDetailsConflictingMatchOperationInfo.hpp>
@@ -290,6 +317,7 @@
 #include <alibabacloud/models/HttpApiApiInfoIngressInfoK8sClusterInfo.hpp>
 #include <alibabacloud/models/HttpApiApiInfoIngressInfo.hpp>
 #include <alibabacloud/models/HttpApiDeployConfigCustomDomainInfos.hpp>
+#include <alibabacloud/models/HttpApiDeployConfigPolicyConfigsAiFallbackConfigServiceConfigs.hpp>
 #include <alibabacloud/models/HttpApiDeployConfigPolicyConfigsAiFallbackConfig.hpp>
 #include <alibabacloud/models/HttpApiDeployConfigPolicyConfigs.hpp>
 #include <alibabacloud/models/HttpApiDeployConfigServiceConfigs.hpp>
@@ -343,6 +371,10 @@
 #include <alibabacloud/models/CreateHttpApiRouteRequestBackendConfig.hpp>
 #include <alibabacloud/models/CreateHttpApiRouteRequestMcpRouteConfig.hpp>
 #include <alibabacloud/models/CreateHttpApiRouteResponseBodyData.hpp>
+#include <alibabacloud/models/CreateMcpServerRequestAssembledSources.hpp>
+#include <alibabacloud/models/CreateMcpServerRequestBackendConfigServices.hpp>
+#include <alibabacloud/models/CreateMcpServerRequestBackendConfig.hpp>
+#include <alibabacloud/models/CreateMcpServerResponseBodyData.hpp>
 #include <alibabacloud/models/CreatePluginAttachmentResponseBodyData.hpp>
 #include <alibabacloud/models/CreatePolicyResponseBodyData.hpp>
 #include <alibabacloud/models/CreatePolicyAttachmentResponseBodyData.hpp>
@@ -363,6 +395,7 @@
 #include <alibabacloud/models/GetGatewayResponseBodyDataEnvironments.hpp>
 #include <alibabacloud/models/GetGatewayResponseBodyDataLoadBalancersPorts.hpp>
 #include <alibabacloud/models/GetGatewayResponseBodyDataLoadBalancers.hpp>
+#include <alibabacloud/models/GetGatewayResponseBodyDataMaintenancePeriod.hpp>
 #include <alibabacloud/models/GetGatewayResponseBodyDataSecurityGroup.hpp>
 #include <alibabacloud/models/GetGatewayResponseBodyDataTags.hpp>
 #include <alibabacloud/models/GetGatewayResponseBodyDataVswitch.hpp>
@@ -370,6 +403,10 @@
 #include <alibabacloud/models/GetGatewayResponseBodyDataZonesVswitch.hpp>
 #include <alibabacloud/models/GetGatewayResponseBodyDataZones.hpp>
 #include <alibabacloud/models/GetGatewayResponseBodyData.hpp>
+#include <alibabacloud/models/GetMcpServerResponseBodyDataAssembledSources.hpp>
+#include <alibabacloud/models/GetMcpServerResponseBodyDataDomainInfos.hpp>
+#include <alibabacloud/models/GetMcpServerResponseBodyDataNacosMcpSyncInfo.hpp>
+#include <alibabacloud/models/GetMcpServerResponseBodyData.hpp>
 #include <alibabacloud/models/GetPluginAttachmentResponseBodyData.hpp>
 #include <alibabacloud/models/GetPolicyAttachmentResponseBodyData.hpp>
 #include <alibabacloud/models/GetResourceOverviewResponseBodyDataApi.hpp>
@@ -383,6 +420,8 @@
 #include <alibabacloud/models/ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations.hpp>
 #include <alibabacloud/models/ImportHttpApiResponseBodyDataDryRunInfo.hpp>
 #include <alibabacloud/models/ImportHttpApiResponseBodyData.hpp>
+#include <alibabacloud/models/InstallPluginResponseBodyDataInstallPluginResults.hpp>
+#include <alibabacloud/models/InstallPluginResponseBodyData.hpp>
 #include <alibabacloud/models/ListConsumersResponseBodyDataItems.hpp>
 #include <alibabacloud/models/ListConsumersResponseBodyData.hpp>
 #include <alibabacloud/models/ListDomainsResponseBodyData.hpp>
@@ -401,6 +440,10 @@
 #include <alibabacloud/models/ListHttpApiOperationsResponseBodyData.hpp>
 #include <alibabacloud/models/ListHttpApiRoutesResponseBodyData.hpp>
 #include <alibabacloud/models/ListHttpApisResponseBodyData.hpp>
+#include <alibabacloud/models/ListMcpServersResponseBodyDataItemsAssembledSources.hpp>
+#include <alibabacloud/models/ListMcpServersResponseBodyDataItemsNacosMcpSyncInfo.hpp>
+#include <alibabacloud/models/ListMcpServersResponseBodyDataItems.hpp>
+#include <alibabacloud/models/ListMcpServersResponseBodyData.hpp>
 #include <alibabacloud/models/ListPluginAttachmentsResponseBodyDataItems.hpp>
 #include <alibabacloud/models/ListPluginAttachmentsResponseBodyData.hpp>
 #include <alibabacloud/models/ListPluginsResponseBodyDataItemsAttachmentInfo.hpp>
@@ -422,5 +465,8 @@
 #include <alibabacloud/models/UpdateHttpApiRouteRequestBackendConfigServices.hpp>
 #include <alibabacloud/models/UpdateHttpApiRouteRequestBackendConfig.hpp>
 #include <alibabacloud/models/UpdateHttpApiRouteRequestMcpRouteConfig.hpp>
+#include <alibabacloud/models/UpdateMcpServerRequestAssembledSources.hpp>
+#include <alibabacloud/models/UpdateMcpServerRequestBackendConfigServices.hpp>
+#include <alibabacloud/models/UpdateMcpServerRequestBackendConfig.hpp>
 
 #endif

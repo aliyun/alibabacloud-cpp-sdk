@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETDOMAINRESPONSEBODYDATA_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/GetDomainResponseBodyDataStatisticsInfo.hpp>
+#include <alibabacloud/models/TlsCipherSuitesConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -2,8 +2,12 @@
 #ifndef ALIBABACLOUD_MODELS_HTTPAPIOPERATIONINFO_HPP_
 #define ALIBABACLOUD_MODELS_HTTPAPIOPERATIONINFO_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AuthConfig.hpp>
 #include <vector>
-#include <alibabacloud/APIG20240327.hpp>
+#include <alibabacloud/models/HttpApiDeployConfig.hpp>
+#include <alibabacloud/models/HttpApiMockContract.hpp>
+#include <alibabacloud/models/HttpApiRequestContract.hpp>
+#include <alibabacloud/models/HttpApiResponseContract.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

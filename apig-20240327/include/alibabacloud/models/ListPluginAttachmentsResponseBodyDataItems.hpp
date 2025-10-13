@@ -2,8 +2,11 @@
 #ifndef ALIBABACLOUD_MODELS_LISTPLUGINATTACHMENTSRESPONSEBODYDATAITEMS_HPP_
 #define ALIBABACLOUD_MODELS_LISTPLUGINATTACHMENTSRESPONSEBODYDATAITEMS_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/EnvironmentInfo.hpp>
+#include <alibabacloud/models/ParentResourceInfo.hpp>
+#include <alibabacloud/models/PluginClassInfo.hpp>
 #include <vector>
-#include <alibabacloud/APIG20240327.hpp>
+#include <alibabacloud/models/ResourceInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

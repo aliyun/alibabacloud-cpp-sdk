@@ -5,6 +5,7 @@
 #include <vector>
 #include <alibabacloud/models/GetGatewayResponseBodyDataEnvironments.hpp>
 #include <alibabacloud/models/GetGatewayResponseBodyDataLoadBalancers.hpp>
+#include <alibabacloud/models/GetGatewayResponseBodyDataMaintenancePeriod.hpp>
 #include <alibabacloud/models/GetGatewayResponseBodyDataSecurityGroup.hpp>
 #include <alibabacloud/models/GetGatewayResponseBodyDataTags.hpp>
 #include <alibabacloud/models/GetGatewayResponseBodyDataVSwitch.hpp>
@@ -26,10 +27,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(createTimestamp, createTimestamp_);
       DARABONBA_PTR_TO_JSON(environments, environments_);
       DARABONBA_PTR_TO_JSON(expireTimestamp, expireTimestamp_);
+      DARABONBA_PTR_TO_JSON(gatewayEdition, gatewayEdition_);
       DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_TO_JSON(gatewayType, gatewayType_);
       DARABONBA_PTR_TO_JSON(isp, isp_);
       DARABONBA_PTR_TO_JSON(loadBalancers, loadBalancers_);
+      DARABONBA_PTR_TO_JSON(maintenancePeriod, maintenancePeriod_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(replicas, replicas_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
@@ -50,10 +53,12 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(createTimestamp, createTimestamp_);
       DARABONBA_PTR_FROM_JSON(environments, environments_);
       DARABONBA_PTR_FROM_JSON(expireTimestamp, expireTimestamp_);
+      DARABONBA_PTR_FROM_JSON(gatewayEdition, gatewayEdition_);
       DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_FROM_JSON(gatewayType, gatewayType_);
       DARABONBA_PTR_FROM_JSON(isp, isp_);
       DARABONBA_PTR_FROM_JSON(loadBalancers, loadBalancers_);
+      DARABONBA_PTR_FROM_JSON(maintenancePeriod, maintenancePeriod_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(replicas, replicas_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
@@ -80,11 +85,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->chargeType_ != nullptr
-        && this->createFrom_ != nullptr && this->createTimestamp_ != nullptr && this->environments_ != nullptr && this->expireTimestamp_ != nullptr && this->gatewayId_ != nullptr
-        && this->gatewayType_ != nullptr && this->isp_ != nullptr && this->loadBalancers_ != nullptr && this->name_ != nullptr && this->replicas_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->securityGroup_ != nullptr && this->spec_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr
-        && this->targetVersion_ != nullptr && this->updateTimestamp_ != nullptr && this->vSwitch_ != nullptr && this->version_ != nullptr && this->vpc_ != nullptr
-        && this->zones_ != nullptr; };
+        && this->createFrom_ != nullptr && this->createTimestamp_ != nullptr && this->environments_ != nullptr && this->expireTimestamp_ != nullptr && this->gatewayEdition_ != nullptr
+        && this->gatewayId_ != nullptr && this->gatewayType_ != nullptr && this->isp_ != nullptr && this->loadBalancers_ != nullptr && this->maintenancePeriod_ != nullptr
+        && this->name_ != nullptr && this->replicas_ != nullptr && this->resourceGroupId_ != nullptr && this->securityGroup_ != nullptr && this->spec_ != nullptr
+        && this->status_ != nullptr && this->tags_ != nullptr && this->targetVersion_ != nullptr && this->updateTimestamp_ != nullptr && this->vSwitch_ != nullptr
+        && this->version_ != nullptr && this->vpc_ != nullptr && this->zones_ != nullptr; };
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -122,6 +127,13 @@ namespace Models
     inline GetGatewayResponseBodyData& setExpireTimestamp(int64_t expireTimestamp) { DARABONBA_PTR_SET_VALUE(expireTimestamp_, expireTimestamp) };
 
 
+    // gatewayEdition Field Functions 
+    bool hasGatewayEdition() const { return this->gatewayEdition_ != nullptr;};
+    void deleteGatewayEdition() { this->gatewayEdition_ = nullptr;};
+    inline string gatewayEdition() const { DARABONBA_PTR_GET_DEFAULT(gatewayEdition_, "") };
+    inline GetGatewayResponseBodyData& setGatewayEdition(string gatewayEdition) { DARABONBA_PTR_SET_VALUE(gatewayEdition_, gatewayEdition) };
+
+
     // gatewayId Field Functions 
     bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
     void deleteGatewayId() { this->gatewayId_ = nullptr;};
@@ -150,6 +162,15 @@ namespace Models
     inline vector<Models::GetGatewayResponseBodyDataLoadBalancers> loadBalancers() { DARABONBA_PTR_GET(loadBalancers_, vector<Models::GetGatewayResponseBodyDataLoadBalancers>) };
     inline GetGatewayResponseBodyData& setLoadBalancers(const vector<Models::GetGatewayResponseBodyDataLoadBalancers> & loadBalancers) { DARABONBA_PTR_SET_VALUE(loadBalancers_, loadBalancers) };
     inline GetGatewayResponseBodyData& setLoadBalancers(vector<Models::GetGatewayResponseBodyDataLoadBalancers> && loadBalancers) { DARABONBA_PTR_SET_RVALUE(loadBalancers_, loadBalancers) };
+
+
+    // maintenancePeriod Field Functions 
+    bool hasMaintenancePeriod() const { return this->maintenancePeriod_ != nullptr;};
+    void deleteMaintenancePeriod() { this->maintenancePeriod_ = nullptr;};
+    inline const Models::GetGatewayResponseBodyDataMaintenancePeriod & maintenancePeriod() const { DARABONBA_PTR_GET_CONST(maintenancePeriod_, Models::GetGatewayResponseBodyDataMaintenancePeriod) };
+    inline Models::GetGatewayResponseBodyDataMaintenancePeriod maintenancePeriod() { DARABONBA_PTR_GET(maintenancePeriod_, Models::GetGatewayResponseBodyDataMaintenancePeriod) };
+    inline GetGatewayResponseBodyData& setMaintenancePeriod(const Models::GetGatewayResponseBodyDataMaintenancePeriod & maintenancePeriod) { DARABONBA_PTR_SET_VALUE(maintenancePeriod_, maintenancePeriod) };
+    inline GetGatewayResponseBodyData& setMaintenancePeriod(Models::GetGatewayResponseBodyDataMaintenancePeriod && maintenancePeriod) { DARABONBA_PTR_SET_RVALUE(maintenancePeriod_, maintenancePeriod) };
 
 
     // name Field Functions 
@@ -269,6 +290,7 @@ namespace Models
     std::shared_ptr<vector<Models::GetGatewayResponseBodyDataEnvironments>> environments_ = nullptr;
     // The time when the instance expires. This value is a UNIX timestamp. Unit: milliseconds.
     std::shared_ptr<int64_t> expireTimestamp_ = nullptr;
+    std::shared_ptr<string> gatewayEdition_ = nullptr;
     // The instance ID.
     std::shared_ptr<string> gatewayId_ = nullptr;
     // the gateway type, which is categorized into the following two types:
@@ -278,6 +300,7 @@ namespace Models
     std::shared_ptr<string> isp_ = nullptr;
     // The ingress addresses of the instance.
     std::shared_ptr<vector<Models::GetGatewayResponseBodyDataLoadBalancers>> loadBalancers_ = nullptr;
+    std::shared_ptr<Models::GetGatewayResponseBodyDataMaintenancePeriod> maintenancePeriod_ = nullptr;
     // The instance name.
     std::shared_ptr<string> name_ = nullptr;
     // The node quantity of the instance.

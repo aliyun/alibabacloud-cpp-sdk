@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETPOLICYRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETPOLICYRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/PolicyDetailInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

@@ -4,9 +4,10 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/HttpApiPublishRevisionInfoCloudProductConfig.hpp>
 #include <vector>
-#include <alibabacloud/APIG20240327.hpp>
+#include <alibabacloud/models/HttpApiDomainInfo.hpp>
 #include <alibabacloud/models/HttpApiPublishRevisionInfoDnsConfigs.hpp>
 #include <alibabacloud/models/HttpApiPublishRevisionInfoEnvironmentInfo.hpp>
+#include <alibabacloud/models/HttpApiOperationInfo.hpp>
 #include <alibabacloud/models/HttpApiPublishRevisionInfoServiceConfigs.hpp>
 #include <alibabacloud/models/HttpApiPublishRevisionInfoVipConfigs.hpp>
 using namespace std;

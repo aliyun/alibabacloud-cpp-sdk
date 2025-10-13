@@ -2,10 +2,12 @@
 #ifndef ALIBABACLOUD_MODELS_HTTPROUTE_HPP_
 #define ALIBABACLOUD_MODELS_HTTPROUTE_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/Backend.hpp>
 #include <vector>
 #include <alibabacloud/models/HttpRouteDomainInfos.hpp>
 #include <alibabacloud/models/HttpRouteEnvironmentInfo.hpp>
 #include <map>
+#include <alibabacloud/models/HttpRouteMatch.hpp>
 #include <alibabacloud/models/HttpRouteMcpServerInfo.hpp>
 using namespace std;
 using json = nlohmann::json;

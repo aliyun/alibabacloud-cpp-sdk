@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_IMPORTHTTPAPIRESPONSEBODYDATADRYRUNINFO_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/HttpApiApiInfo.hpp>
 #include <alibabacloud/models/ImportHttpApiResponseBodyDataDryRunInfoFailureComponents.hpp>
 #include <alibabacloud/models/ImportHttpApiResponseBodyDataDryRunInfoFailureOperations.hpp>
 #include <alibabacloud/models/ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents.hpp>

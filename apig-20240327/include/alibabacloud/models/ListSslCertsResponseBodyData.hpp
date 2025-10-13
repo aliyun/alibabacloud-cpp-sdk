@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTSSLCERTSRESPONSEBODYDATA_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/APIG20240327.hpp>
+#include <alibabacloud/models/SslCertMetaInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud

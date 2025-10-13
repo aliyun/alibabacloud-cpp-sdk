@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_APIROUTECONFLICTINFOCONFLICTSDETAILSDETECTEDMATCH_HPP_
 #define ALIBABACLOUD_MODELS_APIROUTECONFLICTINFOCONFLICTSDETAILSDETECTEDMATCH_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/HttpRouteMatch.hpp>
 #include <alibabacloud/models/ApiRouteConflictInfoConflictsDetailsDetectedMatchOperationInfo.hpp>
 using namespace std;
 using json = nlohmann::json;

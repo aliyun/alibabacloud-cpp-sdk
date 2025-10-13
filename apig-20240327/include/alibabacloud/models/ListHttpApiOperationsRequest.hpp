@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListHttpApiOperationsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(consumerAuthorizationRuleId, consumerAuthorizationRuleId_);
+      DARABONBA_PTR_TO_JSON(enableAuth, enableAuth_);
       DARABONBA_PTR_TO_JSON(forDeploy, forDeploy_);
       DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_TO_JSON(method, method_);
@@ -28,6 +29,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListHttpApiOperationsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(consumerAuthorizationRuleId, consumerAuthorizationRuleId_);
+      DARABONBA_PTR_FROM_JSON(enableAuth, enableAuth_);
       DARABONBA_PTR_FROM_JSON(forDeploy, forDeploy_);
       DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_FROM_JSON(method, method_);
@@ -52,14 +54,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { this->consumerAuthorizationRuleId_ != nullptr
-        && this->forDeploy_ != nullptr && this->gatewayId_ != nullptr && this->method_ != nullptr && this->name_ != nullptr && this->nameLike_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->pathLike_ != nullptr && this->withConsumerInEnvironmentId_ != nullptr && this->withConsumerInfoById_ != nullptr
-        && this->withPluginAttachmentByPluginId_ != nullptr; };
+        && this->enableAuth_ != nullptr && this->forDeploy_ != nullptr && this->gatewayId_ != nullptr && this->method_ != nullptr && this->name_ != nullptr
+        && this->nameLike_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->pathLike_ != nullptr && this->withConsumerInEnvironmentId_ != nullptr
+        && this->withConsumerInfoById_ != nullptr && this->withPluginAttachmentByPluginId_ != nullptr; };
     // consumerAuthorizationRuleId Field Functions 
     bool hasConsumerAuthorizationRuleId() const { return this->consumerAuthorizationRuleId_ != nullptr;};
     void deleteConsumerAuthorizationRuleId() { this->consumerAuthorizationRuleId_ = nullptr;};
     inline string consumerAuthorizationRuleId() const { DARABONBA_PTR_GET_DEFAULT(consumerAuthorizationRuleId_, "") };
     inline ListHttpApiOperationsRequest& setConsumerAuthorizationRuleId(string consumerAuthorizationRuleId) { DARABONBA_PTR_SET_VALUE(consumerAuthorizationRuleId_, consumerAuthorizationRuleId) };
+
+
+    // enableAuth Field Functions 
+    bool hasEnableAuth() const { return this->enableAuth_ != nullptr;};
+    void deleteEnableAuth() { this->enableAuth_ = nullptr;};
+    inline bool enableAuth() const { DARABONBA_PTR_GET_DEFAULT(enableAuth_, false) };
+    inline ListHttpApiOperationsRequest& setEnableAuth(bool enableAuth) { DARABONBA_PTR_SET_VALUE(enableAuth_, enableAuth) };
 
 
     // forDeploy Field Functions 
@@ -142,6 +151,7 @@ namespace Models
   protected:
     // Filter the operation list based on a specific consumer authorization rule ID, and the interface list in the response only contains authorized operations.
     std::shared_ptr<string> consumerAuthorizationRuleId_ = nullptr;
+    std::shared_ptr<bool> enableAuth_ = nullptr;
     std::shared_ptr<bool> forDeploy_ = nullptr;
     std::shared_ptr<string> gatewayId_ = nullptr;
     // List interfaces by Method.
