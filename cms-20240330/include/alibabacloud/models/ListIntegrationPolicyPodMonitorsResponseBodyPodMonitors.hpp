@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addonName_ != nullptr
-        && this->addonReleaseName_ != nullptr && this->addonVersion_ != nullptr && this->configYaml_ != nullptr && this->enableStatus_ != nullptr && this->encryptYaml_ != nullptr
-        && this->endpoints_ != nullptr && this->matchedPodCount_ != nullptr && this->name_ != nullptr && this->namespace_ != nullptr; };
+    virtual bool empty() const override { return this->addonName_ == nullptr
+        && return this->addonReleaseName_ == nullptr && return this->addonVersion_ == nullptr && return this->configYaml_ == nullptr && return this->enableStatus_ == nullptr && return this->encryptYaml_ == nullptr
+        && return this->endpoints_ == nullptr && return this->matchedPodCount_ == nullptr && return this->name_ == nullptr && return this->namespace_ == nullptr; };
     // addonName Field Functions 
     bool hasAddonName() const { return this->addonName_ != nullptr;};
     void deleteAddonName() { this->addonName_ = nullptr;};

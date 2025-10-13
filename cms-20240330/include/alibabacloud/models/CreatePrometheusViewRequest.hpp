@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authFreeReadPolicy_ != nullptr
-        && this->enableAuthFreeRead_ != nullptr && this->enableAuthToken_ != nullptr && this->prometheusInstances_ != nullptr && this->prometheusViewName_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->status_ != nullptr && this->tags_ != nullptr && this->version_ != nullptr && this->workspace_ != nullptr; };
+    virtual bool empty() const override { return this->authFreeReadPolicy_ == nullptr
+        && return this->enableAuthFreeRead_ == nullptr && return this->enableAuthToken_ == nullptr && return this->prometheusInstances_ == nullptr && return this->prometheusViewName_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->status_ == nullptr && return this->tags_ == nullptr && return this->version_ == nullptr && return this->workspace_ == nullptr; };
     // authFreeReadPolicy Field Functions 
     bool hasAuthFreeReadPolicy() const { return this->authFreeReadPolicy_ != nullptr;};
     void deleteAuthFreeReadPolicy() { this->authFreeReadPolicy_ = nullptr;};

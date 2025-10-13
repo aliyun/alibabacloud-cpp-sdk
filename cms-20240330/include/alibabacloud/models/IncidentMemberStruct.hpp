@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acknowledge_ != nullptr
-        && this->contactId_ != nullptr && this->contacts_ != nullptr && this->escalation_ != nullptr && this->incidentId_ != nullptr && this->incidentMemberId_ != nullptr
-        && this->scheduleGroup_ != nullptr && this->time_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->acknowledge_ == nullptr
+        && return this->contactId_ == nullptr && return this->contacts_ == nullptr && return this->escalation_ == nullptr && return this->incidentId_ == nullptr && return this->incidentMemberId_ == nullptr
+        && return this->scheduleGroup_ == nullptr && return this->time_ == nullptr && return this->userId_ == nullptr; };
     // acknowledge Field Functions 
     bool hasAcknowledge() const { return this->acknowledge_ != nullptr;};
     void deleteAcknowledge() { this->acknowledge_ = nullptr;};

@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alias_ != nullptr
-        && this->categories_ != nullptr && this->dashboards_ != nullptr && this->description_ != nullptr && this->environments_ != nullptr && this->icon_ != nullptr
-        && this->keywords_ != nullptr && this->language_ != nullptr && this->latestReleaseCreateTime_ != nullptr && this->name_ != nullptr && this->once_ != nullptr
-        && this->scene_ != nullptr && this->version_ != nullptr && this->weight_ != nullptr; };
+    virtual bool empty() const override { return this->alias_ == nullptr
+        && return this->categories_ == nullptr && return this->dashboards_ == nullptr && return this->description_ == nullptr && return this->environments_ == nullptr && return this->icon_ == nullptr
+        && return this->keywords_ == nullptr && return this->language_ == nullptr && return this->latestReleaseCreateTime_ == nullptr && return this->name_ == nullptr && return this->once_ == nullptr
+        && return this->scene_ == nullptr && return this->version_ == nullptr && return this->weight_ == nullptr; };
     // alias Field Functions 
     bool hasAlias() const { return this->alias_ != nullptr;};
     void deleteAlias() { this->alias_ = nullptr;};

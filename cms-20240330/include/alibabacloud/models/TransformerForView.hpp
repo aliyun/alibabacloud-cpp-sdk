@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actions_ != nullptr
-        && this->createTime_ != nullptr && this->description_ != nullptr && this->enable_ != nullptr && this->filterSetting_ != nullptr && this->quitAfterMatch_ != nullptr
-        && this->sortId_ != nullptr && this->transformerId_ != nullptr && this->transformerName_ != nullptr && this->updateTime_ != nullptr && this->userId_ != nullptr
-        && this->workspace_ != nullptr; };
+    virtual bool empty() const override { return this->actions_ == nullptr
+        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->enable_ == nullptr && return this->filterSetting_ == nullptr && return this->quitAfterMatch_ == nullptr
+        && return this->sortId_ == nullptr && return this->transformerId_ == nullptr && return this->transformerName_ == nullptr && return this->updateTime_ == nullptr && return this->userId_ == nullptr
+        && return this->workspace_ == nullptr; };
     // actions Field Functions 
     bool hasActions() const { return this->actions_ != nullptr;};
     void deleteActions() { this->actions_ = nullptr;};

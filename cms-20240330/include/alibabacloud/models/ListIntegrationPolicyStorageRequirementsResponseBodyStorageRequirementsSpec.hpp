@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->entityId_ != nullptr
-        && this->instance_ != nullptr && this->instanceName_ != nullptr && this->project_ != nullptr && this->region_ != nullptr && this->shareScope_ != nullptr
-        && this->storageType_ != nullptr && this->systemTags_ != nullptr && this->tags_ != nullptr && this->userId_ != nullptr && this->workspace_ != nullptr; };
+    virtual bool empty() const override { return this->entityId_ == nullptr
+        && return this->instance_ == nullptr && return this->instanceName_ == nullptr && return this->project_ == nullptr && return this->region_ == nullptr && return this->shareScope_ == nullptr
+        && return this->storageType_ == nullptr && return this->systemTags_ == nullptr && return this->tags_ == nullptr && return this->userId_ == nullptr && return this->workspace_ == nullptr; };
     // entityId Field Functions 
     bool hasEntityId() const { return this->entityId_ != nullptr;};
     void deleteEntityId() { this->entityId_ = nullptr;};

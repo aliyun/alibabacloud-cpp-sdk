@@ -42,8 +42,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->entityGroup_ != nullptr
-        && this->policyName_ != nullptr && this->policyType_ != nullptr && this->resourceGroupId_ != nullptr && this->tags_ != nullptr && this->workspace_ != nullptr; };
+    virtual bool empty() const override { return this->entityGroup_ == nullptr
+        && return this->policyName_ == nullptr && return this->policyType_ == nullptr && return this->resourceGroupId_ == nullptr && return this->tags_ == nullptr && return this->workspace_ == nullptr; };
     // entityGroup Field Functions 
     bool hasEntityGroup() const { return this->entityGroup_ != nullptr;};
     void deleteEntityGroup() { this->entityGroup_ = nullptr;};

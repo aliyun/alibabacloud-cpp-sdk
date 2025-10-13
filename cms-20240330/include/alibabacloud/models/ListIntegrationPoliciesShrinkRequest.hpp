@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addonName_ != nullptr
-        && this->entityGroupIds_ != nullptr && this->filterRegionIds_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->policyId_ != nullptr
-        && this->policyName_ != nullptr && this->policyType_ != nullptr && this->prometheusInstanceId_ != nullptr && this->query_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->tagShrink_ != nullptr && this->workspace_ != nullptr; };
+    virtual bool empty() const override { return this->addonName_ == nullptr
+        && return this->entityGroupIds_ == nullptr && return this->filterRegionIds_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->policyId_ == nullptr
+        && return this->policyName_ == nullptr && return this->policyType_ == nullptr && return this->prometheusInstanceId_ == nullptr && return this->query_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->tagShrink_ == nullptr && return this->workspace_ == nullptr; };
     // addonName Field Functions 
     bool hasAddonName() const { return this->addonName_ != nullptr;};
     void deleteAddonName() { this->addonName_ = nullptr;};

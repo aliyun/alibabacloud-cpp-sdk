@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateIntegrationPolicyRequestEntityGroup& obj) { 
       DARABONBA_PTR_TO_JSON(clusterEntityType, clusterEntityType_);
       DARABONBA_PTR_TO_JSON(clusterId, clusterId_);
+      DARABONBA_PTR_TO_JSON(disablePolicyShare, disablePolicyShare_);
       DARABONBA_PTR_TO_JSON(entityGroupId, entityGroupId_);
       DARABONBA_PTR_TO_JSON(vpcId, vpcId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateIntegrationPolicyRequestEntityGroup& obj) { 
       DARABONBA_PTR_FROM_JSON(clusterEntityType, clusterEntityType_);
       DARABONBA_PTR_FROM_JSON(clusterId, clusterId_);
+      DARABONBA_PTR_FROM_JSON(disablePolicyShare, disablePolicyShare_);
       DARABONBA_PTR_FROM_JSON(entityGroupId, entityGroupId_);
       DARABONBA_PTR_FROM_JSON(vpcId, vpcId_);
     };
@@ -35,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterEntityType_ != nullptr
-        && this->clusterId_ != nullptr && this->entityGroupId_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->clusterEntityType_ == nullptr
+        && return this->clusterId_ == nullptr && return this->disablePolicyShare_ == nullptr && return this->entityGroupId_ == nullptr && return this->vpcId_ == nullptr; };
     // clusterEntityType Field Functions 
     bool hasClusterEntityType() const { return this->clusterEntityType_ != nullptr;};
     void deleteClusterEntityType() { this->clusterEntityType_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteClusterId() { this->clusterId_ = nullptr;};
     inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline CreateIntegrationPolicyRequestEntityGroup& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
+
+
+    // disablePolicyShare Field Functions 
+    bool hasDisablePolicyShare() const { return this->disablePolicyShare_ != nullptr;};
+    void deleteDisablePolicyShare() { this->disablePolicyShare_ = nullptr;};
+    inline bool disablePolicyShare() const { DARABONBA_PTR_GET_DEFAULT(disablePolicyShare_, false) };
+    inline CreateIntegrationPolicyRequestEntityGroup& setDisablePolicyShare(bool disablePolicyShare) { DARABONBA_PTR_SET_VALUE(disablePolicyShare_, disablePolicyShare) };
 
 
     // entityGroupId Field Functions 
@@ -68,6 +77,7 @@ namespace Models
   protected:
     std::shared_ptr<string> clusterEntityType_ = nullptr;
     std::shared_ptr<string> clusterId_ = nullptr;
+    std::shared_ptr<bool> disablePolicyShare_ = nullptr;
     std::shared_ptr<string> entityGroupId_ = nullptr;
     std::shared_ptr<string> vpcId_ = nullptr;
   };

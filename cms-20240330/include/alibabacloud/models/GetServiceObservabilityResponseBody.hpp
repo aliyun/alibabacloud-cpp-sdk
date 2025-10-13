@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->entryPointInfo_ != nullptr
-        && this->feeType_ != nullptr && this->quotas_ != nullptr && this->regionId_ != nullptr && this->requestId_ != nullptr && this->settings_ != nullptr
-        && this->status_ != nullptr && this->type_ != nullptr && this->workspace_ != nullptr; };
+    virtual bool empty() const override { return this->entryPointInfo_ == nullptr
+        && return this->feeType_ == nullptr && return this->quotas_ == nullptr && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->settings_ == nullptr
+        && return this->status_ == nullptr && return this->type_ == nullptr && return this->workspace_ == nullptr; };
     // entryPointInfo Field Functions 
     bool hasEntryPointInfo() const { return this->entryPointInfo_ != nullptr;};
     void deleteEntryPointInfo() { this->entryPointInfo_ = nullptr;};

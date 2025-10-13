@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aggTaskGroupConfigHash_ != nullptr
-        && this->aggTaskGroupId_ != nullptr && this->aggTaskGroupName_ != nullptr && this->cronExpr_ != nullptr && this->delay_ != nullptr && this->description_ != nullptr
-        && this->fromTime_ != nullptr && this->interval_ != nullptr && this->maxRetries_ != nullptr && this->maxRunTimeInSeconds_ != nullptr && this->regionId_ != nullptr
-        && this->scheduleMode_ != nullptr && this->scheduleTimeExpr_ != nullptr && this->sourcePrometheusId_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr
-        && this->targetPrometheusId_ != nullptr && this->toTime_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->aggTaskGroupConfigHash_ == nullptr
+        && return this->aggTaskGroupId_ == nullptr && return this->aggTaskGroupName_ == nullptr && return this->cronExpr_ == nullptr && return this->delay_ == nullptr && return this->description_ == nullptr
+        && return this->fromTime_ == nullptr && return this->interval_ == nullptr && return this->maxRetries_ == nullptr && return this->maxRunTimeInSeconds_ == nullptr && return this->regionId_ == nullptr
+        && return this->scheduleMode_ == nullptr && return this->scheduleTimeExpr_ == nullptr && return this->sourcePrometheusId_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr
+        && return this->targetPrometheusId_ == nullptr && return this->toTime_ == nullptr && return this->updateTime_ == nullptr; };
     // aggTaskGroupConfigHash Field Functions 
     bool hasAggTaskGroupConfigHash() const { return this->aggTaskGroupConfigHash_ != nullptr;};
     void deleteAggTaskGroupConfigHash() { this->aggTaskGroupConfigHash_ = nullptr;};

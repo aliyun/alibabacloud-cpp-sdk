@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRecoverSeconds_ != nullptr
-        && this->closeExpire_ != nullptr && this->corporation_ != nullptr && this->description_ != nullptr && this->escalationId_ != nullptr && this->gmtCreate_ != nullptr
-        && this->gmtModified_ != nullptr && this->groupBy_ != nullptr && this->incidentPlanId_ != nullptr && this->name_ != nullptr && this->resourceFiled_ != nullptr
-        && this->status_ != nullptr && this->userId_ != nullptr && this->workspace_ != nullptr; };
+    virtual bool empty() const override { return this->autoRecoverSeconds_ == nullptr
+        && return this->closeExpire_ == nullptr && return this->corporation_ == nullptr && return this->description_ == nullptr && return this->escalationId_ == nullptr && return this->gmtCreate_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->groupBy_ == nullptr && return this->incidentPlanId_ == nullptr && return this->name_ == nullptr && return this->resourceFiled_ == nullptr
+        && return this->status_ == nullptr && return this->userId_ == nullptr && return this->workspace_ == nullptr; };
     // autoRecoverSeconds Field Functions 
     bool hasAutoRecoverSeconds() const { return this->autoRecoverSeconds_ != nullptr;};
     void deleteAutoRecoverSeconds() { this->autoRecoverSeconds_ = nullptr;};

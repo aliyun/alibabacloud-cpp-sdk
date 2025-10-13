@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dim_ != nullptr
-        && this->dimDisabled_ != nullptr && this->displayNameCn_ != nullptr && this->displayNameEn_ != nullptr && this->hidden_ != nullptr && this->labelDisabled_ != nullptr
-        && this->opt_ != nullptr && this->supportedOpts_ != nullptr; };
+    virtual bool empty() const override { return this->dim_ == nullptr
+        && return this->dimDisabled_ == nullptr && return this->displayNameCn_ == nullptr && return this->displayNameEn_ == nullptr && return this->hidden_ == nullptr && return this->labelDisabled_ == nullptr
+        && return this->opt_ == nullptr && return this->supportedOpts_ == nullptr; };
     // dim Field Functions 
     bool hasDim() const { return this->dim_ != nullptr;};
     void deleteDim() { this->dim_ = nullptr;};

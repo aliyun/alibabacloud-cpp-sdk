@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->filterAggTaskGroupIds_ != nullptr
-        && this->filterAggTaskGroupNames_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->query_ != nullptr && this->status_ != nullptr
-        && this->tags_ != nullptr && this->targetPrometheusId_ != nullptr; };
+    virtual bool empty() const override { return this->filterAggTaskGroupIds_ == nullptr
+        && return this->filterAggTaskGroupNames_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->query_ == nullptr && return this->status_ == nullptr
+        && return this->tags_ == nullptr && return this->targetPrometheusId_ == nullptr; };
     // filterAggTaskGroupIds Field Functions 
     bool hasFilterAggTaskGroupIds() const { return this->filterAggTaskGroupIds_ != nullptr;};
     void deleteFilterAggTaskGroupIds() { this->filterAggTaskGroupIds_ = nullptr;};

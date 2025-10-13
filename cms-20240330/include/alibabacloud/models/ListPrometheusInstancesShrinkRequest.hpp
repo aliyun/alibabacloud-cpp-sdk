@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->filterRegionIds_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->prometheusInstanceIds_ != nullptr && this->prometheusInstanceName_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->resourceType_ != nullptr && this->tagShrink_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->filterRegionIds_ == nullptr
+        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->prometheusInstanceIds_ == nullptr && return this->prometheusInstanceName_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->resourceType_ == nullptr && return this->tagShrink_ == nullptr && return this->version_ == nullptr; };
     // filterRegionIds Field Functions 
     bool hasFilterRegionIds() const { return this->filterRegionIds_ != nullptr;};
     void deleteFilterRegionIds() { this->filterRegionIds_ = nullptr;};

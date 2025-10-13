@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessTokenExpirationTime_ != nullptr
-        && this->expirationTime_ != nullptr; };
+    virtual bool empty() const override { return this->accessTokenExpirationTime_ == nullptr
+        && return this->expirationTime_ == nullptr; };
     // accessTokenExpirationTime Field Functions 
     bool hasAccessTokenExpirationTime() const { return this->accessTokenExpirationTime_ != nullptr;};
     void deleteAccessTokenExpirationTime() { this->accessTokenExpirationTime_ = nullptr;};

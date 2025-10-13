@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertEventIntegrationPolicyId_ != nullptr
-        && this->alertEventIntegrationPolicyName_ != nullptr && this->createTime_ != nullptr && this->description_ != nullptr && this->enable_ != nullptr && this->filterSetting_ != nullptr
-        && this->integrationSetting_ != nullptr && this->token_ != nullptr && this->transformerSetting_ != nullptr && this->type_ != nullptr && this->updateTime_ != nullptr
-        && this->userId_ != nullptr && this->workspace_ != nullptr; };
+    virtual bool empty() const override { return this->alertEventIntegrationPolicyId_ == nullptr
+        && return this->alertEventIntegrationPolicyName_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->enable_ == nullptr && return this->filterSetting_ == nullptr
+        && return this->integrationSetting_ == nullptr && return this->token_ == nullptr && return this->transformerSetting_ == nullptr && return this->type_ == nullptr && return this->updateTime_ == nullptr
+        && return this->userId_ == nullptr && return this->workspace_ == nullptr; };
     // alertEventIntegrationPolicyId Field Functions 
     bool hasAlertEventIntegrationPolicyId() const { return this->alertEventIntegrationPolicyId_ != nullptr;};
     void deleteAlertEventIntegrationPolicyId() { this->alertEventIntegrationPolicyId_ = nullptr;};

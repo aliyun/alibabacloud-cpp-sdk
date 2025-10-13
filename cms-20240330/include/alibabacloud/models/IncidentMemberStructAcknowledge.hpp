@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->breakLevel_ != nullptr
-        && this->verifyTime_ != nullptr; };
+    virtual bool empty() const override { return this->breakLevel_ == nullptr
+        && return this->verifyTime_ == nullptr; };
     // breakLevel Field Functions 
     bool hasBreakLevel() const { return this->breakLevel_ != nullptr;};
     void deleteBreakLevel() { this->breakLevel_ = nullptr;};

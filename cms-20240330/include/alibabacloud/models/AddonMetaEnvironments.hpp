@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_ADDONMETAENVIRONMENTS_HPP_
 #define ALIBABACLOUD_MODELS_ADDONMETAENVIRONMENTS_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/AddonMetaEnvironmentsCommonSchemaRefs.hpp>
 #include <alibabacloud/models/AddonMetaEnvironmentsDependencies.hpp>
 #include <alibabacloud/models/AddonMetaEnvironmentsPolicies.hpp>
 using namespace std;
@@ -15,6 +17,7 @@ namespace Models
   class AddonMetaEnvironments : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const AddonMetaEnvironments& obj) { 
+      DARABONBA_PTR_TO_JSON(commonSchemaRefs, commonSchemaRefs_);
       DARABONBA_PTR_TO_JSON(dependencies, dependencies_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(enable, enable_);
@@ -24,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(policyType, policyType_);
     };
     friend void from_json(const Darabonba::Json& j, AddonMetaEnvironments& obj) { 
+      DARABONBA_PTR_FROM_JSON(commonSchemaRefs, commonSchemaRefs_);
       DARABONBA_PTR_FROM_JSON(dependencies, dependencies_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(enable, enable_);
@@ -43,9 +47,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dependencies_ != nullptr
-        && this->description_ != nullptr && this->enable_ != nullptr && this->label_ != nullptr && this->name_ != nullptr && this->policies_ != nullptr
-        && this->policyType_ != nullptr; };
+    virtual bool empty() const override { return this->commonSchemaRefs_ == nullptr
+        && return this->dependencies_ == nullptr && return this->description_ == nullptr && return this->enable_ == nullptr && return this->label_ == nullptr && return this->name_ == nullptr
+        && return this->policies_ == nullptr && return this->policyType_ == nullptr; };
+    // commonSchemaRefs Field Functions 
+    bool hasCommonSchemaRefs() const { return this->commonSchemaRefs_ != nullptr;};
+    void deleteCommonSchemaRefs() { this->commonSchemaRefs_ = nullptr;};
+    inline const vector<Models::AddonMetaEnvironmentsCommonSchemaRefs> & commonSchemaRefs() const { DARABONBA_PTR_GET_CONST(commonSchemaRefs_, vector<Models::AddonMetaEnvironmentsCommonSchemaRefs>) };
+    inline vector<Models::AddonMetaEnvironmentsCommonSchemaRefs> commonSchemaRefs() { DARABONBA_PTR_GET(commonSchemaRefs_, vector<Models::AddonMetaEnvironmentsCommonSchemaRefs>) };
+    inline AddonMetaEnvironments& setCommonSchemaRefs(const vector<Models::AddonMetaEnvironmentsCommonSchemaRefs> & commonSchemaRefs) { DARABONBA_PTR_SET_VALUE(commonSchemaRefs_, commonSchemaRefs) };
+    inline AddonMetaEnvironments& setCommonSchemaRefs(vector<Models::AddonMetaEnvironmentsCommonSchemaRefs> && commonSchemaRefs) { DARABONBA_PTR_SET_RVALUE(commonSchemaRefs_, commonSchemaRefs) };
+
+
     // dependencies Field Functions 
     bool hasDependencies() const { return this->dependencies_ != nullptr;};
     void deleteDependencies() { this->dependencies_ = nullptr;};
@@ -100,6 +113,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<vector<Models::AddonMetaEnvironmentsCommonSchemaRefs>> commonSchemaRefs_ = nullptr;
     std::shared_ptr<Models::AddonMetaEnvironmentsDependencies> dependencies_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<bool> enable_ = nullptr;

@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->customTemplateEntries_ != nullptr && this->description_ != nullptr && this->enable_ != nullptr && this->groupingSetting_ != nullptr && this->ignoreRestoredNotification_ != nullptr
-        && this->notifyStrategyId_ != nullptr && this->notifyStrategyName_ != nullptr && this->routes_ != nullptr && this->updateTime_ != nullptr && this->userId_ != nullptr
-        && this->workspace_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->customTemplateEntries_ == nullptr && return this->description_ == nullptr && return this->enable_ == nullptr && return this->groupingSetting_ == nullptr && return this->ignoreRestoredNotification_ == nullptr
+        && return this->notifyStrategyId_ == nullptr && return this->notifyStrategyName_ == nullptr && return this->routes_ == nullptr && return this->updateTime_ == nullptr && return this->userId_ == nullptr
+        && return this->workspace_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

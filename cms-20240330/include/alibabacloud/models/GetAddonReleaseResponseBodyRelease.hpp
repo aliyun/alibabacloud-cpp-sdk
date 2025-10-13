@@ -80,12 +80,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addonName_ != nullptr
-        && this->alertRuleCount_ != nullptr && this->conditions_ != nullptr && this->config_ != nullptr && this->createTime_ != nullptr && this->dashboardCount_ != nullptr
-        && this->entityRules_ != nullptr && this->envType_ != nullptr && this->environmentId_ != nullptr && this->exporterCount_ != nullptr && this->haveConfig_ != nullptr
-        && this->installUserId_ != nullptr && this->language_ != nullptr && this->managed_ != nullptr && this->parentAddonReleaseId_ != nullptr && this->policyId_ != nullptr
-        && this->regionId_ != nullptr && this->releaseId_ != nullptr && this->releaseName_ != nullptr && this->scene_ != nullptr && this->status_ != nullptr
-        && this->updateTime_ != nullptr && this->userId_ != nullptr && this->version_ != nullptr && this->workspace_ != nullptr; };
+    virtual bool empty() const override { return this->addonName_ == nullptr
+        && return this->alertRuleCount_ == nullptr && return this->conditions_ == nullptr && return this->config_ == nullptr && return this->createTime_ == nullptr && return this->dashboardCount_ == nullptr
+        && return this->entityRules_ == nullptr && return this->envType_ == nullptr && return this->environmentId_ == nullptr && return this->exporterCount_ == nullptr && return this->haveConfig_ == nullptr
+        && return this->installUserId_ == nullptr && return this->language_ == nullptr && return this->managed_ == nullptr && return this->parentAddonReleaseId_ == nullptr && return this->policyId_ == nullptr
+        && return this->regionId_ == nullptr && return this->releaseId_ == nullptr && return this->releaseName_ == nullptr && return this->scene_ == nullptr && return this->status_ == nullptr
+        && return this->updateTime_ == nullptr && return this->userId_ == nullptr && return this->version_ == nullptr && return this->workspace_ == nullptr; };
     // addonName Field Functions 
     bool hasAddonName() const { return this->addonName_ != nullptr;};
     void deleteAddonName() { this->addonName_ = nullptr;};

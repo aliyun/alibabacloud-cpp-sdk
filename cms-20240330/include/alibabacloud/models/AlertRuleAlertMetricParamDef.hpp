@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxWidth_ != nullptr
-        && this->minWidth_ != nullptr && this->name_ != nullptr && this->placeholderCn_ != nullptr && this->placeholderEn_ != nullptr && this->type_ != nullptr
-        && this->value_ != nullptr && this->values_ != nullptr; };
+    virtual bool empty() const override { return this->maxWidth_ == nullptr
+        && return this->minWidth_ == nullptr && return this->name_ == nullptr && return this->placeholderCn_ == nullptr && return this->placeholderEn_ == nullptr && return this->type_ == nullptr
+        && return this->value_ == nullptr && return this->values_ == nullptr; };
     // maxWidth Field Functions 
     bool hasMaxWidth() const { return this->maxWidth_ != nullptr;};
     void deleteMaxWidth() { this->maxWidth_ = nullptr;};

@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dayInWeek_ != nullptr
-        && this->endTimeInMinute_ != nullptr && this->startTimeInMinute_ != nullptr && this->timeZone_ != nullptr; };
+    virtual bool empty() const override { return this->dayInWeek_ == nullptr
+        && return this->endTimeInMinute_ == nullptr && return this->startTimeInMinute_ == nullptr && return this->timeZone_ == nullptr; };
     // dayInWeek Field Functions 
     bool hasDayInWeek() const { return this->dayInWeek_ != nullptr;};
     void deleteDayInWeek() { this->dayInWeek_ = nullptr;};

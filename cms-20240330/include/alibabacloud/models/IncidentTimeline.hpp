@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->childType_ != nullptr
-        && this->content_ != nullptr && this->incidentId_ != nullptr && this->incidentTimelineId_ != nullptr && this->time_ != nullptr && this->timelineId_ != nullptr
-        && this->title_ != nullptr && this->type_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->childType_ == nullptr
+        && return this->content_ == nullptr && return this->incidentId_ == nullptr && return this->incidentTimelineId_ == nullptr && return this->time_ == nullptr && return this->timelineId_ == nullptr
+        && return this->title_ == nullptr && return this->type_ == nullptr && return this->userId_ == nullptr; };
     // childType Field Functions 
     bool hasChildType() const { return this->childType_ != nullptr;};
     void deleteChildType() { this->childType_ = nullptr;};

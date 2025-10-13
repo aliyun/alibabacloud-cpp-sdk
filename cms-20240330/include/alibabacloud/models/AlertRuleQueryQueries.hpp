@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apmAlertMetricId_ != nullptr
-        && this->apmFilters_ != nullptr && this->apmGroupBy_ != nullptr && this->duration_ != nullptr && this->end_ != nullptr && this->expr_ != nullptr
-        && this->start_ != nullptr && this->timeUnit_ != nullptr && this->window_ != nullptr; };
+    virtual bool empty() const override { return this->apmAlertMetricId_ == nullptr
+        && return this->apmFilters_ == nullptr && return this->apmGroupBy_ == nullptr && return this->duration_ == nullptr && return this->end_ == nullptr && return this->expr_ == nullptr
+        && return this->start_ == nullptr && return this->timeUnit_ == nullptr && return this->window_ == nullptr; };
     // apmAlertMetricId Field Functions 
     bool hasApmAlertMetricId() const { return this->apmAlertMetricId_ != nullptr;};
     void deleteApmAlertMetricId() { this->apmAlertMetricId_ = nullptr;};

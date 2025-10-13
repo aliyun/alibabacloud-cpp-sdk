@@ -84,13 +84,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authFreeReadPolicy_ != nullptr
-        && this->authToken_ != nullptr && this->createTime_ != nullptr && this->enableAuthFreeRead_ != nullptr && this->enableAuthToken_ != nullptr && this->folderUrl_ != nullptr
-        && this->grafanaInstanceId_ != nullptr && this->grafanaInstanceName_ != nullptr && this->httpApiInterUrl_ != nullptr && this->httpApiIntraUrl_ != nullptr && this->instanceType_ != nullptr
-        && this->paymentType_ != nullptr && this->product_ != nullptr && this->prometheusInstances_ != nullptr && this->prometheusViewId_ != nullptr && this->prometheusViewName_ != nullptr
-        && this->regionId_ != nullptr && this->remoteReadInterUrl_ != nullptr && this->remoteReadIntraUrl_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceType_ != nullptr
-        && this->status_ != nullptr && this->supportAuthTypes_ != nullptr && this->tags_ != nullptr && this->userId_ != nullptr && this->version_ != nullptr
-        && this->workspace_ != nullptr; };
+    virtual bool empty() const override { return this->authFreeReadPolicy_ == nullptr
+        && return this->authToken_ == nullptr && return this->createTime_ == nullptr && return this->enableAuthFreeRead_ == nullptr && return this->enableAuthToken_ == nullptr && return this->folderUrl_ == nullptr
+        && return this->grafanaInstanceId_ == nullptr && return this->grafanaInstanceName_ == nullptr && return this->httpApiInterUrl_ == nullptr && return this->httpApiIntraUrl_ == nullptr && return this->instanceType_ == nullptr
+        && return this->paymentType_ == nullptr && return this->product_ == nullptr && return this->prometheusInstances_ == nullptr && return this->prometheusViewId_ == nullptr && return this->prometheusViewName_ == nullptr
+        && return this->regionId_ == nullptr && return this->remoteReadInterUrl_ == nullptr && return this->remoteReadIntraUrl_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceType_ == nullptr
+        && return this->status_ == nullptr && return this->supportAuthTypes_ == nullptr && return this->tags_ == nullptr && return this->userId_ == nullptr && return this->version_ == nullptr
+        && return this->workspace_ == nullptr; };
     // authFreeReadPolicy Field Functions 
     bool hasAuthFreeReadPolicy() const { return this->authFreeReadPolicy_ != nullptr;};
     void deleteAuthFreeReadPolicy() { this->authFreeReadPolicy_ = nullptr;};

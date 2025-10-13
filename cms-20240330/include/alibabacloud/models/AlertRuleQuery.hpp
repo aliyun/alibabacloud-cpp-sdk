@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkAfterDataComplete_ != nullptr
-        && this->dimensions_ != nullptr && this->domain_ != nullptr && this->duration_ != nullptr && this->entityFilter_ != nullptr && this->expr_ != nullptr
-        && this->firstJoin_ != nullptr && this->groupFieldList_ != nullptr && this->groupId_ != nullptr && this->groupType_ != nullptr && this->metric_ != nullptr
-        && this->metricSet_ != nullptr && this->namespace_ != nullptr && this->queries_ != nullptr && this->relationType_ != nullptr && this->secondJoin_ != nullptr
-        && this->serviceIds_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->checkAfterDataComplete_ == nullptr
+        && return this->dimensions_ == nullptr && return this->domain_ == nullptr && return this->duration_ == nullptr && return this->entityFilter_ == nullptr && return this->expr_ == nullptr
+        && return this->firstJoin_ == nullptr && return this->groupFieldList_ == nullptr && return this->groupId_ == nullptr && return this->groupType_ == nullptr && return this->metric_ == nullptr
+        && return this->metricSet_ == nullptr && return this->namespace_ == nullptr && return this->queries_ == nullptr && return this->relationType_ == nullptr && return this->secondJoin_ == nullptr
+        && return this->serviceIds_ == nullptr && return this->type_ == nullptr; };
     // checkAfterDataComplete Field Functions 
     bool hasCheckAfterDataComplete() const { return this->checkAfterDataComplete_ != nullptr;};
     void deleteCheckAfterDataComplete() { this->checkAfterDataComplete_ = nullptr;};

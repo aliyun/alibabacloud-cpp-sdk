@@ -57,9 +57,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertActionId_ != nullptr
-        && this->alertActionName_ != nullptr && this->ebParam_ != nullptr && this->essParam_ != nullptr && this->fc3Param_ != nullptr && this->fcParam_ != nullptr
-        && this->mnsParam_ != nullptr && this->pagerDutyParam_ != nullptr && this->slsParam_ != nullptr && this->type_ != nullptr && this->webhookParam_ != nullptr; };
+    virtual bool empty() const override { return this->alertActionId_ == nullptr
+        && return this->alertActionName_ == nullptr && return this->ebParam_ == nullptr && return this->essParam_ == nullptr && return this->fc3Param_ == nullptr && return this->fcParam_ == nullptr
+        && return this->mnsParam_ == nullptr && return this->pagerDutyParam_ == nullptr && return this->slsParam_ == nullptr && return this->type_ == nullptr && return this->webhookParam_ == nullptr; };
     // alertActionId Field Functions 
     bool hasAlertActionId() const { return this->alertActionId_ != nullptr;};
     void deleteAlertActionId() { this->alertActionId_ = nullptr;};

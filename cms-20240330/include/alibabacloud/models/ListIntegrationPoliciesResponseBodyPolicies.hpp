@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bindResource_ != nullptr
-        && this->entityGroup_ != nullptr && this->managedInfo_ != nullptr && this->policyId_ != nullptr && this->policyName_ != nullptr && this->policyType_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->subAddonRelease_ != nullptr && this->tags_ != nullptr && this->userId_ != nullptr
-        && this->workspace_ != nullptr; };
+    virtual bool empty() const override { return this->bindResource_ == nullptr
+        && return this->entityGroup_ == nullptr && return this->managedInfo_ == nullptr && return this->policyId_ == nullptr && return this->policyName_ == nullptr && return this->policyType_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->subAddonRelease_ == nullptr && return this->tags_ == nullptr && return this->userId_ == nullptr
+        && return this->workspace_ == nullptr; };
     // bindResource Field Functions 
     bool hasBindResource() const { return this->bindResource_ != nullptr;};
     void deleteBindResource() { this->bindResource_ = nullptr;};

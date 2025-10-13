@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->folderUid_ != nullptr
-        && this->region_ != nullptr && this->tags_ != nullptr && this->title_ != nullptr && this->uid_ != nullptr && this->url_ != nullptr; };
+    virtual bool empty() const override { return this->folderUid_ == nullptr
+        && return this->region_ == nullptr && return this->tags_ == nullptr && return this->title_ == nullptr && return this->uid_ == nullptr && return this->url_ == nullptr; };
     // folderUid Field Functions 
     bool hasFolderUid() const { return this->folderUid_ != nullptr;};
     void deleteFolderUid() { this->folderUid_ = nullptr;};

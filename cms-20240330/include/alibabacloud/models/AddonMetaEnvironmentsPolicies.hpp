@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertDefaultStatus_ != nullptr
-        && this->bindDefaultPolicy_ != nullptr && this->bindEntity_ != nullptr && this->defaultInstall_ != nullptr && this->enableServiceAccount_ != nullptr && this->metricCheckRule_ != nullptr
-        && this->needRestartAfterIntegration_ != nullptr && this->protocols_ != nullptr && this->targetAddonName_ != nullptr; };
+    virtual bool empty() const override { return this->alertDefaultStatus_ == nullptr
+        && return this->bindDefaultPolicy_ == nullptr && return this->bindEntity_ == nullptr && return this->defaultInstall_ == nullptr && return this->enableServiceAccount_ == nullptr && return this->metricCheckRule_ == nullptr
+        && return this->needRestartAfterIntegration_ == nullptr && return this->protocols_ == nullptr && return this->targetAddonName_ == nullptr; };
     // alertDefaultStatus Field Functions 
     bool hasAlertDefaultStatus() const { return this->alertDefaultStatus_ != nullptr;};
     void deleteAlertDefaultStatus() { this->alertDefaultStatus_ = nullptr;};

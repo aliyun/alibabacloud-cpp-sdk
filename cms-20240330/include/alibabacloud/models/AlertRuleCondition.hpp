@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertCount_ != nullptr
-        && this->caseList_ != nullptr && this->compareList_ != nullptr && this->compositeEscalation_ != nullptr && this->escalationType_ != nullptr && this->expressEscalation_ != nullptr
-        && this->noDataAlertLevel_ != nullptr && this->noDataAppendValue_ != nullptr && this->noDataPolicy_ != nullptr && this->oper_ != nullptr && this->relation_ != nullptr
-        && this->simpleEscalation_ != nullptr && this->type_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->alertCount_ == nullptr
+        && return this->caseList_ == nullptr && return this->compareList_ == nullptr && return this->compositeEscalation_ == nullptr && return this->escalationType_ == nullptr && return this->expressEscalation_ == nullptr
+        && return this->noDataAlertLevel_ == nullptr && return this->noDataAppendValue_ == nullptr && return this->noDataPolicy_ == nullptr && return this->oper_ == nullptr && return this->relation_ == nullptr
+        && return this->simpleEscalation_ == nullptr && return this->type_ == nullptr && return this->value_ == nullptr; };
     // alertCount Field Functions 
     bool hasAlertCount() const { return this->alertCount_ != nullptr;};
     void deleteAlertCount() { this->alertCount_ = nullptr;};

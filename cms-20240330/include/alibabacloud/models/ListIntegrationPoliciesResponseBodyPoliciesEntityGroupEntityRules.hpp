@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->annotations_ != nullptr
-        && this->entityTypes_ != nullptr && this->fieldRules_ != nullptr && this->instanceIds_ != nullptr && this->ipMatchRule_ != nullptr && this->labels_ != nullptr
-        && this->regionIds_ != nullptr && this->resourceGroupId_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->annotations_ == nullptr
+        && return this->entityTypes_ == nullptr && return this->fieldRules_ == nullptr && return this->instanceIds_ == nullptr && return this->ipMatchRule_ == nullptr && return this->labels_ == nullptr
+        && return this->regionIds_ == nullptr && return this->resourceGroupId_ == nullptr && return this->tags_ == nullptr; };
     // annotations Field Functions 
     bool hasAnnotations() const { return this->annotations_ != nullptr;};
     void deleteAnnotations() { this->annotations_ = nullptr;};

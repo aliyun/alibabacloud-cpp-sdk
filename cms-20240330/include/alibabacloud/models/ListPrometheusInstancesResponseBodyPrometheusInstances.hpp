@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessType_ != nullptr
-        && this->createTime_ != nullptr && this->instanceType_ != nullptr && this->paymentType_ != nullptr && this->product_ != nullptr && this->prometheusInstanceId_ != nullptr
-        && this->prometheusInstanceName_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceType_ != nullptr && this->status_ != nullptr
-        && this->supportAuthTypes_ != nullptr && this->tags_ != nullptr && this->userId_ != nullptr && this->version_ != nullptr && this->workspace_ != nullptr; };
+    virtual bool empty() const override { return this->accessType_ == nullptr
+        && return this->createTime_ == nullptr && return this->instanceType_ == nullptr && return this->paymentType_ == nullptr && return this->product_ == nullptr && return this->prometheusInstanceId_ == nullptr
+        && return this->prometheusInstanceName_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceType_ == nullptr && return this->status_ == nullptr
+        && return this->supportAuthTypes_ == nullptr && return this->tags_ == nullptr && return this->userId_ == nullptr && return this->version_ == nullptr && return this->workspace_ == nullptr; };
     // accessType Field Functions 
     bool hasAccessType() const { return this->accessType_ != nullptr;};
     void deleteAccessType() { this->accessType_ = nullptr;};

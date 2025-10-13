@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->archiveDuration_ != nullptr
-        && this->authFreeReadPolicy_ != nullptr && this->authFreeWritePolicy_ != nullptr && this->enableAuthFreeRead_ != nullptr && this->enableAuthFreeWrite_ != nullptr && this->enableAuthToken_ != nullptr
-        && this->paymentType_ != nullptr && this->prometheusInstanceName_ != nullptr && this->status_ != nullptr && this->storageDuration_ != nullptr && this->tags_ != nullptr
-        && this->workspace_ != nullptr; };
+    virtual bool empty() const override { return this->archiveDuration_ == nullptr
+        && return this->authFreeReadPolicy_ == nullptr && return this->authFreeWritePolicy_ == nullptr && return this->enableAuthFreeRead_ == nullptr && return this->enableAuthFreeWrite_ == nullptr && return this->enableAuthToken_ == nullptr
+        && return this->paymentType_ == nullptr && return this->prometheusInstanceName_ == nullptr && return this->status_ == nullptr && return this->storageDuration_ == nullptr && return this->tags_ == nullptr
+        && return this->workspace_ == nullptr; };
     // archiveDuration Field Functions 
     bool hasArchiveDuration() const { return this->archiveDuration_ != nullptr;};
     void deleteArchiveDuration() { this->archiveDuration_ = nullptr;};

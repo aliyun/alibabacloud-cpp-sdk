@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRecoverTime_ != nullptr
-        && this->content_ != nullptr && this->count_ != nullptr && this->dimension_ != nullptr && this->groupBy_ != nullptr && this->incidentEventId_ != nullptr
-        && this->incidentId_ != nullptr && this->lastTime_ != nullptr && this->recoverTime_ != nullptr && this->resource_ != nullptr && this->status_ != nullptr
-        && this->time_ != nullptr && this->title_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->autoRecoverTime_ == nullptr
+        && return this->content_ == nullptr && return this->count_ == nullptr && return this->dimension_ == nullptr && return this->groupBy_ == nullptr && return this->incidentEventId_ == nullptr
+        && return this->incidentId_ == nullptr && return this->lastTime_ == nullptr && return this->recoverTime_ == nullptr && return this->resource_ == nullptr && return this->status_ == nullptr
+        && return this->time_ == nullptr && return this->title_ == nullptr && return this->userId_ == nullptr; };
     // autoRecoverTime Field Functions 
     bool hasAutoRecoverTime() const { return this->autoRecoverTime_ != nullptr;};
     void deleteAutoRecoverTime() { this->autoRecoverTime_ = nullptr;};
