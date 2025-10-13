@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->certId_ != nullptr
-        && this->certIds_ != nullptr && this->corsConfig_ != nullptr && this->defaultRule_ != nullptr && this->description_ != nullptr && this->enableXForwardedFor_ != nullptr
-        && this->enableXForwardedForClientSrcPort_ != nullptr && this->enableXForwardedForProto_ != nullptr && this->enableXForwardedForSlbId_ != nullptr && this->enableXForwardedForSlbPort_ != nullptr && this->idleTimeout_ != nullptr
-        && this->ingressId_ != nullptr && this->listenerPort_ != nullptr && this->listenerProtocol_ != nullptr && this->loadBalanceType_ != nullptr && this->requestTimeout_ != nullptr
-        && this->rules_ != nullptr && this->securityPolicyId_ != nullptr; };
+    virtual bool empty() const override { return this->certId_ == nullptr
+        && return this->certIds_ == nullptr && return this->corsConfig_ == nullptr && return this->defaultRule_ == nullptr && return this->description_ == nullptr && return this->enableXForwardedFor_ == nullptr
+        && return this->enableXForwardedForClientSrcPort_ == nullptr && return this->enableXForwardedForProto_ == nullptr && return this->enableXForwardedForSlbId_ == nullptr && return this->enableXForwardedForSlbPort_ == nullptr && return this->idleTimeout_ == nullptr
+        && return this->ingressId_ == nullptr && return this->listenerPort_ == nullptr && return this->listenerProtocol_ == nullptr && return this->loadBalanceType_ == nullptr && return this->requestTimeout_ == nullptr
+        && return this->rules_ == nullptr && return this->securityPolicyId_ == nullptr; };
     // certId Field Functions 
     bool hasCertId() const { return this->certId_ != nullptr;};
     void deleteCertId() { this->certId_ = nullptr;};

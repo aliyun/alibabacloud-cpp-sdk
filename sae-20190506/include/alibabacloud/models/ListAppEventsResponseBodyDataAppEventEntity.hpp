@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->causeAnalysis_ != nullptr
-        && this->eventType_ != nullptr && this->firstTimestamp_ != nullptr && this->lastTimestamp_ != nullptr && this->message_ != nullptr && this->objectKind_ != nullptr
-        && this->objectName_ != nullptr && this->reason_ != nullptr; };
+    virtual bool empty() const override { return this->causeAnalysis_ == nullptr
+        && return this->eventType_ == nullptr && return this->firstTimestamp_ == nullptr && return this->lastTimestamp_ == nullptr && return this->message_ == nullptr && return this->objectKind_ == nullptr
+        && return this->objectName_ == nullptr && return this->reason_ == nullptr; };
     // causeAnalysis Field Functions 
     bool hasCauseAnalysis() const { return this->causeAnalysis_ != nullptr;};
     void deleteCauseAnalysis() { this->causeAnalysis_ = nullptr;};

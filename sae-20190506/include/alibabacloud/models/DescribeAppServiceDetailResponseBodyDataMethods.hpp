@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->methodController_ != nullptr
-        && this->name_ != nullptr && this->nameDetail_ != nullptr && this->parameterDefinitions_ != nullptr && this->parameterDetails_ != nullptr && this->parameterTypes_ != nullptr
-        && this->paths_ != nullptr && this->requestMethods_ != nullptr && this->returnDetails_ != nullptr && this->returnType_ != nullptr; };
+    virtual bool empty() const override { return this->methodController_ == nullptr
+        && return this->name_ == nullptr && return this->nameDetail_ == nullptr && return this->parameterDefinitions_ == nullptr && return this->parameterDetails_ == nullptr && return this->parameterTypes_ == nullptr
+        && return this->paths_ == nullptr && return this->requestMethods_ == nullptr && return this->returnDetails_ == nullptr && return this->returnType_ == nullptr; };
     // methodController Field Functions 
     bool hasMethodController() const { return this->methodController_ != nullptr;};
     void deleteMethodController() { this->methodController_ = nullptr;};

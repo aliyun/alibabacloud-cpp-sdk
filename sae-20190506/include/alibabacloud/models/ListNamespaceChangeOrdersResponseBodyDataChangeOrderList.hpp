@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->batchCount_ != nullptr
-        && this->batchType_ != nullptr && this->changeOrderId_ != nullptr && this->coType_ != nullptr && this->coTypeCode_ != nullptr && this->createTime_ != nullptr
-        && this->createUserId_ != nullptr && this->description_ != nullptr && this->finishTime_ != nullptr && this->groupId_ != nullptr && this->namespaceId_ != nullptr
-        && this->pipelines_ != nullptr && this->source_ != nullptr && this->status_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->batchCount_ == nullptr
+        && return this->batchType_ == nullptr && return this->changeOrderId_ == nullptr && return this->coType_ == nullptr && return this->coTypeCode_ == nullptr && return this->createTime_ == nullptr
+        && return this->createUserId_ == nullptr && return this->description_ == nullptr && return this->finishTime_ == nullptr && return this->groupId_ == nullptr && return this->namespaceId_ == nullptr
+        && return this->pipelines_ == nullptr && return this->source_ == nullptr && return this->status_ == nullptr && return this->userId_ == nullptr; };
     // batchCount Field Functions 
     bool hasBatchCount() const { return this->batchCount_ != nullptr;};
     void deleteBatchCount() { this->batchCount_ = nullptr;};

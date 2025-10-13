@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableTLS_ != nullptr
-        && this->mountDir_ != nullptr && this->serverAddr_ != nullptr; };
+    virtual bool empty() const override { return this->enableTLS_ == nullptr
+        && return this->mountDir_ == nullptr && return this->serverAddr_ == nullptr; };
     // enableTLS Field Functions 
     bool hasEnableTLS() const { return this->enableTLS_ != nullptr;};
     void deleteEnableTLS() { this->enableTLS_ = nullptr;};

@@ -25,6 +25,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeApplicationConfigResponseBodyData& obj) { 
       DARABONBA_PTR_TO_JSON(AcrAssumeRoleArn, acrAssumeRoleArn_);
       DARABONBA_PTR_TO_JSON(AcrInstanceId, acrInstanceId_);
+      DARABONBA_PTR_TO_JSON(AlbIngressReadinessGate, albIngressReadinessGate_);
       DARABONBA_PTR_TO_JSON(AppDescription, appDescription_);
       DARABONBA_PTR_TO_JSON(AppId, appId_);
       DARABONBA_PTR_TO_JSON(AppName, appName_);
@@ -120,6 +121,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeApplicationConfigResponseBodyData& obj) { 
       DARABONBA_PTR_FROM_JSON(AcrAssumeRoleArn, acrAssumeRoleArn_);
       DARABONBA_PTR_FROM_JSON(AcrInstanceId, acrInstanceId_);
+      DARABONBA_PTR_FROM_JSON(AlbIngressReadinessGate, albIngressReadinessGate_);
       DARABONBA_PTR_FROM_JSON(AppDescription, appDescription_);
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
@@ -223,26 +225,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acrAssumeRoleArn_ != nullptr
-        && this->acrInstanceId_ != nullptr && this->appDescription_ != nullptr && this->appId_ != nullptr && this->appName_ != nullptr && this->appSource_ != nullptr
-        && this->associateEip_ != nullptr && this->baseAppId_ != nullptr && this->batchWaitTime_ != nullptr && this->clusterId_ != nullptr && this->cmsServiceId_ != nullptr
-        && this->command_ != nullptr && this->commandArgs_ != nullptr && this->configMapMountDesc_ != nullptr && this->cpu_ != nullptr && this->customHostAlias_ != nullptr
-        && this->customImageNetworkType_ != nullptr && this->deploymentName_ != nullptr && this->diskSize_ != nullptr && this->dotnet_ != nullptr && this->edasContainerVersion_ != nullptr
-        && this->emptyDirDesc_ != nullptr && this->enableAhas_ != nullptr && this->enableCpuBurst_ != nullptr && this->enableGreyTagRoute_ != nullptr && this->enableIdle_ != nullptr
-        && this->enableNewArms_ != nullptr && this->enablePrometheus_ != nullptr && this->envs_ != nullptr && this->gpuCount_ != nullptr && this->gpuType_ != nullptr
-        && this->headlessPvtzDiscovery_ != nullptr && this->html_ != nullptr && this->imagePullSecrets_ != nullptr && this->imageUrl_ != nullptr && this->initContainersConfig_ != nullptr
-        && this->isStateful_ != nullptr && this->jarStartArgs_ != nullptr && this->jarStartOptions_ != nullptr && this->jdk_ != nullptr && this->kafkaConfigs_ != nullptr
-        && this->liveness_ != nullptr && this->memory_ != nullptr && this->microRegistration_ != nullptr && this->microRegistrationConfig_ != nullptr && this->microserviceEngineConfig_ != nullptr
-        && this->minReadyInstanceRatio_ != nullptr && this->minReadyInstances_ != nullptr && this->mountDesc_ != nullptr && this->mountHost_ != nullptr && this->mseApplicationId_ != nullptr
-        && this->mseApplicationName_ != nullptr && this->namespaceId_ != nullptr && this->nasConfigs_ != nullptr && this->nasId_ != nullptr && this->newSaeVersion_ != nullptr
-        && this->oidcRoleName_ != nullptr && this->ossAkId_ != nullptr && this->ossAkSecret_ != nullptr && this->ossMountDescs_ != nullptr && this->packageType_ != nullptr
-        && this->packageUrl_ != nullptr && this->packageVersion_ != nullptr && this->php_ != nullptr && this->phpArmsConfigLocation_ != nullptr && this->phpConfig_ != nullptr
-        && this->phpConfigLocation_ != nullptr && this->postStart_ != nullptr && this->preStop_ != nullptr && this->programmingLanguage_ != nullptr && this->pvtzDiscovery_ != nullptr
-        && this->python_ != nullptr && this->pythonModules_ != nullptr && this->readiness_ != nullptr && this->regionId_ != nullptr && this->replicas_ != nullptr
-        && this->resourceType_ != nullptr && this->secretMountDesc_ != nullptr && this->securityGroupId_ != nullptr && this->serviceTags_ != nullptr && this->sidecarContainersConfig_ != nullptr
-        && this->slsConfigs_ != nullptr && this->startupProbe_ != nullptr && this->swimlanePvtzDiscovery_ != nullptr && this->tags_ != nullptr && this->terminationGracePeriodSeconds_ != nullptr
-        && this->timezone_ != nullptr && this->tomcatConfig_ != nullptr && this->updateStrategy_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr
-        && this->warStartOptions_ != nullptr && this->webContainer_ != nullptr; };
+    virtual bool empty() const override { return this->acrAssumeRoleArn_ == nullptr
+        && return this->acrInstanceId_ == nullptr && return this->albIngressReadinessGate_ == nullptr && return this->appDescription_ == nullptr && return this->appId_ == nullptr && return this->appName_ == nullptr
+        && return this->appSource_ == nullptr && return this->associateEip_ == nullptr && return this->baseAppId_ == nullptr && return this->batchWaitTime_ == nullptr && return this->clusterId_ == nullptr
+        && return this->cmsServiceId_ == nullptr && return this->command_ == nullptr && return this->commandArgs_ == nullptr && return this->configMapMountDesc_ == nullptr && return this->cpu_ == nullptr
+        && return this->customHostAlias_ == nullptr && return this->customImageNetworkType_ == nullptr && return this->deploymentName_ == nullptr && return this->diskSize_ == nullptr && return this->dotnet_ == nullptr
+        && return this->edasContainerVersion_ == nullptr && return this->emptyDirDesc_ == nullptr && return this->enableAhas_ == nullptr && return this->enableCpuBurst_ == nullptr && return this->enableGreyTagRoute_ == nullptr
+        && return this->enableIdle_ == nullptr && return this->enableNewArms_ == nullptr && return this->enablePrometheus_ == nullptr && return this->envs_ == nullptr && return this->gpuCount_ == nullptr
+        && return this->gpuType_ == nullptr && return this->headlessPvtzDiscovery_ == nullptr && return this->html_ == nullptr && return this->imagePullSecrets_ == nullptr && return this->imageUrl_ == nullptr
+        && return this->initContainersConfig_ == nullptr && return this->isStateful_ == nullptr && return this->jarStartArgs_ == nullptr && return this->jarStartOptions_ == nullptr && return this->jdk_ == nullptr
+        && return this->kafkaConfigs_ == nullptr && return this->liveness_ == nullptr && return this->memory_ == nullptr && return this->microRegistration_ == nullptr && return this->microRegistrationConfig_ == nullptr
+        && return this->microserviceEngineConfig_ == nullptr && return this->minReadyInstanceRatio_ == nullptr && return this->minReadyInstances_ == nullptr && return this->mountDesc_ == nullptr && return this->mountHost_ == nullptr
+        && return this->mseApplicationId_ == nullptr && return this->mseApplicationName_ == nullptr && return this->namespaceId_ == nullptr && return this->nasConfigs_ == nullptr && return this->nasId_ == nullptr
+        && return this->newSaeVersion_ == nullptr && return this->oidcRoleName_ == nullptr && return this->ossAkId_ == nullptr && return this->ossAkSecret_ == nullptr && return this->ossMountDescs_ == nullptr
+        && return this->packageType_ == nullptr && return this->packageUrl_ == nullptr && return this->packageVersion_ == nullptr && return this->php_ == nullptr && return this->phpArmsConfigLocation_ == nullptr
+        && return this->phpConfig_ == nullptr && return this->phpConfigLocation_ == nullptr && return this->postStart_ == nullptr && return this->preStop_ == nullptr && return this->programmingLanguage_ == nullptr
+        && return this->pvtzDiscovery_ == nullptr && return this->python_ == nullptr && return this->pythonModules_ == nullptr && return this->readiness_ == nullptr && return this->regionId_ == nullptr
+        && return this->replicas_ == nullptr && return this->resourceType_ == nullptr && return this->secretMountDesc_ == nullptr && return this->securityGroupId_ == nullptr && return this->serviceTags_ == nullptr
+        && return this->sidecarContainersConfig_ == nullptr && return this->slsConfigs_ == nullptr && return this->startupProbe_ == nullptr && return this->swimlanePvtzDiscovery_ == nullptr && return this->tags_ == nullptr
+        && return this->terminationGracePeriodSeconds_ == nullptr && return this->timezone_ == nullptr && return this->tomcatConfig_ == nullptr && return this->updateStrategy_ == nullptr && return this->vSwitchId_ == nullptr
+        && return this->vpcId_ == nullptr && return this->warStartOptions_ == nullptr && return this->webContainer_ == nullptr; };
     // acrAssumeRoleArn Field Functions 
     bool hasAcrAssumeRoleArn() const { return this->acrAssumeRoleArn_ != nullptr;};
     void deleteAcrAssumeRoleArn() { this->acrAssumeRoleArn_ = nullptr;};
@@ -255,6 +257,13 @@ namespace Models
     void deleteAcrInstanceId() { this->acrInstanceId_ = nullptr;};
     inline string acrInstanceId() const { DARABONBA_PTR_GET_DEFAULT(acrInstanceId_, "") };
     inline DescribeApplicationConfigResponseBodyData& setAcrInstanceId(string acrInstanceId) { DARABONBA_PTR_SET_VALUE(acrInstanceId_, acrInstanceId) };
+
+
+    // albIngressReadinessGate Field Functions 
+    bool hasAlbIngressReadinessGate() const { return this->albIngressReadinessGate_ != nullptr;};
+    void deleteAlbIngressReadinessGate() { this->albIngressReadinessGate_ = nullptr;};
+    inline string albIngressReadinessGate() const { DARABONBA_PTR_GET_DEFAULT(albIngressReadinessGate_, "") };
+    inline DescribeApplicationConfigResponseBodyData& setAlbIngressReadinessGate(string albIngressReadinessGate) { DARABONBA_PTR_SET_VALUE(albIngressReadinessGate_, albIngressReadinessGate) };
 
 
     // appDescription Field Functions 
@@ -917,6 +926,7 @@ namespace Models
     std::shared_ptr<string> acrAssumeRoleArn_ = nullptr;
     // The ID of the Container Registry Enterprise Edition instance.
     std::shared_ptr<string> acrInstanceId_ = nullptr;
+    std::shared_ptr<string> albIngressReadinessGate_ = nullptr;
     // The description of the application.
     std::shared_ptr<string> appDescription_ = nullptr;
     // The ID of the application.

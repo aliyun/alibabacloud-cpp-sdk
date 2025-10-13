@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cookie_ != nullptr
-        && this->cookieTimeout_ != nullptr && this->createTime_ != nullptr && this->httpsCaCertId_ != nullptr && this->httpsCertId_ != nullptr && this->port_ != nullptr
-        && this->protocol_ != nullptr && this->stickySession_ != nullptr && this->stickySessionType_ != nullptr && this->targetPort_ != nullptr; };
+    virtual bool empty() const override { return this->cookie_ == nullptr
+        && return this->cookieTimeout_ == nullptr && return this->createTime_ == nullptr && return this->httpsCaCertId_ == nullptr && return this->httpsCertId_ == nullptr && return this->port_ == nullptr
+        && return this->protocol_ == nullptr && return this->stickySession_ == nullptr && return this->stickySessionType_ == nullptr && return this->targetPort_ == nullptr; };
     // cookie Field Functions 
     bool hasCookie() const { return this->cookie_ != nullptr;};
     void deleteCookie() { this->cookie_ = nullptr;};

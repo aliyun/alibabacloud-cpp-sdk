@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->appName_ != nullptr && this->applicationEnableGreyTagRoute_ != nullptr && this->applicationUpdateStrategy_ != nullptr && this->approvalId_ != nullptr && this->auto_ != nullptr
-        && this->batchCount_ != nullptr && this->batchType_ != nullptr && this->batchWaitTime_ != nullptr && this->changeOrderId_ != nullptr && this->coType_ != nullptr
-        && this->coTypeCode_ != nullptr && this->createTime_ != nullptr && this->currentPipelineId_ != nullptr && this->description_ != nullptr && this->errorMessage_ != nullptr
-        && this->pipelines_ != nullptr && this->status_ != nullptr && this->subStatus_ != nullptr && this->supportRollback_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->appName_ == nullptr && return this->applicationEnableGreyTagRoute_ == nullptr && return this->applicationUpdateStrategy_ == nullptr && return this->approvalId_ == nullptr && return this->auto_ == nullptr
+        && return this->batchCount_ == nullptr && return this->batchType_ == nullptr && return this->batchWaitTime_ == nullptr && return this->changeOrderId_ == nullptr && return this->coType_ == nullptr
+        && return this->coTypeCode_ == nullptr && return this->createTime_ == nullptr && return this->currentPipelineId_ == nullptr && return this->description_ == nullptr && return this->errorMessage_ == nullptr
+        && return this->pipelines_ == nullptr && return this->status_ == nullptr && return this->subStatus_ == nullptr && return this->supportRollback_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};

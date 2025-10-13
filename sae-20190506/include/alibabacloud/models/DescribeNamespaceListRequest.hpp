@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->containCustom_ != nullptr
-        && this->hybridCloudExclude_ != nullptr; };
+    virtual bool empty() const override { return this->containCustom_ == nullptr
+        && return this->hybridCloudExclude_ == nullptr; };
     // containCustom Field Functions 
     bool hasContainCustom() const { return this->containCustom_ != nullptr;};
     void deleteContainCustom() { this->containCustom_ = nullptr;};

@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->coStatus_ != nullptr
-        && this->currentStageId_ != nullptr && this->nextPipelineId_ != nullptr && this->pipelineId_ != nullptr && this->pipelineName_ != nullptr && this->pipelineStatus_ != nullptr
-        && this->showBatch_ != nullptr && this->stageList_ != nullptr; };
+    virtual bool empty() const override { return this->coStatus_ == nullptr
+        && return this->currentStageId_ == nullptr && return this->nextPipelineId_ == nullptr && return this->pipelineId_ == nullptr && return this->pipelineName_ == nullptr && return this->pipelineStatus_ == nullptr
+        && return this->showBatch_ == nullptr && return this->stageList_ == nullptr; };
     // coStatus Field Functions 
     bool hasCoStatus() const { return this->coStatus_ != nullptr;};
     void deleteCoStatus() { this->coStatus_ = nullptr;};

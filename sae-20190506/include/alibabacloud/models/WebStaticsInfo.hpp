@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpuUsage_ != nullptr
-        && this->internetTrafficOut_ != nullptr && this->invocations_ != nullptr && this->memoryUsage_ != nullptr; };
+    virtual bool empty() const override { return this->cpuUsage_ == nullptr
+        && return this->internetTrafficOut_ == nullptr && return this->invocations_ == nullptr && return this->memoryUsage_ == nullptr; };
     // cpuUsage Field Functions 
     bool hasCpuUsage() const { return this->cpuUsage_ != nullptr;};
     void deleteCpuUsage() { this->cpuUsage_ = nullptr;};

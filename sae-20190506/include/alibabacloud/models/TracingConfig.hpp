@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->jaegerConfig_ != nullptr
-        && this->params_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->jaegerConfig_ == nullptr
+        && return this->params_ == nullptr && return this->type_ == nullptr; };
     // jaegerConfig Field Functions 
     bool hasJaegerConfig() const { return this->jaegerConfig_ != nullptr;};
     void deleteJaegerConfig() { this->jaegerConfig_ = nullptr;};

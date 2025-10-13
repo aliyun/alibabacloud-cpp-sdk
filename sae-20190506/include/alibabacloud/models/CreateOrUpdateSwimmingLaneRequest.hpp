@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appEntryRule_ != nullptr
-        && this->canaryModel_ != nullptr && this->enable_ != nullptr && this->groupId_ != nullptr && this->laneId_ != nullptr && this->laneName_ != nullptr
-        && this->laneTag_ != nullptr && this->mseGatewayEntryRule_ != nullptr && this->namespaceId_ != nullptr; };
+    virtual bool empty() const override { return this->appEntryRule_ == nullptr
+        && return this->canaryModel_ == nullptr && return this->enable_ == nullptr && return this->groupId_ == nullptr && return this->laneId_ == nullptr && return this->laneName_ == nullptr
+        && return this->laneTag_ == nullptr && return this->mseGatewayEntryRule_ == nullptr && return this->namespaceId_ == nullptr; };
     // appEntryRule Field Functions 
     bool hasAppEntryRule() const { return this->appEntryRule_ != nullptr;};
     void deleteAppEntryRule() { this->appEntryRule_ = nullptr;};

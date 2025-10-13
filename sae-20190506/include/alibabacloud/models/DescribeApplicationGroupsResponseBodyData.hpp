@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->edasContainerVersion_ != nullptr
-        && this->groupId_ != nullptr && this->groupName_ != nullptr && this->groupType_ != nullptr && this->imageUrl_ != nullptr && this->jdk_ != nullptr
-        && this->packageType_ != nullptr && this->packageUrl_ != nullptr && this->packageVersion_ != nullptr && this->packageVersionId_ != nullptr && this->replicas_ != nullptr
-        && this->runningInstances_ != nullptr && this->webContainer_ != nullptr; };
+    virtual bool empty() const override { return this->edasContainerVersion_ == nullptr
+        && return this->groupId_ == nullptr && return this->groupName_ == nullptr && return this->groupType_ == nullptr && return this->imageUrl_ == nullptr && return this->jdk_ == nullptr
+        && return this->packageType_ == nullptr && return this->packageUrl_ == nullptr && return this->packageVersion_ == nullptr && return this->packageVersionId_ == nullptr && return this->replicas_ == nullptr
+        && return this->runningInstances_ == nullptr && return this->webContainer_ == nullptr; };
     // edasContainerVersion Field Functions 
     bool hasEdasContainerVersion() const { return this->edasContainerVersion_ != nullptr;};
     void deleteEdasContainerVersion() { this->edasContainerVersion_ = nullptr;};

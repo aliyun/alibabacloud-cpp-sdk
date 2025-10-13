@@ -53,9 +53,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxReplicas_ != nullptr
-        && this->metricSource_ != nullptr && this->metrics_ != nullptr && this->metricsStatus_ != nullptr && this->minReplicas_ != nullptr && this->prometheusMetrics_ != nullptr
-        && this->prometheusToken_ != nullptr && this->prometheusUrl_ != nullptr && this->scaleDownRules_ != nullptr && this->scaleUpRules_ != nullptr; };
+    virtual bool empty() const override { return this->maxReplicas_ == nullptr
+        && return this->metricSource_ == nullptr && return this->metrics_ == nullptr && return this->metricsStatus_ == nullptr && return this->minReplicas_ == nullptr && return this->prometheusMetrics_ == nullptr
+        && return this->prometheusToken_ == nullptr && return this->prometheusUrl_ == nullptr && return this->scaleDownRules_ == nullptr && return this->scaleUpRules_ == nullptr; };
     // maxReplicas Field Functions 
     bool hasMaxReplicas() const { return this->maxReplicas_ != nullptr;};
     void deleteMaxReplicas() { this->maxReplicas_ = nullptr;};

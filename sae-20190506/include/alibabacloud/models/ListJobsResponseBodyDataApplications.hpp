@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->active_ != nullptr
-        && this->appDescription_ != nullptr && this->appId_ != nullptr && this->appName_ != nullptr && this->completionTime_ != nullptr && this->cpu_ != nullptr
-        && this->failed_ != nullptr && this->imageUrl_ != nullptr && this->lastChangeorderState_ != nullptr && this->lastJobState_ != nullptr && this->lastStartTime_ != nullptr
-        && this->mem_ != nullptr && this->message_ != nullptr && this->namespaceId_ != nullptr && this->regionId_ != nullptr && this->succeeded_ != nullptr
-        && this->suspend_ != nullptr && this->tags_ != nullptr && this->triggerConfig_ != nullptr; };
+    virtual bool empty() const override { return this->active_ == nullptr
+        && return this->appDescription_ == nullptr && return this->appId_ == nullptr && return this->appName_ == nullptr && return this->completionTime_ == nullptr && return this->cpu_ == nullptr
+        && return this->failed_ == nullptr && return this->imageUrl_ == nullptr && return this->lastChangeorderState_ == nullptr && return this->lastJobState_ == nullptr && return this->lastStartTime_ == nullptr
+        && return this->mem_ == nullptr && return this->message_ == nullptr && return this->namespaceId_ == nullptr && return this->regionId_ == nullptr && return this->succeeded_ == nullptr
+        && return this->suspend_ == nullptr && return this->tags_ == nullptr && return this->triggerConfig_ == nullptr; };
     // active Field Functions 
     bool hasActive() const { return this->active_ != nullptr;};
     void deleteActive() { this->active_ = nullptr;};

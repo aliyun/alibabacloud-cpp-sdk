@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->beforeBuildCommand_ != nullptr
-        && this->buildType_ != nullptr && this->dockerfilePath_ != nullptr && this->runCommand_ != nullptr && this->runtimeType_ != nullptr && this->runtimeVersion_ != nullptr
-        && this->tomcatConfig_ != nullptr && this->workingDir_ != nullptr; };
+    virtual bool empty() const override { return this->beforeBuildCommand_ == nullptr
+        && return this->buildType_ == nullptr && return this->dockerfilePath_ == nullptr && return this->runCommand_ == nullptr && return this->runtimeType_ == nullptr && return this->runtimeVersion_ == nullptr
+        && return this->tomcatConfig_ == nullptr && return this->workingDir_ == nullptr; };
     // beforeBuildCommand Field Functions 
     bool hasBeforeBuildCommand() const { return this->beforeBuildCommand_ != nullptr;};
     void deleteBeforeBuildCommand() { this->beforeBuildCommand_ = nullptr;};

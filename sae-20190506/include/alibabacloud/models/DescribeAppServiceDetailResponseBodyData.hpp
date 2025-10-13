@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dubboApplicationName_ != nullptr
-        && this->edasAppName_ != nullptr && this->group_ != nullptr && this->metadata_ != nullptr && this->methods_ != nullptr && this->serviceName_ != nullptr
-        && this->servicePorts_ != nullptr && this->serviceProtocol_ != nullptr && this->serviceTags_ != nullptr && this->serviceType_ != nullptr && this->springApplicationName_ != nullptr
-        && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->dubboApplicationName_ == nullptr
+        && return this->edasAppName_ == nullptr && return this->group_ == nullptr && return this->metadata_ == nullptr && return this->methods_ == nullptr && return this->serviceName_ == nullptr
+        && return this->servicePorts_ == nullptr && return this->serviceProtocol_ == nullptr && return this->serviceTags_ == nullptr && return this->serviceType_ == nullptr && return this->springApplicationName_ == nullptr
+        && return this->version_ == nullptr; };
     // dubboApplicationName Field Functions 
     bool hasDubboApplicationName() const { return this->dubboApplicationName_ != nullptr;};
     void deleteDubboApplicationName() { this->dubboApplicationName_ = nullptr;};

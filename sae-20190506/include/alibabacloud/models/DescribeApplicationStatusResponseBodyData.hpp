@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->armsAdvancedEnabled_ != nullptr && this->armsApmInfo_ != nullptr && this->createTime_ != nullptr && this->currentStatus_ != nullptr && this->enableAgent_ != nullptr
-        && this->fileSizeLimit_ != nullptr && this->lastChangeOrderId_ != nullptr && this->lastChangeOrderRunning_ != nullptr && this->lastChangeOrderStatus_ != nullptr && this->runningInstances_ != nullptr
-        && this->subStatus_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->armsAdvancedEnabled_ == nullptr && return this->armsApmInfo_ == nullptr && return this->createTime_ == nullptr && return this->currentStatus_ == nullptr && return this->enableAgent_ == nullptr
+        && return this->fileSizeLimit_ == nullptr && return this->lastChangeOrderId_ == nullptr && return this->lastChangeOrderRunning_ == nullptr && return this->lastChangeOrderStatus_ == nullptr && return this->runningInstances_ == nullptr
+        && return this->subStatus_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};

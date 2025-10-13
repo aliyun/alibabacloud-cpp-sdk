@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backwardLine_ != nullptr
-        && this->endTime_ != nullptr && this->forwardLine_ != nullptr && this->isTail_ != nullptr && this->match_ != nullptr && this->message_ != nullptr
-        && this->offset_ != nullptr && this->packID_ != nullptr && this->packMeta_ != nullptr && this->startTime_ != nullptr && this->timestamp_ != nullptr
-        && this->versionID_ != nullptr; };
+    virtual bool empty() const override { return this->backwardLine_ == nullptr
+        && return this->endTime_ == nullptr && return this->forwardLine_ == nullptr && return this->isTail_ == nullptr && return this->match_ == nullptr && return this->message_ == nullptr
+        && return this->offset_ == nullptr && return this->packID_ == nullptr && return this->packMeta_ == nullptr && return this->startTime_ == nullptr && return this->timestamp_ == nullptr
+        && return this->versionID_ == nullptr; };
     // backwardLine Field Functions 
     bool hasBackwardLine() const { return this->backwardLine_ != nullptr;};
     void deleteBackwardLine() { this->backwardLine_ = nullptr;};

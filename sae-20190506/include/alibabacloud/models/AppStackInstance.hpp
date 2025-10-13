@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->endpoints_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->parameters_ != nullptr && this->stackId_ != nullptr
-        && this->status_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->endpoints_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->parameters_ == nullptr && return this->stackId_ == nullptr
+        && return this->status_ == nullptr && return this->updateTime_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentInstall_ != nullptr
-        && this->current_ != nullptr && this->custom_ != nullptr && this->hybridCloudEnable_ != nullptr && this->nameSpaceShortId_ != nullptr && this->namespaceId_ != nullptr
-        && this->namespaceName_ != nullptr && this->regionId_ != nullptr && this->securityGroupId_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->agentInstall_ == nullptr
+        && return this->current_ == nullptr && return this->custom_ == nullptr && return this->hybridCloudEnable_ == nullptr && return this->nameSpaceShortId_ == nullptr && return this->namespaceId_ == nullptr
+        && return this->namespaceName_ == nullptr && return this->regionId_ == nullptr && return this->securityGroupId_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr; };
     // agentInstall Field Functions 
     bool hasAgentInstall() const { return this->agentInstall_ != nullptr;};
     void deleteAgentInstall() { this->agentInstall_ = nullptr;};

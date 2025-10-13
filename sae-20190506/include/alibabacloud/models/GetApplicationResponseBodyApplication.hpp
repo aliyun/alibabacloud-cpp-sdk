@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appDescription_ != nullptr
-        && this->appId_ != nullptr && this->appName_ != nullptr && this->baseAppId_ != nullptr && this->cpu_ != nullptr && this->instances_ != nullptr
-        && this->isStateful_ != nullptr && this->mem_ != nullptr && this->mseEnabled_ != nullptr && this->mseNamespaceId_ != nullptr && this->namespaceId_ != nullptr
-        && this->programmingLanguage_ != nullptr && this->runningInstances_ != nullptr && this->scaleRuleEnabled_ != nullptr && this->scaleRuleType_ != nullptr; };
+    virtual bool empty() const override { return this->appDescription_ == nullptr
+        && return this->appId_ == nullptr && return this->appName_ == nullptr && return this->baseAppId_ == nullptr && return this->cpu_ == nullptr && return this->instances_ == nullptr
+        && return this->isStateful_ == nullptr && return this->mem_ == nullptr && return this->mseEnabled_ == nullptr && return this->mseNamespaceId_ == nullptr && return this->namespaceId_ == nullptr
+        && return this->programmingLanguage_ == nullptr && return this->runningInstances_ == nullptr && return this->scaleRuleEnabled_ == nullptr && return this->scaleRuleType_ == nullptr; };
     // appDescription Field Functions 
     bool hasAppDescription() const { return this->appDescription_ != nullptr;};
     void deleteAppDescription() { this->appDescription_ = nullptr;};

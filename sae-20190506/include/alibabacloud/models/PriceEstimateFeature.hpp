@@ -78,12 +78,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appCount_ != nullptr
-        && this->appType_ != nullptr && this->cpuCore_ != nullptr && this->cpuStrategy_ != nullptr && this->cpuUtilLevel_ != nullptr && this->cpuUtilMetrics_ != nullptr
-        && this->enableCpuIdle_ != nullptr && this->envType_ != nullptr && this->ephemeralStorageGiB_ != nullptr && this->highLoadInstanceCount_ != nullptr && this->highLoadQps_ != nullptr
-        && this->highLoadSeconds_ != nullptr && this->instanceQps_ != nullptr && this->internetOutboundGiB_ != nullptr && this->lowLoadInstanceCount_ != nullptr && this->lowLoadQps_ != nullptr
-        && this->lowLoadSeconds_ != nullptr && this->maxInstanceCount_ != nullptr && this->memoryGiB_ != nullptr && this->minInstanceCount_ != nullptr && this->newSaeVersion_ != nullptr
-        && this->noneLoadInstanceCount_ != nullptr && this->noneLoadSeconds_ != nullptr && this->regionId_ != nullptr && this->resourceType_ != nullptr; };
+    virtual bool empty() const override { return this->appCount_ == nullptr
+        && return this->appType_ == nullptr && return this->cpuCore_ == nullptr && return this->cpuStrategy_ == nullptr && return this->cpuUtilLevel_ == nullptr && return this->cpuUtilMetrics_ == nullptr
+        && return this->enableCpuIdle_ == nullptr && return this->envType_ == nullptr && return this->ephemeralStorageGiB_ == nullptr && return this->highLoadInstanceCount_ == nullptr && return this->highLoadQps_ == nullptr
+        && return this->highLoadSeconds_ == nullptr && return this->instanceQps_ == nullptr && return this->internetOutboundGiB_ == nullptr && return this->lowLoadInstanceCount_ == nullptr && return this->lowLoadQps_ == nullptr
+        && return this->lowLoadSeconds_ == nullptr && return this->maxInstanceCount_ == nullptr && return this->memoryGiB_ == nullptr && return this->minInstanceCount_ == nullptr && return this->newSaeVersion_ == nullptr
+        && return this->noneLoadInstanceCount_ == nullptr && return this->noneLoadSeconds_ == nullptr && return this->regionId_ == nullptr && return this->resourceType_ == nullptr; };
     // appCount Field Functions 
     bool hasAppCount() const { return this->appCount_ != nullptr;};
     void deleteAppCount() { this->appCount_ = nullptr;};

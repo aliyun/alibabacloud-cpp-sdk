@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->edasAppId_ != nullptr
-        && this->edasAppName_ != nullptr && this->group_ != nullptr && this->instanceNum_ != nullptr && this->serviceName_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->edasAppId_ == nullptr
+        && return this->edasAppName_ == nullptr && return this->group_ == nullptr && return this->instanceNum_ == nullptr && return this->serviceName_ == nullptr && return this->version_ == nullptr; };
     // edasAppId Field Functions 
     bool hasEdasAppId() const { return this->edasAppId_ != nullptr;};
     void deleteEdasAppId() { this->edasAppId_ = nullptr;};

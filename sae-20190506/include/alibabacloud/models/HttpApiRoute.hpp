@@ -70,11 +70,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addressType_ != nullptr
-        && this->deployStatus_ != nullptr && this->destinationType_ != nullptr && this->domains_ != nullptr && this->environmentId_ != nullptr && this->gatewayId_ != nullptr
-        && this->httpApiId_ != nullptr && this->httpApiName_ != nullptr && this->httpApiType_ != nullptr && this->ingressId_ != nullptr && this->nacosInstanceId_ != nullptr
-        && this->nacosNamespaceId_ != nullptr && this->name_ != nullptr && this->namespaceId_ != nullptr && this->policies_ != nullptr && this->predicates_ != nullptr
-        && this->routeId_ != nullptr && this->services_ != nullptr && this->sourceType_ != nullptr; };
+    virtual bool empty() const override { return this->addressType_ == nullptr
+        && return this->deployStatus_ == nullptr && return this->destinationType_ == nullptr && return this->domains_ == nullptr && return this->environmentId_ == nullptr && return this->gatewayId_ == nullptr
+        && return this->httpApiId_ == nullptr && return this->httpApiName_ == nullptr && return this->httpApiType_ == nullptr && return this->ingressId_ == nullptr && return this->nacosInstanceId_ == nullptr
+        && return this->nacosNamespaceId_ == nullptr && return this->name_ == nullptr && return this->namespaceId_ == nullptr && return this->policies_ == nullptr && return this->predicates_ == nullptr
+        && return this->routeId_ == nullptr && return this->services_ == nullptr && return this->sourceType_ == nullptr; };
     // addressType Field Functions 
     bool hasAddressType() const { return this->addressType_ != nullptr;};
     void deleteAddressType() { this->addressType_ = nullptr;};

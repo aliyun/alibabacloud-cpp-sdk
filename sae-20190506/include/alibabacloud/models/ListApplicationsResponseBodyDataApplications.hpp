@@ -80,12 +80,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appDeletingStatus_ != nullptr
-        && this->appDescription_ != nullptr && this->appId_ != nullptr && this->appName_ != nullptr && this->appType_ != nullptr && this->baseAppId_ != nullptr
-        && this->children_ != nullptr && this->cpu_ != nullptr && this->diskSize_ != nullptr && this->enableIdle_ != nullptr && this->imageUrl_ != nullptr
-        && this->instances_ != nullptr && this->isStateful_ != nullptr && this->mem_ != nullptr && this->mseEnabled_ != nullptr && this->mseNamespaceId_ != nullptr
-        && this->namespaceId_ != nullptr && this->namespaceName_ != nullptr && this->newSaeVersion_ != nullptr && this->packageUrl_ != nullptr && this->programmingLanguage_ != nullptr
-        && this->regionId_ != nullptr && this->runningInstances_ != nullptr && this->tags_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->appDeletingStatus_ == nullptr
+        && return this->appDescription_ == nullptr && return this->appId_ == nullptr && return this->appName_ == nullptr && return this->appType_ == nullptr && return this->baseAppId_ == nullptr
+        && return this->children_ == nullptr && return this->cpu_ == nullptr && return this->diskSize_ == nullptr && return this->enableIdle_ == nullptr && return this->imageUrl_ == nullptr
+        && return this->instances_ == nullptr && return this->isStateful_ == nullptr && return this->mem_ == nullptr && return this->mseEnabled_ == nullptr && return this->mseNamespaceId_ == nullptr
+        && return this->namespaceId_ == nullptr && return this->namespaceName_ == nullptr && return this->newSaeVersion_ == nullptr && return this->packageUrl_ == nullptr && return this->programmingLanguage_ == nullptr
+        && return this->regionId_ == nullptr && return this->runningInstances_ == nullptr && return this->tags_ == nullptr && return this->vpcId_ == nullptr; };
     // appDeletingStatus Field Functions 
     bool hasAppDeletingStatus() const { return this->appDeletingStatus_ != nullptr;};
     void deleteAppDeletingStatus() { this->appDeletingStatus_ = nullptr;};

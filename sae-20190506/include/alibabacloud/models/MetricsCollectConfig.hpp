@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enablePushToUserSLS_ != nullptr
-        && this->logstoreName_ != nullptr && this->projectName_ != nullptr; };
+    virtual bool empty() const override { return this->enablePushToUserSLS_ == nullptr
+        && return this->logstoreName_ == nullptr && return this->projectName_ == nullptr; };
     // enablePushToUserSLS Field Functions 
     bool hasEnablePushToUserSLS() const { return this->enablePushToUserSLS_ != nullptr;};
     void deleteEnablePushToUserSLS() { this->enablePushToUserSLS_ = nullptr;};

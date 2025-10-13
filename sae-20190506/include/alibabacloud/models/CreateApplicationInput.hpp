@@ -125,15 +125,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applicationName_ != nullptr
-        && this->args_ != nullptr && this->caPort_ != nullptr && this->code_ != nullptr && this->command_ != nullptr && this->cpu_ != nullptr
-        && this->customDNS_ != nullptr && this->customHealthCheckConfig_ != nullptr && this->customHostAlias_ != nullptr && this->customRuntimeConfig_ != nullptr && this->description_ != nullptr
-        && this->diskSize_ != nullptr && this->enableAppMetric_ != nullptr && this->environmentVariables_ != nullptr && this->gpuMemorySize_ != nullptr && this->handler_ != nullptr
-        && this->httpTriggerConfig_ != nullptr && this->imageConfig_ != nullptr && this->initializationTimeout_ != nullptr && this->initializer_ != nullptr && this->instanceConcurrency_ != nullptr
-        && this->instanceLifecycleConfig_ != nullptr && this->instanceSoftConcurrency_ != nullptr && this->instanceType_ != nullptr && this->internetAccess_ != nullptr && this->layers_ != nullptr
-        && this->livenessProbe_ != nullptr && this->logConfig_ != nullptr && this->memorySize_ != nullptr && this->namespaceID_ != nullptr && this->nasConfig_ != nullptr
-        && this->ossMountConfig_ != nullptr && this->programmingLanguage_ != nullptr && this->runtime_ != nullptr && this->scaleConfig_ != nullptr && this->slsConfig_ != nullptr
-        && this->startupProbe_ != nullptr && this->timeout_ != nullptr && this->tracingConfig_ != nullptr && this->vpcConfig_ != nullptr; };
+    virtual bool empty() const override { return this->applicationName_ == nullptr
+        && return this->args_ == nullptr && return this->caPort_ == nullptr && return this->code_ == nullptr && return this->command_ == nullptr && return this->cpu_ == nullptr
+        && return this->customDNS_ == nullptr && return this->customHealthCheckConfig_ == nullptr && return this->customHostAlias_ == nullptr && return this->customRuntimeConfig_ == nullptr && return this->description_ == nullptr
+        && return this->diskSize_ == nullptr && return this->enableAppMetric_ == nullptr && return this->environmentVariables_ == nullptr && return this->gpuMemorySize_ == nullptr && return this->handler_ == nullptr
+        && return this->httpTriggerConfig_ == nullptr && return this->imageConfig_ == nullptr && return this->initializationTimeout_ == nullptr && return this->initializer_ == nullptr && return this->instanceConcurrency_ == nullptr
+        && return this->instanceLifecycleConfig_ == nullptr && return this->instanceSoftConcurrency_ == nullptr && return this->instanceType_ == nullptr && return this->internetAccess_ == nullptr && return this->layers_ == nullptr
+        && return this->livenessProbe_ == nullptr && return this->logConfig_ == nullptr && return this->memorySize_ == nullptr && return this->namespaceID_ == nullptr && return this->nasConfig_ == nullptr
+        && return this->ossMountConfig_ == nullptr && return this->programmingLanguage_ == nullptr && return this->runtime_ == nullptr && return this->scaleConfig_ == nullptr && return this->slsConfig_ == nullptr
+        && return this->startupProbe_ == nullptr && return this->timeout_ == nullptr && return this->tracingConfig_ == nullptr && return this->vpcConfig_ == nullptr; };
     // applicationName Field Functions 
     bool hasApplicationName() const { return this->applicationName_ != nullptr;};
     void deleteApplicationName() { this->applicationName_ = nullptr;};

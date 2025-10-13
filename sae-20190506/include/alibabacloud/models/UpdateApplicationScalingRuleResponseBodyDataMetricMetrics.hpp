@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->metricTargetAverageUtilization_ != nullptr
-        && this->metricType_ != nullptr && this->slbId_ != nullptr && this->slbLogstore_ != nullptr && this->slbProject_ != nullptr && this->vport_ != nullptr; };
+    virtual bool empty() const override { return this->metricTargetAverageUtilization_ == nullptr
+        && return this->metricType_ == nullptr && return this->slbId_ == nullptr && return this->slbLogstore_ == nullptr && return this->slbProject_ == nullptr && return this->vport_ == nullptr; };
     // metricTargetAverageUtilization Field Functions 
     bool hasMetricTargetAverageUtilization() const { return this->metricTargetAverageUtilization_ != nullptr;};
     void deleteMetricTargetAverageUtilization() { this->metricTargetAverageUtilization_ = nullptr;};

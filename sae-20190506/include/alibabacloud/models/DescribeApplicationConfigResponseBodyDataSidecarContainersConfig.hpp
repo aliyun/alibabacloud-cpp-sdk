@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acrInstanceId_ != nullptr
-        && this->command_ != nullptr && this->commandArgs_ != nullptr && this->configMapMountDesc_ != nullptr && this->cpu_ != nullptr && this->emptyDirDesc_ != nullptr
-        && this->envs_ != nullptr && this->imageUrl_ != nullptr && this->memory_ != nullptr && this->name_ != nullptr; };
+    virtual bool empty() const override { return this->acrInstanceId_ == nullptr
+        && return this->command_ == nullptr && return this->commandArgs_ == nullptr && return this->configMapMountDesc_ == nullptr && return this->cpu_ == nullptr && return this->emptyDirDesc_ == nullptr
+        && return this->envs_ == nullptr && return this->imageUrl_ == nullptr && return this->memory_ == nullptr && return this->name_ == nullptr; };
     // acrInstanceId Field Functions 
     bool hasAcrInstanceId() const { return this->acrInstanceId_ != nullptr;};
     void deleteAcrInstanceId() { this->acrInstanceId_ = nullptr;};

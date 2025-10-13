@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableMicroRegistration_ != nullptr
-        && this->nameSpaceShortId_ != nullptr && this->namespaceDescription_ != nullptr && this->namespaceId_ != nullptr && this->namespaceName_ != nullptr; };
+    virtual bool empty() const override { return this->enableMicroRegistration_ == nullptr
+        && return this->nameSpaceShortId_ == nullptr && return this->namespaceDescription_ == nullptr && return this->namespaceId_ == nullptr && return this->namespaceName_ == nullptr; };
     // enableMicroRegistration Field Functions 
     bool hasEnableMicroRegistration() const { return this->enableMicroRegistration_ != nullptr;};
     void deleteEnableMicroRegistration() { this->enableMicroRegistration_ = nullptr;};

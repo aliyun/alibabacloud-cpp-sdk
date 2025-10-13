@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->anytunnelViaENI_ != nullptr
-        && this->role_ != nullptr && this->securityGroupId_ != nullptr && this->vSwitchIds_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->anytunnelViaENI_ == nullptr
+        && return this->role_ == nullptr && return this->securityGroupId_ == nullptr && return this->vSwitchIds_ == nullptr && return this->vpcId_ == nullptr; };
     // anytunnelViaENI Field Functions 
     bool hasAnytunnelViaENI() const { return this->anytunnelViaENI_ != nullptr;};
     void deleteAnytunnelViaENI() { this->anytunnelViaENI_ = nullptr;};

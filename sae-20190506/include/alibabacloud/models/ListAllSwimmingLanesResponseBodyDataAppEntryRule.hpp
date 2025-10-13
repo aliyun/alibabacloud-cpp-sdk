@@ -42,8 +42,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->conditionJoiner_ != nullptr
-        && this->conditions_ != nullptr && this->independentPercentageEnable_ != nullptr && this->paths_ != nullptr && this->percentage_ != nullptr && this->percentageByPath_ != nullptr; };
+    virtual bool empty() const override { return this->conditionJoiner_ == nullptr
+        && return this->conditions_ == nullptr && return this->independentPercentageEnable_ == nullptr && return this->paths_ == nullptr && return this->percentage_ == nullptr && return this->percentageByPath_ == nullptr; };
     // conditionJoiner Field Functions 
     bool hasConditionJoiner() const { return this->conditionJoiner_ != nullptr;};
     void deleteConditionJoiner() { this->conditionJoiner_ = nullptr;};

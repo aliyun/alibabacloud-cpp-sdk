@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activeCPUUsage_ != nullptr
-        && this->cost_ != nullptr && this->diskUsage_ != nullptr && this->functionName_ != nullptr && this->gpuUsage_ != nullptr && this->idleCPUUsage_ != nullptr
-        && this->instanceTrafficOut_ != nullptr && this->invocations_ != nullptr && this->invokeCDNOut_ != nullptr && this->invokeInternetOut_ != nullptr && this->memoryUsage_ != nullptr
-        && this->region_ != nullptr && this->serviceName_ != nullptr; };
+    virtual bool empty() const override { return this->activeCPUUsage_ == nullptr
+        && return this->cost_ == nullptr && return this->diskUsage_ == nullptr && return this->functionName_ == nullptr && return this->gpuUsage_ == nullptr && return this->idleCPUUsage_ == nullptr
+        && return this->instanceTrafficOut_ == nullptr && return this->invocations_ == nullptr && return this->invokeCDNOut_ == nullptr && return this->invokeInternetOut_ == nullptr && return this->memoryUsage_ == nullptr
+        && return this->region_ == nullptr && return this->serviceName_ == nullptr; };
     // activeCPUUsage Field Functions 
     bool hasActiveCPUUsage() const { return this->activeCPUUsage_ != nullptr;};
     void deleteActiveCPUUsage() { this->activeCPUUsage_ = nullptr;};

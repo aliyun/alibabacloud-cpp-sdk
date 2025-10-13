@@ -43,8 +43,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->defaultForwardingAppName_ != nullptr
-        && this->protocol_ != nullptr && this->routeConfig_ != nullptr && this->webCertConfig_ != nullptr && this->webTLSConfig_ != nullptr && this->webWAFConfig_ != nullptr; };
+    virtual bool empty() const override { return this->defaultForwardingAppName_ == nullptr
+        && return this->protocol_ == nullptr && return this->routeConfig_ == nullptr && return this->webCertConfig_ == nullptr && return this->webTLSConfig_ == nullptr && return this->webWAFConfig_ == nullptr; };
     // defaultForwardingAppName Field Functions 
     bool hasDefaultForwardingAppName() const { return this->defaultForwardingAppName_ != nullptr;};
     void deleteDefaultForwardingAppName() { this->defaultForwardingAppName_ = nullptr;};

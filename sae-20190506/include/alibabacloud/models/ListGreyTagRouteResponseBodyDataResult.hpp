@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->albRules_ != nullptr
-        && this->createTime_ != nullptr && this->description_ != nullptr && this->dubboRules_ != nullptr && this->greyTagRouteId_ != nullptr && this->name_ != nullptr
-        && this->scRules_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->albRules_ == nullptr
+        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->dubboRules_ == nullptr && return this->greyTagRouteId_ == nullptr && return this->name_ == nullptr
+        && return this->scRules_ == nullptr && return this->updateTime_ == nullptr; };
     // albRules Field Functions 
     bool hasAlbRules() const { return this->albRules_ != nullptr;};
     void deleteAlbRules() { this->albRules_ = nullptr;};

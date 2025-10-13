@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->buildConfig_ != nullptr
-        && this->buildDuration_ != nullptr && this->codeConfig_ != nullptr && this->createTime_ != nullptr && this->deployConfig_ != nullptr && this->deployDuration_ != nullptr
-        && this->endTime_ != nullptr && this->imageConfig_ != nullptr && this->packageConfig_ != nullptr && this->pipelineId_ != nullptr && this->pipelineRunId_ != nullptr
-        && this->startTime_ != nullptr && this->status_ != nullptr && this->steps_ != nullptr && this->triggerConfig_ != nullptr && this->versionId_ != nullptr
-        && this->waitDuration_ != nullptr; };
+    virtual bool empty() const override { return this->buildConfig_ == nullptr
+        && return this->buildDuration_ == nullptr && return this->codeConfig_ == nullptr && return this->createTime_ == nullptr && return this->deployConfig_ == nullptr && return this->deployDuration_ == nullptr
+        && return this->endTime_ == nullptr && return this->imageConfig_ == nullptr && return this->packageConfig_ == nullptr && return this->pipelineId_ == nullptr && return this->pipelineRunId_ == nullptr
+        && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->steps_ == nullptr && return this->triggerConfig_ == nullptr && return this->versionId_ == nullptr
+        && return this->waitDuration_ == nullptr; };
     // buildConfig Field Functions 
     bool hasBuildConfig() const { return this->buildConfig_ != nullptr;};
     void deleteBuildConfig() { this->buildConfig_ = nullptr;};

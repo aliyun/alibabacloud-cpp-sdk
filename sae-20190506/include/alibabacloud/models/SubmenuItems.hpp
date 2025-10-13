@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->defaultSelected_ != nullptr
-        && this->itemDesc_ != nullptr && this->itemType_ != nullptr && this->relatingItems_ != nullptr; };
+    virtual bool empty() const override { return this->defaultSelected_ == nullptr
+        && return this->itemDesc_ == nullptr && return this->itemType_ == nullptr && return this->relatingItems_ == nullptr; };
     // defaultSelected Field Functions 
     bool hasDefaultSelected() const { return this->defaultSelected_ != nullptr;};
     void deleteDefaultSelected() { this->defaultSelected_ = nullptr;};

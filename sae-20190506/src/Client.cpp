@@ -4,7 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <darabonba/http/URL.hpp>
+#include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -2382,7 +2382,7 @@ DeleteWebApplicationResponse Client::deleteWebApplicationWithOptions(const strin
     {"action" , "DeleteWebApplication"},
     {"version" , "2019-05-06"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/applications/" , Darabonba::Http::URL::percentEncode(ApplicationId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/applications/" , Darabonba::Encode::Encoder::percentEncode(ApplicationId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2431,7 +2431,7 @@ DeleteWebApplicationRevisionResponse Client::deleteWebApplicationRevisionWithOpt
     {"action" , "DeleteWebApplicationRevision"},
     {"version" , "2019-05-06"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/application-revisions/" , Darabonba::Http::URL::percentEncode(ApplicationId) , "/revisions/" , Darabonba::Http::URL::percentEncode(RevisionId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/application-revisions/" , Darabonba::Encode::Encoder::percentEncode(ApplicationId) , "/revisions/" , Darabonba::Encode::Encoder::percentEncode(RevisionId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2480,7 +2480,7 @@ DeleteWebCustomDomainResponse Client::deleteWebCustomDomainWithOptions(const str
     {"action" , "DeleteWebCustomDomain"},
     {"version" , "2019-05-06"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/custom-domains/" , Darabonba::Http::URL::percentEncode(DomainName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/custom-domains/" , Darabonba::Encode::Encoder::percentEncode(DomainName))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2527,6 +2527,10 @@ DeployApplicationResponse Client::deployApplicationWithOptions(const DeployAppli
   json query = {};
   if (!!request.hasAcrAssumeRoleArn()) {
     query["AcrAssumeRoleArn"] = request.acrAssumeRoleArn();
+  }
+
+  if (!!request.hasAlbIngressReadinessGate()) {
+    query["AlbIngressReadinessGate"] = request.albIngressReadinessGate();
   }
 
   if (!!request.hasAppId()) {
@@ -4402,7 +4406,7 @@ DescribeWebApplicationResponse Client::describeWebApplicationWithOptions(const s
     {"action" , "DescribeWebApplication"},
     {"version" , "2019-05-06"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/applications/" , Darabonba::Http::URL::percentEncode(ApplicationId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/applications/" , Darabonba::Encode::Encoder::percentEncode(ApplicationId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4463,7 +4467,7 @@ DescribeWebApplicationResourceStaticsResponse Client::describeWebApplicationReso
     {"action" , "DescribeWebApplicationResourceStatics"},
     {"version" , "2019-05-06"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/applications-observability/" , Darabonba::Http::URL::percentEncode(ApplicationId) , "/resource")},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/applications-observability/" , Darabonba::Encode::Encoder::percentEncode(ApplicationId) , "/resource")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4512,7 +4516,7 @@ DescribeWebApplicationRevisionResponse Client::describeWebApplicationRevisionWit
     {"action" , "DescribeWebApplicationRevision"},
     {"version" , "2019-05-06"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/application-revisions/" , Darabonba::Http::URL::percentEncode(ApplicationId) , "/revisions/" , Darabonba::Http::URL::percentEncode(RevisionId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/application-revisions/" , Darabonba::Encode::Encoder::percentEncode(ApplicationId) , "/revisions/" , Darabonba::Encode::Encoder::percentEncode(RevisionId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4561,7 +4565,7 @@ DescribeWebApplicationScalingConfigResponse Client::describeWebApplicationScalin
     {"action" , "DescribeWebApplicationScalingConfig"},
     {"version" , "2019-05-06"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/application-scaling/" , Darabonba::Http::URL::percentEncode(ApplicationId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/application-scaling/" , Darabonba::Encode::Encoder::percentEncode(ApplicationId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4610,7 +4614,7 @@ DescribeWebApplicationTrafficConfigResponse Client::describeWebApplicationTraffi
     {"action" , "DescribeWebApplicationTrafficConfig"},
     {"version" , "2019-05-06"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/application-traffic/" , Darabonba::Http::URL::percentEncode(ApplicationId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/application-traffic/" , Darabonba::Encode::Encoder::percentEncode(ApplicationId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4659,7 +4663,7 @@ DescribeWebCustomDomainResponse Client::describeWebCustomDomainWithOptions(const
     {"action" , "DescribeWebCustomDomain"},
     {"version" , "2019-05-06"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/custom-domains/" , Darabonba::Http::URL::percentEncode(DomainName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/custom-domains/" , Darabonba::Encode::Encoder::percentEncode(DomainName))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -4708,7 +4712,7 @@ DescribeWebInstanceLogsResponse Client::describeWebInstanceLogsWithOptions(const
     {"action" , "DescribeWebInstanceLogs"},
     {"version" , "2019-05-06"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/applications-observability/" , Darabonba::Http::URL::percentEncode(ApplicationId) , "/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/logs")},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/applications-observability/" , Darabonba::Encode::Encoder::percentEncode(ApplicationId) , "/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/logs")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6639,7 +6643,7 @@ ListWebApplicationInstancesResponse Client::listWebApplicationInstancesWithOptio
     {"action" , "ListWebApplicationInstances"},
     {"version" , "2019-05-06"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/applications-observability/" , Darabonba::Http::URL::percentEncode(ApplicationId) , "/instances")},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/applications-observability/" , Darabonba::Encode::Encoder::percentEncode(ApplicationId) , "/instances")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6696,7 +6700,7 @@ ListWebApplicationRevisionsResponse Client::listWebApplicationRevisionsWithOptio
     {"action" , "ListWebApplicationRevisions"},
     {"version" , "2019-05-06"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/application-revisions/" , Darabonba::Http::URL::percentEncode(ApplicationId) , "/revisions")},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/application-revisions/" , Darabonba::Encode::Encoder::percentEncode(ApplicationId) , "/revisions")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -6912,7 +6916,7 @@ PublishWebApplicationRevisionResponse Client::publishWebApplicationRevisionWithO
     {"action" , "PublishWebApplicationRevision"},
     {"version" , "2019-05-06"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/application-revisions/" , Darabonba::Http::URL::percentEncode(ApplicationId) , "/revisions")},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/application-revisions/" , Darabonba::Encode::Encoder::percentEncode(ApplicationId) , "/revisions")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7446,7 +7450,7 @@ StartWebApplicationResponse Client::startWebApplicationWithOptions(const string 
     {"action" , "StartWebApplication"},
     {"version" , "2019-05-06"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/application-ops/" , Darabonba::Http::URL::percentEncode(ApplicationId) , "/start")},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/application-ops/" , Darabonba::Encode::Encoder::percentEncode(ApplicationId) , "/start")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -7540,7 +7544,7 @@ StopWebApplicationResponse Client::stopWebApplicationWithOptions(const string &A
     {"action" , "StopWebApplication"},
     {"version" , "2019-05-06"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/application-ops/" , Darabonba::Http::URL::percentEncode(ApplicationId) , "/stop")},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/application-ops/" , Darabonba::Encode::Encoder::percentEncode(ApplicationId) , "/stop")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8846,7 +8850,7 @@ UpdateWebApplicationResponse Client::updateWebApplicationWithOptions(const strin
     {"action" , "UpdateWebApplication"},
     {"version" , "2019-05-06"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/applications/" , Darabonba::Http::URL::percentEncode(ApplicationId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/applications/" , Darabonba::Encode::Encoder::percentEncode(ApplicationId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8896,7 +8900,7 @@ UpdateWebApplicationScalingConfigResponse Client::updateWebApplicationScalingCon
     {"action" , "UpdateWebApplicationScalingConfig"},
     {"version" , "2019-05-06"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/application-scaling/" , Darabonba::Http::URL::percentEncode(ApplicationId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/application-scaling/" , Darabonba::Encode::Encoder::percentEncode(ApplicationId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8946,7 +8950,7 @@ UpdateWebApplicationTrafficConfigResponse Client::updateWebApplicationTrafficCon
     {"action" , "UpdateWebApplicationTrafficConfig"},
     {"version" , "2019-05-06"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/application-traffic/" , Darabonba::Http::URL::percentEncode(ApplicationId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/application-traffic/" , Darabonba::Encode::Encoder::percentEncode(ApplicationId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -8996,7 +9000,7 @@ UpdateWebCustomDomainResponse Client::updateWebCustomDomainWithOptions(const str
     {"action" , "UpdateWebCustomDomain"},
     {"version" , "2019-05-06"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/custom-domains/" , Darabonba::Http::URL::percentEncode(DomainName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v2/api/web/custom-domains/" , Darabonba::Encode::Encoder::percentEncode(DomainName))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},

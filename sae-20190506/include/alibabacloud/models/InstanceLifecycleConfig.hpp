@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->preFreeze_ != nullptr
-        && this->preStop_ != nullptr; };
+    virtual bool empty() const override { return this->preFreeze_ == nullptr
+        && return this->preStop_ == nullptr; };
     // preFreeze Field Functions 
     bool hasPreFreeze() const { return this->preFreeze_ != nullptr;};
     void deletePreFreeze() { this->preFreeze_ = nullptr;};

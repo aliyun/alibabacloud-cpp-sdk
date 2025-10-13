@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_DNSOPTION_HPP_
-#define ALIBABACLOUD_MODELS_DNSOPTION_HPP_
+#ifndef ALIBABACLOUD_MODELS_HTTPHEADER_HPP_
+#define ALIBABACLOUD_MODELS_HTTPHEADER_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,41 +10,41 @@ namespace Sae20190506
 {
 namespace Models
 {
-  class DNSOption : public Darabonba::Model {
+  class HTTPHeader : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const DNSOption& obj) { 
+    friend void to_json(Darabonba::Json& j, const HTTPHeader& obj) { 
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(value, value_);
     };
-    friend void from_json(const Darabonba::Json& j, DNSOption& obj) { 
+    friend void from_json(const Darabonba::Json& j, HTTPHeader& obj) { 
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(value, value_);
     };
-    DNSOption() = default ;
-    DNSOption(const DNSOption &) = default ;
-    DNSOption(DNSOption &&) = default ;
-    DNSOption(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~DNSOption() = default ;
-    DNSOption& operator=(const DNSOption &) = default ;
-    DNSOption& operator=(DNSOption &&) = default ;
+    HTTPHeader() = default ;
+    HTTPHeader(const HTTPHeader &) = default ;
+    HTTPHeader(HTTPHeader &&) = default ;
+    HTTPHeader(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~HTTPHeader() = default ;
+    HTTPHeader& operator=(const HTTPHeader &) = default ;
+    HTTPHeader& operator=(HTTPHeader &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->name_ != nullptr
-        && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->name_ == nullptr
+        && return this->value_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
     inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
-    inline DNSOption& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+    inline HTTPHeader& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
     inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
-    inline DNSOption& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+    inline HTTPHeader& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
   protected:

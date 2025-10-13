@@ -63,10 +63,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->args_ != nullptr
-        && this->command_ != nullptr && this->environmentVariables_ != nullptr && this->image_ != nullptr && this->imageRegistryConfig_ != nullptr && this->metricsCollectConfig_ != nullptr
-        && this->port_ != nullptr && this->requestConcurrency_ != nullptr && this->requestTimeout_ != nullptr && this->resources_ != nullptr && this->SLSCollectConfigs_ != nullptr
-        && this->startupProbe_ != nullptr && this->webNASConfig_ != nullptr && this->webOSSConfig_ != nullptr; };
+    virtual bool empty() const override { return this->args_ == nullptr
+        && return this->command_ == nullptr && return this->environmentVariables_ == nullptr && return this->image_ == nullptr && return this->imageRegistryConfig_ == nullptr && return this->metricsCollectConfig_ == nullptr
+        && return this->port_ == nullptr && return this->requestConcurrency_ == nullptr && return this->requestTimeout_ == nullptr && return this->resources_ == nullptr && return this->SLSCollectConfigs_ == nullptr
+        && return this->startupProbe_ == nullptr && return this->webNASConfig_ == nullptr && return this->webOSSConfig_ == nullptr; };
     // args Field Functions 
     bool hasArgs() const { return this->args_ != nullptr;};
     void deleteArgs() { this->args_ = nullptr;};

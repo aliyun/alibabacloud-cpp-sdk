@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTimeStamp_ != nullptr
-        && this->debugStatus_ != nullptr && this->eip_ != nullptr && this->finishTimeStamp_ != nullptr && this->groupId_ != nullptr && this->imageUrl_ != nullptr
-        && this->instanceContainerIp_ != nullptr && this->instanceContainerRestarts_ != nullptr && this->instanceContainerStatus_ != nullptr && this->instanceHealthStatus_ != nullptr && this->instanceId_ != nullptr
-        && this->mainContainerStatus_ != nullptr && this->packageVersion_ != nullptr && this->sidecarContainersStatus_ != nullptr && this->timestamp_ != nullptr && this->unhealthyMessage_ != nullptr
-        && this->vSwitchId_ != nullptr; };
+    virtual bool empty() const override { return this->createTimeStamp_ == nullptr
+        && return this->debugStatus_ == nullptr && return this->eip_ == nullptr && return this->finishTimeStamp_ == nullptr && return this->groupId_ == nullptr && return this->imageUrl_ == nullptr
+        && return this->instanceContainerIp_ == nullptr && return this->instanceContainerRestarts_ == nullptr && return this->instanceContainerStatus_ == nullptr && return this->instanceHealthStatus_ == nullptr && return this->instanceId_ == nullptr
+        && return this->mainContainerStatus_ == nullptr && return this->packageVersion_ == nullptr && return this->sidecarContainersStatus_ == nullptr && return this->timestamp_ == nullptr && return this->unhealthyMessage_ == nullptr
+        && return this->vSwitchId_ == nullptr; };
     // createTimeStamp Field Functions 
     bool hasCreateTimeStamp() const { return this->createTimeStamp_ != nullptr;};
     void deleteCreateTimeStamp() { this->createTimeStamp_ = nullptr;};

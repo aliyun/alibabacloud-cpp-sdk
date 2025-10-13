@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->executorType_ != nullptr
-        && this->stageId_ != nullptr && this->stageName_ != nullptr && this->status_ != nullptr && this->taskList_ != nullptr; };
+    virtual bool empty() const override { return this->executorType_ == nullptr
+        && return this->stageId_ == nullptr && return this->stageName_ == nullptr && return this->status_ == nullptr && return this->taskList_ == nullptr; };
     // executorType Field Functions 
     bool hasExecutorType() const { return this->executorType_ != nullptr;};
     void deleteExecutorType() { this->executorType_ = nullptr;};

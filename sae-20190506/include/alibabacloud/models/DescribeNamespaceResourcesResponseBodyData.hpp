@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appCount_ != nullptr
-        && this->belongRegion_ != nullptr && this->description_ != nullptr && this->jumpServerAppId_ != nullptr && this->jumpServerIp_ != nullptr && this->lastChangeOrderId_ != nullptr
-        && this->lastChangeOrderRunning_ != nullptr && this->lastChangeOrderStatus_ != nullptr && this->nameSpaceShortId_ != nullptr && this->namespaceId_ != nullptr && this->namespaceName_ != nullptr
-        && this->notificationExpired_ != nullptr && this->securityGroupId_ != nullptr && this->tenantId_ != nullptr && this->userId_ != nullptr && this->vSwitchId_ != nullptr
-        && this->vSwitchName_ != nullptr && this->vpcId_ != nullptr && this->vpcName_ != nullptr; };
+    virtual bool empty() const override { return this->appCount_ == nullptr
+        && return this->belongRegion_ == nullptr && return this->description_ == nullptr && return this->jumpServerAppId_ == nullptr && return this->jumpServerIp_ == nullptr && return this->lastChangeOrderId_ == nullptr
+        && return this->lastChangeOrderRunning_ == nullptr && return this->lastChangeOrderStatus_ == nullptr && return this->nameSpaceShortId_ == nullptr && return this->namespaceId_ == nullptr && return this->namespaceName_ == nullptr
+        && return this->notificationExpired_ == nullptr && return this->securityGroupId_ == nullptr && return this->tenantId_ == nullptr && return this->userId_ == nullptr && return this->vSwitchId_ == nullptr
+        && return this->vSwitchName_ == nullptr && return this->vpcId_ == nullptr && return this->vpcName_ == nullptr; };
     // appCount Field Functions 
     bool hasAppCount() const { return this->appCount_ != nullptr;};
     void deleteAppCount() { this->appCount_ = nullptr;};

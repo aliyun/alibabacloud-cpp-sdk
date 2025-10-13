@@ -46,8 +46,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bagUsage_ != nullptr
-        && this->cpuMemPrice_ != nullptr && this->order_ != nullptr && this->requestPrice_ != nullptr && this->rules_ != nullptr && this->trafficPrice_ != nullptr; };
+    virtual bool empty() const override { return this->bagUsage_ == nullptr
+        && return this->cpuMemPrice_ == nullptr && return this->order_ == nullptr && return this->requestPrice_ == nullptr && return this->rules_ == nullptr && return this->trafficPrice_ == nullptr; };
     // bagUsage Field Functions 
     bool hasBagUsage() const { return this->bagUsage_ != nullptr;};
     void deleteBagUsage() { this->bagUsage_ = nullptr;};

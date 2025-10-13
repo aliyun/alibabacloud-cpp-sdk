@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->prometheusQuery_ != nullptr
-        && this->targetMetricValue_ != nullptr; };
+    virtual bool empty() const override { return this->prometheusQuery_ == nullptr
+        && return this->targetMetricValue_ == nullptr; };
     // prometheusQuery Field Functions 
     bool hasPrometheusQuery() const { return this->prometheusQuery_ != nullptr;};
     void deletePrometheusQuery() { this->prometheusQuery_ = nullptr;};

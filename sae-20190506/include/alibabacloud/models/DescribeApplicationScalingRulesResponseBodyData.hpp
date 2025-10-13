@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applicationScalingRules_ != nullptr
-        && this->currentPage_ != nullptr && this->pageSize_ != nullptr && this->totalSize_ != nullptr; };
+    virtual bool empty() const override { return this->applicationScalingRules_ == nullptr
+        && return this->currentPage_ == nullptr && return this->pageSize_ == nullptr && return this->totalSize_ == nullptr; };
     // applicationScalingRules Field Functions 
     bool hasApplicationScalingRules() const { return this->applicationScalingRules_ != nullptr;};
     void deleteApplicationScalingRules() { this->applicationScalingRules_ = nullptr;};

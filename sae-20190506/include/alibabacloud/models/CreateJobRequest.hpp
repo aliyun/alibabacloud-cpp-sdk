@@ -139,18 +139,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acrAssumeRoleArn_ != nullptr
-        && this->acrInstanceId_ != nullptr && this->appDescription_ != nullptr && this->appName_ != nullptr && this->autoConfig_ != nullptr && this->backoffLimit_ != nullptr
-        && this->bestEffortType_ != nullptr && this->command_ != nullptr && this->commandArgs_ != nullptr && this->concurrencyPolicy_ != nullptr && this->configMapMountDesc_ != nullptr
-        && this->cpu_ != nullptr && this->customHostAlias_ != nullptr && this->edasContainerVersion_ != nullptr && this->enableImageAccl_ != nullptr && this->envs_ != nullptr
-        && this->imagePullSecrets_ != nullptr && this->imageUrl_ != nullptr && this->jarStartArgs_ != nullptr && this->jarStartOptions_ != nullptr && this->jdk_ != nullptr
-        && this->memory_ != nullptr && this->mountDesc_ != nullptr && this->mountHost_ != nullptr && this->namespaceId_ != nullptr && this->nasConfigs_ != nullptr
-        && this->nasId_ != nullptr && this->ossAkId_ != nullptr && this->ossAkSecret_ != nullptr && this->ossMountDescs_ != nullptr && this->packageType_ != nullptr
-        && this->packageUrl_ != nullptr && this->packageVersion_ != nullptr && this->phpConfig_ != nullptr && this->phpConfigLocation_ != nullptr && this->postStart_ != nullptr
-        && this->preStop_ != nullptr && this->programmingLanguage_ != nullptr && this->python_ != nullptr && this->pythonModules_ != nullptr && this->refAppId_ != nullptr
-        && this->replicas_ != nullptr && this->securityGroupId_ != nullptr && this->slice_ != nullptr && this->sliceEnvs_ != nullptr && this->slsConfigs_ != nullptr
-        && this->terminationGracePeriodSeconds_ != nullptr && this->timeout_ != nullptr && this->timezone_ != nullptr && this->tomcatConfig_ != nullptr && this->triggerConfig_ != nullptr
-        && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr && this->warStartOptions_ != nullptr && this->webContainer_ != nullptr && this->workload_ != nullptr; };
+    virtual bool empty() const override { return this->acrAssumeRoleArn_ == nullptr
+        && return this->acrInstanceId_ == nullptr && return this->appDescription_ == nullptr && return this->appName_ == nullptr && return this->autoConfig_ == nullptr && return this->backoffLimit_ == nullptr
+        && return this->bestEffortType_ == nullptr && return this->command_ == nullptr && return this->commandArgs_ == nullptr && return this->concurrencyPolicy_ == nullptr && return this->configMapMountDesc_ == nullptr
+        && return this->cpu_ == nullptr && return this->customHostAlias_ == nullptr && return this->edasContainerVersion_ == nullptr && return this->enableImageAccl_ == nullptr && return this->envs_ == nullptr
+        && return this->imagePullSecrets_ == nullptr && return this->imageUrl_ == nullptr && return this->jarStartArgs_ == nullptr && return this->jarStartOptions_ == nullptr && return this->jdk_ == nullptr
+        && return this->memory_ == nullptr && return this->mountDesc_ == nullptr && return this->mountHost_ == nullptr && return this->namespaceId_ == nullptr && return this->nasConfigs_ == nullptr
+        && return this->nasId_ == nullptr && return this->ossAkId_ == nullptr && return this->ossAkSecret_ == nullptr && return this->ossMountDescs_ == nullptr && return this->packageType_ == nullptr
+        && return this->packageUrl_ == nullptr && return this->packageVersion_ == nullptr && return this->phpConfig_ == nullptr && return this->phpConfigLocation_ == nullptr && return this->postStart_ == nullptr
+        && return this->preStop_ == nullptr && return this->programmingLanguage_ == nullptr && return this->python_ == nullptr && return this->pythonModules_ == nullptr && return this->refAppId_ == nullptr
+        && return this->replicas_ == nullptr && return this->securityGroupId_ == nullptr && return this->slice_ == nullptr && return this->sliceEnvs_ == nullptr && return this->slsConfigs_ == nullptr
+        && return this->terminationGracePeriodSeconds_ == nullptr && return this->timeout_ == nullptr && return this->timezone_ == nullptr && return this->tomcatConfig_ == nullptr && return this->triggerConfig_ == nullptr
+        && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->warStartOptions_ == nullptr && return this->webContainer_ == nullptr && return this->workload_ == nullptr; };
     // acrAssumeRoleArn Field Functions 
     bool hasAcrAssumeRoleArn() const { return this->acrAssumeRoleArn_ != nullptr;};
     void deleteAcrAssumeRoleArn() { this->acrAssumeRoleArn_ = nullptr;};

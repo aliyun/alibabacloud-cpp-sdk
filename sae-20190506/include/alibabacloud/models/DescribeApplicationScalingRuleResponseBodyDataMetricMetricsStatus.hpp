@@ -42,8 +42,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->currentMetrics_ != nullptr
-        && this->currentReplicas_ != nullptr && this->desiredReplicas_ != nullptr && this->lastScaleTime_ != nullptr && this->nextScaleMetrics_ != nullptr && this->nextScaleTimePeriod_ != nullptr; };
+    virtual bool empty() const override { return this->currentMetrics_ == nullptr
+        && return this->currentReplicas_ == nullptr && return this->desiredReplicas_ == nullptr && return this->lastScaleTime_ == nullptr && return this->nextScaleMetrics_ == nullptr && return this->nextScaleTimePeriod_ == nullptr; };
     // currentMetrics Field Functions 
     bool hasCurrentMetrics() const { return this->currentMetrics_ != nullptr;};
     void deleteCurrentMetrics() { this->currentMetrics_ = nullptr;};

@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alwaysAllocateCPU_ != nullptr
-        && this->maximumInstanceCount_ != nullptr && this->minimumInstanceCount_ != nullptr; };
+    virtual bool empty() const override { return this->alwaysAllocateCPU_ == nullptr
+        && return this->maximumInstanceCount_ == nullptr && return this->minimumInstanceCount_ == nullptr; };
     // alwaysAllocateCPU Field Functions 
     bool hasAlwaysAllocateCPU() const { return this->alwaysAllocateCPU_ != nullptr;};
     void deleteAlwaysAllocateCPU() { this->alwaysAllocateCPU_ = nullptr;};

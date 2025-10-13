@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bestEffortType_ != nullptr
-        && this->cpu_ != nullptr && this->memory_ != nullptr && this->newSaeVersion_ != nullptr && this->resourceType_ != nullptr && this->workload_ != nullptr; };
+    virtual bool empty() const override { return this->bestEffortType_ == nullptr
+        && return this->cpu_ == nullptr && return this->memory_ == nullptr && return this->newSaeVersion_ == nullptr && return this->resourceType_ == nullptr && return this->workload_ == nullptr; };
     // bestEffortType Field Functions 
     bool hasBestEffortType() const { return this->bestEffortType_ != nullptr;};
     void deleteBestEffortType() { this->bestEffortType_ = nullptr;};
