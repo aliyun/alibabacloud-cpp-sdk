@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->exceedResources_ != nullptr
-        && this->limit_ != nullptr && this->status_ != nullptr && this->used_ != nullptr && this->workloadIds_ != nullptr; };
+    virtual bool empty() const override { return this->exceedResources_ == nullptr
+        && return this->limit_ == nullptr && return this->status_ == nullptr && return this->used_ == nullptr && return this->workloadIds_ == nullptr; };
     // exceedResources Field Functions 
     bool hasExceedResources() const { return this->exceedResources_ != nullptr;};
     void deleteExceedResources() { this->exceedResources_ = nullptr;};

@@ -74,12 +74,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->CPUNodeNumber_ != nullptr
-        && this->CPUUsageRate_ != nullptr && this->cpuJobNames_ != nullptr && this->cpuNodeNames_ != nullptr && this->diskReadRate_ != nullptr && this->diskWriteRate_ != nullptr
-        && this->GPUNodeNumber_ != nullptr && this->GPUUsageRate_ != nullptr && this->gpuJobNames_ != nullptr && this->gpuNodeNames_ != nullptr && this->jobType_ != nullptr
-        && this->memoryUsageRate_ != nullptr && this->networkInputRate_ != nullptr && this->networkOutputRate_ != nullptr && this->nodeNames_ != nullptr && this->requestCPU_ != nullptr
-        && this->requestGPU_ != nullptr && this->requestMemory_ != nullptr && this->resourceGroupId_ != nullptr && this->totalCPU_ != nullptr && this->totalGPU_ != nullptr
-        && this->totalMemory_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->CPUNodeNumber_ == nullptr
+        && return this->CPUUsageRate_ == nullptr && return this->cpuJobNames_ == nullptr && return this->cpuNodeNames_ == nullptr && return this->diskReadRate_ == nullptr && return this->diskWriteRate_ == nullptr
+        && return this->GPUNodeNumber_ == nullptr && return this->GPUUsageRate_ == nullptr && return this->gpuJobNames_ == nullptr && return this->gpuNodeNames_ == nullptr && return this->jobType_ == nullptr
+        && return this->memoryUsageRate_ == nullptr && return this->networkInputRate_ == nullptr && return this->networkOutputRate_ == nullptr && return this->nodeNames_ == nullptr && return this->requestCPU_ == nullptr
+        && return this->requestGPU_ == nullptr && return this->requestMemory_ == nullptr && return this->resourceGroupId_ == nullptr && return this->totalCPU_ == nullptr && return this->totalGPU_ == nullptr
+        && return this->totalMemory_ == nullptr && return this->userId_ == nullptr; };
     // CPUNodeNumber Field Functions 
     bool hasCPUNodeNumber() const { return this->CPUNodeNumber_ != nullptr;};
     void deleteCPUNodeNumber() { this->CPUNodeNumber_ = nullptr;};

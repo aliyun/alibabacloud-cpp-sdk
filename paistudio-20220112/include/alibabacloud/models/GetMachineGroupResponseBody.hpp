@@ -64,11 +64,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->count_ != nullptr
-        && this->defaultDriver_ != nullptr && this->duration_ != nullptr && this->ecsType_ != nullptr && this->gmtCreated_ != nullptr && this->gmtExpired_ != nullptr
-        && this->gmtModified_ != nullptr && this->gmtStarted_ != nullptr && this->machineGroupID_ != nullptr && this->orderID_ != nullptr && this->orderInstanceId_ != nullptr
-        && this->PAIResourceID_ != nullptr && this->payType_ != nullptr && this->pricingCycle_ != nullptr && this->regionID_ != nullptr && this->requestId_ != nullptr
-        && this->status_ != nullptr && this->supportedDrivers_ != nullptr; };
+    virtual bool empty() const override { return this->count_ == nullptr
+        && return this->defaultDriver_ == nullptr && return this->duration_ == nullptr && return this->ecsType_ == nullptr && return this->gmtCreated_ == nullptr && return this->gmtExpired_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->gmtStarted_ == nullptr && return this->machineGroupID_ == nullptr && return this->orderID_ == nullptr && return this->orderInstanceId_ == nullptr
+        && return this->PAIResourceID_ == nullptr && return this->payType_ == nullptr && return this->pricingCycle_ == nullptr && return this->regionID_ == nullptr && return this->requestId_ == nullptr
+        && return this->status_ == nullptr && return this->supportedDrivers_ == nullptr; };
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};

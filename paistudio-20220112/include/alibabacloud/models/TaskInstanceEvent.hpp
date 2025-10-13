@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->gmtEndTime_ != nullptr
-        && this->gmtStartTime_ != nullptr && this->message_ != nullptr && this->podName_ != nullptr && this->status_ != nullptr && this->workloadType_ != nullptr; };
+    virtual bool empty() const override { return this->gmtEndTime_ == nullptr
+        && return this->gmtStartTime_ == nullptr && return this->message_ == nullptr && return this->podName_ == nullptr && return this->status_ == nullptr && return this->workloadType_ == nullptr; };
     // gmtEndTime Field Functions 
     bool hasGmtEndTime() const { return this->gmtEndTime_ != nullptr;};
     void deleteGmtEndTime() { this->gmtEndTime_ = nullptr;};

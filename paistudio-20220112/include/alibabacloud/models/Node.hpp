@@ -102,14 +102,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceleratorType_ != nullptr
-        && this->allocatableCPU_ != nullptr && this->allocatableMemory_ != nullptr && this->availabilityZone_ != nullptr && this->boundQuotas_ != nullptr && this->CPU_ != nullptr
-        && this->creatorId_ != nullptr && this->GPU_ != nullptr && this->GPUMemory_ != nullptr && this->GPUType_ != nullptr && this->gmtCreateTime_ != nullptr
-        && this->gmtExpiredTime_ != nullptr && this->gmtModifiedTime_ != nullptr && this->hyperZone_ != nullptr && this->isBound_ != nullptr && this->limitCPU_ != nullptr
-        && this->limitGPU_ != nullptr && this->limitMemory_ != nullptr && this->machineGroupId_ != nullptr && this->memory_ != nullptr && this->nodeName_ != nullptr
-        && this->nodeStatus_ != nullptr && this->nodeType_ != nullptr && this->orderStatus_ != nullptr && this->podNum_ != nullptr && this->reasonCode_ != nullptr
-        && this->reasonMessage_ != nullptr && this->requestCPU_ != nullptr && this->requestGPU_ != nullptr && this->requestMemory_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->resourceGroupName_ != nullptr && this->systemReservedCPU_ != nullptr && this->systemReservedMemory_ != nullptr && this->users_ != nullptr && this->workloadNum_ != nullptr; };
+    virtual bool empty() const override { return this->acceleratorType_ == nullptr
+        && return this->allocatableCPU_ == nullptr && return this->allocatableMemory_ == nullptr && return this->availabilityZone_ == nullptr && return this->boundQuotas_ == nullptr && return this->CPU_ == nullptr
+        && return this->creatorId_ == nullptr && return this->GPU_ == nullptr && return this->GPUMemory_ == nullptr && return this->GPUType_ == nullptr && return this->gmtCreateTime_ == nullptr
+        && return this->gmtExpiredTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->hyperZone_ == nullptr && return this->isBound_ == nullptr && return this->limitCPU_ == nullptr
+        && return this->limitGPU_ == nullptr && return this->limitMemory_ == nullptr && return this->machineGroupId_ == nullptr && return this->memory_ == nullptr && return this->nodeName_ == nullptr
+        && return this->nodeStatus_ == nullptr && return this->nodeType_ == nullptr && return this->orderStatus_ == nullptr && return this->podNum_ == nullptr && return this->reasonCode_ == nullptr
+        && return this->reasonMessage_ == nullptr && return this->requestCPU_ == nullptr && return this->requestGPU_ == nullptr && return this->requestMemory_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->resourceGroupName_ == nullptr && return this->systemReservedCPU_ == nullptr && return this->systemReservedMemory_ == nullptr && return this->users_ == nullptr && return this->workloadNum_ == nullptr; };
     // acceleratorType Field Functions 
     bool hasAcceleratorType() const { return this->acceleratorType_ != nullptr;};
     void deleteAcceleratorType() { this->acceleratorType_ = nullptr;};

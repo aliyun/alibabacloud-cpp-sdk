@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->availableCount_ != nullptr
-        && this->crsReservationId_ != nullptr && this->description_ != nullptr && this->expireTime_ != nullptr && this->gmtCreated_ != nullptr && this->gmtModified_ != nullptr
-        && this->id_ != nullptr && this->instanceType_ != nullptr && this->lastReconcileAttemptTime_ != nullptr && this->lastSyncTime_ != nullptr && this->lockProvider_ != nullptr
-        && this->lockedCount_ != nullptr && this->operator_ != nullptr && this->paymentType_ != nullptr && this->privatePoolId_ != nullptr && this->requestedCount_ != nullptr
-        && this->status_ != nullptr && this->tenantId_ != nullptr && this->usedCount_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->availableCount_ == nullptr
+        && return this->crsReservationId_ == nullptr && return this->description_ == nullptr && return this->expireTime_ == nullptr && return this->gmtCreated_ == nullptr && return this->gmtModified_ == nullptr
+        && return this->id_ == nullptr && return this->instanceType_ == nullptr && return this->lastReconcileAttemptTime_ == nullptr && return this->lastSyncTime_ == nullptr && return this->lockProvider_ == nullptr
+        && return this->lockedCount_ == nullptr && return this->operator_ == nullptr && return this->paymentType_ == nullptr && return this->privatePoolId_ == nullptr && return this->requestedCount_ == nullptr
+        && return this->status_ == nullptr && return this->tenantId_ == nullptr && return this->usedCount_ == nullptr && return this->zoneId_ == nullptr; };
     // availableCount Field Functions 
     bool hasAvailableCount() const { return this->availableCount_ != nullptr;};
     void deleteAvailableCount() { this->availableCount_ = nullptr;};

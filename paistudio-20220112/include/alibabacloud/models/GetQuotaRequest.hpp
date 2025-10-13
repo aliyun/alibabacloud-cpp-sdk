@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->verbose_ != nullptr; };
+    virtual bool empty() const override { return this->verbose_ == nullptr; };
     // verbose Field Functions 
     bool hasVerbose() const { return this->verbose_ != nullptr;};
     void deleteVerbose() { this->verbose_ = nullptr;};

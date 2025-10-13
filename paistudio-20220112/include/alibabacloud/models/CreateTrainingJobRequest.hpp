@@ -82,11 +82,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->algorithmName_ != nullptr
-        && this->algorithmProvider_ != nullptr && this->algorithmSpec_ != nullptr && this->algorithmVersion_ != nullptr && this->codeDir_ != nullptr && this->computeResource_ != nullptr
-        && this->environments_ != nullptr && this->experimentConfig_ != nullptr && this->hyperParameters_ != nullptr && this->inputChannels_ != nullptr && this->labels_ != nullptr
-        && this->outputChannels_ != nullptr && this->priority_ != nullptr && this->pythonRequirements_ != nullptr && this->roleArn_ != nullptr && this->scheduler_ != nullptr
-        && this->settings_ != nullptr && this->trainingJobDescription_ != nullptr && this->trainingJobName_ != nullptr && this->userVpc_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->algorithmName_ == nullptr
+        && return this->algorithmProvider_ == nullptr && return this->algorithmSpec_ == nullptr && return this->algorithmVersion_ == nullptr && return this->codeDir_ == nullptr && return this->computeResource_ == nullptr
+        && return this->environments_ == nullptr && return this->experimentConfig_ == nullptr && return this->hyperParameters_ == nullptr && return this->inputChannels_ == nullptr && return this->labels_ == nullptr
+        && return this->outputChannels_ == nullptr && return this->priority_ == nullptr && return this->pythonRequirements_ == nullptr && return this->roleArn_ == nullptr && return this->scheduler_ == nullptr
+        && return this->settings_ == nullptr && return this->trainingJobDescription_ == nullptr && return this->trainingJobName_ == nullptr && return this->userVpc_ == nullptr && return this->workspaceId_ == nullptr; };
     // algorithmName Field Functions 
     bool hasAlgorithmName() const { return this->algorithmName_ != nullptr;};
     void deleteAlgorithmName() { this->algorithmName_ = nullptr;};

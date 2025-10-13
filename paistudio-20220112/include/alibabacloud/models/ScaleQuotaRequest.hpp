@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->min_ != nullptr
-        && this->resourceGroupIds_ != nullptr; };
+    virtual bool empty() const override { return this->min_ == nullptr
+        && return this->resourceGroupIds_ == nullptr; };
     // min Field Functions 
     bool hasMin() const { return this->min_ != nullptr;};
     void deleteMin() { this->min_ = nullptr;};

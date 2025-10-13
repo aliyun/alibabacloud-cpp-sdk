@@ -72,12 +72,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->CPUUsageRate_ != nullptr
-        && this->createdTime_ != nullptr && this->diskReadRate_ != nullptr && this->diskWriteRate_ != nullptr && this->GPUType_ != nullptr && this->memoryUsageRate_ != nullptr
-        && this->networkInputRate_ != nullptr && this->networkOutputRate_ != nullptr && this->nodeID_ != nullptr && this->nodeStatus_ != nullptr && this->nodeType_ != nullptr
-        && this->quotaId_ != nullptr && this->requestCPU_ != nullptr && this->requestGPU_ != nullptr && this->requestMemory_ != nullptr && this->taskIdMap_ != nullptr
-        && this->totalCPU_ != nullptr && this->totalGPU_ != nullptr && this->totalMemory_ != nullptr && this->totalTasks_ != nullptr && this->userIDs_ != nullptr
-        && this->userNumber_ != nullptr; };
+    virtual bool empty() const override { return this->CPUUsageRate_ == nullptr
+        && return this->createdTime_ == nullptr && return this->diskReadRate_ == nullptr && return this->diskWriteRate_ == nullptr && return this->GPUType_ == nullptr && return this->memoryUsageRate_ == nullptr
+        && return this->networkInputRate_ == nullptr && return this->networkOutputRate_ == nullptr && return this->nodeID_ == nullptr && return this->nodeStatus_ == nullptr && return this->nodeType_ == nullptr
+        && return this->quotaId_ == nullptr && return this->requestCPU_ == nullptr && return this->requestGPU_ == nullptr && return this->requestMemory_ == nullptr && return this->taskIdMap_ == nullptr
+        && return this->totalCPU_ == nullptr && return this->totalGPU_ == nullptr && return this->totalMemory_ == nullptr && return this->totalTasks_ == nullptr && return this->userIDs_ == nullptr
+        && return this->userNumber_ == nullptr; };
     // CPUUsageRate Field Functions 
     bool hasCPUUsageRate() const { return this->CPUUsageRate_ != nullptr;};
     void deleteCPUUsageRate() { this->CPUUsageRate_ = nullptr;};

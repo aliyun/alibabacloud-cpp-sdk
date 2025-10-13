@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creatorID_ != nullptr
-        && this->ecsSpec_ != nullptr && this->machineGroupIDs_ != nullptr && this->name_ != nullptr && this->order_ != nullptr && this->orderInstanceId_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->paymentDuration_ != nullptr && this->paymentDurationUnit_ != nullptr && this->paymentType_ != nullptr
-        && this->sortBy_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->creatorID_ == nullptr
+        && return this->ecsSpec_ == nullptr && return this->machineGroupIDs_ == nullptr && return this->name_ == nullptr && return this->order_ == nullptr && return this->orderInstanceId_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->paymentDuration_ == nullptr && return this->paymentDurationUnit_ == nullptr && return this->paymentType_ == nullptr
+        && return this->sortBy_ == nullptr && return this->status_ == nullptr; };
     // creatorID Field Functions 
     bool hasCreatorID() const { return this->creatorID_ != nullptr;};
     void deleteCreatorID() { this->creatorID_ = nullptr;};

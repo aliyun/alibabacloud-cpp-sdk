@@ -68,10 +68,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ACS_ != nullptr
-        && this->clusterId_ != nullptr && this->defaultGPUDriver_ != nullptr && this->enableGPUShare_ != nullptr && this->enablePreemptSubquotaWorkloads_ != nullptr && this->enableSubQuotaPreemption_ != nullptr
-        && this->eniCacheConfig_ != nullptr && this->oversoldUsageInfo_ != nullptr && this->resourceSpecs_ != nullptr && this->sandboxCacheConfig_ != nullptr && this->selfQuotaPreemptionConfig_ != nullptr
-        && this->subQuotaPreemptionConfig_ != nullptr && this->supportGPUDrivers_ != nullptr && this->supportRDMA_ != nullptr && this->useCase_ != nullptr && this->userVpc_ != nullptr; };
+    virtual bool empty() const override { return this->ACS_ == nullptr
+        && return this->clusterId_ == nullptr && return this->defaultGPUDriver_ == nullptr && return this->enableGPUShare_ == nullptr && return this->enablePreemptSubquotaWorkloads_ == nullptr && return this->enableSubQuotaPreemption_ == nullptr
+        && return this->eniCacheConfig_ == nullptr && return this->oversoldUsageInfo_ == nullptr && return this->resourceSpecs_ == nullptr && return this->sandboxCacheConfig_ == nullptr && return this->selfQuotaPreemptionConfig_ == nullptr
+        && return this->subQuotaPreemptionConfig_ == nullptr && return this->supportGPUDrivers_ == nullptr && return this->supportRDMA_ == nullptr && return this->useCase_ == nullptr && return this->userVpc_ == nullptr; };
     // ACS Field Functions 
     bool hasACS() const { return this->ACS_ != nullptr;};
     void deleteACS() { this->ACS_ = nullptr;};

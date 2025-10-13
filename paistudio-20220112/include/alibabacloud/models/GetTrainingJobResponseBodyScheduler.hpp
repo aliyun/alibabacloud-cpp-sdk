@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxRunningTimeInMinutes_ != nullptr
-        && this->maxRunningTimeInSeconds_ != nullptr; };
+    virtual bool empty() const override { return this->maxRunningTimeInMinutes_ == nullptr
+        && return this->maxRunningTimeInSeconds_ == nullptr; };
     // maxRunningTimeInMinutes Field Functions 
     bool hasMaxRunningTimeInMinutes() const { return this->maxRunningTimeInMinutes_ != nullptr;};
     void deleteMaxRunningTimeInMinutes() { this->maxRunningTimeInMinutes_ = nullptr;};

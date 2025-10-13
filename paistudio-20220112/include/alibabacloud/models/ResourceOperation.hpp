@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creatorId_ != nullptr
-        && this->gmtCreatedTime_ != nullptr && this->gmtEndTime_ != nullptr && this->gmtModifiedTime_ != nullptr && this->gmtStartTime_ != nullptr && this->objectId_ != nullptr
-        && this->objectType_ != nullptr && this->operationDescription_ != nullptr && this->operationId_ != nullptr && this->operationSpecJson_ != nullptr && this->operationType_ != nullptr
-        && this->reasonCode_ != nullptr && this->reasonMessage_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->creatorId_ == nullptr
+        && return this->gmtCreatedTime_ == nullptr && return this->gmtEndTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->gmtStartTime_ == nullptr && return this->objectId_ == nullptr
+        && return this->objectType_ == nullptr && return this->operationDescription_ == nullptr && return this->operationId_ == nullptr && return this->operationSpecJson_ == nullptr && return this->operationType_ == nullptr
+        && return this->reasonCode_ == nullptr && return this->reasonMessage_ == nullptr && return this->status_ == nullptr; };
     // creatorId Field Functions 
     bool hasCreatorId() const { return this->creatorId_ != nullptr;};
     void deleteCreatorId() { this->creatorId_ = nullptr;};

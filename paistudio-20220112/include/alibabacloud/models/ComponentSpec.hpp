@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->codeDir_ != nullptr
-        && this->command_ != nullptr && this->hyperParameters_ != nullptr && this->image_ != nullptr && this->inputChannels_ != nullptr && this->jobType_ != nullptr
-        && this->metricDefinitions_ != nullptr && this->outputChannels_ != nullptr && this->resourceRequirements_ != nullptr; };
+    virtual bool empty() const override { return this->codeDir_ == nullptr
+        && return this->command_ == nullptr && return this->hyperParameters_ == nullptr && return this->image_ == nullptr && return this->inputChannels_ == nullptr && return this->jobType_ == nullptr
+        && return this->metricDefinitions_ == nullptr && return this->outputChannels_ == nullptr && return this->resourceRequirements_ == nullptr; };
     // codeDir Field Functions 
     bool hasCodeDir() const { return this->codeDir_ != nullptr;};
     void deleteCodeDir() { this->codeDir_ = nullptr;};

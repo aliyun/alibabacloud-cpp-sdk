@@ -29,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SupportRDMA, supportRDMA_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(UserVpc, userVpc_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
       DARABONBA_PTR_TO_JSON(WorkspaceID, workspaceID_);
     };
     friend void from_json(const Darabonba::Json& j, GetResourceGroupResponseBody& obj) { 
@@ -45,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SupportRDMA, supportRDMA_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(UserVpc, userVpc_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
       DARABONBA_PTR_FROM_JSON(WorkspaceID, workspaceID_);
     };
     GetResourceGroupResponseBody() = default ;
@@ -58,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterID_ != nullptr
-        && this->computingResourceProvider_ != nullptr && this->creatorID_ != nullptr && this->description_ != nullptr && this->gmtCreatedTime_ != nullptr && this->gmtModifiedTime_ != nullptr
-        && this->name_ != nullptr && this->requestId_ != nullptr && this->resourceType_ != nullptr && this->status_ != nullptr && this->supportRDMA_ != nullptr
-        && this->tags_ != nullptr && this->userVpc_ != nullptr && this->workspaceID_ != nullptr; };
+    virtual bool empty() const override { return this->clusterID_ == nullptr
+        && return this->computingResourceProvider_ == nullptr && return this->creatorID_ == nullptr && return this->description_ == nullptr && return this->gmtCreatedTime_ == nullptr && return this->gmtModifiedTime_ == nullptr
+        && return this->name_ == nullptr && return this->requestId_ == nullptr && return this->resourceType_ == nullptr && return this->status_ == nullptr && return this->supportRDMA_ == nullptr
+        && return this->tags_ == nullptr && return this->userVpc_ == nullptr && return this->version_ == nullptr && return this->workspaceID_ == nullptr; };
     // clusterID Field Functions 
     bool hasClusterID() const { return this->clusterID_ != nullptr;};
     void deleteClusterID() { this->clusterID_ = nullptr;};
@@ -157,6 +159,13 @@ namespace Models
     inline GetResourceGroupResponseBody& setUserVpc(UserVpc && userVpc) { DARABONBA_PTR_SET_RVALUE(userVpc_, userVpc) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline GetResourceGroupResponseBody& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
     // workspaceID Field Functions 
     bool hasWorkspaceID() const { return this->workspaceID_ != nullptr;};
     void deleteWorkspaceID() { this->workspaceID_ = nullptr;};
@@ -178,6 +187,7 @@ namespace Models
     std::shared_ptr<bool> supportRDMA_ = nullptr;
     std::shared_ptr<vector<GetResourceGroupResponseBodyTags>> tags_ = nullptr;
     std::shared_ptr<UserVpc> userVpc_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
     std::shared_ptr<string> workspaceID_ = nullptr;
   };
 

@@ -74,12 +74,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->codeType_ != nullptr && this->gmtCreatedTime_ != nullptr && this->gmtDequeuedTime_ != nullptr && this->gmtEnqueuedTime_ != nullptr && this->gmtPositionModifiedTime_ != nullptr
-        && this->name_ != nullptr && this->position_ != nullptr && this->priority_ != nullptr && this->queueStrategy_ != nullptr && this->quotaId_ != nullptr
-        && this->reason_ != nullptr && this->resource_ != nullptr && this->status_ != nullptr && this->useOversoldResource_ != nullptr && this->userId_ != nullptr
-        && this->userName_ != nullptr && this->workloadId_ != nullptr && this->workloadName_ != nullptr && this->workloadStatus_ != nullptr && this->workloadType_ != nullptr
-        && this->workspaceId_ != nullptr && this->workspaceName_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->codeType_ == nullptr && return this->gmtCreatedTime_ == nullptr && return this->gmtDequeuedTime_ == nullptr && return this->gmtEnqueuedTime_ == nullptr && return this->gmtPositionModifiedTime_ == nullptr
+        && return this->name_ == nullptr && return this->position_ == nullptr && return this->priority_ == nullptr && return this->queueStrategy_ == nullptr && return this->quotaId_ == nullptr
+        && return this->reason_ == nullptr && return this->resource_ == nullptr && return this->status_ == nullptr && return this->useOversoldResource_ == nullptr && return this->userId_ == nullptr
+        && return this->userName_ == nullptr && return this->workloadId_ == nullptr && return this->workloadName_ == nullptr && return this->workloadStatus_ == nullptr && return this->workloadType_ == nullptr
+        && return this->workspaceId_ == nullptr && return this->workspaceName_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};

@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->compressionSpec_ != nullptr
-        && this->evaluationSpec_ != nullptr && this->inferenceSpec_ != nullptr && this->labels_ != nullptr && this->metrics_ != nullptr && this->outputChannelName_ != nullptr
-        && this->sourceId_ != nullptr && this->sourceType_ != nullptr && this->trainingSpec_ != nullptr && this->uri_ != nullptr; };
+    virtual bool empty() const override { return this->compressionSpec_ == nullptr
+        && return this->evaluationSpec_ == nullptr && return this->inferenceSpec_ == nullptr && return this->labels_ == nullptr && return this->metrics_ == nullptr && return this->outputChannelName_ == nullptr
+        && return this->sourceId_ == nullptr && return this->sourceType_ == nullptr && return this->trainingSpec_ == nullptr && return this->uri_ == nullptr; };
     // compressionSpec Field Functions 
     bool hasCompressionSpec() const { return this->compressionSpec_ != nullptr;};
     void deleteCompressionSpec() { this->compressionSpec_ = nullptr;};

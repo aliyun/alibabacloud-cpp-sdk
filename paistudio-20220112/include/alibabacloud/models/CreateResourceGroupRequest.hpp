@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(UserVpc, userVpc_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
     };
     friend void from_json(const Darabonba::Json& j, CreateResourceGroupRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ComputingResourceProvider, computingResourceProvider_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(UserVpc, userVpc_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
     };
     CreateResourceGroupRequest() = default ;
     CreateResourceGroupRequest(const CreateResourceGroupRequest &) = default ;
@@ -42,8 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->computingResourceProvider_ != nullptr
-        && this->description_ != nullptr && this->name_ != nullptr && this->resourceType_ != nullptr && this->tag_ != nullptr && this->userVpc_ != nullptr; };
+    virtual bool empty() const override { return this->computingResourceProvider_ == nullptr
+        && return this->description_ == nullptr && return this->name_ == nullptr && return this->resourceType_ == nullptr && return this->tag_ == nullptr && return this->userVpc_ == nullptr
+        && return this->version_ == nullptr; };
     // computingResourceProvider Field Functions 
     bool hasComputingResourceProvider() const { return this->computingResourceProvider_ != nullptr;};
     void deleteComputingResourceProvider() { this->computingResourceProvider_ = nullptr;};
@@ -90,6 +93,13 @@ namespace Models
     inline CreateResourceGroupRequest& setUserVpc(UserVpc && userVpc) { DARABONBA_PTR_SET_RVALUE(userVpc_, userVpc) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline CreateResourceGroupRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
   protected:
     std::shared_ptr<string> computingResourceProvider_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
@@ -97,6 +107,7 @@ namespace Models
     std::shared_ptr<string> resourceType_ = nullptr;
     std::shared_ptr<vector<CreateResourceGroupRequestTag>> tag_ = nullptr;
     std::shared_ptr<UserVpc> userVpc_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
   };
 
   } // namespace Models

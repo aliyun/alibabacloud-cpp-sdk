@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NodeCount, nodeCount_);
       DARABONBA_PTR_TO_JSON(ResourceGroupID, resourceGroupID_);
       DARABONBA_PTR_TO_JSON(UserVpc, userVpc_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
       DARABONBA_PTR_TO_JSON(WorkspaceID, workspaceID_);
     };
     friend void from_json(const Darabonba::Json& j, ResourceGroup& obj) { 
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NodeCount, nodeCount_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupID, resourceGroupID_);
       DARABONBA_PTR_FROM_JSON(UserVpc, userVpc_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
       DARABONBA_PTR_FROM_JSON(WorkspaceID, workspaceID_);
     };
     ResourceGroup() = default ;
@@ -44,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creatorID_ != nullptr
-        && this->gmtCreatedTime_ != nullptr && this->gmtModifiedTime_ != nullptr && this->name_ != nullptr && this->nodeCount_ != nullptr && this->resourceGroupID_ != nullptr
-        && this->userVpc_ != nullptr && this->workspaceID_ != nullptr; };
+    virtual bool empty() const override { return this->creatorID_ == nullptr
+        && return this->gmtCreatedTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->name_ == nullptr && return this->nodeCount_ == nullptr && return this->resourceGroupID_ == nullptr
+        && return this->userVpc_ == nullptr && return this->version_ == nullptr && return this->workspaceID_ == nullptr; };
     // creatorID Field Functions 
     bool hasCreatorID() const { return this->creatorID_ != nullptr;};
     void deleteCreatorID() { this->creatorID_ = nullptr;};
@@ -98,6 +100,13 @@ namespace Models
     inline ResourceGroup& setUserVpc(UserVpc && userVpc) { DARABONBA_PTR_SET_RVALUE(userVpc_, userVpc) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline ResourceGroup& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
     // workspaceID Field Functions 
     bool hasWorkspaceID() const { return this->workspaceID_ != nullptr;};
     void deleteWorkspaceID() { this->workspaceID_ = nullptr;};
@@ -113,6 +122,7 @@ namespace Models
     std::shared_ptr<int32_t> nodeCount_ = nullptr;
     std::shared_ptr<string> resourceGroupID_ = nullptr;
     std::shared_ptr<UserVpc> userVpc_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
     std::shared_ptr<string> workspaceID_ = nullptr;
   };
 

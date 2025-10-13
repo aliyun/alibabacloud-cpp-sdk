@@ -79,12 +79,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allocatableCpu_ != nullptr
-        && this->allocatableMemory_ != nullptr && this->cpu_ != nullptr && this->defaultDriver_ != nullptr && this->ecsCount_ != nullptr && this->ecsSpec_ != nullptr
-        && this->gmtCreatedTime_ != nullptr && this->gmtExpiredTime_ != nullptr && this->gmtModifiedTime_ != nullptr && this->gmtStartedTime_ != nullptr && this->gpu_ != nullptr
-        && this->gpuType_ != nullptr && this->machineGroupID_ != nullptr && this->memory_ != nullptr && this->name_ != nullptr && this->paymentDuration_ != nullptr
-        && this->paymentDurationUnit_ != nullptr && this->paymentType_ != nullptr && this->requestId_ != nullptr && this->resourceGroupID_ != nullptr && this->status_ != nullptr
-        && this->supportedDrivers_ != nullptr && this->systemReservedCpu_ != nullptr && this->systemReservedMemory_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->allocatableCpu_ == nullptr
+        && return this->allocatableMemory_ == nullptr && return this->cpu_ == nullptr && return this->defaultDriver_ == nullptr && return this->ecsCount_ == nullptr && return this->ecsSpec_ == nullptr
+        && return this->gmtCreatedTime_ == nullptr && return this->gmtExpiredTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->gmtStartedTime_ == nullptr && return this->gpu_ == nullptr
+        && return this->gpuType_ == nullptr && return this->machineGroupID_ == nullptr && return this->memory_ == nullptr && return this->name_ == nullptr && return this->paymentDuration_ == nullptr
+        && return this->paymentDurationUnit_ == nullptr && return this->paymentType_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupID_ == nullptr && return this->status_ == nullptr
+        && return this->supportedDrivers_ == nullptr && return this->systemReservedCpu_ == nullptr && return this->systemReservedMemory_ == nullptr && return this->tags_ == nullptr; };
     // allocatableCpu Field Functions 
     bool hasAllocatableCpu() const { return this->allocatableCpu_ != nullptr;};
     void deleteAllocatableCpu() { this->allocatableCpu_ = nullptr;};

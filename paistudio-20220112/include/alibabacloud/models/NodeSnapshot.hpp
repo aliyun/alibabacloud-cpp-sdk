@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ancestorQuotaWorkloadNum_ != nullptr
-        && this->descendantQuotaWorkloadNum_ != nullptr && this->nodeName_ != nullptr && this->requestCPU_ != nullptr && this->requestGPU_ != nullptr && this->requestMemory_ != nullptr
-        && this->selfQuotaWorkloadNum_ != nullptr && this->workloadNum_ != nullptr && this->workloads_ != nullptr; };
+    virtual bool empty() const override { return this->ancestorQuotaWorkloadNum_ == nullptr
+        && return this->descendantQuotaWorkloadNum_ == nullptr && return this->nodeName_ == nullptr && return this->requestCPU_ == nullptr && return this->requestGPU_ == nullptr && return this->requestMemory_ == nullptr
+        && return this->selfQuotaWorkloadNum_ == nullptr && return this->workloadNum_ == nullptr && return this->workloads_ == nullptr; };
     // ancestorQuotaWorkloadNum Field Functions 
     bool hasAncestorQuotaWorkloadNum() const { return this->ancestorQuotaWorkloadNum_ != nullptr;};
     void deleteAncestorQuotaWorkloadNum() { this->ancestorQuotaWorkloadNum_ = nullptr;};

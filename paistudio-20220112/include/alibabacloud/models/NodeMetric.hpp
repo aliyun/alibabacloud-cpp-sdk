@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->GPUType_ != nullptr
-        && this->metrics_ != nullptr && this->nodeID_ != nullptr; };
+    virtual bool empty() const override { return this->GPUType_ == nullptr
+        && return this->metrics_ == nullptr && return this->nodeID_ == nullptr; };
     // GPUType Field Functions 
     bool hasGPUType() const { return this->GPUType_ != nullptr;};
     void deleteGPUType() { this->GPUType_ = nullptr;};

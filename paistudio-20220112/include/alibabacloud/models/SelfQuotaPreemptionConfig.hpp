@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->preemptedPriorities_ != nullptr
-        && this->preemptedProducts_ != nullptr && this->preemptorPriorities_ != nullptr; };
+    virtual bool empty() const override { return this->preemptedPriorities_ == nullptr
+        && return this->preemptedProducts_ == nullptr && return this->preemptorPriorities_ == nullptr; };
     // preemptedPriorities Field Functions 
     bool hasPreemptedPriorities() const { return this->preemptedPriorities_ != nullptr;};
     void deletePreemptedPriorities() { this->preemptedPriorities_ = nullptr;};

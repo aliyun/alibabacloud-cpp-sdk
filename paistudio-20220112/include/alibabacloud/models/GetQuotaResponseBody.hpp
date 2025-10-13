@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(GmtCreatedTime, gmtCreatedTime_);
       DARABONBA_PTR_TO_JSON(GmtModifiedTime, gmtModifiedTime_);
+      DARABONBA_PTR_TO_JSON(HyperZones, hyperZones_);
       DARABONBA_PTR_TO_JSON(Labels, labels_);
       DARABONBA_PTR_TO_JSON(LatestOperationId, latestOperationId_);
       DARABONBA_PTR_TO_JSON(Min, min_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(SubQuotas, subQuotas_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
       DARABONBA_PTR_TO_JSON(Workspaces, workspaces_);
     };
     friend void from_json(const Darabonba::Json& j, GetQuotaResponseBody& obj) { 
@@ -49,6 +51,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(GmtCreatedTime, gmtCreatedTime_);
       DARABONBA_PTR_FROM_JSON(GmtModifiedTime, gmtModifiedTime_);
+      DARABONBA_PTR_FROM_JSON(HyperZones, hyperZones_);
       DARABONBA_PTR_FROM_JSON(Labels, labels_);
       DARABONBA_PTR_FROM_JSON(LatestOperationId, latestOperationId_);
       DARABONBA_PTR_FROM_JSON(Min, min_);
@@ -65,6 +68,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(SubQuotas, subQuotas_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
       DARABONBA_PTR_FROM_JSON(Workspaces, workspaces_);
     };
     GetQuotaResponseBody() = default ;
@@ -78,12 +82,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allocateStrategy_ != nullptr
-        && this->creatorId_ != nullptr && this->description_ != nullptr && this->gmtCreatedTime_ != nullptr && this->gmtModifiedTime_ != nullptr && this->labels_ != nullptr
-        && this->latestOperationId_ != nullptr && this->min_ != nullptr && this->parentQuotaId_ != nullptr && this->queueStrategy_ != nullptr && this->quotaConfig_ != nullptr
-        && this->quotaDetails_ != nullptr && this->quotaId_ != nullptr && this->quotaName_ != nullptr && this->reasonCode_ != nullptr && this->reasonMessage_ != nullptr
-        && this->requestId_ != nullptr && this->resourceGroupIds_ != nullptr && this->resourceType_ != nullptr && this->status_ != nullptr && this->subQuotas_ != nullptr
-        && this->workspaces_ != nullptr; };
+    virtual bool empty() const override { return this->allocateStrategy_ == nullptr
+        && return this->creatorId_ == nullptr && return this->description_ == nullptr && return this->gmtCreatedTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->hyperZones_ == nullptr
+        && return this->labels_ == nullptr && return this->latestOperationId_ == nullptr && return this->min_ == nullptr && return this->parentQuotaId_ == nullptr && return this->queueStrategy_ == nullptr
+        && return this->quotaConfig_ == nullptr && return this->quotaDetails_ == nullptr && return this->quotaId_ == nullptr && return this->quotaName_ == nullptr && return this->reasonCode_ == nullptr
+        && return this->reasonMessage_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupIds_ == nullptr && return this->resourceType_ == nullptr && return this->status_ == nullptr
+        && return this->subQuotas_ == nullptr && return this->version_ == nullptr && return this->workspaces_ == nullptr; };
     // allocateStrategy Field Functions 
     bool hasAllocateStrategy() const { return this->allocateStrategy_ != nullptr;};
     void deleteAllocateStrategy() { this->allocateStrategy_ = nullptr;};
@@ -117,6 +121,15 @@ namespace Models
     void deleteGmtModifiedTime() { this->gmtModifiedTime_ = nullptr;};
     inline string gmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, "") };
     inline GetQuotaResponseBody& setGmtModifiedTime(string gmtModifiedTime) { DARABONBA_PTR_SET_VALUE(gmtModifiedTime_, gmtModifiedTime) };
+
+
+    // hyperZones Field Functions 
+    bool hasHyperZones() const { return this->hyperZones_ != nullptr;};
+    void deleteHyperZones() { this->hyperZones_ = nullptr;};
+    inline const vector<string> & hyperZones() const { DARABONBA_PTR_GET_CONST(hyperZones_, vector<string>) };
+    inline vector<string> hyperZones() { DARABONBA_PTR_GET(hyperZones_, vector<string>) };
+    inline GetQuotaResponseBody& setHyperZones(const vector<string> & hyperZones) { DARABONBA_PTR_SET_VALUE(hyperZones_, hyperZones) };
+    inline GetQuotaResponseBody& setHyperZones(vector<string> && hyperZones) { DARABONBA_PTR_SET_RVALUE(hyperZones_, hyperZones) };
 
 
     // labels Field Functions 
@@ -243,6 +256,13 @@ namespace Models
     inline GetQuotaResponseBody& setSubQuotas(vector<QuotaIdName> && subQuotas) { DARABONBA_PTR_SET_RVALUE(subQuotas_, subQuotas) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline GetQuotaResponseBody& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
     // workspaces Field Functions 
     bool hasWorkspaces() const { return this->workspaces_ != nullptr;};
     void deleteWorkspaces() { this->workspaces_ = nullptr;};
@@ -258,6 +278,7 @@ namespace Models
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<string> gmtCreatedTime_ = nullptr;
     std::shared_ptr<string> gmtModifiedTime_ = nullptr;
+    std::shared_ptr<vector<string>> hyperZones_ = nullptr;
     std::shared_ptr<vector<Label>> labels_ = nullptr;
     std::shared_ptr<string> latestOperationId_ = nullptr;
     std::shared_ptr<ResourceSpec> min_ = nullptr;
@@ -275,6 +296,7 @@ namespace Models
     std::shared_ptr<string> resourceType_ = nullptr;
     std::shared_ptr<string> status_ = nullptr;
     std::shared_ptr<vector<QuotaIdName>> subQuotas_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
     std::shared_ptr<vector<WorkspaceIdName>> workspaces_ = nullptr;
   };
 

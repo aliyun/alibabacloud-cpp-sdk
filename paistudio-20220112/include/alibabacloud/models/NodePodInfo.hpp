@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->phase_ != nullptr
-        && this->podIP_ != nullptr && this->podName_ != nullptr && this->podNamespace_ != nullptr && this->resourceSpec_ != nullptr && this->workloadId_ != nullptr
-        && this->workloadType_ != nullptr; };
+    virtual bool empty() const override { return this->phase_ == nullptr
+        && return this->podIP_ == nullptr && return this->podName_ == nullptr && return this->podNamespace_ == nullptr && return this->resourceSpec_ == nullptr && return this->workloadId_ == nullptr
+        && return this->workloadType_ == nullptr; };
     // phase Field Functions 
     bool hasPhase() const { return this->phase_ != nullptr;};
     void deletePhase() { this->phase_ = nullptr;};

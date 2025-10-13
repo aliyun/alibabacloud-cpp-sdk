@@ -4,7 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <darabonba/http/URL.hpp>
+#include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -77,7 +77,7 @@ CheckInstanceWebTerminalResponse Client::checkInstanceWebTerminalWithOptions(con
     {"action" , "CheckInstanceWebTerminal"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Http::URL::percentEncode(TrainingJobId) , "/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/webterminals/action/check")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Encode::Encoder::percentEncode(TrainingJobId) , "/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/webterminals/action/check")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -185,7 +185,7 @@ CreateAlgorithmVersionResponse Client::createAlgorithmVersionWithOptions(const s
     {"action" , "CreateAlgorithmVersion"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/algorithms/" , Darabonba::Http::URL::percentEncode(AlgorithmId) , "/versions/" , Darabonba::Http::URL::percentEncode(AlgorithmVersion))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/algorithms/" , Darabonba::Encode::Encoder::percentEncode(AlgorithmId) , "/versions/" , Darabonba::Encode::Encoder::percentEncode(AlgorithmVersion))},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -222,7 +222,7 @@ CreateInstanceWebTerminalResponse Client::createInstanceWebTerminalWithOptions(c
     {"action" , "CreateInstanceWebTerminal"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Http::URL::percentEncode(TrainingJobId) , "/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/webterminals")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Encode::Encoder::percentEncode(TrainingJobId) , "/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/webterminals")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -357,6 +357,10 @@ CreateResourceGroupResponse Client::createResourceGroupWithOptions(const CreateR
 
   if (!!request.hasUserVpc()) {
     body["UserVpc"] = request.userVpc();
+  }
+
+  if (!!request.hasVersion()) {
+    body["Version"] = request.version();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -529,7 +533,7 @@ DeleteAlgorithmResponse Client::deleteAlgorithmWithOptions(const string &Algorit
     {"action" , "DeleteAlgorithm"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/algorithms/" , Darabonba::Http::URL::percentEncode(AlgorithmId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/algorithms/" , Darabonba::Encode::Encoder::percentEncode(AlgorithmId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -565,7 +569,7 @@ DeleteAlgorithmVersionResponse Client::deleteAlgorithmVersionWithOptions(const s
     {"action" , "DeleteAlgorithmVersion"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/algorithms/" , Darabonba::Http::URL::percentEncode(AlgorithmId) , "/versions/" , Darabonba::Http::URL::percentEncode(AlgorithmVersion))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/algorithms/" , Darabonba::Encode::Encoder::percentEncode(AlgorithmId) , "/versions/" , Darabonba::Encode::Encoder::percentEncode(AlgorithmVersion))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -603,7 +607,7 @@ DeleteMachineGroupResponse Client::deleteMachineGroupWithOptions(const string &M
     {"action" , "DeleteMachineGroup"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resources/machinegroups/" , Darabonba::Http::URL::percentEncode(MachineGroupID))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resources/machinegroups/" , Darabonba::Encode::Encoder::percentEncode(MachineGroupID))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -641,7 +645,7 @@ DeleteQuotaResponse Client::deleteQuotaWithOptions(const string &QuotaId, const 
     {"action" , "DeleteQuota"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(QuotaId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(QuotaId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -677,7 +681,7 @@ DeleteResourceGroupResponse Client::deleteResourceGroupWithOptions(const string 
     {"action" , "DeleteResourceGroup"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resources/" , Darabonba::Http::URL::percentEncode(ResourceGroupID))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resources/" , Darabonba::Encode::Encoder::percentEncode(ResourceGroupID))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -715,7 +719,7 @@ DeleteResourceGroupMachineGroupResponse Client::deleteResourceGroupMachineGroupW
     {"action" , "DeleteResourceGroupMachineGroup"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resources/" , Darabonba::Http::URL::percentEncode(ResourceGroupID) , "/machinegroups/" , Darabonba::Http::URL::percentEncode(MachineGroupID))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resources/" , Darabonba::Encode::Encoder::percentEncode(ResourceGroupID) , "/machinegroups/" , Darabonba::Encode::Encoder::percentEncode(MachineGroupID))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -753,7 +757,7 @@ DeleteTrainingJobResponse Client::deleteTrainingJobWithOptions(const string &Tra
     {"action" , "DeleteTrainingJob"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Http::URL::percentEncode(TrainingJobId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Encode::Encoder::percentEncode(TrainingJobId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -797,7 +801,7 @@ DeleteTrainingJobLabelsResponse Client::deleteTrainingJobLabelsWithOptions(const
     {"action" , "DeleteTrainingJobLabels"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Http::URL::percentEncode(TrainingJobId) , "/labels")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Encode::Encoder::percentEncode(TrainingJobId) , "/labels")},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -834,7 +838,7 @@ GetAlgorithmResponse Client::getAlgorithmWithOptions(const string &AlgorithmId, 
     {"action" , "GetAlgorithm"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/algorithms/" , Darabonba::Http::URL::percentEncode(AlgorithmId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/algorithms/" , Darabonba::Encode::Encoder::percentEncode(AlgorithmId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -870,7 +874,7 @@ GetAlgorithmVersionResponse Client::getAlgorithmVersionWithOptions(const string 
     {"action" , "GetAlgorithmVersion"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/algorithms/" , Darabonba::Http::URL::percentEncode(AlgorithmId) , "/versions/" , Darabonba::Http::URL::percentEncode(AlgorithmVersion))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/algorithms/" , Darabonba::Encode::Encoder::percentEncode(AlgorithmId) , "/versions/" , Darabonba::Encode::Encoder::percentEncode(AlgorithmVersion))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -908,7 +912,7 @@ GetMachineGroupResponse Client::getMachineGroupWithOptions(const string &Machine
     {"action" , "GetMachineGroup"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resources/machinegroups/" , Darabonba::Http::URL::percentEncode(MachineGroupID))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resources/machinegroups/" , Darabonba::Encode::Encoder::percentEncode(MachineGroupID))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -972,7 +976,7 @@ GetNodeMetricsResponse Client::getNodeMetricsWithOptions(const string &ResourceG
     {"action" , "GetNodeMetrics"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resources/" , Darabonba::Http::URL::percentEncode(ResourceGroupID) , "/nodemetrics/" , Darabonba::Http::URL::percentEncode(MetricType))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resources/" , Darabonba::Encode::Encoder::percentEncode(ResourceGroupID) , "/nodemetrics/" , Darabonba::Encode::Encoder::percentEncode(MetricType))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1019,7 +1023,7 @@ GetQuotaResponse Client::getQuotaWithOptions(const string &QuotaId, const GetQuo
     {"action" , "GetQuota"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(QuotaId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(QuotaId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1074,7 +1078,7 @@ GetResourceGroupResponse Client::getResourceGroupWithOptions(const string &Resou
     {"action" , "GetResourceGroup"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resources/" , Darabonba::Http::URL::percentEncode(ResourceGroupID))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resources/" , Darabonba::Encode::Encoder::percentEncode(ResourceGroupID))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1125,7 +1129,7 @@ GetResourceGroupMachineGroupResponse Client::getResourceGroupMachineGroupWithOpt
     {"action" , "GetResourceGroupMachineGroup"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resources/" , Darabonba::Http::URL::percentEncode(ResourceGroupID) , "/machinegroups/" , Darabonba::Http::URL::percentEncode(MachineGroupID))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resources/" , Darabonba::Encode::Encoder::percentEncode(ResourceGroupID) , "/machinegroups/" , Darabonba::Encode::Encoder::percentEncode(MachineGroupID))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1292,7 +1296,7 @@ GetSpotPriceHistoryResponse Client::getSpotPriceHistoryWithOptions(const string 
     {"action" , "GetSpotPriceHistory"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/spots/" , Darabonba::Http::URL::percentEncode(InstanceType) , "/pricehistory")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/spots/" , Darabonba::Encode::Encoder::percentEncode(InstanceType) , "/pricehistory")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1378,7 +1382,7 @@ GetTrainingJobResponse Client::getTrainingJobWithOptions(const string &TrainingJ
     {"action" , "GetTrainingJob"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Http::URL::percentEncode(TrainingJobId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Encode::Encoder::percentEncode(TrainingJobId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1414,7 +1418,7 @@ GetTrainingJobErrorInfoResponse Client::getTrainingJobErrorInfoWithOptions(const
     {"action" , "GetTrainingJobErrorInfo"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Http::URL::percentEncode(TrainingJobId) , "/errorinfo")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Encode::Encoder::percentEncode(TrainingJobId) , "/errorinfo")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1458,7 +1462,7 @@ GetTrainingJobLatestMetricsResponse Client::getTrainingJobLatestMetricsWithOptio
     {"action" , "GetTrainingJobLatestMetrics"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Http::URL::percentEncode(TrainingJobId) , "/latestmetrics")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Encode::Encoder::percentEncode(TrainingJobId) , "/latestmetrics")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1529,7 +1533,7 @@ GetUserViewMetricsResponse Client::getUserViewMetricsWithOptions(const string &R
     {"action" , "GetUserViewMetrics"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resources/" , Darabonba::Http::URL::percentEncode(ResourceGroupID) , "/usermetrics")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resources/" , Darabonba::Encode::Encoder::percentEncode(ResourceGroupID) , "/usermetrics")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1580,7 +1584,7 @@ ListAlgorithmVersionsResponse Client::listAlgorithmVersionsWithOptions(const str
     {"action" , "ListAlgorithmVersions"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/algorithms/" , Darabonba::Http::URL::percentEncode(AlgorithmId) , "/versions")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/algorithms/" , Darabonba::Encode::Encoder::percentEncode(AlgorithmId) , "/versions")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1686,6 +1690,10 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &request, 
     query["AvailabilityZone"] = request.availabilityZone();
   }
 
+  if (!!request.hasCliqueID()) {
+    query["CliqueID"] = request.cliqueID();
+  }
+
   if (!!request.hasFilterByQuotaId()) {
     query["FilterByQuotaId"] = request.filterByQuotaId();
   }
@@ -1696,6 +1704,10 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &request, 
 
   if (!!request.hasGPUType()) {
     query["GPUType"] = request.GPUType();
+  }
+
+  if (!!request.hasHyperNode()) {
+    query["HyperNode"] = request.hyperNode();
   }
 
   if (!!request.hasHyperZone()) {
@@ -1720,6 +1732,10 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &request, 
 
   if (!!request.hasOrder()) {
     query["Order"] = request.order();
+  }
+
+  if (!!request.hasOrderInstanceIds()) {
+    query["OrderInstanceIds"] = request.orderInstanceIds();
   }
 
   if (!!request.hasOrderStatuses()) {
@@ -1883,7 +1899,7 @@ ListQuotaWorkloadsResponse Client::listQuotaWorkloadsWithOptions(const string &Q
     {"action" , "ListQuotaWorkloads"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(QuotaId) , "/workloads")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(QuotaId) , "/workloads")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1966,6 +1982,10 @@ ListQuotasResponse Client::listQuotasWithOptions(const ListQuotasRequest &reques
 
   if (!!request.hasVerbose()) {
     query["Verbose"] = request.verbose();
+  }
+
+  if (!!request.hasVersions()) {
+    query["Versions"] = request.versions();
   }
 
   if (!!request.hasWorkspaceIds()) {
@@ -2077,7 +2097,7 @@ ListResourceGroupMachineGroupsResponse Client::listResourceGroupMachineGroupsWit
     {"action" , "ListResourceGroupMachineGroups"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resources/" , Darabonba::Http::URL::percentEncode(ResourceGroupID) , "/machinegroups")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resources/" , Darabonba::Encode::Encoder::percentEncode(ResourceGroupID) , "/machinegroups")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2154,6 +2174,10 @@ ListResourceGroupsResponse Client::listResourceGroupsWithOptions(const ListResou
     query["Status"] = request.status();
   }
 
+  if (!!request.hasVersions()) {
+    query["Versions"] = request.versions();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -2219,7 +2243,7 @@ ListTrainingJobEventsResponse Client::listTrainingJobEventsWithOptions(const str
     {"action" , "ListTrainingJobEvents"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Http::URL::percentEncode(TrainingJobId) , "/events")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Encode::Encoder::percentEncode(TrainingJobId) , "/events")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2276,7 +2300,7 @@ ListTrainingJobInstanceEventsResponse Client::listTrainingJobInstanceEventsWithO
     {"action" , "ListTrainingJobInstanceEvents"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Http::URL::percentEncode(TrainingJobId) , "/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/events")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Encode::Encoder::percentEncode(TrainingJobId) , "/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/events")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2337,7 +2361,7 @@ ListTrainingJobInstanceMetricsResponse Client::listTrainingJobInstanceMetricsWit
     {"action" , "ListTrainingJobInstanceMetrics"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Http::URL::percentEncode(TrainingJobId) , "/instancemetrics")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Encode::Encoder::percentEncode(TrainingJobId) , "/instancemetrics")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2402,7 +2426,7 @@ ListTrainingJobLogsResponse Client::listTrainingJobLogsWithOptions(const string 
     {"action" , "ListTrainingJobLogs"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Http::URL::percentEncode(TrainingJobId) , "/logs")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Encode::Encoder::percentEncode(TrainingJobId) , "/logs")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2467,7 +2491,7 @@ ListTrainingJobMetricsResponse Client::listTrainingJobMetricsWithOptions(const s
     {"action" , "ListTrainingJobMetrics"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Http::URL::percentEncode(TrainingJobId) , "/metrics")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Encode::Encoder::percentEncode(TrainingJobId) , "/metrics")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2504,7 +2528,7 @@ ListTrainingJobOutputModelsResponse Client::listTrainingJobOutputModelsWithOptio
     {"action" , "ListTrainingJobOutputModels"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Http::URL::percentEncode(TrainingJobId) , "/outputmodels")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Encode::Encoder::percentEncode(TrainingJobId) , "/outputmodels")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2655,7 +2679,7 @@ ScaleQuotaResponse Client::scaleQuotaWithOptions(const string &QuotaId, const Sc
     {"action" , "ScaleQuota"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(QuotaId) , "/action/scale")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(QuotaId) , "/action/scale")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2692,7 +2716,7 @@ StopTrainingJobResponse Client::stopTrainingJobWithOptions(const string &Trainin
     {"action" , "StopTrainingJob"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Http::URL::percentEncode(TrainingJobId) , "/stop")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Encode::Encoder::percentEncode(TrainingJobId) , "/stop")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2740,7 +2764,7 @@ UpdateAlgorithmResponse Client::updateAlgorithmWithOptions(const string &Algorit
     {"action" , "UpdateAlgorithm"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/algorithms/" , Darabonba::Http::URL::percentEncode(AlgorithmId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/algorithms/" , Darabonba::Encode::Encoder::percentEncode(AlgorithmId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2791,7 +2815,7 @@ UpdateAlgorithmVersionResponse Client::updateAlgorithmVersionWithOptions(const s
     {"action" , "UpdateAlgorithmVersion"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/algorithms/" , Darabonba::Http::URL::percentEncode(AlgorithmId) , "/versions/" , Darabonba::Http::URL::percentEncode(AlgorithmVersion))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/algorithms/" , Darabonba::Encode::Encoder::percentEncode(AlgorithmId) , "/versions/" , Darabonba::Encode::Encoder::percentEncode(AlgorithmVersion))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2852,7 +2876,7 @@ UpdateQuotaResponse Client::updateQuotaWithOptions(const string &QuotaId, const 
     {"action" , "UpdateQuota"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(QuotaId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(QuotaId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2909,7 +2933,7 @@ UpdateResourceGroupResponse Client::updateResourceGroupWithOptions(const string 
     {"action" , "UpdateResourceGroup"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resources/" , Darabonba::Http::URL::percentEncode(ResourceGroupID))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resources/" , Darabonba::Encode::Encoder::percentEncode(ResourceGroupID))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2954,7 +2978,7 @@ UpdateTrainingJobLabelsResponse Client::updateTrainingJobLabelsWithOptions(const
     {"action" , "UpdateTrainingJobLabels"},
     {"version" , "2022-01-12"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Http::URL::percentEncode(TrainingJobId) , "/labels")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trainingjobs/" , Darabonba::Encode::Encoder::percentEncode(TrainingJobId) , "/labels")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},

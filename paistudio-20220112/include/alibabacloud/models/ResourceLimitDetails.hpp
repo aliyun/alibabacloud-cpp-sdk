@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->GCLevel_ != nullptr
-        && this->resourceLimit_ != nullptr && this->shouldIgnoreResourceCheck_ != nullptr; };
+    virtual bool empty() const override { return this->GCLevel_ == nullptr
+        && return this->resourceLimit_ == nullptr && return this->shouldIgnoreResourceCheck_ == nullptr; };
     // GCLevel Field Functions 
     bool hasGCLevel() const { return this->GCLevel_ != nullptr;};
     void deleteGCLevel() { this->GCLevel_ = nullptr;};

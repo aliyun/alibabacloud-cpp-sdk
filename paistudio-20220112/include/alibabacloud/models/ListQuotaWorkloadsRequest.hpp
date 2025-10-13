@@ -66,11 +66,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->beforeWorkloadId_ != nullptr
-        && this->gmtDequeuedTimeRange_ != nullptr && this->gmtEnqueuedTimeRange_ != nullptr && this->gmtPositionModifiedTimeRange_ != nullptr && this->nodeName_ != nullptr && this->order_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->showOwn_ != nullptr && this->sortBy_ != nullptr && this->status_ != nullptr
-        && this->subQuotaIds_ != nullptr && this->userIds_ != nullptr && this->withHistoricalData_ != nullptr && this->workloadCreatedTimeRange_ != nullptr && this->workloadIds_ != nullptr
-        && this->workloadStatuses_ != nullptr && this->workloadType_ != nullptr && this->workspaceIds_ != nullptr; };
+    virtual bool empty() const override { return this->beforeWorkloadId_ == nullptr
+        && return this->gmtDequeuedTimeRange_ == nullptr && return this->gmtEnqueuedTimeRange_ == nullptr && return this->gmtPositionModifiedTimeRange_ == nullptr && return this->nodeName_ == nullptr && return this->order_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->showOwn_ == nullptr && return this->sortBy_ == nullptr && return this->status_ == nullptr
+        && return this->subQuotaIds_ == nullptr && return this->userIds_ == nullptr && return this->withHistoricalData_ == nullptr && return this->workloadCreatedTimeRange_ == nullptr && return this->workloadIds_ == nullptr
+        && return this->workloadStatuses_ == nullptr && return this->workloadType_ == nullptr && return this->workspaceIds_ == nullptr; };
     // beforeWorkloadId Field Functions 
     bool hasBeforeWorkloadId() const { return this->beforeWorkloadId_ != nullptr;};
     void deleteBeforeWorkloadId() { this->beforeWorkloadId_ = nullptr;};

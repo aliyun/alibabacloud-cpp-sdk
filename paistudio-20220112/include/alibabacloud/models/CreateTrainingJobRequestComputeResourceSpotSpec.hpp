@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->spotDiscountLimit_ != nullptr
-        && this->spotStrategy_ != nullptr; };
+    virtual bool empty() const override { return this->spotDiscountLimit_ == nullptr
+        && return this->spotStrategy_ == nullptr; };
     // spotDiscountLimit Field Functions 
     bool hasSpotDiscountLimit() const { return this->spotDiscountLimit_ != nullptr;};
     void deleteSpotDiscountLimit() { this->spotDiscountLimit_ = nullptr;};

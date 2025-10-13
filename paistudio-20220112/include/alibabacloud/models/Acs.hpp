@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ACSQuotaId_ != nullptr
-        && this->associatedProducts_ != nullptr; };
+    virtual bool empty() const override { return this->ACSQuotaId_ == nullptr
+        && return this->associatedProducts_ == nullptr; };
     // ACSQuotaId Field Functions 
     bool hasACSQuotaId() const { return this->ACSQuotaId_ != nullptr;};
     void deleteACSQuotaId() { this->ACSQuotaId_ = nullptr;};

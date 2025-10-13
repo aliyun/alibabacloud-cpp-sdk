@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->depth_ != nullptr
-        && this->parentQuotaId_ != nullptr && this->quotaDetails_ != nullptr && this->quotaId_ != nullptr && this->quotaName_ != nullptr && this->resourceType_ != nullptr
-        && this->workloadDetails_ != nullptr; };
+    virtual bool empty() const override { return this->depth_ == nullptr
+        && return this->parentQuotaId_ == nullptr && return this->quotaDetails_ == nullptr && return this->quotaId_ == nullptr && return this->quotaName_ == nullptr && return this->resourceType_ == nullptr
+        && return this->workloadDetails_ == nullptr; };
     // depth Field Functions 
     bool hasDepth() const { return this->depth_ != nullptr;};
     void deleteDepth() { this->depth_ = nullptr;};

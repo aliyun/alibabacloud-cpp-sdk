@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ShowAll, showAll_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(Versions, versions_);
     };
     friend void from_json(const Darabonba::Json& j, ListResourceGroupsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ComputingResourceProvider, computingResourceProvider_);
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ShowAll, showAll_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(Versions, versions_);
     };
     ListResourceGroupsRequest() = default ;
     ListResourceGroupsRequest(const ListResourceGroupsRequest &) = default ;
@@ -49,9 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->computingResourceProvider_ != nullptr
-        && this->hasResource_ != nullptr && this->name_ != nullptr && this->order_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->resourceGroupIDs_ != nullptr && this->resourceType_ != nullptr && this->showAll_ != nullptr && this->sortBy_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->computingResourceProvider_ == nullptr
+        && return this->hasResource_ == nullptr && return this->name_ == nullptr && return this->order_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->resourceGroupIDs_ == nullptr && return this->resourceType_ == nullptr && return this->showAll_ == nullptr && return this->sortBy_ == nullptr && return this->status_ == nullptr
+        && return this->versions_ == nullptr; };
     // computingResourceProvider Field Functions 
     bool hasComputingResourceProvider() const { return this->computingResourceProvider_ != nullptr;};
     void deleteComputingResourceProvider() { this->computingResourceProvider_ = nullptr;};
@@ -129,6 +132,13 @@ namespace Models
     inline ListResourceGroupsRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // versions Field Functions 
+    bool hasVersions() const { return this->versions_ != nullptr;};
+    void deleteVersions() { this->versions_ = nullptr;};
+    inline string versions() const { DARABONBA_PTR_GET_DEFAULT(versions_, "") };
+    inline ListResourceGroupsRequest& setVersions(string versions) { DARABONBA_PTR_SET_VALUE(versions_, versions) };
+
+
   protected:
     std::shared_ptr<string> computingResourceProvider_ = nullptr;
     std::shared_ptr<bool> hasResource_ = nullptr;
@@ -141,6 +151,7 @@ namespace Models
     std::shared_ptr<bool> showAll_ = nullptr;
     std::shared_ptr<string> sortBy_ = nullptr;
     std::shared_ptr<string> status_ = nullptr;
+    std::shared_ptr<string> versions_ = nullptr;
   };
 
   } // namespace Models

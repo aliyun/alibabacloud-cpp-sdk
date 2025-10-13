@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actions_ != nullptr
-        && this->description_ != nullptr && this->gmtActivatedTime_ != nullptr && this->gmtCreatedTime_ != nullptr && this->gmtModifiedTime_ != nullptr && this->gmtStoppedTime_ != nullptr
-        && this->quotaId_ != nullptr && this->rules_ != nullptr && this->status_ != nullptr && this->taskId_ != nullptr && this->taskName_ != nullptr
-        && this->userId_ != nullptr && this->userName_ != nullptr; };
+    virtual bool empty() const override { return this->actions_ == nullptr
+        && return this->description_ == nullptr && return this->gmtActivatedTime_ == nullptr && return this->gmtCreatedTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->gmtStoppedTime_ == nullptr
+        && return this->quotaId_ == nullptr && return this->rules_ == nullptr && return this->status_ == nullptr && return this->taskId_ == nullptr && return this->taskName_ == nullptr
+        && return this->userId_ == nullptr && return this->userName_ == nullptr; };
     // actions Field Functions 
     bool hasActions() const { return this->actions_ != nullptr;};
     void deleteActions() { this->actions_ = nullptr;};

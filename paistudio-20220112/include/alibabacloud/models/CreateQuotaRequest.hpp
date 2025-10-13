@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allocateStrategy_ != nullptr
-        && this->description_ != nullptr && this->labels_ != nullptr && this->min_ != nullptr && this->parentQuotaId_ != nullptr && this->queueStrategy_ != nullptr
-        && this->quotaConfig_ != nullptr && this->quotaName_ != nullptr && this->resourceGroupIds_ != nullptr && this->resourceType_ != nullptr; };
+    virtual bool empty() const override { return this->allocateStrategy_ == nullptr
+        && return this->description_ == nullptr && return this->labels_ == nullptr && return this->min_ == nullptr && return this->parentQuotaId_ == nullptr && return this->queueStrategy_ == nullptr
+        && return this->quotaConfig_ == nullptr && return this->quotaName_ == nullptr && return this->resourceGroupIds_ == nullptr && return this->resourceType_ == nullptr; };
     // allocateStrategy Field Functions 
     bool hasAllocateStrategy() const { return this->allocateStrategy_ != nullptr;};
     void deleteAllocateStrategy() { this->allocateStrategy_ = nullptr;};

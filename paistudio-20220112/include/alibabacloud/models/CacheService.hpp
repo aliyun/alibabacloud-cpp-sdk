@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cacheInfos_ != nullptr
-        && this->cacheServiceId_ != nullptr && this->createdBy_ != nullptr && this->gmtCreated_ != nullptr && this->quotaId_ != nullptr && this->status_ != nullptr
-        && this->supportedClientQuotaIds_ != nullptr && this->tenantId_ != nullptr && this->userId_ != nullptr && this->userVpc_ != nullptr; };
+    virtual bool empty() const override { return this->cacheInfos_ == nullptr
+        && return this->cacheServiceId_ == nullptr && return this->createdBy_ == nullptr && return this->gmtCreated_ == nullptr && return this->quotaId_ == nullptr && return this->status_ == nullptr
+        && return this->supportedClientQuotaIds_ == nullptr && return this->tenantId_ == nullptr && return this->userId_ == nullptr && return this->userVpc_ == nullptr; };
     // cacheInfos Field Functions 
     bool hasCacheInfos() const { return this->cacheInfos_ != nullptr;};
     void deleteCacheInfos() { this->cacheInfos_ = nullptr;};

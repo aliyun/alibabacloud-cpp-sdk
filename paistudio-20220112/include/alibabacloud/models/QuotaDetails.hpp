@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actualMinQuota_ != nullptr
-        && this->allocatableQuota_ != nullptr && this->allocatedQuota_ != nullptr && this->ancestorsAllocatedQuota_ != nullptr && this->descendantsAllocatedQuota_ != nullptr && this->desiredMinQuota_ != nullptr
-        && this->requestedQuota_ != nullptr && this->selfAllocatedQuota_ != nullptr && this->selfSubmittedQuota_ != nullptr && this->systemReservedQuota_ != nullptr && this->usedQuota_ != nullptr; };
+    virtual bool empty() const override { return this->actualMinQuota_ == nullptr
+        && return this->allocatableQuota_ == nullptr && return this->allocatedQuota_ == nullptr && return this->ancestorsAllocatedQuota_ == nullptr && return this->descendantsAllocatedQuota_ == nullptr && return this->desiredMinQuota_ == nullptr
+        && return this->requestedQuota_ == nullptr && return this->selfAllocatedQuota_ == nullptr && return this->selfSubmittedQuota_ == nullptr && return this->systemReservedQuota_ == nullptr && return this->usedQuota_ == nullptr; };
     // actualMinQuota Field Functions 
     bool hasActualMinQuota() const { return this->actualMinQuota_ != nullptr;};
     void deleteActualMinQuota() { this->actualMinQuota_ = nullptr;};

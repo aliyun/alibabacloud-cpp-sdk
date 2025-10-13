@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->advancedSettings_ != nullptr
-        && this->businessUserId_ != nullptr && this->caller_ != nullptr && this->driver_ != nullptr && this->enableErrorMonitoringInAIMaster_ != nullptr && this->enableOssAppend_ != nullptr
-        && this->enableRDMA_ != nullptr && this->enableSanityCheck_ != nullptr && this->enableTideResource_ != nullptr && this->errorMonitoringArgs_ != nullptr && this->jobReservedMinutes_ != nullptr
-        && this->jobReservedPolicy_ != nullptr && this->oversoldType_ != nullptr && this->pipelineId_ != nullptr && this->sanityCheckArgs_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->advancedSettings_ == nullptr
+        && return this->businessUserId_ == nullptr && return this->caller_ == nullptr && return this->driver_ == nullptr && return this->enableErrorMonitoringInAIMaster_ == nullptr && return this->enableOssAppend_ == nullptr
+        && return this->enableRDMA_ == nullptr && return this->enableSanityCheck_ == nullptr && return this->enableTideResource_ == nullptr && return this->errorMonitoringArgs_ == nullptr && return this->jobReservedMinutes_ == nullptr
+        && return this->jobReservedPolicy_ == nullptr && return this->oversoldType_ == nullptr && return this->pipelineId_ == nullptr && return this->sanityCheckArgs_ == nullptr && return this->tags_ == nullptr; };
     // advancedSettings Field Functions 
     bool hasAdvancedSettings() const { return this->advancedSettings_ != nullptr;};
     void deleteAdvancedSettings() { this->advancedSettings_ = nullptr;};
