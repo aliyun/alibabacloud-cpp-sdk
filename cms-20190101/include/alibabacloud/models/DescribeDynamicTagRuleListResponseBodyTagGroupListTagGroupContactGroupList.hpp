@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->contactGroupList_ != nullptr; };
+    virtual bool empty() const override { return this->contactGroupList_ == nullptr; };
     // contactGroupList Field Functions 
     bool hasContactGroupList() const { return this->contactGroupList_ != nullptr;};
     void deleteContactGroupList() { this->contactGroupList_ = nullptr;};

@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->comparisonOperator_ != nullptr
-        && this->evaluationCount_ != nullptr && this->level_ != nullptr && this->metricName_ != nullptr && this->namespace_ != nullptr && this->period_ != nullptr
-        && this->statistics_ != nullptr && this->threshold_ != nullptr; };
+    virtual bool empty() const override { return this->comparisonOperator_ == nullptr
+        && return this->evaluationCount_ == nullptr && return this->level_ == nullptr && return this->metricName_ == nullptr && return this->namespace_ == nullptr && return this->period_ == nullptr
+        && return this->statistics_ == nullptr && return this->threshold_ == nullptr; };
     // comparisonOperator Field Functions 
     bool hasComparisonOperator() const { return this->comparisonOperator_ != nullptr;};
     void deleteComparisonOperator() { this->comparisonOperator_ = nullptr;};

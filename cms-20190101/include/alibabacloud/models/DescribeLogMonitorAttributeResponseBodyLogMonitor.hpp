@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aggregates_ != nullptr
-        && this->gmtCreate_ != nullptr && this->groupId_ != nullptr && this->groupbys_ != nullptr && this->logId_ != nullptr && this->metricExpress_ != nullptr
-        && this->metricName_ != nullptr && this->slsLogstore_ != nullptr && this->slsProject_ != nullptr && this->slsRegionId_ != nullptr && this->tumblingwindows_ != nullptr
-        && this->valueFilter_ != nullptr && this->valueFilterRelation_ != nullptr; };
+    virtual bool empty() const override { return this->aggregates_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->groupId_ == nullptr && return this->groupbys_ == nullptr && return this->logId_ == nullptr && return this->metricExpress_ == nullptr
+        && return this->metricName_ == nullptr && return this->slsLogstore_ == nullptr && return this->slsProject_ == nullptr && return this->slsRegionId_ == nullptr && return this->tumblingwindows_ == nullptr
+        && return this->valueFilter_ == nullptr && return this->valueFilterRelation_ == nullptr; };
     // aggregates Field Functions 
     bool hasAggregates() const { return this->aggregates_ != nullptr;};
     void deleteAggregates() { this->aggregates_ = nullptr;};

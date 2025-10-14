@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->eventHistogram_ != nullptr; };
+    virtual bool empty() const override { return this->eventHistogram_ == nullptr; };
     // eventHistogram Field Functions 
     bool hasEventHistogram() const { return this->eventHistogram_ != nullptr;};
     void deleteEventHistogram() { this->eventHistogram_ = nullptr;};

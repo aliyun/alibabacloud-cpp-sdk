@@ -71,6 +71,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(response_content, responseContent_);
       DARABONBA_PTR_TO_JSON(response_format, responseFormat_);
       DARABONBA_PTR_TO_JSON(retry_delay, retryDelay_);
+      DARABONBA_PTR_TO_JSON(safe_link, safeLink_);
       DARABONBA_PTR_TO_JSON(screen_shot, screenShot_);
       DARABONBA_PTR_TO_JSON(scroll_end, scrollEnd_);
       DARABONBA_PTR_TO_JSON(steps, steps_);
@@ -130,6 +131,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(response_content, responseContent_);
       DARABONBA_PTR_FROM_JSON(response_format, responseFormat_);
       DARABONBA_PTR_FROM_JSON(retry_delay, retryDelay_);
+      DARABONBA_PTR_FROM_JSON(safe_link, safeLink_);
       DARABONBA_PTR_FROM_JSON(screen_shot, screenShot_);
       DARABONBA_PTR_FROM_JSON(scroll_end, scrollEnd_);
       DARABONBA_PTR_FROM_JSON(steps, steps_);
@@ -154,19 +156,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assertions_ != nullptr
-        && this->attempts_ != nullptr && this->authInfo_ != nullptr && this->blockedUrlList_ != nullptr && this->browserHeaders_ != nullptr && this->browserHosts_ != nullptr
-        && this->browserInfo_ != nullptr && this->browserInsecure_ != nullptr && this->browserTaskVersion_ != nullptr && this->configVariables_ != nullptr && this->cookie_ != nullptr
-        && this->diagnosisMtr_ != nullptr && this->diagnosisPing_ != nullptr && this->dnsHijackWhitelist_ != nullptr && this->dnsMatchRule_ != nullptr && this->dnsServer_ != nullptr
-        && this->dnsType_ != nullptr && this->emptyMessage_ != nullptr && this->expectExistString_ != nullptr && this->expectNonExistString_ != nullptr && this->expectValue_ != nullptr
-        && this->failureRate_ != nullptr && this->header_ != nullptr && this->hops_ != nullptr && this->hostBinding_ != nullptr && this->hostBindingType_ != nullptr
-        && this->httpMethod_ != nullptr && this->icmpTimeoutMillis_ != nullptr && this->ipNetwork_ != nullptr && this->isBase64Encode_ != nullptr && this->matchRule_ != nullptr
-        && this->minTlsVersion_ != nullptr && this->password_ != nullptr && this->pingNum_ != nullptr && this->pingPort_ != nullptr && this->pingType_ != nullptr
-        && this->port_ != nullptr && this->protocol_ != nullptr && this->quicEnabled_ != nullptr && this->quicTarget_ != nullptr && this->requestContent_ != nullptr
-        && this->requestFormat_ != nullptr && this->responseContent_ != nullptr && this->responseFormat_ != nullptr && this->retryDelay_ != nullptr && this->screenShot_ != nullptr
-        && this->scrollEnd_ != nullptr && this->steps_ != nullptr && this->strictMode_ != nullptr && this->timeOut_ != nullptr && this->traceRegion_ != nullptr
-        && this->traceType_ != nullptr && this->trafficHijackElementBlacklist_ != nullptr && this->trafficHijackElementCount_ != nullptr && this->trafficHijackElementWhitelist_ != nullptr && this->username_ != nullptr
-        && this->waitTimeAfterCompletion_ != nullptr; };
+    virtual bool empty() const override { return this->assertions_ == nullptr
+        && return this->attempts_ == nullptr && return this->authInfo_ == nullptr && return this->blockedUrlList_ == nullptr && return this->browserHeaders_ == nullptr && return this->browserHosts_ == nullptr
+        && return this->browserInfo_ == nullptr && return this->browserInsecure_ == nullptr && return this->browserTaskVersion_ == nullptr && return this->configVariables_ == nullptr && return this->cookie_ == nullptr
+        && return this->diagnosisMtr_ == nullptr && return this->diagnosisPing_ == nullptr && return this->dnsHijackWhitelist_ == nullptr && return this->dnsMatchRule_ == nullptr && return this->dnsServer_ == nullptr
+        && return this->dnsType_ == nullptr && return this->emptyMessage_ == nullptr && return this->expectExistString_ == nullptr && return this->expectNonExistString_ == nullptr && return this->expectValue_ == nullptr
+        && return this->failureRate_ == nullptr && return this->header_ == nullptr && return this->hops_ == nullptr && return this->hostBinding_ == nullptr && return this->hostBindingType_ == nullptr
+        && return this->httpMethod_ == nullptr && return this->icmpTimeoutMillis_ == nullptr && return this->ipNetwork_ == nullptr && return this->isBase64Encode_ == nullptr && return this->matchRule_ == nullptr
+        && return this->minTlsVersion_ == nullptr && return this->password_ == nullptr && return this->pingNum_ == nullptr && return this->pingPort_ == nullptr && return this->pingType_ == nullptr
+        && return this->port_ == nullptr && return this->protocol_ == nullptr && return this->quicEnabled_ == nullptr && return this->quicTarget_ == nullptr && return this->requestContent_ == nullptr
+        && return this->requestFormat_ == nullptr && return this->responseContent_ == nullptr && return this->responseFormat_ == nullptr && return this->retryDelay_ == nullptr && return this->safeLink_ == nullptr
+        && return this->screenShot_ == nullptr && return this->scrollEnd_ == nullptr && return this->steps_ == nullptr && return this->strictMode_ == nullptr && return this->timeOut_ == nullptr
+        && return this->traceRegion_ == nullptr && return this->traceType_ == nullptr && return this->trafficHijackElementBlacklist_ == nullptr && return this->trafficHijackElementCount_ == nullptr && return this->trafficHijackElementWhitelist_ == nullptr
+        && return this->username_ == nullptr && return this->waitTimeAfterCompletion_ == nullptr; };
     // assertions Field Functions 
     bool hasAssertions() const { return this->assertions_ != nullptr;};
     void deleteAssertions() { this->assertions_ = nullptr;};
@@ -502,6 +504,13 @@ namespace Models
     inline DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson& setRetryDelay(int32_t retryDelay) { DARABONBA_PTR_SET_VALUE(retryDelay_, retryDelay) };
 
 
+    // safeLink Field Functions 
+    bool hasSafeLink() const { return this->safeLink_ != nullptr;};
+    void deleteSafeLink() { this->safeLink_ = nullptr;};
+    inline int32_t safeLink() const { DARABONBA_PTR_GET_DEFAULT(safeLink_, 0) };
+    inline DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson& setSafeLink(int32_t safeLink) { DARABONBA_PTR_SET_VALUE(safeLink_, safeLink) };
+
+
     // screenShot Field Functions 
     bool hasScreenShot() const { return this->screenShot_ != nullptr;};
     void deleteScreenShot() { this->screenShot_ = nullptr;};
@@ -723,6 +732,7 @@ namespace Models
     std::shared_ptr<string> responseFormat_ = nullptr;
     // The number of retries for failed detections.
     std::shared_ptr<int32_t> retryDelay_ = nullptr;
+    std::shared_ptr<int32_t> safeLink_ = nullptr;
     // Indicates whether page screenshot is enabled.
     std::shared_ptr<bool> screenShot_ = nullptr;
     // Indicates whether to scroll to the bottom of the page after opening the page. This parameter is valid for a browser test task.

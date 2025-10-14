@@ -98,14 +98,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertTime_ != nullptr
-        && this->blackListDetail_ != nullptr && this->blackListName_ != nullptr && this->blackListUUID_ != nullptr && this->contactALIIWWList_ != nullptr && this->contactDingList_ != nullptr
-        && this->contactGroups_ != nullptr && this->contactMailList_ != nullptr && this->contactOnCallList_ != nullptr && this->contactSMSList_ != nullptr && this->dimensions_ != nullptr
-        && this->dingdingWebhookList_ != nullptr && this->escalation_ != nullptr && this->eventName_ != nullptr && this->extendedInfo_ != nullptr && this->groupId_ != nullptr
-        && this->groupName_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->level_ != nullptr && this->levelChange_ != nullptr
-        && this->logId_ != nullptr && this->message_ != nullptr && this->metricName_ != nullptr && this->namespace_ != nullptr && this->product_ != nullptr
-        && this->ruleId_ != nullptr && this->ruleName_ != nullptr && this->sendDetail_ != nullptr && this->sendResultList_ != nullptr && this->sendStatus_ != nullptr
-        && this->webhookList_ != nullptr; };
+    virtual bool empty() const override { return this->alertTime_ == nullptr
+        && return this->blackListDetail_ == nullptr && return this->blackListName_ == nullptr && return this->blackListUUID_ == nullptr && return this->contactALIIWWList_ == nullptr && return this->contactDingList_ == nullptr
+        && return this->contactGroups_ == nullptr && return this->contactMailList_ == nullptr && return this->contactOnCallList_ == nullptr && return this->contactSMSList_ == nullptr && return this->dimensions_ == nullptr
+        && return this->dingdingWebhookList_ == nullptr && return this->escalation_ == nullptr && return this->eventName_ == nullptr && return this->extendedInfo_ == nullptr && return this->groupId_ == nullptr
+        && return this->groupName_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->level_ == nullptr && return this->levelChange_ == nullptr
+        && return this->logId_ == nullptr && return this->message_ == nullptr && return this->metricName_ == nullptr && return this->namespace_ == nullptr && return this->product_ == nullptr
+        && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr && return this->sendDetail_ == nullptr && return this->sendResultList_ == nullptr && return this->sendStatus_ == nullptr
+        && return this->webhookList_ == nullptr; };
     // alertTime Field Functions 
     bool hasAlertTime() const { return this->alertTime_ != nullptr;};
     void deleteAlertTime() { this->alertTime_ = nullptr;};

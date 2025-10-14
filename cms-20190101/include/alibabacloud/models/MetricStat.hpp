@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->associated_ != nullptr
-        && this->dimensions_ != nullptr && this->logTime_ != nullptr && this->measurements_ != nullptr && this->metric_ != nullptr && this->namespace_ != nullptr
-        && this->period_ != nullptr && this->timestamp_ != nullptr; };
+    virtual bool empty() const override { return this->associated_ == nullptr
+        && return this->dimensions_ == nullptr && return this->logTime_ == nullptr && return this->measurements_ == nullptr && return this->metric_ == nullptr && return this->namespace_ == nullptr
+        && return this->period_ == nullptr && return this->timestamp_ == nullptr; };
     // associated Field Functions 
     bool hasAssociated() const { return this->associated_ != nullptr;};
     void deleteAssociated() { this->associated_ = nullptr;};

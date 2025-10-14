@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->arn_ != nullptr
-        && this->createTime_ != nullptr && this->description_ != nullptr && this->httpRequestTarget_ != nullptr && this->name_ != nullptr && this->range_ != nullptr
-        && this->templateUuid_ != nullptr && this->type_ != nullptr && this->updateTime_ != nullptr && this->userId_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->arn_ == nullptr
+        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->httpRequestTarget_ == nullptr && return this->name_ == nullptr && return this->range_ == nullptr
+        && return this->templateUuid_ == nullptr && return this->type_ == nullptr && return this->updateTime_ == nullptr && return this->userId_ == nullptr && return this->uuid_ == nullptr; };
     // arn Field Functions 
     bool hasArn() const { return this->arn_ != nullptr;};
     void deleteArn() { this->arn_ = nullptr;};

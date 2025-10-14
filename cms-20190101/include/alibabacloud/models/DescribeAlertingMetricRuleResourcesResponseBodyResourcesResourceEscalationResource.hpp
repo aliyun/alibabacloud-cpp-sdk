@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->comparisonOperator_ != nullptr
-        && this->expression_ != nullptr && this->expressionList_ != nullptr && this->expressionListJoin_ != nullptr && this->expressionRaw_ != nullptr && this->level_ != nullptr
-        && this->preCondition_ != nullptr && this->tag_ != nullptr && this->threshold_ != nullptr && this->times_ != nullptr; };
+    virtual bool empty() const override { return this->comparisonOperator_ == nullptr
+        && return this->expression_ == nullptr && return this->expressionList_ == nullptr && return this->expressionListJoin_ == nullptr && return this->expressionRaw_ == nullptr && return this->level_ == nullptr
+        && return this->preCondition_ == nullptr && return this->tag_ == nullptr && return this->threshold_ == nullptr && return this->times_ == nullptr; };
     // comparisonOperator Field Functions 
     bool hasComparisonOperator() const { return this->comparisonOperator_ != nullptr;};
     void deleteComparisonOperator() { this->comparisonOperator_ = nullptr;};

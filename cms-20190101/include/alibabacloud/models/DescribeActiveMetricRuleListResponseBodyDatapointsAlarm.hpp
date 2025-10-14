@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->comparisonOperator_ != nullptr
-        && this->contactGroups_ != nullptr && this->enable_ != nullptr && this->endTime_ != nullptr && this->evaluationCount_ != nullptr && this->metricName_ != nullptr
-        && this->namespace_ != nullptr && this->period_ != nullptr && this->ruleId_ != nullptr && this->ruleName_ != nullptr && this->silenceTime_ != nullptr
-        && this->startTime_ != nullptr && this->state_ != nullptr && this->statistics_ != nullptr && this->threshold_ != nullptr && this->webhook_ != nullptr; };
+    virtual bool empty() const override { return this->comparisonOperator_ == nullptr
+        && return this->contactGroups_ == nullptr && return this->enable_ == nullptr && return this->endTime_ == nullptr && return this->evaluationCount_ == nullptr && return this->metricName_ == nullptr
+        && return this->namespace_ == nullptr && return this->period_ == nullptr && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr && return this->silenceTime_ == nullptr
+        && return this->startTime_ == nullptr && return this->state_ == nullptr && return this->statistics_ == nullptr && return this->threshold_ == nullptr && return this->webhook_ == nullptr; };
     // comparisonOperator Field Functions 
     bool hasComparisonOperator() const { return this->comparisonOperator_ != nullptr;};
     void deleteComparisonOperator() { this->comparisonOperator_ = nullptr;};

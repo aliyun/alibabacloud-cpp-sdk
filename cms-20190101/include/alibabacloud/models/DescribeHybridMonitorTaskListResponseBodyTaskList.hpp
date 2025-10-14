@@ -85,13 +85,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attachLabels_ != nullptr
-        && this->collectInterval_ != nullptr && this->collectTargetEndpoint_ != nullptr && this->collectTargetPath_ != nullptr && this->collectTargetType_ != nullptr && this->collectTimout_ != nullptr
-        && this->createTime_ != nullptr && this->description_ != nullptr && this->extraInfo_ != nullptr && this->groupId_ != nullptr && this->instances_ != nullptr
-        && this->logFilePath_ != nullptr && this->logProcess_ != nullptr && this->logSample_ != nullptr && this->logSplit_ != nullptr && this->matchExpress_ != nullptr
-        && this->matchExpressRelation_ != nullptr && this->namespace_ != nullptr && this->networkType_ != nullptr && this->SLSProcess_ != nullptr && this->SLSProcessConfig_ != nullptr
-        && this->targetUserId_ != nullptr && this->taskId_ != nullptr && this->taskName_ != nullptr && this->taskType_ != nullptr && this->uploadRegion_ != nullptr
-        && this->YARMConfig_ != nullptr; };
+    virtual bool empty() const override { return this->attachLabels_ == nullptr
+        && return this->collectInterval_ == nullptr && return this->collectTargetEndpoint_ == nullptr && return this->collectTargetPath_ == nullptr && return this->collectTargetType_ == nullptr && return this->collectTimout_ == nullptr
+        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->extraInfo_ == nullptr && return this->groupId_ == nullptr && return this->instances_ == nullptr
+        && return this->logFilePath_ == nullptr && return this->logProcess_ == nullptr && return this->logSample_ == nullptr && return this->logSplit_ == nullptr && return this->matchExpress_ == nullptr
+        && return this->matchExpressRelation_ == nullptr && return this->namespace_ == nullptr && return this->networkType_ == nullptr && return this->SLSProcess_ == nullptr && return this->SLSProcessConfig_ == nullptr
+        && return this->targetUserId_ == nullptr && return this->taskId_ == nullptr && return this->taskName_ == nullptr && return this->taskType_ == nullptr && return this->uploadRegion_ == nullptr
+        && return this->YARMConfig_ == nullptr; };
     // attachLabels Field Functions 
     bool hasAttachLabels() const { return this->attachLabels_ != nullptr;};
     void deleteAttachLabels() { this->attachLabels_ = nullptr;};

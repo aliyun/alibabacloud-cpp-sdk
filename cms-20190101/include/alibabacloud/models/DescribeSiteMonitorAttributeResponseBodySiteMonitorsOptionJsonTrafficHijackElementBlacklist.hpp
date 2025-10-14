@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->trafficHijackElementBlacklist_ != nullptr; };
+    virtual bool empty() const override { return this->trafficHijackElementBlacklist_ == nullptr; };
     // trafficHijackElementBlacklist Field Functions 
     bool hasTrafficHijackElementBlacklist() const { return this->trafficHijackElementBlacklist_ != nullptr;};
     void deleteTrafficHijackElementBlacklist() { this->trafficHijackElementBlacklist_ = nullptr;};

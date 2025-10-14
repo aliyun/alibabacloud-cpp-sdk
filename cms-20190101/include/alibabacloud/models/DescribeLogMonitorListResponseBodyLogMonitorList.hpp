@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->gmtCreate_ != nullptr
-        && this->groupId_ != nullptr && this->logId_ != nullptr && this->metricName_ != nullptr && this->slsLogstore_ != nullptr && this->slsProject_ != nullptr
-        && this->slsRegionId_ != nullptr && this->valueFilter_ != nullptr && this->valueFilterRelation_ != nullptr; };
+    virtual bool empty() const override { return this->gmtCreate_ == nullptr
+        && return this->groupId_ == nullptr && return this->logId_ == nullptr && return this->metricName_ == nullptr && return this->slsLogstore_ == nullptr && return this->slsProject_ == nullptr
+        && return this->slsRegionId_ == nullptr && return this->valueFilter_ == nullptr && return this->valueFilterRelation_ == nullptr; };
     // gmtCreate Field Functions 
     bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
     void deleteGmtCreate() { this->gmtCreate_ = nullptr;};

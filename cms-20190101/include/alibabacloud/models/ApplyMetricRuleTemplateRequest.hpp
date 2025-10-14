@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appendMode_ != nullptr
-        && this->applyMode_ != nullptr && this->enableEndTime_ != nullptr && this->enableStartTime_ != nullptr && this->groupId_ != nullptr && this->notifyLevel_ != nullptr
-        && this->silenceTime_ != nullptr && this->templateIds_ != nullptr && this->webhook_ != nullptr; };
+    virtual bool empty() const override { return this->appendMode_ == nullptr
+        && return this->applyMode_ == nullptr && return this->enableEndTime_ == nullptr && return this->enableStartTime_ == nullptr && return this->groupId_ == nullptr && return this->notifyLevel_ == nullptr
+        && return this->silenceTime_ == nullptr && return this->templateIds_ == nullptr && return this->webhook_ == nullptr; };
     // appendMode Field Functions 
     bool hasAppendMode() const { return this->appendMode_ != nullptr;};
     void deleteAppendMode() { this->appendMode_ = nullptr;};

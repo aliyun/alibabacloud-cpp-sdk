@@ -66,11 +66,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->escalations_ != nullptr
-        && this->category_ != nullptr && this->contactGroups_ != nullptr && this->dimensions_ != nullptr && this->effectiveInterval_ != nullptr && this->emailSubject_ != nullptr
-        && this->interval_ != nullptr && this->labels_ != nullptr && this->metricName_ != nullptr && this->namespace_ != nullptr && this->noDataPolicy_ != nullptr
-        && this->noEffectiveInterval_ != nullptr && this->options_ != nullptr && this->period_ != nullptr && this->ruleId_ != nullptr && this->ruleName_ != nullptr
-        && this->silenceTime_ != nullptr && this->webhook_ != nullptr; };
+    virtual bool empty() const override { return this->escalations_ == nullptr
+        && return this->category_ == nullptr && return this->contactGroups_ == nullptr && return this->dimensions_ == nullptr && return this->effectiveInterval_ == nullptr && return this->emailSubject_ == nullptr
+        && return this->interval_ == nullptr && return this->labels_ == nullptr && return this->metricName_ == nullptr && return this->namespace_ == nullptr && return this->noDataPolicy_ == nullptr
+        && return this->noEffectiveInterval_ == nullptr && return this->options_ == nullptr && return this->period_ == nullptr && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr
+        && return this->silenceTime_ == nullptr && return this->webhook_ == nullptr; };
     // escalations Field Functions 
     bool hasEscalations() const { return this->escalations_ != nullptr;};
     void deleteEscalations() { this->escalations_ = nullptr;};

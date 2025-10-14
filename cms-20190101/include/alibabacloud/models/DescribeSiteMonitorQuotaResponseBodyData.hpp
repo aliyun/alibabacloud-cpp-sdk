@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->secondMonitor_ != nullptr
-        && this->siteMonitorIdcQuota_ != nullptr && this->siteMonitorOperatorQuotaQuota_ != nullptr && this->siteMonitorQuotaTaskUsed_ != nullptr && this->siteMonitorTaskQuota_ != nullptr && this->siteMonitorVersion_ != nullptr; };
+    virtual bool empty() const override { return this->secondMonitor_ == nullptr
+        && return this->siteMonitorIdcQuota_ == nullptr && return this->siteMonitorOperatorQuotaQuota_ == nullptr && return this->siteMonitorQuotaTaskUsed_ == nullptr && return this->siteMonitorTaskQuota_ == nullptr && return this->siteMonitorVersion_ == nullptr; };
     // secondMonitor Field Functions 
     bool hasSecondMonitor() const { return this->secondMonitor_ != nullptr;};
     void deleteSecondMonitor() { this->secondMonitor_ = nullptr;};

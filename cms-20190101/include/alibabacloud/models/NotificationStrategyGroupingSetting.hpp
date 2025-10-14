@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableRawAlertDispatching_ != nullptr
-        && this->groupingItems_ != nullptr && this->periodMin_ != nullptr && this->silenceSec_ != nullptr && this->times_ != nullptr; };
+    virtual bool empty() const override { return this->enableRawAlertDispatching_ == nullptr
+        && return this->groupingItems_ == nullptr && return this->periodMin_ == nullptr && return this->silenceSec_ == nullptr && return this->times_ == nullptr; };
     // enableRawAlertDispatching Field Functions 
     bool hasEnableRawAlertDispatching() const { return this->enableRawAlertDispatching_ != nullptr;};
     void deleteEnableRawAlertDispatching() { this->enableRawAlertDispatching_ = nullptr;};

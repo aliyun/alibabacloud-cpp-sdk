@@ -74,11 +74,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertTime_ != nullptr
-        && this->contactALIIMs_ != nullptr && this->contactGroups_ != nullptr && this->contactMails_ != nullptr && this->contactSmses_ != nullptr && this->contacts_ != nullptr
-        && this->dimensions_ != nullptr && this->evaluationCount_ != nullptr && this->expression_ != nullptr && this->groupId_ != nullptr && this->instanceName_ != nullptr
-        && this->lastTime_ != nullptr && this->level_ != nullptr && this->metricName_ != nullptr && this->namespace_ != nullptr && this->ruleId_ != nullptr
-        && this->ruleName_ != nullptr && this->state_ != nullptr && this->status_ != nullptr && this->value_ != nullptr && this->webhooks_ != nullptr; };
+    virtual bool empty() const override { return this->alertTime_ == nullptr
+        && return this->contactALIIMs_ == nullptr && return this->contactGroups_ == nullptr && return this->contactMails_ == nullptr && return this->contactSmses_ == nullptr && return this->contacts_ == nullptr
+        && return this->dimensions_ == nullptr && return this->evaluationCount_ == nullptr && return this->expression_ == nullptr && return this->groupId_ == nullptr && return this->instanceName_ == nullptr
+        && return this->lastTime_ == nullptr && return this->level_ == nullptr && return this->metricName_ == nullptr && return this->namespace_ == nullptr && return this->ruleId_ == nullptr
+        && return this->ruleName_ == nullptr && return this->state_ == nullptr && return this->status_ == nullptr && return this->value_ == nullptr && return this->webhooks_ == nullptr; };
     // alertTime Field Functions 
     bool hasAlertTime() const { return this->alertTime_ != nullptr;};
     void deleteAlertTime() { this->alertTime_ = nullptr;};

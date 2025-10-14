@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attachLabels_ != nullptr
-        && this->cloudAccessId_ != nullptr && this->collectInterval_ != nullptr && this->collectTargetType_ != nullptr && this->description_ != nullptr && this->groupId_ != nullptr
-        && this->namespace_ != nullptr && this->regionId_ != nullptr && this->SLSProcessConfig_ != nullptr && this->targetUserId_ != nullptr && this->targetUserIdList_ != nullptr
-        && this->taskName_ != nullptr && this->taskType_ != nullptr && this->YARMConfig_ != nullptr; };
+    virtual bool empty() const override { return this->attachLabels_ == nullptr
+        && return this->cloudAccessId_ == nullptr && return this->collectInterval_ == nullptr && return this->collectTargetType_ == nullptr && return this->description_ == nullptr && return this->groupId_ == nullptr
+        && return this->namespace_ == nullptr && return this->regionId_ == nullptr && return this->SLSProcessConfig_ == nullptr && return this->targetUserId_ == nullptr && return this->targetUserIdList_ == nullptr
+        && return this->taskName_ == nullptr && return this->taskType_ == nullptr && return this->YARMConfig_ == nullptr; };
     // attachLabels Field Functions 
     bool hasAttachLabels() const { return this->attachLabels_ != nullptr;};
     void deleteAttachLabels() { this->attachLabels_ = nullptr;};

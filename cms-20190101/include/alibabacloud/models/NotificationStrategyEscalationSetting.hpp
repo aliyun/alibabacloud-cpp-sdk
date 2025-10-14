@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoResolveMin_ != nullptr
-        && this->customChannels_ != nullptr && this->escalationLevel_ != nullptr && this->escalationUuid_ != nullptr && this->range_ != nullptr && this->retriggerMin_ != nullptr; };
+    virtual bool empty() const override { return this->autoResolveMin_ == nullptr
+        && return this->customChannels_ == nullptr && return this->escalationLevel_ == nullptr && return this->escalationUuid_ == nullptr && return this->range_ == nullptr && return this->retriggerMin_ == nullptr; };
     // autoResolveMin Field Functions 
     bool hasAutoResolveMin() const { return this->autoResolveMin_ != nullptr;};
     void deleteAutoResolveMin() { this->autoResolveMin_ = nullptr;};

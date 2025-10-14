@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->curValue_ != nullptr
-        && this->metricName_ != nullptr && this->metricNameEn_ != nullptr && this->metricNameZh_ != nullptr && this->operator_ != nullptr && this->statistics_ != nullptr
-        && this->threshold_ != nullptr && this->unit_ != nullptr && this->unitFactor_ != nullptr; };
+    virtual bool empty() const override { return this->curValue_ == nullptr
+        && return this->metricName_ == nullptr && return this->metricNameEn_ == nullptr && return this->metricNameZh_ == nullptr && return this->operator_ == nullptr && return this->statistics_ == nullptr
+        && return this->threshold_ == nullptr && return this->unit_ == nullptr && return this->unitFactor_ == nullptr; };
     // curValue Field Functions 
     bool hasCurValue() const { return this->curValue_ != nullptr;};
     void deleteCurValue() { this->curValue_ = nullptr;};

@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->tagValueBlacklist_ != nullptr; };
+    virtual bool empty() const override { return this->tagValueBlacklist_ == nullptr; };
     // tagValueBlacklist Field Functions 
     bool hasTagValueBlacklist() const { return this->tagValueBlacklist_ != nullptr;};
     void deleteTagValueBlacklist() { this->tagValueBlacklist_ = nullptr;};

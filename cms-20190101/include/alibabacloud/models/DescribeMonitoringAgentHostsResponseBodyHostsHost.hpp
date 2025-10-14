@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentVersion_ != nullptr
-        && this->aliUid_ != nullptr && this->eipAddress_ != nullptr && this->eipId_ != nullptr && this->hostName_ != nullptr && this->instanceId_ != nullptr
-        && this->instanceTypeFamily_ != nullptr && this->ipGroup_ != nullptr && this->natIp_ != nullptr && this->networkType_ != nullptr && this->operatingSystem_ != nullptr
-        && this->region_ != nullptr && this->serialNumber_ != nullptr && this->isAliyunHost_ != nullptr; };
+    virtual bool empty() const override { return this->agentVersion_ == nullptr
+        && return this->aliUid_ == nullptr && return this->eipAddress_ == nullptr && return this->eipId_ == nullptr && return this->hostName_ == nullptr && return this->instanceId_ == nullptr
+        && return this->instanceTypeFamily_ == nullptr && return this->ipGroup_ == nullptr && return this->natIp_ == nullptr && return this->networkType_ == nullptr && return this->operatingSystem_ == nullptr
+        && return this->region_ == nullptr && return this->serialNumber_ == nullptr && return this->isAliyunHost_ == nullptr; };
     // agentVersion Field Functions 
     bool hasAgentVersion() const { return this->agentVersion_ != nullptr;};
     void deleteAgentVersion() { this->agentVersion_ = nullptr;};

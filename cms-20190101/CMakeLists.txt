@@ -1,7 +1,7 @@
 
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
-project(alibabacloud_cms_20190101 VERSION "1.0.0")
+project(alibabacloud_cms20190101 VERSION "1.0.0")
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< General set up >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
 set(CMAKE_CXX_STANDARD 11)
@@ -72,7 +72,7 @@ if(CMAKE_HOST_WIN32)
             _CRT_SECURE_NO_WARNINGS)
 elseif(APPLE)
   find_library(CFLIB CoreFoundation)
-  find_library(UTIL_LIB alibabacloud_cms_20190101 ${CMAKE_CURRENT_SOURCE_DIR}/deps/lib)
+  find_library(UTIL_LIB alibabacloud_cms20190101 ${CMAKE_CURRENT_SOURCE_DIR}/deps/lib)
   target_link_libraries(${PROJECT_NAME} 
       OpenSSL::SSL OpenSSL::Crypto
       ${CFLIB}
@@ -139,7 +139,7 @@ install(
         TARGETS
         ${PROJECT_NAME}
         EXPORT
-        alibabacloud_cms_20190101Targets
+        alibabacloud_cms20190101Targets
         ARCHIVE
         DESTINATION ${INSTALL_LIBDIR}
         COMPONENT lib
@@ -157,9 +157,9 @@ install(
 # Install cmake config
 install(
         EXPORT
-        alibabacloud_cms_20190101Targets
+        alibabacloud_cms20190101Targets
         NAMESPACE
-        "alibabacloud_cms_20190101::"
+        "alibabacloud_cms20190101::"
         DESTINATION
         ${INSTALL_CMAKEDIR}
         COMPONENT

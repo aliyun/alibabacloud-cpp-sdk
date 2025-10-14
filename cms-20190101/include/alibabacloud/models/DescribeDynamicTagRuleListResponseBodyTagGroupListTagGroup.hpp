@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->contactGroupList_ != nullptr
-        && this->dynamicTagRuleId_ != nullptr && this->matchExpress_ != nullptr && this->matchExpressFilterRelation_ != nullptr && this->regionId_ != nullptr && this->status_ != nullptr
-        && this->tagKey_ != nullptr && this->tagValueBlacklist_ != nullptr && this->templateIdList_ != nullptr; };
+    virtual bool empty() const override { return this->contactGroupList_ == nullptr
+        && return this->dynamicTagRuleId_ == nullptr && return this->matchExpress_ == nullptr && return this->matchExpressFilterRelation_ == nullptr && return this->regionId_ == nullptr && return this->status_ == nullptr
+        && return this->tagKey_ == nullptr && return this->tagValueBlacklist_ == nullptr && return this->templateIdList_ == nullptr; };
     // contactGroupList Field Functions 
     bool hasContactGroupList() const { return this->contactGroupList_ != nullptr;};
     void deleteContactGroupList() { this->contactGroupList_ = nullptr;};

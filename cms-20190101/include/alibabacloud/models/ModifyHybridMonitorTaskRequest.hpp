@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attachLabels_ != nullptr
-        && this->collectInterval_ != nullptr && this->description_ != nullptr && this->regionId_ != nullptr && this->SLSProcessConfig_ != nullptr && this->taskId_ != nullptr
-        && this->taskName_ != nullptr; };
+    virtual bool empty() const override { return this->attachLabels_ == nullptr
+        && return this->collectInterval_ == nullptr && return this->description_ == nullptr && return this->regionId_ == nullptr && return this->SLSProcessConfig_ == nullptr && return this->taskId_ == nullptr
+        && return this->taskName_ == nullptr; };
     // attachLabels Field Functions 
     bool hasAttachLabels() const { return this->attachLabels_ != nullptr;};
     void deleteAttachLabels() { this->attachLabels_ = nullptr;};

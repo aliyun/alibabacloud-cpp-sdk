@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->namespaceRegion_ != nullptr
-        && this->prometheusInstanceId_ != nullptr && this->SLSProject_ != nullptr && this->spec_ != nullptr; };
+    virtual bool empty() const override { return this->namespaceRegion_ == nullptr
+        && return this->prometheusInstanceId_ == nullptr && return this->SLSProject_ == nullptr && return this->spec_ == nullptr; };
     // namespaceRegion Field Functions 
     bool hasNamespaceRegion() const { return this->namespaceRegion_ != nullptr;};
     void deleteNamespaceRegion() { this->namespaceRegion_ = nullptr;};

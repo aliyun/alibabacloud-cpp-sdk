@@ -83,12 +83,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertState_ != nullptr
-        && this->compositeExpression_ != nullptr && this->contactGroups_ != nullptr && this->dimensions_ != nullptr && this->effectiveInterval_ != nullptr && this->enableState_ != nullptr
-        && this->escalations_ != nullptr && this->gmtCreate_ != nullptr && this->gmtUpdate_ != nullptr && this->groupId_ != nullptr && this->groupName_ != nullptr
-        && this->labels_ != nullptr && this->mailSubject_ != nullptr && this->metricName_ != nullptr && this->namespace_ != nullptr && this->noDataPolicy_ != nullptr
-        && this->noEffectiveInterval_ != nullptr && this->period_ != nullptr && this->productCategory_ != nullptr && this->prometheus_ != nullptr && this->resources_ != nullptr
-        && this->ruleId_ != nullptr && this->ruleName_ != nullptr && this->silenceTime_ != nullptr && this->sourceType_ != nullptr && this->webhook_ != nullptr; };
+    virtual bool empty() const override { return this->alertState_ == nullptr
+        && return this->compositeExpression_ == nullptr && return this->contactGroups_ == nullptr && return this->dimensions_ == nullptr && return this->effectiveInterval_ == nullptr && return this->enableState_ == nullptr
+        && return this->escalations_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtUpdate_ == nullptr && return this->groupId_ == nullptr && return this->groupName_ == nullptr
+        && return this->labels_ == nullptr && return this->mailSubject_ == nullptr && return this->metricName_ == nullptr && return this->namespace_ == nullptr && return this->noDataPolicy_ == nullptr
+        && return this->noEffectiveInterval_ == nullptr && return this->period_ == nullptr && return this->productCategory_ == nullptr && return this->prometheus_ == nullptr && return this->resources_ == nullptr
+        && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr && return this->silenceTime_ == nullptr && return this->sourceType_ == nullptr && return this->webhook_ == nullptr; };
     // alertState Field Functions 
     bool hasAlertState() const { return this->alertState_ != nullptr;};
     void deleteAlertState() { this->alertState_ = nullptr;};

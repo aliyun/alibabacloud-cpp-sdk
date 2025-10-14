@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->groupProcessId_ != nullptr; };
+    virtual bool empty() const override { return this->groupProcessId_ == nullptr; };
     // groupProcessId Field Functions 
     bool hasGroupProcessId() const { return this->groupProcessId_ != nullptr;};
     void deleteGroupProcessId() { this->groupProcessId_ = nullptr;};

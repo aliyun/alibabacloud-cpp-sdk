@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->browser_ != nullptr
-        && this->browserInfo_ != nullptr && this->city_ != nullptr && this->device_ != nullptr && this->endTime_ != nullptr && this->filter_ != nullptr
-        && this->isp_ != nullptr && this->length_ != nullptr && this->metricName_ != nullptr && this->nextToken_ != nullptr && this->regionId_ != nullptr
-        && this->startTime_ != nullptr && this->taskIds_ != nullptr; };
+    virtual bool empty() const override { return this->browser_ == nullptr
+        && return this->browserInfo_ == nullptr && return this->city_ == nullptr && return this->device_ == nullptr && return this->endTime_ == nullptr && return this->filter_ == nullptr
+        && return this->isp_ == nullptr && return this->length_ == nullptr && return this->metricName_ == nullptr && return this->nextToken_ == nullptr && return this->regionId_ == nullptr
+        && return this->startTime_ == nullptr && return this->taskIds_ == nullptr; };
     // browser Field Functions 
     bool hasBrowser() const { return this->browser_ != nullptr;};
     void deleteBrowser() { this->browser_ = nullptr;};

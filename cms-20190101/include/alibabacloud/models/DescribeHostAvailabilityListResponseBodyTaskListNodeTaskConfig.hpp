@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertConfig_ != nullptr
-        && this->disabled_ != nullptr && this->groupId_ != nullptr && this->groupName_ != nullptr && this->id_ != nullptr && this->instances_ != nullptr
-        && this->taskName_ != nullptr && this->taskOption_ != nullptr && this->taskScope_ != nullptr && this->taskType_ != nullptr; };
+    virtual bool empty() const override { return this->alertConfig_ == nullptr
+        && return this->disabled_ == nullptr && return this->groupId_ == nullptr && return this->groupName_ == nullptr && return this->id_ == nullptr && return this->instances_ == nullptr
+        && return this->taskName_ == nullptr && return this->taskOption_ == nullptr && return this->taskScope_ == nullptr && return this->taskType_ == nullptr; };
     // alertConfig Field Functions 
     bool hasAlertConfig() const { return this->alertConfig_ != nullptr;};
     void deleteAlertConfig() { this->alertConfig_ = nullptr;};

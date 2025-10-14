@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->escalations_ != nullptr
-        && this->category_ != nullptr && this->metricName_ != nullptr && this->namespace_ != nullptr && this->period_ != nullptr && this->ruleName_ != nullptr
-        && this->selector_ != nullptr && this->webhook_ != nullptr; };
+    virtual bool empty() const override { return this->escalations_ == nullptr
+        && return this->category_ == nullptr && return this->metricName_ == nullptr && return this->namespace_ == nullptr && return this->period_ == nullptr && return this->ruleName_ == nullptr
+        && return this->selector_ == nullptr && return this->webhook_ == nullptr; };
     // escalations Field Functions 
     bool hasEscalations() const { return this->escalations_ != nullptr;};
     void deleteEscalations() { this->escalations_ = nullptr;};

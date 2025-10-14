@@ -88,13 +88,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceptableResponseCode_ != nullptr
-        && this->assertions_ != nullptr && this->attempts_ != nullptr && this->authentication_ != nullptr && this->certVerify_ != nullptr && this->cookie_ != nullptr
-        && this->diagnosisMtr_ != nullptr && this->diagnosisPing_ != nullptr && this->dnsMatchRule_ != nullptr && this->dnsServer_ != nullptr && this->dnsType_ != nullptr
-        && this->enableOperatorDns_ != nullptr && this->failureRate_ != nullptr && this->header_ != nullptr && this->httpMethod_ != nullptr && this->isBase64Encode_ != nullptr
-        && this->matchRule_ != nullptr && this->password_ != nullptr && this->pingNum_ != nullptr && this->port_ != nullptr && this->protocol_ != nullptr
-        && this->proxyProtocol_ != nullptr && this->requestContent_ != nullptr && this->requestFormat_ != nullptr && this->responseContent_ != nullptr && this->responseFormat_ != nullptr
-        && this->retryDelay_ != nullptr && this->timeOut_ != nullptr && this->unfollowRedirect_ != nullptr && this->username_ != nullptr; };
+    virtual bool empty() const override { return this->acceptableResponseCode_ == nullptr
+        && return this->assertions_ == nullptr && return this->attempts_ == nullptr && return this->authentication_ == nullptr && return this->certVerify_ == nullptr && return this->cookie_ == nullptr
+        && return this->diagnosisMtr_ == nullptr && return this->diagnosisPing_ == nullptr && return this->dnsMatchRule_ == nullptr && return this->dnsServer_ == nullptr && return this->dnsType_ == nullptr
+        && return this->enableOperatorDns_ == nullptr && return this->failureRate_ == nullptr && return this->header_ == nullptr && return this->httpMethod_ == nullptr && return this->isBase64Encode_ == nullptr
+        && return this->matchRule_ == nullptr && return this->password_ == nullptr && return this->pingNum_ == nullptr && return this->port_ == nullptr && return this->protocol_ == nullptr
+        && return this->proxyProtocol_ == nullptr && return this->requestContent_ == nullptr && return this->requestFormat_ == nullptr && return this->responseContent_ == nullptr && return this->responseFormat_ == nullptr
+        && return this->retryDelay_ == nullptr && return this->timeOut_ == nullptr && return this->unfollowRedirect_ == nullptr && return this->username_ == nullptr; };
     // acceptableResponseCode Field Functions 
     bool hasAcceptableResponseCode() const { return this->acceptableResponseCode_ != nullptr;};
     void deleteAcceptableResponseCode() { this->acceptableResponseCode_ = nullptr;};

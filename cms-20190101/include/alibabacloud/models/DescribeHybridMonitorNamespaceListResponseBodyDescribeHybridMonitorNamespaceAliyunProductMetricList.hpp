@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->namespaceList_ != nullptr
-        && this->userId_ != nullptr && this->YAMLConfig_ != nullptr; };
+    virtual bool empty() const override { return this->namespaceList_ == nullptr
+        && return this->userId_ == nullptr && return this->YAMLConfig_ == nullptr; };
     // namespaceList Field Functions 
     bool hasNamespaceList() const { return this->namespaceList_ != nullptr;};
     void deleteNamespaceList() { this->namespaceList_ = nullptr;};

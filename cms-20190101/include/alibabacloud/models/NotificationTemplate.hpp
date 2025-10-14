@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->description_ != nullptr && this->enContent_ != nullptr && this->enItemContent_ != nullptr && this->enTitle_ != nullptr && this->name_ != nullptr
-        && this->type_ != nullptr && this->updateTime_ != nullptr && this->userId_ != nullptr && this->uuid_ != nullptr && this->wraperType_ != nullptr
-        && this->zhContent_ != nullptr && this->zhItemContent_ != nullptr && this->zhTitle_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->description_ == nullptr && return this->enContent_ == nullptr && return this->enItemContent_ == nullptr && return this->enTitle_ == nullptr && return this->name_ == nullptr
+        && return this->type_ == nullptr && return this->updateTime_ == nullptr && return this->userId_ == nullptr && return this->uuid_ == nullptr && return this->wraperType_ == nullptr
+        && return this->zhContent_ == nullptr && return this->zhItemContent_ == nullptr && return this->zhTitle_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

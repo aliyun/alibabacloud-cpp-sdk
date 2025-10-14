@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->httpKeyword_ != nullptr
-        && this->httpMethod_ != nullptr && this->httpNegative_ != nullptr && this->httpPostContent_ != nullptr && this->httpResponseCharset_ != nullptr && this->httpURI_ != nullptr
-        && this->interval_ != nullptr && this->telnetOrPingHost_ != nullptr; };
+    virtual bool empty() const override { return this->httpKeyword_ == nullptr
+        && return this->httpMethod_ == nullptr && return this->httpNegative_ == nullptr && return this->httpPostContent_ == nullptr && return this->httpResponseCharset_ == nullptr && return this->httpURI_ == nullptr
+        && return this->interval_ == nullptr && return this->telnetOrPingHost_ == nullptr; };
     // httpKeyword Field Functions 
     bool hasHttpKeyword() const { return this->httpKeyword_ != nullptr;};
     void deleteHttpKeyword() { this->httpKeyword_ = nullptr;};

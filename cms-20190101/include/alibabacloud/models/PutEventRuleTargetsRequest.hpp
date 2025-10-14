@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->contactParameters_ != nullptr
-        && this->fcParameters_ != nullptr && this->mnsParameters_ != nullptr && this->openApiParameters_ != nullptr && this->regionId_ != nullptr && this->ruleName_ != nullptr
-        && this->slsParameters_ != nullptr && this->webhookParameters_ != nullptr; };
+    virtual bool empty() const override { return this->contactParameters_ == nullptr
+        && return this->fcParameters_ == nullptr && return this->mnsParameters_ == nullptr && return this->openApiParameters_ == nullptr && return this->regionId_ == nullptr && return this->ruleName_ == nullptr
+        && return this->slsParameters_ == nullptr && return this->webhookParameters_ == nullptr; };
     // contactParameters Field Functions 
     bool hasContactParameters() const { return this->contactParameters_ != nullptr;};
     void deleteContactParameters() { this->contactParameters_ = nullptr;};

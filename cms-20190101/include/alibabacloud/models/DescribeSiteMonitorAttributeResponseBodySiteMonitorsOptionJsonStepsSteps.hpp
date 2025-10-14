@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowFailure_ != nullptr
-        && this->autoExtractCookie_ != nullptr && this->extractedVariables_ != nullptr && this->isCritical_ != nullptr && this->name_ != nullptr && this->option_ != nullptr
-        && this->stepName_ != nullptr && this->stepType_ != nullptr && this->url_ != nullptr && this->useGeneratedCookie_ != nullptr && this->waitTimeInSecs_ != nullptr; };
+    virtual bool empty() const override { return this->allowFailure_ == nullptr
+        && return this->autoExtractCookie_ == nullptr && return this->extractedVariables_ == nullptr && return this->isCritical_ == nullptr && return this->name_ == nullptr && return this->option_ == nullptr
+        && return this->stepName_ == nullptr && return this->stepType_ == nullptr && return this->url_ == nullptr && return this->useGeneratedCookie_ == nullptr && return this->waitTimeInSecs_ == nullptr; };
     // allowFailure Field Functions 
     bool hasAllowFailure() const { return this->allowFailure_ != nullptr;};
     void deleteAllowFailure() { this->allowFailure_ = nullptr;};

@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->contactGroups_ != nullptr
-        && this->effectiveInterval_ != nullptr && this->emailSubject_ != nullptr && this->eventName_ != nullptr && this->groupId_ != nullptr && this->level_ != nullptr
-        && this->period_ != nullptr && this->ruleId_ != nullptr && this->ruleName_ != nullptr && this->threshold_ != nullptr && this->webhook_ != nullptr; };
+    virtual bool empty() const override { return this->contactGroups_ == nullptr
+        && return this->effectiveInterval_ == nullptr && return this->emailSubject_ == nullptr && return this->eventName_ == nullptr && return this->groupId_ == nullptr && return this->level_ == nullptr
+        && return this->period_ == nullptr && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr && return this->threshold_ == nullptr && return this->webhook_ == nullptr; };
     // contactGroups Field Functions 
     bool hasContactGroups() const { return this->contactGroups_ != nullptr;};
     void deleteContactGroups() { this->contactGroups_ = nullptr;};

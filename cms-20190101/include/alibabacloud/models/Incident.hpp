@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actionTime_ != nullptr
-        && this->alertCount_ != nullptr && this->endTime_ != nullptr && this->groupingData_ != nullptr && this->groupingId_ != nullptr && this->groupingKey_ != nullptr
-        && this->incidentId_ != nullptr && this->incidentStatus_ != nullptr && this->severity_ != nullptr && this->startTime_ != nullptr && this->strategyUuid_ != nullptr
-        && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->actionTime_ == nullptr
+        && return this->alertCount_ == nullptr && return this->endTime_ == nullptr && return this->groupingData_ == nullptr && return this->groupingId_ == nullptr && return this->groupingKey_ == nullptr
+        && return this->incidentId_ == nullptr && return this->incidentStatus_ == nullptr && return this->severity_ == nullptr && return this->startTime_ == nullptr && return this->strategyUuid_ == nullptr
+        && return this->userId_ == nullptr; };
     // actionTime Field Functions 
     bool hasActionTime() const { return this->actionTime_ != nullptr;};
     void deleteActionTime() { this->actionTime_ = nullptr;};

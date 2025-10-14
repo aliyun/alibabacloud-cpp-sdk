@@ -66,11 +66,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->areaCn_ != nullptr
-        && this->areaEn_ != nullptr && this->city_ != nullptr && this->cityCn_ != nullptr && this->cityEn_ != nullptr && this->country_ != nullptr
-        && this->countryCn_ != nullptr && this->countryEn_ != nullptr && this->idcV4ProbeCount_ != nullptr && this->idcV6ProbeCount_ != nullptr && this->ipPool_ != nullptr
-        && this->isp_ != nullptr && this->ispCn_ != nullptr && this->ispEn_ != nullptr && this->lmProbeCount_ != nullptr && this->mbProbeCount_ != nullptr
-        && this->region_ != nullptr && this->regionCn_ != nullptr && this->regionEn_ != nullptr; };
+    virtual bool empty() const override { return this->areaCn_ == nullptr
+        && return this->areaEn_ == nullptr && return this->city_ == nullptr && return this->cityCn_ == nullptr && return this->cityEn_ == nullptr && return this->country_ == nullptr
+        && return this->countryCn_ == nullptr && return this->countryEn_ == nullptr && return this->idcV4ProbeCount_ == nullptr && return this->idcV6ProbeCount_ == nullptr && return this->ipPool_ == nullptr
+        && return this->isp_ == nullptr && return this->ispCn_ == nullptr && return this->ispEn_ == nullptr && return this->lmProbeCount_ == nullptr && return this->mbProbeCount_ == nullptr
+        && return this->region_ == nullptr && return this->regionCn_ == nullptr && return this->regionEn_ == nullptr; };
     // areaCn Field Functions 
     bool hasAreaCn() const { return this->areaCn_ != nullptr;};
     void deleteAreaCn() { this->areaCn_ = nullptr;};

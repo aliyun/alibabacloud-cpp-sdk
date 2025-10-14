@@ -64,11 +64,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dimensions_ != nullptr
-        && this->enable_ != nullptr && this->escalation_ != nullptr && this->groupId_ != nullptr && this->lastAlertTime_ != nullptr && this->lastModifyTime_ != nullptr
-        && this->level_ != nullptr && this->metricName_ != nullptr && this->metricValues_ != nullptr && this->namespace_ != nullptr && this->productCategory_ != nullptr
-        && this->resource_ != nullptr && this->retryTimes_ != nullptr && this->ruleId_ != nullptr && this->ruleName_ != nullptr && this->startTime_ != nullptr
-        && this->statistics_ != nullptr && this->threshold_ != nullptr; };
+    virtual bool empty() const override { return this->dimensions_ == nullptr
+        && return this->enable_ == nullptr && return this->escalation_ == nullptr && return this->groupId_ == nullptr && return this->lastAlertTime_ == nullptr && return this->lastModifyTime_ == nullptr
+        && return this->level_ == nullptr && return this->metricName_ == nullptr && return this->metricValues_ == nullptr && return this->namespace_ == nullptr && return this->productCategory_ == nullptr
+        && return this->resource_ == nullptr && return this->retryTimes_ == nullptr && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr && return this->startTime_ == nullptr
+        && return this->statistics_ == nullptr && return this->threshold_ == nullptr; };
     // dimensions Field Functions 
     bool hasDimensions() const { return this->dimensions_ != nullptr;};
     void deleteDimensions() { this->dimensions_ = nullptr;};

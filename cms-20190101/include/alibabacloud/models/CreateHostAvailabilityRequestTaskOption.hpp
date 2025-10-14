@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->httpHeader_ != nullptr
-        && this->httpMethod_ != nullptr && this->httpNegative_ != nullptr && this->httpPostContent_ != nullptr && this->httpResponseCharset_ != nullptr && this->httpResponseMatchContent_ != nullptr
-        && this->httpURI_ != nullptr && this->interval_ != nullptr && this->telnetOrPingHost_ != nullptr; };
+    virtual bool empty() const override { return this->httpHeader_ == nullptr
+        && return this->httpMethod_ == nullptr && return this->httpNegative_ == nullptr && return this->httpPostContent_ == nullptr && return this->httpResponseCharset_ == nullptr && return this->httpResponseMatchContent_ == nullptr
+        && return this->httpURI_ == nullptr && return this->interval_ == nullptr && return this->telnetOrPingHost_ == nullptr; };
     // httpHeader Field Functions 
     bool hasHttpHeader() const { return this->httpHeader_ != nullptr;};
     void deleteHttpHeader() { this->httpHeader_ = nullptr;};

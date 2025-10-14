@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ascending_ != nullptr
-        && this->endTime_ != nullptr && this->groupId_ != nullptr && this->metricName_ != nullptr && this->namespace_ != nullptr && this->page_ != nullptr
-        && this->pageSize_ != nullptr && this->regionId_ != nullptr && this->ruleId_ != nullptr && this->ruleName_ != nullptr && this->startTime_ != nullptr
-        && this->state_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->ascending_ == nullptr
+        && return this->endTime_ == nullptr && return this->groupId_ == nullptr && return this->metricName_ == nullptr && return this->namespace_ == nullptr && return this->page_ == nullptr
+        && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr && return this->startTime_ == nullptr
+        && return this->state_ == nullptr && return this->status_ == nullptr; };
     // ascending Field Functions 
     bool hasAscending() const { return this->ascending_ != nullptr;};
     void deleteAscending() { this->ascending_ = nullptr;};

@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->browserHeaders_ != nullptr; };
+    virtual bool empty() const override { return this->browserHeaders_ == nullptr; };
     // browserHeaders Field Functions 
     bool hasBrowserHeaders() const { return this->browserHeaders_ != nullptr;};
     void deleteBrowserHeaders() { this->browserHeaders_ = nullptr;};

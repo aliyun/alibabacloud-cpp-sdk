@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertBeforeTime_ != nullptr
-        && this->dimensions_ != nullptr && this->groupId_ != nullptr && this->namespace_ != nullptr && this->page_ != nullptr && this->pageSize_ != nullptr
-        && this->regionId_ != nullptr && this->ruleId_ != nullptr; };
+    virtual bool empty() const override { return this->alertBeforeTime_ == nullptr
+        && return this->dimensions_ == nullptr && return this->groupId_ == nullptr && return this->namespace_ == nullptr && return this->page_ == nullptr && return this->pageSize_ == nullptr
+        && return this->regionId_ == nullptr && return this->ruleId_ == nullptr; };
     // alertBeforeTime Field Functions 
     bool hasAlertBeforeTime() const { return this->alertBeforeTime_ != nullptr;};
     void deleteAlertBeforeTime() { this->alertBeforeTime_ = nullptr;};

@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoInstall_ != nullptr
-        && this->code_ != nullptr && this->enableActiveAlert_ != nullptr && this->enableInstallAgentNewECS_ != nullptr && this->message_ != nullptr && this->requestId_ != nullptr
-        && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->autoInstall_ == nullptr
+        && return this->code_ == nullptr && return this->enableActiveAlert_ == nullptr && return this->enableInstallAgentNewECS_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr
+        && return this->success_ == nullptr; };
     // autoInstall Field Functions 
     bool hasAutoInstall() const { return this->autoInstall_ != nullptr;};
     void deleteAutoInstall() { this->autoInstall_ = nullptr;};

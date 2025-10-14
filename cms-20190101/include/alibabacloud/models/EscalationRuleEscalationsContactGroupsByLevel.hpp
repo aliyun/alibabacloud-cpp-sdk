@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->critical_ != nullptr
-        && this->error_ != nullptr && this->info_ != nullptr && this->resolve_ != nullptr && this->warning_ != nullptr; };
+    virtual bool empty() const override { return this->critical_ == nullptr
+        && return this->error_ == nullptr && return this->info_ == nullptr && return this->resolve_ == nullptr && return this->warning_ == nullptr; };
     // critical Field Functions 
     bool hasCritical() const { return this->critical_ != nullptr;};
     void deleteCritical() { this->critical_ = nullptr;};

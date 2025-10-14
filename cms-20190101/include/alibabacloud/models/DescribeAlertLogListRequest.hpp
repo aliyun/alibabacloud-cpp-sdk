@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->contactGroup_ != nullptr
-        && this->endTime_ != nullptr && this->eventType_ != nullptr && this->groupBy_ != nullptr && this->groupId_ != nullptr && this->lastMin_ != nullptr
-        && this->level_ != nullptr && this->metricName_ != nullptr && this->namespace_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->product_ != nullptr && this->regionId_ != nullptr && this->ruleId_ != nullptr && this->ruleName_ != nullptr && this->searchKey_ != nullptr
-        && this->sendStatus_ != nullptr && this->sourceType_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->contactGroup_ == nullptr
+        && return this->endTime_ == nullptr && return this->eventType_ == nullptr && return this->groupBy_ == nullptr && return this->groupId_ == nullptr && return this->lastMin_ == nullptr
+        && return this->level_ == nullptr && return this->metricName_ == nullptr && return this->namespace_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->product_ == nullptr && return this->regionId_ == nullptr && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr && return this->searchKey_ == nullptr
+        && return this->sendStatus_ == nullptr && return this->sourceType_ == nullptr && return this->startTime_ == nullptr; };
     // contactGroup Field Functions 
     bool hasContactGroup() const { return this->contactGroup_ != nullptr;};
     void deleteContactGroup() { this->contactGroup_ = nullptr;};

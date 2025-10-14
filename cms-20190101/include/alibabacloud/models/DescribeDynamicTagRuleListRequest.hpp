@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dynamicTagRuleId_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->tagKey_ != nullptr && this->tagRegionId_ != nullptr && this->tagValue_ != nullptr; };
+    virtual bool empty() const override { return this->dynamicTagRuleId_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->tagKey_ == nullptr && return this->tagRegionId_ == nullptr && return this->tagValue_ == nullptr; };
     // dynamicTagRuleId Field Functions 
     bool hasDynamicTagRuleId() const { return this->dynamicTagRuleId_ != nullptr;};
     void deleteDynamicTagRuleId() { this->dynamicTagRuleId_ = nullptr;};

@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertName_ != nullptr
-        && this->alertStatus_ != nullptr && this->arn_ != nullptr && this->content_ != nullptr && this->customLabels_ != nullptr && this->deDupId_ != nullptr
-        && this->details_ != nullptr && this->eventName_ != nullptr && this->eventType_ != nullptr && this->expression_ != nullptr && this->metrics_ != nullptr
-        && this->product_ != nullptr && this->resourceInfo_ != nullptr && this->ruleName_ != nullptr && this->severity_ != nullptr && this->source_ != nullptr
-        && this->summary_ != nullptr && this->timestamp_ != nullptr && this->traceId_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->alertName_ == nullptr
+        && return this->alertStatus_ == nullptr && return this->arn_ == nullptr && return this->content_ == nullptr && return this->customLabels_ == nullptr && return this->deDupId_ == nullptr
+        && return this->details_ == nullptr && return this->eventName_ == nullptr && return this->eventType_ == nullptr && return this->expression_ == nullptr && return this->metrics_ == nullptr
+        && return this->product_ == nullptr && return this->resourceInfo_ == nullptr && return this->ruleName_ == nullptr && return this->severity_ == nullptr && return this->source_ == nullptr
+        && return this->summary_ == nullptr && return this->timestamp_ == nullptr && return this->traceId_ == nullptr && return this->userId_ == nullptr; };
     // alertName Field Functions 
     bool hasAlertName() const { return this->alertName_ != nullptr;};
     void deleteAlertName() { this->alertName_ = nullptr;};

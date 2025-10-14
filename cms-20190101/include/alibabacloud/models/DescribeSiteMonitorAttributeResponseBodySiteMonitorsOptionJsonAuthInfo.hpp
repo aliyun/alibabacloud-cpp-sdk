@@ -64,11 +64,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessKeyId_ != nullptr
-        && this->accessKeySecret_ != nullptr && this->apiAction_ != nullptr && this->apiVersion_ != nullptr && this->authStyle_ != nullptr && this->clientId_ != nullptr
-        && this->clientSecret_ != nullptr && this->grantType_ != nullptr && this->password_ != nullptr && this->regionId_ != nullptr && this->scopes_ != nullptr
-        && this->serviceName_ != nullptr && this->sessionToken_ != nullptr && this->tokenUrl_ != nullptr && this->type_ != nullptr && this->useCookieSessionKey_ != nullptr
-        && this->username_ != nullptr && this->withAddonResources_ != nullptr; };
+    virtual bool empty() const override { return this->accessKeyId_ == nullptr
+        && return this->accessKeySecret_ == nullptr && return this->apiAction_ == nullptr && return this->apiVersion_ == nullptr && return this->authStyle_ == nullptr && return this->clientId_ == nullptr
+        && return this->clientSecret_ == nullptr && return this->grantType_ == nullptr && return this->password_ == nullptr && return this->regionId_ == nullptr && return this->scopes_ == nullptr
+        && return this->serviceName_ == nullptr && return this->sessionToken_ == nullptr && return this->tokenUrl_ == nullptr && return this->type_ == nullptr && return this->useCookieSessionKey_ == nullptr
+        && return this->username_ == nullptr && return this->withAddonResources_ == nullptr; };
     // accessKeyId Field Functions 
     bool hasAccessKeyId() const { return this->accessKeyId_ != nullptr;};
     void deleteAccessKeyId() { this->accessKeyId_ = nullptr;};

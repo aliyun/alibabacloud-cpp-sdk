@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliyunHost_ != nullptr
-        && this->hostName_ != nullptr && this->instanceIds_ != nullptr && this->instanceRegionId_ != nullptr && this->keyWord_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->regionId_ != nullptr && this->serialNumbers_ != nullptr && this->status_ != nullptr && this->sysomStatus_ != nullptr; };
+    virtual bool empty() const override { return this->aliyunHost_ == nullptr
+        && return this->hostName_ == nullptr && return this->instanceIds_ == nullptr && return this->instanceRegionId_ == nullptr && return this->keyWord_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->serialNumbers_ == nullptr && return this->status_ == nullptr && return this->sysomStatus_ == nullptr; };
     // aliyunHost Field Functions 
     bool hasAliyunHost() const { return this->aliyunHost_ != nullptr;};
     void deleteAliyunHost() { this->aliyunHost_ = nullptr;};

@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentInstallErrorCode_ != nullptr
-        && this->autoInstall_ != nullptr && this->instanceId_ != nullptr && this->osMonitorConfig_ != nullptr && this->osMonitorErrorCode_ != nullptr && this->osMonitorErrorDetail_ != nullptr
-        && this->osMonitorStatus_ != nullptr && this->osMonitorVersion_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->agentInstallErrorCode_ == nullptr
+        && return this->autoInstall_ == nullptr && return this->instanceId_ == nullptr && return this->osMonitorConfig_ == nullptr && return this->osMonitorErrorCode_ == nullptr && return this->osMonitorErrorDetail_ == nullptr
+        && return this->osMonitorStatus_ == nullptr && return this->osMonitorVersion_ == nullptr && return this->status_ == nullptr; };
     // agentInstallErrorCode Field Functions 
     bool hasAgentInstallErrorCode() const { return this->agentInstallErrorCode_ != nullptr;};
     void deleteAgentInstallErrorCode() { this->agentInstallErrorCode_ = nullptr;};

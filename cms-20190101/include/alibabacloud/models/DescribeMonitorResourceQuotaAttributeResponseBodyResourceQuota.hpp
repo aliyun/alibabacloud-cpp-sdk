@@ -69,10 +69,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->api_ != nullptr
-        && this->customMonitor_ != nullptr && this->enterpriseQuota_ != nullptr && this->eventMonitor_ != nullptr && this->expireTime_ != nullptr && this->instanceId_ != nullptr
-        && this->logMonitor_ != nullptr && this->phone_ != nullptr && this->SMS_ != nullptr && this->siteMonitorBrowser_ != nullptr && this->siteMonitorEcsProbe_ != nullptr
-        && this->siteMonitorMobile_ != nullptr && this->siteMonitorOperatorProbe_ != nullptr && this->siteMonitorTask_ != nullptr && this->suitInfo_ != nullptr; };
+    virtual bool empty() const override { return this->api_ == nullptr
+        && return this->customMonitor_ == nullptr && return this->enterpriseQuota_ == nullptr && return this->eventMonitor_ == nullptr && return this->expireTime_ == nullptr && return this->instanceId_ == nullptr
+        && return this->logMonitor_ == nullptr && return this->phone_ == nullptr && return this->SMS_ == nullptr && return this->siteMonitorBrowser_ == nullptr && return this->siteMonitorEcsProbe_ == nullptr
+        && return this->siteMonitorMobile_ == nullptr && return this->siteMonitorOperatorProbe_ == nullptr && return this->siteMonitorTask_ == nullptr && return this->suitInfo_ == nullptr; };
     // api Field Functions 
     bool hasApi() const { return this->api_ != nullptr;};
     void deleteApi() { this->api_ = nullptr;};

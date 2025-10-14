@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bindUrl_ != nullptr
-        && this->contactGroups_ != nullptr && this->dynamicTagRuleId_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->groupFounderTagKey_ != nullptr
-        && this->groupFounderTagValue_ != nullptr && this->groupId_ != nullptr && this->groupName_ != nullptr && this->resourceGroupId_ != nullptr && this->serviceId_ != nullptr
-        && this->tags_ != nullptr && this->templateIds_ != nullptr && this->templateInfos_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->bindUrl_ == nullptr
+        && return this->contactGroups_ == nullptr && return this->dynamicTagRuleId_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->groupFounderTagKey_ == nullptr
+        && return this->groupFounderTagValue_ == nullptr && return this->groupId_ == nullptr && return this->groupName_ == nullptr && return this->resourceGroupId_ == nullptr && return this->serviceId_ == nullptr
+        && return this->tags_ == nullptr && return this->templateIds_ == nullptr && return this->templateInfos_ == nullptr && return this->type_ == nullptr; };
     // bindUrl Field Functions 
     bool hasBindUrl() const { return this->bindUrl_ != nullptr;};
     void deleteBindUrl() { this->bindUrl_ = nullptr;};

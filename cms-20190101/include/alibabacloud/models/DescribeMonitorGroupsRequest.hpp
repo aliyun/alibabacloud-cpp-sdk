@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dynamicTagRuleId_ != nullptr
-        && this->groupFounderTagKey_ != nullptr && this->groupFounderTagValue_ != nullptr && this->groupId_ != nullptr && this->groupName_ != nullptr && this->includeTemplateHistory_ != nullptr
-        && this->instanceId_ != nullptr && this->keyword_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->regionId_ != nullptr
-        && this->selectContactGroups_ != nullptr && this->tag_ != nullptr && this->type_ != nullptr && this->types_ != nullptr; };
+    virtual bool empty() const override { return this->dynamicTagRuleId_ == nullptr
+        && return this->groupFounderTagKey_ == nullptr && return this->groupFounderTagValue_ == nullptr && return this->groupId_ == nullptr && return this->groupName_ == nullptr && return this->includeTemplateHistory_ == nullptr
+        && return this->instanceId_ == nullptr && return this->keyword_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr
+        && return this->selectContactGroups_ == nullptr && return this->tag_ == nullptr && return this->type_ == nullptr && return this->types_ == nullptr; };
     // dynamicTagRuleId Field Functions 
     bool hasDynamicTagRuleId() const { return this->dynamicTagRuleId_ != nullptr;};
     void deleteDynamicTagRuleId() { this->dynamicTagRuleId_ = nullptr;};
