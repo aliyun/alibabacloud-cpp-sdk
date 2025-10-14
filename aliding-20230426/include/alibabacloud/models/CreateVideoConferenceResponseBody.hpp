@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->conferenceId_ != nullptr
-        && this->conferencePassword_ != nullptr && this->externalLinkUrl_ != nullptr && this->hostPassword_ != nullptr && this->phoneNumbers_ != nullptr && this->requestId_ != nullptr
-        && this->roomCode_ != nullptr; };
+    virtual bool empty() const override { return this->conferenceId_ == nullptr
+        && return this->conferencePassword_ == nullptr && return this->externalLinkUrl_ == nullptr && return this->hostPassword_ == nullptr && return this->phoneNumbers_ == nullptr && return this->requestId_ == nullptr
+        && return this->roomCode_ == nullptr; };
     // conferenceId Field Functions 
     bool hasConferenceId() const { return this->conferenceId_ != nullptr;};
     void deleteConferenceId() { this->conferenceId_ = nullptr;};

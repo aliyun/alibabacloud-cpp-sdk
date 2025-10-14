@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->nameInChinese_ != nullptr
-        && this->nameInEnglish_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->nameInChinese_ == nullptr
+        && return this->nameInEnglish_ == nullptr && return this->type_ == nullptr; };
     // nameInChinese Field Functions 
     bool hasNameInChinese() const { return this->nameInChinese_ != nullptr;};
     void deleteNameInChinese() { this->nameInChinese_ = nullptr;};

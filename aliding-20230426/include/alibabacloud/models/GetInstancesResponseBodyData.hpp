@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actionExecutor_ != nullptr
-        && this->approvedResult_ != nullptr && this->createTimeGMT_ != nullptr && this->data_ != nullptr && this->formUuid_ != nullptr && this->instanceStatus_ != nullptr
-        && this->modifiedTimeGMT_ != nullptr && this->originator_ != nullptr && this->processCode_ != nullptr && this->processInstanceId_ != nullptr && this->title_ != nullptr
-        && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->actionExecutor_ == nullptr
+        && return this->approvedResult_ == nullptr && return this->createTimeGMT_ == nullptr && return this->data_ == nullptr && return this->formUuid_ == nullptr && return this->instanceStatus_ == nullptr
+        && return this->modifiedTimeGMT_ == nullptr && return this->originator_ == nullptr && return this->processCode_ == nullptr && return this->processInstanceId_ == nullptr && return this->title_ == nullptr
+        && return this->version_ == nullptr; };
     // actionExecutor Field Functions 
     bool hasActionExecutor() const { return this->actionExecutor_ != nullptr;};
     void deleteActionExecutor() { this->actionExecutor_ = nullptr;};

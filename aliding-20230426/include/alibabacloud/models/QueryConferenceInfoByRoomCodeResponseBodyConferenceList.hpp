@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizType_ != nullptr
-        && this->confDuration_ != nullptr && this->conferenceId_ != nullptr && this->creatorId_ != nullptr && this->creatorNick_ != nullptr && this->endTime_ != nullptr
-        && this->externalLinkUrl_ != nullptr && this->roomCode_ != nullptr && this->scheduleConferenceId_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr
-        && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->bizType_ == nullptr
+        && return this->confDuration_ == nullptr && return this->conferenceId_ == nullptr && return this->creatorId_ == nullptr && return this->creatorNick_ == nullptr && return this->endTime_ == nullptr
+        && return this->externalLinkUrl_ == nullptr && return this->roomCode_ == nullptr && return this->scheduleConferenceId_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr
+        && return this->title_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};

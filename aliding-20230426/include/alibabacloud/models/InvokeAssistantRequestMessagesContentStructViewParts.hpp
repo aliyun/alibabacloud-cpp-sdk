@@ -52,9 +52,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->append_ != nullptr
-        && this->dataPart_ != nullptr && this->finish_ != nullptr && this->partDesc_ != nullptr && this->partId_ != nullptr && this->reasonPart_ != nullptr
-        && this->recommendPart_ != nullptr && this->referencePart_ != nullptr && this->textPart_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->append_ == nullptr
+        && return this->dataPart_ == nullptr && return this->finish_ == nullptr && return this->partDesc_ == nullptr && return this->partId_ == nullptr && return this->reasonPart_ == nullptr
+        && return this->recommendPart_ == nullptr && return this->referencePart_ == nullptr && return this->textPart_ == nullptr && return this->type_ == nullptr; };
     // append Field Functions 
     bool hasAppend() const { return this->append_ != nullptr;};
     void deleteAppend() { this->append_ = nullptr;};

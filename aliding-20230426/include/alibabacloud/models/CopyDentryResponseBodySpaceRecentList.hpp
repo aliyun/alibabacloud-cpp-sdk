@@ -70,11 +70,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->contentType_ != nullptr
-        && this->createdTime_ != nullptr && this->creator_ != nullptr && this->dentryId_ != nullptr && this->dentryType_ != nullptr && this->dentryUuid_ != nullptr
-        && this->docKey_ != nullptr && this->extension_ != nullptr && this->hasChildren_ != nullptr && this->linkSourceInfo_ != nullptr && this->name_ != nullptr
-        && this->path_ != nullptr && this->space_ != nullptr && this->spaceId_ != nullptr && this->statisticalInfo_ != nullptr && this->updatedTime_ != nullptr
-        && this->updater_ != nullptr && this->url_ != nullptr && this->visitorInfo_ != nullptr; };
+    virtual bool empty() const override { return this->contentType_ == nullptr
+        && return this->createdTime_ == nullptr && return this->creator_ == nullptr && return this->dentryId_ == nullptr && return this->dentryType_ == nullptr && return this->dentryUuid_ == nullptr
+        && return this->docKey_ == nullptr && return this->extension_ == nullptr && return this->hasChildren_ == nullptr && return this->linkSourceInfo_ == nullptr && return this->name_ == nullptr
+        && return this->path_ == nullptr && return this->space_ == nullptr && return this->spaceId_ == nullptr && return this->statisticalInfo_ == nullptr && return this->updatedTime_ == nullptr
+        && return this->updater_ == nullptr && return this->url_ == nullptr && return this->visitorInfo_ == nullptr; };
     // contentType Field Functions 
     bool hasContentType() const { return this->contentType_ != nullptr;};
     void deleteContentType() { this->contentType_ = nullptr;};

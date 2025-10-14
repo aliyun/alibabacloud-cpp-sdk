@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assistantId_ != nullptr
-        && this->description_ != nullptr && this->extShrink_ != nullptr && this->fallbackContent_ != nullptr && this->featureShrink_ != nullptr && this->icon_ != nullptr
-        && this->instructions_ != nullptr && this->name_ != nullptr && this->recommendPromptsShrink_ != nullptr && this->tenantContextShrink_ != nullptr && this->welcomeContent_ != nullptr; };
+    virtual bool empty() const override { return this->assistantId_ == nullptr
+        && return this->description_ == nullptr && return this->extShrink_ == nullptr && return this->fallbackContent_ == nullptr && return this->featureShrink_ == nullptr && return this->icon_ == nullptr
+        && return this->instructions_ == nullptr && return this->name_ == nullptr && return this->recommendPromptsShrink_ == nullptr && return this->tenantContextShrink_ == nullptr && return this->welcomeContent_ == nullptr; };
     // assistantId Field Functions 
     bool hasAssistantId() const { return this->assistantId_ != nullptr;};
     void deleteAssistantId() { this->assistantId_ = nullptr;};

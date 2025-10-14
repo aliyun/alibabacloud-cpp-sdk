@@ -64,10 +64,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->creator_ != nullptr && this->customFields_ != nullptr && this->openConversationId_ != nullptr && this->openTicketId_ != nullptr && this->processor_ != nullptr
-        && this->requestId_ != nullptr && this->scene_ != nullptr && this->sceneContext_ != nullptr && this->stage_ != nullptr && this->takers_ != nullptr
-        && this->template_ != nullptr && this->title_ != nullptr && this->updateTime_ != nullptr && this->vendorRequestId_ != nullptr && this->vendorType_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->creator_ == nullptr && return this->customFields_ == nullptr && return this->openConversationId_ == nullptr && return this->openTicketId_ == nullptr && return this->processor_ == nullptr
+        && return this->requestId_ == nullptr && return this->scene_ == nullptr && return this->sceneContext_ == nullptr && return this->stage_ == nullptr && return this->takers_ == nullptr
+        && return this->template_ == nullptr && return this->title_ == nullptr && return this->updateTime_ == nullptr && return this->vendorRequestId_ == nullptr && return this->vendorType_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

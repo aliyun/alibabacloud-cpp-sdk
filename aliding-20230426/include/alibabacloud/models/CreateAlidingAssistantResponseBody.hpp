@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alidingAssistantId_ != nullptr
-        && this->appCode_ != nullptr && this->jumpUrl_ != nullptr && this->processInstanceId_ != nullptr && this->requestId_ != nullptr && this->vendorRequestId_ != nullptr
-        && this->vendorType_ != nullptr; };
+    virtual bool empty() const override { return this->alidingAssistantId_ == nullptr
+        && return this->appCode_ == nullptr && return this->jumpUrl_ == nullptr && return this->processInstanceId_ == nullptr && return this->requestId_ == nullptr && return this->vendorRequestId_ == nullptr
+        && return this->vendorType_ == nullptr; };
     // alidingAssistantId Field Functions 
     bool hasAlidingAssistantId() const { return this->alidingAssistantId_ != nullptr;};
     void deleteAlidingAssistantId() { this->alidingAssistantId_ = nullptr;};

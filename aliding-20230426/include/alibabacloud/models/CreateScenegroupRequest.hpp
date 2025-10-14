@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addFriendForbidden_ != nullptr
-        && this->allMembersCanCreateCalendar_ != nullptr && this->allMembersCanCreateMcsConf_ != nullptr && this->chatBannedType_ != nullptr && this->groupEmailDisabled_ != nullptr && this->groupLiveSwitch_ != nullptr
-        && this->icon_ != nullptr && this->managementType_ != nullptr && this->membersToAdminChat_ != nullptr && this->mentionAllAuthority_ != nullptr && this->onlyAdminCanDing_ != nullptr
-        && this->onlyAdminCanSetMsgTop_ != nullptr && this->searchable_ != nullptr && this->showHistoryType_ != nullptr && this->subadminIds_ != nullptr && this->templateId_ != nullptr
-        && this->title_ != nullptr && this->userIds_ != nullptr && this->uuid_ != nullptr && this->validationType_ != nullptr; };
+    virtual bool empty() const override { return this->addFriendForbidden_ == nullptr
+        && return this->allMembersCanCreateCalendar_ == nullptr && return this->allMembersCanCreateMcsConf_ == nullptr && return this->chatBannedType_ == nullptr && return this->groupEmailDisabled_ == nullptr && return this->groupLiveSwitch_ == nullptr
+        && return this->icon_ == nullptr && return this->managementType_ == nullptr && return this->membersToAdminChat_ == nullptr && return this->mentionAllAuthority_ == nullptr && return this->onlyAdminCanDing_ == nullptr
+        && return this->onlyAdminCanSetMsgTop_ == nullptr && return this->searchable_ == nullptr && return this->showHistoryType_ == nullptr && return this->subadminIds_ == nullptr && return this->templateId_ == nullptr
+        && return this->title_ == nullptr && return this->userIds_ == nullptr && return this->uuid_ == nullptr && return this->validationType_ == nullptr; };
     // addFriendForbidden Field Functions 
     bool hasAddFriendForbidden() const { return this->addFriendForbidden_ != nullptr;};
     void deleteAddFriendForbidden() { this->addFriendForbidden_ = nullptr;};

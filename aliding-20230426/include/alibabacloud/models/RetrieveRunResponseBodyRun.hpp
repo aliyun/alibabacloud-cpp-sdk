@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cancelledAt_ != nullptr
-        && this->completedAt_ != nullptr && this->createAt_ != nullptr && this->expiresAt_ != nullptr && this->failedAt_ != nullptr && this->id_ != nullptr
-        && this->lastErrorMsg_ != nullptr && this->startedAt_ != nullptr && this->status_ != nullptr && this->threadId_ != nullptr; };
+    virtual bool empty() const override { return this->cancelledAt_ == nullptr
+        && return this->completedAt_ == nullptr && return this->createAt_ == nullptr && return this->expiresAt_ == nullptr && return this->failedAt_ == nullptr && return this->id_ == nullptr
+        && return this->lastErrorMsg_ == nullptr && return this->startedAt_ == nullptr && return this->status_ == nullptr && return this->threadId_ == nullptr; };
     // cancelledAt Field Functions 
     bool hasCancelledAt() const { return this->cancelledAt_ != nullptr;};
     void deleteCancelledAt() { this->cancelledAt_ = nullptr;};

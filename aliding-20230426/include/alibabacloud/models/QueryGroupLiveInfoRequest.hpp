@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->anchorUnionId_ != nullptr
-        && this->liveUuid_ != nullptr && this->tenantContext_ != nullptr; };
+    virtual bool empty() const override { return this->anchorUnionId_ == nullptr
+        && return this->liveUuid_ == nullptr && return this->tenantContext_ == nullptr; };
     // anchorUnionId Field Functions 
     bool hasAnchorUnionId() const { return this->anchorUnionId_ != nullptr;};
     void deleteAnchorUnionId() { this->anchorUnionId_ = nullptr;};

@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->columnCount_ != nullptr
-        && this->id_ != nullptr && this->lastNonEmptyColumn_ != nullptr && this->lastNonEmptyRow_ != nullptr && this->name_ != nullptr && this->requestId_ != nullptr
-        && this->rowCount_ != nullptr && this->visibility_ != nullptr; };
+    virtual bool empty() const override { return this->columnCount_ == nullptr
+        && return this->id_ == nullptr && return this->lastNonEmptyColumn_ == nullptr && return this->lastNonEmptyRow_ == nullptr && return this->name_ == nullptr && return this->requestId_ == nullptr
+        && return this->rowCount_ == nullptr && return this->visibility_ == nullptr; };
     // columnCount Field Functions 
     bool hasColumnCount() const { return this->columnCount_ != nullptr;};
     void deleteColumnCount() { this->columnCount_ = nullptr;};

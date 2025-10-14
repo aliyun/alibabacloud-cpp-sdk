@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->anchorNickname_ != nullptr
-        && this->anchorUnionId_ != nullptr && this->liveEndTime_ != nullptr && this->liveStartTime_ != nullptr && this->liveUuid_ != nullptr && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->anchorNickname_ == nullptr
+        && return this->anchorUnionId_ == nullptr && return this->liveEndTime_ == nullptr && return this->liveStartTime_ == nullptr && return this->liveUuid_ == nullptr && return this->title_ == nullptr; };
     // anchorNickname Field Functions 
     bool hasAnchorNickname() const { return this->anchorNickname_ != nullptr;};
     void deleteAnchorNickname() { this->anchorNickname_ = nullptr;};

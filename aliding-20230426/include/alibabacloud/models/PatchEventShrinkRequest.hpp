@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attendeesShrink_ != nullptr
-        && this->calendarId_ != nullptr && this->cardInstancesShrink_ != nullptr && this->description_ != nullptr && this->endShrink_ != nullptr && this->eventId_ != nullptr
-        && this->extraShrink_ != nullptr && this->isAllDay_ != nullptr && this->locationShrink_ != nullptr && this->recurrenceShrink_ != nullptr && this->remindersShrink_ != nullptr
-        && this->startShrink_ != nullptr && this->summary_ != nullptr; };
+    virtual bool empty() const override { return this->attendeesShrink_ == nullptr
+        && return this->calendarId_ == nullptr && return this->cardInstancesShrink_ == nullptr && return this->description_ == nullptr && return this->endShrink_ == nullptr && return this->eventId_ == nullptr
+        && return this->extraShrink_ == nullptr && return this->isAllDay_ == nullptr && return this->locationShrink_ == nullptr && return this->recurrenceShrink_ == nullptr && return this->remindersShrink_ == nullptr
+        && return this->startShrink_ == nullptr && return this->summary_ == nullptr; };
     // attendeesShrink Field Functions 
     bool hasAttendeesShrink() const { return this->attendeesShrink_ != nullptr;};
     void deleteAttendeesShrink() { this->attendeesShrink_ = nullptr;};

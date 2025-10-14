@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activeTimeGMT_ != nullptr
-        && this->activityId_ != nullptr && this->actualActionerId_ != nullptr && this->createTimeGMT_ != nullptr && this->finishTimeGMT_ != nullptr && this->originatorId_ != nullptr
-        && this->processInstanceId_ != nullptr && this->status_ != nullptr && this->taskId_ != nullptr && this->taskType_ != nullptr && this->title_ != nullptr
-        && this->titleInEnglish_ != nullptr; };
+    virtual bool empty() const override { return this->activeTimeGMT_ == nullptr
+        && return this->activityId_ == nullptr && return this->actualActionerId_ == nullptr && return this->createTimeGMT_ == nullptr && return this->finishTimeGMT_ == nullptr && return this->originatorId_ == nullptr
+        && return this->processInstanceId_ == nullptr && return this->status_ == nullptr && return this->taskId_ == nullptr && return this->taskType_ == nullptr && return this->title_ == nullptr
+        && return this->titleInEnglish_ == nullptr; };
     // activeTimeGMT Field Functions 
     bool hasActiveTimeGMT() const { return this->activeTimeGMT_ != nullptr;};
     void deleteActiveTimeGMT() { this->activeTimeGMT_ = nullptr;};

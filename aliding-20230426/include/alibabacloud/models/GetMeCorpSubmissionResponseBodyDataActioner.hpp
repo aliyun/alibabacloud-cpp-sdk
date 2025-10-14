@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->buName_ != nullptr
-        && this->email_ != nullptr && this->employeeType_ != nullptr && this->employeeTypeInformation_ != nullptr && this->humanResourceGroupWorkNumber_ != nullptr && this->isSystemAdmin_ != nullptr
-        && this->level_ != nullptr && this->name_ != nullptr && this->nickName_ != nullptr && this->orderNumber_ != nullptr && this->personalPhoto_ != nullptr
-        && this->personalPhotoUrl_ != nullptr && this->pinyinNameAll_ != nullptr && this->pinyinNickName_ != nullptr && this->state_ != nullptr && this->superUserId_ != nullptr
-        && this->tbWang_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->buName_ == nullptr
+        && return this->email_ == nullptr && return this->employeeType_ == nullptr && return this->employeeTypeInformation_ == nullptr && return this->humanResourceGroupWorkNumber_ == nullptr && return this->isSystemAdmin_ == nullptr
+        && return this->level_ == nullptr && return this->name_ == nullptr && return this->nickName_ == nullptr && return this->orderNumber_ == nullptr && return this->personalPhoto_ == nullptr
+        && return this->personalPhotoUrl_ == nullptr && return this->pinyinNameAll_ == nullptr && return this->pinyinNickName_ == nullptr && return this->state_ == nullptr && return this->superUserId_ == nullptr
+        && return this->tbWang_ == nullptr && return this->userId_ == nullptr; };
     // buName Field Functions 
     bool hasBuName() const { return this->buName_ != nullptr;};
     void deleteBuName() { this->buName_ = nullptr;};

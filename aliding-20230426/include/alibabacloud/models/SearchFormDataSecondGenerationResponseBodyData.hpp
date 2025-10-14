@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTimeGMT_ != nullptr
-        && this->creatorUserId_ != nullptr && this->formData_ != nullptr && this->formInstanceId_ != nullptr && this->formUuid_ != nullptr && this->id_ != nullptr
-        && this->instanceValue_ != nullptr && this->modifiedTimeGMT_ != nullptr && this->modifier_ != nullptr && this->modifyUser_ != nullptr && this->originator_ != nullptr
-        && this->sequence_ != nullptr && this->serialNumber_ != nullptr && this->title_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->createTimeGMT_ == nullptr
+        && return this->creatorUserId_ == nullptr && return this->formData_ == nullptr && return this->formInstanceId_ == nullptr && return this->formUuid_ == nullptr && return this->id_ == nullptr
+        && return this->instanceValue_ == nullptr && return this->modifiedTimeGMT_ == nullptr && return this->modifier_ == nullptr && return this->modifyUser_ == nullptr && return this->originator_ == nullptr
+        && return this->sequence_ == nullptr && return this->serialNumber_ == nullptr && return this->title_ == nullptr && return this->version_ == nullptr; };
     // createTimeGMT Field Functions 
     bool hasCreateTimeGMT() const { return this->createTimeGMT_ != nullptr;};
     void deleteCreateTimeGMT() { this->createTimeGMT_ = nullptr;};

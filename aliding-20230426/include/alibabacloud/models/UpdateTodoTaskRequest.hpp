@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->tenantContext_ != nullptr
-        && this->description_ != nullptr && this->done_ != nullptr && this->dueTime_ != nullptr && this->executorIds_ != nullptr && this->participantIds_ != nullptr
-        && this->subject_ != nullptr && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->tenantContext_ == nullptr
+        && return this->description_ == nullptr && return this->done_ == nullptr && return this->dueTime_ == nullptr && return this->executorIds_ == nullptr && return this->participantIds_ == nullptr
+        && return this->subject_ == nullptr && return this->taskId_ == nullptr; };
     // tenantContext Field Functions 
     bool hasTenantContext() const { return this->tenantContext_ != nullptr;};
     void deleteTenantContext() { this->tenantContext_ = nullptr;};

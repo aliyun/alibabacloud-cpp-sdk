@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->tenantContextShrink_ != nullptr
-        && this->mediaName_ != nullptr && this->mediaType_ != nullptr && this->orgId_ != nullptr && this->url_ != nullptr; };
+    virtual bool empty() const override { return this->tenantContextShrink_ == nullptr
+        && return this->mediaName_ == nullptr && return this->mediaType_ == nullptr && return this->orgId_ == nullptr && return this->url_ == nullptr; };
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};

@@ -100,14 +100,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->active_ != nullptr
-        && this->admin_ != nullptr && this->avatar_ != nullptr && this->boss_ != nullptr && this->deptIdList_ != nullptr && this->deptOrderList_ != nullptr
-        && this->email_ != nullptr && this->exclusiveAccount_ != nullptr && this->exclusiveAccountCorpId_ != nullptr && this->exclusiveAccountCorpName_ != nullptr && this->exclusiveAccountType_ != nullptr
-        && this->extension_ != nullptr && this->hideMobile_ != nullptr && this->hiredDate_ != nullptr && this->jobNumber_ != nullptr && this->leaderInDept_ != nullptr
-        && this->loginId_ != nullptr && this->managerUserid_ != nullptr && this->mobile_ != nullptr && this->name_ != nullptr && this->nickname_ != nullptr
-        && this->orgEmail_ != nullptr && this->realAuthed_ != nullptr && this->remark_ != nullptr && this->requestId_ != nullptr && this->roleList_ != nullptr
-        && this->senior_ != nullptr && this->stateCode_ != nullptr && this->telephone_ != nullptr && this->title_ != nullptr && this->unionEmpExt_ != nullptr
-        && this->unionid_ != nullptr && this->userid_ != nullptr && this->workPlace_ != nullptr; };
+    virtual bool empty() const override { return this->active_ == nullptr
+        && return this->admin_ == nullptr && return this->avatar_ == nullptr && return this->boss_ == nullptr && return this->deptIdList_ == nullptr && return this->deptOrderList_ == nullptr
+        && return this->email_ == nullptr && return this->exclusiveAccount_ == nullptr && return this->exclusiveAccountCorpId_ == nullptr && return this->exclusiveAccountCorpName_ == nullptr && return this->exclusiveAccountType_ == nullptr
+        && return this->extension_ == nullptr && return this->hideMobile_ == nullptr && return this->hiredDate_ == nullptr && return this->jobNumber_ == nullptr && return this->leaderInDept_ == nullptr
+        && return this->loginId_ == nullptr && return this->managerUserid_ == nullptr && return this->mobile_ == nullptr && return this->name_ == nullptr && return this->nickname_ == nullptr
+        && return this->orgEmail_ == nullptr && return this->realAuthed_ == nullptr && return this->remark_ == nullptr && return this->requestId_ == nullptr && return this->roleList_ == nullptr
+        && return this->senior_ == nullptr && return this->stateCode_ == nullptr && return this->telephone_ == nullptr && return this->title_ == nullptr && return this->unionEmpExt_ == nullptr
+        && return this->unionid_ == nullptr && return this->userid_ == nullptr && return this->workPlace_ == nullptr; };
     // active Field Functions 
     bool hasActive() const { return this->active_ != nullptr;};
     void deleteActive() { this->active_ = nullptr;};

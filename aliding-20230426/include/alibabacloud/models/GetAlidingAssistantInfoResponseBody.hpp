@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->approvalStatus_ != nullptr
-        && this->processInstanceId_ != nullptr && this->requestId_ != nullptr && this->vendorRequestId_ != nullptr && this->vendorType_ != nullptr; };
+    virtual bool empty() const override { return this->approvalStatus_ == nullptr
+        && return this->processInstanceId_ == nullptr && return this->requestId_ == nullptr && return this->vendorRequestId_ == nullptr && return this->vendorType_ == nullptr; };
     // approvalStatus Field Functions 
     bool hasApprovalStatus() const { return this->approvalStatus_ != nullptr;};
     void deleteApprovalStatus() { this->approvalStatus_ = nullptr;};

@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activeTimeGMT_ != nullptr
-        && this->actualActionerId_ != nullptr && this->appType_ != nullptr && this->createTimeGMT_ != nullptr && this->finishTimeGMT_ != nullptr && this->originatorEmail_ != nullptr
-        && this->originatorId_ != nullptr && this->originatorName_ != nullptr && this->originatorNameInEnglish_ != nullptr && this->originatorNickName_ != nullptr && this->originatorNickNameInEnglish_ != nullptr
-        && this->originatorPhoto_ != nullptr && this->outResult_ != nullptr && this->outResultName_ != nullptr && this->processInstanceId_ != nullptr && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->activeTimeGMT_ == nullptr
+        && return this->actualActionerId_ == nullptr && return this->appType_ == nullptr && return this->createTimeGMT_ == nullptr && return this->finishTimeGMT_ == nullptr && return this->originatorEmail_ == nullptr
+        && return this->originatorId_ == nullptr && return this->originatorName_ == nullptr && return this->originatorNameInEnglish_ == nullptr && return this->originatorNickName_ == nullptr && return this->originatorNickNameInEnglish_ == nullptr
+        && return this->originatorPhoto_ == nullptr && return this->outResult_ == nullptr && return this->outResultName_ == nullptr && return this->processInstanceId_ == nullptr && return this->title_ == nullptr; };
     // activeTimeGMT Field Functions 
     bool hasActiveTimeGMT() const { return this->activeTimeGMT_ != nullptr;};
     void deleteActiveTimeGMT() { this->activeTimeGMT_ = nullptr;};

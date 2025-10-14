@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->notify_ != nullptr
-        && this->openTeamId_ != nullptr && this->openTicketId_ != nullptr && this->tenantContext_ != nullptr && this->ticketMemo_ != nullptr; };
+    virtual bool empty() const override { return this->notify_ == nullptr
+        && return this->openTeamId_ == nullptr && return this->openTicketId_ == nullptr && return this->tenantContext_ == nullptr && return this->ticketMemo_ == nullptr; };
     // notify Field Functions 
     bool hasNotify() const { return this->notify_ != nullptr;};
     void deleteNotify() { this->notify_ = nullptr;};

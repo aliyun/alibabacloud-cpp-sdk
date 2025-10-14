@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->multipartHeaderSignatureInfos_ != nullptr
-        && this->requestId_ != nullptr && this->vendorRequestId_ != nullptr && this->vendorType_ != nullptr; };
+    virtual bool empty() const override { return this->multipartHeaderSignatureInfos_ == nullptr
+        && return this->requestId_ == nullptr && return this->vendorRequestId_ == nullptr && return this->vendorType_ == nullptr; };
     // multipartHeaderSignatureInfos Field Functions 
     bool hasMultipartHeaderSignatureInfos() const { return this->multipartHeaderSignatureInfos_ != nullptr;};
     void deleteMultipartHeaderSignatureInfos() { this->multipartHeaderSignatureInfos_ = nullptr;};

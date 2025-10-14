@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cohostUserIds_ != nullptr
-        && this->confAllowedCorpId_ != nullptr && this->hostUserId_ != nullptr && this->lockRoom_ != nullptr && this->moziConfOpenRecordSetting_ != nullptr && this->moziConfVirtualExtraSetting_ != nullptr
-        && this->muteOnJoin_ != nullptr && this->screenShareForbidden_ != nullptr; };
+    virtual bool empty() const override { return this->cohostUserIds_ == nullptr
+        && return this->confAllowedCorpId_ == nullptr && return this->hostUserId_ == nullptr && return this->lockRoom_ == nullptr && return this->moziConfOpenRecordSetting_ == nullptr && return this->moziConfVirtualExtraSetting_ == nullptr
+        && return this->muteOnJoin_ == nullptr && return this->screenShareForbidden_ == nullptr; };
     // cohostUserIds Field Functions 
     bool hasCohostUserIds() const { return this->cohostUserIds_ != nullptr;};
     void deleteCohostUserIds() { this->cohostUserIds_ = nullptr;};

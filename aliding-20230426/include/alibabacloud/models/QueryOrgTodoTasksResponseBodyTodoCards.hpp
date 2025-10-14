@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizTag_ != nullptr
-        && this->createdTime_ != nullptr && this->creatorId_ != nullptr && this->detailUrl_ != nullptr && this->dueTime_ != nullptr && this->isDone_ != nullptr
-        && this->modifiedTime_ != nullptr && this->priority_ != nullptr && this->sourceId_ != nullptr && this->subject_ != nullptr && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->bizTag_ == nullptr
+        && return this->createdTime_ == nullptr && return this->creatorId_ == nullptr && return this->detailUrl_ == nullptr && return this->dueTime_ == nullptr && return this->isDone_ == nullptr
+        && return this->modifiedTime_ == nullptr && return this->priority_ == nullptr && return this->sourceId_ == nullptr && return this->subject_ == nullptr && return this->taskId_ == nullptr; };
     // bizTag Field Functions 
     bool hasBizTag() const { return this->bizTag_ != nullptr;};
     void deleteBizTag() { this->bizTag_ = nullptr;};

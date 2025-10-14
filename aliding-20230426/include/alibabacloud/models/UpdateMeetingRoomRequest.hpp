@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableCycleReservation_ != nullptr
-        && this->groupId_ != nullptr && this->isvRoomId_ != nullptr && this->reservationAuthority_ != nullptr && this->roomCapacity_ != nullptr && this->roomId_ != nullptr
-        && this->roomLabelIds_ != nullptr && this->roomLocation_ != nullptr && this->roomName_ != nullptr && this->roomPicture_ != nullptr && this->roomStatus_ != nullptr
-        && this->tenantContext_ != nullptr; };
+    virtual bool empty() const override { return this->enableCycleReservation_ == nullptr
+        && return this->groupId_ == nullptr && return this->isvRoomId_ == nullptr && return this->reservationAuthority_ == nullptr && return this->roomCapacity_ == nullptr && return this->roomId_ == nullptr
+        && return this->roomLabelIds_ == nullptr && return this->roomLocation_ == nullptr && return this->roomName_ == nullptr && return this->roomPicture_ == nullptr && return this->roomStatus_ == nullptr
+        && return this->tenantContext_ == nullptr; };
     // enableCycleReservation Field Functions 
     bool hasEnableCycleReservation() const { return this->enableCycleReservation_ != nullptr;};
     void deleteEnableCycleReservation() { this->enableCycleReservation_ = nullptr;};

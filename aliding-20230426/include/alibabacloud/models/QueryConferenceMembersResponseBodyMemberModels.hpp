@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attendStatus_ != nullptr
-        && this->coHost_ != nullptr && this->conferenceId_ != nullptr && this->duration_ != nullptr && this->host_ != nullptr && this->joinTime_ != nullptr
-        && this->leaveTime_ != nullptr && this->outerOrgMember_ != nullptr && this->pstnJoin_ != nullptr && this->userId_ != nullptr && this->userNick_ != nullptr; };
+    virtual bool empty() const override { return this->attendStatus_ == nullptr
+        && return this->coHost_ == nullptr && return this->conferenceId_ == nullptr && return this->duration_ == nullptr && return this->host_ == nullptr && return this->joinTime_ == nullptr
+        && return this->leaveTime_ == nullptr && return this->outerOrgMember_ == nullptr && return this->pstnJoin_ == nullptr && return this->userId_ == nullptr && return this->userNick_ == nullptr; };
     // attendStatus Field Functions 
     bool hasAttendStatus() const { return this->attendStatus_ != nullptr;};
     void deleteAttendStatus() { this->attendStatus_ = nullptr;};

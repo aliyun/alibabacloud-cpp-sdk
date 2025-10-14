@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->isFollowHost_ != nullptr
-        && this->mode_ != nullptr && this->recordAutoStart_ != nullptr && this->recordAutoStartType_ != nullptr; };
+    virtual bool empty() const override { return this->isFollowHost_ == nullptr
+        && return this->mode_ == nullptr && return this->recordAutoStart_ == nullptr && return this->recordAutoStartType_ == nullptr; };
     // isFollowHost Field Functions 
     bool hasIsFollowHost() const { return this->isFollowHost_ != nullptr;};
     void deleteIsFollowHost() { this->isFollowHost_ = nullptr;};

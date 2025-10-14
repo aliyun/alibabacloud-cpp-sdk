@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appType_ != nullptr
-        && this->createFromTimeGMT_ != nullptr && this->createToTimeGMT_ != nullptr && this->formUuid_ != nullptr && this->modifiedFromTimeGMT_ != nullptr && this->modifiedToTimeGMT_ != nullptr
-        && this->orderConfigJson_ != nullptr && this->originatorId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->searchCondition_ != nullptr
-        && this->systemToken_ != nullptr; };
+    virtual bool empty() const override { return this->appType_ == nullptr
+        && return this->createFromTimeGMT_ == nullptr && return this->createToTimeGMT_ == nullptr && return this->formUuid_ == nullptr && return this->modifiedFromTimeGMT_ == nullptr && return this->modifiedToTimeGMT_ == nullptr
+        && return this->orderConfigJson_ == nullptr && return this->originatorId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->searchCondition_ == nullptr
+        && return this->systemToken_ == nullptr; };
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};

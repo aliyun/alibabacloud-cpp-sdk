@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cursor_ != nullptr
-        && this->endTime_ != nullptr && this->modifiedEndTime_ != nullptr && this->modifiedStartTime_ != nullptr && this->size_ != nullptr && this->startTime_ != nullptr
-        && this->templateName_ != nullptr && this->tenantContext_ != nullptr; };
+    virtual bool empty() const override { return this->cursor_ == nullptr
+        && return this->endTime_ == nullptr && return this->modifiedEndTime_ == nullptr && return this->modifiedStartTime_ == nullptr && return this->size_ == nullptr && return this->startTime_ == nullptr
+        && return this->templateName_ == nullptr && return this->tenantContext_ == nullptr; };
     // cursor Field Functions 
     bool hasCursor() const { return this->cursor_ != nullptr;};
     void deleteCursor() { this->cursor_ = nullptr;};

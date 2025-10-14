@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cardCallback_ != nullptr
-        && this->dingCard_ != nullptr && this->dingNormalCard_ != nullptr && this->markdown_ != nullptr && this->structView_ != nullptr && this->text_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->cardCallback_ == nullptr
+        && return this->dingCard_ == nullptr && return this->dingNormalCard_ == nullptr && return this->markdown_ == nullptr && return this->structView_ == nullptr && return this->text_ == nullptr
+        && return this->type_ == nullptr; };
     // cardCallback Field Functions 
     bool hasCardCallback() const { return this->cardCallback_ != nullptr;};
     void deleteCardCallback() { this->cardCallback_ = nullptr;};

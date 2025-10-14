@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cloudRecordOwnerUserId_ != nullptr
-        && this->enableChat_ != nullptr && this->enableWebAnonymousJoin_ != nullptr && this->joinBeforeHost_ != nullptr && this->lockMediaStatusMicMute_ != nullptr && this->lockNick_ != nullptr
-        && this->minutesOwnerUserId_ != nullptr && this->moziConfExtensionAppSettings_ != nullptr && this->pushAllMeetingRecords_ != nullptr && this->pushCloudRecordCard_ != nullptr && this->pushMinutesCard_ != nullptr
-        && this->waitingRoom_ != nullptr; };
+    virtual bool empty() const override { return this->cloudRecordOwnerUserId_ == nullptr
+        && return this->enableChat_ == nullptr && return this->enableWebAnonymousJoin_ == nullptr && return this->joinBeforeHost_ == nullptr && return this->lockMediaStatusMicMute_ == nullptr && return this->lockNick_ == nullptr
+        && return this->minutesOwnerUserId_ == nullptr && return this->moziConfExtensionAppSettings_ == nullptr && return this->pushAllMeetingRecords_ == nullptr && return this->pushCloudRecordCard_ == nullptr && return this->pushMinutesCard_ == nullptr
+        && return this->waitingRoom_ == nullptr; };
     // cloudRecordOwnerUserId Field Functions 
     bool hasCloudRecordOwnerUserId() const { return this->cloudRecordOwnerUserId_ != nullptr;};
     void deleteCloudRecordOwnerUserId() { this->cloudRecordOwnerUserId_ = nullptr;};

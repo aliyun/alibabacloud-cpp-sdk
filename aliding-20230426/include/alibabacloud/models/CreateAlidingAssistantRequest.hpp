@@ -52,9 +52,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appCode_ != nullptr
-        && this->description_ != nullptr && this->ext_ != nullptr && this->icon_ != nullptr && this->instructions_ != nullptr && this->name_ != nullptr
-        && this->recommendPrompts_ != nullptr && this->source_ != nullptr && this->sourceIdentityId_ != nullptr && this->tenantContext_ != nullptr && this->welcomeContent_ != nullptr; };
+    virtual bool empty() const override { return this->appCode_ == nullptr
+        && return this->description_ == nullptr && return this->ext_ == nullptr && return this->icon_ == nullptr && return this->instructions_ == nullptr && return this->name_ == nullptr
+        && return this->recommendPrompts_ == nullptr && return this->source_ == nullptr && return this->sourceIdentityId_ == nullptr && return this->tenantContext_ == nullptr && return this->welcomeContent_ == nullptr; };
     // appCode Field Functions 
     bool hasAppCode() const { return this->appCode_ != nullptr;};
     void deleteAppCode() { this->appCode_ = nullptr;};

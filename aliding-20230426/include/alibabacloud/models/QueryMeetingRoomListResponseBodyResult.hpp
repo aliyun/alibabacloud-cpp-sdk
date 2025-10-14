@@ -53,9 +53,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->corpId_ != nullptr
-        && this->isvRoomId_ != nullptr && this->roomCapacity_ != nullptr && this->roomGroup_ != nullptr && this->roomId_ != nullptr && this->roomLabels_ != nullptr
-        && this->roomLocation_ != nullptr && this->roomName_ != nullptr && this->roomPicture_ != nullptr && this->roomStaffId_ != nullptr && this->roomStatus_ != nullptr; };
+    virtual bool empty() const override { return this->corpId_ == nullptr
+        && return this->isvRoomId_ == nullptr && return this->roomCapacity_ == nullptr && return this->roomGroup_ == nullptr && return this->roomId_ == nullptr && return this->roomLabels_ == nullptr
+        && return this->roomLocation_ == nullptr && return this->roomName_ == nullptr && return this->roomPicture_ == nullptr && return this->roomStaffId_ == nullptr && return this->roomStatus_ == nullptr; };
     // corpId Field Functions 
     bool hasCorpId() const { return this->corpId_ != nullptr;};
     void deleteCorpId() { this->corpId_ = nullptr;};

@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dentryUuid_ != nullptr
-        && this->docKey_ != nullptr && this->nodeId_ != nullptr && this->requestId_ != nullptr && this->url_ != nullptr && this->vendorRequestId_ != nullptr
-        && this->vendorType_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->dentryUuid_ == nullptr
+        && return this->docKey_ == nullptr && return this->nodeId_ == nullptr && return this->requestId_ == nullptr && return this->url_ == nullptr && return this->vendorRequestId_ == nullptr
+        && return this->vendorType_ == nullptr && return this->workspaceId_ == nullptr; };
     // dentryUuid Field Functions 
     bool hasDentryUuid() const { return this->dentryUuid_ != nullptr;};
     void deleteDentryUuid() { this->dentryUuid_ = nullptr;};

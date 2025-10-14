@@ -75,12 +75,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->action_ != nullptr
-        && this->actionExit_ != nullptr && this->activeTimeGMT_ != nullptr && this->activityId_ != nullptr && this->dataId_ != nullptr && this->digitalSign_ != nullptr
-        && this->files_ != nullptr && this->operateTimeGMT_ != nullptr && this->operateType_ != nullptr && this->operatorDisplayName_ != nullptr && this->operatorName_ != nullptr
-        && this->operatorNickName_ != nullptr && this->operatorPhotoUrl_ != nullptr && this->operatorStatus_ != nullptr && this->operatorUserId_ != nullptr && this->processInstanceId_ != nullptr
-        && this->remark_ != nullptr && this->showName_ != nullptr && this->size_ != nullptr && this->taskExecuteType_ != nullptr && this->taskHoldTimeGMT_ != nullptr
-        && this->taskId_ != nullptr && this->taskType_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->action_ == nullptr
+        && return this->actionExit_ == nullptr && return this->activeTimeGMT_ == nullptr && return this->activityId_ == nullptr && return this->dataId_ == nullptr && return this->digitalSign_ == nullptr
+        && return this->files_ == nullptr && return this->operateTimeGMT_ == nullptr && return this->operateType_ == nullptr && return this->operatorDisplayName_ == nullptr && return this->operatorName_ == nullptr
+        && return this->operatorNickName_ == nullptr && return this->operatorPhotoUrl_ == nullptr && return this->operatorStatus_ == nullptr && return this->operatorUserId_ == nullptr && return this->processInstanceId_ == nullptr
+        && return this->remark_ == nullptr && return this->showName_ == nullptr && return this->size_ == nullptr && return this->taskExecuteType_ == nullptr && return this->taskHoldTimeGMT_ == nullptr
+        && return this->taskId_ == nullptr && return this->taskType_ == nullptr && return this->type_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};

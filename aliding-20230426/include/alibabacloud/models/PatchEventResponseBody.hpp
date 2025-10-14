@@ -63,10 +63,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attendees_ != nullptr
-        && this->createTime_ != nullptr && this->description_ != nullptr && this->end_ != nullptr && this->id_ != nullptr && this->isAllDay_ != nullptr
-        && this->location_ != nullptr && this->organizer_ != nullptr && this->recurrence_ != nullptr && this->reminders_ != nullptr && this->requestId_ != nullptr
-        && this->start_ != nullptr && this->summary_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->attendees_ == nullptr
+        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->end_ == nullptr && return this->id_ == nullptr && return this->isAllDay_ == nullptr
+        && return this->location_ == nullptr && return this->organizer_ == nullptr && return this->recurrence_ == nullptr && return this->reminders_ == nullptr && return this->requestId_ == nullptr
+        && return this->start_ == nullptr && return this->summary_ == nullptr && return this->updateTime_ == nullptr; };
     // attendees Field Functions 
     bool hasAttendees() const { return this->attendees_ != nullptr;};
     void deleteAttendees() { this->attendees_ = nullptr;};

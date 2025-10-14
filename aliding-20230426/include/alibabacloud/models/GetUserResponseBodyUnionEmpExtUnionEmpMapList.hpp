@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cropId_ != nullptr
-        && this->userid_ != nullptr; };
+    virtual bool empty() const override { return this->cropId_ == nullptr
+        && return this->userid_ == nullptr; };
     // cropId Field Functions 
     bool hasCropId() const { return this->cropId_ != nullptr;};
     void deleteCropId() { this->cropId_ = nullptr;};

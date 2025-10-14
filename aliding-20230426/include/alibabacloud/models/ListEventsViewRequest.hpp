@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->calendarId_ != nullptr
-        && this->maxAttendees_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->timeMax_ != nullptr && this->timeMin_ != nullptr; };
+    virtual bool empty() const override { return this->calendarId_ == nullptr
+        && return this->maxAttendees_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->timeMax_ == nullptr && return this->timeMin_ == nullptr; };
     // calendarId Field Functions 
     bool hasCalendarId() const { return this->calendarId_ != nullptr;};
     void deleteCalendarId() { this->calendarId_ = nullptr;};

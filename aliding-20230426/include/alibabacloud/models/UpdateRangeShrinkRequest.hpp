@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backgroundColorsShrink_ != nullptr
-        && this->hyperlinksShrink_ != nullptr && this->numberFormat_ != nullptr && this->rangeAddress_ != nullptr && this->sheetId_ != nullptr && this->tenantContextShrink_ != nullptr
-        && this->valuesShrink_ != nullptr && this->workbookId_ != nullptr; };
+    virtual bool empty() const override { return this->backgroundColorsShrink_ == nullptr
+        && return this->hyperlinksShrink_ == nullptr && return this->numberFormat_ == nullptr && return this->rangeAddress_ == nullptr && return this->sheetId_ == nullptr && return this->tenantContextShrink_ == nullptr
+        && return this->valuesShrink_ == nullptr && return this->workbookId_ == nullptr; };
     // backgroundColorsShrink Field Functions 
     bool hasBackgroundColorsShrink() const { return this->backgroundColorsShrink_ != nullptr;};
     void deleteBackgroundColorsShrink() { this->backgroundColorsShrink_ = nullptr;};

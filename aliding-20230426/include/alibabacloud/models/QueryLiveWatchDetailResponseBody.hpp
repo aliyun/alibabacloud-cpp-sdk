@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->avgWatchTime_ != nullptr
-        && this->liveUv_ != nullptr && this->msgCount_ != nullptr && this->playbackUv_ != nullptr && this->praiseCount_ != nullptr && this->pv_ != nullptr
-        && this->requestId_ != nullptr && this->totalWatchTime_ != nullptr && this->uv_ != nullptr; };
+    virtual bool empty() const override { return this->avgWatchTime_ == nullptr
+        && return this->liveUv_ == nullptr && return this->msgCount_ == nullptr && return this->playbackUv_ == nullptr && return this->praiseCount_ == nullptr && return this->pv_ == nullptr
+        && return this->requestId_ == nullptr && return this->totalWatchTime_ == nullptr && return this->uv_ == nullptr; };
     // avgWatchTime Field Functions 
     bool hasAvgWatchTime() const { return this->avgWatchTime_ != nullptr;};
     void deleteAvgWatchTime() { this->avgWatchTime_ = nullptr;};

@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appProperties_ != nullptr
-        && this->createTime_ != nullptr && this->creatorId_ != nullptr && this->extension_ != nullptr && this->id_ != nullptr && this->modifiedTime_ != nullptr
-        && this->modifierId_ != nullptr && this->name_ != nullptr && this->parentId_ != nullptr && this->partitionType_ != nullptr && this->path_ != nullptr
-        && this->properties_ != nullptr && this->size_ != nullptr && this->spaceId_ != nullptr && this->status_ != nullptr && this->storageDriver_ != nullptr
-        && this->type_ != nullptr && this->uuid_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->appProperties_ == nullptr
+        && return this->createTime_ == nullptr && return this->creatorId_ == nullptr && return this->extension_ == nullptr && return this->id_ == nullptr && return this->modifiedTime_ == nullptr
+        && return this->modifierId_ == nullptr && return this->name_ == nullptr && return this->parentId_ == nullptr && return this->partitionType_ == nullptr && return this->path_ == nullptr
+        && return this->properties_ == nullptr && return this->size_ == nullptr && return this->spaceId_ == nullptr && return this->status_ == nullptr && return this->storageDriver_ == nullptr
+        && return this->type_ == nullptr && return this->uuid_ == nullptr && return this->version_ == nullptr; };
     // appProperties Field Functions 
     bool hasAppProperties() const { return this->appProperties_ != nullptr;};
     void deleteAppProperties() { this->appProperties_ = nullptr;};

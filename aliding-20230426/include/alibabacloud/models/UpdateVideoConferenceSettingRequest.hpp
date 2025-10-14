@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowUnmuteSelf_ != nullptr
-        && this->autoTransferHost_ != nullptr && this->forbiddenShareScreen_ != nullptr && this->lockConference_ != nullptr && this->muteAll_ != nullptr && this->onlyInternalEmployeesJoin_ != nullptr
-        && this->tenantContext_ != nullptr && this->conferenceId_ != nullptr; };
+    virtual bool empty() const override { return this->allowUnmuteSelf_ == nullptr
+        && return this->autoTransferHost_ == nullptr && return this->forbiddenShareScreen_ == nullptr && return this->lockConference_ == nullptr && return this->muteAll_ == nullptr && return this->onlyInternalEmployeesJoin_ == nullptr
+        && return this->tenantContext_ == nullptr && return this->conferenceId_ == nullptr; };
     // allowUnmuteSelf Field Functions 
     bool hasAllowUnmuteSelf() const { return this->allowUnmuteSelf_ != nullptr;};
     void deleteAllowUnmuteSelf() { this->allowUnmuteSelf_ = nullptr;};

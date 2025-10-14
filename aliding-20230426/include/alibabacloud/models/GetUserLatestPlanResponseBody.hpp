@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountHandleStatus_ != nullptr
-        && this->accountHandleTime_ != nullptr && this->accountType_ != nullptr && this->agreementFirstSignTime_ != nullptr && this->agreementLastSignTime_ != nullptr && this->agreementStatus_ != nullptr
-        && this->dataHandleEndTime_ != nullptr && this->dataHandleStartTime_ != nullptr && this->dataHandleStatus_ != nullptr && this->exclusivePlan_ != nullptr && this->newAccountUid_ != nullptr
-        && this->requestId_ != nullptr && this->status_ != nullptr && this->vendorRequestId_ != nullptr && this->vendorType_ != nullptr; };
+    virtual bool empty() const override { return this->accountHandleStatus_ == nullptr
+        && return this->accountHandleTime_ == nullptr && return this->accountType_ == nullptr && return this->agreementFirstSignTime_ == nullptr && return this->agreementLastSignTime_ == nullptr && return this->agreementStatus_ == nullptr
+        && return this->dataHandleEndTime_ == nullptr && return this->dataHandleStartTime_ == nullptr && return this->dataHandleStatus_ == nullptr && return this->exclusivePlan_ == nullptr && return this->newAccountUid_ == nullptr
+        && return this->requestId_ == nullptr && return this->status_ == nullptr && return this->vendorRequestId_ == nullptr && return this->vendorType_ == nullptr; };
     // accountHandleStatus Field Functions 
     bool hasAccountHandleStatus() const { return this->accountHandleStatus_ != nullptr;};
     void deleteAccountHandleStatus() { this->accountHandleStatus_ = nullptr;};

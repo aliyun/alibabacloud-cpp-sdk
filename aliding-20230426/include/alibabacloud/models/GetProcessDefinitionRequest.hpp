@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appType_ != nullptr
-        && this->corpId_ != nullptr && this->groupId_ != nullptr && this->language_ != nullptr && this->nameSpace_ != nullptr && this->orderNumber_ != nullptr
-        && this->processInstanceId_ != nullptr && this->systemToken_ != nullptr && this->systemType_ != nullptr; };
+    virtual bool empty() const override { return this->appType_ == nullptr
+        && return this->corpId_ == nullptr && return this->groupId_ == nullptr && return this->language_ == nullptr && return this->nameSpace_ == nullptr && return this->orderNumber_ == nullptr
+        && return this->processInstanceId_ == nullptr && return this->systemToken_ == nullptr && return this->systemType_ == nullptr; };
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};
@@ -79,8 +79,8 @@ namespace Models
     // nameSpace Field Functions 
     bool hasNameSpace() const { return this->nameSpace_ != nullptr;};
     void deleteNameSpace() { this->nameSpace_ = nullptr;};
-    inline string _nameSpace() const { DARABONBA_PTR_GET_DEFAULT(nameSpace_, "") };
-    inline GetProcessDefinitionRequest& setNameSpace(string _nameSpace) { DARABONBA_PTR_SET_VALUE(nameSpace_, _nameSpace) };
+    inline string nameSpace() const { DARABONBA_PTR_GET_DEFAULT(nameSpace_, "") };
+    inline GetProcessDefinitionRequest& setNameSpace(string nameSpace) { DARABONBA_PTR_SET_VALUE(nameSpace_, nameSpace) };
 
 
     // orderNumber Field Functions 

@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->tenantContextShrink_ != nullptr
-        && this->actionListShrink_ != nullptr && this->contentFieldListShrink_ != nullptr && this->creatorId_ != nullptr && this->description_ != nullptr && this->detailUrlShrink_ != nullptr
-        && this->dueTime_ != nullptr && this->executorIdsShrink_ != nullptr && this->isOnlyShowExecutor_ != nullptr && this->notifyConfigsShrink_ != nullptr && this->operatorId_ != nullptr
-        && this->participantIdsShrink_ != nullptr && this->priority_ != nullptr && this->remindNotifyConfigsShrink_ != nullptr && this->reminderTimeStamp_ != nullptr && this->sourceId_ != nullptr
-        && this->subject_ != nullptr; };
+    virtual bool empty() const override { return this->tenantContextShrink_ == nullptr
+        && return this->actionListShrink_ == nullptr && return this->contentFieldListShrink_ == nullptr && return this->creatorId_ == nullptr && return this->description_ == nullptr && return this->detailUrlShrink_ == nullptr
+        && return this->dueTime_ == nullptr && return this->executorIdsShrink_ == nullptr && return this->isOnlyShowExecutor_ == nullptr && return this->notifyConfigsShrink_ == nullptr && return this->operatorId_ == nullptr
+        && return this->participantIdsShrink_ == nullptr && return this->priority_ == nullptr && return this->remindNotifyConfigsShrink_ == nullptr && return this->reminderTimeStamp_ == nullptr && return this->sourceId_ == nullptr
+        && return this->subject_ == nullptr; };
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};

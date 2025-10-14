@@ -75,12 +75,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizTag_ != nullptr
-        && this->contentFieldList_ != nullptr && this->createdTime_ != nullptr && this->creatorId_ != nullptr && this->description_ != nullptr && this->detailUrl_ != nullptr
-        && this->done_ != nullptr && this->dueTime_ != nullptr && this->executorIds_ != nullptr && this->finishTime_ != nullptr && this->id_ != nullptr
-        && this->isOnlyShowExecutor_ != nullptr && this->modifiedTime_ != nullptr && this->modifierId_ != nullptr && this->notifyConfigs_ != nullptr && this->participantIds_ != nullptr
-        && this->priority_ != nullptr && this->requestId_ != nullptr && this->source_ != nullptr && this->sourceId_ != nullptr && this->startTime_ != nullptr
-        && this->subject_ != nullptr; };
+    virtual bool empty() const override { return this->bizTag_ == nullptr
+        && return this->contentFieldList_ == nullptr && return this->createdTime_ == nullptr && return this->creatorId_ == nullptr && return this->description_ == nullptr && return this->detailUrl_ == nullptr
+        && return this->done_ == nullptr && return this->dueTime_ == nullptr && return this->executorIds_ == nullptr && return this->finishTime_ == nullptr && return this->id_ == nullptr
+        && return this->isOnlyShowExecutor_ == nullptr && return this->modifiedTime_ == nullptr && return this->modifierId_ == nullptr && return this->notifyConfigs_ == nullptr && return this->participantIds_ == nullptr
+        && return this->priority_ == nullptr && return this->requestId_ == nullptr && return this->source_ == nullptr && return this->sourceId_ == nullptr && return this->startTime_ == nullptr
+        && return this->subject_ == nullptr; };
     // bizTag Field Functions 
     bool hasBizTag() const { return this->bizTag_ != nullptr;};
     void deleteBizTag() { this->bizTag_ = nullptr;};

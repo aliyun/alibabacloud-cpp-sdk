@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->coverUrl_ != nullptr
-        && this->duration_ != nullptr && this->endTime_ != nullptr && this->introduction_ != nullptr && this->liveId_ != nullptr && this->livePlayUrl_ != nullptr
-        && this->liveStatus_ != nullptr && this->playbackDuration_ != nullptr && this->requestId_ != nullptr && this->startTime_ != nullptr && this->subscribeCount_ != nullptr
-        && this->title_ != nullptr && this->uv_ != nullptr; };
+    virtual bool empty() const override { return this->coverUrl_ == nullptr
+        && return this->duration_ == nullptr && return this->endTime_ == nullptr && return this->introduction_ == nullptr && return this->liveId_ == nullptr && return this->livePlayUrl_ == nullptr
+        && return this->liveStatus_ == nullptr && return this->playbackDuration_ == nullptr && return this->requestId_ == nullptr && return this->startTime_ == nullptr && return this->subscribeCount_ == nullptr
+        && return this->title_ == nullptr && return this->uv_ == nullptr; };
     // coverUrl Field Functions 
     bool hasCoverUrl() const { return this->coverUrl_ != nullptr;};
     void deleteCoverUrl() { this->coverUrl_ = nullptr;};

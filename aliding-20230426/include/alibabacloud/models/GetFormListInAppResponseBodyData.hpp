@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creator_ != nullptr
-        && this->formType_ != nullptr && this->formUuid_ != nullptr && this->gmtCreate_ != nullptr && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->creator_ == nullptr
+        && return this->formType_ == nullptr && return this->formUuid_ == nullptr && return this->gmtCreate_ == nullptr && return this->title_ == nullptr; };
     // creator Field Functions 
     bool hasCreator() const { return this->creator_ != nullptr;};
     void deleteCreator() { this->creator_ = nullptr;};

@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->formUuid_ != nullptr
-        && this->originator_ != nullptr && this->outResult_ != nullptr && this->owners_ != nullptr && this->processId_ != nullptr && this->processInstanceId_ != nullptr
-        && this->requestId_ != nullptr && this->status_ != nullptr && this->tasks_ != nullptr && this->title_ != nullptr && this->variables_ != nullptr
-        && this->vendorRequestId_ != nullptr && this->vendorType_ != nullptr; };
+    virtual bool empty() const override { return this->formUuid_ == nullptr
+        && return this->originator_ == nullptr && return this->outResult_ == nullptr && return this->owners_ == nullptr && return this->processId_ == nullptr && return this->processInstanceId_ == nullptr
+        && return this->requestId_ == nullptr && return this->status_ == nullptr && return this->tasks_ == nullptr && return this->title_ == nullptr && return this->variables_ == nullptr
+        && return this->vendorRequestId_ == nullptr && return this->vendorType_ == nullptr; };
     // formUuid Field Functions 
     bool hasFormUuid() const { return this->formUuid_ != nullptr;};
     void deleteFormUuid() { this->formUuid_ = nullptr;};

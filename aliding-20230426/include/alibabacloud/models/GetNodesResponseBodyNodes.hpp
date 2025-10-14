@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->category_ != nullptr
-        && this->createTime_ != nullptr && this->creatorId_ != nullptr && this->extension_ != nullptr && this->hasChildren_ != nullptr && this->modifiedTime_ != nullptr
-        && this->modifierId_ != nullptr && this->name_ != nullptr && this->nodeId_ != nullptr && this->permissionRole_ != nullptr && this->size_ != nullptr
-        && this->statisticalInfo_ != nullptr && this->type_ != nullptr && this->url_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->category_ == nullptr
+        && return this->createTime_ == nullptr && return this->creatorId_ == nullptr && return this->extension_ == nullptr && return this->hasChildren_ == nullptr && return this->modifiedTime_ == nullptr
+        && return this->modifierId_ == nullptr && return this->name_ == nullptr && return this->nodeId_ == nullptr && return this->permissionRole_ == nullptr && return this->size_ == nullptr
+        && return this->statisticalInfo_ == nullptr && return this->type_ == nullptr && return this->url_ == nullptr && return this->workspaceId_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};

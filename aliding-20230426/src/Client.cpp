@@ -10339,7 +10339,7 @@ GetProcessDefinitionResponse Client::getProcessDefinitionWithOptions(const GetPr
   }
 
   if (!!request.hasNameSpace()) {
-    body["NameSpace"] = request._nameSpace();
+    body["NameSpace"] = request.nameSpace();
   }
 
   if (!!request.hasOrderNumber()) {

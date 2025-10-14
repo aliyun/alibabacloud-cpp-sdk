@@ -83,13 +83,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actionExecutorId_ != nullptr
-        && this->actionExecutorName_ != nullptr && this->appType_ != nullptr && this->carbonActivityId_ != nullptr && this->createTimeGMT_ != nullptr && this->currentActivityInstances_ != nullptr
-        && this->dataMap_ != nullptr && this->dataType_ != nullptr && this->finishTimeGMT_ != nullptr && this->formInstanceId_ != nullptr && this->formUuid_ != nullptr
-        && this->instanceValue_ != nullptr && this->modifiedTimeGMT_ != nullptr && this->originatorAvatar_ != nullptr && this->originatorDisplayName_ != nullptr && this->originatorId_ != nullptr
-        && this->processApprovedResult_ != nullptr && this->processApprovedResultText_ != nullptr && this->processCode_ != nullptr && this->processId_ != nullptr && this->processInstanceId_ != nullptr
-        && this->processInstanceStatus_ != nullptr && this->processInstanceStatusText_ != nullptr && this->processName_ != nullptr && this->serialNumber_ != nullptr && this->title_ != nullptr
-        && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->actionExecutorId_ == nullptr
+        && return this->actionExecutorName_ == nullptr && return this->appType_ == nullptr && return this->carbonActivityId_ == nullptr && return this->createTimeGMT_ == nullptr && return this->currentActivityInstances_ == nullptr
+        && return this->dataMap_ == nullptr && return this->dataType_ == nullptr && return this->finishTimeGMT_ == nullptr && return this->formInstanceId_ == nullptr && return this->formUuid_ == nullptr
+        && return this->instanceValue_ == nullptr && return this->modifiedTimeGMT_ == nullptr && return this->originatorAvatar_ == nullptr && return this->originatorDisplayName_ == nullptr && return this->originatorId_ == nullptr
+        && return this->processApprovedResult_ == nullptr && return this->processApprovedResultText_ == nullptr && return this->processCode_ == nullptr && return this->processId_ == nullptr && return this->processInstanceId_ == nullptr
+        && return this->processInstanceStatus_ == nullptr && return this->processInstanceStatusText_ == nullptr && return this->processName_ == nullptr && return this->serialNumber_ == nullptr && return this->title_ == nullptr
+        && return this->version_ == nullptr; };
     // actionExecutorId Field Functions 
     bool hasActionExecutorId() const { return this->actionExecutorId_ != nullptr;};
     void deleteActionExecutorId() { this->actionExecutorId_ = nullptr;};
