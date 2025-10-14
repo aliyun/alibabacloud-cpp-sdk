@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dnsMsgId_ != nullptr
-        && this->logTime_ != nullptr && this->protocol_ != nullptr && this->queryName_ != nullptr && this->queryType_ != nullptr && this->rt_ != nullptr
-        && this->serverIp_ != nullptr && this->sourceIp_ != nullptr && this->status_ != nullptr && this->subnetIp_ != nullptr && this->value_ != nullptr
-        && this->zoneName_ != nullptr; };
+    virtual bool empty() const override { return this->dnsMsgId_ == nullptr
+        && return this->logTime_ == nullptr && return this->protocol_ == nullptr && return this->queryName_ == nullptr && return this->queryType_ == nullptr && return this->rt_ == nullptr
+        && return this->serverIp_ == nullptr && return this->sourceIp_ == nullptr && return this->status_ == nullptr && return this->subnetIp_ == nullptr && return this->value_ == nullptr
+        && return this->zoneName_ == nullptr; };
     // dnsMsgId Field Functions 
     bool hasDnsMsgId() const { return this->dnsMsgId_ != nullptr;};
     void deleteDnsMsgId() { this->dnsMsgId_ = nullptr;};

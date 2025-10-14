@@ -13,6 +13,7 @@ namespace Models
   class ListCloudGtmInstancesResponseBodyInstancesInstance : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListCloudGtmInstancesResponseBodyInstancesInstance& obj) { 
+      DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(CommodityCode, commodityCode_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(CreateTimestamp, createTimestamp_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VersionCode, versionCode_);
     };
     friend void from_json(const Darabonba::Json& j, ListCloudGtmInstancesResponseBodyInstancesInstance& obj) { 
+      DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(CommodityCode, commodityCode_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(CreateTimestamp, createTimestamp_);
@@ -59,10 +61,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commodityCode_ != nullptr
-        && this->createTime_ != nullptr && this->createTimestamp_ != nullptr && this->expireTime_ != nullptr && this->expireTimestamp_ != nullptr && this->instanceId_ != nullptr
-        && this->instanceName_ != nullptr && this->monitorTaskQuota_ != nullptr && this->monthlyEmailUsed_ != nullptr && this->monthlySmsQuota_ != nullptr && this->monthlySmsUsed_ != nullptr
-        && this->monthlyWebhookUsed_ != nullptr && this->scheduleDomainName_ != nullptr && this->updateTime_ != nullptr && this->updateTimestamp_ != nullptr && this->versionCode_ != nullptr; };
+    virtual bool empty() const override { return this->chargeType_ == nullptr
+        && return this->commodityCode_ == nullptr && return this->createTime_ == nullptr && return this->createTimestamp_ == nullptr && return this->expireTime_ == nullptr && return this->expireTimestamp_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->monitorTaskQuota_ == nullptr && return this->monthlyEmailUsed_ == nullptr && return this->monthlySmsQuota_ == nullptr
+        && return this->monthlySmsUsed_ == nullptr && return this->monthlyWebhookUsed_ == nullptr && return this->scheduleDomainName_ == nullptr && return this->updateTime_ == nullptr && return this->updateTimestamp_ == nullptr
+        && return this->versionCode_ == nullptr; };
+    // chargeType Field Functions 
+    bool hasChargeType() const { return this->chargeType_ != nullptr;};
+    void deleteChargeType() { this->chargeType_ = nullptr;};
+    inline string chargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
+    inline ListCloudGtmInstancesResponseBodyInstancesInstance& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
+
+
     // commodityCode Field Functions 
     bool hasCommodityCode() const { return this->commodityCode_ != nullptr;};
     void deleteCommodityCode() { this->commodityCode_ = nullptr;};
@@ -176,6 +186,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> chargeType_ = nullptr;
     // The commodity code. Valid values:
     // 
     // *   dns_gtm_public_cn: commodity code on the China site (aliyun.com)

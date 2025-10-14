@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enable_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->remark_ != nullptr
-        && this->requestSource_ != nullptr && this->rr_ != nullptr && this->ttl_ != nullptr && this->type_ != nullptr && this->weight_ != nullptr
-        && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->enable_ == nullptr
+        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->remark_ == nullptr
+        && return this->requestSource_ == nullptr && return this->rr_ == nullptr && return this->ttl_ == nullptr && return this->type_ == nullptr && return this->weight_ == nullptr
+        && return this->zoneId_ == nullptr; };
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};

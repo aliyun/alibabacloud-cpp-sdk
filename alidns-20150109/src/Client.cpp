@@ -1456,6 +1456,8 @@ CreateCloudGtmAddressPoolResponse Client::createCloudGtmAddressPool(const Create
 }
 
 /**
+ * @summary 创建gtm实例配置
+ *
  * @param request CreateCloudGtmInstanceConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateCloudGtmInstanceConfigResponse
@@ -1465,6 +1467,10 @@ CreateCloudGtmInstanceConfigResponse Client::createCloudGtmInstanceConfigWithOpt
   json query = {};
   if (!!request.hasAcceptLanguage()) {
     query["AcceptLanguage"] = request.acceptLanguage();
+  }
+
+  if (!!request.hasChargeType()) {
+    query["ChargeType"] = request.chargeType();
   }
 
   if (!!request.hasClientToken()) {
@@ -1521,6 +1527,8 @@ CreateCloudGtmInstanceConfigResponse Client::createCloudGtmInstanceConfigWithOpt
 }
 
 /**
+ * @summary 创建gtm实例配置
+ *
  * @param request CreateCloudGtmInstanceConfigRequest
  * @return CreateCloudGtmInstanceConfigResponse
  */
@@ -8126,6 +8134,10 @@ ListCloudGtmInstancesResponse Client::listCloudGtmInstancesWithOptions(const Lis
     query["AcceptLanguage"] = request.acceptLanguage();
   }
 
+  if (!!request.hasChargeType()) {
+    query["ChargeType"] = request.chargeType();
+  }
+
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.clientToken();
   }
@@ -9424,6 +9436,10 @@ SearchCloudGtmInstancesResponse Client::searchCloudGtmInstancesWithOptions(const
   json query = {};
   if (!!request.hasAcceptLanguage()) {
     query["AcceptLanguage"] = request.acceptLanguage();
+  }
+
+  if (!!request.hasChargeType()) {
+    query["ChargeType"] = request.chargeType();
   }
 
   if (!!request.hasClientToken()) {

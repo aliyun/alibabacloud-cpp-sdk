@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->direction_ != nullptr
-        && this->domainName_ != nullptr && this->groupId_ != nullptr && this->keyWord_ != nullptr && this->lang_ != nullptr && this->line_ != nullptr
-        && this->orderBy_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->RRKeyWord_ != nullptr && this->searchMode_ != nullptr
-        && this->status_ != nullptr && this->type_ != nullptr && this->typeKeyWord_ != nullptr && this->valueKeyWord_ != nullptr; };
+    virtual bool empty() const override { return this->direction_ == nullptr
+        && return this->domainName_ == nullptr && return this->groupId_ == nullptr && return this->keyWord_ == nullptr && return this->lang_ == nullptr && return this->line_ == nullptr
+        && return this->orderBy_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->RRKeyWord_ == nullptr && return this->searchMode_ == nullptr
+        && return this->status_ == nullptr && return this->type_ == nullptr && return this->typeKeyWord_ == nullptr && return this->valueKeyWord_ == nullptr; };
     // direction Field Functions 
     bool hasDirection() const { return this->direction_ != nullptr;};
     void deleteDirection() { this->direction_ = nullptr;};

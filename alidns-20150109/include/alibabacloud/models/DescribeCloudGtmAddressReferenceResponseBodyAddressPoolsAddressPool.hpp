@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addressLbStrategy_ != nullptr
-        && this->addressPoolId_ != nullptr && this->addressPoolName_ != nullptr && this->addressPoolType_ != nullptr && this->availableStatus_ != nullptr && this->enableStatus_ != nullptr
-        && this->healthJudgement_ != nullptr && this->healthStatus_ != nullptr && this->instanceConfigs_ != nullptr && this->remark_ != nullptr && this->sequenceLbStrategyMode_ != nullptr; };
+    virtual bool empty() const override { return this->addressLbStrategy_ == nullptr
+        && return this->addressPoolId_ == nullptr && return this->addressPoolName_ == nullptr && return this->addressPoolType_ == nullptr && return this->availableStatus_ == nullptr && return this->enableStatus_ == nullptr
+        && return this->healthJudgement_ == nullptr && return this->healthStatus_ == nullptr && return this->instanceConfigs_ == nullptr && return this->remark_ == nullptr && return this->sequenceLbStrategyMode_ == nullptr; };
     // addressLbStrategy Field Functions 
     bool hasAddressLbStrategy() const { return this->addressLbStrategy_ != nullptr;};
     void deleteAddressLbStrategy() { this->addressLbStrategy_ = nullptr;};

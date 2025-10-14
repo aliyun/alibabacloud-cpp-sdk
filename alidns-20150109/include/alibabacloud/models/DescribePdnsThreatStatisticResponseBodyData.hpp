@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dohTotalCount_ != nullptr
-        && this->threatLevel_ != nullptr && this->threatType_ != nullptr && this->timestamp_ != nullptr && this->totalCount_ != nullptr && this->udpTotalCount_ != nullptr; };
+    virtual bool empty() const override { return this->dohTotalCount_ == nullptr
+        && return this->threatLevel_ == nullptr && return this->threatType_ == nullptr && return this->timestamp_ == nullptr && return this->totalCount_ == nullptr && return this->udpTotalCount_ == nullptr; };
     // dohTotalCount Field Functions 
     bool hasDohTotalCount() const { return this->dohTotalCount_ != nullptr;};
     void deleteDohTotalCount() { this->dohTotalCount_ = nullptr;};

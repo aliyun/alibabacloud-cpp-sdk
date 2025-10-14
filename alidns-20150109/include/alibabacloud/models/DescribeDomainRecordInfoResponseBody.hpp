@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->domainId_ != nullptr
-        && this->domainName_ != nullptr && this->groupId_ != nullptr && this->groupName_ != nullptr && this->line_ != nullptr && this->locked_ != nullptr
-        && this->priority_ != nullptr && this->punyCode_ != nullptr && this->RR_ != nullptr && this->recordId_ != nullptr && this->remark_ != nullptr
-        && this->requestId_ != nullptr && this->status_ != nullptr && this->TTL_ != nullptr && this->type_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->domainId_ == nullptr
+        && return this->domainName_ == nullptr && return this->groupId_ == nullptr && return this->groupName_ == nullptr && return this->line_ == nullptr && return this->locked_ == nullptr
+        && return this->priority_ == nullptr && return this->punyCode_ == nullptr && return this->RR_ == nullptr && return this->recordId_ == nullptr && return this->remark_ == nullptr
+        && return this->requestId_ == nullptr && return this->status_ == nullptr && return this->TTL_ == nullptr && return this->type_ == nullptr && return this->value_ == nullptr; };
     // domainId Field Functions 
     bool hasDomainId() const { return this->domainId_ != nullptr;};
     void deleteDomainId() { this->domainId_ = nullptr;};

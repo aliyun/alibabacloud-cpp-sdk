@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cacheTtlMax_ != nullptr
-        && this->cacheTtlMin_ != nullptr && this->createTime_ != nullptr && this->createTimestamp_ != nullptr && this->domainId_ != nullptr && this->domainName_ != nullptr
-        && this->expireTime_ != nullptr && this->expireTimestamp_ != nullptr && this->instanceId_ != nullptr && this->remark_ != nullptr && this->sourceDnsServers_ != nullptr
-        && this->sourceEdns_ != nullptr && this->sourceProtocol_ != nullptr && this->updateTime_ != nullptr && this->updateTimestamp_ != nullptr && this->versionCode_ != nullptr; };
+    virtual bool empty() const override { return this->cacheTtlMax_ == nullptr
+        && return this->cacheTtlMin_ == nullptr && return this->createTime_ == nullptr && return this->createTimestamp_ == nullptr && return this->domainId_ == nullptr && return this->domainName_ == nullptr
+        && return this->expireTime_ == nullptr && return this->expireTimestamp_ == nullptr && return this->instanceId_ == nullptr && return this->remark_ == nullptr && return this->sourceDnsServers_ == nullptr
+        && return this->sourceEdns_ == nullptr && return this->sourceProtocol_ == nullptr && return this->updateTime_ == nullptr && return this->updateTimestamp_ == nullptr && return this->versionCode_ == nullptr; };
     // cacheTtlMax Field Functions 
     bool hasCacheTtlMax() const { return this->cacheTtlMax_ != nullptr;};
     void deleteCacheTtlMax() { this->cacheTtlMax_ = nullptr;};

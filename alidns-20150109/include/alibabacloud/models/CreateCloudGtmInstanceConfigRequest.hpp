@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateCloudGtmInstanceConfigRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AcceptLanguage, acceptLanguage_);
+      DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(EnableStatus, enableStatus_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
@@ -26,6 +27,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateCloudGtmInstanceConfigRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AcceptLanguage, acceptLanguage_);
+      DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(EnableStatus, enableStatus_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
@@ -47,14 +49,21 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceptLanguage_ != nullptr
-        && this->clientToken_ != nullptr && this->enableStatus_ != nullptr && this->instanceId_ != nullptr && this->remark_ != nullptr && this->scheduleHostname_ != nullptr
-        && this->scheduleRrType_ != nullptr && this->scheduleZoneMode_ != nullptr && this->scheduleZoneName_ != nullptr && this->ttl_ != nullptr; };
+    virtual bool empty() const override { return this->acceptLanguage_ == nullptr
+        && return this->chargeType_ == nullptr && return this->clientToken_ == nullptr && return this->enableStatus_ == nullptr && return this->instanceId_ == nullptr && return this->remark_ == nullptr
+        && return this->scheduleHostname_ == nullptr && return this->scheduleRrType_ == nullptr && return this->scheduleZoneMode_ == nullptr && return this->scheduleZoneName_ == nullptr && return this->ttl_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
     inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline CreateCloudGtmInstanceConfigRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
+
+
+    // chargeType Field Functions 
+    bool hasChargeType() const { return this->chargeType_ != nullptr;};
+    void deleteChargeType() { this->chargeType_ = nullptr;};
+    inline string chargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
+    inline CreateCloudGtmInstanceConfigRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
 
 
     // clientToken Field Functions 
@@ -126,6 +135,7 @@ namespace Models
     // *   zh-CN: Chinese
     // *   en-US: English
     std::shared_ptr<string> acceptLanguage_ = nullptr;
+    std::shared_ptr<string> chargeType_ = nullptr;
     // The client token that is used to ensure the idempotence of the request. You can specify a custom value for this parameter, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     std::shared_ptr<string> clientToken_ = nullptr;
     // The enabling state of the access domain name. Valid values:

@@ -82,12 +82,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessMode_ != nullptr
-        && this->createTime_ != nullptr && this->createTimestamp_ != nullptr && this->defaultAddrPoolGroupStatus_ != nullptr && this->defaultAddrPoolType_ != nullptr && this->defaultAddrPools_ != nullptr
-        && this->defaultAvailableAddrNum_ != nullptr && this->defaultLatencyOptimization_ != nullptr && this->defaultLbaStrategy_ != nullptr && this->defaultMaxReturnAddrNum_ != nullptr && this->defaultMinAvailableAddrNum_ != nullptr
-        && this->effectiveAddrPoolGroupType_ != nullptr && this->failoverAddrPoolGroupStatus_ != nullptr && this->failoverAddrPoolType_ != nullptr && this->failoverAddrPools_ != nullptr && this->failoverAvailableAddrNum_ != nullptr
-        && this->failoverLatencyOptimization_ != nullptr && this->failoverLbaStrategy_ != nullptr && this->failoverMaxReturnAddrNum_ != nullptr && this->failoverMinAvailableAddrNum_ != nullptr && this->instanceId_ != nullptr
-        && this->lines_ != nullptr && this->requestId_ != nullptr && this->strategyId_ != nullptr && this->strategyMode_ != nullptr && this->strategyName_ != nullptr; };
+    virtual bool empty() const override { return this->accessMode_ == nullptr
+        && return this->createTime_ == nullptr && return this->createTimestamp_ == nullptr && return this->defaultAddrPoolGroupStatus_ == nullptr && return this->defaultAddrPoolType_ == nullptr && return this->defaultAddrPools_ == nullptr
+        && return this->defaultAvailableAddrNum_ == nullptr && return this->defaultLatencyOptimization_ == nullptr && return this->defaultLbaStrategy_ == nullptr && return this->defaultMaxReturnAddrNum_ == nullptr && return this->defaultMinAvailableAddrNum_ == nullptr
+        && return this->effectiveAddrPoolGroupType_ == nullptr && return this->failoverAddrPoolGroupStatus_ == nullptr && return this->failoverAddrPoolType_ == nullptr && return this->failoverAddrPools_ == nullptr && return this->failoverAvailableAddrNum_ == nullptr
+        && return this->failoverLatencyOptimization_ == nullptr && return this->failoverLbaStrategy_ == nullptr && return this->failoverMaxReturnAddrNum_ == nullptr && return this->failoverMinAvailableAddrNum_ == nullptr && return this->instanceId_ == nullptr
+        && return this->lines_ == nullptr && return this->requestId_ == nullptr && return this->strategyId_ == nullptr && return this->strategyMode_ == nullptr && return this->strategyName_ == nullptr; };
     // accessMode Field Functions 
     bool hasAccessMode() const { return this->accessMode_ != nullptr;};
     void deleteAccessMode() { this->accessMode_ = nullptr;};

@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessStrategyNum_ != nullptr
-        && this->addressPoolNum_ != nullptr && this->alertGroup_ != nullptr && this->cname_ != nullptr && this->cnameMode_ != nullptr && this->createTime_ != nullptr
-        && this->createTimestamp_ != nullptr && this->expireTime_ != nullptr && this->expireTimestamp_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr
-        && this->lbaStrategy_ != nullptr && this->resourceGroupId_ != nullptr && this->ttl_ != nullptr && this->userDomainName_ != nullptr && this->versionCode_ != nullptr; };
+    virtual bool empty() const override { return this->accessStrategyNum_ == nullptr
+        && return this->addressPoolNum_ == nullptr && return this->alertGroup_ == nullptr && return this->cname_ == nullptr && return this->cnameMode_ == nullptr && return this->createTime_ == nullptr
+        && return this->createTimestamp_ == nullptr && return this->expireTime_ == nullptr && return this->expireTimestamp_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr
+        && return this->lbaStrategy_ == nullptr && return this->resourceGroupId_ == nullptr && return this->ttl_ == nullptr && return this->userDomainName_ == nullptr && return this->versionCode_ == nullptr; };
     // accessStrategyNum Field Functions 
     bool hasAccessStrategyNum() const { return this->accessStrategyNum_ != nullptr;};
     void deleteAccessStrategyNum() { this->accessStrategyNum_ = nullptr;};

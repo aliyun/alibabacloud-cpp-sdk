@@ -78,12 +78,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addressPoolLbStrategy_ != nullptr
-        && this->addressPools_ != nullptr && this->alertConfig_ != nullptr && this->alertGroup_ != nullptr && this->availableStatus_ != nullptr && this->commodityCode_ != nullptr
-        && this->configId_ != nullptr && this->createTime_ != nullptr && this->createTimestamp_ != nullptr && this->enableStatus_ != nullptr && this->healthStatus_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->remark_ != nullptr && this->requestId_ != nullptr && this->scheduleDomainName_ != nullptr
-        && this->scheduleHostname_ != nullptr && this->scheduleRrType_ != nullptr && this->scheduleZoneMode_ != nullptr && this->scheduleZoneName_ != nullptr && this->sequenceLbStrategyMode_ != nullptr
-        && this->ttl_ != nullptr && this->updateTime_ != nullptr && this->updateTimestamp_ != nullptr && this->versionCode_ != nullptr; };
+    virtual bool empty() const override { return this->addressPoolLbStrategy_ == nullptr
+        && return this->addressPools_ == nullptr && return this->alertConfig_ == nullptr && return this->alertGroup_ == nullptr && return this->availableStatus_ == nullptr && return this->commodityCode_ == nullptr
+        && return this->configId_ == nullptr && return this->createTime_ == nullptr && return this->createTimestamp_ == nullptr && return this->enableStatus_ == nullptr && return this->healthStatus_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->remark_ == nullptr && return this->requestId_ == nullptr && return this->scheduleDomainName_ == nullptr
+        && return this->scheduleHostname_ == nullptr && return this->scheduleRrType_ == nullptr && return this->scheduleZoneMode_ == nullptr && return this->scheduleZoneName_ == nullptr && return this->sequenceLbStrategyMode_ == nullptr
+        && return this->ttl_ == nullptr && return this->updateTime_ == nullptr && return this->updateTimestamp_ == nullptr && return this->versionCode_ == nullptr; };
     // addressPoolLbStrategy Field Functions 
     bool hasAddressPoolLbStrategy() const { return this->addressPoolLbStrategy_ != nullptr;};
     void deleteAddressPoolLbStrategy() { this->addressPoolLbStrategy_ = nullptr;};

@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dohTotalCount_ != nullptr
-        && this->httpCount_ != nullptr && this->httpsCount_ != nullptr && this->ipCount_ != nullptr && this->timestamp_ != nullptr && this->totalCount_ != nullptr
-        && this->udpTotalCount_ != nullptr && this->v4Count_ != nullptr && this->v4HttpCount_ != nullptr && this->v4HttpsCount_ != nullptr && this->v6Count_ != nullptr
-        && this->v6HttpCount_ != nullptr && this->v6HttpsCount_ != nullptr; };
+    virtual bool empty() const override { return this->dohTotalCount_ == nullptr
+        && return this->httpCount_ == nullptr && return this->httpsCount_ == nullptr && return this->ipCount_ == nullptr && return this->timestamp_ == nullptr && return this->totalCount_ == nullptr
+        && return this->udpTotalCount_ == nullptr && return this->v4Count_ == nullptr && return this->v4HttpCount_ == nullptr && return this->v4HttpsCount_ == nullptr && return this->v6Count_ == nullptr
+        && return this->v6HttpCount_ == nullptr && return this->v6HttpsCount_ == nullptr; };
     // dohTotalCount Field Functions 
     bool hasDohTotalCount() const { return this->dohTotalCount_ != nullptr;};
     void deleteDohTotalCount() { this->dohTotalCount_ = nullptr;};

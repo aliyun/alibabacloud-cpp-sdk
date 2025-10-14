@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->threatLevel_ != nullptr
-        && this->threatType_ != nullptr; };
+    virtual bool empty() const override { return this->threatLevel_ == nullptr
+        && return this->threatType_ == nullptr; };
     // threatLevel Field Functions 
     bool hasThreatLevel() const { return this->threatLevel_ != nullptr;};
     void deleteThreatLevel() { this->threatLevel_ = nullptr;};

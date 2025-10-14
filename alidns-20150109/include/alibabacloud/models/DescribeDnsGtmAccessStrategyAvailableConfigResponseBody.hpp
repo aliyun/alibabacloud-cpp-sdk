@@ -52,9 +52,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->domainAddrPools_ != nullptr
-        && this->ipv4AddrPools_ != nullptr && this->ipv6AddrPools_ != nullptr && this->lines_ != nullptr && this->requestId_ != nullptr && this->selectedDomainLines_ != nullptr
-        && this->selectedIpv4Lines_ != nullptr && this->selectedIpv6Lines_ != nullptr && this->suggestSetDefaultLine_ != nullptr; };
+    virtual bool empty() const override { return this->domainAddrPools_ == nullptr
+        && return this->ipv4AddrPools_ == nullptr && return this->ipv6AddrPools_ == nullptr && return this->lines_ == nullptr && return this->requestId_ == nullptr && return this->selectedDomainLines_ == nullptr
+        && return this->selectedIpv4Lines_ == nullptr && return this->selectedIpv6Lines_ == nullptr && return this->suggestSetDefaultLine_ == nullptr; };
     // domainAddrPools Field Functions 
     bool hasDomainAddrPools() const { return this->domainAddrPools_ != nullptr;};
     void deleteDomainAddrPools() { this->domainAddrPools_ = nullptr;};

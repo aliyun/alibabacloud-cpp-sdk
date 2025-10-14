@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->lbaWeight_ != nullptr
-        && this->mode_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->lbaWeight_ == nullptr
+        && return this->mode_ == nullptr && return this->value_ == nullptr; };
     // lbaWeight Field Functions 
     bool hasLbaWeight() const { return this->lbaWeight_ != nullptr;};
     void deleteLbaWeight() { this->lbaWeight_ = nullptr;};

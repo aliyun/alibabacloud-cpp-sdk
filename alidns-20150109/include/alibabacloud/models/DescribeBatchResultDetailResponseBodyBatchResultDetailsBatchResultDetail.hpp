@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->batchType_ != nullptr
-        && this->domain_ != nullptr && this->line_ != nullptr && this->newRr_ != nullptr && this->newValue_ != nullptr && this->operateDateStr_ != nullptr
-        && this->priority_ != nullptr && this->reason_ != nullptr && this->recordId_ != nullptr && this->remark_ != nullptr && this->rr_ != nullptr
-        && this->rrStatus_ != nullptr && this->status_ != nullptr && this->ttl_ != nullptr && this->type_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->batchType_ == nullptr
+        && return this->domain_ == nullptr && return this->line_ == nullptr && return this->newRr_ == nullptr && return this->newValue_ == nullptr && return this->operateDateStr_ == nullptr
+        && return this->priority_ == nullptr && return this->reason_ == nullptr && return this->recordId_ == nullptr && return this->remark_ == nullptr && return this->rr_ == nullptr
+        && return this->rrStatus_ == nullptr && return this->status_ == nullptr && return this->ttl_ == nullptr && return this->type_ == nullptr && return this->value_ == nullptr; };
     // batchType Field Functions 
     bool hasBatchType() const { return this->batchType_ != nullptr;};
     void deleteBatchType() { this->batchType_ = nullptr;};

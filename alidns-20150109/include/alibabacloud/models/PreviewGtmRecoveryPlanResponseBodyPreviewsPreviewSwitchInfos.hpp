@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->switchInfo_ != nullptr; };
+    virtual bool empty() const override { return this->switchInfo_ == nullptr; };
     // switchInfo Field Functions 
     bool hasSwitchInfo() const { return this->switchInfo_ != nullptr;};
     void deleteSwitchInfo() { this->switchInfo_ = nullptr;};

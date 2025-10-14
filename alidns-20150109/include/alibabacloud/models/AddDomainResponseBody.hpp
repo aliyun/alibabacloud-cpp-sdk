@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dnsServers_ != nullptr
-        && this->domainId_ != nullptr && this->domainName_ != nullptr && this->groupId_ != nullptr && this->groupName_ != nullptr && this->punyCode_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->dnsServers_ == nullptr
+        && return this->domainId_ == nullptr && return this->domainName_ == nullptr && return this->groupId_ == nullptr && return this->groupName_ == nullptr && return this->punyCode_ == nullptr
+        && return this->requestId_ == nullptr; };
     // dnsServers Field Functions 
     bool hasDnsServers() const { return this->dnsServers_ != nullptr;};
     void deleteDnsServers() { this->dnsServers_ = nullptr;};

@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allAliDns_ != nullptr
-        && this->detectFailedReasonCode_ != nullptr && this->dnsServers_ != nullptr && this->expectDnsServers_ != nullptr && this->includeAliDns_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->allAliDns_ == nullptr
+        && return this->detectFailedReasonCode_ == nullptr && return this->dnsServers_ == nullptr && return this->expectDnsServers_ == nullptr && return this->includeAliDns_ == nullptr && return this->requestId_ == nullptr; };
     // allAliDns Field Functions 
     bool hasAllAliDns() const { return this->allAliDns_ != nullptr;};
     void deleteAllAliDns() { this->allAliDns_ = nullptr;};

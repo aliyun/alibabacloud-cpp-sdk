@@ -406,6 +406,8 @@ namespace Alidns20150109
       Models::CreateCloudGtmAddressPoolResponse createCloudGtmAddressPool(const Models::CreateCloudGtmAddressPoolRequest &request);
 
       /**
+       * @summary 创建gtm实例配置
+       *
        * @param request CreateCloudGtmInstanceConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateCloudGtmInstanceConfigResponse
@@ -413,6 +415,8 @@ namespace Alidns20150109
       Models::CreateCloudGtmInstanceConfigResponse createCloudGtmInstanceConfigWithOptions(const Models::CreateCloudGtmInstanceConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 创建gtm实例配置
+       *
        * @param request CreateCloudGtmInstanceConfigRequest
        * @return CreateCloudGtmInstanceConfigResponse
        */

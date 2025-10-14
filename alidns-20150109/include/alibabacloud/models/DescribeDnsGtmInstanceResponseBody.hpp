@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->config_ != nullptr
-        && this->createTime_ != nullptr && this->createTimestamp_ != nullptr && this->expireTime_ != nullptr && this->expireTimestamp_ != nullptr && this->instanceId_ != nullptr
-        && this->paymentType_ != nullptr && this->requestId_ != nullptr && this->resourceGroupId_ != nullptr && this->smsQuota_ != nullptr && this->taskQuota_ != nullptr
-        && this->usedQuota_ != nullptr && this->versionCode_ != nullptr; };
+    virtual bool empty() const override { return this->config_ == nullptr
+        && return this->createTime_ == nullptr && return this->createTimestamp_ == nullptr && return this->expireTime_ == nullptr && return this->expireTimestamp_ == nullptr && return this->instanceId_ == nullptr
+        && return this->paymentType_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->smsQuota_ == nullptr && return this->taskQuota_ == nullptr
+        && return this->usedQuota_ == nullptr && return this->versionCode_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};

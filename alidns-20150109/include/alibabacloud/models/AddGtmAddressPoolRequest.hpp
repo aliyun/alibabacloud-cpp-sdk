@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addr_ != nullptr
-        && this->evaluationCount_ != nullptr && this->instanceId_ != nullptr && this->interval_ != nullptr && this->ispCityNode_ != nullptr && this->lang_ != nullptr
-        && this->minAvailableAddrNum_ != nullptr && this->monitorExtendInfo_ != nullptr && this->monitorStatus_ != nullptr && this->name_ != nullptr && this->protocolType_ != nullptr
-        && this->timeout_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->addr_ == nullptr
+        && return this->evaluationCount_ == nullptr && return this->instanceId_ == nullptr && return this->interval_ == nullptr && return this->ispCityNode_ == nullptr && return this->lang_ == nullptr
+        && return this->minAvailableAddrNum_ == nullptr && return this->monitorExtendInfo_ == nullptr && return this->monitorStatus_ == nullptr && return this->name_ == nullptr && return this->protocolType_ == nullptr
+        && return this->timeout_ == nullptr && return this->type_ == nullptr; };
     // addr Field Functions 
     bool hasAddr() const { return this->addr_ != nullptr;};
     void deleteAddr() { this->addr_ = nullptr;};

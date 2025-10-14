@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->domainCount_ != nullptr
-        && this->httpCount_ != nullptr && this->httpsCount_ != nullptr && this->subDomainCount_ != nullptr && this->threatCount_ != nullptr && this->totalCount_ != nullptr
-        && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->domainCount_ == nullptr
+        && return this->httpCount_ == nullptr && return this->httpsCount_ == nullptr && return this->subDomainCount_ == nullptr && return this->threatCount_ == nullptr && return this->totalCount_ == nullptr
+        && return this->userId_ == nullptr; };
     // domainCount Field Functions 
     bool hasDomainCount() const { return this->domainCount_ != nullptr;};
     void deleteDomainCount() { this->domainCount_ = nullptr;};

@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cacheTtlMax_ != nullptr
-        && this->cacheTtlMin_ != nullptr && this->domainName_ != nullptr && this->instanceId_ != nullptr && this->lang_ != nullptr && this->sourceDnsServer_ != nullptr
-        && this->sourceEdns_ != nullptr && this->sourceProtocol_ != nullptr; };
+    virtual bool empty() const override { return this->cacheTtlMax_ == nullptr
+        && return this->cacheTtlMin_ == nullptr && return this->domainName_ == nullptr && return this->instanceId_ == nullptr && return this->lang_ == nullptr && return this->sourceDnsServer_ == nullptr
+        && return this->sourceEdns_ == nullptr && return this->sourceProtocol_ == nullptr; };
     // cacheTtlMax Field Functions 
     bool hasCacheTtlMax() const { return this->cacheTtlMax_ != nullptr;};
     void deleteCacheTtlMax() { this->cacheTtlMax_ = nullptr;};

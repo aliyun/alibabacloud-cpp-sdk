@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->availableAccessSecurityType_ != nullptr
-        && this->availableService_ != nullptr && this->pdnsId_ != nullptr && this->secretKey_ != nullptr && this->serviceType_ != nullptr && this->state_ != nullptr
-        && this->statisticSwitchStatus_ != nullptr && this->stoppedService_ != nullptr; };
+    virtual bool empty() const override { return this->availableAccessSecurityType_ == nullptr
+        && return this->availableService_ == nullptr && return this->pdnsId_ == nullptr && return this->secretKey_ == nullptr && return this->serviceType_ == nullptr && return this->state_ == nullptr
+        && return this->statisticSwitchStatus_ == nullptr && return this->stoppedService_ == nullptr; };
     // availableAccessSecurityType Field Functions 
     bool hasAvailableAccessSecurityType() const { return this->availableAccessSecurityType_ != nullptr;};
     void deleteAvailableAccessSecurityType() { this->availableAccessSecurityType_ = nullptr;};

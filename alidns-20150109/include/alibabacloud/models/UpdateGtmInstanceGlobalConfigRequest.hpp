@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertGroup_ != nullptr
-        && this->cnameCustomDomainName_ != nullptr && this->cnameMode_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->lang_ != nullptr
-        && this->lbaStrategy_ != nullptr && this->ttl_ != nullptr && this->userDomainName_ != nullptr; };
+    virtual bool empty() const override { return this->alertGroup_ == nullptr
+        && return this->cnameCustomDomainName_ == nullptr && return this->cnameMode_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->lang_ == nullptr
+        && return this->lbaStrategy_ == nullptr && return this->ttl_ == nullptr && return this->userDomainName_ == nullptr; };
     // alertGroup Field Functions 
     bool hasAlertGroup() const { return this->alertGroup_ != nullptr;};
     void deleteAlertGroup() { this->alertGroup_ = nullptr;};

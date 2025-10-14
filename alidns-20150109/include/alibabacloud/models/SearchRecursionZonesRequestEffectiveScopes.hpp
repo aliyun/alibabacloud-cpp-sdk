@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->effectiveType_ != nullptr
-        && this->scope_ != nullptr; };
+    virtual bool empty() const override { return this->effectiveType_ == nullptr
+        && return this->scope_ == nullptr; };
     // effectiveType Field Functions 
     bool hasEffectiveType() const { return this->effectiveType_ != nullptr;};
     void deleteEffectiveType() { this->effectiveType_ = nullptr;};

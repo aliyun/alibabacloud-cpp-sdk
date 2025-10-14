@@ -100,14 +100,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRenewal_ != nullptr
-        && this->bindCount_ != nullptr && this->bindDomainCount_ != nullptr && this->bindDomainUsedCount_ != nullptr && this->bindUsedCount_ != nullptr && this->DDosDefendFlow_ != nullptr
-        && this->DDosDefendQuery_ != nullptr && this->dnsSLBCount_ != nullptr && this->dnsSecurity_ != nullptr && this->dnsServers_ != nullptr && this->domain_ != nullptr
-        && this->domainType_ != nullptr && this->endTime_ != nullptr && this->endTimestamp_ != nullptr && this->gslb_ != nullptr && this->ISPLines_ != nullptr
-        && this->ISPRegionLines_ != nullptr && this->inBlackHole_ != nullptr && this->inClean_ != nullptr && this->instanceId_ != nullptr && this->monitorFrequency_ != nullptr
-        && this->monitorNodeCount_ != nullptr && this->monitorTaskCount_ != nullptr && this->overseaDDosDefendFlow_ != nullptr && this->overseaLine_ != nullptr && this->paymentType_ != nullptr
-        && this->regionLines_ != nullptr && this->requestId_ != nullptr && this->searchEngineLines_ != nullptr && this->startTime_ != nullptr && this->startTimestamp_ != nullptr
-        && this->subDomainLevel_ != nullptr && this->TTLMinValue_ != nullptr && this->URLForwardCount_ != nullptr && this->versionCode_ != nullptr && this->versionName_ != nullptr; };
+    virtual bool empty() const override { return this->autoRenewal_ == nullptr
+        && return this->bindCount_ == nullptr && return this->bindDomainCount_ == nullptr && return this->bindDomainUsedCount_ == nullptr && return this->bindUsedCount_ == nullptr && return this->DDosDefendFlow_ == nullptr
+        && return this->DDosDefendQuery_ == nullptr && return this->dnsSLBCount_ == nullptr && return this->dnsSecurity_ == nullptr && return this->dnsServers_ == nullptr && return this->domain_ == nullptr
+        && return this->domainType_ == nullptr && return this->endTime_ == nullptr && return this->endTimestamp_ == nullptr && return this->gslb_ == nullptr && return this->ISPLines_ == nullptr
+        && return this->ISPRegionLines_ == nullptr && return this->inBlackHole_ == nullptr && return this->inClean_ == nullptr && return this->instanceId_ == nullptr && return this->monitorFrequency_ == nullptr
+        && return this->monitorNodeCount_ == nullptr && return this->monitorTaskCount_ == nullptr && return this->overseaDDosDefendFlow_ == nullptr && return this->overseaLine_ == nullptr && return this->paymentType_ == nullptr
+        && return this->regionLines_ == nullptr && return this->requestId_ == nullptr && return this->searchEngineLines_ == nullptr && return this->startTime_ == nullptr && return this->startTimestamp_ == nullptr
+        && return this->subDomainLevel_ == nullptr && return this->TTLMinValue_ == nullptr && return this->URLForwardCount_ == nullptr && return this->versionCode_ == nullptr && return this->versionName_ == nullptr; };
     // autoRenewal Field Functions 
     bool hasAutoRenewal() const { return this->autoRenewal_ != nullptr;};
     void deleteAutoRenewal() { this->autoRenewal_ = nullptr;};

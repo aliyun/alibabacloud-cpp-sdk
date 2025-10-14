@@ -73,12 +73,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliDomain_ != nullptr
-        && this->createTime_ != nullptr && this->createTimestamp_ != nullptr && this->dnsServers_ != nullptr && this->domainId_ != nullptr && this->domainLoggingSwitchStatus_ != nullptr
-        && this->domainName_ != nullptr && this->groupId_ != nullptr && this->groupName_ != nullptr && this->instanceEndTime_ != nullptr && this->instanceExpired_ != nullptr
-        && this->instanceId_ != nullptr && this->punyCode_ != nullptr && this->recordCount_ != nullptr && this->registrantEmail_ != nullptr && this->remark_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->slaveDnsStatus_ != nullptr && this->starmark_ != nullptr && this->tags_ != nullptr && this->versionCode_ != nullptr
-        && this->versionName_ != nullptr; };
+    virtual bool empty() const override { return this->aliDomain_ == nullptr
+        && return this->createTime_ == nullptr && return this->createTimestamp_ == nullptr && return this->dnsServers_ == nullptr && return this->domainId_ == nullptr && return this->domainLoggingSwitchStatus_ == nullptr
+        && return this->domainName_ == nullptr && return this->groupId_ == nullptr && return this->groupName_ == nullptr && return this->instanceEndTime_ == nullptr && return this->instanceExpired_ == nullptr
+        && return this->instanceId_ == nullptr && return this->punyCode_ == nullptr && return this->recordCount_ == nullptr && return this->registrantEmail_ == nullptr && return this->remark_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->slaveDnsStatus_ == nullptr && return this->starmark_ == nullptr && return this->tags_ == nullptr && return this->versionCode_ == nullptr
+        && return this->versionName_ == nullptr; };
     // aliDomain Field Functions 
     bool hasAliDomain() const { return this->aliDomain_ != nullptr;};
     void deleteAliDomain() { this->aliDomain_ = nullptr;};

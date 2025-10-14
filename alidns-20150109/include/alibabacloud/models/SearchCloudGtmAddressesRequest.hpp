@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceptLanguage_ != nullptr
-        && this->address_ != nullptr && this->addressId_ != nullptr && this->availableStatus_ != nullptr && this->enableStatus_ != nullptr && this->healthStatus_ != nullptr
-        && this->monitorTemplateName_ != nullptr && this->nameSearchCondition_ != nullptr && this->names_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->remarkSearchCondition_ != nullptr && this->remarks_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->acceptLanguage_ == nullptr
+        && return this->address_ == nullptr && return this->addressId_ == nullptr && return this->availableStatus_ == nullptr && return this->enableStatus_ == nullptr && return this->healthStatus_ == nullptr
+        && return this->monitorTemplateName_ == nullptr && return this->nameSearchCondition_ == nullptr && return this->names_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->remarkSearchCondition_ == nullptr && return this->remarks_ == nullptr && return this->type_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};

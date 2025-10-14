@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addrCount_ != nullptr
-        && this->addrPoolId_ != nullptr && this->createTime_ != nullptr && this->createTimestamp_ != nullptr && this->minAvailableAddrNum_ != nullptr && this->monitorConfigId_ != nullptr
-        && this->monitorStatus_ != nullptr && this->name_ != nullptr && this->status_ != nullptr && this->type_ != nullptr && this->updateTime_ != nullptr
-        && this->updateTimestamp_ != nullptr; };
+    virtual bool empty() const override { return this->addrCount_ == nullptr
+        && return this->addrPoolId_ == nullptr && return this->createTime_ == nullptr && return this->createTimestamp_ == nullptr && return this->minAvailableAddrNum_ == nullptr && return this->monitorConfigId_ == nullptr
+        && return this->monitorStatus_ == nullptr && return this->name_ == nullptr && return this->status_ == nullptr && return this->type_ == nullptr && return this->updateTime_ == nullptr
+        && return this->updateTimestamp_ == nullptr; };
     // addrCount Field Functions 
     bool hasAddrCount() const { return this->addrCount_ != nullptr;};
     void deleteAddrCount() { this->addrCount_ = nullptr;};

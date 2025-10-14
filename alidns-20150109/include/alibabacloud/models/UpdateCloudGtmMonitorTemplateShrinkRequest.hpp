@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceptLanguage_ != nullptr
-        && this->clientToken_ != nullptr && this->evaluationCount_ != nullptr && this->extendInfo_ != nullptr && this->failureRate_ != nullptr && this->interval_ != nullptr
-        && this->ispCityNodesShrink_ != nullptr && this->name_ != nullptr && this->templateId_ != nullptr && this->timeout_ != nullptr; };
+    virtual bool empty() const override { return this->acceptLanguage_ == nullptr
+        && return this->clientToken_ == nullptr && return this->evaluationCount_ == nullptr && return this->extendInfo_ == nullptr && return this->failureRate_ == nullptr && return this->interval_ == nullptr
+        && return this->ispCityNodesShrink_ == nullptr && return this->name_ == nullptr && return this->templateId_ == nullptr && return this->timeout_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};

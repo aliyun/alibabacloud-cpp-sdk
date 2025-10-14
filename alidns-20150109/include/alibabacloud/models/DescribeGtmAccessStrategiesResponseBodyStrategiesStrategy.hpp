@@ -62,11 +62,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessMode_ != nullptr
-        && this->accessStatus_ != nullptr && this->createTime_ != nullptr && this->createTimestamp_ != nullptr && this->defaultAddrPoolId_ != nullptr && this->defaultAddrPoolMonitorStatus_ != nullptr
-        && this->defaultAddrPoolName_ != nullptr && this->defaultAddrPoolStatus_ != nullptr && this->failoverAddrPoolId_ != nullptr && this->failoverAddrPoolMonitorStatus_ != nullptr && this->failoverAddrPoolName_ != nullptr
-        && this->failoverAddrPoolStatus_ != nullptr && this->instanceId_ != nullptr && this->lines_ != nullptr && this->strategyId_ != nullptr && this->strategyMode_ != nullptr
-        && this->strategyName_ != nullptr; };
+    virtual bool empty() const override { return this->accessMode_ == nullptr
+        && return this->accessStatus_ == nullptr && return this->createTime_ == nullptr && return this->createTimestamp_ == nullptr && return this->defaultAddrPoolId_ == nullptr && return this->defaultAddrPoolMonitorStatus_ == nullptr
+        && return this->defaultAddrPoolName_ == nullptr && return this->defaultAddrPoolStatus_ == nullptr && return this->failoverAddrPoolId_ == nullptr && return this->failoverAddrPoolMonitorStatus_ == nullptr && return this->failoverAddrPoolName_ == nullptr
+        && return this->failoverAddrPoolStatus_ == nullptr && return this->instanceId_ == nullptr && return this->lines_ == nullptr && return this->strategyId_ == nullptr && return this->strategyMode_ == nullptr
+        && return this->strategyName_ == nullptr; };
     // accessMode Field Functions 
     bool hasAccessMode() const { return this->accessMode_ != nullptr;};
     void deleteAccessMode() { this->accessMode_ = nullptr;};

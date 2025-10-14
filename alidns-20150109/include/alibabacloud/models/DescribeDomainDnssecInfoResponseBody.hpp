@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->algorithm_ != nullptr
-        && this->digest_ != nullptr && this->digestType_ != nullptr && this->domainName_ != nullptr && this->dsRecord_ != nullptr && this->flags_ != nullptr
-        && this->keyTag_ != nullptr && this->publicKey_ != nullptr && this->requestId_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->algorithm_ == nullptr
+        && return this->digest_ == nullptr && return this->digestType_ == nullptr && return this->domainName_ == nullptr && return this->dsRecord_ == nullptr && return this->flags_ == nullptr
+        && return this->keyTag_ == nullptr && return this->publicKey_ == nullptr && return this->requestId_ == nullptr && return this->status_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};

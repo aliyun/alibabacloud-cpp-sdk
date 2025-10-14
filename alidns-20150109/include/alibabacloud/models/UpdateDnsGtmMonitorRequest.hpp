@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->evaluationCount_ != nullptr
-        && this->interval_ != nullptr && this->ispCityNode_ != nullptr && this->lang_ != nullptr && this->monitorConfigId_ != nullptr && this->monitorExtendInfo_ != nullptr
-        && this->protocolType_ != nullptr && this->timeout_ != nullptr; };
+    virtual bool empty() const override { return this->evaluationCount_ == nullptr
+        && return this->interval_ == nullptr && return this->ispCityNode_ == nullptr && return this->lang_ == nullptr && return this->monitorConfigId_ == nullptr && return this->monitorExtendInfo_ == nullptr
+        && return this->protocolType_ == nullptr && return this->timeout_ == nullptr; };
     // evaluationCount Field Functions 
     bool hasEvaluationCount() const { return this->evaluationCount_ != nullptr;};
     void deleteEvaluationCount() { this->evaluationCount_ = nullptr;};

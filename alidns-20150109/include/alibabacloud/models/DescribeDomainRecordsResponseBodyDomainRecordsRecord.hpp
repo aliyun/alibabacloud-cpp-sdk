@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTimestamp_ != nullptr
-        && this->domainName_ != nullptr && this->lbaStatus_ != nullptr && this->line_ != nullptr && this->locked_ != nullptr && this->priority_ != nullptr
-        && this->RR_ != nullptr && this->recordId_ != nullptr && this->remark_ != nullptr && this->status_ != nullptr && this->TTL_ != nullptr
-        && this->type_ != nullptr && this->updateTimestamp_ != nullptr && this->value_ != nullptr && this->weight_ != nullptr; };
+    virtual bool empty() const override { return this->createTimestamp_ == nullptr
+        && return this->domainName_ == nullptr && return this->lbaStatus_ == nullptr && return this->line_ == nullptr && return this->locked_ == nullptr && return this->priority_ == nullptr
+        && return this->RR_ == nullptr && return this->recordId_ == nullptr && return this->remark_ == nullptr && return this->status_ == nullptr && return this->TTL_ == nullptr
+        && return this->type_ == nullptr && return this->updateTimestamp_ == nullptr && return this->value_ == nullptr && return this->weight_ == nullptr; };
     // createTimestamp Field Functions 
     bool hasCreateTimestamp() const { return this->createTimestamp_ != nullptr;};
     void deleteCreateTimestamp() { this->createTimestamp_ = nullptr;};

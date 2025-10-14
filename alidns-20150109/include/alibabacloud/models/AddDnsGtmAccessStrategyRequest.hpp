@@ -64,11 +64,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->defaultAddrPool_ != nullptr
-        && this->defaultAddrPoolType_ != nullptr && this->defaultLatencyOptimization_ != nullptr && this->defaultLbaStrategy_ != nullptr && this->defaultMaxReturnAddrNum_ != nullptr && this->defaultMinAvailableAddrNum_ != nullptr
-        && this->failoverAddrPool_ != nullptr && this->failoverAddrPoolType_ != nullptr && this->failoverLatencyOptimization_ != nullptr && this->failoverLbaStrategy_ != nullptr && this->failoverMaxReturnAddrNum_ != nullptr
-        && this->failoverMinAvailableAddrNum_ != nullptr && this->instanceId_ != nullptr && this->lang_ != nullptr && this->lines_ != nullptr && this->strategyMode_ != nullptr
-        && this->strategyName_ != nullptr; };
+    virtual bool empty() const override { return this->defaultAddrPool_ == nullptr
+        && return this->defaultAddrPoolType_ == nullptr && return this->defaultLatencyOptimization_ == nullptr && return this->defaultLbaStrategy_ == nullptr && return this->defaultMaxReturnAddrNum_ == nullptr && return this->defaultMinAvailableAddrNum_ == nullptr
+        && return this->failoverAddrPool_ == nullptr && return this->failoverAddrPoolType_ == nullptr && return this->failoverLatencyOptimization_ == nullptr && return this->failoverLbaStrategy_ == nullptr && return this->failoverMaxReturnAddrNum_ == nullptr
+        && return this->failoverMinAvailableAddrNum_ == nullptr && return this->instanceId_ == nullptr && return this->lang_ == nullptr && return this->lines_ == nullptr && return this->strategyMode_ == nullptr
+        && return this->strategyName_ == nullptr; };
     // defaultAddrPool Field Functions 
     bool hasDefaultAddrPool() const { return this->defaultAddrPool_ != nullptr;};
     void deleteDefaultAddrPool() { this->defaultAddrPool_ = nullptr;};
