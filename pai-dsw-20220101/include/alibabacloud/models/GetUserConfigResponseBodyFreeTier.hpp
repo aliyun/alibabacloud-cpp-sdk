@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endTime_ != nullptr
-        && this->initBaseUnit_ != nullptr && this->initBaseValue_ != nullptr && this->initShowUnit_ != nullptr && this->initShowValue_ != nullptr && this->isFreeTierUser_ != nullptr
-        && this->periodBaseUnit_ != nullptr && this->periodBaseValue_ != nullptr && this->periodShowUnit_ != nullptr && this->periodShowValue_ != nullptr && this->startTime_ != nullptr
-        && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->endTime_ == nullptr
+        && return this->initBaseUnit_ == nullptr && return this->initBaseValue_ == nullptr && return this->initShowUnit_ == nullptr && return this->initShowValue_ == nullptr && return this->isFreeTierUser_ == nullptr
+        && return this->periodBaseUnit_ == nullptr && return this->periodBaseValue_ == nullptr && return this->periodShowUnit_ == nullptr && return this->periodShowValue_ == nullptr && return this->startTime_ == nullptr
+        && return this->status_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};

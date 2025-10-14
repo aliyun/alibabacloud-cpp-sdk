@@ -175,6 +175,24 @@ namespace PaiDsw20220101
       Models::DeleteInstanceSnapshotResponse deleteInstanceSnapshot(const string &InstanceId, const string &SnapshotId);
 
       /**
+       * @summary 批量删除实例
+       *
+       * @param request DeleteInstancesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteInstancesResponse
+       */
+      Models::DeleteInstancesResponse deleteInstancesWithOptions(const Models::DeleteInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量删除实例
+       *
+       * @param request DeleteInstancesRequest
+       * @return DeleteInstancesResponse
+       */
+      Models::DeleteInstancesResponse deleteInstances(const Models::DeleteInstancesRequest &request);
+
+      /**
        * @summary Queries the information about an auto stop policy for a specific idle instance.
        *
        * @param headers map
@@ -505,6 +523,24 @@ namespace PaiDsw20220101
        * @return StopInstanceResponse
        */
       Models::StopInstanceResponse stopInstance(const string &InstanceId, const Models::StopInstanceRequest &request);
+
+      /**
+       * @summary 批量停止实例
+       *
+       * @param request StopInstancesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopInstancesResponse
+       */
+      Models::StopInstancesResponse stopInstancesWithOptions(const Models::StopInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量停止实例
+       *
+       * @param request StopInstancesRequest
+       * @return StopInstancesResponse
+       */
+      Models::StopInstancesResponse stopInstances(const Models::StopInstancesRequest &request);
 
       /**
        * @summary Updates the properties of a DSW instance.

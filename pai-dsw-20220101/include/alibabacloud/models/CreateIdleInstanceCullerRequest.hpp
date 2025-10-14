@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpuPercentThreshold_ != nullptr
-        && this->gpuPercentThreshold_ != nullptr && this->maxIdleTimeInMinutes_ != nullptr; };
+    virtual bool empty() const override { return this->cpuPercentThreshold_ == nullptr
+        && return this->gpuPercentThreshold_ == nullptr && return this->maxIdleTimeInMinutes_ == nullptr; };
     // cpuPercentThreshold Field Functions 
     bool hasCpuPercentThreshold() const { return this->cpuPercentThreshold_ != nullptr;};
     void deleteCpuPercentThreshold() { this->cpuPercentThreshold_ = nullptr;};

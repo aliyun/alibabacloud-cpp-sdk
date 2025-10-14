@@ -81,13 +81,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceleratorType_ != nullptr
-        && this->accessibility_ != nullptr && this->createUserId_ != nullptr && this->gpuType_ != nullptr && this->imageName_ != nullptr && this->instanceId_ != nullptr
-        && this->instanceName_ != nullptr && this->labelsShrink_ != nullptr && this->maxCpu_ != nullptr && this->maxGpu_ != nullptr && this->maxGpuMemory_ != nullptr
-        && this->maxMemory_ != nullptr && this->minCpu_ != nullptr && this->minGpu_ != nullptr && this->minGpuMemory_ != nullptr && this->minMemory_ != nullptr
-        && this->order_ != nullptr && this->oversoldInfo_ != nullptr && this->oversoldType_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->paymentType_ != nullptr && this->resourceId_ != nullptr && this->sortBy_ != nullptr && this->status_ != nullptr && this->tagShrink_ != nullptr
-        && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->acceleratorType_ == nullptr
+        && return this->accessibility_ == nullptr && return this->createUserId_ == nullptr && return this->gpuType_ == nullptr && return this->imageName_ == nullptr && return this->instanceId_ == nullptr
+        && return this->instanceName_ == nullptr && return this->labelsShrink_ == nullptr && return this->maxCpu_ == nullptr && return this->maxGpu_ == nullptr && return this->maxGpuMemory_ == nullptr
+        && return this->maxMemory_ == nullptr && return this->minCpu_ == nullptr && return this->minGpu_ == nullptr && return this->minGpuMemory_ == nullptr && return this->minMemory_ == nullptr
+        && return this->order_ == nullptr && return this->oversoldInfo_ == nullptr && return this->oversoldType_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->paymentType_ == nullptr && return this->resourceId_ == nullptr && return this->sortBy_ == nullptr && return this->status_ == nullptr && return this->tagShrink_ == nullptr
+        && return this->workspaceId_ == nullptr; };
     // acceleratorType Field Functions 
     bool hasAcceleratorType() const { return this->acceleratorType_ != nullptr;};
     void deleteAcceleratorType() { this->acceleratorType_ = nullptr;};

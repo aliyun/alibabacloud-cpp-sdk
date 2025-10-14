@@ -5,8 +5,8 @@
 #include <alibabacloud/models/BandwidthLimit.hpp>
 #include <alibabacloud/models/CredentialConfig.hpp>
 #include <alibabacloud/models/DemoCategory.hpp>
-#include <alibabacloud/models/DynamicMount.hpp>
 #include <alibabacloud/models/DynamicMountPoint.hpp>
+#include <alibabacloud/models/DynamicMount.hpp>
 #include <alibabacloud/models/ForwardInfo.hpp>
 #include <alibabacloud/models/ForwardInfoResponse.hpp>
 #include <alibabacloud/models/CreateIdleInstanceCullerRequest.hpp>
@@ -32,6 +32,9 @@
 #include <alibabacloud/models/DeleteInstanceShutdownTimerResponse.hpp>
 #include <alibabacloud/models/DeleteInstanceSnapshotResponseBody.hpp>
 #include <alibabacloud/models/DeleteInstanceSnapshotResponse.hpp>
+#include <alibabacloud/models/DeleteInstancesRequest.hpp>
+#include <alibabacloud/models/DeleteInstancesResponseBody.hpp>
+#include <alibabacloud/models/DeleteInstancesResponse.hpp>
 #include <alibabacloud/models/GetIdleInstanceCullerResponseBody.hpp>
 #include <alibabacloud/models/GetIdleInstanceCullerResponse.hpp>
 #include <alibabacloud/models/GetInstanceRequest.hpp>
@@ -85,6 +88,9 @@
 #include <alibabacloud/models/StopInstanceRequest.hpp>
 #include <alibabacloud/models/StopInstanceResponseBody.hpp>
 #include <alibabacloud/models/StopInstanceResponse.hpp>
+#include <alibabacloud/models/StopInstancesRequest.hpp>
+#include <alibabacloud/models/StopInstancesResponseBody.hpp>
+#include <alibabacloud/models/StopInstancesResponse.hpp>
 #include <alibabacloud/models/UpdateInstanceRequest.hpp>
 #include <alibabacloud/models/UpdateInstanceResponseBody.hpp>
 #include <alibabacloud/models/UpdateInstanceResponse.hpp>

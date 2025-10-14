@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoSwitchCountdownSeconds_ != nullptr
-        && this->enableAutoSwitchOnNodeError_ != nullptr && this->hasNodeError_ != nullptr; };
+    virtual bool empty() const override { return this->autoSwitchCountdownSeconds_ == nullptr
+        && return this->enableAutoSwitchOnNodeError_ == nullptr && return this->hasNodeError_ == nullptr; };
     // autoSwitchCountdownSeconds Field Functions 
     bool hasAutoSwitchCountdownSeconds() const { return this->autoSwitchCountdownSeconds_ != nullptr;};
     void deleteAutoSwitchCountdownSeconds() { this->autoSwitchCountdownSeconds_ = nullptr;};

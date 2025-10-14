@@ -132,16 +132,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceleratorType_ != nullptr
-        && this->accessibility_ != nullptr && this->accumulatedRunningTimeInMs_ != nullptr && this->affinity_ != nullptr && this->cloudDisks_ != nullptr && this->credentialConfig_ != nullptr
-        && this->datasets_ != nullptr && this->driver_ != nullptr && this->dynamicMount_ != nullptr && this->ecsSpec_ != nullptr && this->environmentVariables_ != nullptr
-        && this->gmtCreateTime_ != nullptr && this->gmtModifiedTime_ != nullptr && this->idleInstanceCuller_ != nullptr && this->imageAuth_ != nullptr && this->imageId_ != nullptr
-        && this->imageName_ != nullptr && this->imageUrl_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->instanceShutdownTimer_ != nullptr
-        && this->instanceSnapshotList_ != nullptr && this->instanceUrl_ != nullptr && this->jupyterlabUrl_ != nullptr && this->labels_ != nullptr && this->latestSnapshot_ != nullptr
-        && this->oversoldInfo_ != nullptr && this->oversoldType_ != nullptr && this->paymentType_ != nullptr && this->priority_ != nullptr && this->reasonCode_ != nullptr
-        && this->reasonMessage_ != nullptr && this->requestedResource_ != nullptr && this->resourceId_ != nullptr && this->resourceName_ != nullptr && this->status_ != nullptr
-        && this->tags_ != nullptr && this->terminalUrl_ != nullptr && this->userId_ != nullptr && this->userName_ != nullptr && this->userVpc_ != nullptr
-        && this->webIDEUrl_ != nullptr && this->workspaceId_ != nullptr && this->workspaceName_ != nullptr && this->workspaceSource_ != nullptr; };
+    virtual bool empty() const override { return this->acceleratorType_ == nullptr
+        && return this->accessibility_ == nullptr && return this->accumulatedRunningTimeInMs_ == nullptr && return this->affinity_ == nullptr && return this->cloudDisks_ == nullptr && return this->credentialConfig_ == nullptr
+        && return this->datasets_ == nullptr && return this->driver_ == nullptr && return this->dynamicMount_ == nullptr && return this->ecsSpec_ == nullptr && return this->environmentVariables_ == nullptr
+        && return this->gmtCreateTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->idleInstanceCuller_ == nullptr && return this->imageAuth_ == nullptr && return this->imageId_ == nullptr
+        && return this->imageName_ == nullptr && return this->imageUrl_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->instanceShutdownTimer_ == nullptr
+        && return this->instanceSnapshotList_ == nullptr && return this->instanceUrl_ == nullptr && return this->jupyterlabUrl_ == nullptr && return this->labels_ == nullptr && return this->latestSnapshot_ == nullptr
+        && return this->oversoldInfo_ == nullptr && return this->oversoldType_ == nullptr && return this->paymentType_ == nullptr && return this->priority_ == nullptr && return this->reasonCode_ == nullptr
+        && return this->reasonMessage_ == nullptr && return this->requestedResource_ == nullptr && return this->resourceId_ == nullptr && return this->resourceName_ == nullptr && return this->status_ == nullptr
+        && return this->tags_ == nullptr && return this->terminalUrl_ == nullptr && return this->userId_ == nullptr && return this->userName_ == nullptr && return this->userVpc_ == nullptr
+        && return this->webIDEUrl_ == nullptr && return this->workspaceId_ == nullptr && return this->workspaceName_ == nullptr && return this->workspaceSource_ == nullptr; };
     // acceleratorType Field Functions 
     bool hasAcceleratorType() const { return this->acceleratorType_ != nullptr;};
     void deleteAcceleratorType() { this->acceleratorType_ = nullptr;};

@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->excludePaths_ != nullptr
-        && this->gmtCreateTime_ != nullptr && this->gmtModifiedTime_ != nullptr && this->imageId_ != nullptr && this->imageUrl_ != nullptr && this->instanceId_ != nullptr
-        && this->labels_ != nullptr && this->reasonCode_ != nullptr && this->reasonMessage_ != nullptr && this->snapshotId_ != nullptr && this->snapshotName_ != nullptr
-        && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->excludePaths_ == nullptr
+        && return this->gmtCreateTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->imageId_ == nullptr && return this->imageUrl_ == nullptr && return this->instanceId_ == nullptr
+        && return this->labels_ == nullptr && return this->reasonCode_ == nullptr && return this->reasonMessage_ == nullptr && return this->snapshotId_ == nullptr && return this->snapshotName_ == nullptr
+        && return this->status_ == nullptr; };
     // excludePaths Field Functions 
     bool hasExcludePaths() const { return this->excludePaths_ != nullptr;};
     void deleteExcludePaths() { this->excludePaths_ = nullptr;};

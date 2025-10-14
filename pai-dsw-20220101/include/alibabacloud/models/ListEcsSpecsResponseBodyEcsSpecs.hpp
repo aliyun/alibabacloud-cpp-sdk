@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceleratorType_ != nullptr
-        && this->CPU_ != nullptr && this->currency_ != nullptr && this->GPU_ != nullptr && this->GPUMemorySize_ != nullptr && this->GPUType_ != nullptr
-        && this->instanceBandwidthRx_ != nullptr && this->instanceType_ != nullptr && this->isAvailable_ != nullptr && this->labels_ != nullptr && this->memory_ != nullptr
-        && this->price_ != nullptr && this->spotStockStatus_ != nullptr && this->systemDiskCapacity_ != nullptr; };
+    virtual bool empty() const override { return this->acceleratorType_ == nullptr
+        && return this->CPU_ == nullptr && return this->currency_ == nullptr && return this->GPU_ == nullptr && return this->GPUMemorySize_ == nullptr && return this->GPUType_ == nullptr
+        && return this->instanceBandwidthRx_ == nullptr && return this->instanceType_ == nullptr && return this->isAvailable_ == nullptr && return this->labels_ == nullptr && return this->memory_ == nullptr
+        && return this->price_ == nullptr && return this->spotStockStatus_ == nullptr && return this->systemDiskCapacity_ == nullptr; };
     // acceleratorType Field Functions 
     bool hasAcceleratorType() const { return this->acceleratorType_ != nullptr;};
     void deleteAcceleratorType() { this->acceleratorType_ = nullptr;};

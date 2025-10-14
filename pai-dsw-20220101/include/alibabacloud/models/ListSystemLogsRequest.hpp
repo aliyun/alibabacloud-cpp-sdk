@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->gmtEndTime_ != nullptr
-        && this->gmtStartTime_ != nullptr && this->instanceId_ != nullptr && this->lifecycleId_ != nullptr && this->logLevel_ != nullptr && this->logRepository_ != nullptr
-        && this->offset_ != nullptr && this->order_ != nullptr && this->problemCategory_ != nullptr && this->sortBy_ != nullptr && this->sourceRequestId_ != nullptr; };
+    virtual bool empty() const override { return this->gmtEndTime_ == nullptr
+        && return this->gmtStartTime_ == nullptr && return this->instanceId_ == nullptr && return this->lifecycleId_ == nullptr && return this->logLevel_ == nullptr && return this->logRepository_ == nullptr
+        && return this->offset_ == nullptr && return this->order_ == nullptr && return this->problemCategory_ == nullptr && return this->sortBy_ == nullptr && return this->sourceRequestId_ == nullptr; };
     // gmtEndTime Field Functions 
     bool hasGmtEndTime() const { return this->gmtEndTime_ != nullptr;};
     void deleteGmtEndTime() { this->gmtEndTime_ = nullptr;};

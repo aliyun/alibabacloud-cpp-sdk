@@ -4,7 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <darabonba/http/URL.hpp>
+#include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -67,7 +67,7 @@ CreateIdleInstanceCullerResponse Client::createIdleInstanceCullerWithOptions(con
     {"action" , "CreateIdleInstanceCuller"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/idleinstanceculler")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/idleinstanceculler")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -261,7 +261,7 @@ CreateInstanceShutdownTimerResponse Client::createInstanceShutdownTimerWithOptio
     {"action" , "CreateInstanceShutdownTimer"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/shutdowntimer")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/shutdowntimer")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -326,7 +326,7 @@ CreateInstanceSnapshotResponse Client::createInstanceSnapshotWithOptions(const s
     {"action" , "CreateInstanceSnapshot"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/snapshots")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/snapshots")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -363,7 +363,7 @@ DeleteIdleInstanceCullerResponse Client::deleteIdleInstanceCullerWithOptions(con
     {"action" , "DeleteIdleInstanceCuller"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/idleinstanceculler")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/idleinstanceculler")},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -399,7 +399,7 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const string &InstanceI
     {"action" , "DeleteInstance"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Http::URL::percentEncode(InstanceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -443,7 +443,7 @@ DeleteInstanceLabelsResponse Client::deleteInstanceLabelsWithOptions(const strin
     {"action" , "DeleteInstanceLabels"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/labels")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/labels")},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -480,7 +480,7 @@ DeleteInstanceShutdownTimerResponse Client::deleteInstanceShutdownTimerWithOptio
     {"action" , "DeleteInstanceShutdownTimer"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/shutdowntimer")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/shutdowntimer")},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -516,7 +516,7 @@ DeleteInstanceSnapshotResponse Client::deleteInstanceSnapshotWithOptions(const s
     {"action" , "DeleteInstanceSnapshot"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/snapshots/" , Darabonba::Http::URL::percentEncode(SnapshotId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/snapshots/" , Darabonba::Encode::Encoder::percentEncode(SnapshotId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -538,6 +538,51 @@ DeleteInstanceSnapshotResponse Client::deleteInstanceSnapshot(const string &Inst
 }
 
 /**
+ * @summary 批量删除实例
+ *
+ * @param request DeleteInstancesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteInstancesResponse
+ */
+DeleteInstancesResponse Client::deleteInstancesWithOptions(const DeleteInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceIds()) {
+    body["InstanceIds"] = request.instanceIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteInstances"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/batch/instances/delete")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteInstancesResponse>();
+}
+
+/**
+ * @summary 批量删除实例
+ *
+ * @param request DeleteInstancesRequest
+ * @return DeleteInstancesResponse
+ */
+DeleteInstancesResponse Client::deleteInstances(const DeleteInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteInstancesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries the information about an auto stop policy for a specific idle instance.
  *
  * @param headers map
@@ -552,7 +597,7 @@ GetIdleInstanceCullerResponse Client::getIdleInstanceCullerWithOptions(const str
     {"action" , "GetIdleInstanceCuller"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/idleinstanceculler")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/idleinstanceculler")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -600,7 +645,7 @@ GetInstanceResponse Client::getInstanceWithOptions(const string &InstanceId, con
     {"action" , "GetInstance"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Http::URL::percentEncode(InstanceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -661,7 +706,7 @@ GetInstanceEventsResponse Client::getInstanceEventsWithOptions(const string &Ins
     {"action" , "GetInstanceEvents"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/events")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/events")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -718,7 +763,7 @@ GetInstanceMetricsResponse Client::getInstanceMetricsWithOptions(const string &I
     {"action" , "GetInstanceMetrics"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instance/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/metrics")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instance/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/metrics")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -755,7 +800,7 @@ GetInstanceShutdownTimerResponse Client::getInstanceShutdownTimerWithOptions(con
     {"action" , "GetInstanceShutdownTimer"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/shutdowntimer")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/shutdowntimer")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -791,7 +836,7 @@ GetInstanceSnapshotResponse Client::getInstanceSnapshotWithOptions(const string 
     {"action" , "GetInstanceSnapshot"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/snapshots/" , Darabonba::Http::URL::percentEncode(SnapshotId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/snapshots/" , Darabonba::Encode::Encoder::percentEncode(SnapshotId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -857,7 +902,7 @@ GetLifecycleResponse Client::getLifecycleWithOptions(const string &InstanceId, c
     {"action" , "GetLifecycle"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/lifecycle")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/lifecycle")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -932,7 +977,7 @@ GetMetricsResponse Client::getMetricsWithOptions(const string &InstanceId, const
     {"action" , "GetMetrics"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instance/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/cms/metrics")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instance/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/cms/metrics")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1083,7 +1128,7 @@ GetUserCommandResponse Client::getUserCommandWithOptions(const string &UserComma
     {"action" , "GetUserCommand"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/usercommands/" , Darabonba::Http::URL::percentEncode(UserCommandId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/usercommands/" , Darabonba::Encode::Encoder::percentEncode(UserCommandId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1241,7 +1286,7 @@ ListInstanceSnapshotResponse Client::listInstanceSnapshotWithOptions(const strin
     {"action" , "ListInstanceSnapshot"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/snapshots")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/snapshots")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1567,7 +1612,7 @@ StartInstanceResponse Client::startInstanceWithOptions(const string &InstanceId,
     {"action" , "StartInstance"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/start")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/start")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1611,7 +1656,7 @@ StopInstanceResponse Client::stopInstanceWithOptions(const string &InstanceId, c
     {"action" , "StopInstance"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/stop")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/stop")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1631,6 +1676,51 @@ StopInstanceResponse Client::stopInstance(const string &InstanceId, const StopIn
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return stopInstanceWithOptions(InstanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 批量停止实例
+ *
+ * @param request StopInstancesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopInstancesResponse
+ */
+StopInstancesResponse Client::stopInstancesWithOptions(const StopInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceIds()) {
+    body["InstanceIds"] = request.instanceIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "StopInstances"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/batch/instances/stop")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopInstancesResponse>();
+}
+
+/**
+ * @summary 批量停止实例
+ *
+ * @param request StopInstancesRequest
+ * @return StopInstancesResponse
+ */
+StopInstancesResponse Client::stopInstances(const StopInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return stopInstancesWithOptions(request, headers, runtime);
 }
 
 /**
@@ -1752,6 +1842,10 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const string &InstanceI
     body["SpotSpec"] = request.spotSpec();
   }
 
+  if (!!request.hasStartInstance()) {
+    body["StartInstance"] = request.startInstance();
+  }
+
   if (!!request.hasUserCommand()) {
     body["UserCommand"] = request.userCommand();
   }
@@ -1776,7 +1870,7 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const string &InstanceI
     {"action" , "UpdateInstance"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Http::URL::percentEncode(InstanceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1821,7 +1915,7 @@ UpdateInstanceLabelsResponse Client::updateInstanceLabelsWithOptions(const strin
     {"action" , "UpdateInstanceLabels"},
     {"version" , "2022-01-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Http::URL::percentEncode(InstanceId) , "/labels")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/labels")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},

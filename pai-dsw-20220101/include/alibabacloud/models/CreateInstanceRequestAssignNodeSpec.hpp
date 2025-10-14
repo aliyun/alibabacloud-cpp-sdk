@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->antiAffinityNodeNames_ != nullptr
-        && this->nodeNames_ != nullptr; };
+    virtual bool empty() const override { return this->antiAffinityNodeNames_ == nullptr
+        && return this->nodeNames_ == nullptr; };
     // antiAffinityNodeNames Field Functions 
     bool hasAntiAffinityNodeNames() const { return this->antiAffinityNodeNames_ != nullptr;};
     void deleteAntiAffinityNodeNames() { this->antiAffinityNodeNames_ = nullptr;};

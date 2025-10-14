@@ -93,12 +93,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessibility_ != nullptr
-        && this->affinity_ != nullptr && this->assignNodeSpec_ != nullptr && this->cloudDisks_ != nullptr && this->credentialConfig_ != nullptr && this->datasets_ != nullptr
-        && this->driver_ != nullptr && this->dynamicMount_ != nullptr && this->ecsSpec_ != nullptr && this->environmentVariables_ != nullptr && this->imageAuth_ != nullptr
-        && this->imageId_ != nullptr && this->imageUrl_ != nullptr && this->instanceName_ != nullptr && this->labels_ != nullptr && this->oversoldType_ != nullptr
-        && this->priority_ != nullptr && this->requestedResource_ != nullptr && this->resourceId_ != nullptr && this->spotSpec_ != nullptr && this->tag_ != nullptr
-        && this->userCommand_ != nullptr && this->userId_ != nullptr && this->userVpc_ != nullptr && this->workspaceId_ != nullptr && this->workspaceSource_ != nullptr; };
+    virtual bool empty() const override { return this->accessibility_ == nullptr
+        && return this->affinity_ == nullptr && return this->assignNodeSpec_ == nullptr && return this->cloudDisks_ == nullptr && return this->credentialConfig_ == nullptr && return this->datasets_ == nullptr
+        && return this->driver_ == nullptr && return this->dynamicMount_ == nullptr && return this->ecsSpec_ == nullptr && return this->environmentVariables_ == nullptr && return this->imageAuth_ == nullptr
+        && return this->imageId_ == nullptr && return this->imageUrl_ == nullptr && return this->instanceName_ == nullptr && return this->labels_ == nullptr && return this->oversoldType_ == nullptr
+        && return this->priority_ == nullptr && return this->requestedResource_ == nullptr && return this->resourceId_ == nullptr && return this->spotSpec_ == nullptr && return this->tag_ == nullptr
+        && return this->userCommand_ == nullptr && return this->userId_ == nullptr && return this->userVpc_ == nullptr && return this->workspaceId_ == nullptr && return this->workspaceSource_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};

@@ -51,6 +51,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Priority, priority_);
       DARABONBA_PTR_TO_JSON(RequestedResource, requestedResource_);
       DARABONBA_PTR_TO_JSON(SpotSpec, spotSpec_);
+      DARABONBA_PTR_TO_JSON(StartInstance, startInstance_);
       DARABONBA_PTR_TO_JSON(UserCommand, userCommand_);
       DARABONBA_PTR_TO_JSON(UserId, userId_);
       DARABONBA_PTR_TO_JSON(UserVpc, userVpc_);
@@ -84,6 +85,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Priority, priority_);
       DARABONBA_PTR_FROM_JSON(RequestedResource, requestedResource_);
       DARABONBA_PTR_FROM_JSON(SpotSpec, spotSpec_);
+      DARABONBA_PTR_FROM_JSON(StartInstance, startInstance_);
       DARABONBA_PTR_FROM_JSON(UserCommand, userCommand_);
       DARABONBA_PTR_FROM_JSON(UserId, userId_);
       DARABONBA_PTR_FROM_JSON(UserVpc, userVpc_);
@@ -100,13 +102,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessibility_ != nullptr
-        && this->affinity_ != nullptr && this->assignNodeSpec_ != nullptr && this->cloudDisks_ != nullptr && this->credentialConfig_ != nullptr && this->datasets_ != nullptr
-        && this->disassociateAssignNode_ != nullptr && this->disassociateCredential_ != nullptr && this->disassociateDatasets_ != nullptr && this->disassociateDriver_ != nullptr && this->disassociateEnvironmentVariables_ != nullptr
-        && this->disassociateForwardInfos_ != nullptr && this->disassociateSpot_ != nullptr && this->disassociateUserCommand_ != nullptr && this->disassociateVpc_ != nullptr && this->driver_ != nullptr
-        && this->dynamicMount_ != nullptr && this->ecsSpec_ != nullptr && this->environmentVariables_ != nullptr && this->imageAuth_ != nullptr && this->imageId_ != nullptr
-        && this->imageUrl_ != nullptr && this->instanceName_ != nullptr && this->oversoldType_ != nullptr && this->priority_ != nullptr && this->requestedResource_ != nullptr
-        && this->spotSpec_ != nullptr && this->userCommand_ != nullptr && this->userId_ != nullptr && this->userVpc_ != nullptr && this->workspaceSource_ != nullptr; };
+    virtual bool empty() const override { return this->accessibility_ == nullptr
+        && return this->affinity_ == nullptr && return this->assignNodeSpec_ == nullptr && return this->cloudDisks_ == nullptr && return this->credentialConfig_ == nullptr && return this->datasets_ == nullptr
+        && return this->disassociateAssignNode_ == nullptr && return this->disassociateCredential_ == nullptr && return this->disassociateDatasets_ == nullptr && return this->disassociateDriver_ == nullptr && return this->disassociateEnvironmentVariables_ == nullptr
+        && return this->disassociateForwardInfos_ == nullptr && return this->disassociateSpot_ == nullptr && return this->disassociateUserCommand_ == nullptr && return this->disassociateVpc_ == nullptr && return this->driver_ == nullptr
+        && return this->dynamicMount_ == nullptr && return this->ecsSpec_ == nullptr && return this->environmentVariables_ == nullptr && return this->imageAuth_ == nullptr && return this->imageId_ == nullptr
+        && return this->imageUrl_ == nullptr && return this->instanceName_ == nullptr && return this->oversoldType_ == nullptr && return this->priority_ == nullptr && return this->requestedResource_ == nullptr
+        && return this->spotSpec_ == nullptr && return this->startInstance_ == nullptr && return this->userCommand_ == nullptr && return this->userId_ == nullptr && return this->userVpc_ == nullptr
+        && return this->workspaceSource_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -314,6 +317,13 @@ namespace Models
     inline UpdateInstanceRequest& setSpotSpec(UpdateInstanceRequestSpotSpec && spotSpec) { DARABONBA_PTR_SET_RVALUE(spotSpec_, spotSpec) };
 
 
+    // startInstance Field Functions 
+    bool hasStartInstance() const { return this->startInstance_ != nullptr;};
+    void deleteStartInstance() { this->startInstance_ = nullptr;};
+    inline bool startInstance() const { DARABONBA_PTR_GET_DEFAULT(startInstance_, false) };
+    inline UpdateInstanceRequest& setStartInstance(bool startInstance) { DARABONBA_PTR_SET_VALUE(startInstance_, startInstance) };
+
+
     // userCommand Field Functions 
     bool hasUserCommand() const { return this->userCommand_ != nullptr;};
     void deleteUserCommand() { this->userCommand_ = nullptr;};
@@ -407,6 +417,7 @@ namespace Models
     // The resource configurations.
     std::shared_ptr<UpdateInstanceRequestRequestedResource> requestedResource_ = nullptr;
     std::shared_ptr<UpdateInstanceRequestSpotSpec> spotSpec_ = nullptr;
+    std::shared_ptr<bool> startInstance_ = nullptr;
     std::shared_ptr<UpdateInstanceRequestUserCommand> userCommand_ = nullptr;
     // the User ID of the instance.
     std::shared_ptr<string> userId_ = nullptr;

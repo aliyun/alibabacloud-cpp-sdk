@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountSufficient_ != nullptr
-        && this->code_ != nullptr && this->enableEciDisk_ != nullptr && this->freeTier_ != nullptr && this->freeTierSpecAvailable_ != nullptr && this->httpStatusCode_ != nullptr
-        && this->message_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->accountSufficient_ == nullptr
+        && return this->code_ == nullptr && return this->enableEciDisk_ == nullptr && return this->freeTier_ == nullptr && return this->freeTierSpecAvailable_ == nullptr && return this->httpStatusCode_ == nullptr
+        && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
     // accountSufficient Field Functions 
     bool hasAccountSufficient() const { return this->accountSufficient_ != nullptr;};
     void deleteAccountSufficient() { this->accountSufficient_ = nullptr;};

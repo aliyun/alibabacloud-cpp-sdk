@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->egressRate_ != nullptr
-        && this->egressWhitelists_ != nullptr && this->ingressRate_ != nullptr && this->ingressWhitelists_ != nullptr; };
+    virtual bool empty() const override { return this->egressRate_ == nullptr
+        && return this->egressWhitelists_ == nullptr && return this->ingressRate_ == nullptr && return this->ingressWhitelists_ == nullptr; };
     // egressRate Field Functions 
     bool hasEgressRate() const { return this->egressRate_ != nullptr;};
     void deleteEgressRate() { this->egressRate_ = nullptr;};
