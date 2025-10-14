@@ -1369,6 +1369,42 @@ namespace Aliding20230426
       Models::DeleteWorkspaceMembersResponse deleteWorkspaceMembers(const Models::DeleteWorkspaceMembersRequest &request);
 
       /**
+       * @summary 删除块元素
+       *
+       * @param tmpReq DocBlocksDeleteRequest
+       * @param tmpHeader DocBlocksDeleteHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DocBlocksDeleteResponse
+       */
+      Models::DocBlocksDeleteResponse docBlocksDeleteWithOptions(const Models::DocBlocksDeleteRequest &tmpReq, const Models::DocBlocksDeleteHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除块元素
+       *
+       * @param request DocBlocksDeleteRequest
+       * @return DocBlocksDeleteResponse
+       */
+      Models::DocBlocksDeleteResponse docBlocksDelete(const Models::DocBlocksDeleteRequest &request);
+
+      /**
+       * @summary 更新块元素
+       *
+       * @param tmpReq DocBlocksModifyRequest
+       * @param tmpHeader DocBlocksModifyHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DocBlocksModifyResponse
+       */
+      Models::DocBlocksModifyResponse docBlocksModifyWithOptions(const Models::DocBlocksModifyRequest &tmpReq, const Models::DocBlocksModifyHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新块元素
+       *
+       * @param request DocBlocksModifyRequest
+       * @return DocBlocksModifyResponse
+       */
+      Models::DocBlocksModifyResponse docBlocksModify(const Models::DocBlocksModifyRequest &request);
+
+      /**
        * @summary 查询块元素
        *
        * @param tmpReq DocBlocksQueryRequest

@@ -6414,6 +6414,162 @@ DeleteWorkspaceMembersResponse Client::deleteWorkspaceMembers(const DeleteWorksp
 }
 
 /**
+ * @summary 删除块元素
+ *
+ * @param tmpReq DocBlocksDeleteRequest
+ * @param tmpHeader DocBlocksDeleteHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DocBlocksDeleteResponse
+ */
+DocBlocksDeleteResponse Client::docBlocksDeleteWithOptions(const DocBlocksDeleteRequest &tmpReq, const DocBlocksDeleteHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DocBlocksDeleteShrinkRequest request = DocBlocksDeleteShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  DocBlocksDeleteShrinkHeaders headers = DocBlocksDeleteShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasBlockId()) {
+    body["BlockId"] = request.blockId();
+  }
+
+  if (!!request.hasDentryUuid()) {
+    body["DentryUuid"] = request.dentryUuid();
+  }
+
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.tenantContextShrink();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.commonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DocBlocksDelete"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/documents/docBlocksDelete")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DocBlocksDeleteResponse>();
+}
+
+/**
+ * @summary 删除块元素
+ *
+ * @param request DocBlocksDeleteRequest
+ * @return DocBlocksDeleteResponse
+ */
+DocBlocksDeleteResponse Client::docBlocksDelete(const DocBlocksDeleteRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  DocBlocksDeleteHeaders headers = DocBlocksDeleteHeaders();
+  return docBlocksDeleteWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 更新块元素
+ *
+ * @param tmpReq DocBlocksModifyRequest
+ * @param tmpHeader DocBlocksModifyHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DocBlocksModifyResponse
+ */
+DocBlocksModifyResponse Client::docBlocksModifyWithOptions(const DocBlocksModifyRequest &tmpReq, const DocBlocksModifyHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DocBlocksModifyShrinkRequest request = DocBlocksModifyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  DocBlocksModifyShrinkHeaders headers = DocBlocksModifyShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasElement()) {
+    request.setElementShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.element(), "Element", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasBlockId()) {
+    body["BlockId"] = request.blockId();
+  }
+
+  if (!!request.hasDentryUuid()) {
+    body["DentryUuid"] = request.dentryUuid();
+  }
+
+  if (!!request.hasElementShrink()) {
+    body["Element"] = request.elementShrink();
+  }
+
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.tenantContextShrink();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.commonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DocBlocksModify"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/documents/docBlocksModify")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DocBlocksModifyResponse>();
+}
+
+/**
+ * @summary 更新块元素
+ *
+ * @param request DocBlocksModifyRequest
+ * @return DocBlocksModifyResponse
+ */
+DocBlocksModifyResponse Client::docBlocksModify(const DocBlocksModifyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  DocBlocksModifyHeaders headers = DocBlocksModifyHeaders();
+  return docBlocksModifyWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 查询块元素
  *
  * @param tmpReq DocBlocksQueryRequest
