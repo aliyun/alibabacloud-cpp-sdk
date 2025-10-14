@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->auditAccountDescription_ != nullptr
-        && this->auditAccountName_ != nullptr && this->auditAccountPassword_ != nullptr && this->DBInstanceName_ != nullptr && this->regionId_ != nullptr && this->securityAccountDescription_ != nullptr
-        && this->securityAccountName_ != nullptr && this->securityAccountPassword_ != nullptr; };
+    virtual bool empty() const override { return this->auditAccountDescription_ == nullptr
+        && return this->auditAccountName_ == nullptr && return this->auditAccountPassword_ == nullptr && return this->DBInstanceName_ == nullptr && return this->regionId_ == nullptr && return this->securityAccountDescription_ == nullptr
+        && return this->securityAccountName_ == nullptr && return this->securityAccountPassword_ == nullptr; };
     // auditAccountDescription Field Functions 
     bool hasAuditAccountDescription() const { return this->auditAccountDescription_ != nullptr;};
     void deleteAuditAccountDescription() { this->auditAccountDescription_ = nullptr;};

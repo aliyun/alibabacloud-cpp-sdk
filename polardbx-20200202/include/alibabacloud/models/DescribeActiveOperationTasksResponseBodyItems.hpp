@@ -82,13 +82,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowCancel_ != nullptr
-        && this->allowChange_ != nullptr && this->changeLevel_ != nullptr && this->changeLevelEn_ != nullptr && this->changeLevelZh_ != nullptr && this->createdTime_ != nullptr
-        && this->currentAVZ_ != nullptr && this->dbType_ != nullptr && this->dbVersion_ != nullptr && this->deadline_ != nullptr && this->id_ != nullptr
-        && this->impact_ != nullptr && this->impactEn_ != nullptr && this->impactZh_ != nullptr && this->insComment_ != nullptr && this->insName_ != nullptr
-        && this->modifiedTime_ != nullptr && this->prepareInterval_ != nullptr && this->region_ != nullptr && this->resultInfo_ != nullptr && this->startTime_ != nullptr
-        && this->status_ != nullptr && this->subInsNames_ != nullptr && this->switchTime_ != nullptr && this->taskType_ != nullptr && this->taskTypeEn_ != nullptr
-        && this->taskTypeZh_ != nullptr; };
+    virtual bool empty() const override { return this->allowCancel_ == nullptr
+        && return this->allowChange_ == nullptr && return this->changeLevel_ == nullptr && return this->changeLevelEn_ == nullptr && return this->changeLevelZh_ == nullptr && return this->createdTime_ == nullptr
+        && return this->currentAVZ_ == nullptr && return this->dbType_ == nullptr && return this->dbVersion_ == nullptr && return this->deadline_ == nullptr && return this->id_ == nullptr
+        && return this->impact_ == nullptr && return this->impactEn_ == nullptr && return this->impactZh_ == nullptr && return this->insComment_ == nullptr && return this->insName_ == nullptr
+        && return this->modifiedTime_ == nullptr && return this->prepareInterval_ == nullptr && return this->region_ == nullptr && return this->resultInfo_ == nullptr && return this->startTime_ == nullptr
+        && return this->status_ == nullptr && return this->subInsNames_ == nullptr && return this->switchTime_ == nullptr && return this->taskType_ == nullptr && return this->taskTypeEn_ == nullptr
+        && return this->taskTypeZh_ == nullptr; };
     // allowCancel Field Functions 
     bool hasAllowCancel() const { return this->allowCancel_ != nullptr;};
     void deleteAllowCancel() { this->allowCancel_ = nullptr;};

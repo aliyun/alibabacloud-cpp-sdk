@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->characterType_ != nullptr
-        && this->DBInstanceName_ != nullptr && this->DBName_ != nullptr && this->DBNodeIds_ != nullptr && this->endTime_ != nullptr && this->page_ != nullptr
-        && this->pageSize_ != nullptr && this->regionId_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->characterType_ == nullptr
+        && return this->DBInstanceName_ == nullptr && return this->DBName_ == nullptr && return this->DBNodeIds_ == nullptr && return this->endTime_ == nullptr && return this->page_ == nullptr
+        && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->startTime_ == nullptr; };
     // characterType Field Functions 
     bool hasCharacterType() const { return this->characterType_ != nullptr;};
     void deleteCharacterType() { this->characterType_ = nullptr;};

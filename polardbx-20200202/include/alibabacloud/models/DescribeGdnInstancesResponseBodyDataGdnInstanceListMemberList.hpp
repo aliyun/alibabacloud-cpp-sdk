@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CnNodeClassCode, cnNodeClassCode_);
       DARABONBA_PTR_TO_JSON(CnNodeCount, cnNodeCount_);
       DARABONBA_PTR_TO_JSON(CommodityCode, commodityCode_);
+      DARABONBA_PTR_TO_JSON(DataSyncStatus, dataSyncStatus_);
       DARABONBA_PTR_TO_JSON(DnNodeClassCode, dnNodeClassCode_);
       DARABONBA_PTR_TO_JSON(DnNodeCount, dnNodeCount_);
       DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MemberName, memberName_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(PrimaryZone, primaryZone_);
+      DARABONBA_PTR_TO_JSON(ReadWriteStatus, readWriteStatus_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(Role, role_);
       DARABONBA_PTR_TO_JSON(SecondaryZone, secondaryZone_);
@@ -38,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CnNodeClassCode, cnNodeClassCode_);
       DARABONBA_PTR_FROM_JSON(CnNodeCount, cnNodeCount_);
       DARABONBA_PTR_FROM_JSON(CommodityCode, commodityCode_);
+      DARABONBA_PTR_FROM_JSON(DataSyncStatus, dataSyncStatus_);
       DARABONBA_PTR_FROM_JSON(DnNodeClassCode, dnNodeClassCode_);
       DARABONBA_PTR_FROM_JSON(DnNodeCount, dnNodeCount_);
       DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
@@ -45,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MemberName, memberName_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(PrimaryZone, primaryZone_);
+      DARABONBA_PTR_FROM_JSON(ReadWriteStatus, readWriteStatus_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(Role, role_);
       DARABONBA_PTR_FROM_JSON(SecondaryZone, secondaryZone_);
@@ -65,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->classCode_ != nullptr
-        && this->cnNodeClassCode_ != nullptr && this->cnNodeCount_ != nullptr && this->commodityCode_ != nullptr && this->dnNodeClassCode_ != nullptr && this->dnNodeCount_ != nullptr
-        && this->expireTime_ != nullptr && this->gmtCreated_ != nullptr && this->memberName_ != nullptr && this->payType_ != nullptr && this->primaryZone_ != nullptr
-        && this->regionId_ != nullptr && this->role_ != nullptr && this->secondaryZone_ != nullptr && this->secondsBehindMaster_ != nullptr && this->status_ != nullptr
-        && this->taskStatus_ != nullptr && this->tertiaryZone_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->classCode_ == nullptr
+        && return this->cnNodeClassCode_ == nullptr && return this->cnNodeCount_ == nullptr && return this->commodityCode_ == nullptr && return this->dataSyncStatus_ == nullptr && return this->dnNodeClassCode_ == nullptr
+        && return this->dnNodeCount_ == nullptr && return this->expireTime_ == nullptr && return this->gmtCreated_ == nullptr && return this->memberName_ == nullptr && return this->payType_ == nullptr
+        && return this->primaryZone_ == nullptr && return this->readWriteStatus_ == nullptr && return this->regionId_ == nullptr && return this->role_ == nullptr && return this->secondaryZone_ == nullptr
+        && return this->secondsBehindMaster_ == nullptr && return this->status_ == nullptr && return this->taskStatus_ == nullptr && return this->tertiaryZone_ == nullptr && return this->zoneId_ == nullptr; };
     // classCode Field Functions 
     bool hasClassCode() const { return this->classCode_ != nullptr;};
     void deleteClassCode() { this->classCode_ = nullptr;};
@@ -96,6 +100,13 @@ namespace Models
     void deleteCommodityCode() { this->commodityCode_ = nullptr;};
     inline string commodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
     inline DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList& setCommodityCode(string commodityCode) { DARABONBA_PTR_SET_VALUE(commodityCode_, commodityCode) };
+
+
+    // dataSyncStatus Field Functions 
+    bool hasDataSyncStatus() const { return this->dataSyncStatus_ != nullptr;};
+    void deleteDataSyncStatus() { this->dataSyncStatus_ = nullptr;};
+    inline string dataSyncStatus() const { DARABONBA_PTR_GET_DEFAULT(dataSyncStatus_, "") };
+    inline DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList& setDataSyncStatus(string dataSyncStatus) { DARABONBA_PTR_SET_VALUE(dataSyncStatus_, dataSyncStatus) };
 
 
     // dnNodeClassCode Field Functions 
@@ -145,6 +156,13 @@ namespace Models
     void deletePrimaryZone() { this->primaryZone_ = nullptr;};
     inline string primaryZone() const { DARABONBA_PTR_GET_DEFAULT(primaryZone_, "") };
     inline DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList& setPrimaryZone(string primaryZone) { DARABONBA_PTR_SET_VALUE(primaryZone_, primaryZone) };
+
+
+    // readWriteStatus Field Functions 
+    bool hasReadWriteStatus() const { return this->readWriteStatus_ != nullptr;};
+    void deleteReadWriteStatus() { this->readWriteStatus_ = nullptr;};
+    inline string readWriteStatus() const { DARABONBA_PTR_GET_DEFAULT(readWriteStatus_, "") };
+    inline DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList& setReadWriteStatus(string readWriteStatus) { DARABONBA_PTR_SET_VALUE(readWriteStatus_, readWriteStatus) };
 
 
     // regionId Field Functions 
@@ -208,6 +226,7 @@ namespace Models
     std::shared_ptr<string> cnNodeClassCode_ = nullptr;
     std::shared_ptr<string> cnNodeCount_ = nullptr;
     std::shared_ptr<string> commodityCode_ = nullptr;
+    std::shared_ptr<string> dataSyncStatus_ = nullptr;
     std::shared_ptr<string> dnNodeClassCode_ = nullptr;
     std::shared_ptr<string> dnNodeCount_ = nullptr;
     std::shared_ptr<string> expireTime_ = nullptr;
@@ -215,6 +234,7 @@ namespace Models
     std::shared_ptr<string> memberName_ = nullptr;
     std::shared_ptr<string> payType_ = nullptr;
     std::shared_ptr<string> primaryZone_ = nullptr;
+    std::shared_ptr<string> readWriteStatus_ = nullptr;
     std::shared_ptr<string> regionId_ = nullptr;
     std::shared_ptr<string> role_ = nullptr;
     std::shared_ptr<string> secondaryZone_ = nullptr;

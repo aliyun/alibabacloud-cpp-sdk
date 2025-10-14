@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowCancel_ != nullptr
-        && this->allowChange_ != nullptr && this->changeLevel_ != nullptr && this->dbType_ != nullptr && this->insName_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->productId_ != nullptr && this->region_ != nullptr && this->regionId_ != nullptr && this->status_ != nullptr
-        && this->taskType_ != nullptr; };
+    virtual bool empty() const override { return this->allowCancel_ == nullptr
+        && return this->allowChange_ == nullptr && return this->changeLevel_ == nullptr && return this->dbType_ == nullptr && return this->insName_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->productId_ == nullptr && return this->region_ == nullptr && return this->regionId_ == nullptr && return this->status_ == nullptr
+        && return this->taskType_ == nullptr; };
     // allowCancel Field Functions 
     bool hasAllowCancel() const { return this->allowCancel_ != nullptr;};
     void deleteAllowCancel() { this->allowCancel_ = nullptr;};

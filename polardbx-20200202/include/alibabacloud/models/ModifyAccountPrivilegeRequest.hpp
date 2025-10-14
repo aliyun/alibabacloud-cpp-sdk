@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountName_ != nullptr
-        && this->accountPrivilege_ != nullptr && this->DBInstanceName_ != nullptr && this->dbName_ != nullptr && this->regionId_ != nullptr && this->securityAccountName_ != nullptr
-        && this->securityAccountPassword_ != nullptr; };
+    virtual bool empty() const override { return this->accountName_ == nullptr
+        && return this->accountPrivilege_ == nullptr && return this->DBInstanceName_ == nullptr && return this->dbName_ == nullptr && return this->regionId_ == nullptr && return this->securityAccountName_ == nullptr
+        && return this->securityAccountPassword_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};

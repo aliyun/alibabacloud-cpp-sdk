@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->eventId_ != nullptr
-        && this->eventName_ != nullptr && this->eventPayload_ != nullptr && this->eventReason_ != nullptr && this->eventRecordTime_ != nullptr && this->eventTime_ != nullptr
-        && this->eventType_ != nullptr && this->eventUserType_ != nullptr && this->regionId_ != nullptr && this->resourceName_ != nullptr && this->resourceType_ != nullptr; };
+    virtual bool empty() const override { return this->eventId_ == nullptr
+        && return this->eventName_ == nullptr && return this->eventPayload_ == nullptr && return this->eventReason_ == nullptr && return this->eventRecordTime_ == nullptr && return this->eventTime_ == nullptr
+        && return this->eventType_ == nullptr && return this->eventUserType_ == nullptr && return this->regionId_ == nullptr && return this->resourceName_ == nullptr && return this->resourceType_ == nullptr; };
     // eventId Field Functions 
     bool hasEventId() const { return this->eventId_ != nullptr;};
     void deleteEventId() { this->eventId_ = nullptr;};

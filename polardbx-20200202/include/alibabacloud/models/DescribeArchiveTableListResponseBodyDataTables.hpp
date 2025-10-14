@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->archiveStatus_ != nullptr
-        && this->createdDate_ != nullptr && this->fileCount_ != nullptr && this->lastSuccessArchiveTime_ != nullptr && this->schemaName_ != nullptr && this->spaceSize_ != nullptr
-        && this->tableName_ != nullptr; };
+    virtual bool empty() const override { return this->archiveStatus_ == nullptr
+        && return this->createdDate_ == nullptr && return this->fileCount_ == nullptr && return this->lastSuccessArchiveTime_ == nullptr && return this->schemaName_ == nullptr && return this->spaceSize_ == nullptr
+        && return this->tableName_ == nullptr; };
     // archiveStatus Field Functions 
     bool hasArchiveStatus() const { return this->archiveStatus_ != nullptr;};
     void deleteArchiveStatus() { this->archiveStatus_ = nullptr;};

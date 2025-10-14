@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->pageIndex_ != nullptr
-        && this->pageSize_ != nullptr && this->pausedCount_ != nullptr && this->runningCount_ != nullptr && this->successCount_ != nullptr && this->tables_ != nullptr
-        && this->tobeArchivedConut_ != nullptr && this->total_ != nullptr; };
+    virtual bool empty() const override { return this->pageIndex_ == nullptr
+        && return this->pageSize_ == nullptr && return this->pausedCount_ == nullptr && return this->runningCount_ == nullptr && return this->successCount_ == nullptr && return this->tables_ == nullptr
+        && return this->tobeArchivedConut_ == nullptr && return this->total_ == nullptr; };
     // pageIndex Field Functions 
     bool hasPageIndex() const { return this->pageIndex_ != nullptr;};
     void deletePageIndex() { this->pageIndex_ = nullptr;};

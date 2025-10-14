@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->AZone_ != nullptr
-        && this->disk_ != nullptr && this->nodeClass_ != nullptr && this->nodeId_ != nullptr && this->nodeName_ != nullptr && this->status_ != nullptr
-        && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->AZone_ == nullptr
+        && return this->disk_ == nullptr && return this->nodeClass_ == nullptr && return this->nodeId_ == nullptr && return this->nodeName_ == nullptr && return this->status_ == nullptr
+        && return this->version_ == nullptr; };
     // AZone Field Functions 
     bool hasAZone() const { return this->AZone_ != nullptr;};
     void deleteAZone() { this->AZone_ = nullptr;};

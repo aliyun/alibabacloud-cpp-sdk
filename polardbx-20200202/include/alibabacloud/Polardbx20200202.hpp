@@ -64,6 +64,19 @@ namespace Polardbx20200202
       Models::AllocateInstancePublicConnectionResponse allocateInstancePublicConnection(const Models::AllocateInstancePublicConnectionRequest &request);
 
       /**
+       * @param request AttachColumnarInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AttachColumnarInstanceResponse
+       */
+      Models::AttachColumnarInstanceResponse attachColumnarInstanceWithOptions(const Models::AttachColumnarInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request AttachColumnarInstanceRequest
+       * @return AttachColumnarInstanceResponse
+       */
+      Models::AttachColumnarInstanceResponse attachColumnarInstance(const Models::AttachColumnarInstanceRequest &request);
+
+      /**
        * @summary 取消主动运维任务
        *
        * @param request CancelActiveOperationTasksRequest
@@ -111,6 +124,53 @@ namespace Polardbx20200202
       Models::CheckCloudResourceAuthorizedResponse checkCloudResourceAuthorized(const Models::CheckCloudResourceAuthorizedRequest &request);
 
       /**
+       * @param request CheckSqlAuditSlsStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckSqlAuditSlsStatusResponse
+       */
+      Models::CheckSqlAuditSlsStatusResponse checkSqlAuditSlsStatusWithOptions(const Models::CheckSqlAuditSlsStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request CheckSqlAuditSlsStatusRequest
+       * @return CheckSqlAuditSlsStatusResponse
+       */
+      Models::CheckSqlAuditSlsStatusResponse checkSqlAuditSlsStatus(const Models::CheckSqlAuditSlsStatusRequest &request);
+
+      /**
+       * @summary 取消实例迁移
+       *
+       * @param request CloseEngineMigrationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloseEngineMigrationResponse
+       */
+      Models::CloseEngineMigrationResponse closeEngineMigrationWithOptions(const Models::CloseEngineMigrationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消实例迁移
+       *
+       * @param request CloseEngineMigrationRequest
+       * @return CloseEngineMigrationResponse
+       */
+      Models::CloseEngineMigrationResponse closeEngineMigration(const Models::CloseEngineMigrationRequest &request);
+
+      /**
+       * @summary 回滚切换时确认无连接
+       *
+       * @param request ConfirmNoConnectionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ConfirmNoConnectionResponse
+       */
+      Models::ConfirmNoConnectionResponse confirmNoConnectionWithOptions(const Models::ConfirmNoConnectionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 回滚切换时确认无连接
+       *
+       * @param request ConfirmNoConnectionRequest
+       * @return ConfirmNoConnectionResponse
+       */
+      Models::ConfirmNoConnectionResponse confirmNoConnection(const Models::ConfirmNoConnectionRequest &request);
+
+      /**
        * @param request CreateAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateAccountResponse
@@ -135,6 +195,23 @@ namespace Polardbx20200202
        * @return CreateBackupResponse
        */
       Models::CreateBackupResponse createBackup(const Models::CreateBackupRequest &request);
+
+      /**
+       * @summary 创建自定义endpoint
+       *
+       * @param request CreateCustomEndpointRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCustomEndpointResponse
+       */
+      Models::CreateCustomEndpointResponse createCustomEndpointWithOptions(const Models::CreateCustomEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建自定义endpoint
+       *
+       * @param request CreateCustomEndpointRequest
+       * @return CreateCustomEndpointResponse
+       */
+      Models::CreateCustomEndpointResponse createCustomEndpoint(const Models::CreateCustomEndpointRequest &request);
 
       /**
        * @param request CreateDBRequest
@@ -167,6 +244,108 @@ namespace Polardbx20200202
       Models::CreateDBInstanceResponse createDBInstance(const Models::CreateDBInstanceRequest &request);
 
       /**
+       * @summary 创建评估升级的数据迁移任务
+       *
+       * @param request CreateDataImportTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDataImportTaskResponse
+       */
+      Models::CreateDataImportTaskResponse createDataImportTaskWithOptions(const Models::CreateDataImportTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建评估升级的数据迁移任务
+       *
+       * @param request CreateDataImportTaskRequest
+       * @return CreateDataImportTaskResponse
+       */
+      Models::CreateDataImportTaskResponse createDataImportTask(const Models::CreateDataImportTaskRequest &request);
+
+      /**
+       * @summary 创建GDN实例
+       *
+       * @param request CreateGdnInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateGdnInstanceResponse
+       */
+      Models::CreateGdnInstanceResponse createGdnInstanceWithOptions(const Models::CreateGdnInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建GDN实例
+       *
+       * @param request CreateGdnInstanceRequest
+       * @return CreateGdnInstanceResponse
+       */
+      Models::CreateGdnInstanceResponse createGdnInstance(const Models::CreateGdnInstanceRequest &request);
+
+      /**
+       * @summary 创建评估预检任务
+       *
+       * @param request CreateRplInspectionTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRplInspectionTaskResponse
+       */
+      Models::CreateRplInspectionTaskResponse createRplInspectionTaskWithOptions(const Models::CreateRplInspectionTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建评估预检任务
+       *
+       * @param request CreateRplInspectionTaskRequest
+       * @return CreateRplInspectionTaskResponse
+       */
+      Models::CreateRplInspectionTaskResponse createRplInspectionTask(const Models::CreateRplInspectionTaskRequest &request);
+
+      /**
+       * @summary 创建评估升级的兼容性评估任务
+       *
+       * @param request CreateSQLEvaluateTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSQLEvaluateTaskResponse
+       */
+      Models::CreateSQLEvaluateTaskResponse createSQLEvaluateTaskWithOptions(const Models::CreateSQLEvaluateTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建评估升级的兼容性评估任务
+       *
+       * @param request CreateSQLEvaluateTaskRequest
+       * @return CreateSQLEvaluateTaskResponse
+       */
+      Models::CreateSQLEvaluateTaskResponse createSQLEvaluateTask(const Models::CreateSQLEvaluateTaskRequest &request);
+
+      /**
+       * @summary 创建 PolarDB-X 存储资源池
+       *
+       * @param request CreateStoragePoolRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateStoragePoolResponse
+       */
+      Models::CreateStoragePoolResponse createStoragePoolWithOptions(const Models::CreateStoragePoolRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建 PolarDB-X 存储资源池
+       *
+       * @param request CreateStoragePoolRequest
+       * @return CreateStoragePoolResponse
+       */
+      Models::CreateStoragePoolResponse createStoragePool(const Models::CreateStoragePoolRequest &request);
+
+      /**
+       * @summary 创建评估升级的结构迁移任务
+       *
+       * @param request CreateStructureImportTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateStructureImportTaskResponse
+       */
+      Models::CreateStructureImportTaskResponse createStructureImportTaskWithOptions(const Models::CreateStructureImportTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建评估升级的结构迁移任务
+       *
+       * @param request CreateStructureImportTaskRequest
+       * @return CreateStructureImportTaskResponse
+       */
+      Models::CreateStructureImportTaskResponse createStructureImportTask(const Models::CreateStructureImportTaskRequest &request);
+
+      /**
        * @param request CreateSuperAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateSuperAccountResponse
@@ -180,6 +359,23 @@ namespace Polardbx20200202
       Models::CreateSuperAccountResponse createSuperAccount(const Models::CreateSuperAccountRequest &request);
 
       /**
+       * @summary 创建标准版迁移到企业版的操作任务
+       *
+       * @param request CreateTransformOperationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTransformOperationResponse
+       */
+      Models::CreateTransformOperationResponse createTransformOperationWithOptions(const Models::CreateTransformOperationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建标准版迁移到企业版的操作任务
+       *
+       * @param request CreateTransformOperationRequest
+       * @return CreateTransformOperationResponse
+       */
+      Models::CreateTransformOperationResponse createTransformOperation(const Models::CreateTransformOperationRequest &request);
+
+      /**
        * @param request DeleteAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteAccountResponse
@@ -191,6 +387,23 @@ namespace Polardbx20200202
        * @return DeleteAccountResponse
        */
       Models::DeleteAccountResponse deleteAccount(const Models::DeleteAccountRequest &request);
+
+      /**
+       * @summary 删除自定义endpoint
+       *
+       * @param request DeleteCustomEndpointRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCustomEndpointResponse
+       */
+      Models::DeleteCustomEndpointResponse deleteCustomEndpointWithOptions(const Models::DeleteCustomEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除自定义endpoint
+       *
+       * @param request DeleteCustomEndpointRequest
+       * @return DeleteCustomEndpointResponse
+       */
+      Models::DeleteCustomEndpointResponse deleteCustomEndpoint(const Models::DeleteCustomEndpointRequest &request);
 
       /**
        * @param request DeleteDBRequest
@@ -217,6 +430,40 @@ namespace Polardbx20200202
        * @return DeleteDBInstanceResponse
        */
       Models::DeleteDBInstanceResponse deleteDBInstance(const Models::DeleteDBInstanceRequest &request);
+
+      /**
+       * @summary 删除评估导入任务
+       *
+       * @param request DeleteEvaluateAndImportTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteEvaluateAndImportTaskResponse
+       */
+      Models::DeleteEvaluateAndImportTaskResponse deleteEvaluateAndImportTaskWithOptions(const Models::DeleteEvaluateAndImportTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除评估导入任务
+       *
+       * @param request DeleteEvaluateAndImportTaskRequest
+       * @return DeleteEvaluateAndImportTaskResponse
+       */
+      Models::DeleteEvaluateAndImportTaskResponse deleteEvaluateAndImportTask(const Models::DeleteEvaluateAndImportTaskRequest &request);
+
+      /**
+       * @summary 删除GDN实例
+       *
+       * @param request DeleteGdnInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteGdnInstanceResponse
+       */
+      Models::DeleteGdnInstanceResponse deleteGdnInstanceWithOptions(const Models::DeleteGdnInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除GDN实例
+       *
+       * @param request DeleteGdnInstanceRequest
+       * @return DeleteGdnInstanceResponse
+       */
+      Models::DeleteGdnInstanceResponse deleteGdnInstance(const Models::DeleteGdnInstanceRequest &request);
 
       /**
        * @param request DescribeAccountListRequest
@@ -300,6 +547,23 @@ namespace Polardbx20200202
       Models::DescribeArchiveTableListResponse describeArchiveTableList(const Models::DescribeArchiveTableListRequest &request);
 
       /**
+       * @summary 获取已开启跨地域备份的地域
+       *
+       * @param request DescribeAvailableCrossRegionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAvailableCrossRegionsResponse
+       */
+      Models::DescribeAvailableCrossRegionsResponse describeAvailableCrossRegionsWithOptions(const Models::DescribeAvailableCrossRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取已开启跨地域备份的地域
+       *
+       * @param request DescribeAvailableCrossRegionsRequest
+       * @return DescribeAvailableCrossRegionsResponse
+       */
+      Models::DescribeAvailableCrossRegionsResponse describeAvailableCrossRegions(const Models::DescribeAvailableCrossRegionsRequest &request);
+
+      /**
        * @param request DescribeBackupPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeBackupPolicyResponse
@@ -356,6 +620,23 @@ namespace Polardbx20200202
       Models::DescribeBinaryLogListResponse describeBinaryLogList(const Models::DescribeBinaryLogListRequest &request);
 
       /**
+       * @summary 查询多流规格列表
+       *
+       * @param request DescribeCdcClassListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCdcClassListResponse
+       */
+      Models::DescribeCdcClassListResponse describeCdcClassListWithOptions(const Models::DescribeCdcClassListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询多流规格列表
+       *
+       * @param request DescribeCdcClassListRequest
+       * @return DescribeCdcClassListResponse
+       */
+      Models::DescribeCdcClassListResponse describeCdcClassList(const Models::DescribeCdcClassListRequest &request);
+
+      /**
        * @summary 查询CDC信息
        *
        * @param request DescribeCdcInfoRequest
@@ -371,6 +652,23 @@ namespace Polardbx20200202
        * @return DescribeCdcInfoResponse
        */
       Models::DescribeCdcInfoResponse describeCdcInfo(const Models::DescribeCdcInfoRequest &request);
+
+      /**
+       * @summary 获取CDC版本列表
+       *
+       * @param request DescribeCdcVersionListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCdcVersionListResponse
+       */
+      Models::DescribeCdcVersionListResponse describeCdcVersionListWithOptions(const Models::DescribeCdcVersionListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取CDC版本列表
+       *
+       * @param request DescribeCdcVersionListRequest
+       * @return DescribeCdcVersionListResponse
+       */
+      Models::DescribeCdcVersionListResponse describeCdcVersionList(const Models::DescribeCdcVersionListRequest &request);
 
       /**
        * @param request DescribeCharacterSetRequest
@@ -401,6 +699,91 @@ namespace Polardbx20200202
        * @return DescribeColdDataBasicInfoResponse
        */
       Models::DescribeColdDataBasicInfoResponse describeColdDataBasicInfo(const Models::DescribeColdDataBasicInfoRequest &request);
+
+      /**
+       * @summary 查询列存规格列表
+       *
+       * @param request DescribeColumnarClassListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeColumnarClassListResponse
+       */
+      Models::DescribeColumnarClassListResponse describeColumnarClassListWithOptions(const Models::DescribeColumnarClassListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询列存规格列表
+       *
+       * @param request DescribeColumnarClassListRequest
+       * @return DescribeColumnarClassListResponse
+       */
+      Models::DescribeColumnarClassListResponse describeColumnarClassList(const Models::DescribeColumnarClassListRequest &request);
+
+      /**
+       * @summary 查询Columnar信息
+       *
+       * @param request DescribeColumnarInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeColumnarInfoResponse
+       */
+      Models::DescribeColumnarInfoResponse describeColumnarInfoWithOptions(const Models::DescribeColumnarInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Columnar信息
+       *
+       * @param request DescribeColumnarInfoRequest
+       * @return DescribeColumnarInfoResponse
+       */
+      Models::DescribeColumnarInfoResponse describeColumnarInfo(const Models::DescribeColumnarInfoRequest &request);
+
+      /**
+       * @summary 获取Columnar版本列表
+       *
+       * @param request DescribeColumnarVersionListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeColumnarVersionListResponse
+       */
+      Models::DescribeColumnarVersionListResponse describeColumnarVersionListWithOptions(const Models::DescribeColumnarVersionListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取Columnar版本列表
+       *
+       * @param request DescribeColumnarVersionListRequest
+       * @return DescribeColumnarVersionListResponse
+       */
+      Models::DescribeColumnarVersionListResponse describeColumnarVersionList(const Models::DescribeColumnarVersionListRequest &request);
+
+      /**
+       * @summary 查询PolarDB-X 实例指定组件的属性列表
+       *
+       * @param request DescribeComponentPropetiesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeComponentPropetiesResponse
+       */
+      Models::DescribeComponentPropetiesResponse describeComponentPropetiesWithOptions(const Models::DescribeComponentPropetiesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询PolarDB-X 实例指定组件的属性列表
+       *
+       * @param request DescribeComponentPropetiesRequest
+       * @return DescribeComponentPropetiesResponse
+       */
+      Models::DescribeComponentPropetiesResponse describeComponentPropeties(const Models::DescribeComponentPropetiesRequest &request);
+
+      /**
+       * @summary 查询自定义连接信息
+       *
+       * @param request DescribeCustomEndpointListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCustomEndpointListResponse
+       */
+      Models::DescribeCustomEndpointListResponse describeCustomEndpointListWithOptions(const Models::DescribeCustomEndpointListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询自定义连接信息
+       *
+       * @param request DescribeCustomEndpointListRequest
+       * @return DescribeCustomEndpointListResponse
+       */
+      Models::DescribeCustomEndpointListResponse describeCustomEndpointList(const Models::DescribeCustomEndpointListRequest &request);
 
       /**
        * @summary 获取实例详情
@@ -548,6 +931,23 @@ namespace Polardbx20200202
       Models::DescribeDBNodePerformanceResponse describeDBNodePerformance(const Models::DescribeDBNodePerformanceRequest &request);
 
       /**
+       * @summary 导入任务详情
+       *
+       * @param request DescribeDataImportTaskInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDataImportTaskInfoResponse
+       */
+      Models::DescribeDataImportTaskInfoResponse describeDataImportTaskInfoWithOptions(const Models::DescribeDataImportTaskInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 导入任务详情
+       *
+       * @param request DescribeDataImportTaskInfoRequest
+       * @return DescribeDataImportTaskInfoResponse
+       */
+      Models::DescribeDataImportTaskInfoResponse describeDataImportTaskInfo(const Models::DescribeDataImportTaskInfoRequest &request);
+
+      /**
        * @param request DescribeDbListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDbListResponse
@@ -572,6 +972,57 @@ namespace Polardbx20200202
        * @return DescribeDistributeTableListResponse
        */
       Models::DescribeDistributeTableListResponse describeDistributeTableList(const Models::DescribeDistributeTableListRequest &request);
+
+      /**
+       * @summary 获取已开启跨地域备份的地域
+       *
+       * @param request DescribeEnabledCrossRegionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeEnabledCrossRegionsResponse
+       */
+      Models::DescribeEnabledCrossRegionsResponse describeEnabledCrossRegionsWithOptions(const Models::DescribeEnabledCrossRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取已开启跨地域备份的地域
+       *
+       * @param request DescribeEnabledCrossRegionsRequest
+       * @return DescribeEnabledCrossRegionsResponse
+       */
+      Models::DescribeEnabledCrossRegionsResponse describeEnabledCrossRegions(const Models::DescribeEnabledCrossRegionsRequest &request);
+
+      /**
+       * @summary 查询单个评估迁移任务详情
+       *
+       * @param request DescribeEvaluateAndImportTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeEvaluateAndImportTaskResponse
+       */
+      Models::DescribeEvaluateAndImportTaskResponse describeEvaluateAndImportTaskWithOptions(const Models::DescribeEvaluateAndImportTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询单个评估迁移任务详情
+       *
+       * @param request DescribeEvaluateAndImportTaskRequest
+       * @return DescribeEvaluateAndImportTaskResponse
+       */
+      Models::DescribeEvaluateAndImportTaskResponse describeEvaluateAndImportTask(const Models::DescribeEvaluateAndImportTaskRequest &request);
+
+      /**
+       * @summary 请求评估导入任务列表
+       *
+       * @param request DescribeEvaluateAndImportTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeEvaluateAndImportTasksResponse
+       */
+      Models::DescribeEvaluateAndImportTasksResponse describeEvaluateAndImportTasksWithOptions(const Models::DescribeEvaluateAndImportTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 请求评估导入任务列表
+       *
+       * @param request DescribeEvaluateAndImportTasksRequest
+       * @return DescribeEvaluateAndImportTasksResponse
+       */
+      Models::DescribeEvaluateAndImportTasksResponse describeEvaluateAndImportTasks(const Models::DescribeEvaluateAndImportTasksRequest &request);
 
       /**
        * @summary 历史事件
@@ -625,6 +1076,23 @@ namespace Polardbx20200202
       Models::DescribeOpenBackupSetResponse describeOpenBackupSet(const Models::DescribeOpenBackupSetRequest &request);
 
       /**
+       * @summary 查询参数模版列表
+       *
+       * @param request DescribeParameterGroupsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeParameterGroupsResponse
+       */
+      Models::DescribeParameterGroupsResponse describeParameterGroupsWithOptions(const Models::DescribeParameterGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询参数模版列表
+       *
+       * @param request DescribeParameterGroupsRequest
+       * @return DescribeParameterGroupsResponse
+       */
+      Models::DescribeParameterGroupsResponse describeParameterGroups(const Models::DescribeParameterGroupsRequest &request);
+
+      /**
        * @param request DescribeParameterTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeParameterTemplatesResponse
@@ -651,6 +1119,53 @@ namespace Polardbx20200202
       Models::DescribeParametersResponse describeParameters(const Models::DescribeParametersRequest &request);
 
       /**
+       * @summary 查询数据节点列表
+       *
+       * @param request DescribePolarxDataNodesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePolarxDataNodesResponse
+       */
+      Models::DescribePolarxDataNodesResponse describePolarxDataNodesWithOptions(const Models::DescribePolarxDataNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询数据节点列表
+       *
+       * @param request DescribePolarxDataNodesRequest
+       * @return DescribePolarxDataNodesResponse
+       */
+      Models::DescribePolarxDataNodesResponse describePolarxDataNodes(const Models::DescribePolarxDataNodesRequest &request);
+
+      /**
+       * @param request DescribeRdsVpcsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRdsVpcsResponse
+       */
+      Models::DescribeRdsVpcsResponse describeRdsVpcsWithOptions(const Models::DescribeRdsVpcsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DescribeRdsVpcsRequest
+       * @return DescribeRdsVpcsResponse
+       */
+      Models::DescribeRdsVpcsResponse describeRdsVpcs(const Models::DescribeRdsVpcsRequest &request);
+
+      /**
+       * @summary 查询Vswitch信息
+       *
+       * @param request DescribeRdsVswitchesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRdsVswitchesResponse
+       */
+      Models::DescribeRdsVswitchesResponse describeRdsVswitchesWithOptions(const Models::DescribeRdsVswitchesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Vswitch信息
+       *
+       * @param request DescribeRdsVswitchesRequest
+       * @return DescribeRdsVswitchesResponse
+       */
+      Models::DescribeRdsVswitchesResponse describeRdsVswitches(const Models::DescribeRdsVswitchesRequest &request);
+
+      /**
        * @param request DescribeRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeRegionsResponse
@@ -661,6 +1176,23 @@ namespace Polardbx20200202
        * @return DescribeRegionsResponse
        */
       Models::DescribeRegionsResponse describeRegions();
+
+      /**
+       * @summary 查询预检任务结果
+       *
+       * @param request DescribeRplInspectionTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRplInspectionTaskResponse
+       */
+      Models::DescribeRplInspectionTaskResponse describeRplInspectionTaskWithOptions(const Models::DescribeRplInspectionTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询预检任务结果
+       *
+       * @param request DescribeRplInspectionTaskRequest
+       * @return DescribeRplInspectionTaskResponse
+       */
+      Models::DescribeRplInspectionTaskResponse describeRplInspectionTask(const Models::DescribeRplInspectionTaskRequest &request);
 
       /**
        * @param request DescribeScaleOutMigrateTaskListRequest
@@ -689,6 +1221,23 @@ namespace Polardbx20200202
       Models::DescribeSecurityIpsResponse describeSecurityIps(const Models::DescribeSecurityIpsRequest &request);
 
       /**
+       * @summary 查询 PolarDB-X 存储节点信息
+       *
+       * @param request DescribeShowStorageInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeShowStorageInfoResponse
+       */
+      Models::DescribeShowStorageInfoResponse describeShowStorageInfoWithOptions(const Models::DescribeShowStorageInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询 PolarDB-X 存储节点信息
+       *
+       * @param request DescribeShowStorageInfoRequest
+       * @return DescribeShowStorageInfoResponse
+       */
+      Models::DescribeShowStorageInfoResponse describeShowStorageInfo(const Models::DescribeShowStorageInfoRequest &request);
+
+      /**
        * @summary 慢SQL明细
        *
        * @param request DescribeSlowLogRecordsRequest
@@ -704,6 +1253,70 @@ namespace Polardbx20200202
        * @return DescribeSlowLogRecordsResponse
        */
       Models::DescribeSlowLogRecordsResponse describeSlowLogRecords(const Models::DescribeSlowLogRecordsRequest &request);
+
+      /**
+       * @param request DescribeSqlAuditInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSqlAuditInfoResponse
+       */
+      Models::DescribeSqlAuditInfoResponse describeSqlAuditInfoWithOptions(const Models::DescribeSqlAuditInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DescribeSqlAuditInfoRequest
+       * @return DescribeSqlAuditInfoResponse
+       */
+      Models::DescribeSqlAuditInfoResponse describeSqlAuditInfo(const Models::DescribeSqlAuditInfoRequest &request);
+
+      /**
+       * @summary SQL闪回任务列表查询
+       *
+       * @param request DescribeSqlFlashbackTaskListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSqlFlashbackTaskListResponse
+       */
+      Models::DescribeSqlFlashbackTaskListResponse describeSqlFlashbackTaskListWithOptions(const Models::DescribeSqlFlashbackTaskListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary SQL闪回任务列表查询
+       *
+       * @param request DescribeSqlFlashbackTaskListRequest
+       * @return DescribeSqlFlashbackTaskListResponse
+       */
+      Models::DescribeSqlFlashbackTaskListResponse describeSqlFlashbackTaskList(const Models::DescribeSqlFlashbackTaskListRequest &request);
+
+      /**
+       * @summary 查询 PolarDB-X 存储资源池信息
+       *
+       * @param request DescribeStoragePoolInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeStoragePoolInfoResponse
+       */
+      Models::DescribeStoragePoolInfoResponse describeStoragePoolInfoWithOptions(const Models::DescribeStoragePoolInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询 PolarDB-X 存储资源池信息
+       *
+       * @param request DescribeStoragePoolInfoRequest
+       * @return DescribeStoragePoolInfoResponse
+       */
+      Models::DescribeStoragePoolInfoResponse describeStoragePoolInfo(const Models::DescribeStoragePoolInfoRequest &request);
+
+      /**
+       * @summary 查询结构迁移任务结果
+       *
+       * @param request DescribeStructureImportTaskInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeStructureImportTaskInfoResponse
+       */
+      Models::DescribeStructureImportTaskInfoResponse describeStructureImportTaskInfoWithOptions(const Models::DescribeStructureImportTaskInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询结构迁移任务结果
+       *
+       * @param request DescribeStructureImportTaskInfoRequest
+       * @return DescribeStructureImportTaskInfoResponse
+       */
+      Models::DescribeStructureImportTaskInfoResponse describeStructureImportTaskInfo(const Models::DescribeStructureImportTaskInfoRequest &request);
 
       /**
        * @summary 标签列表查询
@@ -736,6 +1349,23 @@ namespace Polardbx20200202
       Models::DescribeTasksResponse describeTasks(const Models::DescribeTasksRequest &request);
 
       /**
+       * @summary 查询标准版迁移到企业版的任务状态
+       *
+       * @param request DescribeTransformStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeTransformStatusResponse
+       */
+      Models::DescribeTransformStatusResponse describeTransformStatusWithOptions(const Models::DescribeTransformStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询标准版迁移到企业版的任务状态
+       *
+       * @param request DescribeTransformStatusRequest
+       * @return DescribeTransformStatusResponse
+       */
+      Models::DescribeTransformStatusResponse describeTransformStatus(const Models::DescribeTransformStatusRequest &request);
+
+      /**
        * @param request DescribeUserEncryptionKeyListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeUserEncryptionKeyListResponse
@@ -762,6 +1392,19 @@ namespace Polardbx20200202
       Models::DisableRightsSeparationResponse disableRightsSeparation(const Models::DisableRightsSeparationRequest &request);
 
       /**
+       * @param request DisableSqlAuditRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableSqlAuditResponse
+       */
+      Models::DisableSqlAuditResponse disableSqlAuditWithOptions(const Models::DisableSqlAuditRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DisableSqlAuditRequest
+       * @return DisableSqlAuditResponse
+       */
+      Models::DisableSqlAuditResponse disableSqlAudit(const Models::DisableSqlAuditRequest &request);
+
+      /**
        * @summary 开启三权分立
        *
        * @param request EnableRightsSeparationRequest
@@ -779,6 +1422,19 @@ namespace Polardbx20200202
       Models::EnableRightsSeparationResponse enableRightsSeparation(const Models::EnableRightsSeparationRequest &request);
 
       /**
+       * @param request EnableSqlAuditRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableSqlAuditResponse
+       */
+      Models::EnableSqlAuditResponse enableSqlAuditWithOptions(const Models::EnableSqlAuditRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request EnableSqlAuditRequest
+       * @return EnableSqlAuditResponse
+       */
+      Models::EnableSqlAuditResponse enableSqlAudit(const Models::EnableSqlAuditRequest &request);
+
+      /**
        * @summary 查标签接口
        *
        * @param request ListTagResourcesRequest
@@ -794,6 +1450,19 @@ namespace Polardbx20200202
        * @return ListTagResourcesResponse
        */
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
+
+      /**
+       * @param request MigrateDBInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MigrateDBInstanceResponse
+       */
+      Models::MigrateDBInstanceResponse migrateDBInstanceWithOptions(const Models::MigrateDBInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request MigrateDBInstanceRequest
+       * @return MigrateDBInstanceResponse
+       */
+      Models::MigrateDBInstanceResponse migrateDBInstance(const Models::MigrateDBInstanceRequest &request);
 
       /**
        * @param request ModifyAccountDescriptionRequest
@@ -856,6 +1525,82 @@ namespace Polardbx20200202
       Models::ModifyActiveOperationTasksResponse modifyActiveOperationTasks(const Models::ModifyActiveOperationTasksRequest &request);
 
       /**
+       * @summary CDC变配
+       *
+       * @description ****
+       *
+       * @param request ModifyCdcClassRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyCdcClassResponse
+       */
+      Models::ModifyCdcClassResponse modifyCdcClassWithOptions(const Models::ModifyCdcClassRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary CDC变配
+       *
+       * @description ****
+       *
+       * @param request ModifyCdcClassRequest
+       * @return ModifyCdcClassResponse
+       */
+      Models::ModifyCdcClassResponse modifyCdcClass(const Models::ModifyCdcClassRequest &request);
+
+      /**
+       * @summary Columnar变配
+       *
+       * @description ****
+       *
+       * @param request ModifyColumnarClassRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyColumnarClassResponse
+       */
+      Models::ModifyColumnarClassResponse modifyColumnarClassWithOptions(const Models::ModifyColumnarClassRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Columnar变配
+       *
+       * @description ****
+       *
+       * @param request ModifyColumnarClassRequest
+       * @return ModifyColumnarClassResponse
+       */
+      Models::ModifyColumnarClassResponse modifyColumnarClass(const Models::ModifyColumnarClassRequest &request);
+
+      /**
+       * @summary 修复自定连接基本信息
+       *
+       * @param request ModifyCustomEndpointRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyCustomEndpointResponse
+       */
+      Models::ModifyCustomEndpointResponse modifyCustomEndpointWithOptions(const Models::ModifyCustomEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修复自定连接基本信息
+       *
+       * @param request ModifyCustomEndpointRequest
+       * @return ModifyCustomEndpointResponse
+       */
+      Models::ModifyCustomEndpointResponse modifyCustomEndpoint(const Models::ModifyCustomEndpointRequest &request);
+
+      /**
+       * @summary 修复自定连接的网络信息
+       *
+       * @param request ModifyCustomEndpointNetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyCustomEndpointNetResponse
+       */
+      Models::ModifyCustomEndpointNetResponse modifyCustomEndpointNetWithOptions(const Models::ModifyCustomEndpointNetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修复自定连接的网络信息
+       *
+       * @param request ModifyCustomEndpointNetRequest
+       * @return ModifyCustomEndpointNetResponse
+       */
+      Models::ModifyCustomEndpointNetResponse modifyCustomEndpointNet(const Models::ModifyCustomEndpointNetRequest &request);
+
+      /**
        * @param request ModifyDBInstanceClassRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyDBInstanceClassResponse
@@ -916,6 +1661,36 @@ namespace Polardbx20200202
       Models::ModifyDBInstanceDescriptionResponse modifyDBInstanceDescription(const Models::ModifyDBInstanceDescriptionRequest &request);
 
       /**
+       * @param request ModifyDBInstanceMaintainTimeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyDBInstanceMaintainTimeResponse
+       */
+      Models::ModifyDBInstanceMaintainTimeResponse modifyDBInstanceMaintainTimeWithOptions(const Models::ModifyDBInstanceMaintainTimeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request ModifyDBInstanceMaintainTimeRequest
+       * @return ModifyDBInstanceMaintainTimeResponse
+       */
+      Models::ModifyDBInstanceMaintainTimeResponse modifyDBInstanceMaintainTime(const Models::ModifyDBInstanceMaintainTimeRequest &request);
+
+      /**
+       * @description ****
+       *
+       * @param request ModifyDBInstanceVipRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyDBInstanceVipResponse
+       */
+      Models::ModifyDBInstanceVipResponse modifyDBInstanceVipWithOptions(const Models::ModifyDBInstanceVipRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @description ****
+       *
+       * @param request ModifyDBInstanceVipRequest
+       * @return ModifyDBInstanceVipResponse
+       */
+      Models::ModifyDBInstanceVipResponse modifyDBInstanceVip(const Models::ModifyDBInstanceVipRequest &request);
+
+      /**
        * @param request ModifyDatabaseDescriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyDatabaseDescriptionResponse
@@ -927,6 +1702,27 @@ namespace Polardbx20200202
        * @return ModifyDatabaseDescriptionResponse
        */
       Models::ModifyDatabaseDescriptionResponse modifyDatabaseDescription(const Models::ModifyDatabaseDescriptionRequest &request);
+
+      /**
+       * @summary ModifyEngineMigration
+       *
+       * @description ****
+       *
+       * @param request ModifyEngineMigrationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyEngineMigrationResponse
+       */
+      Models::ModifyEngineMigrationResponse modifyEngineMigrationWithOptions(const Models::ModifyEngineMigrationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ModifyEngineMigration
+       *
+       * @description ****
+       *
+       * @param request ModifyEngineMigrationRequest
+       * @return ModifyEngineMigrationResponse
+       */
+      Models::ModifyEngineMigrationResponse modifyEngineMigration(const Models::ModifyEngineMigrationRequest &request);
 
       /**
        * @param request ModifyParameterRequest
@@ -953,6 +1749,40 @@ namespace Polardbx20200202
        * @return ModifySecurityIpsResponse
        */
       Models::ModifySecurityIpsResponse modifySecurityIps(const Models::ModifySecurityIpsRequest &request);
+
+      /**
+       * @summary SQL闪回任务预检
+       *
+       * @param request PreCheckSqlFlashbackTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PreCheckSqlFlashbackTaskResponse
+       */
+      Models::PreCheckSqlFlashbackTaskResponse preCheckSqlFlashbackTaskWithOptions(const Models::PreCheckSqlFlashbackTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary SQL闪回任务预检
+       *
+       * @param request PreCheckSqlFlashbackTaskRequest
+       * @return PreCheckSqlFlashbackTaskResponse
+       */
+      Models::PreCheckSqlFlashbackTaskResponse preCheckSqlFlashbackTask(const Models::PreCheckSqlFlashbackTaskRequest &request);
+
+      /**
+       * @summary 刷新评估升级任务的导入元数据
+       *
+       * @param request RefreshImportMetaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RefreshImportMetaResponse
+       */
+      Models::RefreshImportMetaResponse refreshImportMetaWithOptions(const Models::RefreshImportMetaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 刷新评估升级任务的导入元数据
+       *
+       * @param request RefreshImportMetaRequest
+       * @return RefreshImportMetaResponse
+       */
+      Models::RefreshImportMetaResponse refreshImportMeta(const Models::RefreshImportMetaRequest &request);
 
       /**
        * @summary 关闭冷存储
@@ -998,6 +1828,23 @@ namespace Polardbx20200202
       Models::ResetAccountPasswordResponse resetAccountPassword(const Models::ResetAccountPasswordRequest &request);
 
       /**
+       * @description ****
+       *
+       * @param request ResetAccountPasswordRestrictRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResetAccountPasswordRestrictResponse
+       */
+      Models::ResetAccountPasswordRestrictResponse resetAccountPasswordRestrictWithOptions(const Models::ResetAccountPasswordRestrictRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @description ****
+       *
+       * @param request ResetAccountPasswordRestrictRequest
+       * @return ResetAccountPasswordRestrictResponse
+       */
+      Models::ResetAccountPasswordRestrictResponse resetAccountPasswordRestrict(const Models::ResetAccountPasswordRestrictRequest &request);
+
+      /**
        * @param request RestartDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RestartDBInstanceResponse
@@ -1009,6 +1856,91 @@ namespace Polardbx20200202
        * @return RestartDBInstanceResponse
        */
       Models::RestartDBInstanceResponse restartDBInstance(const Models::RestartDBInstanceRequest &request);
+
+      /**
+       * @summary 重启数据导入任务
+       *
+       * @param request RestartDataImportTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RestartDataImportTaskResponse
+       */
+      Models::RestartDataImportTaskResponse restartDataImportTaskWithOptions(const Models::RestartDataImportTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重启数据导入任务
+       *
+       * @param request RestartDataImportTaskRequest
+       * @return RestartDataImportTaskResponse
+       */
+      Models::RestartDataImportTaskResponse restartDataImportTask(const Models::RestartDataImportTaskRequest &request);
+
+      /**
+       * @summary 跳过评估迁移的当前步骤
+       *
+       * @param request SkipCurrentStepRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SkipCurrentStepResponse
+       */
+      Models::SkipCurrentStepResponse skipCurrentStepWithOptions(const Models::SkipCurrentStepRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 跳过评估迁移的当前步骤
+       *
+       * @param request SkipCurrentStepRequest
+       * @return SkipCurrentStepResponse
+       */
+      Models::SkipCurrentStepResponse skipCurrentStep(const Models::SkipCurrentStepRequest &request);
+
+      /**
+       * @summary 开始评估迁移切换
+       *
+       * @param request StartSwitchDatabaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StartSwitchDatabaseResponse
+       */
+      Models::StartSwitchDatabaseResponse startSwitchDatabaseWithOptions(const Models::StartSwitchDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开始评估迁移切换
+       *
+       * @param request StartSwitchDatabaseRequest
+       * @return StartSwitchDatabaseResponse
+       */
+      Models::StartSwitchDatabaseResponse startSwitchDatabase(const Models::StartSwitchDatabaseRequest &request);
+
+      /**
+       * @summary 暂停数据导入任务
+       *
+       * @param request StopDataImportTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopDataImportTaskResponse
+       */
+      Models::StopDataImportTaskResponse stopDataImportTaskWithOptions(const Models::StopDataImportTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 暂停数据导入任务
+       *
+       * @param request StopDataImportTaskRequest
+       * @return StopDataImportTaskResponse
+       */
+      Models::StopDataImportTaskResponse stopDataImportTask(const Models::StopDataImportTaskRequest &request);
+
+      /**
+       * @summary 提交SQL闪回任务
+       *
+       * @param request SubmitSqlFlashbackTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitSqlFlashbackTaskResponse
+       */
+      Models::SubmitSqlFlashbackTaskResponse submitSqlFlashbackTaskWithOptions(const Models::SubmitSqlFlashbackTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交SQL闪回任务
+       *
+       * @param request SubmitSqlFlashbackTaskRequest
+       * @return SubmitSqlFlashbackTaskResponse
+       */
+      Models::SubmitSqlFlashbackTaskResponse submitSqlFlashbackTask(const Models::SubmitSqlFlashbackTaskRequest &request);
 
       /**
        * @param request SwitchDBInstanceHARequest
@@ -1129,6 +2061,40 @@ namespace Polardbx20200202
        * @return UpdatePolarDBXInstanceNodeResponse
        */
       Models::UpdatePolarDBXInstanceNodeResponse updatePolarDBXInstanceNode(const Models::UpdatePolarDBXInstanceNodeRequest &request);
+
+      /**
+       * @summary 升级CDC版本
+       *
+       * @param request UpgradeCDCVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpgradeCDCVersionResponse
+       */
+      Models::UpgradeCDCVersionResponse upgradeCDCVersionWithOptions(const Models::UpgradeCDCVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 升级CDC版本
+       *
+       * @param request UpgradeCDCVersionRequest
+       * @return UpgradeCDCVersionResponse
+       */
+      Models::UpgradeCDCVersionResponse upgradeCDCVersion(const Models::UpgradeCDCVersionRequest &request);
+
+      /**
+       * @summary 升级Columnar版本
+       *
+       * @param request UpgradeColumnarVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpgradeColumnarVersionResponse
+       */
+      Models::UpgradeColumnarVersionResponse upgradeColumnarVersionWithOptions(const Models::UpgradeColumnarVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 升级Columnar版本
+       *
+       * @param request UpgradeColumnarVersionRequest
+       * @return UpgradeColumnarVersionResponse
+       */
+      Models::UpgradeColumnarVersionResponse upgradeColumnarVersion(const Models::UpgradeColumnarVersionRequest &request);
 
       /**
        * @param request UpgradeDBInstanceKernelVersionRequest

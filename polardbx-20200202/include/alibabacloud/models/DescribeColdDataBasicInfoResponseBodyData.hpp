@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backupSetCount_ != nullptr
-        && this->backupSetSpaceSize_ != nullptr && this->cloudProduct_ != nullptr && this->currentSpaceSize_ != nullptr && this->dataRedundancyType_ != nullptr && this->enableStatus_ != nullptr
-        && this->readAccessNum_ != nullptr && this->regionId_ != nullptr && this->volumeName_ != nullptr && this->writeAccessNum_ != nullptr; };
+    virtual bool empty() const override { return this->backupSetCount_ == nullptr
+        && return this->backupSetSpaceSize_ == nullptr && return this->cloudProduct_ == nullptr && return this->currentSpaceSize_ == nullptr && return this->dataRedundancyType_ == nullptr && return this->enableStatus_ == nullptr
+        && return this->readAccessNum_ == nullptr && return this->regionId_ == nullptr && return this->volumeName_ == nullptr && return this->writeAccessNum_ == nullptr; };
     // backupSetCount Field Functions 
     bool hasBackupSetCount() const { return this->backupSetCount_ != nullptr;};
     void deleteBackupSetCount() { this->backupSetCount_ = nullptr;};

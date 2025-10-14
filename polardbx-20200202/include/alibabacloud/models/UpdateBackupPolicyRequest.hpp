@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backupPeriod_ != nullptr
-        && this->backupPlanBegin_ != nullptr && this->backupSetRetention_ != nullptr && this->backupType_ != nullptr && this->backupWay_ != nullptr && this->coldDataBackupInterval_ != nullptr
-        && this->coldDataBackupRetention_ != nullptr && this->crossRegionDataBackupRetention_ != nullptr && this->crossRegionLogBackupRetention_ != nullptr && this->DBInstanceName_ != nullptr && this->destCrossRegion_ != nullptr
-        && this->forceCleanOnHighSpaceUsage_ != nullptr && this->isCrossRegionDataBackupEnabled_ != nullptr && this->isCrossRegionLogBackupEnabled_ != nullptr && this->isEnabled_ != nullptr && this->localLogRetention_ != nullptr
-        && this->localLogRetentionNumber_ != nullptr && this->logLocalRetentionSpace_ != nullptr && this->regionId_ != nullptr && this->removeLogRetention_ != nullptr; };
+    virtual bool empty() const override { return this->backupPeriod_ == nullptr
+        && return this->backupPlanBegin_ == nullptr && return this->backupSetRetention_ == nullptr && return this->backupType_ == nullptr && return this->backupWay_ == nullptr && return this->coldDataBackupInterval_ == nullptr
+        && return this->coldDataBackupRetention_ == nullptr && return this->crossRegionDataBackupRetention_ == nullptr && return this->crossRegionLogBackupRetention_ == nullptr && return this->DBInstanceName_ == nullptr && return this->destCrossRegion_ == nullptr
+        && return this->forceCleanOnHighSpaceUsage_ == nullptr && return this->isCrossRegionDataBackupEnabled_ == nullptr && return this->isCrossRegionLogBackupEnabled_ == nullptr && return this->isEnabled_ == nullptr && return this->localLogRetention_ == nullptr
+        && return this->localLogRetentionNumber_ == nullptr && return this->logLocalRetentionSpace_ == nullptr && return this->regionId_ == nullptr && return this->removeLogRetention_ == nullptr; };
     // backupPeriod Field Functions 
     bool hasBackupPeriod() const { return this->backupPeriod_ != nullptr;};
     void deleteBackupPeriod() { this->backupPeriod_ = nullptr;};

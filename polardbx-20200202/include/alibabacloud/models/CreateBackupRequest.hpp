@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backupType_ != nullptr
-        && this->DBInstanceName_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->backupType_ == nullptr
+        && return this->DBInstanceName_ == nullptr && return this->regionId_ == nullptr; };
     // backupType Field Functions 
     bool hasBackupType() const { return this->backupType_ != nullptr;};
     void deleteBackupType() { this->backupType_ = nullptr;};

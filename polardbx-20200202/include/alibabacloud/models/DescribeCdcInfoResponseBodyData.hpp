@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->binlogPersistTime_ != nullptr
-        && this->binlogSize_ != nullptr && this->cdcNewVersion_ != nullptr && this->checkSumSwitch_ != nullptr && this->enableCyclicReplication_ != nullptr && this->instanceTopologyList_ != nullptr
-        && this->serverId_ != nullptr && this->versionSupportMultiCdc_ != nullptr; };
+    virtual bool empty() const override { return this->binlogPersistTime_ == nullptr
+        && return this->binlogSize_ == nullptr && return this->cdcNewVersion_ == nullptr && return this->checkSumSwitch_ == nullptr && return this->enableCyclicReplication_ == nullptr && return this->instanceTopologyList_ == nullptr
+        && return this->serverId_ == nullptr && return this->versionSupportMultiCdc_ == nullptr; };
     // binlogPersistTime Field Functions 
     bool hasBinlogPersistTime() const { return this->binlogPersistTime_ != nullptr;};
     void deleteBinlogPersistTime() { this->binlogPersistTime_ = nullptr;};

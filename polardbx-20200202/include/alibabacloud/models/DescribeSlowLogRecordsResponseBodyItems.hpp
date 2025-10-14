@@ -79,12 +79,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->CNname_ != nullptr
-        && this->DBName_ != nullptr && this->extension_ != nullptr && this->fail_ != nullptr && this->frows_ != nullptr && this->hostAddress_ != nullptr
-        && this->insName_ != nullptr && this->isBind_ != nullptr && this->lockTimeMS_ != nullptr && this->params_ != nullptr && this->parseRowCounts_ != nullptr
-        && this->queryStartTime_ != nullptr && this->queryTime_ != nullptr && this->queryTimeMS_ != nullptr && this->returnRowCounts_ != nullptr && this->rows_ != nullptr
-        && this->SCNT_ != nullptr && this->SQLHash_ != nullptr && this->SQLText_ != nullptr && this->sqlType_ != nullptr && this->templateId_ != nullptr
-        && this->tooLong_ != nullptr && this->traceId_ != nullptr && this->transactionPolicy_ != nullptr && this->trxId_ != nullptr && this->WT_ != nullptr; };
+    virtual bool empty() const override { return this->CNname_ == nullptr
+        && return this->DBName_ == nullptr && return this->extension_ == nullptr && return this->fail_ == nullptr && return this->frows_ == nullptr && return this->hostAddress_ == nullptr
+        && return this->insName_ == nullptr && return this->isBind_ == nullptr && return this->lockTimeMS_ == nullptr && return this->params_ == nullptr && return this->parseRowCounts_ == nullptr
+        && return this->queryStartTime_ == nullptr && return this->queryTime_ == nullptr && return this->queryTimeMS_ == nullptr && return this->returnRowCounts_ == nullptr && return this->rows_ == nullptr
+        && return this->SCNT_ == nullptr && return this->SQLHash_ == nullptr && return this->SQLText_ == nullptr && return this->sqlType_ == nullptr && return this->templateId_ == nullptr
+        && return this->tooLong_ == nullptr && return this->traceId_ == nullptr && return this->transactionPolicy_ == nullptr && return this->trxId_ == nullptr && return this->WT_ == nullptr; };
     // CNname Field Functions 
     bool hasCNname() const { return this->CNname_ != nullptr;};
     void deleteCNname() { this->CNname_ = nullptr;};
