@@ -4,7 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <darabonba/http/URL.hpp>
+#include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -96,6 +96,10 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 CreateHoloWarehouseResponse Client::createHoloWarehouseWithOptions(const string &instanceId, const CreateHoloWarehouseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasClusterCount()) {
+    body["clusterCount"] = request.clusterCount();
+  }
+
   if (!!request.hasCpu()) {
     body["cpu"] = request.cpu();
   }
@@ -112,7 +116,7 @@ CreateHoloWarehouseResponse Client::createHoloWarehouseWithOptions(const string 
     {"action" , "CreateHoloWarehouse"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/createHoloWarehouse")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/createHoloWarehouse")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -318,7 +322,7 @@ DeleteHoloWarehouseResponse Client::deleteHoloWarehouseWithOptions(const string 
     {"action" , "DeleteHoloWarehouse"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/deleteHoloWarehouse")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/deleteHoloWarehouse")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -367,7 +371,7 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const string &instanceI
     {"action" , "DeleteInstance"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/delete")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/delete")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -416,7 +420,7 @@ DisableHiveAccessResponse Client::disableHiveAccessWithOptions(const string &ins
     {"action" , "DisableHiveAccess"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/disableHiveAccess")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/disableHiveAccess")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -453,7 +457,7 @@ DisableSSLResponse Client::disableSSLWithOptions(const string &instanceId, const
     {"action" , "DisableSSL"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/disableSSL")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/disableSSL")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -497,7 +501,7 @@ EnableHiveAccessResponse Client::enableHiveAccessWithOptions(const string &insta
     {"action" , "EnableHiveAccess"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/enableHiveAccess")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/enableHiveAccess")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -534,7 +538,7 @@ EnableSSLResponse Client::enableSSLWithOptions(const string &instanceId, const m
     {"action" , "EnableSSL"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/enableSSL")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/enableSSL")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -570,7 +574,7 @@ GetCertificateAttributeResponse Client::getCertificateAttributeWithOptions(const
     {"action" , "GetCertificateAttribute"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/certificateAttribute")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/certificateAttribute")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -606,7 +610,7 @@ GetInstanceResponse Client::getInstanceWithOptions(const string &instanceId, con
     {"action" , "GetInstance"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -642,7 +646,7 @@ GetRootCertificateResponse Client::getRootCertificateWithOptions(const string &i
     {"action" , "GetRootCertificate"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/rootCertificate")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/rootCertificate")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -678,7 +682,7 @@ GetWarehouseDetailResponse Client::getWarehouseDetailWithOptions(const string &i
     {"action" , "GetWarehouseDetail"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/getWarehouseDetail")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/getWarehouseDetail")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -816,7 +820,7 @@ ListWarehousesResponse Client::listWarehousesWithOptions(const string &instanceI
     {"action" , "ListWarehouses"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/listWarehouses")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/listWarehouses")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -860,7 +864,7 @@ RebalanceHoloWarehouseResponse Client::rebalanceHoloWarehouseWithOptions(const s
     {"action" , "RebalanceHoloWarehouse"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/rebalanceHoloWarehouse")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/rebalanceHoloWarehouse")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -909,7 +913,7 @@ RenameHoloWarehouseResponse Client::renameHoloWarehouseWithOptions(const string 
     {"action" , "RenameHoloWarehouse"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/renameHoloWarehouse")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/renameHoloWarehouse")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -963,7 +967,7 @@ RenewInstanceResponse Client::renewInstanceWithOptions(const string &instanceId,
     {"action" , "RenewInstance"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/renew")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/renew")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1005,7 +1009,7 @@ RenewSSLCertificateResponse Client::renewSSLCertificateWithOptions(const string 
     {"action" , "RenewSSLCertificate"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/renewSSLCertificate")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/renewSSLCertificate")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1049,7 +1053,7 @@ RestartHoloWarehouseResponse Client::restartHoloWarehouseWithOptions(const strin
     {"action" , "RestartHoloWarehouse"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/restartHoloWarehouse")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/restartHoloWarehouse")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1086,7 +1090,7 @@ RestartInstanceResponse Client::restartInstanceWithOptions(const string &instanc
     {"action" , "RestartInstance"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/restart")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/restart")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1130,7 +1134,7 @@ ResumeHoloWarehouseResponse Client::resumeHoloWarehouseWithOptions(const string 
     {"action" , "ResumeHoloWarehouse"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/resumeHoloWarehouse")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/resumeHoloWarehouse")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1167,7 +1171,7 @@ ResumeInstanceResponse Client::resumeInstanceWithOptions(const string &instanceI
     {"action" , "ResumeInstance"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/resume")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/resume")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1199,6 +1203,10 @@ ResumeInstanceResponse Client::resumeInstance(const string &instanceId) {
 ScaleHoloWarehouseResponse Client::scaleHoloWarehouseWithOptions(const string &instanceId, const ScaleHoloWarehouseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasClusterCount()) {
+    body["clusterCount"] = request.clusterCount();
+  }
+
   if (!!request.hasCpu()) {
     body["cpu"] = request.cpu();
   }
@@ -1215,7 +1223,7 @@ ScaleHoloWarehouseResponse Client::scaleHoloWarehouseWithOptions(const string &i
     {"action" , "ScaleHoloWarehouse"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/scaleHoloWarehouse")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/scaleHoloWarehouse")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1284,7 +1292,7 @@ ScaleInstanceResponse Client::scaleInstanceWithOptions(const string &instanceId,
     {"action" , "ScaleInstance"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/scale")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/scale")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1325,7 +1333,7 @@ StopInstanceResponse Client::stopInstanceWithOptions(const string &instanceId, c
     {"action" , "StopInstance"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/stop")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/stop")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1369,7 +1377,7 @@ SuspendHoloWarehouseResponse Client::suspendHoloWarehouseWithOptions(const strin
     {"action" , "SuspendHoloWarehouse"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/suspendHoloWarehouse")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/suspendHoloWarehouse")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1414,7 +1422,7 @@ UpdateInstanceNameResponse Client::updateInstanceNameWithOptions(const string &i
     {"action" , "UpdateInstanceName"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/instanceName")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/instanceName")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1479,7 +1487,7 @@ UpdateInstanceNetworkTypeResponse Client::updateInstanceNetworkTypeWithOptions(c
     {"action" , "UpdateInstanceNetworkType"},
     {"version" , "2022-06-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/network")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/network")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},

@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoPay_ != nullptr
-        && this->autoRenew_ != nullptr && this->chargeType_ != nullptr && this->coldStorageSize_ != nullptr && this->cpu_ != nullptr && this->duration_ != nullptr
-        && this->enableServerlessComputing_ != nullptr && this->gatewayCount_ != nullptr && this->initialDatabases_ != nullptr && this->instanceName_ != nullptr && this->instanceType_ != nullptr
-        && this->leaderInstanceId_ != nullptr && this->pricingCycle_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->storageSize_ != nullptr
-        && this->storageType_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->autoPay_ == nullptr
+        && return this->autoRenew_ == nullptr && return this->chargeType_ == nullptr && return this->coldStorageSize_ == nullptr && return this->cpu_ == nullptr && return this->duration_ == nullptr
+        && return this->enableServerlessComputing_ == nullptr && return this->gatewayCount_ == nullptr && return this->initialDatabases_ == nullptr && return this->instanceName_ == nullptr && return this->instanceType_ == nullptr
+        && return this->leaderInstanceId_ == nullptr && return this->pricingCycle_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->storageSize_ == nullptr
+        && return this->storageType_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};

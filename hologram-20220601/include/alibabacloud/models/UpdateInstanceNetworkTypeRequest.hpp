@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->anyTunnelToSingleTunnel_ != nullptr
-        && this->networkTypes_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr && this->vpcOwnerId_ != nullptr && this->vpcRegionId_ != nullptr; };
+    virtual bool empty() const override { return this->anyTunnelToSingleTunnel_ == nullptr
+        && return this->networkTypes_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->vpcOwnerId_ == nullptr && return this->vpcRegionId_ == nullptr; };
     // anyTunnelToSingleTunnel Field Functions 
     bool hasAnyTunnelToSingleTunnel() const { return this->anyTunnelToSingleTunnel_ != nullptr;};
     void deleteAnyTunnelToSingleTunnel() { this->anyTunnelToSingleTunnel_ = nullptr;};

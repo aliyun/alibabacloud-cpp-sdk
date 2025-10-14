@@ -90,13 +90,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRenewal_ != nullptr
-        && this->coldStorage_ != nullptr && this->commodityCode_ != nullptr && this->computeNodeCount_ != nullptr && this->cpu_ != nullptr && this->creationTime_ != nullptr
-        && this->disk_ != nullptr && this->enableHiveAccess_ != nullptr && this->enableServerless_ != nullptr && this->endpoints_ != nullptr && this->expirationTime_ != nullptr
-        && this->gatewayCount_ != nullptr && this->gatewayCpu_ != nullptr && this->gatewayMemory_ != nullptr && this->instanceChargeType_ != nullptr && this->instanceId_ != nullptr
-        && this->instanceName_ != nullptr && this->instanceOwner_ != nullptr && this->instanceStatus_ != nullptr && this->instanceType_ != nullptr && this->leaderInstanceId_ != nullptr
-        && this->memory_ != nullptr && this->regionId_ != nullptr && this->replicaRole_ != nullptr && this->resourceGroupId_ != nullptr && this->storageType_ != nullptr
-        && this->suspendReason_ != nullptr && this->tags_ != nullptr && this->version_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->autoRenewal_ == nullptr
+        && return this->coldStorage_ == nullptr && return this->commodityCode_ == nullptr && return this->computeNodeCount_ == nullptr && return this->cpu_ == nullptr && return this->creationTime_ == nullptr
+        && return this->disk_ == nullptr && return this->enableHiveAccess_ == nullptr && return this->enableServerless_ == nullptr && return this->endpoints_ == nullptr && return this->expirationTime_ == nullptr
+        && return this->gatewayCount_ == nullptr && return this->gatewayCpu_ == nullptr && return this->gatewayMemory_ == nullptr && return this->instanceChargeType_ == nullptr && return this->instanceId_ == nullptr
+        && return this->instanceName_ == nullptr && return this->instanceOwner_ == nullptr && return this->instanceStatus_ == nullptr && return this->instanceType_ == nullptr && return this->leaderInstanceId_ == nullptr
+        && return this->memory_ == nullptr && return this->regionId_ == nullptr && return this->replicaRole_ == nullptr && return this->resourceGroupId_ == nullptr && return this->storageType_ == nullptr
+        && return this->suspendReason_ == nullptr && return this->tags_ == nullptr && return this->version_ == nullptr && return this->zoneId_ == nullptr; };
     // autoRenewal Field Functions 
     bool hasAutoRenewal() const { return this->autoRenewal_ != nullptr;};
     void deleteAutoRenewal() { this->autoRenewal_ = nullptr;};

@@ -66,11 +66,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commodityCode_ != nullptr
-        && this->creationTime_ != nullptr && this->enableHiveAccess_ != nullptr && this->endpoints_ != nullptr && this->expirationTime_ != nullptr && this->instanceChargeType_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->instanceStatus_ != nullptr && this->instanceType_ != nullptr && this->leaderInstanceId_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->storageType_ != nullptr && this->suspendReason_ != nullptr && this->tags_ != nullptr
-        && this->version_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->commodityCode_ == nullptr
+        && return this->creationTime_ == nullptr && return this->enableHiveAccess_ == nullptr && return this->endpoints_ == nullptr && return this->expirationTime_ == nullptr && return this->instanceChargeType_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->instanceStatus_ == nullptr && return this->instanceType_ == nullptr && return this->leaderInstanceId_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->storageType_ == nullptr && return this->suspendReason_ == nullptr && return this->tags_ == nullptr
+        && return this->version_ == nullptr && return this->zoneId_ == nullptr; };
     // commodityCode Field Functions 
     bool hasCommodityCode() const { return this->commodityCode_ != nullptr;};
     void deleteCommodityCode() { this->commodityCode_ = nullptr;};

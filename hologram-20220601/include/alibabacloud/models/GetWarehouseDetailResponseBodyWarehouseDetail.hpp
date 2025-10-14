@@ -15,12 +15,14 @@ namespace Models
   class GetWarehouseDetailResponseBodyWarehouseDetail : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetWarehouseDetailResponseBodyWarehouseDetail& obj) { 
+      DARABONBA_PTR_TO_JSON(AutoElasticCpu, autoElasticCpu_);
       DARABONBA_PTR_TO_JSON(RemainingCpu, remainingCpu_);
       DARABONBA_PTR_TO_JSON(ReservedCpu, reservedCpu_);
       DARABONBA_PTR_TO_JSON(TimedElasticCpu, timedElasticCpu_);
       DARABONBA_PTR_TO_JSON(WarehouseList, warehouseList_);
     };
     friend void from_json(const Darabonba::Json& j, GetWarehouseDetailResponseBodyWarehouseDetail& obj) { 
+      DARABONBA_PTR_FROM_JSON(AutoElasticCpu, autoElasticCpu_);
       DARABONBA_PTR_FROM_JSON(RemainingCpu, remainingCpu_);
       DARABONBA_PTR_FROM_JSON(ReservedCpu, reservedCpu_);
       DARABONBA_PTR_FROM_JSON(TimedElasticCpu, timedElasticCpu_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->remainingCpu_ != nullptr
-        && this->reservedCpu_ != nullptr && this->timedElasticCpu_ != nullptr && this->warehouseList_ != nullptr; };
+    virtual bool empty() const override { return this->autoElasticCpu_ == nullptr
+        && return this->remainingCpu_ == nullptr && return this->reservedCpu_ == nullptr && return this->timedElasticCpu_ == nullptr && return this->warehouseList_ == nullptr; };
+    // autoElasticCpu Field Functions 
+    bool hasAutoElasticCpu() const { return this->autoElasticCpu_ != nullptr;};
+    void deleteAutoElasticCpu() { this->autoElasticCpu_ = nullptr;};
+    inline string autoElasticCpu() const { DARABONBA_PTR_GET_DEFAULT(autoElasticCpu_, "") };
+    inline GetWarehouseDetailResponseBodyWarehouseDetail& setAutoElasticCpu(string autoElasticCpu) { DARABONBA_PTR_SET_VALUE(autoElasticCpu_, autoElasticCpu) };
+
+
     // remainingCpu Field Functions 
     bool hasRemainingCpu() const { return this->remainingCpu_ != nullptr;};
     void deleteRemainingCpu() { this->remainingCpu_ = nullptr;};
@@ -70,6 +79,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> autoElasticCpu_ = nullptr;
     // The remaining unallocated computing resources of the virtual warehouse instance.
     std::shared_ptr<string> remainingCpu_ = nullptr;
     // The reserved computing resources. The amount of computing resources in all running virtual warehouses in an instance cannot exceed the amount of reserved computing resources in the virtual warehouses.

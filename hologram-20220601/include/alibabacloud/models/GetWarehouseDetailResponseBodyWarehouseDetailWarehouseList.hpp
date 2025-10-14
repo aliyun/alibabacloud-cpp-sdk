@@ -13,10 +13,16 @@ namespace Models
   class GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList& obj) { 
+      DARABONBA_PTR_TO_JSON(AutoScaleType, autoScaleType_);
+      DARABONBA_PTR_TO_JSON(ClusterCount, clusterCount_);
+      DARABONBA_PTR_TO_JSON(ClusterCpu, clusterCpu_);
       DARABONBA_PTR_TO_JSON(Cpu, cpu_);
       DARABONBA_PTR_TO_JSON(DefaultWarehouse, defaultWarehouse_);
       DARABONBA_PTR_TO_JSON(ElasticCpu, elasticCpu_);
+      DARABONBA_PTR_TO_JSON(ElasticType, elasticType_);
       DARABONBA_PTR_TO_JSON(Id, id_);
+      DARABONBA_PTR_TO_JSON(InitClusterCount, initClusterCount_);
+      DARABONBA_PTR_TO_JSON(MaxClusterCount, maxClusterCount_);
       DARABONBA_PTR_TO_JSON(Mem, mem_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(NodeCount, nodeCount_);
@@ -24,10 +30,16 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList& obj) { 
+      DARABONBA_PTR_FROM_JSON(AutoScaleType, autoScaleType_);
+      DARABONBA_PTR_FROM_JSON(ClusterCount, clusterCount_);
+      DARABONBA_PTR_FROM_JSON(ClusterCpu, clusterCpu_);
       DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
       DARABONBA_PTR_FROM_JSON(DefaultWarehouse, defaultWarehouse_);
       DARABONBA_PTR_FROM_JSON(ElasticCpu, elasticCpu_);
+      DARABONBA_PTR_FROM_JSON(ElasticType, elasticType_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
+      DARABONBA_PTR_FROM_JSON(InitClusterCount, initClusterCount_);
+      DARABONBA_PTR_FROM_JSON(MaxClusterCount, maxClusterCount_);
       DARABONBA_PTR_FROM_JSON(Mem, mem_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(NodeCount, nodeCount_);
@@ -45,9 +57,31 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpu_ != nullptr
-        && this->defaultWarehouse_ != nullptr && this->elasticCpu_ != nullptr && this->id_ != nullptr && this->mem_ != nullptr && this->name_ != nullptr
-        && this->nodeCount_ != nullptr && this->rebalanceStatus_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->autoScaleType_ == nullptr
+        && return this->clusterCount_ == nullptr && return this->clusterCpu_ == nullptr && return this->cpu_ == nullptr && return this->defaultWarehouse_ == nullptr && return this->elasticCpu_ == nullptr
+        && return this->elasticType_ == nullptr && return this->id_ == nullptr && return this->initClusterCount_ == nullptr && return this->maxClusterCount_ == nullptr && return this->mem_ == nullptr
+        && return this->name_ == nullptr && return this->nodeCount_ == nullptr && return this->rebalanceStatus_ == nullptr && return this->status_ == nullptr; };
+    // autoScaleType Field Functions 
+    bool hasAutoScaleType() const { return this->autoScaleType_ != nullptr;};
+    void deleteAutoScaleType() { this->autoScaleType_ = nullptr;};
+    inline string autoScaleType() const { DARABONBA_PTR_GET_DEFAULT(autoScaleType_, "") };
+    inline GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList& setAutoScaleType(string autoScaleType) { DARABONBA_PTR_SET_VALUE(autoScaleType_, autoScaleType) };
+
+
+    // clusterCount Field Functions 
+    bool hasClusterCount() const { return this->clusterCount_ != nullptr;};
+    void deleteClusterCount() { this->clusterCount_ = nullptr;};
+    inline string clusterCount() const { DARABONBA_PTR_GET_DEFAULT(clusterCount_, "") };
+    inline GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList& setClusterCount(string clusterCount) { DARABONBA_PTR_SET_VALUE(clusterCount_, clusterCount) };
+
+
+    // clusterCpu Field Functions 
+    bool hasClusterCpu() const { return this->clusterCpu_ != nullptr;};
+    void deleteClusterCpu() { this->clusterCpu_ = nullptr;};
+    inline string clusterCpu() const { DARABONBA_PTR_GET_DEFAULT(clusterCpu_, "") };
+    inline GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList& setClusterCpu(string clusterCpu) { DARABONBA_PTR_SET_VALUE(clusterCpu_, clusterCpu) };
+
+
     // cpu Field Functions 
     bool hasCpu() const { return this->cpu_ != nullptr;};
     void deleteCpu() { this->cpu_ = nullptr;};
@@ -69,11 +103,32 @@ namespace Models
     inline GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList& setElasticCpu(int64_t elasticCpu) { DARABONBA_PTR_SET_VALUE(elasticCpu_, elasticCpu) };
 
 
+    // elasticType Field Functions 
+    bool hasElasticType() const { return this->elasticType_ != nullptr;};
+    void deleteElasticType() { this->elasticType_ = nullptr;};
+    inline string elasticType() const { DARABONBA_PTR_GET_DEFAULT(elasticType_, "") };
+    inline GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList& setElasticType(string elasticType) { DARABONBA_PTR_SET_VALUE(elasticType_, elasticType) };
+
+
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
     inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+    // initClusterCount Field Functions 
+    bool hasInitClusterCount() const { return this->initClusterCount_ != nullptr;};
+    void deleteInitClusterCount() { this->initClusterCount_ = nullptr;};
+    inline string initClusterCount() const { DARABONBA_PTR_GET_DEFAULT(initClusterCount_, "") };
+    inline GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList& setInitClusterCount(string initClusterCount) { DARABONBA_PTR_SET_VALUE(initClusterCount_, initClusterCount) };
+
+
+    // maxClusterCount Field Functions 
+    bool hasMaxClusterCount() const { return this->maxClusterCount_ != nullptr;};
+    void deleteMaxClusterCount() { this->maxClusterCount_ = nullptr;};
+    inline string maxClusterCount() const { DARABONBA_PTR_GET_DEFAULT(maxClusterCount_, "") };
+    inline GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList& setMaxClusterCount(string maxClusterCount) { DARABONBA_PTR_SET_VALUE(maxClusterCount_, maxClusterCount) };
 
 
     // mem Field Functions 
@@ -112,12 +167,18 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> autoScaleType_ = nullptr;
+    std::shared_ptr<string> clusterCount_ = nullptr;
+    std::shared_ptr<string> clusterCpu_ = nullptr;
     // The number of CPU cores.
     std::shared_ptr<int64_t> cpu_ = nullptr;
     std::shared_ptr<bool> defaultWarehouse_ = nullptr;
     std::shared_ptr<int64_t> elasticCpu_ = nullptr;
+    std::shared_ptr<string> elasticType_ = nullptr;
     // The ID.
     std::shared_ptr<int64_t> id_ = nullptr;
+    std::shared_ptr<string> initClusterCount_ = nullptr;
+    std::shared_ptr<string> maxClusterCount_ = nullptr;
     // The memory capacity.
     std::shared_ptr<int64_t> mem_ = nullptr;
     // The name of the virtual warehouse instance.

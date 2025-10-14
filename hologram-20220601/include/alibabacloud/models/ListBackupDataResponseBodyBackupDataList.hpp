@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backupType_ != nullptr
-        && this->coldDataSize_ != nullptr && this->dataDesc_ != nullptr && this->dataGran_ != nullptr && this->dataSize_ != nullptr && this->dataTime_ != nullptr
-        && this->endTime_ != nullptr && this->id_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->instanceRegion_ != nullptr
-        && this->instanceType_ != nullptr && this->instanceZoneId_ != nullptr && this->snapshotRegion_ != nullptr && this->snapshotZoneId_ != nullptr && this->startTime_ != nullptr
-        && this->status_ != nullptr && this->triggerType_ != nullptr; };
+    virtual bool empty() const override { return this->backupType_ == nullptr
+        && return this->coldDataSize_ == nullptr && return this->dataDesc_ == nullptr && return this->dataGran_ == nullptr && return this->dataSize_ == nullptr && return this->dataTime_ == nullptr
+        && return this->endTime_ == nullptr && return this->id_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->instanceRegion_ == nullptr
+        && return this->instanceType_ == nullptr && return this->instanceZoneId_ == nullptr && return this->snapshotRegion_ == nullptr && return this->snapshotZoneId_ == nullptr && return this->startTime_ == nullptr
+        && return this->status_ == nullptr && return this->triggerType_ == nullptr; };
     // backupType Field Functions 
     bool hasBackupType() const { return this->backupType_ != nullptr;};
     void deleteBackupType() { this->backupType_ = nullptr;};
