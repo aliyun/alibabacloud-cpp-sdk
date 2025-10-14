@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_SUBMITDOCTRANSLATETASKREQUESTEXT_HPP_
 #define ALIBABACLOUD_MODELS_SUBMITDOCTRANSLATETASKREQUESTEXT_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/SubmitDocTranslateTaskRequestExtConfig.hpp>
 #include <vector>
 #include <alibabacloud/models/SubmitDocTranslateTaskRequestExtTerminologies.hpp>
 using namespace std;
@@ -15,10 +16,12 @@ namespace Models
   class SubmitDocTranslateTaskRequestExt : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SubmitDocTranslateTaskRequestExt& obj) { 
+      DARABONBA_PTR_TO_JSON(config, config_);
       DARABONBA_PTR_TO_JSON(domainHint, domainHint_);
       DARABONBA_PTR_TO_JSON(terminologies, terminologies_);
     };
     friend void from_json(const Darabonba::Json& j, SubmitDocTranslateTaskRequestExt& obj) { 
+      DARABONBA_PTR_FROM_JSON(config, config_);
       DARABONBA_PTR_FROM_JSON(domainHint, domainHint_);
       DARABONBA_PTR_FROM_JSON(terminologies, terminologies_);
     };
@@ -33,8 +36,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->domainHint_ != nullptr
-        && this->terminologies_ != nullptr; };
+    virtual bool empty() const override { return this->config_ == nullptr
+        && return this->domainHint_ == nullptr && return this->terminologies_ == nullptr; };
+    // config Field Functions 
+    bool hasConfig() const { return this->config_ != nullptr;};
+    void deleteConfig() { this->config_ = nullptr;};
+    inline const Models::SubmitDocTranslateTaskRequestExtConfig & config() const { DARABONBA_PTR_GET_CONST(config_, Models::SubmitDocTranslateTaskRequestExtConfig) };
+    inline Models::SubmitDocTranslateTaskRequestExtConfig config() { DARABONBA_PTR_GET(config_, Models::SubmitDocTranslateTaskRequestExtConfig) };
+    inline SubmitDocTranslateTaskRequestExt& setConfig(const Models::SubmitDocTranslateTaskRequestExtConfig & config) { DARABONBA_PTR_SET_VALUE(config_, config) };
+    inline SubmitDocTranslateTaskRequestExt& setConfig(Models::SubmitDocTranslateTaskRequestExtConfig && config) { DARABONBA_PTR_SET_RVALUE(config_, config) };
+
+
     // domainHint Field Functions 
     bool hasDomainHint() const { return this->domainHint_ != nullptr;};
     void deleteDomainHint() { this->domainHint_ = nullptr;};
@@ -52,6 +64,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<Models::SubmitDocTranslateTaskRequestExtConfig> config_ = nullptr;
     std::shared_ptr<string> domainHint_ = nullptr;
     std::shared_ptr<vector<Models::SubmitDocTranslateTaskRequestExtTerminologies>> terminologies_ = nullptr;
   };

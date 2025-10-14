@@ -68,6 +68,7 @@
 #include <alibabacloud/models/GetImageTranslateTaskResponseBodyData.hpp>
 #include <alibabacloud/models/GetLongTextTranslateTaskResponseBodyDataUsage.hpp>
 #include <alibabacloud/models/GetLongTextTranslateTaskResponseBodyData.hpp>
+#include <alibabacloud/models/SubmitDocTranslateTaskRequestExtConfig.hpp>
 #include <alibabacloud/models/SubmitDocTranslateTaskRequestExtTerminologies.hpp>
 #include <alibabacloud/models/SubmitDocTranslateTaskRequestExt.hpp>
 #include <alibabacloud/models/SubmitDocTranslateTaskResponseBodyData.hpp>

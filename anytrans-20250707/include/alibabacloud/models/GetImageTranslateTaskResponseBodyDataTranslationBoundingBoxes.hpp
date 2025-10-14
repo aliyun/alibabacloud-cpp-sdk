@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->confidence_ != nullptr
-        && this->direction_ != nullptr && this->downLeft_ != nullptr && this->downRight_ != nullptr && this->tableCellId_ != nullptr && this->tableId_ != nullptr
-        && this->text_ != nullptr && this->translation_ != nullptr && this->upLeft_ != nullptr && this->upRight_ != nullptr; };
+    virtual bool empty() const override { return this->confidence_ == nullptr
+        && return this->direction_ == nullptr && return this->downLeft_ == nullptr && return this->downRight_ == nullptr && return this->tableCellId_ == nullptr && return this->tableId_ == nullptr
+        && return this->text_ == nullptr && return this->translation_ == nullptr && return this->upLeft_ == nullptr && return this->upRight_ == nullptr; };
     // confidence Field Functions 
     bool hasConfidence() const { return this->confidence_ != nullptr;};
     void deleteConfidence() { this->confidence_ = nullptr;};

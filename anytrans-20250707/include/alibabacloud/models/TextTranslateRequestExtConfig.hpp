@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->skipCsiCheck_ != nullptr; };
+    virtual bool empty() const override { return this->skipCsiCheck_ == nullptr; };
     // skipCsiCheck Field Functions 
     bool hasSkipCsiCheck() const { return this->skipCsiCheck_ != nullptr;};
     void deleteSkipCsiCheck() { this->skipCsiCheck_ = nullptr;};
