@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->data_ != nullptr
-        && this->endTime_ != nullptr && this->interval_ != nullptr && this->requestId_ != nullptr && this->samplingRate_ != nullptr && this->startTime_ != nullptr
-        && this->summarizedData_ != nullptr; };
+    virtual bool empty() const override { return this->data_ == nullptr
+        && return this->endTime_ == nullptr && return this->interval_ == nullptr && return this->requestId_ == nullptr && return this->samplingRate_ == nullptr && return this->startTime_ == nullptr
+        && return this->summarizedData_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
@@ -101,14 +101,23 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // Returned data.
     std::shared_ptr<vector<DescribeSiteTimeSeriesDataResponseBodyData>> data_ = nullptr;
+    // The end time for fetching the data.
+    // 
+    // The date format follows ISO8601 notation and uses UTC+0, formatted as yyyy-MM-ddTHH:mm:ssZ.
     std::shared_ptr<string> endTime_ = nullptr;
+    // The granularity of the data, in seconds.
     std::shared_ptr<int64_t> interval_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The sampling rate, in %.
     std::shared_ptr<float> samplingRate_ = nullptr;
+    // The start time for fetching the data.
+    // 
+    // The date format follows ISO8601 notation and uses UTC+0, formatted as yyyy-MM-ddTHH:mm:ssZ.
     std::shared_ptr<string> startTime_ = nullptr;
-    // The queried summary data.
+    // Aggregated query data.
     std::shared_ptr<vector<DescribeSiteTimeSeriesDataResponseBodySummarizedData>> summarizedData_ = nullptr;
   };
 

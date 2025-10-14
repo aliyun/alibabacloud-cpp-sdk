@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endTime_ != nullptr
-        && this->fieldsShrink_ != nullptr && this->interval_ != nullptr && this->siteId_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->endTime_ == nullptr
+        && return this->fieldsShrink_ == nullptr && return this->interval_ == nullptr && return this->siteId_ == nullptr && return this->startTime_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
@@ -75,13 +75,27 @@ namespace Models
 
 
   protected:
+    // The end time for obtaining data.
+    // 
+    // The date format follows ISO8601 notation and uses UTC+0 time, in the format yyyy-MM-ddTHH:mm:ssZ.
+    // 
+    // > The end time must be later than the start time.
     std::shared_ptr<string> endTime_ = nullptr;
-    // The metric to query.
+    // Query metrics.
     // 
     // This parameter is required.
     std::shared_ptr<string> fieldsShrink_ = nullptr;
+    // The time granularity for querying data, in seconds.
+    // 
+    // Depending on the maximum time span of a single query, this parameter supports values of 60 (1 minute), 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For details, see the **Supported Query Time Granularities**.
     std::shared_ptr<string> interval_ = nullptr;
+    // Site ID. Obtain the site ID by calling the [ListSites](~~ListSites~~) interface.
+    // 
+    // If this parameter is empty, user-level data will be queried.
     std::shared_ptr<string> siteId_ = nullptr;
+    // The start time for obtaining data.
+    // 
+    // The date format follows ISO8601 notation and uses UTC+0 time, in the format yyyy-MM-ddTHH:mm:ssZ.
     std::shared_ptr<string> startTime_ = nullptr;
   };
 

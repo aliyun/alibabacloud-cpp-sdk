@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commonName_ != nullptr
-        && this->createTime_ != nullptr && this->fingerprintSha256_ != nullptr && this->id_ != nullptr && this->issuer_ != nullptr && this->name_ != nullptr
-        && this->notAfter_ != nullptr && this->notBefore_ != nullptr && this->pubkeyAlgorithm_ != nullptr && this->SAN_ != nullptr && this->serialNumber_ != nullptr
-        && this->signatureAlgorithm_ != nullptr && this->status_ != nullptr && this->type_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->commonName_ == nullptr
+        && return this->createTime_ == nullptr && return this->fingerprintSha256_ == nullptr && return this->id_ == nullptr && return this->issuer_ == nullptr && return this->name_ == nullptr
+        && return this->notAfter_ == nullptr && return this->notBefore_ == nullptr && return this->pubkeyAlgorithm_ == nullptr && return this->SAN_ == nullptr && return this->serialNumber_ == nullptr
+        && return this->signatureAlgorithm_ == nullptr && return this->status_ == nullptr && return this->type_ == nullptr && return this->updateTime_ == nullptr; };
     // commonName Field Functions 
     bool hasCommonName() const { return this->commonName_ != nullptr;};
     void deleteCommonName() { this->commonName_ = nullptr;};

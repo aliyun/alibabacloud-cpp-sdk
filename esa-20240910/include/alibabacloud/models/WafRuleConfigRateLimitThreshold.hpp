@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->distinctManagedRules_ != nullptr
-        && this->managedRulesBlocked_ != nullptr && this->request_ != nullptr && this->responseStatus_ != nullptr && this->traffic_ != nullptr; };
+    virtual bool empty() const override { return this->distinctManagedRules_ == nullptr
+        && return this->managedRulesBlocked_ == nullptr && return this->request_ == nullptr && return this->responseStatus_ == nullptr && return this->traffic_ == nullptr; };
     // distinctManagedRules Field Functions 
     bool hasDistinctManagedRules() const { return this->distinctManagedRules_ != nullptr;};
     void deleteDistinctManagedRules() { this->distinctManagedRules_ = nullptr;};

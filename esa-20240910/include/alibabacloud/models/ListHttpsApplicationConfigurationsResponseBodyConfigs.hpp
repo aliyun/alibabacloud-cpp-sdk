@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->altSvc_ != nullptr
-        && this->altSvcClear_ != nullptr && this->altSvcMa_ != nullptr && this->altSvcPersist_ != nullptr && this->configId_ != nullptr && this->configType_ != nullptr
-        && this->hsts_ != nullptr && this->hstsIncludeSubdomains_ != nullptr && this->hstsMaxAge_ != nullptr && this->hstsPreload_ != nullptr && this->httpsForce_ != nullptr
-        && this->httpsForceCode_ != nullptr && this->httpsNoSniDeny_ != nullptr && this->httpsSniVerify_ != nullptr && this->httpsSniWhitelist_ != nullptr && this->rule_ != nullptr
-        && this->ruleEnable_ != nullptr && this->ruleName_ != nullptr && this->sequence_ != nullptr && this->siteVersion_ != nullptr; };
+    virtual bool empty() const override { return this->altSvc_ == nullptr
+        && return this->altSvcClear_ == nullptr && return this->altSvcMa_ == nullptr && return this->altSvcPersist_ == nullptr && return this->configId_ == nullptr && return this->configType_ == nullptr
+        && return this->hsts_ == nullptr && return this->hstsIncludeSubdomains_ == nullptr && return this->hstsMaxAge_ == nullptr && return this->hstsPreload_ == nullptr && return this->httpsForce_ == nullptr
+        && return this->httpsForceCode_ == nullptr && return this->httpsNoSniDeny_ == nullptr && return this->httpsSniVerify_ == nullptr && return this->httpsSniWhitelist_ == nullptr && return this->rule_ == nullptr
+        && return this->ruleEnable_ == nullptr && return this->ruleName_ == nullptr && return this->sequence_ == nullptr && return this->siteVersion_ == nullptr; };
     // altSvc Field Functions 
     bool hasAltSvc() const { return this->altSvc_ != nullptr;};
     void deleteAltSvc() { this->altSvc_ = nullptr;};

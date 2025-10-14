@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->queryString_ != nullptr
-        && this->rewriteQueryStringType_ != nullptr && this->rewriteUriType_ != nullptr && this->rule_ != nullptr && this->ruleEnable_ != nullptr && this->ruleName_ != nullptr
-        && this->sequence_ != nullptr && this->siteId_ != nullptr && this->siteVersion_ != nullptr && this->uri_ != nullptr; };
+    virtual bool empty() const override { return this->queryString_ == nullptr
+        && return this->rewriteQueryStringType_ == nullptr && return this->rewriteUriType_ == nullptr && return this->rule_ == nullptr && return this->ruleEnable_ == nullptr && return this->ruleName_ == nullptr
+        && return this->sequence_ == nullptr && return this->siteId_ == nullptr && return this->siteVersion_ == nullptr && return this->uri_ == nullptr; };
     // queryString Field Functions 
     bool hasQueryString() const { return this->queryString_ != nullptr;};
     void deleteQueryString() { this->queryString_ = nullptr;};

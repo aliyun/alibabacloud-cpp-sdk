@@ -64,11 +64,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessType_ != nullptr
-        && this->cnameZone_ != nullptr && this->coverage_ != nullptr && this->createTime_ != nullptr && this->instanceId_ != nullptr && this->nameServerList_ != nullptr
-        && this->offlineReason_ != nullptr && this->planName_ != nullptr && this->planSpecName_ != nullptr && this->resourceGroupId_ != nullptr && this->siteId_ != nullptr
-        && this->siteName_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr && this->updateTime_ != nullptr && this->vanityNSList_ != nullptr
-        && this->verifyCode_ != nullptr && this->versionManagement_ != nullptr; };
+    virtual bool empty() const override { return this->accessType_ == nullptr
+        && return this->cnameZone_ == nullptr && return this->coverage_ == nullptr && return this->createTime_ == nullptr && return this->instanceId_ == nullptr && return this->nameServerList_ == nullptr
+        && return this->offlineReason_ == nullptr && return this->planName_ == nullptr && return this->planSpecName_ == nullptr && return this->resourceGroupId_ == nullptr && return this->siteId_ == nullptr
+        && return this->siteName_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr && return this->updateTime_ == nullptr && return this->vanityNSList_ == nullptr
+        && return this->verifyCode_ == nullptr && return this->versionManagement_ == nullptr; };
     // accessType Field Functions 
     bool hasAccessType() const { return this->accessType_ != nullptr;};
     void deleteAccessType() { this->accessType_ = nullptr;};

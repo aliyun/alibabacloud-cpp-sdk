@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->canaryAreas_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->canaryAreas_ == nullptr
+        && return this->requestId_ == nullptr; };
     // canaryAreas Field Functions 
     bool hasCanaryAreas() const { return this->canaryAreas_ != nullptr;};
     void deleteCanaryAreas() { this->canaryAreas_ = nullptr;};

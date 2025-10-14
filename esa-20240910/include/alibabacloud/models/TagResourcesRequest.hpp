@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ownerId_ != nullptr
-        && this->regionId_ != nullptr && this->resourceId_ != nullptr && this->resourceType_ != nullptr && this->securityToken_ != nullptr && this->tag_ != nullptr; };
+    virtual bool empty() const override { return this->ownerId_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceId_ == nullptr && return this->resourceType_ == nullptr && return this->securityToken_ == nullptr && return this->tag_ == nullptr; };
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
@@ -91,15 +91,21 @@ namespace Models
 
   protected:
     std::shared_ptr<int64_t> ownerId_ = nullptr;
-    // The region ID.
+    // The region ID. Valid values:
+    // 
+    // *   China site (aliyun.com): cn-hangzhou
+    // *   International site (alibabacloud.com): ap-southeast-1
     // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
-    // The ID of resource. Valid values of N: **1** to **50**.
+    // The resource ID. Enter a website ID or DNS record ID.
     // 
     // This parameter is required.
     std::shared_ptr<vector<string>> resourceId_ = nullptr;
-    // The resource type, which can only be **site**.
+    // The type of the resource. Valid values:
+    // 
+    // *   Site: **site**
+    // *   DNS records: **record**
     // 
     // This parameter is required.
     std::shared_ptr<string> resourceType_ = nullptr;

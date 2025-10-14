@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->command_ != nullptr
-        && this->failureThreshold_ != nullptr && this->host_ != nullptr && this->httpHeaders_ != nullptr && this->initialDelaySeconds_ != nullptr && this->path_ != nullptr
-        && this->periodSeconds_ != nullptr && this->port_ != nullptr && this->scheme_ != nullptr && this->successThreshold_ != nullptr && this->timeoutSeconds_ != nullptr; };
+    virtual bool empty() const override { return this->command_ == nullptr
+        && return this->failureThreshold_ == nullptr && return this->host_ == nullptr && return this->httpHeaders_ == nullptr && return this->initialDelaySeconds_ == nullptr && return this->path_ == nullptr
+        && return this->periodSeconds_ == nullptr && return this->port_ == nullptr && return this->scheme_ == nullptr && return this->successThreshold_ == nullptr && return this->timeoutSeconds_ == nullptr; };
     // command Field Functions 
     bool hasCommand() const { return this->command_ != nullptr;};
     void deleteCommand() { this->command_ = nullptr;};

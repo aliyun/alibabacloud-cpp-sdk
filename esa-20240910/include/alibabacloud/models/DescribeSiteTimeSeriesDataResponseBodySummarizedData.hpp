@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aggMethod_ != nullptr
-        && this->dimensionName_ != nullptr && this->dimensionValue_ != nullptr && this->fieldName_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->aggMethod_ == nullptr
+        && return this->dimensionName_ == nullptr && return this->dimensionValue_ == nullptr && return this->fieldName_ == nullptr && return this->value_ == nullptr; };
     // aggMethod Field Functions 
     bool hasAggMethod() const { return this->aggMethod_ != nullptr;};
     void deleteAggMethod() { this->aggMethod_ = nullptr;};
@@ -77,10 +77,15 @@ namespace Models
 
 
   protected:
+    // The aggregation method used.
     std::shared_ptr<string> aggMethod_ = nullptr;
+    // The dimension of the aggregated data being queried.
     std::shared_ptr<string> dimensionName_ = nullptr;
+    // The value of the aggregated dimension being queried.
     std::shared_ptr<string> dimensionValue_ = nullptr;
+    // The value of the aggregated metric being queried.
     std::shared_ptr<string> fieldName_ = nullptr;
+    // The aggregated value.
     Darabonba::Json value_ = nullptr;
   };
 

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTWAFMANAGEDRULESREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_LISTWAFMANAGEDRULESREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ListWafManagedRulesRequestManagedRuleset.hpp>
 #include <alibabacloud/models/ListWafManagedRulesRequestQueryArgs.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -16,7 +17,9 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListWafManagedRulesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AttackType, attackType_);
       DARABONBA_PTR_TO_JSON(Id, id_);
+      DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(Language, language_);
+      DARABONBA_PTR_TO_JSON(ManagedRuleset, managedRuleset_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ProtectionLevel, protectionLevel_);
@@ -26,7 +29,9 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListWafManagedRulesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AttackType, attackType_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
+      DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(Language, language_);
+      DARABONBA_PTR_FROM_JSON(ManagedRuleset, managedRuleset_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ProtectionLevel, protectionLevel_);
@@ -44,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attackType_ != nullptr
-        && this->id_ != nullptr && this->language_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->protectionLevel_ != nullptr
-        && this->queryArgs_ != nullptr && this->siteId_ != nullptr; };
+    virtual bool empty() const override { return this->attackType_ == nullptr
+        && return this->id_ == nullptr && return this->instanceId_ == nullptr && return this->language_ == nullptr && return this->managedRuleset_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->protectionLevel_ == nullptr && return this->queryArgs_ == nullptr && return this->siteId_ == nullptr; };
     // attackType Field Functions 
     bool hasAttackType() const { return this->attackType_ != nullptr;};
     void deleteAttackType() { this->attackType_ = nullptr;};
@@ -61,11 +66,27 @@ namespace Models
     inline ListWafManagedRulesRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
+    // instanceId Field Functions 
+    bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+    void deleteInstanceId() { this->instanceId_ = nullptr;};
+    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline ListWafManagedRulesRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
     inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline ListWafManagedRulesRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
+
+
+    // managedRuleset Field Functions 
+    bool hasManagedRuleset() const { return this->managedRuleset_ != nullptr;};
+    void deleteManagedRuleset() { this->managedRuleset_ = nullptr;};
+    inline const ListWafManagedRulesRequestManagedRuleset & managedRuleset() const { DARABONBA_PTR_GET_CONST(managedRuleset_, ListWafManagedRulesRequestManagedRuleset) };
+    inline ListWafManagedRulesRequestManagedRuleset managedRuleset() { DARABONBA_PTR_GET(managedRuleset_, ListWafManagedRulesRequestManagedRuleset) };
+    inline ListWafManagedRulesRequest& setManagedRuleset(const ListWafManagedRulesRequestManagedRuleset & managedRuleset) { DARABONBA_PTR_SET_VALUE(managedRuleset_, managedRuleset) };
+    inline ListWafManagedRulesRequest& setManagedRuleset(ListWafManagedRulesRequestManagedRuleset && managedRuleset) { DARABONBA_PTR_SET_RVALUE(managedRuleset_, managedRuleset) };
 
 
     // pageNumber Field Functions 
@@ -121,14 +142,14 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<int32_t> attackType_ = nullptr;
     // ID of the WAF rule.
-    // 
-    // This parameter is required.
     std::shared_ptr<int64_t> id_ = nullptr;
+    std::shared_ptr<string> instanceId_ = nullptr;
     // Language type, which will be used to return the response. Value range:
     // 
     // - **en**: English.
     // - **zh**: Chinese.
     std::shared_ptr<string> language_ = nullptr;
+    std::shared_ptr<ListWafManagedRulesRequestManagedRuleset> managedRuleset_ = nullptr;
     // Query page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
     // Query page size.
@@ -137,8 +158,6 @@ namespace Models
     // Query conditions.
     std::shared_ptr<ListWafManagedRulesRequestQueryArgs> queryArgs_ = nullptr;
     // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
-    // 
-    // This parameter is required.
     std::shared_ptr<int64_t> siteId_ = nullptr;
   };
 

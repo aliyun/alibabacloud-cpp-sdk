@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->containersReady_ != nullptr
-        && this->creationTimestamp_ != nullptr && this->initialized_ != nullptr && this->phase_ != nullptr && this->podRestartState_ != nullptr && this->ready_ != nullptr
-        && this->requestId_ != nullptr && this->scheduled_ != nullptr && this->VIPs_ != nullptr; };
+    virtual bool empty() const override { return this->containersReady_ == nullptr
+        && return this->creationTimestamp_ == nullptr && return this->initialized_ == nullptr && return this->phase_ == nullptr && return this->podRestartState_ == nullptr && return this->ready_ == nullptr
+        && return this->requestId_ == nullptr && return this->scheduled_ == nullptr && return this->VIPs_ == nullptr; };
     // containersReady Field Functions 
     bool hasContainersReady() const { return this->containersReady_ != nullptr;};
     void deleteContainersReady() { this->containersReady_ = nullptr;};

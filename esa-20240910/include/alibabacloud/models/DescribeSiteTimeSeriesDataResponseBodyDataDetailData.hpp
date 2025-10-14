@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->timeStamp_ != nullptr
-        && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->timeStamp_ == nullptr
+        && return this->value_ == nullptr; };
     // timeStamp Field Functions 
     bool hasTimeStamp() const { return this->timeStamp_ != nullptr;};
     void deleteTimeStamp() { this->timeStamp_ = nullptr;};
@@ -50,7 +50,9 @@ namespace Models
 
 
   protected:
+    // Start timestamp of the time slice.
     std::shared_ptr<string> timeStamp_ = nullptr;
+    // Value.
     Darabonba::Json value_ = nullptr;
   };
 

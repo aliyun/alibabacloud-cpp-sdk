@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->configId_ != nullptr
-        && this->siteId_ != nullptr; };
+    virtual bool empty() const override { return this->configId_ == nullptr
+        && return this->siteId_ == nullptr; };
     // configId Field Functions 
     bool hasConfigId() const { return this->configId_ != nullptr;};
     void deleteConfigId() { this->configId_ = nullptr;};
@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The configuration ID. You can call the ListHttpIncomingResponseHeaderModificationRules operation to query the ID.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> configId_ = nullptr;
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> siteId_ = nullptr;
   };

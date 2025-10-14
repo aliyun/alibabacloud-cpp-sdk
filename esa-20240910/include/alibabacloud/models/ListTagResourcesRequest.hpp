@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxItem_ != nullptr
-        && this->nextToken_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceId_ != nullptr && this->resourceType_ != nullptr
-        && this->securityToken_ != nullptr && this->tag_ != nullptr; };
+    virtual bool empty() const override { return this->maxItem_ == nullptr
+        && return this->nextToken_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceId_ == nullptr && return this->resourceType_ == nullptr
+        && return this->securityToken_ == nullptr && return this->tag_ == nullptr; };
     // maxItem Field Functions 
     bool hasMaxItem() const { return this->maxItem_ != nullptr;};
     void deleteMaxItem() { this->maxItem_ = nullptr;};

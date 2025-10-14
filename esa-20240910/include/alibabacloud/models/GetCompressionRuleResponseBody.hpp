@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->brotli_ != nullptr
-        && this->configId_ != nullptr && this->configType_ != nullptr && this->gzip_ != nullptr && this->requestId_ != nullptr && this->rule_ != nullptr
-        && this->ruleEnable_ != nullptr && this->ruleName_ != nullptr && this->sequence_ != nullptr && this->siteVersion_ != nullptr && this->zstd_ != nullptr; };
+    virtual bool empty() const override { return this->brotli_ == nullptr
+        && return this->configId_ == nullptr && return this->configType_ == nullptr && return this->gzip_ == nullptr && return this->requestId_ == nullptr && return this->rule_ == nullptr
+        && return this->ruleEnable_ == nullptr && return this->ruleName_ == nullptr && return this->sequence_ == nullptr && return this->siteVersion_ == nullptr && return this->zstd_ == nullptr; };
     // brotli Field Functions 
     bool hasBrotli() const { return this->brotli_ != nullptr;};
     void deleteBrotli() { this->brotli_ = nullptr;};

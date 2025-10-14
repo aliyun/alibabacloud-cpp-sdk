@@ -600,7 +600,7 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppVersionResponse createEdgeContainerAppVersion(const Models::CreateEdgeContainerAppVersionRequest &request);
 
       /**
-       * @summary 新增HTTP入站请求头规则
+       * @summary Adds the configuration of modifying HTTP request headers for a website.
        *
        * @param tmpReq CreateHttpIncomingRequestHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -609,7 +609,7 @@ namespace ESA20240910
       Models::CreateHttpIncomingRequestHeaderModificationRuleResponse createHttpIncomingRequestHeaderModificationRuleWithOptions(const Models::CreateHttpIncomingRequestHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增HTTP入站请求头规则
+       * @summary Adds the configuration of modifying HTTP request headers for a website.
        *
        * @param request CreateHttpIncomingRequestHeaderModificationRuleRequest
        * @return CreateHttpIncomingRequestHeaderModificationRuleResponse
@@ -617,7 +617,7 @@ namespace ESA20240910
       Models::CreateHttpIncomingRequestHeaderModificationRuleResponse createHttpIncomingRequestHeaderModificationRule(const Models::CreateHttpIncomingRequestHeaderModificationRuleRequest &request);
 
       /**
-       * @summary 新增HTTP入站响应头规则
+       * @summary Adds the configuration of modifying HTTP response headers for a website.
        *
        * @param tmpReq CreateHttpIncomingResponseHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -626,7 +626,7 @@ namespace ESA20240910
       Models::CreateHttpIncomingResponseHeaderModificationRuleResponse createHttpIncomingResponseHeaderModificationRuleWithOptions(const Models::CreateHttpIncomingResponseHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增HTTP入站响应头规则
+       * @summary Adds the configuration of modifying HTTP response headers for a website.
        *
        * @param request CreateHttpIncomingResponseHeaderModificationRuleRequest
        * @return CreateHttpIncomingResponseHeaderModificationRuleResponse
@@ -931,7 +931,11 @@ namespace ESA20240910
       Models::CreateRoutineResponse createRoutine(const Models::CreateRoutineRequest &request);
 
       /**
-       * @summary 发布Routine某版本代码
+       * @summary Release the version of the function code in proportion to the specified environment.
+       *
+       * @description ## [](#)Request description
+       * *   When you create a version for deployment, you can set the environment name `Env` parameter only to the test environment `staging` or the production environment `production`.
+       * *   `CodeVersions` parameter supports up to two versions of a phased release, and the sum of the proportions of these versions must be equal to 100%.
        *
        * @param tmpReq CreateRoutineCodeDeploymentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -940,7 +944,11 @@ namespace ESA20240910
       Models::CreateRoutineCodeDeploymentResponse createRoutineCodeDeploymentWithOptions(const Models::CreateRoutineCodeDeploymentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发布Routine某版本代码
+       * @summary Release the version of the function code in proportion to the specified environment.
+       *
+       * @description ## [](#)Request description
+       * *   When you create a version for deployment, you can set the environment name `Env` parameter only to the test environment `staging` or the production environment `production`.
+       * *   `CodeVersions` parameter supports up to two versions of a phased release, and the sum of the proportions of these versions must be equal to 100%.
        *
        * @param request CreateRoutineCodeDeploymentRequest
        * @return CreateRoutineCodeDeploymentResponse
@@ -1461,7 +1469,7 @@ namespace ESA20240910
       Models::DeleteEdgeContainerAppVersionResponse deleteEdgeContainerAppVersion(const Models::DeleteEdgeContainerAppVersionRequest &request);
 
       /**
-       * @summary 删除HTTP入站请求头规则
+       * @summary Deletes the configuration of modifying incoming HTTP request headers for a website.
        *
        * @param request DeleteHttpIncomingRequestHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1470,7 +1478,7 @@ namespace ESA20240910
       Models::DeleteHttpIncomingRequestHeaderModificationRuleResponse deleteHttpIncomingRequestHeaderModificationRuleWithOptions(const Models::DeleteHttpIncomingRequestHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除HTTP入站请求头规则
+       * @summary Deletes the configuration of modifying incoming HTTP request headers for a website.
        *
        * @param request DeleteHttpIncomingRequestHeaderModificationRuleRequest
        * @return DeleteHttpIncomingRequestHeaderModificationRuleResponse
@@ -1478,7 +1486,7 @@ namespace ESA20240910
       Models::DeleteHttpIncomingRequestHeaderModificationRuleResponse deleteHttpIncomingRequestHeaderModificationRule(const Models::DeleteHttpIncomingRequestHeaderModificationRuleRequest &request);
 
       /**
-       * @summary 删除HTTP入站响应头规则
+       * @summary Deletes the configuration of modifying HTTP response headers for a website.
        *
        * @param request DeleteHttpIncomingResponseHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1487,7 +1495,7 @@ namespace ESA20240910
       Models::DeleteHttpIncomingResponseHeaderModificationRuleResponse deleteHttpIncomingResponseHeaderModificationRuleWithOptions(const Models::DeleteHttpIncomingResponseHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除HTTP入站响应头规则
+       * @summary Deletes the configuration of modifying HTTP response headers for a website.
        *
        * @param request DeleteHttpIncomingResponseHeaderModificationRuleRequest
        * @return DeleteHttpIncomingResponseHeaderModificationRuleResponse
@@ -2355,16 +2363,16 @@ namespace ESA20240910
       Models::DescribeSiteLogsResponse describeSiteLogs(const Models::DescribeSiteLogsRequest &request);
 
       /**
-       * @summary 获取时序数据
+       * @summary Query traffic analysis time series data
        *
-       * @description *   If you do not specify StartTime or EndTime, the request returns the data collected in the last 24 hours. If you specify StartTime and EndTime, the request returns the data collected within the specified time range.
-       * *   The time interval at which data is returned varies according to the span of StartTime and EndTime.
-       *     *   If Time span ≤ 3 hours, the data is returned at a 1-minute interval.
-       *     *   If 3 hours < Time span ≤ 12 hours, the data is returned at a 5-minute interval.
-       *     *   If 12 hours < Time span ≤ 24 hours, the data is returned at a 15-minute interval.
-       *     *   If 1 day < Time span ≤ 10 days, the data is returned at an hourly interval.
-       *     *   If 10 days < Time span ≤ 31 days, the data is returned at a daily interval.
-       * *   Data analysis may be sampled due to a large number of visits during the query period.
+       * @description - If you do not specify `StartTime` and `EndTime`, the API returns data for the past 24 hours; if you specify `StartTime` and `EndTime`, the API returns data for the specified time period.
+       * - The API returns different time granularities based on the span between `StartTime` and `EndTime`.
+       *   * For a span of 3 hours or less, it returns 1-minute granularity data.
+       *   * For a span greater than 3 hours but no more than 12 hours, it returns 5-minute granularity data.
+       *   * For a span greater than 12 hours but no more than 1 day, it returns 15-minute granularity data.
+       *   * For a span greater than 1 day but no more than 10 days, it returns hourly granularity data.
+       *   * For a span greater than 10 days but no more than 31 days, it returns daily granularity data.
+       * - Due to the high number of accesses during the query period, the data analysis may be sampled.
        *
        * @param tmpReq DescribeSiteTimeSeriesDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2373,16 +2381,16 @@ namespace ESA20240910
       Models::DescribeSiteTimeSeriesDataResponse describeSiteTimeSeriesDataWithOptions(const Models::DescribeSiteTimeSeriesDataRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取时序数据
+       * @summary Query traffic analysis time series data
        *
-       * @description *   If you do not specify StartTime or EndTime, the request returns the data collected in the last 24 hours. If you specify StartTime and EndTime, the request returns the data collected within the specified time range.
-       * *   The time interval at which data is returned varies according to the span of StartTime and EndTime.
-       *     *   If Time span ≤ 3 hours, the data is returned at a 1-minute interval.
-       *     *   If 3 hours < Time span ≤ 12 hours, the data is returned at a 5-minute interval.
-       *     *   If 12 hours < Time span ≤ 24 hours, the data is returned at a 15-minute interval.
-       *     *   If 1 day < Time span ≤ 10 days, the data is returned at an hourly interval.
-       *     *   If 10 days < Time span ≤ 31 days, the data is returned at a daily interval.
-       * *   Data analysis may be sampled due to a large number of visits during the query period.
+       * @description - If you do not specify `StartTime` and `EndTime`, the API returns data for the past 24 hours; if you specify `StartTime` and `EndTime`, the API returns data for the specified time period.
+       * - The API returns different time granularities based on the span between `StartTime` and `EndTime`.
+       *   * For a span of 3 hours or less, it returns 1-minute granularity data.
+       *   * For a span greater than 3 hours but no more than 12 hours, it returns 5-minute granularity data.
+       *   * For a span greater than 12 hours but no more than 1 day, it returns 15-minute granularity data.
+       *   * For a span greater than 1 day but no more than 10 days, it returns hourly granularity data.
+       *   * For a span greater than 10 days but no more than 31 days, it returns daily granularity data.
+       * - Due to the high number of accesses during the query period, the data analysis may be sampled.
        *
        * @param request DescribeSiteTimeSeriesDataRequest
        * @return DescribeSiteTimeSeriesDataResponse
@@ -2890,7 +2898,7 @@ namespace ESA20240910
       Models::GetErServiceResponse getErService(const Models::GetErServiceRequest &request);
 
       /**
-       * @summary 查询HTTP入站请求头规则详情
+       * @summary Queries the configuration details of an HTTP request header modification rule for a website.
        *
        * @param request GetHttpIncomingRequestHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2899,7 +2907,7 @@ namespace ESA20240910
       Models::GetHttpIncomingRequestHeaderModificationRuleResponse getHttpIncomingRequestHeaderModificationRuleWithOptions(const Models::GetHttpIncomingRequestHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询HTTP入站请求头规则详情
+       * @summary Queries the configuration details of an HTTP request header modification rule for a website.
        *
        * @param request GetHttpIncomingRequestHeaderModificationRuleRequest
        * @return GetHttpIncomingRequestHeaderModificationRuleResponse
@@ -2907,7 +2915,7 @@ namespace ESA20240910
       Models::GetHttpIncomingRequestHeaderModificationRuleResponse getHttpIncomingRequestHeaderModificationRule(const Models::GetHttpIncomingRequestHeaderModificationRuleRequest &request);
 
       /**
-       * @summary 查询HTTP入站响应头规则
+       * @summary Queries the configuration details of an incoming HTTP response header modification rule for a website.
        *
        * @param request GetHttpIncomingResponseHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2916,7 +2924,7 @@ namespace ESA20240910
       Models::GetHttpIncomingResponseHeaderModificationRuleResponse getHttpIncomingResponseHeaderModificationRuleWithOptions(const Models::GetHttpIncomingResponseHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询HTTP入站响应头规则
+       * @summary Queries the configuration details of an incoming HTTP response header modification rule for a website.
        *
        * @param request GetHttpIncomingResponseHeaderModificationRuleRequest
        * @return GetHttpIncomingResponseHeaderModificationRuleResponse
@@ -3369,7 +3377,7 @@ namespace ESA20240910
       Models::GetRoutineResponse getRoutine(const Models::GetRoutineRequest &request);
 
       /**
-       * @summary 查询Routine某版本代码
+       * @summary Queries information about a code version of a routine.
        *
        * @param request GetRoutineCodeVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3378,7 +3386,7 @@ namespace ESA20240910
       Models::GetRoutineCodeVersionResponse getRoutineCodeVersionWithOptions(const Models::GetRoutineCodeVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Routine某版本代码
+       * @summary Queries information about a code version of a routine.
        *
        * @param request GetRoutineCodeVersionRequest
        * @return GetRoutineCodeVersionResponse
@@ -4129,7 +4137,7 @@ namespace ESA20240910
       Models::ListEdgeRoutineRecordsResponse listEdgeRoutineRecords(const Models::ListEdgeRoutineRecordsRequest &request);
 
       /**
-       * @summary 查询HTTP入站请求头规则列表
+       * @summary Queries the configuration details of an incoming HTTP request header modification rule for a website.
        *
        * @param request ListHttpIncomingRequestHeaderModificationRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4138,7 +4146,7 @@ namespace ESA20240910
       Models::ListHttpIncomingRequestHeaderModificationRulesResponse listHttpIncomingRequestHeaderModificationRulesWithOptions(const Models::ListHttpIncomingRequestHeaderModificationRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询HTTP入站请求头规则列表
+       * @summary Queries the configuration details of an incoming HTTP request header modification rule for a website.
        *
        * @param request ListHttpIncomingRequestHeaderModificationRulesRequest
        * @return ListHttpIncomingRequestHeaderModificationRulesResponse
@@ -4146,7 +4154,7 @@ namespace ESA20240910
       Models::ListHttpIncomingRequestHeaderModificationRulesResponse listHttpIncomingRequestHeaderModificationRules(const Models::ListHttpIncomingRequestHeaderModificationRulesRequest &request);
 
       /**
-       * @summary 查询HTTP入站响应头规则列表
+       * @summary Queries the configurations of an incoming HTTP response header modification rule for a website.
        *
        * @param request ListHttpIncomingResponseHeaderModificationRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4155,7 +4163,7 @@ namespace ESA20240910
       Models::ListHttpIncomingResponseHeaderModificationRulesResponse listHttpIncomingResponseHeaderModificationRulesWithOptions(const Models::ListHttpIncomingResponseHeaderModificationRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询HTTP入站响应头规则列表
+       * @summary Queries the configurations of an incoming HTTP response header modification rule for a website.
        *
        * @param request ListHttpIncomingResponseHeaderModificationRulesRequest
        * @return ListHttpIncomingResponseHeaderModificationRulesResponse
@@ -5482,7 +5490,7 @@ namespace ESA20240910
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary 缓存保持变配
+       * @summary Cache Reserve Specification Change
        *
        * @param request UpdateCacheReserveSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5491,7 +5499,7 @@ namespace ESA20240910
       Models::UpdateCacheReserveSpecResponse updateCacheReserveSpecWithOptions(const Models::UpdateCacheReserveSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 缓存保持变配
+       * @summary Cache Reserve Specification Change
        *
        * @param request UpdateCacheReserveSpecRequest
        * @return UpdateCacheReserveSpecResponse
@@ -5652,7 +5660,7 @@ namespace ESA20240910
       Models::UpdateEdgeContainerAppResourceReserveResponse updateEdgeContainerAppResourceReserve(const Models::UpdateEdgeContainerAppResourceReserveRequest &request);
 
       /**
-       * @summary 修改HTTP入站请求头规则
+       * @summary Updates the HTTP incoming request header modification rule.
        *
        * @param tmpReq UpdateHttpIncomingRequestHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5661,7 +5669,7 @@ namespace ESA20240910
       Models::UpdateHttpIncomingRequestHeaderModificationRuleResponse updateHttpIncomingRequestHeaderModificationRuleWithOptions(const Models::UpdateHttpIncomingRequestHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改HTTP入站请求头规则
+       * @summary Updates the HTTP incoming request header modification rule.
        *
        * @param request UpdateHttpIncomingRequestHeaderModificationRuleRequest
        * @return UpdateHttpIncomingRequestHeaderModificationRuleResponse
@@ -5669,7 +5677,7 @@ namespace ESA20240910
       Models::UpdateHttpIncomingRequestHeaderModificationRuleResponse updateHttpIncomingRequestHeaderModificationRule(const Models::UpdateHttpIncomingRequestHeaderModificationRuleRequest &request);
 
       /**
-       * @summary 修改HTTP入站响应头规则
+       * @summary Updates the configuration of modifying HTTP response headers for a website.
        *
        * @param tmpReq UpdateHttpIncomingResponseHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5678,7 +5686,7 @@ namespace ESA20240910
       Models::UpdateHttpIncomingResponseHeaderModificationRuleResponse updateHttpIncomingResponseHeaderModificationRuleWithOptions(const Models::UpdateHttpIncomingResponseHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改HTTP入站响应头规则
+       * @summary Updates the configuration of modifying HTTP response headers for a website.
        *
        * @param request UpdateHttpIncomingResponseHeaderModificationRuleRequest
        * @return UpdateHttpIncomingResponseHeaderModificationRuleResponse
@@ -6029,7 +6037,7 @@ namespace ESA20240910
       Models::UpdateRewriteUrlRuleResponse updateRewriteUrlRule(const Models::UpdateRewriteUrlRuleRequest &request);
 
       /**
-       * @summary 修改Routine描述信息
+       * @summary Modifies the description of a routine.
        *
        * @param request UpdateRoutineConfigDescriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6038,7 +6046,7 @@ namespace ESA20240910
       Models::UpdateRoutineConfigDescriptionResponse updateRoutineConfigDescriptionWithOptions(const Models::UpdateRoutineConfigDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改Routine描述信息
+       * @summary Modifies the description of a routine.
        *
        * @param request UpdateRoutineConfigDescriptionRequest
        * @return UpdateRoutineConfigDescriptionResponse

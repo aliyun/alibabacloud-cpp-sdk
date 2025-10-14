@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->configId_ != nullptr
-        && this->configType_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->ruleName_ != nullptr && this->siteId_ != nullptr
-        && this->siteVersion_ != nullptr; };
+    virtual bool empty() const override { return this->configId_ == nullptr
+        && return this->configType_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->ruleName_ == nullptr && return this->siteId_ == nullptr
+        && return this->siteVersion_ == nullptr; };
     // configId Field Functions 
     bool hasConfigId() const { return this->configId_ != nullptr;};
     void deleteConfigId() { this->configId_ = nullptr;};
@@ -94,13 +94,24 @@ namespace Models
 
 
   protected:
+    // The configuration ID. You can call the ListHttpIncomingResponseHeaderModificationRules operation to query the ID.
     std::shared_ptr<int64_t> configId_ = nullptr;
+    // The configuration type to query. Valid values:
+    // 
+    // *   global: global configurations.
+    // *   rule: rule configurations.
     std::shared_ptr<string> configType_ = nullptr;
+    // The page number. Default value: 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page. Maximum value: 500. Default value: 500.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The rule name.
     std::shared_ptr<string> ruleName_ = nullptr;
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> siteId_ = nullptr;
+    // The version number of the website configurations. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
     std::shared_ptr<int32_t> siteVersion_ = nullptr;
   };
 

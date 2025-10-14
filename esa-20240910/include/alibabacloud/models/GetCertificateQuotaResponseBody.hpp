@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->quota_ != nullptr
-        && this->quotaUsage_ != nullptr && this->requestId_ != nullptr && this->siteCount_ != nullptr && this->siteUsage_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->quota_ == nullptr
+        && return this->quotaUsage_ == nullptr && return this->requestId_ == nullptr && return this->siteCount_ == nullptr && return this->siteUsage_ == nullptr && return this->type_ == nullptr; };
     // quota Field Functions 
     bool hasQuota() const { return this->quota_ != nullptr;};
     void deleteQuota() { this->quota_ = nullptr;};

@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->compress_ != nullptr
-        && this->destUrl_ != nullptr && this->headerParam_ != nullptr && this->lastLogSplit_ != nullptr && this->logBodyPrefix_ != nullptr && this->logBodySuffix_ != nullptr
-        && this->logSplit_ != nullptr && this->logSplitWords_ != nullptr && this->maxBatchMB_ != nullptr && this->maxBatchSize_ != nullptr && this->maxRetry_ != nullptr
-        && this->queryParam_ != nullptr && this->standardAuthOn_ != nullptr && this->standardAuthParam_ != nullptr && this->transformTimeout_ != nullptr; };
+    virtual bool empty() const override { return this->compress_ == nullptr
+        && return this->destUrl_ == nullptr && return this->headerParam_ == nullptr && return this->lastLogSplit_ == nullptr && return this->logBodyPrefix_ == nullptr && return this->logBodySuffix_ == nullptr
+        && return this->logSplit_ == nullptr && return this->logSplitWords_ == nullptr && return this->maxBatchMB_ == nullptr && return this->maxBatchSize_ == nullptr && return this->maxRetry_ == nullptr
+        && return this->queryParam_ == nullptr && return this->standardAuthOn_ == nullptr && return this->standardAuthParam_ == nullptr && return this->transformTimeout_ == nullptr; };
     // compress Field Functions 
     bool hasCompress() const { return this->compress_ != nullptr;};
     void deleteCompress() { this->compress_ = nullptr;};

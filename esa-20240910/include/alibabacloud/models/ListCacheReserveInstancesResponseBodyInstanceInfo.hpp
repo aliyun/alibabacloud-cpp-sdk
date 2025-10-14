@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cacheReserveCapacity_ != nullptr
-        && this->cacheReserveRegion_ != nullptr && this->chargeType_ != nullptr && this->createTime_ != nullptr && this->duration_ != nullptr && this->expireTime_ != nullptr
-        && this->instanceId_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->cacheReserveCapacity_ == nullptr
+        && return this->cacheReserveRegion_ == nullptr && return this->chargeType_ == nullptr && return this->createTime_ == nullptr && return this->duration_ == nullptr && return this->expireTime_ == nullptr
+        && return this->instanceId_ == nullptr && return this->status_ == nullptr; };
     // cacheReserveCapacity Field Functions 
     bool hasCacheReserveCapacity() const { return this->cacheReserveCapacity_ != nullptr;};
     void deleteCacheReserveCapacity() { this->cacheReserveCapacity_ = nullptr;};

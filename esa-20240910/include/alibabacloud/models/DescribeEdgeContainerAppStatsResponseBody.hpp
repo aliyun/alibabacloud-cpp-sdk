@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpuUsageSecondsQuotaRateAvg_ != nullptr
-        && this->cpuUsageSecondsTotalAvg_ != nullptr && this->fsReadsBytesAvgAvg_ != nullptr && this->fsWritesBytesAvgAvg_ != nullptr && this->memoryRssAvg_ != nullptr && this->memoryRssQuotaRateAvg_ != nullptr
-        && this->podReadyRateAvg_ != nullptr && this->points_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->cpuUsageSecondsQuotaRateAvg_ == nullptr
+        && return this->cpuUsageSecondsTotalAvg_ == nullptr && return this->fsReadsBytesAvgAvg_ == nullptr && return this->fsWritesBytesAvgAvg_ == nullptr && return this->memoryRssAvg_ == nullptr && return this->memoryRssQuotaRateAvg_ == nullptr
+        && return this->podReadyRateAvg_ == nullptr && return this->points_ == nullptr && return this->requestId_ == nullptr; };
     // cpuUsageSecondsQuotaRateAvg Field Functions 
     bool hasCpuUsageSecondsQuotaRateAvg() const { return this->cpuUsageSecondsQuotaRateAvg_ != nullptr;};
     void deleteCpuUsageSecondsQuotaRateAvg() { this->cpuUsageSecondsQuotaRateAvg_ = nullptr;};

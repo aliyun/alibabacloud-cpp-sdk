@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->caseInsensitive_ != nullptr
-        && this->siteId_ != nullptr && this->siteVersion_ != nullptr && this->tagName_ != nullptr; };
+    virtual bool empty() const override { return this->caseInsensitive_ == nullptr
+        && return this->siteId_ == nullptr && return this->siteVersion_ == nullptr && return this->tagName_ == nullptr; };
     // caseInsensitive Field Functions 
     bool hasCaseInsensitive() const { return this->caseInsensitive_ != nullptr;};
     void deleteCaseInsensitive() { this->caseInsensitive_ = nullptr;};

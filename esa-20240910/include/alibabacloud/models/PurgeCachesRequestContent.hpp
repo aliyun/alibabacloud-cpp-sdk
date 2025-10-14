@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cacheKeys_ != nullptr
-        && this->cacheTags_ != nullptr && this->directories_ != nullptr && this->files_ != nullptr && this->hostnames_ != nullptr && this->ignoreParams_ != nullptr
-        && this->purgeAll_ != nullptr; };
+    virtual bool empty() const override { return this->cacheKeys_ == nullptr
+        && return this->cacheTags_ == nullptr && return this->directories_ == nullptr && return this->files_ == nullptr && return this->hostnames_ == nullptr && return this->ignoreParams_ == nullptr
+        && return this->purgeAll_ == nullptr; };
     // cacheKeys Field Functions 
     bool hasCacheKeys() const { return this->cacheKeys_ != nullptr;};
     void deleteCacheKeys() { this->cacheKeys_ = nullptr;};

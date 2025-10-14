@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliUid_ != nullptr
-        && this->createdAt_ != nullptr && this->domains_ != nullptr && this->errorInfo_ != nullptr && this->executionCount_ != nullptr && this->failedFileOss_ != nullptr
-        && this->fileId_ != nullptr && this->id_ != nullptr && this->insertWay_ != nullptr && this->name_ != nullptr && this->siteId_ != nullptr
-        && this->taskSubmitted_ != nullptr && this->taskType_ != nullptr && this->urlCount_ != nullptr && this->urlSubmitted_ != nullptr; };
+    virtual bool empty() const override { return this->aliUid_ == nullptr
+        && return this->createdAt_ == nullptr && return this->domains_ == nullptr && return this->errorInfo_ == nullptr && return this->executionCount_ == nullptr && return this->failedFileOss_ == nullptr
+        && return this->fileId_ == nullptr && return this->id_ == nullptr && return this->insertWay_ == nullptr && return this->name_ == nullptr && return this->siteId_ == nullptr
+        && return this->taskSubmitted_ == nullptr && return this->taskType_ == nullptr && return this->urlCount_ == nullptr && return this->urlSubmitted_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};

@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->businessType_ != nullptr
-        && this->dataCenter_ != nullptr && this->deliveryType_ != nullptr && this->details_ != nullptr && this->discardRate_ != nullptr && this->fieldName_ != nullptr
-        && this->filterVer_ != nullptr && this->httpDeliveryShrink_ != nullptr && this->kafkaDeliveryShrink_ != nullptr && this->ossDeliveryShrink_ != nullptr && this->s3DeliveryShrink_ != nullptr
-        && this->slsDeliveryShrink_ != nullptr && this->taskName_ != nullptr; };
+    virtual bool empty() const override { return this->businessType_ == nullptr
+        && return this->dataCenter_ == nullptr && return this->deliveryType_ == nullptr && return this->details_ == nullptr && return this->discardRate_ == nullptr && return this->fieldName_ == nullptr
+        && return this->filterVer_ == nullptr && return this->httpDeliveryShrink_ == nullptr && return this->kafkaDeliveryShrink_ == nullptr && return this->ossDeliveryShrink_ == nullptr && return this->s3DeliveryShrink_ == nullptr
+        && return this->slsDeliveryShrink_ == nullptr && return this->taskName_ == nullptr; };
     // businessType Field Functions 
     bool hasBusinessType() const { return this->businessType_ != nullptr;};
     void deleteBusinessType() { this->businessType_ = nullptr;};

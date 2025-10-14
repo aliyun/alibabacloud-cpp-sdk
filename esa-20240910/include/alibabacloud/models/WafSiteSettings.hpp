@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addBotProtectionHeaders_ != nullptr
-        && this->addSecurityHeaders_ != nullptr && this->bandwidthAbuseProtection_ != nullptr && this->botManagement_ != nullptr && this->clientIpIdentifier_ != nullptr && this->disableSecurityModule_ != nullptr
-        && this->securityLevel_ != nullptr; };
+    virtual bool empty() const override { return this->addBotProtectionHeaders_ == nullptr
+        && return this->addSecurityHeaders_ == nullptr && return this->bandwidthAbuseProtection_ == nullptr && return this->botManagement_ == nullptr && return this->clientIpIdentifier_ == nullptr && return this->disableSecurityModule_ == nullptr
+        && return this->securityLevel_ == nullptr; };
     // addBotProtectionHeaders Field Functions 
     bool hasAddBotProtectionHeaders() const { return this->addBotProtectionHeaders_ != nullptr;};
     void deleteAddBotProtectionHeaders() { this->addBotProtectionHeaders_ = nullptr;};

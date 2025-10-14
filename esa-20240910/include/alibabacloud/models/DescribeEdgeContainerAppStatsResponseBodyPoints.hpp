@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->containerCpuUsageSecondsQuotaRate_ != nullptr
-        && this->containerCpuUsageSecondsTotal_ != nullptr && this->containerFsReadsBytesAvg_ != nullptr && this->containerFsWritesBytesAvg_ != nullptr && this->containerMemoryRss_ != nullptr && this->containerMemoryRssQuotaRate_ != nullptr
-        && this->podReadyRate_ != nullptr && this->time_ != nullptr; };
+    virtual bool empty() const override { return this->containerCpuUsageSecondsQuotaRate_ == nullptr
+        && return this->containerCpuUsageSecondsTotal_ == nullptr && return this->containerFsReadsBytesAvg_ == nullptr && return this->containerFsWritesBytesAvg_ == nullptr && return this->containerMemoryRss_ == nullptr && return this->containerMemoryRssQuotaRate_ == nullptr
+        && return this->podReadyRate_ == nullptr && return this->time_ == nullptr; };
     // containerCpuUsageSecondsQuotaRate Field Functions 
     bool hasContainerCpuUsageSecondsQuotaRate() const { return this->containerCpuUsageSecondsQuotaRate_ != nullptr;};
     void deleteContainerCpuUsageSecondsQuotaRate() { this->containerCpuUsageSecondsQuotaRate_ = nullptr;};

@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->sortOrder_ != nullptr
-        && this->fieldList_ != nullptr; };
+    virtual bool empty() const override { return this->sortOrder_ == nullptr
+        && return this->fieldList_ == nullptr; };
     // sortOrder Field Functions 
     bool hasSortOrder() const { return this->sortOrder_ != nullptr;};
     void deleteSortOrder() { this->sortOrder_ = nullptr;};

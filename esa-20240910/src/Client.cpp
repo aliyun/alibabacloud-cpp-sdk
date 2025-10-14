@@ -607,6 +607,14 @@ BatchGetExpressionFieldsResponse Client::batchGetExpressionFieldsWithOptions(con
   }
 
   json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasPlanNameEn()) {
+    query["PlanNameEn"] = request.planNameEn();
+  }
+
   if (!!request.hasSiteId()) {
     query["SiteId"] = request.siteId();
   }
@@ -614,6 +622,10 @@ BatchGetExpressionFieldsResponse Client::batchGetExpressionFieldsWithOptions(con
   json body = {};
   if (!!request.hasExpressionsShrink()) {
     body["Expressions"] = request.expressionsShrink();
+  }
+
+  if (!!request.hasKind()) {
+    body["Kind"] = request.kind();
   }
 
   if (!!request.hasPhase()) {
@@ -1797,7 +1809,7 @@ CreateEdgeContainerAppVersionResponse Client::createEdgeContainerAppVersion(cons
 }
 
 /**
- * @summary 新增HTTP入站请求头规则
+ * @summary Adds the configuration of modifying HTTP request headers for a website.
  *
  * @param tmpReq CreateHttpIncomingRequestHeaderModificationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1858,7 +1870,7 @@ CreateHttpIncomingRequestHeaderModificationRuleResponse Client::createHttpIncomi
 }
 
 /**
- * @summary 新增HTTP入站请求头规则
+ * @summary Adds the configuration of modifying HTTP request headers for a website.
  *
  * @param request CreateHttpIncomingRequestHeaderModificationRuleRequest
  * @return CreateHttpIncomingRequestHeaderModificationRuleResponse
@@ -1869,7 +1881,7 @@ CreateHttpIncomingRequestHeaderModificationRuleResponse Client::createHttpIncomi
 }
 
 /**
- * @summary 新增HTTP入站响应头规则
+ * @summary Adds the configuration of modifying HTTP response headers for a website.
  *
  * @param tmpReq CreateHttpIncomingResponseHeaderModificationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1930,7 +1942,7 @@ CreateHttpIncomingResponseHeaderModificationRuleResponse Client::createHttpIncom
 }
 
 /**
- * @summary 新增HTTP入站响应头规则
+ * @summary Adds the configuration of modifying HTTP response headers for a website.
  *
  * @param request CreateHttpIncomingResponseHeaderModificationRuleRequest
  * @return CreateHttpIncomingResponseHeaderModificationRuleResponse
@@ -3259,7 +3271,11 @@ CreateRoutineResponse Client::createRoutine(const CreateRoutineRequest &request)
 }
 
 /**
- * @summary 发布Routine某版本代码
+ * @summary Release the version of the function code in proportion to the specified environment.
+ *
+ * @description ## [](#)Request description
+ * *   When you create a version for deployment, you can set the environment name `Env` parameter only to the test environment `staging` or the production environment `production`.
+ * *   `CodeVersions` parameter supports up to two versions of a phased release, and the sum of the proportions of these versions must be equal to 100%.
  *
  * @param tmpReq CreateRoutineCodeDeploymentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3308,7 +3324,11 @@ CreateRoutineCodeDeploymentResponse Client::createRoutineCodeDeploymentWithOptio
 }
 
 /**
- * @summary 发布Routine某版本代码
+ * @summary Release the version of the function code in proportion to the specified environment.
+ *
+ * @description ## [](#)Request description
+ * *   When you create a version for deployment, you can set the environment name `Env` parameter only to the test environment `staging` or the production environment `production`.
+ * *   `CodeVersions` parameter supports up to two versions of a phased release, and the sum of the proportions of these versions must be equal to 100%.
  *
  * @param request CreateRoutineCodeDeploymentRequest
  * @return CreateRoutineCodeDeploymentResponse
@@ -5082,7 +5102,7 @@ DeleteEdgeContainerAppVersionResponse Client::deleteEdgeContainerAppVersion(cons
 }
 
 /**
- * @summary 删除HTTP入站请求头规则
+ * @summary Deletes the configuration of modifying incoming HTTP request headers for a website.
  *
  * @param request DeleteHttpIncomingRequestHeaderModificationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5117,7 +5137,7 @@ DeleteHttpIncomingRequestHeaderModificationRuleResponse Client::deleteHttpIncomi
 }
 
 /**
- * @summary 删除HTTP入站请求头规则
+ * @summary Deletes the configuration of modifying incoming HTTP request headers for a website.
  *
  * @param request DeleteHttpIncomingRequestHeaderModificationRuleRequest
  * @return DeleteHttpIncomingRequestHeaderModificationRuleResponse
@@ -5128,7 +5148,7 @@ DeleteHttpIncomingRequestHeaderModificationRuleResponse Client::deleteHttpIncomi
 }
 
 /**
- * @summary 删除HTTP入站响应头规则
+ * @summary Deletes the configuration of modifying HTTP response headers for a website.
  *
  * @param request DeleteHttpIncomingResponseHeaderModificationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5163,7 +5183,7 @@ DeleteHttpIncomingResponseHeaderModificationRuleResponse Client::deleteHttpIncom
 }
 
 /**
- * @summary 删除HTTP入站响应头规则
+ * @summary Deletes the configuration of modifying HTTP response headers for a website.
  *
  * @param request DeleteHttpIncomingResponseHeaderModificationRuleRequest
  * @return DeleteHttpIncomingResponseHeaderModificationRuleResponse
@@ -7405,16 +7425,16 @@ DescribeSiteLogsResponse Client::describeSiteLogs(const DescribeSiteLogsRequest 
 }
 
 /**
- * @summary 获取时序数据
+ * @summary Query traffic analysis time series data
  *
- * @description *   If you do not specify StartTime or EndTime, the request returns the data collected in the last 24 hours. If you specify StartTime and EndTime, the request returns the data collected within the specified time range.
- * *   The time interval at which data is returned varies according to the span of StartTime and EndTime.
- *     *   If Time span ≤ 3 hours, the data is returned at a 1-minute interval.
- *     *   If 3 hours < Time span ≤ 12 hours, the data is returned at a 5-minute interval.
- *     *   If 12 hours < Time span ≤ 24 hours, the data is returned at a 15-minute interval.
- *     *   If 1 day < Time span ≤ 10 days, the data is returned at an hourly interval.
- *     *   If 10 days < Time span ≤ 31 days, the data is returned at a daily interval.
- * *   Data analysis may be sampled due to a large number of visits during the query period.
+ * @description - If you do not specify `StartTime` and `EndTime`, the API returns data for the past 24 hours; if you specify `StartTime` and `EndTime`, the API returns data for the specified time period.
+ * - The API returns different time granularities based on the span between `StartTime` and `EndTime`.
+ *   * For a span of 3 hours or less, it returns 1-minute granularity data.
+ *   * For a span greater than 3 hours but no more than 12 hours, it returns 5-minute granularity data.
+ *   * For a span greater than 12 hours but no more than 1 day, it returns 15-minute granularity data.
+ *   * For a span greater than 1 day but no more than 10 days, it returns hourly granularity data.
+ *   * For a span greater than 10 days but no more than 31 days, it returns daily granularity data.
+ * - Due to the high number of accesses during the query period, the data analysis may be sampled.
  *
  * @param tmpReq DescribeSiteTimeSeriesDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7467,16 +7487,16 @@ DescribeSiteTimeSeriesDataResponse Client::describeSiteTimeSeriesDataWithOptions
 }
 
 /**
- * @summary 获取时序数据
+ * @summary Query traffic analysis time series data
  *
- * @description *   If you do not specify StartTime or EndTime, the request returns the data collected in the last 24 hours. If you specify StartTime and EndTime, the request returns the data collected within the specified time range.
- * *   The time interval at which data is returned varies according to the span of StartTime and EndTime.
- *     *   If Time span ≤ 3 hours, the data is returned at a 1-minute interval.
- *     *   If 3 hours < Time span ≤ 12 hours, the data is returned at a 5-minute interval.
- *     *   If 12 hours < Time span ≤ 24 hours, the data is returned at a 15-minute interval.
- *     *   If 1 day < Time span ≤ 10 days, the data is returned at an hourly interval.
- *     *   If 10 days < Time span ≤ 31 days, the data is returned at a daily interval.
- * *   Data analysis may be sampled due to a large number of visits during the query period.
+ * @description - If you do not specify `StartTime` and `EndTime`, the API returns data for the past 24 hours; if you specify `StartTime` and `EndTime`, the API returns data for the specified time period.
+ * - The API returns different time granularities based on the span between `StartTime` and `EndTime`.
+ *   * For a span of 3 hours or less, it returns 1-minute granularity data.
+ *   * For a span greater than 3 hours but no more than 12 hours, it returns 5-minute granularity data.
+ *   * For a span greater than 12 hours but no more than 1 day, it returns 15-minute granularity data.
+ *   * For a span greater than 1 day but no more than 10 days, it returns hourly granularity data.
+ *   * For a span greater than 10 days but no more than 31 days, it returns daily granularity data.
+ * - Due to the high number of accesses during the query period, the data analysis may be sampled.
  *
  * @param request DescribeSiteTimeSeriesDataRequest
  * @return DescribeSiteTimeSeriesDataResponse
@@ -8698,7 +8718,7 @@ GetErServiceResponse Client::getErService(const GetErServiceRequest &request) {
 }
 
 /**
- * @summary 查询HTTP入站请求头规则详情
+ * @summary Queries the configuration details of an HTTP request header modification rule for a website.
  *
  * @param request GetHttpIncomingRequestHeaderModificationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8725,7 +8745,7 @@ GetHttpIncomingRequestHeaderModificationRuleResponse Client::getHttpIncomingRequ
 }
 
 /**
- * @summary 查询HTTP入站请求头规则详情
+ * @summary Queries the configuration details of an HTTP request header modification rule for a website.
  *
  * @param request GetHttpIncomingRequestHeaderModificationRuleRequest
  * @return GetHttpIncomingRequestHeaderModificationRuleResponse
@@ -8736,7 +8756,7 @@ GetHttpIncomingRequestHeaderModificationRuleResponse Client::getHttpIncomingRequ
 }
 
 /**
- * @summary 查询HTTP入站响应头规则
+ * @summary Queries the configuration details of an incoming HTTP response header modification rule for a website.
  *
  * @param request GetHttpIncomingResponseHeaderModificationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8763,7 +8783,7 @@ GetHttpIncomingResponseHeaderModificationRuleResponse Client::getHttpIncomingRes
 }
 
 /**
- * @summary 查询HTTP入站响应头规则
+ * @summary Queries the configuration details of an incoming HTTP response header modification rule for a website.
  *
  * @param request GetHttpIncomingResponseHeaderModificationRuleRequest
  * @return GetHttpIncomingResponseHeaderModificationRuleResponse
@@ -9773,7 +9793,7 @@ GetRoutineResponse Client::getRoutine(const GetRoutineRequest &request) {
 }
 
 /**
- * @summary 查询Routine某版本代码
+ * @summary Queries information about a code version of a routine.
  *
  * @param request GetRoutineCodeVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9808,7 +9828,7 @@ GetRoutineCodeVersionResponse Client::getRoutineCodeVersionWithOptions(const Get
 }
 
 /**
- * @summary 查询Routine某版本代码
+ * @summary Queries information about a code version of a routine.
  *
  * @param request GetRoutineCodeVersionRequest
  * @return GetRoutineCodeVersionResponse
@@ -11507,7 +11527,7 @@ ListEdgeRoutineRecordsResponse Client::listEdgeRoutineRecords(const ListEdgeRout
 }
 
 /**
- * @summary 查询HTTP入站请求头规则列表
+ * @summary Queries the configuration details of an incoming HTTP request header modification rule for a website.
  *
  * @param request ListHttpIncomingRequestHeaderModificationRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11534,7 +11554,7 @@ ListHttpIncomingRequestHeaderModificationRulesResponse Client::listHttpIncomingR
 }
 
 /**
- * @summary 查询HTTP入站请求头规则列表
+ * @summary Queries the configuration details of an incoming HTTP request header modification rule for a website.
  *
  * @param request ListHttpIncomingRequestHeaderModificationRulesRequest
  * @return ListHttpIncomingRequestHeaderModificationRulesResponse
@@ -11545,7 +11565,7 @@ ListHttpIncomingRequestHeaderModificationRulesResponse Client::listHttpIncomingR
 }
 
 /**
- * @summary 查询HTTP入站响应头规则列表
+ * @summary Queries the configurations of an incoming HTTP response header modification rule for a website.
  *
  * @param request ListHttpIncomingResponseHeaderModificationRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11572,7 +11592,7 @@ ListHttpIncomingResponseHeaderModificationRulesResponse Client::listHttpIncoming
 }
 
 /**
- * @summary 查询HTTP入站响应头规则列表
+ * @summary Queries the configurations of an incoming HTTP response header modification rule for a website.
  *
  * @param request ListHttpIncomingResponseHeaderModificationRulesRequest
  * @return ListHttpIncomingResponseHeaderModificationRulesResponse
@@ -13312,6 +13332,10 @@ ListWafManagedRulesResponse Client::listWafManagedRulesWithOptions(const ListWaf
   tmpReq.validate();
   ListWafManagedRulesShrinkRequest request = ListWafManagedRulesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasManagedRuleset()) {
+    request.setManagedRulesetShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.managedRuleset(), "ManagedRuleset", "json"));
+  }
+
   if (!!tmpReq.hasQueryArgs()) {
     request.setQueryArgsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.queryArgs(), "QueryArgs", "json"));
   }
@@ -13325,8 +13349,16 @@ ListWafManagedRulesResponse Client::listWafManagedRulesWithOptions(const ListWaf
     query["Id"] = request.id();
   }
 
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
   if (!!request.hasLanguage()) {
     query["Language"] = request.language();
+  }
+
+  if (!!request.hasManagedRulesetShrink()) {
+    query["ManagedRuleset"] = request.managedRulesetShrink();
   }
 
   if (!!request.hasPageNumber()) {
@@ -13579,6 +13611,10 @@ ListWafTemplateRulesResponse Client::listWafTemplateRulesWithOptions(const ListW
   }
 
   json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
   if (!!request.hasPhase()) {
     query["Phase"] = request.phase();
   }
@@ -13629,6 +13665,10 @@ ListWafTemplateRulesResponse Client::listWafTemplateRules(const ListWafTemplateR
 ListWafUsageOfRulesResponse Client::listWafUsageOfRulesWithOptions(const ListWafUsageOfRulesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
   if (!!request.hasPhase()) {
     query["Phase"] = request.phase();
   }
@@ -15202,7 +15242,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary 缓存保持变配
+ * @summary Cache Reserve Specification Change
  *
  * @param request UpdateCacheReserveSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15245,7 +15285,7 @@ UpdateCacheReserveSpecResponse Client::updateCacheReserveSpecWithOptions(const U
 }
 
 /**
- * @summary 缓存保持变配
+ * @summary Cache Reserve Specification Change
  *
  * @param request UpdateCacheReserveSpecRequest
  * @return UpdateCacheReserveSpecResponse
@@ -15844,7 +15884,7 @@ UpdateEdgeContainerAppResourceReserveResponse Client::updateEdgeContainerAppReso
 }
 
 /**
- * @summary 修改HTTP入站请求头规则
+ * @summary Updates the HTTP incoming request header modification rule.
  *
  * @param tmpReq UpdateHttpIncomingRequestHeaderModificationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15905,7 +15945,7 @@ UpdateHttpIncomingRequestHeaderModificationRuleResponse Client::updateHttpIncomi
 }
 
 /**
- * @summary 修改HTTP入站请求头规则
+ * @summary Updates the HTTP incoming request header modification rule.
  *
  * @param request UpdateHttpIncomingRequestHeaderModificationRuleRequest
  * @return UpdateHttpIncomingRequestHeaderModificationRuleResponse
@@ -15916,7 +15956,7 @@ UpdateHttpIncomingRequestHeaderModificationRuleResponse Client::updateHttpIncomi
 }
 
 /**
- * @summary 修改HTTP入站响应头规则
+ * @summary Updates the configuration of modifying HTTP response headers for a website.
  *
  * @param tmpReq UpdateHttpIncomingResponseHeaderModificationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15977,7 +16017,7 @@ UpdateHttpIncomingResponseHeaderModificationRuleResponse Client::updateHttpIncom
 }
 
 /**
- * @summary 修改HTTP入站响应头规则
+ * @summary Updates the configuration of modifying HTTP response headers for a website.
  *
  * @param request UpdateHttpIncomingResponseHeaderModificationRuleRequest
  * @return UpdateHttpIncomingResponseHeaderModificationRuleResponse
@@ -17442,7 +17482,7 @@ UpdateRewriteUrlRuleResponse Client::updateRewriteUrlRule(const UpdateRewriteUrl
 }
 
 /**
- * @summary 修改Routine描述信息
+ * @summary Modifies the description of a routine.
  *
  * @param request UpdateRoutineConfigDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17477,7 +17517,7 @@ UpdateRoutineConfigDescriptionResponse Client::updateRoutineConfigDescriptionWit
 }
 
 /**
- * @summary 修改Routine描述信息
+ * @summary Modifies the description of a routine.
  *
  * @param request UpdateRoutineConfigDescriptionRequest
  * @return UpdateRoutineConfigDescriptionResponse

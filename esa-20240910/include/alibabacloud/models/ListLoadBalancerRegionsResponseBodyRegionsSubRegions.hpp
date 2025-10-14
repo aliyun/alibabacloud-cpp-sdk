@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->subRegionCnName_ != nullptr
-        && this->subRegionCode_ != nullptr && this->subRegionEnName_ != nullptr; };
+    virtual bool empty() const override { return this->subRegionCnName_ == nullptr
+        && return this->subRegionCode_ == nullptr && return this->subRegionEnName_ == nullptr; };
     // subRegionCnName Field Functions 
     bool hasSubRegionCnName() const { return this->subRegionCnName_ != nullptr;};
     void deleteSubRegionCnName() { this->subRegionCnName_ = nullptr;};

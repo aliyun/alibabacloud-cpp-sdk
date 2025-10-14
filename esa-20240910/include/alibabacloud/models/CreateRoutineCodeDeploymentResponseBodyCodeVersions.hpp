@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->codeVersion_ != nullptr
-        && this->percentage_ != nullptr; };
+    virtual bool empty() const override { return this->codeVersion_ == nullptr
+        && return this->percentage_ == nullptr; };
     // codeVersion Field Functions 
     bool hasCodeVersion() const { return this->codeVersion_ != nullptr;};
     void deleteCodeVersion() { this->codeVersion_ = nullptr;};
@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The version of the code.
     std::shared_ptr<string> codeVersion_ = nullptr;
+    // The phased release ratio.
     std::shared_ptr<int64_t> percentage_ = nullptr;
   };
 

@@ -71,11 +71,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->action_ != nullptr
-        && this->actions_ != nullptr && this->appPackage_ != nullptr && this->appSdk_ != nullptr && this->expression_ != nullptr && this->id_ != nullptr
-        && this->managedGroupId_ != nullptr && this->managedList_ != nullptr && this->managedRulesets_ != nullptr && this->name_ != nullptr && this->notes_ != nullptr
-        && this->rateLimit_ != nullptr && this->securityLevel_ != nullptr && this->sigchl_ != nullptr && this->status_ != nullptr && this->timer_ != nullptr
-        && this->type_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->action_ == nullptr
+        && return this->actions_ == nullptr && return this->appPackage_ == nullptr && return this->appSdk_ == nullptr && return this->expression_ == nullptr && return this->id_ == nullptr
+        && return this->managedGroupId_ == nullptr && return this->managedList_ == nullptr && return this->managedRulesets_ == nullptr && return this->name_ == nullptr && return this->notes_ == nullptr
+        && return this->rateLimit_ == nullptr && return this->securityLevel_ == nullptr && return this->sigchl_ == nullptr && return this->status_ == nullptr && return this->timer_ == nullptr
+        && return this->type_ == nullptr && return this->value_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};

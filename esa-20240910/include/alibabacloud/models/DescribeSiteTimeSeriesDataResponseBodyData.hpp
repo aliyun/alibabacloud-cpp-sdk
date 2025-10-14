@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->detailData_ != nullptr
-        && this->dimensionName_ != nullptr && this->dimensionValue_ != nullptr && this->fieldName_ != nullptr; };
+    virtual bool empty() const override { return this->detailData_ == nullptr
+        && return this->dimensionName_ == nullptr && return this->dimensionValue_ == nullptr && return this->fieldName_ == nullptr; };
     // detailData Field Functions 
     bool hasDetailData() const { return this->detailData_ != nullptr;};
     void deleteDetailData() { this->detailData_ = nullptr;};
@@ -70,9 +70,13 @@ namespace Models
 
 
   protected:
+    // Returned data.
     std::shared_ptr<vector<Models::DescribeSiteTimeSeriesDataResponseBodyDataDetailData>> detailData_ = nullptr;
+    // Query dimension.
     std::shared_ptr<string> dimensionName_ = nullptr;
+    // Query dimension value.
     std::shared_ptr<string> dimensionValue_ = nullptr;
+    // Query metric value.
     std::shared_ptr<string> fieldName_ = nullptr;
   };
 

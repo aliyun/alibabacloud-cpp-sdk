@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->casId_ != nullptr
-        && this->certificate_ != nullptr && this->id_ != nullptr && this->name_ != nullptr && this->ownerId_ != nullptr && this->privateKey_ != nullptr
-        && this->region_ != nullptr && this->securityToken_ != nullptr && this->siteId_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->casId_ == nullptr
+        && return this->certificate_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr && return this->ownerId_ == nullptr && return this->privateKey_ == nullptr
+        && return this->region_ == nullptr && return this->securityToken_ == nullptr && return this->siteId_ == nullptr && return this->type_ == nullptr; };
     // casId Field Functions 
     bool hasCasId() const { return this->casId_ != nullptr;};
     void deleteCasId() { this->casId_ = nullptr;};

@@ -75,12 +75,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->configId_ != nullptr
-        && this->configType_ != nullptr && this->dnsRecord_ != nullptr && this->follow302Enable_ != nullptr && this->follow302MaxTries_ != nullptr && this->follow302RetainArgs_ != nullptr
-        && this->follow302RetainHeader_ != nullptr && this->follow302TargetHost_ != nullptr && this->originHost_ != nullptr && this->originHttpPort_ != nullptr && this->originHttpsPort_ != nullptr
-        && this->originMtls_ != nullptr && this->originReadTimeout_ != nullptr && this->originScheme_ != nullptr && this->originSni_ != nullptr && this->originVerify_ != nullptr
-        && this->range_ != nullptr && this->rangeChunkSize_ != nullptr && this->requestId_ != nullptr && this->rule_ != nullptr && this->ruleEnable_ != nullptr
-        && this->ruleName_ != nullptr && this->sequence_ != nullptr && this->siteVersion_ != nullptr; };
+    virtual bool empty() const override { return this->configId_ == nullptr
+        && return this->configType_ == nullptr && return this->dnsRecord_ == nullptr && return this->follow302Enable_ == nullptr && return this->follow302MaxTries_ == nullptr && return this->follow302RetainArgs_ == nullptr
+        && return this->follow302RetainHeader_ == nullptr && return this->follow302TargetHost_ == nullptr && return this->originHost_ == nullptr && return this->originHttpPort_ == nullptr && return this->originHttpsPort_ == nullptr
+        && return this->originMtls_ == nullptr && return this->originReadTimeout_ == nullptr && return this->originScheme_ == nullptr && return this->originSni_ == nullptr && return this->originVerify_ == nullptr
+        && return this->range_ == nullptr && return this->rangeChunkSize_ == nullptr && return this->requestId_ == nullptr && return this->rule_ == nullptr && return this->ruleEnable_ == nullptr
+        && return this->ruleName_ == nullptr && return this->sequence_ == nullptr && return this->siteVersion_ == nullptr; };
     // configId Field Functions 
     bool hasConfigId() const { return this->configId_ != nullptr;};
     void deleteConfigId() { this->configId_ = nullptr;};

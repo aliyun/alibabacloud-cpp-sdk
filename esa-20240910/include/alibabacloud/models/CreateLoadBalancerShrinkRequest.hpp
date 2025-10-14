@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adaptiveRoutingShrink_ != nullptr
-        && this->defaultPoolsShrink_ != nullptr && this->description_ != nullptr && this->enabled_ != nullptr && this->fallbackPool_ != nullptr && this->monitorShrink_ != nullptr
-        && this->name_ != nullptr && this->randomSteeringShrink_ != nullptr && this->regionPools_ != nullptr && this->rulesShrink_ != nullptr && this->sessionAffinity_ != nullptr
-        && this->siteId_ != nullptr && this->steeringPolicy_ != nullptr && this->subRegionPools_ != nullptr && this->ttl_ != nullptr; };
+    virtual bool empty() const override { return this->adaptiveRoutingShrink_ == nullptr
+        && return this->defaultPoolsShrink_ == nullptr && return this->description_ == nullptr && return this->enabled_ == nullptr && return this->fallbackPool_ == nullptr && return this->monitorShrink_ == nullptr
+        && return this->name_ == nullptr && return this->randomSteeringShrink_ == nullptr && return this->regionPools_ == nullptr && return this->rulesShrink_ == nullptr && return this->sessionAffinity_ == nullptr
+        && return this->siteId_ == nullptr && return this->steeringPolicy_ == nullptr && return this->subRegionPools_ == nullptr && return this->ttl_ == nullptr; };
     // adaptiveRoutingShrink Field Functions 
     bool hasAdaptiveRoutingShrink() const { return this->adaptiveRoutingShrink_ != nullptr;};
     void deleteAdaptiveRoutingShrink() { this->adaptiveRoutingShrink_ = nullptr;};

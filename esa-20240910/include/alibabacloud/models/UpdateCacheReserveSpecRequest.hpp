@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoPay_ != nullptr
-        && this->chargeType_ != nullptr && this->instanceId_ != nullptr && this->targetQuotaGb_ != nullptr; };
+    virtual bool empty() const override { return this->autoPay_ == nullptr
+        && return this->chargeType_ == nullptr && return this->instanceId_ == nullptr && return this->targetQuotaGb_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable auto payment.
+    // Automatic payment.
     std::shared_ptr<bool> autoPay_ = nullptr;
+    // Billing type. Valid values:
+    // - PREPAY
+    // - POSTPAY
     std::shared_ptr<string> chargeType_ = nullptr;
+    // Instance ID.
     std::shared_ptr<string> instanceId_ = nullptr;
+    // Cache requested size, in GB.
     std::shared_ptr<int64_t> targetQuotaGb_ = nullptr;
   };
 

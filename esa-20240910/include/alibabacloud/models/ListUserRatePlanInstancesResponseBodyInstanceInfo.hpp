@@ -79,12 +79,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->billingMode_ != nullptr
-        && this->botInstanceLevel_ != nullptr && this->botRequest_ != nullptr && this->coverages_ != nullptr && this->createTime_ != nullptr && this->crossborderTraffic_ != nullptr
-        && this->ddosBurstableDomesticProtection_ != nullptr && this->ddosBurstableOverseasProtection_ != nullptr && this->ddosInstanceLevel_ != nullptr && this->duration_ != nullptr && this->edgeRoutineRquest_ != nullptr
-        && this->edgeWafRequest_ != nullptr && this->expireTime_ != nullptr && this->instanceId_ != nullptr && this->layer4Traffic_ != nullptr && this->layer4TrafficIntl_ != nullptr
-        && this->planName_ != nullptr && this->planTraffic_ != nullptr && this->planType_ != nullptr && this->siteQuota_ != nullptr && this->sites_ != nullptr
-        && this->smartRoutingRequest_ != nullptr && this->staticRequest_ != nullptr && this->status_ != nullptr && this->subscribeType_ != nullptr; };
+    virtual bool empty() const override { return this->billingMode_ == nullptr
+        && return this->botInstanceLevel_ == nullptr && return this->botRequest_ == nullptr && return this->coverages_ == nullptr && return this->createTime_ == nullptr && return this->crossborderTraffic_ == nullptr
+        && return this->ddosBurstableDomesticProtection_ == nullptr && return this->ddosBurstableOverseasProtection_ == nullptr && return this->ddosInstanceLevel_ == nullptr && return this->duration_ == nullptr && return this->edgeRoutineRquest_ == nullptr
+        && return this->edgeWafRequest_ == nullptr && return this->expireTime_ == nullptr && return this->instanceId_ == nullptr && return this->layer4Traffic_ == nullptr && return this->layer4TrafficIntl_ == nullptr
+        && return this->planName_ == nullptr && return this->planTraffic_ == nullptr && return this->planType_ == nullptr && return this->siteQuota_ == nullptr && return this->sites_ == nullptr
+        && return this->smartRoutingRequest_ == nullptr && return this->staticRequest_ == nullptr && return this->status_ == nullptr && return this->subscribeType_ == nullptr; };
     // billingMode Field Functions 
     bool hasBillingMode() const { return this->billingMode_ != nullptr;};
     void deleteBillingMode() { this->billingMode_ = nullptr;};

@@ -83,13 +83,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->additionalCacheablePorts_ != nullptr
-        && this->browserCacheMode_ != nullptr && this->browserCacheTtl_ != nullptr && this->bypassCache_ != nullptr && this->cacheDeceptionArmor_ != nullptr && this->cacheReserveEligibility_ != nullptr
-        && this->checkPresenceCookie_ != nullptr && this->checkPresenceHeader_ != nullptr && this->configId_ != nullptr && this->configType_ != nullptr && this->edgeCacheMode_ != nullptr
-        && this->edgeCacheTtl_ != nullptr && this->edgeStatusCodeCacheTtl_ != nullptr && this->includeCookie_ != nullptr && this->includeHeader_ != nullptr && this->queryString_ != nullptr
-        && this->queryStringMode_ != nullptr && this->requestId_ != nullptr && this->rule_ != nullptr && this->ruleEnable_ != nullptr && this->ruleName_ != nullptr
-        && this->sequence_ != nullptr && this->serveStale_ != nullptr && this->siteVersion_ != nullptr && this->sortQueryStringForCache_ != nullptr && this->userDeviceType_ != nullptr
-        && this->userGeo_ != nullptr && this->userLanguage_ != nullptr; };
+    virtual bool empty() const override { return this->additionalCacheablePorts_ == nullptr
+        && return this->browserCacheMode_ == nullptr && return this->browserCacheTtl_ == nullptr && return this->bypassCache_ == nullptr && return this->cacheDeceptionArmor_ == nullptr && return this->cacheReserveEligibility_ == nullptr
+        && return this->checkPresenceCookie_ == nullptr && return this->checkPresenceHeader_ == nullptr && return this->configId_ == nullptr && return this->configType_ == nullptr && return this->edgeCacheMode_ == nullptr
+        && return this->edgeCacheTtl_ == nullptr && return this->edgeStatusCodeCacheTtl_ == nullptr && return this->includeCookie_ == nullptr && return this->includeHeader_ == nullptr && return this->queryString_ == nullptr
+        && return this->queryStringMode_ == nullptr && return this->requestId_ == nullptr && return this->rule_ == nullptr && return this->ruleEnable_ == nullptr && return this->ruleName_ == nullptr
+        && return this->sequence_ == nullptr && return this->serveStale_ == nullptr && return this->siteVersion_ == nullptr && return this->sortQueryStringForCache_ == nullptr && return this->userDeviceType_ == nullptr
+        && return this->userGeo_ == nullptr && return this->userLanguage_ == nullptr; };
     // additionalCacheablePorts Field Functions 
     bool hasAdditionalCacheablePorts() const { return this->additionalCacheablePorts_ != nullptr;};
     void deleteAdditionalCacheablePorts() { this->additionalCacheablePorts_ = nullptr;};

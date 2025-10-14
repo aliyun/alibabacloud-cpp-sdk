@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->configId_ != nullptr
-        && this->configType_ != nullptr && this->responseHeaderModification_ != nullptr && this->rule_ != nullptr && this->ruleEnable_ != nullptr && this->ruleName_ != nullptr
-        && this->sequence_ != nullptr && this->siteVersion_ != nullptr; };
+    virtual bool empty() const override { return this->configId_ == nullptr
+        && return this->configType_ == nullptr && return this->responseHeaderModification_ == nullptr && return this->rule_ == nullptr && return this->ruleEnable_ == nullptr && return this->ruleName_ == nullptr
+        && return this->sequence_ == nullptr && return this->siteVersion_ == nullptr; };
     // configId Field Functions 
     bool hasConfigId() const { return this->configId_ != nullptr;};
     void deleteConfigId() { this->configId_ = nullptr;};
@@ -107,13 +107,30 @@ namespace Models
 
 
   protected:
+    // The configuration ID.
     std::shared_ptr<int64_t> configId_ = nullptr;
+    // The type of the configuration. Specifies whether to check the image used by the instance supports hot migration. Valid values:
+    // 
+    // *   global: global configuration.
+    // *   rule: rule configuration.
     std::shared_ptr<string> configType_ = nullptr;
+    // The configurations of modifying response headers. You can add, delete, or modify a response header.
     std::shared_ptr<vector<Models::ListHttpIncomingResponseHeaderModificationRulesResponseBodyConfigsResponseHeaderModification>> responseHeaderModification_ = nullptr;
+    // The content of the rule. A conditional expression is used to match a user request. You do not need to set this parameter when you add global configuration. Use cases:
+    // 
+    // *   true: Match all incoming requests.
+    // *   Set the value to a custom expression, for example:(http.host eq "video.example.com"): Match the specified request.
     std::shared_ptr<string> rule_ = nullptr;
+    // Specifies whether to enable the rule. Valid values: You do not need to set this parameter when you add global configuration. Specifies whether to check the image used by the instance supports hot migration. Valid values:
+    // 
+    // *   on
+    // *   off
     std::shared_ptr<string> ruleEnable_ = nullptr;
+    // The rule name. You do not need to set this parameter when you add global configuration.
     std::shared_ptr<string> ruleName_ = nullptr;
+    // The order in which the rule is executed. A smaller value gives priority to the rule.
     std::shared_ptr<int32_t> sequence_ = nullptr;
+    // The version number of the website configurations. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
     std::shared_ptr<int32_t> siteVersion_ = nullptr;
   };
 

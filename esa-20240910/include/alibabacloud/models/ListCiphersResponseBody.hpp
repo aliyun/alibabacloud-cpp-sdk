@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ciphersGroup_ != nullptr
-        && this->requestId_ != nullptr && this->result_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->ciphersGroup_ == nullptr
+        && return this->requestId_ == nullptr && return this->result_ == nullptr && return this->totalCount_ == nullptr; };
     // ciphersGroup Field Functions 
     bool hasCiphersGroup() const { return this->ciphersGroup_ != nullptr;};
     void deleteCiphersGroup() { this->ciphersGroup_ = nullptr;};

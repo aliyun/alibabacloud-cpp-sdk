@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->name_ != nullptr
-        && this->operation_ != nullptr && this->type_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->name_ == nullptr
+        && return this->operation_ == nullptr && return this->type_ == nullptr && return this->value_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
@@ -66,9 +66,20 @@ namespace Models
 
 
   protected:
+    // The name of the response header.
     std::shared_ptr<string> name_ = nullptr;
+    // The action. Valid values:
+    // 
+    // *   add: adds a response header.
+    // *   del: deletes a response header.
+    // *   modify: modifies a response header.
     std::shared_ptr<string> operation_ = nullptr;
+    // The value type. Valid values:
+    // 
+    // *   static
+    // *   dynamic
     std::shared_ptr<string> type_ = nullptr;
+    // The value of the response header.
     std::shared_ptr<string> value_ = nullptr;
   };
 

@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bypass_ != nullptr
-        && this->configId_ != nullptr && this->configType_ != nullptr && this->fallback_ != nullptr && this->mode_ != nullptr && this->requestId_ != nullptr
-        && this->routeEnable_ != nullptr && this->routeName_ != nullptr && this->routineName_ != nullptr && this->rule_ != nullptr && this->sequence_ != nullptr
-        && this->siteVersion_ != nullptr; };
+    virtual bool empty() const override { return this->bypass_ == nullptr
+        && return this->configId_ == nullptr && return this->configType_ == nullptr && return this->fallback_ == nullptr && return this->mode_ == nullptr && return this->requestId_ == nullptr
+        && return this->routeEnable_ == nullptr && return this->routeName_ == nullptr && return this->routineName_ == nullptr && return this->rule_ == nullptr && return this->sequence_ == nullptr
+        && return this->siteVersion_ == nullptr; };
     // bypass Field Functions 
     bool hasBypass() const { return this->bypass_ != nullptr;};
     void deleteBypass() { this->bypass_ = nullptr;};

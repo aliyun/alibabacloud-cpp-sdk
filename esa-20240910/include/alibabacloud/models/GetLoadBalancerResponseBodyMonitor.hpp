@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->consecutiveDown_ != nullptr
-        && this->consecutiveUp_ != nullptr && this->expectedCodes_ != nullptr && this->followRedirects_ != nullptr && this->header_ != nullptr && this->interval_ != nullptr
-        && this->method_ != nullptr && this->monitoringRegion_ != nullptr && this->path_ != nullptr && this->port_ != nullptr && this->timeout_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->consecutiveDown_ == nullptr
+        && return this->consecutiveUp_ == nullptr && return this->expectedCodes_ == nullptr && return this->followRedirects_ == nullptr && return this->header_ == nullptr && return this->interval_ == nullptr
+        && return this->method_ == nullptr && return this->monitoringRegion_ == nullptr && return this->path_ == nullptr && return this->port_ == nullptr && return this->timeout_ == nullptr
+        && return this->type_ == nullptr; };
     // consecutiveDown Field Functions 
     bool hasConsecutiveDown() const { return this->consecutiveDown_ != nullptr;};
     void deleteConsecutiveDown() { this->consecutiveDown_ = nullptr;};

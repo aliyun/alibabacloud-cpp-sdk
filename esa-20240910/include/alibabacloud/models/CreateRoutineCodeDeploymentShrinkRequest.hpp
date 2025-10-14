@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->codeVersionsShrink_ != nullptr
-        && this->env_ != nullptr && this->name_ != nullptr && this->strategy_ != nullptr; };
+    virtual bool empty() const override { return this->codeVersionsShrink_ == nullptr
+        && return this->env_ == nullptr && return this->name_ == nullptr && return this->strategy_ == nullptr; };
     // codeVersionsShrink Field Functions 
     bool hasCodeVersionsShrink() const { return this->codeVersionsShrink_ != nullptr;};
     void deleteCodeVersionsShrink() { this->codeVersionsShrink_ = nullptr;};
@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The configuration list of phased release version numbers. A maximum of two versions are supported, and the sum of the total proportions is equal to 100.
+    // 
     // This parameter is required.
     std::shared_ptr<string> codeVersionsShrink_ = nullptr;
+    // The name of the environment. Only supports test environment `staging` or production environment `production`.
+    // 
     // This parameter is required.
     std::shared_ptr<string> env_ = nullptr;
+    // The function name.
+    // 
     // This parameter is required.
     std::shared_ptr<string> name_ = nullptr;
+    // The deployment policy. Valid value: percentage.
+    // 
     // This parameter is required.
     std::shared_ptr<string> strategy_ = nullptr;
   };

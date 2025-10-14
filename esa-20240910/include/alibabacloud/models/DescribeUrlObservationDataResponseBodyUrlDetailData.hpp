@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->CLS_ != nullptr
-        && this->clientPlatform_ != nullptr && this->country_ != nullptr && this->FCP_ != nullptr && this->FID_ != nullptr && this->INP_ != nullptr
-        && this->LCP_ != nullptr && this->TTFB_ != nullptr && this->url_ != nullptr; };
+    virtual bool empty() const override { return this->CLS_ == nullptr
+        && return this->clientPlatform_ == nullptr && return this->country_ == nullptr && return this->FCP_ == nullptr && return this->FID_ == nullptr && return this->INP_ == nullptr
+        && return this->LCP_ == nullptr && return this->TTFB_ == nullptr && return this->url_ == nullptr; };
     // CLS Field Functions 
     bool hasCLS() const { return this->CLS_ != nullptr;};
     void deleteCLS() { this->CLS_ = nullptr;};

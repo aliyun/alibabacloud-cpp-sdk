@@ -15,10 +15,14 @@ namespace Models
   class ListWafUsageOfRulesResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListWafUsageOfRulesResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(BatchConfigUsage, batchConfigUsage_);
+      DARABONBA_PTR_TO_JSON(InstanceUsage, instanceUsage_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Sites, sites_);
     };
     friend void from_json(const Darabonba::Json& j, ListWafUsageOfRulesResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(BatchConfigUsage, batchConfigUsage_);
+      DARABONBA_PTR_FROM_JSON(InstanceUsage, instanceUsage_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Sites, sites_);
     };
@@ -33,8 +37,22 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->sites_ != nullptr; };
+    virtual bool empty() const override { return this->batchConfigUsage_ == nullptr
+        && return this->instanceUsage_ == nullptr && return this->requestId_ == nullptr && return this->sites_ == nullptr; };
+    // batchConfigUsage Field Functions 
+    bool hasBatchConfigUsage() const { return this->batchConfigUsage_ != nullptr;};
+    void deleteBatchConfigUsage() { this->batchConfigUsage_ = nullptr;};
+    inline int64_t batchConfigUsage() const { DARABONBA_PTR_GET_DEFAULT(batchConfigUsage_, 0L) };
+    inline ListWafUsageOfRulesResponseBody& setBatchConfigUsage(int64_t batchConfigUsage) { DARABONBA_PTR_SET_VALUE(batchConfigUsage_, batchConfigUsage) };
+
+
+    // instanceUsage Field Functions 
+    bool hasInstanceUsage() const { return this->instanceUsage_ != nullptr;};
+    void deleteInstanceUsage() { this->instanceUsage_ = nullptr;};
+    inline int64_t instanceUsage() const { DARABONBA_PTR_GET_DEFAULT(instanceUsage_, 0L) };
+    inline ListWafUsageOfRulesResponseBody& setInstanceUsage(int64_t instanceUsage) { DARABONBA_PTR_SET_VALUE(instanceUsage_, instanceUsage) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -52,6 +70,8 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<int64_t> batchConfigUsage_ = nullptr;
+    std::shared_ptr<int64_t> instanceUsage_ = nullptr;
     // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
     // List of site usage.

@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cookieName_ != nullptr
-        && this->customPageHtml_ != nullptr && this->description_ != nullptr && this->disableSessionRenewalEnable_ != nullptr && this->enable_ != nullptr && this->hostNameAndPath_ != nullptr
-        && this->jsonResponseEnable_ != nullptr && this->language_ != nullptr && this->name_ != nullptr && this->newUsersPerMinute_ != nullptr && this->queueAllEnable_ != nullptr
-        && this->queuingMethod_ != nullptr && this->queuingStatusCode_ != nullptr && this->sessionDuration_ != nullptr && this->siteId_ != nullptr && this->totalActiveUsers_ != nullptr
-        && this->waitingRoomType_ != nullptr; };
+    virtual bool empty() const override { return this->cookieName_ == nullptr
+        && return this->customPageHtml_ == nullptr && return this->description_ == nullptr && return this->disableSessionRenewalEnable_ == nullptr && return this->enable_ == nullptr && return this->hostNameAndPath_ == nullptr
+        && return this->jsonResponseEnable_ == nullptr && return this->language_ == nullptr && return this->name_ == nullptr && return this->newUsersPerMinute_ == nullptr && return this->queueAllEnable_ == nullptr
+        && return this->queuingMethod_ == nullptr && return this->queuingStatusCode_ == nullptr && return this->sessionDuration_ == nullptr && return this->siteId_ == nullptr && return this->totalActiveUsers_ == nullptr
+        && return this->waitingRoomType_ == nullptr; };
     // cookieName Field Functions 
     bool hasCookieName() const { return this->cookieName_ != nullptr;};
     void deleteCookieName() { this->cookieName_ = nullptr;};

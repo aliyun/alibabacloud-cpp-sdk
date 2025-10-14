@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->codeVersions_ != nullptr
-        && this->deploymentId_ != nullptr && this->requestId_ != nullptr && this->strategy_ != nullptr; };
+    virtual bool empty() const override { return this->codeVersions_ == nullptr
+        && return this->deploymentId_ == nullptr && return this->requestId_ == nullptr && return this->strategy_ == nullptr; };
     // codeVersions Field Functions 
     bool hasCodeVersions() const { return this->codeVersions_ != nullptr;};
     void deleteCodeVersions() { this->codeVersions_ = nullptr;};
@@ -70,9 +70,13 @@ namespace Models
 
 
   protected:
+    // The configuration list of the phased release version number.
     std::shared_ptr<vector<CreateRoutineCodeDeploymentResponseBodyCodeVersions>> codeVersions_ = nullptr;
+    // The deployment record ID.
     std::shared_ptr<string> deploymentId_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The phased release policy. The constant string is "percentage".
     std::shared_ptr<string> strategy_ = nullptr;
   };
 

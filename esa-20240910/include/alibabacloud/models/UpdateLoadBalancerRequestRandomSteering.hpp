@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->defaultWeight_ != nullptr
-        && this->poolWeights_ != nullptr; };
+    virtual bool empty() const override { return this->defaultWeight_ == nullptr
+        && return this->poolWeights_ == nullptr; };
     // defaultWeight Field Functions 
     bool hasDefaultWeight() const { return this->defaultWeight_ != nullptr;};
     void deleteDefaultWeight() { this->defaultWeight_ = nullptr;};

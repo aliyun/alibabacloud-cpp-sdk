@@ -14,11 +14,13 @@ namespace Models
   class ListWafTemplateRulesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListWafTemplateRulesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(Phase, phase_);
       DARABONBA_PTR_TO_JSON(QueryArgs, queryArgs_);
       DARABONBA_PTR_TO_JSON(SiteId, siteId_);
     };
     friend void from_json(const Darabonba::Json& j, ListWafTemplateRulesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(Phase, phase_);
       DARABONBA_PTR_FROM_JSON(QueryArgs, queryArgs_);
       DARABONBA_PTR_FROM_JSON(SiteId, siteId_);
@@ -34,8 +36,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->phase_ != nullptr
-        && this->queryArgs_ != nullptr && this->siteId_ != nullptr; };
+    virtual bool empty() const override { return this->instanceId_ == nullptr
+        && return this->phase_ == nullptr && return this->queryArgs_ == nullptr && return this->siteId_ == nullptr; };
+    // instanceId Field Functions 
+    bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+    void deleteInstanceId() { this->instanceId_ = nullptr;};
+    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline ListWafTemplateRulesRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
     // phase Field Functions 
     bool hasPhase() const { return this->phase_ != nullptr;};
     void deletePhase() { this->phase_ = nullptr;};
@@ -60,6 +69,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> instanceId_ = nullptr;
     // WAF operation phase, used to filter template rules for a specific phase.
     std::shared_ptr<string> phase_ = nullptr;
     // Query parameters, used to filter template rules based on conditions such as rule type.

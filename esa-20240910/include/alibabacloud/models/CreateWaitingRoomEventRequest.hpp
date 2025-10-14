@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->customPageHtml_ != nullptr
-        && this->description_ != nullptr && this->disableSessionRenewalEnable_ != nullptr && this->enable_ != nullptr && this->endTime_ != nullptr && this->jsonResponseEnable_ != nullptr
-        && this->language_ != nullptr && this->name_ != nullptr && this->newUsersPerMinute_ != nullptr && this->preQueueEnable_ != nullptr && this->preQueueStartTime_ != nullptr
-        && this->queuingMethod_ != nullptr && this->queuingStatusCode_ != nullptr && this->randomPreQueueEnable_ != nullptr && this->sessionDuration_ != nullptr && this->siteId_ != nullptr
-        && this->startTime_ != nullptr && this->totalActiveUsers_ != nullptr && this->waitingRoomId_ != nullptr && this->waitingRoomType_ != nullptr; };
+    virtual bool empty() const override { return this->customPageHtml_ == nullptr
+        && return this->description_ == nullptr && return this->disableSessionRenewalEnable_ == nullptr && return this->enable_ == nullptr && return this->endTime_ == nullptr && return this->jsonResponseEnable_ == nullptr
+        && return this->language_ == nullptr && return this->name_ == nullptr && return this->newUsersPerMinute_ == nullptr && return this->preQueueEnable_ == nullptr && return this->preQueueStartTime_ == nullptr
+        && return this->queuingMethod_ == nullptr && return this->queuingStatusCode_ == nullptr && return this->randomPreQueueEnable_ == nullptr && return this->sessionDuration_ == nullptr && return this->siteId_ == nullptr
+        && return this->startTime_ == nullptr && return this->totalActiveUsers_ == nullptr && return this->waitingRoomId_ == nullptr && return this->waitingRoomType_ == nullptr; };
     // customPageHtml Field Functions 
     bool hasCustomPageHtml() const { return this->customPageHtml_ != nullptr;};
     void deleteCustomPageHtml() { this->customPageHtml_ = nullptr;};

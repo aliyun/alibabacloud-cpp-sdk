@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->failTimes_ != nullptr
-        && this->host_ != nullptr && this->httpCode_ != nullptr && this->interval_ != nullptr && this->method_ != nullptr && this->port_ != nullptr
-        && this->succTimes_ != nullptr && this->timeout_ != nullptr && this->type_ != nullptr && this->uri_ != nullptr; };
+    virtual bool empty() const override { return this->failTimes_ == nullptr
+        && return this->host_ == nullptr && return this->httpCode_ == nullptr && return this->interval_ == nullptr && return this->method_ == nullptr && return this->port_ == nullptr
+        && return this->succTimes_ == nullptr && return this->timeout_ == nullptr && return this->type_ == nullptr && return this->uri_ == nullptr; };
     // failTimes Field Functions 
     bool hasFailTimes() const { return this->failTimes_ != nullptr;};
     void deleteFailTimes() { this->failTimes_ = nullptr;};

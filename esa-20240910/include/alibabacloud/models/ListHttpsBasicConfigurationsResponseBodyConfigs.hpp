@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ciphersuite_ != nullptr
-        && this->ciphersuiteGroup_ != nullptr && this->configId_ != nullptr && this->configType_ != nullptr && this->http2_ != nullptr && this->http3_ != nullptr
-        && this->https_ != nullptr && this->ocspStapling_ != nullptr && this->rule_ != nullptr && this->ruleEnable_ != nullptr && this->ruleName_ != nullptr
-        && this->sequence_ != nullptr && this->tls10_ != nullptr && this->tls11_ != nullptr && this->tls12_ != nullptr && this->tls13_ != nullptr; };
+    virtual bool empty() const override { return this->ciphersuite_ == nullptr
+        && return this->ciphersuiteGroup_ == nullptr && return this->configId_ == nullptr && return this->configType_ == nullptr && return this->http2_ == nullptr && return this->http3_ == nullptr
+        && return this->https_ == nullptr && return this->ocspStapling_ == nullptr && return this->rule_ == nullptr && return this->ruleEnable_ == nullptr && return this->ruleName_ == nullptr
+        && return this->sequence_ == nullptr && return this->tls10_ == nullptr && return this->tls11_ == nullptr && return this->tls12_ == nullptr && return this->tls13_ == nullptr; };
     // ciphersuite Field Functions 
     bool hasCiphersuite() const { return this->ciphersuite_ != nullptr;};
     void deleteCiphersuite() { this->ciphersuite_ = nullptr;};

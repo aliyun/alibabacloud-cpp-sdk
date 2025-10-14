@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->healthCheckFailTimes_ != nullptr
-        && this->healthCheckHost_ != nullptr && this->healthCheckHttpCode_ != nullptr && this->healthCheckInterval_ != nullptr && this->healthCheckMethod_ != nullptr && this->healthCheckPort_ != nullptr
-        && this->healthCheckSuccTimes_ != nullptr && this->healthCheckTimeout_ != nullptr && this->healthCheckType_ != nullptr && this->healthCheckURI_ != nullptr && this->name_ != nullptr
-        && this->remarks_ != nullptr && this->servicePort_ != nullptr && this->targetPort_ != nullptr; };
+    virtual bool empty() const override { return this->healthCheckFailTimes_ == nullptr
+        && return this->healthCheckHost_ == nullptr && return this->healthCheckHttpCode_ == nullptr && return this->healthCheckInterval_ == nullptr && return this->healthCheckMethod_ == nullptr && return this->healthCheckPort_ == nullptr
+        && return this->healthCheckSuccTimes_ == nullptr && return this->healthCheckTimeout_ == nullptr && return this->healthCheckType_ == nullptr && return this->healthCheckURI_ == nullptr && return this->name_ == nullptr
+        && return this->remarks_ == nullptr && return this->servicePort_ == nullptr && return this->targetPort_ == nullptr; };
     // healthCheckFailTimes Field Functions 
     bool hasHealthCheckFailTimes() const { return this->healthCheckFailTimes_ != nullptr;};
     void deleteHealthCheckFailTimes() { this->healthCheckFailTimes_ = nullptr;};

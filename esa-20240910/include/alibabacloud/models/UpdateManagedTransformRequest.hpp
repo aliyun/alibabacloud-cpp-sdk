@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addClientGeolocationHeader_ != nullptr
-        && this->addRealClientIpHeader_ != nullptr && this->realClientIpHeaderName_ != nullptr && this->siteId_ != nullptr && this->siteVersion_ != nullptr; };
+    virtual bool empty() const override { return this->addClientGeolocationHeader_ == nullptr
+        && return this->addRealClientIpHeader_ == nullptr && return this->realClientIpHeaderName_ == nullptr && return this->siteId_ == nullptr && return this->siteVersion_ == nullptr; };
     // addClientGeolocationHeader Field Functions 
     bool hasAddClientGeolocationHeader() const { return this->addClientGeolocationHeader_ != nullptr;};
     void deleteAddClientGeolocationHeader() { this->addClientGeolocationHeader_ = nullptr;};

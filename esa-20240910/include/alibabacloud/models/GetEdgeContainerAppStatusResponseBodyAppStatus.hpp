@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->baseLineVersion_ != nullptr
-        && this->deployStatus_ != nullptr && this->deployTime_ != nullptr && this->deployedVersion_ != nullptr && this->expectPercentage_ != nullptr && this->fullRelease_ != nullptr
-        && this->publishEnv_ != nullptr && this->publishPercentage_ != nullptr && this->publishStatus_ != nullptr && this->publishTime_ != nullptr && this->publishType_ != nullptr
-        && this->publishingVersion_ != nullptr && this->regions_ != nullptr && this->rollbackTime_ != nullptr && this->unDeployTime_ != nullptr; };
+    virtual bool empty() const override { return this->baseLineVersion_ == nullptr
+        && return this->deployStatus_ == nullptr && return this->deployTime_ == nullptr && return this->deployedVersion_ == nullptr && return this->expectPercentage_ == nullptr && return this->fullRelease_ == nullptr
+        && return this->publishEnv_ == nullptr && return this->publishPercentage_ == nullptr && return this->publishStatus_ == nullptr && return this->publishTime_ == nullptr && return this->publishType_ == nullptr
+        && return this->publishingVersion_ == nullptr && return this->regions_ == nullptr && return this->rollbackTime_ == nullptr && return this->unDeployTime_ == nullptr; };
     // baseLineVersion Field Functions 
     bool hasBaseLineVersion() const { return this->baseLineVersion_ != nullptr;};
     void deleteBaseLineVersion() { this->baseLineVersion_ = nullptr;};

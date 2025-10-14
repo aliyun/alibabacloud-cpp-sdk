@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->CACertificateId_ != nullptr
-        && this->certificate_ != nullptr && this->commonName_ != nullptr && this->fingerprintSha256_ != nullptr && this->id_ != nullptr && this->issuer_ != nullptr
-        && this->notAfter_ != nullptr && this->notBefore_ != nullptr && this->privateKey_ != nullptr && this->requestId_ != nullptr && this->serialNumber_ != nullptr
-        && this->signatureAlgorithm_ != nullptr && this->status_ != nullptr && this->validityDays_ != nullptr; };
+    virtual bool empty() const override { return this->CACertificateId_ == nullptr
+        && return this->certificate_ == nullptr && return this->commonName_ == nullptr && return this->fingerprintSha256_ == nullptr && return this->id_ == nullptr && return this->issuer_ == nullptr
+        && return this->notAfter_ == nullptr && return this->notBefore_ == nullptr && return this->privateKey_ == nullptr && return this->requestId_ == nullptr && return this->serialNumber_ == nullptr
+        && return this->signatureAlgorithm_ == nullptr && return this->status_ == nullptr && return this->validityDays_ == nullptr; };
     // CACertificateId Field Functions 
     bool hasCACertificateId() const { return this->CACertificateId_ != nullptr;};
     void deleteCACertificateId() { this->CACertificateId_ = nullptr;};

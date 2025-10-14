@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientIPPassThroughMode_ != nullptr
-        && this->comment_ != nullptr && this->edgePort_ != nullptr && this->protocol_ != nullptr && this->ruleId_ != nullptr && this->source_ != nullptr
-        && this->sourcePort_ != nullptr && this->sourceType_ != nullptr; };
+    virtual bool empty() const override { return this->clientIPPassThroughMode_ == nullptr
+        && return this->comment_ == nullptr && return this->edgePort_ == nullptr && return this->protocol_ == nullptr && return this->ruleId_ == nullptr && return this->source_ == nullptr
+        && return this->sourcePort_ == nullptr && return this->sourceType_ == nullptr; };
     // clientIPPassThroughMode Field Functions 
     bool hasClientIPPassThroughMode() const { return this->clientIPPassThroughMode_ != nullptr;};
     void deleteClientIPPassThroughMode() { this->clientIPPassThroughMode_ = nullptr;};

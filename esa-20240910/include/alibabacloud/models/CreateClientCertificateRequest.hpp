@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->CSR_ != nullptr
-        && this->pkeyType_ != nullptr && this->siteId_ != nullptr && this->validityDays_ != nullptr; };
+    virtual bool empty() const override { return this->CSR_ == nullptr
+        && return this->pkeyType_ == nullptr && return this->siteId_ == nullptr && return this->validityDays_ == nullptr; };
     // CSR Field Functions 
     bool hasCSR() const { return this->CSR_ != nullptr;};
     void deleteCSR() { this->CSR_ = nullptr;};

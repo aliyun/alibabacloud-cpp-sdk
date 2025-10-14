@@ -71,11 +71,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applyCode_ != nullptr
-        && this->applyMessage_ != nullptr && this->casId_ != nullptr && this->commonName_ != nullptr && this->createTime_ != nullptr && this->DCV_ != nullptr
-        && this->fingerprintSha256_ != nullptr && this->id_ != nullptr && this->issuer_ != nullptr && this->issuerCN_ != nullptr && this->name_ != nullptr
-        && this->notAfter_ != nullptr && this->notBefore_ != nullptr && this->pubAlg_ != nullptr && this->region_ != nullptr && this->SAN_ != nullptr
-        && this->serialNumber_ != nullptr && this->sigAlg_ != nullptr && this->status_ != nullptr && this->type_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->applyCode_ == nullptr
+        && return this->applyMessage_ == nullptr && return this->casId_ == nullptr && return this->commonName_ == nullptr && return this->createTime_ == nullptr && return this->DCV_ == nullptr
+        && return this->fingerprintSha256_ == nullptr && return this->id_ == nullptr && return this->issuer_ == nullptr && return this->issuerCN_ == nullptr && return this->name_ == nullptr
+        && return this->notAfter_ == nullptr && return this->notBefore_ == nullptr && return this->pubAlg_ == nullptr && return this->region_ == nullptr && return this->SAN_ == nullptr
+        && return this->serialNumber_ == nullptr && return this->sigAlg_ == nullptr && return this->status_ == nullptr && return this->type_ == nullptr && return this->updateTime_ == nullptr; };
     // applyCode Field Functions 
     bool hasApplyCode() const { return this->applyCode_ != nullptr;};
     void deleteApplyCode() { this->applyCode_ = nullptr;};
