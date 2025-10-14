@@ -1,0 +1,47 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTNORMALIZATIONRULESRESPONSEBODYNORMALIZATIONRULESNORMALIZATIONRULEREFERENCES_HPP_
+#define ALIBABACLOUD_MODELS_LISTNORMALIZATIONRULESRESPONSEBODYNORMALIZATIONRULESNORMALIZATIONRULEREFERENCES_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace CloudSiem20241212
+{
+namespace Models
+{
+  class ListNormalizationRulesResponseBodyNormalizationRulesNormalizationRuleReferences : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListNormalizationRulesResponseBodyNormalizationRulesNormalizationRuleReferences& obj) { 
+      DARABONBA_PTR_TO_JSON(DataIngestionId, dataIngestionId_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListNormalizationRulesResponseBodyNormalizationRulesNormalizationRuleReferences& obj) { 
+      DARABONBA_PTR_FROM_JSON(DataIngestionId, dataIngestionId_);
+    };
+    ListNormalizationRulesResponseBodyNormalizationRulesNormalizationRuleReferences() = default ;
+    ListNormalizationRulesResponseBodyNormalizationRulesNormalizationRuleReferences(const ListNormalizationRulesResponseBodyNormalizationRulesNormalizationRuleReferences &) = default ;
+    ListNormalizationRulesResponseBodyNormalizationRulesNormalizationRuleReferences(ListNormalizationRulesResponseBodyNormalizationRulesNormalizationRuleReferences &&) = default ;
+    ListNormalizationRulesResponseBodyNormalizationRulesNormalizationRuleReferences(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListNormalizationRulesResponseBodyNormalizationRulesNormalizationRuleReferences() = default ;
+    ListNormalizationRulesResponseBodyNormalizationRulesNormalizationRuleReferences& operator=(const ListNormalizationRulesResponseBodyNormalizationRulesNormalizationRuleReferences &) = default ;
+    ListNormalizationRulesResponseBodyNormalizationRulesNormalizationRuleReferences& operator=(ListNormalizationRulesResponseBodyNormalizationRulesNormalizationRuleReferences &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->dataIngestionId_ == nullptr; };
+    // dataIngestionId Field Functions 
+    bool hasDataIngestionId() const { return this->dataIngestionId_ != nullptr;};
+    void deleteDataIngestionId() { this->dataIngestionId_ = nullptr;};
+    inline string dataIngestionId() const { DARABONBA_PTR_GET_DEFAULT(dataIngestionId_, "") };
+    inline ListNormalizationRulesResponseBodyNormalizationRulesNormalizationRuleReferences& setDataIngestionId(string dataIngestionId) { DARABONBA_PTR_SET_VALUE(dataIngestionId_, dataIngestionId) };
+
+
+  protected:
+    std::shared_ptr<string> dataIngestionId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace CloudSiem20241212
+#endif
