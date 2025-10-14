@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actConns_ != nullptr
-        && this->bizTime_ != nullptr && this->conns_ != nullptr && this->dropConns_ != nullptr && this->ensRegionId_ != nullptr && this->inActConns_ != nullptr
-        && this->inBytes_ != nullptr && this->inDropBytes_ != nullptr && this->inDropPkts_ != nullptr && this->inPkts_ != nullptr && this->inValidRsNum_ != nullptr
-        && this->loadBalancerId_ != nullptr && this->outBytes_ != nullptr && this->outDropBytes_ != nullptr && this->outDropPkts_ != nullptr && this->outPkts_ != nullptr
-        && this->proto_ != nullptr && this->VPort_ != nullptr && this->validRsNum_ != nullptr && this->vip_ != nullptr && this->vni_ != nullptr; };
+    virtual bool empty() const override { return this->actConns_ == nullptr
+        && return this->bizTime_ == nullptr && return this->conns_ == nullptr && return this->dropConns_ == nullptr && return this->ensRegionId_ == nullptr && return this->inActConns_ == nullptr
+        && return this->inBytes_ == nullptr && return this->inDropBytes_ == nullptr && return this->inDropPkts_ == nullptr && return this->inPkts_ == nullptr && return this->inValidRsNum_ == nullptr
+        && return this->loadBalancerId_ == nullptr && return this->outBytes_ == nullptr && return this->outDropBytes_ == nullptr && return this->outDropPkts_ == nullptr && return this->outPkts_ == nullptr
+        && return this->proto_ == nullptr && return this->VPort_ == nullptr && return this->validRsNum_ == nullptr && return this->vip_ == nullptr && return this->vni_ == nullptr; };
     // actConns Field Functions 
     bool hasActConns() const { return this->actConns_ != nullptr;};
     void deleteActConns() { this->actConns_ = nullptr;};

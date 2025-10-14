@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ability_ != nullptr
-        && this->area_ != nullptr && this->canBuyCount_ != nullptr && this->enName_ != nullptr && this->ensRegionId_ != nullptr && this->loadBalancerSpec_ != nullptr
-        && this->name_ != nullptr && this->province_ != nullptr; };
+    virtual bool empty() const override { return this->ability_ == nullptr
+        && return this->area_ == nullptr && return this->canBuyCount_ == nullptr && return this->enName_ == nullptr && return this->ensRegionId_ == nullptr && return this->loadBalancerSpec_ == nullptr
+        && return this->name_ == nullptr && return this->province_ == nullptr; };
     // ability Field Functions 
     bool hasAbility() const { return this->ability_ != nullptr;};
     void deleteAbility() { this->ability_ = nullptr;};

@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandwidthType_ != nullptr; };
+    virtual bool empty() const override { return this->bandwidthType_ == nullptr; };
     // bandwidthType Field Functions 
     bool hasBandwidthType() const { return this->bandwidthType_ != nullptr;};
     void deleteBandwidthType() { this->bandwidthType_ = nullptr;};

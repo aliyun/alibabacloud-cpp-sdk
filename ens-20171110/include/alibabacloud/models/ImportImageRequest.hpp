@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->architecture_ != nullptr
-        && this->computeType_ != nullptr && this->diskDeviceMapping_ != nullptr && this->imageFormat_ != nullptr && this->imageName_ != nullptr && this->licenseType_ != nullptr
-        && this->OSSBucket_ != nullptr && this->OSSObject_ != nullptr && this->OSSRegion_ != nullptr && this->OSType_ != nullptr && this->OSVersion_ != nullptr
-        && this->platform_ != nullptr && this->targetOSSRegionId_ != nullptr; };
+    virtual bool empty() const override { return this->architecture_ == nullptr
+        && return this->computeType_ == nullptr && return this->diskDeviceMapping_ == nullptr && return this->imageFormat_ == nullptr && return this->imageName_ == nullptr && return this->licenseType_ == nullptr
+        && return this->OSSBucket_ == nullptr && return this->OSSObject_ == nullptr && return this->OSSRegion_ == nullptr && return this->OSType_ == nullptr && return this->OSVersion_ == nullptr
+        && return this->platform_ == nullptr && return this->targetOSSRegionId_ == nullptr; };
     // architecture Field Functions 
     bool hasArchitecture() const { return this->architecture_ != nullptr;};
     void deleteArchitecture() { this->architecture_ = nullptr;};

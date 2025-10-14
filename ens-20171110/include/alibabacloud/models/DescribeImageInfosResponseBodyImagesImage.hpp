@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->computeType_ != nullptr
-        && this->description_ != nullptr && this->diskDeviceMappings_ != nullptr && this->imageId_ != nullptr && this->imageSize_ != nullptr && this->imageVersion_ != nullptr
-        && this->OSName_ != nullptr && this->OSType_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->computeType_ == nullptr
+        && return this->description_ == nullptr && return this->diskDeviceMappings_ == nullptr && return this->imageId_ == nullptr && return this->imageSize_ == nullptr && return this->imageVersion_ == nullptr
+        && return this->OSName_ == nullptr && return this->OSType_ == nullptr && return this->regionId_ == nullptr; };
     // computeType Field Functions 
     bool hasComputeType() const { return this->computeType_ != nullptr;};
     void deleteComputeType() { this->computeType_ = nullptr;};

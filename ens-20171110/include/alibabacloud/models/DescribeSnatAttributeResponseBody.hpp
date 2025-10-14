@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creationTime_ != nullptr
-        && this->destCIDR_ != nullptr && this->eipAffinity_ != nullptr && this->idleTimeout_ != nullptr && this->ispAffinity_ != nullptr && this->natGatewayId_ != nullptr
-        && this->requestId_ != nullptr && this->snatEntryId_ != nullptr && this->snatEntryName_ != nullptr && this->snatIp_ != nullptr && this->snatIps_ != nullptr
-        && this->sourceCIDR_ != nullptr && this->standbySnatIp_ != nullptr && this->standbyStatus_ != nullptr && this->status_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->creationTime_ == nullptr
+        && return this->destCIDR_ == nullptr && return this->eipAffinity_ == nullptr && return this->idleTimeout_ == nullptr && return this->ispAffinity_ == nullptr && return this->natGatewayId_ == nullptr
+        && return this->requestId_ == nullptr && return this->snatEntryId_ == nullptr && return this->snatEntryName_ == nullptr && return this->snatIp_ == nullptr && return this->snatIps_ == nullptr
+        && return this->sourceCIDR_ == nullptr && return this->standbySnatIp_ == nullptr && return this->standbyStatus_ == nullptr && return this->status_ == nullptr && return this->type_ == nullptr; };
     // creationTime Field Functions 
     bool hasCreationTime() const { return this->creationTime_ != nullptr;};
     void deleteCreationTime() { this->creationTime_ = nullptr;};

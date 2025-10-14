@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->instanceActiveOpsTaskId_ != nullptr
-        && this->instanceActiveOpsTaskStatus_ != nullptr; };
+    virtual bool empty() const override { return this->instanceActiveOpsTaskId_ == nullptr
+        && return this->instanceActiveOpsTaskStatus_ == nullptr; };
     // instanceActiveOpsTaskId Field Functions 
     bool hasInstanceActiveOpsTaskId() const { return this->instanceActiveOpsTaskId_ != nullptr;};
     void deleteInstanceActiveOpsTaskId() { this->instanceActiveOpsTaskId_ = nullptr;};

@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->description_ != nullptr
-        && this->name_ != nullptr && this->securityGroupIds_ != nullptr && this->vSwitchId_ != nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && return this->name_ == nullptr && return this->securityGroupIds_ == nullptr && return this->vSwitchId_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -69,10 +69,15 @@ namespace Models
 
 
   protected:
+    // Description of the ENI.
     std::shared_ptr<string> description_ = nullptr;
+    // ENI name.
     std::shared_ptr<string> name_ = nullptr;
+    // Security group ID.
+    // 
     // This parameter is required.
     std::shared_ptr<vector<string>> securityGroupIds_ = nullptr;
+    // vSwitch ID.
     std::shared_ptr<string> vSwitchId_ = nullptr;
   };
 

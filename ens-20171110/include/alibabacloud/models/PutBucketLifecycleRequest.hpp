@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowSameActionOverlap_ != nullptr
-        && this->bucketName_ != nullptr && this->createdBeforeDate_ != nullptr && this->expirationDays_ != nullptr && this->prefix_ != nullptr && this->ruleId_ != nullptr
-        && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->allowSameActionOverlap_ == nullptr
+        && return this->bucketName_ == nullptr && return this->createdBeforeDate_ == nullptr && return this->expirationDays_ == nullptr && return this->prefix_ == nullptr && return this->ruleId_ == nullptr
+        && return this->status_ == nullptr; };
     // allowSameActionOverlap Field Functions 
     bool hasAllowSameActionOverlap() const { return this->allowSameActionOverlap_ != nullptr;};
     void deleteAllowSameActionOverlap() { this->allowSameActionOverlap_ = nullptr;};

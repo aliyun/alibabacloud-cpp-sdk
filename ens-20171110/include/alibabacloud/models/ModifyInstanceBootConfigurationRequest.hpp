@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bootSet_ != nullptr
-        && this->bootType_ != nullptr && this->diskSet_ != nullptr && this->instanceId_ != nullptr; };
+    virtual bool empty() const override { return this->bootSet_ == nullptr
+        && return this->bootType_ == nullptr && return this->diskSet_ == nullptr && return this->instanceId_ == nullptr; };
     // bootSet Field Functions 
     bool hasBootSet() const { return this->bootSet_ != nullptr;};
     void deleteBootSet() { this->bootSet_ = nullptr;};

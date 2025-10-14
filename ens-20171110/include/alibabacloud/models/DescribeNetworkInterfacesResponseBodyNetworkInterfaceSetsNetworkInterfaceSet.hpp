@@ -62,10 +62,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creationTime_ != nullptr
-        && this->description_ != nullptr && this->ensRegionId_ != nullptr && this->instanceId_ != nullptr && this->ipv6Sets_ != nullptr && this->macAddress_ != nullptr
-        && this->networkId_ != nullptr && this->networkInterfaceId_ != nullptr && this->networkInterfaceName_ != nullptr && this->primaryIp_ != nullptr && this->primaryIpType_ != nullptr
-        && this->privateIpSets_ != nullptr && this->securityGroupIds_ != nullptr && this->status_ != nullptr && this->type_ != nullptr && this->vSwitchId_ != nullptr; };
+    virtual bool empty() const override { return this->creationTime_ == nullptr
+        && return this->description_ == nullptr && return this->ensRegionId_ == nullptr && return this->instanceId_ == nullptr && return this->ipv6Sets_ == nullptr && return this->macAddress_ == nullptr
+        && return this->networkId_ == nullptr && return this->networkInterfaceId_ == nullptr && return this->networkInterfaceName_ == nullptr && return this->primaryIp_ == nullptr && return this->primaryIpType_ == nullptr
+        && return this->privateIpSets_ == nullptr && return this->securityGroupIds_ == nullptr && return this->status_ == nullptr && return this->type_ == nullptr && return this->vSwitchId_ == nullptr; };
     // creationTime Field Functions 
     bool hasCreationTime() const { return this->creationTime_ != nullptr;};
     void deleteCreationTime() { this->creationTime_ = nullptr;};

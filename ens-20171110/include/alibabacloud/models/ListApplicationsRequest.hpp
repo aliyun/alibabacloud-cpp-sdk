@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appVersions_ != nullptr
-        && this->clusterNames_ != nullptr && this->level_ != nullptr && this->maxDate_ != nullptr && this->minDate_ != nullptr && this->outAppInfoParams_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr; };
+    virtual bool empty() const override { return this->appVersions_ == nullptr
+        && return this->clusterNames_ == nullptr && return this->level_ == nullptr && return this->maxDate_ == nullptr && return this->minDate_ == nullptr && return this->outAppInfoParams_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr; };
     // appVersions Field Functions 
     bool hasAppVersions() const { return this->appVersions_ != nullptr;};
     void deleteAppVersions() { this->appVersions_ = nullptr;};

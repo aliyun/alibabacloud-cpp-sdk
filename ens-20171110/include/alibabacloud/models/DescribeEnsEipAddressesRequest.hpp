@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EipName, eipName_);
       DARABONBA_PTR_TO_JSON(EnsRegionId, ensRegionId_);
       DARABONBA_PTR_TO_JSON(EnsRegionIds, ensRegionIds_);
+      DARABONBA_PTR_TO_JSON(IcmpReplyEnabled, icmpReplyEnabled_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Standby, standby_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EipName, eipName_);
       DARABONBA_PTR_FROM_JSON(EnsRegionId, ensRegionId_);
       DARABONBA_PTR_FROM_JSON(EnsRegionIds, ensRegionIds_);
+      DARABONBA_PTR_FROM_JSON(IcmpReplyEnabled, icmpReplyEnabled_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Standby, standby_);
@@ -48,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allocationId_ != nullptr
-        && this->associatedInstanceId_ != nullptr && this->associatedInstanceType_ != nullptr && this->eipAddress_ != nullptr && this->eipName_ != nullptr && this->ensRegionId_ != nullptr
-        && this->ensRegionIds_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->standby_ != nullptr; };
+    virtual bool empty() const override { return this->allocationId_ == nullptr
+        && return this->associatedInstanceId_ == nullptr && return this->associatedInstanceType_ == nullptr && return this->eipAddress_ == nullptr && return this->eipName_ == nullptr && return this->ensRegionId_ == nullptr
+        && return this->ensRegionIds_ == nullptr && return this->icmpReplyEnabled_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->standby_ == nullptr; };
     // allocationId Field Functions 
     bool hasAllocationId() const { return this->allocationId_ != nullptr;};
     void deleteAllocationId() { this->allocationId_ = nullptr;};
@@ -102,6 +104,13 @@ namespace Models
     inline DescribeEnsEipAddressesRequest& setEnsRegionIds(vector<string> && ensRegionIds) { DARABONBA_PTR_SET_RVALUE(ensRegionIds_, ensRegionIds) };
 
 
+    // icmpReplyEnabled Field Functions 
+    bool hasIcmpReplyEnabled() const { return this->icmpReplyEnabled_ != nullptr;};
+    void deleteIcmpReplyEnabled() { this->icmpReplyEnabled_ = nullptr;};
+    inline bool icmpReplyEnabled() const { DARABONBA_PTR_GET_DEFAULT(icmpReplyEnabled_, false) };
+    inline DescribeEnsEipAddressesRequest& setIcmpReplyEnabled(bool icmpReplyEnabled) { DARABONBA_PTR_SET_VALUE(icmpReplyEnabled_, icmpReplyEnabled) };
+
+
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -141,6 +150,7 @@ namespace Models
     std::shared_ptr<string> ensRegionId_ = nullptr;
     // The IDs of edge nodes. You can specify 1 to 100 IDs.
     std::shared_ptr<vector<string>> ensRegionIds_ = nullptr;
+    std::shared_ptr<bool> icmpReplyEnabled_ = nullptr;
     // The page number. Default value: 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
     // The number of entries per page. Maximum value: 100. Default value: 10.

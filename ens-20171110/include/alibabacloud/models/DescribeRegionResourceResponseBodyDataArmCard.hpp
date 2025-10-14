@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->display_ != nullptr
-        && this->oversellRatio_ != nullptr && this->remain_ != nullptr && this->reserveDisable_ != nullptr && this->reserveDisableTotal_ != nullptr && this->reserved_ != nullptr
-        && this->statusDisable_ != nullptr && this->statusDisableTotal_ != nullptr && this->total_ != nullptr && this->type_ != nullptr && this->used_ != nullptr
-        && this->usedRatio_ != nullptr; };
+    virtual bool empty() const override { return this->display_ == nullptr
+        && return this->oversellRatio_ == nullptr && return this->remain_ == nullptr && return this->reserveDisable_ == nullptr && return this->reserveDisableTotal_ == nullptr && return this->reserved_ == nullptr
+        && return this->statusDisable_ == nullptr && return this->statusDisableTotal_ == nullptr && return this->total_ == nullptr && return this->type_ == nullptr && return this->used_ == nullptr
+        && return this->usedRatio_ == nullptr; };
     // display Field Functions 
     bool hasDisplay() const { return this->display_ != nullptr;};
     void deleteDisplay() { this->display_ = nullptr;};

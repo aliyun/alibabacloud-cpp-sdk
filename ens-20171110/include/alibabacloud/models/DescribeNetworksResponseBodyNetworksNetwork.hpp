@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cidrBlock_ != nullptr
-        && this->createdTime_ != nullptr && this->description_ != nullptr && this->ensRegionId_ != nullptr && this->gatewayRouteTableId_ != nullptr && this->networkAclId_ != nullptr
-        && this->networkId_ != nullptr && this->networkName_ != nullptr && this->routeTableId_ != nullptr && this->routeTableIds_ != nullptr && this->routerTableId_ != nullptr
-        && this->secondaryCidrBlocks_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr && this->vSwitchIds_ != nullptr; };
+    virtual bool empty() const override { return this->cidrBlock_ == nullptr
+        && return this->createdTime_ == nullptr && return this->description_ == nullptr && return this->ensRegionId_ == nullptr && return this->gatewayRouteTableId_ == nullptr && return this->networkAclId_ == nullptr
+        && return this->networkId_ == nullptr && return this->networkName_ == nullptr && return this->routeTableId_ == nullptr && return this->routeTableIds_ == nullptr && return this->routerTableId_ == nullptr
+        && return this->secondaryCidrBlocks_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr && return this->vSwitchIds_ == nullptr; };
     // cidrBlock Field Functions 
     bool hasCidrBlock() const { return this->cidrBlock_ != nullptr;};
     void deleteCidrBlock() { this->cidrBlock_ = nullptr;};

@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ensNetLevel_ != nullptr; };
+    virtual bool empty() const override { return this->ensNetLevel_ == nullptr; };
     // ensNetLevel Field Functions 
     bool hasEnsNetLevel() const { return this->ensNetLevel_ != nullptr;};
     void deleteEnsNetLevel() { this->ensNetLevel_ = nullptr;};

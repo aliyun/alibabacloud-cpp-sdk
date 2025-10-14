@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acc_ != nullptr
-        && this->bizTime_ != nullptr && this->ensRegionId_ != nullptr && this->loadBalancerId_ != nullptr && this->loadBalancerName_ != nullptr && this->loadBalancerSpec_ != nullptr
-        && this->proto_ != nullptr && this->reqs2xx_ != nullptr && this->reqs3xx_ != nullptr && this->reqs4xx_ != nullptr && this->reqs5xx_ != nullptr
-        && this->rtAvg_ != nullptr && this->vip_ != nullptr && this->vni_ != nullptr && this->vport_ != nullptr; };
+    virtual bool empty() const override { return this->acc_ == nullptr
+        && return this->bizTime_ == nullptr && return this->ensRegionId_ == nullptr && return this->loadBalancerId_ == nullptr && return this->loadBalancerName_ == nullptr && return this->loadBalancerSpec_ == nullptr
+        && return this->proto_ == nullptr && return this->reqs2xx_ == nullptr && return this->reqs3xx_ == nullptr && return this->reqs4xx_ == nullptr && return this->reqs5xx_ == nullptr
+        && return this->rtAvg_ == nullptr && return this->vip_ == nullptr && return this->vni_ == nullptr && return this->vport_ == nullptr; };
     // acc Field Functions 
     bool hasAcc() const { return this->acc_ != nullptr;};
     void deleteAcc() { this->acc_ = nullptr;};

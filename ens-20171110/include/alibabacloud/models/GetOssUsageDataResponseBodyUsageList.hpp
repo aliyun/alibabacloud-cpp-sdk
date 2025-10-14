@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->lanRxBw_ != nullptr
-        && this->lanTxBw_ != nullptr && this->point_ != nullptr && this->pointTs_ != nullptr && this->storageUsageByte_ != nullptr && this->wanRxBw_ != nullptr
-        && this->wanTxBw_ != nullptr; };
+    virtual bool empty() const override { return this->lanRxBw_ == nullptr
+        && return this->lanTxBw_ == nullptr && return this->point_ == nullptr && return this->pointTs_ == nullptr && return this->storageUsageByte_ == nullptr && return this->wanRxBw_ == nullptr
+        && return this->wanTxBw_ == nullptr; };
     // lanRxBw Field Functions 
     bool hasLanRxBw() const { return this->lanRxBw_ != nullptr;};
     void deleteLanRxBw() { this->lanRxBw_ = nullptr;};

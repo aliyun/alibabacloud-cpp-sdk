@@ -107,15 +107,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->amount_ != nullptr
-        && this->autoReleaseTime_ != nullptr && this->autoRenew_ != nullptr && this->autoUseCoupon_ != nullptr && this->billingCycle_ != nullptr && this->carrier_ != nullptr
-        && this->dataDiskShrink_ != nullptr && this->deletionProtection_ != nullptr && this->ensRegionId_ != nullptr && this->hostName_ != nullptr && this->imageId_ != nullptr
-        && this->instanceChargeStrategy_ != nullptr && this->instanceChargeType_ != nullptr && this->instanceName_ != nullptr && this->instanceType_ != nullptr && this->internetChargeType_ != nullptr
-        && this->internetMaxBandwidthOut_ != nullptr && this->ipType_ != nullptr && this->ipv6AddressCount_ != nullptr && this->keyPairName_ != nullptr && this->netDistrictCode_ != nullptr
-        && this->netWorkId_ != nullptr && this->password_ != nullptr && this->passwordInherit_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr
-        && this->privateIpAddress_ != nullptr && this->publicIpIdentification_ != nullptr && this->scheduleAreaLevel_ != nullptr && this->schedulingPriceStrategy_ != nullptr && this->schedulingStrategy_ != nullptr
-        && this->securityId_ != nullptr && this->spotDuration_ != nullptr && this->spotStrategy_ != nullptr && this->systemDiskShrink_ != nullptr && this->tag_ != nullptr
-        && this->uniqueSuffix_ != nullptr && this->userData_ != nullptr && this->vSwitchId_ != nullptr; };
+    virtual bool empty() const override { return this->amount_ == nullptr
+        && return this->autoReleaseTime_ == nullptr && return this->autoRenew_ == nullptr && return this->autoUseCoupon_ == nullptr && return this->billingCycle_ == nullptr && return this->carrier_ == nullptr
+        && return this->dataDiskShrink_ == nullptr && return this->deletionProtection_ == nullptr && return this->ensRegionId_ == nullptr && return this->hostName_ == nullptr && return this->imageId_ == nullptr
+        && return this->instanceChargeStrategy_ == nullptr && return this->instanceChargeType_ == nullptr && return this->instanceName_ == nullptr && return this->instanceType_ == nullptr && return this->internetChargeType_ == nullptr
+        && return this->internetMaxBandwidthOut_ == nullptr && return this->ipType_ == nullptr && return this->ipv6AddressCount_ == nullptr && return this->keyPairName_ == nullptr && return this->netDistrictCode_ == nullptr
+        && return this->netWorkId_ == nullptr && return this->password_ == nullptr && return this->passwordInherit_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr
+        && return this->privateIpAddress_ == nullptr && return this->publicIpIdentification_ == nullptr && return this->scheduleAreaLevel_ == nullptr && return this->schedulingPriceStrategy_ == nullptr && return this->schedulingStrategy_ == nullptr
+        && return this->securityId_ == nullptr && return this->spotDuration_ == nullptr && return this->spotStrategy_ == nullptr && return this->systemDiskShrink_ == nullptr && return this->tag_ == nullptr
+        && return this->uniqueSuffix_ == nullptr && return this->userData_ == nullptr && return this->vSwitchId_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};

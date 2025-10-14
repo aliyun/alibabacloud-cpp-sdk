@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandWidthMonitorData_ != nullptr
-        && this->maxDownBandWidth_ != nullptr && this->maxUpBandWidth_ != nullptr; };
+    virtual bool empty() const override { return this->bandWidthMonitorData_ == nullptr
+        && return this->maxDownBandWidth_ == nullptr && return this->maxUpBandWidth_ == nullptr; };
     // bandWidthMonitorData Field Functions 
     bool hasBandWidthMonitorData() const { return this->bandWidthMonitorData_ != nullptr;};
     void deleteBandWidthMonitorData() { this->bandWidthMonitorData_ = nullptr;};

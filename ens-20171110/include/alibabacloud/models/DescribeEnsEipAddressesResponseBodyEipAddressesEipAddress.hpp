@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(EnsRegionId, ensRegionId_);
+      DARABONBA_PTR_TO_JSON(IcmpReplyEnabled, icmpReplyEnabled_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(InternetChargeType, internetChargeType_);
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(EnsRegionId, ensRegionId_);
+      DARABONBA_PTR_FROM_JSON(IcmpReplyEnabled, icmpReplyEnabled_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(InternetChargeType, internetChargeType_);
@@ -60,10 +62,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allocationId_ != nullptr
-        && this->allocationTime_ != nullptr && this->bandwidth_ != nullptr && this->chargeType_ != nullptr && this->description_ != nullptr && this->ensRegionId_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceType_ != nullptr && this->internetChargeType_ != nullptr && this->ipAddress_ != nullptr && this->ipStatus_ != nullptr
-        && this->isp_ != nullptr && this->name_ != nullptr && this->standby_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->allocationId_ == nullptr
+        && return this->allocationTime_ == nullptr && return this->bandwidth_ == nullptr && return this->chargeType_ == nullptr && return this->description_ == nullptr && return this->ensRegionId_ == nullptr
+        && return this->icmpReplyEnabled_ == nullptr && return this->instanceId_ == nullptr && return this->instanceType_ == nullptr && return this->internetChargeType_ == nullptr && return this->ipAddress_ == nullptr
+        && return this->ipStatus_ == nullptr && return this->isp_ == nullptr && return this->name_ == nullptr && return this->standby_ == nullptr && return this->status_ == nullptr
+        && return this->tags_ == nullptr; };
     // allocationId Field Functions 
     bool hasAllocationId() const { return this->allocationId_ != nullptr;};
     void deleteAllocationId() { this->allocationId_ = nullptr;};
@@ -104,6 +107,13 @@ namespace Models
     void deleteEnsRegionId() { this->ensRegionId_ = nullptr;};
     inline string ensRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
     inline DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress& setEnsRegionId(string ensRegionId) { DARABONBA_PTR_SET_VALUE(ensRegionId_, ensRegionId) };
+
+
+    // icmpReplyEnabled Field Functions 
+    bool hasIcmpReplyEnabled() const { return this->icmpReplyEnabled_ != nullptr;};
+    void deleteIcmpReplyEnabled() { this->icmpReplyEnabled_ = nullptr;};
+    inline bool icmpReplyEnabled() const { DARABONBA_PTR_GET_DEFAULT(icmpReplyEnabled_, false) };
+    inline DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress& setIcmpReplyEnabled(bool icmpReplyEnabled) { DARABONBA_PTR_SET_VALUE(icmpReplyEnabled_, icmpReplyEnabled) };
 
 
     // instanceId Field Functions 
@@ -185,6 +195,7 @@ namespace Models
     std::shared_ptr<string> chargeType_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<string> ensRegionId_ = nullptr;
+    std::shared_ptr<bool> icmpReplyEnabled_ = nullptr;
     std::shared_ptr<string> instanceId_ = nullptr;
     std::shared_ptr<string> instanceType_ = nullptr;
     std::shared_ptr<string> internetChargeType_ = nullptr;

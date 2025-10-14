@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->capacity_ != nullptr
-        && this->creationTime_ != nullptr && this->description_ != nullptr && this->ensRegionId_ != nullptr && this->fileSystemId_ != nullptr && this->fileSystemName_ != nullptr
-        && this->meteredSize_ != nullptr && this->mountTargets_ != nullptr && this->payType_ != nullptr && this->protocolType_ != nullptr && this->status_ != nullptr
-        && this->storageType_ != nullptr; };
+    virtual bool empty() const override { return this->capacity_ == nullptr
+        && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->ensRegionId_ == nullptr && return this->fileSystemId_ == nullptr && return this->fileSystemName_ == nullptr
+        && return this->meteredSize_ == nullptr && return this->mountTargets_ == nullptr && return this->payType_ == nullptr && return this->protocolType_ == nullptr && return this->status_ == nullptr
+        && return this->storageType_ == nullptr; };
     // capacity Field Functions 
     bool hasCapacity() const { return this->capacity_ != nullptr;};
     void deleteCapacity() { this->capacity_ = nullptr;};

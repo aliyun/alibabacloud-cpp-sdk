@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ETag_ != nullptr
-        && this->key_ != nullptr && this->lastModified_ != nullptr && this->size_ != nullptr; };
+    virtual bool empty() const override { return this->ETag_ == nullptr
+        && return this->key_ == nullptr && return this->lastModified_ == nullptr && return this->size_ == nullptr; };
     // ETag Field Functions 
     bool hasETag() const { return this->ETag_ != nullptr;};
     void deleteETag() { this->ETag_ = nullptr;};

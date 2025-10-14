@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cidrMask_ != nullptr
-        && this->creationTime_ != nullptr && this->ensRegionId_ != nullptr && this->gateway_ != nullptr && this->ipVersion_ != nullptr && this->isp_ != nullptr
-        && this->secondaryPublicIpAddress_ != nullptr && this->secondaryPublicIpId_ != nullptr; };
+    virtual bool empty() const override { return this->cidrMask_ == nullptr
+        && return this->creationTime_ == nullptr && return this->ensRegionId_ == nullptr && return this->gateway_ == nullptr && return this->ipVersion_ == nullptr && return this->isp_ == nullptr
+        && return this->secondaryPublicIpAddress_ == nullptr && return this->secondaryPublicIpId_ == nullptr; };
     // cidrMask Field Functions 
     bool hasCidrMask() const { return this->cidrMask_ != nullptr;};
     void deleteCidrMask() { this->cidrMask_ = nullptr;};

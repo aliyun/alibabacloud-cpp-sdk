@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->architecture_ != nullptr
-        && this->creationTime_ != nullptr && this->diskDeviceMappings_ != nullptr && this->imageId_ != nullptr && this->imageName_ != nullptr && this->imageOwnerAlias_ != nullptr
-        && this->imageSize_ != nullptr && this->platform_ != nullptr && this->regionId_ != nullptr && this->snapshotId_ != nullptr; };
+    virtual bool empty() const override { return this->architecture_ == nullptr
+        && return this->creationTime_ == nullptr && return this->diskDeviceMappings_ == nullptr && return this->imageId_ == nullptr && return this->imageName_ == nullptr && return this->imageOwnerAlias_ == nullptr
+        && return this->imageSize_ == nullptr && return this->platform_ == nullptr && return this->regionId_ == nullptr && return this->snapshotId_ == nullptr; };
     // architecture Field Functions 
     bool hasArchitecture() const { return this->architecture_ != nullptr;};
     void deleteArchitecture() { this->architecture_ = nullptr;};

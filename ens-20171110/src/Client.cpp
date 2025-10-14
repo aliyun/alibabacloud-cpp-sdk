@@ -1160,7 +1160,7 @@ CreateARMServerInstancesResponse Client::createARMServerInstancesWithOptions(con
   }
 
   if (!!request.hasNameSpace()) {
-    query["NameSpace"] = request._nameSpace();
+    query["NameSpace"] = request.nameSpace();
   }
 
   if (!!request.hasPayType()) {
@@ -3096,7 +3096,7 @@ CreateNetworkAclEntryResponse Client::createNetworkAclEntry(const CreateNetworkA
 }
 
 /**
- * @summary 创建弹性网卡
+ * @summary Create an Elastic Network Interface (ENI).
  *
  * @param tmpReq CreateNetworkInterfaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3145,7 +3145,7 @@ CreateNetworkInterfaceResponse Client::createNetworkInterfaceWithOptions(const C
 }
 
 /**
- * @summary 创建弹性网卡
+ * @summary Create an Elastic Network Interface (ENI).
  *
  * @param request CreateNetworkInterfaceRequest
  * @return CreateNetworkInterfaceResponse
@@ -3772,7 +3772,7 @@ DeleteDiskResponse Client::deleteDisk(const DeleteDiskRequest &request) {
 }
 
 /**
- * @summary 调用DeleteEip删除后付费的弹性公网EIP实例。
+ * @summary Deletes a pay-as-you-go elastic IP address (EIP).
  *
  * @param request DeleteEipRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3803,7 +3803,7 @@ DeleteEipResponse Client::deleteEipWithOptions(const DeleteEipRequest &request, 
 }
 
 /**
- * @summary 调用DeleteEip删除后付费的弹性公网EIP实例。
+ * @summary Deletes a pay-as-you-go elastic IP address (EIP).
  *
  * @param request DeleteEipRequest
  * @return DeleteEipResponse
@@ -6166,6 +6166,10 @@ DescribeEnsEipAddressesResponse Client::describeEnsEipAddressesWithOptions(const
     query["EnsRegionIds"] = request.ensRegionIds();
   }
 
+  if (!!request.hasIcmpReplyEnabled()) {
+    query["IcmpReplyEnabled"] = request.icmpReplyEnabled();
+  }
+
   if (!!request.hasPageNumber()) {
     query["PageNumber"] = request.pageNumber();
   }
@@ -7362,7 +7366,7 @@ DescribeHaVipsResponse Client::describeHaVips(const DescribeHaVipsRequest &reque
 }
 
 /**
- * @summary 查询事件列表
+ * @summary Queries instance system events.
  *
  * @param tmpReq DescribeHistoryEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7431,7 +7435,7 @@ DescribeHistoryEventsResponse Client::describeHistoryEventsWithOptions(const Des
 }
 
 /**
- * @summary 查询事件列表
+ * @summary Queries instance system events.
  *
  * @param request DescribeHistoryEventsRequest
  * @return DescribeHistoryEventsResponse
@@ -8686,7 +8690,7 @@ DescribeMountTargetsResponse Client::describeMountTargets(const DescribeMountTar
 }
 
 /**
- * @summary 输出指定用户ID下可用资源对应的nas信息
+ * @summary Queries the specifications of resources that you can purchase when you create a NAS.
  *
  * @param request DescribeNASAvailableResourceInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8709,7 +8713,7 @@ DescribeNASAvailableResourceInfoResponse Client::describeNASAvailableResourceInf
 }
 
 /**
- * @summary 输出指定用户ID下可用资源对应的nas信息
+ * @summary Queries the specifications of resources that you can purchase when you create a NAS.
  *
  * @return DescribeNASAvailableResourceInfoResponse
  */
@@ -13995,7 +13999,7 @@ RemoveSDGResponse Client::removeSDG(const RemoveSDGRequest &request) {
 }
 
 /**
- * @summary 可移除所有版本的sdg，恢复为本地盘挂载
+ * @summary Removes all versions of SDG and restores the mount to the local disk.
  *
  * @param tmpReq RemoveSDGsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14040,7 +14044,7 @@ RemoveSDGsResponse Client::removeSDGsWithOptions(const RemoveSDGsRequest &tmpReq
 }
 
 /**
- * @summary 可移除所有版本的sdg，恢复为本地盘挂载
+ * @summary Removes all versions of SDG and restores the mount to the local disk.
  *
  * @param request RemoveSDGsRequest
  * @return RemoveSDGsResponse

@@ -66,11 +66,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->category_ != nullptr
-        && this->creationTime_ != nullptr && this->deleteWithInstance_ != nullptr && this->description_ != nullptr && this->diskChargeType_ != nullptr && this->diskId_ != nullptr
-        && this->diskName_ != nullptr && this->encrypted_ != nullptr && this->encryptedKeyId_ != nullptr && this->ensRegionId_ != nullptr && this->instanceId_ != nullptr
-        && this->instanceName_ != nullptr && this->portable_ != nullptr && this->serialId_ != nullptr && this->size_ != nullptr && this->snapshotId_ != nullptr
-        && this->status_ != nullptr && this->tags_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->category_ == nullptr
+        && return this->creationTime_ == nullptr && return this->deleteWithInstance_ == nullptr && return this->description_ == nullptr && return this->diskChargeType_ == nullptr && return this->diskId_ == nullptr
+        && return this->diskName_ == nullptr && return this->encrypted_ == nullptr && return this->encryptedKeyId_ == nullptr && return this->ensRegionId_ == nullptr && return this->instanceId_ == nullptr
+        && return this->instanceName_ == nullptr && return this->portable_ == nullptr && return this->serialId_ == nullptr && return this->size_ == nullptr && return this->snapshotId_ == nullptr
+        && return this->status_ == nullptr && return this->tags_ == nullptr && return this->type_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};

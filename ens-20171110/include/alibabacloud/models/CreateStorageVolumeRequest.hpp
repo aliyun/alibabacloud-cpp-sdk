@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authPassword_ != nullptr
-        && this->authProtocol_ != nullptr && this->authUser_ != nullptr && this->description_ != nullptr && this->ensRegionId_ != nullptr && this->gatewayId_ != nullptr
-        && this->isAuth_ != nullptr && this->isEnable_ != nullptr && this->storageId_ != nullptr && this->volumeName_ != nullptr; };
+    virtual bool empty() const override { return this->authPassword_ == nullptr
+        && return this->authProtocol_ == nullptr && return this->authUser_ == nullptr && return this->description_ == nullptr && return this->ensRegionId_ == nullptr && return this->gatewayId_ == nullptr
+        && return this->isAuth_ == nullptr && return this->isEnable_ == nullptr && return this->storageId_ == nullptr && return this->volumeName_ == nullptr; };
     // authPassword Field Functions 
     bool hasAuthPassword() const { return this->authPassword_ != nullptr;};
     void deleteAuthPassword() { this->authPassword_ = nullptr;};

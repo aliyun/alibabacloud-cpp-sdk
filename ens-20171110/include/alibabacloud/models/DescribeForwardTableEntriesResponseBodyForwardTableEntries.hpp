@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->externalIp_ != nullptr
-        && this->externalPort_ != nullptr && this->forwardEntryId_ != nullptr && this->forwardEntryName_ != nullptr && this->healthCheckPort_ != nullptr && this->internalIp_ != nullptr
-        && this->internalPort_ != nullptr && this->ipProtocol_ != nullptr && this->natGatewayId_ != nullptr && this->standbyExternalIp_ != nullptr && this->standbyStatus_ != nullptr
-        && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->externalIp_ == nullptr
+        && return this->externalPort_ == nullptr && return this->forwardEntryId_ == nullptr && return this->forwardEntryName_ == nullptr && return this->healthCheckPort_ == nullptr && return this->internalIp_ == nullptr
+        && return this->internalPort_ == nullptr && return this->ipProtocol_ == nullptr && return this->natGatewayId_ == nullptr && return this->standbyExternalIp_ == nullptr && return this->standbyStatus_ == nullptr
+        && return this->status_ == nullptr; };
     // externalIp Field Functions 
     bool hasExternalIp() const { return this->externalIp_ != nullptr;};
     void deleteExternalIp() { this->externalIp_ = nullptr;};

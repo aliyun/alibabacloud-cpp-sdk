@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->billingCycle_ != nullptr
-        && this->clientToken_ != nullptr && this->ensRegionId_ != nullptr && this->loadBalancerName_ != nullptr && this->loadBalancerSpec_ != nullptr && this->loadBalancerType_ != nullptr
-        && this->networkId_ != nullptr && this->payType_ != nullptr && this->vSwitchId_ != nullptr; };
+    virtual bool empty() const override { return this->billingCycle_ == nullptr
+        && return this->clientToken_ == nullptr && return this->ensRegionId_ == nullptr && return this->loadBalancerName_ == nullptr && return this->loadBalancerSpec_ == nullptr && return this->loadBalancerType_ == nullptr
+        && return this->networkId_ == nullptr && return this->payType_ == nullptr && return this->vSwitchId_ == nullptr; };
     // billingCycle Field Functions 
     bool hasBillingCycle() const { return this->billingCycle_ != nullptr;};
     void deleteBillingCycle() { this->billingCycle_ = nullptr;};

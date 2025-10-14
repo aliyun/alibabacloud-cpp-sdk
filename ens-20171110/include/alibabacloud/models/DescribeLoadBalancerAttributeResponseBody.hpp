@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->address_ != nullptr
-        && this->addressIPVersion_ != nullptr && this->addressType_ != nullptr && this->backendServers_ != nullptr && this->bandwidth_ != nullptr && this->createTime_ != nullptr
-        && this->endTime_ != nullptr && this->ensRegionId_ != nullptr && this->listenerPorts_ != nullptr && this->listenerPortsAndProtocols_ != nullptr && this->loadBalancerId_ != nullptr
-        && this->loadBalancerName_ != nullptr && this->loadBalancerSpec_ != nullptr && this->loadBalancerStatus_ != nullptr && this->loadBalancerType_ != nullptr && this->networkId_ != nullptr
-        && this->payType_ != nullptr && this->requestId_ != nullptr && this->vSwitchId_ != nullptr; };
+    virtual bool empty() const override { return this->address_ == nullptr
+        && return this->addressIPVersion_ == nullptr && return this->addressType_ == nullptr && return this->backendServers_ == nullptr && return this->bandwidth_ == nullptr && return this->createTime_ == nullptr
+        && return this->endTime_ == nullptr && return this->ensRegionId_ == nullptr && return this->listenerPorts_ == nullptr && return this->listenerPortsAndProtocols_ == nullptr && return this->loadBalancerId_ == nullptr
+        && return this->loadBalancerName_ == nullptr && return this->loadBalancerSpec_ == nullptr && return this->loadBalancerStatus_ == nullptr && return this->loadBalancerType_ == nullptr && return this->networkId_ == nullptr
+        && return this->payType_ == nullptr && return this->requestId_ == nullptr && return this->vSwitchId_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};

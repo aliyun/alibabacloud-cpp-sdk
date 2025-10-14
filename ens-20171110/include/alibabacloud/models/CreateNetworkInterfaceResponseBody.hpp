@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->networkInterfaceIds_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->networkInterfaceIds_ == nullptr
+        && return this->requestId_ == nullptr; };
     // networkInterfaceIds Field Functions 
     bool hasNetworkInterfaceIds() const { return this->networkInterfaceIds_ != nullptr;};
     void deleteNetworkInterfaceIds() { this->networkInterfaceIds_ = nullptr;};
@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // A list of ENI IDs.
     std::shared_ptr<vector<string>> networkInterfaceIds_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandWidthFeeDatas_ != nullptr
-        && this->chargeModel_ != nullptr && this->costCycle_ != nullptr && this->costEndTime_ != nullptr && this->costStartTime_ != nullptr; };
+    virtual bool empty() const override { return this->bandWidthFeeDatas_ == nullptr
+        && return this->chargeModel_ == nullptr && return this->costCycle_ == nullptr && return this->costEndTime_ == nullptr && return this->costStartTime_ == nullptr; };
     // bandWidthFeeDatas Field Functions 
     bool hasBandWidthFeeDatas() const { return this->bandWidthFeeDatas_ != nullptr;};
     void deleteBandWidthFeeDatas() { this->bandWidthFeeDatas_ = nullptr;};

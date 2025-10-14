@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->healthCheckConnectPort_ != nullptr
-        && this->healthCheckConnectTimeout_ != nullptr && this->healthCheckInterval_ != nullptr && this->healthyThreshold_ != nullptr && this->unhealthyThreshold_ != nullptr; };
+    virtual bool empty() const override { return this->healthCheckConnectPort_ == nullptr
+        && return this->healthCheckConnectTimeout_ == nullptr && return this->healthCheckInterval_ == nullptr && return this->healthyThreshold_ == nullptr && return this->unhealthyThreshold_ == nullptr; };
     // healthCheckConnectPort Field Functions 
     bool hasHealthCheckConnectPort() const { return this->healthCheckConnectPort_ != nullptr;};
     void deleteHealthCheckConnectPort() { this->healthCheckConnectPort_ = nullptr;};

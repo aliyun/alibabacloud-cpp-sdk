@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->eventLevelsShrink_ != nullptr
-        && this->eventStatusShrink_ != nullptr && this->eventTypesShrink_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->resourceIdsShrink_ != nullptr; };
+    virtual bool empty() const override { return this->eventLevelsShrink_ == nullptr
+        && return this->eventStatusShrink_ == nullptr && return this->eventTypesShrink_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->resourceIdsShrink_ == nullptr; };
     // eventLevelsShrink Field Functions 
     bool hasEventLevelsShrink() const { return this->eventLevelsShrink_ != nullptr;};
     void deleteEventLevelsShrink() { this->eventLevelsShrink_ = nullptr;};
@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The levels of the event-triggered alerts.
     std::shared_ptr<string> eventLevelsShrink_ = nullptr;
+    // Event status list.
     std::shared_ptr<string> eventStatusShrink_ = nullptr;
+    // The list of event types.
+    // 
     // This parameter is required.
     std::shared_ptr<string> eventTypesShrink_ = nullptr;
+    // The page number. Pages start from page 1. Default value: 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     std::shared_ptr<string> resourceIdsShrink_ = nullptr;
   };

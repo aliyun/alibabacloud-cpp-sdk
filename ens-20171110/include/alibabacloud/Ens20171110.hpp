@@ -947,7 +947,7 @@ namespace Ens20171110
       Models::CreateNetworkAclEntryResponse createNetworkAclEntry(const Models::CreateNetworkAclEntryRequest &request);
 
       /**
-       * @summary 创建弹性网卡
+       * @summary Create an Elastic Network Interface (ENI).
        *
        * @param tmpReq CreateNetworkInterfaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -956,7 +956,7 @@ namespace Ens20171110
       Models::CreateNetworkInterfaceResponse createNetworkInterfaceWithOptions(const Models::CreateNetworkInterfaceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建弹性网卡
+       * @summary Create an Elastic Network Interface (ENI).
        *
        * @param request CreateNetworkInterfaceRequest
        * @return CreateNetworkInterfaceResponse
@@ -1173,7 +1173,7 @@ namespace Ens20171110
       Models::DeleteDiskResponse deleteDisk(const Models::DeleteDiskRequest &request);
 
       /**
-       * @summary 调用DeleteEip删除后付费的弹性公网EIP实例。
+       * @summary Deletes a pay-as-you-go elastic IP address (EIP).
        *
        * @param request DeleteEipRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1182,7 +1182,7 @@ namespace Ens20171110
       Models::DeleteEipResponse deleteEipWithOptions(const Models::DeleteEipRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调用DeleteEip删除后付费的弹性公网EIP实例。
+       * @summary Deletes a pay-as-you-go elastic IP address (EIP).
        *
        * @param request DeleteEipRequest
        * @return DeleteEipResponse
@@ -2447,7 +2447,7 @@ namespace Ens20171110
       Models::DescribeHaVipsResponse describeHaVips(const Models::DescribeHaVipsRequest &request);
 
       /**
-       * @summary 查询事件列表
+       * @summary Queries instance system events.
        *
        * @param tmpReq DescribeHistoryEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2456,7 +2456,7 @@ namespace Ens20171110
       Models::DescribeHistoryEventsResponse describeHistoryEventsWithOptions(const Models::DescribeHistoryEventsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询事件列表
+       * @summary Queries instance system events.
        *
        * @param request DescribeHistoryEventsRequest
        * @return DescribeHistoryEventsResponse
@@ -2924,7 +2924,7 @@ namespace Ens20171110
       Models::DescribeMountTargetsResponse describeMountTargets(const Models::DescribeMountTargetsRequest &request);
 
       /**
-       * @summary 输出指定用户ID下可用资源对应的nas信息
+       * @summary Queries the specifications of resources that you can purchase when you create a NAS.
        *
        * @param request DescribeNASAvailableResourceInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2933,7 +2933,7 @@ namespace Ens20171110
       Models::DescribeNASAvailableResourceInfoResponse describeNASAvailableResourceInfoWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 输出指定用户ID下可用资源对应的nas信息
+       * @summary Queries the specifications of resources that you can purchase when you create a NAS.
        *
        * @return DescribeNASAvailableResourceInfoResponse
        */
@@ -4770,7 +4770,7 @@ namespace Ens20171110
       Models::RemoveSDGResponse removeSDG(const Models::RemoveSDGRequest &request);
 
       /**
-       * @summary 可移除所有版本的sdg，恢复为本地盘挂载
+       * @summary Removes all versions of SDG and restores the mount to the local disk.
        *
        * @param tmpReq RemoveSDGsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4779,7 +4779,7 @@ namespace Ens20171110
       Models::RemoveSDGsResponse removeSDGsWithOptions(const Models::RemoveSDGsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 可移除所有版本的sdg，恢复为本地盘挂载
+       * @summary Removes all versions of SDG and restores the mount to the local disk.
        *
        * @param request RemoveSDGsRequest
        * @return RemoveSDGsResponse

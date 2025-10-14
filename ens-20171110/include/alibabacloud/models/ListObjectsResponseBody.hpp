@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bucketName_ != nullptr
-        && this->commonPrefixes_ != nullptr && this->contents_ != nullptr && this->continuationToken_ != nullptr && this->delimiter_ != nullptr && this->encodingType_ != nullptr
-        && this->isTruncated_ != nullptr && this->keyCount_ != nullptr && this->marker_ != nullptr && this->maxKeys_ != nullptr && this->nextContinuationToken_ != nullptr
-        && this->nextMarker_ != nullptr && this->prefix_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->bucketName_ == nullptr
+        && return this->commonPrefixes_ == nullptr && return this->contents_ == nullptr && return this->continuationToken_ == nullptr && return this->delimiter_ == nullptr && return this->encodingType_ == nullptr
+        && return this->isTruncated_ == nullptr && return this->keyCount_ == nullptr && return this->marker_ == nullptr && return this->maxKeys_ == nullptr && return this->nextContinuationToken_ == nullptr
+        && return this->nextMarker_ == nullptr && return this->prefix_ == nullptr && return this->requestId_ == nullptr; };
     // bucketName Field Functions 
     bool hasBucketName() const { return this->bucketName_ != nullptr;};
     void deleteBucketName() { this->bucketName_ = nullptr;};

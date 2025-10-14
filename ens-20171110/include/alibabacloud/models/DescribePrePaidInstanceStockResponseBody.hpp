@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->avaliableCount_ != nullptr
-        && this->cores_ != nullptr && this->dataDiskSize_ != nullptr && this->ensRegionId_ != nullptr && this->instanceSpec_ != nullptr && this->memory_ != nullptr
-        && this->requestId_ != nullptr && this->resourceGap_ != nullptr && this->systemDiskSize_ != nullptr; };
+    virtual bool empty() const override { return this->avaliableCount_ == nullptr
+        && return this->cores_ == nullptr && return this->dataDiskSize_ == nullptr && return this->ensRegionId_ == nullptr && return this->instanceSpec_ == nullptr && return this->memory_ == nullptr
+        && return this->requestId_ == nullptr && return this->resourceGap_ == nullptr && return this->systemDiskSize_ == nullptr; };
     // avaliableCount Field Functions 
     bool hasAvaliableCount() const { return this->avaliableCount_ != nullptr;};
     void deleteAvaliableCount() { this->avaliableCount_ = nullptr;};

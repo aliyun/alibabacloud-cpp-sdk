@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->containerService_ != nullptr
-        && this->containerStatuses_ != nullptr && this->name_ != nullptr && this->namespace_ != nullptr && this->resourceScope_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->containerService_ == nullptr
+        && return this->containerStatuses_ == nullptr && return this->name_ == nullptr && return this->namespace_ == nullptr && return this->resourceScope_ == nullptr && return this->status_ == nullptr; };
     // containerService Field Functions 
     bool hasContainerService() const { return this->containerService_ != nullptr;};
     void deleteContainerService() { this->containerService_ = nullptr;};

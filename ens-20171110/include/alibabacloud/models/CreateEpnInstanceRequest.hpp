@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->EPNInstanceName_ != nullptr
-        && this->EPNInstanceType_ != nullptr && this->internetChargeType_ != nullptr && this->internetMaxBandwidthOut_ != nullptr && this->networkingModel_ != nullptr; };
+    virtual bool empty() const override { return this->EPNInstanceName_ == nullptr
+        && return this->EPNInstanceType_ == nullptr && return this->internetChargeType_ == nullptr && return this->internetMaxBandwidthOut_ == nullptr && return this->networkingModel_ == nullptr; };
     // EPNInstanceName Field Functions 
     bool hasEPNInstanceName() const { return this->EPNInstanceName_ != nullptr;};
     void deleteEPNInstanceName() { this->EPNInstanceName_ = nullptr;};

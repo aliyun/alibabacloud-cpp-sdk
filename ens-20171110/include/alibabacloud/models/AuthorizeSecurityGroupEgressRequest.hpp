@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->destCidrIp_ != nullptr
-        && this->ipProtocol_ != nullptr && this->policy_ != nullptr && this->portRange_ != nullptr && this->priority_ != nullptr && this->securityGroupId_ != nullptr
-        && this->sourcePortRange_ != nullptr; };
+    virtual bool empty() const override { return this->destCidrIp_ == nullptr
+        && return this->ipProtocol_ == nullptr && return this->policy_ == nullptr && return this->portRange_ == nullptr && return this->priority_ == nullptr && return this->securityGroupId_ == nullptr
+        && return this->sourcePortRange_ == nullptr; };
     // destCidrIp Field Functions 
     bool hasDestCidrIp() const { return this->destCidrIp_ != nullptr;};
     void deleteDestCidrIp() { this->destCidrIp_ = nullptr;};

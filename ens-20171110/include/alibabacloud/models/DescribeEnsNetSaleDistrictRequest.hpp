@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->netDistrictCode_ != nullptr
-        && this->netLevelCode_ != nullptr; };
+    virtual bool empty() const override { return this->netDistrictCode_ == nullptr
+        && return this->netLevelCode_ == nullptr; };
     // netDistrictCode Field Functions 
     bool hasNetDistrictCode() const { return this->netDistrictCode_ != nullptr;};
     void deleteNetDistrictCode() { this->netDistrictCode_ = nullptr;};

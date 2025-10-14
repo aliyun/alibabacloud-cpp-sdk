@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ability_ != nullptr
-        && this->canBuyCount_ != nullptr && this->category_ != nullptr && this->defaultDiskSize_ != nullptr && this->diskMaxSize_ != nullptr && this->diskMinSize_ != nullptr
-        && this->ensRegionId_ != nullptr && this->ensRegionName_ != nullptr; };
+    virtual bool empty() const override { return this->ability_ == nullptr
+        && return this->canBuyCount_ == nullptr && return this->category_ == nullptr && return this->defaultDiskSize_ == nullptr && return this->diskMaxSize_ == nullptr && return this->diskMinSize_ == nullptr
+        && return this->ensRegionId_ == nullptr && return this->ensRegionName_ == nullptr; };
     // ability Field Functions 
     bool hasAbility() const { return this->ability_ != nullptr;};
     void deleteAbility() { this->ability_ = nullptr;};

@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->eipAffinity_ != nullptr
-        && this->idleTimeout_ != nullptr && this->ispAffinity_ != nullptr && this->natGatewayId_ != nullptr && this->snatEntryName_ != nullptr && this->snatIp_ != nullptr
-        && this->sourceCIDR_ != nullptr && this->sourceNetworkId_ != nullptr && this->sourceVSwitchId_ != nullptr && this->standbySnatIp_ != nullptr; };
+    virtual bool empty() const override { return this->eipAffinity_ == nullptr
+        && return this->idleTimeout_ == nullptr && return this->ispAffinity_ == nullptr && return this->natGatewayId_ == nullptr && return this->snatEntryName_ == nullptr && return this->snatIp_ == nullptr
+        && return this->sourceCIDR_ == nullptr && return this->sourceNetworkId_ == nullptr && return this->sourceVSwitchId_ == nullptr && return this->standbySnatIp_ == nullptr; };
     // eipAffinity Field Functions 
     bool hasEipAffinity() const { return this->eipAffinity_ != nullptr;};
     void deleteEipAffinity() { this->eipAffinity_ = nullptr;};

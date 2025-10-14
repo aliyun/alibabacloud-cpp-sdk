@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRenew_ != nullptr
-        && this->duration_ != nullptr && this->instanceIds_ != nullptr && this->ownerId_ != nullptr && this->renewalStatus_ != nullptr; };
+    virtual bool empty() const override { return this->autoRenew_ == nullptr
+        && return this->duration_ == nullptr && return this->instanceIds_ == nullptr && return this->ownerId_ == nullptr && return this->renewalStatus_ == nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};

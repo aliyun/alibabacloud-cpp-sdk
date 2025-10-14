@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataDiskSizes_ != nullptr
-        && this->ensRegionId_ != nullptr && this->instanceSpec_ != nullptr && this->supportResourcesCount_ != nullptr && this->systemDiskSizes_ != nullptr; };
+    virtual bool empty() const override { return this->dataDiskSizes_ == nullptr
+        && return this->ensRegionId_ == nullptr && return this->instanceSpec_ == nullptr && return this->supportResourcesCount_ == nullptr && return this->systemDiskSizes_ == nullptr; };
     // dataDiskSizes Field Functions 
     bool hasDataDiskSizes() const { return this->dataDiskSizes_ != nullptr;};
     void deleteDataDiskSizes() { this->dataDiskSizes_ = nullptr;};

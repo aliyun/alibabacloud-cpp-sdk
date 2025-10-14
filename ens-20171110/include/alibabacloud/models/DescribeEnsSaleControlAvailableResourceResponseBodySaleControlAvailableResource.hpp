@@ -44,8 +44,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->availableDiskType_ != nullptr
-        && this->availableRegion_ != nullptr && this->availableSpec_ != nullptr && this->availableStorageType_ != nullptr && this->commodityCode_ != nullptr && this->orderType_ != nullptr; };
+    virtual bool empty() const override { return this->availableDiskType_ == nullptr
+        && return this->availableRegion_ == nullptr && return this->availableSpec_ == nullptr && return this->availableStorageType_ == nullptr && return this->commodityCode_ == nullptr && return this->orderType_ == nullptr; };
     // availableDiskType Field Functions 
     bool hasAvailableDiskType() const { return this->availableDiskType_ != nullptr;};
     void deleteAvailableDiskType() { this->availableDiskType_ = nullptr;};

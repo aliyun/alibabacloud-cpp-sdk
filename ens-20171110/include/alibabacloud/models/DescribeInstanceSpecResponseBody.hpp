@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandwidthLimit_ != nullptr
-        && this->code_ != nullptr && this->dataDiskMaxSize_ != nullptr && this->dataDiskMinSize_ != nullptr && this->instanceSpecs_ != nullptr && this->requestId_ != nullptr
-        && this->systemDiskMaxSize_ != nullptr; };
+    virtual bool empty() const override { return this->bandwidthLimit_ == nullptr
+        && return this->code_ == nullptr && return this->dataDiskMaxSize_ == nullptr && return this->dataDiskMinSize_ == nullptr && return this->instanceSpecs_ == nullptr && return this->requestId_ == nullptr
+        && return this->systemDiskMaxSize_ == nullptr; };
     // bandwidthLimit Field Functions 
     bool hasBandwidthLimit() const { return this->bandwidthLimit_ != nullptr;};
     void deleteBandwidthLimit() { this->bandwidthLimit_ = nullptr;};

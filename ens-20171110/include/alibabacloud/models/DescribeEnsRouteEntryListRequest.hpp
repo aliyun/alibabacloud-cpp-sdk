@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->destinationCidrBlock_ != nullptr
-        && this->nextHopId_ != nullptr && this->nextHopType_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->routeEntryId_ != nullptr
-        && this->routeEntryName_ != nullptr && this->routeEntryType_ != nullptr && this->routeTableId_ != nullptr; };
+    virtual bool empty() const override { return this->destinationCidrBlock_ == nullptr
+        && return this->nextHopId_ == nullptr && return this->nextHopType_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->routeEntryId_ == nullptr
+        && return this->routeEntryName_ == nullptr && return this->routeEntryType_ == nullptr && return this->routeTableId_ == nullptr; };
     // destinationCidrBlock Field Functions 
     bool hasDestinationCidrBlock() const { return this->destinationCidrBlock_ != nullptr;};
     void deleteDestinationCidrBlock() { this->destinationCidrBlock_ = nullptr;};

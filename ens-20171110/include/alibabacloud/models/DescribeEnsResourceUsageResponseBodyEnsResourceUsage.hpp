@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->computeResourceCount_ != nullptr
-        && this->cpuSum_ != nullptr && this->diskCount_ != nullptr && this->downCount_ != nullptr && this->expiredCount_ != nullptr && this->expiringCount_ != nullptr
-        && this->gpuSum_ != nullptr && this->instanceCount_ != nullptr && this->runningCount_ != nullptr && this->serviceType_ != nullptr && this->storageSum_ != nullptr; };
+    virtual bool empty() const override { return this->computeResourceCount_ == nullptr
+        && return this->cpuSum_ == nullptr && return this->diskCount_ == nullptr && return this->downCount_ == nullptr && return this->expiredCount_ == nullptr && return this->expiringCount_ == nullptr
+        && return this->gpuSum_ == nullptr && return this->instanceCount_ == nullptr && return this->runningCount_ == nullptr && return this->serviceType_ == nullptr && return this->storageSum_ == nullptr; };
     // computeResourceCount Field Functions 
     bool hasComputeResourceCount() const { return this->computeResourceCount_ != nullptr;};
     void deleteComputeResourceCount() { this->computeResourceCount_ = nullptr;};

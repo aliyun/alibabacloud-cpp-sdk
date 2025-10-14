@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authProtocol_ != nullptr
-        && this->creationTime_ != nullptr && this->description_ != nullptr && this->ensRegionId_ != nullptr && this->isAuth_ != nullptr && this->isEnable_ != nullptr
-        && this->status_ != nullptr && this->storageGatewayId_ != nullptr && this->storageId_ != nullptr && this->storageVolumeId_ != nullptr && this->storageVolumeName_ != nullptr
-        && this->targetName_ != nullptr; };
+    virtual bool empty() const override { return this->authProtocol_ == nullptr
+        && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->ensRegionId_ == nullptr && return this->isAuth_ == nullptr && return this->isEnable_ == nullptr
+        && return this->status_ == nullptr && return this->storageGatewayId_ == nullptr && return this->storageId_ == nullptr && return this->storageVolumeId_ == nullptr && return this->storageVolumeName_ == nullptr
+        && return this->targetName_ == nullptr; };
     // authProtocol Field Functions 
     bool hasAuthProtocol() const { return this->authProtocol_ != nullptr;};
     void deleteAuthProtocol() { this->authProtocol_ = nullptr;};

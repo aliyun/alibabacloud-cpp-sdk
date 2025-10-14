@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->confVersions_ != nullptr
-        && this->EPNInstanceId_ != nullptr && this->EPNInstanceName_ != nullptr && this->instances_ != nullptr && this->networkingModel_ != nullptr && this->requestId_ != nullptr
-        && this->vSwitches_ != nullptr; };
+    virtual bool empty() const override { return this->confVersions_ == nullptr
+        && return this->EPNInstanceId_ == nullptr && return this->EPNInstanceName_ == nullptr && return this->instances_ == nullptr && return this->networkingModel_ == nullptr && return this->requestId_ == nullptr
+        && return this->vSwitches_ == nullptr; };
     // confVersions Field Functions 
     bool hasConfVersions() const { return this->confVersions_ != nullptr;};
     void deleteConfVersions() { this->confVersions_ = nullptr;};

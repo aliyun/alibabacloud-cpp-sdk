@@ -101,14 +101,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoReleaseTime_ != nullptr
-        && this->cpu_ != nullptr && this->creationTime_ != nullptr && this->dataDisk_ != nullptr && this->deletionProtection_ != nullptr && this->disk_ != nullptr
-        && this->ensRegionId_ != nullptr && this->expiredTime_ != nullptr && this->hostName_ != nullptr && this->imageId_ != nullptr && this->innerIpAddress_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->instanceResourceType_ != nullptr && this->instanceTypeFamily_ != nullptr && this->internetMaxBandwidthIn_ != nullptr
-        && this->internetMaxBandwidthOut_ != nullptr && this->keyPairName_ != nullptr && this->memory_ != nullptr && this->networkAttributes_ != nullptr && this->networkInterfaces_ != nullptr
-        && this->OSName_ != nullptr && this->privateIpAddresses_ != nullptr && this->publicIpAddress_ != nullptr && this->publicIpAddresses_ != nullptr && this->securityGroupIds_ != nullptr
-        && this->serviceStatus_ != nullptr && this->specName_ != nullptr && this->spotStrategy_ != nullptr && this->status_ != nullptr && this->systemDisk_ != nullptr
-        && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->autoReleaseTime_ == nullptr
+        && return this->cpu_ == nullptr && return this->creationTime_ == nullptr && return this->dataDisk_ == nullptr && return this->deletionProtection_ == nullptr && return this->disk_ == nullptr
+        && return this->ensRegionId_ == nullptr && return this->expiredTime_ == nullptr && return this->hostName_ == nullptr && return this->imageId_ == nullptr && return this->innerIpAddress_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->instanceResourceType_ == nullptr && return this->instanceTypeFamily_ == nullptr && return this->internetMaxBandwidthIn_ == nullptr
+        && return this->internetMaxBandwidthOut_ == nullptr && return this->keyPairName_ == nullptr && return this->memory_ == nullptr && return this->networkAttributes_ == nullptr && return this->networkInterfaces_ == nullptr
+        && return this->OSName_ == nullptr && return this->privateIpAddresses_ == nullptr && return this->publicIpAddress_ == nullptr && return this->publicIpAddresses_ == nullptr && return this->securityGroupIds_ == nullptr
+        && return this->serviceStatus_ == nullptr && return this->specName_ == nullptr && return this->spotStrategy_ == nullptr && return this->status_ == nullptr && return this->systemDisk_ == nullptr
+        && return this->tags_ == nullptr; };
     // autoReleaseTime Field Functions 
     bool hasAutoReleaseTime() const { return this->autoReleaseTime_ != nullptr;};
     void deleteAutoReleaseTime() { this->autoReleaseTime_ = nullptr;};

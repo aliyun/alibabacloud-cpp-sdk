@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creationTime_ != nullptr
-        && this->description_ != nullptr && this->destCidrIp_ != nullptr && this->direction_ != nullptr && this->ipProtocol_ != nullptr && this->ipv6DestCidrIp_ != nullptr
-        && this->ipv6SourceCidrIp_ != nullptr && this->policy_ != nullptr && this->portRange_ != nullptr && this->priority_ != nullptr && this->sourceCidrIp_ != nullptr
-        && this->sourcePortRange_ != nullptr; };
+    virtual bool empty() const override { return this->creationTime_ == nullptr
+        && return this->description_ == nullptr && return this->destCidrIp_ == nullptr && return this->direction_ == nullptr && return this->ipProtocol_ == nullptr && return this->ipv6DestCidrIp_ == nullptr
+        && return this->ipv6SourceCidrIp_ == nullptr && return this->policy_ == nullptr && return this->portRange_ == nullptr && return this->priority_ == nullptr && return this->sourceCidrIp_ == nullptr
+        && return this->sourcePortRange_ == nullptr; };
     // creationTime Field Functions 
     bool hasCreationTime() const { return this->creationTime_ != nullptr;};
     void deleteCreationTime() { this->creationTime_ = nullptr;};

@@ -102,13 +102,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->areaCode_ != nullptr
-        && this->areaName_ != nullptr && this->armCard_ != nullptr && this->attributes_ != nullptr && this->bandwidth_ != nullptr && this->blockStorage_ != nullptr
-        && this->countryCode_ != nullptr && this->countryName_ != nullptr && this->cpu_ != nullptr && this->gpu_ != nullptr && this->hdd_ != nullptr
-        && this->houseId_ != nullptr && this->ipv4s_ != nullptr && this->ipv6s_ != nullptr && this->ispTypes_ != nullptr && this->memory_ != nullptr
-        && this->name_ != nullptr && this->nvme_ != nullptr && this->ossStorage_ != nullptr && this->pangu_ != nullptr && this->pcfarmNum_ != nullptr
-        && this->poc_ != nullptr && this->provinceCode_ != nullptr && this->provinceName_ != nullptr && this->reserveDisable_ != nullptr && this->ssd_ != nullptr
-        && this->statusDisable_ != nullptr && this->type_ != nullptr && this->uuid_ != nullptr && this->virtual_ != nullptr; };
+    virtual bool empty() const override { return this->areaCode_ == nullptr
+        && return this->areaName_ == nullptr && return this->armCard_ == nullptr && return this->attributes_ == nullptr && return this->bandwidth_ == nullptr && return this->blockStorage_ == nullptr
+        && return this->countryCode_ == nullptr && return this->countryName_ == nullptr && return this->cpu_ == nullptr && return this->gpu_ == nullptr && return this->hdd_ == nullptr
+        && return this->houseId_ == nullptr && return this->ipv4s_ == nullptr && return this->ipv6s_ == nullptr && return this->ispTypes_ == nullptr && return this->memory_ == nullptr
+        && return this->name_ == nullptr && return this->nvme_ == nullptr && return this->ossStorage_ == nullptr && return this->pangu_ == nullptr && return this->pcfarmNum_ == nullptr
+        && return this->poc_ == nullptr && return this->provinceCode_ == nullptr && return this->provinceName_ == nullptr && return this->reserveDisable_ == nullptr && return this->ssd_ == nullptr
+        && return this->statusDisable_ == nullptr && return this->type_ == nullptr && return this->uuid_ == nullptr && return this->virtual_ == nullptr; };
     // areaCode Field Functions 
     bool hasAreaCode() const { return this->areaCode_ != nullptr;};
     void deleteAreaCode() { this->areaCode_ = nullptr;};

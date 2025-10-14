@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->instances_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->requestId_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->instances_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -89,7 +89,7 @@ namespace Models
   protected:
     // The returned service code. 0 indicates that the request was successful.
     std::shared_ptr<int32_t> code_ = nullptr;
-    // The returned instance information. It is an array that consists of InstanceAttributesType data.
+    // The information about the instance is returned in an array of InstanceAttributesType.
     std::shared_ptr<DescribeInstancesResponseBodyInstances> instances_ = nullptr;
     // The page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;

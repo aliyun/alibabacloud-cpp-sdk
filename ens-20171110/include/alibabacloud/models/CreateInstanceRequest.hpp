@@ -76,12 +76,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataDisk_ != nullptr
-        && this->systemDisk_ != nullptr && this->autoRenew_ != nullptr && this->autoRenewPeriod_ != nullptr && this->ensRegionId_ != nullptr && this->hostName_ != nullptr
-        && this->imageId_ != nullptr && this->instanceName_ != nullptr && this->instanceType_ != nullptr && this->internetChargeType_ != nullptr && this->ipType_ != nullptr
-        && this->keyPairName_ != nullptr && this->ownerId_ != nullptr && this->password_ != nullptr && this->passwordInherit_ != nullptr && this->paymentType_ != nullptr
-        && this->period_ != nullptr && this->privateIpAddress_ != nullptr && this->publicIpIdentification_ != nullptr && this->quantity_ != nullptr && this->uniqueSuffix_ != nullptr
-        && this->userData_ != nullptr && this->vSwitchId_ != nullptr; };
+    virtual bool empty() const override { return this->dataDisk_ == nullptr
+        && return this->systemDisk_ == nullptr && return this->autoRenew_ == nullptr && return this->autoRenewPeriod_ == nullptr && return this->ensRegionId_ == nullptr && return this->hostName_ == nullptr
+        && return this->imageId_ == nullptr && return this->instanceName_ == nullptr && return this->instanceType_ == nullptr && return this->internetChargeType_ == nullptr && return this->ipType_ == nullptr
+        && return this->keyPairName_ == nullptr && return this->ownerId_ == nullptr && return this->password_ == nullptr && return this->passwordInherit_ == nullptr && return this->paymentType_ == nullptr
+        && return this->period_ == nullptr && return this->privateIpAddress_ == nullptr && return this->publicIpIdentification_ == nullptr && return this->quantity_ == nullptr && return this->uniqueSuffix_ == nullptr
+        && return this->userData_ == nullptr && return this->vSwitchId_ == nullptr; };
     // dataDisk Field Functions 
     bool hasDataDisk() const { return this->dataDisk_ != nullptr;};
     void deleteDataDisk() { this->dataDisk_ = nullptr;};

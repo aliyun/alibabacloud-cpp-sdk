@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createdBeforeDate_ != nullptr
-        && this->days_ != nullptr; };
+    virtual bool empty() const override { return this->createdBeforeDate_ == nullptr
+        && return this->days_ == nullptr; };
     // createdBeforeDate Field Functions 
     bool hasCreatedBeforeDate() const { return this->createdBeforeDate_ != nullptr;};
     void deleteCreatedBeforeDate() { this->createdBeforeDate_ = nullptr;};

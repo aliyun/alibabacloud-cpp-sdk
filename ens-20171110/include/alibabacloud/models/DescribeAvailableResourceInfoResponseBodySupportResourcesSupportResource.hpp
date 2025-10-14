@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandwidthTypes_ != nullptr
-        && this->dataDiskMaxSize_ != nullptr && this->dataDiskMinSize_ != nullptr && this->ensRegionIds_ != nullptr && this->ensRegionIdsExtends_ != nullptr && this->instanceSpeces_ != nullptr
-        && this->isp_ != nullptr && this->systemDiskMaxSize_ != nullptr && this->systemDiskMinSize_ != nullptr; };
+    virtual bool empty() const override { return this->bandwidthTypes_ == nullptr
+        && return this->dataDiskMaxSize_ == nullptr && return this->dataDiskMinSize_ == nullptr && return this->ensRegionIds_ == nullptr && return this->ensRegionIdsExtends_ == nullptr && return this->instanceSpeces_ == nullptr
+        && return this->isp_ == nullptr && return this->systemDiskMaxSize_ == nullptr && return this->systemDiskMinSize_ == nullptr; };
     // bandwidthTypes Field Functions 
     bool hasBandwidthTypes() const { return this->bandwidthTypes_ != nullptr;};
     void deleteBandwidthTypes() { this->bandwidthTypes_ = nullptr;};

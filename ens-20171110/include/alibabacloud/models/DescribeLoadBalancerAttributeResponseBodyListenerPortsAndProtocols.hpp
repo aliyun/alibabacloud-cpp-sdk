@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backendServerPort_ != nullptr
-        && this->description_ != nullptr && this->forwardPort_ != nullptr && this->listenerForward_ != nullptr && this->listenerPort_ != nullptr && this->listenerProtocol_ != nullptr; };
+    virtual bool empty() const override { return this->backendServerPort_ == nullptr
+        && return this->description_ == nullptr && return this->forwardPort_ == nullptr && return this->listenerForward_ == nullptr && return this->listenerPort_ == nullptr && return this->listenerProtocol_ == nullptr; };
     // backendServerPort Field Functions 
     bool hasBackendServerPort() const { return this->backendServerPort_ != nullptr;};
     void deleteBackendServerPort() { this->backendServerPort_ = nullptr;};
