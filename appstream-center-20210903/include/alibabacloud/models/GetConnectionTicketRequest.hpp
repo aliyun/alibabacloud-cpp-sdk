@@ -77,12 +77,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessType_ != nullptr
-        && this->appId_ != nullptr && this->appInstanceGroupId_ != nullptr && this->appInstanceId_ != nullptr && this->appPolicyId_ != nullptr && this->appVersion_ != nullptr
-        && this->autoConnectInQueue_ != nullptr && this->bizRegionId_ != nullptr && this->clientId_ != nullptr && this->clientIp_ != nullptr && this->clientOS_ != nullptr
-        && this->clientType_ != nullptr && this->clientVersion_ != nullptr && this->connectionProperties_ != nullptr && this->endUserId_ != nullptr && this->environmentConfig_ != nullptr
-        && this->loginRegionId_ != nullptr && this->loginToken_ != nullptr && this->param_ != nullptr && this->productType_ != nullptr && this->resourceId_ != nullptr
-        && this->sessionId_ != nullptr && this->taskId_ != nullptr && this->tenantId_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->accessType_ == nullptr
+        && return this->appId_ == nullptr && return this->appInstanceGroupId_ == nullptr && return this->appInstanceId_ == nullptr && return this->appPolicyId_ == nullptr && return this->appVersion_ == nullptr
+        && return this->autoConnectInQueue_ == nullptr && return this->bizRegionId_ == nullptr && return this->clientId_ == nullptr && return this->clientIp_ == nullptr && return this->clientOS_ == nullptr
+        && return this->clientType_ == nullptr && return this->clientVersion_ == nullptr && return this->connectionProperties_ == nullptr && return this->endUserId_ == nullptr && return this->environmentConfig_ == nullptr
+        && return this->loginRegionId_ == nullptr && return this->loginToken_ == nullptr && return this->param_ == nullptr && return this->productType_ == nullptr && return this->resourceId_ == nullptr
+        && return this->sessionId_ == nullptr && return this->taskId_ == nullptr && return this->tenantId_ == nullptr && return this->uuid_ == nullptr; };
     // accessType Field Functions 
     bool hasAccessType() const { return this->accessType_ != nullptr;};
     void deleteAccessType() { this->accessType_ = nullptr;};

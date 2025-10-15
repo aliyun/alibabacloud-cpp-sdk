@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->queueStatus_ != nullptr
-        && this->rank_ != nullptr && this->readyTimeout_ != nullptr && this->remainingTime_ != nullptr && this->requestKey_ != nullptr && this->targetId_ != nullptr
-        && this->waitTime_ != nullptr; };
+    virtual bool empty() const override { return this->queueStatus_ == nullptr
+        && return this->rank_ == nullptr && return this->readyTimeout_ == nullptr && return this->remainingTime_ == nullptr && return this->requestKey_ == nullptr && return this->targetId_ == nullptr
+        && return this->waitTime_ == nullptr; };
     // queueStatus Field Functions 
     bool hasQueueStatus() const { return this->queueStatus_ != nullptr;};
     void deleteQueueStatus() { this->queueStatus_ = nullptr;};

@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appName_ != nullptr
-        && this->bizRegionId_ != nullptr && this->categoryId_ != nullptr && this->categoryType_ != nullptr && this->clientId_ != nullptr && this->clientIp_ != nullptr
-        && this->clientOS_ != nullptr && this->clientVersion_ != nullptr && this->endUserId_ != nullptr && this->loginRegionId_ != nullptr && this->loginToken_ != nullptr
-        && this->orderParam_ != nullptr && this->productType_ != nullptr && this->sessionId_ != nullptr && this->sortType_ != nullptr; };
+    virtual bool empty() const override { return this->appName_ == nullptr
+        && return this->bizRegionId_ == nullptr && return this->categoryId_ == nullptr && return this->categoryType_ == nullptr && return this->clientId_ == nullptr && return this->clientIp_ == nullptr
+        && return this->clientOS_ == nullptr && return this->clientVersion_ == nullptr && return this->endUserId_ == nullptr && return this->loginRegionId_ == nullptr && return this->loginToken_ == nullptr
+        && return this->orderParam_ == nullptr && return this->productType_ == nullptr && return this->sessionId_ == nullptr && return this->sortType_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};

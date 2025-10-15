@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appCenterImageId_ != nullptr
-        && this->appId_ != nullptr && this->appName_ != nullptr && this->appThemeColor_ != nullptr && this->appVersion_ != nullptr && this->appVersionName_ != nullptr
-        && this->authTime_ != nullptr && this->categoryId_ != nullptr && this->categoryType_ != nullptr && this->iconUrl_ != nullptr && this->isAuth_ != nullptr
-        && this->usedInSession_ != nullptr; };
+    virtual bool empty() const override { return this->appCenterImageId_ == nullptr
+        && return this->appId_ == nullptr && return this->appName_ == nullptr && return this->appThemeColor_ == nullptr && return this->appVersion_ == nullptr && return this->appVersionName_ == nullptr
+        && return this->authTime_ == nullptr && return this->categoryId_ == nullptr && return this->categoryType_ == nullptr && return this->iconUrl_ == nullptr && return this->isAuth_ == nullptr
+        && return this->usedInSession_ == nullptr; };
     // appCenterImageId Field Functions 
     bool hasAppCenterImageId() const { return this->appCenterImageId_ != nullptr;};
     void deleteAppCenterImageId() { this->appCenterImageId_ = nullptr;};

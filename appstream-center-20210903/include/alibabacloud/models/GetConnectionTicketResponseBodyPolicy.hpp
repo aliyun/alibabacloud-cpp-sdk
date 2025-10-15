@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->resolutionAdaptive_ != nullptr
-        && this->resolutionHeight_ != nullptr && this->resolutionWidth_ != nullptr; };
+    virtual bool empty() const override { return this->resolutionAdaptive_ == nullptr
+        && return this->resolutionHeight_ == nullptr && return this->resolutionWidth_ == nullptr; };
     // resolutionAdaptive Field Functions 
     bool hasResolutionAdaptive() const { return this->resolutionAdaptive_ != nullptr;};
     void deleteResolutionAdaptive() { this->resolutionAdaptive_ = nullptr;};

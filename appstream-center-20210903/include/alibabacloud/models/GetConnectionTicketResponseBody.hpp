@@ -18,10 +18,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppInstanceGroupId, appInstanceGroupId_);
       DARABONBA_PTR_TO_JSON(AppInstanceId, appInstanceId_);
       DARABONBA_PTR_TO_JSON(AppInstancePersistentId, appInstancePersistentId_);
+      DARABONBA_PTR_TO_JSON(AvatarId, avatarId_);
       DARABONBA_PTR_TO_JSON(BindQueueInfo, bindQueueInfo_);
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(LoginToken, loginToken_);
       DARABONBA_PTR_TO_JSON(Message, message_);
+      DARABONBA_PTR_TO_JSON(NextPollIntervalMs, nextPollIntervalMs_);
       DARABONBA_PTR_TO_JSON(OsType, osType_);
       DARABONBA_PTR_TO_JSON(Policy, policy_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -36,10 +38,12 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AppInstanceGroupId, appInstanceGroupId_);
       DARABONBA_PTR_FROM_JSON(AppInstanceId, appInstanceId_);
       DARABONBA_PTR_FROM_JSON(AppInstancePersistentId, appInstancePersistentId_);
+      DARABONBA_PTR_FROM_JSON(AvatarId, avatarId_);
       DARABONBA_PTR_FROM_JSON(BindQueueInfo, bindQueueInfo_);
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(LoginToken, loginToken_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
+      DARABONBA_PTR_FROM_JSON(NextPollIntervalMs, nextPollIntervalMs_);
       DARABONBA_PTR_FROM_JSON(OsType, osType_);
       DARABONBA_PTR_FROM_JSON(Policy, policy_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -61,10 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appInstanceGroupId_ != nullptr
-        && this->appInstanceId_ != nullptr && this->appInstancePersistentId_ != nullptr && this->bindQueueInfo_ != nullptr && this->code_ != nullptr && this->loginToken_ != nullptr
-        && this->message_ != nullptr && this->osType_ != nullptr && this->policy_ != nullptr && this->regionId_ != nullptr && this->requestId_ != nullptr
-        && this->retryTimes_ != nullptr && this->taskId_ != nullptr && this->taskStatus_ != nullptr && this->tenantId_ != nullptr && this->ticket_ != nullptr; };
+    virtual bool empty() const override { return this->appInstanceGroupId_ == nullptr
+        && return this->appInstanceId_ == nullptr && return this->appInstancePersistentId_ == nullptr && return this->avatarId_ == nullptr && return this->bindQueueInfo_ == nullptr && return this->code_ == nullptr
+        && return this->loginToken_ == nullptr && return this->message_ == nullptr && return this->nextPollIntervalMs_ == nullptr && return this->osType_ == nullptr && return this->policy_ == nullptr
+        && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->retryTimes_ == nullptr && return this->taskId_ == nullptr && return this->taskStatus_ == nullptr
+        && return this->tenantId_ == nullptr && return this->ticket_ == nullptr; };
     // appInstanceGroupId Field Functions 
     bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
     void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};
@@ -84,6 +89,13 @@ namespace Models
     void deleteAppInstancePersistentId() { this->appInstancePersistentId_ = nullptr;};
     inline string appInstancePersistentId() const { DARABONBA_PTR_GET_DEFAULT(appInstancePersistentId_, "") };
     inline GetConnectionTicketResponseBody& setAppInstancePersistentId(string appInstancePersistentId) { DARABONBA_PTR_SET_VALUE(appInstancePersistentId_, appInstancePersistentId) };
+
+
+    // avatarId Field Functions 
+    bool hasAvatarId() const { return this->avatarId_ != nullptr;};
+    void deleteAvatarId() { this->avatarId_ = nullptr;};
+    inline string avatarId() const { DARABONBA_PTR_GET_DEFAULT(avatarId_, "") };
+    inline GetConnectionTicketResponseBody& setAvatarId(string avatarId) { DARABONBA_PTR_SET_VALUE(avatarId_, avatarId) };
 
 
     // bindQueueInfo Field Functions 
@@ -114,6 +126,13 @@ namespace Models
     void deleteMessage() { this->message_ = nullptr;};
     inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetConnectionTicketResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+    // nextPollIntervalMs Field Functions 
+    bool hasNextPollIntervalMs() const { return this->nextPollIntervalMs_ != nullptr;};
+    void deleteNextPollIntervalMs() { this->nextPollIntervalMs_ = nullptr;};
+    inline int32_t nextPollIntervalMs() const { DARABONBA_PTR_GET_DEFAULT(nextPollIntervalMs_, 0) };
+    inline GetConnectionTicketResponseBody& setNextPollIntervalMs(int32_t nextPollIntervalMs) { DARABONBA_PTR_SET_VALUE(nextPollIntervalMs_, nextPollIntervalMs) };
 
 
     // osType Field Functions 
@@ -185,10 +204,12 @@ namespace Models
     std::shared_ptr<string> appInstanceGroupId_ = nullptr;
     std::shared_ptr<string> appInstanceId_ = nullptr;
     std::shared_ptr<string> appInstancePersistentId_ = nullptr;
+    std::shared_ptr<string> avatarId_ = nullptr;
     std::shared_ptr<GetConnectionTicketResponseBodyBindQueueInfo> bindQueueInfo_ = nullptr;
     std::shared_ptr<string> code_ = nullptr;
     std::shared_ptr<string> loginToken_ = nullptr;
     std::shared_ptr<string> message_ = nullptr;
+    std::shared_ptr<int32_t> nextPollIntervalMs_ = nullptr;
     std::shared_ptr<string> osType_ = nullptr;
     std::shared_ptr<GetConnectionTicketResponseBodyPolicy> policy_ = nullptr;
     std::shared_ptr<string> regionId_ = nullptr;
