@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->documentRankType_ != nullptr
-        && this->limit_ != nullptr; };
+    virtual bool empty() const override { return this->documentRankType_ == nullptr
+        && return this->limit_ == nullptr; };
     // documentRankType Field Functions 
     bool hasDocumentRankType() const { return this->documentRankType_ != nullptr;};
     void deleteDocumentRankType() { this->documentRankType_ = nullptr;};

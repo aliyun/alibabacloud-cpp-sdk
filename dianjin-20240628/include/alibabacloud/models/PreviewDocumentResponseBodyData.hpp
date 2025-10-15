@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->previewType_ != nullptr
-        && this->title_ != nullptr && this->uploadTime_ != nullptr && this->url_ != nullptr; };
+    virtual bool empty() const override { return this->previewType_ == nullptr
+        && return this->title_ == nullptr && return this->uploadTime_ == nullptr && return this->url_ == nullptr; };
     // previewType Field Functions 
     bool hasPreviewType() const { return this->previewType_ != nullptr;};
     void deletePreviewType() { this->previewType_ = nullptr;};

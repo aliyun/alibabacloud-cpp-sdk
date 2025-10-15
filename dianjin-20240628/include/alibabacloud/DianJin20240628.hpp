@@ -770,6 +770,34 @@ namespace DianJin20240628
       Models::RunChatResultGenerationResponse runChatResultGeneration(const string &workspaceId, const Models::RunChatResultGenerationRequest &request);
 
       /**
+       * @summary 流式获取外呼会话分析结果
+       *
+       * @param request RunDialogAnalysisRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunDialogAnalysisResponse
+       */
+      FutrueGenerator<Models::RunDialogAnalysisResponse> runDialogAnalysisWithSSE(const string &workspaceId, const Models::RunDialogAnalysisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 流式获取外呼会话分析结果
+       *
+       * @param request RunDialogAnalysisRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunDialogAnalysisResponse
+       */
+      Models::RunDialogAnalysisResponse runDialogAnalysisWithOptions(const string &workspaceId, const Models::RunDialogAnalysisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 流式获取外呼会话分析结果
+       *
+       * @param request RunDialogAnalysisRequest
+       * @return RunDialogAnalysisResponse
+       */
+      Models::RunDialogAnalysisResponse runDialogAnalysis(const string &workspaceId, const Models::RunDialogAnalysisRequest &request);
+
+      /**
        * @summary 获取生成式对话结果
        *
        * @param request RunLibraryChatGenerationRequest

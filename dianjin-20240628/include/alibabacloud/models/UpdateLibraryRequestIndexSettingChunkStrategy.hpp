@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->docTreeSplit_ != nullptr
-        && this->docTreeSplitSize_ != nullptr && this->enhanceGraph_ != nullptr && this->enhanceTable_ != nullptr && this->overlap_ != nullptr && this->sentenceSplit_ != nullptr
-        && this->sentenceSplitSize_ != nullptr && this->size_ != nullptr && this->split_ != nullptr; };
+    virtual bool empty() const override { return this->docTreeSplit_ == nullptr
+        && return this->docTreeSplitSize_ == nullptr && return this->enhanceGraph_ == nullptr && return this->enhanceTable_ == nullptr && return this->overlap_ == nullptr && return this->sentenceSplit_ == nullptr
+        && return this->sentenceSplitSize_ == nullptr && return this->size_ == nullptr && return this->split_ == nullptr; };
     // docTreeSplit Field Functions 
     bool hasDocTreeSplit() const { return this->docTreeSplit_ != nullptr;};
     void deleteDocTreeSplit() { this->docTreeSplit_ = nullptr;};

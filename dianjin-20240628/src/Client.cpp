@@ -4,7 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <darabonba/http/URL.hpp>
+#include <darabonba/encode/Encoder.hpp>
 #include <alibabacloud/credential/Credential.hpp>
 #include <darabonba/http/FileField.hpp>
 #include <darabonba/Convert.hpp>
@@ -83,7 +83,7 @@ CreateAnnualDocSummaryTaskResponse Client::createAnnualDocSummaryTaskWithOptions
     {"action" , "CreateAnnualDocSummaryTask"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/task/summary/doc/annual")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/task/summary/doc/annual")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -152,7 +152,7 @@ CreateDialogResponse Client::createDialogWithOptions(const string &workspaceId, 
     {"action" , "CreateDialog"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/virtualHuman/dialog/create")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/virtualHuman/dialog/create")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -213,7 +213,7 @@ CreateDialogAnalysisTaskResponse Client::createDialogAnalysisTaskWithOptions(con
     {"action" , "CreateDialogAnalysisTask"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/virtualHuman/dialog/analysis/submit")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/virtualHuman/dialog/analysis/submit")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -270,7 +270,7 @@ CreateDocsSummaryTaskResponse Client::createDocsSummaryTaskWithOptions(const str
     {"action" , "CreateDocsSummaryTask"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/task/summary/docs")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/task/summary/docs")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -343,7 +343,7 @@ CreateFinReportSummaryTaskResponse Client::createFinReportSummaryTaskWithOptions
     {"action" , "CreateFinReportSummaryTask"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/task/summary")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/task/summary")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -396,7 +396,7 @@ CreateLibraryResponse Client::createLibraryWithOptions(const string &workspaceId
     {"action" , "CreateLibrary"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/library/create")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/library/create")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -457,7 +457,7 @@ CreatePdfTranslateTaskResponse Client::createPdfTranslateTaskWithOptions(const s
     {"action" , "CreatePdfTranslateTask"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/task/pdfTranslate")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/task/pdfTranslate")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -514,7 +514,7 @@ CreatePredefinedDocumentResponse Client::createPredefinedDocumentWithOptions(con
     {"action" , "CreatePredefinedDocument"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/library/document/createPredefinedDocument")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/library/document/createPredefinedDocument")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -579,7 +579,7 @@ CreateQualityCheckTaskResponse Client::createQualityCheckTaskWithOptions(const s
     {"action" , "CreateQualityCheckTask"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/qualitycheck/task/submit")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/qualitycheck/task/submit")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -628,7 +628,7 @@ DeleteDocumentResponse Client::deleteDocumentWithOptions(const string &workspace
     {"action" , "DeleteDocument"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/library/document/delete")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/library/document/delete")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -673,7 +673,7 @@ DeleteLibraryResponse Client::deleteLibraryWithOptions(const string &workspaceId
     {"action" , "DeleteLibrary"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/library/delete")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/library/delete")},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -718,7 +718,7 @@ EvictTaskResponse Client::evictTaskWithOptions(const string &workspaceId, const 
     {"action" , "EvictTask"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/task/evict")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/task/evict")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -771,7 +771,7 @@ GenDocQaResultResponse Client::genDocQaResultWithOptions(const string &workspace
     {"action" , "GenDocQaResult"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/virtualHuman/qa/parse")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/virtualHuman/qa/parse")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -808,7 +808,7 @@ GetAppConfigResponse Client::getAppConfigWithOptions(const string &workspaceId, 
     {"action" , "GetAppConfig"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/app/config")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/app/config")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -856,7 +856,7 @@ GetChatQuestionRespResponse Client::getChatQuestionRespWithOptions(const string 
     {"action" , "GetChatQuestionResp"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/virtualHuman/chat/query")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/virtualHuman/chat/query")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -917,7 +917,7 @@ GetDialogAnalysisResultResponse Client::getDialogAnalysisResultWithOptions(const
     {"action" , "GetDialogAnalysisResult"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/virtualHuman/dialog/analysis")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/virtualHuman/dialog/analysis")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -962,7 +962,7 @@ GetDialogDetailResponse Client::getDialogDetailWithOptions(const string &workspa
     {"action" , "GetDialogDetail"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/virtualHuman/dialog/detail")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/virtualHuman/dialog/detail")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1011,7 +1011,7 @@ GetDialogLogResponse Client::getDialogLogWithOptions(const string &workspaceId, 
     {"action" , "GetDialogLog"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/dialog/log")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/dialog/log")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1084,7 +1084,7 @@ GetDocumentChunkListResponse Client::getDocumentChunkListWithOptions(const strin
     {"action" , "GetDocumentChunkList"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/library/getDocumentChunk")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/library/getDocumentChunk")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1141,7 +1141,7 @@ GetDocumentListResponse Client::getDocumentListWithOptions(const string &workspa
     {"action" , "GetDocumentList"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/library/listDocument")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/library/listDocument")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1186,7 +1186,7 @@ GetDocumentUrlResponse Client::getDocumentUrlWithOptions(const string &workspace
     {"action" , "GetDocumentUrl"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/library/document/url")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/library/document/url")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1255,7 +1255,7 @@ GetFilterDocumentListResponse Client::getFilterDocumentListWithOptions(const str
     {"action" , "GetFilterDocumentList"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/library/filterDocument")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/library/filterDocument")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1312,7 +1312,7 @@ GetHistoryListByBizTypeResponse Client::getHistoryListByBizTypeWithOptions(const
     {"action" , "GetHistoryListByBizType"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/history/list")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/history/list")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1357,7 +1357,7 @@ GetLibraryResponse Client::getLibraryWithOptions(const string &workspaceId, cons
     {"action" , "GetLibrary"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/library/get")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/library/get")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1410,7 +1410,7 @@ GetLibraryListResponse Client::getLibraryListWithOptions(const string &workspace
     {"action" , "GetLibraryList"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/library/list")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/library/list")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1463,7 +1463,7 @@ GetParseResultResponse Client::getParseResultWithOptions(const string &workspace
     {"action" , "GetParseResult"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/library/document/getParseResult")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/library/document/getParseResult")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1508,7 +1508,7 @@ GetQualityCheckTaskResultResponse Client::getQualityCheckTaskResultWithOptions(c
     {"action" , "GetQualityCheckTaskResult"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/qualitycheck/task/query")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/qualitycheck/task/query")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1553,7 +1553,7 @@ GetSummaryTaskResultResponse Client::getSummaryTaskResultWithOptions(const strin
     {"action" , "GetSummaryTaskResult"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/task/summary/result")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/task/summary/result")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1598,7 +1598,7 @@ GetTaskResultResponse Client::getTaskResultWithOptions(const string &workspaceId
     {"action" , "GetTaskResult"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/task/result")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/task/result")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1643,7 +1643,7 @@ GetTaskStatusResponse Client::getTaskStatusWithOptions(const string &workspaceId
     {"action" , "GetTaskStatus"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/task/status")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/task/status")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1692,7 +1692,7 @@ InvokePluginResponse Client::invokePluginWithOptions(const string &workspaceId, 
     {"action" , "InvokePlugin"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/plugin/invoke")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/plugin/invoke")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1737,7 +1737,7 @@ PreviewDocumentResponse Client::previewDocumentWithOptions(const string &workspa
     {"action" , "PreviewDocument"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/library/document/preview")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/library/document/preview")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1782,7 +1782,7 @@ ReIndexResponse Client::reIndexWithOptions(const string &workspaceId, const ReIn
     {"action" , "ReIndex"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/library/document/reIndex")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/library/document/reIndex")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1867,7 +1867,7 @@ FutrueGenerator<RealTimeDialogResponse> Client::realTimeDialogWithSSE(const stri
     {"action" , "RealTimeDialog"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/realtime/dialog/chat")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/realtime/dialog/chat")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1952,7 +1952,7 @@ RealTimeDialogResponse Client::realTimeDialogWithOptions(const string &workspace
     {"action" , "RealTimeDialog"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/realtime/dialog/chat")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/realtime/dialog/chat")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2025,7 +2025,7 @@ RealtimeDialogAssistResponse Client::realtimeDialogAssistWithOptions(const strin
     {"action" , "RealtimeDialogAssist"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/realtime/dialog/assist")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/realtime/dialog/assist")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2070,7 +2070,7 @@ RebuildTaskResponse Client::rebuildTaskWithOptions(const string &workspaceId, co
     {"action" , "RebuildTask"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/task/rebuild")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/task/rebuild")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2127,7 +2127,7 @@ RecallDocumentResponse Client::recallDocumentWithOptions(const string &workspace
     {"action" , "RecallDocument"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/library/recallDocument")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/library/recallDocument")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2204,7 +2204,7 @@ RecognizeIntentionResponse Client::recognizeIntentionWithOptions(const string &w
     {"action" , "RecognizeIntention"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/recog/intent")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/recog/intent")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2277,7 +2277,7 @@ FutrueGenerator<RunAgentResponse> Client::runAgentWithSSE(const string &workspac
     {"action" , "RunAgent"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/bot/thread/run")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/bot/thread/run")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2350,7 +2350,7 @@ RunAgentResponse Client::runAgentWithOptions(const string &workspaceId, const Ru
     {"action" , "RunAgent"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/bot/thread/run")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/bot/thread/run")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2415,7 +2415,7 @@ FutrueGenerator<RunChatResultGenerationResponse> Client::runChatResultGeneration
     {"action" , "RunChatResultGeneration"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/run/chat/generation")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/run/chat/generation")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2480,7 +2480,7 @@ RunChatResultGenerationResponse Client::runChatResultGenerationWithOptions(const
     {"action" , "RunChatResultGeneration"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/run/chat/generation")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/run/chat/generation")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2500,6 +2500,96 @@ RunChatResultGenerationResponse Client::runChatResultGeneration(const string &wo
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return runChatResultGenerationWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary 流式获取外呼会话分析结果
+ *
+ * @param request RunDialogAnalysisRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunDialogAnalysisResponse
+ */
+FutrueGenerator<RunDialogAnalysisResponse> Client::runDialogAnalysisWithSSE(const string &workspaceId, const RunDialogAnalysisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasSessionId()) {
+    body["sessionId"] = request.sessionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RunDialogAnalysis"},
+    {"version" , "2024-06-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/virtualHuman/dialog/stream/analysis")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunDialogAnalysisResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
+}
+
+/**
+ * @summary 流式获取外呼会话分析结果
+ *
+ * @param request RunDialogAnalysisRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunDialogAnalysisResponse
+ */
+RunDialogAnalysisResponse Client::runDialogAnalysisWithOptions(const string &workspaceId, const RunDialogAnalysisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasSessionId()) {
+    body["sessionId"] = request.sessionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RunDialogAnalysis"},
+    {"version" , "2024-06-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/virtualHuman/dialog/stream/analysis")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RunDialogAnalysisResponse>();
+}
+
+/**
+ * @summary 流式获取外呼会话分析结果
+ *
+ * @param request RunDialogAnalysisRequest
+ * @return RunDialogAnalysisResponse
+ */
+RunDialogAnalysisResponse Client::runDialogAnalysis(const string &workspaceId, const RunDialogAnalysisRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return runDialogAnalysisWithOptions(workspaceId, request, headers, runtime);
 }
 
 /**
@@ -2593,7 +2683,7 @@ FutrueGenerator<RunLibraryChatGenerationResponse> Client::runLibraryChatGenerati
     {"action" , "RunLibraryChatGeneration"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/run/library/chat/generation")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/run/library/chat/generation")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2706,7 +2796,7 @@ RunLibraryChatGenerationResponse Client::runLibraryChatGenerationWithOptions(con
     {"action" , "RunLibraryChatGeneration"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/run/library/chat/generation")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/run/library/chat/generation")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2771,7 +2861,7 @@ SubmitChatQuestionResponse Client::submitChatQuestionWithOptions(const string &w
     {"action" , "SubmitChatQuestion"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/virtualHuman/chat/submit")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/virtualHuman/chat/submit")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2828,7 +2918,7 @@ UpdateDocumentResponse Client::updateDocumentWithOptions(const string &workspace
     {"action" , "UpdateDocument"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/library/document/updateDocument")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/library/document/updateDocument")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2877,7 +2967,7 @@ UpdateDocumentChunkResponse Client::updateDocumentChunkWithOptions(const string 
     {"action" , "UpdateDocumentChunk"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/library/updateDocumentChunk")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/library/updateDocumentChunk")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2934,7 +3024,7 @@ UpdateLibraryResponse Client::updateLibraryWithOptions(const string &workspaceId
     {"action" , "UpdateLibrary"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/library/update")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/library/update")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2987,7 +3077,7 @@ UpdateQaLibraryResponse Client::updateQaLibraryWithOptions(const string &workspa
     {"action" , "UpdateQaLibrary"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/virtualHuman/qa/upload")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/virtualHuman/qa/upload")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3044,7 +3134,7 @@ UploadDocumentResponse Client::uploadDocumentWithOptions(const string &workspace
     {"action" , "UploadDocument"},
     {"version" , "2024-06-28"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/api/library/document/upload")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/library/document/upload")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},

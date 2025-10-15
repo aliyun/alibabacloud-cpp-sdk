@@ -1,7 +1,7 @@
 
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
-project(alibabacloud_dian_jin_20240628 VERSION "1.0.0")
+project(alibabacloud_dian_jin20240628 VERSION "1.0.0")
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< General set up >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
 set(CMAKE_CXX_STANDARD 11)
@@ -72,7 +72,7 @@ if(CMAKE_HOST_WIN32)
             _CRT_SECURE_NO_WARNINGS)
 elseif(APPLE)
   find_library(CFLIB CoreFoundation)
-  find_library(UTIL_LIB alibabacloud_dian_jin_20240628 ${CMAKE_CURRENT_SOURCE_DIR}/deps/lib)
+  find_library(UTIL_LIB alibabacloud_dian_jin20240628 ${CMAKE_CURRENT_SOURCE_DIR}/deps/lib)
   target_link_libraries(${PROJECT_NAME} 
       OpenSSL::SSL OpenSSL::Crypto
       ${CFLIB}
@@ -139,7 +139,7 @@ install(
         TARGETS
         ${PROJECT_NAME}
         EXPORT
-        alibabacloud_dian_jin_20240628Targets
+        alibabacloud_dian_jin20240628Targets
         ARCHIVE
         DESTINATION ${INSTALL_LIBDIR}
         COMPONENT lib
@@ -157,9 +157,9 @@ install(
 # Install cmake config
 install(
         EXPORT
-        alibabacloud_dian_jin_20240628Targets
+        alibabacloud_dian_jin20240628Targets
         NAMESPACE
-        "alibabacloud_dian_jin_20240628::"
+        "alibabacloud_dian_jin20240628::"
         DESTINATION
         ${INSTALL_CMAKEDIR}
         COMPONENT

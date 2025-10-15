@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableFollowUp_ != nullptr
-        && this->enableMultiQuery_ != nullptr && this->enableOpenQa_ != nullptr && this->enableQueryRewrite_ != nullptr && this->enableSession_ != nullptr && this->localKnowledgeId_ != nullptr
-        && this->withDocumentReference_ != nullptr; };
+    virtual bool empty() const override { return this->enableFollowUp_ == nullptr
+        && return this->enableMultiQuery_ == nullptr && return this->enableOpenQa_ == nullptr && return this->enableQueryRewrite_ == nullptr && return this->enableSession_ == nullptr && return this->localKnowledgeId_ == nullptr
+        && return this->withDocumentReference_ == nullptr; };
     // enableFollowUp Field Functions 
     bool hasEnableFollowUp() const { return this->enableFollowUp_ != nullptr;};
     void deleteEnableFollowUp() { this->enableFollowUp_ = nullptr;};

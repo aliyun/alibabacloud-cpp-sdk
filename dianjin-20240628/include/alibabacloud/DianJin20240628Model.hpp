@@ -121,6 +121,9 @@
 #include <alibabacloud/models/RunChatResultGenerationRequest.hpp>
 #include <alibabacloud/models/RunChatResultGenerationResponseBody.hpp>
 #include <alibabacloud/models/RunChatResultGenerationResponse.hpp>
+#include <alibabacloud/models/RunDialogAnalysisRequest.hpp>
+#include <alibabacloud/models/RunDialogAnalysisResponseBody.hpp>
+#include <alibabacloud/models/RunDialogAnalysisResponse.hpp>
 #include <alibabacloud/models/RunLibraryChatGenerationRequest.hpp>
 #include <alibabacloud/models/RunLibraryChatGenerationResponseBody.hpp>
 #include <alibabacloud/models/RunLibraryChatGenerationResponse.hpp>
@@ -250,6 +253,10 @@
 #include <alibabacloud/models/RunChatResultGenerationResponseBodyChoicesMessage.hpp>
 #include <alibabacloud/models/RunChatResultGenerationResponseBodyChoices.hpp>
 #include <alibabacloud/models/RunChatResultGenerationResponseBodyUsage.hpp>
+#include <alibabacloud/models/RunDialogAnalysisResponseBodyDataDialogAnalysisRespListAnalysisRespDialogLabels.hpp>
+#include <alibabacloud/models/RunDialogAnalysisResponseBodyDataDialogAnalysisRespListAnalysisResp.hpp>
+#include <alibabacloud/models/RunDialogAnalysisResponseBodyDataDialogAnalysisRespList.hpp>
+#include <alibabacloud/models/RunDialogAnalysisResponseBodyData.hpp>
 #include <alibabacloud/models/RunLibraryChatGenerationRequestQueryCriteriaAnd.hpp>
 #include <alibabacloud/models/RunLibraryChatGenerationRequestQueryCriteriaOr.hpp>
 #include <alibabacloud/models/RunLibraryChatGenerationRequestQueryCriteria.hpp>

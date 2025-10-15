@@ -53,9 +53,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chunkList_ != nullptr
-        && this->chunkPartList_ != nullptr && this->chunkTextList_ != nullptr && this->documents_ != nullptr && this->embeddingElapsedMs_ != nullptr && this->textChunkList_ != nullptr
-        && this->textSearchElapsedMs_ != nullptr && this->totalElapsedMs_ != nullptr && this->vectorChunkList_ != nullptr && this->vectorSearchElapsedMs_ != nullptr; };
+    virtual bool empty() const override { return this->chunkList_ == nullptr
+        && return this->chunkPartList_ == nullptr && return this->chunkTextList_ == nullptr && return this->documents_ == nullptr && return this->embeddingElapsedMs_ == nullptr && return this->textChunkList_ == nullptr
+        && return this->textSearchElapsedMs_ == nullptr && return this->totalElapsedMs_ == nullptr && return this->vectorChunkList_ == nullptr && return this->vectorSearchElapsedMs_ == nullptr; };
     // chunkList Field Functions 
     bool hasChunkList() const { return this->chunkList_ != nullptr;};
     void deleteChunkList() { this->chunkList_ = nullptr;};

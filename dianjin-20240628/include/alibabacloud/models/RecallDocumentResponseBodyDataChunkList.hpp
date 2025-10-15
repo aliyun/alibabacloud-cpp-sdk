@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chunkId_ != nullptr
-        && this->chunkMeta_ != nullptr && this->chunkOssUrl_ != nullptr && this->chunkText_ != nullptr && this->chunkType_ != nullptr && this->docId_ != nullptr
-        && this->fileType_ != nullptr && this->libraryId_ != nullptr && this->libraryName_ != nullptr && this->nextChunkId_ != nullptr && this->pos_ != nullptr
-        && this->preChunkId_ != nullptr && this->score_ != nullptr && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->chunkId_ == nullptr
+        && return this->chunkMeta_ == nullptr && return this->chunkOssUrl_ == nullptr && return this->chunkText_ == nullptr && return this->chunkType_ == nullptr && return this->docId_ == nullptr
+        && return this->fileType_ == nullptr && return this->libraryId_ == nullptr && return this->libraryName_ == nullptr && return this->nextChunkId_ == nullptr && return this->pos_ == nullptr
+        && return this->preChunkId_ == nullptr && return this->score_ == nullptr && return this->title_ == nullptr; };
     // chunkId Field Functions 
     bool hasChunkId() const { return this->chunkId_ != nullptr;};
     void deleteChunkId() { this->chunkId_ = nullptr;};

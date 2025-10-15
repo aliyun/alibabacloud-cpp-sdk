@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->anaYears_ != nullptr
-        && this->docInfos_ != nullptr && this->enableTable_ != nullptr && this->instruction_ != nullptr && this->modelId_ != nullptr; };
+    virtual bool empty() const override { return this->anaYears_ == nullptr
+        && return this->docInfos_ == nullptr && return this->enableTable_ == nullptr && return this->instruction_ == nullptr && return this->modelId_ == nullptr; };
     // anaYears Field Functions 
     bool hasAnaYears() const { return this->anaYears_ != nullptr;};
     void deleteAnaYears() { this->anaYears_ = nullptr;};

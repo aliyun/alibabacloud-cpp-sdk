@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->embeddingTypeList_ != nullptr
-        && this->frontendConfig_ != nullptr && this->libraryDocumentStatusList_ != nullptr && this->llmHelperTypeList_ != nullptr && this->textIndexCategoryList_ != nullptr && this->vectorIndexCategoryList_ != nullptr; };
+    virtual bool empty() const override { return this->embeddingTypeList_ == nullptr
+        && return this->frontendConfig_ == nullptr && return this->libraryDocumentStatusList_ == nullptr && return this->llmHelperTypeList_ == nullptr && return this->textIndexCategoryList_ == nullptr && return this->vectorIndexCategoryList_ == nullptr; };
     // embeddingTypeList Field Functions 
     bool hasEmbeddingTypeList() const { return this->embeddingTypeList_ != nullptr;};
     void deleteEmbeddingTypeList() { this->embeddingTypeList_ = nullptr;};

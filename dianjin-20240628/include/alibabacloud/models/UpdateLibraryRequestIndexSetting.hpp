@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chunkStrategy_ != nullptr
-        && this->modelConfig_ != nullptr && this->promptRoleStyle_ != nullptr && this->queryEnhancer_ != nullptr && this->recallStrategy_ != nullptr && this->textIndexSetting_ != nullptr
-        && this->vectorIndexSetting_ != nullptr; };
+    virtual bool empty() const override { return this->chunkStrategy_ == nullptr
+        && return this->modelConfig_ == nullptr && return this->promptRoleStyle_ == nullptr && return this->queryEnhancer_ == nullptr && return this->recallStrategy_ == nullptr && return this->textIndexSetting_ == nullptr
+        && return this->vectorIndexSetting_ == nullptr; };
     // chunkStrategy Field Functions 
     bool hasChunkStrategy() const { return this->chunkStrategy_ != nullptr;};
     void deleteChunkStrategy() { this->chunkStrategy_ = nullptr;};

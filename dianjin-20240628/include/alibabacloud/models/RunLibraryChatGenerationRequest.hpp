@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->docIdList_ != nullptr
-        && this->enableFollowUp_ != nullptr && this->enableMultiQuery_ != nullptr && this->enableOpenQa_ != nullptr && this->followUpLlm_ != nullptr && this->libraryId_ != nullptr
-        && this->llmType_ != nullptr && this->multiQueryLlm_ != nullptr && this->query_ != nullptr && this->queryCriteria_ != nullptr && this->rerankType_ != nullptr
-        && this->sessionId_ != nullptr && this->stream_ != nullptr && this->subQueryList_ != nullptr && this->textSearchParameter_ != nullptr && this->topK_ != nullptr
-        && this->vectorSearchParameter_ != nullptr && this->withDocumentReference_ != nullptr; };
+    virtual bool empty() const override { return this->docIdList_ == nullptr
+        && return this->enableFollowUp_ == nullptr && return this->enableMultiQuery_ == nullptr && return this->enableOpenQa_ == nullptr && return this->followUpLlm_ == nullptr && return this->libraryId_ == nullptr
+        && return this->llmType_ == nullptr && return this->multiQueryLlm_ == nullptr && return this->query_ == nullptr && return this->queryCriteria_ == nullptr && return this->rerankType_ == nullptr
+        && return this->sessionId_ == nullptr && return this->stream_ == nullptr && return this->subQueryList_ == nullptr && return this->textSearchParameter_ == nullptr && return this->topK_ == nullptr
+        && return this->vectorSearchParameter_ == nullptr && return this->withDocumentReference_ == nullptr; };
     // docIdList Field Functions 
     bool hasDocIdList() const { return this->docIdList_ != nullptr;};
     void deleteDocIdList() { this->docIdList_ = nullptr;};

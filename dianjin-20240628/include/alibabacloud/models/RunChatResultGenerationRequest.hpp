@@ -42,8 +42,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->inferenceParameters_ != nullptr
-        && this->messages_ != nullptr && this->modelId_ != nullptr && this->sessionId_ != nullptr && this->stream_ != nullptr && this->tools_ != nullptr; };
+    virtual bool empty() const override { return this->inferenceParameters_ == nullptr
+        && return this->messages_ == nullptr && return this->modelId_ == nullptr && return this->sessionId_ == nullptr && return this->stream_ == nullptr && return this->tools_ == nullptr; };
     // inferenceParameters Field Functions 
     bool hasInferenceParameters() const { return this->inferenceParameters_ != nullptr;};
     void deleteInferenceParameters() { this->inferenceParameters_ = nullptr;};

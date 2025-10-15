@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->analysis_ != nullptr
-        && this->bizType_ != nullptr && this->conversationModel_ != nullptr && this->dialogMemoryTurns_ != nullptr && this->hangUpDialog_ != nullptr && this->metaData_ != nullptr
-        && this->requestId_ != nullptr && this->sessionId_ != nullptr; };
+    virtual bool empty() const override { return this->analysis_ == nullptr
+        && return this->bizType_ == nullptr && return this->conversationModel_ == nullptr && return this->dialogMemoryTurns_ == nullptr && return this->hangUpDialog_ == nullptr && return this->metaData_ == nullptr
+        && return this->requestId_ == nullptr && return this->sessionId_ == nullptr; };
     // analysis Field Functions 
     bool hasAnalysis() const { return this->analysis_ != nullptr;};
     void deleteAnalysis() { this->analysis_ = nullptr;};

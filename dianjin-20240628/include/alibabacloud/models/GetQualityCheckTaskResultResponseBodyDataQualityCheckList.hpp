@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizType_ != nullptr
-        && this->checkExplanation_ != nullptr && this->checkPassed_ != nullptr && this->checkProcess_ != nullptr && this->checked_ != nullptr && this->gmtEnd_ != nullptr
-        && this->gmtStart_ != nullptr && this->mode_ != nullptr && this->originDialogue_ != nullptr && this->qualityGroupId_ != nullptr && this->ruleDescription_ != nullptr
-        && this->ruleId_ != nullptr && this->ruleType_ != nullptr && this->subNodeCol_ != nullptr; };
+    virtual bool empty() const override { return this->bizType_ == nullptr
+        && return this->checkExplanation_ == nullptr && return this->checkPassed_ == nullptr && return this->checkProcess_ == nullptr && return this->checked_ == nullptr && return this->gmtEnd_ == nullptr
+        && return this->gmtStart_ == nullptr && return this->mode_ == nullptr && return this->originDialogue_ == nullptr && return this->qualityGroupId_ == nullptr && return this->ruleDescription_ == nullptr
+        && return this->ruleId_ == nullptr && return this->ruleType_ == nullptr && return this->subNodeCol_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};

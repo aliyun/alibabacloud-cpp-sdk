@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->gmtService_ != nullptr
-        && this->liveScriptContent_ != nullptr && this->openSmallTalk_ != nullptr && this->questionList_ != nullptr && this->requestId_ != nullptr && this->sessionId_ != nullptr; };
+    virtual bool empty() const override { return this->gmtService_ == nullptr
+        && return this->liveScriptContent_ == nullptr && return this->openSmallTalk_ == nullptr && return this->questionList_ == nullptr && return this->requestId_ == nullptr && return this->sessionId_ == nullptr; };
     // gmtService Field Functions 
     bool hasGmtService() const { return this->gmtService_ != nullptr;};
     void deleteGmtService() { this->gmtService_ = nullptr;};

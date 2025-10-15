@@ -1,4 +1,0 @@
-@PACKAGE_INIT@
-
-include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_dian_jin_20240628Targets.cmake")
-check_required_components("alibabacloud_dian_jin_20240628")
