@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->passwordCheckType_ != nullptr; };
+    virtual bool empty() const override { return this->passwordCheckType_ == nullptr; };
     // passwordCheckType Field Functions 
     bool hasPasswordCheckType() const { return this->passwordCheckType_ != nullptr;};
     void deletePasswordCheckType() { this->passwordCheckType_ = nullptr;};

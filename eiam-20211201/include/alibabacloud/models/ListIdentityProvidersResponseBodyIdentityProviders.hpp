@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->advancedStatus_ != nullptr
-        && this->authnSourceSupplier_ != nullptr && this->authnSourceType_ != nullptr && this->authnStatus_ != nullptr && this->createTime_ != nullptr && this->description_ != nullptr
-        && this->identityProviderExternalId_ != nullptr && this->identityProviderId_ != nullptr && this->identityProviderName_ != nullptr && this->identityProviderType_ != nullptr && this->incrementalCallbackStatus_ != nullptr
-        && this->instanceId_ != nullptr && this->lastStatusCheckJobResult_ != nullptr && this->lockReason_ != nullptr && this->logoUrl_ != nullptr && this->periodicSyncStatus_ != nullptr
-        && this->udPullStatus_ != nullptr && this->udPullTargetScope_ != nullptr && this->udPushStatus_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->advancedStatus_ == nullptr
+        && return this->authnSourceSupplier_ == nullptr && return this->authnSourceType_ == nullptr && return this->authnStatus_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr
+        && return this->identityProviderExternalId_ == nullptr && return this->identityProviderId_ == nullptr && return this->identityProviderName_ == nullptr && return this->identityProviderType_ == nullptr && return this->incrementalCallbackStatus_ == nullptr
+        && return this->instanceId_ == nullptr && return this->lastStatusCheckJobResult_ == nullptr && return this->lockReason_ == nullptr && return this->logoUrl_ == nullptr && return this->periodicSyncStatus_ == nullptr
+        && return this->udPullStatus_ == nullptr && return this->udPullTargetScope_ == nullptr && return this->udPushStatus_ == nullptr && return this->updateTime_ == nullptr; };
     // advancedStatus Field Functions 
     bool hasAdvancedStatus() const { return this->advancedStatus_ != nullptr;};
     void deleteAdvancedStatus() { this->advancedStatus_ = nullptr;};

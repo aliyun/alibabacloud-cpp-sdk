@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->periodicSyncCron_ != nullptr
-        && this->periodicSyncTimes_ != nullptr && this->periodicSyncType_ != nullptr; };
+    virtual bool empty() const override { return this->periodicSyncCron_ == nullptr
+        && return this->periodicSyncTimes_ == nullptr && return this->periodicSyncType_ == nullptr; };
     // periodicSyncCron Field Functions 
     bool hasPeriodicSyncCron() const { return this->periodicSyncCron_ != nullptr;};
     void deletePeriodicSyncCron() { this->periodicSyncCron_ = nullptr;};

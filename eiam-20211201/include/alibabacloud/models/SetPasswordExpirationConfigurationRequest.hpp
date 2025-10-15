@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->effectiveAuthenticationSourceIds_ != nullptr
-        && this->instanceId_ != nullptr && this->passwordExpirationAction_ != nullptr && this->passwordExpirationNotificationChannels_ != nullptr && this->passwordExpirationNotificationDuration_ != nullptr && this->passwordExpirationNotificationStatus_ != nullptr
-        && this->passwordExpirationStatus_ != nullptr && this->passwordForcedUpdateDuration_ != nullptr && this->passwordValidMaxDay_ != nullptr; };
+    virtual bool empty() const override { return this->effectiveAuthenticationSourceIds_ == nullptr
+        && return this->instanceId_ == nullptr && return this->passwordExpirationAction_ == nullptr && return this->passwordExpirationNotificationChannels_ == nullptr && return this->passwordExpirationNotificationDuration_ == nullptr && return this->passwordExpirationNotificationStatus_ == nullptr
+        && return this->passwordExpirationStatus_ == nullptr && return this->passwordForcedUpdateDuration_ == nullptr && return this->passwordValidMaxDay_ == nullptr; };
     // effectiveAuthenticationSourceIds Field Functions 
     bool hasEffectiveAuthenticationSourceIds() const { return this->effectiveAuthenticationSourceIds_ != nullptr;};
     void deleteEffectiveAuthenticationSourceIds() { this->effectiveAuthenticationSourceIds_ = nullptr;};

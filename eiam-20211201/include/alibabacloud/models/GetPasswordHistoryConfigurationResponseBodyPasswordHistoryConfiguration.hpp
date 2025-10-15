@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->passwordHistoryMaxRetention_ != nullptr
-        && this->passwordHistoryStatus_ != nullptr; };
+    virtual bool empty() const override { return this->passwordHistoryMaxRetention_ == nullptr
+        && return this->passwordHistoryStatus_ == nullptr; };
     // passwordHistoryMaxRetention Field Functions 
     bool hasPasswordHistoryMaxRetention() const { return this->passwordHistoryMaxRetention_ != nullptr;};
     void deletePasswordHistoryMaxRetention() { this->passwordHistoryMaxRetention_ = nullptr;};

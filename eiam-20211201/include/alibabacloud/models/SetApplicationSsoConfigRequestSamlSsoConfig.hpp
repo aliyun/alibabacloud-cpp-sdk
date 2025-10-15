@@ -52,9 +52,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assertionSigned_ != nullptr
-        && this->attributeStatements_ != nullptr && this->defaultRelayState_ != nullptr && this->idPEntityId_ != nullptr && this->nameIdFormat_ != nullptr && this->nameIdValueExpression_ != nullptr
-        && this->optionalRelayStates_ != nullptr && this->responseSigned_ != nullptr && this->signatureAlgorithm_ != nullptr && this->spEntityId_ != nullptr && this->spSsoAcsUrl_ != nullptr; };
+    virtual bool empty() const override { return this->assertionSigned_ == nullptr
+        && return this->attributeStatements_ == nullptr && return this->defaultRelayState_ == nullptr && return this->idPEntityId_ == nullptr && return this->nameIdFormat_ == nullptr && return this->nameIdValueExpression_ == nullptr
+        && return this->optionalRelayStates_ == nullptr && return this->responseSigned_ == nullptr && return this->signatureAlgorithm_ == nullptr && return this->spEntityId_ == nullptr && return this->spSsoAcsUrl_ == nullptr; };
     // assertionSigned Field Functions 
     bool hasAssertionSigned() const { return this->assertionSigned_ != nullptr;};
     void deleteAssertionSigned() { this->assertionSigned_ = nullptr;};

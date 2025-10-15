@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->oauth2AuthorizationEndpoint_ != nullptr
-        && this->oauth2DeviceAuthorizationEndpoint_ != nullptr && this->oauth2RevokeEndpoint_ != nullptr && this->oauth2TokenEndpoint_ != nullptr && this->oauth2UserinfoEndpoint_ != nullptr && this->oidcIssuer_ != nullptr
-        && this->oidcJwksEndpoint_ != nullptr && this->oidcLogoutEndpoint_ != nullptr && this->samlMetaEndpoint_ != nullptr && this->samlSsoEndpoint_ != nullptr; };
+    virtual bool empty() const override { return this->oauth2AuthorizationEndpoint_ == nullptr
+        && return this->oauth2DeviceAuthorizationEndpoint_ == nullptr && return this->oauth2RevokeEndpoint_ == nullptr && return this->oauth2TokenEndpoint_ == nullptr && return this->oauth2UserinfoEndpoint_ == nullptr && return this->oidcIssuer_ == nullptr
+        && return this->oidcJwksEndpoint_ == nullptr && return this->oidcLogoutEndpoint_ == nullptr && return this->samlMetaEndpoint_ == nullptr && return this->samlSsoEndpoint_ == nullptr; };
     // oauth2AuthorizationEndpoint Field Functions 
     bool hasOauth2AuthorizationEndpoint() const { return this->oauth2AuthorizationEndpoint_ != nullptr;};
     void deleteOauth2AuthorizationEndpoint() { this->oauth2AuthorizationEndpoint_ = nullptr;};

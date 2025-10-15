@@ -42,8 +42,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->initLoginType_ != nullptr
-        && this->initLoginUrl_ != nullptr && this->oidcSsoConfig_ != nullptr && this->protocolEndpointDomain_ != nullptr && this->samlSsoConfig_ != nullptr && this->ssoStatus_ != nullptr; };
+    virtual bool empty() const override { return this->initLoginType_ == nullptr
+        && return this->initLoginUrl_ == nullptr && return this->oidcSsoConfig_ == nullptr && return this->protocolEndpointDomain_ == nullptr && return this->samlSsoConfig_ == nullptr && return this->ssoStatus_ == nullptr; };
     // initLoginType Field Functions 
     bool hasInitLoginType() const { return this->initLoginType_ != nullptr;};
     void deleteInitLoginType() { this->initLoginType_ = nullptr;};

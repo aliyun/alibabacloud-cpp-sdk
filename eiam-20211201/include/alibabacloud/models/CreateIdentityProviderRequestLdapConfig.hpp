@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->administratorPassword_ != nullptr
-        && this->administratorUsername_ != nullptr && this->certificateFingerprintStatus_ != nullptr && this->certificateFingerprints_ != nullptr && this->groupMemberAttributeName_ != nullptr && this->groupObjectClass_ != nullptr
-        && this->groupObjectClassCustomFilter_ != nullptr && this->ldapProtocol_ != nullptr && this->ldapServerHost_ != nullptr && this->ldapServerPort_ != nullptr && this->organizationUnitObjectClass_ != nullptr
-        && this->startTlsStatus_ != nullptr && this->userLoginIdentifier_ != nullptr && this->userObjectClass_ != nullptr && this->userObjectClassCustomFilter_ != nullptr; };
+    virtual bool empty() const override { return this->administratorPassword_ == nullptr
+        && return this->administratorUsername_ == nullptr && return this->certificateFingerprintStatus_ == nullptr && return this->certificateFingerprints_ == nullptr && return this->groupMemberAttributeName_ == nullptr && return this->groupObjectClass_ == nullptr
+        && return this->groupObjectClassCustomFilter_ == nullptr && return this->ldapProtocol_ == nullptr && return this->ldapServerHost_ == nullptr && return this->ldapServerPort_ == nullptr && return this->organizationUnitObjectClass_ == nullptr
+        && return this->startTlsStatus_ == nullptr && return this->userLoginIdentifier_ == nullptr && return this->userObjectClass_ == nullptr && return this->userObjectClassCustomFilter_ == nullptr; };
     // administratorPassword Field Functions 
     bool hasAdministratorPassword() const { return this->administratorPassword_ != nullptr;};
     void deleteAdministratorPassword() { this->administratorPassword_ = nullptr;};

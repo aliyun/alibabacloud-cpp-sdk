@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->passwordForcedUpdateStatus_ != nullptr
-        && this->passwordInitializationNotificationChannels_ != nullptr && this->passwordInitializationStatus_ != nullptr && this->passwordInitializationType_ != nullptr; };
+    virtual bool empty() const override { return this->passwordForcedUpdateStatus_ == nullptr
+        && return this->passwordInitializationNotificationChannels_ == nullptr && return this->passwordInitializationStatus_ == nullptr && return this->passwordInitializationType_ == nullptr; };
     // passwordForcedUpdateStatus Field Functions 
     bool hasPasswordForcedUpdateStatus() const { return this->passwordForcedUpdateStatus_ != nullptr;};
     void deletePasswordForcedUpdateStatus() { this->passwordForcedUpdateStatus_ = nullptr;};

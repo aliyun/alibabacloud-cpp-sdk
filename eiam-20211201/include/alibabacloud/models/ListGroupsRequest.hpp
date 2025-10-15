@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->groupExternalId_ != nullptr
-        && this->groupIds_ != nullptr && this->groupName_ != nullptr && this->groupNameStartsWith_ != nullptr && this->instanceId_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr; };
+    virtual bool empty() const override { return this->groupExternalId_ == nullptr
+        && return this->groupIds_ == nullptr && return this->groupName_ == nullptr && return this->groupNameStartsWith_ == nullptr && return this->instanceId_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr; };
     // groupExternalId Field Functions 
     bool hasGroupExternalId() const { return this->groupExternalId_ != nullptr;};
     void deleteGroupExternalId() { this->groupExternalId_ = nullptr;};

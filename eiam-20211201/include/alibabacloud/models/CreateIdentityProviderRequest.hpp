@@ -72,11 +72,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authnConfig_ != nullptr
-        && this->autoCreateUserConfig_ != nullptr && this->autoUpdateUserConfig_ != nullptr && this->bindingConfig_ != nullptr && this->clientToken_ != nullptr && this->dingtalkAppConfig_ != nullptr
-        && this->identityProviderName_ != nullptr && this->identityProviderType_ != nullptr && this->instanceId_ != nullptr && this->larkConfig_ != nullptr && this->ldapConfig_ != nullptr
-        && this->logoUrl_ != nullptr && this->networkAccessEndpointId_ != nullptr && this->oidcConfig_ != nullptr && this->udPullConfig_ != nullptr && this->udPushConfig_ != nullptr
-        && this->weComConfig_ != nullptr; };
+    virtual bool empty() const override { return this->authnConfig_ == nullptr
+        && return this->autoCreateUserConfig_ == nullptr && return this->autoUpdateUserConfig_ == nullptr && return this->bindingConfig_ == nullptr && return this->clientToken_ == nullptr && return this->dingtalkAppConfig_ == nullptr
+        && return this->identityProviderName_ == nullptr && return this->identityProviderType_ == nullptr && return this->instanceId_ == nullptr && return this->larkConfig_ == nullptr && return this->ldapConfig_ == nullptr
+        && return this->logoUrl_ == nullptr && return this->networkAccessEndpointId_ == nullptr && return this->oidcConfig_ == nullptr && return this->udPullConfig_ == nullptr && return this->udPushConfig_ == nullptr
+        && return this->weComConfig_ == nullptr; };
     // authnConfig Field Functions 
     bool hasAuthnConfig() const { return this->authnConfig_ != nullptr;};
     void deleteAuthnConfig() { this->authnConfig_ = nullptr;};

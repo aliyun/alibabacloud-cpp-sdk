@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applicationId_ != nullptr
-        && this->applicationName_ != nullptr && this->applicationSourceType_ != nullptr && this->applicationTemplateId_ != nullptr && this->clientId_ != nullptr && this->createTime_ != nullptr
-        && this->description_ != nullptr && this->features_ != nullptr && this->instanceId_ != nullptr && this->logoUrl_ != nullptr && this->managedServiceCode_ != nullptr
-        && this->serviceManaged_ != nullptr && this->ssoType_ != nullptr && this->status_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->applicationId_ == nullptr
+        && return this->applicationName_ == nullptr && return this->applicationSourceType_ == nullptr && return this->applicationTemplateId_ == nullptr && return this->clientId_ == nullptr && return this->createTime_ == nullptr
+        && return this->description_ == nullptr && return this->features_ == nullptr && return this->instanceId_ == nullptr && return this->logoUrl_ == nullptr && return this->managedServiceCode_ == nullptr
+        && return this->serviceManaged_ == nullptr && return this->ssoType_ == nullptr && return this->status_ == nullptr && return this->updateTime_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};

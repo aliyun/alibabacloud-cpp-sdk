@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->passwordComplexityRules_ != nullptr
-        && this->passwordMinLength_ != nullptr; };
+    virtual bool empty() const override { return this->passwordComplexityRules_ == nullptr
+        && return this->passwordMinLength_ == nullptr; };
     // passwordComplexityRules Field Functions 
     bool hasPasswordComplexityRules() const { return this->passwordComplexityRules_ != nullptr;};
     void deletePasswordComplexityRules() { this->passwordComplexityRules_ = nullptr;};

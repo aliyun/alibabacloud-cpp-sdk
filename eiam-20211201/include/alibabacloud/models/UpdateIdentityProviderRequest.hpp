@@ -54,9 +54,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->dingtalkAppConfig_ != nullptr && this->identityProviderId_ != nullptr && this->identityProviderName_ != nullptr && this->instanceId_ != nullptr && this->larkConfig_ != nullptr
-        && this->ldapConfig_ != nullptr && this->logoUrl_ != nullptr && this->networkAccessEndpointId_ != nullptr && this->oidcConfig_ != nullptr && this->weComConfig_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->dingtalkAppConfig_ == nullptr && return this->identityProviderId_ == nullptr && return this->identityProviderName_ == nullptr && return this->instanceId_ == nullptr && return this->larkConfig_ == nullptr
+        && return this->ldapConfig_ == nullptr && return this->logoUrl_ == nullptr && return this->networkAccessEndpointId_ == nullptr && return this->oidcConfig_ == nullptr && return this->weComConfig_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};

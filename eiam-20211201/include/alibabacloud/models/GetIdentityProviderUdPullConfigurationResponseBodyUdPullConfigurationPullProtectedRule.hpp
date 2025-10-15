@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->groupDeletedThreshold_ != nullptr
-        && this->organizationalUnitDeletedThreshold_ != nullptr && this->userDeletedThreshold_ != nullptr; };
+    virtual bool empty() const override { return this->groupDeletedThreshold_ == nullptr
+        && return this->organizationalUnitDeletedThreshold_ == nullptr && return this->userDeletedThreshold_ == nullptr; };
     // groupDeletedThreshold Field Functions 
     bool hasGroupDeletedThreshold() const { return this->groupDeletedThreshold_ != nullptr;};
     void deleteGroupDeletedThreshold() { this->groupDeletedThreshold_ = nullptr;};

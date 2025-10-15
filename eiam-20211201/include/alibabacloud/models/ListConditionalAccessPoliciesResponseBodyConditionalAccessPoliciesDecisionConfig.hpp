@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activeSessionReuseStatus_ != nullptr
-        && this->effect_ != nullptr && this->mfaAuthenticationIntervalSeconds_ != nullptr && this->mfaAuthenticationMethods_ != nullptr && this->mfaType_ != nullptr; };
+    virtual bool empty() const override { return this->activeSessionReuseStatus_ == nullptr
+        && return this->effect_ == nullptr && return this->mfaAuthenticationIntervalSeconds_ == nullptr && return this->mfaAuthenticationMethods_ == nullptr && return this->mfaType_ == nullptr; };
     // activeSessionReuseStatus Field Functions 
     bool hasActiveSessionReuseStatus() const { return this->activeSessionReuseStatus_ != nullptr;};
     void deleteActiveSessionReuseStatus() { this->activeSessionReuseStatus_ = nullptr;};

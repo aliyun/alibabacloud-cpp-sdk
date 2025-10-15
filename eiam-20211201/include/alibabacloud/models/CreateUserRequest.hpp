@@ -62,10 +62,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->customFields_ != nullptr && this->description_ != nullptr && this->displayName_ != nullptr && this->email_ != nullptr && this->emailVerified_ != nullptr
-        && this->instanceId_ != nullptr && this->organizationalUnitIds_ != nullptr && this->password_ != nullptr && this->passwordInitializationConfig_ != nullptr && this->phoneNumber_ != nullptr
-        && this->phoneNumberVerified_ != nullptr && this->phoneRegion_ != nullptr && this->primaryOrganizationalUnitId_ != nullptr && this->userExternalId_ != nullptr && this->username_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->customFields_ == nullptr && return this->description_ == nullptr && return this->displayName_ == nullptr && return this->email_ == nullptr && return this->emailVerified_ == nullptr
+        && return this->instanceId_ == nullptr && return this->organizationalUnitIds_ == nullptr && return this->password_ == nullptr && return this->passwordInitializationConfig_ == nullptr && return this->phoneNumber_ == nullptr
+        && return this->phoneNumberVerified_ == nullptr && return this->phoneRegion_ == nullptr && return this->primaryOrganizationalUnitId_ == nullptr && return this->userExternalId_ == nullptr && return this->username_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};

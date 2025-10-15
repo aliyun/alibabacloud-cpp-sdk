@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoMatchUserProfileExpressions_ != nullptr
-        && this->autoMatchUserStatus_ != nullptr && this->mappingBindingStatus_ != nullptr; };
+    virtual bool empty() const override { return this->autoMatchUserProfileExpressions_ == nullptr
+        && return this->autoMatchUserStatus_ == nullptr && return this->mappingBindingStatus_ == nullptr; };
     // autoMatchUserProfileExpressions Field Functions 
     bool hasAutoMatchUserProfileExpressions() const { return this->autoMatchUserProfileExpressions_ != nullptr;};
     void deleteAutoMatchUserProfileExpressions() { this->autoMatchUserProfileExpressions_ = nullptr;};

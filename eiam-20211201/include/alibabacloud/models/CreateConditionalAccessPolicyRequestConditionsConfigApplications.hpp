@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->excludeApplications_ != nullptr
-        && this->includeApplications_ != nullptr; };
+    virtual bool empty() const override { return this->excludeApplications_ == nullptr
+        && return this->includeApplications_ == nullptr; };
     // excludeApplications Field Functions 
     bool hasExcludeApplications() const { return this->excludeApplications_ != nullptr;};
     void deleteExcludeApplications() { this->excludeApplications_ = nullptr;};

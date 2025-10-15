@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->description_ != nullptr
-        && this->direction_ != nullptr && this->endTime_ != nullptr && this->result_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr
-        && this->synchronizationJobId_ != nullptr && this->targetId_ != nullptr && this->targetType_ != nullptr && this->triggerType_ != nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && return this->direction_ == nullptr && return this->endTime_ == nullptr && return this->result_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr
+        && return this->synchronizationJobId_ == nullptr && return this->targetId_ == nullptr && return this->targetType_ == nullptr && return this->triggerType_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};

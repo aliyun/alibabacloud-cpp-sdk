@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->groupSyncStatus_ != nullptr
-        && this->incrementalCallbackStatus_ != nullptr && this->periodicSyncConfig_ != nullptr && this->periodicSyncStatus_ != nullptr && this->udSyncScopeConfig_ != nullptr; };
+    virtual bool empty() const override { return this->groupSyncStatus_ == nullptr
+        && return this->incrementalCallbackStatus_ == nullptr && return this->periodicSyncConfig_ == nullptr && return this->periodicSyncStatus_ == nullptr && return this->udSyncScopeConfig_ == nullptr; };
     // groupSyncStatus Field Functions 
     bool hasGroupSyncStatus() const { return this->groupSyncStatus_ != nullptr;};
     void deleteGroupSyncStatus() { this->groupSyncStatus_ = nullptr;};

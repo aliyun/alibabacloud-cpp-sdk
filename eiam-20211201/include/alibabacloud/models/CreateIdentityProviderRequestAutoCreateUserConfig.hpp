@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoCreateUserStatus_ != nullptr
-        && this->targetOrganizationalUnitIds_ != nullptr; };
+    virtual bool empty() const override { return this->autoCreateUserStatus_ == nullptr
+        && return this->targetOrganizationalUnitIds_ == nullptr; };
     // autoCreateUserStatus Field Functions 
     bool hasAutoCreateUserStatus() const { return this->autoCreateUserStatus_ != nullptr;};
     void deleteAutoCreateUserStatus() { this->autoCreateUserStatus_ = nullptr;};

@@ -87,12 +87,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->advancedStatus_ != nullptr
-        && this->authnSourceSupplier_ != nullptr && this->authnSourceType_ != nullptr && this->authnStatus_ != nullptr && this->createTime_ != nullptr && this->description_ != nullptr
-        && this->dingtalkAppConfig_ != nullptr && this->dingtalkProvisioningConfig_ != nullptr && this->identityProviderExternalId_ != nullptr && this->identityProviderId_ != nullptr && this->identityProviderName_ != nullptr
-        && this->identityProviderType_ != nullptr && this->instanceId_ != nullptr && this->larkConfig_ != nullptr && this->lastStatusCheckJobResult_ != nullptr && this->ldapConfig_ != nullptr
-        && this->lockReason_ != nullptr && this->logoUrl_ != nullptr && this->networkAccessEndpointId_ != nullptr && this->oidcConfig_ != nullptr && this->udPullConfig_ != nullptr
-        && this->udPullStatus_ != nullptr && this->udPushConfig_ != nullptr && this->udPushStatus_ != nullptr && this->updateTime_ != nullptr && this->weComConfig_ != nullptr; };
+    virtual bool empty() const override { return this->advancedStatus_ == nullptr
+        && return this->authnSourceSupplier_ == nullptr && return this->authnSourceType_ == nullptr && return this->authnStatus_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr
+        && return this->dingtalkAppConfig_ == nullptr && return this->dingtalkProvisioningConfig_ == nullptr && return this->identityProviderExternalId_ == nullptr && return this->identityProviderId_ == nullptr && return this->identityProviderName_ == nullptr
+        && return this->identityProviderType_ == nullptr && return this->instanceId_ == nullptr && return this->larkConfig_ == nullptr && return this->lastStatusCheckJobResult_ == nullptr && return this->ldapConfig_ == nullptr
+        && return this->lockReason_ == nullptr && return this->logoUrl_ == nullptr && return this->networkAccessEndpointId_ == nullptr && return this->oidcConfig_ == nullptr && return this->udPullConfig_ == nullptr
+        && return this->udPullStatus_ == nullptr && return this->udPushConfig_ == nullptr && return this->udPushStatus_ == nullptr && return this->updateTime_ == nullptr && return this->weComConfig_ == nullptr; };
     // advancedStatus Field Functions 
     bool hasAdvancedStatus() const { return this->advancedStatus_ != nullptr;};
     void deleteAdvancedStatus() { this->advancedStatus_ = nullptr;};

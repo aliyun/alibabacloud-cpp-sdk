@@ -83,12 +83,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountExpireTime_ != nullptr
-        && this->createTime_ != nullptr && this->customFields_ != nullptr && this->description_ != nullptr && this->displayName_ != nullptr && this->email_ != nullptr
-        && this->emailVerified_ != nullptr && this->groups_ != nullptr && this->instanceId_ != nullptr && this->lockExpireTime_ != nullptr && this->organizationalUnits_ != nullptr
-        && this->passwordExpireTime_ != nullptr && this->passwordSet_ != nullptr && this->phoneNumber_ != nullptr && this->phoneNumberVerified_ != nullptr && this->phoneRegion_ != nullptr
-        && this->preferredLanguage_ != nullptr && this->primaryOrganizationalUnitId_ != nullptr && this->registerTime_ != nullptr && this->status_ != nullptr && this->updateTime_ != nullptr
-        && this->userExternalId_ != nullptr && this->userId_ != nullptr && this->userSourceId_ != nullptr && this->userSourceType_ != nullptr && this->username_ != nullptr; };
+    virtual bool empty() const override { return this->accountExpireTime_ == nullptr
+        && return this->createTime_ == nullptr && return this->customFields_ == nullptr && return this->description_ == nullptr && return this->displayName_ == nullptr && return this->email_ == nullptr
+        && return this->emailVerified_ == nullptr && return this->groups_ == nullptr && return this->instanceId_ == nullptr && return this->lockExpireTime_ == nullptr && return this->organizationalUnits_ == nullptr
+        && return this->passwordExpireTime_ == nullptr && return this->passwordSet_ == nullptr && return this->phoneNumber_ == nullptr && return this->phoneNumberVerified_ == nullptr && return this->phoneRegion_ == nullptr
+        && return this->preferredLanguage_ == nullptr && return this->primaryOrganizationalUnitId_ == nullptr && return this->registerTime_ == nullptr && return this->status_ == nullptr && return this->updateTime_ == nullptr
+        && return this->userExternalId_ == nullptr && return this->userId_ == nullptr && return this->userSourceId_ == nullptr && return this->userSourceType_ == nullptr && return this->username_ == nullptr; };
     // accountExpireTime Field Functions 
     bool hasAccountExpireTime() const { return this->accountExpireTime_ != nullptr;};
     void deleteAccountExpireTime() { this->accountExpireTime_ = nullptr;};

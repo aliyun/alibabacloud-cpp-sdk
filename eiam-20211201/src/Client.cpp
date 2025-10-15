@@ -36,6 +36,60 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 在当前应用下给指定员工添加一个应用账号
+ *
+ * @param request AddApplicationAccountToUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddApplicationAccountToUserResponse
+ */
+AddApplicationAccountToUserResponse Client::addApplicationAccountToUserWithOptions(const AddApplicationAccountToUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasApplicationUsername()) {
+    query["ApplicationUsername"] = request.applicationUsername();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.userId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddApplicationAccountToUser"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddApplicationAccountToUserResponse>();
+}
+
+/**
+ * @summary 在当前应用下给指定员工添加一个应用账号
+ *
+ * @param request AddApplicationAccountToUserRequest
+ * @return AddApplicationAccountToUserResponse
+ */
+AddApplicationAccountToUserResponse Client::addApplicationAccountToUser(const AddApplicationAccountToUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addApplicationAccountToUserWithOptions(request, runtime);
+}
+
+/**
  * @summary Adds an Employee Identity and Access Management (EIAM) account to multiple EIAM organizations of Identity as a Service (IDaaS). If the account already exists in the organizational unit, the system directly returns a success response.
  *
  * @param request AddUserToOrganizationalUnitsRequest
@@ -406,6 +460,130 @@ CreateApplicationClientSecretResponse Client::createApplicationClientSecret(cons
 }
 
 /**
+ * @summary 创建应用联邦凭证
+ *
+ * @param request CreateApplicationFederatedCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateApplicationFederatedCredentialResponse
+ */
+CreateApplicationFederatedCredentialResponse Client::createApplicationFederatedCredentialWithOptions(const CreateApplicationFederatedCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationFederatedCredentialName()) {
+    query["ApplicationFederatedCredentialName"] = request.applicationFederatedCredentialName();
+  }
+
+  if (!!request.hasApplicationFederatedCredentialType()) {
+    query["ApplicationFederatedCredentialType"] = request.applicationFederatedCredentialType();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasAttributeMappings()) {
+    query["AttributeMappings"] = request.attributeMappings();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
+  if (!!request.hasFederatedCredentialProviderId()) {
+    query["FederatedCredentialProviderId"] = request.federatedCredentialProviderId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasVerificationCondition()) {
+    query["VerificationCondition"] = request.verificationCondition();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateApplicationFederatedCredential"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateApplicationFederatedCredentialResponse>();
+}
+
+/**
+ * @summary 创建应用联邦凭证
+ *
+ * @param request CreateApplicationFederatedCredentialRequest
+ * @return CreateApplicationFederatedCredentialResponse
+ */
+CreateApplicationFederatedCredentialResponse Client::createApplicationFederatedCredential(const CreateApplicationFederatedCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createApplicationFederatedCredentialWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建应用Token
+ *
+ * @param request CreateApplicationTokenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateApplicationTokenResponse
+ */
+CreateApplicationTokenResponse Client::createApplicationTokenWithOptions(const CreateApplicationTokenRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasApplicationTokenType()) {
+    query["ApplicationTokenType"] = request.applicationTokenType();
+  }
+
+  if (!!request.hasExpirationTime()) {
+    query["ExpirationTime"] = request.expirationTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateApplicationToken"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateApplicationTokenResponse>();
+}
+
+/**
+ * @summary 创建应用Token
+ *
+ * @param request CreateApplicationTokenRequest
+ * @return CreateApplicationTokenResponse
+ */
+CreateApplicationTokenResponse Client::createApplicationToken(const CreateApplicationTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createApplicationTokenWithOptions(request, runtime);
+}
+
+/**
  * @summary Create Conditional Access Policy
  *
  * @description Create Conditional Access Policy
@@ -581,6 +759,76 @@ CreateDomainProxyTokenResponse Client::createDomainProxyTokenWithOptions(const C
 CreateDomainProxyTokenResponse Client::createDomainProxyToken(const CreateDomainProxyTokenRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createDomainProxyTokenWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建联邦凭证提供方
+ *
+ * @param request CreateFederatedCredentialProviderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateFederatedCredentialProviderResponse
+ */
+CreateFederatedCredentialProviderResponse Client::createFederatedCredentialProviderWithOptions(const CreateFederatedCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
+  if (!!request.hasFederatedCredentialProviderName()) {
+    query["FederatedCredentialProviderName"] = request.federatedCredentialProviderName();
+  }
+
+  if (!!request.hasFederatedCredentialProviderType()) {
+    query["FederatedCredentialProviderType"] = request.federatedCredentialProviderType();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasNetworkAccessEndpointId()) {
+    query["NetworkAccessEndpointId"] = request.networkAccessEndpointId();
+  }
+
+  if (!!request.hasOidcProviderConfig()) {
+    query["OidcProviderConfig"] = request.oidcProviderConfig();
+  }
+
+  if (!!request.hasPkcs7ProviderConfig()) {
+    query["Pkcs7ProviderConfig"] = request.pkcs7ProviderConfig();
+  }
+
+  if (!!request.hasPrivateCaProviderConfig()) {
+    query["PrivateCaProviderConfig"] = request.privateCaProviderConfig();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateFederatedCredentialProvider"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateFederatedCredentialProviderResponse>();
+}
+
+/**
+ * @summary 创建联邦凭证提供方
+ *
+ * @param request CreateFederatedCredentialProviderRequest
+ * @return CreateFederatedCredentialProviderResponse
+ */
+CreateFederatedCredentialProviderResponse Client::createFederatedCredentialProvider(const CreateFederatedCredentialProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createFederatedCredentialProviderWithOptions(request, runtime);
 }
 
 /**
@@ -848,6 +1096,76 @@ CreateNetworkAccessEndpointResponse Client::createNetworkAccessEndpoint(const Cr
 }
 
 /**
+ * @summary 创建网络区域对象
+ *
+ * @param request CreateNetworkZoneRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateNetworkZoneResponse
+ */
+CreateNetworkZoneResponse Client::createNetworkZoneWithOptions(const CreateNetworkZoneRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasIpv4Cidrs()) {
+    query["Ipv4Cidrs"] = request.ipv4Cidrs();
+  }
+
+  if (!!request.hasIpv6Cidrs()) {
+    query["Ipv6Cidrs"] = request.ipv6Cidrs();
+  }
+
+  if (!!request.hasNetworkZoneName()) {
+    query["NetworkZoneName"] = request.networkZoneName();
+  }
+
+  if (!!request.hasNetworkZoneType()) {
+    query["NetworkZoneType"] = request.networkZoneType();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.vpcId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateNetworkZone"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateNetworkZoneResponse>();
+}
+
+/**
+ * @summary 创建网络区域对象
+ *
+ * @param request CreateNetworkZoneRequest
+ * @return CreateNetworkZoneResponse
+ */
+CreateNetworkZoneResponse Client::createNetworkZone(const CreateNetworkZoneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createNetworkZoneWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
  *
  * @param request CreateOrganizationalUnitRequest
@@ -1108,6 +1426,106 @@ DeleteApplicationClientSecretResponse Client::deleteApplicationClientSecret(cons
 }
 
 /**
+ * @summary 删除应用联邦凭证
+ *
+ * @param request DeleteApplicationFederatedCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteApplicationFederatedCredentialResponse
+ */
+DeleteApplicationFederatedCredentialResponse Client::deleteApplicationFederatedCredentialWithOptions(const DeleteApplicationFederatedCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationFederatedCredentialId()) {
+    query["ApplicationFederatedCredentialId"] = request.applicationFederatedCredentialId();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteApplicationFederatedCredential"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteApplicationFederatedCredentialResponse>();
+}
+
+/**
+ * @summary 删除应用联邦凭证
+ *
+ * @param request DeleteApplicationFederatedCredentialRequest
+ * @return DeleteApplicationFederatedCredentialResponse
+ */
+DeleteApplicationFederatedCredentialResponse Client::deleteApplicationFederatedCredential(const DeleteApplicationFederatedCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteApplicationFederatedCredentialWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除ApplicationToken
+ *
+ * @param request DeleteApplicationTokenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteApplicationTokenResponse
+ */
+DeleteApplicationTokenResponse Client::deleteApplicationTokenWithOptions(const DeleteApplicationTokenRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasApplicationTokenId()) {
+    query["ApplicationTokenId"] = request.applicationTokenId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteApplicationToken"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteApplicationTokenResponse>();
+}
+
+/**
+ * @summary 删除ApplicationToken
+ *
+ * @param request DeleteApplicationTokenRequest
+ * @return DeleteApplicationTokenResponse
+ */
+DeleteApplicationTokenResponse Client::deleteApplicationToken(const DeleteApplicationTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteApplicationTokenWithOptions(request, runtime);
+}
+
+/**
  * @summary Delete Conditional Access Policy
  *
  * @description When deleting a specified conditional access policy, please ensure that the policy is no longer in use. After deletion, all configuration data will be removed and cannot be recovered.
@@ -1251,6 +1669,52 @@ DeleteDomainProxyTokenResponse Client::deleteDomainProxyTokenWithOptions(const D
 DeleteDomainProxyTokenResponse Client::deleteDomainProxyToken(const DeleteDomainProxyTokenRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteDomainProxyTokenWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除联邦凭证提供方
+ *
+ * @param request DeleteFederatedCredentialProviderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteFederatedCredentialProviderResponse
+ */
+DeleteFederatedCredentialProviderResponse Client::deleteFederatedCredentialProviderWithOptions(const DeleteFederatedCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFederatedCredentialProviderId()) {
+    query["FederatedCredentialProviderId"] = request.federatedCredentialProviderId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteFederatedCredentialProvider"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteFederatedCredentialProviderResponse>();
+}
+
+/**
+ * @summary 删除联邦凭证提供方
+ *
+ * @param request DeleteFederatedCredentialProviderRequest
+ * @return DeleteFederatedCredentialProviderResponse
+ */
+DeleteFederatedCredentialProviderResponse Client::deleteFederatedCredentialProvider(const DeleteFederatedCredentialProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteFederatedCredentialProviderWithOptions(request, runtime);
 }
 
 /**
@@ -1435,6 +1899,52 @@ DeleteNetworkAccessEndpointResponse Client::deleteNetworkAccessEndpointWithOptio
 DeleteNetworkAccessEndpointResponse Client::deleteNetworkAccessEndpoint(const DeleteNetworkAccessEndpointRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteNetworkAccessEndpointWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除网络区域对象
+ *
+ * @param request DeleteNetworkZoneRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteNetworkZoneResponse
+ */
+DeleteNetworkZoneResponse Client::deleteNetworkZoneWithOptions(const DeleteNetworkZoneRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasNetworkZoneId()) {
+    query["NetworkZoneId"] = request.networkZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteNetworkZone"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteNetworkZoneResponse>();
+}
+
+/**
+ * @summary 删除网络区域对象
+ *
+ * @param request DeleteNetworkZoneRequest
+ * @return DeleteNetworkZoneResponse
+ */
+DeleteNetworkZoneResponse Client::deleteNetworkZone(const DeleteNetworkZoneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteNetworkZoneWithOptions(request, runtime);
 }
 
 /**
@@ -1722,6 +2232,56 @@ DisableApplicationClientSecretResponse Client::disableApplicationClientSecret(co
 }
 
 /**
+ * @summary 禁用应用联邦凭证
+ *
+ * @param request DisableApplicationFederatedCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableApplicationFederatedCredentialResponse
+ */
+DisableApplicationFederatedCredentialResponse Client::disableApplicationFederatedCredentialWithOptions(const DisableApplicationFederatedCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationFederatedCredentialId()) {
+    query["ApplicationFederatedCredentialId"] = request.applicationFederatedCredentialId();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableApplicationFederatedCredential"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableApplicationFederatedCredentialResponse>();
+}
+
+/**
+ * @summary 禁用应用联邦凭证
+ *
+ * @param request DisableApplicationFederatedCredentialRequest
+ * @return DisableApplicationFederatedCredentialResponse
+ */
+DisableApplicationFederatedCredentialResponse Client::disableApplicationFederatedCredential(const DisableApplicationFederatedCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableApplicationFederatedCredentialWithOptions(request, runtime);
+}
+
+/**
  * @summary Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
  *
  * @param request DisableApplicationProvisioningRequest
@@ -1811,6 +2371,56 @@ DisableApplicationSsoResponse Client::disableApplicationSsoWithOptions(const Dis
 DisableApplicationSsoResponse Client::disableApplicationSso(const DisableApplicationSsoRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return disableApplicationSsoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 禁用应用Token
+ *
+ * @param request DisableApplicationTokenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableApplicationTokenResponse
+ */
+DisableApplicationTokenResponse Client::disableApplicationTokenWithOptions(const DisableApplicationTokenRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasApplicationTokenId()) {
+    query["ApplicationTokenId"] = request.applicationTokenId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableApplicationToken"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableApplicationTokenResponse>();
+}
+
+/**
+ * @summary 禁用应用Token
+ *
+ * @param request DisableApplicationTokenRequest
+ * @return DisableApplicationTokenResponse
+ */
+DisableApplicationTokenResponse Client::disableApplicationToken(const DisableApplicationTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableApplicationTokenWithOptions(request, runtime);
 }
 
 /**
@@ -1911,6 +2521,98 @@ DisableDomainProxyTokenResponse Client::disableDomainProxyTokenWithOptions(const
 DisableDomainProxyTokenResponse Client::disableDomainProxyToken(const DisableDomainProxyTokenRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return disableDomainProxyTokenWithOptions(request, runtime);
+}
+
+/**
+ * @summary 禁用联邦凭证提供方
+ *
+ * @param request DisableFederatedCredentialProviderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableFederatedCredentialProviderResponse
+ */
+DisableFederatedCredentialProviderResponse Client::disableFederatedCredentialProviderWithOptions(const DisableFederatedCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFederatedCredentialProviderId()) {
+    query["FederatedCredentialProviderId"] = request.federatedCredentialProviderId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableFederatedCredentialProvider"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableFederatedCredentialProviderResponse>();
+}
+
+/**
+ * @summary 禁用联邦凭证提供方
+ *
+ * @param request DisableFederatedCredentialProviderRequest
+ * @return DisableFederatedCredentialProviderResponse
+ */
+DisableFederatedCredentialProviderResponse Client::disableFederatedCredentialProvider(const DisableFederatedCredentialProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableFederatedCredentialProviderWithOptions(request, runtime);
+}
+
+/**
+ * @summary 禁用认证
+ *
+ * @param request DisableIdentityProviderAuthnRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableIdentityProviderAuthnResponse
+ */
+DisableIdentityProviderAuthnResponse Client::disableIdentityProviderAuthnWithOptions(const DisableIdentityProviderAuthnRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIdentityProviderId()) {
+    query["IdentityProviderId"] = request.identityProviderId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableIdentityProviderAuthn"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableIdentityProviderAuthnResponse>();
+}
+
+/**
+ * @summary 禁用认证
+ *
+ * @param request DisableIdentityProviderAuthnRequest
+ * @return DisableIdentityProviderAuthnResponse
+ */
+DisableIdentityProviderAuthnResponse Client::disableIdentityProviderAuthn(const DisableIdentityProviderAuthnRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableIdentityProviderAuthnWithOptions(request, runtime);
 }
 
 /**
@@ -2190,6 +2892,56 @@ EnableApplicationClientSecretResponse Client::enableApplicationClientSecret(cons
 }
 
 /**
+ * @summary 启用应用联邦凭证
+ *
+ * @param request EnableApplicationFederatedCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableApplicationFederatedCredentialResponse
+ */
+EnableApplicationFederatedCredentialResponse Client::enableApplicationFederatedCredentialWithOptions(const EnableApplicationFederatedCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationFederatedCredentialId()) {
+    query["ApplicationFederatedCredentialId"] = request.applicationFederatedCredentialId();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableApplicationFederatedCredential"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableApplicationFederatedCredentialResponse>();
+}
+
+/**
+ * @summary 启用应用联邦凭证
+ *
+ * @param request EnableApplicationFederatedCredentialRequest
+ * @return EnableApplicationFederatedCredentialResponse
+ */
+EnableApplicationFederatedCredentialResponse Client::enableApplicationFederatedCredential(const EnableApplicationFederatedCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableApplicationFederatedCredentialWithOptions(request, runtime);
+}
+
+/**
  * @summary Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
  *
  * @param request EnableApplicationProvisioningRequest
@@ -2279,6 +3031,56 @@ EnableApplicationSsoResponse Client::enableApplicationSsoWithOptions(const Enabl
 EnableApplicationSsoResponse Client::enableApplicationSso(const EnableApplicationSsoRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return enableApplicationSsoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 启用应用Token
+ *
+ * @param request EnableApplicationTokenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableApplicationTokenResponse
+ */
+EnableApplicationTokenResponse Client::enableApplicationTokenWithOptions(const EnableApplicationTokenRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasApplicationTokenId()) {
+    query["ApplicationTokenId"] = request.applicationTokenId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableApplicationToken"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableApplicationTokenResponse>();
+}
+
+/**
+ * @summary 启用应用Token
+ *
+ * @param request EnableApplicationTokenRequest
+ * @return EnableApplicationTokenResponse
+ */
+EnableApplicationTokenResponse Client::enableApplicationToken(const EnableApplicationTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableApplicationTokenWithOptions(request, runtime);
 }
 
 /**
@@ -2379,6 +3181,98 @@ EnableDomainProxyTokenResponse Client::enableDomainProxyTokenWithOptions(const E
 EnableDomainProxyTokenResponse Client::enableDomainProxyToken(const EnableDomainProxyTokenRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return enableDomainProxyTokenWithOptions(request, runtime);
+}
+
+/**
+ * @summary 启用联邦凭证提供方
+ *
+ * @param request EnableFederatedCredentialProviderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableFederatedCredentialProviderResponse
+ */
+EnableFederatedCredentialProviderResponse Client::enableFederatedCredentialProviderWithOptions(const EnableFederatedCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFederatedCredentialProviderId()) {
+    query["FederatedCredentialProviderId"] = request.federatedCredentialProviderId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableFederatedCredentialProvider"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableFederatedCredentialProviderResponse>();
+}
+
+/**
+ * @summary 启用联邦凭证提供方
+ *
+ * @param request EnableFederatedCredentialProviderRequest
+ * @return EnableFederatedCredentialProviderResponse
+ */
+EnableFederatedCredentialProviderResponse Client::enableFederatedCredentialProvider(const EnableFederatedCredentialProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableFederatedCredentialProviderWithOptions(request, runtime);
+}
+
+/**
+ * @summary 启用认证
+ *
+ * @param request EnableIdentityProviderAuthnRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableIdentityProviderAuthnResponse
+ */
+EnableIdentityProviderAuthnResponse Client::enableIdentityProviderAuthnWithOptions(const EnableIdentityProviderAuthnRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIdentityProviderId()) {
+    query["IdentityProviderId"] = request.identityProviderId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableIdentityProviderAuthn"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableIdentityProviderAuthnResponse>();
+}
+
+/**
+ * @summary 启用认证
+ *
+ * @param request EnableIdentityProviderAuthnRequest
+ * @return EnableIdentityProviderAuthnResponse
+ */
+EnableIdentityProviderAuthnResponse Client::enableIdentityProviderAuthn(const EnableIdentityProviderAuthnRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableIdentityProviderAuthnWithOptions(request, runtime);
 }
 
 /**
@@ -2559,6 +3453,56 @@ GetApplicationResponse Client::getApplicationWithOptions(const GetApplicationReq
 GetApplicationResponse Client::getApplication(const GetApplicationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getApplicationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取应用联邦凭证
+ *
+ * @param request GetApplicationFederatedCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetApplicationFederatedCredentialResponse
+ */
+GetApplicationFederatedCredentialResponse Client::getApplicationFederatedCredentialWithOptions(const GetApplicationFederatedCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationFederatedCredentialId()) {
+    query["ApplicationFederatedCredentialId"] = request.applicationFederatedCredentialId();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetApplicationFederatedCredential"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetApplicationFederatedCredentialResponse>();
+}
+
+/**
+ * @summary 获取应用联邦凭证
+ *
+ * @param request GetApplicationFederatedCredentialRequest
+ * @return GetApplicationFederatedCredentialResponse
+ */
+GetApplicationFederatedCredentialResponse Client::getApplicationFederatedCredential(const GetApplicationFederatedCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getApplicationFederatedCredentialWithOptions(request, runtime);
 }
 
 /**
@@ -2746,6 +3690,48 @@ GetApplicationSsoConfigResponse Client::getApplicationSsoConfig(const GetApplica
 }
 
 /**
+ * @summary 获取应用模板信息
+ *
+ * @param request GetApplicationTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetApplicationTemplateResponse
+ */
+GetApplicationTemplateResponse Client::getApplicationTemplateWithOptions(const GetApplicationTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationTemplateId()) {
+    query["ApplicationTemplateId"] = request.applicationTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetApplicationTemplate"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetApplicationTemplateResponse>();
+}
+
+/**
+ * @summary 获取应用模板信息
+ *
+ * @param request GetApplicationTemplateRequest
+ * @return GetApplicationTemplateResponse
+ */
+GetApplicationTemplateResponse Client::getApplicationTemplate(const GetApplicationTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getApplicationTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary Get Conditional Access Policy
  *
  * @description Query Conditional Access Policy
@@ -2885,6 +3871,52 @@ GetDomainDnsChallengeResponse Client::getDomainDnsChallengeWithOptions(const Get
 GetDomainDnsChallengeResponse Client::getDomainDnsChallenge(const GetDomainDnsChallengeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getDomainDnsChallengeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取联邦凭证提供方
+ *
+ * @param request GetFederatedCredentialProviderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetFederatedCredentialProviderResponse
+ */
+GetFederatedCredentialProviderResponse Client::getFederatedCredentialProviderWithOptions(const GetFederatedCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFederatedCredentialProviderId()) {
+    query["FederatedCredentialProviderId"] = request.federatedCredentialProviderId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetFederatedCredentialProvider"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetFederatedCredentialProviderResponse>();
+}
+
+/**
+ * @summary 获取联邦凭证提供方
+ *
+ * @param request GetFederatedCredentialProviderRequest
+ * @return GetFederatedCredentialProviderResponse
+ */
+GetFederatedCredentialProviderResponse Client::getFederatedCredentialProvider(const GetFederatedCredentialProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getFederatedCredentialProviderWithOptions(request, runtime);
 }
 
 /**
@@ -3199,6 +4231,52 @@ GetNetworkAccessEndpointResponse Client::getNetworkAccessEndpointWithOptions(con
 GetNetworkAccessEndpointResponse Client::getNetworkAccessEndpoint(const GetNetworkAccessEndpointRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getNetworkAccessEndpointWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取网络区域对象
+ *
+ * @param request GetNetworkZoneRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetNetworkZoneResponse
+ */
+GetNetworkZoneResponse Client::getNetworkZoneWithOptions(const GetNetworkZoneRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasNetworkZoneId()) {
+    query["NetworkZoneId"] = request.networkZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetNetworkZone"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetNetworkZoneResponse>();
+}
+
+/**
+ * @summary 获取网络区域对象
+ *
+ * @param request GetNetworkZoneRequest
+ * @return GetNetworkZoneResponse
+ */
+GetNetworkZoneResponse Client::getNetworkZone(const GetNetworkZoneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getNetworkZoneWithOptions(request, runtime);
 }
 
 /**
@@ -3550,6 +4628,110 @@ GetUserResponse Client::getUser(const GetUserRequest &request) {
 }
 
 /**
+ * @summary 分页查询应用下的应用账户列表
+ *
+ * @param request ListApplicationAccountsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListApplicationAccountsResponse
+ */
+ListApplicationAccountsResponse Client::listApplicationAccountsWithOptions(const ListApplicationAccountsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListApplicationAccounts"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListApplicationAccountsResponse>();
+}
+
+/**
+ * @summary 分页查询应用下的应用账户列表
+ *
+ * @param request ListApplicationAccountsRequest
+ * @return ListApplicationAccountsResponse
+ */
+ListApplicationAccountsResponse Client::listApplicationAccounts(const ListApplicationAccountsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listApplicationAccountsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询当前应用下指定用户的所有账号
+ *
+ * @param request ListApplicationAccountsForUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListApplicationAccountsForUserResponse
+ */
+ListApplicationAccountsForUserResponse Client::listApplicationAccountsForUserWithOptions(const ListApplicationAccountsForUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.userId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListApplicationAccountsForUser"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListApplicationAccountsForUserResponse>();
+}
+
+/**
+ * @summary 查询当前应用下指定用户的所有账号
+ *
+ * @param request ListApplicationAccountsForUserRequest
+ * @return ListApplicationAccountsForUserResponse
+ */
+ListApplicationAccountsForUserResponse Client::listApplicationAccountsForUser(const ListApplicationAccountsForUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listApplicationAccountsForUserWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries all client keys of an Employee Identity and Access Management (EIAM) application. The returned key secret is not masked. If you want to query the key secret that is masked, call the ObtainApplicationClientSecret operation.
  *
  * @param request ListApplicationClientSecretsRequest
@@ -3593,6 +4775,222 @@ ListApplicationClientSecretsResponse Client::listApplicationClientSecretsWithOpt
 ListApplicationClientSecretsResponse Client::listApplicationClientSecrets(const ListApplicationClientSecretsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listApplicationClientSecretsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询应用联邦凭证列表
+ *
+ * @param request ListApplicationFederatedCredentialsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListApplicationFederatedCredentialsResponse
+ */
+ListApplicationFederatedCredentialsResponse Client::listApplicationFederatedCredentialsWithOptions(const ListApplicationFederatedCredentialsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationFederatedCredentialType()) {
+    query["ApplicationFederatedCredentialType"] = request.applicationFederatedCredentialType();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPreviousToken()) {
+    query["PreviousToken"] = request.previousToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListApplicationFederatedCredentials"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListApplicationFederatedCredentialsResponse>();
+}
+
+/**
+ * @summary 查询应用联邦凭证列表
+ *
+ * @param request ListApplicationFederatedCredentialsRequest
+ * @return ListApplicationFederatedCredentialsResponse
+ */
+ListApplicationFederatedCredentialsResponse Client::listApplicationFederatedCredentials(const ListApplicationFederatedCredentialsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listApplicationFederatedCredentialsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 根据联邦凭证提供方查询应用联邦凭证列表
+ *
+ * @param request ListApplicationFederatedCredentialsForProviderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListApplicationFederatedCredentialsForProviderResponse
+ */
+ListApplicationFederatedCredentialsForProviderResponse Client::listApplicationFederatedCredentialsForProviderWithOptions(const ListApplicationFederatedCredentialsForProviderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFederatedCredentialProviderId()) {
+    query["FederatedCredentialProviderId"] = request.federatedCredentialProviderId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPreviousToken()) {
+    query["PreviousToken"] = request.previousToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListApplicationFederatedCredentialsForProvider"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListApplicationFederatedCredentialsForProviderResponse>();
+}
+
+/**
+ * @summary 根据联邦凭证提供方查询应用联邦凭证列表
+ *
+ * @param request ListApplicationFederatedCredentialsForProviderRequest
+ * @return ListApplicationFederatedCredentialsForProviderResponse
+ */
+ListApplicationFederatedCredentialsForProviderResponse Client::listApplicationFederatedCredentialsForProvider(const ListApplicationFederatedCredentialsForProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listApplicationFederatedCredentialsForProviderWithOptions(request, runtime);
+}
+
+/**
+ * @summary 应用支持账户同步类型列表
+ *
+ * @param request ListApplicationSupportedProvisionProtocolTypesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListApplicationSupportedProvisionProtocolTypesResponse
+ */
+ListApplicationSupportedProvisionProtocolTypesResponse Client::listApplicationSupportedProvisionProtocolTypesWithOptions(const ListApplicationSupportedProvisionProtocolTypesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListApplicationSupportedProvisionProtocolTypes"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListApplicationSupportedProvisionProtocolTypesResponse>();
+}
+
+/**
+ * @summary 应用支持账户同步类型列表
+ *
+ * @param request ListApplicationSupportedProvisionProtocolTypesRequest
+ * @return ListApplicationSupportedProvisionProtocolTypesResponse
+ */
+ListApplicationSupportedProvisionProtocolTypesResponse Client::listApplicationSupportedProvisionProtocolTypes(const ListApplicationSupportedProvisionProtocolTypesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listApplicationSupportedProvisionProtocolTypesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建应用Token
+ *
+ * @param request ListApplicationTokensRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListApplicationTokensResponse
+ */
+ListApplicationTokensResponse Client::listApplicationTokensWithOptions(const ListApplicationTokensRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasApplicationTokenType()) {
+    query["ApplicationTokenType"] = request.applicationTokenType();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListApplicationTokens"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListApplicationTokensResponse>();
+}
+
+/**
+ * @summary 创建应用Token
+ *
+ * @param request ListApplicationTokensRequest
+ * @return ListApplicationTokensResponse
+ */
+ListApplicationTokensResponse Client::listApplicationTokens(const ListApplicationTokensRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listApplicationTokensWithOptions(request, runtime);
 }
 
 /**
@@ -3671,6 +5069,176 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const ListApplicati
 ListApplicationsResponse Client::listApplications(const ListApplicationsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listApplicationsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询一个EIAM组可访问的应用列表
+ *
+ * @param request ListApplicationsForGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListApplicationsForGroupResponse
+ */
+ListApplicationsForGroupResponse Client::listApplicationsForGroupWithOptions(const ListApplicationsForGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationIds()) {
+    query["ApplicationIds"] = request.applicationIds();
+  }
+
+  if (!!request.hasGroupId()) {
+    query["GroupId"] = request.groupId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListApplicationsForGroup"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListApplicationsForGroupResponse>();
+}
+
+/**
+ * @summary 查询一个EIAM组可访问的应用列表
+ *
+ * @param request ListApplicationsForGroupRequest
+ * @return ListApplicationsForGroupResponse
+ */
+ListApplicationsForGroupResponse Client::listApplicationsForGroup(const ListApplicationsForGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listApplicationsForGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取网络访问端点下的App信息。
+ *
+ * @param request ListApplicationsForNetworkAccessEndpointRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListApplicationsForNetworkAccessEndpointResponse
+ */
+ListApplicationsForNetworkAccessEndpointResponse Client::listApplicationsForNetworkAccessEndpointWithOptions(const ListApplicationsForNetworkAccessEndpointRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNetworkAccessEndpointId()) {
+    query["NetworkAccessEndpointId"] = request.networkAccessEndpointId();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListApplicationsForNetworkAccessEndpoint"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListApplicationsForNetworkAccessEndpointResponse>();
+}
+
+/**
+ * @summary 获取网络访问端点下的App信息。
+ *
+ * @param request ListApplicationsForNetworkAccessEndpointRequest
+ * @return ListApplicationsForNetworkAccessEndpointResponse
+ */
+ListApplicationsForNetworkAccessEndpointResponse Client::listApplicationsForNetworkAccessEndpoint(const ListApplicationsForNetworkAccessEndpointRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listApplicationsForNetworkAccessEndpointWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取NetworkZone关联的应用列表
+ *
+ * @param request ListApplicationsForNetworkZoneRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListApplicationsForNetworkZoneResponse
+ */
+ListApplicationsForNetworkZoneResponse Client::listApplicationsForNetworkZoneWithOptions(const ListApplicationsForNetworkZoneRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNetworkZoneId()) {
+    query["NetworkZoneId"] = request.networkZoneId();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPreviousToken()) {
+    query["PreviousToken"] = request.previousToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListApplicationsForNetworkZone"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListApplicationsForNetworkZoneResponse>();
+}
+
+/**
+ * @summary 获取NetworkZone关联的应用列表
+ *
+ * @param request ListApplicationsForNetworkZoneRequest
+ * @return ListApplicationsForNetworkZoneResponse
+ */
+ListApplicationsForNetworkZoneResponse Client::listApplicationsForNetworkZone(const ListApplicationsForNetworkZoneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listApplicationsForNetworkZoneWithOptions(request, runtime);
 }
 
 /**
@@ -3856,6 +5424,52 @@ ListConditionalAccessPoliciesResponse Client::listConditionalAccessPolicies(cons
 }
 
 /**
+ * @summary 获取应用关联的条件访问策略列表
+ *
+ * @param request ListConditionalAccessPoliciesForApplicationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListConditionalAccessPoliciesForApplicationResponse
+ */
+ListConditionalAccessPoliciesForApplicationResponse Client::listConditionalAccessPoliciesForApplicationWithOptions(const ListConditionalAccessPoliciesForApplicationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListConditionalAccessPoliciesForApplication"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListConditionalAccessPoliciesForApplicationResponse>();
+}
+
+/**
+ * @summary 获取应用关联的条件访问策略列表
+ *
+ * @param request ListConditionalAccessPoliciesForApplicationRequest
+ * @return ListConditionalAccessPoliciesForApplicationResponse
+ */
+ListConditionalAccessPoliciesForApplicationResponse Client::listConditionalAccessPoliciesForApplication(const ListConditionalAccessPoliciesForApplicationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listConditionalAccessPoliciesForApplicationWithOptions(request, runtime);
+}
+
+/**
  * @summary List Conditional Access Policies Associated with Network Areas
  *
  * @description List Conditional Access Policies Associated with Network Zones
@@ -3903,6 +5517,52 @@ ListConditionalAccessPoliciesForNetworkZoneResponse Client::listConditionalAcces
 ListConditionalAccessPoliciesForNetworkZoneResponse Client::listConditionalAccessPoliciesForNetworkZone(const ListConditionalAccessPoliciesForNetworkZoneRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listConditionalAccessPoliciesForNetworkZoneWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取用户关联的条件访问策略列表
+ *
+ * @param request ListConditionalAccessPoliciesForUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListConditionalAccessPoliciesForUserResponse
+ */
+ListConditionalAccessPoliciesForUserResponse Client::listConditionalAccessPoliciesForUserWithOptions(const ListConditionalAccessPoliciesForUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.userId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListConditionalAccessPoliciesForUser"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListConditionalAccessPoliciesForUserResponse>();
+}
+
+/**
+ * @summary 获取用户关联的条件访问策略列表
+ *
+ * @param request ListConditionalAccessPoliciesForUserRequest
+ * @return ListConditionalAccessPoliciesForUserResponse
+ */
+ListConditionalAccessPoliciesForUserResponse Client::listConditionalAccessPoliciesForUser(const ListConditionalAccessPoliciesForUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listConditionalAccessPoliciesForUserWithOptions(request, runtime);
 }
 
 /**
@@ -3961,6 +5621,10 @@ ListDomainProxyTokensResponse Client::listDomainProxyTokens(const ListDomainProx
 ListDomainsResponse Client::listDomainsWithOptions(const ListDomainsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBrandId()) {
+    query["BrandId"] = request.brandId();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.instanceId();
   }
@@ -4070,6 +5734,68 @@ ListEiamRegionsResponse Client::listEiamRegionsWithOptions(const Darabonba::Runt
 ListEiamRegionsResponse Client::listEiamRegions() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listEiamRegionsWithOptions(runtime);
+}
+
+/**
+ * @summary 查询联邦凭证提供方列表
+ *
+ * @param request ListFederatedCredentialProvidersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListFederatedCredentialProvidersResponse
+ */
+ListFederatedCredentialProvidersResponse Client::listFederatedCredentialProvidersWithOptions(const ListFederatedCredentialProvidersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFederatedCredentialProviderName()) {
+    query["FederatedCredentialProviderName"] = request.federatedCredentialProviderName();
+  }
+
+  if (!!request.hasFederatedCredentialProviderType()) {
+    query["FederatedCredentialProviderType"] = request.federatedCredentialProviderType();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPreviousToken()) {
+    query["PreviousToken"] = request.previousToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListFederatedCredentialProviders"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListFederatedCredentialProvidersResponse>();
+}
+
+/**
+ * @summary 查询联邦凭证提供方列表
+ *
+ * @param request ListFederatedCredentialProvidersRequest
+ * @return ListFederatedCredentialProvidersResponse
+ */
+ListFederatedCredentialProvidersResponse Client::listFederatedCredentialProviders(const ListFederatedCredentialProvidersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listFederatedCredentialProvidersWithOptions(request, runtime);
 }
 
 /**
@@ -4298,6 +6024,60 @@ ListIdentityProvidersResponse Client::listIdentityProvidersWithOptions(const Lis
 ListIdentityProvidersResponse Client::listIdentityProviders(const ListIdentityProvidersRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listIdentityProvidersWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取网络端点下的IdP信息。
+ *
+ * @param request ListIdentityProvidersForNetworkAccessEndpointRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListIdentityProvidersForNetworkAccessEndpointResponse
+ */
+ListIdentityProvidersForNetworkAccessEndpointResponse Client::listIdentityProvidersForNetworkAccessEndpointWithOptions(const ListIdentityProvidersForNetworkAccessEndpointRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNetworkAccessEndpointId()) {
+    query["NetworkAccessEndpointId"] = request.networkAccessEndpointId();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListIdentityProvidersForNetworkAccessEndpoint"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListIdentityProvidersForNetworkAccessEndpointResponse>();
+}
+
+/**
+ * @summary 获取网络端点下的IdP信息。
+ *
+ * @param request ListIdentityProvidersForNetworkAccessEndpointRequest
+ * @return ListIdentityProvidersForNetworkAccessEndpointResponse
+ */
+ListIdentityProvidersForNetworkAccessEndpointResponse Client::listIdentityProvidersForNetworkAccessEndpoint(const ListIdentityProvidersForNetworkAccessEndpointRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listIdentityProvidersForNetworkAccessEndpointWithOptions(request, runtime);
 }
 
 /**
@@ -4539,6 +6319,64 @@ ListNetworkAccessPathsResponse Client::listNetworkAccessPathsWithOptions(const L
 ListNetworkAccessPathsResponse Client::listNetworkAccessPaths(const ListNetworkAccessPathsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listNetworkAccessPathsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 网络区域对象列表
+ *
+ * @param request ListNetworkZonesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListNetworkZonesResponse
+ */
+ListNetworkZonesResponse Client::listNetworkZonesWithOptions(const ListNetworkZonesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNetworkZoneIds()) {
+    query["NetworkZoneIds"] = request.networkZoneIds();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPreviousToken()) {
+    query["PreviousToken"] = request.previousToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListNetworkZones"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListNetworkZonesResponse>();
+}
+
+/**
+ * @summary 网络区域对象列表
+ *
+ * @param request ListNetworkZonesRequest
+ * @return ListNetworkZonesResponse
+ */
+ListNetworkZonesResponse Client::listNetworkZones(const ListNetworkZonesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listNetworkZonesWithOptions(request, runtime);
 }
 
 /**
@@ -5091,6 +6929,56 @@ ObtainApplicationClientSecretResponse Client::obtainApplicationClientSecret(cons
 }
 
 /**
+ * @summary 查询指定应用Token
+ *
+ * @param request ObtainApplicationTokenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ObtainApplicationTokenResponse
+ */
+ObtainApplicationTokenResponse Client::obtainApplicationTokenWithOptions(const ObtainApplicationTokenRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasApplicationTokenId()) {
+    query["ApplicationTokenId"] = request.applicationTokenId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ObtainApplicationToken"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ObtainApplicationTokenResponse>();
+}
+
+/**
+ * @summary 查询指定应用Token
+ *
+ * @param request ObtainApplicationTokenRequest
+ * @return ObtainApplicationTokenResponse
+ */
+ObtainApplicationTokenResponse Client::obtainApplicationToken(const ObtainApplicationTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return obtainApplicationTokenWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the information about a proxy token of a domain name of an Employee Identity and Access Management (EIAM) instance.
  *
  * @param request ObtainDomainProxyTokenRequest
@@ -5138,6 +7026,60 @@ ObtainDomainProxyTokenResponse Client::obtainDomainProxyTokenWithOptions(const O
 ObtainDomainProxyTokenResponse Client::obtainDomainProxyToken(const ObtainDomainProxyTokenRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return obtainDomainProxyTokenWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除一个当前应用下的指定员工的应用账号
+ *
+ * @param request RemoveApplicationAccountFromUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveApplicationAccountFromUserResponse
+ */
+RemoveApplicationAccountFromUserResponse Client::removeApplicationAccountFromUserWithOptions(const RemoveApplicationAccountFromUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationAccountId()) {
+    query["ApplicationAccountId"] = request.applicationAccountId();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.userId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemoveApplicationAccountFromUser"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveApplicationAccountFromUserResponse>();
+}
+
+/**
+ * @summary 删除一个当前应用下的指定员工的应用账号
+ *
+ * @param request RemoveApplicationAccountFromUserRequest
+ * @return RemoveApplicationAccountFromUserResponse
+ */
+RemoveApplicationAccountFromUserResponse Client::removeApplicationAccountFromUser(const RemoveApplicationAccountFromUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeApplicationAccountFromUserWithOptions(request, runtime);
 }
 
 /**
@@ -6349,6 +8291,234 @@ UpdateApplicationDescriptionResponse Client::updateApplicationDescription(const 
 }
 
 /**
+ * @summary 更新应用联邦凭证
+ *
+ * @param request UpdateApplicationFederatedCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateApplicationFederatedCredentialResponse
+ */
+UpdateApplicationFederatedCredentialResponse Client::updateApplicationFederatedCredentialWithOptions(const UpdateApplicationFederatedCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationFederatedCredentialId()) {
+    query["ApplicationFederatedCredentialId"] = request.applicationFederatedCredentialId();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasAttributeMappings()) {
+    query["AttributeMappings"] = request.attributeMappings();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasVerificationCondition()) {
+    query["VerificationCondition"] = request.verificationCondition();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateApplicationFederatedCredential"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateApplicationFederatedCredentialResponse>();
+}
+
+/**
+ * @summary 更新应用联邦凭证
+ *
+ * @param request UpdateApplicationFederatedCredentialRequest
+ * @return UpdateApplicationFederatedCredentialResponse
+ */
+UpdateApplicationFederatedCredentialResponse Client::updateApplicationFederatedCredential(const UpdateApplicationFederatedCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateApplicationFederatedCredentialWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新应用联邦凭证描述
+ *
+ * @param request UpdateApplicationFederatedCredentialDescriptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateApplicationFederatedCredentialDescriptionResponse
+ */
+UpdateApplicationFederatedCredentialDescriptionResponse Client::updateApplicationFederatedCredentialDescriptionWithOptions(const UpdateApplicationFederatedCredentialDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationFederatedCredentialId()) {
+    query["ApplicationFederatedCredentialId"] = request.applicationFederatedCredentialId();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateApplicationFederatedCredentialDescription"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateApplicationFederatedCredentialDescriptionResponse>();
+}
+
+/**
+ * @summary 更新应用联邦凭证描述
+ *
+ * @param request UpdateApplicationFederatedCredentialDescriptionRequest
+ * @return UpdateApplicationFederatedCredentialDescriptionResponse
+ */
+UpdateApplicationFederatedCredentialDescriptionResponse Client::updateApplicationFederatedCredentialDescription(const UpdateApplicationFederatedCredentialDescriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateApplicationFederatedCredentialDescriptionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新应用基本信息
+ *
+ * @param request UpdateApplicationInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateApplicationInfoResponse
+ */
+UpdateApplicationInfoResponse Client::updateApplicationInfoWithOptions(const UpdateApplicationInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasApplicationName()) {
+    query["ApplicationName"] = request.applicationName();
+  }
+
+  if (!!request.hasApplicationVisibility()) {
+    query["ApplicationVisibility"] = request.applicationVisibility();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasLogoUrl()) {
+    query["LogoUrl"] = request.logoUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateApplicationInfo"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateApplicationInfoResponse>();
+}
+
+/**
+ * @summary 更新应用基本信息
+ *
+ * @param request UpdateApplicationInfoRequest
+ * @return UpdateApplicationInfoResponse
+ */
+UpdateApplicationInfoResponse Client::updateApplicationInfo(const UpdateApplicationInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateApplicationInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新ApplicationToken过期时间
+ *
+ * @param request UpdateApplicationTokenExpirationTimeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateApplicationTokenExpirationTimeResponse
+ */
+UpdateApplicationTokenExpirationTimeResponse Client::updateApplicationTokenExpirationTimeWithOptions(const UpdateApplicationTokenExpirationTimeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasApplicationTokenId()) {
+    query["ApplicationTokenId"] = request.applicationTokenId();
+  }
+
+  if (!!request.hasExpirationTime()) {
+    query["ExpirationTime"] = request.expirationTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateApplicationTokenExpirationTime"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateApplicationTokenExpirationTimeResponse>();
+}
+
+/**
+ * @summary 更新ApplicationToken过期时间
+ *
+ * @param request UpdateApplicationTokenExpirationTimeRequest
+ * @return UpdateApplicationTokenExpirationTimeResponse
+ */
+UpdateApplicationTokenExpirationTimeResponse Client::updateApplicationTokenExpirationTime(const UpdateApplicationTokenExpirationTimeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateApplicationTokenExpirationTimeWithOptions(request, runtime);
+}
+
+/**
  * @summary Update Conditional Access Policy
  *
  * @description Update Conditional Access Policy
@@ -6478,6 +8648,172 @@ UpdateConditionalAccessPolicyDescriptionResponse Client::updateConditionalAccess
 UpdateConditionalAccessPolicyDescriptionResponse Client::updateConditionalAccessPolicyDescription(const UpdateConditionalAccessPolicyDescriptionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateConditionalAccessPolicyDescriptionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新域名备案号。
+ *
+ * @param request UpdateDomainIcpNumberRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDomainIcpNumberResponse
+ */
+UpdateDomainIcpNumberResponse Client::updateDomainIcpNumberWithOptions(const UpdateDomainIcpNumberRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDomainId()) {
+    query["DomainId"] = request.domainId();
+  }
+
+  if (!!request.hasIcpNumber()) {
+    query["IcpNumber"] = request.icpNumber();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateDomainIcpNumber"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDomainIcpNumberResponse>();
+}
+
+/**
+ * @summary 更新域名备案号。
+ *
+ * @param request UpdateDomainIcpNumberRequest
+ * @return UpdateDomainIcpNumberResponse
+ */
+UpdateDomainIcpNumberResponse Client::updateDomainIcpNumber(const UpdateDomainIcpNumberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDomainIcpNumberWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新联邦凭证提供方
+ *
+ * @param request UpdateFederatedCredentialProviderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateFederatedCredentialProviderResponse
+ */
+UpdateFederatedCredentialProviderResponse Client::updateFederatedCredentialProviderWithOptions(const UpdateFederatedCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFederatedCredentialProviderId()) {
+    query["FederatedCredentialProviderId"] = request.federatedCredentialProviderId();
+  }
+
+  if (!!request.hasFederatedCredentialProviderName()) {
+    query["FederatedCredentialProviderName"] = request.federatedCredentialProviderName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasNetworkAccessEndpointId()) {
+    query["NetworkAccessEndpointId"] = request.networkAccessEndpointId();
+  }
+
+  if (!!request.hasOidcProviderConfig()) {
+    query["OidcProviderConfig"] = request.oidcProviderConfig();
+  }
+
+  if (!!request.hasPkcs7ProviderConfig()) {
+    query["Pkcs7ProviderConfig"] = request.pkcs7ProviderConfig();
+  }
+
+  if (!!request.hasPrivateCaProviderConfig()) {
+    query["PrivateCaProviderConfig"] = request.privateCaProviderConfig();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateFederatedCredentialProvider"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateFederatedCredentialProviderResponse>();
+}
+
+/**
+ * @summary 更新联邦凭证提供方
+ *
+ * @param request UpdateFederatedCredentialProviderRequest
+ * @return UpdateFederatedCredentialProviderResponse
+ */
+UpdateFederatedCredentialProviderResponse Client::updateFederatedCredentialProvider(const UpdateFederatedCredentialProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateFederatedCredentialProviderWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新联邦凭证提供方描述
+ *
+ * @param request UpdateFederatedCredentialProviderDescriptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateFederatedCredentialProviderDescriptionResponse
+ */
+UpdateFederatedCredentialProviderDescriptionResponse Client::updateFederatedCredentialProviderDescriptionWithOptions(const UpdateFederatedCredentialProviderDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
+  if (!!request.hasFederatedCredentialProviderId()) {
+    query["FederatedCredentialProviderId"] = request.federatedCredentialProviderId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateFederatedCredentialProviderDescription"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateFederatedCredentialProviderDescriptionResponse>();
+}
+
+/**
+ * @summary 更新联邦凭证提供方描述
+ *
+ * @param request UpdateFederatedCredentialProviderDescriptionRequest
+ * @return UpdateFederatedCredentialProviderDescriptionResponse
+ */
+UpdateFederatedCredentialProviderDescriptionResponse Client::updateFederatedCredentialProviderDescription(const UpdateFederatedCredentialProviderDescriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateFederatedCredentialProviderDescriptionWithOptions(request, runtime);
 }
 
 /**
@@ -6760,6 +9096,126 @@ UpdateNetworkAccessEndpointNameResponse Client::updateNetworkAccessEndpointNameW
 UpdateNetworkAccessEndpointNameResponse Client::updateNetworkAccessEndpointName(const UpdateNetworkAccessEndpointNameRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateNetworkAccessEndpointNameWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新网络区域对象
+ *
+ * @param request UpdateNetworkZoneRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateNetworkZoneResponse
+ */
+UpdateNetworkZoneResponse Client::updateNetworkZoneWithOptions(const UpdateNetworkZoneRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasIpv4Cidrs()) {
+    query["Ipv4Cidrs"] = request.ipv4Cidrs();
+  }
+
+  if (!!request.hasIpv6Cidrs()) {
+    query["Ipv6Cidrs"] = request.ipv6Cidrs();
+  }
+
+  if (!!request.hasNetworkZoneId()) {
+    query["NetworkZoneId"] = request.networkZoneId();
+  }
+
+  if (!!request.hasNetworkZoneName()) {
+    query["NetworkZoneName"] = request.networkZoneName();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.vpcId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateNetworkZone"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateNetworkZoneResponse>();
+}
+
+/**
+ * @summary 更新网络区域对象
+ *
+ * @param request UpdateNetworkZoneRequest
+ * @return UpdateNetworkZoneResponse
+ */
+UpdateNetworkZoneResponse Client::updateNetworkZone(const UpdateNetworkZoneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateNetworkZoneWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新网络区域对象描述
+ *
+ * @param request UpdateNetworkZoneDescriptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateNetworkZoneDescriptionResponse
+ */
+UpdateNetworkZoneDescriptionResponse Client::updateNetworkZoneDescriptionWithOptions(const UpdateNetworkZoneDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasNetworkZoneId()) {
+    query["NetworkZoneId"] = request.networkZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateNetworkZoneDescription"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateNetworkZoneDescriptionResponse>();
+}
+
+/**
+ * @summary 更新网络区域对象描述
+ *
+ * @param request UpdateNetworkZoneDescriptionRequest
+ * @return UpdateNetworkZoneDescriptionResponse
+ */
+UpdateNetworkZoneDescriptionResponse Client::updateNetworkZoneDescription(const UpdateNetworkZoneDescriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateNetworkZoneDescriptionWithOptions(request, runtime);
 }
 
 /**

@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->instanceId_ != nullptr && this->networkAccessEndpointId_ != nullptr && this->networkAccessEndpointName_ != nullptr && this->networkAccessEndpointType_ != nullptr && this->securityGroupId_ != nullptr
-        && this->status_ != nullptr && this->updateTime_ != nullptr && this->vSwitchIds_ != nullptr && this->vpcId_ != nullptr && this->vpcRegionId_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->instanceId_ == nullptr && return this->networkAccessEndpointId_ == nullptr && return this->networkAccessEndpointName_ == nullptr && return this->networkAccessEndpointType_ == nullptr && return this->securityGroupId_ == nullptr
+        && return this->status_ == nullptr && return this->updateTime_ == nullptr && return this->vSwitchIds_ == nullptr && return this->vpcId_ == nullptr && return this->vpcRegionId_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

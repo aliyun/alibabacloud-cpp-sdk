@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->administratorPassword_ != nullptr
-        && this->administratorUsername_ != nullptr && this->certificateFingerprintStatus_ != nullptr && this->certificateFingerprints_ != nullptr && this->ldapProtocol_ != nullptr && this->ldapServerHost_ != nullptr
-        && this->ldapServerPort_ != nullptr && this->startTlsStatus_ != nullptr; };
+    virtual bool empty() const override { return this->administratorPassword_ == nullptr
+        && return this->administratorUsername_ == nullptr && return this->certificateFingerprintStatus_ == nullptr && return this->certificateFingerprints_ == nullptr && return this->ldapProtocol_ == nullptr && return this->ldapServerHost_ == nullptr
+        && return this->ldapServerPort_ == nullptr && return this->startTlsStatus_ == nullptr; };
     // administratorPassword Field Functions 
     bool hasAdministratorPassword() const { return this->administratorPassword_ != nullptr;};
     void deleteAdministratorPassword() { this->administratorPassword_ = nullptr;};

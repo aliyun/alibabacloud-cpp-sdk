@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessTokenEffectiveTime_ != nullptr
-        && this->allowedPublicClient_ != nullptr && this->codeEffectiveTime_ != nullptr && this->customClaims_ != nullptr && this->grantScopes_ != nullptr && this->grantTypes_ != nullptr
-        && this->idTokenEffectiveTime_ != nullptr && this->passwordAuthenticationSourceId_ != nullptr && this->passwordTotpMfaRequired_ != nullptr && this->pkceChallengeMethods_ != nullptr && this->pkceRequired_ != nullptr
-        && this->postLogoutRedirectUris_ != nullptr && this->redirectUris_ != nullptr && this->refreshTokenEffective_ != nullptr && this->responseTypes_ != nullptr && this->subjectIdExpression_ != nullptr; };
+    virtual bool empty() const override { return this->accessTokenEffectiveTime_ == nullptr
+        && return this->allowedPublicClient_ == nullptr && return this->codeEffectiveTime_ == nullptr && return this->customClaims_ == nullptr && return this->grantScopes_ == nullptr && return this->grantTypes_ == nullptr
+        && return this->idTokenEffectiveTime_ == nullptr && return this->passwordAuthenticationSourceId_ == nullptr && return this->passwordTotpMfaRequired_ == nullptr && return this->pkceChallengeMethods_ == nullptr && return this->pkceRequired_ == nullptr
+        && return this->postLogoutRedirectUris_ == nullptr && return this->redirectUris_ == nullptr && return this->refreshTokenEffective_ == nullptr && return this->responseTypes_ == nullptr && return this->subjectIdExpression_ == nullptr; };
     // accessTokenEffectiveTime Field Functions 
     bool hasAccessTokenEffectiveTime() const { return this->accessTokenEffectiveTime_ != nullptr;};
     void deleteAccessTokenEffectiveTime() { this->accessTokenEffectiveTime_ = nullptr;};

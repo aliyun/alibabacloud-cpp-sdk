@@ -14,6 +14,7 @@ namespace Models
   class GetDomainResponseBodyDomain : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetDomainResponseBodyDomain& obj) { 
+      DARABONBA_PTR_TO_JSON(BrandId, brandId_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(DefaultDomain, defaultDomain_);
       DARABONBA_PTR_TO_JSON(Domain, domain_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
     };
     friend void from_json(const Darabonba::Json& j, GetDomainResponseBodyDomain& obj) { 
+      DARABONBA_PTR_FROM_JSON(BrandId, brandId_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(DefaultDomain, defaultDomain_);
       DARABONBA_PTR_FROM_JSON(Domain, domain_);
@@ -46,9 +48,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->defaultDomain_ != nullptr && this->domain_ != nullptr && this->domainId_ != nullptr && this->domainType_ != nullptr && this->filing_ != nullptr
-        && this->instanceId_ != nullptr && this->lockMode_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->brandId_ == nullptr
+        && return this->createTime_ == nullptr && return this->defaultDomain_ == nullptr && return this->domain_ == nullptr && return this->domainId_ == nullptr && return this->domainType_ == nullptr
+        && return this->filing_ == nullptr && return this->instanceId_ == nullptr && return this->lockMode_ == nullptr && return this->updateTime_ == nullptr; };
+    // brandId Field Functions 
+    bool hasBrandId() const { return this->brandId_ != nullptr;};
+    void deleteBrandId() { this->brandId_ = nullptr;};
+    inline string brandId() const { DARABONBA_PTR_GET_DEFAULT(brandId_, "") };
+    inline GetDomainResponseBodyDomain& setBrandId(string brandId) { DARABONBA_PTR_SET_VALUE(brandId_, brandId) };
+
+
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -115,6 +124,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> brandId_ = nullptr;
     // The start time when the change order was created.
     std::shared_ptr<int64_t> createTime_ = nullptr;
     // Whether it is the default domain.

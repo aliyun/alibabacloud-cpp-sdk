@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->edition_ != nullptr
-        && this->endTime_ != nullptr && this->licenseChargeType_ != nullptr && this->licenseConfigJson_ != nullptr && this->licenseCreateTime_ != nullptr && this->licenseId_ != nullptr
-        && this->licenseStatus_ != nullptr && this->purchaseChannel_ != nullptr && this->purchaseInstanceId_ != nullptr && this->startTime_ != nullptr && this->userQuota_ != nullptr; };
+    virtual bool empty() const override { return this->edition_ == nullptr
+        && return this->endTime_ == nullptr && return this->licenseChargeType_ == nullptr && return this->licenseConfigJson_ == nullptr && return this->licenseCreateTime_ == nullptr && return this->licenseId_ == nullptr
+        && return this->licenseStatus_ == nullptr && return this->purchaseChannel_ == nullptr && return this->purchaseInstanceId_ == nullptr && return this->startTime_ == nullptr && return this->userQuota_ == nullptr; };
     // edition Field Functions 
     bool hasEdition() const { return this->edition_ != nullptr;};
     void deleteEdition() { this->edition_ = nullptr;};

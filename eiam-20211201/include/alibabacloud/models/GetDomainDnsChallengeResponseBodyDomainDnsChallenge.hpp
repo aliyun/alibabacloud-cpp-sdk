@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dnsChallengeName_ != nullptr
-        && this->dnsChallengeValue_ != nullptr && this->dnsType_ != nullptr; };
+    virtual bool empty() const override { return this->dnsChallengeName_ == nullptr
+        && return this->dnsChallengeValue_ == nullptr && return this->dnsType_ == nullptr; };
     // dnsChallengeName Field Functions 
     bool hasDnsChallengeName() const { return this->dnsChallengeName_ != nullptr;};
     void deleteDnsChallengeName() { this->dnsChallengeName_ = nullptr;};
