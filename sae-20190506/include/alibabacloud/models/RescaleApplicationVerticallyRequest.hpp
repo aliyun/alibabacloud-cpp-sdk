@@ -17,6 +17,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Cpu, cpu_);
       DARABONBA_PTR_TO_JSON(DiskSize, diskSize_);
       DARABONBA_PTR_TO_JSON(Memory, memory_);
+      DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
+      DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(autoEnableApplicationScalingRule, autoEnableApplicationScalingRule_);
       DARABONBA_PTR_TO_JSON(minReadyInstanceRatio, minReadyInstanceRatio_);
       DARABONBA_PTR_TO_JSON(minReadyInstances, minReadyInstances_);
@@ -26,6 +28,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
       DARABONBA_PTR_FROM_JSON(DiskSize, diskSize_);
       DARABONBA_PTR_FROM_JSON(Memory, memory_);
+      DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
+      DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(autoEnableApplicationScalingRule, autoEnableApplicationScalingRule_);
       DARABONBA_PTR_FROM_JSON(minReadyInstanceRatio, minReadyInstanceRatio_);
       DARABONBA_PTR_FROM_JSON(minReadyInstances, minReadyInstances_);
@@ -42,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->cpu_ == nullptr && return this->diskSize_ == nullptr && return this->memory_ == nullptr && return this->autoEnableApplicationScalingRule_ == nullptr && return this->minReadyInstanceRatio_ == nullptr
-        && return this->minReadyInstances_ == nullptr; };
+        && return this->cpu_ == nullptr && return this->diskSize_ == nullptr && return this->memory_ == nullptr && return this->resourceType_ == nullptr && return this->vSwitchId_ == nullptr
+        && return this->autoEnableApplicationScalingRule_ == nullptr && return this->minReadyInstanceRatio_ == nullptr && return this->minReadyInstances_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -70,6 +74,20 @@ namespace Models
     void deleteMemory() { this->memory_ = nullptr;};
     inline string memory() const { DARABONBA_PTR_GET_DEFAULT(memory_, "") };
     inline RescaleApplicationVerticallyRequest& setMemory(string memory) { DARABONBA_PTR_SET_VALUE(memory_, memory) };
+
+
+    // resourceType Field Functions 
+    bool hasResourceType() const { return this->resourceType_ != nullptr;};
+    void deleteResourceType() { this->resourceType_ = nullptr;};
+    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline RescaleApplicationVerticallyRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
+
+
+    // vSwitchId Field Functions 
+    bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
+    void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
+    inline string vSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+    inline RescaleApplicationVerticallyRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
     // autoEnableApplicationScalingRule Field Functions 
@@ -108,6 +126,8 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> memory_ = nullptr;
+    std::shared_ptr<string> resourceType_ = nullptr;
+    std::shared_ptr<string> vSwitchId_ = nullptr;
     // Enable application scale rules automatically.
     std::shared_ptr<bool> autoEnableApplicationScalingRule_ = nullptr;
     // The ratio of minimum ready instances.

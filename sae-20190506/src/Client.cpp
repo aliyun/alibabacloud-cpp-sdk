@@ -7163,6 +7163,14 @@ RescaleApplicationVerticallyResponse Client::rescaleApplicationVerticallyWithOpt
     query["Memory"] = request.memory();
   }
 
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.resourceType();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.vSwitchId();
+  }
+
   if (!!request.hasAutoEnableApplicationScalingRule()) {
     query["autoEnableApplicationScalingRule"] = request.autoEnableApplicationScalingRule();
   }
