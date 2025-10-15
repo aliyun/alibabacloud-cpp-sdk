@@ -1826,6 +1826,10 @@ ListIntegrationPoliciesResponse Client::listIntegrationPoliciesWithOptions(const
     query["addonName"] = request.addonName();
   }
 
+  if (!!request.hasBindResourceId()) {
+    query["bindResourceId"] = request.bindResourceId();
+  }
+
   if (!!request.hasEntityGroupIds()) {
     query["entityGroupIds"] = request.entityGroupIds();
   }

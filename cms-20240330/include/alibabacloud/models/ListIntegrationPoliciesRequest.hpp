@@ -16,6 +16,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListIntegrationPoliciesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(addonName, addonName_);
+      DARABONBA_PTR_TO_JSON(bindResourceId, bindResourceId_);
       DARABONBA_PTR_TO_JSON(entityGroupIds, entityGroupIds_);
       DARABONBA_PTR_TO_JSON(filterRegionIds, filterRegionIds_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
@@ -31,6 +32,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListIntegrationPoliciesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(addonName, addonName_);
+      DARABONBA_PTR_FROM_JSON(bindResourceId, bindResourceId_);
       DARABONBA_PTR_FROM_JSON(entityGroupIds, entityGroupIds_);
       DARABONBA_PTR_FROM_JSON(filterRegionIds, filterRegionIds_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
@@ -56,14 +58,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addonName_ == nullptr
-        && return this->entityGroupIds_ == nullptr && return this->filterRegionIds_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->policyId_ == nullptr
-        && return this->policyName_ == nullptr && return this->policyType_ == nullptr && return this->prometheusInstanceId_ == nullptr && return this->query_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->tag_ == nullptr && return this->workspace_ == nullptr; };
+        && return this->bindResourceId_ == nullptr && return this->entityGroupIds_ == nullptr && return this->filterRegionIds_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr
+        && return this->policyId_ == nullptr && return this->policyName_ == nullptr && return this->policyType_ == nullptr && return this->prometheusInstanceId_ == nullptr && return this->query_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->tag_ == nullptr && return this->workspace_ == nullptr; };
     // addonName Field Functions 
     bool hasAddonName() const { return this->addonName_ != nullptr;};
     void deleteAddonName() { this->addonName_ = nullptr;};
     inline string addonName() const { DARABONBA_PTR_GET_DEFAULT(addonName_, "") };
     inline ListIntegrationPoliciesRequest& setAddonName(string addonName) { DARABONBA_PTR_SET_VALUE(addonName_, addonName) };
+
+
+    // bindResourceId Field Functions 
+    bool hasBindResourceId() const { return this->bindResourceId_ != nullptr;};
+    void deleteBindResourceId() { this->bindResourceId_ = nullptr;};
+    inline string bindResourceId() const { DARABONBA_PTR_GET_DEFAULT(bindResourceId_, "") };
+    inline ListIntegrationPoliciesRequest& setBindResourceId(string bindResourceId) { DARABONBA_PTR_SET_VALUE(bindResourceId_, bindResourceId) };
 
 
     // entityGroupIds Field Functions 
@@ -154,6 +163,7 @@ namespace Models
 
   protected:
     std::shared_ptr<string> addonName_ = nullptr;
+    std::shared_ptr<string> bindResourceId_ = nullptr;
     std::shared_ptr<string> entityGroupIds_ = nullptr;
     std::shared_ptr<string> filterRegionIds_ = nullptr;
     std::shared_ptr<int32_t> maxResults_ = nullptr;
