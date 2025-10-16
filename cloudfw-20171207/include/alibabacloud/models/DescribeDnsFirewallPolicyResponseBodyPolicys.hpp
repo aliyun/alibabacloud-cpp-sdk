@@ -62,11 +62,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aclAction_ != nullptr
-        && this->aclUuid_ != nullptr && this->description_ != nullptr && this->destination_ != nullptr && this->destinationAddrs_ != nullptr && this->destinationGroupType_ != nullptr
-        && this->destinationType_ != nullptr && this->direction_ != nullptr && this->hitLastTime_ != nullptr && this->hitTimes_ != nullptr && this->ipVersion_ != nullptr
-        && this->priority_ != nullptr && this->release_ != nullptr && this->source_ != nullptr && this->sourceAddrs_ != nullptr && this->sourceGroupType_ != nullptr
-        && this->sourceType_ != nullptr; };
+    virtual bool empty() const override { return this->aclAction_ == nullptr
+        && return this->aclUuid_ == nullptr && return this->description_ == nullptr && return this->destination_ == nullptr && return this->destinationAddrs_ == nullptr && return this->destinationGroupType_ == nullptr
+        && return this->destinationType_ == nullptr && return this->direction_ == nullptr && return this->hitLastTime_ == nullptr && return this->hitTimes_ == nullptr && return this->ipVersion_ == nullptr
+        && return this->priority_ == nullptr && return this->release_ == nullptr && return this->source_ == nullptr && return this->sourceAddrs_ == nullptr && return this->sourceGroupType_ == nullptr
+        && return this->sourceType_ == nullptr; };
     // aclAction Field Functions 
     bool hasAclAction() const { return this->aclAction_ != nullptr;};
     void deleteAclAction() { this->aclAction_ = nullptr;};

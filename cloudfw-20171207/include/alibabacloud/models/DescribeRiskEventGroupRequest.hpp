@@ -76,12 +76,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attackApp_ != nullptr
-        && this->attackAppCategory_ != nullptr && this->attackType_ != nullptr && this->buyVersion_ != nullptr && this->currentPage_ != nullptr && this->dataType_ != nullptr
-        && this->direction_ != nullptr && this->dstIP_ != nullptr && this->dstNetworkInstanceId_ != nullptr && this->endTime_ != nullptr && this->eventName_ != nullptr
-        && this->firewallType_ != nullptr && this->isOnlyPrivateAssoc_ != nullptr && this->lang_ != nullptr && this->noLocation_ != nullptr && this->order_ != nullptr
-        && this->pageSize_ != nullptr && this->ruleResult_ != nullptr && this->ruleSource_ != nullptr && this->sort_ != nullptr && this->srcIP_ != nullptr
-        && this->srcNetworkInstanceId_ != nullptr && this->startTime_ != nullptr && this->vulLevel_ != nullptr; };
+    virtual bool empty() const override { return this->attackApp_ == nullptr
+        && return this->attackAppCategory_ == nullptr && return this->attackType_ == nullptr && return this->buyVersion_ == nullptr && return this->currentPage_ == nullptr && return this->dataType_ == nullptr
+        && return this->direction_ == nullptr && return this->dstIP_ == nullptr && return this->dstNetworkInstanceId_ == nullptr && return this->endTime_ == nullptr && return this->eventName_ == nullptr
+        && return this->firewallType_ == nullptr && return this->isOnlyPrivateAssoc_ == nullptr && return this->lang_ == nullptr && return this->noLocation_ == nullptr && return this->order_ == nullptr
+        && return this->pageSize_ == nullptr && return this->ruleResult_ == nullptr && return this->ruleSource_ == nullptr && return this->sort_ == nullptr && return this->srcIP_ == nullptr
+        && return this->srcNetworkInstanceId_ == nullptr && return this->startTime_ == nullptr && return this->vulLevel_ == nullptr; };
     // attackApp Field Functions 
     bool hasAttackApp() const { return this->attackApp_ != nullptr;};
     void deleteAttackApp() { this->attackApp_ = nullptr;};

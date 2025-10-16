@@ -83,13 +83,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aclCoverage_ != nullptr
-        && this->aclRecommendDetail_ != nullptr && this->aclStatus_ != nullptr && this->addressGroupName_ != nullptr && this->addressGroupUUID_ != nullptr && this->applicationNameList_ != nullptr
-        && this->assetCount_ != nullptr && this->business_ != nullptr && this->categoryClassId_ != nullptr && this->categoryId_ != nullptr && this->categoryName_ != nullptr
-        && this->domain_ != nullptr && this->groupName_ != nullptr && this->hasAcl_ != nullptr && this->hasAclRecommend_ != nullptr && this->inBytes_ != nullptr
-        && this->isMarkNormal_ != nullptr && this->organization_ != nullptr && this->outBytes_ != nullptr && this->privateAssetCount_ != nullptr && this->ruleId_ != nullptr
-        && this->ruleName_ != nullptr && this->securityReason_ != nullptr && this->securitySuggest_ != nullptr && this->sessionCount_ != nullptr && this->tagList_ != nullptr
-        && this->totalBytes_ != nullptr; };
+    virtual bool empty() const override { return this->aclCoverage_ == nullptr
+        && return this->aclRecommendDetail_ == nullptr && return this->aclStatus_ == nullptr && return this->addressGroupName_ == nullptr && return this->addressGroupUUID_ == nullptr && return this->applicationNameList_ == nullptr
+        && return this->assetCount_ == nullptr && return this->business_ == nullptr && return this->categoryClassId_ == nullptr && return this->categoryId_ == nullptr && return this->categoryName_ == nullptr
+        && return this->domain_ == nullptr && return this->groupName_ == nullptr && return this->hasAcl_ == nullptr && return this->hasAclRecommend_ == nullptr && return this->inBytes_ == nullptr
+        && return this->isMarkNormal_ == nullptr && return this->organization_ == nullptr && return this->outBytes_ == nullptr && return this->privateAssetCount_ == nullptr && return this->ruleId_ == nullptr
+        && return this->ruleName_ == nullptr && return this->securityReason_ == nullptr && return this->securitySuggest_ == nullptr && return this->sessionCount_ == nullptr && return this->tagList_ == nullptr
+        && return this->totalBytes_ == nullptr; };
     // aclCoverage Field Functions 
     bool hasAclCoverage() const { return this->aclCoverage_ != nullptr;};
     void deleteAclCoverage() { this->aclCoverage_ = nullptr;};

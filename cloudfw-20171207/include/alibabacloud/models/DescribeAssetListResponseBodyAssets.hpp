@@ -73,12 +73,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliUid_ != nullptr
-        && this->bindInstanceId_ != nullptr && this->bindInstanceName_ != nullptr && this->createTimeStamp_ != nullptr && this->internetAddress_ != nullptr && this->intranetAddress_ != nullptr
-        && this->ipVersion_ != nullptr && this->last7DayOutTrafficBytes_ != nullptr && this->memberUid_ != nullptr && this->name_ != nullptr && this->newResourceTag_ != nullptr
-        && this->note_ != nullptr && this->protectStatus_ != nullptr && this->regionID_ != nullptr && this->regionStatus_ != nullptr && this->resourceInstanceId_ != nullptr
-        && this->resourceType_ != nullptr && this->riskLevel_ != nullptr && this->sensitiveDataStatus_ != nullptr && this->sgStatus_ != nullptr && this->sgStatusTime_ != nullptr
-        && this->syncStatus_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->aliUid_ == nullptr
+        && return this->bindInstanceId_ == nullptr && return this->bindInstanceName_ == nullptr && return this->createTimeStamp_ == nullptr && return this->internetAddress_ == nullptr && return this->intranetAddress_ == nullptr
+        && return this->ipVersion_ == nullptr && return this->last7DayOutTrafficBytes_ == nullptr && return this->memberUid_ == nullptr && return this->name_ == nullptr && return this->newResourceTag_ == nullptr
+        && return this->note_ == nullptr && return this->protectStatus_ == nullptr && return this->regionID_ == nullptr && return this->regionStatus_ == nullptr && return this->resourceInstanceId_ == nullptr
+        && return this->resourceType_ == nullptr && return this->riskLevel_ == nullptr && return this->sensitiveDataStatus_ == nullptr && return this->sgStatus_ == nullptr && return this->sgStatusTime_ == nullptr
+        && return this->syncStatus_ == nullptr && return this->type_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};

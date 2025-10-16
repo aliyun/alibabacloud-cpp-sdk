@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->categoryId_ != nullptr
-        && this->currentPage_ != nullptr && this->dataType_ != nullptr && this->domain_ != nullptr && this->endTime_ != nullptr && this->isAITraffic_ != nullptr
-        && this->lang_ != nullptr && this->order_ != nullptr && this->pageSize_ != nullptr && this->publicIP_ != nullptr && this->sort_ != nullptr
-        && this->startTime_ != nullptr && this->tagIdNew_ != nullptr; };
+    virtual bool empty() const override { return this->categoryId_ == nullptr
+        && return this->currentPage_ == nullptr && return this->dataType_ == nullptr && return this->domain_ == nullptr && return this->endTime_ == nullptr && return this->isAITraffic_ == nullptr
+        && return this->lang_ == nullptr && return this->order_ == nullptr && return this->pageSize_ == nullptr && return this->publicIP_ == nullptr && return this->sort_ == nullptr
+        && return this->startTime_ == nullptr && return this->tagIdNew_ == nullptr; };
     // categoryId Field Functions 
     bool hasCategoryId() const { return this->categoryId_ != nullptr;};
     void deleteCategoryId() { this->categoryId_ = nullptr;};

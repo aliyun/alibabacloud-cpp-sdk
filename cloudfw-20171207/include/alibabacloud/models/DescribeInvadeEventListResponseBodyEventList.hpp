@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assetsInstanceId_ != nullptr
-        && this->assetsInstanceName_ != nullptr && this->assetsType_ != nullptr && this->eventKey_ != nullptr && this->eventName_ != nullptr && this->eventSrc_ != nullptr
-        && this->eventUuid_ != nullptr && this->firstTime_ != nullptr && this->isIgnore_ != nullptr && this->lastTime_ != nullptr && this->memberUid_ != nullptr
-        && this->privateIP_ != nullptr && this->processStatus_ != nullptr && this->publicIP_ != nullptr && this->publicIpType_ != nullptr && this->riskLevel_ != nullptr; };
+    virtual bool empty() const override { return this->assetsInstanceId_ == nullptr
+        && return this->assetsInstanceName_ == nullptr && return this->assetsType_ == nullptr && return this->eventKey_ == nullptr && return this->eventName_ == nullptr && return this->eventSrc_ == nullptr
+        && return this->eventUuid_ == nullptr && return this->firstTime_ == nullptr && return this->isIgnore_ == nullptr && return this->lastTime_ == nullptr && return this->memberUid_ == nullptr
+        && return this->privateIP_ == nullptr && return this->processStatus_ == nullptr && return this->publicIP_ == nullptr && return this->publicIpType_ == nullptr && return this->riskLevel_ == nullptr; };
     // assetsInstanceId Field Functions 
     bool hasAssetsInstanceId() const { return this->assetsInstanceId_ != nullptr;};
     void deleteAssetsInstanceId() { this->assetsInstanceId_ = nullptr;};

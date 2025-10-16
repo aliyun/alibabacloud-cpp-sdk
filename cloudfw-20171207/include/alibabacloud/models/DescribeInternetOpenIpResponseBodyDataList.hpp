@@ -72,12 +72,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aclRecommendDetail_ != nullptr
-        && this->assetsInstanceId_ != nullptr && this->assetsName_ != nullptr && this->assetsType_ != nullptr && this->detailNum_ != nullptr && this->hasAclRecommend_ != nullptr
-        && this->inBytes_ != nullptr && this->memberUid_ != nullptr && this->outBytes_ != nullptr && this->portList_ != nullptr && this->publicIp_ != nullptr
-        && this->regionNo_ != nullptr && this->riskLevel_ != nullptr && this->riskReason_ != nullptr && this->serviceNameList_ != nullptr && this->srcIpCnt_ != nullptr
-        && this->totalBytes_ != nullptr && this->totalReplyBytes_ != nullptr && this->trafficPercent1Day_ != nullptr && this->trafficPercent30Day_ != nullptr && this->trafficPercent7Day_ != nullptr
-        && this->unknownReason_ != nullptr; };
+    virtual bool empty() const override { return this->aclRecommendDetail_ == nullptr
+        && return this->assetsInstanceId_ == nullptr && return this->assetsName_ == nullptr && return this->assetsType_ == nullptr && return this->detailNum_ == nullptr && return this->hasAclRecommend_ == nullptr
+        && return this->inBytes_ == nullptr && return this->memberUid_ == nullptr && return this->outBytes_ == nullptr && return this->portList_ == nullptr && return this->publicIp_ == nullptr
+        && return this->regionNo_ == nullptr && return this->riskLevel_ == nullptr && return this->riskReason_ == nullptr && return this->serviceNameList_ == nullptr && return this->srcIpCnt_ == nullptr
+        && return this->totalBytes_ == nullptr && return this->totalReplyBytes_ == nullptr && return this->trafficPercent1Day_ == nullptr && return this->trafficPercent30Day_ == nullptr && return this->trafficPercent7Day_ == nullptr
+        && return this->unknownReason_ == nullptr; };
     // aclRecommendDetail Field Functions 
     bool hasAclRecommendDetail() const { return this->aclRecommendDetail_ != nullptr;};
     void deleteAclRecommendDetail() { this->aclRecommendDetail_ = nullptr;};

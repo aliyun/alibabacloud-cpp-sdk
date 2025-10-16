@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_MODIFYADDRESSBOOKREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/ModifyAddressBookRequestAckLabels.hpp>
 #include <alibabacloud/models/ModifyAddressBookRequestTagList.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -15,6 +16,8 @@ namespace Models
   class ModifyAddressBookRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyAddressBookRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AckLabels, ackLabels_);
+      DARABONBA_PTR_TO_JSON(AckNamespaces, ackNamespaces_);
       DARABONBA_PTR_TO_JSON(AddressList, addressList_);
       DARABONBA_PTR_TO_JSON(AutoAddTagEcs, autoAddTagEcs_);
       DARABONBA_PTR_TO_JSON(Description, description_);
@@ -27,6 +30,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TagRelation, tagRelation_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyAddressBookRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AckLabels, ackLabels_);
+      DARABONBA_PTR_FROM_JSON(AckNamespaces, ackNamespaces_);
       DARABONBA_PTR_FROM_JSON(AddressList, addressList_);
       DARABONBA_PTR_FROM_JSON(AutoAddTagEcs, autoAddTagEcs_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -49,9 +54,28 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addressList_ != nullptr
-        && this->autoAddTagEcs_ != nullptr && this->description_ != nullptr && this->groupName_ != nullptr && this->groupUuid_ != nullptr && this->lang_ != nullptr
-        && this->modifyMode_ != nullptr && this->sourceIp_ != nullptr && this->tagList_ != nullptr && this->tagRelation_ != nullptr; };
+    virtual bool empty() const override { return this->ackLabels_ == nullptr
+        && return this->ackNamespaces_ == nullptr && return this->addressList_ == nullptr && return this->autoAddTagEcs_ == nullptr && return this->description_ == nullptr && return this->groupName_ == nullptr
+        && return this->groupUuid_ == nullptr && return this->lang_ == nullptr && return this->modifyMode_ == nullptr && return this->sourceIp_ == nullptr && return this->tagList_ == nullptr
+        && return this->tagRelation_ == nullptr; };
+    // ackLabels Field Functions 
+    bool hasAckLabels() const { return this->ackLabels_ != nullptr;};
+    void deleteAckLabels() { this->ackLabels_ = nullptr;};
+    inline const vector<ModifyAddressBookRequestAckLabels> & ackLabels() const { DARABONBA_PTR_GET_CONST(ackLabels_, vector<ModifyAddressBookRequestAckLabels>) };
+    inline vector<ModifyAddressBookRequestAckLabels> ackLabels() { DARABONBA_PTR_GET(ackLabels_, vector<ModifyAddressBookRequestAckLabels>) };
+    inline ModifyAddressBookRequest& setAckLabels(const vector<ModifyAddressBookRequestAckLabels> & ackLabels) { DARABONBA_PTR_SET_VALUE(ackLabels_, ackLabels) };
+    inline ModifyAddressBookRequest& setAckLabels(vector<ModifyAddressBookRequestAckLabels> && ackLabels) { DARABONBA_PTR_SET_RVALUE(ackLabels_, ackLabels) };
+
+
+    // ackNamespaces Field Functions 
+    bool hasAckNamespaces() const { return this->ackNamespaces_ != nullptr;};
+    void deleteAckNamespaces() { this->ackNamespaces_ = nullptr;};
+    inline const vector<string> & ackNamespaces() const { DARABONBA_PTR_GET_CONST(ackNamespaces_, vector<string>) };
+    inline vector<string> ackNamespaces() { DARABONBA_PTR_GET(ackNamespaces_, vector<string>) };
+    inline ModifyAddressBookRequest& setAckNamespaces(const vector<string> & ackNamespaces) { DARABONBA_PTR_SET_VALUE(ackNamespaces_, ackNamespaces) };
+    inline ModifyAddressBookRequest& setAckNamespaces(vector<string> && ackNamespaces) { DARABONBA_PTR_SET_RVALUE(ackNamespaces_, ackNamespaces) };
+
+
     // addressList Field Functions 
     bool hasAddressList() const { return this->addressList_ != nullptr;};
     void deleteAddressList() { this->addressList_ = nullptr;};
@@ -125,6 +149,8 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<vector<ModifyAddressBookRequestAckLabels>> ackLabels_ = nullptr;
+    std::shared_ptr<vector<string>> ackNamespaces_ = nullptr;
     // The addresses in the address book. Separate multiple addresses with commas (,). If you set GroupType to **ip**, **port**, or **domain**, you must specify this parameter.
     // 
     // *   If you set GroupType to **ip**, you must specify IP addresses for the address book. Example: 1.2.XX.XX/32,1.2.XX.XX/24.

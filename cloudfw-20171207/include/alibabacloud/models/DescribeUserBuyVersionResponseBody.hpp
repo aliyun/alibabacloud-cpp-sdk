@@ -13,36 +13,54 @@ namespace Models
   class DescribeUserBuyVersionResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeUserBuyVersionResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AckClusterConnectorQuota, ackClusterConnectorQuota_);
       DARABONBA_PTR_TO_JSON(AliUid, aliUid_);
+      DARABONBA_PTR_TO_JSON(DefaultBandwidth, defaultBandwidth_);
       DARABONBA_PTR_TO_JSON(Expire, expire_);
+      DARABONBA_PTR_TO_JSON(ExtensionBandwidth, extensionBandwidth_);
+      DARABONBA_PTR_TO_JSON(GeneralInstance, generalInstance_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InstanceStatus, instanceStatus_);
       DARABONBA_PTR_TO_JSON(InternetBandwidth, internetBandwidth_);
       DARABONBA_PTR_TO_JSON(IpNumber, ipNumber_);
       DARABONBA_PTR_TO_JSON(LogStatus, logStatus_);
       DARABONBA_PTR_TO_JSON(LogStorage, logStorage_);
+      DARABONBA_PTR_TO_JSON(MajorVersion, majorVersion_);
       DARABONBA_PTR_TO_JSON(MaxOverflow, maxOverflow_);
       DARABONBA_PTR_TO_JSON(NatBandwidth, natBandwidth_);
+      DARABONBA_PTR_TO_JSON(PrivateDnsConnectorQuota, privateDnsConnectorQuota_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(Sdl, sdl_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+      DARABONBA_PTR_TO_JSON(TemporaryBandwidth, temporaryBandwidth_);
+      DARABONBA_PTR_TO_JSON(ThreatIntelligence, threatIntelligence_);
       DARABONBA_PTR_TO_JSON(UserStatus, userStatus_);
       DARABONBA_PTR_TO_JSON(Version, version_);
       DARABONBA_PTR_TO_JSON(VpcBandwidth, vpcBandwidth_);
       DARABONBA_PTR_TO_JSON(VpcNumber, vpcNumber_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeUserBuyVersionResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AckClusterConnectorQuota, ackClusterConnectorQuota_);
       DARABONBA_PTR_FROM_JSON(AliUid, aliUid_);
+      DARABONBA_PTR_FROM_JSON(DefaultBandwidth, defaultBandwidth_);
       DARABONBA_PTR_FROM_JSON(Expire, expire_);
+      DARABONBA_PTR_FROM_JSON(ExtensionBandwidth, extensionBandwidth_);
+      DARABONBA_PTR_FROM_JSON(GeneralInstance, generalInstance_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InstanceStatus, instanceStatus_);
       DARABONBA_PTR_FROM_JSON(InternetBandwidth, internetBandwidth_);
       DARABONBA_PTR_FROM_JSON(IpNumber, ipNumber_);
       DARABONBA_PTR_FROM_JSON(LogStatus, logStatus_);
       DARABONBA_PTR_FROM_JSON(LogStorage, logStorage_);
+      DARABONBA_PTR_FROM_JSON(MajorVersion, majorVersion_);
       DARABONBA_PTR_FROM_JSON(MaxOverflow, maxOverflow_);
       DARABONBA_PTR_FROM_JSON(NatBandwidth, natBandwidth_);
+      DARABONBA_PTR_FROM_JSON(PrivateDnsConnectorQuota, privateDnsConnectorQuota_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(Sdl, sdl_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+      DARABONBA_PTR_FROM_JSON(TemporaryBandwidth, temporaryBandwidth_);
+      DARABONBA_PTR_FROM_JSON(ThreatIntelligence, threatIntelligence_);
       DARABONBA_PTR_FROM_JSON(UserStatus, userStatus_);
       DARABONBA_PTR_FROM_JSON(Version, version_);
       DARABONBA_PTR_FROM_JSON(VpcBandwidth, vpcBandwidth_);
@@ -59,10 +77,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliUid_ != nullptr
-        && this->expire_ != nullptr && this->instanceId_ != nullptr && this->instanceStatus_ != nullptr && this->internetBandwidth_ != nullptr && this->ipNumber_ != nullptr
-        && this->logStatus_ != nullptr && this->logStorage_ != nullptr && this->maxOverflow_ != nullptr && this->natBandwidth_ != nullptr && this->requestId_ != nullptr
-        && this->startTime_ != nullptr && this->userStatus_ != nullptr && this->version_ != nullptr && this->vpcBandwidth_ != nullptr && this->vpcNumber_ != nullptr; };
+    virtual bool empty() const override { return this->ackClusterConnectorQuota_ == nullptr
+        && return this->aliUid_ == nullptr && return this->defaultBandwidth_ == nullptr && return this->expire_ == nullptr && return this->extensionBandwidth_ == nullptr && return this->generalInstance_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceStatus_ == nullptr && return this->internetBandwidth_ == nullptr && return this->ipNumber_ == nullptr && return this->logStatus_ == nullptr
+        && return this->logStorage_ == nullptr && return this->majorVersion_ == nullptr && return this->maxOverflow_ == nullptr && return this->natBandwidth_ == nullptr && return this->privateDnsConnectorQuota_ == nullptr
+        && return this->requestId_ == nullptr && return this->sdl_ == nullptr && return this->startTime_ == nullptr && return this->temporaryBandwidth_ == nullptr && return this->threatIntelligence_ == nullptr
+        && return this->userStatus_ == nullptr && return this->version_ == nullptr && return this->vpcBandwidth_ == nullptr && return this->vpcNumber_ == nullptr; };
+    // ackClusterConnectorQuota Field Functions 
+    bool hasAckClusterConnectorQuota() const { return this->ackClusterConnectorQuota_ != nullptr;};
+    void deleteAckClusterConnectorQuota() { this->ackClusterConnectorQuota_ = nullptr;};
+    inline int64_t ackClusterConnectorQuota() const { DARABONBA_PTR_GET_DEFAULT(ackClusterConnectorQuota_, 0L) };
+    inline DescribeUserBuyVersionResponseBody& setAckClusterConnectorQuota(int64_t ackClusterConnectorQuota) { DARABONBA_PTR_SET_VALUE(ackClusterConnectorQuota_, ackClusterConnectorQuota) };
+
+
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -70,11 +97,32 @@ namespace Models
     inline DescribeUserBuyVersionResponseBody& setAliUid(int64_t aliUid) { DARABONBA_PTR_SET_VALUE(aliUid_, aliUid) };
 
 
+    // defaultBandwidth Field Functions 
+    bool hasDefaultBandwidth() const { return this->defaultBandwidth_ != nullptr;};
+    void deleteDefaultBandwidth() { this->defaultBandwidth_ = nullptr;};
+    inline int64_t defaultBandwidth() const { DARABONBA_PTR_GET_DEFAULT(defaultBandwidth_, 0L) };
+    inline DescribeUserBuyVersionResponseBody& setDefaultBandwidth(int64_t defaultBandwidth) { DARABONBA_PTR_SET_VALUE(defaultBandwidth_, defaultBandwidth) };
+
+
     // expire Field Functions 
     bool hasExpire() const { return this->expire_ != nullptr;};
     void deleteExpire() { this->expire_ = nullptr;};
     inline int64_t expire() const { DARABONBA_PTR_GET_DEFAULT(expire_, 0L) };
     inline DescribeUserBuyVersionResponseBody& setExpire(int64_t expire) { DARABONBA_PTR_SET_VALUE(expire_, expire) };
+
+
+    // extensionBandwidth Field Functions 
+    bool hasExtensionBandwidth() const { return this->extensionBandwidth_ != nullptr;};
+    void deleteExtensionBandwidth() { this->extensionBandwidth_ = nullptr;};
+    inline int64_t extensionBandwidth() const { DARABONBA_PTR_GET_DEFAULT(extensionBandwidth_, 0L) };
+    inline DescribeUserBuyVersionResponseBody& setExtensionBandwidth(int64_t extensionBandwidth) { DARABONBA_PTR_SET_VALUE(extensionBandwidth_, extensionBandwidth) };
+
+
+    // generalInstance Field Functions 
+    bool hasGeneralInstance() const { return this->generalInstance_ != nullptr;};
+    void deleteGeneralInstance() { this->generalInstance_ = nullptr;};
+    inline int64_t generalInstance() const { DARABONBA_PTR_GET_DEFAULT(generalInstance_, 0L) };
+    inline DescribeUserBuyVersionResponseBody& setGeneralInstance(int64_t generalInstance) { DARABONBA_PTR_SET_VALUE(generalInstance_, generalInstance) };
 
 
     // instanceId Field Functions 
@@ -119,6 +167,13 @@ namespace Models
     inline DescribeUserBuyVersionResponseBody& setLogStorage(int64_t logStorage) { DARABONBA_PTR_SET_VALUE(logStorage_, logStorage) };
 
 
+    // majorVersion Field Functions 
+    bool hasMajorVersion() const { return this->majorVersion_ != nullptr;};
+    void deleteMajorVersion() { this->majorVersion_ = nullptr;};
+    inline int64_t majorVersion() const { DARABONBA_PTR_GET_DEFAULT(majorVersion_, 0L) };
+    inline DescribeUserBuyVersionResponseBody& setMajorVersion(int64_t majorVersion) { DARABONBA_PTR_SET_VALUE(majorVersion_, majorVersion) };
+
+
     // maxOverflow Field Functions 
     bool hasMaxOverflow() const { return this->maxOverflow_ != nullptr;};
     void deleteMaxOverflow() { this->maxOverflow_ = nullptr;};
@@ -133,6 +188,13 @@ namespace Models
     inline DescribeUserBuyVersionResponseBody& setNatBandwidth(int64_t natBandwidth) { DARABONBA_PTR_SET_VALUE(natBandwidth_, natBandwidth) };
 
 
+    // privateDnsConnectorQuota Field Functions 
+    bool hasPrivateDnsConnectorQuota() const { return this->privateDnsConnectorQuota_ != nullptr;};
+    void deletePrivateDnsConnectorQuota() { this->privateDnsConnectorQuota_ = nullptr;};
+    inline int64_t privateDnsConnectorQuota() const { DARABONBA_PTR_GET_DEFAULT(privateDnsConnectorQuota_, 0L) };
+    inline DescribeUserBuyVersionResponseBody& setPrivateDnsConnectorQuota(int64_t privateDnsConnectorQuota) { DARABONBA_PTR_SET_VALUE(privateDnsConnectorQuota_, privateDnsConnectorQuota) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -140,11 +202,32 @@ namespace Models
     inline DescribeUserBuyVersionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // sdl Field Functions 
+    bool hasSdl() const { return this->sdl_ != nullptr;};
+    void deleteSdl() { this->sdl_ = nullptr;};
+    inline int64_t sdl() const { DARABONBA_PTR_GET_DEFAULT(sdl_, 0L) };
+    inline DescribeUserBuyVersionResponseBody& setSdl(int64_t sdl) { DARABONBA_PTR_SET_VALUE(sdl_, sdl) };
+
+
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
     inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline DescribeUserBuyVersionResponseBody& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+    // temporaryBandwidth Field Functions 
+    bool hasTemporaryBandwidth() const { return this->temporaryBandwidth_ != nullptr;};
+    void deleteTemporaryBandwidth() { this->temporaryBandwidth_ = nullptr;};
+    inline int64_t temporaryBandwidth() const { DARABONBA_PTR_GET_DEFAULT(temporaryBandwidth_, 0L) };
+    inline DescribeUserBuyVersionResponseBody& setTemporaryBandwidth(int64_t temporaryBandwidth) { DARABONBA_PTR_SET_VALUE(temporaryBandwidth_, temporaryBandwidth) };
+
+
+    // threatIntelligence Field Functions 
+    bool hasThreatIntelligence() const { return this->threatIntelligence_ != nullptr;};
+    void deleteThreatIntelligence() { this->threatIntelligence_ = nullptr;};
+    inline int64_t threatIntelligence() const { DARABONBA_PTR_GET_DEFAULT(threatIntelligence_, 0L) };
+    inline DescribeUserBuyVersionResponseBody& setThreatIntelligence(int64_t threatIntelligence) { DARABONBA_PTR_SET_VALUE(threatIntelligence_, threatIntelligence) };
 
 
     // userStatus Field Functions 
@@ -176,14 +259,18 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<int64_t> ackClusterConnectorQuota_ = nullptr;
     // The ID of the Alibaba Cloud account that is used to purchase Cloud Firewall.
     std::shared_ptr<int64_t> aliUid_ = nullptr;
+    std::shared_ptr<int64_t> defaultBandwidth_ = nullptr;
     // The time when Cloud Firewall expires.
     // 
     // >  The value is a timestamp in milliseconds.
     // 
     // >  If you use Cloud Firewall that uses the pay-as-you-go billing method, ignore this parameter.
     std::shared_ptr<int64_t> expire_ = nullptr;
+    std::shared_ptr<int64_t> extensionBandwidth_ = nullptr;
+    std::shared_ptr<int64_t> generalInstance_ = nullptr;
     // The instance ID of Cloud Firewall.
     // 
     // >  If you use a trial of Cloud Firewall, ignore this parameter.
@@ -211,6 +298,7 @@ namespace Models
     // 
     // >  This parameter takes effect only for Cloud Firewall that uses the subscription billing method.
     std::shared_ptr<int64_t> logStorage_ = nullptr;
+    std::shared_ptr<int64_t> majorVersion_ = nullptr;
     // The status of the burstable protected traffic feature. Valid values:
     // 
     // *   **1000000**: enabled.
@@ -220,12 +308,16 @@ namespace Models
     std::shared_ptr<int64_t> maxOverflow_ = nullptr;
     // The peak traffic of NAT private network that can be protected.
     std::shared_ptr<int64_t> natBandwidth_ = nullptr;
+    std::shared_ptr<int64_t> privateDnsConnectorQuota_ = nullptr;
     // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    std::shared_ptr<int64_t> sdl_ = nullptr;
     // The time when Cloud Firewall was activated.
     // 
     // >  The value is a timestamp in milliseconds.
     std::shared_ptr<int64_t> startTime_ = nullptr;
+    std::shared_ptr<int64_t> temporaryBandwidth_ = nullptr;
+    std::shared_ptr<int64_t> threatIntelligence_ = nullptr;
     // Indicates whether Cloud Firewall is valid. Valid values:
     // 
     // *   **true**

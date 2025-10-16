@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->inBps_ != nullptr
-        && this->inBytes_ != nullptr && this->inPps_ != nullptr && this->newConn_ != nullptr && this->outBps_ != nullptr && this->outBytes_ != nullptr
-        && this->outPps_ != nullptr && this->sessionCount_ != nullptr && this->time_ != nullptr && this->totalBps_ != nullptr; };
+    virtual bool empty() const override { return this->inBps_ == nullptr
+        && return this->inBytes_ == nullptr && return this->inPps_ == nullptr && return this->newConn_ == nullptr && return this->outBps_ == nullptr && return this->outBytes_ == nullptr
+        && return this->outPps_ == nullptr && return this->sessionCount_ == nullptr && return this->time_ == nullptr && return this->totalBps_ == nullptr; };
     // inBps Field Functions 
     bool hasInBps() const { return this->inBps_ != nullptr;};
     void deleteInBps() { this->inBps_ = nullptr;};

@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->connectType_ != nullptr
-        && this->firewallSwitchStatus_ != nullptr && this->firewallVpc_ != nullptr && this->localVpc_ != nullptr && this->requestId_ != nullptr && this->vpcFirewallId_ != nullptr
-        && this->vpcFirewallName_ != nullptr; };
+    virtual bool empty() const override { return this->connectType_ == nullptr
+        && return this->firewallSwitchStatus_ == nullptr && return this->firewallVpc_ == nullptr && return this->localVpc_ == nullptr && return this->requestId_ == nullptr && return this->vpcFirewallId_ == nullptr
+        && return this->vpcFirewallName_ == nullptr; };
     // connectType Field Functions 
     bool hasConnectType() const { return this->connectType_ != nullptr;};
     void deleteConnectType() { this->connectType_ = nullptr;};

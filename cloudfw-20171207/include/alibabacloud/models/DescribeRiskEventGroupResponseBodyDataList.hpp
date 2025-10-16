@@ -36,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RuleSource, ruleSource_);
       DARABONBA_PTR_TO_JSON(SrcIP, srcIP_);
       DARABONBA_PTR_TO_JSON(SrcIPTag, srcIPTag_);
+      DARABONBA_PTR_TO_JSON(SrcIPTags, srcIPTags_);
       DARABONBA_PTR_TO_JSON(SrcPrivateIPList, srcPrivateIPList_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(VpcDstInfo, vpcDstInfo_);
@@ -61,6 +62,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RuleSource, ruleSource_);
       DARABONBA_PTR_FROM_JSON(SrcIP, srcIP_);
       DARABONBA_PTR_FROM_JSON(SrcIPTag, srcIPTag_);
+      DARABONBA_PTR_FROM_JSON(SrcIPTags, srcIPTags_);
       DARABONBA_PTR_FROM_JSON(SrcPrivateIPList, srcPrivateIPList_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(VpcDstInfo, vpcDstInfo_);
@@ -78,12 +80,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attackApp_ != nullptr
-        && this->attackType_ != nullptr && this->description_ != nullptr && this->direction_ != nullptr && this->dstIP_ != nullptr && this->eventCount_ != nullptr
-        && this->eventId_ != nullptr && this->eventName_ != nullptr && this->firstEventTime_ != nullptr && this->IPLocationInfo_ != nullptr && this->lastEventTime_ != nullptr
-        && this->resourcePrivateIPList_ != nullptr && this->resourceType_ != nullptr && this->ruleId_ != nullptr && this->ruleResult_ != nullptr && this->ruleSource_ != nullptr
-        && this->srcIP_ != nullptr && this->srcIPTag_ != nullptr && this->srcPrivateIPList_ != nullptr && this->tag_ != nullptr && this->vpcDstInfo_ != nullptr
-        && this->vpcSrcInfo_ != nullptr && this->vulLevel_ != nullptr; };
+    virtual bool empty() const override { return this->attackApp_ == nullptr
+        && return this->attackType_ == nullptr && return this->description_ == nullptr && return this->direction_ == nullptr && return this->dstIP_ == nullptr && return this->eventCount_ == nullptr
+        && return this->eventId_ == nullptr && return this->eventName_ == nullptr && return this->firstEventTime_ == nullptr && return this->IPLocationInfo_ == nullptr && return this->lastEventTime_ == nullptr
+        && return this->resourcePrivateIPList_ == nullptr && return this->resourceType_ == nullptr && return this->ruleId_ == nullptr && return this->ruleResult_ == nullptr && return this->ruleSource_ == nullptr
+        && return this->srcIP_ == nullptr && return this->srcIPTag_ == nullptr && return this->srcIPTags_ == nullptr && return this->srcPrivateIPList_ == nullptr && return this->tag_ == nullptr
+        && return this->vpcDstInfo_ == nullptr && return this->vpcSrcInfo_ == nullptr && return this->vulLevel_ == nullptr; };
     // attackApp Field Functions 
     bool hasAttackApp() const { return this->attackApp_ != nullptr;};
     void deleteAttackApp() { this->attackApp_ = nullptr;};
@@ -214,6 +216,15 @@ namespace Models
     inline DescribeRiskEventGroupResponseBodyDataList& setSrcIPTag(string srcIPTag) { DARABONBA_PTR_SET_VALUE(srcIPTag_, srcIPTag) };
 
 
+    // srcIPTags Field Functions 
+    bool hasSrcIPTags() const { return this->srcIPTags_ != nullptr;};
+    void deleteSrcIPTags() { this->srcIPTags_ = nullptr;};
+    inline const vector<string> & srcIPTags() const { DARABONBA_PTR_GET_CONST(srcIPTags_, vector<string>) };
+    inline vector<string> srcIPTags() { DARABONBA_PTR_GET(srcIPTags_, vector<string>) };
+    inline DescribeRiskEventGroupResponseBodyDataList& setSrcIPTags(const vector<string> & srcIPTags) { DARABONBA_PTR_SET_VALUE(srcIPTags_, srcIPTags) };
+    inline DescribeRiskEventGroupResponseBodyDataList& setSrcIPTags(vector<string> && srcIPTags) { DARABONBA_PTR_SET_RVALUE(srcIPTags_, srcIPTags) };
+
+
     // srcPrivateIPList Field Functions 
     bool hasSrcPrivateIPList() const { return this->srcPrivateIPList_ != nullptr;};
     void deleteSrcPrivateIPList() { this->srcPrivateIPList_ = nullptr;};
@@ -324,6 +335,7 @@ namespace Models
     std::shared_ptr<string> srcIP_ = nullptr;
     // The tag added to the source IP address. The tag helps identify whether the source IP address is a back-to-origin IP address for a cloud service.
     std::shared_ptr<string> srcIPTag_ = nullptr;
+    std::shared_ptr<vector<string>> srcIPTags_ = nullptr;
     // An array that consists of the source private IP addresses in the intrusion event.
     std::shared_ptr<vector<string>> srcPrivateIPList_ = nullptr;
     // The tag added to the threat intelligence that is provided for major events.

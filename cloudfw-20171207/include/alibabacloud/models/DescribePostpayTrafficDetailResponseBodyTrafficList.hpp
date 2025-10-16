@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->inBytes_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceType_ != nullptr && this->outBytes_ != nullptr && this->protectionDuration_ != nullptr && this->regionNo_ != nullptr
-        && this->resourceId_ != nullptr && this->totalBytes_ != nullptr && this->trafficDay_ != nullptr && this->trafficType_ != nullptr; };
+    virtual bool empty() const override { return this->inBytes_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceType_ == nullptr && return this->outBytes_ == nullptr && return this->protectionDuration_ == nullptr && return this->regionNo_ == nullptr
+        && return this->resourceId_ == nullptr && return this->totalBytes_ == nullptr && return this->trafficDay_ == nullptr && return this->trafficType_ == nullptr; };
     // inBytes Field Functions 
     bool hasInBytes() const { return this->inBytes_ != nullptr;};
     void deleteInBytes() { this->inBytes_ = nullptr;};

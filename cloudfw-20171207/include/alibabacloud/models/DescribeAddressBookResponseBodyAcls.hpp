@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEADDRESSBOOKRESPONSEBODYACLS_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/DescribeAddressBookResponseBodyAclsAckLabels.hpp>
 #include <alibabacloud/models/DescribeAddressBookResponseBodyAclsAddresses.hpp>
 #include <alibabacloud/models/DescribeAddressBookResponseBodyAclsTagList.hpp>
 using namespace std;
@@ -16,6 +17,10 @@ namespace Models
   class DescribeAddressBookResponseBodyAcls : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeAddressBookResponseBodyAcls& obj) { 
+      DARABONBA_PTR_TO_JSON(AckClusterConnectorId, ackClusterConnectorId_);
+      DARABONBA_PTR_TO_JSON(AckClusterConnectorName, ackClusterConnectorName_);
+      DARABONBA_PTR_TO_JSON(AckLabels, ackLabels_);
+      DARABONBA_PTR_TO_JSON(AckNamespaces, ackNamespaces_);
       DARABONBA_PTR_TO_JSON(AddressList, addressList_);
       DARABONBA_PTR_TO_JSON(AddressListCount, addressListCount_);
       DARABONBA_PTR_TO_JSON(Addresses, addresses_);
@@ -25,10 +30,15 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GroupType, groupType_);
       DARABONBA_PTR_TO_JSON(GroupUuid, groupUuid_);
       DARABONBA_PTR_TO_JSON(ReferenceCount, referenceCount_);
+      DARABONBA_PTR_TO_JSON(RegionNo, regionNo_);
       DARABONBA_PTR_TO_JSON(TagList, tagList_);
       DARABONBA_PTR_TO_JSON(TagRelation, tagRelation_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeAddressBookResponseBodyAcls& obj) { 
+      DARABONBA_PTR_FROM_JSON(AckClusterConnectorId, ackClusterConnectorId_);
+      DARABONBA_PTR_FROM_JSON(AckClusterConnectorName, ackClusterConnectorName_);
+      DARABONBA_PTR_FROM_JSON(AckLabels, ackLabels_);
+      DARABONBA_PTR_FROM_JSON(AckNamespaces, ackNamespaces_);
       DARABONBA_PTR_FROM_JSON(AddressList, addressList_);
       DARABONBA_PTR_FROM_JSON(AddressListCount, addressListCount_);
       DARABONBA_PTR_FROM_JSON(Addresses, addresses_);
@@ -38,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GroupType, groupType_);
       DARABONBA_PTR_FROM_JSON(GroupUuid, groupUuid_);
       DARABONBA_PTR_FROM_JSON(ReferenceCount, referenceCount_);
+      DARABONBA_PTR_FROM_JSON(RegionNo, regionNo_);
       DARABONBA_PTR_FROM_JSON(TagList, tagList_);
       DARABONBA_PTR_FROM_JSON(TagRelation, tagRelation_);
     };
@@ -52,9 +63,42 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addressList_ != nullptr
-        && this->addressListCount_ != nullptr && this->addresses_ != nullptr && this->autoAddTagEcs_ != nullptr && this->description_ != nullptr && this->groupName_ != nullptr
-        && this->groupType_ != nullptr && this->groupUuid_ != nullptr && this->referenceCount_ != nullptr && this->tagList_ != nullptr && this->tagRelation_ != nullptr; };
+    virtual bool empty() const override { return this->ackClusterConnectorId_ == nullptr
+        && return this->ackClusterConnectorName_ == nullptr && return this->ackLabels_ == nullptr && return this->ackNamespaces_ == nullptr && return this->addressList_ == nullptr && return this->addressListCount_ == nullptr
+        && return this->addresses_ == nullptr && return this->autoAddTagEcs_ == nullptr && return this->description_ == nullptr && return this->groupName_ == nullptr && return this->groupType_ == nullptr
+        && return this->groupUuid_ == nullptr && return this->referenceCount_ == nullptr && return this->regionNo_ == nullptr && return this->tagList_ == nullptr && return this->tagRelation_ == nullptr; };
+    // ackClusterConnectorId Field Functions 
+    bool hasAckClusterConnectorId() const { return this->ackClusterConnectorId_ != nullptr;};
+    void deleteAckClusterConnectorId() { this->ackClusterConnectorId_ = nullptr;};
+    inline string ackClusterConnectorId() const { DARABONBA_PTR_GET_DEFAULT(ackClusterConnectorId_, "") };
+    inline DescribeAddressBookResponseBodyAcls& setAckClusterConnectorId(string ackClusterConnectorId) { DARABONBA_PTR_SET_VALUE(ackClusterConnectorId_, ackClusterConnectorId) };
+
+
+    // ackClusterConnectorName Field Functions 
+    bool hasAckClusterConnectorName() const { return this->ackClusterConnectorName_ != nullptr;};
+    void deleteAckClusterConnectorName() { this->ackClusterConnectorName_ = nullptr;};
+    inline string ackClusterConnectorName() const { DARABONBA_PTR_GET_DEFAULT(ackClusterConnectorName_, "") };
+    inline DescribeAddressBookResponseBodyAcls& setAckClusterConnectorName(string ackClusterConnectorName) { DARABONBA_PTR_SET_VALUE(ackClusterConnectorName_, ackClusterConnectorName) };
+
+
+    // ackLabels Field Functions 
+    bool hasAckLabels() const { return this->ackLabels_ != nullptr;};
+    void deleteAckLabels() { this->ackLabels_ = nullptr;};
+    inline const vector<Models::DescribeAddressBookResponseBodyAclsAckLabels> & ackLabels() const { DARABONBA_PTR_GET_CONST(ackLabels_, vector<Models::DescribeAddressBookResponseBodyAclsAckLabels>) };
+    inline vector<Models::DescribeAddressBookResponseBodyAclsAckLabels> ackLabels() { DARABONBA_PTR_GET(ackLabels_, vector<Models::DescribeAddressBookResponseBodyAclsAckLabels>) };
+    inline DescribeAddressBookResponseBodyAcls& setAckLabels(const vector<Models::DescribeAddressBookResponseBodyAclsAckLabels> & ackLabels) { DARABONBA_PTR_SET_VALUE(ackLabels_, ackLabels) };
+    inline DescribeAddressBookResponseBodyAcls& setAckLabels(vector<Models::DescribeAddressBookResponseBodyAclsAckLabels> && ackLabels) { DARABONBA_PTR_SET_RVALUE(ackLabels_, ackLabels) };
+
+
+    // ackNamespaces Field Functions 
+    bool hasAckNamespaces() const { return this->ackNamespaces_ != nullptr;};
+    void deleteAckNamespaces() { this->ackNamespaces_ = nullptr;};
+    inline const vector<string> & ackNamespaces() const { DARABONBA_PTR_GET_CONST(ackNamespaces_, vector<string>) };
+    inline vector<string> ackNamespaces() { DARABONBA_PTR_GET(ackNamespaces_, vector<string>) };
+    inline DescribeAddressBookResponseBodyAcls& setAckNamespaces(const vector<string> & ackNamespaces) { DARABONBA_PTR_SET_VALUE(ackNamespaces_, ackNamespaces) };
+    inline DescribeAddressBookResponseBodyAcls& setAckNamespaces(vector<string> && ackNamespaces) { DARABONBA_PTR_SET_RVALUE(ackNamespaces_, ackNamespaces) };
+
+
     // addressList Field Functions 
     bool hasAddressList() const { return this->addressList_ != nullptr;};
     void deleteAddressList() { this->addressList_ = nullptr;};
@@ -122,6 +166,13 @@ namespace Models
     inline DescribeAddressBookResponseBodyAcls& setReferenceCount(int32_t referenceCount) { DARABONBA_PTR_SET_VALUE(referenceCount_, referenceCount) };
 
 
+    // regionNo Field Functions 
+    bool hasRegionNo() const { return this->regionNo_ != nullptr;};
+    void deleteRegionNo() { this->regionNo_ = nullptr;};
+    inline string regionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
+    inline DescribeAddressBookResponseBodyAcls& setRegionNo(string regionNo) { DARABONBA_PTR_SET_VALUE(regionNo_, regionNo) };
+
+
     // tagList Field Functions 
     bool hasTagList() const { return this->tagList_ != nullptr;};
     void deleteTagList() { this->tagList_ = nullptr;};
@@ -139,6 +190,10 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> ackClusterConnectorId_ = nullptr;
+    std::shared_ptr<string> ackClusterConnectorName_ = nullptr;
+    std::shared_ptr<vector<Models::DescribeAddressBookResponseBodyAclsAckLabels>> ackLabels_ = nullptr;
+    std::shared_ptr<vector<string>> ackNamespaces_ = nullptr;
     // The addresses in the address book.
     std::shared_ptr<vector<string>> addressList_ = nullptr;
     // The number of addresses in the address book.
@@ -167,6 +222,7 @@ namespace Models
     std::shared_ptr<string> groupUuid_ = nullptr;
     // The number of times that the address book is referenced.
     std::shared_ptr<int32_t> referenceCount_ = nullptr;
+    std::shared_ptr<string> regionNo_ = nullptr;
     // The details about the ECS tags that can be automatically added to the address book.
     std::shared_ptr<vector<Models::DescribeAddressBookResponseBodyAclsTagList>> tagList_ = nullptr;
     // The logical relationship among ECS tags. Valid values:

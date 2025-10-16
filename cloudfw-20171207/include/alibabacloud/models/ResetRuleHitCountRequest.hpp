@@ -1,0 +1,69 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_RESETRULEHITCOUNTREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_RESETRULEHITCOUNTREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Cloudfw20171207
+{
+namespace Models
+{
+  class ResetRuleHitCountRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ResetRuleHitCountRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AclUuid, aclUuid_);
+      DARABONBA_PTR_TO_JSON(Lang, lang_);
+      DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
+    };
+    friend void from_json(const Darabonba::Json& j, ResetRuleHitCountRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AclUuid, aclUuid_);
+      DARABONBA_PTR_FROM_JSON(Lang, lang_);
+      DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
+    };
+    ResetRuleHitCountRequest() = default ;
+    ResetRuleHitCountRequest(const ResetRuleHitCountRequest &) = default ;
+    ResetRuleHitCountRequest(ResetRuleHitCountRequest &&) = default ;
+    ResetRuleHitCountRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ResetRuleHitCountRequest() = default ;
+    ResetRuleHitCountRequest& operator=(const ResetRuleHitCountRequest &) = default ;
+    ResetRuleHitCountRequest& operator=(ResetRuleHitCountRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->aclUuid_ == nullptr
+        && return this->lang_ == nullptr && return this->sourceIp_ == nullptr; };
+    // aclUuid Field Functions 
+    bool hasAclUuid() const { return this->aclUuid_ != nullptr;};
+    void deleteAclUuid() { this->aclUuid_ = nullptr;};
+    inline string aclUuid() const { DARABONBA_PTR_GET_DEFAULT(aclUuid_, "") };
+    inline ResetRuleHitCountRequest& setAclUuid(string aclUuid) { DARABONBA_PTR_SET_VALUE(aclUuid_, aclUuid) };
+
+
+    // lang Field Functions 
+    bool hasLang() const { return this->lang_ != nullptr;};
+    void deleteLang() { this->lang_ = nullptr;};
+    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline ResetRuleHitCountRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
+
+
+    // sourceIp Field Functions 
+    bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
+    void deleteSourceIp() { this->sourceIp_ = nullptr;};
+    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline ResetRuleHitCountRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
+
+
+  protected:
+    // This parameter is required.
+    std::shared_ptr<string> aclUuid_ = nullptr;
+    std::shared_ptr<string> lang_ = nullptr;
+    std::shared_ptr<string> sourceIp_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Cloudfw20171207
+#endif

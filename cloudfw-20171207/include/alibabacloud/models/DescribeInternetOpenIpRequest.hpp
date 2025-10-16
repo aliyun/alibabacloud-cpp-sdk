@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assetsInstanceId_ != nullptr
-        && this->assetsInstanceName_ != nullptr && this->assetsType_ != nullptr && this->currentPage_ != nullptr && this->endTime_ != nullptr && this->lang_ != nullptr
-        && this->pageSize_ != nullptr && this->port_ != nullptr && this->publicIp_ != nullptr && this->regionNo_ != nullptr && this->riskLevel_ != nullptr
-        && this->serviceName_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->assetsInstanceId_ == nullptr
+        && return this->assetsInstanceName_ == nullptr && return this->assetsType_ == nullptr && return this->currentPage_ == nullptr && return this->endTime_ == nullptr && return this->lang_ == nullptr
+        && return this->pageSize_ == nullptr && return this->port_ == nullptr && return this->publicIp_ == nullptr && return this->regionNo_ == nullptr && return this->riskLevel_ == nullptr
+        && return this->serviceName_ == nullptr && return this->startTime_ == nullptr; };
     // assetsInstanceId Field Functions 
     bool hasAssetsInstanceId() const { return this->assetsInstanceId_ != nullptr;};
     void deleteAssetsInstanceId() { this->assetsInstanceId_ = nullptr;};

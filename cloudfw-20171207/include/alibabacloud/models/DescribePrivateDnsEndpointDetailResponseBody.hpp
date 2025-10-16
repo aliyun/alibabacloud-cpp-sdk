@@ -74,12 +74,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessInstanceId_ != nullptr
-        && this->accessInstanceName_ != nullptr && this->aliUid_ != nullptr && this->endpointId_ != nullptr && this->firewallType_ != nullptr && this->gmtCreate_ != nullptr
-        && this->ipProtocol_ != nullptr && this->memberUid_ != nullptr && this->port_ != nullptr && this->primaryDns_ != nullptr && this->primaryVSwitchId_ != nullptr
-        && this->primaryVSwitchIp_ != nullptr && this->primaryZoneId_ != nullptr && this->privateDnsType_ != nullptr && this->regionNo_ != nullptr && this->requestId_ != nullptr
-        && this->standbyDns_ != nullptr && this->standbyVSwitchId_ != nullptr && this->standbyVSwitchIp_ != nullptr && this->standbyZoneId_ != nullptr && this->status_ != nullptr
-        && this->taskId_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->accessInstanceId_ == nullptr
+        && return this->accessInstanceName_ == nullptr && return this->aliUid_ == nullptr && return this->endpointId_ == nullptr && return this->firewallType_ == nullptr && return this->gmtCreate_ == nullptr
+        && return this->ipProtocol_ == nullptr && return this->memberUid_ == nullptr && return this->port_ == nullptr && return this->primaryDns_ == nullptr && return this->primaryVSwitchId_ == nullptr
+        && return this->primaryVSwitchIp_ == nullptr && return this->primaryZoneId_ == nullptr && return this->privateDnsType_ == nullptr && return this->regionNo_ == nullptr && return this->requestId_ == nullptr
+        && return this->standbyDns_ == nullptr && return this->standbyVSwitchId_ == nullptr && return this->standbyVSwitchIp_ == nullptr && return this->standbyZoneId_ == nullptr && return this->status_ == nullptr
+        && return this->taskId_ == nullptr && return this->vpcId_ == nullptr; };
     // accessInstanceId Field Functions 
     bool hasAccessInstanceId() const { return this->accessInstanceId_ != nullptr;};
     void deleteAccessInstanceId() { this->accessInstanceId_ = nullptr;};

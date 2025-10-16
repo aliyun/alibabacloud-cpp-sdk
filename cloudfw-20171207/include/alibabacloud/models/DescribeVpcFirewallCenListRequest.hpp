@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cenId_ != nullptr
-        && this->currentPage_ != nullptr && this->firewallSwitchStatus_ != nullptr && this->lang_ != nullptr && this->memberUid_ != nullptr && this->networkInstanceId_ != nullptr
-        && this->ownerId_ != nullptr && this->pageSize_ != nullptr && this->regionNo_ != nullptr && this->routeMode_ != nullptr && this->transitRouterType_ != nullptr
-        && this->vpcFirewallId_ != nullptr && this->vpcFirewallName_ != nullptr; };
+    virtual bool empty() const override { return this->cenId_ == nullptr
+        && return this->currentPage_ == nullptr && return this->firewallSwitchStatus_ == nullptr && return this->lang_ == nullptr && return this->memberUid_ == nullptr && return this->networkInstanceId_ == nullptr
+        && return this->ownerId_ == nullptr && return this->pageSize_ == nullptr && return this->regionNo_ == nullptr && return this->routeMode_ == nullptr && return this->transitRouterType_ == nullptr
+        && return this->vpcFirewallId_ == nullptr && return this->vpcFirewallName_ == nullptr; };
     // cenId Field Functions 
     bool hasCenId() const { return this->cenId_ != nullptr;};
     void deleteCenId() { this->cenId_ = nullptr;};

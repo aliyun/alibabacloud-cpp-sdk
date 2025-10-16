@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->totalAssets_ != nullptr && this->totalBillTraffic_ != nullptr && this->totalInternetAssets_ != nullptr && this->totalInternetTraffic_ != nullptr && this->totalNatAssets_ != nullptr
-        && this->totalNatTraffic_ != nullptr && this->totalSdlBillTraffic_ != nullptr && this->totalSdlFreeTraffic_ != nullptr && this->totalTraffic_ != nullptr && this->totalVpcAssets_ != nullptr
-        && this->totalVpcTraffic_ != nullptr; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && return this->totalAssets_ == nullptr && return this->totalBillTraffic_ == nullptr && return this->totalInternetAssets_ == nullptr && return this->totalInternetTraffic_ == nullptr && return this->totalNatAssets_ == nullptr
+        && return this->totalNatTraffic_ == nullptr && return this->totalSdlBillTraffic_ == nullptr && return this->totalSdlFreeTraffic_ == nullptr && return this->totalTraffic_ == nullptr && return this->totalVpcAssets_ == nullptr
+        && return this->totalVpcTraffic_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};

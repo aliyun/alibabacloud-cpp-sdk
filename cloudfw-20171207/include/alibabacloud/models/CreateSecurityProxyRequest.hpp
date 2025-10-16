@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->firewallSwitch_ != nullptr
-        && this->lang_ != nullptr && this->natGatewayId_ != nullptr && this->natRouteEntryList_ != nullptr && this->proxyName_ != nullptr && this->regionNo_ != nullptr
-        && this->strictMode_ != nullptr && this->vpcId_ != nullptr && this->vswitchAuto_ != nullptr && this->vswitchCidr_ != nullptr && this->vswitchId_ != nullptr; };
+    virtual bool empty() const override { return this->firewallSwitch_ == nullptr
+        && return this->lang_ == nullptr && return this->natGatewayId_ == nullptr && return this->natRouteEntryList_ == nullptr && return this->proxyName_ == nullptr && return this->regionNo_ == nullptr
+        && return this->strictMode_ == nullptr && return this->vpcId_ == nullptr && return this->vswitchAuto_ == nullptr && return this->vswitchCidr_ == nullptr && return this->vswitchId_ == nullptr; };
     // firewallSwitch Field Functions 
     bool hasFirewallSwitch() const { return this->firewallSwitch_ != nullptr;};
     void deleteFirewallSwitch() { this->firewallSwitch_ = nullptr;};

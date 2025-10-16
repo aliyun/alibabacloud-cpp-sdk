@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aclConfig_ != nullptr
-        && this->cenId_ != nullptr && this->cenName_ != nullptr && this->connectType_ != nullptr && this->firewallSwitchStatus_ != nullptr && this->ipsConfig_ != nullptr
-        && this->localVpc_ != nullptr && this->memberUid_ != nullptr && this->precheckStatus_ != nullptr && this->regionStatus_ != nullptr && this->resultCode_ != nullptr
-        && this->vpcFirewallId_ != nullptr && this->vpcFirewallName_ != nullptr; };
+    virtual bool empty() const override { return this->aclConfig_ == nullptr
+        && return this->cenId_ == nullptr && return this->cenName_ == nullptr && return this->connectType_ == nullptr && return this->firewallSwitchStatus_ == nullptr && return this->ipsConfig_ == nullptr
+        && return this->localVpc_ == nullptr && return this->memberUid_ == nullptr && return this->precheckStatus_ == nullptr && return this->regionStatus_ == nullptr && return this->resultCode_ == nullptr
+        && return this->vpcFirewallId_ == nullptr && return this->vpcFirewallName_ == nullptr; };
     // aclConfig Field Functions 
     bool hasAclConfig() const { return this->aclConfig_ != nullptr;};
     void deleteAclConfig() { this->aclConfig_ = nullptr;};

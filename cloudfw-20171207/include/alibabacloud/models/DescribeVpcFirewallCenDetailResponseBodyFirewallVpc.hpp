@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowConfiguration_ != nullptr
-        && this->standbyZoneId_ != nullptr && this->vpcCidr_ != nullptr && this->vpcId_ != nullptr && this->vswitchCidr_ != nullptr && this->vswitchId_ != nullptr
-        && this->vswitchZoneId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->allowConfiguration_ == nullptr
+        && return this->standbyZoneId_ == nullptr && return this->vpcCidr_ == nullptr && return this->vpcId_ == nullptr && return this->vswitchCidr_ == nullptr && return this->vswitchId_ == nullptr
+        && return this->vswitchZoneId_ == nullptr && return this->zoneId_ == nullptr; };
     // allowConfiguration Field Functions 
     bool hasAllowConfiguration() const { return this->allowConfiguration_ != nullptr;};
     void deleteAllowConfiguration() { this->allowConfiguration_ = nullptr;};

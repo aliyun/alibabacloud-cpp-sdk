@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->connectSubType_ != nullptr
-        && this->currentPage_ != nullptr && this->firewallSwitchStatus_ != nullptr && this->lang_ != nullptr && this->memberUid_ != nullptr && this->pageSize_ != nullptr
-        && this->peerUid_ != nullptr && this->regionNo_ != nullptr && this->vpcFirewallId_ != nullptr && this->vpcFirewallName_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->connectSubType_ == nullptr
+        && return this->currentPage_ == nullptr && return this->firewallSwitchStatus_ == nullptr && return this->lang_ == nullptr && return this->memberUid_ == nullptr && return this->pageSize_ == nullptr
+        && return this->peerUid_ == nullptr && return this->regionNo_ == nullptr && return this->vpcFirewallId_ == nullptr && return this->vpcFirewallName_ == nullptr && return this->vpcId_ == nullptr; };
     // connectSubType Field Functions 
     bool hasConnectSubType() const { return this->connectSubType_ != nullptr;};
     void deleteConnectSubType() { this->connectSubType_ = nullptr;};

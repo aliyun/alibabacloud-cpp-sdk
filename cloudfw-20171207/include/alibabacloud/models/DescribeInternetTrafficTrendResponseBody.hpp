@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->avgInBps_ != nullptr
-        && this->avgOutBps_ != nullptr && this->avgSession_ != nullptr && this->avgTotalBps_ != nullptr && this->dataList_ != nullptr && this->maxBandwidthTime_ != nullptr
-        && this->maxDayExceedBytes_ != nullptr && this->maxInBps_ != nullptr && this->maxOutBps_ != nullptr && this->maxSession_ != nullptr && this->maxTotalBps_ != nullptr
-        && this->requestId_ != nullptr && this->totalBytes_ != nullptr && this->totalExceedBytes_ != nullptr && this->totalInBytes_ != nullptr && this->totalOutBytes_ != nullptr
-        && this->totalSession_ != nullptr; };
+    virtual bool empty() const override { return this->avgInBps_ == nullptr
+        && return this->avgOutBps_ == nullptr && return this->avgSession_ == nullptr && return this->avgTotalBps_ == nullptr && return this->dataList_ == nullptr && return this->maxBandwidthTime_ == nullptr
+        && return this->maxDayExceedBytes_ == nullptr && return this->maxInBps_ == nullptr && return this->maxOutBps_ == nullptr && return this->maxSession_ == nullptr && return this->maxTotalBps_ == nullptr
+        && return this->requestId_ == nullptr && return this->totalBytes_ == nullptr && return this->totalExceedBytes_ == nullptr && return this->totalInBytes_ == nullptr && return this->totalOutBytes_ == nullptr
+        && return this->totalSession_ == nullptr; };
     // avgInBps Field Functions 
     bool hasAvgInBps() const { return this->avgInBps_ != nullptr;};
     void deleteAvgInBps() { this->avgInBps_ = nullptr;};

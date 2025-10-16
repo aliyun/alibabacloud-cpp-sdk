@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aclAction_ != nullptr
-        && this->aclUuid_ != nullptr && this->currentPage_ != nullptr && this->description_ != nullptr && this->destination_ != nullptr && this->direction_ != nullptr
-        && this->lang_ != nullptr && this->natGatewayId_ != nullptr && this->pageSize_ != nullptr && this->proto_ != nullptr && this->release_ != nullptr
-        && this->repeatType_ != nullptr && this->source_ != nullptr; };
+    virtual bool empty() const override { return this->aclAction_ == nullptr
+        && return this->aclUuid_ == nullptr && return this->currentPage_ == nullptr && return this->description_ == nullptr && return this->destination_ == nullptr && return this->direction_ == nullptr
+        && return this->lang_ == nullptr && return this->natGatewayId_ == nullptr && return this->pageSize_ == nullptr && return this->proto_ == nullptr && return this->release_ == nullptr
+        && return this->repeatType_ == nullptr && return this->source_ == nullptr; };
     // aclAction Field Functions 
     bool hasAclAction() const { return this->aclAction_ != nullptr;};
     void deleteAclAction() { this->aclAction_ = nullptr;};

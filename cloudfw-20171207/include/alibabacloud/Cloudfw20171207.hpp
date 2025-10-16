@@ -178,6 +178,40 @@ namespace Cloudfw20171207
       Models::BatchDeleteVpcFirewallControlPolicyResponse batchDeleteVpcFirewallControlPolicy(const Models::BatchDeleteVpcFirewallControlPolicyRequest &request);
 
       /**
+       * @summary 创建ACK集群连接器
+       *
+       * @param request CreateAckClusterConnectorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAckClusterConnectorResponse
+       */
+      Models::CreateAckClusterConnectorResponse createAckClusterConnectorWithOptions(const Models::CreateAckClusterConnectorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建ACK集群连接器
+       *
+       * @param request CreateAckClusterConnectorRequest
+       * @return CreateAckClusterConnectorResponse
+       */
+      Models::CreateAckClusterConnectorResponse createAckClusterConnector(const Models::CreateAckClusterConnectorRequest &request);
+
+      /**
+       * @summary 创建ACL检查
+       *
+       * @param request CreateAclCheckRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAclCheckResponse
+       */
+      Models::CreateAclCheckResponse createAclCheckWithOptions(const Models::CreateAclCheckRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建ACL检查
+       *
+       * @param request CreateAclCheckRequest
+       * @return CreateAclCheckResponse
+       */
+      Models::CreateAclCheckResponse createAclCheck(const Models::CreateAclCheckRequest &request);
+
+      /**
        * @summary Creates a file download task.
        *
        * @param request CreateDownloadTaskRequest
@@ -214,6 +248,23 @@ namespace Cloudfw20171207
        * @return CreateNatFirewallControlPolicyResponse
        */
       Models::CreateNatFirewallControlPolicyResponse createNatFirewallControlPolicy(const Models::CreateNatFirewallControlPolicyRequest &request);
+
+      /**
+       * @summary 创建NAT防火墙预检查
+       *
+       * @param request CreateNatFirewallPreCheckRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateNatFirewallPreCheckResponse
+       */
+      Models::CreateNatFirewallPreCheckResponse createNatFirewallPreCheckWithOptions(const Models::CreateNatFirewallPreCheckRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建NAT防火墙预检查
+       *
+       * @param request CreateNatFirewallPreCheckRequest
+       * @return CreateNatFirewallPreCheckResponse
+       */
+      Models::CreateNatFirewallPreCheckResponse createNatFirewallPreCheck(const Models::CreateNatFirewallPreCheckRequest &request);
 
       /**
        * @summary Creates a NAT firewall.
@@ -376,6 +427,74 @@ namespace Cloudfw20171207
       Models::CreateVpcFirewallControlPolicyResponse createVpcFirewallControlPolicy(const Models::CreateVpcFirewallControlPolicyRequest &request);
 
       /**
+       * @summary 创建VPC防火墙开墙前置任务
+       *
+       * @param request CreateVpcFirewallPrecheckRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateVpcFirewallPrecheckResponse
+       */
+      Models::CreateVpcFirewallPrecheckResponse createVpcFirewallPrecheckWithOptions(const Models::CreateVpcFirewallPrecheckRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建VPC防火墙开墙前置任务
+       *
+       * @param request CreateVpcFirewallPrecheckRequest
+       * @return CreateVpcFirewallPrecheckResponse
+       */
+      Models::CreateVpcFirewallPrecheckResponse createVpcFirewallPrecheck(const Models::CreateVpcFirewallPrecheckRequest &request);
+
+      /**
+       * @summary 创建VPC防火墙资产同步任务
+       *
+       * @param request CreateVpcFirewallTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateVpcFirewallTaskResponse
+       */
+      Models::CreateVpcFirewallTaskResponse createVpcFirewallTaskWithOptions(const Models::CreateVpcFirewallTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建VPC防火墙资产同步任务
+       *
+       * @param request CreateVpcFirewallTaskRequest
+       * @return CreateVpcFirewallTaskResponse
+       */
+      Models::CreateVpcFirewallTaskResponse createVpcFirewallTask(const Models::CreateVpcFirewallTaskRequest &request);
+
+      /**
+       * @summary 删除ACK集群连接器
+       *
+       * @param request DeleteAckClusterConnectorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAckClusterConnectorResponse
+       */
+      Models::DeleteAckClusterConnectorResponse deleteAckClusterConnectorWithOptions(const Models::DeleteAckClusterConnectorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除ACK集群连接器
+       *
+       * @param request DeleteAckClusterConnectorRequest
+       * @return DeleteAckClusterConnectorResponse
+       */
+      Models::DeleteAckClusterConnectorResponse deleteAckClusterConnector(const Models::DeleteAckClusterConnectorRequest &request);
+
+      /**
+       * @summary 删除ACL备份
+       *
+       * @param request DeleteAclBackupDataRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAclBackupDataResponse
+       */
+      Models::DeleteAclBackupDataResponse deleteAclBackupDataWithOptions(const Models::DeleteAclBackupDataRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除ACL备份
+       *
+       * @param request DeleteAclBackupDataRequest
+       * @return DeleteAclBackupDataResponse
+       */
+      Models::DeleteAclBackupDataResponse deleteAclBackupData(const Models::DeleteAclBackupDataRequest &request);
+
+      /**
        * @summary Deletes an address book for access control.
        *
        * @description You can call the DeleteAddressBook operation to delete an address book for access control.  
@@ -525,6 +644,23 @@ namespace Cloudfw20171207
        * @return DeleteInstanceMembersResponse
        */
       Models::DeleteInstanceMembersResponse deleteInstanceMembers(const Models::DeleteInstanceMembersRequest &request);
+
+      /**
+       * @summary 创建IPS私网关联信息
+       *
+       * @param request DeleteIpsPrivateAssocRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteIpsPrivateAssocResponse
+       */
+      Models::DeleteIpsPrivateAssocResponse deleteIpsPrivateAssocWithOptions(const Models::DeleteIpsPrivateAssocRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建IPS私网关联信息
+       *
+       * @param request DeleteIpsPrivateAssocRequest
+       * @return DeleteIpsPrivateAssocResponse
+       */
+      Models::DeleteIpsPrivateAssocResponse deleteIpsPrivateAssoc(const Models::DeleteIpsPrivateAssocRequest &request);
 
       /**
        * @summary Deletes an access control policy that is created for a NAT firewall.
@@ -758,6 +894,278 @@ namespace Cloudfw20171207
       Models::DescribeAITrafficAnalysisStatusResponse describeAITrafficAnalysisStatus();
 
       /**
+       * @summary 查询接入实例地域列表
+       *
+       * @param request DescribeAccessInstanceRegionListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAccessInstanceRegionListResponse
+       */
+      Models::DescribeAccessInstanceRegionListResponse describeAccessInstanceRegionListWithOptions(const Models::DescribeAccessInstanceRegionListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询接入实例地域列表
+       *
+       * @param request DescribeAccessInstanceRegionListRequest
+       * @return DescribeAccessInstanceRegionListResponse
+       */
+      Models::DescribeAccessInstanceRegionListResponse describeAccessInstanceRegionList(const Models::DescribeAccessInstanceRegionListRequest &request);
+
+      /**
+       * @summary 查询接入实例任务
+       *
+       * @param request DescribeAccessInstanceTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAccessInstanceTaskResponse
+       */
+      Models::DescribeAccessInstanceTaskResponse describeAccessInstanceTaskWithOptions(const Models::DescribeAccessInstanceTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询接入实例任务
+       *
+       * @param request DescribeAccessInstanceTaskRequest
+       * @return DescribeAccessInstanceTaskResponse
+       */
+      Models::DescribeAccessInstanceTaskResponse describeAccessInstanceTask(const Models::DescribeAccessInstanceTaskRequest &request);
+
+      /**
+       * @summary 查询接入实例的交换机列表
+       *
+       * @param request DescribeAccessInstanceVSwitchListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAccessInstanceVSwitchListResponse
+       */
+      Models::DescribeAccessInstanceVSwitchListResponse describeAccessInstanceVSwitchListWithOptions(const Models::DescribeAccessInstanceVSwitchListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询接入实例的交换机列表
+       *
+       * @param request DescribeAccessInstanceVSwitchListRequest
+       * @return DescribeAccessInstanceVSwitchListResponse
+       */
+      Models::DescribeAccessInstanceVSwitchListResponse describeAccessInstanceVSwitchList(const Models::DescribeAccessInstanceVSwitchListRequest &request);
+
+      /**
+       * @summary 查询接入实例VPC列表
+       *
+       * @param request DescribeAccessInstanceVpcListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAccessInstanceVpcListResponse
+       */
+      Models::DescribeAccessInstanceVpcListResponse describeAccessInstanceVpcListWithOptions(const Models::DescribeAccessInstanceVpcListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询接入实例VPC列表
+       *
+       * @param request DescribeAccessInstanceVpcListRequest
+       * @return DescribeAccessInstanceVpcListResponse
+       */
+      Models::DescribeAccessInstanceVpcListResponse describeAccessInstanceVpcList(const Models::DescribeAccessInstanceVpcListRequest &request);
+
+      /**
+       * @summary 查询接入实例支持的可用区列表
+       *
+       * @param request DescribeAccessInstanceZoneListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAccessInstanceZoneListResponse
+       */
+      Models::DescribeAccessInstanceZoneListResponse describeAccessInstanceZoneListWithOptions(const Models::DescribeAccessInstanceZoneListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询接入实例支持的可用区列表
+       *
+       * @param request DescribeAccessInstanceZoneListRequest
+       * @return DescribeAccessInstanceZoneListResponse
+       */
+      Models::DescribeAccessInstanceZoneListResponse describeAccessInstanceZoneList(const Models::DescribeAccessInstanceZoneListRequest &request);
+
+      /**
+       * @summary 查询指定ACK集群连接器
+       *
+       * @param request DescribeAckClusterConnectorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAckClusterConnectorResponse
+       */
+      Models::DescribeAckClusterConnectorResponse describeAckClusterConnectorWithOptions(const Models::DescribeAckClusterConnectorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询指定ACK集群连接器
+       *
+       * @param request DescribeAckClusterConnectorRequest
+       * @return DescribeAckClusterConnectorResponse
+       */
+      Models::DescribeAckClusterConnectorResponse describeAckClusterConnector(const Models::DescribeAckClusterConnectorRequest &request);
+
+      /**
+       * @summary 批量查询ACK集群连接器列表
+       *
+       * @param request DescribeAckClusterConnectorsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAckClusterConnectorsResponse
+       */
+      Models::DescribeAckClusterConnectorsResponse describeAckClusterConnectorsWithOptions(const Models::DescribeAckClusterConnectorsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量查询ACK集群连接器列表
+       *
+       * @param request DescribeAckClusterConnectorsRequest
+       * @return DescribeAckClusterConnectorsResponse
+       */
+      Models::DescribeAckClusterConnectorsResponse describeAckClusterConnectors(const Models::DescribeAckClusterConnectorsRequest &request);
+
+      /**
+       * @summary 查询阿里云K8S容器服务（ACK）集群命名空间
+       *
+       * @param request DescribeAckClusterNamespacesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAckClusterNamespacesResponse
+       */
+      Models::DescribeAckClusterNamespacesResponse describeAckClusterNamespacesWithOptions(const Models::DescribeAckClusterNamespacesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询阿里云K8S容器服务（ACK）集群命名空间
+       *
+       * @param request DescribeAckClusterNamespacesRequest
+       * @return DescribeAckClusterNamespacesResponse
+       */
+      Models::DescribeAckClusterNamespacesResponse describeAckClusterNamespaces(const Models::DescribeAckClusterNamespacesRequest &request);
+
+      /**
+       * @summary 查询阿里云K8S容器服务（ACK）集群标签
+       *
+       * @param request DescribeAckClusterPodLabelsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAckClusterPodLabelsResponse
+       */
+      Models::DescribeAckClusterPodLabelsResponse describeAckClusterPodLabelsWithOptions(const Models::DescribeAckClusterPodLabelsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询阿里云K8S容器服务（ACK）集群标签
+       *
+       * @param request DescribeAckClusterPodLabelsRequest
+       * @return DescribeAckClusterPodLabelsResponse
+       */
+      Models::DescribeAckClusterPodLabelsResponse describeAckClusterPodLabels(const Models::DescribeAckClusterPodLabelsRequest &request);
+
+      /**
+       * @summary 查询阿里云K8S容器服务（ACK）集群，查询符合条件的ACK集群（例如指定集群类型、集群规格）列表信息
+       *
+       * @param request DescribeAckClustersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAckClustersResponse
+       */
+      Models::DescribeAckClustersResponse describeAckClustersWithOptions(const Models::DescribeAckClustersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询阿里云K8S容器服务（ACK）集群，查询符合条件的ACK集群（例如指定集群类型、集群规格）列表信息
+       *
+       * @param request DescribeAckClustersRequest
+       * @return DescribeAckClustersResponse
+       */
+      Models::DescribeAckClustersResponse describeAckClusters(const Models::DescribeAckClustersRequest &request);
+
+      /**
+       * @summary 批量查询访问控制应用
+       *
+       * @param request DescribeAclAppsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAclAppsResponse
+       */
+      Models::DescribeAclAppsResponse describeAclAppsWithOptions(const Models::DescribeAclAppsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量查询访问控制应用
+       *
+       * @param request DescribeAclAppsRequest
+       * @return DescribeAclAppsResponse
+       */
+      Models::DescribeAclAppsResponse describeAclApps(const Models::DescribeAclAppsRequest &request);
+
+      /**
+       * @summary 查询ACL检查详情
+       *
+       * @param request DescribeAclCheckRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAclCheckResponse
+       */
+      Models::DescribeAclCheckResponse describeAclCheckWithOptions(const Models::DescribeAclCheckRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询ACL检查详情
+       *
+       * @param request DescribeAclCheckRequest
+       * @return DescribeAclCheckResponse
+       */
+      Models::DescribeAclCheckResponse describeAclCheck(const Models::DescribeAclCheckRequest &request);
+
+      /**
+       * @summary 查询NAT防火墙预检查结果
+       *
+       * @param request DescribeAclCheckQuotaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAclCheckQuotaResponse
+       */
+      Models::DescribeAclCheckQuotaResponse describeAclCheckQuotaWithOptions(const Models::DescribeAclCheckQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询NAT防火墙预检查结果
+       *
+       * @param request DescribeAclCheckQuotaRequest
+       * @return DescribeAclCheckQuotaResponse
+       */
+      Models::DescribeAclCheckQuotaResponse describeAclCheckQuota(const Models::DescribeAclCheckQuotaRequest &request);
+
+      /**
+       * @summary 批量查询ACL检查条目
+       *
+       * @param request DescribeAclChecksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAclChecksResponse
+       */
+      Models::DescribeAclChecksResponse describeAclChecksWithOptions(const Models::DescribeAclChecksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量查询ACL检查条目
+       *
+       * @param request DescribeAclChecksRequest
+       * @return DescribeAclChecksResponse
+       */
+      Models::DescribeAclChecksResponse describeAclChecks(const Models::DescribeAclChecksRequest &request);
+
+      /**
+       * @summary 获取总ACL配置数
+       *
+       * @param request DescribeAclRuleCountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAclRuleCountResponse
+       */
+      Models::DescribeAclRuleCountResponse describeAclRuleCountWithOptions(const Models::DescribeAclRuleCountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取总ACL配置数
+       *
+       * @param request DescribeAclRuleCountRequest
+       * @return DescribeAclRuleCountResponse
+       */
+      Models::DescribeAclRuleCountResponse describeAclRuleCount(const Models::DescribeAclRuleCountRequest &request);
+
+      /**
+       * @summary 获取ACL白名单
+       *
+       * @param request DescribeAclWhitelistRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAclWhitelistResponse
+       */
+      Models::DescribeAclWhitelistResponse describeAclWhitelistWithOptions(const Models::DescribeAclWhitelistRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取ACL白名单
+       *
+       * @param request DescribeAclWhitelistRequest
+       * @return DescribeAclWhitelistResponse
+       */
+      Models::DescribeAclWhitelistResponse describeAclWhitelist(const Models::DescribeAclWhitelistRequest &request);
+
+      /**
        * @summary Queries the details about an address book for an access control policy.
        *
        * @description You can call this operation to query the details about an address book for an access control policy.
@@ -859,6 +1267,22 @@ namespace Cloudfw20171207
       Models::DescribeCfwRiskLevelSummaryResponse describeCfwRiskLevelSummary(const Models::DescribeCfwRiskLevelSummaryRequest &request);
 
       /**
+       * @summary 获取清空授权信息
+       *
+       * @param request DescribeClearAuthInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeClearAuthInfoResponse
+       */
+      Models::DescribeClearAuthInfoResponse describeClearAuthInfoWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取清空授权信息
+       *
+       * @return DescribeClearAuthInfoResponse
+       */
+      Models::DescribeClearAuthInfoResponse describeClearAuthInfo();
+
+      /**
        * @summary Queries the details about all access control policies.
        *
        * @description You can call the DescribeControlPolicy operation to query the details about access control policies by page.
@@ -882,6 +1306,22 @@ namespace Cloudfw20171207
        * @return DescribeControlPolicyResponse
        */
       Models::DescribeControlPolicyResponse describeControlPolicy(const Models::DescribeControlPolicyRequest &request);
+
+      /**
+       * @summary 获取成员账号列表
+       *
+       * @param request DescribeCtrlInstanceMemberAccountsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCtrlInstanceMemberAccountsResponse
+       */
+      Models::DescribeCtrlInstanceMemberAccountsResponse describeCtrlInstanceMemberAccountsWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取成员账号列表
+       *
+       * @return DescribeCtrlInstanceMemberAccountsResponse
+       */
+      Models::DescribeCtrlInstanceMemberAccountsResponse describeCtrlInstanceMemberAccounts();
 
       /**
        * @summary Queries the default intrusion prevention system (IPS) configurations.
@@ -981,6 +1421,56 @@ namespace Cloudfw20171207
       Models::DescribeDownloadTaskTypeResponse describeDownloadTaskType(const Models::DescribeDownloadTaskTypeRequest &request);
 
       /**
+       * @summary 获取防火墙DROP数据统计
+       *
+       * @param request DescribeFirewallDropStatisticsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeFirewallDropStatisticsResponse
+       */
+      Models::DescribeFirewallDropStatisticsResponse describeFirewallDropStatisticsWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取防火墙DROP数据统计
+       *
+       * @return DescribeFirewallDropStatisticsResponse
+       */
+      Models::DescribeFirewallDropStatisticsResponse describeFirewallDropStatistics();
+
+      /**
+       * @summary 获取防火墙任务
+       *
+       * @param request DescribeFirewallTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeFirewallTaskResponse
+       */
+      Models::DescribeFirewallTaskResponse describeFirewallTaskWithOptions(const Models::DescribeFirewallTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取防火墙任务
+       *
+       * @param request DescribeFirewallTaskRequest
+       * @return DescribeFirewallTaskResponse
+       */
+      Models::DescribeFirewallTaskResponse describeFirewallTask(const Models::DescribeFirewallTaskRequest &request);
+
+      /**
+       * @summary 获取防火墙创建的交换机
+       *
+       * @param request DescribeFirewallVSwitchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeFirewallVSwitchResponse
+       */
+      Models::DescribeFirewallVSwitchResponse describeFirewallVSwitchWithOptions(const Models::DescribeFirewallVSwitchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取防火墙创建的交换机
+       *
+       * @param request DescribeFirewallVSwitchRequest
+       * @return DescribeFirewallVSwitchResponse
+       */
+      Models::DescribeFirewallVSwitchResponse describeFirewallVSwitch(const Models::DescribeFirewallVSwitchRequest &request);
+
+      /**
        * @summary Queries the information about members in Cloud Firewall.
        *
        * @description You can use this operation to query the information about members in Cloud Firewall.
@@ -1023,6 +1513,23 @@ namespace Cloudfw20171207
       Models::DescribeInstanceRiskLevelsResponse describeInstanceRiskLevels(const Models::DescribeInstanceRiskLevelsRequest &request);
 
       /**
+       * @summary 获取互联网方向删除会话趋势图
+       *
+       * @param request DescribeInternetDropTrafficTrendRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInternetDropTrafficTrendResponse
+       */
+      Models::DescribeInternetDropTrafficTrendResponse describeInternetDropTrafficTrendWithOptions(const Models::DescribeInternetDropTrafficTrendRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取互联网方向删除会话趋势图
+       *
+       * @param request DescribeInternetDropTrafficTrendRequest
+       * @return DescribeInternetDropTrafficTrendResponse
+       */
+      Models::DescribeInternetDropTrafficTrendResponse describeInternetDropTrafficTrend(const Models::DescribeInternetDropTrafficTrendRequest &request);
+
+      /**
        * @summary Queries the IP addresses that are open to the Internet.
        *
        * @param request DescribeInternetOpenIpRequest
@@ -1038,6 +1545,40 @@ namespace Cloudfw20171207
        * @return DescribeInternetOpenIpResponse
        */
       Models::DescribeInternetOpenIpResponse describeInternetOpenIp(const Models::DescribeInternetOpenIpRequest &request);
+
+      /**
+       * @summary 获取互联网开放端口
+       *
+       * @param request DescribeInternetOpenPortRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInternetOpenPortResponse
+       */
+      Models::DescribeInternetOpenPortResponse describeInternetOpenPortWithOptions(const Models::DescribeInternetOpenPortRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取互联网开放端口
+       *
+       * @param request DescribeInternetOpenPortRequest
+       * @return DescribeInternetOpenPortResponse
+       */
+      Models::DescribeInternetOpenPortResponse describeInternetOpenPort(const Models::DescribeInternetOpenPortRequest &request);
+
+      /**
+       * @summary 获取互联网开放服务
+       *
+       * @param request DescribeInternetOpenServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInternetOpenServiceResponse
+       */
+      Models::DescribeInternetOpenServiceResponse describeInternetOpenServiceWithOptions(const Models::DescribeInternetOpenServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取互联网开放服务
+       *
+       * @param request DescribeInternetOpenServiceRequest
+       * @return DescribeInternetOpenServiceResponse
+       */
+      Models::DescribeInternetOpenServiceResponse describeInternetOpenService(const Models::DescribeInternetOpenServiceRequest &request);
 
       /**
        * @summary Queries the trends of Internet traffic.
@@ -1072,6 +1613,40 @@ namespace Cloudfw20171207
        * @return DescribeInvadeEventListResponse
        */
       Models::DescribeInvadeEventListResponse describeInvadeEventList(const Models::DescribeInvadeEventListRequest &request);
+
+      /**
+       * @summary 获取漏洞名称列表
+       *
+       * @param request DescribeInvadeEventNameListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInvadeEventNameListResponse
+       */
+      Models::DescribeInvadeEventNameListResponse describeInvadeEventNameListWithOptions(const Models::DescribeInvadeEventNameListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取漏洞名称列表
+       *
+       * @param request DescribeInvadeEventNameListRequest
+       * @return DescribeInvadeEventNameListResponse
+       */
+      Models::DescribeInvadeEventNameListResponse describeInvadeEventNameList(const Models::DescribeInvadeEventNameListRequest &request);
+
+      /**
+       * @summary 获取漏洞事件统计
+       *
+       * @param request DescribeInvadeEventStatisticRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInvadeEventStatisticResponse
+       */
+      Models::DescribeInvadeEventStatisticResponse describeInvadeEventStatisticWithOptions(const Models::DescribeInvadeEventStatisticRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取漏洞事件统计
+       *
+       * @param request DescribeInvadeEventStatisticRequest
+       * @return DescribeInvadeEventStatisticResponse
+       */
+      Models::DescribeInvadeEventStatisticResponse describeInvadeEventStatistic(const Models::DescribeInvadeEventStatisticRequest &request);
 
       /**
        * @summary Get Log Service Information
@@ -1128,6 +1703,23 @@ namespace Cloudfw20171207
       Models::DescribeNatFirewallControlPolicyResponse describeNatFirewallControlPolicy(const Models::DescribeNatFirewallControlPolicyRequest &request);
 
       /**
+       * @summary 概览页-nat防火墙拦截趋势
+       *
+       * @param request DescribeNatFirewallDropTrafficTrendRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeNatFirewallDropTrafficTrendResponse
+       */
+      Models::DescribeNatFirewallDropTrafficTrendResponse describeNatFirewallDropTrafficTrendWithOptions(const Models::DescribeNatFirewallDropTrafficTrendRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 概览页-nat防火墙拦截趋势
+       *
+       * @param request DescribeNatFirewallDropTrafficTrendRequest
+       * @return DescribeNatFirewallDropTrafficTrendResponse
+       */
+      Models::DescribeNatFirewallDropTrafficTrendResponse describeNatFirewallDropTrafficTrend(const Models::DescribeNatFirewallDropTrafficTrendRequest &request);
+
+      /**
        * @summary Queries details of NAT firewalls.
        *
        * @param request DescribeNatFirewallListRequest
@@ -1166,6 +1758,23 @@ namespace Cloudfw20171207
       Models::DescribeNatFirewallPolicyPriorUsedResponse describeNatFirewallPolicyPriorUsed(const Models::DescribeNatFirewallPolicyPriorUsedRequest &request);
 
       /**
+       * @summary 获取NAT防火墙配额
+       *
+       * @param request DescribeNatFirewallQuotaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeNatFirewallQuotaResponse
+       */
+      Models::DescribeNatFirewallQuotaResponse describeNatFirewallQuotaWithOptions(const Models::DescribeNatFirewallQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取NAT防火墙配额
+       *
+       * @param request DescribeNatFirewallQuotaRequest
+       * @return DescribeNatFirewallQuotaResponse
+       */
+      Models::DescribeNatFirewallQuotaResponse describeNatFirewallQuota(const Models::DescribeNatFirewallQuotaRequest &request);
+
+      /**
        * @summary 概览页-NAT流量趋势
        *
        * @param request DescribeNatFirewallTrafficTrendRequest
@@ -1181,6 +1790,91 @@ namespace Cloudfw20171207
        * @return DescribeNatFirewallTrafficTrendResponse
        */
       Models::DescribeNatFirewallTrafficTrendResponse describeNatFirewallTrafficTrend(const Models::DescribeNatFirewallTrafficTrendRequest &request);
+
+      /**
+       * @summary 获取网络实例列表
+       *
+       * @param request DescribeNetworkInstanceListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeNetworkInstanceListResponse
+       */
+      Models::DescribeNetworkInstanceListResponse describeNetworkInstanceListWithOptions(const Models::DescribeNetworkInstanceListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取网络实例列表
+       *
+       * @param request DescribeNetworkInstanceListRequest
+       * @return DescribeNetworkInstanceListResponse
+       */
+      Models::DescribeNetworkInstanceListResponse describeNetworkInstanceList(const Models::DescribeNetworkInstanceListRequest &request);
+
+      /**
+       * @summary 获取网络实例关系列表
+       *
+       * @param request DescribeNetworkInstanceRelationListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeNetworkInstanceRelationListResponse
+       */
+      Models::DescribeNetworkInstanceRelationListResponse describeNetworkInstanceRelationListWithOptions(const Models::DescribeNetworkInstanceRelationListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取网络实例关系列表
+       *
+       * @param request DescribeNetworkInstanceRelationListRequest
+       * @return DescribeNetworkInstanceRelationListResponse
+       */
+      Models::DescribeNetworkInstanceRelationListResponse describeNetworkInstanceRelationList(const Models::DescribeNetworkInstanceRelationListRequest &request);
+
+      /**
+       * @summary 获取网络流量TOP环比
+       *
+       * @param request DescribeNetworkTrafficTopRatioRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeNetworkTrafficTopRatioResponse
+       */
+      Models::DescribeNetworkTrafficTopRatioResponse describeNetworkTrafficTopRatioWithOptions(const Models::DescribeNetworkTrafficTopRatioRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取网络流量TOP环比
+       *
+       * @param request DescribeNetworkTrafficTopRatioRequest
+       * @return DescribeNetworkTrafficTopRatioResponse
+       */
+      Models::DescribeNetworkTrafficTopRatioResponse describeNetworkTrafficTopRatio(const Models::DescribeNetworkTrafficTopRatioRequest &request);
+
+      /**
+       * @summary 获取公网IP通过的源状态
+       *
+       * @param request DescribeOpenIpAccessSrcStatRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeOpenIpAccessSrcStatResponse
+       */
+      Models::DescribeOpenIpAccessSrcStatResponse describeOpenIpAccessSrcStatWithOptions(const Models::DescribeOpenIpAccessSrcStatRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取公网IP通过的源状态
+       *
+       * @param request DescribeOpenIpAccessSrcStatRequest
+       * @return DescribeOpenIpAccessSrcStatResponse
+       */
+      Models::DescribeOpenIpAccessSrcStatResponse describeOpenIpAccessSrcStat(const Models::DescribeOpenIpAccessSrcStatRequest &request);
+
+      /**
+       * @summary 获取外联资产列表
+       *
+       * @param request DescribeOutgoingAssetListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeOutgoingAssetListResponse
+       */
+      Models::DescribeOutgoingAssetListResponse describeOutgoingAssetListWithOptions(const Models::DescribeOutgoingAssetListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取外联资产列表
+       *
+       * @param request DescribeOutgoingAssetListRequest
+       * @return DescribeOutgoingAssetListResponse
+       */
+      Models::DescribeOutgoingAssetListResponse describeOutgoingAssetList(const Models::DescribeOutgoingAssetListRequest &request);
 
       /**
        * @summary Get details of outgoing destination IPs
@@ -1215,6 +1909,74 @@ namespace Cloudfw20171207
        * @return DescribeOutgoingDomainResponse
        */
       Models::DescribeOutgoingDomainResponse describeOutgoingDomain(const Models::DescribeOutgoingDomainRequest &request);
+
+      /**
+       * @summary 获取外联域名详情
+       *
+       * @param request DescribeOutgoingDomainDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeOutgoingDomainDetailResponse
+       */
+      Models::DescribeOutgoingDomainDetailResponse describeOutgoingDomainDetailWithOptions(const Models::DescribeOutgoingDomainDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取外联域名详情
+       *
+       * @param request DescribeOutgoingDomainDetailRequest
+       * @return DescribeOutgoingDomainDetailResponse
+       */
+      Models::DescribeOutgoingDomainDetailResponse describeOutgoingDomainDetail(const Models::DescribeOutgoingDomainDetailRequest &request);
+
+      /**
+       * @summary 获取外联统计
+       *
+       * @param request DescribeOutgoingStatisticRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeOutgoingStatisticResponse
+       */
+      Models::DescribeOutgoingStatisticResponse describeOutgoingStatisticWithOptions(const Models::DescribeOutgoingStatisticRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取外联统计
+       *
+       * @param request DescribeOutgoingStatisticRequest
+       * @return DescribeOutgoingStatisticResponse
+       */
+      Models::DescribeOutgoingStatisticResponse describeOutgoingStatistic(const Models::DescribeOutgoingStatisticRequest &request);
+
+      /**
+       * @summary 获取外联标签
+       *
+       * @param request DescribeOutgoingTagRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeOutgoingTagResponse
+       */
+      Models::DescribeOutgoingTagResponse describeOutgoingTagWithOptions(const Models::DescribeOutgoingTagRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取外联标签
+       *
+       * @param request DescribeOutgoingTagRequest
+       * @return DescribeOutgoingTagResponse
+       */
+      Models::DescribeOutgoingTagResponse describeOutgoingTag(const Models::DescribeOutgoingTagRequest &request);
+
+      /**
+       * @summary 获取文档
+       *
+       * @param request DescribePageDocumentsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePageDocumentsResponse
+       */
+      Models::DescribePageDocumentsResponse describePageDocumentsWithOptions(const Models::DescribePageDocumentsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取文档
+       *
+       * @param request DescribePageDocumentsRequest
+       * @return DescribePageDocumentsResponse
+       */
+      Models::DescribePageDocumentsResponse describePageDocuments(const Models::DescribePageDocumentsRequest &request);
 
       /**
        * @summary Queries whether the strict mode is enabled for an access control policy.
@@ -1309,6 +2071,40 @@ namespace Cloudfw20171207
       Models::DescribePostpayTrafficTotalResponse describePostpayTrafficTotal(const Models::DescribePostpayTrafficTotalRequest &request);
 
       /**
+       * @summary Queries the status of the Internet Firewall feature in Cloud Firewall that uses the pay-as-you-go billing method.
+       *
+       * @param request DescribePostpayUserInternetStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePostpayUserInternetStatusResponse
+       */
+      Models::DescribePostpayUserInternetStatusResponse describePostpayUserInternetStatusWithOptions(const Models::DescribePostpayUserInternetStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the status of the Internet Firewall feature in Cloud Firewall that uses the pay-as-you-go billing method.
+       *
+       * @param request DescribePostpayUserInternetStatusRequest
+       * @return DescribePostpayUserInternetStatusResponse
+       */
+      Models::DescribePostpayUserInternetStatusResponse describePostpayUserInternetStatus(const Models::DescribePostpayUserInternetStatusRequest &request);
+
+      /**
+       * @summary Queries the status of the NAT Firewall feature in Cloud Firewall that use the pay-as-you-go billing method.
+       *
+       * @param request DescribePostpayUserNatStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePostpayUserNatStatusResponse
+       */
+      Models::DescribePostpayUserNatStatusResponse describePostpayUserNatStatusWithOptions(const Models::DescribePostpayUserNatStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the status of the NAT Firewall feature in Cloud Firewall that use the pay-as-you-go billing method.
+       *
+       * @param request DescribePostpayUserNatStatusRequest
+       * @return DescribePostpayUserNatStatusResponse
+       */
+      Models::DescribePostpayUserNatStatusResponse describePostpayUserNatStatus(const Models::DescribePostpayUserNatStatusRequest &request);
+
+      /**
        * @summary Queries prefix lists.
        *
        * @param request DescribePrefixListsRequest
@@ -1377,6 +2173,40 @@ namespace Cloudfw20171207
       Models::DescribePrivateDnsEndpointListResponse describePrivateDnsEndpointList(const Models::DescribePrivateDnsEndpointListRequest &request);
 
       /**
+       * @summary 获取地域信息
+       *
+       * @param request DescribeRegionInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRegionInfoResponse
+       */
+      Models::DescribeRegionInfoResponse describeRegionInfoWithOptions(const Models::DescribeRegionInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取地域信息
+       *
+       * @param request DescribeRegionInfoRequest
+       * @return DescribeRegionInfoResponse
+       */
+      Models::DescribeRegionInfoResponse describeRegionInfo(const Models::DescribeRegionInfoRequest &request);
+
+      /**
+       * @summary 查询资产类型默认引流
+       *
+       * @param request DescribeResourceTypeAutoEnableRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeResourceTypeAutoEnableResponse
+       */
+      Models::DescribeResourceTypeAutoEnableResponse describeResourceTypeAutoEnableWithOptions(const Models::DescribeResourceTypeAutoEnableRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询资产类型默认引流
+       *
+       * @param request DescribeResourceTypeAutoEnableRequest
+       * @return DescribeResourceTypeAutoEnableResponse
+       */
+      Models::DescribeResourceTypeAutoEnableResponse describeResourceTypeAutoEnable(const Models::DescribeResourceTypeAutoEnableRequest &request);
+
+      /**
        * @summary Queries the details of intrusion events.
        *
        * @description You can call the DescribeRiskEventGroup operation to query and download the details of intrusion events. We recommend that you query the details of 5 to 10 intrusion events at a time. If you do not need to query the geographical information about IP addresses, you can set the NoLocation parameter to true to prevent query timeout.
@@ -1419,6 +2249,57 @@ namespace Cloudfw20171207
       Models::DescribeRiskEventPayloadResponse describeRiskEventPayload(const Models::DescribeRiskEventPayloadRequest &request);
 
       /**
+       * @summary 获取Top风险事件资产
+       *
+       * @param request DescribeRiskEventTopAttackAssetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRiskEventTopAttackAssetResponse
+       */
+      Models::DescribeRiskEventTopAttackAssetResponse describeRiskEventTopAttackAssetWithOptions(const Models::DescribeRiskEventTopAttackAssetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取Top风险事件资产
+       *
+       * @param request DescribeRiskEventTopAttackAssetRequest
+       * @return DescribeRiskEventTopAttackAssetResponse
+       */
+      Models::DescribeRiskEventTopAttackAssetResponse describeRiskEventTopAttackAsset(const Models::DescribeRiskEventTopAttackAssetRequest &request);
+
+      /**
+       * @summary 获取风险安全组详情
+       *
+       * @param request DescribeRiskSecurityGroupDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRiskSecurityGroupDetailResponse
+       */
+      Models::DescribeRiskSecurityGroupDetailResponse describeRiskSecurityGroupDetailWithOptions(const Models::DescribeRiskSecurityGroupDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取风险安全组详情
+       *
+       * @param request DescribeRiskSecurityGroupDetailRequest
+       * @return DescribeRiskSecurityGroupDetailResponse
+       */
+      Models::DescribeRiskSecurityGroupDetailResponse describeRiskSecurityGroupDetail(const Models::DescribeRiskSecurityGroupDetailRequest &request);
+
+      /**
+       * @summary 获取安全模式
+       *
+       * @param request DescribeSecurityModeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSecurityModeResponse
+       */
+      Models::DescribeSecurityModeResponse describeSecurityModeWithOptions(const Models::DescribeSecurityModeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取安全模式
+       *
+       * @param request DescribeSecurityModeRequest
+       * @return DescribeSecurityModeResponse
+       */
+      Models::DescribeSecurityModeResponse describeSecurityMode(const Models::DescribeSecurityModeRequest &request);
+
+      /**
        * @summary Queries the information about signature library versions.
        *
        * @param request DescribeSignatureLibVersionRequest
@@ -1433,6 +2314,23 @@ namespace Cloudfw20171207
        * @return DescribeSignatureLibVersionResponse
        */
       Models::DescribeSignatureLibVersionResponse describeSignatureLibVersion();
+
+      /**
+       * @summary 获取SLS开启状态
+       *
+       * @param request DescribeSlsAnalyzeOpenStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSlsAnalyzeOpenStatusResponse
+       */
+      Models::DescribeSlsAnalyzeOpenStatusResponse describeSlsAnalyzeOpenStatusWithOptions(const Models::DescribeSlsAnalyzeOpenStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取SLS开启状态
+       *
+       * @param request DescribeSlsAnalyzeOpenStatusRequest
+       * @return DescribeSlsAnalyzeOpenStatusResponse
+       */
+      Models::DescribeSlsAnalyzeOpenStatusResponse describeSlsAnalyzeOpenStatus(const Models::DescribeSlsAnalyzeOpenStatusRequest &request);
 
       /**
        * @summary Queries information about the transit routers that are associated with a virtual private cloud (VPC) firewall created for a transit router.
@@ -1520,6 +2418,40 @@ namespace Cloudfw20171207
       Models::DescribeTrFirewallsV2RouteListResponse describeTrFirewallsV2RouteList(const Models::DescribeTrFirewallsV2RouteListRequest &request);
 
       /**
+       * @summary 获取未保护漏洞趋势
+       *
+       * @param request DescribeUnprotectedVulnTrendRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeUnprotectedVulnTrendResponse
+       */
+      Models::DescribeUnprotectedVulnTrendResponse describeUnprotectedVulnTrendWithOptions(const Models::DescribeUnprotectedVulnTrendRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取未保护漏洞趋势
+       *
+       * @param request DescribeUnprotectedVulnTrendRequest
+       * @return DescribeUnprotectedVulnTrendResponse
+       */
+      Models::DescribeUnprotectedVulnTrendResponse describeUnprotectedVulnTrend(const Models::DescribeUnprotectedVulnTrendRequest &request);
+
+      /**
+       * @summary 获取用户告警配置
+       *
+       * @param request DescribeUserAlarmConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeUserAlarmConfigResponse
+       */
+      Models::DescribeUserAlarmConfigResponse describeUserAlarmConfigWithOptions(const Models::DescribeUserAlarmConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取用户告警配置
+       *
+       * @param request DescribeUserAlarmConfigRequest
+       * @return DescribeUserAlarmConfigResponse
+       */
+      Models::DescribeUserAlarmConfigResponse describeUserAlarmConfig(const Models::DescribeUserAlarmConfigRequest &request);
+
+      /**
        * @summary Queries the information about the traffic of a specified asset that belongs to your Alibaba Cloud account.
        *
        * @param request DescribeUserAssetIPTrafficInfoRequest
@@ -1577,6 +2509,23 @@ namespace Cloudfw20171207
        * @return DescribeUserIPSWhitelistResponse
        */
       Models::DescribeUserIPSWhitelistResponse describeUserIPSWhitelist(const Models::DescribeUserIPSWhitelistRequest &request);
+
+      /**
+       * @summary 获取VPC防火墙通过详情
+       *
+       * @param request DescribeVpcFirewallAccessDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVpcFirewallAccessDetailResponse
+       */
+      Models::DescribeVpcFirewallAccessDetailResponse describeVpcFirewallAccessDetailWithOptions(const Models::DescribeVpcFirewallAccessDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取VPC防火墙通过详情
+       *
+       * @param request DescribeVpcFirewallAccessDetailRequest
+       * @return DescribeVpcFirewallAccessDetailResponse
+       */
+      Models::DescribeVpcFirewallAccessDetailResponse describeVpcFirewallAccessDetail(const Models::DescribeVpcFirewallAccessDetailRequest &request);
 
       /**
        * @summary Queries the information about all policy groups of access control policies that are created for virtual private cloud (VPC) firewalls.
@@ -1652,6 +2601,23 @@ namespace Cloudfw20171207
        * @return DescribeVpcFirewallCenListResponse
        */
       Models::DescribeVpcFirewallCenListResponse describeVpcFirewallCenList(const Models::DescribeVpcFirewallCenListRequest &request);
+
+      /**
+       * @summary 获取VPC的CEN列表
+       *
+       * @param request DescribeVpcFirewallCenSummaryListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVpcFirewallCenSummaryListResponse
+       */
+      Models::DescribeVpcFirewallCenSummaryListResponse describeVpcFirewallCenSummaryListWithOptions(const Models::DescribeVpcFirewallCenSummaryListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取VPC的CEN列表
+       *
+       * @param request DescribeVpcFirewallCenSummaryListRequest
+       * @return DescribeVpcFirewallCenSummaryListResponse
+       */
+      Models::DescribeVpcFirewallCenSummaryListResponse describeVpcFirewallCenSummaryList(const Models::DescribeVpcFirewallCenSummaryListRequest &request);
 
       /**
        * @summary Queries the information about the access control policies for a specified virtual private cloud (VPC) firewall.
@@ -1798,6 +2764,23 @@ namespace Cloudfw20171207
       Models::DescribeVpcFirewallPolicyPriorUsedResponse describeVpcFirewallPolicyPriorUsed(const Models::DescribeVpcFirewallPolicyPriorUsedRequest &request);
 
       /**
+       * @summary 获取VPC防火墙总结信息
+       *
+       * @param request DescribeVpcFirewallSummaryInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVpcFirewallSummaryInfoResponse
+       */
+      Models::DescribeVpcFirewallSummaryInfoResponse describeVpcFirewallSummaryInfoWithOptions(const Models::DescribeVpcFirewallSummaryInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取VPC防火墙总结信息
+       *
+       * @param request DescribeVpcFirewallSummaryInfoRequest
+       * @return DescribeVpcFirewallSummaryInfoResponse
+       */
+      Models::DescribeVpcFirewallSummaryInfoResponse describeVpcFirewallSummaryInfo(const Models::DescribeVpcFirewallSummaryInfoRequest &request);
+
+      /**
        * @summary Queries virtual private clouds (VPCs).
        *
        * @param request DescribeVpcListLiteRequest
@@ -1847,6 +2830,23 @@ namespace Cloudfw20171207
        * @return DescribeVulnerabilityProtectedListResponse
        */
       Models::DescribeVulnerabilityProtectedListResponse describeVulnerabilityProtectedList(const Models::DescribeVulnerabilityProtectedListRequest &request);
+
+      /**
+       * @summary 开启资产数据泄露保护
+       *
+       * @param request EnableSdlProtectedAssetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableSdlProtectedAssetResponse
+       */
+      Models::EnableSdlProtectedAssetResponse enableSdlProtectedAssetWithOptions(const Models::EnableSdlProtectedAssetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开启资产数据泄露保护
+       *
+       * @param request EnableSdlProtectedAssetRequest
+       * @return EnableSdlProtectedAssetResponse
+       */
+      Models::EnableSdlProtectedAssetResponse enableSdlProtectedAsset(const Models::EnableSdlProtectedAssetRequest &request);
 
       /**
        * @summary Modifies the address book that is specified in an access control policy.
@@ -2017,6 +3017,23 @@ namespace Cloudfw20171207
       Models::ModifyInstanceMemberAttributesResponse modifyInstanceMemberAttributes(const Models::ModifyInstanceMemberAttributesRequest &request);
 
       /**
+       * @summary 修改IPS规则为默认
+       *
+       * @param request ModifyIpsRulesToDefaultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyIpsRulesToDefaultResponse
+       */
+      Models::ModifyIpsRulesToDefaultResponse modifyIpsRulesToDefaultWithOptions(const Models::ModifyIpsRulesToDefaultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改IPS规则为默认
+       *
+       * @param request ModifyIpsRulesToDefaultRequest
+       * @return ModifyIpsRulesToDefaultResponse
+       */
+      Models::ModifyIpsRulesToDefaultResponse modifyIpsRulesToDefault(const Models::ModifyIpsRulesToDefaultRequest &request);
+
+      /**
        * @summary Modifies the configurations of an access control policy that is created for a NAT firewall.
        *
        * @description You can use this operation to modify the configurations of an access control policy. The policy is used to allow, deny, or monitor traffic that reaches a NAT firewall.
@@ -2114,6 +3131,57 @@ namespace Cloudfw20171207
       Models::ModifyPrivateDnsEndpointResponse modifyPrivateDnsEndpoint(const Models::ModifyPrivateDnsEndpointRequest &request);
 
       /**
+       * @summary 修改敏感数据开关
+       *
+       * @param request ModifySensitiveSwitchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifySensitiveSwitchResponse
+       */
+      Models::ModifySensitiveSwitchResponse modifySensitiveSwitchWithOptions(const Models::ModifySensitiveSwitchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改敏感数据开关
+       *
+       * @param request ModifySensitiveSwitchRequest
+       * @return ModifySensitiveSwitchResponse
+       */
+      Models::ModifySensitiveSwitchResponse modifySensitiveSwitch(const Models::ModifySensitiveSwitchRequest &request);
+
+      /**
+       * @summary 修改SLS投递
+       *
+       * @param request ModifySlsDispatchStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifySlsDispatchStatusResponse
+       */
+      Models::ModifySlsDispatchStatusResponse modifySlsDispatchStatusWithOptions(const Models::ModifySlsDispatchStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改SLS投递
+       *
+       * @param request ModifySlsDispatchStatusRequest
+       * @return ModifySlsDispatchStatusResponse
+       */
+      Models::ModifySlsDispatchStatusResponse modifySlsDispatchStatus(const Models::ModifySlsDispatchStatusRequest &request);
+
+      /**
+       * @summary 修改威胁情报配置的信息
+       *
+       * @param request ModifyThreatIntelligenceSwitchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyThreatIntelligenceSwitchResponse
+       */
+      Models::ModifyThreatIntelligenceSwitchResponse modifyThreatIntelligenceSwitchWithOptions(const Models::ModifyThreatIntelligenceSwitchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改威胁情报配置的信息
+       *
+       * @param request ModifyThreatIntelligenceSwitchRequest
+       * @return ModifyThreatIntelligenceSwitchResponse
+       */
+      Models::ModifyThreatIntelligenceSwitchResponse modifyThreatIntelligenceSwitch(const Models::ModifyThreatIntelligenceSwitchRequest &request);
+
+      /**
        * @summary Modifies the configuration of a virtual private cloud (VPC) firewall that is created for a transit router.
        *
        * @param request ModifyTrFirewallV2ConfigurationRequest
@@ -2163,6 +3231,40 @@ namespace Cloudfw20171207
        * @return ModifyUserIPSWhitelistResponse
        */
       Models::ModifyUserIPSWhitelistResponse modifyUserIPSWhitelist(const Models::ModifyUserIPSWhitelistRequest &request);
+
+      /**
+       * @summary 修改用户日志存储时间
+       *
+       * @param request ModifyUserSlsLogStorageTimeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyUserSlsLogStorageTimeResponse
+       */
+      Models::ModifyUserSlsLogStorageTimeResponse modifyUserSlsLogStorageTimeWithOptions(const Models::ModifyUserSlsLogStorageTimeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改用户日志存储时间
+       *
+       * @param request ModifyUserSlsLogStorageTimeRequest
+       * @return ModifyUserSlsLogStorageTimeResponse
+       */
+      Models::ModifyUserSlsLogStorageTimeResponse modifyUserSlsLogStorageTime(const Models::ModifyUserSlsLogStorageTimeRequest &request);
+
+      /**
+       * @summary 修改VPC防火墙ACL引擎模式
+       *
+       * @param request ModifyVpcFirewallAclEngineModeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyVpcFirewallAclEngineModeResponse
+       */
+      Models::ModifyVpcFirewallAclEngineModeResponse modifyVpcFirewallAclEngineModeWithOptions(const Models::ModifyVpcFirewallAclEngineModeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改VPC防火墙ACL引擎模式
+       *
+       * @param request ModifyVpcFirewallAclEngineModeRequest
+       * @return ModifyVpcFirewallAclEngineModeResponse
+       */
+      Models::ModifyVpcFirewallAclEngineModeResponse modifyVpcFirewallAclEngineMode(const Models::ModifyVpcFirewallAclEngineModeRequest &request);
 
       /**
        * @summary Modifies the configurations of a virtual private cloud (VPC) firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a Cloud Enterprise Network (CEN) instance.
@@ -2512,6 +3614,23 @@ namespace Cloudfw20171207
       Models::ResetNatFirewallRuleHitCountResponse resetNatFirewallRuleHitCount(const Models::ResetNatFirewallRuleHitCountRequest &request);
 
       /**
+       * @summary 重置规则命中数
+       *
+       * @param request ResetRuleHitCountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResetRuleHitCountResponse
+       */
+      Models::ResetRuleHitCountResponse resetRuleHitCountWithOptions(const Models::ResetRuleHitCountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重置规则命中数
+       *
+       * @param request ResetRuleHitCountRequest
+       * @return ResetRuleHitCountResponse
+       */
+      Models::ResetRuleHitCountResponse resetRuleHitCount(const Models::ResetRuleHitCountRequest &request);
+
+      /**
        * @summary Clears the count on hits of an access control policy that is created for a virtual private cloud (VPC) firewall in a specific policy group.
        *
        * @description You can call the ResetVpcFirewallRuleHitCount operation to clear the count on hits of an access control policy that is created for a VPC firewall in a specific policy group.  
@@ -2569,6 +3688,74 @@ namespace Cloudfw20171207
        * @return UpdateAITrafficAnalysisStatusResponse
        */
       Models::UpdateAITrafficAnalysisStatusResponse updateAITrafficAnalysisStatus(const Models::UpdateAITrafficAnalysisStatusRequest &request);
+
+      /**
+       * @summary 修改ACK集群连接器
+       *
+       * @param request UpdateAckClusterConnectorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAckClusterConnectorResponse
+       */
+      Models::UpdateAckClusterConnectorResponse updateAckClusterConnectorWithOptions(const Models::UpdateAckClusterConnectorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改ACK集群连接器
+       *
+       * @param request UpdateAckClusterConnectorRequest
+       * @return UpdateAckClusterConnectorResponse
+       */
+      Models::UpdateAckClusterConnectorResponse updateAckClusterConnector(const Models::UpdateAckClusterConnectorRequest &request);
+
+      /**
+       * @summary 修改ACL检查状态
+       *
+       * @param request UpdateAclCheckDetailStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAclCheckDetailStatusResponse
+       */
+      Models::UpdateAclCheckDetailStatusResponse updateAclCheckDetailStatusWithOptions(const Models::UpdateAclCheckDetailStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改ACL检查状态
+       *
+       * @param request UpdateAclCheckDetailStatusRequest
+       * @return UpdateAclCheckDetailStatusResponse
+       */
+      Models::UpdateAclCheckDetailStatusResponse updateAclCheckDetailStatus(const Models::UpdateAclCheckDetailStatusRequest &request);
+
+      /**
+       * @summary Updates the status of the NAT firewall feature for Cloud Firewall that uses the pay-as-you-go billing method.
+       *
+       * @param request UpdatePostpayUserInternetStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePostpayUserInternetStatusResponse
+       */
+      Models::UpdatePostpayUserInternetStatusResponse updatePostpayUserInternetStatusWithOptions(const Models::UpdatePostpayUserInternetStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the status of the NAT firewall feature for Cloud Firewall that uses the pay-as-you-go billing method.
+       *
+       * @param request UpdatePostpayUserInternetStatusRequest
+       * @return UpdatePostpayUserInternetStatusResponse
+       */
+      Models::UpdatePostpayUserInternetStatusResponse updatePostpayUserInternetStatus(const Models::UpdatePostpayUserInternetStatusRequest &request);
+
+      /**
+       * @summary 更新安全正向代理
+       *
+       * @param request UpdateSecurityProxyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateSecurityProxyResponse
+       */
+      Models::UpdateSecurityProxyResponse updateSecurityProxyWithOptions(const Models::UpdateSecurityProxyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新安全正向代理
+       *
+       * @param request UpdateSecurityProxyRequest
+       * @return UpdateSecurityProxyResponse
+       */
+      Models::UpdateSecurityProxyResponse updateSecurityProxy(const Models::UpdateSecurityProxyRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Cloudfw20171207

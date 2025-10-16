@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dstIP_ != nullptr
-        && this->dstPort_ != nullptr && this->dstVpcId_ != nullptr && this->hitContentType_ != nullptr && this->hitTo_ != nullptr && this->parsedContent_ != nullptr
-        && this->payload_ != nullptr && this->payloadLen_ != nullptr && this->proto_ != nullptr && this->realIp_ != nullptr && this->requestId_ != nullptr
-        && this->srcIP_ != nullptr && this->srcPort_ != nullptr && this->srcVpcId_ != nullptr && this->XForwardFor_ != nullptr; };
+    virtual bool empty() const override { return this->dstIP_ == nullptr
+        && return this->dstPort_ == nullptr && return this->dstVpcId_ == nullptr && return this->hitContentType_ == nullptr && return this->hitTo_ == nullptr && return this->parsedContent_ == nullptr
+        && return this->payload_ == nullptr && return this->payloadLen_ == nullptr && return this->proto_ == nullptr && return this->realIp_ == nullptr && return this->requestId_ == nullptr
+        && return this->srcIP_ == nullptr && return this->srcPort_ == nullptr && return this->srcVpcId_ == nullptr && return this->XForwardFor_ == nullptr; };
     // dstIP Field Functions 
     bool hasDstIP() const { return this->dstIP_ != nullptr;};
     void deleteDstIP() { this->dstIP_ = nullptr;};

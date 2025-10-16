@@ -96,14 +96,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aclAction_ != nullptr
-        && this->aclUuid_ != nullptr && this->applicationNameList_ != nullptr && this->createTime_ != nullptr && this->description_ != nullptr && this->destPort_ != nullptr
-        && this->destPortGroup_ != nullptr && this->destPortGroupPorts_ != nullptr && this->destPortType_ != nullptr && this->destination_ != nullptr && this->destinationGroupCidrs_ != nullptr
-        && this->destinationGroupType_ != nullptr && this->destinationType_ != nullptr && this->dnsResult_ != nullptr && this->dnsResultTime_ != nullptr && this->domainResolveType_ != nullptr
-        && this->endTime_ != nullptr && this->hitLastTime_ != nullptr && this->hitTimes_ != nullptr && this->modifyTime_ != nullptr && this->natGatewayId_ != nullptr
-        && this->order_ != nullptr && this->proto_ != nullptr && this->release_ != nullptr && this->repeatDays_ != nullptr && this->repeatEndTime_ != nullptr
-        && this->repeatStartTime_ != nullptr && this->repeatType_ != nullptr && this->source_ != nullptr && this->sourceGroupCidrs_ != nullptr && this->sourceGroupType_ != nullptr
-        && this->sourceType_ != nullptr && this->spreadCnt_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->aclAction_ == nullptr
+        && return this->aclUuid_ == nullptr && return this->applicationNameList_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->destPort_ == nullptr
+        && return this->destPortGroup_ == nullptr && return this->destPortGroupPorts_ == nullptr && return this->destPortType_ == nullptr && return this->destination_ == nullptr && return this->destinationGroupCidrs_ == nullptr
+        && return this->destinationGroupType_ == nullptr && return this->destinationType_ == nullptr && return this->dnsResult_ == nullptr && return this->dnsResultTime_ == nullptr && return this->domainResolveType_ == nullptr
+        && return this->endTime_ == nullptr && return this->hitLastTime_ == nullptr && return this->hitTimes_ == nullptr && return this->modifyTime_ == nullptr && return this->natGatewayId_ == nullptr
+        && return this->order_ == nullptr && return this->proto_ == nullptr && return this->release_ == nullptr && return this->repeatDays_ == nullptr && return this->repeatEndTime_ == nullptr
+        && return this->repeatStartTime_ == nullptr && return this->repeatType_ == nullptr && return this->source_ == nullptr && return this->sourceGroupCidrs_ == nullptr && return this->sourceGroupType_ == nullptr
+        && return this->sourceType_ == nullptr && return this->spreadCnt_ == nullptr && return this->startTime_ == nullptr; };
     // aclAction Field Functions 
     bool hasAclAction() const { return this->aclAction_ != nullptr;};
     void deleteAclAction() { this->aclAction_ = nullptr;};

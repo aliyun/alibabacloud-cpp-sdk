@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aclConfig_ != nullptr
-        && this->aclGroupId_ != nullptr && this->aclGroupName_ != nullptr && this->aclRuleCount_ != nullptr && this->isDefault_ != nullptr && this->memberUid_ != nullptr; };
+    virtual bool empty() const override { return this->aclConfig_ == nullptr
+        && return this->aclGroupId_ == nullptr && return this->aclGroupName_ == nullptr && return this->aclRuleCount_ == nullptr && return this->isDefault_ == nullptr && return this->memberUid_ == nullptr; };
     // aclConfig Field Functions 
     bool hasAclConfig() const { return this->aclConfig_ != nullptr;};
     void deleteAclConfig() { this->aclConfig_ = nullptr;};

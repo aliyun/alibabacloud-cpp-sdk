@@ -74,12 +74,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aclAction_ != nullptr
-        && this->aclUuid_ != nullptr && this->applicationNameList_ != nullptr && this->description_ != nullptr && this->destPort_ != nullptr && this->destPortGroup_ != nullptr
-        && this->destPortType_ != nullptr && this->destination_ != nullptr && this->destinationType_ != nullptr && this->direction_ != nullptr && this->domainResolveType_ != nullptr
-        && this->endTime_ != nullptr && this->lang_ != nullptr && this->natGatewayId_ != nullptr && this->proto_ != nullptr && this->release_ != nullptr
-        && this->repeatDays_ != nullptr && this->repeatEndTime_ != nullptr && this->repeatStartTime_ != nullptr && this->repeatType_ != nullptr && this->source_ != nullptr
-        && this->sourceType_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->aclAction_ == nullptr
+        && return this->aclUuid_ == nullptr && return this->applicationNameList_ == nullptr && return this->description_ == nullptr && return this->destPort_ == nullptr && return this->destPortGroup_ == nullptr
+        && return this->destPortType_ == nullptr && return this->destination_ == nullptr && return this->destinationType_ == nullptr && return this->direction_ == nullptr && return this->domainResolveType_ == nullptr
+        && return this->endTime_ == nullptr && return this->lang_ == nullptr && return this->natGatewayId_ == nullptr && return this->proto_ == nullptr && return this->release_ == nullptr
+        && return this->repeatDays_ == nullptr && return this->repeatEndTime_ == nullptr && return this->repeatStartTime_ == nullptr && return this->repeatType_ == nullptr && return this->source_ == nullptr
+        && return this->sourceType_ == nullptr && return this->startTime_ == nullptr; };
     // aclAction Field Functions 
     bool hasAclAction() const { return this->aclAction_ != nullptr;};
     void deleteAclAction() { this->aclAction_ = nullptr;};
