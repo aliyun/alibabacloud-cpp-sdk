@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aiProtocols_ != nullptr
-        && this->attachPolicyConfigs_ != nullptr && this->basePath_ != nullptr && this->deployConfigs_ != nullptr && this->modelCategory_ != nullptr && this->removeBasePathOnForward_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->aiProtocols_ == nullptr
+        && return this->attachPolicyConfigs_ == nullptr && return this->basePath_ == nullptr && return this->deployConfigs_ == nullptr && return this->modelCategory_ == nullptr && return this->removeBasePathOnForward_ == nullptr
+        && return this->type_ == nullptr; };
     // aiProtocols Field Functions 
     bool hasAiProtocols() const { return this->aiProtocols_ != nullptr;};
     void deleteAiProtocols() { this->aiProtocols_ = nullptr;};

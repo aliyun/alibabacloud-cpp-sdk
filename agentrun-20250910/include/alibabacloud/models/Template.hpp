@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->templateID_ != nullptr
-        && this->templateVersion_ != nullptr; };
+    virtual bool empty() const override { return this->templateID_ == nullptr
+        && return this->templateVersion_ == nullptr; };
     // templateID Field Functions 
     bool hasTemplateID() const { return this->templateID_ != nullptr;};
     void deleteTemplateID() { this->templateID_ = nullptr;};

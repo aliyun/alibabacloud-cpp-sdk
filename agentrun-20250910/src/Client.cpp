@@ -4,7 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <darabonba/http/URL.hpp>
+#include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -100,7 +100,7 @@ CreateAgentRuntimeEndpointResponse Client::createAgentRuntimeEndpointWithOptions
     {"action" , "CreateAgentRuntimeEndpoint"},
     {"version" , "2025-09-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/runtimes/" , Darabonba::Http::URL::percentEncode(agentRuntimeId) , "/endpoints")},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/runtimes/" , Darabonba::Encode::Encoder::percentEncode(agentRuntimeId) , "/endpoints")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -213,6 +213,104 @@ CreateCodeInterpreterResponse Client::createCodeInterpreter(const CreateCodeInte
 }
 
 /**
+ * @summary create memory store
+ *
+ * @param request CreateMemoryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMemoryResponse
+ */
+CreateMemoryResponse Client::createMemoryWithOptions(const CreateMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLongTtl()) {
+    body["longTtl"] = request.longTtl();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.name();
+  }
+
+  if (!!request.hasShortTtl()) {
+    body["shortTtl"] = request.shortTtl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateMemory"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMemoryResponse>();
+}
+
+/**
+ * @summary create memory store
+ *
+ * @param request CreateMemoryRequest
+ * @return CreateMemoryResponse
+ */
+CreateMemoryResponse Client::createMemory(const CreateMemoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createMemoryWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary create event
+ *
+ * @param request CreateMemoryEventRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMemoryEventResponse
+ */
+CreateMemoryEventResponse Client::createMemoryEventWithOptions(const string &memoryName, const CreateMemoryEventRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEvents()) {
+    body["events"] = request.events();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateMemoryEvent"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryName) , "/events")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMemoryEventResponse>();
+}
+
+/**
+ * @summary create event
+ *
+ * @param request CreateMemoryEventRequest
+ * @return CreateMemoryEventResponse
+ */
+CreateMemoryEventResponse Client::createMemoryEvent(const string &memoryName, const CreateMemoryEventRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createMemoryEventWithOptions(memoryName, request, headers, runtime);
+}
+
+/**
  * @summary 删除智能体运行时
  *
  * @description 删除指定的智能体运行时实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
@@ -229,7 +327,7 @@ DeleteAgentRuntimeResponse Client::deleteAgentRuntimeWithOptions(const string &a
     {"action" , "DeleteAgentRuntime"},
     {"version" , "2025-09-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/runtimes/" , Darabonba::Http::URL::percentEncode(agentRuntimeId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/runtimes/" , Darabonba::Encode::Encoder::percentEncode(agentRuntimeId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -267,7 +365,7 @@ DeleteAgentRuntimeEndpointResponse Client::deleteAgentRuntimeEndpointWithOptions
     {"action" , "DeleteAgentRuntimeEndpoint"},
     {"version" , "2025-09-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/runtimes/" , Darabonba::Http::URL::percentEncode(agentRuntimeId) , "/endpoints/" , Darabonba::Http::URL::percentEncode(agentRuntimeEndpointId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/runtimes/" , Darabonba::Encode::Encoder::percentEncode(agentRuntimeId) , "/endpoints/" , Darabonba::Encode::Encoder::percentEncode(agentRuntimeEndpointId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -305,7 +403,7 @@ DeleteBrowserResponse Client::deleteBrowserWithOptions(const string &browserId, 
     {"action" , "DeleteBrowser"},
     {"version" , "2025-09-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/browsers/" , Darabonba::Http::URL::percentEncode(browserId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/browsers/" , Darabonba::Encode::Encoder::percentEncode(browserId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -345,7 +443,7 @@ DeleteCodeInterpreterResponse Client::deleteCodeInterpreterWithOptions(const str
     {"action" , "DeleteCodeInterpreter"},
     {"version" , "2025-09-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/code-interpreters/" , Darabonba::Http::URL::percentEncode(codeInterpreterId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/code-interpreters/" , Darabonba::Encode::Encoder::percentEncode(codeInterpreterId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -366,6 +464,42 @@ DeleteCodeInterpreterResponse Client::deleteCodeInterpreter(const string &codeIn
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteCodeInterpreterWithOptions(codeInterpreterId, headers, runtime);
+}
+
+/**
+ * @summary delete memory store
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMemoryResponse
+ */
+DeleteMemoryResponse Client::deleteMemoryWithOptions(const string &memoryName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteMemory"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMemoryResponse>();
+}
+
+/**
+ * @summary delete memory store
+ *
+ * @return DeleteMemoryResponse
+ */
+DeleteMemoryResponse Client::deleteMemory(const string &memoryName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteMemoryWithOptions(memoryName, headers, runtime);
 }
 
 /**
@@ -393,7 +527,7 @@ GetAgentRuntimeResponse Client::getAgentRuntimeWithOptions(const string &agentRu
     {"action" , "GetAgentRuntime"},
     {"version" , "2025-09-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/runtimes/" , Darabonba::Http::URL::percentEncode(agentRuntimeId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/runtimes/" , Darabonba::Encode::Encoder::percentEncode(agentRuntimeId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -432,7 +566,7 @@ GetAgentRuntimeEndpointResponse Client::getAgentRuntimeEndpointWithOptions(const
     {"action" , "GetAgentRuntimeEndpoint"},
     {"version" , "2025-09-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/runtimes/" , Darabonba::Http::URL::percentEncode(agentRuntimeId) , "/endpoints/" , Darabonba::Http::URL::percentEncode(agentRuntimeEndpointId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/runtimes/" , Darabonba::Encode::Encoder::percentEncode(agentRuntimeId) , "/endpoints/" , Darabonba::Encode::Encoder::percentEncode(agentRuntimeEndpointId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -470,7 +604,7 @@ GetBrowserResponse Client::getBrowserWithOptions(const string &browserId, const 
     {"action" , "GetBrowser"},
     {"version" , "2025-09-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/browsers/" , Darabonba::Http::URL::percentEncode(browserId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/browsers/" , Darabonba::Encode::Encoder::percentEncode(browserId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -510,7 +644,7 @@ GetCodeInterpreterResponse Client::getCodeInterpreterWithOptions(const string &c
     {"action" , "GetCodeInterpreter"},
     {"version" , "2025-09-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/code-interpreters/" , Darabonba::Http::URL::percentEncode(codeInterpreterId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/code-interpreters/" , Darabonba::Encode::Encoder::percentEncode(codeInterpreterId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -531,6 +665,148 @@ GetCodeInterpreterResponse Client::getCodeInterpreter(const string &codeInterpre
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getCodeInterpreterWithOptions(codeInterpreterId, headers, runtime);
+}
+
+/**
+ * @summary GetMemory
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMemoryResponse
+ */
+GetMemoryResponse Client::getMemoryWithOptions(const string &memoryName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMemory"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMemoryResponse>();
+}
+
+/**
+ * @summary GetMemory
+ *
+ * @return GetMemoryResponse
+ */
+GetMemoryResponse Client::getMemory(const string &memoryName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMemoryWithOptions(memoryName, headers, runtime);
+}
+
+/**
+ * @summary get event
+ *
+ * @param request GetMemoryEventRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMemoryEventResponse
+ */
+GetMemoryEventResponse Client::getMemoryEventWithOptions(const string &memoryName, const string &sessionId, const string &eventId, const GetMemoryEventRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFrom()) {
+    query["from"] = request.from();
+  }
+
+  if (!!request.hasTo()) {
+    query["to"] = request.to();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMemoryEvent"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryName) , "/sessions/" , Darabonba::Encode::Encoder::percentEncode(sessionId) , "/events/" , Darabonba::Encode::Encoder::percentEncode(eventId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMemoryEventResponse>();
+}
+
+/**
+ * @summary get event
+ *
+ * @param request GetMemoryEventRequest
+ * @return GetMemoryEventResponse
+ */
+GetMemoryEventResponse Client::getMemoryEvent(const string &memoryName, const string &sessionId, const string &eventId, const GetMemoryEventRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMemoryEventWithOptions(memoryName, sessionId, eventId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取内存会话详情
+ *
+ * @description 根据会话ID获取指定内存会话的详细信息，包括会话中的事件记录、时间戳等。用于查看和管理对话历史。
+ *
+ * @param request GetMemorySessionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMemorySessionResponse
+ */
+GetMemorySessionResponse Client::getMemorySessionWithOptions(const string &memoryName, const string &sessionId, const GetMemorySessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFrom()) {
+    query["from"] = request.from();
+  }
+
+  if (!!request.hasSize()) {
+    query["size"] = request.size();
+  }
+
+  if (!!request.hasTo()) {
+    query["to"] = request.to();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMemorySession"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryName) , "/sessions/" , Darabonba::Encode::Encoder::percentEncode(sessionId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMemorySessionResponse>();
+}
+
+/**
+ * @summary 获取内存会话详情
+ *
+ * @description 根据会话ID获取指定内存会话的详细信息，包括会话中的事件记录、时间戳等。用于查看和管理对话历史。
+ *
+ * @param request GetMemorySessionRequest
+ * @return GetMemorySessionResponse
+ */
+GetMemorySessionResponse Client::getMemorySession(const string &memoryName, const string &sessionId, const GetMemorySessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMemorySessionWithOptions(memoryName, sessionId, request, headers, runtime);
 }
 
 /**
@@ -566,7 +842,7 @@ ListAgentRuntimeEndpointsResponse Client::listAgentRuntimeEndpointsWithOptions(c
     {"action" , "ListAgentRuntimeEndpoints"},
     {"version" , "2025-09-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/runtimes/" , Darabonba::Http::URL::percentEncode(agentRuntimeId) , "/endpoints")},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/runtimes/" , Darabonba::Encode::Encoder::percentEncode(agentRuntimeId) , "/endpoints")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -617,7 +893,7 @@ ListAgentRuntimeVersionsResponse Client::listAgentRuntimeVersionsWithOptions(con
     {"action" , "ListAgentRuntimeVersions"},
     {"version" , "2025-09-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/runtimes/" , Darabonba::Http::URL::percentEncode(agentRuntimeId) , "/versions")},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/runtimes/" , Darabonba::Encode::Encoder::percentEncode(agentRuntimeId) , "/versions")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -815,6 +1091,177 @@ ListCodeInterpretersResponse Client::listCodeInterpreters(const ListCodeInterpre
 }
 
 /**
+ * @summary ListMemory
+ *
+ * @param request ListMemoryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMemoryResponse
+ */
+ListMemoryResponse Client::listMemoryWithOptions(const ListMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNamePrefix()) {
+    query["namePrefix"] = request.namePrefix();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMemory"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMemoryResponse>();
+}
+
+/**
+ * @summary ListMemory
+ *
+ * @param request ListMemoryRequest
+ * @return ListMemoryResponse
+ */
+ListMemoryResponse Client::listMemory(const ListMemoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMemoryWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary list events
+ *
+ * @param request ListMemoryEventRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMemoryEventResponse
+ */
+ListMemoryEventResponse Client::listMemoryEventWithOptions(const string &memoryName, const string &sessionId, const ListMemoryEventRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFrom()) {
+    query["from"] = request.from();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasTo()) {
+    query["to"] = request.to();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMemoryEvent"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryName) , "/sessions/" , Darabonba::Encode::Encoder::percentEncode(sessionId) , "/events")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMemoryEventResponse>();
+}
+
+/**
+ * @summary list events
+ *
+ * @param request ListMemoryEventRequest
+ * @return ListMemoryEventResponse
+ */
+ListMemoryEventResponse Client::listMemoryEvent(const string &memoryName, const string &sessionId, const ListMemoryEventRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMemoryEventWithOptions(memoryName, sessionId, request, headers, runtime);
+}
+
+/**
+ * @summary 列出内存会话
+ *
+ * @description 获取指定内存实例的所有会话列表，支持按时间范围过滤和分页查询。会话是AgentRun中用于存储对话历史和管理上下文的重要组件。
+ *
+ * @param request ListMemorySessionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMemorySessionsResponse
+ */
+ListMemorySessionsResponse Client::listMemorySessionsWithOptions(const string &memoryName, const ListMemorySessionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFrom()) {
+    query["from"] = request.from();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasTo()) {
+    query["to"] = request.to();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMemorySessions"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryName) , "/sessions")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMemorySessionsResponse>();
+}
+
+/**
+ * @summary 列出内存会话
+ *
+ * @description 获取指定内存实例的所有会话列表，支持按时间范围过滤和分页查询。会话是AgentRun中用于存储对话历史和管理上下文的重要组件。
+ *
+ * @param request ListMemorySessionsRequest
+ * @return ListMemorySessionsResponse
+ */
+ListMemorySessionsResponse Client::listMemorySessions(const string &memoryName, const ListMemorySessionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMemorySessionsWithOptions(memoryName, request, headers, runtime);
+}
+
+/**
  * @summary 发布运行时版本
  *
  * @description 为指定的智能体运行时发布新版本，用于版本管理和部署。新版本可以包含代码更新、配置变更等内容。
@@ -834,7 +1281,7 @@ PublishRuntimeVersionResponse Client::publishRuntimeVersionWithOptions(const str
     {"action" , "PublishRuntimeVersion"},
     {"version" , "2025-09-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/runtimes/" , Darabonba::Http::URL::percentEncode(agentRuntimeId) , "/versions")},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/runtimes/" , Darabonba::Encode::Encoder::percentEncode(agentRuntimeId) , "/versions")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -859,6 +1306,67 @@ PublishRuntimeVersionResponse Client::publishRuntimeVersion(const string &agentR
 }
 
 /**
+ * @summary RetrieveMemory
+ *
+ * @param request RetrieveMemoryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RetrieveMemoryResponse
+ */
+RetrieveMemoryResponse Client::retrieveMemoryWithOptions(const string &memoryName, const RetrieveMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFrom()) {
+    body["from"] = request.from();
+  }
+
+  if (!!request.hasQuery()) {
+    body["query"] = request.query();
+  }
+
+  if (!!request.hasStore()) {
+    body["store"] = request.store();
+  }
+
+  if (!!request.hasTo()) {
+    body["to"] = request.to();
+  }
+
+  if (!!request.hasTopk()) {
+    body["topk"] = request.topk();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RetrieveMemory"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryName) , "/records")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RetrieveMemoryResponse>();
+}
+
+/**
+ * @summary RetrieveMemory
+ *
+ * @param request RetrieveMemoryRequest
+ * @return RetrieveMemoryResponse
+ */
+RetrieveMemoryResponse Client::retrieveMemory(const string &memoryName, const RetrieveMemoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return retrieveMemoryWithOptions(memoryName, request, headers, runtime);
+}
+
+/**
  * @summary 更新智能体运行时
  *
  * @description 更新指定智能体运行时的配置信息，包括资源分配、网络配置、环境变量等。更新操作会触发运行时重启。
@@ -878,7 +1386,7 @@ UpdateAgentRuntimeResponse Client::updateAgentRuntimeWithOptions(const string &a
     {"action" , "UpdateAgentRuntime"},
     {"version" , "2025-09-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/runtimes/" , Darabonba::Http::URL::percentEncode(agentRuntimeId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/runtimes/" , Darabonba::Encode::Encoder::percentEncode(agentRuntimeId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -920,7 +1428,7 @@ UpdateAgentRuntimeEndpointResponse Client::updateAgentRuntimeEndpointWithOptions
     {"action" , "UpdateAgentRuntimeEndpoint"},
     {"version" , "2025-09-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/runtimes/" , Darabonba::Http::URL::percentEncode(agentRuntimeId) , "/endpoints/" , Darabonba::Http::URL::percentEncode(agentRuntimeEndpointId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/runtimes/" , Darabonba::Encode::Encoder::percentEncode(agentRuntimeId) , "/endpoints/" , Darabonba::Encode::Encoder::percentEncode(agentRuntimeEndpointId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -940,6 +1448,55 @@ UpdateAgentRuntimeEndpointResponse Client::updateAgentRuntimeEndpoint(const stri
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateAgentRuntimeEndpointWithOptions(agentRuntimeId, agentRuntimeEndpointId, request, headers, runtime);
+}
+
+/**
+ * @summary Update Memory
+ *
+ * @param request UpdateMemoryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMemoryResponse
+ */
+UpdateMemoryResponse Client::updateMemoryWithOptions(const string &memoryName, const UpdateMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLongTtl()) {
+    query["longTtl"] = request.longTtl();
+  }
+
+  if (!!request.hasShortTtl()) {
+    query["shortTtl"] = request.shortTtl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateMemory"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMemoryResponse>();
+}
+
+/**
+ * @summary Update Memory
+ *
+ * @param request UpdateMemoryRequest
+ * @return UpdateMemoryResponse
+ */
+UpdateMemoryResponse Client::updateMemory(const string &memoryName, const UpdateMemoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateMemoryWithOptions(memoryName, request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace AgentRun20250910

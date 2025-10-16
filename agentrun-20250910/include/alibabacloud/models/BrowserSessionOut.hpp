@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->browserId_ != nullptr
-        && this->browserName_ != nullptr && this->createdAt_ != nullptr && this->lastUpdatedAt_ != nullptr && this->sessionId_ != nullptr && this->sessionIdleTimeoutSeconds_ != nullptr
-        && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->browserId_ == nullptr
+        && return this->browserName_ == nullptr && return this->createdAt_ == nullptr && return this->lastUpdatedAt_ == nullptr && return this->sessionId_ == nullptr && return this->sessionIdleTimeoutSeconds_ == nullptr
+        && return this->status_ == nullptr; };
     // browserId Field Functions 
     bool hasBrowserId() const { return this->browserId_ != nullptr;};
     void deleteBrowserId() { this->browserId_ = nullptr;};

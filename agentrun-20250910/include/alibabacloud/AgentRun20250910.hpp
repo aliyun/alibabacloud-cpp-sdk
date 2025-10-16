@@ -109,6 +109,42 @@ namespace AgentRun20250910
       Models::CreateCodeInterpreterResponse createCodeInterpreter(const Models::CreateCodeInterpreterRequest &request);
 
       /**
+       * @summary create memory store
+       *
+       * @param request CreateMemoryRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMemoryResponse
+       */
+      Models::CreateMemoryResponse createMemoryWithOptions(const Models::CreateMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary create memory store
+       *
+       * @param request CreateMemoryRequest
+       * @return CreateMemoryResponse
+       */
+      Models::CreateMemoryResponse createMemory(const Models::CreateMemoryRequest &request);
+
+      /**
+       * @summary create event
+       *
+       * @param request CreateMemoryEventRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMemoryEventResponse
+       */
+      Models::CreateMemoryEventResponse createMemoryEventWithOptions(const string &memoryName, const Models::CreateMemoryEventRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary create event
+       *
+       * @param request CreateMemoryEventRequest
+       * @return CreateMemoryEventResponse
+       */
+      Models::CreateMemoryEventResponse createMemoryEvent(const string &memoryName, const Models::CreateMemoryEventRequest &request);
+
+      /**
        * @summary 删除智能体运行时
        *
        * @description 删除指定的智能体运行时实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
@@ -183,6 +219,22 @@ namespace AgentRun20250910
        * @return DeleteCodeInterpreterResponse
        */
       Models::DeleteCodeInterpreterResponse deleteCodeInterpreter(const string &codeInterpreterId);
+
+      /**
+       * @summary delete memory store
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMemoryResponse
+       */
+      Models::DeleteMemoryResponse deleteMemoryWithOptions(const string &memoryName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary delete memory store
+       *
+       * @return DeleteMemoryResponse
+       */
+      Models::DeleteMemoryResponse deleteMemory(const string &memoryName);
 
       /**
        * @summary 获取智能体运行时详情
@@ -261,6 +313,62 @@ namespace AgentRun20250910
        * @return GetCodeInterpreterResponse
        */
       Models::GetCodeInterpreterResponse getCodeInterpreter(const string &codeInterpreterId);
+
+      /**
+       * @summary GetMemory
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMemoryResponse
+       */
+      Models::GetMemoryResponse getMemoryWithOptions(const string &memoryName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary GetMemory
+       *
+       * @return GetMemoryResponse
+       */
+      Models::GetMemoryResponse getMemory(const string &memoryName);
+
+      /**
+       * @summary get event
+       *
+       * @param request GetMemoryEventRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMemoryEventResponse
+       */
+      Models::GetMemoryEventResponse getMemoryEventWithOptions(const string &memoryName, const string &sessionId, const string &eventId, const Models::GetMemoryEventRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary get event
+       *
+       * @param request GetMemoryEventRequest
+       * @return GetMemoryEventResponse
+       */
+      Models::GetMemoryEventResponse getMemoryEvent(const string &memoryName, const string &sessionId, const string &eventId, const Models::GetMemoryEventRequest &request);
+
+      /**
+       * @summary 获取内存会话详情
+       *
+       * @description 根据会话ID获取指定内存会话的详细信息，包括会话中的事件记录、时间戳等。用于查看和管理对话历史。
+       *
+       * @param request GetMemorySessionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMemorySessionResponse
+       */
+      Models::GetMemorySessionResponse getMemorySessionWithOptions(const string &memoryName, const string &sessionId, const Models::GetMemorySessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取内存会话详情
+       *
+       * @description 根据会话ID获取指定内存会话的详细信息，包括会话中的事件记录、时间戳等。用于查看和管理对话历史。
+       *
+       * @param request GetMemorySessionRequest
+       * @return GetMemorySessionResponse
+       */
+      Models::GetMemorySessionResponse getMemorySession(const string &memoryName, const string &sessionId, const Models::GetMemorySessionRequest &request);
 
       /**
        * @summary 列出智能体运行时端点
@@ -369,6 +477,64 @@ namespace AgentRun20250910
       Models::ListCodeInterpretersResponse listCodeInterpreters(const Models::ListCodeInterpretersRequest &request);
 
       /**
+       * @summary ListMemory
+       *
+       * @param request ListMemoryRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMemoryResponse
+       */
+      Models::ListMemoryResponse listMemoryWithOptions(const Models::ListMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListMemory
+       *
+       * @param request ListMemoryRequest
+       * @return ListMemoryResponse
+       */
+      Models::ListMemoryResponse listMemory(const Models::ListMemoryRequest &request);
+
+      /**
+       * @summary list events
+       *
+       * @param request ListMemoryEventRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMemoryEventResponse
+       */
+      Models::ListMemoryEventResponse listMemoryEventWithOptions(const string &memoryName, const string &sessionId, const Models::ListMemoryEventRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary list events
+       *
+       * @param request ListMemoryEventRequest
+       * @return ListMemoryEventResponse
+       */
+      Models::ListMemoryEventResponse listMemoryEvent(const string &memoryName, const string &sessionId, const Models::ListMemoryEventRequest &request);
+
+      /**
+       * @summary 列出内存会话
+       *
+       * @description 获取指定内存实例的所有会话列表，支持按时间范围过滤和分页查询。会话是AgentRun中用于存储对话历史和管理上下文的重要组件。
+       *
+       * @param request ListMemorySessionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMemorySessionsResponse
+       */
+      Models::ListMemorySessionsResponse listMemorySessionsWithOptions(const string &memoryName, const Models::ListMemorySessionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出内存会话
+       *
+       * @description 获取指定内存实例的所有会话列表，支持按时间范围过滤和分页查询。会话是AgentRun中用于存储对话历史和管理上下文的重要组件。
+       *
+       * @param request ListMemorySessionsRequest
+       * @return ListMemorySessionsResponse
+       */
+      Models::ListMemorySessionsResponse listMemorySessions(const string &memoryName, const Models::ListMemorySessionsRequest &request);
+
+      /**
        * @summary 发布运行时版本
        *
        * @description 为指定的智能体运行时发布新版本，用于版本管理和部署。新版本可以包含代码更新、配置变更等内容。
@@ -389,6 +555,24 @@ namespace AgentRun20250910
        * @return PublishRuntimeVersionResponse
        */
       Models::PublishRuntimeVersionResponse publishRuntimeVersion(const string &agentRuntimeId, const Models::PublishRuntimeVersionRequest &request);
+
+      /**
+       * @summary RetrieveMemory
+       *
+       * @param request RetrieveMemoryRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RetrieveMemoryResponse
+       */
+      Models::RetrieveMemoryResponse retrieveMemoryWithOptions(const string &memoryName, const Models::RetrieveMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary RetrieveMemory
+       *
+       * @param request RetrieveMemoryRequest
+       * @return RetrieveMemoryResponse
+       */
+      Models::RetrieveMemoryResponse retrieveMemory(const string &memoryName, const Models::RetrieveMemoryRequest &request);
 
       /**
        * @summary 更新智能体运行时
@@ -429,6 +613,24 @@ namespace AgentRun20250910
        * @return UpdateAgentRuntimeEndpointResponse
        */
       Models::UpdateAgentRuntimeEndpointResponse updateAgentRuntimeEndpoint(const string &agentRuntimeId, const string &agentRuntimeEndpointId, const Models::UpdateAgentRuntimeEndpointRequest &request);
+
+      /**
+       * @summary Update Memory
+       *
+       * @param request UpdateMemoryRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMemoryResponse
+       */
+      Models::UpdateMemoryResponse updateMemoryWithOptions(const string &memoryName, const Models::UpdateMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Update Memory
+       *
+       * @param request UpdateMemoryRequest
+       * @return UpdateMemoryResponse
+       */
+      Models::UpdateMemoryResponse updateMemory(const string &memoryName, const Models::UpdateMemoryRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace AgentRun20250910

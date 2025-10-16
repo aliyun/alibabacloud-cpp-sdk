@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentRuntimeArn_ != nullptr
-        && this->agentRuntimeId_ != nullptr && this->agentRuntimeName_ != nullptr && this->agentRuntimeVersion_ != nullptr && this->description_ != nullptr && this->lastUpdatedAt_ != nullptr; };
+    virtual bool empty() const override { return this->agentRuntimeArn_ == nullptr
+        && return this->agentRuntimeId_ == nullptr && return this->agentRuntimeName_ == nullptr && return this->agentRuntimeVersion_ == nullptr && return this->description_ == nullptr && return this->lastUpdatedAt_ == nullptr; };
     // agentRuntimeArn Field Functions 
     bool hasAgentRuntimeArn() const { return this->agentRuntimeArn_ != nullptr;};
     void deleteAgentRuntimeArn() { this->agentRuntimeArn_ = nullptr;};

@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->browserId_ != nullptr
-        && this->browserName_ != nullptr && this->cpu_ != nullptr && this->createdAt_ != nullptr && this->credentialId_ != nullptr && this->description_ != nullptr
-        && this->executionRoleArn_ != nullptr && this->lastUpdatedAt_ != nullptr && this->memory_ != nullptr && this->networkConfiguration_ != nullptr && this->recording_ != nullptr
-        && this->status_ != nullptr && this->statusReason_ != nullptr && this->tenantId_ != nullptr; };
+    virtual bool empty() const override { return this->browserId_ == nullptr
+        && return this->browserName_ == nullptr && return this->cpu_ == nullptr && return this->createdAt_ == nullptr && return this->credentialId_ == nullptr && return this->description_ == nullptr
+        && return this->executionRoleArn_ == nullptr && return this->lastUpdatedAt_ == nullptr && return this->memory_ == nullptr && return this->networkConfiguration_ == nullptr && return this->recording_ == nullptr
+        && return this->status_ == nullptr && return this->statusReason_ == nullptr && return this->tenantId_ == nullptr; };
     // browserId Field Functions 
     bool hasBrowserId() const { return this->browserId_ != nullptr;};
     void deleteBrowserId() { this->browserId_ = nullptr;};

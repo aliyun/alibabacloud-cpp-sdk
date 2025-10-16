@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentRuntimeName_ != nullptr
-        && this->artifactType_ != nullptr && this->codeConfiguration_ != nullptr && this->containerConfiguration_ != nullptr && this->cpu_ != nullptr && this->credentialId_ != nullptr
-        && this->description_ != nullptr && this->environmentVariables_ != nullptr && this->executionRoleArn_ != nullptr && this->healthCheckConfiguration_ != nullptr && this->logConfiguration_ != nullptr
-        && this->memory_ != nullptr && this->networkConfiguration_ != nullptr && this->port_ != nullptr && this->protocolConfiguration_ != nullptr && this->sessionConcurrencyLimitPerInstance_ != nullptr
-        && this->sessionIdleTimeoutSeconds_ != nullptr; };
+    virtual bool empty() const override { return this->agentRuntimeName_ == nullptr
+        && return this->artifactType_ == nullptr && return this->codeConfiguration_ == nullptr && return this->containerConfiguration_ == nullptr && return this->cpu_ == nullptr && return this->credentialId_ == nullptr
+        && return this->description_ == nullptr && return this->environmentVariables_ == nullptr && return this->executionRoleArn_ == nullptr && return this->healthCheckConfiguration_ == nullptr && return this->logConfiguration_ == nullptr
+        && return this->memory_ == nullptr && return this->networkConfiguration_ == nullptr && return this->port_ == nullptr && return this->protocolConfiguration_ == nullptr && return this->sessionConcurrencyLimitPerInstance_ == nullptr
+        && return this->sessionIdleTimeoutSeconds_ == nullptr; };
     // agentRuntimeName Field Functions 
     bool hasAgentRuntimeName() const { return this->agentRuntimeName_ != nullptr;};
     void deleteAgentRuntimeName() { this->agentRuntimeName_ = nullptr;};

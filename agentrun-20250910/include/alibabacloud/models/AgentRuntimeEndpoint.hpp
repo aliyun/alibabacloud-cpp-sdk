@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentRuntimeEndpointArn_ != nullptr
-        && this->agentRuntimeEndpointId_ != nullptr && this->agentRuntimeEndpointName_ != nullptr && this->agentRuntimeId_ != nullptr && this->description_ != nullptr && this->endpointPublicUrl_ != nullptr
-        && this->routingConfiguration_ != nullptr && this->status_ != nullptr && this->statusReason_ != nullptr && this->targetVersion_ != nullptr; };
+    virtual bool empty() const override { return this->agentRuntimeEndpointArn_ == nullptr
+        && return this->agentRuntimeEndpointId_ == nullptr && return this->agentRuntimeEndpointName_ == nullptr && return this->agentRuntimeId_ == nullptr && return this->description_ == nullptr && return this->endpointPublicUrl_ == nullptr
+        && return this->routingConfiguration_ == nullptr && return this->status_ == nullptr && return this->statusReason_ == nullptr && return this->targetVersion_ == nullptr; };
     // agentRuntimeEndpointArn Field Functions 
     bool hasAgentRuntimeEndpointArn() const { return this->agentRuntimeEndpointArn_ != nullptr;};
     void deleteAgentRuntimeEndpointArn() { this->agentRuntimeEndpointArn_ = nullptr;};

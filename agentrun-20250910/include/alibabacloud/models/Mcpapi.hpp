@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backendConfig_ != nullptr
-        && this->description_ != nullptr && this->exposedUriPath_ != nullptr && this->match_ != nullptr && this->mcpStatisticsEnable_ != nullptr && this->protocol_ != nullptr
-        && this->toolId_ != nullptr && this->toolsConfig_ != nullptr; };
+    virtual bool empty() const override { return this->backendConfig_ == nullptr
+        && return this->description_ == nullptr && return this->exposedUriPath_ == nullptr && return this->match_ == nullptr && return this->mcpStatisticsEnable_ == nullptr && return this->protocol_ == nullptr
+        && return this->toolId_ == nullptr && return this->toolsConfig_ == nullptr; };
     // backendConfig Field Functions 
     bool hasBackendConfig() const { return this->backendConfig_ != nullptr;};
     void deleteBackendConfig() { this->backendConfig_ = nullptr;};

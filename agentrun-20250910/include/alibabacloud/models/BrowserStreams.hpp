@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->automationStream_ != nullptr
-        && this->liveViewStream_ != nullptr; };
+    virtual bool empty() const override { return this->automationStream_ == nullptr
+        && return this->liveViewStream_ == nullptr; };
     // automationStream Field Functions 
     bool hasAutomationStream() const { return this->automationStream_ != nullptr;};
     void deleteAutomationStream() { this->automationStream_ = nullptr;};
