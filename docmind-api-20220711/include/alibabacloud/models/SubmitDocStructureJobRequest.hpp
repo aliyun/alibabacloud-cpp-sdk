@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowPptFormat_ != nullptr
-        && this->fileName_ != nullptr && this->fileNameExtension_ != nullptr && this->fileUrl_ != nullptr && this->formulaEnhancement_ != nullptr && this->ossBucket_ != nullptr
-        && this->ossEndpoint_ != nullptr && this->pageIndex_ != nullptr && this->structureType_ != nullptr; };
+    virtual bool empty() const override { return this->allowPptFormat_ == nullptr
+        && return this->fileName_ == nullptr && return this->fileNameExtension_ == nullptr && return this->fileUrl_ == nullptr && return this->formulaEnhancement_ == nullptr && return this->ossBucket_ == nullptr
+        && return this->ossEndpoint_ == nullptr && return this->pageIndex_ == nullptr && return this->structureType_ == nullptr; };
     // allowPptFormat Field Functions 
     bool hasAllowPptFormat() const { return this->allowPptFormat_ != nullptr;};
     void deleteAllowPptFormat() { this->allowPptFormat_ = nullptr;};

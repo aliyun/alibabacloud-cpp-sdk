@@ -1633,6 +1633,10 @@ SubmitDocParserJobResponse Client::submitDocParserJobWithOptions(const SubmitDoc
     query["MultimediaParameters"] = request.multimediaParametersShrink();
   }
 
+  if (!!request.hasNeedHeaderFooter()) {
+    query["NeedHeaderFooter"] = request.needHeaderFooter();
+  }
+
   if (!!request.hasOption()) {
     query["Option"] = request.option();
   }

@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LLMParam, LLMParam_);
       DARABONBA_PTR_TO_JSON(LlmEnhancement, llmEnhancement_);
       DARABONBA_PTR_TO_JSON(MultimediaParameters, multimediaParameters_);
+      DARABONBA_PTR_TO_JSON(NeedHeaderFooter, needHeaderFooter_);
       DARABONBA_PTR_TO_JSON(Option, option_);
       DARABONBA_PTR_TO_JSON(OssBucket, ossBucket_);
       DARABONBA_PTR_TO_JSON(OssEndpoint, ossEndpoint_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LLMParam, LLMParam_);
       DARABONBA_PTR_FROM_JSON(LlmEnhancement, llmEnhancement_);
       DARABONBA_PTR_FROM_JSON(MultimediaParameters, multimediaParameters_);
+      DARABONBA_PTR_FROM_JSON(NeedHeaderFooter, needHeaderFooter_);
       DARABONBA_PTR_FROM_JSON(Option, option_);
       DARABONBA_PTR_FROM_JSON(OssBucket, ossBucket_);
       DARABONBA_PTR_FROM_JSON(OssEndpoint, ossEndpoint_);
@@ -58,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->customOssConfig_ != nullptr
-        && this->enhancementMode_ != nullptr && this->fileName_ != nullptr && this->fileNameExtension_ != nullptr && this->fileUrl_ != nullptr && this->formulaEnhancement_ != nullptr
-        && this->LLMParam_ != nullptr && this->llmEnhancement_ != nullptr && this->multimediaParameters_ != nullptr && this->option_ != nullptr && this->ossBucket_ != nullptr
-        && this->ossEndpoint_ != nullptr && this->outputHtmlTable_ != nullptr && this->pageIndex_ != nullptr; };
+    virtual bool empty() const override { return this->customOssConfig_ == nullptr
+        && return this->enhancementMode_ == nullptr && return this->fileName_ == nullptr && return this->fileNameExtension_ == nullptr && return this->fileUrl_ == nullptr && return this->formulaEnhancement_ == nullptr
+        && return this->LLMParam_ == nullptr && return this->llmEnhancement_ == nullptr && return this->multimediaParameters_ == nullptr && return this->needHeaderFooter_ == nullptr && return this->option_ == nullptr
+        && return this->ossBucket_ == nullptr && return this->ossEndpoint_ == nullptr && return this->outputHtmlTable_ == nullptr && return this->pageIndex_ == nullptr; };
     // customOssConfig Field Functions 
     bool hasCustomOssConfig() const { return this->customOssConfig_ != nullptr;};
     void deleteCustomOssConfig() { this->customOssConfig_ = nullptr;};
@@ -131,6 +133,13 @@ namespace Models
     inline SubmitDocParserJobRequest& setMultimediaParameters(SubmitDocParserJobRequestMultimediaParameters && multimediaParameters) { DARABONBA_PTR_SET_RVALUE(multimediaParameters_, multimediaParameters) };
 
 
+    // needHeaderFooter Field Functions 
+    bool hasNeedHeaderFooter() const { return this->needHeaderFooter_ != nullptr;};
+    void deleteNeedHeaderFooter() { this->needHeaderFooter_ = nullptr;};
+    inline bool needHeaderFooter() const { DARABONBA_PTR_GET_DEFAULT(needHeaderFooter_, false) };
+    inline SubmitDocParserJobRequest& setNeedHeaderFooter(bool needHeaderFooter) { DARABONBA_PTR_SET_VALUE(needHeaderFooter_, needHeaderFooter) };
+
+
     // option Field Functions 
     bool hasOption() const { return this->option_ != nullptr;};
     void deleteOption() { this->option_ = nullptr;};
@@ -176,6 +185,7 @@ namespace Models
     std::shared_ptr<SubmitDocParserJobRequestLLMParam> LLMParam_ = nullptr;
     std::shared_ptr<bool> llmEnhancement_ = nullptr;
     std::shared_ptr<SubmitDocParserJobRequestMultimediaParameters> multimediaParameters_ = nullptr;
+    std::shared_ptr<bool> needHeaderFooter_ = nullptr;
     std::shared_ptr<string> option_ = nullptr;
     std::shared_ptr<string> ossBucket_ = nullptr;
     std::shared_ptr<string> ossEndpoint_ = nullptr;

@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->customExtractionRangeShrink_ != nullptr
-        && this->fileName_ != nullptr && this->fileUrl_ != nullptr && this->option_ != nullptr && this->templateName_ != nullptr; };
+    virtual bool empty() const override { return this->customExtractionRangeShrink_ == nullptr
+        && return this->fileName_ == nullptr && return this->fileUrl_ == nullptr && return this->option_ == nullptr && return this->templateName_ == nullptr; };
     // customExtractionRangeShrink Field Functions 
     bool hasCustomExtractionRangeShrink() const { return this->customExtractionRangeShrink_ != nullptr;};
     void deleteCustomExtractionRangeShrink() { this->customExtractionRangeShrink_ = nullptr;};
