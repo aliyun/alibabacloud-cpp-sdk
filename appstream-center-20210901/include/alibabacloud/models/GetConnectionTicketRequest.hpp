@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessType_ != nullptr
-        && this->appId_ != nullptr && this->appInstanceGroupIdList_ != nullptr && this->appInstanceId_ != nullptr && this->appInstancePersistentId_ != nullptr && this->appPolicyId_ != nullptr
-        && this->appStartParam_ != nullptr && this->appVersion_ != nullptr && this->bizRegionId_ != nullptr && this->endUserId_ != nullptr && this->productType_ != nullptr
-        && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->accessType_ == nullptr
+        && return this->appId_ == nullptr && return this->appInstanceGroupIdList_ == nullptr && return this->appInstanceId_ == nullptr && return this->appInstancePersistentId_ == nullptr && return this->appPolicyId_ == nullptr
+        && return this->appStartParam_ == nullptr && return this->appVersion_ == nullptr && return this->bizRegionId_ == nullptr && return this->endUserId_ == nullptr && return this->productType_ == nullptr
+        && return this->taskId_ == nullptr; };
     // accessType Field Functions 
     bool hasAccessType() const { return this->accessType_ != nullptr;};
     void deleteAccessType() { this->accessType_ = nullptr;};

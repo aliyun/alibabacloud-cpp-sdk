@@ -360,6 +360,80 @@ CreateAppInstanceGroupResponse Client::createAppInstanceGroup(const CreateAppIns
 }
 
 /**
+ * @summary 通过实例创建镜像
+ *
+ * @param request CreateImageByInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateImageByInstanceResponse
+ */
+CreateImageByInstanceResponse Client::createImageByInstanceWithOptions(const CreateImageByInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAutoCleanUserdata()) {
+    body["AutoCleanUserdata"] = request.autoCleanUserdata();
+  }
+
+  if (!!request.hasBizType()) {
+    body["BizType"] = request.bizType();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.description();
+  }
+
+  if (!!request.hasDiskType()) {
+    body["DiskType"] = request.diskType();
+  }
+
+  if (!!request.hasImageName()) {
+    body["ImageName"] = request.imageName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasInstanceType()) {
+    body["InstanceType"] = request.instanceType();
+  }
+
+  if (!!request.hasProductType()) {
+    body["ProductType"] = request.productType();
+  }
+
+  if (!!request.hasSubInstanceId()) {
+    body["SubInstanceId"] = request.subInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateImageByInstance"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateImageByInstanceResponse>();
+}
+
+/**
+ * @summary 通过实例创建镜像
+ *
+ * @param request CreateImageByInstanceRequest
+ * @return CreateImageByInstanceResponse
+ */
+CreateImageByInstanceResponse Client::createImageByInstance(const CreateImageByInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createImageByInstanceWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a new image by debugging the delivery group.
  *
  * @param request CreateImageFromAppInstanceGroupRequest
@@ -1369,6 +1443,130 @@ ListBindInfoResponse Client::listBindInfoWithOptions(const ListBindInfoRequest &
 ListBindInfoResponse Client::listBindInfo(const ListBindInfoRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listBindInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 列表显示镜像
+ *
+ * @param request ListImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListImageResponse
+ */
+ListImageResponse Client::listImageWithOptions(const ListImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTagList()) {
+    query["TagList"] = request.tagList();
+  }
+
+  json body = {};
+  if (!!request.hasBizRegionIdList()) {
+    body["BizRegionIdList"] = request.bizRegionIdList();
+  }
+
+  if (!!request.hasBizType()) {
+    body["BizType"] = request.bizType();
+  }
+
+  if (!!request.hasBizTypeList()) {
+    body["BizTypeList"] = request.bizTypeList();
+  }
+
+  if (!!request.hasFeatureList()) {
+    body["FeatureList"] = request.featureList();
+  }
+
+  if (!!request.hasFotaVersion()) {
+    body["FotaVersion"] = request.fotaVersion();
+  }
+
+  if (!!request.hasImageId()) {
+    body["ImageId"] = request.imageId();
+  }
+
+  if (!!request.hasImageName()) {
+    body["ImageName"] = request.imageName();
+  }
+
+  if (!!request.hasImageType()) {
+    body["ImageType"] = request.imageType();
+  }
+
+  if (!!request.hasLanguageType()) {
+    body["LanguageType"] = request.languageType();
+  }
+
+  if (!!request.hasOsType()) {
+    body["OsType"] = request.osType();
+  }
+
+  if (!!request.hasPackageType()) {
+    body["PackageType"] = request.packageType();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasPlatformName()) {
+    body["PlatformName"] = request.platformName();
+  }
+
+  if (!!request.hasPlatformNameList()) {
+    body["PlatformNameList"] = request.platformNameList();
+  }
+
+  if (!!request.hasProductType()) {
+    body["ProductType"] = request.productType();
+  }
+
+  if (!!request.hasProductTypeList()) {
+    body["ProductTypeList"] = request.productTypeList();
+  }
+
+  if (!!request.hasProtocolType()) {
+    body["ProtocolType"] = request.protocolType();
+  }
+
+  if (!!request.hasResourceInstanceType()) {
+    body["ResourceInstanceType"] = request.resourceInstanceType();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.status();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListImage"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListImageResponse>();
+}
+
+/**
+ * @summary 列表显示镜像
+ *
+ * @param request ListImageRequest
+ * @return ListImageResponse
+ */
+ListImageResponse Client::listImage(const ListImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listImageWithOptions(request, runtime);
 }
 
 /**

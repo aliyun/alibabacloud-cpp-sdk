@@ -105,14 +105,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessType_ != nullptr
-        && this->amount_ != nullptr && this->appCenterImageId_ != nullptr && this->appInstanceGroupId_ != nullptr && this->appInstanceGroupName_ != nullptr && this->appInstanceType_ != nullptr
-        && this->appPolicyId_ != nullptr && this->appPolicyImageCheck_ != nullptr && this->appPolicyVersion_ != nullptr && this->apps_ != nullptr && this->authMode_ != nullptr
-        && this->chargeResourceMode_ != nullptr && this->chargeType_ != nullptr && this->expiredTime_ != nullptr && this->gmtCreate_ != nullptr && this->maxAmount_ != nullptr
-        && this->minAmount_ != nullptr && this->nodePool_ != nullptr && this->officeSiteId_ != nullptr && this->osType_ != nullptr && this->otaInfo_ != nullptr
-        && this->productType_ != nullptr && this->regionId_ != nullptr && this->reserveAmountRatio_ != nullptr && this->reserveMaxAmount_ != nullptr && this->reserveMinAmount_ != nullptr
-        && this->resourceStatus_ != nullptr && this->resourceTags_ != nullptr && this->scalingDownAfterIdleMinutes_ != nullptr && this->scalingStep_ != nullptr && this->scalingUsageThreshold_ != nullptr
-        && this->sessionTimeout_ != nullptr && this->skipUserAuthCheck_ != nullptr && this->specId_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->accessType_ == nullptr
+        && return this->amount_ == nullptr && return this->appCenterImageId_ == nullptr && return this->appInstanceGroupId_ == nullptr && return this->appInstanceGroupName_ == nullptr && return this->appInstanceType_ == nullptr
+        && return this->appPolicyId_ == nullptr && return this->appPolicyImageCheck_ == nullptr && return this->appPolicyVersion_ == nullptr && return this->apps_ == nullptr && return this->authMode_ == nullptr
+        && return this->chargeResourceMode_ == nullptr && return this->chargeType_ == nullptr && return this->expiredTime_ == nullptr && return this->gmtCreate_ == nullptr && return this->maxAmount_ == nullptr
+        && return this->minAmount_ == nullptr && return this->nodePool_ == nullptr && return this->officeSiteId_ == nullptr && return this->osType_ == nullptr && return this->otaInfo_ == nullptr
+        && return this->productType_ == nullptr && return this->regionId_ == nullptr && return this->reserveAmountRatio_ == nullptr && return this->reserveMaxAmount_ == nullptr && return this->reserveMinAmount_ == nullptr
+        && return this->resourceStatus_ == nullptr && return this->resourceTags_ == nullptr && return this->scalingDownAfterIdleMinutes_ == nullptr && return this->scalingStep_ == nullptr && return this->scalingUsageThreshold_ == nullptr
+        && return this->sessionTimeout_ == nullptr && return this->skipUserAuthCheck_ == nullptr && return this->specId_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr; };
     // accessType Field Functions 
     bool hasAccessType() const { return this->accessType_ != nullptr;};
     void deleteAccessType() { this->accessType_ = nullptr;};

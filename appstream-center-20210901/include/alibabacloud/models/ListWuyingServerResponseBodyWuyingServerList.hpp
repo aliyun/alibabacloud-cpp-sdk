@@ -77,12 +77,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addVirtualNodePoolStatus_ != nullptr
-        && this->bizRegionId_ != nullptr && this->chargeType_ != nullptr && this->createTime_ != nullptr && this->dataDisk_ != nullptr && this->expiredTime_ != nullptr
-        && this->imageId_ != nullptr && this->imageName_ != nullptr && this->instanceInfoList_ != nullptr && this->networkInterfaceIp_ != nullptr && this->officeSiteId_ != nullptr
-        && this->officeSiteName_ != nullptr && this->officeSiteType_ != nullptr && this->osType_ != nullptr && this->securityGroupIds_ != nullptr && this->serverInstanceTypeInfo_ != nullptr
-        && this->status_ != nullptr && this->systemDiskCategory_ != nullptr && this->systemDiskPerformanceLevel_ != nullptr && this->systemDiskSize_ != nullptr && this->virtualNodePoolId_ != nullptr
-        && this->wuyingServerId_ != nullptr && this->wuyingServerName_ != nullptr; };
+    virtual bool empty() const override { return this->addVirtualNodePoolStatus_ == nullptr
+        && return this->bizRegionId_ == nullptr && return this->chargeType_ == nullptr && return this->createTime_ == nullptr && return this->dataDisk_ == nullptr && return this->expiredTime_ == nullptr
+        && return this->imageId_ == nullptr && return this->imageName_ == nullptr && return this->instanceInfoList_ == nullptr && return this->networkInterfaceIp_ == nullptr && return this->officeSiteId_ == nullptr
+        && return this->officeSiteName_ == nullptr && return this->officeSiteType_ == nullptr && return this->osType_ == nullptr && return this->securityGroupIds_ == nullptr && return this->serverInstanceTypeInfo_ == nullptr
+        && return this->status_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->systemDiskPerformanceLevel_ == nullptr && return this->systemDiskSize_ == nullptr && return this->virtualNodePoolId_ == nullptr
+        && return this->wuyingServerId_ == nullptr && return this->wuyingServerName_ == nullptr; };
     // addVirtualNodePoolStatus Field Functions 
     bool hasAddVirtualNodePoolStatus() const { return this->addVirtualNodePoolStatus_ != nullptr;};
     void deleteAddVirtualNodePoolStatus() { this->addVirtualNodePoolStatus_ = nullptr;};

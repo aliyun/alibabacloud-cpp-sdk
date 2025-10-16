@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appInstanceGroupId_ != nullptr
-        && this->appInstanceId_ != nullptr && this->bindInfo_ != nullptr && this->chargeType_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr
-        && this->mainEthPublicIp_ != nullptr && this->networkInterfaceIp_ != nullptr && this->nodeId_ != nullptr && this->sessionStatus_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->appInstanceGroupId_ == nullptr
+        && return this->appInstanceId_ == nullptr && return this->bindInfo_ == nullptr && return this->chargeType_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr
+        && return this->mainEthPublicIp_ == nullptr && return this->networkInterfaceIp_ == nullptr && return this->nodeId_ == nullptr && return this->sessionStatus_ == nullptr && return this->status_ == nullptr; };
     // appInstanceGroupId Field Functions 
     bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
     void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};

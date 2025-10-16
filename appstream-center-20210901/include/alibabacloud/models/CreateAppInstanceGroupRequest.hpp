@@ -90,13 +90,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appCenterImageId_ != nullptr
-        && this->appInstanceGroupName_ != nullptr && this->appPackageType_ != nullptr && this->appPolicyId_ != nullptr && this->authMode_ != nullptr && this->autoPay_ != nullptr
-        && this->autoRenew_ != nullptr && this->bizRegionId_ != nullptr && this->chargeResourceMode_ != nullptr && this->chargeType_ != nullptr && this->clusterId_ != nullptr
-        && this->network_ != nullptr && this->nodePool_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr && this->preOpenAppId_ != nullptr
-        && this->productType_ != nullptr && this->promotionId_ != nullptr && this->runtimePolicy_ != nullptr && this->securityPolicy_ != nullptr && this->sessionTimeout_ != nullptr
-        && this->storagePolicy_ != nullptr && this->subPayType_ != nullptr && this->userDefinePolicy_ != nullptr && this->userInfo_ != nullptr && this->users_ != nullptr
-        && this->videoPolicy_ != nullptr; };
+    virtual bool empty() const override { return this->appCenterImageId_ == nullptr
+        && return this->appInstanceGroupName_ == nullptr && return this->appPackageType_ == nullptr && return this->appPolicyId_ == nullptr && return this->authMode_ == nullptr && return this->autoPay_ == nullptr
+        && return this->autoRenew_ == nullptr && return this->bizRegionId_ == nullptr && return this->chargeResourceMode_ == nullptr && return this->chargeType_ == nullptr && return this->clusterId_ == nullptr
+        && return this->network_ == nullptr && return this->nodePool_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->preOpenAppId_ == nullptr
+        && return this->productType_ == nullptr && return this->promotionId_ == nullptr && return this->runtimePolicy_ == nullptr && return this->securityPolicy_ == nullptr && return this->sessionTimeout_ == nullptr
+        && return this->storagePolicy_ == nullptr && return this->subPayType_ == nullptr && return this->userDefinePolicy_ == nullptr && return this->userInfo_ == nullptr && return this->users_ == nullptr
+        && return this->videoPolicy_ == nullptr; };
     // appCenterImageId Field Functions 
     bool hasAppCenterImageId() const { return this->appCenterImageId_ != nullptr;};
     void deleteAppCenterImageId() { this->appCenterImageId_ = nullptr;};

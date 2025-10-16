@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizRegionId_ != nullptr
-        && this->cpu_ != nullptr && this->gpu_ != nullptr && this->gpuMemory_ != nullptr && this->language_ != nullptr && this->memory_ != nullptr
-        && this->nodeInstanceType_ != nullptr && this->nodeInstanceTypeFamily_ != nullptr && this->orderBy_ != nullptr && this->osType_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->productType_ != nullptr && this->sortType_ != nullptr; };
+    virtual bool empty() const override { return this->bizRegionId_ == nullptr
+        && return this->cpu_ == nullptr && return this->gpu_ == nullptr && return this->gpuMemory_ == nullptr && return this->language_ == nullptr && return this->memory_ == nullptr
+        && return this->nodeInstanceType_ == nullptr && return this->nodeInstanceTypeFamily_ == nullptr && return this->orderBy_ == nullptr && return this->osType_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->productType_ == nullptr && return this->sortType_ == nullptr; };
     // bizRegionId Field Functions 
     bool hasBizRegionId() const { return this->bizRegionId_ != nullptr;};
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};

@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->frameRate_ != nullptr
-        && this->sessionResolutionHeight_ != nullptr && this->sessionResolutionWidth_ != nullptr && this->streamingMode_ != nullptr && this->terminalResolutionAdaptive_ != nullptr && this->webrtc_ != nullptr; };
+    virtual bool empty() const override { return this->frameRate_ == nullptr
+        && return this->sessionResolutionHeight_ == nullptr && return this->sessionResolutionWidth_ == nullptr && return this->streamingMode_ == nullptr && return this->terminalResolutionAdaptive_ == nullptr && return this->webrtc_ == nullptr; };
     // frameRate Field Functions 
     bool hasFrameRate() const { return this->frameRate_ != nullptr;};
     void deleteFrameRate() { this->frameRate_ = nullptr;};

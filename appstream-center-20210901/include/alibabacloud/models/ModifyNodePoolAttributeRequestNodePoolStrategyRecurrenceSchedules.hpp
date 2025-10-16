@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->recurrenceType_ != nullptr
-        && this->recurrenceValues_ != nullptr && this->timerPeriods_ != nullptr; };
+    virtual bool empty() const override { return this->recurrenceType_ == nullptr
+        && return this->recurrenceValues_ == nullptr && return this->timerPeriods_ == nullptr; };
     // recurrenceType Field Functions 
     bool hasRecurrenceType() const { return this->recurrenceType_ != nullptr;};
     void deleteRecurrenceType() { this->recurrenceType_ = nullptr;};

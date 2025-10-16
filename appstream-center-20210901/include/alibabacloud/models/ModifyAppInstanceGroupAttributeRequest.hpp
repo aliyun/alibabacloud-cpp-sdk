@@ -53,9 +53,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appInstanceGroupId_ != nullptr
-        && this->appInstanceGroupName_ != nullptr && this->network_ != nullptr && this->nodePool_ != nullptr && this->perSessionPerApp_ != nullptr && this->preOpenAppId_ != nullptr
-        && this->preOpenMode_ != nullptr && this->productType_ != nullptr && this->securityPolicy_ != nullptr && this->sessionTimeout_ != nullptr && this->storagePolicy_ != nullptr; };
+    virtual bool empty() const override { return this->appInstanceGroupId_ == nullptr
+        && return this->appInstanceGroupName_ == nullptr && return this->network_ == nullptr && return this->nodePool_ == nullptr && return this->perSessionPerApp_ == nullptr && return this->preOpenAppId_ == nullptr
+        && return this->preOpenMode_ == nullptr && return this->productType_ == nullptr && return this->securityPolicy_ == nullptr && return this->sessionTimeout_ == nullptr && return this->storagePolicy_ == nullptr; };
     // appInstanceGroupId Field Functions 
     bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
     void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};

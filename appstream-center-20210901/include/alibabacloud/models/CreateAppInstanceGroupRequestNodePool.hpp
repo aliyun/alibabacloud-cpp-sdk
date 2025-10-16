@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxIdleAppInstanceAmount_ != nullptr
-        && this->maxScalingAmount_ != nullptr && this->nodeAmount_ != nullptr && this->nodeCapacity_ != nullptr && this->nodeInstanceType_ != nullptr && this->recurrenceSchedules_ != nullptr
-        && this->scalingDownAfterIdleMinutes_ != nullptr && this->scalingStep_ != nullptr && this->scalingUsageThreshold_ != nullptr && this->strategyDisableDate_ != nullptr && this->strategyEnableDate_ != nullptr
-        && this->strategyType_ != nullptr && this->warmUp_ != nullptr; };
+    virtual bool empty() const override { return this->maxIdleAppInstanceAmount_ == nullptr
+        && return this->maxScalingAmount_ == nullptr && return this->nodeAmount_ == nullptr && return this->nodeCapacity_ == nullptr && return this->nodeInstanceType_ == nullptr && return this->recurrenceSchedules_ == nullptr
+        && return this->scalingDownAfterIdleMinutes_ == nullptr && return this->scalingStep_ == nullptr && return this->scalingUsageThreshold_ == nullptr && return this->strategyDisableDate_ == nullptr && return this->strategyEnableDate_ == nullptr
+        && return this->strategyType_ == nullptr && return this->warmUp_ == nullptr; };
     // maxIdleAppInstanceAmount Field Functions 
     bool hasMaxIdleAppInstanceAmount() const { return this->maxIdleAppInstanceAmount_ != nullptr;};
     void deleteMaxIdleAppInstanceAmount() { this->maxIdleAppInstanceAmount_ = nullptr;};

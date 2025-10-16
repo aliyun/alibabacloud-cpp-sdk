@@ -13,6 +13,9 @@
 #include <alibabacloud/models/CreateAppInstanceGroupShrinkRequest.hpp>
 #include <alibabacloud/models/CreateAppInstanceGroupResponseBody.hpp>
 #include <alibabacloud/models/CreateAppInstanceGroupResponse.hpp>
+#include <alibabacloud/models/CreateImageByInstanceRequest.hpp>
+#include <alibabacloud/models/CreateImageByInstanceResponseBody.hpp>
+#include <alibabacloud/models/CreateImageByInstanceResponse.hpp>
 #include <alibabacloud/models/CreateImageFromAppInstanceGroupRequest.hpp>
 #include <alibabacloud/models/CreateImageFromAppInstanceGroupResponseBody.hpp>
 #include <alibabacloud/models/CreateImageFromAppInstanceGroupResponse.hpp>
@@ -61,6 +64,9 @@
 #include <alibabacloud/models/ListBindInfoRequest.hpp>
 #include <alibabacloud/models/ListBindInfoResponseBody.hpp>
 #include <alibabacloud/models/ListBindInfoResponse.hpp>
+#include <alibabacloud/models/ListImageRequest.hpp>
+#include <alibabacloud/models/ListImageResponseBody.hpp>
+#include <alibabacloud/models/ListImageResponse.hpp>
 #include <alibabacloud/models/ListNodeInstanceTypeRequest.hpp>
 #include <alibabacloud/models/ListNodeInstanceTypeResponseBody.hpp>
 #include <alibabacloud/models/ListNodeInstanceTypeResponse.hpp>
@@ -155,6 +161,7 @@
 #include <alibabacloud/models/CreateAppInstanceGroupRequestUserInfo.hpp>
 #include <alibabacloud/models/CreateAppInstanceGroupRequestVideoPolicy.hpp>
 #include <alibabacloud/models/CreateAppInstanceGroupResponseBodyAppInstanceGroupModel.hpp>
+#include <alibabacloud/models/CreateImageByInstanceResponseBodyData.hpp>
 #include <alibabacloud/models/CreateWuyingServerRequestDataDisk.hpp>
 #include <alibabacloud/models/CreateWuyingServerResponseBodyData.hpp>
 #include <alibabacloud/models/DeleteAppInstancesResponseBodyDeleteAppInstanceModels.hpp>
@@ -191,6 +198,10 @@
 #include <alibabacloud/models/ListAppInstancesResponseBodyAppInstanceModels.hpp>
 #include <alibabacloud/models/ListAuthorizedUserGroupsResponseBodyUserGroups.hpp>
 #include <alibabacloud/models/ListBindInfoResponseBodyBindInfoModels.hpp>
+#include <alibabacloud/models/ListImageRequestTagList.hpp>
+#include <alibabacloud/models/ListImageResponseBodyDataAppList.hpp>
+#include <alibabacloud/models/ListImageResponseBodyDataImageRegionDistributeList.hpp>
+#include <alibabacloud/models/ListImageResponseBodyData.hpp>
 #include <alibabacloud/models/ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels.hpp>
 #include <alibabacloud/models/ListNodesResponseBodyNodeModels.hpp>
 #include <alibabacloud/models/ListOtaTaskResponseBodyTaskList.hpp>

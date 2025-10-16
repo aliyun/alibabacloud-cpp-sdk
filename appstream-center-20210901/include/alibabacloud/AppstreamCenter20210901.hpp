@@ -72,6 +72,23 @@ namespace AppstreamCenter20210901
       Models::CreateAppInstanceGroupResponse createAppInstanceGroup(const Models::CreateAppInstanceGroupRequest &request);
 
       /**
+       * @summary 通过实例创建镜像
+       *
+       * @param request CreateImageByInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateImageByInstanceResponse
+       */
+      Models::CreateImageByInstanceResponse createImageByInstanceWithOptions(const Models::CreateImageByInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通过实例创建镜像
+       *
+       * @param request CreateImageByInstanceRequest
+       * @return CreateImageByInstanceResponse
+       */
+      Models::CreateImageByInstanceResponse createImageByInstance(const Models::CreateImageByInstanceRequest &request);
+
+      /**
        * @summary Creates a new image by debugging the delivery group.
        *
        * @param request CreateImageFromAppInstanceGroupRequest
@@ -358,6 +375,23 @@ namespace AppstreamCenter20210901
        * @return ListBindInfoResponse
        */
       Models::ListBindInfoResponse listBindInfo(const Models::ListBindInfoRequest &request);
+
+      /**
+       * @summary 列表显示镜像
+       *
+       * @param request ListImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListImageResponse
+       */
+      Models::ListImageResponse listImageWithOptions(const Models::ListImageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列表显示镜像
+       *
+       * @param request ListImageRequest
+       * @return ListImageResponse
+       */
+      Models::ListImageResponse listImage(const Models::ListImageRequest &request);
 
       /**
        * @summary Queries the resource types that are available for purchase when you create a delivery group.

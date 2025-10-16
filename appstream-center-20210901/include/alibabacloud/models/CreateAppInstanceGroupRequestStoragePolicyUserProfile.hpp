@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->remoteStoragePath_ != nullptr
-        && this->remoteStorageType_ != nullptr && this->userProfileSwitch_ != nullptr; };
+    virtual bool empty() const override { return this->remoteStoragePath_ == nullptr
+        && return this->remoteStorageType_ == nullptr && return this->userProfileSwitch_ == nullptr; };
     // remoteStoragePath Field Functions 
     bool hasRemoteStoragePath() const { return this->remoteStoragePath_ != nullptr;};
     void deleteRemoteStoragePath() { this->remoteStoragePath_ = nullptr;};

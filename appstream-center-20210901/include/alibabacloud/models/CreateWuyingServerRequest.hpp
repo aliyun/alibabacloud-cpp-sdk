@@ -73,12 +73,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->amount_ != nullptr
-        && this->autoPay_ != nullptr && this->autoRenew_ != nullptr && this->bandwidth_ != nullptr && this->bizRegionId_ != nullptr && this->chargeType_ != nullptr
-        && this->dataDisk_ != nullptr && this->idempotenceToken_ != nullptr && this->imageId_ != nullptr && this->networkStrategyType_ != nullptr && this->officeSiteId_ != nullptr
-        && this->password_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr && this->promotionId_ != nullptr && this->serverInstanceType_ != nullptr
-        && this->systemDiskCategory_ != nullptr && this->systemDiskPerformanceLevel_ != nullptr && this->systemDiskSize_ != nullptr && this->vSwitchIds_ != nullptr && this->virtualNodePoolId_ != nullptr
-        && this->wuyingServerName_ != nullptr; };
+    virtual bool empty() const override { return this->amount_ == nullptr
+        && return this->autoPay_ == nullptr && return this->autoRenew_ == nullptr && return this->bandwidth_ == nullptr && return this->bizRegionId_ == nullptr && return this->chargeType_ == nullptr
+        && return this->dataDisk_ == nullptr && return this->idempotenceToken_ == nullptr && return this->imageId_ == nullptr && return this->networkStrategyType_ == nullptr && return this->officeSiteId_ == nullptr
+        && return this->password_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->promotionId_ == nullptr && return this->serverInstanceType_ == nullptr
+        && return this->systemDiskCategory_ == nullptr && return this->systemDiskPerformanceLevel_ == nullptr && return this->systemDiskSize_ == nullptr && return this->vSwitchIds_ == nullptr && return this->virtualNodePoolId_ == nullptr
+        && return this->wuyingServerName_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};

@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addVirtualNodePoolStatusList_ != nullptr
-        && this->bizRegionId_ != nullptr && this->chargeType_ != nullptr && this->imageId_ != nullptr && this->officeSiteId_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->serverInstanceType_ != nullptr && this->status_ != nullptr && this->virtualNodePoolId_ != nullptr && this->wuyingServerIdList_ != nullptr
-        && this->wuyingServerNameOrId_ != nullptr; };
+    virtual bool empty() const override { return this->addVirtualNodePoolStatusList_ == nullptr
+        && return this->bizRegionId_ == nullptr && return this->chargeType_ == nullptr && return this->imageId_ == nullptr && return this->officeSiteId_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->serverInstanceType_ == nullptr && return this->status_ == nullptr && return this->virtualNodePoolId_ == nullptr && return this->wuyingServerIdList_ == nullptr
+        && return this->wuyingServerNameOrId_ == nullptr; };
     // addVirtualNodePoolStatusList Field Functions 
     bool hasAddVirtualNodePoolStatusList() const { return this->addVirtualNodePoolStatusList_ != nullptr;};
     void deleteAddVirtualNodePoolStatusList() { this->addVirtualNodePoolStatusList_ = nullptr;};

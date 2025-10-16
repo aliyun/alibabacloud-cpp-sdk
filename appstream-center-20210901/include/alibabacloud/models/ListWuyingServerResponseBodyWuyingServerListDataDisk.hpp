@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataDiskCategory_ != nullptr
-        && this->dataDiskPerformanceLevel_ != nullptr && this->dataDiskSize_ != nullptr; };
+    virtual bool empty() const override { return this->dataDiskCategory_ == nullptr
+        && return this->dataDiskPerformanceLevel_ == nullptr && return this->dataDiskSize_ == nullptr; };
     // dataDiskCategory Field Functions 
     bool hasDataDiskCategory() const { return this->dataDiskCategory_ != nullptr;};
     void deleteDataDiskCategory() { this->dataDiskCategory_ = nullptr;};

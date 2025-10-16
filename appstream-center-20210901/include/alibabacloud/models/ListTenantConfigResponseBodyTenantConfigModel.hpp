@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appInstanceGroupExpireRemind_ != nullptr; };
+    virtual bool empty() const override { return this->appInstanceGroupExpireRemind_ == nullptr; };
     // appInstanceGroupExpireRemind Field Functions 
     bool hasAppInstanceGroupExpireRemind() const { return this->appInstanceGroupExpireRemind_ != nullptr;};
     void deleteAppInstanceGroupExpireRemind() { this->appInstanceGroupExpireRemind_ = nullptr;};

@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->otaVersion_ != nullptr
-        && this->taskDisplayStatus_ != nullptr && this->taskId_ != nullptr && this->taskStartTime_ != nullptr; };
+    virtual bool empty() const override { return this->otaVersion_ == nullptr
+        && return this->taskDisplayStatus_ == nullptr && return this->taskId_ == nullptr && return this->taskStartTime_ == nullptr; };
     // otaVersion Field Functions 
     bool hasOtaVersion() const { return this->otaVersion_ != nullptr;};
     void deleteOtaVersion() { this->otaVersion_ = nullptr;};

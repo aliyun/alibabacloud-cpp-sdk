@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->debugMode_ != nullptr
-        && this->perSessionPerApp_ != nullptr && this->persistentAppInstanceScheduleMode_ != nullptr && this->sessionPreOpen_ != nullptr && this->sessionType_ != nullptr && this->sessionUserGenerationMode_ != nullptr; };
+    virtual bool empty() const override { return this->debugMode_ == nullptr
+        && return this->perSessionPerApp_ == nullptr && return this->persistentAppInstanceScheduleMode_ == nullptr && return this->sessionPreOpen_ == nullptr && return this->sessionType_ == nullptr && return this->sessionUserGenerationMode_ == nullptr; };
     // debugMode Field Functions 
     bool hasDebugMode() const { return this->debugMode_ != nullptr;};
     void deleteDebugMode() { this->debugMode_ = nullptr;};
