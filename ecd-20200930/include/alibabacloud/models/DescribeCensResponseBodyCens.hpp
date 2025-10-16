@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cenId_ != nullptr
-        && this->creationTime_ != nullptr && this->description_ != nullptr && this->ipv6Level_ != nullptr && this->name_ != nullptr && this->packageIds_ != nullptr
-        && this->protectionLevel_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->cenId_ == nullptr
+        && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->ipv6Level_ == nullptr && return this->name_ == nullptr && return this->packageIds_ == nullptr
+        && return this->protectionLevel_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr; };
     // cenId Field Functions 
     bool hasCenId() const { return this->cenId_ != nullptr;};
     void deleteCenId() { this->cenId_ = nullptr;};

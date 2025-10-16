@@ -82,13 +82,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowAutoSetup_ != nullptr
-        && this->allowBufferCount_ != nullptr && this->bindAmount_ != nullptr && this->buyDesktopsCount_ != nullptr && this->classify_ != nullptr && this->comments_ != nullptr
-        && this->connectDuration_ != nullptr && this->deleteDuration_ != nullptr && this->desktopGroupId_ != nullptr && this->desktopGroupName_ != nullptr && this->disableSessionConfig_ != nullptr
-        && this->fileSystemId_ != nullptr && this->idleDisconnectDuration_ != nullptr && this->imageId_ != nullptr && this->keepDuration_ != nullptr && this->loadPolicy_ != nullptr
-        && this->maxDesktopsCount_ != nullptr && this->minDesktopsCount_ != nullptr && this->ownBundleId_ != nullptr && this->policyGroupId_ != nullptr && this->policyGroupIds_ != nullptr
-        && this->profileFollowSwitch_ != nullptr && this->ratioThreshold_ != nullptr && this->regionId_ != nullptr && this->resetType_ != nullptr && this->scaleStrategyId_ != nullptr
-        && this->stopDuration_ != nullptr; };
+    virtual bool empty() const override { return this->allowAutoSetup_ == nullptr
+        && return this->allowBufferCount_ == nullptr && return this->bindAmount_ == nullptr && return this->buyDesktopsCount_ == nullptr && return this->classify_ == nullptr && return this->comments_ == nullptr
+        && return this->connectDuration_ == nullptr && return this->deleteDuration_ == nullptr && return this->desktopGroupId_ == nullptr && return this->desktopGroupName_ == nullptr && return this->disableSessionConfig_ == nullptr
+        && return this->fileSystemId_ == nullptr && return this->idleDisconnectDuration_ == nullptr && return this->imageId_ == nullptr && return this->keepDuration_ == nullptr && return this->loadPolicy_ == nullptr
+        && return this->maxDesktopsCount_ == nullptr && return this->minDesktopsCount_ == nullptr && return this->ownBundleId_ == nullptr && return this->policyGroupId_ == nullptr && return this->policyGroupIds_ == nullptr
+        && return this->profileFollowSwitch_ == nullptr && return this->ratioThreshold_ == nullptr && return this->regionId_ == nullptr && return this->resetType_ == nullptr && return this->scaleStrategyId_ == nullptr
+        && return this->stopDuration_ == nullptr; };
     // allowAutoSetup Field Functions 
     bool hasAllowAutoSetup() const { return this->allowAutoSetup_ != nullptr;};
     void deleteAllowAutoSetup() { this->allowAutoSetup_ = nullptr;};

@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->hasExpiredEdsCount_ != nullptr
-        && this->hasExpiredEdsCountForGroup_ != nullptr && this->officeSiteId_ != nullptr && this->officeSiteName_ != nullptr && this->officeSiteStatus_ != nullptr && this->regionId_ != nullptr
-        && this->runningEdsCount_ != nullptr && this->runningEdsCountForGroup_ != nullptr && this->totalEdsCount_ != nullptr && this->totalEdsCountForGroup_ != nullptr && this->vpcType_ != nullptr
-        && this->willExpiredEdsCount_ != nullptr && this->willExpiredEdsCountForGroup_ != nullptr; };
+    virtual bool empty() const override { return this->hasExpiredEdsCount_ == nullptr
+        && return this->hasExpiredEdsCountForGroup_ == nullptr && return this->officeSiteId_ == nullptr && return this->officeSiteName_ == nullptr && return this->officeSiteStatus_ == nullptr && return this->regionId_ == nullptr
+        && return this->runningEdsCount_ == nullptr && return this->runningEdsCountForGroup_ == nullptr && return this->totalEdsCount_ == nullptr && return this->totalEdsCountForGroup_ == nullptr && return this->vpcType_ == nullptr
+        && return this->willExpiredEdsCount_ == nullptr && return this->willExpiredEdsCountForGroup_ == nullptr; };
     // hasExpiredEdsCount Field Functions 
     bool hasHasExpiredEdsCount() const { return this->hasExpiredEdsCount_ != nullptr;};
     void deleteHasExpiredEdsCount() { this->hasExpiredEdsCount_ = nullptr;};

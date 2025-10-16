@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->connectDurationFrom_ != nullptr
-        && this->connectDurationTo_ != nullptr && this->connectEndTimeFrom_ != nullptr && this->connectEndTimeTo_ != nullptr && this->connectStartTimeFrom_ != nullptr && this->connectStartTimeTo_ != nullptr
-        && this->desktopGroupId_ != nullptr && this->desktopId_ != nullptr && this->endUserId_ != nullptr && this->endUserType_ != nullptr && this->maxResults_ != nullptr
-        && this->nextToken_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->connectDurationFrom_ == nullptr
+        && return this->connectDurationTo_ == nullptr && return this->connectEndTimeFrom_ == nullptr && return this->connectEndTimeTo_ == nullptr && return this->connectStartTimeFrom_ == nullptr && return this->connectStartTimeTo_ == nullptr
+        && return this->desktopGroupId_ == nullptr && return this->desktopId_ == nullptr && return this->endUserId_ == nullptr && return this->endUserType_ == nullptr && return this->maxResults_ == nullptr
+        && return this->nextToken_ == nullptr && return this->regionId_ == nullptr; };
     // connectDurationFrom Field Functions 
     bool hasConnectDurationFrom() const { return this->connectDurationFrom_ != nullptr;};
     void deleteConnectDurationFrom() { this->connectDurationFrom_ = nullptr;};

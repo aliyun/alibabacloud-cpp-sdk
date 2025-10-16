@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cdsId_ != nullptr
-        && this->conflictPolicy_ != nullptr && this->endUserId_ != nullptr && this->fileHash_ != nullptr && this->fileLength_ != nullptr && this->fileName_ != nullptr
-        && this->fileType_ != nullptr && this->groupId_ != nullptr && this->parentFileId_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->cdsId_ == nullptr
+        && return this->conflictPolicy_ == nullptr && return this->endUserId_ == nullptr && return this->fileHash_ == nullptr && return this->fileLength_ == nullptr && return this->fileName_ == nullptr
+        && return this->fileType_ == nullptr && return this->groupId_ == nullptr && return this->parentFileId_ == nullptr && return this->regionId_ == nullptr; };
     // cdsId Field Functions 
     bool hasCdsId() const { return this->cdsId_ != nullptr;};
     void deleteCdsId() { this->cdsId_ = nullptr;};

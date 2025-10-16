@@ -52,9 +52,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->nextToken_ != nullptr
-        && this->onlinePrePaidDesktopsCount_ != nullptr && this->paidDesktops_ != nullptr && this->paidDesktopsCount_ != nullptr && this->postPaidDesktops_ != nullptr && this->postPaidDesktopsCount_ != nullptr
-        && this->postPaidDesktopsTotalAmount_ != nullptr && this->requestId_ != nullptr && this->runningPrePaidDesktopsCount_ != nullptr && this->stopedPrePaidDesktopsCount_ != nullptr && this->stoppedPrePaidDesktopsCount_ != nullptr; };
+    virtual bool empty() const override { return this->nextToken_ == nullptr
+        && return this->onlinePrePaidDesktopsCount_ == nullptr && return this->paidDesktops_ == nullptr && return this->paidDesktopsCount_ == nullptr && return this->postPaidDesktops_ == nullptr && return this->postPaidDesktopsCount_ == nullptr
+        && return this->postPaidDesktopsTotalAmount_ == nullptr && return this->requestId_ == nullptr && return this->runningPrePaidDesktopsCount_ == nullptr && return this->stopedPrePaidDesktopsCount_ == nullptr && return this->stoppedPrePaidDesktopsCount_ == nullptr; };
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};

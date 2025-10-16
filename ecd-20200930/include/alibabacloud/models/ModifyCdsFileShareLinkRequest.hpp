@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cdsId_ != nullptr
-        && this->description_ != nullptr && this->disableDownload_ != nullptr && this->disablePreview_ != nullptr && this->disableSave_ != nullptr && this->downloadCount_ != nullptr
-        && this->downloadLimit_ != nullptr && this->expiration_ != nullptr && this->previewCount_ != nullptr && this->previewLimit_ != nullptr && this->reportCount_ != nullptr
-        && this->saveCount_ != nullptr && this->saveLimit_ != nullptr && this->shareId_ != nullptr && this->shareName_ != nullptr && this->sharePwd_ != nullptr
-        && this->status_ != nullptr && this->videoPreviewCount_ != nullptr; };
+    virtual bool empty() const override { return this->cdsId_ == nullptr
+        && return this->description_ == nullptr && return this->disableDownload_ == nullptr && return this->disablePreview_ == nullptr && return this->disableSave_ == nullptr && return this->downloadCount_ == nullptr
+        && return this->downloadLimit_ == nullptr && return this->expiration_ == nullptr && return this->previewCount_ == nullptr && return this->previewLimit_ == nullptr && return this->reportCount_ == nullptr
+        && return this->saveCount_ == nullptr && return this->saveLimit_ == nullptr && return this->shareId_ == nullptr && return this->shareName_ == nullptr && return this->sharePwd_ == nullptr
+        && return this->status_ == nullptr && return this->videoPreviewCount_ == nullptr; };
     // cdsId Field Functions 
     bool hasCdsId() const { return this->cdsId_ != nullptr;};
     void deleteCdsId() { this->cdsId_ = nullptr;};

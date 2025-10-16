@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cdsId_ != nullptr
-        && this->directoryId_ != nullptr && this->directoryName_ != nullptr && this->driveStatus_ != nullptr && this->driveType_ != nullptr && this->groupId_ != nullptr
-        && this->groupName_ != nullptr && this->groupType_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->parentGroupId_ != nullptr
-        && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->cdsId_ == nullptr
+        && return this->directoryId_ == nullptr && return this->directoryName_ == nullptr && return this->driveStatus_ == nullptr && return this->driveType_ == nullptr && return this->groupId_ == nullptr
+        && return this->groupName_ == nullptr && return this->groupType_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->parentGroupId_ == nullptr
+        && return this->regionId_ == nullptr; };
     // cdsId Field Functions 
     bool hasCdsId() const { return this->cdsId_ != nullptr;};
     void deleteCdsId() { this->cdsId_ = nullptr;};

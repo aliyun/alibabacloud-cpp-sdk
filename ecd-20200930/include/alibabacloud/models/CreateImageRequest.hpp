@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoCleanUserdata_ != nullptr
-        && this->dataSnapshotIds_ != nullptr && this->description_ != nullptr && this->desktopId_ != nullptr && this->diskType_ != nullptr && this->imageName_ != nullptr
-        && this->imageResourceType_ != nullptr && this->regionId_ != nullptr && this->snapshotId_ != nullptr && this->snapshotIds_ != nullptr; };
+    virtual bool empty() const override { return this->autoCleanUserdata_ == nullptr
+        && return this->dataSnapshotIds_ == nullptr && return this->description_ == nullptr && return this->desktopId_ == nullptr && return this->diskType_ == nullptr && return this->imageName_ == nullptr
+        && return this->imageResourceType_ == nullptr && return this->regionId_ == nullptr && return this->snapshotId_ == nullptr && return this->snapshotIds_ == nullptr; };
     // autoCleanUserdata Field Functions 
     bool hasAutoCleanUserdata() const { return this->autoCleanUserdata_ != nullptr;};
     void deleteAutoCleanUserdata() { this->autoCleanUserdata_ = nullptr;};

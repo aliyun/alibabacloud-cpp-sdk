@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->blackPath_ != nullptr
-        && this->whitePaths_ != nullptr; };
+    virtual bool empty() const override { return this->blackPath_ == nullptr
+        && return this->whitePaths_ == nullptr; };
     // blackPath Field Functions 
     bool hasBlackPath() const { return this->blackPath_ != nullptr;};
     void deleteBlackPath() { this->blackPath_ = nullptr;};

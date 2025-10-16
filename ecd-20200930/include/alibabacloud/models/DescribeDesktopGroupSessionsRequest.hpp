@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->desktopGroupIds_ != nullptr
-        && this->desktopGroupName_ != nullptr && this->endTime_ != nullptr && this->endUserId_ != nullptr && this->fillTerminalInfo_ != nullptr && this->language_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->ownType_ != nullptr && this->regionId_ != nullptr && this->sessionStatus_ != nullptr
-        && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->desktopGroupIds_ == nullptr
+        && return this->desktopGroupName_ == nullptr && return this->endTime_ == nullptr && return this->endUserId_ == nullptr && return this->fillTerminalInfo_ == nullptr && return this->language_ == nullptr
+        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->ownType_ == nullptr && return this->regionId_ == nullptr && return this->sessionStatus_ == nullptr
+        && return this->startTime_ == nullptr; };
     // desktopGroupIds Field Functions 
     bool hasDesktopGroupIds() const { return this->desktopGroupIds_ != nullptr;};
     void deleteDesktopGroupIds() { this->desktopGroupIds_ = nullptr;};

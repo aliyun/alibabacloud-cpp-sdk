@@ -76,12 +76,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliUid_ != nullptr
-        && this->bytesReceived_ != nullptr && this->bytesSend_ != nullptr && this->clientIp_ != nullptr && this->clientOS_ != nullptr && this->clientVersion_ != nullptr
-        && this->description_ != nullptr && this->desktopGroupId_ != nullptr && this->desktopGroupName_ != nullptr && this->desktopId_ != nullptr && this->desktopIp_ != nullptr
-        && this->desktopName_ != nullptr && this->directoryId_ != nullptr && this->directoryType_ != nullptr && this->endUserId_ != nullptr && this->eventId_ != nullptr
-        && this->eventTime_ != nullptr && this->eventType_ != nullptr && this->officeSiteId_ != nullptr && this->officeSiteName_ != nullptr && this->officeSiteType_ != nullptr
-        && this->regionId_ != nullptr && this->status_ != nullptr && this->terminalInfo_ != nullptr; };
+    virtual bool empty() const override { return this->aliUid_ == nullptr
+        && return this->bytesReceived_ == nullptr && return this->bytesSend_ == nullptr && return this->clientIp_ == nullptr && return this->clientOS_ == nullptr && return this->clientVersion_ == nullptr
+        && return this->description_ == nullptr && return this->desktopGroupId_ == nullptr && return this->desktopGroupName_ == nullptr && return this->desktopId_ == nullptr && return this->desktopIp_ == nullptr
+        && return this->desktopName_ == nullptr && return this->directoryId_ == nullptr && return this->directoryType_ == nullptr && return this->endUserId_ == nullptr && return this->eventId_ == nullptr
+        && return this->eventTime_ == nullptr && return this->eventType_ == nullptr && return this->officeSiteId_ == nullptr && return this->officeSiteName_ == nullptr && return this->officeSiteType_ == nullptr
+        && return this->regionId_ == nullptr && return this->status_ == nullptr && return this->terminalInfo_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};

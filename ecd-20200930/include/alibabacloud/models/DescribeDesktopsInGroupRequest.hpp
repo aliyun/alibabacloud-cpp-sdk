@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->customEndTimePeriod_ != nullptr
-        && this->customStartTimePeriod_ != nullptr && this->desktopGroupId_ != nullptr && this->ignoreDeleted_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr
-        && this->payType_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->customEndTimePeriod_ == nullptr
+        && return this->customStartTimePeriod_ == nullptr && return this->desktopGroupId_ == nullptr && return this->ignoreDeleted_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr
+        && return this->payType_ == nullptr && return this->regionId_ == nullptr; };
     // customEndTimePeriod Field Functions 
     bool hasCustomEndTimePeriod() const { return this->customEndTimePeriod_ != nullptr;};
     void deleteCustomEndTimePeriod() { this->customEndTimePeriod_ = nullptr;};

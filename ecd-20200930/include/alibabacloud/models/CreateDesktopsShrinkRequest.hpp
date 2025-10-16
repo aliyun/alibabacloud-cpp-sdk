@@ -49,6 +49,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(SavingPlanId, savingPlanId_);
       DARABONBA_PTR_TO_JSON(SnapshotPolicyId, snapshotPolicyId_);
+      DARABONBA_PTR_TO_JSON(SubnetId, subnetId_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(TimerGroupId, timerGroupId_);
       DARABONBA_PTR_TO_JSON(UserAssignMode, userAssignMode_);
@@ -89,6 +90,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(SavingPlanId, savingPlanId_);
       DARABONBA_PTR_FROM_JSON(SnapshotPolicyId, snapshotPolicyId_);
+      DARABONBA_PTR_FROM_JSON(SubnetId, subnetId_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(TimerGroupId, timerGroupId_);
       DARABONBA_PTR_FROM_JSON(UserAssignMode, userAssignMode_);
@@ -109,15 +111,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->amount_ != nullptr
-        && this->appRuleId_ != nullptr && this->autoPay_ != nullptr && this->autoRenew_ != nullptr && this->bundleId_ != nullptr && this->bundleModels_ != nullptr
-        && this->channelCookie_ != nullptr && this->chargeType_ != nullptr && this->desktopAttachmentShrink_ != nullptr && this->desktopMemberIp_ != nullptr && this->desktopName_ != nullptr
-        && this->desktopNameSuffix_ != nullptr && this->desktopTimers_ != nullptr && this->directoryId_ != nullptr && this->endUserId_ != nullptr && this->extendInfo_ != nullptr
-        && this->groupId_ != nullptr && this->hostname_ != nullptr && this->monthDesktopSetting_ != nullptr && this->officeSiteId_ != nullptr && this->period_ != nullptr
-        && this->periodUnit_ != nullptr && this->policyGroupId_ != nullptr && this->promotionId_ != nullptr && this->qosRuleId_ != nullptr && this->regionId_ != nullptr
-        && this->resellerOwnerUid_ != nullptr && this->resourceGroupId_ != nullptr && this->savingPlanId_ != nullptr && this->snapshotPolicyId_ != nullptr && this->tag_ != nullptr
-        && this->timerGroupId_ != nullptr && this->userAssignMode_ != nullptr && this->userCommands_ != nullptr && this->userName_ != nullptr && this->volumeEncryptionEnabled_ != nullptr
-        && this->volumeEncryptionKey_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->amount_ == nullptr
+        && return this->appRuleId_ == nullptr && return this->autoPay_ == nullptr && return this->autoRenew_ == nullptr && return this->bundleId_ == nullptr && return this->bundleModels_ == nullptr
+        && return this->channelCookie_ == nullptr && return this->chargeType_ == nullptr && return this->desktopAttachmentShrink_ == nullptr && return this->desktopMemberIp_ == nullptr && return this->desktopName_ == nullptr
+        && return this->desktopNameSuffix_ == nullptr && return this->desktopTimers_ == nullptr && return this->directoryId_ == nullptr && return this->endUserId_ == nullptr && return this->extendInfo_ == nullptr
+        && return this->groupId_ == nullptr && return this->hostname_ == nullptr && return this->monthDesktopSetting_ == nullptr && return this->officeSiteId_ == nullptr && return this->period_ == nullptr
+        && return this->periodUnit_ == nullptr && return this->policyGroupId_ == nullptr && return this->promotionId_ == nullptr && return this->qosRuleId_ == nullptr && return this->regionId_ == nullptr
+        && return this->resellerOwnerUid_ == nullptr && return this->resourceGroupId_ == nullptr && return this->savingPlanId_ == nullptr && return this->snapshotPolicyId_ == nullptr && return this->subnetId_ == nullptr
+        && return this->tag_ == nullptr && return this->timerGroupId_ == nullptr && return this->userAssignMode_ == nullptr && return this->userCommands_ == nullptr && return this->userName_ == nullptr
+        && return this->volumeEncryptionEnabled_ == nullptr && return this->volumeEncryptionKey_ == nullptr && return this->vpcId_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -336,6 +338,13 @@ namespace Models
     inline CreateDesktopsShrinkRequest& setSnapshotPolicyId(string snapshotPolicyId) { DARABONBA_PTR_SET_VALUE(snapshotPolicyId_, snapshotPolicyId) };
 
 
+    // subnetId Field Functions 
+    bool hasSubnetId() const { return this->subnetId_ != nullptr;};
+    void deleteSubnetId() { this->subnetId_ = nullptr;};
+    inline string subnetId() const { DARABONBA_PTR_GET_DEFAULT(subnetId_, "") };
+    inline CreateDesktopsShrinkRequest& setSubnetId(string subnetId) { DARABONBA_PTR_SET_VALUE(subnetId_, subnetId) };
+
+
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
@@ -520,6 +529,7 @@ namespace Models
     std::shared_ptr<string> savingPlanId_ = nullptr;
     // The ID of the auto-snapshot policy.
     std::shared_ptr<string> snapshotPolicyId_ = nullptr;
+    std::shared_ptr<string> subnetId_ = nullptr;
     // The tags that you want to add to the cloud desktop.
     std::shared_ptr<vector<CreateDesktopsShrinkRequestTag>> tag_ = nullptr;
     // The ID of the timer group.

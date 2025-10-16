@@ -92,13 +92,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ADConnectors_ != nullptr
-        && this->adHostname_ != nullptr && this->backupDCHostname_ != nullptr && this->backupDns_ != nullptr && this->creationTime_ != nullptr && this->customSecurityGroupId_ != nullptr
-        && this->desktopAccessType_ != nullptr && this->desktopVpcEndpoint_ != nullptr && this->directoryId_ != nullptr && this->directoryType_ != nullptr && this->dnsAddress_ != nullptr
-        && this->dnsUserName_ != nullptr && this->domainName_ != nullptr && this->domainPassword_ != nullptr && this->domainUserName_ != nullptr && this->enableAdminAccess_ != nullptr
-        && this->enableCrossDesktopAccess_ != nullptr && this->enableInternetAccess_ != nullptr && this->fileSystemIds_ != nullptr && this->logs_ != nullptr && this->mfaEnabled_ != nullptr
-        && this->name_ != nullptr && this->needVerifyLoginRisk_ != nullptr && this->ouName_ != nullptr && this->ssoEnabled_ != nullptr && this->status_ != nullptr
-        && this->subDnsAddress_ != nullptr && this->subDomainName_ != nullptr && this->trustPassword_ != nullptr && this->vSwitchIds_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->ADConnectors_ == nullptr
+        && return this->adHostname_ == nullptr && return this->backupDCHostname_ == nullptr && return this->backupDns_ == nullptr && return this->creationTime_ == nullptr && return this->customSecurityGroupId_ == nullptr
+        && return this->desktopAccessType_ == nullptr && return this->desktopVpcEndpoint_ == nullptr && return this->directoryId_ == nullptr && return this->directoryType_ == nullptr && return this->dnsAddress_ == nullptr
+        && return this->dnsUserName_ == nullptr && return this->domainName_ == nullptr && return this->domainPassword_ == nullptr && return this->domainUserName_ == nullptr && return this->enableAdminAccess_ == nullptr
+        && return this->enableCrossDesktopAccess_ == nullptr && return this->enableInternetAccess_ == nullptr && return this->fileSystemIds_ == nullptr && return this->logs_ == nullptr && return this->mfaEnabled_ == nullptr
+        && return this->name_ == nullptr && return this->needVerifyLoginRisk_ == nullptr && return this->ouName_ == nullptr && return this->ssoEnabled_ == nullptr && return this->status_ == nullptr
+        && return this->subDnsAddress_ == nullptr && return this->subDomainName_ == nullptr && return this->trustPassword_ == nullptr && return this->vSwitchIds_ == nullptr && return this->vpcId_ == nullptr; };
     // ADConnectors Field Functions 
     bool hasADConnectors() const { return this->ADConnectors_ != nullptr;};
     void deleteADConnectors() { this->ADConnectors_ = nullptr;};

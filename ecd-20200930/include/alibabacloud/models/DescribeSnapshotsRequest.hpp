@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creator_ != nullptr
-        && this->desktopId_ != nullptr && this->desktopName_ != nullptr && this->endTime_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr
-        && this->osType_ != nullptr && this->regionId_ != nullptr && this->snapshotId_ != nullptr && this->snapshotName_ != nullptr && this->snapshotType_ != nullptr
-        && this->sourceDiskType_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->creator_ == nullptr
+        && return this->desktopId_ == nullptr && return this->desktopName_ == nullptr && return this->endTime_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr
+        && return this->osType_ == nullptr && return this->regionId_ == nullptr && return this->snapshotId_ == nullptr && return this->snapshotName_ == nullptr && return this->snapshotType_ == nullptr
+        && return this->sourceDiskType_ == nullptr && return this->startTime_ == nullptr; };
     // creator Field Functions 
     bool hasCreator() const { return this->creator_ != nullptr;};
     void deleteCreator() { this->creator_ = nullptr;};

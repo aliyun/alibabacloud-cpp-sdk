@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assignedInfo_ != nullptr
-        && this->directoryId_ != nullptr && this->filter_ != nullptr && this->includeAssignedUser_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr
-        && this->OUPath_ != nullptr && this->regionId_ != nullptr && this->sortType_ != nullptr; };
+    virtual bool empty() const override { return this->assignedInfo_ == nullptr
+        && return this->directoryId_ == nullptr && return this->filter_ == nullptr && return this->includeAssignedUser_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr
+        && return this->OUPath_ == nullptr && return this->regionId_ == nullptr && return this->sortType_ == nullptr; };
     // assignedInfo Field Functions 
     bool hasAssignedInfo() const { return this->assignedInfo_ != nullptr;};
     void deleteAssignedInfo() { this->assignedInfo_ = nullptr;};

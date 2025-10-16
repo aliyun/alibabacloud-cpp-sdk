@@ -273,31 +273,31 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adminAccess_ != nullptr
-        && this->appContentProtection_ != nullptr && this->authorizeAccessPolicyRules_ != nullptr && this->authorizeSecurityPolicyRules_ != nullptr && this->autoReconnect_ != nullptr && this->cameraRedirect_ != nullptr
-        && this->clientControlMenu_ != nullptr && this->clientTypes_ != nullptr && this->clipboard_ != nullptr && this->colorEnhancement_ != nullptr && this->cpdDriveClipboard_ != nullptr
-        && this->cpuDownGradeDuration_ != nullptr && this->cpuProcessors_ != nullptr && this->cpuProtectedMode_ != nullptr && this->cpuRateLimit_ != nullptr && this->cpuSampleDuration_ != nullptr
-        && this->cpuSingleRateLimit_ != nullptr && this->desktopCount_ != nullptr && this->desktopGroupCount_ != nullptr && this->deviceConnectHint_ != nullptr && this->deviceRedirects_ != nullptr
-        && this->deviceRules_ != nullptr && this->displayMode_ != nullptr && this->domainList_ != nullptr && this->domainResolveRule_ != nullptr && this->domainResolveRuleType_ != nullptr
-        && this->edsCount_ != nullptr && this->endUserApplyAdminCoordinate_ != nullptr && this->endUserGroupCoordinate_ != nullptr && this->fileMigrate_ != nullptr && this->fileTransfer_ != nullptr
-        && this->fileTransferAddress_ != nullptr && this->fileTransferSpeed_ != nullptr && this->fileTransferSpeedLocation_ != nullptr && this->gpuAcceleration_ != nullptr && this->html5Access_ != nullptr
-        && this->html5FileTransfer_ != nullptr && this->internetCommunicationProtocol_ != nullptr && this->internetPrinter_ != nullptr && this->localDrive_ != nullptr && this->maxReconnectTime_ != nullptr
-        && this->memoryDownGradeDuration_ != nullptr && this->memoryProcessors_ != nullptr && this->memoryProtectedMode_ != nullptr && this->memoryRateLimit_ != nullptr && this->memorySampleDuration_ != nullptr
-        && this->memorySingleRateLimit_ != nullptr && this->mobileRestart_ != nullptr && this->mobileSafeMenu_ != nullptr && this->mobileShutdown_ != nullptr && this->mobileWuyingKeeper_ != nullptr
-        && this->mobileWyAssistant_ != nullptr && this->name_ != nullptr && this->netRedirect_ != nullptr && this->netRedirectRule_ != nullptr && this->policyGroupId_ != nullptr
-        && this->policyGroupType_ != nullptr && this->policyStatus_ != nullptr && this->preemptLogin_ != nullptr && this->preemptLoginUsers_ != nullptr && this->printerRedirection_ != nullptr
-        && this->qualityEnhancement_ != nullptr && this->recordContent_ != nullptr && this->recordContentExpires_ != nullptr && this->recordEventDuration_ != nullptr && this->recordEventFileExts_ != nullptr
-        && this->recordEventFilePaths_ != nullptr && this->recordEventLevels_ != nullptr && this->recordEventRegisters_ != nullptr && this->recording_ != nullptr && this->recordingAudio_ != nullptr
-        && this->recordingDuration_ != nullptr && this->recordingEndTime_ != nullptr && this->recordingExpires_ != nullptr && this->recordingFps_ != nullptr && this->recordingStartTime_ != nullptr
-        && this->recordingUserNotify_ != nullptr && this->recordingUserNotifyMessage_ != nullptr && this->remoteCoordinate_ != nullptr && this->resetDesktop_ != nullptr && this->resolutionHeight_ != nullptr
-        && this->resolutionModel_ != nullptr && this->resolutionWidth_ != nullptr && this->resourceGroupCount_ != nullptr && this->resourceRegionId_ != nullptr && this->safeMenu_ != nullptr
-        && this->scope_ != nullptr && this->scopeValue_ != nullptr && this->screenDisplayMode_ != nullptr && this->smoothEnhancement_ != nullptr && this->statusMonitor_ != nullptr
-        && this->streamingMode_ != nullptr && this->targetFps_ != nullptr && this->usbRedirect_ != nullptr && this->usbSupplyRedirectRule_ != nullptr && this->useTime_ != nullptr
-        && this->videoEncAvgKbps_ != nullptr && this->videoEncMaxQP_ != nullptr && this->videoEncMinQP_ != nullptr && this->videoEncPeakKbps_ != nullptr && this->videoEncPolicy_ != nullptr
-        && this->videoRedirect_ != nullptr && this->visualQuality_ != nullptr && this->watermark_ != nullptr && this->watermarkAntiCam_ != nullptr && this->watermarkColor_ != nullptr
-        && this->watermarkCustomText_ != nullptr && this->watermarkDegree_ != nullptr && this->watermarkFontSize_ != nullptr && this->watermarkFontStyle_ != nullptr && this->watermarkPower_ != nullptr
-        && this->watermarkRowAmount_ != nullptr && this->watermarkSecurity_ != nullptr && this->watermarkTransparency_ != nullptr && this->watermarkTransparencyValue_ != nullptr && this->watermarkType_ != nullptr
-        && this->wuyingKeeper_ != nullptr && this->wyAssistant_ != nullptr; };
+    virtual bool empty() const override { return this->adminAccess_ == nullptr
+        && return this->appContentProtection_ == nullptr && return this->authorizeAccessPolicyRules_ == nullptr && return this->authorizeSecurityPolicyRules_ == nullptr && return this->autoReconnect_ == nullptr && return this->cameraRedirect_ == nullptr
+        && return this->clientControlMenu_ == nullptr && return this->clientTypes_ == nullptr && return this->clipboard_ == nullptr && return this->colorEnhancement_ == nullptr && return this->cpdDriveClipboard_ == nullptr
+        && return this->cpuDownGradeDuration_ == nullptr && return this->cpuProcessors_ == nullptr && return this->cpuProtectedMode_ == nullptr && return this->cpuRateLimit_ == nullptr && return this->cpuSampleDuration_ == nullptr
+        && return this->cpuSingleRateLimit_ == nullptr && return this->desktopCount_ == nullptr && return this->desktopGroupCount_ == nullptr && return this->deviceConnectHint_ == nullptr && return this->deviceRedirects_ == nullptr
+        && return this->deviceRules_ == nullptr && return this->displayMode_ == nullptr && return this->domainList_ == nullptr && return this->domainResolveRule_ == nullptr && return this->domainResolveRuleType_ == nullptr
+        && return this->edsCount_ == nullptr && return this->endUserApplyAdminCoordinate_ == nullptr && return this->endUserGroupCoordinate_ == nullptr && return this->fileMigrate_ == nullptr && return this->fileTransfer_ == nullptr
+        && return this->fileTransferAddress_ == nullptr && return this->fileTransferSpeed_ == nullptr && return this->fileTransferSpeedLocation_ == nullptr && return this->gpuAcceleration_ == nullptr && return this->html5Access_ == nullptr
+        && return this->html5FileTransfer_ == nullptr && return this->internetCommunicationProtocol_ == nullptr && return this->internetPrinter_ == nullptr && return this->localDrive_ == nullptr && return this->maxReconnectTime_ == nullptr
+        && return this->memoryDownGradeDuration_ == nullptr && return this->memoryProcessors_ == nullptr && return this->memoryProtectedMode_ == nullptr && return this->memoryRateLimit_ == nullptr && return this->memorySampleDuration_ == nullptr
+        && return this->memorySingleRateLimit_ == nullptr && return this->mobileRestart_ == nullptr && return this->mobileSafeMenu_ == nullptr && return this->mobileShutdown_ == nullptr && return this->mobileWuyingKeeper_ == nullptr
+        && return this->mobileWyAssistant_ == nullptr && return this->name_ == nullptr && return this->netRedirect_ == nullptr && return this->netRedirectRule_ == nullptr && return this->policyGroupId_ == nullptr
+        && return this->policyGroupType_ == nullptr && return this->policyStatus_ == nullptr && return this->preemptLogin_ == nullptr && return this->preemptLoginUsers_ == nullptr && return this->printerRedirection_ == nullptr
+        && return this->qualityEnhancement_ == nullptr && return this->recordContent_ == nullptr && return this->recordContentExpires_ == nullptr && return this->recordEventDuration_ == nullptr && return this->recordEventFileExts_ == nullptr
+        && return this->recordEventFilePaths_ == nullptr && return this->recordEventLevels_ == nullptr && return this->recordEventRegisters_ == nullptr && return this->recording_ == nullptr && return this->recordingAudio_ == nullptr
+        && return this->recordingDuration_ == nullptr && return this->recordingEndTime_ == nullptr && return this->recordingExpires_ == nullptr && return this->recordingFps_ == nullptr && return this->recordingStartTime_ == nullptr
+        && return this->recordingUserNotify_ == nullptr && return this->recordingUserNotifyMessage_ == nullptr && return this->remoteCoordinate_ == nullptr && return this->resetDesktop_ == nullptr && return this->resolutionHeight_ == nullptr
+        && return this->resolutionModel_ == nullptr && return this->resolutionWidth_ == nullptr && return this->resourceGroupCount_ == nullptr && return this->resourceRegionId_ == nullptr && return this->safeMenu_ == nullptr
+        && return this->scope_ == nullptr && return this->scopeValue_ == nullptr && return this->screenDisplayMode_ == nullptr && return this->smoothEnhancement_ == nullptr && return this->statusMonitor_ == nullptr
+        && return this->streamingMode_ == nullptr && return this->targetFps_ == nullptr && return this->usbRedirect_ == nullptr && return this->usbSupplyRedirectRule_ == nullptr && return this->useTime_ == nullptr
+        && return this->videoEncAvgKbps_ == nullptr && return this->videoEncMaxQP_ == nullptr && return this->videoEncMinQP_ == nullptr && return this->videoEncPeakKbps_ == nullptr && return this->videoEncPolicy_ == nullptr
+        && return this->videoRedirect_ == nullptr && return this->visualQuality_ == nullptr && return this->watermark_ == nullptr && return this->watermarkAntiCam_ == nullptr && return this->watermarkColor_ == nullptr
+        && return this->watermarkCustomText_ == nullptr && return this->watermarkDegree_ == nullptr && return this->watermarkFontSize_ == nullptr && return this->watermarkFontStyle_ == nullptr && return this->watermarkPower_ == nullptr
+        && return this->watermarkRowAmount_ == nullptr && return this->watermarkSecurity_ == nullptr && return this->watermarkTransparency_ == nullptr && return this->watermarkTransparencyValue_ == nullptr && return this->watermarkType_ == nullptr
+        && return this->wuyingKeeper_ == nullptr && return this->wyAssistant_ == nullptr; };
     // adminAccess Field Functions 
     bool hasAdminAccess() const { return this->adminAccess_ != nullptr;};
     void deleteAdminAccess() { this->adminAccess_ = nullptr;};

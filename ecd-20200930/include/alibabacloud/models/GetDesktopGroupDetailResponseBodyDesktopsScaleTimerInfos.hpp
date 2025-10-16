@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->buyResAmount_ != nullptr
-        && this->cron_ != nullptr && this->keepDuration_ != nullptr && this->loadPolicy_ != nullptr && this->maxResAmount_ != nullptr && this->minResAmount_ != nullptr
-        && this->ratioThreshold_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->buyResAmount_ == nullptr
+        && return this->cron_ == nullptr && return this->keepDuration_ == nullptr && return this->loadPolicy_ == nullptr && return this->maxResAmount_ == nullptr && return this->minResAmount_ == nullptr
+        && return this->ratioThreshold_ == nullptr && return this->type_ == nullptr; };
     // buyResAmount Field Functions 
     bool hasBuyResAmount() const { return this->buyResAmount_ != nullptr;};
     void deleteBuyResAmount() { this->buyResAmount_ = nullptr;};

@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableCrossDesktopAccess_ != nullptr
-        && this->officeSiteId_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->enableCrossDesktopAccess_ == nullptr
+        && return this->officeSiteId_ == nullptr && return this->regionId_ == nullptr; };
     // enableCrossDesktopAccess Field Functions 
     bool hasEnableCrossDesktopAccess() const { return this->enableCrossDesktopAccess_ != nullptr;};
     void deleteEnableCrossDesktopAccess() { this->enableCrossDesktopAccess_ = nullptr;};

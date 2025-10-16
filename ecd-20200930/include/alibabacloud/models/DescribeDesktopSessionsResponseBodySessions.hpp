@@ -72,11 +72,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientIp_ != nullptr
-        && this->clientOS_ != nullptr && this->clientVersion_ != nullptr && this->desktopId_ != nullptr && this->desktopName_ != nullptr && this->endUserApplyCoordinateTime_ != nullptr
-        && this->endUserId_ != nullptr && this->latestConnectionTime_ != nullptr && this->officeSiteId_ != nullptr && this->officeSiteName_ != nullptr && this->osSessionStatus_ != nullptr
-        && this->osType_ != nullptr && this->protocolType_ != nullptr && this->resourceGroups_ != nullptr && this->sessionEndTime_ != nullptr && this->sessionIdleTime_ != nullptr
-        && this->sessionStartTime_ != nullptr && this->sessionStatus_ != nullptr && this->subPayType_ != nullptr && this->terminalInfo_ != nullptr && this->totalConnectionTime_ != nullptr; };
+    virtual bool empty() const override { return this->clientIp_ == nullptr
+        && return this->clientOS_ == nullptr && return this->clientVersion_ == nullptr && return this->desktopId_ == nullptr && return this->desktopName_ == nullptr && return this->endUserApplyCoordinateTime_ == nullptr
+        && return this->endUserId_ == nullptr && return this->latestConnectionTime_ == nullptr && return this->officeSiteId_ == nullptr && return this->officeSiteName_ == nullptr && return this->osSessionStatus_ == nullptr
+        && return this->osType_ == nullptr && return this->protocolType_ == nullptr && return this->resourceGroups_ == nullptr && return this->sessionEndTime_ == nullptr && return this->sessionIdleTime_ == nullptr
+        && return this->sessionStartTime_ == nullptr && return this->sessionStatus_ == nullptr && return this->subPayType_ == nullptr && return this->terminalInfo_ == nullptr && return this->totalConnectionTime_ == nullptr; };
     // clientIp Field Functions 
     bool hasClientIp() const { return this->clientIp_ != nullptr;};
     void deleteClientIp() { this->clientIp_ = nullptr;};

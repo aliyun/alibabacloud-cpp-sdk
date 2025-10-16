@@ -136,18 +136,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowAutoSetup_ != nullptr
-        && this->allowBufferCount_ != nullptr && this->bindAmount_ != nullptr && this->buyDesktopsCount_ != nullptr && this->comments_ != nullptr && this->connectDuration_ != nullptr
-        && this->cpu_ != nullptr && this->creationTime_ != nullptr && this->creator_ != nullptr && this->dataDiskCategory_ != nullptr && this->dataDiskSize_ != nullptr
-        && this->desktopGroupId_ != nullptr && this->desktopGroupName_ != nullptr && this->directoryId_ != nullptr && this->directoryType_ != nullptr && this->expiredTime_ != nullptr
-        && this->expiredTimes_ != nullptr && this->gpuCount_ != nullptr && this->gpuSpec_ != nullptr && this->idleDisconnectDuration_ != nullptr && this->imageId_ != nullptr
-        && this->keepDuration_ != nullptr && this->loadPolicy_ != nullptr && this->maxDesktopsCount_ != nullptr && this->memory_ != nullptr && this->minDesktopsCount_ != nullptr
-        && this->nasFileSystemID_ != nullptr && this->nasFileSystemName_ != nullptr && this->officeSiteId_ != nullptr && this->officeSiteName_ != nullptr && this->officeSiteType_ != nullptr
-        && this->osType_ != nullptr && this->ownBundleId_ != nullptr && this->ownBundleName_ != nullptr && this->ownType_ != nullptr && this->payType_ != nullptr
-        && this->policyGroupId_ != nullptr && this->policyGroupIds_ != nullptr && this->policyGroupName_ != nullptr && this->policyGroupNames_ != nullptr && this->profileFollowSwitch_ != nullptr
-        && this->protocolType_ != nullptr && this->ratioThreshold_ != nullptr && this->resType_ != nullptr && this->resetType_ != nullptr && this->scaleTimerInfos_ != nullptr
-        && this->status_ != nullptr && this->stopDuration_ != nullptr && this->systemDiskCategory_ != nullptr && this->systemDiskSize_ != nullptr && this->timerInfos_ != nullptr
-        && this->timingStrategyInfo_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->allowAutoSetup_ == nullptr
+        && return this->allowBufferCount_ == nullptr && return this->bindAmount_ == nullptr && return this->buyDesktopsCount_ == nullptr && return this->comments_ == nullptr && return this->connectDuration_ == nullptr
+        && return this->cpu_ == nullptr && return this->creationTime_ == nullptr && return this->creator_ == nullptr && return this->dataDiskCategory_ == nullptr && return this->dataDiskSize_ == nullptr
+        && return this->desktopGroupId_ == nullptr && return this->desktopGroupName_ == nullptr && return this->directoryId_ == nullptr && return this->directoryType_ == nullptr && return this->expiredTime_ == nullptr
+        && return this->expiredTimes_ == nullptr && return this->gpuCount_ == nullptr && return this->gpuSpec_ == nullptr && return this->idleDisconnectDuration_ == nullptr && return this->imageId_ == nullptr
+        && return this->keepDuration_ == nullptr && return this->loadPolicy_ == nullptr && return this->maxDesktopsCount_ == nullptr && return this->memory_ == nullptr && return this->minDesktopsCount_ == nullptr
+        && return this->nasFileSystemID_ == nullptr && return this->nasFileSystemName_ == nullptr && return this->officeSiteId_ == nullptr && return this->officeSiteName_ == nullptr && return this->officeSiteType_ == nullptr
+        && return this->osType_ == nullptr && return this->ownBundleId_ == nullptr && return this->ownBundleName_ == nullptr && return this->ownType_ == nullptr && return this->payType_ == nullptr
+        && return this->policyGroupId_ == nullptr && return this->policyGroupIds_ == nullptr && return this->policyGroupName_ == nullptr && return this->policyGroupNames_ == nullptr && return this->profileFollowSwitch_ == nullptr
+        && return this->protocolType_ == nullptr && return this->ratioThreshold_ == nullptr && return this->resType_ == nullptr && return this->resetType_ == nullptr && return this->scaleTimerInfos_ == nullptr
+        && return this->status_ == nullptr && return this->stopDuration_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->systemDiskSize_ == nullptr && return this->timerInfos_ == nullptr
+        && return this->timingStrategyInfo_ == nullptr && return this->version_ == nullptr; };
     // allowAutoSetup Field Functions 
     bool hasAllowAutoSetup() const { return this->allowAutoSetup_ != nullptr;};
     void deleteAllowAutoSetup() { this->allowAutoSetup_ = nullptr;};

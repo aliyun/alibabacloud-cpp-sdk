@@ -3645,6 +3645,10 @@ CreateDesktopsResponse Client::createDesktopsWithOptions(const CreateDesktopsReq
     query["SnapshotPolicyId"] = request.snapshotPolicyId();
   }
 
+  if (!!request.hasSubnetId()) {
+    query["SubnetId"] = request.subnetId();
+  }
+
   if (!!request.hasTag()) {
     query["Tag"] = request.tag();
   }
@@ -16039,6 +16043,68 @@ ModifyResourceCenterPolicyResponse Client::modifyResourceCenterPolicyWithOptions
 ModifyResourceCenterPolicyResponse Client::modifyResourceCenterPolicy(const ModifyResourceCenterPolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyResourceCenterPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改办公网络维度安全组策略
+ *
+ * @param request ModifySecurityGroupAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifySecurityGroupAttributeResponse
+ */
+ModifySecurityGroupAttributeResponse Client::modifySecurityGroupAttributeWithOptions(const ModifySecurityGroupAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizeEgress()) {
+    query["AuthorizeEgress"] = request.authorizeEgress();
+  }
+
+  if (!!request.hasAuthorizeIngress()) {
+    query["AuthorizeIngress"] = request.authorizeIngress();
+  }
+
+  if (!!request.hasOfficeSiteId()) {
+    query["OfficeSiteId"] = request.officeSiteId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasRevokeEgress()) {
+    query["RevokeEgress"] = request.revokeEgress();
+  }
+
+  if (!!request.hasRevokeIngress()) {
+    query["RevokeIngress"] = request.revokeIngress();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifySecurityGroupAttribute"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifySecurityGroupAttributeResponse>();
+}
+
+/**
+ * @summary 修改办公网络维度安全组策略
+ *
+ * @param request ModifySecurityGroupAttributeRequest
+ * @return ModifySecurityGroupAttributeResponse
+ */
+ModifySecurityGroupAttributeResponse Client::modifySecurityGroupAttribute(const ModifySecurityGroupAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifySecurityGroupAttributeWithOptions(request, runtime);
 }
 
 /**

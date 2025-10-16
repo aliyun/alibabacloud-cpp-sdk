@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->desktopId_ != nullptr
-        && this->desktopName_ != nullptr && this->endTime_ != nullptr && this->endUserId_ != nullptr && this->eventType_ != nullptr && this->eventTypes_ != nullptr
-        && this->langType_ != nullptr && this->maxResults_ != nullptr && this->officeSiteId_ != nullptr && this->officeSiteName_ != nullptr && this->regionId_ != nullptr
-        && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->desktopId_ == nullptr
+        && return this->desktopName_ == nullptr && return this->endTime_ == nullptr && return this->endUserId_ == nullptr && return this->eventType_ == nullptr && return this->eventTypes_ == nullptr
+        && return this->langType_ == nullptr && return this->maxResults_ == nullptr && return this->officeSiteId_ == nullptr && return this->officeSiteName_ == nullptr && return this->regionId_ == nullptr
+        && return this->startTime_ == nullptr; };
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};

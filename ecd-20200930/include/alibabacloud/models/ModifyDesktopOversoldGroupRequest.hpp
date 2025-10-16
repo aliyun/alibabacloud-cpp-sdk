@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->concurrenceCount_ != nullptr
-        && this->description_ != nullptr && this->idleDisconnectDuration_ != nullptr && this->imageId_ != nullptr && this->keepDuration_ != nullptr && this->name_ != nullptr
-        && this->oversoldGroupId_ != nullptr && this->oversoldUserCount_ != nullptr && this->oversoldWarn_ != nullptr && this->policyGroupId_ != nullptr && this->stopDuration_ != nullptr; };
+    virtual bool empty() const override { return this->concurrenceCount_ == nullptr
+        && return this->description_ == nullptr && return this->idleDisconnectDuration_ == nullptr && return this->imageId_ == nullptr && return this->keepDuration_ == nullptr && return this->name_ == nullptr
+        && return this->oversoldGroupId_ == nullptr && return this->oversoldUserCount_ == nullptr && return this->oversoldWarn_ == nullptr && return this->policyGroupId_ == nullptr && return this->stopDuration_ == nullptr; };
     // concurrenceCount Field Functions 
     bool hasConcurrenceCount() const { return this->concurrenceCount_ != nullptr;};
     void deleteConcurrenceCount() { this->concurrenceCount_ = nullptr;};

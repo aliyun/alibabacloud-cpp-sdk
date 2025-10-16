@@ -4145,6 +4145,23 @@ namespace Ecd20200930
       Models::ModifyResourceCenterPolicyResponse modifyResourceCenterPolicy(const Models::ModifyResourceCenterPolicyRequest &request);
 
       /**
+       * @summary 修改办公网络维度安全组策略
+       *
+       * @param request ModifySecurityGroupAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifySecurityGroupAttributeResponse
+       */
+      Models::ModifySecurityGroupAttributeResponse modifySecurityGroupAttributeWithOptions(const Models::ModifySecurityGroupAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改办公网络维度安全组策略
+       *
+       * @param request ModifySecurityGroupAttributeRequest
+       * @return ModifySecurityGroupAttributeResponse
+       */
+      Models::ModifySecurityGroupAttributeResponse modifySecurityGroupAttribute(const Models::ModifySecurityGroupAttributeRequest &request);
+
+      /**
        * @summary 模板全量更新
        *
        * @param request ModifyTemplateRequest

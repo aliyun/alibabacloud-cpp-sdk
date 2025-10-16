@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->coId_ != nullptr
-        && this->coordinateStatus_ != nullptr && this->coordinateTicket_ != nullptr && this->initiatorType_ != nullptr && this->ownerUserId_ != nullptr && this->resourceId_ != nullptr
-        && this->resourceName_ != nullptr; };
+    virtual bool empty() const override { return this->coId_ == nullptr
+        && return this->coordinateStatus_ == nullptr && return this->coordinateTicket_ == nullptr && return this->initiatorType_ == nullptr && return this->ownerUserId_ == nullptr && return this->resourceId_ == nullptr
+        && return this->resourceName_ == nullptr; };
     // coId Field Functions 
     bool hasCoId() const { return this->coId_ != nullptr;};
     void deleteCoId() { this->coId_ = nullptr;};

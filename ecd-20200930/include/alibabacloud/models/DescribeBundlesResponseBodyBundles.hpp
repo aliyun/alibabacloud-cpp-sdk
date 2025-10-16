@@ -74,12 +74,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bundleId_ != nullptr
-        && this->bundleName_ != nullptr && this->bundleType_ != nullptr && this->creationTime_ != nullptr && this->dataDiskCategory_ != nullptr && this->description_ != nullptr
-        && this->desktopType_ != nullptr && this->desktopTypeAttribute_ != nullptr && this->desktopTypeFamily_ != nullptr && this->disks_ != nullptr && this->imageId_ != nullptr
-        && this->imageName_ != nullptr && this->imageStatus_ != nullptr && this->language_ != nullptr && this->osType_ != nullptr && this->platform_ != nullptr
-        && this->protocolType_ != nullptr && this->sessionType_ != nullptr && this->stockState_ != nullptr && this->systemDiskCategory_ != nullptr && this->volumeEncryptionEnabled_ != nullptr
-        && this->volumeEncryptionKey_ != nullptr; };
+    virtual bool empty() const override { return this->bundleId_ == nullptr
+        && return this->bundleName_ == nullptr && return this->bundleType_ == nullptr && return this->creationTime_ == nullptr && return this->dataDiskCategory_ == nullptr && return this->description_ == nullptr
+        && return this->desktopType_ == nullptr && return this->desktopTypeAttribute_ == nullptr && return this->desktopTypeFamily_ == nullptr && return this->disks_ == nullptr && return this->imageId_ == nullptr
+        && return this->imageName_ == nullptr && return this->imageStatus_ == nullptr && return this->language_ == nullptr && return this->osType_ == nullptr && return this->platform_ == nullptr
+        && return this->protocolType_ == nullptr && return this->sessionType_ == nullptr && return this->stockState_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->volumeEncryptionEnabled_ == nullptr
+        && return this->volumeEncryptionKey_ == nullptr; };
     // bundleId Field Functions 
     bool hasBundleId() const { return this->bundleId_ != nullptr;};
     void deleteBundleId() { this->bundleId_ = nullptr;};

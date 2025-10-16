@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->displayType_ != nullptr
-        && this->headerKey_ != nullptr && this->headerName_ != nullptr; };
+    virtual bool empty() const override { return this->displayType_ == nullptr
+        && return this->headerKey_ == nullptr && return this->headerName_ == nullptr; };
     // displayType Field Functions 
     bool hasDisplayType() const { return this->displayType_ != nullptr;};
     void deleteDisplayType() { this->displayType_ = nullptr;};

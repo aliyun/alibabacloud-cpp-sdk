@@ -140,18 +140,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bindAmount_ != nullptr
-        && this->buyDesktopsCount_ != nullptr && this->comments_ != nullptr && this->connectDuration_ != nullptr && this->countPerStatus_ != nullptr && this->cpu_ != nullptr
-        && this->createTime_ != nullptr && this->creator_ != nullptr && this->dataDiskCategory_ != nullptr && this->dataDiskSize_ != nullptr && this->desktopCount_ != nullptr
-        && this->desktopGroupId_ != nullptr && this->desktopGroupName_ != nullptr && this->desktopType_ != nullptr && this->endUserCount_ != nullptr && this->expiredTime_ != nullptr
-        && this->expiredTimes_ != nullptr && this->gpuCount_ != nullptr && this->gpuDriverVersion_ != nullptr && this->gpuSpec_ != nullptr && this->idleDisconnectDuration_ != nullptr
-        && this->imageId_ != nullptr && this->isLdap_ != nullptr && this->keepDuration_ != nullptr && this->loadPolicy_ != nullptr && this->maxDesktopsCount_ != nullptr
-        && this->memory_ != nullptr && this->minDesktopsCount_ != nullptr && this->officeSiteId_ != nullptr && this->officeSiteName_ != nullptr && this->officeSiteType_ != nullptr
-        && this->osType_ != nullptr && this->ownBundleId_ != nullptr && this->ownBundleName_ != nullptr && this->ownType_ != nullptr && this->payType_ != nullptr
-        && this->policyGroupId_ != nullptr && this->policyGroupIdList_ != nullptr && this->policyGroupName_ != nullptr && this->policyGroupNameList_ != nullptr && this->protocolType_ != nullptr
-        && this->ratioThreshold_ != nullptr && this->resetType_ != nullptr && this->simpleUserGroupId_ != nullptr && this->status_ != nullptr && this->stopDuration_ != nullptr
-        && this->subnetId_ != nullptr && this->systemDiskCategory_ != nullptr && this->systemDiskSize_ != nullptr && this->tags_ != nullptr && this->userGroupName_ != nullptr
-        && this->userOuPath_ != nullptr && this->version_ != nullptr && this->volumeEncryptionEnabled_ != nullptr && this->volumeEncryptionKey_ != nullptr; };
+    virtual bool empty() const override { return this->bindAmount_ == nullptr
+        && return this->buyDesktopsCount_ == nullptr && return this->comments_ == nullptr && return this->connectDuration_ == nullptr && return this->countPerStatus_ == nullptr && return this->cpu_ == nullptr
+        && return this->createTime_ == nullptr && return this->creator_ == nullptr && return this->dataDiskCategory_ == nullptr && return this->dataDiskSize_ == nullptr && return this->desktopCount_ == nullptr
+        && return this->desktopGroupId_ == nullptr && return this->desktopGroupName_ == nullptr && return this->desktopType_ == nullptr && return this->endUserCount_ == nullptr && return this->expiredTime_ == nullptr
+        && return this->expiredTimes_ == nullptr && return this->gpuCount_ == nullptr && return this->gpuDriverVersion_ == nullptr && return this->gpuSpec_ == nullptr && return this->idleDisconnectDuration_ == nullptr
+        && return this->imageId_ == nullptr && return this->isLdap_ == nullptr && return this->keepDuration_ == nullptr && return this->loadPolicy_ == nullptr && return this->maxDesktopsCount_ == nullptr
+        && return this->memory_ == nullptr && return this->minDesktopsCount_ == nullptr && return this->officeSiteId_ == nullptr && return this->officeSiteName_ == nullptr && return this->officeSiteType_ == nullptr
+        && return this->osType_ == nullptr && return this->ownBundleId_ == nullptr && return this->ownBundleName_ == nullptr && return this->ownType_ == nullptr && return this->payType_ == nullptr
+        && return this->policyGroupId_ == nullptr && return this->policyGroupIdList_ == nullptr && return this->policyGroupName_ == nullptr && return this->policyGroupNameList_ == nullptr && return this->protocolType_ == nullptr
+        && return this->ratioThreshold_ == nullptr && return this->resetType_ == nullptr && return this->simpleUserGroupId_ == nullptr && return this->status_ == nullptr && return this->stopDuration_ == nullptr
+        && return this->subnetId_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->systemDiskSize_ == nullptr && return this->tags_ == nullptr && return this->userGroupName_ == nullptr
+        && return this->userOuPath_ == nullptr && return this->version_ == nullptr && return this->volumeEncryptionEnabled_ == nullptr && return this->volumeEncryptionKey_ == nullptr; };
     // bindAmount Field Functions 
     bool hasBindAmount() const { return this->bindAmount_ != nullptr;};
     void deleteBindAmount() { this->bindAmount_ = nullptr;};

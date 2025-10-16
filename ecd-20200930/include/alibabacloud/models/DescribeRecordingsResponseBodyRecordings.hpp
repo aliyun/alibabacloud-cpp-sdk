@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->desktopId_ != nullptr
-        && this->desktopName_ != nullptr && this->endTime_ != nullptr && this->endUserIds_ != nullptr && this->filePath_ != nullptr && this->policyGroupId_ != nullptr
-        && this->recordingSize_ != nullptr && this->recordingType_ != nullptr && this->signedUrl_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->desktopId_ == nullptr
+        && return this->desktopName_ == nullptr && return this->endTime_ == nullptr && return this->endUserIds_ == nullptr && return this->filePath_ == nullptr && return this->policyGroupId_ == nullptr
+        && return this->recordingSize_ == nullptr && return this->recordingType_ == nullptr && return this->signedUrl_ == nullptr && return this->startTime_ == nullptr; };
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};

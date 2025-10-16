@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->associateType_ != nullptr
-        && this->routeTableId_ != nullptr && this->routeTableType_ != nullptr && this->routerType_ != nullptr && this->status_ != nullptr && this->vSwitchIds_ != nullptr
-        && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->associateType_ == nullptr
+        && return this->routeTableId_ == nullptr && return this->routeTableType_ == nullptr && return this->routerType_ == nullptr && return this->status_ == nullptr && return this->vSwitchIds_ == nullptr
+        && return this->vpcId_ == nullptr; };
     // associateType Field Functions 
     bool hasAssociateType() const { return this->associateType_ != nullptr;};
     void deleteAssociateType() { this->associateType_ = nullptr;};

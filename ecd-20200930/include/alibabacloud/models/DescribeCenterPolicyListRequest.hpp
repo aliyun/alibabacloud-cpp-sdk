@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->businessType_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->policyGroupId_ != nullptr && this->resourceType_ != nullptr && this->scope_ != nullptr; };
+    virtual bool empty() const override { return this->businessType_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->policyGroupId_ == nullptr && return this->resourceType_ == nullptr && return this->scope_ == nullptr; };
     // businessType Field Functions 
     bool hasBusinessType() const { return this->businessType_ != nullptr;};
     void deleteBusinessType() { this->businessType_ = nullptr;};

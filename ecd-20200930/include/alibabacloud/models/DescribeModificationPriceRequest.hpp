@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandwidth_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceType_ != nullptr && this->promotionId_ != nullptr && this->regionId_ != nullptr && this->resellerOwnerUid_ != nullptr
-        && this->resourceSpecs_ != nullptr && this->resourceType_ != nullptr && this->rootDiskPerformanceLevel_ != nullptr && this->rootDiskSizeGib_ != nullptr && this->userDiskPerformanceLevel_ != nullptr
-        && this->userDiskSizeGib_ != nullptr; };
+    virtual bool empty() const override { return this->bandwidth_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceType_ == nullptr && return this->promotionId_ == nullptr && return this->regionId_ == nullptr && return this->resellerOwnerUid_ == nullptr
+        && return this->resourceSpecs_ == nullptr && return this->resourceType_ == nullptr && return this->rootDiskPerformanceLevel_ == nullptr && return this->rootDiskSizeGib_ == nullptr && return this->userDiskPerformanceLevel_ == nullptr
+        && return this->userDiskSizeGib_ == nullptr; };
     // bandwidth Field Functions 
     bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
     void deleteBandwidth() { this->bandwidth_ = nullptr;};

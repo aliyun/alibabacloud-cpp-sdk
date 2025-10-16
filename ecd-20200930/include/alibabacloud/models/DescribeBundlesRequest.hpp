@@ -70,11 +70,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bundleId_ != nullptr
-        && this->bundleType_ != nullptr && this->checkStock_ != nullptr && this->cpuCount_ != nullptr && this->desktopTypeFamily_ != nullptr && this->fotaChannel_ != nullptr
-        && this->fromDesktopGroup_ != nullptr && this->gpuCount_ != nullptr && this->gpuDriverType_ != nullptr && this->imageId_ != nullptr && this->maxResults_ != nullptr
-        && this->memorySize_ != nullptr && this->nextToken_ != nullptr && this->osType_ != nullptr && this->protocolType_ != nullptr && this->regionId_ != nullptr
-        && this->scope_ != nullptr && this->selectedBundle_ != nullptr && this->sessionType_ != nullptr && this->supportMultiSession_ != nullptr && this->volumeEncryptionEnabled_ != nullptr; };
+    virtual bool empty() const override { return this->bundleId_ == nullptr
+        && return this->bundleType_ == nullptr && return this->checkStock_ == nullptr && return this->cpuCount_ == nullptr && return this->desktopTypeFamily_ == nullptr && return this->fotaChannel_ == nullptr
+        && return this->fromDesktopGroup_ == nullptr && return this->gpuCount_ == nullptr && return this->gpuDriverType_ == nullptr && return this->imageId_ == nullptr && return this->maxResults_ == nullptr
+        && return this->memorySize_ == nullptr && return this->nextToken_ == nullptr && return this->osType_ == nullptr && return this->protocolType_ == nullptr && return this->regionId_ == nullptr
+        && return this->scope_ == nullptr && return this->selectedBundle_ == nullptr && return this->sessionType_ == nullptr && return this->supportMultiSession_ == nullptr && return this->volumeEncryptionEnabled_ == nullptr; };
     // bundleId Field Functions 
     bool hasBundleId() const { return this->bundleId_ != nullptr;};
     void deleteBundleId() { this->bundleId_ = nullptr;};

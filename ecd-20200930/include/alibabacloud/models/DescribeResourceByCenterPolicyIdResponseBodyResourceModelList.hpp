@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appModelList_ != nullptr
-        && this->cpu_ != nullptr && this->desktopType_ != nullptr && this->gpuCount_ != nullptr && this->gpuSpec_ != nullptr && this->memory_ != nullptr
-        && this->osType_ != nullptr && this->payType_ != nullptr && this->productType_ != nullptr && this->protocolType_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->resourceGroupName_ != nullptr && this->resourceGroupRelCount_ != nullptr && this->resourceId_ != nullptr && this->resourceName_ != nullptr && this->resourceRegionId_ != nullptr
-        && this->resourceType_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->appModelList_ == nullptr
+        && return this->cpu_ == nullptr && return this->desktopType_ == nullptr && return this->gpuCount_ == nullptr && return this->gpuSpec_ == nullptr && return this->memory_ == nullptr
+        && return this->osType_ == nullptr && return this->payType_ == nullptr && return this->productType_ == nullptr && return this->protocolType_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->resourceGroupName_ == nullptr && return this->resourceGroupRelCount_ == nullptr && return this->resourceId_ == nullptr && return this->resourceName_ == nullptr && return this->resourceRegionId_ == nullptr
+        && return this->resourceType_ == nullptr && return this->status_ == nullptr; };
     // appModelList Field Functions 
     bool hasAppModelList() const { return this->appModelList_ != nullptr;};
     void deleteAppModelList() { this->appModelList_ = nullptr;};

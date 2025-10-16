@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->connectState_ != nullptr
-        && this->desktopGroupId_ != nullptr && this->endUserId_ != nullptr && this->endUserIds_ != nullptr && this->filter_ != nullptr && this->maxResults_ != nullptr
-        && this->nextToken_ != nullptr && this->orgId_ != nullptr && this->queryUserDetail_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->connectState_ == nullptr
+        && return this->desktopGroupId_ == nullptr && return this->endUserId_ == nullptr && return this->endUserIds_ == nullptr && return this->filter_ == nullptr && return this->maxResults_ == nullptr
+        && return this->nextToken_ == nullptr && return this->orgId_ == nullptr && return this->queryUserDetail_ == nullptr && return this->regionId_ == nullptr; };
     // connectState Field Functions 
     bool hasConnectState() const { return this->connectState_ != nullptr;};
     void deleteConnectState() { this->connectState_ = nullptr;};

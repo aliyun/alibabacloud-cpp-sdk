@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpuCount_ != nullptr
-        && this->gpuSpec_ != nullptr && this->memorySize_ != nullptr && this->officeSiteId_ != nullptr && this->regionId_ != nullptr && this->resourceInstanceType_ != nullptr
-        && this->snapshotPolicyId_ != nullptr && this->subnetId_ != nullptr && this->volumeEncryptionEnable_ != nullptr && this->volumeEncryptionKey_ != nullptr; };
+    virtual bool empty() const override { return this->cpuCount_ == nullptr
+        && return this->gpuSpec_ == nullptr && return this->memorySize_ == nullptr && return this->officeSiteId_ == nullptr && return this->regionId_ == nullptr && return this->resourceInstanceType_ == nullptr
+        && return this->snapshotPolicyId_ == nullptr && return this->subnetId_ == nullptr && return this->volumeEncryptionEnable_ == nullptr && return this->volumeEncryptionKey_ == nullptr; };
     // cpuCount Field Functions 
     bool hasCpuCount() const { return this->cpuCount_ != nullptr;};
     void deleteCpuCount() { this->cpuCount_ = nullptr;};

@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->amount_ != nullptr
-        && this->bandwidth_ != nullptr && this->duration_ != nullptr && this->groupDesktopCount_ != nullptr && this->instanceType_ != nullptr && this->internetChargeType_ != nullptr
-        && this->osType_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr && this->promotionId_ != nullptr && this->regionId_ != nullptr
-        && this->resellerOwnerUid_ != nullptr && this->resourceType_ != nullptr && this->rootDiskCategory_ != nullptr && this->rootDiskPerformanceLevel_ != nullptr && this->rootDiskSizeGib_ != nullptr
-        && this->userDiskCategory_ != nullptr && this->userDiskPerformanceLevel_ != nullptr && this->userDiskSizeGib_ != nullptr; };
+    virtual bool empty() const override { return this->amount_ == nullptr
+        && return this->bandwidth_ == nullptr && return this->duration_ == nullptr && return this->groupDesktopCount_ == nullptr && return this->instanceType_ == nullptr && return this->internetChargeType_ == nullptr
+        && return this->osType_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->promotionId_ == nullptr && return this->regionId_ == nullptr
+        && return this->resellerOwnerUid_ == nullptr && return this->resourceType_ == nullptr && return this->rootDiskCategory_ == nullptr && return this->rootDiskPerformanceLevel_ == nullptr && return this->rootDiskSizeGib_ == nullptr
+        && return this->userDiskCategory_ == nullptr && return this->userDiskPerformanceLevel_ == nullptr && return this->userDiskSizeGib_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};

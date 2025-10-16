@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createByWuying_ != nullptr
-        && this->eipAddress_ != nullptr && this->eipId_ != nullptr && this->eipStatus_ != nullptr && this->instanceId_ != nullptr && this->instanceType_ != nullptr; };
+    virtual bool empty() const override { return this->createByWuying_ == nullptr
+        && return this->eipAddress_ == nullptr && return this->eipId_ == nullptr && return this->eipStatus_ == nullptr && return this->instanceId_ == nullptr && return this->instanceType_ == nullptr; };
     // createByWuying Field Functions 
     bool hasCreateByWuying() const { return this->createByWuying_ != nullptr;};
     void deleteCreateByWuying() { this->createByWuying_ = nullptr;};

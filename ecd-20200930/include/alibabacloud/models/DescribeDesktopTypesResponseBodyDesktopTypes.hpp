@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpuCount_ != nullptr
-        && this->dataDiskSize_ != nullptr && this->desktopTypeId_ != nullptr && this->desktopTypeStatus_ != nullptr && this->gpuCount_ != nullptr && this->gpuMemory_ != nullptr
-        && this->gpuSpec_ != nullptr && this->instanceTypeFamily_ != nullptr && this->maxSessionCount_ != nullptr && this->memorySize_ != nullptr && this->scopes_ != nullptr
-        && this->stockState_ != nullptr && this->systemDiskSize_ != nullptr; };
+    virtual bool empty() const override { return this->cpuCount_ == nullptr
+        && return this->dataDiskSize_ == nullptr && return this->desktopTypeId_ == nullptr && return this->desktopTypeStatus_ == nullptr && return this->gpuCount_ == nullptr && return this->gpuMemory_ == nullptr
+        && return this->gpuSpec_ == nullptr && return this->instanceTypeFamily_ == nullptr && return this->maxSessionCount_ == nullptr && return this->memorySize_ == nullptr && return this->scopes_ == nullptr
+        && return this->stockState_ == nullptr && return this->systemDiskSize_ == nullptr; };
     // cpuCount Field Functions 
     bool hasCpuCount() const { return this->cpuCount_ != nullptr;};
     void deleteCpuCount() { this->cpuCount_ = nullptr;};

@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandwidth_ != nullptr
-        && this->cenId_ != nullptr && this->cenOwnerId_ != nullptr && this->cidrBlock_ != nullptr && this->cloudBoxOfficeSite_ != nullptr && this->desktopAccessType_ != nullptr
-        && this->enableAdminAccess_ != nullptr && this->enableInternetAccess_ != nullptr && this->needVerifyZeroDevice_ != nullptr && this->officeSiteName_ != nullptr && this->regionId_ != nullptr
-        && this->vSwitchId_ != nullptr && this->verifyCode_ != nullptr && this->vpcType_ != nullptr; };
+    virtual bool empty() const override { return this->bandwidth_ == nullptr
+        && return this->cenId_ == nullptr && return this->cenOwnerId_ == nullptr && return this->cidrBlock_ == nullptr && return this->cloudBoxOfficeSite_ == nullptr && return this->desktopAccessType_ == nullptr
+        && return this->enableAdminAccess_ == nullptr && return this->enableInternetAccess_ == nullptr && return this->needVerifyZeroDevice_ == nullptr && return this->officeSiteName_ == nullptr && return this->regionId_ == nullptr
+        && return this->vSwitchId_ == nullptr && return this->verifyCode_ == nullptr && return this->vpcType_ == nullptr; };
     // bandwidth Field Functions 
     bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
     void deleteBandwidth() { this->bandwidth_ = nullptr;};

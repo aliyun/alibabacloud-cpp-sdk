@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adminUserIds_ != nullptr
-        && this->adminUserInfos_ != nullptr && this->createTime_ != nullptr && this->directoryId_ != nullptr && this->driveId_ != nullptr && this->groupId_ != nullptr
-        && this->groupName_ != nullptr && this->orgId_ != nullptr && this->recycleBinSize_ != nullptr && this->status_ != nullptr && this->totalSize_ != nullptr
-        && this->usedSize_ != nullptr; };
+    virtual bool empty() const override { return this->adminUserIds_ == nullptr
+        && return this->adminUserInfos_ == nullptr && return this->createTime_ == nullptr && return this->directoryId_ == nullptr && return this->driveId_ == nullptr && return this->groupId_ == nullptr
+        && return this->groupName_ == nullptr && return this->orgId_ == nullptr && return this->recycleBinSize_ == nullptr && return this->status_ == nullptr && return this->totalSize_ == nullptr
+        && return this->usedSize_ == nullptr; };
     // adminUserIds Field Functions 
     bool hasAdminUserIds() const { return this->adminUserIds_ != nullptr;};
     void deleteAdminUserIds() { this->adminUserIds_ = nullptr;};

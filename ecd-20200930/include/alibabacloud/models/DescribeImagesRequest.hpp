@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->desktopInstanceType_ != nullptr
-        && this->fotaVersion_ != nullptr && this->gpuCategory_ != nullptr && this->gpuDriverVersion_ != nullptr && this->imageId_ != nullptr && this->imageName_ != nullptr
-        && this->imageStatus_ != nullptr && this->imageType_ != nullptr && this->languageType_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr
-        && this->osType_ != nullptr && this->protocolType_ != nullptr && this->regionId_ != nullptr && this->sessionType_ != nullptr; };
+    virtual bool empty() const override { return this->desktopInstanceType_ == nullptr
+        && return this->fotaVersion_ == nullptr && return this->gpuCategory_ == nullptr && return this->gpuDriverVersion_ == nullptr && return this->imageId_ == nullptr && return this->imageName_ == nullptr
+        && return this->imageStatus_ == nullptr && return this->imageType_ == nullptr && return this->languageType_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr
+        && return this->osType_ == nullptr && return this->protocolType_ == nullptr && return this->regionId_ == nullptr && return this->sessionType_ == nullptr; };
     // desktopInstanceType Field Functions 
     bool hasDesktopInstanceType() const { return this->desktopInstanceType_ != nullptr;};
     void deleteDesktopInstanceType() { this->desktopInstanceType_ = nullptr;};

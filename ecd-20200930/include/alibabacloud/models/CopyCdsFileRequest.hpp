@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRename_ != nullptr
-        && this->cdsId_ != nullptr && this->endUserId_ != nullptr && this->fileId_ != nullptr && this->fileReceiverId_ != nullptr && this->fileReceiverType_ != nullptr
-        && this->groupId_ != nullptr && this->parentFolderId_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->autoRename_ == nullptr
+        && return this->cdsId_ == nullptr && return this->endUserId_ == nullptr && return this->fileId_ == nullptr && return this->fileReceiverId_ == nullptr && return this->fileReceiverType_ == nullptr
+        && return this->groupId_ == nullptr && return this->parentFolderId_ == nullptr && return this->regionId_ == nullptr; };
     // autoRename Field Functions 
     bool hasAutoRename() const { return this->autoRename_ != nullptr;};
     void deleteAutoRename() { this->autoRename_ = nullptr;};

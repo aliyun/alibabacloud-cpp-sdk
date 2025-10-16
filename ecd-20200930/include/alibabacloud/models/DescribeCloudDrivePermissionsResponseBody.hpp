@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cloudDrivePermissionModels_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->cloudDrivePermissionModels_ == nullptr
+        && return this->requestId_ == nullptr; };
     // cloudDrivePermissionModels Field Functions 
     bool hasCloudDrivePermissionModels() const { return this->cloudDrivePermissionModels_ != nullptr;};
     void deleteCloudDrivePermissionModels() { this->cloudDrivePermissionModels_ = nullptr;};

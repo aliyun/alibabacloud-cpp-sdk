@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->connectionStatus_ != nullptr
-        && this->desktopId_ != nullptr && this->desktopName_ != nullptr && this->displayName_ != nullptr && this->displayNameNew_ != nullptr && this->endUserEmail_ != nullptr
-        && this->endUserId_ != nullptr && this->endUserName_ != nullptr && this->endUserPhone_ != nullptr && this->endUserRemark_ != nullptr && this->endUserType_ != nullptr
-        && this->externalInfo_ != nullptr && this->userDesktopId_ != nullptr && this->userPrincipalName_ != nullptr && this->userSetPropertiesModels_ != nullptr; };
+    virtual bool empty() const override { return this->connectionStatus_ == nullptr
+        && return this->desktopId_ == nullptr && return this->desktopName_ == nullptr && return this->displayName_ == nullptr && return this->displayNameNew_ == nullptr && return this->endUserEmail_ == nullptr
+        && return this->endUserId_ == nullptr && return this->endUserName_ == nullptr && return this->endUserPhone_ == nullptr && return this->endUserRemark_ == nullptr && return this->endUserType_ == nullptr
+        && return this->externalInfo_ == nullptr && return this->userDesktopId_ == nullptr && return this->userPrincipalName_ == nullptr && return this->userSetPropertiesModels_ == nullptr; };
     // connectionStatus Field Functions 
     bool hasConnectionStatus() const { return this->connectionStatus_ != nullptr;};
     void deleteConnectionStatus() { this->connectionStatus_ = nullptr;};

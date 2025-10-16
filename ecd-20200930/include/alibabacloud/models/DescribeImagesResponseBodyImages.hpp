@@ -70,11 +70,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appVersion_ != nullptr
-        && this->creationTime_ != nullptr && this->dataDiskSize_ != nullptr && this->description_ != nullptr && this->gpuCategory_ != nullptr && this->gpuDriverVersion_ != nullptr
-        && this->imageId_ != nullptr && this->imageType_ != nullptr && this->name_ != nullptr && this->osType_ != nullptr && this->platform_ != nullptr
-        && this->progress_ != nullptr && this->protocolType_ != nullptr && this->sessionType_ != nullptr && this->sharedCount_ != nullptr && this->size_ != nullptr
-        && this->status_ != nullptr && this->supportedLanguages_ != nullptr && this->updateTime_ != nullptr && this->volumeEncryptionEnabled_ != nullptr && this->volumeEncryptionKey_ != nullptr; };
+    virtual bool empty() const override { return this->appVersion_ == nullptr
+        && return this->creationTime_ == nullptr && return this->dataDiskSize_ == nullptr && return this->description_ == nullptr && return this->gpuCategory_ == nullptr && return this->gpuDriverVersion_ == nullptr
+        && return this->imageId_ == nullptr && return this->imageType_ == nullptr && return this->name_ == nullptr && return this->osType_ == nullptr && return this->platform_ == nullptr
+        && return this->progress_ == nullptr && return this->protocolType_ == nullptr && return this->sessionType_ == nullptr && return this->sharedCount_ == nullptr && return this->size_ == nullptr
+        && return this->status_ == nullptr && return this->supportedLanguages_ == nullptr && return this->updateTime_ == nullptr && return this->volumeEncryptionEnabled_ == nullptr && return this->volumeEncryptionKey_ == nullptr; };
     // appVersion Field Functions 
     bool hasAppVersion() const { return this->appVersion_ != nullptr;};
     void deleteAppVersion() { this->appVersion_ = nullptr;};

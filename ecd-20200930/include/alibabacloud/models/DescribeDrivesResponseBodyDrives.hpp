@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliUid_ != nullptr
-        && this->description_ != nullptr && this->desktopGroupCount_ != nullptr && this->desktopGroups_ != nullptr && this->domainId_ != nullptr && this->driveId_ != nullptr
-        && this->enableProfileManagement_ != nullptr && this->externalDomainId_ != nullptr && this->externalDriveId_ != nullptr && this->externalUserId_ != nullptr && this->gmtCreate_ != nullptr
-        && this->gmtModified_ != nullptr && this->id_ != nullptr && this->name_ != nullptr && this->profileRoaming_ != nullptr && this->status_ != nullptr
-        && this->totalSize_ != nullptr && this->type_ != nullptr && this->usedSize_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->aliUid_ == nullptr
+        && return this->description_ == nullptr && return this->desktopGroupCount_ == nullptr && return this->desktopGroups_ == nullptr && return this->domainId_ == nullptr && return this->driveId_ == nullptr
+        && return this->enableProfileManagement_ == nullptr && return this->externalDomainId_ == nullptr && return this->externalDriveId_ == nullptr && return this->externalUserId_ == nullptr && return this->gmtCreate_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr && return this->profileRoaming_ == nullptr && return this->status_ == nullptr
+        && return this->totalSize_ == nullptr && return this->type_ == nullptr && return this->usedSize_ == nullptr && return this->userId_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};

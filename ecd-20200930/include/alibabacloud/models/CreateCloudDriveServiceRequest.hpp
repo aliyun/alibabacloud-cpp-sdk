@@ -64,11 +64,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoPay_ != nullptr
-        && this->autoRenew_ != nullptr && this->bizType_ != nullptr && this->cdsChargeType_ != nullptr && this->cenId_ != nullptr && this->domainName_ != nullptr
-        && this->endUserId_ != nullptr && this->maxSize_ != nullptr && this->name_ != nullptr && this->officeSiteId_ != nullptr && this->officeSiteType_ != nullptr
-        && this->period_ != nullptr && this->periodUnit_ != nullptr && this->regionId_ != nullptr && this->resellerOwnerUid_ != nullptr && this->solutionId_ != nullptr
-        && this->userCount_ != nullptr && this->userMaxSize_ != nullptr; };
+    virtual bool empty() const override { return this->autoPay_ == nullptr
+        && return this->autoRenew_ == nullptr && return this->bizType_ == nullptr && return this->cdsChargeType_ == nullptr && return this->cenId_ == nullptr && return this->domainName_ == nullptr
+        && return this->endUserId_ == nullptr && return this->maxSize_ == nullptr && return this->name_ == nullptr && return this->officeSiteId_ == nullptr && return this->officeSiteType_ == nullptr
+        && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->regionId_ == nullptr && return this->resellerOwnerUid_ == nullptr && return this->solutionId_ == nullptr
+        && return this->userCount_ == nullptr && return this->userMaxSize_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};

@@ -147,19 +147,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ADConnectors_ != nullptr
-        && this->acceleratorId_ != nullptr && this->adHostname_ != nullptr && this->backupDCHostname_ != nullptr && this->backupDns_ != nullptr && this->bandwidth_ != nullptr
-        && this->cenAttachStatus_ != nullptr && this->cenId_ != nullptr && this->cidrBlock_ != nullptr && this->cloudBoxOfficeSite_ != nullptr && this->creationTime_ != nullptr
-        && this->customAccessPoint_ != nullptr && this->customDnsAddress_ != nullptr && this->customSecurityGroupId_ != nullptr && this->desktopAccessType_ != nullptr && this->desktopCount_ != nullptr
-        && this->desktopVpcEndpoint_ != nullptr && this->dnsAddress_ != nullptr && this->dnsUserName_ != nullptr && this->domainName_ != nullptr && this->domainPassword_ != nullptr
-        && this->domainUserName_ != nullptr && this->enableAdminAccess_ != nullptr && this->enableCrossDesktopAccess_ != nullptr && this->enableInternetAccess_ != nullptr && this->enableServiceRoute_ != nullptr
-        && this->fileSystemIds_ != nullptr && this->isLdap_ != nullptr && this->ldapUrl_ != nullptr && this->logs_ != nullptr && this->mfaEnabled_ != nullptr
-        && this->name_ != nullptr && this->needVerifyLoginRisk_ != nullptr && this->needVerifyZeroDevice_ != nullptr && this->networkPackageId_ != nullptr && this->nmVersion_ != nullptr
-        && this->officeSiteId_ != nullptr && this->officeSiteType_ != nullptr && this->ouName_ != nullptr && this->protocolType_ != nullptr && this->rdsLicenseAddress_ != nullptr
-        && this->rdsLicenseDomainName_ != nullptr && this->rdsLicenseStatus_ != nullptr && this->resourceAmounts_ != nullptr && this->securityProtection_ != nullptr && this->ssoEnabled_ != nullptr
-        && this->ssoType_ != nullptr && this->status_ != nullptr && this->subDnsAddress_ != nullptr && this->subDomainName_ != nullptr && this->subnetMode_ != nullptr
-        && this->totalEdsCount_ != nullptr && this->totalEdsCountForGroup_ != nullptr && this->totalResourceAmount_ != nullptr && this->trustPassword_ != nullptr && this->vSwitchIds_ != nullptr
-        && this->vpcId_ != nullptr && this->vpcType_ != nullptr; };
+    virtual bool empty() const override { return this->ADConnectors_ == nullptr
+        && return this->acceleratorId_ == nullptr && return this->adHostname_ == nullptr && return this->backupDCHostname_ == nullptr && return this->backupDns_ == nullptr && return this->bandwidth_ == nullptr
+        && return this->cenAttachStatus_ == nullptr && return this->cenId_ == nullptr && return this->cidrBlock_ == nullptr && return this->cloudBoxOfficeSite_ == nullptr && return this->creationTime_ == nullptr
+        && return this->customAccessPoint_ == nullptr && return this->customDnsAddress_ == nullptr && return this->customSecurityGroupId_ == nullptr && return this->desktopAccessType_ == nullptr && return this->desktopCount_ == nullptr
+        && return this->desktopVpcEndpoint_ == nullptr && return this->dnsAddress_ == nullptr && return this->dnsUserName_ == nullptr && return this->domainName_ == nullptr && return this->domainPassword_ == nullptr
+        && return this->domainUserName_ == nullptr && return this->enableAdminAccess_ == nullptr && return this->enableCrossDesktopAccess_ == nullptr && return this->enableInternetAccess_ == nullptr && return this->enableServiceRoute_ == nullptr
+        && return this->fileSystemIds_ == nullptr && return this->isLdap_ == nullptr && return this->ldapUrl_ == nullptr && return this->logs_ == nullptr && return this->mfaEnabled_ == nullptr
+        && return this->name_ == nullptr && return this->needVerifyLoginRisk_ == nullptr && return this->needVerifyZeroDevice_ == nullptr && return this->networkPackageId_ == nullptr && return this->nmVersion_ == nullptr
+        && return this->officeSiteId_ == nullptr && return this->officeSiteType_ == nullptr && return this->ouName_ == nullptr && return this->protocolType_ == nullptr && return this->rdsLicenseAddress_ == nullptr
+        && return this->rdsLicenseDomainName_ == nullptr && return this->rdsLicenseStatus_ == nullptr && return this->resourceAmounts_ == nullptr && return this->securityProtection_ == nullptr && return this->ssoEnabled_ == nullptr
+        && return this->ssoType_ == nullptr && return this->status_ == nullptr && return this->subDnsAddress_ == nullptr && return this->subDomainName_ == nullptr && return this->subnetMode_ == nullptr
+        && return this->totalEdsCount_ == nullptr && return this->totalEdsCountForGroup_ == nullptr && return this->totalResourceAmount_ == nullptr && return this->trustPassword_ == nullptr && return this->vSwitchIds_ == nullptr
+        && return this->vpcId_ == nullptr && return this->vpcType_ == nullptr; };
     // ADConnectors Field Functions 
     bool hasADConnectors() const { return this->ADConnectors_ != nullptr;};
     void deleteADConnectors() { this->ADConnectors_ = nullptr;};

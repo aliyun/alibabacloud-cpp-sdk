@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkOsSession_ != nullptr
-        && this->desktopId_ != nullptr && this->desktopName_ != nullptr && this->endTime_ != nullptr && this->endUserId_ != nullptr && this->endUserIdFilter_ != nullptr
-        && this->fillHardwareInfo_ != nullptr && this->language_ != nullptr && this->officeSiteId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->sessionStatus_ != nullptr && this->startTime_ != nullptr && this->subPayType_ != nullptr; };
+    virtual bool empty() const override { return this->checkOsSession_ == nullptr
+        && return this->desktopId_ == nullptr && return this->desktopName_ == nullptr && return this->endTime_ == nullptr && return this->endUserId_ == nullptr && return this->endUserIdFilter_ == nullptr
+        && return this->fillHardwareInfo_ == nullptr && return this->language_ == nullptr && return this->officeSiteId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->sessionStatus_ == nullptr && return this->startTime_ == nullptr && return this->subPayType_ == nullptr; };
     // checkOsSession Field Functions 
     bool hasCheckOsSession() const { return this->checkOsSession_ != nullptr;};
     void deleteCheckOsSession() { this->checkOsSession_ = nullptr;};

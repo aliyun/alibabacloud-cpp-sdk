@@ -66,11 +66,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appliedScope_ != nullptr
-        && this->cpuCount_ != nullptr && this->desktopGroupIdForModify_ != nullptr && this->desktopIdForModify_ != nullptr && this->desktopTypeId_ != nullptr && this->desktopTypeIdList_ != nullptr
-        && this->gpuCount_ != nullptr && this->gpuDriverType_ != nullptr && this->gpuMemory_ != nullptr && this->instanceTypeFamily_ != nullptr && this->memorySize_ != nullptr
-        && this->orderBy_ != nullptr && this->orderType_ != nullptr && this->regionId_ != nullptr && this->scope_ != nullptr && this->scopeSet_ != nullptr
-        && this->sortType_ != nullptr && this->supportMinSessionCount_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->appliedScope_ == nullptr
+        && return this->cpuCount_ == nullptr && return this->desktopGroupIdForModify_ == nullptr && return this->desktopIdForModify_ == nullptr && return this->desktopTypeId_ == nullptr && return this->desktopTypeIdList_ == nullptr
+        && return this->gpuCount_ == nullptr && return this->gpuDriverType_ == nullptr && return this->gpuMemory_ == nullptr && return this->instanceTypeFamily_ == nullptr && return this->memorySize_ == nullptr
+        && return this->orderBy_ == nullptr && return this->orderType_ == nullptr && return this->regionId_ == nullptr && return this->scope_ == nullptr && return this->scopeSet_ == nullptr
+        && return this->sortType_ == nullptr && return this->supportMinSessionCount_ == nullptr && return this->zoneId_ == nullptr; };
     // appliedScope Field Functions 
     bool hasAppliedScope() const { return this->appliedScope_ != nullptr;};
     void deleteAppliedScope() { this->appliedScope_ = nullptr;};

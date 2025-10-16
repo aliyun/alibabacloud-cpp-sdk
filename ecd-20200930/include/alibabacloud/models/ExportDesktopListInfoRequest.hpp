@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chargeType_ != nullptr
-        && this->desktopId_ != nullptr && this->desktopName_ != nullptr && this->desktopStatus_ != nullptr && this->endUserId_ != nullptr && this->expiredTime_ != nullptr
-        && this->groupId_ != nullptr && this->langType_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->officeSiteId_ != nullptr
-        && this->policyGroupId_ != nullptr && this->regionId_ != nullptr && this->tag_ != nullptr && this->userName_ != nullptr; };
+    virtual bool empty() const override { return this->chargeType_ == nullptr
+        && return this->desktopId_ == nullptr && return this->desktopName_ == nullptr && return this->desktopStatus_ == nullptr && return this->endUserId_ == nullptr && return this->expiredTime_ == nullptr
+        && return this->groupId_ == nullptr && return this->langType_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->officeSiteId_ == nullptr
+        && return this->policyGroupId_ == nullptr && return this->regionId_ == nullptr && return this->tag_ == nullptr && return this->userName_ == nullptr; };
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};

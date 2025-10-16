@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->desktopAgentIds_ != nullptr
-        && this->desktopGroupId_ != nullptr && this->desktopIds_ != nullptr && this->force_ != nullptr && this->reason_ != nullptr && this->userDesktopIds_ != nullptr; };
+    virtual bool empty() const override { return this->desktopAgentIds_ == nullptr
+        && return this->desktopGroupId_ == nullptr && return this->desktopIds_ == nullptr && return this->force_ == nullptr && return this->reason_ == nullptr && return this->userDesktopIds_ == nullptr; };
     // desktopAgentIds Field Functions 
     bool hasDesktopAgentIds() const { return this->desktopAgentIds_ != nullptr;};
     void deleteDesktopAgentIds() { this->desktopAgentIds_ = nullptr;};

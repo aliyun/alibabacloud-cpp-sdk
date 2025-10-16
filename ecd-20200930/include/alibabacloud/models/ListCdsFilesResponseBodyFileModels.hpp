@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->category_ != nullptr
-        && this->contentType_ != nullptr && this->createTime_ != nullptr && this->creator_ != nullptr && this->description_ != nullptr && this->downloadUrl_ != nullptr
-        && this->fileExtension_ != nullptr && this->fileId_ != nullptr && this->filePath_ != nullptr && this->fileType_ != nullptr && this->md5_ != nullptr
-        && this->modifiedTime_ != nullptr && this->modifier_ != nullptr && this->name_ != nullptr && this->openTime_ != nullptr && this->openTimeStamp_ != nullptr
-        && this->parentId_ != nullptr && this->regionId_ != nullptr && this->sha1_ != nullptr && this->size_ != nullptr && this->thumbnail_ != nullptr; };
+    virtual bool empty() const override { return this->category_ == nullptr
+        && return this->contentType_ == nullptr && return this->createTime_ == nullptr && return this->creator_ == nullptr && return this->description_ == nullptr && return this->downloadUrl_ == nullptr
+        && return this->fileExtension_ == nullptr && return this->fileId_ == nullptr && return this->filePath_ == nullptr && return this->fileType_ == nullptr && return this->md5_ == nullptr
+        && return this->modifiedTime_ == nullptr && return this->modifier_ == nullptr && return this->name_ == nullptr && return this->openTime_ == nullptr && return this->openTimeStamp_ == nullptr
+        && return this->parentId_ == nullptr && return this->regionId_ == nullptr && return this->sha1_ == nullptr && return this->size_ == nullptr && return this->thumbnail_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};

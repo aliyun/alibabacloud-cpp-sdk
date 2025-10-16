@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commandType_ != nullptr
-        && this->contentEncoding_ != nullptr && this->desktopId_ != nullptr && this->desktopIds_ != nullptr && this->endUserId_ != nullptr && this->includeInvokeDesktops_ != nullptr
-        && this->includeOutput_ != nullptr && this->invokeId_ != nullptr && this->invokeStatus_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr
-        && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->commandType_ == nullptr
+        && return this->contentEncoding_ == nullptr && return this->desktopId_ == nullptr && return this->desktopIds_ == nullptr && return this->endUserId_ == nullptr && return this->includeInvokeDesktops_ == nullptr
+        && return this->includeOutput_ == nullptr && return this->invokeId_ == nullptr && return this->invokeStatus_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr
+        && return this->regionId_ == nullptr; };
     // commandType Field Functions 
     bool hasCommandType() const { return this->commandType_ != nullptr;};
     void deleteCommandType() { this->commandType_ = nullptr;};

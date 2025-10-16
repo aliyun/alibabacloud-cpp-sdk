@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->oversoldGroupId_ != nullptr
-        && this->period_ != nullptr && this->periodUnit_ != nullptr; };
+    virtual bool empty() const override { return this->oversoldGroupId_ == nullptr
+        && return this->period_ == nullptr && return this->periodUnit_ == nullptr; };
     // oversoldGroupId Field Functions 
     bool hasOversoldGroupId() const { return this->oversoldGroupId_ != nullptr;};
     void deleteOversoldGroupId() { this->oversoldGroupId_ = nullptr;};

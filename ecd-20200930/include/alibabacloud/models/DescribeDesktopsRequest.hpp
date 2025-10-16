@@ -103,15 +103,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chargeType_ != nullptr
-        && this->desktopGroupId_ != nullptr && this->desktopId_ != nullptr && this->desktopName_ != nullptr && this->desktopStatus_ != nullptr && this->desktopStatusList_ != nullptr
-        && this->desktopType_ != nullptr && this->directoryId_ != nullptr && this->endUserId_ != nullptr && this->excludedEndUserId_ != nullptr && this->expiredTime_ != nullptr
-        && this->fillResourceGroup_ != nullptr && this->filterDesktopGroup_ != nullptr && this->gpuInstanceGroupId_ != nullptr && this->groupId_ != nullptr && this->imageId_ != nullptr
-        && this->includeAutoSnapshotPolicy_ != nullptr && this->managementFlag_ != nullptr && this->maxResults_ != nullptr && this->multiResource_ != nullptr && this->nextToken_ != nullptr
-        && this->officeSiteId_ != nullptr && this->officeSiteName_ != nullptr && this->onlyDesktopGroup_ != nullptr && this->osTypes_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->policyGroupId_ != nullptr && this->protocolType_ != nullptr && this->qosRuleId_ != nullptr && this->queryFotaUpdate_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->snapshotPolicyId_ != nullptr && this->subPayType_ != nullptr && this->tag_ != nullptr
-        && this->userName_ != nullptr; };
+    virtual bool empty() const override { return this->chargeType_ == nullptr
+        && return this->desktopGroupId_ == nullptr && return this->desktopId_ == nullptr && return this->desktopName_ == nullptr && return this->desktopStatus_ == nullptr && return this->desktopStatusList_ == nullptr
+        && return this->desktopType_ == nullptr && return this->directoryId_ == nullptr && return this->endUserId_ == nullptr && return this->excludedEndUserId_ == nullptr && return this->expiredTime_ == nullptr
+        && return this->fillResourceGroup_ == nullptr && return this->filterDesktopGroup_ == nullptr && return this->gpuInstanceGroupId_ == nullptr && return this->groupId_ == nullptr && return this->imageId_ == nullptr
+        && return this->includeAutoSnapshotPolicy_ == nullptr && return this->managementFlag_ == nullptr && return this->maxResults_ == nullptr && return this->multiResource_ == nullptr && return this->nextToken_ == nullptr
+        && return this->officeSiteId_ == nullptr && return this->officeSiteName_ == nullptr && return this->onlyDesktopGroup_ == nullptr && return this->osTypes_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->policyGroupId_ == nullptr && return this->protocolType_ == nullptr && return this->qosRuleId_ == nullptr && return this->queryFotaUpdate_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->snapshotPolicyId_ == nullptr && return this->subPayType_ == nullptr && return this->tag_ == nullptr
+        && return this->userName_ == nullptr; };
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};

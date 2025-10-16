@@ -76,12 +76,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoPay_ != nullptr
-        && this->autoRenew_ != nullptr && this->bizType_ != nullptr && this->chargeType_ != nullptr && this->dataDiskList_ != nullptr && this->defaultLanguage_ != nullptr
-        && this->description_ != nullptr && this->imageId_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr && this->policyGroupId_ != nullptr
-        && this->postPaidAfterUsedUp_ != nullptr && this->productType_ != nullptr && this->regionConfigList_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceTagList_ != nullptr
-        && this->siteConfigList_ != nullptr && this->systemDiskPerformanceLevel_ != nullptr && this->systemDiskSize_ != nullptr && this->templateName_ != nullptr && this->timerGroupId_ != nullptr
-        && this->userDuration_ != nullptr; };
+    virtual bool empty() const override { return this->autoPay_ == nullptr
+        && return this->autoRenew_ == nullptr && return this->bizType_ == nullptr && return this->chargeType_ == nullptr && return this->dataDiskList_ == nullptr && return this->defaultLanguage_ == nullptr
+        && return this->description_ == nullptr && return this->imageId_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->policyGroupId_ == nullptr
+        && return this->postPaidAfterUsedUp_ == nullptr && return this->productType_ == nullptr && return this->regionConfigList_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceTagList_ == nullptr
+        && return this->siteConfigList_ == nullptr && return this->systemDiskPerformanceLevel_ == nullptr && return this->systemDiskSize_ == nullptr && return this->templateName_ == nullptr && return this->timerGroupId_ == nullptr
+        && return this->userDuration_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};

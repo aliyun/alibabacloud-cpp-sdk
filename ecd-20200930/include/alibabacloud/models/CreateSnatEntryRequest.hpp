@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->eipAffinity_ != nullptr
-        && this->regionId_ != nullptr && this->snatEntryName_ != nullptr && this->snatIp_ != nullptr && this->snatTableId_ != nullptr && this->sourceCIDR_ != nullptr; };
+    virtual bool empty() const override { return this->eipAffinity_ == nullptr
+        && return this->regionId_ == nullptr && return this->snatEntryName_ == nullptr && return this->snatIp_ == nullptr && return this->snatTableId_ == nullptr && return this->sourceCIDR_ == nullptr; };
     // eipAffinity Field Functions 
     bool hasEipAffinity() const { return this->eipAffinity_ != nullptr;};
     void deleteEipAffinity() { this->eipAffinity_ = nullptr;};

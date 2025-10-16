@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commandContent_ != nullptr
-        && this->commandType_ != nullptr && this->creationTime_ != nullptr && this->endUserId_ != nullptr && this->invocationStatus_ != nullptr && this->invokeDesktopCount_ != nullptr
-        && this->invokeDesktopSucceedCount_ != nullptr && this->invokeDesktops_ != nullptr && this->invokeId_ != nullptr; };
+    virtual bool empty() const override { return this->commandContent_ == nullptr
+        && return this->commandType_ == nullptr && return this->creationTime_ == nullptr && return this->endUserId_ == nullptr && return this->invocationStatus_ == nullptr && return this->invokeDesktopCount_ == nullptr
+        && return this->invokeDesktopSucceedCount_ == nullptr && return this->invokeDesktops_ == nullptr && return this->invokeId_ == nullptr; };
     // commandContent Field Functions 
     bool hasCommandContent() const { return this->commandContent_ != nullptr;};
     void deleteCommandContent() { this->commandContent_ = nullptr;};

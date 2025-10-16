@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endCronExpression_ != nullptr
-        && this->enforce_ != nullptr && this->interval_ != nullptr && this->notificationTime_ != nullptr && this->operationType_ != nullptr && this->processWhitelist_ != nullptr
-        && this->resetType_ != nullptr && this->startCronExpression_ != nullptr && this->timerOrder_ != nullptr && this->timezone_ != nullptr && this->triggerType_ != nullptr; };
+    virtual bool empty() const override { return this->endCronExpression_ == nullptr
+        && return this->enforce_ == nullptr && return this->interval_ == nullptr && return this->notificationTime_ == nullptr && return this->operationType_ == nullptr && return this->processWhitelist_ == nullptr
+        && return this->resetType_ == nullptr && return this->startCronExpression_ == nullptr && return this->timerOrder_ == nullptr && return this->timezone_ == nullptr && return this->triggerType_ == nullptr; };
     // endCronExpression Field Functions 
     bool hasEndCronExpression() const { return this->endCronExpression_ != nullptr;};
     void deleteEndCronExpression() { this->endCronExpression_ = nullptr;};

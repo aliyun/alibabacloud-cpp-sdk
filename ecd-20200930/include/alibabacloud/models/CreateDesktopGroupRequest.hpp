@@ -151,19 +151,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allClassifyUsers_ != nullptr
-        && this->allowAutoSetup_ != nullptr && this->allowBufferCount_ != nullptr && this->autoPay_ != nullptr && this->autoRenew_ != nullptr && this->bindAmount_ != nullptr
-        && this->bundleId_ != nullptr && this->buyDesktopsCount_ != nullptr && this->chargeType_ != nullptr && this->classify_ != nullptr && this->clientToken_ != nullptr
-        && this->comments_ != nullptr && this->connectDuration_ != nullptr && this->dataDiskCategory_ != nullptr && this->dataDiskPerLevel_ != nullptr && this->dataDiskSize_ != nullptr
-        && this->defaultInitDesktopCount_ != nullptr && this->defaultLanguage_ != nullptr && this->deleteDuration_ != nullptr && this->desktopGroupName_ != nullptr && this->desktopType_ != nullptr
-        && this->directoryId_ != nullptr && this->endUserIds_ != nullptr && this->exclusiveType_ != nullptr && this->fileSystemId_ != nullptr && this->groupAmount_ != nullptr
-        && this->groupVersion_ != nullptr && this->hostname_ != nullptr && this->idleDisconnectDuration_ != nullptr && this->imageId_ != nullptr && this->keepDuration_ != nullptr
-        && this->loadPolicy_ != nullptr && this->maxDesktopsCount_ != nullptr && this->minDesktopsCount_ != nullptr && this->multiResource_ != nullptr && this->officeSiteId_ != nullptr
-        && this->ownType_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr && this->policyGroupId_ != nullptr && this->profileFollowSwitch_ != nullptr
-        && this->promotionId_ != nullptr && this->ratioThreshold_ != nullptr && this->regionId_ != nullptr && this->resellerOwnerUid_ != nullptr && this->resetType_ != nullptr
-        && this->scaleStrategyId_ != nullptr && this->sessionType_ != nullptr && this->simpleUserGroupId_ != nullptr && this->snapshotPolicyId_ != nullptr && this->stopDuration_ != nullptr
-        && this->systemDiskCategory_ != nullptr && this->systemDiskPerLevel_ != nullptr && this->systemDiskSize_ != nullptr && this->tag_ != nullptr && this->timerGroupId_ != nullptr
-        && this->userGroupName_ != nullptr && this->userOuPath_ != nullptr && this->volumeEncryptionEnabled_ != nullptr && this->volumeEncryptionKey_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->allClassifyUsers_ == nullptr
+        && return this->allowAutoSetup_ == nullptr && return this->allowBufferCount_ == nullptr && return this->autoPay_ == nullptr && return this->autoRenew_ == nullptr && return this->bindAmount_ == nullptr
+        && return this->bundleId_ == nullptr && return this->buyDesktopsCount_ == nullptr && return this->chargeType_ == nullptr && return this->classify_ == nullptr && return this->clientToken_ == nullptr
+        && return this->comments_ == nullptr && return this->connectDuration_ == nullptr && return this->dataDiskCategory_ == nullptr && return this->dataDiskPerLevel_ == nullptr && return this->dataDiskSize_ == nullptr
+        && return this->defaultInitDesktopCount_ == nullptr && return this->defaultLanguage_ == nullptr && return this->deleteDuration_ == nullptr && return this->desktopGroupName_ == nullptr && return this->desktopType_ == nullptr
+        && return this->directoryId_ == nullptr && return this->endUserIds_ == nullptr && return this->exclusiveType_ == nullptr && return this->fileSystemId_ == nullptr && return this->groupAmount_ == nullptr
+        && return this->groupVersion_ == nullptr && return this->hostname_ == nullptr && return this->idleDisconnectDuration_ == nullptr && return this->imageId_ == nullptr && return this->keepDuration_ == nullptr
+        && return this->loadPolicy_ == nullptr && return this->maxDesktopsCount_ == nullptr && return this->minDesktopsCount_ == nullptr && return this->multiResource_ == nullptr && return this->officeSiteId_ == nullptr
+        && return this->ownType_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->policyGroupId_ == nullptr && return this->profileFollowSwitch_ == nullptr
+        && return this->promotionId_ == nullptr && return this->ratioThreshold_ == nullptr && return this->regionId_ == nullptr && return this->resellerOwnerUid_ == nullptr && return this->resetType_ == nullptr
+        && return this->scaleStrategyId_ == nullptr && return this->sessionType_ == nullptr && return this->simpleUserGroupId_ == nullptr && return this->snapshotPolicyId_ == nullptr && return this->stopDuration_ == nullptr
+        && return this->systemDiskCategory_ == nullptr && return this->systemDiskPerLevel_ == nullptr && return this->systemDiskSize_ == nullptr && return this->tag_ == nullptr && return this->timerGroupId_ == nullptr
+        && return this->userGroupName_ == nullptr && return this->userOuPath_ == nullptr && return this->volumeEncryptionEnabled_ == nullptr && return this->volumeEncryptionKey_ == nullptr && return this->vpcId_ == nullptr; };
     // allClassifyUsers Field Functions 
     bool hasAllClassifyUsers() const { return this->allClassifyUsers_ != nullptr;};
     void deleteAllClassifyUsers() { this->allClassifyUsers_ = nullptr;};

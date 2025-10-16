@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataDiskSize_ != nullptr
-        && this->description_ != nullptr && this->enableSecurityCheck_ != nullptr && this->gpuCategory_ != nullptr && this->gpuDriverType_ != nullptr && this->imageName_ != nullptr
-        && this->licenseType_ != nullptr && this->osType_ != nullptr && this->ossObjectPath_ != nullptr && this->protocolType_ != nullptr && this->regionId_ != nullptr
-        && this->systemDiskSize_ != nullptr; };
+    virtual bool empty() const override { return this->dataDiskSize_ == nullptr
+        && return this->description_ == nullptr && return this->enableSecurityCheck_ == nullptr && return this->gpuCategory_ == nullptr && return this->gpuDriverType_ == nullptr && return this->imageName_ == nullptr
+        && return this->licenseType_ == nullptr && return this->osType_ == nullptr && return this->ossObjectPath_ == nullptr && return this->protocolType_ == nullptr && return this->regionId_ == nullptr
+        && return this->systemDiskSize_ == nullptr; };
     // dataDiskSize Field Functions 
     bool hasDataDiskSize() const { return this->dataDiskSize_ != nullptr;};
     void deleteDataDiskSize() { this->dataDiskSize_ = nullptr;};

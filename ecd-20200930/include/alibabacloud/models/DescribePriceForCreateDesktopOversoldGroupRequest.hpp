@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->concurrenceCount_ != nullptr
-        && this->dataDiskSize_ != nullptr && this->desktopType_ != nullptr && this->oversoldUserCount_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr
-        && this->systemDiskSize_ != nullptr; };
+    virtual bool empty() const override { return this->concurrenceCount_ == nullptr
+        && return this->dataDiskSize_ == nullptr && return this->desktopType_ == nullptr && return this->oversoldUserCount_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr
+        && return this->systemDiskSize_ == nullptr; };
     // concurrenceCount Field Functions 
     bool hasConcurrenceCount() const { return this->concurrenceCount_ != nullptr;};
     void deleteConcurrenceCount() { this->concurrenceCount_ = nullptr;};

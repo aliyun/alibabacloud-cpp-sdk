@@ -76,12 +76,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->connectionStatus_ != nullptr
-        && this->createDuration_ != nullptr && this->createTime_ != nullptr && this->desktopId_ != nullptr && this->desktopName_ != nullptr && this->desktopStatus_ != nullptr
-        && this->diskType_ != nullptr && this->endUserId_ != nullptr && this->endUserIds_ != nullptr && this->endUserName_ != nullptr && this->endUserNames_ != nullptr
-        && this->fotaVersion_ != nullptr && this->gpuDriverVersion_ != nullptr && this->imageId_ != nullptr && this->imageName_ != nullptr && this->managementFlag_ != nullptr
-        && this->managementFlags_ != nullptr && this->memberEniIp_ != nullptr && this->osType_ != nullptr && this->primaryEniIp_ != nullptr && this->protocolType_ != nullptr
-        && this->releaseTime_ != nullptr && this->resetTime_ != nullptr && this->systemDiskSize_ != nullptr; };
+    virtual bool empty() const override { return this->connectionStatus_ == nullptr
+        && return this->createDuration_ == nullptr && return this->createTime_ == nullptr && return this->desktopId_ == nullptr && return this->desktopName_ == nullptr && return this->desktopStatus_ == nullptr
+        && return this->diskType_ == nullptr && return this->endUserId_ == nullptr && return this->endUserIds_ == nullptr && return this->endUserName_ == nullptr && return this->endUserNames_ == nullptr
+        && return this->fotaVersion_ == nullptr && return this->gpuDriverVersion_ == nullptr && return this->imageId_ == nullptr && return this->imageName_ == nullptr && return this->managementFlag_ == nullptr
+        && return this->managementFlags_ == nullptr && return this->memberEniIp_ == nullptr && return this->osType_ == nullptr && return this->primaryEniIp_ == nullptr && return this->protocolType_ == nullptr
+        && return this->releaseTime_ == nullptr && return this->resetTime_ == nullptr && return this->systemDiskSize_ == nullptr; };
     // connectionStatus Field Functions 
     bool hasConnectionStatus() const { return this->connectionStatus_ != nullptr;};
     void deleteConnectionStatus() { this->connectionStatus_ = nullptr;};

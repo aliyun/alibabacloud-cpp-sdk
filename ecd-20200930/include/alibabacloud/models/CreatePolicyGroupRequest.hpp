@@ -149,19 +149,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adminAccess_ != nullptr
-        && this->appContentProtection_ != nullptr && this->authorizeAccessPolicyRule_ != nullptr && this->authorizeSecurityPolicyRule_ != nullptr && this->cameraRedirect_ != nullptr && this->clientType_ != nullptr
-        && this->clipboard_ != nullptr && this->deviceRedirects_ != nullptr && this->deviceRules_ != nullptr && this->domainList_ != nullptr && this->domainResolveRule_ != nullptr
-        && this->domainResolveRuleType_ != nullptr && this->endUserApplyAdminCoordinate_ != nullptr && this->endUserGroupCoordinate_ != nullptr && this->gpuAcceleration_ != nullptr && this->html5Access_ != nullptr
-        && this->html5FileTransfer_ != nullptr && this->internetCommunicationProtocol_ != nullptr && this->localDrive_ != nullptr && this->maxReconnectTime_ != nullptr && this->name_ != nullptr
-        && this->netRedirect_ != nullptr && this->preemptLogin_ != nullptr && this->preemptLoginUser_ != nullptr && this->printerRedirection_ != nullptr && this->recordContent_ != nullptr
-        && this->recordContentExpires_ != nullptr && this->recording_ != nullptr && this->recordingAudio_ != nullptr && this->recordingDuration_ != nullptr && this->recordingEndTime_ != nullptr
-        && this->recordingExpires_ != nullptr && this->recordingFps_ != nullptr && this->recordingStartTime_ != nullptr && this->recordingUserNotify_ != nullptr && this->recordingUserNotifyMessage_ != nullptr
-        && this->regionId_ != nullptr && this->remoteCoordinate_ != nullptr && this->scope_ != nullptr && this->scopeValue_ != nullptr && this->usbRedirect_ != nullptr
-        && this->usbSupplyRedirectRule_ != nullptr && this->videoRedirect_ != nullptr && this->visualQuality_ != nullptr && this->watermark_ != nullptr && this->watermarkAntiCam_ != nullptr
-        && this->watermarkColor_ != nullptr && this->watermarkDegree_ != nullptr && this->watermarkFontSize_ != nullptr && this->watermarkFontStyle_ != nullptr && this->watermarkPower_ != nullptr
-        && this->watermarkRowAmount_ != nullptr && this->watermarkSecurity_ != nullptr && this->watermarkTransparency_ != nullptr && this->watermarkTransparencyValue_ != nullptr && this->watermarkType_ != nullptr
-        && this->wyAssistant_ != nullptr; };
+    virtual bool empty() const override { return this->adminAccess_ == nullptr
+        && return this->appContentProtection_ == nullptr && return this->authorizeAccessPolicyRule_ == nullptr && return this->authorizeSecurityPolicyRule_ == nullptr && return this->cameraRedirect_ == nullptr && return this->clientType_ == nullptr
+        && return this->clipboard_ == nullptr && return this->deviceRedirects_ == nullptr && return this->deviceRules_ == nullptr && return this->domainList_ == nullptr && return this->domainResolveRule_ == nullptr
+        && return this->domainResolveRuleType_ == nullptr && return this->endUserApplyAdminCoordinate_ == nullptr && return this->endUserGroupCoordinate_ == nullptr && return this->gpuAcceleration_ == nullptr && return this->html5Access_ == nullptr
+        && return this->html5FileTransfer_ == nullptr && return this->internetCommunicationProtocol_ == nullptr && return this->localDrive_ == nullptr && return this->maxReconnectTime_ == nullptr && return this->name_ == nullptr
+        && return this->netRedirect_ == nullptr && return this->preemptLogin_ == nullptr && return this->preemptLoginUser_ == nullptr && return this->printerRedirection_ == nullptr && return this->recordContent_ == nullptr
+        && return this->recordContentExpires_ == nullptr && return this->recording_ == nullptr && return this->recordingAudio_ == nullptr && return this->recordingDuration_ == nullptr && return this->recordingEndTime_ == nullptr
+        && return this->recordingExpires_ == nullptr && return this->recordingFps_ == nullptr && return this->recordingStartTime_ == nullptr && return this->recordingUserNotify_ == nullptr && return this->recordingUserNotifyMessage_ == nullptr
+        && return this->regionId_ == nullptr && return this->remoteCoordinate_ == nullptr && return this->scope_ == nullptr && return this->scopeValue_ == nullptr && return this->usbRedirect_ == nullptr
+        && return this->usbSupplyRedirectRule_ == nullptr && return this->videoRedirect_ == nullptr && return this->visualQuality_ == nullptr && return this->watermark_ == nullptr && return this->watermarkAntiCam_ == nullptr
+        && return this->watermarkColor_ == nullptr && return this->watermarkDegree_ == nullptr && return this->watermarkFontSize_ == nullptr && return this->watermarkFontStyle_ == nullptr && return this->watermarkPower_ == nullptr
+        && return this->watermarkRowAmount_ == nullptr && return this->watermarkSecurity_ == nullptr && return this->watermarkTransparency_ == nullptr && return this->watermarkTransparencyValue_ == nullptr && return this->watermarkType_ == nullptr
+        && return this->wyAssistant_ == nullptr; };
     // adminAccess Field Functions 
     bool hasAdminAccess() const { return this->adminAccess_ != nullptr;};
     void deleteAdminAccess() { this->adminAccess_ = nullptr;};

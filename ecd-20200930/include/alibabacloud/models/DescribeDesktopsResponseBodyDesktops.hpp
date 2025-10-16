@@ -167,20 +167,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bindAmount_ != nullptr
-        && this->bundleId_ != nullptr && this->bundleName_ != nullptr && this->chargeType_ != nullptr && this->connectionStatus_ != nullptr && this->cpu_ != nullptr
-        && this->creationTime_ != nullptr && this->dataDiskCategory_ != nullptr && this->dataDiskSize_ != nullptr && this->desktopDurationList_ != nullptr && this->desktopGroupId_ != nullptr
-        && this->desktopId_ != nullptr && this->desktopName_ != nullptr && this->desktopStatus_ != nullptr && this->desktopType_ != nullptr && this->directoryId_ != nullptr
-        && this->directoryType_ != nullptr && this->disks_ != nullptr && this->domainType_ != nullptr && this->downgradeQuota_ != nullptr && this->downgradedTimes_ != nullptr
-        && this->endUserIds_ != nullptr && this->expiredTime_ != nullptr && this->fotaUpdate_ != nullptr && this->gpuCategory_ != nullptr && this->gpuCount_ != nullptr
-        && this->gpuDriverVersion_ != nullptr && this->gpuSpec_ != nullptr && this->hibernationBeta_ != nullptr && this->hibernationOptionsConfigured_ != nullptr && this->hostName_ != nullptr
-        && this->imageId_ != nullptr && this->isLdap_ != nullptr && this->managementFlag_ != nullptr && this->managementFlags_ != nullptr && this->memory_ != nullptr
-        && this->networkInterfaceId_ != nullptr && this->networkInterfaceIp_ != nullptr && this->officeSiteId_ != nullptr && this->officeSiteName_ != nullptr && this->officeSiteType_ != nullptr
-        && this->officeSiteVpcType_ != nullptr && this->osType_ != nullptr && this->osUpdate_ != nullptr && this->platform_ != nullptr && this->policyGroupId_ != nullptr
-        && this->policyGroupIdList_ != nullptr && this->policyGroupName_ != nullptr && this->policyGroupNameList_ != nullptr && this->progress_ != nullptr && this->protocolType_ != nullptr
-        && this->resourceGroups_ != nullptr && this->serialNumber_ != nullptr && this->sessionType_ != nullptr && this->sessions_ != nullptr && this->snapshotPolicyId_ != nullptr
-        && this->snapshotPolicyName_ != nullptr && this->standardStartTime_ != nullptr && this->startTime_ != nullptr && this->supportHibernation_ != nullptr && this->systemDiskCategory_ != nullptr
-        && this->systemDiskSize_ != nullptr && this->tags_ != nullptr && this->volumeEncryptionEnabled_ != nullptr && this->volumeEncryptionKey_ != nullptr && this->zoneType_ != nullptr; };
+    virtual bool empty() const override { return this->bindAmount_ == nullptr
+        && return this->bundleId_ == nullptr && return this->bundleName_ == nullptr && return this->chargeType_ == nullptr && return this->connectionStatus_ == nullptr && return this->cpu_ == nullptr
+        && return this->creationTime_ == nullptr && return this->dataDiskCategory_ == nullptr && return this->dataDiskSize_ == nullptr && return this->desktopDurationList_ == nullptr && return this->desktopGroupId_ == nullptr
+        && return this->desktopId_ == nullptr && return this->desktopName_ == nullptr && return this->desktopStatus_ == nullptr && return this->desktopType_ == nullptr && return this->directoryId_ == nullptr
+        && return this->directoryType_ == nullptr && return this->disks_ == nullptr && return this->domainType_ == nullptr && return this->downgradeQuota_ == nullptr && return this->downgradedTimes_ == nullptr
+        && return this->endUserIds_ == nullptr && return this->expiredTime_ == nullptr && return this->fotaUpdate_ == nullptr && return this->gpuCategory_ == nullptr && return this->gpuCount_ == nullptr
+        && return this->gpuDriverVersion_ == nullptr && return this->gpuSpec_ == nullptr && return this->hibernationBeta_ == nullptr && return this->hibernationOptionsConfigured_ == nullptr && return this->hostName_ == nullptr
+        && return this->imageId_ == nullptr && return this->isLdap_ == nullptr && return this->managementFlag_ == nullptr && return this->managementFlags_ == nullptr && return this->memory_ == nullptr
+        && return this->networkInterfaceId_ == nullptr && return this->networkInterfaceIp_ == nullptr && return this->officeSiteId_ == nullptr && return this->officeSiteName_ == nullptr && return this->officeSiteType_ == nullptr
+        && return this->officeSiteVpcType_ == nullptr && return this->osType_ == nullptr && return this->osUpdate_ == nullptr && return this->platform_ == nullptr && return this->policyGroupId_ == nullptr
+        && return this->policyGroupIdList_ == nullptr && return this->policyGroupName_ == nullptr && return this->policyGroupNameList_ == nullptr && return this->progress_ == nullptr && return this->protocolType_ == nullptr
+        && return this->resourceGroups_ == nullptr && return this->serialNumber_ == nullptr && return this->sessionType_ == nullptr && return this->sessions_ == nullptr && return this->snapshotPolicyId_ == nullptr
+        && return this->snapshotPolicyName_ == nullptr && return this->standardStartTime_ == nullptr && return this->startTime_ == nullptr && return this->supportHibernation_ == nullptr && return this->systemDiskCategory_ == nullptr
+        && return this->systemDiskSize_ == nullptr && return this->tags_ == nullptr && return this->volumeEncryptionEnabled_ == nullptr && return this->volumeEncryptionKey_ == nullptr && return this->zoneType_ == nullptr; };
     // bindAmount Field Functions 
     bool hasBindAmount() const { return this->bindAmount_ != nullptr;};
     void deleteBindAmount() { this->bindAmount_ = nullptr;};

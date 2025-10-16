@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bundleId_ != nullptr
-        && this->desktopGroupId_ != nullptr && this->desktopGroupIds_ != nullptr && this->desktopGroupName_ != nullptr && this->desktopType_ != nullptr && this->endUserIds_ != nullptr
-        && this->excludedEndUserIds_ != nullptr && this->imageId_ != nullptr && this->maxResults_ != nullptr && this->multiResource_ != nullptr && this->nextToken_ != nullptr
-        && this->officeSiteId_ != nullptr && this->ownType_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr && this->policyGroupId_ != nullptr
-        && this->protocolType_ != nullptr && this->regionId_ != nullptr && this->status_ != nullptr && this->tag_ != nullptr; };
+    virtual bool empty() const override { return this->bundleId_ == nullptr
+        && return this->desktopGroupId_ == nullptr && return this->desktopGroupIds_ == nullptr && return this->desktopGroupName_ == nullptr && return this->desktopType_ == nullptr && return this->endUserIds_ == nullptr
+        && return this->excludedEndUserIds_ == nullptr && return this->imageId_ == nullptr && return this->maxResults_ == nullptr && return this->multiResource_ == nullptr && return this->nextToken_ == nullptr
+        && return this->officeSiteId_ == nullptr && return this->ownType_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->policyGroupId_ == nullptr
+        && return this->protocolType_ == nullptr && return this->regionId_ == nullptr && return this->status_ == nullptr && return this->tag_ == nullptr; };
     // bundleId Field Functions 
     bool hasBundleId() const { return this->bundleId_ != nullptr;};
     void deleteBundleId() { this->bundleId_ = nullptr;};
