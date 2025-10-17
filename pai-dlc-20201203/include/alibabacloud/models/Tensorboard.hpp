@@ -90,13 +90,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessibility_ != nullptr
-        && this->cpu_ != nullptr && this->dataSourceId_ != nullptr && this->dataSourceType_ != nullptr && this->displayName_ != nullptr && this->duration_ != nullptr
-        && this->gmtCreateTime_ != nullptr && this->gmtFinishTime_ != nullptr && this->gmtModifyTime_ != nullptr && this->jobId_ != nullptr && this->maxRunningTimeMinutes_ != nullptr
-        && this->memory_ != nullptr && this->options_ != nullptr && this->priority_ != nullptr && this->quotaId_ != nullptr && this->quotaName_ != nullptr
-        && this->reasonCode_ != nullptr && this->reasonMessage_ != nullptr && this->requestId_ != nullptr && this->status_ != nullptr && this->summaryPath_ != nullptr
-        && this->summaryRelativePath_ != nullptr && this->tensorboardDataSources_ != nullptr && this->tensorboardId_ != nullptr && this->tensorboardSpec_ != nullptr && this->tensorboardUrl_ != nullptr
-        && this->token_ != nullptr && this->userId_ != nullptr && this->username_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->accessibility_ == nullptr
+        && return this->cpu_ == nullptr && return this->dataSourceId_ == nullptr && return this->dataSourceType_ == nullptr && return this->displayName_ == nullptr && return this->duration_ == nullptr
+        && return this->gmtCreateTime_ == nullptr && return this->gmtFinishTime_ == nullptr && return this->gmtModifyTime_ == nullptr && return this->jobId_ == nullptr && return this->maxRunningTimeMinutes_ == nullptr
+        && return this->memory_ == nullptr && return this->options_ == nullptr && return this->priority_ == nullptr && return this->quotaId_ == nullptr && return this->quotaName_ == nullptr
+        && return this->reasonCode_ == nullptr && return this->reasonMessage_ == nullptr && return this->requestId_ == nullptr && return this->status_ == nullptr && return this->summaryPath_ == nullptr
+        && return this->summaryRelativePath_ == nullptr && return this->tensorboardDataSources_ == nullptr && return this->tensorboardId_ == nullptr && return this->tensorboardSpec_ == nullptr && return this->tensorboardUrl_ == nullptr
+        && return this->token_ == nullptr && return this->userId_ == nullptr && return this->username_ == nullptr && return this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};

@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->AIMasterDockerImage_ != nullptr
-        && this->AIMasterType_ != nullptr && this->EDPMaxParallelism_ != nullptr && this->EDPMinParallelism_ != nullptr && this->elasticStrategy_ != nullptr && this->enableAIMaster_ != nullptr
-        && this->enableEDP_ != nullptr && this->enableElasticTraining_ != nullptr && this->enablePsJobElasticPS_ != nullptr && this->enablePsJobElasticWorker_ != nullptr && this->enablePsResourceEstimate_ != nullptr
-        && this->maxParallelism_ != nullptr && this->minParallelism_ != nullptr && this->PSMaxParallelism_ != nullptr && this->PSMinParallelism_ != nullptr; };
+    virtual bool empty() const override { return this->AIMasterDockerImage_ == nullptr
+        && return this->AIMasterType_ == nullptr && return this->EDPMaxParallelism_ == nullptr && return this->EDPMinParallelism_ == nullptr && return this->elasticStrategy_ == nullptr && return this->enableAIMaster_ == nullptr
+        && return this->enableEDP_ == nullptr && return this->enableElasticTraining_ == nullptr && return this->enablePsJobElasticPS_ == nullptr && return this->enablePsJobElasticWorker_ == nullptr && return this->enablePsResourceEstimate_ == nullptr
+        && return this->maxParallelism_ == nullptr && return this->minParallelism_ == nullptr && return this->PSMaxParallelism_ == nullptr && return this->PSMinParallelism_ == nullptr; };
     // AIMasterDockerImage Field Functions 
     bool hasAIMasterDockerImage() const { return this->AIMasterDockerImage_ != nullptr;};
     void deleteAIMasterDockerImage() { this->AIMasterDockerImage_ = nullptr;};

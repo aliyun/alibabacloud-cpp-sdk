@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataSourceId_ != nullptr
-        && this->dataSourceType_ != nullptr && this->description_ != nullptr && this->displayName_ != nullptr && this->endpoint_ != nullptr && this->fileSystemId_ != nullptr
-        && this->gmtCreateTime_ != nullptr && this->gmtModifyTime_ != nullptr && this->mountPath_ != nullptr && this->options_ != nullptr && this->path_ != nullptr
-        && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->dataSourceId_ == nullptr
+        && return this->dataSourceType_ == nullptr && return this->description_ == nullptr && return this->displayName_ == nullptr && return this->endpoint_ == nullptr && return this->fileSystemId_ == nullptr
+        && return this->gmtCreateTime_ == nullptr && return this->gmtModifyTime_ == nullptr && return this->mountPath_ == nullptr && return this->options_ == nullptr && return this->path_ == nullptr
+        && return this->userId_ == nullptr; };
     // dataSourceId Field Functions 
     bool hasDataSourceId() const { return this->dataSourceId_ != nullptr;};
     void deleteDataSourceId() { this->dataSourceId_ = nullptr;};

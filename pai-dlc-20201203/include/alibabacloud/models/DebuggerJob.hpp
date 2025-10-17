@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->debuggerJobId_ != nullptr
-        && this->displayName_ != nullptr && this->duration_ != nullptr && this->gmtCreateTime_ != nullptr && this->gmtFailedTime_ != nullptr && this->gmtFinishTime_ != nullptr
-        && this->gmtRunningTime_ != nullptr && this->gmtStoppedTime_ != nullptr && this->gmtSubmittedTime_ != nullptr && this->gmtSucceedTime_ != nullptr && this->status_ != nullptr
-        && this->userId_ != nullptr && this->workspaceId_ != nullptr && this->workspaceName_ != nullptr; };
+    virtual bool empty() const override { return this->debuggerJobId_ == nullptr
+        && return this->displayName_ == nullptr && return this->duration_ == nullptr && return this->gmtCreateTime_ == nullptr && return this->gmtFailedTime_ == nullptr && return this->gmtFinishTime_ == nullptr
+        && return this->gmtRunningTime_ == nullptr && return this->gmtStoppedTime_ == nullptr && return this->gmtSubmittedTime_ == nullptr && return this->gmtSucceedTime_ == nullptr && return this->status_ == nullptr
+        && return this->userId_ == nullptr && return this->workspaceId_ == nullptr && return this->workspaceName_ == nullptr; };
     // debuggerJobId Field Functions 
     bool hasDebuggerJobId() const { return this->debuggerJobId_ != nullptr;};
     void deleteDebuggerJobId() { this->debuggerJobId_ = nullptr;};

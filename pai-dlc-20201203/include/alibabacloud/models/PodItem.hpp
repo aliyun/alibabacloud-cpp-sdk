@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->gmtCreateTime_ != nullptr
-        && this->gmtFinishTime_ != nullptr && this->gmtStartTime_ != nullptr && this->historyPods_ != nullptr && this->ip_ != nullptr && this->nodeName_ != nullptr
-        && this->podId_ != nullptr && this->podIp_ != nullptr && this->podUid_ != nullptr && this->status_ != nullptr && this->subStatus_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->gmtCreateTime_ == nullptr
+        && return this->gmtFinishTime_ == nullptr && return this->gmtStartTime_ == nullptr && return this->historyPods_ == nullptr && return this->ip_ == nullptr && return this->nodeName_ == nullptr
+        && return this->podId_ == nullptr && return this->podIp_ == nullptr && return this->podUid_ == nullptr && return this->status_ == nullptr && return this->subStatus_ == nullptr
+        && return this->type_ == nullptr; };
     // gmtCreateTime Field Functions 
     bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};

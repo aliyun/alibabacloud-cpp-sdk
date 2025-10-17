@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceleratorType_ != nullptr
-        && this->cpu_ != nullptr && this->defaultGPUDriver_ != nullptr && this->gpu_ != nullptr && this->gpuMemory_ != nullptr && this->gpuType_ != nullptr
-        && this->instanceType_ != nullptr && this->isAvailable_ != nullptr && this->memory_ != nullptr && this->nonProtectSpotDiscount_ != nullptr && this->paymentTypes_ != nullptr
-        && this->resourceType_ != nullptr && this->spotStockStatus_ != nullptr && this->supportedGPUDrivers_ != nullptr; };
+    virtual bool empty() const override { return this->acceleratorType_ == nullptr
+        && return this->cpu_ == nullptr && return this->defaultGPUDriver_ == nullptr && return this->gpu_ == nullptr && return this->gpuMemory_ == nullptr && return this->gpuType_ == nullptr
+        && return this->instanceType_ == nullptr && return this->isAvailable_ == nullptr && return this->memory_ == nullptr && return this->nonProtectSpotDiscount_ == nullptr && return this->paymentTypes_ == nullptr
+        && return this->resourceType_ == nullptr && return this->spotStockStatus_ == nullptr && return this->supportedGPUDrivers_ == nullptr; };
     // acceleratorType Field Functions 
     bool hasAcceleratorType() const { return this->acceleratorType_ != nullptr;};
     void deleteAcceleratorType() { this->acceleratorType_ = nullptr;};

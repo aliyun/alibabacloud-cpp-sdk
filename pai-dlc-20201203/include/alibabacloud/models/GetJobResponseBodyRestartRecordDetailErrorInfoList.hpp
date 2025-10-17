@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addJobLevelBlacklist_ != nullptr
-        && this->addNodeToBlacklist_ != nullptr && this->detailErrorMsg_ != nullptr && this->errorCode_ != nullptr && this->errorMsg_ != nullptr && this->errorSource_ != nullptr
-        && this->node_ != nullptr && this->pod_ != nullptr && this->triggerRestart_ != nullptr; };
+    virtual bool empty() const override { return this->addJobLevelBlacklist_ == nullptr
+        && return this->addNodeToBlacklist_ == nullptr && return this->detailErrorMsg_ == nullptr && return this->errorCode_ == nullptr && return this->errorMsg_ == nullptr && return this->errorSource_ == nullptr
+        && return this->node_ == nullptr && return this->pod_ == nullptr && return this->triggerRestart_ == nullptr; };
     // addJobLevelBlacklist Field Functions 
     bool hasAddJobLevelBlacklist() const { return this->addJobLevelBlacklist_ != nullptr;};
     void deleteAddJobLevelBlacklist() { this->addJobLevelBlacklist_ = nullptr;};

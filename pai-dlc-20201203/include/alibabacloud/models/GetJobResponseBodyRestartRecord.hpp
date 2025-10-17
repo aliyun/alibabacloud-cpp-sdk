@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->detailErrorInfoList_ != nullptr
-        && this->jobRestartCount_ != nullptr && this->occurPhase_ != nullptr && this->occurTime_ != nullptr && this->reason_ != nullptr && this->restartDurationInSec_ != nullptr
-        && this->restartFailReason_ != nullptr && this->restartStatus_ != nullptr && this->triggerID_ != nullptr; };
+    virtual bool empty() const override { return this->detailErrorInfoList_ == nullptr
+        && return this->jobRestartCount_ == nullptr && return this->occurPhase_ == nullptr && return this->occurTime_ == nullptr && return this->reason_ == nullptr && return this->restartDurationInSec_ == nullptr
+        && return this->restartFailReason_ == nullptr && return this->restartStatus_ == nullptr && return this->triggerID_ == nullptr; };
     // detailErrorInfoList Field Functions 
     bool hasDetailErrorInfoList() const { return this->detailErrorInfoList_ != nullptr;};
     void deleteDetailErrorInfoList() { this->detailErrorInfoList_ = nullptr;};

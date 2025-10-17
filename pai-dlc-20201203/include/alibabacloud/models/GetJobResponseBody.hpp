@@ -123,16 +123,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessibility_ != nullptr
-        && this->clusterId_ != nullptr && this->codeSource_ != nullptr && this->credentialConfig_ != nullptr && this->dataSources_ != nullptr && this->displayName_ != nullptr
-        && this->duration_ != nullptr && this->elasticSpec_ != nullptr && this->enabledDebugger_ != nullptr && this->envs_ != nullptr && this->gmtCreateTime_ != nullptr
-        && this->gmtFailedTime_ != nullptr && this->gmtFinishTime_ != nullptr && this->gmtRunningTime_ != nullptr && this->gmtStoppedTime_ != nullptr && this->gmtSubmittedTime_ != nullptr
-        && this->gmtSuccessedTime_ != nullptr && this->jobId_ != nullptr && this->jobSpecs_ != nullptr && this->jobType_ != nullptr && this->pods_ != nullptr
-        && this->priority_ != nullptr && this->reasonCode_ != nullptr && this->reasonMessage_ != nullptr && this->requestId_ != nullptr && this->resourceId_ != nullptr
-        && this->resourceLevel_ != nullptr && this->resourceType_ != nullptr && this->restartRecord_ != nullptr && this->restartTimes_ != nullptr && this->settings_ != nullptr
-        && this->status_ != nullptr && this->statusHistory_ != nullptr && this->subStatus_ != nullptr && this->tenantId_ != nullptr && this->thirdpartyLibDir_ != nullptr
-        && this->thirdpartyLibs_ != nullptr && this->userCommand_ != nullptr && this->userId_ != nullptr && this->userVpc_ != nullptr && this->workspaceId_ != nullptr
-        && this->workspaceName_ != nullptr; };
+    virtual bool empty() const override { return this->accessibility_ == nullptr
+        && return this->clusterId_ == nullptr && return this->codeSource_ == nullptr && return this->credentialConfig_ == nullptr && return this->dataSources_ == nullptr && return this->displayName_ == nullptr
+        && return this->duration_ == nullptr && return this->elasticSpec_ == nullptr && return this->enabledDebugger_ == nullptr && return this->envs_ == nullptr && return this->gmtCreateTime_ == nullptr
+        && return this->gmtFailedTime_ == nullptr && return this->gmtFinishTime_ == nullptr && return this->gmtRunningTime_ == nullptr && return this->gmtStoppedTime_ == nullptr && return this->gmtSubmittedTime_ == nullptr
+        && return this->gmtSuccessedTime_ == nullptr && return this->jobId_ == nullptr && return this->jobSpecs_ == nullptr && return this->jobType_ == nullptr && return this->pods_ == nullptr
+        && return this->priority_ == nullptr && return this->reasonCode_ == nullptr && return this->reasonMessage_ == nullptr && return this->requestId_ == nullptr && return this->resourceId_ == nullptr
+        && return this->resourceLevel_ == nullptr && return this->resourceType_ == nullptr && return this->restartRecord_ == nullptr && return this->restartTimes_ == nullptr && return this->settings_ == nullptr
+        && return this->status_ == nullptr && return this->statusHistory_ == nullptr && return this->subStatus_ == nullptr && return this->tenantId_ == nullptr && return this->thirdpartyLibDir_ == nullptr
+        && return this->thirdpartyLibs_ == nullptr && return this->userCommand_ == nullptr && return this->userId_ == nullptr && return this->userVpc_ == nullptr && return this->workspaceId_ == nullptr
+        && return this->workspaceName_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};

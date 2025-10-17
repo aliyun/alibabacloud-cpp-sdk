@@ -78,11 +78,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessibility_ != nullptr
-        && this->codeSource_ != nullptr && this->credentialConfig_ != nullptr && this->dataSources_ != nullptr && this->debuggerConfigContent_ != nullptr && this->displayName_ != nullptr
-        && this->elasticSpec_ != nullptr && this->envs_ != nullptr && this->jobMaxRunningTimeMinutes_ != nullptr && this->jobSpecs_ != nullptr && this->jobType_ != nullptr
-        && this->options_ != nullptr && this->priority_ != nullptr && this->resourceId_ != nullptr && this->settings_ != nullptr && this->successPolicy_ != nullptr
-        && this->thirdpartyLibDir_ != nullptr && this->thirdpartyLibs_ != nullptr && this->userCommand_ != nullptr && this->userVpc_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->accessibility_ == nullptr
+        && return this->codeSource_ == nullptr && return this->credentialConfig_ == nullptr && return this->dataSources_ == nullptr && return this->debuggerConfigContent_ == nullptr && return this->displayName_ == nullptr
+        && return this->elasticSpec_ == nullptr && return this->envs_ == nullptr && return this->jobMaxRunningTimeMinutes_ == nullptr && return this->jobSpecs_ == nullptr && return this->jobType_ == nullptr
+        && return this->options_ == nullptr && return this->priority_ == nullptr && return this->resourceId_ == nullptr && return this->settings_ == nullptr && return this->successPolicy_ == nullptr
+        && return this->thirdpartyLibDir_ == nullptr && return this->thirdpartyLibs_ == nullptr && return this->userCommand_ == nullptr && return this->userVpc_ == nullptr && return this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};

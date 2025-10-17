@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cacheWorkerNum_ != nullptr
-        && this->cacheWorkerSize_ != nullptr && this->description_ != nullptr && this->displayName_ != nullptr && this->duration_ != nullptr && this->endpoint_ != nullptr
-        && this->fileSystemId_ != nullptr && this->gmtCreateTime_ != nullptr && this->gmtModifyTime_ != nullptr && this->mountPath_ != nullptr && this->options_ != nullptr
-        && this->path_ != nullptr && this->smartCacheId_ != nullptr && this->status_ != nullptr && this->type_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->cacheWorkerNum_ == nullptr
+        && return this->cacheWorkerSize_ == nullptr && return this->description_ == nullptr && return this->displayName_ == nullptr && return this->duration_ == nullptr && return this->endpoint_ == nullptr
+        && return this->fileSystemId_ == nullptr && return this->gmtCreateTime_ == nullptr && return this->gmtModifyTime_ == nullptr && return this->mountPath_ == nullptr && return this->options_ == nullptr
+        && return this->path_ == nullptr && return this->smartCacheId_ == nullptr && return this->status_ == nullptr && return this->type_ == nullptr && return this->userId_ == nullptr; };
     // cacheWorkerNum Field Functions 
     bool hasCacheWorkerNum() const { return this->cacheWorkerNum_ != nullptr;};
     void deleteCacheWorkerNum() { this->cacheWorkerNum_ = nullptr;};

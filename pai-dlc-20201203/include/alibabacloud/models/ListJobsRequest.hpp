@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BusinessUserId, businessUserId_);
       DARABONBA_PTR_TO_JSON(Caller, caller_);
       DARABONBA_PTR_TO_JSON(DisplayName, displayName_);
+      DARABONBA_PTR_TO_JSON(DisplayNameSearchMode, displayNameSearchMode_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(FromAllWorkspaces, fromAllWorkspaces_);
       DARABONBA_PTR_TO_JSON(JobId, jobId_);
@@ -45,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BusinessUserId, businessUserId_);
       DARABONBA_PTR_FROM_JSON(Caller, caller_);
       DARABONBA_PTR_FROM_JSON(DisplayName, displayName_);
+      DARABONBA_PTR_FROM_JSON(DisplayNameSearchMode, displayNameSearchMode_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(FromAllWorkspaces, fromAllWorkspaces_);
       DARABONBA_PTR_FROM_JSON(JobId, jobId_);
@@ -78,12 +80,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessibility_ != nullptr
-        && this->businessUserId_ != nullptr && this->caller_ != nullptr && this->displayName_ != nullptr && this->endTime_ != nullptr && this->fromAllWorkspaces_ != nullptr
-        && this->jobId_ != nullptr && this->jobIds_ != nullptr && this->jobType_ != nullptr && this->order_ != nullptr && this->oversoldInfo_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->paymentType_ != nullptr && this->pipelineId_ != nullptr && this->resourceId_ != nullptr
-        && this->resourceQuotaName_ != nullptr && this->showOwn_ != nullptr && this->sortBy_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr
-        && this->tags_ != nullptr && this->userIdForFilter_ != nullptr && this->username_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->accessibility_ == nullptr
+        && return this->businessUserId_ == nullptr && return this->caller_ == nullptr && return this->displayName_ == nullptr && return this->displayNameSearchMode_ == nullptr && return this->endTime_ == nullptr
+        && return this->fromAllWorkspaces_ == nullptr && return this->jobId_ == nullptr && return this->jobIds_ == nullptr && return this->jobType_ == nullptr && return this->order_ == nullptr
+        && return this->oversoldInfo_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->paymentType_ == nullptr && return this->pipelineId_ == nullptr
+        && return this->resourceId_ == nullptr && return this->resourceQuotaName_ == nullptr && return this->showOwn_ == nullptr && return this->sortBy_ == nullptr && return this->startTime_ == nullptr
+        && return this->status_ == nullptr && return this->tags_ == nullptr && return this->userIdForFilter_ == nullptr && return this->username_ == nullptr && return this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -110,6 +112,13 @@ namespace Models
     void deleteDisplayName() { this->displayName_ = nullptr;};
     inline string displayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
     inline ListJobsRequest& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
+
+
+    // displayNameSearchMode Field Functions 
+    bool hasDisplayNameSearchMode() const { return this->displayNameSearchMode_ != nullptr;};
+    void deleteDisplayNameSearchMode() { this->displayNameSearchMode_ = nullptr;};
+    inline string displayNameSearchMode() const { DARABONBA_PTR_GET_DEFAULT(displayNameSearchMode_, "") };
+    inline ListJobsRequest& setDisplayNameSearchMode(string displayNameSearchMode) { DARABONBA_PTR_SET_VALUE(displayNameSearchMode_, displayNameSearchMode) };
 
 
     // endTime Field Functions 
@@ -273,6 +282,7 @@ namespace Models
     std::shared_ptr<string> caller_ = nullptr;
     // The job name. Fuzzy query is supported. The name is case-insensitive. Wildcards are not supported. For example, if you enter test, test-job1, job-test, job-test2, or job-test can be matched, and job-t1 cannot be matched. The default value null indicates any job name.
     std::shared_ptr<string> displayName_ = nullptr;
+    std::shared_ptr<string> displayNameSearchMode_ = nullptr;
     // The end time of the query. Use the job creation time to filter data. The default value is the current time.
     std::shared_ptr<string> endTime_ = nullptr;
     // Specifies whether to query a list of jobs across workspaces. This parameter must be used together with `ShowOwn=true`. You can use this parameter to query a list of jobs recently submitted by the current user.

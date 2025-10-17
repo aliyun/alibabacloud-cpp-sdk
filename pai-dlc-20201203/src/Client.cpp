@@ -4,7 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <darabonba/http/URL.hpp>
+#include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -346,7 +346,7 @@ DeleteJobResponse Client::deleteJobWithOptions(const string &JobId, const map<st
     {"action" , "DeleteJob"},
     {"version" , "2020-12-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Http::URL::percentEncode(JobId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Encode::Encoder::percentEncode(JobId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -390,7 +390,7 @@ DeleteTensorboardResponse Client::deleteTensorboardWithOptions(const string &Ten
     {"action" , "DeleteTensorboard"},
     {"version" , "2020-12-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tensorboards/" , Darabonba::Http::URL::percentEncode(TensorboardId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tensorboards/" , Darabonba::Encode::Encoder::percentEncode(TensorboardId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -439,7 +439,7 @@ GetDashboardResponse Client::getDashboardWithOptions(const string &jobId, const 
     {"action" , "GetDashboard"},
     {"version" , "2020-12-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Http::URL::percentEncode(jobId) , "/dashboard")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Encode::Encoder::percentEncode(jobId) , "/dashboard")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -484,7 +484,7 @@ GetJobResponse Client::getJobWithOptions(const string &JobId, const GetJobReques
     {"action" , "GetJob"},
     {"version" , "2020-12-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Http::URL::percentEncode(JobId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Encode::Encoder::percentEncode(JobId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -537,7 +537,7 @@ GetJobEventsResponse Client::getJobEventsWithOptions(const string &JobId, const 
     {"action" , "GetJobEvents"},
     {"version" , "2020-12-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Http::URL::percentEncode(JobId) , "/events")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Encode::Encoder::percentEncode(JobId) , "/events")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -598,7 +598,7 @@ GetJobMetricsResponse Client::getJobMetricsWithOptions(const string &JobId, cons
     {"action" , "GetJobMetrics"},
     {"version" , "2020-12-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Http::URL::percentEncode(JobId) , "/metrics")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Encode::Encoder::percentEncode(JobId) , "/metrics")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -651,7 +651,7 @@ GetJobSanityCheckResultResponse Client::getJobSanityCheckResultWithOptions(const
     {"action" , "GetJobSanityCheckResult"},
     {"version" , "2020-12-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Http::URL::percentEncode(JobId) , "/sanitycheckresult")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Encode::Encoder::percentEncode(JobId) , "/sanitycheckresult")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -708,7 +708,7 @@ GetPodEventsResponse Client::getPodEventsWithOptions(const string &JobId, const 
     {"action" , "GetPodEvents"},
     {"version" , "2020-12-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Http::URL::percentEncode(JobId) , "/pods/" , Darabonba::Http::URL::percentEncode(PodId) , "/events")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Encode::Encoder::percentEncode(JobId) , "/pods/" , Darabonba::Encode::Encoder::percentEncode(PodId) , "/events")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -769,7 +769,7 @@ GetPodLogsResponse Client::getPodLogsWithOptions(const string &JobId, const stri
     {"action" , "GetPodLogs"},
     {"version" , "2020-12-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Http::URL::percentEncode(JobId) , "/pods/" , Darabonba::Http::URL::percentEncode(PodId) , "/logs")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Encode::Encoder::percentEncode(JobId) , "/pods/" , Darabonba::Encode::Encoder::percentEncode(PodId) , "/logs")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -820,7 +820,7 @@ GetRayDashboardResponse Client::getRayDashboardWithOptions(const string &jobId, 
     {"action" , "GetRayDashboard"},
     {"version" , "2020-12-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Http::URL::percentEncode(jobId) , "/rayDashboard")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Encode::Encoder::percentEncode(jobId) , "/rayDashboard")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -875,7 +875,7 @@ GetTensorboardResponse Client::getTensorboardWithOptions(const string &Tensorboa
     {"action" , "GetTensorboard"},
     {"version" , "2020-12-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tensorboards/" , Darabonba::Http::URL::percentEncode(TensorboardId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tensorboards/" , Darabonba::Encode::Encoder::percentEncode(TensorboardId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -920,7 +920,7 @@ GetTensorboardSharedUrlResponse Client::getTensorboardSharedUrlWithOptions(const
     {"action" , "GetTensorboardSharedUrl"},
     {"version" , "2020-12-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tensorboards/" , Darabonba::Http::URL::percentEncode(TensorboardId) , "/sharedurl")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tensorboards/" , Darabonba::Encode::Encoder::percentEncode(TensorboardId) , "/sharedurl")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1022,7 +1022,7 @@ GetWebTerminalResponse Client::getWebTerminalWithOptions(const string &JobId, co
     {"action" , "GetWebTerminal"},
     {"version" , "2020-12-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Http::URL::percentEncode(JobId) , "/pods/" , Darabonba::Http::URL::percentEncode(PodId) , "/webterminal")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Encode::Encoder::percentEncode(JobId) , "/pods/" , Darabonba::Encode::Encoder::percentEncode(PodId) , "/webterminal")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1136,7 +1136,7 @@ ListJobSanityCheckResultsResponse Client::listJobSanityCheckResultsWithOptions(c
     {"action" , "ListJobSanityCheckResults"},
     {"version" , "2020-12-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Http::URL::percentEncode(JobId) , "/sanitycheckresults")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Encode::Encoder::percentEncode(JobId) , "/sanitycheckresults")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1189,6 +1189,10 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &tmpReq, cons
 
   if (!!request.hasDisplayName()) {
     query["DisplayName"] = request.displayName();
+  }
+
+  if (!!request.hasDisplayNameSearchMode()) {
+    query["DisplayNameSearchMode"] = request.displayNameSearchMode();
   }
 
   if (!!request.hasEndTime()) {
@@ -1449,7 +1453,7 @@ StartTensorboardResponse Client::startTensorboardWithOptions(const string &Tenso
     {"action" , "StartTensorboard"},
     {"version" , "2020-12-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tensorboards/" , Darabonba::Http::URL::percentEncode(TensorboardId) , "/start")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tensorboards/" , Darabonba::Encode::Encoder::percentEncode(TensorboardId) , "/start")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1486,7 +1490,7 @@ StopJobResponse Client::stopJobWithOptions(const string &JobId, const map<string
     {"action" , "StopJob"},
     {"version" , "2020-12-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Http::URL::percentEncode(JobId) , "/stop")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Encode::Encoder::percentEncode(JobId) , "/stop")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1530,7 +1534,7 @@ StopTensorboardResponse Client::stopTensorboardWithOptions(const string &Tensorb
     {"action" , "StopTensorboard"},
     {"version" , "2020-12-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tensorboards/" , Darabonba::Http::URL::percentEncode(TensorboardId) , "/stop")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tensorboards/" , Darabonba::Encode::Encoder::percentEncode(TensorboardId) , "/stop")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1579,7 +1583,7 @@ UpdateJobResponse Client::updateJobWithOptions(const string &JobId, const Update
     {"action" , "UpdateJob"},
     {"version" , "2020-12-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Http::URL::percentEncode(JobId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Encode::Encoder::percentEncode(JobId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1636,7 +1640,7 @@ UpdateTensorboardResponse Client::updateTensorboardWithOptions(const string &Ten
     {"action" , "UpdateTensorboard"},
     {"version" , "2020-12-03"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tensorboards/" , Darabonba::Http::URL::percentEncode(TensorboardId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tensorboards/" , Darabonba::Encode::Encoder::percentEncode(TensorboardId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},

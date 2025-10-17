@@ -71,11 +71,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assignNodeSpec_ != nullptr
-        && this->autoScalingSpec_ != nullptr && this->ecsSpec_ != nullptr && this->extraPodSpec_ != nullptr && this->image_ != nullptr && this->imageConfig_ != nullptr
-        && this->isCheif_ != nullptr && this->isChief_ != nullptr && this->localMountSpecs_ != nullptr && this->podCount_ != nullptr && this->resourceConfig_ != nullptr
-        && this->restartPolicy_ != nullptr && this->serviceSpec_ != nullptr && this->spotSpec_ != nullptr && this->systemDisk_ != nullptr && this->type_ != nullptr
-        && this->useSpotInstance_ != nullptr; };
+    virtual bool empty() const override { return this->assignNodeSpec_ == nullptr
+        && return this->autoScalingSpec_ == nullptr && return this->ecsSpec_ == nullptr && return this->extraPodSpec_ == nullptr && return this->image_ == nullptr && return this->imageConfig_ == nullptr
+        && return this->isCheif_ == nullptr && return this->isChief_ == nullptr && return this->localMountSpecs_ == nullptr && return this->podCount_ == nullptr && return this->resourceConfig_ == nullptr
+        && return this->restartPolicy_ == nullptr && return this->serviceSpec_ == nullptr && return this->spotSpec_ == nullptr && return this->systemDisk_ == nullptr && return this->type_ == nullptr
+        && return this->useSpotInstance_ == nullptr; };
     // assignNodeSpec Field Functions 
     bool hasAssignNodeSpec() const { return this->assignNodeSpec_ != nullptr;};
     void deleteAssignNodeSpec() { this->assignNodeSpec_ = nullptr;};

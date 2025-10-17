@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->debuggerJobIssue_ != nullptr
-        && this->gmtCreateTime_ != nullptr && this->jobDebuggerIssueId_ != nullptr && this->jobId_ != nullptr && this->reasonCode_ != nullptr && this->reasonMessage_ != nullptr
-        && this->ruleName_ != nullptr; };
+    virtual bool empty() const override { return this->debuggerJobIssue_ == nullptr
+        && return this->gmtCreateTime_ == nullptr && return this->jobDebuggerIssueId_ == nullptr && return this->jobId_ == nullptr && return this->reasonCode_ == nullptr && return this->reasonMessage_ == nullptr
+        && return this->ruleName_ == nullptr; };
     // debuggerJobIssue Field Functions 
     bool hasDebuggerJobIssue() const { return this->debuggerJobIssue_ != nullptr;};
     void deleteDebuggerJobIssue() { this->debuggerJobIssue_ = nullptr;};

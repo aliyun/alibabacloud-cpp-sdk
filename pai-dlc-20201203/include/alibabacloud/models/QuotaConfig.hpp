@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowedMaxPriority_ != nullptr
-        && this->enableDLC_ != nullptr && this->enableDSW_ != nullptr && this->enableTideResource_ != nullptr && this->resourceLevel_ != nullptr; };
+    virtual bool empty() const override { return this->allowedMaxPriority_ == nullptr
+        && return this->enableDLC_ == nullptr && return this->enableDSW_ == nullptr && return this->enableTideResource_ == nullptr && return this->resourceLevel_ == nullptr; };
     // allowedMaxPriority Field Functions 
     bool hasAllowedMaxPriority() const { return this->allowedMaxPriority_ != nullptr;};
     void deleteAllowedMaxPriority() { this->allowedMaxPriority_ = nullptr;};

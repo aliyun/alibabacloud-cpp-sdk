@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceleratorType_ != nullptr
-        && this->authorId_ != nullptr && this->framework_ != nullptr && this->imageProviderType_ != nullptr && this->imageTag_ != nullptr && this->imageUrl_ != nullptr
-        && this->imageUrlVpc_ != nullptr; };
+    virtual bool empty() const override { return this->acceleratorType_ == nullptr
+        && return this->authorId_ == nullptr && return this->framework_ == nullptr && return this->imageProviderType_ == nullptr && return this->imageTag_ == nullptr && return this->imageUrl_ == nullptr
+        && return this->imageUrlVpc_ == nullptr; };
     // acceleratorType Field Functions 
     bool hasAcceleratorType() const { return this->acceleratorType_ != nullptr;};
     void deleteAcceleratorType() { this->acceleratorType_ = nullptr;};

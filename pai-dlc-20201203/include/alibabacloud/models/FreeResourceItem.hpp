@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->availableNumber_ != nullptr
-        && this->clusterID_ != nullptr && this->clusterName_ != nullptr && this->freeResourceId_ != nullptr && this->gmtCreateTime_ != nullptr && this->gmtModifyTime_ != nullptr
-        && this->regionID_ != nullptr && this->resourceType_ != nullptr; };
+    virtual bool empty() const override { return this->availableNumber_ == nullptr
+        && return this->clusterID_ == nullptr && return this->clusterName_ == nullptr && return this->freeResourceId_ == nullptr && return this->gmtCreateTime_ == nullptr && return this->gmtModifyTime_ == nullptr
+        && return this->regionID_ == nullptr && return this->resourceType_ == nullptr; };
     // availableNumber Field Functions 
     bool hasAvailableNumber() const { return this->availableNumber_ != nullptr;};
     void deleteAvailableNumber() { this->availableNumber_ = nullptr;};

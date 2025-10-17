@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ecsSpecs_ != nullptr
-        && this->requestId_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->ecsSpecs_ == nullptr
+        && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
     // ecsSpecs Field Functions 
     bool hasEcsSpecs() const { return this->ecsSpecs_ != nullptr;};
     void deleteEcsSpecs() { this->ecsSpecs_ = nullptr;};

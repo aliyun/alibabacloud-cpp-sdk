@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->debuggerConfigContent_ != nullptr
-        && this->debuggerJobIssues_ != nullptr && this->debuggerJobStatus_ != nullptr && this->debuggerReportURL_ != nullptr && this->jobDisplayName_ != nullptr && this->jobId_ != nullptr
-        && this->jobUserId_ != nullptr; };
+    virtual bool empty() const override { return this->debuggerConfigContent_ == nullptr
+        && return this->debuggerJobIssues_ == nullptr && return this->debuggerJobStatus_ == nullptr && return this->debuggerReportURL_ == nullptr && return this->jobDisplayName_ == nullptr && return this->jobId_ == nullptr
+        && return this->jobUserId_ == nullptr; };
     // debuggerConfigContent Field Functions 
     bool hasDebuggerConfigContent() const { return this->debuggerConfigContent_ != nullptr;};
     void deleteDebuggerConfigContent() { this->debuggerConfigContent_ = nullptr;};
