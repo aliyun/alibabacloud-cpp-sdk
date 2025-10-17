@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientCRC_ != nullptr
-        && this->ETag_ != nullptr && this->requestId_ != nullptr && this->serverCRC_ != nullptr; };
+    virtual bool empty() const override { return this->clientCRC_ == nullptr
+        && return this->ETag_ == nullptr && return this->requestId_ == nullptr && return this->serverCRC_ == nullptr; };
     // clientCRC Field Functions 
     bool hasClientCRC() const { return this->clientCRC_ != nullptr;};
     void deleteClientCRC() { this->clientCRC_ = nullptr;};

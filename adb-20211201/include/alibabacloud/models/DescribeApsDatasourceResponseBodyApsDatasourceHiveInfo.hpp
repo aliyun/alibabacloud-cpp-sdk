@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->emrClusterId_ != nullptr
-        && this->metaStoreUri_ != nullptr && this->securityGroup_ != nullptr && this->vswitch_ != nullptr; };
+    virtual bool empty() const override { return this->emrClusterId_ == nullptr
+        && return this->metaStoreUri_ == nullptr && return this->securityGroup_ == nullptr && return this->vswitch_ == nullptr; };
     // emrClusterId Field Functions 
     bool hasEmrClusterId() const { return this->emrClusterId_ != nullptr;};
     void deleteEmrClusterId() { this->emrClusterId_ = nullptr;};

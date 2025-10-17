@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->elasticAcu_ != nullptr
-        && this->elasticPlanName_ != nullptr && this->endTime_ != nullptr && this->instanceSize_ != nullptr && this->reserveAcu_ != nullptr && this->resourceGroupName_ != nullptr
-        && this->startTime_ != nullptr && this->status_ != nullptr && this->targetSize_ != nullptr && this->totalAcu_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->elasticAcu_ == nullptr
+        && return this->elasticPlanName_ == nullptr && return this->endTime_ == nullptr && return this->instanceSize_ == nullptr && return this->reserveAcu_ == nullptr && return this->resourceGroupName_ == nullptr
+        && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->targetSize_ == nullptr && return this->totalAcu_ == nullptr && return this->type_ == nullptr; };
     // elasticAcu Field Functions 
     bool hasElasticAcu() const { return this->elasticAcu_ != nullptr;};
     void deleteElasticAcu() { this->elasticAcu_ = nullptr;};

@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acuUsageDetail_ != nullptr
-        && this->jobEndTime_ != nullptr && this->jobId_ != nullptr && this->jobStartTime_ != nullptr && this->resourceGroupName_ != nullptr && this->useCachePool_ != nullptr; };
+    virtual bool empty() const override { return this->acuUsageDetail_ == nullptr
+        && return this->jobEndTime_ == nullptr && return this->jobId_ == nullptr && return this->jobStartTime_ == nullptr && return this->resourceGroupName_ == nullptr && return this->useCachePool_ == nullptr; };
     // acuUsageDetail Field Functions 
     bool hasAcuUsageDetail() const { return this->acuUsageDetail_ != nullptr;};
     void deleteAcuUsageDetail() { this->acuUsageDetail_ = nullptr;};

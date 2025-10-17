@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterMode_ != nullptr
-        && this->clusterSizeResource_ != nullptr && this->enableSpot_ != nullptr && this->maxClusterCount_ != nullptr && this->maxComputeResource_ != nullptr && this->minClusterCount_ != nullptr
-        && this->minComputeResource_ != nullptr && this->poolId_ != nullptr && this->poolName_ != nullptr && this->poolType_ != nullptr && this->poolUsers_ != nullptr
-        && this->runningClusterCount_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->clusterMode_ == nullptr
+        && return this->clusterSizeResource_ == nullptr && return this->enableSpot_ == nullptr && return this->maxClusterCount_ == nullptr && return this->maxComputeResource_ == nullptr && return this->minClusterCount_ == nullptr
+        && return this->minComputeResource_ == nullptr && return this->poolId_ == nullptr && return this->poolName_ == nullptr && return this->poolType_ == nullptr && return this->poolUsers_ == nullptr
+        && return this->runningClusterCount_ == nullptr && return this->status_ == nullptr; };
     // clusterMode Field Functions 
     bool hasClusterMode() const { return this->clusterMode_ != nullptr;};
     void deleteClusterMode() { this->clusterMode_ = nullptr;};

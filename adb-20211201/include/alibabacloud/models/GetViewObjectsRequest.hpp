@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->DBClusterId_ != nullptr
-        && this->filterOwner_ != nullptr && this->filterViewName_ != nullptr && this->filterViewType_ != nullptr && this->orderBy_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->regionId_ != nullptr && this->schemaName_ != nullptr && this->showMvBaseTable_ != nullptr; };
+    virtual bool empty() const override { return this->DBClusterId_ == nullptr
+        && return this->filterOwner_ == nullptr && return this->filterViewName_ == nullptr && return this->filterViewType_ == nullptr && return this->orderBy_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->schemaName_ == nullptr && return this->showMvBaseTable_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};

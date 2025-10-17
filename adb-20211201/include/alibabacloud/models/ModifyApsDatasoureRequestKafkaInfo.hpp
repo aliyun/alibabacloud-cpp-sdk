@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->kafkaClusterId_ != nullptr
-        && this->kafkaTopic_ != nullptr; };
+    virtual bool empty() const override { return this->kafkaClusterId_ == nullptr
+        && return this->kafkaTopic_ == nullptr; };
     // kafkaClusterId Field Functions 
     bool hasKafkaClusterId() const { return this->kafkaClusterId_ != nullptr;};
     void deleteKafkaClusterId() { this->kafkaClusterId_ = nullptr;};

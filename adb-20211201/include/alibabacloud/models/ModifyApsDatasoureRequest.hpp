@@ -52,9 +52,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->DBClusterId_ != nullptr
-        && this->datasourceDescription_ != nullptr && this->datasourceId_ != nullptr && this->datasourceName_ != nullptr && this->kafkaInfo_ != nullptr && this->lakehouseId_ != nullptr
-        && this->polarDBMysqlInfo_ != nullptr && this->rdsMysqlInfo_ != nullptr && this->regionId_ != nullptr && this->slsInfo_ != nullptr; };
+    virtual bool empty() const override { return this->DBClusterId_ == nullptr
+        && return this->datasourceDescription_ == nullptr && return this->datasourceId_ == nullptr && return this->datasourceName_ == nullptr && return this->kafkaInfo_ == nullptr && return this->lakehouseId_ == nullptr
+        && return this->polarDBMysqlInfo_ == nullptr && return this->rdsMysqlInfo_ == nullptr && return this->regionId_ == nullptr && return this->slsInfo_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};

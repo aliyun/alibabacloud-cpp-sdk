@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->advancedConfig_ != nullptr
-        && this->conflictStrategy_ != nullptr && this->createTime_ != nullptr && this->DBClusterId_ != nullptr && this->datasourceId_ != nullptr && this->datasourceName_ != nullptr
-        && this->emrClusterId_ != nullptr && this->fullComputeUnit_ != nullptr && this->metaStoreUri_ != nullptr && this->ossLocation_ != nullptr && this->parallelism_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroup_ != nullptr && this->state_ != nullptr && this->syncAllowExpression_ != nullptr && this->syncDenyExpression_ != nullptr
-        && this->targetType_ != nullptr && this->vswitch_ != nullptr && this->workloadId_ != nullptr && this->workloadName_ != nullptr && this->workloadTypeName_ != nullptr; };
+    virtual bool empty() const override { return this->advancedConfig_ == nullptr
+        && return this->conflictStrategy_ == nullptr && return this->createTime_ == nullptr && return this->DBClusterId_ == nullptr && return this->datasourceId_ == nullptr && return this->datasourceName_ == nullptr
+        && return this->emrClusterId_ == nullptr && return this->fullComputeUnit_ == nullptr && return this->metaStoreUri_ == nullptr && return this->ossLocation_ == nullptr && return this->parallelism_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroup_ == nullptr && return this->state_ == nullptr && return this->syncAllowExpression_ == nullptr && return this->syncDenyExpression_ == nullptr
+        && return this->targetType_ == nullptr && return this->vswitch_ == nullptr && return this->workloadId_ == nullptr && return this->workloadName_ == nullptr && return this->workloadTypeName_ == nullptr; };
     // advancedConfig Field Functions 
     bool hasAdvancedConfig() const { return this->advancedConfig_ != nullptr;};
     void deleteAdvancedConfig() { this->advancedConfig_ = nullptr;};

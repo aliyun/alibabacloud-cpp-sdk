@@ -1459,6 +1459,66 @@ CreateApsSlsADBJobResponse Client::createApsSlsADBJob(const CreateApsSlsADBJobRe
 }
 
 /**
+ * @summary CreateApsWebhook
+ *
+ * @param tmpReq CreateApsWebhookRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateApsWebhookResponse
+ */
+CreateApsWebhookResponse Client::createApsWebhookWithOptions(const CreateApsWebhookRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateApsWebhookShrinkRequest request = CreateApsWebhookShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasWebhook()) {
+    request.setWebhookShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.webhook(), "Webhook", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasDBClusterId()) {
+    body["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasJobType()) {
+    body["JobType"] = request.jobType();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasWebhookShrink()) {
+    body["Webhook"] = request.webhookShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateApsWebhook"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateApsWebhookResponse>();
+}
+
+/**
+ * @summary CreateApsWebhook
+ *
+ * @param request CreateApsWebhookRequest
+ * @return CreateApsWebhookResponse
+ */
+CreateApsWebhookResponse Client::createApsWebhook(const CreateApsWebhookRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createApsWebhookWithOptions(request, runtime);
+}
+
+/**
  * @summary 手动创建备份集
  *
  * @param request CreateBackupRequest
@@ -1963,6 +2023,104 @@ CreateLakeStorageResponse Client::createLakeStorage(const CreateLakeStorageReque
 }
 
 /**
+ * @summary 创建物化视图自动推荐任务
+ *
+ * @param request CreateMaterializedViewRecommendRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMaterializedViewRecommendResponse
+ */
+CreateMaterializedViewRecommendResponse Client::createMaterializedViewRecommendWithOptions(const CreateMaterializedViewRecommendRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
+  if (!!request.hasMinRewriteQueryCount()) {
+    query["MinRewriteQueryCount"] = request.minRewriteQueryCount();
+  }
+
+  if (!!request.hasMinRewriteQueryPattern()) {
+    query["MinRewriteQueryPattern"] = request.minRewriteQueryPattern();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasScanQueriesRange()) {
+    query["ScanQueriesRange"] = request.scanQueriesRange();
+  }
+
+  if (!!request.hasSchedulingDay()) {
+    query["SchedulingDay"] = request.schedulingDay();
+  }
+
+  if (!!request.hasSchedulingPolicy()) {
+    query["SchedulingPolicy"] = request.schedulingPolicy();
+  }
+
+  if (!!request.hasSlowQueryThreshold()) {
+    query["SlowQueryThreshold"] = request.slowQueryThreshold();
+  }
+
+  if (!!request.hasSpecifiedTime()) {
+    query["SpecifiedTime"] = request.specifiedTime();
+  }
+
+  if (!!request.hasTaskName()) {
+    query["TaskName"] = request.taskName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateMaterializedViewRecommend"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMaterializedViewRecommendResponse>();
+}
+
+/**
+ * @summary 创建物化视图自动推荐任务
+ *
+ * @param request CreateMaterializedViewRecommendRequest
+ * @return CreateMaterializedViewRecommendResponse
+ */
+CreateMaterializedViewRecommendResponse Client::createMaterializedViewRecommend(const CreateMaterializedViewRecommendRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createMaterializedViewRecommendWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an Object Storage Service (OSS) subdirectory.
  *
  * @description *   General endpoint: `adb.aliyuncs.com`.
@@ -2326,6 +2484,56 @@ DeleteApsJobResponse Client::deleteApsJobWithOptions(const DeleteApsJobRequest &
 DeleteApsJobResponse Client::deleteApsJob(const DeleteApsJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteApsJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary DeleteApsWebhook
+ *
+ * @param request DeleteApsWebhookRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteApsWebhookResponse
+ */
+DeleteApsWebhookResponse Client::deleteApsWebhookWithOptions(const DeleteApsWebhookRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDBClusterId()) {
+    body["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasWebhookId()) {
+    body["WebhookId"] = request.webhookId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteApsWebhook"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteApsWebhookResponse>();
+}
+
+/**
+ * @summary DeleteApsWebhook
+ *
+ * @param request DeleteApsWebhookRequest
+ * @return DeleteApsWebhookResponse
+ */
+DeleteApsWebhookResponse Client::deleteApsWebhook(const DeleteApsWebhookRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteApsWebhookWithOptions(request, runtime);
 }
 
 /**
@@ -11282,6 +11490,56 @@ ListApsOptimizationTasksResponse Client::listApsOptimizationTasks(const ListApsO
 }
 
 /**
+ * @summary ListApsWebhook
+ *
+ * @param request ListApsWebhookRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListApsWebhookResponse
+ */
+ListApsWebhookResponse Client::listApsWebhookWithOptions(const ListApsWebhookRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDBClusterId()) {
+    body["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasJobType()) {
+    body["JobType"] = request.jobType();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListApsWebhook"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListApsWebhookResponse>();
+}
+
+/**
+ * @summary ListApsWebhook
+ *
+ * @param request ListApsWebhookRequest
+ * @return ListApsWebhookResponse
+ */
+ListApsWebhookResponse Client::listApsWebhook(const ListApsWebhookRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listApsWebhookWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of lake storages.
  *
  * @param request ListLakeStoragesRequest
@@ -13286,6 +13544,194 @@ ModifyLakeCacheSizeResponse Client::modifyLakeCacheSize(const ModifyLakeCacheSiz
 }
 
 /**
+ * @summary 修改物化视图
+ *
+ * @param request ModifyMaterializedViewRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyMaterializedViewResponse
+ */
+ModifyMaterializedViewResponse Client::modifyMaterializedViewWithOptions(const ModifyMaterializedViewRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDbName()) {
+    query["DbName"] = request.dbName();
+  }
+
+  if (!!request.hasEnableDelayAlert()) {
+    query["EnableDelayAlert"] = request.enableDelayAlert();
+  }
+
+  if (!!request.hasEnableFailureAlert()) {
+    query["EnableFailureAlert"] = request.enableFailureAlert();
+  }
+
+  if (!!request.hasGroupName()) {
+    query["GroupName"] = request.groupName();
+  }
+
+  if (!!request.hasLatencyTolerance()) {
+    query["LatencyTolerance"] = request.latencyTolerance();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasQueryWrite()) {
+    query["QueryWrite"] = request.queryWrite();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasViewName()) {
+    query["ViewName"] = request.viewName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyMaterializedView"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyMaterializedViewResponse>();
+}
+
+/**
+ * @summary 修改物化视图
+ *
+ * @param request ModifyMaterializedViewRequest
+ * @return ModifyMaterializedViewResponse
+ */
+ModifyMaterializedViewResponse Client::modifyMaterializedView(const ModifyMaterializedViewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyMaterializedViewWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改物化视图自动推荐任务
+ *
+ * @param request ModifyMaterializedViewRecommendRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyMaterializedViewRecommendResponse
+ */
+ModifyMaterializedViewRecommendResponse Client::modifyMaterializedViewRecommendWithOptions(const ModifyMaterializedViewRecommendRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
+  if (!!request.hasMinRewriteQueryCount()) {
+    query["MinRewriteQueryCount"] = request.minRewriteQueryCount();
+  }
+
+  if (!!request.hasMinRewriteQueryPattern()) {
+    query["MinRewriteQueryPattern"] = request.minRewriteQueryPattern();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasScanQueriesRange()) {
+    query["ScanQueriesRange"] = request.scanQueriesRange();
+  }
+
+  if (!!request.hasSchedulingDay()) {
+    query["SchedulingDay"] = request.schedulingDay();
+  }
+
+  if (!!request.hasSchedulingPolicy()) {
+    query["SchedulingPolicy"] = request.schedulingPolicy();
+  }
+
+  if (!!request.hasSlowQueryThreshold()) {
+    query["SlowQueryThreshold"] = request.slowQueryThreshold();
+  }
+
+  if (!!request.hasSpecifiedTime()) {
+    query["SpecifiedTime"] = request.specifiedTime();
+  }
+
+  if (!!request.hasTaskName()) {
+    query["TaskName"] = request.taskName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyMaterializedViewRecommend"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyMaterializedViewRecommendResponse>();
+}
+
+/**
+ * @summary 修改物化视图自动推荐任务
+ *
+ * @param request ModifyMaterializedViewRecommendRequest
+ * @return ModifyMaterializedViewRecommendResponse
+ */
+ModifyMaterializedViewRecommendResponse Client::modifyMaterializedViewRecommend(const ModifyMaterializedViewRecommendRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyMaterializedViewRecommendWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the information about a custom monitoring view.
  *
  * @param tmpReq ModifyPerformanceViewRequest
@@ -14283,6 +14729,62 @@ UnbindDBResourceGroupWithUserResponse Client::unbindDBResourceGroupWithUserWithO
 UnbindDBResourceGroupWithUserResponse Client::unbindDBResourceGroupWithUser(const UnbindDBResourceGroupWithUserRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return unbindDBResourceGroupWithUserWithOptions(request, runtime);
+}
+
+/**
+ * @summary UpdateApsWebhook
+ *
+ * @param tmpReq UpdateApsWebhookRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateApsWebhookResponse
+ */
+UpdateApsWebhookResponse Client::updateApsWebhookWithOptions(const UpdateApsWebhookRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateApsWebhookShrinkRequest request = UpdateApsWebhookShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasWebhook()) {
+    request.setWebhookShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.webhook(), "Webhook", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasDBClusterId()) {
+    body["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasWebhookShrink()) {
+    body["Webhook"] = request.webhookShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateApsWebhook"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateApsWebhookResponse>();
+}
+
+/**
+ * @summary UpdateApsWebhook
+ *
+ * @param request UpdateApsWebhookRequest
+ * @return UpdateApsWebhookResponse
+ */
+UpdateApsWebhookResponse Client::updateApsWebhook(const UpdateApsWebhookRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateApsWebhookWithOptions(request, runtime);
 }
 
 /**

@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->computeUnit_ != nullptr
-        && this->createdTime_ != nullptr && this->DBClusterId_ != nullptr && this->modifiedTime_ != nullptr && this->strategyType_ != nullptr && this->taskDesc_ != nullptr
-        && this->taskDuration_ != nullptr && this->taskId_ != nullptr && this->taskMessage_ != nullptr && this->taskStatus_ != nullptr; };
+    virtual bool empty() const override { return this->computeUnit_ == nullptr
+        && return this->createdTime_ == nullptr && return this->DBClusterId_ == nullptr && return this->modifiedTime_ == nullptr && return this->strategyType_ == nullptr && return this->taskDesc_ == nullptr
+        && return this->taskDuration_ == nullptr && return this->taskId_ == nullptr && return this->taskMessage_ == nullptr && return this->taskStatus_ == nullptr; };
     // computeUnit Field Functions 
     bool hasComputeUnit() const { return this->computeUnit_ != nullptr;};
     void deleteComputeUnit() { this->computeUnit_ = nullptr;};

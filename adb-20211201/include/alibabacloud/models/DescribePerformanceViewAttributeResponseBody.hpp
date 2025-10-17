@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessDeniedDetail_ != nullptr
-        && this->createFromViewType_ != nullptr && this->DBClusterId_ != nullptr && this->fillOriginViewKeys_ != nullptr && this->requestId_ != nullptr && this->viewDetail_ != nullptr
-        && this->viewName_ != nullptr; };
+    virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
+        && return this->createFromViewType_ == nullptr && return this->DBClusterId_ == nullptr && return this->fillOriginViewKeys_ == nullptr && return this->requestId_ == nullptr && return this->viewDetail_ == nullptr
+        && return this->viewName_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};

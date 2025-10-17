@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->diskUsageRatio_ != nullptr
-        && this->node_ != nullptr; };
+    virtual bool empty() const override { return this->diskUsageRatio_ == nullptr
+        && return this->node_ == nullptr; };
     // diskUsageRatio Field Functions 
     bool hasDiskUsageRatio() const { return this->diskUsageRatio_ != nullptr;};
     void deleteDiskUsageRatio() { this->diskUsageRatio_ = nullptr;};

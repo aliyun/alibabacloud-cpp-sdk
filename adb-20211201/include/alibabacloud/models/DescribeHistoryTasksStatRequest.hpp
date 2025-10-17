@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fromExecTime_ != nullptr
-        && this->fromStartTime_ != nullptr && this->instanceId_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->securityToken_ != nullptr && this->status_ != nullptr && this->taskId_ != nullptr
-        && this->taskType_ != nullptr && this->toExecTime_ != nullptr && this->toStartTime_ != nullptr; };
+    virtual bool empty() const override { return this->fromExecTime_ == nullptr
+        && return this->fromStartTime_ == nullptr && return this->instanceId_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->securityToken_ == nullptr && return this->status_ == nullptr && return this->taskId_ == nullptr
+        && return this->taskType_ == nullptr && return this->toExecTime_ == nullptr && return this->toStartTime_ == nullptr; };
     // fromExecTime Field Functions 
     bool hasFromExecTime() const { return this->fromExecTime_ != nullptr;};
     void deleteFromExecTime() { this->fromExecTime_ = nullptr;};

@@ -128,17 +128,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->archiveType_ != nullptr
-        && this->blockSize_ != nullptr && this->bucket_ != nullptr && this->bucketCount_ != nullptr && this->cols_ != nullptr && this->comment_ != nullptr
-        && this->compression_ != nullptr && this->createTime_ != nullptr && this->currentVersion_ != nullptr && this->dbName_ != nullptr && this->dictEncode_ != nullptr
-        && this->distributeColumns_ != nullptr && this->distributeType_ != nullptr && this->enableDfs_ != nullptr && this->hotPartitionCount_ != nullptr && this->indexes_ != nullptr
-        && this->isAllIndex_ != nullptr && this->isFulltextDict_ != nullptr && this->maxColumnId_ != nullptr && this->parameters_ != nullptr && this->partitionColumn_ != nullptr
-        && this->partitionCount_ != nullptr && this->partitionKeys_ != nullptr && this->partitionType_ != nullptr && this->physicalDatabaseName_ != nullptr && this->physicalTableName_ != nullptr
-        && this->previousVersion_ != nullptr && this->rawTableName_ != nullptr && this->routeColumns_ != nullptr && this->routeEffectiveColumn_ != nullptr && this->routeType_ != nullptr
-        && this->rtEngineType_ != nullptr && this->rtIndexAll_ != nullptr && this->rtModeType_ != nullptr && this->sd_ != nullptr && this->storagePolicy_ != nullptr
-        && this->subpartitionColumn_ != nullptr && this->subpartitionCount_ != nullptr && this->subpartitionType_ != nullptr && this->tableEngineName_ != nullptr && this->tableName_ != nullptr
-        && this->tableType_ != nullptr && this->tblId_ != nullptr && this->temporary_ != nullptr && this->updateTime_ != nullptr && this->viewExpandedText_ != nullptr
-        && this->viewOriginalText_ != nullptr && this->viewSecurityMode_ != nullptr; };
+    virtual bool empty() const override { return this->archiveType_ == nullptr
+        && return this->blockSize_ == nullptr && return this->bucket_ == nullptr && return this->bucketCount_ == nullptr && return this->cols_ == nullptr && return this->comment_ == nullptr
+        && return this->compression_ == nullptr && return this->createTime_ == nullptr && return this->currentVersion_ == nullptr && return this->dbName_ == nullptr && return this->dictEncode_ == nullptr
+        && return this->distributeColumns_ == nullptr && return this->distributeType_ == nullptr && return this->enableDfs_ == nullptr && return this->hotPartitionCount_ == nullptr && return this->indexes_ == nullptr
+        && return this->isAllIndex_ == nullptr && return this->isFulltextDict_ == nullptr && return this->maxColumnId_ == nullptr && return this->parameters_ == nullptr && return this->partitionColumn_ == nullptr
+        && return this->partitionCount_ == nullptr && return this->partitionKeys_ == nullptr && return this->partitionType_ == nullptr && return this->physicalDatabaseName_ == nullptr && return this->physicalTableName_ == nullptr
+        && return this->previousVersion_ == nullptr && return this->rawTableName_ == nullptr && return this->routeColumns_ == nullptr && return this->routeEffectiveColumn_ == nullptr && return this->routeType_ == nullptr
+        && return this->rtEngineType_ == nullptr && return this->rtIndexAll_ == nullptr && return this->rtModeType_ == nullptr && return this->sd_ == nullptr && return this->storagePolicy_ == nullptr
+        && return this->subpartitionColumn_ == nullptr && return this->subpartitionCount_ == nullptr && return this->subpartitionType_ == nullptr && return this->tableEngineName_ == nullptr && return this->tableName_ == nullptr
+        && return this->tableType_ == nullptr && return this->tblId_ == nullptr && return this->temporary_ == nullptr && return this->updateTime_ == nullptr && return this->viewExpandedText_ == nullptr
+        && return this->viewOriginalText_ == nullptr && return this->viewSecurityMode_ == nullptr; };
     // archiveType Field Functions 
     bool hasArchiveType() const { return this->archiveType_ != nullptr;};
     void deleteArchiveType() { this->archiveType_ = nullptr;};

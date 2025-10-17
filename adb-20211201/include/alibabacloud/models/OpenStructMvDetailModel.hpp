@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->baseTableInfos_ != nullptr
-        && this->baseTableNames_ != nullptr && this->enableDelayAlert_ != nullptr && this->enableFailureAlert_ != nullptr && this->explicitHit_ != nullptr && this->firstRefreshTime_ != nullptr
-        && this->implicitHit_ != nullptr && this->isInactive_ != nullptr && this->latencyTolerance_ != nullptr && this->localSize_ != nullptr && this->queryRewriteEnabled_ != nullptr
-        && this->refreshInterval_ != nullptr && this->refreshState_ != nullptr && this->remoteSize_ != nullptr && this->resourceGroup_ != nullptr && this->tableEngine_ != nullptr
-        && this->updatedAt_ != nullptr; };
+    virtual bool empty() const override { return this->baseTableInfos_ == nullptr
+        && return this->baseTableNames_ == nullptr && return this->enableDelayAlert_ == nullptr && return this->enableFailureAlert_ == nullptr && return this->explicitHit_ == nullptr && return this->firstRefreshTime_ == nullptr
+        && return this->implicitHit_ == nullptr && return this->isInactive_ == nullptr && return this->latencyTolerance_ == nullptr && return this->localSize_ == nullptr && return this->queryRewriteEnabled_ == nullptr
+        && return this->refreshInterval_ == nullptr && return this->refreshState_ == nullptr && return this->remoteSize_ == nullptr && return this->resourceGroup_ == nullptr && return this->tableEngine_ == nullptr
+        && return this->updatedAt_ == nullptr; };
     // baseTableInfos Field Functions 
     bool hasBaseTableInfos() const { return this->baseTableInfos_ != nullptr;};
     void deleteBaseTableInfos() { this->baseTableInfos_ = nullptr;};

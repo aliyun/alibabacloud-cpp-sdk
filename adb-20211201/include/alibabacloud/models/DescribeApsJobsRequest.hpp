@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apsJobName_ != nullptr
-        && this->createTimeEnd_ != nullptr && this->createTimeStart_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->apsJobName_ == nullptr
+        && return this->createTimeEnd_ == nullptr && return this->createTimeStart_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr; };
     // apsJobName Field Functions 
     bool hasApsJobName() const { return this->apsJobName_ != nullptr;};
     void deleteApsJobName() { this->apsJobName_ = nullptr;};

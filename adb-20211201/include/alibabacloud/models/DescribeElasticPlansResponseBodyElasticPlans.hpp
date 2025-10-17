@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoScale_ != nullptr
-        && this->elasticPlanName_ != nullptr && this->enabled_ != nullptr && this->nextScheduleTime_ != nullptr && this->resourceGroupName_ != nullptr && this->targetSize_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->autoScale_ == nullptr
+        && return this->elasticPlanName_ == nullptr && return this->enabled_ == nullptr && return this->nextScheduleTime_ == nullptr && return this->resourceGroupName_ == nullptr && return this->targetSize_ == nullptr
+        && return this->type_ == nullptr; };
     // autoScale Field Functions 
     bool hasAutoScale() const { return this->autoScale_ != nullptr;};
     void deleteAutoScale() { this->autoScale_ = nullptr;};

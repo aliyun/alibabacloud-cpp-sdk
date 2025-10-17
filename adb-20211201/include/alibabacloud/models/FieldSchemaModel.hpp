@@ -81,13 +81,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoIncrement_ != nullptr
-        && this->columnRawName_ != nullptr && this->comment_ != nullptr && this->compressFloatUseShort_ != nullptr && this->compression_ != nullptr && this->createTime_ != nullptr
-        && this->dataType_ != nullptr && this->databaseName_ != nullptr && this->defaultValue_ != nullptr && this->delimiter_ != nullptr && this->encode_ != nullptr
-        && this->isPartitionKey_ != nullptr && this->mappedName_ != nullptr && this->name_ != nullptr && this->nullable_ != nullptr && this->onUpdate_ != nullptr
-        && this->ordinalPosition_ != nullptr && this->physicalColumnName_ != nullptr && this->pkPosition_ != nullptr && this->precision_ != nullptr && this->primarykey_ != nullptr
-        && this->scale_ != nullptr && this->tableName_ != nullptr && this->tokenizer_ != nullptr && this->type_ != nullptr && this->updateTime_ != nullptr
-        && this->valueType_ != nullptr; };
+    virtual bool empty() const override { return this->autoIncrement_ == nullptr
+        && return this->columnRawName_ == nullptr && return this->comment_ == nullptr && return this->compressFloatUseShort_ == nullptr && return this->compression_ == nullptr && return this->createTime_ == nullptr
+        && return this->dataType_ == nullptr && return this->databaseName_ == nullptr && return this->defaultValue_ == nullptr && return this->delimiter_ == nullptr && return this->encode_ == nullptr
+        && return this->isPartitionKey_ == nullptr && return this->mappedName_ == nullptr && return this->name_ == nullptr && return this->nullable_ == nullptr && return this->onUpdate_ == nullptr
+        && return this->ordinalPosition_ == nullptr && return this->physicalColumnName_ == nullptr && return this->pkPosition_ == nullptr && return this->precision_ == nullptr && return this->primarykey_ == nullptr
+        && return this->scale_ == nullptr && return this->tableName_ == nullptr && return this->tokenizer_ == nullptr && return this->type_ == nullptr && return this->updateTime_ == nullptr
+        && return this->valueType_ == nullptr; };
     // autoIncrement Field Functions 
     bool hasAutoIncrement() const { return this->autoIncrement_ != nullptr;};
     void deleteAutoIncrement() { this->autoIncrement_ = nullptr;};

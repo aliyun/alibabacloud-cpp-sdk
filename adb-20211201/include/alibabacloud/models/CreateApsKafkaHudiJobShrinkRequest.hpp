@@ -83,13 +83,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acrossRole_ != nullptr
-        && this->acrossUid_ != nullptr && this->advancedConfig_ != nullptr && this->columnsShrink_ != nullptr && this->DBClusterId_ != nullptr && this->dataOutputFormat_ != nullptr
-        && this->datasourceId_ != nullptr && this->dbName_ != nullptr && this->fullComputeUnit_ != nullptr && this->hudiAdvancedConfig_ != nullptr && this->incrementalComputeUnit_ != nullptr
-        && this->jsonParseLevel_ != nullptr && this->kafkaClusterId_ != nullptr && this->kafkaTopic_ != nullptr && this->lakehouseId_ != nullptr && this->maxOffsetsPerTrigger_ != nullptr
-        && this->ossLocation_ != nullptr && this->outputFormat_ != nullptr && this->partitionSpecsShrink_ != nullptr && this->primaryKeyDefinition_ != nullptr && this->regionId_ != nullptr
-        && this->resourceGroup_ != nullptr && this->sourceRegionId_ != nullptr && this->startingOffsets_ != nullptr && this->tableName_ != nullptr && this->targetGenerateRule_ != nullptr
-        && this->targetType_ != nullptr && this->workloadName_ != nullptr; };
+    virtual bool empty() const override { return this->acrossRole_ == nullptr
+        && return this->acrossUid_ == nullptr && return this->advancedConfig_ == nullptr && return this->columnsShrink_ == nullptr && return this->DBClusterId_ == nullptr && return this->dataOutputFormat_ == nullptr
+        && return this->datasourceId_ == nullptr && return this->dbName_ == nullptr && return this->fullComputeUnit_ == nullptr && return this->hudiAdvancedConfig_ == nullptr && return this->incrementalComputeUnit_ == nullptr
+        && return this->jsonParseLevel_ == nullptr && return this->kafkaClusterId_ == nullptr && return this->kafkaTopic_ == nullptr && return this->lakehouseId_ == nullptr && return this->maxOffsetsPerTrigger_ == nullptr
+        && return this->ossLocation_ == nullptr && return this->outputFormat_ == nullptr && return this->partitionSpecsShrink_ == nullptr && return this->primaryKeyDefinition_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceGroup_ == nullptr && return this->sourceRegionId_ == nullptr && return this->startingOffsets_ == nullptr && return this->tableName_ == nullptr && return this->targetGenerateRule_ == nullptr
+        && return this->targetType_ == nullptr && return this->workloadName_ == nullptr; };
     // acrossRole Field Functions 
     bool hasAcrossRole() const { return this->acrossRole_ != nullptr;};
     void deleteAcrossRole() { this->acrossRole_ = nullptr;};

@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliyunUid_ != nullptr
-        && this->code_ != nullptr && this->codeState_ != nullptr && this->codeType_ != nullptr && this->endTime_ != nullptr && this->error_ != nullptr
-        && this->haveRows_ != nullptr && this->output_ != nullptr && this->resourceGroup_ != nullptr && this->sessionId_ != nullptr && this->startTime_ != nullptr
-        && this->statementId_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->aliyunUid_ == nullptr
+        && return this->code_ == nullptr && return this->codeState_ == nullptr && return this->codeType_ == nullptr && return this->endTime_ == nullptr && return this->error_ == nullptr
+        && return this->haveRows_ == nullptr && return this->output_ == nullptr && return this->resourceGroup_ == nullptr && return this->sessionId_ == nullptr && return this->startTime_ == nullptr
+        && return this->statementId_ == nullptr && return this->totalCount_ == nullptr; };
     // aliyunUid Field Functions 
     bool hasAliyunUid() const { return this->aliyunUid_ != nullptr;};
     void deleteAliyunUid() { this->aliyunUid_ = nullptr;};

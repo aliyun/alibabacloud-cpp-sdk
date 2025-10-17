@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adviceDate_ != nullptr
-        && this->adviceIdList_ != nullptr && this->applyType_ != nullptr && this->buildImmediately_ != nullptr && this->DBClusterId_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->adviceDate_ == nullptr
+        && return this->adviceIdList_ == nullptr && return this->applyType_ == nullptr && return this->buildImmediately_ == nullptr && return this->DBClusterId_ == nullptr && return this->regionId_ == nullptr; };
     // adviceDate Field Functions 
     bool hasAdviceDate() const { return this->adviceDate_ != nullptr;};
     void deleteAdviceDate() { this->adviceDate_ = nullptr;};

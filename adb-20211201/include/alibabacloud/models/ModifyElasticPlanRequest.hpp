@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cronExpression_ != nullptr
-        && this->DBClusterId_ != nullptr && this->elasticPlanName_ != nullptr && this->endTime_ != nullptr && this->startTime_ != nullptr && this->targetSize_ != nullptr; };
+    virtual bool empty() const override { return this->cronExpression_ == nullptr
+        && return this->DBClusterId_ == nullptr && return this->elasticPlanName_ == nullptr && return this->endTime_ == nullptr && return this->startTime_ == nullptr && return this->targetSize_ == nullptr; };
     // cronExpression Field Functions 
     bool hasCronExpression() const { return this->cronExpression_ != nullptr;};
     void deleteCronExpression() { this->cronExpression_ = nullptr;};

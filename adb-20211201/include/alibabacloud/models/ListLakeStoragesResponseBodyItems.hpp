@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->creatorUid_ != nullptr && this->DBClusterId_ != nullptr && this->description_ != nullptr && this->fileSize_ != nullptr && this->lakeStorageId_ != nullptr
-        && this->operatorUid_ != nullptr && this->ownerUid_ != nullptr && this->permissions_ != nullptr && this->regionId_ != nullptr && this->tableCount_ != nullptr
-        && this->totalRows_ != nullptr && this->totalStorage_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->creatorUid_ == nullptr && return this->DBClusterId_ == nullptr && return this->description_ == nullptr && return this->fileSize_ == nullptr && return this->lakeStorageId_ == nullptr
+        && return this->operatorUid_ == nullptr && return this->ownerUid_ == nullptr && return this->permissions_ == nullptr && return this->regionId_ == nullptr && return this->tableCount_ == nullptr
+        && return this->totalRows_ == nullptr && return this->totalStorage_ == nullptr && return this->updateTime_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

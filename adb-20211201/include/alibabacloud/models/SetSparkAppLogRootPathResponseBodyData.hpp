@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->defaultLogPath_ != nullptr
-        && this->isLogPathExists_ != nullptr && this->modifiedTimestamp_ != nullptr && this->modifiedUid_ != nullptr && this->recordedLogPath_ != nullptr; };
+    virtual bool empty() const override { return this->defaultLogPath_ == nullptr
+        && return this->isLogPathExists_ == nullptr && return this->modifiedTimestamp_ == nullptr && return this->modifiedUid_ == nullptr && return this->recordedLogPath_ == nullptr; };
     // defaultLogPath Field Functions 
     bool hasDefaultLogPath() const { return this->defaultLogPath_ != nullptr;};
     void deleteDefaultLogPath() { this->defaultLogPath_ = nullptr;};

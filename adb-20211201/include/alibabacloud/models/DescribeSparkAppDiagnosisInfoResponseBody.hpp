@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessDeniedDetail_ != nullptr
-        && this->appId_ != nullptr && this->cpuUtilization_ != nullptr && this->diagnosisInfoList_ != nullptr && this->durationInMillis_ != nullptr && this->JVMGcCostInMillis_ != nullptr
-        && this->peakMemoryInByte_ != nullptr && this->requestId_ != nullptr && this->shuffleReadInByte_ != nullptr && this->shuffleWriteInByte_ != nullptr && this->spillInByte_ != nullptr
-        && this->startedTime_ != nullptr && this->state_ != nullptr; };
+    virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
+        && return this->appId_ == nullptr && return this->cpuUtilization_ == nullptr && return this->diagnosisInfoList_ == nullptr && return this->durationInMillis_ == nullptr && return this->JVMGcCostInMillis_ == nullptr
+        && return this->peakMemoryInByte_ == nullptr && return this->requestId_ == nullptr && return this->shuffleReadInByte_ == nullptr && return this->shuffleWriteInByte_ == nullptr && return this->spillInByte_ == nullptr
+        && return this->startedTime_ == nullptr && return this->state_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};

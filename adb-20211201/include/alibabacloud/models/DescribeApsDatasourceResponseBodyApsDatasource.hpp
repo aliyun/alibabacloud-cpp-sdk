@@ -55,9 +55,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->DBClusterId_ != nullptr && this->databricksInfo_ != nullptr && this->datasourceDescription_ != nullptr && this->datasourceName_ != nullptr && this->datasourceType_ != nullptr
-        && this->hiveInfo_ != nullptr && this->kafkaInfo_ != nullptr && this->polarDBMysqlInfo_ != nullptr && this->rdsMysqlInfo_ != nullptr && this->slsInfo_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->DBClusterId_ == nullptr && return this->databricksInfo_ == nullptr && return this->datasourceDescription_ == nullptr && return this->datasourceName_ == nullptr && return this->datasourceType_ == nullptr
+        && return this->hiveInfo_ == nullptr && return this->kafkaInfo_ == nullptr && return this->polarDBMysqlInfo_ == nullptr && return this->rdsMysqlInfo_ == nullptr && return this->slsInfo_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

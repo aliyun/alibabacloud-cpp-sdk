@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->clientIp_ != nullptr && this->errorMsg_ != nullptr && this->errorTrace_ != nullptr && this->executeTime_ != nullptr && this->innerQueryId_ != nullptr
-        && this->isDiagnosable_ != nullptr && this->processId_ != nullptr && this->resourceGroupName_ != nullptr && this->SQLText_ != nullptr && this->statementId_ != nullptr
-        && this->statementSource_ != nullptr && this->status_ != nullptr && this->totalTime_ != nullptr && this->user_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->clientIp_ == nullptr && return this->errorMsg_ == nullptr && return this->errorTrace_ == nullptr && return this->executeTime_ == nullptr && return this->innerQueryId_ == nullptr
+        && return this->isDiagnosable_ == nullptr && return this->processId_ == nullptr && return this->resourceGroupName_ == nullptr && return this->SQLText_ == nullptr && return this->statementId_ == nullptr
+        && return this->statementSource_ == nullptr && return this->status_ == nullptr && return this->totalTime_ == nullptr && return this->user_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};

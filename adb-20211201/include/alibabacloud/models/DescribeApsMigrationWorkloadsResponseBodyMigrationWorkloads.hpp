@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acuCount_ != nullptr
-        && this->createTime_ != nullptr && this->failedMsg_ != nullptr && this->id_ != nullptr && this->maxRT_ != nullptr && this->modifyTime_ != nullptr
-        && this->name_ != nullptr && this->ossLocation_ != nullptr && this->state_ != nullptr && this->targetType_ != nullptr && this->workloadSubType_ != nullptr; };
+    virtual bool empty() const override { return this->acuCount_ == nullptr
+        && return this->createTime_ == nullptr && return this->failedMsg_ == nullptr && return this->id_ == nullptr && return this->maxRT_ == nullptr && return this->modifyTime_ == nullptr
+        && return this->name_ == nullptr && return this->ossLocation_ == nullptr && return this->state_ == nullptr && return this->targetType_ == nullptr && return this->workloadSubType_ == nullptr; };
     // acuCount Field Functions 
     bool hasAcuCount() const { return this->acuCount_ != nullptr;};
     void deleteAcuCount() { this->acuCount_ = nullptr;};

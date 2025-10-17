@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->compressed_ != nullptr
-        && this->inputFormat_ != nullptr && this->location_ != nullptr && this->numBuckets_ != nullptr && this->outputFormat_ != nullptr && this->parameters_ != nullptr
-        && this->sdId_ != nullptr && this->serDeInfo_ != nullptr && this->storedAsSubDirectories_ != nullptr; };
+    virtual bool empty() const override { return this->compressed_ == nullptr
+        && return this->inputFormat_ == nullptr && return this->location_ == nullptr && return this->numBuckets_ == nullptr && return this->outputFormat_ == nullptr && return this->parameters_ == nullptr
+        && return this->sdId_ == nullptr && return this->serDeInfo_ == nullptr && return this->storedAsSubDirectories_ == nullptr; };
     // compressed Field Functions 
     bool hasCompressed() const { return this->compressed_ != nullptr;};
     void deleteCompressed() { this->compressed_ = nullptr;};

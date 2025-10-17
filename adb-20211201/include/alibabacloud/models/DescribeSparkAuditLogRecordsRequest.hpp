@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientIp_ != nullptr
-        && this->DBClusterId_ != nullptr && this->endTime_ != nullptr && this->order_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->processId_ != nullptr && this->proxyUser_ != nullptr && this->regionId_ != nullptr
-        && this->resourceGroupName_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->SQLText_ != nullptr && this->startTime_ != nullptr
-        && this->statementId_ != nullptr && this->statementSource_ != nullptr && this->status_ != nullptr && this->totalTime_ != nullptr && this->user_ != nullptr; };
+    virtual bool empty() const override { return this->clientIp_ == nullptr
+        && return this->DBClusterId_ == nullptr && return this->endTime_ == nullptr && return this->order_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->processId_ == nullptr && return this->proxyUser_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceGroupName_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->SQLText_ == nullptr && return this->startTime_ == nullptr
+        && return this->statementId_ == nullptr && return this->statementSource_ == nullptr && return this->status_ == nullptr && return this->totalTime_ == nullptr && return this->user_ == nullptr; };
     // clientIp Field Functions 
     bool hasClientIp() const { return this->clientIp_ != nullptr;};
     void deleteClientIp() { this->clientIp_ = nullptr;};

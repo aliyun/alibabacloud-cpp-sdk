@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appType_ != nullptr
-        && this->DBClusterId_ != nullptr && this->data_ != nullptr && this->durationInMillis_ != nullptr && this->estimateExecutionCpuTimeInSeconds_ != nullptr && this->executionDurationInMillis_ != nullptr
-        && this->lastAttemptId_ != nullptr && this->lastUpdatedTimeInMillis_ != nullptr && this->logRootPath_ != nullptr && this->resourceGroupName_ != nullptr && this->resourceProvisioningDurationInMillis_ != nullptr
-        && this->runningStartTimeInMillis_ != nullptr && this->startedTimeInMillis_ != nullptr && this->submittedTimeInMillis_ != nullptr && this->terminatedTimeInMillis_ != nullptr && this->webUiAddress_ != nullptr; };
+    virtual bool empty() const override { return this->appType_ == nullptr
+        && return this->DBClusterId_ == nullptr && return this->data_ == nullptr && return this->durationInMillis_ == nullptr && return this->estimateExecutionCpuTimeInSeconds_ == nullptr && return this->executionDurationInMillis_ == nullptr
+        && return this->lastAttemptId_ == nullptr && return this->lastUpdatedTimeInMillis_ == nullptr && return this->logRootPath_ == nullptr && return this->resourceGroupName_ == nullptr && return this->resourceProvisioningDurationInMillis_ == nullptr
+        && return this->runningStartTimeInMillis_ == nullptr && return this->startedTimeInMillis_ == nullptr && return this->submittedTimeInMillis_ == nullptr && return this->terminatedTimeInMillis_ == nullptr && return this->webUiAddress_ == nullptr; };
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};

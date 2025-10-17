@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->outputRowsCount_ != nullptr
-        && this->totalReadFileSizeInByte_ != nullptr; };
+    virtual bool empty() const override { return this->outputRowsCount_ == nullptr
+        && return this->totalReadFileSizeInByte_ == nullptr; };
     // outputRowsCount Field Functions 
     bool hasOutputRowsCount() const { return this->outputRowsCount_ != nullptr;};
     void deleteOutputRowsCount() { this->outputRowsCount_ = nullptr;};

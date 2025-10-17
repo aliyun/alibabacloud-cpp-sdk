@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliUid_ != nullptr
-        && this->createTime_ != nullptr && this->DBClusterId_ != nullptr && this->databaseUser_ != nullptr && this->endTime_ != nullptr && this->engine_ != nullptr
-        && this->exportJobId_ != nullptr && this->exportPath_ != nullptr && this->exportRows_ != nullptr && this->exportType_ != nullptr && this->isExpired_ != nullptr
-        && this->message_ != nullptr && this->processId_ != nullptr && this->progress_ != nullptr && this->resourceGroup_ != nullptr && this->schema_ != nullptr
-        && this->sql_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->timeCost_ != nullptr; };
+    virtual bool empty() const override { return this->aliUid_ == nullptr
+        && return this->createTime_ == nullptr && return this->DBClusterId_ == nullptr && return this->databaseUser_ == nullptr && return this->endTime_ == nullptr && return this->engine_ == nullptr
+        && return this->exportJobId_ == nullptr && return this->exportPath_ == nullptr && return this->exportRows_ == nullptr && return this->exportType_ == nullptr && return this->isExpired_ == nullptr
+        && return this->message_ == nullptr && return this->processId_ == nullptr && return this->progress_ == nullptr && return this->resourceGroup_ == nullptr && return this->schema_ == nullptr
+        && return this->sql_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->timeCost_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};

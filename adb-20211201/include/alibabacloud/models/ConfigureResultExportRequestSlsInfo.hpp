@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->logstoreTtl_ != nullptr
-        && this->resourceGroup_ != nullptr && this->slsProject_ != nullptr; };
+    virtual bool empty() const override { return this->logstoreTtl_ == nullptr
+        && return this->resourceGroup_ == nullptr && return this->slsProject_ == nullptr; };
     // logstoreTtl Field Functions 
     bool hasLogstoreTtl() const { return this->logstoreTtl_ != nullptr;};
     void deleteLogstoreTtl() { this->logstoreTtl_ = nullptr;};

@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adviceId_ != nullptr
-        && this->benefit_ != nullptr && this->buildSQL_ != nullptr && this->indexFields_ != nullptr && this->jobStatus_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->rollbackSQL_ != nullptr && this->SQL_ != nullptr && this->schemaName_ != nullptr && this->submitStatus_ != nullptr
-        && this->submitTime_ != nullptr && this->tableName_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->adviceId_ == nullptr
+        && return this->benefit_ == nullptr && return this->buildSQL_ == nullptr && return this->indexFields_ == nullptr && return this->jobStatus_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->rollbackSQL_ == nullptr && return this->SQL_ == nullptr && return this->schemaName_ == nullptr && return this->submitStatus_ == nullptr
+        && return this->submitTime_ == nullptr && return this->tableName_ == nullptr && return this->totalCount_ == nullptr; };
     // adviceId Field Functions 
     bool hasAdviceId() const { return this->adviceId_ != nullptr;};
     void deleteAdviceId() { this->adviceId_ = nullptr;};

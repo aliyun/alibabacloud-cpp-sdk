@@ -367,6 +367,23 @@ namespace Adb20211201
       Models::CreateApsSlsADBJobResponse createApsSlsADBJob(const Models::CreateApsSlsADBJobRequest &request);
 
       /**
+       * @summary CreateApsWebhook
+       *
+       * @param tmpReq CreateApsWebhookRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateApsWebhookResponse
+       */
+      Models::CreateApsWebhookResponse createApsWebhookWithOptions(const Models::CreateApsWebhookRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary CreateApsWebhook
+       *
+       * @param request CreateApsWebhookRequest
+       * @return CreateApsWebhookResponse
+       */
+      Models::CreateApsWebhookResponse createApsWebhook(const Models::CreateApsWebhookRequest &request);
+
+      /**
        * @summary 手动创建备份集
        *
        * @param request CreateBackupRequest
@@ -462,6 +479,23 @@ namespace Adb20211201
        * @return CreateLakeStorageResponse
        */
       Models::CreateLakeStorageResponse createLakeStorage(const Models::CreateLakeStorageRequest &request);
+
+      /**
+       * @summary 创建物化视图自动推荐任务
+       *
+       * @param request CreateMaterializedViewRecommendRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMaterializedViewRecommendResponse
+       */
+      Models::CreateMaterializedViewRecommendResponse createMaterializedViewRecommendWithOptions(const Models::CreateMaterializedViewRecommendRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建物化视图自动推荐任务
+       *
+       * @param request CreateMaterializedViewRecommendRequest
+       * @return CreateMaterializedViewRecommendResponse
+       */
+      Models::CreateMaterializedViewRecommendResponse createMaterializedViewRecommend(const Models::CreateMaterializedViewRecommendRequest &request);
 
       /**
        * @summary Creates an Object Storage Service (OSS) subdirectory.
@@ -596,6 +630,23 @@ namespace Adb20211201
        * @return DeleteApsJobResponse
        */
       Models::DeleteApsJobResponse deleteApsJob(const Models::DeleteApsJobRequest &request);
+
+      /**
+       * @summary DeleteApsWebhook
+       *
+       * @param request DeleteApsWebhookRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteApsWebhookResponse
+       */
+      Models::DeleteApsWebhookResponse deleteApsWebhookWithOptions(const Models::DeleteApsWebhookRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DeleteApsWebhook
+       *
+       * @param request DeleteApsWebhookRequest
+       * @return DeleteApsWebhookResponse
+       */
+      Models::DeleteApsWebhookResponse deleteApsWebhook(const Models::DeleteApsWebhookRequest &request);
 
       /**
        * @summary Manually deletes backup sets.
@@ -3546,6 +3597,23 @@ namespace Adb20211201
       Models::ListApsOptimizationTasksResponse listApsOptimizationTasks(const Models::ListApsOptimizationTasksRequest &request);
 
       /**
+       * @summary ListApsWebhook
+       *
+       * @param request ListApsWebhookRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListApsWebhookResponse
+       */
+      Models::ListApsWebhookResponse listApsWebhookWithOptions(const Models::ListApsWebhookRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListApsWebhook
+       *
+       * @param request ListApsWebhookRequest
+       * @return ListApsWebhookResponse
+       */
+      Models::ListApsWebhookResponse listApsWebhook(const Models::ListApsWebhookRequest &request);
+
+      /**
        * @summary Queries a list of lake storages.
        *
        * @param request ListLakeStoragesRequest
@@ -4173,6 +4241,40 @@ namespace Adb20211201
       Models::ModifyLakeCacheSizeResponse modifyLakeCacheSize(const Models::ModifyLakeCacheSizeRequest &request);
 
       /**
+       * @summary 修改物化视图
+       *
+       * @param request ModifyMaterializedViewRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyMaterializedViewResponse
+       */
+      Models::ModifyMaterializedViewResponse modifyMaterializedViewWithOptions(const Models::ModifyMaterializedViewRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改物化视图
+       *
+       * @param request ModifyMaterializedViewRequest
+       * @return ModifyMaterializedViewResponse
+       */
+      Models::ModifyMaterializedViewResponse modifyMaterializedView(const Models::ModifyMaterializedViewRequest &request);
+
+      /**
+       * @summary 修改物化视图自动推荐任务
+       *
+       * @param request ModifyMaterializedViewRecommendRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyMaterializedViewRecommendResponse
+       */
+      Models::ModifyMaterializedViewRecommendResponse modifyMaterializedViewRecommendWithOptions(const Models::ModifyMaterializedViewRecommendRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改物化视图自动推荐任务
+       *
+       * @param request ModifyMaterializedViewRecommendRequest
+       * @return ModifyMaterializedViewRecommendResponse
+       */
+      Models::ModifyMaterializedViewRecommendResponse modifyMaterializedViewRecommend(const Models::ModifyMaterializedViewRecommendRequest &request);
+
+      /**
        * @summary Modifies the information about a custom monitoring view.
        *
        * @param tmpReq ModifyPerformanceViewRequest
@@ -4520,6 +4622,23 @@ namespace Adb20211201
        * @return UnbindDBResourceGroupWithUserResponse
        */
       Models::UnbindDBResourceGroupWithUserResponse unbindDBResourceGroupWithUser(const Models::UnbindDBResourceGroupWithUserRequest &request);
+
+      /**
+       * @summary UpdateApsWebhook
+       *
+       * @param tmpReq UpdateApsWebhookRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateApsWebhookResponse
+       */
+      Models::UpdateApsWebhookResponse updateApsWebhookWithOptions(const Models::UpdateApsWebhookRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary UpdateApsWebhook
+       *
+       * @param request UpdateApsWebhookRequest
+       * @return UpdateApsWebhookResponse
+       */
+      Models::UpdateApsWebhookResponse updateApsWebhook(const Models::UpdateApsWebhookRequest &request);
 
       /**
        * @summary Updates a lake storage.

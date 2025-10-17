@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->avgValue_ != nullptr
-        && this->maxValue_ != nullptr && this->operatorCount_ != nullptr && this->operatorName_ != nullptr && this->totalValue_ != nullptr; };
+    virtual bool empty() const override { return this->avgValue_ == nullptr
+        && return this->maxValue_ == nullptr && return this->operatorCount_ == nullptr && return this->operatorName_ == nullptr && return this->totalValue_ == nullptr; };
     // avgValue Field Functions 
     bool hasAvgValue() const { return this->avgValue_ != nullptr;};
     void deleteAvgValue() { this->avgValue_ = nullptr;};

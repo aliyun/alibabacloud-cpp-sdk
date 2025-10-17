@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->DBClusterId_ != nullptr
-        && this->result_ != nullptr && this->ruleMatched_ != nullptr && this->startedTimeInMillis_ != nullptr && this->submittedTimeInMillis_ != nullptr && this->taskErrMsg_ != nullptr
-        && this->taskId_ != nullptr && this->taskState_ != nullptr && this->terminatedTimeInMillis_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->DBClusterId_ == nullptr
+        && return this->result_ == nullptr && return this->ruleMatched_ == nullptr && return this->startedTimeInMillis_ == nullptr && return this->submittedTimeInMillis_ == nullptr && return this->taskErrMsg_ == nullptr
+        && return this->taskId_ == nullptr && return this->taskState_ == nullptr && return this->terminatedTimeInMillis_ == nullptr && return this->userId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};

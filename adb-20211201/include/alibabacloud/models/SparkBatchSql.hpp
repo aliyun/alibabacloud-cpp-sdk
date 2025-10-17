@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->DBClusterId_ != nullptr
-        && this->errMessage_ != nullptr && this->query_ != nullptr && this->queryEndTime_ != nullptr && this->queryId_ != nullptr && this->queryStartTime_ != nullptr
-        && this->queryState_ != nullptr && this->querySubmissionTime_ != nullptr && this->resourceGroupName_ != nullptr && this->schema_ != nullptr && this->statements_ != nullptr
-        && this->uid_ != nullptr; };
+    virtual bool empty() const override { return this->DBClusterId_ == nullptr
+        && return this->errMessage_ == nullptr && return this->query_ == nullptr && return this->queryEndTime_ == nullptr && return this->queryId_ == nullptr && return this->queryStartTime_ == nullptr
+        && return this->queryState_ == nullptr && return this->querySubmissionTime_ == nullptr && return this->resourceGroupName_ == nullptr && return this->schema_ == nullptr && return this->statements_ == nullptr
+        && return this->uid_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};

@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientIp_ != nullptr
-        && this->DBClusterId_ != nullptr && this->database_ != nullptr && this->endTime_ != nullptr && this->keyword_ != nullptr && this->lang_ != nullptr
-        && this->maxPeakMemory_ != nullptr && this->maxScanSize_ != nullptr && this->minPeakMemory_ != nullptr && this->minScanSize_ != nullptr && this->order_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->patternId_ != nullptr && this->queryCondition_ != nullptr && this->regionId_ != nullptr
-        && this->resourceGroup_ != nullptr && this->startTime_ != nullptr && this->userName_ != nullptr; };
+    virtual bool empty() const override { return this->clientIp_ == nullptr
+        && return this->DBClusterId_ == nullptr && return this->database_ == nullptr && return this->endTime_ == nullptr && return this->keyword_ == nullptr && return this->lang_ == nullptr
+        && return this->maxPeakMemory_ == nullptr && return this->maxScanSize_ == nullptr && return this->minPeakMemory_ == nullptr && return this->minScanSize_ == nullptr && return this->order_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->patternId_ == nullptr && return this->queryCondition_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceGroup_ == nullptr && return this->startTime_ == nullptr && return this->userName_ == nullptr; };
     // clientIp Field Functions 
     bool hasClientIp() const { return this->clientIp_ != nullptr;};
     void deleteClientIp() { this->clientIp_ = nullptr;};

@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->columnName_ != nullptr
-        && this->createTime_ != nullptr && this->description_ != nullptr && this->distributeKey_ != nullptr && this->nullable_ != nullptr && this->partitionKey_ != nullptr
-        && this->primaryKey_ != nullptr && this->schemaName_ != nullptr && this->tableName_ != nullptr && this->type_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->columnName_ == nullptr
+        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->distributeKey_ == nullptr && return this->nullable_ == nullptr && return this->partitionKey_ == nullptr
+        && return this->primaryKey_ == nullptr && return this->schemaName_ == nullptr && return this->tableName_ == nullptr && return this->type_ == nullptr && return this->updateTime_ == nullptr; };
     // columnName Field Functions 
     bool hasColumnName() const { return this->columnName_ != nullptr;};
     void deleteColumnName() { this->columnName_ = nullptr;};

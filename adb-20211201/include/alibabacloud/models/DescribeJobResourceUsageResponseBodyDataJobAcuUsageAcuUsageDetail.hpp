@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->elasticAcuNumber_ != nullptr
-        && this->reservedAcuNumber_ != nullptr && this->spotAcuNumber_ != nullptr && this->spotAcuPercentage_ != nullptr && this->totalAcuNumber_ != nullptr; };
+    virtual bool empty() const override { return this->elasticAcuNumber_ == nullptr
+        && return this->reservedAcuNumber_ == nullptr && return this->spotAcuNumber_ == nullptr && return this->spotAcuPercentage_ == nullptr && return this->totalAcuNumber_ == nullptr; };
     // elasticAcuNumber Field Functions 
     bool hasElasticAcuNumber() const { return this->elasticAcuNumber_ != nullptr;};
     void deleteElasticAcuNumber() { this->elasticAcuNumber_ = nullptr;};

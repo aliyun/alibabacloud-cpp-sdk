@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->columnOrds_ != nullptr
-        && this->createTime_ != nullptr && this->databaseName_ != nullptr && this->indexColumns_ != nullptr && this->indexName_ != nullptr && this->indexType_ != nullptr
-        && this->options_ != nullptr && this->physicalTableName_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->columnOrds_ == nullptr
+        && return this->createTime_ == nullptr && return this->databaseName_ == nullptr && return this->indexColumns_ == nullptr && return this->indexName_ == nullptr && return this->indexType_ == nullptr
+        && return this->options_ == nullptr && return this->physicalTableName_ == nullptr && return this->updateTime_ == nullptr; };
     // columnOrds Field Functions 
     bool hasColumnOrds() const { return this->columnOrds_ != nullptr;};
     void deleteColumnOrds() { this->columnOrds_ = nullptr;};

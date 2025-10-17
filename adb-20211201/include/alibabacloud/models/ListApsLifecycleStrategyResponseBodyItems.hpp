@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apsJobId_ != nullptr
-        && this->createdTime_ != nullptr && this->DBClusterId_ != nullptr && this->modifiedTime_ != nullptr && this->operationTables_ != nullptr && this->status_ != nullptr
-        && this->strategyDatabases_ != nullptr && this->strategyDesc_ != nullptr && this->strategyName_ != nullptr && this->strategyTables_ != nullptr && this->strategyType_ != nullptr
-        && this->strategyValue_ != nullptr; };
+    virtual bool empty() const override { return this->apsJobId_ == nullptr
+        && return this->createdTime_ == nullptr && return this->DBClusterId_ == nullptr && return this->modifiedTime_ == nullptr && return this->operationTables_ == nullptr && return this->status_ == nullptr
+        && return this->strategyDatabases_ == nullptr && return this->strategyDesc_ == nullptr && return this->strategyName_ == nullptr && return this->strategyTables_ == nullptr && return this->strategyType_ == nullptr
+        && return this->strategyValue_ == nullptr; };
     // apsJobId Field Functions 
     bool hasApsJobId() const { return this->apsJobId_ != nullptr;};
     void deleteApsJobId() { this->apsJobId_ = nullptr;};

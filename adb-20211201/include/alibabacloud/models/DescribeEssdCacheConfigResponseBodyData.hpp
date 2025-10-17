@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableEssdCache_ != nullptr
-        && this->essdCacheSize_ != nullptr; };
+    virtual bool empty() const override { return this->enableEssdCache_ == nullptr
+        && return this->essdCacheSize_ == nullptr; };
     // enableEssdCache Field Functions 
     bool hasEnableEssdCache() const { return this->enableEssdCache_ != nullptr;};
     void deleteEnableEssdCache() { this->enableEssdCache_ = nullptr;};

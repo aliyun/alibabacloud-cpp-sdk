@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentSource_ != nullptr
-        && this->agentVersion_ != nullptr && this->appName_ != nullptr && this->appType_ != nullptr && this->DBClusterId_ != nullptr && this->data_ != nullptr
-        && this->resourceGroupName_ != nullptr && this->templateFileId_ != nullptr; };
+    virtual bool empty() const override { return this->agentSource_ == nullptr
+        && return this->agentVersion_ == nullptr && return this->appName_ == nullptr && return this->appType_ == nullptr && return this->DBClusterId_ == nullptr && return this->data_ == nullptr
+        && return this->resourceGroupName_ == nullptr && return this->templateFileId_ == nullptr; };
     // agentSource Field Functions 
     bool hasAgentSource() const { return this->agentSource_ != nullptr;};
     void deleteAgentSource() { this->agentSource_ = nullptr;};

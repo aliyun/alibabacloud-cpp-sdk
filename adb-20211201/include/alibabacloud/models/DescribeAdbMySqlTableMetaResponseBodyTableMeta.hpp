@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->distributeColumn_ != nullptr && this->distributeType_ != nullptr && this->isAllIndex_ != nullptr && this->isDictEncode_ != nullptr && this->isFullTextDict_ != nullptr
-        && this->isHidden_ != nullptr && this->partitionColumn_ != nullptr && this->partitionType_ != nullptr && this->primaryKeyColumn_ != nullptr && this->tableEngine_ != nullptr
-        && this->tableName_ != nullptr && this->tableSchema_ != nullptr && this->tableType_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->distributeColumn_ == nullptr && return this->distributeType_ == nullptr && return this->isAllIndex_ == nullptr && return this->isDictEncode_ == nullptr && return this->isFullTextDict_ == nullptr
+        && return this->isHidden_ == nullptr && return this->partitionColumn_ == nullptr && return this->partitionType_ == nullptr && return this->primaryKeyColumn_ == nullptr && return this->tableEngine_ == nullptr
+        && return this->tableName_ == nullptr && return this->tableSchema_ == nullptr && return this->tableType_ == nullptr && return this->updateTime_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

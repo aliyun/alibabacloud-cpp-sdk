@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableCompactionService_ != nullptr; };
+    virtual bool empty() const override { return this->enableCompactionService_ == nullptr; };
     // enableCompactionService Field Functions 
     bool hasEnableCompactionService() const { return this->enableCompactionService_ != nullptr;};
     void deleteEnableCompactionService() { this->enableCompactionService_ = nullptr;};
