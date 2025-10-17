@@ -16,11 +16,13 @@ namespace Models
   class DescribeDesktopSessionsResponseBodySessions : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeDesktopSessionsResponseBodySessions& obj) { 
+      DARABONBA_PTR_TO_JSON(AccountType, accountType_);
       DARABONBA_PTR_TO_JSON(ClientIp, clientIp_);
       DARABONBA_PTR_TO_JSON(ClientOS, clientOS_);
       DARABONBA_PTR_TO_JSON(ClientVersion, clientVersion_);
       DARABONBA_PTR_TO_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_TO_JSON(DesktopName, desktopName_);
+      DARABONBA_PTR_TO_JSON(DirectoryType, directoryType_);
       DARABONBA_PTR_TO_JSON(EndUserApplyCoordinateTime, endUserApplyCoordinateTime_);
       DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
       DARABONBA_PTR_TO_JSON(LatestConnectionTime, latestConnectionTime_);
@@ -39,11 +41,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TotalConnectionTime, totalConnectionTime_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDesktopSessionsResponseBodySessions& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccountType, accountType_);
       DARABONBA_PTR_FROM_JSON(ClientIp, clientIp_);
       DARABONBA_PTR_FROM_JSON(ClientOS, clientOS_);
       DARABONBA_PTR_FROM_JSON(ClientVersion, clientVersion_);
       DARABONBA_PTR_FROM_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_FROM_JSON(DesktopName, desktopName_);
+      DARABONBA_PTR_FROM_JSON(DirectoryType, directoryType_);
       DARABONBA_PTR_FROM_JSON(EndUserApplyCoordinateTime, endUserApplyCoordinateTime_);
       DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
       DARABONBA_PTR_FROM_JSON(LatestConnectionTime, latestConnectionTime_);
@@ -72,11 +76,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->clientIp_ == nullptr
-        && return this->clientOS_ == nullptr && return this->clientVersion_ == nullptr && return this->desktopId_ == nullptr && return this->desktopName_ == nullptr && return this->endUserApplyCoordinateTime_ == nullptr
-        && return this->endUserId_ == nullptr && return this->latestConnectionTime_ == nullptr && return this->officeSiteId_ == nullptr && return this->officeSiteName_ == nullptr && return this->osSessionStatus_ == nullptr
-        && return this->osType_ == nullptr && return this->protocolType_ == nullptr && return this->resourceGroups_ == nullptr && return this->sessionEndTime_ == nullptr && return this->sessionIdleTime_ == nullptr
-        && return this->sessionStartTime_ == nullptr && return this->sessionStatus_ == nullptr && return this->subPayType_ == nullptr && return this->terminalInfo_ == nullptr && return this->totalConnectionTime_ == nullptr; };
+    virtual bool empty() const override { return this->accountType_ == nullptr
+        && return this->clientIp_ == nullptr && return this->clientOS_ == nullptr && return this->clientVersion_ == nullptr && return this->desktopId_ == nullptr && return this->desktopName_ == nullptr
+        && return this->directoryType_ == nullptr && return this->endUserApplyCoordinateTime_ == nullptr && return this->endUserId_ == nullptr && return this->latestConnectionTime_ == nullptr && return this->officeSiteId_ == nullptr
+        && return this->officeSiteName_ == nullptr && return this->osSessionStatus_ == nullptr && return this->osType_ == nullptr && return this->protocolType_ == nullptr && return this->resourceGroups_ == nullptr
+        && return this->sessionEndTime_ == nullptr && return this->sessionIdleTime_ == nullptr && return this->sessionStartTime_ == nullptr && return this->sessionStatus_ == nullptr && return this->subPayType_ == nullptr
+        && return this->terminalInfo_ == nullptr && return this->totalConnectionTime_ == nullptr; };
+    // accountType Field Functions 
+    bool hasAccountType() const { return this->accountType_ != nullptr;};
+    void deleteAccountType() { this->accountType_ = nullptr;};
+    inline string accountType() const { DARABONBA_PTR_GET_DEFAULT(accountType_, "") };
+    inline DescribeDesktopSessionsResponseBodySessions& setAccountType(string accountType) { DARABONBA_PTR_SET_VALUE(accountType_, accountType) };
+
+
     // clientIp Field Functions 
     bool hasClientIp() const { return this->clientIp_ != nullptr;};
     void deleteClientIp() { this->clientIp_ = nullptr;};
@@ -110,6 +122,13 @@ namespace Models
     void deleteDesktopName() { this->desktopName_ = nullptr;};
     inline string desktopName() const { DARABONBA_PTR_GET_DEFAULT(desktopName_, "") };
     inline DescribeDesktopSessionsResponseBodySessions& setDesktopName(string desktopName) { DARABONBA_PTR_SET_VALUE(desktopName_, desktopName) };
+
+
+    // directoryType Field Functions 
+    bool hasDirectoryType() const { return this->directoryType_ != nullptr;};
+    void deleteDirectoryType() { this->directoryType_ = nullptr;};
+    inline string directoryType() const { DARABONBA_PTR_GET_DEFAULT(directoryType_, "") };
+    inline DescribeDesktopSessionsResponseBodySessions& setDirectoryType(string directoryType) { DARABONBA_PTR_SET_VALUE(directoryType_, directoryType) };
 
 
     // endUserApplyCoordinateTime Field Functions 
@@ -229,6 +248,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> accountType_ = nullptr;
     // The IP address of the client.
     std::shared_ptr<string> clientIp_ = nullptr;
     // The client OS.
@@ -239,6 +259,7 @@ namespace Models
     std::shared_ptr<string> desktopId_ = nullptr;
     // The name of the cloud computer.
     std::shared_ptr<string> desktopName_ = nullptr;
+    std::shared_ptr<string> directoryType_ = nullptr;
     // The duration of the remote assistance. Unit: seconds.
     std::shared_ptr<int64_t> endUserApplyCoordinateTime_ = nullptr;
     // The ID of the end user.
