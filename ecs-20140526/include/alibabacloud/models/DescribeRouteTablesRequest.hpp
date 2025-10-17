@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ownerAccount_ != nullptr
-        && this->ownerId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->routeTableId_ != nullptr && this->routeTableName_ != nullptr && this->routerId_ != nullptr && this->routerType_ != nullptr
-        && this->VRouterId_ != nullptr; };
+    virtual bool empty() const override { return this->ownerAccount_ == nullptr
+        && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->routeTableId_ == nullptr && return this->routeTableName_ == nullptr && return this->routerId_ == nullptr && return this->routerType_ == nullptr
+        && return this->VRouterId_ == nullptr; };
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};

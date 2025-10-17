@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->natIpAddress_ != nullptr
-        && this->privateIpAddress_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->natIpAddress_ == nullptr
+        && return this->privateIpAddress_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr; };
     // natIpAddress Field Functions 
     bool hasNatIpAddress() const { return this->natIpAddress_ != nullptr;};
     void deleteNatIpAddress() { this->natIpAddress_ = nullptr;};

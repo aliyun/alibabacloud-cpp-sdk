@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ddh_ != nullptr
-        && this->disk_ != nullptr && this->eni_ != nullptr && this->image_ != nullptr && this->instance_ != nullptr && this->keyPair_ != nullptr
-        && this->launchTemplate_ != nullptr && this->reservedInstance_ != nullptr && this->securitygroup_ != nullptr && this->snapshot_ != nullptr && this->snapshotPolicy_ != nullptr
-        && this->volume_ != nullptr; };
+    virtual bool empty() const override { return this->ddh_ == nullptr
+        && return this->disk_ == nullptr && return this->eni_ == nullptr && return this->image_ == nullptr && return this->instance_ == nullptr && return this->keyPair_ == nullptr
+        && return this->launchTemplate_ == nullptr && return this->reservedInstance_ == nullptr && return this->securitygroup_ == nullptr && return this->snapshot_ == nullptr && return this->snapshotPolicy_ == nullptr
+        && return this->volume_ == nullptr; };
     // ddh Field Functions 
     bool hasDdh() const { return this->ddh_ != nullptr;};
     void deleteDdh() { this->ddh_ = nullptr;};

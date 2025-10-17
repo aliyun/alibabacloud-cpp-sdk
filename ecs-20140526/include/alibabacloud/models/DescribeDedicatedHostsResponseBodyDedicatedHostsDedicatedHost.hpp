@@ -103,14 +103,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->schedulerOptions_ != nullptr
-        && this->actionOnMaintenance_ != nullptr && this->autoPlacement_ != nullptr && this->autoReleaseTime_ != nullptr && this->capacity_ != nullptr && this->chargeType_ != nullptr
-        && this->cores_ != nullptr && this->cpuOverCommitRatio_ != nullptr && this->creationTime_ != nullptr && this->dedicatedHostClusterId_ != nullptr && this->dedicatedHostId_ != nullptr
-        && this->dedicatedHostName_ != nullptr && this->dedicatedHostOwnerId_ != nullptr && this->dedicatedHostType_ != nullptr && this->description_ != nullptr && this->expiredTime_ != nullptr
-        && this->GPUSpec_ != nullptr && this->hostDetailInfo_ != nullptr && this->instances_ != nullptr && this->machineId_ != nullptr && this->networkAttributes_ != nullptr
-        && this->operationLocks_ != nullptr && this->physicalGpus_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->saleCycle_ != nullptr
-        && this->sockets_ != nullptr && this->status_ != nullptr && this->supportedCustomInstanceTypeFamilies_ != nullptr && this->supportedInstanceTypeFamilies_ != nullptr && this->supportedInstanceTypesList_ != nullptr
-        && this->tags_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->schedulerOptions_ == nullptr
+        && return this->actionOnMaintenance_ == nullptr && return this->autoPlacement_ == nullptr && return this->autoReleaseTime_ == nullptr && return this->capacity_ == nullptr && return this->chargeType_ == nullptr
+        && return this->cores_ == nullptr && return this->cpuOverCommitRatio_ == nullptr && return this->creationTime_ == nullptr && return this->dedicatedHostClusterId_ == nullptr && return this->dedicatedHostId_ == nullptr
+        && return this->dedicatedHostName_ == nullptr && return this->dedicatedHostOwnerId_ == nullptr && return this->dedicatedHostType_ == nullptr && return this->description_ == nullptr && return this->expiredTime_ == nullptr
+        && return this->GPUSpec_ == nullptr && return this->hostDetailInfo_ == nullptr && return this->instances_ == nullptr && return this->machineId_ == nullptr && return this->networkAttributes_ == nullptr
+        && return this->operationLocks_ == nullptr && return this->physicalGpus_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->saleCycle_ == nullptr
+        && return this->sockets_ == nullptr && return this->status_ == nullptr && return this->supportedCustomInstanceTypeFamilies_ == nullptr && return this->supportedInstanceTypeFamilies_ == nullptr && return this->supportedInstanceTypesList_ == nullptr
+        && return this->tags_ == nullptr && return this->zoneId_ == nullptr; };
     // schedulerOptions Field Functions 
     bool hasSchedulerOptions() const { return this->schedulerOptions_ != nullptr;};
     void deleteSchedulerOptions() { this->schedulerOptions_ = nullptr;};

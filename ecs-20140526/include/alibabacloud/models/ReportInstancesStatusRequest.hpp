@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->description_ != nullptr
-        && this->device_ != nullptr && this->diskId_ != nullptr && this->endTime_ != nullptr && this->instanceId_ != nullptr && this->issueCategory_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->reason_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && return this->device_ == nullptr && return this->diskId_ == nullptr && return this->endTime_ == nullptr && return this->instanceId_ == nullptr && return this->issueCategory_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->reason_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->startTime_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};

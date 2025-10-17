@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentUpgradeConfigShrink_ != nullptr
-        && this->ossDeliveryConfigShrink_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->sessionManagerConfigShrink_ != nullptr && this->settingType_ != nullptr && this->slsDeliveryConfigShrink_ != nullptr; };
+    virtual bool empty() const override { return this->agentUpgradeConfigShrink_ == nullptr
+        && return this->ossDeliveryConfigShrink_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->sessionManagerConfigShrink_ == nullptr && return this->settingType_ == nullptr && return this->slsDeliveryConfigShrink_ == nullptr; };
     // agentUpgradeConfigShrink Field Functions 
     bool hasAgentUpgradeConfigShrink() const { return this->agentUpgradeConfigShrink_ != nullptr;};
     void deleteAgentUpgradeConfigShrink() { this->agentUpgradeConfigShrink_ = nullptr;};

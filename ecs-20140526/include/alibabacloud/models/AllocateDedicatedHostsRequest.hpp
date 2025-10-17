@@ -80,12 +80,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->networkAttributes_ != nullptr
-        && this->actionOnMaintenance_ != nullptr && this->autoPlacement_ != nullptr && this->autoReleaseTime_ != nullptr && this->autoRenew_ != nullptr && this->autoRenewPeriod_ != nullptr
-        && this->chargeType_ != nullptr && this->clientToken_ != nullptr && this->cpuOverCommitRatio_ != nullptr && this->dedicatedHostClusterId_ != nullptr && this->dedicatedHostName_ != nullptr
-        && this->dedicatedHostType_ != nullptr && this->description_ != nullptr && this->minQuantity_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->period_ != nullptr && this->periodUnit_ != nullptr && this->quantity_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->tag_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->networkAttributes_ == nullptr
+        && return this->actionOnMaintenance_ == nullptr && return this->autoPlacement_ == nullptr && return this->autoReleaseTime_ == nullptr && return this->autoRenew_ == nullptr && return this->autoRenewPeriod_ == nullptr
+        && return this->chargeType_ == nullptr && return this->clientToken_ == nullptr && return this->cpuOverCommitRatio_ == nullptr && return this->dedicatedHostClusterId_ == nullptr && return this->dedicatedHostName_ == nullptr
+        && return this->dedicatedHostType_ == nullptr && return this->description_ == nullptr && return this->minQuantity_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->quantity_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->tag_ == nullptr && return this->zoneId_ == nullptr; };
     // networkAttributes Field Functions 
     bool hasNetworkAttributes() const { return this->networkAttributes_ != nullptr;};
     void deleteNetworkAttributes() { this->networkAttributes_ = nullptr;};

@@ -86,13 +86,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->available_ != nullptr
-        && this->category_ != nullptr && this->creationTime_ != nullptr && this->description_ != nullptr && this->encrypted_ != nullptr && this->instantAccess_ != nullptr
-        && this->instantAccessRetentionDays_ != nullptr && this->KMSKeyId_ != nullptr && this->lastModifiedTime_ != nullptr && this->productCode_ != nullptr && this->progress_ != nullptr
-        && this->regionId_ != nullptr && this->remainTime_ != nullptr && this->resourceGroupId_ != nullptr && this->retentionDays_ != nullptr && this->snapshotId_ != nullptr
-        && this->snapshotLinkId_ != nullptr && this->snapshotName_ != nullptr && this->snapshotSN_ != nullptr && this->snapshotType_ != nullptr && this->sourceDiskId_ != nullptr
-        && this->sourceDiskSize_ != nullptr && this->sourceDiskType_ != nullptr && this->sourceRegionId_ != nullptr && this->sourceSnapshotId_ != nullptr && this->sourceStorageType_ != nullptr
-        && this->status_ != nullptr && this->tags_ != nullptr && this->usage_ != nullptr; };
+    virtual bool empty() const override { return this->available_ == nullptr
+        && return this->category_ == nullptr && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->encrypted_ == nullptr && return this->instantAccess_ == nullptr
+        && return this->instantAccessRetentionDays_ == nullptr && return this->KMSKeyId_ == nullptr && return this->lastModifiedTime_ == nullptr && return this->productCode_ == nullptr && return this->progress_ == nullptr
+        && return this->regionId_ == nullptr && return this->remainTime_ == nullptr && return this->resourceGroupId_ == nullptr && return this->retentionDays_ == nullptr && return this->snapshotId_ == nullptr
+        && return this->snapshotLinkId_ == nullptr && return this->snapshotName_ == nullptr && return this->snapshotSN_ == nullptr && return this->snapshotType_ == nullptr && return this->sourceDiskId_ == nullptr
+        && return this->sourceDiskSize_ == nullptr && return this->sourceDiskType_ == nullptr && return this->sourceRegionId_ == nullptr && return this->sourceSnapshotId_ == nullptr && return this->sourceStorageType_ == nullptr
+        && return this->status_ == nullptr && return this->tags_ == nullptr && return this->usage_ == nullptr; };
     // available Field Functions 
     bool hasAvailable() const { return this->available_ != nullptr;};
     void deleteAvailable() { this->available_ = nullptr;};

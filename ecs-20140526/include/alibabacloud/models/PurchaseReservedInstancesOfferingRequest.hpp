@@ -71,11 +71,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRenew_ != nullptr
-        && this->autoRenewPeriod_ != nullptr && this->clientToken_ != nullptr && this->description_ != nullptr && this->instanceAmount_ != nullptr && this->instanceType_ != nullptr
-        && this->offeringType_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr
-        && this->platform_ != nullptr && this->regionId_ != nullptr && this->reservedInstanceName_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->scope_ != nullptr && this->startTime_ != nullptr && this->tag_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->autoRenew_ == nullptr
+        && return this->autoRenewPeriod_ == nullptr && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->instanceAmount_ == nullptr && return this->instanceType_ == nullptr
+        && return this->offeringType_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr
+        && return this->platform_ == nullptr && return this->regionId_ == nullptr && return this->reservedInstanceName_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->scope_ == nullptr && return this->startTime_ == nullptr && return this->tag_ == nullptr && return this->zoneId_ == nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};

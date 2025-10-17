@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandwidthWeighting_ != nullptr
-        && this->enableJumboFrame_ != nullptr && this->enableNetworkEncryption_ != nullptr; };
+    virtual bool empty() const override { return this->bandwidthWeighting_ == nullptr
+        && return this->enableJumboFrame_ == nullptr && return this->enableNetworkEncryption_ == nullptr; };
     // bandwidthWeighting Field Functions 
     bool hasBandwidthWeighting() const { return this->bandwidthWeighting_ != nullptr;};
     void deleteBandwidthWeighting() { this->bandwidthWeighting_ = nullptr;};

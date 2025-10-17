@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activationId_ != nullptr
-        && this->creationTime_ != nullptr && this->deregisteredCount_ != nullptr && this->description_ != nullptr && this->disabled_ != nullptr && this->instanceCount_ != nullptr
-        && this->instanceName_ != nullptr && this->ipAddressRange_ != nullptr && this->registeredCount_ != nullptr && this->resourceGroupId_ != nullptr && this->tags_ != nullptr
-        && this->timeToLiveInHours_ != nullptr; };
+    virtual bool empty() const override { return this->activationId_ == nullptr
+        && return this->creationTime_ == nullptr && return this->deregisteredCount_ == nullptr && return this->description_ == nullptr && return this->disabled_ == nullptr && return this->instanceCount_ == nullptr
+        && return this->instanceName_ == nullptr && return this->ipAddressRange_ == nullptr && return this->registeredCount_ == nullptr && return this->resourceGroupId_ == nullptr && return this->tags_ == nullptr
+        && return this->timeToLiveInHours_ == nullptr; };
     // activationId Field Functions 
     bool hasActivationId() const { return this->activationId_ != nullptr;};
     void deleteActivationId() { this->activationId_ = nullptr;};

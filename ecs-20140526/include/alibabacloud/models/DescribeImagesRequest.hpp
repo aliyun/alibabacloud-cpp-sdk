@@ -84,13 +84,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actionType_ != nullptr
-        && this->architecture_ != nullptr && this->dryRun_ != nullptr && this->filter_ != nullptr && this->imageFamily_ != nullptr && this->imageId_ != nullptr
-        && this->imageName_ != nullptr && this->imageOwnerAlias_ != nullptr && this->imageOwnerId_ != nullptr && this->instanceType_ != nullptr && this->isPublic_ != nullptr
-        && this->isSupportCloudinit_ != nullptr && this->isSupportIoOptimized_ != nullptr && this->OSType_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->showExpired_ != nullptr && this->snapshotId_ != nullptr && this->status_ != nullptr && this->tag_ != nullptr
-        && this->usage_ != nullptr; };
+    virtual bool empty() const override { return this->actionType_ == nullptr
+        && return this->architecture_ == nullptr && return this->dryRun_ == nullptr && return this->filter_ == nullptr && return this->imageFamily_ == nullptr && return this->imageId_ == nullptr
+        && return this->imageName_ == nullptr && return this->imageOwnerAlias_ == nullptr && return this->imageOwnerId_ == nullptr && return this->instanceType_ == nullptr && return this->isPublic_ == nullptr
+        && return this->isSupportCloudinit_ == nullptr && return this->isSupportIoOptimized_ == nullptr && return this->OSType_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->showExpired_ == nullptr && return this->snapshotId_ == nullptr && return this->status_ == nullptr && return this->tag_ == nullptr
+        && return this->usage_ == nullptr; };
     // actionType Field Functions 
     bool hasActionType() const { return this->actionType_ != nullptr;};
     void deleteActionType() { this->actionType_ = nullptr;};

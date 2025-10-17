@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessPointId_ != nullptr
-        && this->activationTime_ != nullptr && this->circuitCode_ != nullptr && this->creationTime_ != nullptr && this->description_ != nullptr && this->localGatewayIp_ != nullptr
-        && this->name_ != nullptr && this->peerGatewayIp_ != nullptr && this->peeringSubnetMask_ != nullptr && this->physicalConnectionBusinessStatus_ != nullptr && this->physicalConnectionId_ != nullptr
-        && this->physicalConnectionOwnerUid_ != nullptr && this->physicalConnectionStatus_ != nullptr && this->recoveryTime_ != nullptr && this->routeTableId_ != nullptr && this->status_ != nullptr
-        && this->terminationTime_ != nullptr && this->vbrId_ != nullptr && this->vlanId_ != nullptr && this->vlanInterfaceId_ != nullptr; };
+    virtual bool empty() const override { return this->accessPointId_ == nullptr
+        && return this->activationTime_ == nullptr && return this->circuitCode_ == nullptr && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->localGatewayIp_ == nullptr
+        && return this->name_ == nullptr && return this->peerGatewayIp_ == nullptr && return this->peeringSubnetMask_ == nullptr && return this->physicalConnectionBusinessStatus_ == nullptr && return this->physicalConnectionId_ == nullptr
+        && return this->physicalConnectionOwnerUid_ == nullptr && return this->physicalConnectionStatus_ == nullptr && return this->recoveryTime_ == nullptr && return this->routeTableId_ == nullptr && return this->status_ == nullptr
+        && return this->terminationTime_ == nullptr && return this->vbrId_ == nullptr && return this->vlanId_ == nullptr && return this->vlanInterfaceId_ == nullptr; };
     // accessPointId Field Functions 
     bool hasAccessPointId() const { return this->accessPointId_ != nullptr;};
     void deleteAccessPointId() { this->accessPointId_ = nullptr;};

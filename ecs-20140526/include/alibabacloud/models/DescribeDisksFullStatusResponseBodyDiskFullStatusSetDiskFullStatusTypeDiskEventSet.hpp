@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->diskEventType_ != nullptr; };
+    virtual bool empty() const override { return this->diskEventType_ == nullptr; };
     // diskEventType Field Functions 
     bool hasDiskEventType() const { return this->diskEventType_ != nullptr;};
     void deleteDiskEventType() { this->diskEventType_ = nullptr;};

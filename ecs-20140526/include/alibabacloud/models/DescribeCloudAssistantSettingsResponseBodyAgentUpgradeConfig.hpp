@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowedUpgradeWindows_ != nullptr
-        && this->enabled_ != nullptr && this->timeZone_ != nullptr; };
+    virtual bool empty() const override { return this->allowedUpgradeWindows_ == nullptr
+        && return this->enabled_ == nullptr && return this->timeZone_ == nullptr; };
     // allowedUpgradeWindows Field Functions 
     bool hasAllowedUpgradeWindows() const { return this->allowedUpgradeWindows_ != nullptr;};
     void deleteAllowedUpgradeWindows() { this->allowedUpgradeWindows_ = nullptr;};

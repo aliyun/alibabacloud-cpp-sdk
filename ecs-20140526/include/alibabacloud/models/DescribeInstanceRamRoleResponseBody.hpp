@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->instanceRamRoleSets_ != nullptr
-        && this->regionId_ != nullptr && this->requestId_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->instanceRamRoleSets_ == nullptr
+        && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
     // instanceRamRoleSets Field Functions 
     bool hasInstanceRamRoleSets() const { return this->instanceRamRoleSets_ != nullptr;};
     void deleteInstanceRamRoleSets() { this->instanceRamRoleSets_ = nullptr;};

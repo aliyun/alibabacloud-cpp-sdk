@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->diskCategory_ != nullptr
-        && this->diskId_ != nullptr && this->dryRun_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->performanceLevel_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->storageClusterId_ != nullptr; };
+    virtual bool empty() const override { return this->diskCategory_ == nullptr
+        && return this->diskId_ == nullptr && return this->dryRun_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->performanceLevel_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->storageClusterId_ == nullptr; };
     // diskCategory Field Functions 
     bool hasDiskCategory() const { return this->diskCategory_ != nullptr;};
     void deleteDiskCategory() { this->diskCategory_ = nullptr;};

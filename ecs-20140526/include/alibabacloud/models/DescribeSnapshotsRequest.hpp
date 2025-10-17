@@ -80,12 +80,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->filter_ != nullptr
-        && this->category_ != nullptr && this->diskId_ != nullptr && this->dryRun_ != nullptr && this->encrypted_ != nullptr && this->instanceId_ != nullptr
-        && this->KMSKeyId_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->snapshotIds_ != nullptr && this->snapshotLinkId_ != nullptr && this->snapshotName_ != nullptr && this->snapshotType_ != nullptr
-        && this->sourceDiskType_ != nullptr && this->status_ != nullptr && this->tag_ != nullptr && this->usage_ != nullptr; };
+    virtual bool empty() const override { return this->filter_ == nullptr
+        && return this->category_ == nullptr && return this->diskId_ == nullptr && return this->dryRun_ == nullptr && return this->encrypted_ == nullptr && return this->instanceId_ == nullptr
+        && return this->KMSKeyId_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->snapshotIds_ == nullptr && return this->snapshotLinkId_ == nullptr && return this->snapshotName_ == nullptr && return this->snapshotType_ == nullptr
+        && return this->sourceDiskType_ == nullptr && return this->status_ == nullptr && return this->tag_ == nullptr && return this->usage_ == nullptr; };
     // filter Field Functions 
     bool hasFilter() const { return this->filter_ != nullptr;};
     void deleteFilter() { this->filter_ = nullptr;};

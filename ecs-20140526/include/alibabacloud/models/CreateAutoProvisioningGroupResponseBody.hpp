@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoProvisioningGroupId_ != nullptr
-        && this->launchResults_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->autoProvisioningGroupId_ == nullptr
+        && return this->launchResults_ == nullptr && return this->requestId_ == nullptr; };
     // autoProvisioningGroupId Field Functions 
     bool hasAutoProvisioningGroupId() const { return this->autoProvisioningGroupId_ != nullptr;};
     void deleteAutoProvisioningGroupId() { this->autoProvisioningGroupId_ = nullptr;};

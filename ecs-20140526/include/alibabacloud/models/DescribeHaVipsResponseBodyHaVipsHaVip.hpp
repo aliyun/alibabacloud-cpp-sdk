@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->associatedEipAddresses_ != nullptr
-        && this->associatedInstances_ != nullptr && this->createTime_ != nullptr && this->description_ != nullptr && this->haVipId_ != nullptr && this->ipAddress_ != nullptr
-        && this->masterInstanceId_ != nullptr && this->regionId_ != nullptr && this->status_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->associatedEipAddresses_ == nullptr
+        && return this->associatedInstances_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->haVipId_ == nullptr && return this->ipAddress_ == nullptr
+        && return this->masterInstanceId_ == nullptr && return this->regionId_ == nullptr && return this->status_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr; };
     // associatedEipAddresses Field Functions 
     bool hasAssociatedEipAddresses() const { return this->associatedEipAddresses_ != nullptr;};
     void deleteAssociatedEipAddresses() { this->associatedEipAddresses_ = nullptr;};

@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpuOnlineDowngrade_ != nullptr
-        && this->cpuOnlineUpgrade_ != nullptr && this->imdsSupport_ != nullptr && this->memoryOnlineDowngrade_ != nullptr && this->memoryOnlineUpgrade_ != nullptr && this->nvmeSupport_ != nullptr; };
+    virtual bool empty() const override { return this->cpuOnlineDowngrade_ == nullptr
+        && return this->cpuOnlineUpgrade_ == nullptr && return this->imdsSupport_ == nullptr && return this->memoryOnlineDowngrade_ == nullptr && return this->memoryOnlineUpgrade_ == nullptr && return this->nvmeSupport_ == nullptr; };
     // cpuOnlineDowngrade Field Functions 
     bool hasCpuOnlineDowngrade() const { return this->cpuOnlineDowngrade_ != nullptr;};
     void deleteCpuOnlineDowngrade() { this->cpuOnlineDowngrade_ = nullptr;};

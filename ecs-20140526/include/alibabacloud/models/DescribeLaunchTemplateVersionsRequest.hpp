@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->defaultVersion_ != nullptr
-        && this->detailFlag_ != nullptr && this->launchTemplateId_ != nullptr && this->launchTemplateName_ != nullptr && this->launchTemplateVersion_ != nullptr && this->maxVersion_ != nullptr
-        && this->minVersion_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->defaultVersion_ == nullptr
+        && return this->detailFlag_ == nullptr && return this->launchTemplateId_ == nullptr && return this->launchTemplateName_ == nullptr && return this->launchTemplateVersion_ == nullptr && return this->maxVersion_ == nullptr
+        && return this->minVersion_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // defaultVersion Field Functions 
     bool hasDefaultVersion() const { return this->defaultVersion_ != nullptr;};
     void deleteDefaultVersion() { this->defaultVersion_ = nullptr;};

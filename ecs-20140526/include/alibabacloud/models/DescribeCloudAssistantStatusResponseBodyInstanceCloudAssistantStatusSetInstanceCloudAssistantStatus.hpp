@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activeTaskCount_ != nullptr
-        && this->cloudAssistantStatus_ != nullptr && this->cloudAssistantVersion_ != nullptr && this->instanceId_ != nullptr && this->invocationCount_ != nullptr && this->lastHeartbeatTime_ != nullptr
-        && this->lastInvokedTime_ != nullptr && this->OSType_ != nullptr && this->supportSessionManager_ != nullptr; };
+    virtual bool empty() const override { return this->activeTaskCount_ == nullptr
+        && return this->cloudAssistantStatus_ == nullptr && return this->cloudAssistantVersion_ == nullptr && return this->instanceId_ == nullptr && return this->invocationCount_ == nullptr && return this->lastHeartbeatTime_ == nullptr
+        && return this->lastInvokedTime_ == nullptr && return this->OSType_ == nullptr && return this->supportSessionManager_ == nullptr; };
     // activeTaskCount Field Functions 
     bool hasActiveTaskCount() const { return this->activeTaskCount_ != nullptr;};
     void deleteActiveTaskCount() { this->activeTaskCount_ = nullptr;};

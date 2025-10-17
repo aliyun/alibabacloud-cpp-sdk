@@ -54,9 +54,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->availableDedicatedHostTypes_ != nullptr
-        && this->availableDiskCategories_ != nullptr && this->availableInstanceTypes_ != nullptr && this->availableResourceCreation_ != nullptr && this->availableResources_ != nullptr && this->availableVolumeCategories_ != nullptr
-        && this->dedicatedHostGenerations_ != nullptr && this->localName_ != nullptr && this->zoneId_ != nullptr && this->zoneType_ != nullptr; };
+    virtual bool empty() const override { return this->availableDedicatedHostTypes_ == nullptr
+        && return this->availableDiskCategories_ == nullptr && return this->availableInstanceTypes_ == nullptr && return this->availableResourceCreation_ == nullptr && return this->availableResources_ == nullptr && return this->availableVolumeCategories_ == nullptr
+        && return this->dedicatedHostGenerations_ == nullptr && return this->localName_ == nullptr && return this->zoneId_ == nullptr && return this->zoneType_ == nullptr; };
     // availableDedicatedHostTypes Field Functions 
     bool hasAvailableDedicatedHostTypes() const { return this->availableDedicatedHostTypes_ != nullptr;};
     void deleteAvailableDedicatedHostTypes() { this->availableDedicatedHostTypes_ = nullptr;};

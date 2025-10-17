@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dedicatedHostClusterId_ != nullptr
-        && this->dedicatedHostIds_ != nullptr && this->dedicatedHostName_ != nullptr && this->dedicatedHostType_ != nullptr && this->lockReason_ != nullptr && this->maxResults_ != nullptr
-        && this->nextToken_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->queryInventory_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->socketDetails_ != nullptr && this->status_ != nullptr && this->tag_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->dedicatedHostClusterId_ == nullptr
+        && return this->dedicatedHostIds_ == nullptr && return this->dedicatedHostName_ == nullptr && return this->dedicatedHostType_ == nullptr && return this->lockReason_ == nullptr && return this->maxResults_ == nullptr
+        && return this->nextToken_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->queryInventory_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->socketDetails_ == nullptr && return this->status_ == nullptr && return this->tag_ == nullptr && return this->zoneId_ == nullptr; };
     // dedicatedHostClusterId Field Functions 
     bool hasDedicatedHostClusterId() const { return this->dedicatedHostClusterId_ != nullptr;};
     void deleteDedicatedHostClusterId() { this->dedicatedHostClusterId_ = nullptr;};

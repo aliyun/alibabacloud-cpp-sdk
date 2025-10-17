@@ -75,12 +75,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commandContent_ != nullptr
-        && this->commandDescription_ != nullptr && this->commandId_ != nullptr && this->commandName_ != nullptr && this->commandType_ != nullptr && this->containerId_ != nullptr
-        && this->containerName_ != nullptr && this->creationTime_ != nullptr && this->frequency_ != nullptr && this->invocationStatus_ != nullptr && this->invokeId_ != nullptr
-        && this->invokeInstances_ != nullptr && this->invokeStatus_ != nullptr && this->launcher_ != nullptr && this->ossOutputDelivery_ != nullptr && this->parameters_ != nullptr
-        && this->repeatMode_ != nullptr && this->tags_ != nullptr && this->terminationMode_ != nullptr && this->timed_ != nullptr && this->timeout_ != nullptr
-        && this->username_ != nullptr && this->workingDir_ != nullptr; };
+    virtual bool empty() const override { return this->commandContent_ == nullptr
+        && return this->commandDescription_ == nullptr && return this->commandId_ == nullptr && return this->commandName_ == nullptr && return this->commandType_ == nullptr && return this->containerId_ == nullptr
+        && return this->containerName_ == nullptr && return this->creationTime_ == nullptr && return this->frequency_ == nullptr && return this->invocationStatus_ == nullptr && return this->invokeId_ == nullptr
+        && return this->invokeInstances_ == nullptr && return this->invokeStatus_ == nullptr && return this->launcher_ == nullptr && return this->ossOutputDelivery_ == nullptr && return this->parameters_ == nullptr
+        && return this->repeatMode_ == nullptr && return this->tags_ == nullptr && return this->terminationMode_ == nullptr && return this->timed_ == nullptr && return this->timeout_ == nullptr
+        && return this->username_ == nullptr && return this->workingDir_ == nullptr; };
     // commandContent Field Functions 
     bool hasCommandContent() const { return this->commandContent_ != nullptr;};
     void deleteCommandContent() { this->commandContent_ = nullptr;};
@@ -310,6 +310,7 @@ namespace Models
     std::shared_ptr<string> invokeStatus_ = nullptr;
     // The launcher for script execution. The value cannot exceed 1 KB in length.
     std::shared_ptr<string> launcher_ = nullptr;
+    // Command to execute the Output OSS delivery configuration.
     std::shared_ptr<string> ossOutputDelivery_ = nullptr;
     // The custom parameters in the command.
     std::shared_ptr<string> parameters_ = nullptr;

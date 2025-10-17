@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dropPacketRx_ != nullptr
-        && this->dropPacketTx_ != nullptr && this->eniId_ != nullptr && this->intranetRx_ != nullptr && this->intranetTx_ != nullptr && this->packetRx_ != nullptr
-        && this->packetTx_ != nullptr && this->timeStamp_ != nullptr; };
+    virtual bool empty() const override { return this->dropPacketRx_ == nullptr
+        && return this->dropPacketTx_ == nullptr && return this->eniId_ == nullptr && return this->intranetRx_ == nullptr && return this->intranetTx_ == nullptr && return this->packetRx_ == nullptr
+        && return this->packetTx_ == nullptr && return this->timeStamp_ == nullptr; };
     // dropPacketRx Field Functions 
     bool hasDropPacketRx() const { return this->dropPacketRx_ != nullptr;};
     void deleteDropPacketRx() { this->dropPacketRx_ = nullptr;};

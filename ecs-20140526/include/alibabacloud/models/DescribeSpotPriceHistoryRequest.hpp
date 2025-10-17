@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endTime_ != nullptr
-        && this->instanceType_ != nullptr && this->ioOptimized_ != nullptr && this->networkType_ != nullptr && this->OSType_ != nullptr && this->offset_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->spotDuration_ != nullptr && this->startTime_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->endTime_ == nullptr
+        && return this->instanceType_ == nullptr && return this->ioOptimized_ == nullptr && return this->networkType_ == nullptr && return this->OSType_ == nullptr && return this->offset_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->spotDuration_ == nullptr && return this->startTime_ == nullptr && return this->zoneId_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};

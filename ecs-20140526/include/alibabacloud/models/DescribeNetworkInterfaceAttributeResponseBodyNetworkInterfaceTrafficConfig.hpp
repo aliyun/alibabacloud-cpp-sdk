@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->networkInterfaceTrafficMode_ != nullptr
-        && this->queueNumber_ != nullptr && this->queuePairNumber_ != nullptr; };
+    virtual bool empty() const override { return this->networkInterfaceTrafficMode_ == nullptr
+        && return this->queueNumber_ == nullptr && return this->queuePairNumber_ == nullptr; };
     // networkInterfaceTrafficMode Field Functions 
     bool hasNetworkInterfaceTrafficMode() const { return this->networkInterfaceTrafficMode_ != nullptr;};
     void deleteNetworkInterfaceTrafficMode() { this->networkInterfaceTrafficMode_ = nullptr;};

@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->recommendInstanceType_ != nullptr; };
+    virtual bool empty() const override { return this->recommendInstanceType_ == nullptr; };
     // recommendInstanceType Field Functions 
     bool hasRecommendInstanceType() const { return this->recommendInstanceType_ != nullptr;};
     void deleteRecommendInstanceType() { this->recommendInstanceType_ = nullptr;};

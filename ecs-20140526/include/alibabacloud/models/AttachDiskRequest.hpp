@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bootable_ != nullptr
-        && this->deleteWithInstance_ != nullptr && this->device_ != nullptr && this->diskId_ != nullptr && this->force_ != nullptr && this->instanceId_ != nullptr
-        && this->keyPairName_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->password_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->bootable_ == nullptr
+        && return this->deleteWithInstance_ == nullptr && return this->device_ == nullptr && return this->diskId_ == nullptr && return this->force_ == nullptr && return this->instanceId_ == nullptr
+        && return this->keyPairName_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->password_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr; };
     // bootable Field Functions 
     bool hasBootable() const { return this->bootable_ != nullptr;};
     void deleteBootable() { this->bootable_ = nullptr;};

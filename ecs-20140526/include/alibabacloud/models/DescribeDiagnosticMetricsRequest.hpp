@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxResults_ != nullptr
-        && this->metricIds_ != nullptr && this->nextToken_ != nullptr && this->regionId_ != nullptr && this->resourceType_ != nullptr; };
+    virtual bool empty() const override { return this->maxResults_ == nullptr
+        && return this->metricIds_ == nullptr && return this->nextToken_ == nullptr && return this->regionId_ == nullptr && return this->resourceType_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
@@ -94,10 +94,6 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
     // The resource type supported by the diagnostic metric.
-    // 
-    // Valid values:
-    // 
-    // *   instance
     std::shared_ptr<string> resourceType_ = nullptr;
   };
 

@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->serialNumber_ != nullptr; };
+    virtual bool empty() const override { return this->serialNumber_ == nullptr; };
     // serialNumber Field Functions 
     bool hasSerialNumber() const { return this->serialNumber_ != nullptr;};
     void deleteSerialNumber() { this->serialNumber_ = nullptr;};

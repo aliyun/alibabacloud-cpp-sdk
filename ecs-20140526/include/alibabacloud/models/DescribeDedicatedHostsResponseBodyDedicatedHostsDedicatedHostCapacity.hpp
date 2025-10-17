@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->availableInstanceTypes_ != nullptr
-        && this->availableLocalStorage_ != nullptr && this->availableMemory_ != nullptr && this->availableVcpus_ != nullptr && this->availableVgpus_ != nullptr && this->localStorageCategory_ != nullptr
-        && this->socketCapacities_ != nullptr && this->totalLocalStorage_ != nullptr && this->totalMemory_ != nullptr && this->totalVcpus_ != nullptr && this->totalVgpus_ != nullptr; };
+    virtual bool empty() const override { return this->availableInstanceTypes_ == nullptr
+        && return this->availableLocalStorage_ == nullptr && return this->availableMemory_ == nullptr && return this->availableVcpus_ == nullptr && return this->availableVgpus_ == nullptr && return this->localStorageCategory_ == nullptr
+        && return this->socketCapacities_ == nullptr && return this->totalLocalStorage_ == nullptr && return this->totalMemory_ == nullptr && return this->totalVcpus_ == nullptr && return this->totalVgpus_ == nullptr; };
     // availableInstanceTypes Field Functions 
     bool hasAvailableInstanceTypes() const { return this->availableInstanceTypes_ != nullptr;};
     void deleteAvailableInstanceTypes() { this->availableInstanceTypes_ = nullptr;};

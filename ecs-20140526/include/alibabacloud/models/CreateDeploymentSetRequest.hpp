@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->deploymentSetName_ != nullptr && this->description_ != nullptr && this->domain_ != nullptr && this->granularity_ != nullptr && this->groupCount_ != nullptr
-        && this->onUnableToRedeployFailedInstance_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->strategy_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->deploymentSetName_ == nullptr && return this->description_ == nullptr && return this->domain_ == nullptr && return this->granularity_ == nullptr && return this->groupCount_ == nullptr
+        && return this->onUnableToRedeployFailedInstance_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->strategy_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};

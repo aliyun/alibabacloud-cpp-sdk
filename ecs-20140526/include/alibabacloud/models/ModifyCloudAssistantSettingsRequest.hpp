@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentUpgradeConfig_ != nullptr
-        && this->ossDeliveryConfig_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->sessionManagerConfig_ != nullptr && this->settingType_ != nullptr && this->slsDeliveryConfig_ != nullptr; };
+    virtual bool empty() const override { return this->agentUpgradeConfig_ == nullptr
+        && return this->ossDeliveryConfig_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->sessionManagerConfig_ == nullptr && return this->settingType_ == nullptr && return this->slsDeliveryConfig_ == nullptr; };
     // agentUpgradeConfig Field Functions 
     bool hasAgentUpgradeConfig() const { return this->agentUpgradeConfig_ != nullptr;};
     void deleteAgentUpgradeConfig() { this->agentUpgradeConfig_ = nullptr;};

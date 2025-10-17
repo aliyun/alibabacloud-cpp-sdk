@@ -126,16 +126,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->systemDisk_ != nullptr
-        && this->autoReleaseTime_ != nullptr && this->autoRenew_ != nullptr && this->autoRenewPeriod_ != nullptr && this->creditSpecification_ != nullptr && this->dataDisks_ != nullptr
-        && this->deletionProtection_ != nullptr && this->deploymentSetId_ != nullptr && this->description_ != nullptr && this->enableVmOsConfig_ != nullptr && this->hostName_ != nullptr
-        && this->httpEndpoint_ != nullptr && this->httpPutResponseHopLimit_ != nullptr && this->httpTokens_ != nullptr && this->imageId_ != nullptr && this->imageOptions_ != nullptr
-        && this->imageOwnerAlias_ != nullptr && this->instanceChargeType_ != nullptr && this->instanceName_ != nullptr && this->instanceType_ != nullptr && this->internetChargeType_ != nullptr
-        && this->internetMaxBandwidthIn_ != nullptr && this->internetMaxBandwidthOut_ != nullptr && this->ioOptimized_ != nullptr && this->ipv6AddressCount_ != nullptr && this->keyPairName_ != nullptr
-        && this->networkInterfaces_ != nullptr && this->networkType_ != nullptr && this->passwordInherit_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr
-        && this->privateIpAddress_ != nullptr && this->ramRoleName_ != nullptr && this->resourceGroupId_ != nullptr && this->securityEnhancementStrategy_ != nullptr && this->securityGroupId_ != nullptr
-        && this->securityGroupIds_ != nullptr && this->securityOptions_ != nullptr && this->spotDuration_ != nullptr && this->spotPriceLimit_ != nullptr && this->spotStrategy_ != nullptr
-        && this->tags_ != nullptr && this->userData_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->systemDisk_ == nullptr
+        && return this->autoReleaseTime_ == nullptr && return this->autoRenew_ == nullptr && return this->autoRenewPeriod_ == nullptr && return this->creditSpecification_ == nullptr && return this->dataDisks_ == nullptr
+        && return this->deletionProtection_ == nullptr && return this->deploymentSetId_ == nullptr && return this->description_ == nullptr && return this->enableVmOsConfig_ == nullptr && return this->hostName_ == nullptr
+        && return this->httpEndpoint_ == nullptr && return this->httpPutResponseHopLimit_ == nullptr && return this->httpTokens_ == nullptr && return this->imageId_ == nullptr && return this->imageOptions_ == nullptr
+        && return this->imageOwnerAlias_ == nullptr && return this->instanceChargeType_ == nullptr && return this->instanceName_ == nullptr && return this->instanceType_ == nullptr && return this->internetChargeType_ == nullptr
+        && return this->internetMaxBandwidthIn_ == nullptr && return this->internetMaxBandwidthOut_ == nullptr && return this->ioOptimized_ == nullptr && return this->ipv6AddressCount_ == nullptr && return this->keyPairName_ == nullptr
+        && return this->networkInterfaces_ == nullptr && return this->networkType_ == nullptr && return this->passwordInherit_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr
+        && return this->privateIpAddress_ == nullptr && return this->ramRoleName_ == nullptr && return this->resourceGroupId_ == nullptr && return this->securityEnhancementStrategy_ == nullptr && return this->securityGroupId_ == nullptr
+        && return this->securityGroupIds_ == nullptr && return this->securityOptions_ == nullptr && return this->spotDuration_ == nullptr && return this->spotPriceLimit_ == nullptr && return this->spotStrategy_ == nullptr
+        && return this->tags_ == nullptr && return this->userData_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
     // systemDisk Field Functions 
     bool hasSystemDisk() const { return this->systemDisk_ != nullptr;};
     void deleteSystemDisk() { this->systemDisk_ = nullptr;};

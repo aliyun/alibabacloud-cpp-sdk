@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandwidthPackageIds_ != nullptr
-        && this->businessStatus_ != nullptr && this->creationTime_ != nullptr && this->description_ != nullptr && this->forwardTableIds_ != nullptr && this->instanceChargeType_ != nullptr
-        && this->name_ != nullptr && this->natGatewayId_ != nullptr && this->regionId_ != nullptr && this->spec_ != nullptr && this->status_ != nullptr
-        && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->bandwidthPackageIds_ == nullptr
+        && return this->businessStatus_ == nullptr && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->forwardTableIds_ == nullptr && return this->instanceChargeType_ == nullptr
+        && return this->name_ == nullptr && return this->natGatewayId_ == nullptr && return this->regionId_ == nullptr && return this->spec_ == nullptr && return this->status_ == nullptr
+        && return this->vpcId_ == nullptr; };
     // bandwidthPackageIds Field Functions 
     bool hasBandwidthPackageIds() const { return this->bandwidthPackageIds_ != nullptr;};
     void deleteBandwidthPackageIds() { this->bandwidthPackageIds_ = nullptr;};

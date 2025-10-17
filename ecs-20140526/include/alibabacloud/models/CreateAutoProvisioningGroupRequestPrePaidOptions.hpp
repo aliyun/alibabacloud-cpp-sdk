@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->specifyCapacityDistribution_ != nullptr; };
+    virtual bool empty() const override { return this->specifyCapacityDistribution_ == nullptr; };
     // specifyCapacityDistribution Field Functions 
     bool hasSpecifyCapacityDistribution() const { return this->specifyCapacityDistribution_ != nullptr;};
     void deleteSpecifyCapacityDistribution() { this->specifyCapacityDistribution_ = nullptr;};

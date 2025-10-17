@@ -115,15 +115,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->arn_ != nullptr
-        && this->autoReleaseTime_ != nullptr && this->creditSpecification_ != nullptr && this->dataDisk_ != nullptr && this->deploymentSetId_ != nullptr && this->hostName_ != nullptr
-        && this->hostNames_ != nullptr && this->imageFamily_ != nullptr && this->imageId_ != nullptr && this->instanceDescription_ != nullptr && this->instanceName_ != nullptr
-        && this->internetChargeType_ != nullptr && this->internetMaxBandwidthIn_ != nullptr && this->internetMaxBandwidthOut_ != nullptr && this->ioOptimized_ != nullptr && this->keyPairName_ != nullptr
-        && this->password_ != nullptr && this->passwordInherit_ != nullptr && this->ramRoleName_ != nullptr && this->resourceGroupId_ != nullptr && this->securityEnhancementStrategy_ != nullptr
-        && this->securityGroupId_ != nullptr && this->securityGroupIds_ != nullptr && this->systemDisk_ != nullptr && this->systemDiskCategory_ != nullptr && this->systemDiskDescription_ != nullptr
-        && this->systemDiskName_ != nullptr && this->systemDiskPerformanceLevel_ != nullptr && this->systemDiskSize_ != nullptr && this->tag_ != nullptr && this->userData_ != nullptr
-        && this->autoRenew_ != nullptr && this->autoRenewPeriod_ != nullptr && this->cpuOptions_ != nullptr && this->imageOptions_ != nullptr && this->period_ != nullptr
-        && this->periodUnit_ != nullptr && this->schedulerOptions_ != nullptr && this->spotDuration_ != nullptr && this->spotInterruptionBehavior_ != nullptr; };
+    virtual bool empty() const override { return this->arn_ == nullptr
+        && return this->autoReleaseTime_ == nullptr && return this->creditSpecification_ == nullptr && return this->dataDisk_ == nullptr && return this->deploymentSetId_ == nullptr && return this->hostName_ == nullptr
+        && return this->hostNames_ == nullptr && return this->imageFamily_ == nullptr && return this->imageId_ == nullptr && return this->instanceDescription_ == nullptr && return this->instanceName_ == nullptr
+        && return this->internetChargeType_ == nullptr && return this->internetMaxBandwidthIn_ == nullptr && return this->internetMaxBandwidthOut_ == nullptr && return this->ioOptimized_ == nullptr && return this->keyPairName_ == nullptr
+        && return this->password_ == nullptr && return this->passwordInherit_ == nullptr && return this->ramRoleName_ == nullptr && return this->resourceGroupId_ == nullptr && return this->securityEnhancementStrategy_ == nullptr
+        && return this->securityGroupId_ == nullptr && return this->securityGroupIds_ == nullptr && return this->systemDisk_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->systemDiskDescription_ == nullptr
+        && return this->systemDiskName_ == nullptr && return this->systemDiskPerformanceLevel_ == nullptr && return this->systemDiskSize_ == nullptr && return this->tag_ == nullptr && return this->userData_ == nullptr
+        && return this->autoRenew_ == nullptr && return this->autoRenewPeriod_ == nullptr && return this->cpuOptions_ == nullptr && return this->imageOptions_ == nullptr && return this->period_ == nullptr
+        && return this->periodUnit_ == nullptr && return this->schedulerOptions_ == nullptr && return this->spotDuration_ == nullptr && return this->spotInterruptionBehavior_ == nullptr; };
     // arn Field Functions 
     bool hasArn() const { return this->arn_ != nullptr;};
     void deleteArn() { this->arn_ = nullptr;};

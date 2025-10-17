@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->copiedSnapshotsRetentionDays_ != nullptr
-        && this->copyEncryptionConfiguration_ != nullptr && this->enableCrossRegionCopy_ != nullptr && this->ownerId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->storageLocationArn_ != nullptr && this->tag_ != nullptr && this->targetCopyRegions_ != nullptr && this->autoSnapshotPolicyName_ != nullptr
-        && this->regionId_ != nullptr && this->repeatWeekdays_ != nullptr && this->retentionDays_ != nullptr && this->timePoints_ != nullptr; };
+    virtual bool empty() const override { return this->copiedSnapshotsRetentionDays_ == nullptr
+        && return this->copyEncryptionConfiguration_ == nullptr && return this->enableCrossRegionCopy_ == nullptr && return this->ownerId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->storageLocationArn_ == nullptr && return this->tag_ == nullptr && return this->targetCopyRegions_ == nullptr && return this->autoSnapshotPolicyName_ == nullptr
+        && return this->regionId_ == nullptr && return this->repeatWeekdays_ == nullptr && return this->retentionDays_ == nullptr && return this->timePoints_ == nullptr; };
     // copiedSnapshotsRetentionDays Field Functions 
     bool hasCopiedSnapshotsRetentionDays() const { return this->copiedSnapshotsRetentionDays_ != nullptr;};
     void deleteCopiedSnapshotsRetentionDays() { this->copiedSnapshotsRetentionDays_ = nullptr;};

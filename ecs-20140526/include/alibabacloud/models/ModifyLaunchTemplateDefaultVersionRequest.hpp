@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->defaultVersionNumber_ != nullptr
-        && this->launchTemplateId_ != nullptr && this->launchTemplateName_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->defaultVersionNumber_ == nullptr
+        && return this->launchTemplateId_ == nullptr && return this->launchTemplateName_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // defaultVersionNumber Field Functions 
     bool hasDefaultVersionNumber() const { return this->defaultVersionNumber_ != nullptr;};
     void deleteDefaultVersionNumber() { this->defaultVersionNumber_ = nullptr;};

@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableRss_ != nullptr
-        && this->enableSriov_ != nullptr && this->virtualFunctionQuantity_ != nullptr && this->virtualFunctionTotalQueueNumber_ != nullptr; };
+    virtual bool empty() const override { return this->enableRss_ == nullptr
+        && return this->enableSriov_ == nullptr && return this->virtualFunctionQuantity_ == nullptr && return this->virtualFunctionTotalQueueNumber_ == nullptr; };
     // enableRss Field Functions 
     bool hasEnableRss() const { return this->enableRss_ != nullptr;};
     void deleteEnableRss() { this->enableRss_ = nullptr;};

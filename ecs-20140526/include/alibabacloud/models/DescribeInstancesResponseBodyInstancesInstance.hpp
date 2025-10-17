@@ -182,21 +182,21 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->additionalInfo_ != nullptr
-        && this->autoReleaseTime_ != nullptr && this->clockOptions_ != nullptr && this->clusterId_ != nullptr && this->cpu_ != nullptr && this->cpuOptions_ != nullptr
-        && this->creationTime_ != nullptr && this->creditSpecification_ != nullptr && this->dedicatedHostAttribute_ != nullptr && this->dedicatedInstanceAttribute_ != nullptr && this->deletionProtection_ != nullptr
-        && this->deploymentSetGroupNo_ != nullptr && this->deploymentSetId_ != nullptr && this->description_ != nullptr && this->deviceAvailable_ != nullptr && this->ecsCapacityReservationAttr_ != nullptr
-        && this->eipAddress_ != nullptr && this->enableNVS_ != nullptr && this->expiredTime_ != nullptr && this->GPUAmount_ != nullptr && this->GPUSpec_ != nullptr
-        && this->hibernationOptions_ != nullptr && this->hostName_ != nullptr && this->hpcClusterId_ != nullptr && this->ISP_ != nullptr && this->imageId_ != nullptr
-        && this->imageOptions_ != nullptr && this->innerIpAddress_ != nullptr && this->instanceChargeType_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr
-        && this->instanceNetworkType_ != nullptr && this->instanceType_ != nullptr && this->instanceTypeFamily_ != nullptr && this->internetChargeType_ != nullptr && this->internetMaxBandwidthIn_ != nullptr
-        && this->internetMaxBandwidthOut_ != nullptr && this->ioOptimized_ != nullptr && this->keyPairName_ != nullptr && this->localStorageAmount_ != nullptr && this->localStorageCapacity_ != nullptr
-        && this->memory_ != nullptr && this->metadataOptions_ != nullptr && this->networkInterfaces_ != nullptr && this->OSName_ != nullptr && this->OSNameEn_ != nullptr
-        && this->OSType_ != nullptr && this->operationLocks_ != nullptr && this->privateDnsNameOptions_ != nullptr && this->publicIpAddress_ != nullptr && this->rdmaIpAddress_ != nullptr
-        && this->recyclable_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->saleCycle_ != nullptr && this->securityGroupIds_ != nullptr
-        && this->serialNumber_ != nullptr && this->spotDuration_ != nullptr && this->spotInterruptionBehavior_ != nullptr && this->spotPriceLimit_ != nullptr && this->spotStrategy_ != nullptr
-        && this->startTime_ != nullptr && this->status_ != nullptr && this->stoppedMode_ != nullptr && this->tags_ != nullptr && this->vlanId_ != nullptr
-        && this->vpcAttributes_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->additionalInfo_ == nullptr
+        && return this->autoReleaseTime_ == nullptr && return this->clockOptions_ == nullptr && return this->clusterId_ == nullptr && return this->cpu_ == nullptr && return this->cpuOptions_ == nullptr
+        && return this->creationTime_ == nullptr && return this->creditSpecification_ == nullptr && return this->dedicatedHostAttribute_ == nullptr && return this->dedicatedInstanceAttribute_ == nullptr && return this->deletionProtection_ == nullptr
+        && return this->deploymentSetGroupNo_ == nullptr && return this->deploymentSetId_ == nullptr && return this->description_ == nullptr && return this->deviceAvailable_ == nullptr && return this->ecsCapacityReservationAttr_ == nullptr
+        && return this->eipAddress_ == nullptr && return this->enableNVS_ == nullptr && return this->expiredTime_ == nullptr && return this->GPUAmount_ == nullptr && return this->GPUSpec_ == nullptr
+        && return this->hibernationOptions_ == nullptr && return this->hostName_ == nullptr && return this->hpcClusterId_ == nullptr && return this->ISP_ == nullptr && return this->imageId_ == nullptr
+        && return this->imageOptions_ == nullptr && return this->innerIpAddress_ == nullptr && return this->instanceChargeType_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr
+        && return this->instanceNetworkType_ == nullptr && return this->instanceType_ == nullptr && return this->instanceTypeFamily_ == nullptr && return this->internetChargeType_ == nullptr && return this->internetMaxBandwidthIn_ == nullptr
+        && return this->internetMaxBandwidthOut_ == nullptr && return this->ioOptimized_ == nullptr && return this->keyPairName_ == nullptr && return this->localStorageAmount_ == nullptr && return this->localStorageCapacity_ == nullptr
+        && return this->memory_ == nullptr && return this->metadataOptions_ == nullptr && return this->networkInterfaces_ == nullptr && return this->OSName_ == nullptr && return this->OSNameEn_ == nullptr
+        && return this->OSType_ == nullptr && return this->operationLocks_ == nullptr && return this->privateDnsNameOptions_ == nullptr && return this->publicIpAddress_ == nullptr && return this->rdmaIpAddress_ == nullptr
+        && return this->recyclable_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->saleCycle_ == nullptr && return this->securityGroupIds_ == nullptr
+        && return this->serialNumber_ == nullptr && return this->spotDuration_ == nullptr && return this->spotInterruptionBehavior_ == nullptr && return this->spotPriceLimit_ == nullptr && return this->spotStrategy_ == nullptr
+        && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->stoppedMode_ == nullptr && return this->tags_ == nullptr && return this->vlanId_ == nullptr
+        && return this->vpcAttributes_ == nullptr && return this->zoneId_ == nullptr; };
     // additionalInfo Field Functions 
     bool hasAdditionalInfo() const { return this->additionalInfo_ != nullptr;};
     void deleteAdditionalInfo() { this->additionalInfo_ = nullptr;};

@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->defaultTargetCapacityType_ != nullptr
-        && this->payAsYouGoTargetCapacity_ != nullptr && this->spotTargetCapacity_ != nullptr && this->totalTargetCapacity_ != nullptr; };
+    virtual bool empty() const override { return this->defaultTargetCapacityType_ == nullptr
+        && return this->payAsYouGoTargetCapacity_ == nullptr && return this->spotTargetCapacity_ == nullptr && return this->totalTargetCapacity_ == nullptr; };
     // defaultTargetCapacityType Field Functions 
     bool hasDefaultTargetCapacityType() const { return this->defaultTargetCapacityType_ != nullptr;};
     void deleteDefaultTargetCapacityType() { this->defaultTargetCapacityType_ = nullptr;};

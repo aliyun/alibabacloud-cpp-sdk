@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->componentType_ != nullptr
-        && this->componentVersion_ != nullptr && this->content_ != nullptr && this->creationTime_ != nullptr && this->description_ != nullptr && this->imageComponentId_ != nullptr
-        && this->name_ != nullptr && this->owner_ != nullptr && this->parameters_ != nullptr && this->resourceGroupId_ != nullptr && this->systemType_ != nullptr
-        && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->componentType_ == nullptr
+        && return this->componentVersion_ == nullptr && return this->content_ == nullptr && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->imageComponentId_ == nullptr
+        && return this->name_ == nullptr && return this->owner_ == nullptr && return this->parameters_ == nullptr && return this->resourceGroupId_ == nullptr && return this->systemType_ == nullptr
+        && return this->tags_ == nullptr; };
     // componentType Field Functions 
     bool hasComponentType() const { return this->componentType_ != nullptr;};
     void deleteComponentType() { this->componentType_ = nullptr;};

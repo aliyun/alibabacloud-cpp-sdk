@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dryRun_ != nullptr
-        && this->imageFormat_ != nullptr && this->imageId_ != nullptr && this->OSSBucket_ != nullptr && this->OSSPrefix_ != nullptr && this->ownerId_ != nullptr
-        && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->roleName_ != nullptr; };
+    virtual bool empty() const override { return this->dryRun_ == nullptr
+        && return this->imageFormat_ == nullptr && return this->imageId_ == nullptr && return this->OSSBucket_ == nullptr && return this->OSSPrefix_ == nullptr && return this->ownerId_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->roleName_ == nullptr; };
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};

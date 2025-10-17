@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cores_ != nullptr
-        && this->dataDiskCategory_ != nullptr && this->dedicatedHostId_ != nullptr && this->destinationResource_ != nullptr && this->instanceChargeType_ != nullptr && this->instanceType_ != nullptr
-        && this->ioOptimized_ != nullptr && this->memory_ != nullptr && this->networkCategory_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->resourceType_ != nullptr && this->scope_ != nullptr
-        && this->spotDuration_ != nullptr && this->spotStrategy_ != nullptr && this->systemDiskCategory_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->cores_ == nullptr
+        && return this->dataDiskCategory_ == nullptr && return this->dedicatedHostId_ == nullptr && return this->destinationResource_ == nullptr && return this->instanceChargeType_ == nullptr && return this->instanceType_ == nullptr
+        && return this->ioOptimized_ == nullptr && return this->memory_ == nullptr && return this->networkCategory_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->resourceType_ == nullptr && return this->scope_ == nullptr
+        && return this->spotDuration_ == nullptr && return this->spotStrategy_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->zoneId_ == nullptr; };
     // cores Field Functions 
     bool hasCores() const { return this->cores_ != nullptr;};
     void deleteCores() { this->cores_ = nullptr;};

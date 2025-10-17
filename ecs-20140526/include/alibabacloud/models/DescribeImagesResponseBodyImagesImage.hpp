@@ -97,14 +97,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->architecture_ != nullptr
-        && this->bootMode_ != nullptr && this->creationTime_ != nullptr && this->description_ != nullptr && this->detectionOptions_ != nullptr && this->diskDeviceMappings_ != nullptr
-        && this->features_ != nullptr && this->imageFamily_ != nullptr && this->imageId_ != nullptr && this->imageName_ != nullptr && this->imageOwnerAlias_ != nullptr
-        && this->imageOwnerId_ != nullptr && this->imageVersion_ != nullptr && this->isCopied_ != nullptr && this->isPublic_ != nullptr && this->isSelfShared_ != nullptr
-        && this->isSubscribed_ != nullptr && this->isSupportCloudinit_ != nullptr && this->isSupportIoOptimized_ != nullptr && this->licenseType_ != nullptr && this->loginAsNonRootSupported_ != nullptr
-        && this->OSName_ != nullptr && this->OSNameEn_ != nullptr && this->OSType_ != nullptr && this->platform_ != nullptr && this->productCode_ != nullptr
-        && this->progress_ != nullptr && this->resourceGroupId_ != nullptr && this->size_ != nullptr && this->status_ != nullptr && this->supplierName_ != nullptr
-        && this->tags_ != nullptr && this->usage_ != nullptr; };
+    virtual bool empty() const override { return this->architecture_ == nullptr
+        && return this->bootMode_ == nullptr && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->detectionOptions_ == nullptr && return this->diskDeviceMappings_ == nullptr
+        && return this->features_ == nullptr && return this->imageFamily_ == nullptr && return this->imageId_ == nullptr && return this->imageName_ == nullptr && return this->imageOwnerAlias_ == nullptr
+        && return this->imageOwnerId_ == nullptr && return this->imageVersion_ == nullptr && return this->isCopied_ == nullptr && return this->isPublic_ == nullptr && return this->isSelfShared_ == nullptr
+        && return this->isSubscribed_ == nullptr && return this->isSupportCloudinit_ == nullptr && return this->isSupportIoOptimized_ == nullptr && return this->licenseType_ == nullptr && return this->loginAsNonRootSupported_ == nullptr
+        && return this->OSName_ == nullptr && return this->OSNameEn_ == nullptr && return this->OSType_ == nullptr && return this->platform_ == nullptr && return this->productCode_ == nullptr
+        && return this->progress_ == nullptr && return this->resourceGroupId_ == nullptr && return this->size_ == nullptr && return this->status_ == nullptr && return this->supplierName_ == nullptr
+        && return this->tags_ == nullptr && return this->usage_ == nullptr; };
     // architecture Field Functions 
     bool hasArchitecture() const { return this->architecture_ != nullptr;};
     void deleteArchitecture() { this->architecture_ = nullptr;};

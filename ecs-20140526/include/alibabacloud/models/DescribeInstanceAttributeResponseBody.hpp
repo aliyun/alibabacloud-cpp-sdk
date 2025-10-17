@@ -105,14 +105,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->cpu_ != nullptr && this->creationTime_ != nullptr && this->creditSpecification_ != nullptr && this->dedicatedHostAttribute_ != nullptr && this->description_ != nullptr
-        && this->eipAddress_ != nullptr && this->enableJumboFrame_ != nullptr && this->enableNetworkEncryption_ != nullptr && this->expiredTime_ != nullptr && this->hostName_ != nullptr
-        && this->imageId_ != nullptr && this->innerIpAddress_ != nullptr && this->instanceChargeType_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr
-        && this->instanceNetworkType_ != nullptr && this->instanceType_ != nullptr && this->internetChargeType_ != nullptr && this->internetMaxBandwidthIn_ != nullptr && this->internetMaxBandwidthOut_ != nullptr
-        && this->ioOptimized_ != nullptr && this->memory_ != nullptr && this->networkOptions_ != nullptr && this->operationLocks_ != nullptr && this->publicIpAddress_ != nullptr
-        && this->regionId_ != nullptr && this->requestId_ != nullptr && this->securityGroupIds_ != nullptr && this->serialNumber_ != nullptr && this->status_ != nullptr
-        && this->stoppedMode_ != nullptr && this->vlanId_ != nullptr && this->vpcAttributes_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && return this->cpu_ == nullptr && return this->creationTime_ == nullptr && return this->creditSpecification_ == nullptr && return this->dedicatedHostAttribute_ == nullptr && return this->description_ == nullptr
+        && return this->eipAddress_ == nullptr && return this->enableJumboFrame_ == nullptr && return this->enableNetworkEncryption_ == nullptr && return this->expiredTime_ == nullptr && return this->hostName_ == nullptr
+        && return this->imageId_ == nullptr && return this->innerIpAddress_ == nullptr && return this->instanceChargeType_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr
+        && return this->instanceNetworkType_ == nullptr && return this->instanceType_ == nullptr && return this->internetChargeType_ == nullptr && return this->internetMaxBandwidthIn_ == nullptr && return this->internetMaxBandwidthOut_ == nullptr
+        && return this->ioOptimized_ == nullptr && return this->memory_ == nullptr && return this->networkOptions_ == nullptr && return this->operationLocks_ == nullptr && return this->publicIpAddress_ == nullptr
+        && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->securityGroupIds_ == nullptr && return this->serialNumber_ == nullptr && return this->status_ == nullptr
+        && return this->stoppedMode_ == nullptr && return this->vlanId_ == nullptr && return this->vpcAttributes_ == nullptr && return this->zoneId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};

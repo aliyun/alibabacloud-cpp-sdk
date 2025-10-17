@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->currentOSNVMeSupported_ != nullptr
-        && this->loginAsNonRoot_ != nullptr; };
+    virtual bool empty() const override { return this->currentOSNVMeSupported_ == nullptr
+        && return this->loginAsNonRoot_ == nullptr; };
     // currentOSNVMeSupported Field Functions 
     bool hasCurrentOSNVMeSupported() const { return this->currentOSNVMeSupported_ != nullptr;};
     void deleteCurrentOSNVMeSupported() { this->currentOSNVMeSupported_ = nullptr;};

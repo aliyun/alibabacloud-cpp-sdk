@@ -198,23 +198,23 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpuOptions_ != nullptr
-        && this->hibernationOptions_ != nullptr && this->privatePoolOptions_ != nullptr && this->schedulerOptions_ != nullptr && this->securityOptions_ != nullptr && this->systemDisk_ != nullptr
-        && this->affinity_ != nullptr && this->amount_ != nullptr && this->arn_ != nullptr && this->autoPay_ != nullptr && this->autoReleaseTime_ != nullptr
-        && this->autoRenew_ != nullptr && this->autoRenewPeriod_ != nullptr && this->clientToken_ != nullptr && this->clockOptions_ != nullptr && this->creditSpecification_ != nullptr
-        && this->dataDisk_ != nullptr && this->dedicatedHostId_ != nullptr && this->deletionProtection_ != nullptr && this->deploymentSetGroupNo_ != nullptr && this->deploymentSetId_ != nullptr
-        && this->description_ != nullptr && this->dryRun_ != nullptr && this->hostName_ != nullptr && this->hostNames_ != nullptr && this->hpcClusterId_ != nullptr
-        && this->httpEndpoint_ != nullptr && this->httpPutResponseHopLimit_ != nullptr && this->httpTokens_ != nullptr && this->imageFamily_ != nullptr && this->imageId_ != nullptr
-        && this->imageOptions_ != nullptr && this->instanceChargeType_ != nullptr && this->instanceName_ != nullptr && this->instanceType_ != nullptr && this->internetChargeType_ != nullptr
-        && this->internetMaxBandwidthIn_ != nullptr && this->internetMaxBandwidthOut_ != nullptr && this->ioOptimized_ != nullptr && this->ipv6Address_ != nullptr && this->ipv6AddressCount_ != nullptr
-        && this->isp_ != nullptr && this->keyPairName_ != nullptr && this->launchTemplateId_ != nullptr && this->launchTemplateName_ != nullptr && this->launchTemplateVersion_ != nullptr
-        && this->minAmount_ != nullptr && this->networkInterface_ != nullptr && this->networkInterfaceQueueNumber_ != nullptr && this->networkOptions_ != nullptr && this->ownerAccount_ != nullptr
-        && this->ownerId_ != nullptr && this->password_ != nullptr && this->passwordInherit_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr
-        && this->privateDnsNameOptions_ != nullptr && this->privateIpAddress_ != nullptr && this->ramRoleName_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->securityEnhancementStrategy_ != nullptr && this->securityGroupId_ != nullptr && this->securityGroupIds_ != nullptr
-        && this->spotDuration_ != nullptr && this->spotInterruptionBehavior_ != nullptr && this->spotPriceLimit_ != nullptr && this->spotStrategy_ != nullptr && this->storageSetId_ != nullptr
-        && this->storageSetPartitionNumber_ != nullptr && this->tag_ != nullptr && this->tenancy_ != nullptr && this->uniqueSuffix_ != nullptr && this->userData_ != nullptr
-        && this->vSwitchId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->cpuOptions_ == nullptr
+        && return this->hibernationOptions_ == nullptr && return this->privatePoolOptions_ == nullptr && return this->schedulerOptions_ == nullptr && return this->securityOptions_ == nullptr && return this->systemDisk_ == nullptr
+        && return this->affinity_ == nullptr && return this->amount_ == nullptr && return this->arn_ == nullptr && return this->autoPay_ == nullptr && return this->autoReleaseTime_ == nullptr
+        && return this->autoRenew_ == nullptr && return this->autoRenewPeriod_ == nullptr && return this->clientToken_ == nullptr && return this->clockOptions_ == nullptr && return this->creditSpecification_ == nullptr
+        && return this->dataDisk_ == nullptr && return this->dedicatedHostId_ == nullptr && return this->deletionProtection_ == nullptr && return this->deploymentSetGroupNo_ == nullptr && return this->deploymentSetId_ == nullptr
+        && return this->description_ == nullptr && return this->dryRun_ == nullptr && return this->hostName_ == nullptr && return this->hostNames_ == nullptr && return this->hpcClusterId_ == nullptr
+        && return this->httpEndpoint_ == nullptr && return this->httpPutResponseHopLimit_ == nullptr && return this->httpTokens_ == nullptr && return this->imageFamily_ == nullptr && return this->imageId_ == nullptr
+        && return this->imageOptions_ == nullptr && return this->instanceChargeType_ == nullptr && return this->instanceName_ == nullptr && return this->instanceType_ == nullptr && return this->internetChargeType_ == nullptr
+        && return this->internetMaxBandwidthIn_ == nullptr && return this->internetMaxBandwidthOut_ == nullptr && return this->ioOptimized_ == nullptr && return this->ipv6Address_ == nullptr && return this->ipv6AddressCount_ == nullptr
+        && return this->isp_ == nullptr && return this->keyPairName_ == nullptr && return this->launchTemplateId_ == nullptr && return this->launchTemplateName_ == nullptr && return this->launchTemplateVersion_ == nullptr
+        && return this->minAmount_ == nullptr && return this->networkInterface_ == nullptr && return this->networkInterfaceQueueNumber_ == nullptr && return this->networkOptions_ == nullptr && return this->ownerAccount_ == nullptr
+        && return this->ownerId_ == nullptr && return this->password_ == nullptr && return this->passwordInherit_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr
+        && return this->privateDnsNameOptions_ == nullptr && return this->privateIpAddress_ == nullptr && return this->ramRoleName_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->securityEnhancementStrategy_ == nullptr && return this->securityGroupId_ == nullptr && return this->securityGroupIds_ == nullptr
+        && return this->spotDuration_ == nullptr && return this->spotInterruptionBehavior_ == nullptr && return this->spotPriceLimit_ == nullptr && return this->spotStrategy_ == nullptr && return this->storageSetId_ == nullptr
+        && return this->storageSetPartitionNumber_ == nullptr && return this->tag_ == nullptr && return this->tenancy_ == nullptr && return this->uniqueSuffix_ == nullptr && return this->userData_ == nullptr
+        && return this->vSwitchId_ == nullptr && return this->zoneId_ == nullptr; };
     // cpuOptions Field Functions 
     bool hasCpuOptions() const { return this->cpuOptions_ != nullptr;};
     void deleteCpuOptions() { this->cpuOptions_ = nullptr;};

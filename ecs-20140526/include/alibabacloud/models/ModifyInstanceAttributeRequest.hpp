@@ -71,11 +71,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpuOptions_ != nullptr
-        && this->creditSpecification_ != nullptr && this->deletionProtection_ != nullptr && this->description_ != nullptr && this->enableJumboFrame_ != nullptr && this->enableNetworkEncryption_ != nullptr
-        && this->hostName_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->networkInterfaceQueueNumber_ != nullptr && this->ownerAccount_ != nullptr
-        && this->ownerId_ != nullptr && this->password_ != nullptr && this->privateDnsNameOptions_ != nullptr && this->recyclable_ != nullptr && this->remoteConnectionOptions_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->securityGroupIds_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->cpuOptions_ == nullptr
+        && return this->creditSpecification_ == nullptr && return this->deletionProtection_ == nullptr && return this->description_ == nullptr && return this->enableJumboFrame_ == nullptr && return this->enableNetworkEncryption_ == nullptr
+        && return this->hostName_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->networkInterfaceQueueNumber_ == nullptr && return this->ownerAccount_ == nullptr
+        && return this->ownerId_ == nullptr && return this->password_ == nullptr && return this->privateDnsNameOptions_ == nullptr && return this->recyclable_ == nullptr && return this->remoteConnectionOptions_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->securityGroupIds_ == nullptr && return this->userData_ == nullptr; };
     // cpuOptions Field Functions 
     bool hasCpuOptions() const { return this->cpuOptions_ != nullptr;};
     void deleteCpuOptions() { this->cpuOptions_ = nullptr;};

@@ -73,11 +73,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->privatePoolOptions_ != nullptr
-        && this->assuranceTimes_ != nullptr && this->autoRenew_ != nullptr && this->autoRenewPeriod_ != nullptr && this->clientToken_ != nullptr && this->description_ != nullptr
-        && this->instanceAmount_ != nullptr && this->instanceCpuCoreCount_ != nullptr && this->instanceType_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->period_ != nullptr && this->periodUnit_ != nullptr && this->recurrenceRules_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->startTime_ != nullptr && this->tag_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->privatePoolOptions_ == nullptr
+        && return this->assuranceTimes_ == nullptr && return this->autoRenew_ == nullptr && return this->autoRenewPeriod_ == nullptr && return this->clientToken_ == nullptr && return this->description_ == nullptr
+        && return this->instanceAmount_ == nullptr && return this->instanceCpuCoreCount_ == nullptr && return this->instanceType_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->recurrenceRules_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->startTime_ == nullptr && return this->tag_ == nullptr && return this->zoneId_ == nullptr; };
     // privatePoolOptions Field Functions 
     bool hasPrivatePoolOptions() const { return this->privatePoolOptions_ != nullptr;};
     void deletePrivatePoolOptions() { this->privatePoolOptions_ = nullptr;};
@@ -275,13 +275,13 @@ namespace Models
     std::shared_ptr<vector<string>> instanceType_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
-    // The validity period of the elasticity assurance. The unit of the validity period is determined by the value of `PeriodUnit`. Valid values:
+    // The validity period of the elasticity assurance. The unit of the validity period is determined by the value of `PeriodUnit`. Specifies whether to check the image used by the instance supports hot migration. Valid values:
     // 
     // *   When the value of `PeriodUnit` is `Month`, the valid values are 1, 2, 3, 4, 5, 6, 7, 8, and 9.
     // *   When the value of `PeriodUnit` is `Year`, the valid values are 1, 2, 3, 4, and 5.
     // *   When the value of `PeriodUnit` is `Day`, the valid values are 1 to 365.
     // 
-    // Default value: 1.
+    // Default value: 1
     std::shared_ptr<int32_t> period_ = nullptr;
     // The unit of the validity period of the elasticity assurance. Valid values:
     // 
@@ -297,7 +297,7 @@ namespace Models
     // 
     // Default value: Year.
     std::shared_ptr<string> periodUnit_ = nullptr;
-    // The assurance schedules of the time-segmented elasticity assurance.
+    // The assurance schedules based on which the capacity reservation takes effect.
     // 
     // >  Time-segmented elasticity assurances are available only in specific regions and to specific users. To use time-segmented elasticity assurances, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket-intl).
     std::shared_ptr<vector<CreateElasticityAssuranceRequestRecurrenceRules>> recurrenceRules_ = nullptr;

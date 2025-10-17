@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->amount_ != nullptr
-        && this->capacity_ != nullptr && this->clientToken_ != nullptr && this->description_ != nullptr && this->fromApp_ != nullptr && this->name_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr && this->regionId_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->startTime_ != nullptr && this->tag_ != nullptr; };
+    virtual bool empty() const override { return this->amount_ == nullptr
+        && return this->capacity_ == nullptr && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->fromApp_ == nullptr && return this->name_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->startTime_ == nullptr && return this->tag_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};

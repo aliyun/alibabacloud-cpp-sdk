@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->eventPublishTime_ != nullptr
-        && this->notBefore_ != nullptr && this->eventId_ != nullptr && this->eventType_ != nullptr && this->healthStatus_ != nullptr && this->instanceEventType_ != nullptr
-        && this->instanceId_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->eventPublishTime_ == nullptr
+        && return this->notBefore_ == nullptr && return this->eventId_ == nullptr && return this->eventType_ == nullptr && return this->healthStatus_ == nullptr && return this->instanceEventType_ == nullptr
+        && return this->instanceId_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->status_ == nullptr; };
     // eventPublishTime Field Functions 
     bool hasEventPublishTime() const { return this->eventPublishTime_ != nullptr;};
     void deleteEventPublishTime() { this->eventPublishTime_ = nullptr;};

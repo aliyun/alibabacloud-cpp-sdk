@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->committedAmount_ != nullptr
-        && this->currency_ != nullptr && this->instanceTypeFamily_ != nullptr && this->instanceTypeFamilyGroup_ != nullptr && this->offeringType_ != nullptr && this->period_ != nullptr
-        && this->periodUnit_ != nullptr && this->planType_ != nullptr && this->requestId_ != nullptr && this->resourceId_ != nullptr; };
+    virtual bool empty() const override { return this->committedAmount_ == nullptr
+        && return this->currency_ == nullptr && return this->instanceTypeFamily_ == nullptr && return this->instanceTypeFamilyGroup_ == nullptr && return this->offeringType_ == nullptr && return this->period_ == nullptr
+        && return this->periodUnit_ == nullptr && return this->planType_ == nullptr && return this->requestId_ == nullptr && return this->resourceId_ == nullptr; };
     // committedAmount Field Functions 
     bool hasCommittedAmount() const { return this->committedAmount_ != nullptr;};
     void deleteCommittedAmount() { this->committedAmount_ = nullptr;};

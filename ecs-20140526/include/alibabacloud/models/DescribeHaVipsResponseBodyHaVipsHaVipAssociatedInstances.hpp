@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->associatedInstance_ != nullptr; };
+    virtual bool empty() const override { return this->associatedInstance_ == nullptr; };
     // associatedInstance Field Functions 
     bool hasAssociatedInstance() const { return this->associatedInstance_ != nullptr;};
     void deleteAssociatedInstance() { this->associatedInstance_ = nullptr;};

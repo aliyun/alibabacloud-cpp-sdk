@@ -98,14 +98,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataDisk_ != nullptr
-        && this->schedulerOptions_ != nullptr && this->systemDisk_ != nullptr && this->amount_ != nullptr && this->assuranceTimes_ != nullptr && this->capacity_ != nullptr
-        && this->dedicatedHostType_ != nullptr && this->imageId_ != nullptr && this->instanceAmount_ != nullptr && this->instanceCpuCoreCount_ != nullptr && this->instanceNetworkType_ != nullptr
-        && this->instanceType_ != nullptr && this->instanceTypeList_ != nullptr && this->internetChargeType_ != nullptr && this->internetMaxBandwidthOut_ != nullptr && this->ioOptimized_ != nullptr
-        && this->isp_ != nullptr && this->offeringType_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->period_ != nullptr
-        && this->platform_ != nullptr && this->priceUnit_ != nullptr && this->recurrenceRules_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->resourceType_ != nullptr && this->scope_ != nullptr && this->spotDuration_ != nullptr && this->spotStrategy_ != nullptr
-        && this->startTime_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->dataDisk_ == nullptr
+        && return this->schedulerOptions_ == nullptr && return this->systemDisk_ == nullptr && return this->amount_ == nullptr && return this->assuranceTimes_ == nullptr && return this->capacity_ == nullptr
+        && return this->dedicatedHostType_ == nullptr && return this->imageId_ == nullptr && return this->instanceAmount_ == nullptr && return this->instanceCpuCoreCount_ == nullptr && return this->instanceNetworkType_ == nullptr
+        && return this->instanceType_ == nullptr && return this->instanceTypeList_ == nullptr && return this->internetChargeType_ == nullptr && return this->internetMaxBandwidthOut_ == nullptr && return this->ioOptimized_ == nullptr
+        && return this->isp_ == nullptr && return this->offeringType_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->period_ == nullptr
+        && return this->platform_ == nullptr && return this->priceUnit_ == nullptr && return this->recurrenceRules_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->resourceType_ == nullptr && return this->scope_ == nullptr && return this->spotDuration_ == nullptr && return this->spotStrategy_ == nullptr
+        && return this->startTime_ == nullptr && return this->zoneId_ == nullptr; };
     // dataDisk Field Functions 
     bool hasDataDisk() const { return this->dataDisk_ != nullptr;};
     void deleteDataDisk() { this->dataDisk_ = nullptr;};

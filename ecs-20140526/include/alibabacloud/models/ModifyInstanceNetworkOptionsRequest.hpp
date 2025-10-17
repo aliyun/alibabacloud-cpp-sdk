@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandwidthWeighting_ != nullptr
-        && this->instanceId_ != nullptr && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->bandwidthWeighting_ == nullptr
+        && return this->instanceId_ == nullptr && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // bandwidthWeighting Field Functions 
     bool hasBandwidthWeighting() const { return this->bandwidthWeighting_ != nullptr;};
     void deleteBandwidthWeighting() { this->bandwidthWeighting_ = nullptr;};
@@ -75,17 +75,19 @@ namespace Models
 
 
   protected:
-    // The bandwidth weight. Different specifications support different values. You can call the DescribeInstanceTypes operation to query the values supported by the current instance type.
+    // The bandwidth weight.
+    // 
+    // The supported values vary with instance types. You can query the bandwidth weights supported by the current instance type by using the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html).
     // 
     // Valid values:
     // 
-    // *   Vpc-L1.
-    // *   Vpc-L2.
-    // *   Ebs-L1.
-    // *   Ebs-L2.
-    // *   Default.
+    // *   Vpc-L1: Vpc-L1.
+    // *   Vpc-L2: Vpc-L2.
+    // *   Ebs-L1: Ebs-L1.
+    // *   Ebs-L2: Ebs-L2.
+    // *   Default: the Default.
     std::shared_ptr<string> bandwidthWeighting_ = nullptr;
-    // The ID of the instance for which you want to modify network configurations.
+    // The ID of the instance whose network bandwidth weight is to be modified.
     std::shared_ptr<string> instanceId_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
     std::shared_ptr<string> resourceOwnerAccount_ = nullptr;

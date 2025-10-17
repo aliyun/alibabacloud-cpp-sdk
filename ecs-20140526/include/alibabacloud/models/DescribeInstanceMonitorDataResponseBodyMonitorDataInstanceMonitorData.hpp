@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->BPSRead_ != nullptr
-        && this->BPSWrite_ != nullptr && this->CPU_ != nullptr && this->CPUAdvanceCreditBalance_ != nullptr && this->CPUCreditBalance_ != nullptr && this->CPUCreditUsage_ != nullptr
-        && this->CPUNotpaidSurplusCreditUsage_ != nullptr && this->IOPSRead_ != nullptr && this->IOPSWrite_ != nullptr && this->instanceId_ != nullptr && this->internetBandwidth_ != nullptr
-        && this->internetRX_ != nullptr && this->internetTX_ != nullptr && this->intranetBandwidth_ != nullptr && this->intranetRX_ != nullptr && this->intranetTX_ != nullptr
-        && this->timeStamp_ != nullptr; };
+    virtual bool empty() const override { return this->BPSRead_ == nullptr
+        && return this->BPSWrite_ == nullptr && return this->CPU_ == nullptr && return this->CPUAdvanceCreditBalance_ == nullptr && return this->CPUCreditBalance_ == nullptr && return this->CPUCreditUsage_ == nullptr
+        && return this->CPUNotpaidSurplusCreditUsage_ == nullptr && return this->IOPSRead_ == nullptr && return this->IOPSWrite_ == nullptr && return this->instanceId_ == nullptr && return this->internetBandwidth_ == nullptr
+        && return this->internetRX_ == nullptr && return this->internetTX_ == nullptr && return this->intranetBandwidth_ == nullptr && return this->intranetRX_ == nullptr && return this->intranetTX_ == nullptr
+        && return this->timeStamp_ == nullptr; };
     // BPSRead Field Functions 
     bool hasBPSRead() const { return this->BPSRead_ != nullptr;};
     void deleteBPSRead() { this->BPSRead_ = nullptr;};

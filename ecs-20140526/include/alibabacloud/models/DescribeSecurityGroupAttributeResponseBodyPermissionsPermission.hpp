@@ -79,12 +79,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->description_ != nullptr && this->destCidrIp_ != nullptr && this->destGroupId_ != nullptr && this->destGroupName_ != nullptr && this->destGroupOwnerAccount_ != nullptr
-        && this->destPrefixListId_ != nullptr && this->destPrefixListName_ != nullptr && this->direction_ != nullptr && this->ipProtocol_ != nullptr && this->ipv6DestCidrIp_ != nullptr
-        && this->ipv6SourceCidrIp_ != nullptr && this->nicType_ != nullptr && this->policy_ != nullptr && this->portRange_ != nullptr && this->portRangeListId_ != nullptr
-        && this->portRangeListName_ != nullptr && this->priority_ != nullptr && this->securityGroupRuleId_ != nullptr && this->sourceCidrIp_ != nullptr && this->sourceGroupId_ != nullptr
-        && this->sourceGroupName_ != nullptr && this->sourceGroupOwnerAccount_ != nullptr && this->sourcePortRange_ != nullptr && this->sourcePrefixListId_ != nullptr && this->sourcePrefixListName_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->description_ == nullptr && return this->destCidrIp_ == nullptr && return this->destGroupId_ == nullptr && return this->destGroupName_ == nullptr && return this->destGroupOwnerAccount_ == nullptr
+        && return this->destPrefixListId_ == nullptr && return this->destPrefixListName_ == nullptr && return this->direction_ == nullptr && return this->ipProtocol_ == nullptr && return this->ipv6DestCidrIp_ == nullptr
+        && return this->ipv6SourceCidrIp_ == nullptr && return this->nicType_ == nullptr && return this->policy_ == nullptr && return this->portRange_ == nullptr && return this->portRangeListId_ == nullptr
+        && return this->portRangeListName_ == nullptr && return this->priority_ == nullptr && return this->securityGroupRuleId_ == nullptr && return this->sourceCidrIp_ == nullptr && return this->sourceGroupId_ == nullptr
+        && return this->sourceGroupName_ == nullptr && return this->sourceGroupOwnerAccount_ == nullptr && return this->sourcePortRange_ == nullptr && return this->sourcePrefixListId_ == nullptr && return this->sourcePrefixListName_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

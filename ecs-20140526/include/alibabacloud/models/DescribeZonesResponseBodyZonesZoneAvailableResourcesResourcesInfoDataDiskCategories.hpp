@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->supportedDataDiskCategory_ != nullptr; };
+    virtual bool empty() const override { return this->supportedDataDiskCategory_ == nullptr; };
     // supportedDataDiskCategory Field Functions 
     bool hasSupportedDataDiskCategory() const { return this->supportedDataDiskCategory_ != nullptr;};
     void deleteSupportedDataDiskCategory() { this->supportedDataDiskCategory_ = nullptr;};

@@ -102,14 +102,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->businessType_ != nullptr
-        && this->clientToken_ != nullptr && this->connectionTrackingConfiguration_ != nullptr && this->deleteOnRelease_ != nullptr && this->description_ != nullptr && this->enhancedNetwork_ != nullptr
-        && this->instanceType_ != nullptr && this->ipv4Prefix_ != nullptr && this->ipv4PrefixCount_ != nullptr && this->ipv6Address_ != nullptr && this->ipv6AddressCount_ != nullptr
-        && this->ipv6Prefix_ != nullptr && this->ipv6PrefixCount_ != nullptr && this->networkInterfaceName_ != nullptr && this->networkInterfaceTrafficConfig_ != nullptr && this->networkInterfaceTrafficMode_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->primaryIpAddress_ != nullptr && this->privateIpAddress_ != nullptr && this->queueNumber_ != nullptr
-        && this->queuePairNumber_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->rxQueueSize_ != nullptr && this->secondaryPrivateIpAddressCount_ != nullptr && this->securityGroupId_ != nullptr && this->securityGroupIds_ != nullptr && this->sourceDestCheck_ != nullptr
-        && this->tag_ != nullptr && this->txQueueSize_ != nullptr && this->vSwitchId_ != nullptr && this->visible_ != nullptr; };
+    virtual bool empty() const override { return this->businessType_ == nullptr
+        && return this->clientToken_ == nullptr && return this->connectionTrackingConfiguration_ == nullptr && return this->deleteOnRelease_ == nullptr && return this->description_ == nullptr && return this->enhancedNetwork_ == nullptr
+        && return this->instanceType_ == nullptr && return this->ipv4Prefix_ == nullptr && return this->ipv4PrefixCount_ == nullptr && return this->ipv6Address_ == nullptr && return this->ipv6AddressCount_ == nullptr
+        && return this->ipv6Prefix_ == nullptr && return this->ipv6PrefixCount_ == nullptr && return this->networkInterfaceName_ == nullptr && return this->networkInterfaceTrafficConfig_ == nullptr && return this->networkInterfaceTrafficMode_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->primaryIpAddress_ == nullptr && return this->privateIpAddress_ == nullptr && return this->queueNumber_ == nullptr
+        && return this->queuePairNumber_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->rxQueueSize_ == nullptr && return this->secondaryPrivateIpAddressCount_ == nullptr && return this->securityGroupId_ == nullptr && return this->securityGroupIds_ == nullptr && return this->sourceDestCheck_ == nullptr
+        && return this->tag_ == nullptr && return this->txQueueSize_ == nullptr && return this->vSwitchId_ == nullptr && return this->visible_ == nullptr; };
     // businessType Field Functions 
     bool hasBusinessType() const { return this->businessType_ != nullptr;};
     void deleteBusinessType() { this->businessType_ = nullptr;};

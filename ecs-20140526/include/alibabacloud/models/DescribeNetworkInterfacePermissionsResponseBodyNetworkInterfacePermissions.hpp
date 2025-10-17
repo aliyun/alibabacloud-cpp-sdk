@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->networkInterfacePermission_ != nullptr; };
+    virtual bool empty() const override { return this->networkInterfacePermission_ == nullptr; };
     // networkInterfacePermission Field Functions 
     bool hasNetworkInterfacePermission() const { return this->networkInterfacePermission_ != nullptr;};
     void deleteNetworkInterfacePermission() { this->networkInterfacePermission_ = nullptr;};

@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->coreCount_ != nullptr
-        && this->enableVISST_ != nullptr && this->enableVRDT_ != nullptr && this->numa_ != nullptr && this->threadsPerCore_ != nullptr && this->topologyType_ != nullptr
-        && this->turboMode_ != nullptr; };
+    virtual bool empty() const override { return this->coreCount_ == nullptr
+        && return this->enableVISST_ == nullptr && return this->enableVRDT_ == nullptr && return this->numa_ == nullptr && return this->threadsPerCore_ == nullptr && return this->topologyType_ == nullptr
+        && return this->turboMode_ == nullptr; };
     // coreCount Field Functions 
     bool hasCoreCount() const { return this->coreCount_ != nullptr;};
     void deleteCoreCount() { this->coreCount_ = nullptr;};

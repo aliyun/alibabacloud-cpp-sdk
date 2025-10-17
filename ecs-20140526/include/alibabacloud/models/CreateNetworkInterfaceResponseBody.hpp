@@ -77,12 +77,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->description_ != nullptr
-        && this->ipv4PrefixSets_ != nullptr && this->ipv6PrefixSets_ != nullptr && this->ipv6Sets_ != nullptr && this->macAddress_ != nullptr && this->networkInterfaceId_ != nullptr
-        && this->networkInterfaceName_ != nullptr && this->ownerId_ != nullptr && this->privateIpAddress_ != nullptr && this->privateIpSets_ != nullptr && this->requestId_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->securityGroupIds_ != nullptr && this->serviceID_ != nullptr && this->serviceManaged_ != nullptr && this->sourceDestCheck_ != nullptr
-        && this->status_ != nullptr && this->tags_ != nullptr && this->type_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr
-        && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && return this->ipv4PrefixSets_ == nullptr && return this->ipv6PrefixSets_ == nullptr && return this->ipv6Sets_ == nullptr && return this->macAddress_ == nullptr && return this->networkInterfaceId_ == nullptr
+        && return this->networkInterfaceName_ == nullptr && return this->ownerId_ == nullptr && return this->privateIpAddress_ == nullptr && return this->privateIpSets_ == nullptr && return this->requestId_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->securityGroupIds_ == nullptr && return this->serviceID_ == nullptr && return this->serviceManaged_ == nullptr && return this->sourceDestCheck_ == nullptr
+        && return this->status_ == nullptr && return this->tags_ == nullptr && return this->type_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr
+        && return this->zoneId_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};

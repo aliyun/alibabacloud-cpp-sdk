@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->trustedSystemMode_ != nullptr; };
+    virtual bool empty() const override { return this->trustedSystemMode_ == nullptr; };
     // trustedSystemMode Field Functions 
     bool hasTrustedSystemMode() const { return this->trustedSystemMode_ != nullptr;};
     void deleteTrustedSystemMode() { this->trustedSystemMode_ = nullptr;};

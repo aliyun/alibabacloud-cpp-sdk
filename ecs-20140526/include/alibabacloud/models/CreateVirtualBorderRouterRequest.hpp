@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->circuitCode_ != nullptr
-        && this->clientToken_ != nullptr && this->description_ != nullptr && this->localGatewayIp_ != nullptr && this->name_ != nullptr && this->ownerAccount_ != nullptr
-        && this->ownerId_ != nullptr && this->peerGatewayIp_ != nullptr && this->peeringSubnetMask_ != nullptr && this->physicalConnectionId_ != nullptr && this->regionId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->userCidr_ != nullptr && this->vbrOwnerId_ != nullptr && this->vlanId_ != nullptr; };
+    virtual bool empty() const override { return this->circuitCode_ == nullptr
+        && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->localGatewayIp_ == nullptr && return this->name_ == nullptr && return this->ownerAccount_ == nullptr
+        && return this->ownerId_ == nullptr && return this->peerGatewayIp_ == nullptr && return this->peeringSubnetMask_ == nullptr && return this->physicalConnectionId_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->userCidr_ == nullptr && return this->vbrOwnerId_ == nullptr && return this->vlanId_ == nullptr; };
     // circuitCode Field Functions 
     bool hasCircuitCode() const { return this->circuitCode_ != nullptr;};
     void deleteCircuitCode() { this->circuitCode_ = nullptr;};

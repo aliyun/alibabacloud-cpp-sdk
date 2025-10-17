@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allocationStatus_ != nullptr
-        && this->creationTime_ != nullptr && this->description_ != nullptr && this->expiredTime_ != nullptr && this->instanceAmount_ != nullptr && this->instanceType_ != nullptr
-        && this->offeringType_ != nullptr && this->operationLocks_ != nullptr && this->platform_ != nullptr && this->regionId_ != nullptr && this->reservedInstanceId_ != nullptr
-        && this->reservedInstanceName_ != nullptr && this->resourceGroupId_ != nullptr && this->scope_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr
-        && this->tags_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->allocationStatus_ == nullptr
+        && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->expiredTime_ == nullptr && return this->instanceAmount_ == nullptr && return this->instanceType_ == nullptr
+        && return this->offeringType_ == nullptr && return this->operationLocks_ == nullptr && return this->platform_ == nullptr && return this->regionId_ == nullptr && return this->reservedInstanceId_ == nullptr
+        && return this->reservedInstanceName_ == nullptr && return this->resourceGroupId_ == nullptr && return this->scope_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr
+        && return this->tags_ == nullptr && return this->zoneId_ == nullptr; };
     // allocationStatus Field Functions 
     bool hasAllocationStatus() const { return this->allocationStatus_ != nullptr;};
     void deleteAllocationStatus() { this->allocationStatus_ = nullptr;};

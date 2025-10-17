@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->burstingEnabled_ != nullptr
-        && this->deleteAutoSnapshot_ != nullptr && this->deleteWithInstance_ != nullptr && this->description_ != nullptr && this->diskId_ != nullptr && this->diskIds_ != nullptr
-        && this->diskName_ != nullptr && this->enableAutoSnapshot_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->burstingEnabled_ == nullptr
+        && return this->deleteAutoSnapshot_ == nullptr && return this->deleteWithInstance_ == nullptr && return this->description_ == nullptr && return this->diskId_ == nullptr && return this->diskIds_ == nullptr
+        && return this->diskName_ == nullptr && return this->enableAutoSnapshot_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // burstingEnabled Field Functions 
     bool hasBurstingEnabled() const { return this->burstingEnabled_ != nullptr;};
     void deleteBurstingEnabled() { this->burstingEnabled_ = nullptr;};

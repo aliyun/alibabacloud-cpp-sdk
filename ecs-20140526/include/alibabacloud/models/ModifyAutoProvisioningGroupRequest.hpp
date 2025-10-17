@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoProvisioningGroupId_ != nullptr
-        && this->autoProvisioningGroupName_ != nullptr && this->defaultTargetCapacityType_ != nullptr && this->excessCapacityTerminationPolicy_ != nullptr && this->launchTemplateConfig_ != nullptr && this->maxSpotPrice_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->payAsYouGoTargetCapacity_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->spotTargetCapacity_ != nullptr && this->terminateInstancesWithExpiration_ != nullptr && this->totalTargetCapacity_ != nullptr; };
+    virtual bool empty() const override { return this->autoProvisioningGroupId_ == nullptr
+        && return this->autoProvisioningGroupName_ == nullptr && return this->defaultTargetCapacityType_ == nullptr && return this->excessCapacityTerminationPolicy_ == nullptr && return this->launchTemplateConfig_ == nullptr && return this->maxSpotPrice_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->payAsYouGoTargetCapacity_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->spotTargetCapacity_ == nullptr && return this->terminateInstancesWithExpiration_ == nullptr && return this->totalTargetCapacity_ == nullptr; };
     // autoProvisioningGroupId Field Functions 
     bool hasAutoProvisioningGroupId() const { return this->autoProvisioningGroupId_ != nullptr;};
     void deleteAutoProvisioningGroupId() { this->autoProvisioningGroupId_ = nullptr;};

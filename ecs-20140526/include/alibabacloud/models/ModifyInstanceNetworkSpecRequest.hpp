@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allocatePublicIp_ != nullptr
-        && this->autoPay_ != nullptr && this->clientToken_ != nullptr && this->endTime_ != nullptr && this->ISP_ != nullptr && this->instanceId_ != nullptr
-        && this->internetMaxBandwidthIn_ != nullptr && this->internetMaxBandwidthOut_ != nullptr && this->networkChargeType_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->allocatePublicIp_ == nullptr
+        && return this->autoPay_ == nullptr && return this->clientToken_ == nullptr && return this->endTime_ == nullptr && return this->ISP_ == nullptr && return this->instanceId_ == nullptr
+        && return this->internetMaxBandwidthIn_ == nullptr && return this->internetMaxBandwidthOut_ == nullptr && return this->networkChargeType_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->startTime_ == nullptr; };
     // allocatePublicIp Field Functions 
     bool hasAllocatePublicIp() const { return this->allocatePublicIp_ != nullptr;};
     void deleteAllocatePublicIp() { this->allocatePublicIp_ = nullptr;};

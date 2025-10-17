@@ -98,14 +98,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->filter_ != nullptr
-        && this->additionalAttributes_ != nullptr && this->autoSnapshotPolicyId_ != nullptr && this->category_ != nullptr && this->deleteAutoSnapshot_ != nullptr && this->deleteWithInstance_ != nullptr
-        && this->diskChargeType_ != nullptr && this->diskIds_ != nullptr && this->diskName_ != nullptr && this->diskType_ != nullptr && this->dryRun_ != nullptr
-        && this->enableAutoSnapshot_ != nullptr && this->enableAutomatedSnapshotPolicy_ != nullptr && this->enableShared_ != nullptr && this->encrypted_ != nullptr && this->instanceId_ != nullptr
-        && this->KMSKeyId_ != nullptr && this->lockReason_ != nullptr && this->maxResults_ != nullptr && this->multiAttach_ != nullptr && this->nextToken_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->portable_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->snapshotId_ != nullptr
-        && this->status_ != nullptr && this->tag_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->filter_ == nullptr
+        && return this->additionalAttributes_ == nullptr && return this->autoSnapshotPolicyId_ == nullptr && return this->category_ == nullptr && return this->deleteAutoSnapshot_ == nullptr && return this->deleteWithInstance_ == nullptr
+        && return this->diskChargeType_ == nullptr && return this->diskIds_ == nullptr && return this->diskName_ == nullptr && return this->diskType_ == nullptr && return this->dryRun_ == nullptr
+        && return this->enableAutoSnapshot_ == nullptr && return this->enableAutomatedSnapshotPolicy_ == nullptr && return this->enableShared_ == nullptr && return this->encrypted_ == nullptr && return this->instanceId_ == nullptr
+        && return this->KMSKeyId_ == nullptr && return this->lockReason_ == nullptr && return this->maxResults_ == nullptr && return this->multiAttach_ == nullptr && return this->nextToken_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->portable_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->snapshotId_ == nullptr
+        && return this->status_ == nullptr && return this->tag_ == nullptr && return this->zoneId_ == nullptr; };
     // filter Field Functions 
     bool hasFilter() const { return this->filter_ != nullptr;};
     void deleteFilter() { this->filter_ = nullptr;};
@@ -473,13 +473,11 @@ namespace Models
     // *   If you do not specify this parameter or you set this parameter to a value less than 10, the default value is 10.
     // *   If you set this parameter to a value greater than 500, the default value is 500.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
-    // Specifies whether the multi-attach feature is enabled for the disk. Valid values:
+    // Specifies whether to enable the multi-attach feature for the disk. Valid values:
     // 
-    // *   Disabled: The multi-attach feature is not enabled for the disk.
-    // *   Enabled: The multi-attach feature is enabled for the disk.
+    // *   Disabled
+    // *   Enabled
     // *   LegacyShared: Shared Block Storage devices are queried.
-    // 
-    // The multi-attach feature is available to select users. To use this feature, [submit a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/list).
     std::shared_ptr<string> multiAttach_ = nullptr;
     // The query token. Set the value to the `NextToken` value that was returned in the last call to this operation.
     // 

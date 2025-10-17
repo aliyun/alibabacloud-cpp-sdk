@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->internetChargeType_ != nullptr
-        && this->max_ != nullptr && this->min_ != nullptr && this->unit_ != nullptr; };
+    virtual bool empty() const override { return this->internetChargeType_ == nullptr
+        && return this->max_ == nullptr && return this->min_ == nullptr && return this->unit_ == nullptr; };
     // internetChargeType Field Functions 
     bool hasInternetChargeType() const { return this->internetChargeType_ != nullptr;};
     void deleteInternetChargeType() { this->internetChargeType_ = nullptr;};

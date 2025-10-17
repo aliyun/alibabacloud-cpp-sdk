@@ -74,11 +74,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoProvisioningGroupId_ != nullptr
-        && this->autoProvisioningGroupName_ != nullptr && this->autoProvisioningGroupType_ != nullptr && this->creationTime_ != nullptr && this->excessCapacityTerminationPolicy_ != nullptr && this->launchTemplateConfigs_ != nullptr
-        && this->launchTemplateId_ != nullptr && this->launchTemplateVersion_ != nullptr && this->maxSpotPrice_ != nullptr && this->payAsYouGoOptions_ != nullptr && this->regionId_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->spotOptions_ != nullptr && this->state_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr
-        && this->targetCapacitySpecification_ != nullptr && this->terminateInstances_ != nullptr && this->terminateInstancesWithExpiration_ != nullptr && this->validFrom_ != nullptr && this->validUntil_ != nullptr; };
+    virtual bool empty() const override { return this->autoProvisioningGroupId_ == nullptr
+        && return this->autoProvisioningGroupName_ == nullptr && return this->autoProvisioningGroupType_ == nullptr && return this->creationTime_ == nullptr && return this->excessCapacityTerminationPolicy_ == nullptr && return this->launchTemplateConfigs_ == nullptr
+        && return this->launchTemplateId_ == nullptr && return this->launchTemplateVersion_ == nullptr && return this->maxSpotPrice_ == nullptr && return this->payAsYouGoOptions_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->spotOptions_ == nullptr && return this->state_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr
+        && return this->targetCapacitySpecification_ == nullptr && return this->terminateInstances_ == nullptr && return this->terminateInstancesWithExpiration_ == nullptr && return this->validFrom_ == nullptr && return this->validUntil_ == nullptr; };
     // autoProvisioningGroupId Field Functions 
     bool hasAutoProvisioningGroupId() const { return this->autoProvisioningGroupId_ != nullptr;};
     void deleteAutoProvisioningGroupId() { this->autoProvisioningGroupId_ = nullptr;};

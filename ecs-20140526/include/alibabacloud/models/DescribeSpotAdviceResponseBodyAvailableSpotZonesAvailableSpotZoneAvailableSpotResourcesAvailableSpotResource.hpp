@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->averageSpotDiscount_ != nullptr
-        && this->instanceType_ != nullptr && this->interruptRateDesc_ != nullptr && this->interruptionRate_ != nullptr; };
+    virtual bool empty() const override { return this->averageSpotDiscount_ == nullptr
+        && return this->instanceType_ == nullptr && return this->interruptRateDesc_ == nullptr && return this->interruptionRate_ == nullptr; };
     // averageSpotDiscount Field Functions 
     bool hasAverageSpotDiscount() const { return this->averageSpotDiscount_ != nullptr;};
     void deleteAverageSpotDiscount() { this->averageSpotDiscount_ = nullptr;};

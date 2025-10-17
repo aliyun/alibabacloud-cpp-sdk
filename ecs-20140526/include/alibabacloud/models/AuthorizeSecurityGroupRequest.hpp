@@ -75,12 +75,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->description_ != nullptr && this->destCidrIp_ != nullptr && this->ipProtocol_ != nullptr && this->ipv6DestCidrIp_ != nullptr && this->ipv6SourceCidrIp_ != nullptr
-        && this->nicType_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->permissions_ != nullptr && this->policy_ != nullptr
-        && this->portRange_ != nullptr && this->priority_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->securityGroupId_ != nullptr && this->sourceCidrIp_ != nullptr && this->sourceGroupId_ != nullptr && this->sourceGroupOwnerAccount_ != nullptr && this->sourceGroupOwnerId_ != nullptr
-        && this->sourcePortRange_ != nullptr && this->sourcePrefixListId_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->description_ == nullptr && return this->destCidrIp_ == nullptr && return this->ipProtocol_ == nullptr && return this->ipv6DestCidrIp_ == nullptr && return this->ipv6SourceCidrIp_ == nullptr
+        && return this->nicType_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->permissions_ == nullptr && return this->policy_ == nullptr
+        && return this->portRange_ == nullptr && return this->priority_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->securityGroupId_ == nullptr && return this->sourceCidrIp_ == nullptr && return this->sourceGroupId_ == nullptr && return this->sourceGroupOwnerAccount_ == nullptr && return this->sourceGroupOwnerId_ == nullptr
+        && return this->sourcePortRange_ == nullptr && return this->sourcePrefixListId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};

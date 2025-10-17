@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creationTime_ != nullptr
-        && this->dropped_ != nullptr && this->errorCode_ != nullptr && this->errorInfo_ != nullptr && this->exitCode_ != nullptr && this->finishTime_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceInvokeStatus_ != nullptr && this->invocationStatus_ != nullptr && this->ossOutputStatus_ != nullptr && this->ossOutputUri_ != nullptr
-        && this->output_ != nullptr && this->repeats_ != nullptr && this->startTime_ != nullptr && this->stopTime_ != nullptr && this->timed_ != nullptr
-        && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->creationTime_ == nullptr
+        && return this->dropped_ == nullptr && return this->errorCode_ == nullptr && return this->errorInfo_ == nullptr && return this->exitCode_ == nullptr && return this->finishTime_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceInvokeStatus_ == nullptr && return this->invocationStatus_ == nullptr && return this->ossOutputStatus_ == nullptr && return this->ossOutputUri_ == nullptr
+        && return this->output_ == nullptr && return this->repeats_ == nullptr && return this->startTime_ == nullptr && return this->stopTime_ == nullptr && return this->timed_ == nullptr
+        && return this->updateTime_ == nullptr; };
     // creationTime Field Functions 
     bool hasCreationTime() const { return this->creationTime_ != nullptr;};
     void deleteCreationTime() { this->creationTime_ = nullptr;};
@@ -280,7 +280,13 @@ namespace Models
     //     *   One-time task: The execution state can never be Scheduled.
     //     *   Scheduled task: The command is waiting to be run.
     std::shared_ptr<string> invocationStatus_ = nullptr;
+    // The output delivery status of the command execution. Valid values:
+    // 
+    // *   InProgress: The delivery is in progress.
+    // *   Finished: The delivery is complete.
+    // *   Failed: The delivery failed.
     std::shared_ptr<string> ossOutputStatus_ = nullptr;
+    // The command execution Output delivers the object URI to OSS. This field is an empty string when the delivery fails or is in progress.
     std::shared_ptr<string> ossOutputUri_ = nullptr;
     // The command output.
     // 

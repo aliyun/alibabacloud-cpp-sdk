@@ -62,10 +62,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->arn_ != nullptr
-        && this->clientToken_ != nullptr && this->destinationRegionId_ != nullptr && this->destinationSnapshotDescription_ != nullptr && this->destinationSnapshotName_ != nullptr && this->destinationStorageLocationArn_ != nullptr
-        && this->encrypted_ != nullptr && this->KMSKeyId_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->retentionDays_ != nullptr && this->snapshotId_ != nullptr && this->tag_ != nullptr; };
+    virtual bool empty() const override { return this->arn_ == nullptr
+        && return this->clientToken_ == nullptr && return this->destinationRegionId_ == nullptr && return this->destinationSnapshotDescription_ == nullptr && return this->destinationSnapshotName_ == nullptr && return this->destinationStorageLocationArn_ == nullptr
+        && return this->encrypted_ == nullptr && return this->KMSKeyId_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->retentionDays_ == nullptr && return this->snapshotId_ == nullptr && return this->tag_ == nullptr; };
     // arn Field Functions 
     bool hasArn() const { return this->arn_ != nullptr;};
     void deleteArn() { this->arn_ = nullptr;};

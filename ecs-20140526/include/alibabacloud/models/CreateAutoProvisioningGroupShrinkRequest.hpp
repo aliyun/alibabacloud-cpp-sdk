@@ -104,14 +104,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->launchConfiguration_ != nullptr
-        && this->autoProvisioningGroupName_ != nullptr && this->autoProvisioningGroupType_ != nullptr && this->clientToken_ != nullptr && this->dataDiskConfig_ != nullptr && this->defaultTargetCapacityType_ != nullptr
-        && this->description_ != nullptr && this->excessCapacityTerminationPolicy_ != nullptr && this->hibernationOptionsConfigured_ != nullptr && this->launchTemplateConfig_ != nullptr && this->launchTemplateId_ != nullptr
-        && this->launchTemplateVersion_ != nullptr && this->maxSpotPrice_ != nullptr && this->minTargetCapacity_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->payAsYouGoAllocationStrategy_ != nullptr && this->payAsYouGoTargetCapacity_ != nullptr && this->prePaidOptions_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->resourcePoolOptionsShrink_ != nullptr && this->spotAllocationStrategy_ != nullptr && this->spotInstanceInterruptionBehavior_ != nullptr
-        && this->spotInstancePoolsToUseCount_ != nullptr && this->spotTargetCapacity_ != nullptr && this->systemDiskConfig_ != nullptr && this->tag_ != nullptr && this->terminateInstances_ != nullptr
-        && this->terminateInstancesWithExpiration_ != nullptr && this->totalTargetCapacity_ != nullptr && this->validFrom_ != nullptr && this->validUntil_ != nullptr; };
+    virtual bool empty() const override { return this->launchConfiguration_ == nullptr
+        && return this->autoProvisioningGroupName_ == nullptr && return this->autoProvisioningGroupType_ == nullptr && return this->clientToken_ == nullptr && return this->dataDiskConfig_ == nullptr && return this->defaultTargetCapacityType_ == nullptr
+        && return this->description_ == nullptr && return this->excessCapacityTerminationPolicy_ == nullptr && return this->hibernationOptionsConfigured_ == nullptr && return this->launchTemplateConfig_ == nullptr && return this->launchTemplateId_ == nullptr
+        && return this->launchTemplateVersion_ == nullptr && return this->maxSpotPrice_ == nullptr && return this->minTargetCapacity_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->payAsYouGoAllocationStrategy_ == nullptr && return this->payAsYouGoTargetCapacity_ == nullptr && return this->prePaidOptions_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->resourcePoolOptionsShrink_ == nullptr && return this->spotAllocationStrategy_ == nullptr && return this->spotInstanceInterruptionBehavior_ == nullptr
+        && return this->spotInstancePoolsToUseCount_ == nullptr && return this->spotTargetCapacity_ == nullptr && return this->systemDiskConfig_ == nullptr && return this->tag_ == nullptr && return this->terminateInstances_ == nullptr
+        && return this->terminateInstancesWithExpiration_ == nullptr && return this->totalTargetCapacity_ == nullptr && return this->validFrom_ == nullptr && return this->validUntil_ == nullptr; };
     // launchConfiguration Field Functions 
     bool hasLaunchConfiguration() const { return this->launchConfiguration_ != nullptr;};
     void deleteLaunchConfiguration() { this->launchConfiguration_ = nullptr;};

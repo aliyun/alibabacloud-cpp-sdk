@@ -90,13 +90,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->commandContent_ != nullptr && this->containerId_ != nullptr && this->containerName_ != nullptr && this->contentEncoding_ != nullptr && this->description_ != nullptr
-        && this->enableParameter_ != nullptr && this->frequency_ != nullptr && this->instanceId_ != nullptr && this->keepCommand_ != nullptr && this->launcher_ != nullptr
-        && this->name_ != nullptr && this->ossOutputDelivery_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->parameters_ != nullptr
-        && this->regionId_ != nullptr && this->repeatMode_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->resourceTag_ != nullptr && this->tag_ != nullptr && this->terminationMode_ != nullptr && this->timed_ != nullptr && this->timeout_ != nullptr
-        && this->type_ != nullptr && this->username_ != nullptr && this->windowsPasswordName_ != nullptr && this->workingDir_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->commandContent_ == nullptr && return this->containerId_ == nullptr && return this->containerName_ == nullptr && return this->contentEncoding_ == nullptr && return this->description_ == nullptr
+        && return this->enableParameter_ == nullptr && return this->frequency_ == nullptr && return this->instanceId_ == nullptr && return this->keepCommand_ == nullptr && return this->launcher_ == nullptr
+        && return this->name_ == nullptr && return this->ossOutputDelivery_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->parameters_ == nullptr
+        && return this->regionId_ == nullptr && return this->repeatMode_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->resourceTag_ == nullptr && return this->tag_ == nullptr && return this->terminationMode_ == nullptr && return this->timed_ == nullptr && return this->timeout_ == nullptr
+        && return this->type_ == nullptr && return this->username_ == nullptr && return this->windowsPasswordName_ == nullptr && return this->workingDir_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};

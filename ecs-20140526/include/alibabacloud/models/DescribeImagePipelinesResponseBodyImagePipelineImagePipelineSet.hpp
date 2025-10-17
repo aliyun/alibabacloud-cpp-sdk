@@ -81,12 +81,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addAccounts_ != nullptr
-        && this->advancedOptions_ != nullptr && this->baseImage_ != nullptr && this->baseImageType_ != nullptr && this->buildContent_ != nullptr && this->creationTime_ != nullptr
-        && this->deleteInstanceOnFailure_ != nullptr && this->description_ != nullptr && this->imageFamily_ != nullptr && this->imageName_ != nullptr && this->imageOptions_ != nullptr
-        && this->imagePipelineId_ != nullptr && this->importImageOptions_ != nullptr && this->instanceType_ != nullptr && this->internetMaxBandwidthOut_ != nullptr && this->name_ != nullptr
-        && this->nvmeSupport_ != nullptr && this->repairMode_ != nullptr && this->resourceGroupId_ != nullptr && this->systemDiskSize_ != nullptr && this->tags_ != nullptr
-        && this->testContent_ != nullptr && this->toRegionIds_ != nullptr && this->vSwitchId_ != nullptr; };
+    virtual bool empty() const override { return this->addAccounts_ == nullptr
+        && return this->advancedOptions_ == nullptr && return this->baseImage_ == nullptr && return this->baseImageType_ == nullptr && return this->buildContent_ == nullptr && return this->creationTime_ == nullptr
+        && return this->deleteInstanceOnFailure_ == nullptr && return this->description_ == nullptr && return this->imageFamily_ == nullptr && return this->imageName_ == nullptr && return this->imageOptions_ == nullptr
+        && return this->imagePipelineId_ == nullptr && return this->importImageOptions_ == nullptr && return this->instanceType_ == nullptr && return this->internetMaxBandwidthOut_ == nullptr && return this->name_ == nullptr
+        && return this->nvmeSupport_ == nullptr && return this->repairMode_ == nullptr && return this->resourceGroupId_ == nullptr && return this->systemDiskSize_ == nullptr && return this->tags_ == nullptr
+        && return this->testContent_ == nullptr && return this->toRegionIds_ == nullptr && return this->vSwitchId_ == nullptr; };
     // addAccounts Field Functions 
     bool hasAddAccounts() const { return this->addAccounts_ != nullptr;};
     void deleteAddAccounts() { this->addAccounts_ = nullptr;};

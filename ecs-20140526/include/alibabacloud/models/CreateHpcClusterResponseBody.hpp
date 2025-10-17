@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->hpcClusterId_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->hpcClusterId_ == nullptr
+        && return this->requestId_ == nullptr; };
     // hpcClusterId Field Functions 
     bool hasHpcClusterId() const { return this->hpcClusterId_ != nullptr;};
     void deleteHpcClusterId() { this->hpcClusterId_ = nullptr;};

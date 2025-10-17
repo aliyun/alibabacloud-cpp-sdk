@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && return this->taskId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
-    // The ID of the redeployment task.
+    // The ID of the task for which the bandwidth weight is modified.
     // 
-    // You can call the [DescribeTasks](https://help.aliyun.com/document_detail/25622.html) operation to query the redeployment result.
+    // You can use the [DescribeTasks](https://help.aliyun.com/document_detail/25622.html) interface to modify the bandwidth weight result.
     std::shared_ptr<string> taskId_ = nullptr;
   };
 

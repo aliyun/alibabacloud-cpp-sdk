@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->launchTemplateSet_ != nullptr; };
+    virtual bool empty() const override { return this->launchTemplateSet_ == nullptr; };
     // launchTemplateSet Field Functions 
     bool hasLaunchTemplateSet() const { return this->launchTemplateSet_ != nullptr;};
     void deleteLaunchTemplateSet() { this->launchTemplateSet_ = nullptr;};

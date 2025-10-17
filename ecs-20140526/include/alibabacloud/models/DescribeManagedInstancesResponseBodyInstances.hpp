@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activationId_ != nullptr
-        && this->agentVersion_ != nullptr && this->connected_ != nullptr && this->hostname_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr
-        && this->internetIp_ != nullptr && this->intranetIp_ != nullptr && this->invocationCount_ != nullptr && this->lastInvokedTime_ != nullptr && this->machineId_ != nullptr
-        && this->osType_ != nullptr && this->osVersion_ != nullptr && this->registrationTime_ != nullptr && this->resourceGroupId_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->activationId_ == nullptr
+        && return this->agentVersion_ == nullptr && return this->connected_ == nullptr && return this->hostname_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr
+        && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr && return this->invocationCount_ == nullptr && return this->lastInvokedTime_ == nullptr && return this->machineId_ == nullptr
+        && return this->osType_ == nullptr && return this->osVersion_ == nullptr && return this->registrationTime_ == nullptr && return this->resourceGroupId_ == nullptr && return this->tags_ == nullptr; };
     // activationId Field Functions 
     bool hasActivationId() const { return this->activationId_ != nullptr;};
     void deleteActivationId() { this->activationId_ = nullptr;};

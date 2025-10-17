@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->eventCycleStatus_ != nullptr
-        && this->eventFinishTime_ != nullptr && this->eventId_ != nullptr && this->eventPublishTime_ != nullptr && this->eventType_ != nullptr && this->extendedAttribute_ != nullptr
-        && this->impactLevel_ != nullptr && this->instanceId_ != nullptr && this->notBefore_ != nullptr && this->reason_ != nullptr && this->reasonCode_ != nullptr
-        && this->resourceType_ != nullptr; };
+    virtual bool empty() const override { return this->eventCycleStatus_ == nullptr
+        && return this->eventFinishTime_ == nullptr && return this->eventId_ == nullptr && return this->eventPublishTime_ == nullptr && return this->eventType_ == nullptr && return this->extendedAttribute_ == nullptr
+        && return this->impactLevel_ == nullptr && return this->instanceId_ == nullptr && return this->notBefore_ == nullptr && return this->reason_ == nullptr && return this->reasonCode_ == nullptr
+        && return this->resourceType_ == nullptr; };
     // eventCycleStatus Field Functions 
     bool hasEventCycleStatus() const { return this->eventCycleStatus_ != nullptr;};
     void deleteEventCycleStatus() { this->eventCycleStatus_ = nullptr;};

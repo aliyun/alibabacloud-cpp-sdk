@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deploymentSetIds_ != nullptr
-        && this->deploymentSetName_ != nullptr && this->domain_ != nullptr && this->granularity_ != nullptr && this->networkType_ != nullptr && this->ownerAccount_ != nullptr
-        && this->ownerId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->strategy_ != nullptr; };
+    virtual bool empty() const override { return this->deploymentSetIds_ == nullptr
+        && return this->deploymentSetName_ == nullptr && return this->domain_ == nullptr && return this->granularity_ == nullptr && return this->networkType_ == nullptr && return this->ownerAccount_ == nullptr
+        && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->strategy_ == nullptr; };
     // deploymentSetIds Field Functions 
     bool hasDeploymentSetIds() const { return this->deploymentSetIds_ != nullptr;};
     void deleteDeploymentSetIds() { this->deploymentSetIds_ = nullptr;};

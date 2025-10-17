@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addEntry_ != nullptr
-        && this->description_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->prefixListId_ != nullptr && this->prefixListName_ != nullptr
-        && this->regionId_ != nullptr && this->removeEntry_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->addEntry_ == nullptr
+        && return this->description_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->prefixListId_ == nullptr && return this->prefixListName_ == nullptr
+        && return this->regionId_ == nullptr && return this->removeEntry_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // addEntry Field Functions 
     bool hasAddEntry() const { return this->addEntry_ != nullptr;};
     void deleteAddEntry() { this->addEntry_ = nullptr;};

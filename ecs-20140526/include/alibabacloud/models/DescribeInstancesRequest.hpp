@@ -114,16 +114,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->filter_ != nullptr
-        && this->additionalAttributes_ != nullptr && this->deviceAvailable_ != nullptr && this->dryRun_ != nullptr && this->eipAddresses_ != nullptr && this->hpcClusterId_ != nullptr
-        && this->httpEndpoint_ != nullptr && this->httpPutResponseHopLimit_ != nullptr && this->httpTokens_ != nullptr && this->imageId_ != nullptr && this->innerIpAddresses_ != nullptr
-        && this->instanceChargeType_ != nullptr && this->instanceIds_ != nullptr && this->instanceName_ != nullptr && this->instanceNetworkType_ != nullptr && this->instanceType_ != nullptr
-        && this->instanceTypeFamily_ != nullptr && this->internetChargeType_ != nullptr && this->ioOptimized_ != nullptr && this->ipv6Address_ != nullptr && this->keyPairName_ != nullptr
-        && this->lockReason_ != nullptr && this->maxResults_ != nullptr && this->needSaleCycle_ != nullptr && this->nextToken_ != nullptr && this->ownerAccount_ != nullptr
-        && this->ownerId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->privateIpAddresses_ != nullptr && this->publicIpAddresses_ != nullptr
-        && this->rdmaIpAddresses_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->securityGroupId_ != nullptr && this->status_ != nullptr && this->tag_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr
-        && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->filter_ == nullptr
+        && return this->additionalAttributes_ == nullptr && return this->deviceAvailable_ == nullptr && return this->dryRun_ == nullptr && return this->eipAddresses_ == nullptr && return this->hpcClusterId_ == nullptr
+        && return this->httpEndpoint_ == nullptr && return this->httpPutResponseHopLimit_ == nullptr && return this->httpTokens_ == nullptr && return this->imageId_ == nullptr && return this->innerIpAddresses_ == nullptr
+        && return this->instanceChargeType_ == nullptr && return this->instanceIds_ == nullptr && return this->instanceName_ == nullptr && return this->instanceNetworkType_ == nullptr && return this->instanceType_ == nullptr
+        && return this->instanceTypeFamily_ == nullptr && return this->internetChargeType_ == nullptr && return this->ioOptimized_ == nullptr && return this->ipv6Address_ == nullptr && return this->keyPairName_ == nullptr
+        && return this->lockReason_ == nullptr && return this->maxResults_ == nullptr && return this->needSaleCycle_ == nullptr && return this->nextToken_ == nullptr && return this->ownerAccount_ == nullptr
+        && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->privateIpAddresses_ == nullptr && return this->publicIpAddresses_ == nullptr
+        && return this->rdmaIpAddresses_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->securityGroupId_ == nullptr && return this->status_ == nullptr && return this->tag_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr
+        && return this->zoneId_ == nullptr; };
     // filter Field Functions 
     bool hasFilter() const { return this->filter_ != nullptr;};
     void deleteFilter() { this->filter_ = nullptr;};

@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandwidth_ != nullptr
-        && this->bandwidthPackageId_ != nullptr && this->businessStatus_ != nullptr && this->creationTime_ != nullptr && this->description_ != nullptr && this->ISP_ != nullptr
-        && this->instanceChargeType_ != nullptr && this->internetChargeType_ != nullptr && this->ipCount_ != nullptr && this->name_ != nullptr && this->natGatewayId_ != nullptr
-        && this->publicIpAddresses_ != nullptr && this->regionId_ != nullptr && this->status_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->bandwidth_ == nullptr
+        && return this->bandwidthPackageId_ == nullptr && return this->businessStatus_ == nullptr && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->ISP_ == nullptr
+        && return this->instanceChargeType_ == nullptr && return this->internetChargeType_ == nullptr && return this->ipCount_ == nullptr && return this->name_ == nullptr && return this->natGatewayId_ == nullptr
+        && return this->publicIpAddresses_ == nullptr && return this->regionId_ == nullptr && return this->status_ == nullptr && return this->zoneId_ == nullptr; };
     // bandwidth Field Functions 
     bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
     void deleteBandwidth() { this->bandwidth_ = nullptr;};

@@ -124,16 +124,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attributes_ != nullptr
-        && this->baselineCredit_ != nullptr && this->clock_ != nullptr && this->cpuArchitecture_ != nullptr && this->cpuCoreCount_ != nullptr && this->cpuOptions_ != nullptr
-        && this->cpuSpeedFrequency_ != nullptr && this->cpuTurboFrequency_ != nullptr && this->diskQuantity_ != nullptr && this->enhancedNetwork_ != nullptr && this->eniIpv6AddressQuantity_ != nullptr
-        && this->eniPrivateIpAddressQuantity_ != nullptr && this->eniQuantity_ != nullptr && this->eniTotalQuantity_ != nullptr && this->eniTrunkSupported_ != nullptr && this->eriQuantity_ != nullptr
-        && this->GPUAmount_ != nullptr && this->GPUMemorySize_ != nullptr && this->GPUSpec_ != nullptr && this->initialCredit_ != nullptr && this->instanceBandwidthRx_ != nullptr
-        && this->instanceBandwidthTx_ != nullptr && this->instanceCategory_ != nullptr && this->instanceFamilyLevel_ != nullptr && this->instancePpsRx_ != nullptr && this->instancePpsTx_ != nullptr
-        && this->instanceTypeFamily_ != nullptr && this->instanceTypeId_ != nullptr && this->jumboFrameSupport_ != nullptr && this->localStorageAmount_ != nullptr && this->localStorageCapacity_ != nullptr
-        && this->localStorageCategory_ != nullptr && this->maximumQueueNumberPerEni_ != nullptr && this->memorySize_ != nullptr && this->networkCardQuantity_ != nullptr && this->networkCards_ != nullptr
-        && this->networkEncryptionSupport_ != nullptr && this->networkInfo_ != nullptr && this->nvmeSupport_ != nullptr && this->physicalProcessorModel_ != nullptr && this->primaryEniQueueNumber_ != nullptr
-        && this->queuePairNumber_ != nullptr && this->secondaryEniQueueNumber_ != nullptr && this->supportedBootModes_ != nullptr && this->totalEniQueueQuantity_ != nullptr; };
+    virtual bool empty() const override { return this->attributes_ == nullptr
+        && return this->baselineCredit_ == nullptr && return this->clock_ == nullptr && return this->cpuArchitecture_ == nullptr && return this->cpuCoreCount_ == nullptr && return this->cpuOptions_ == nullptr
+        && return this->cpuSpeedFrequency_ == nullptr && return this->cpuTurboFrequency_ == nullptr && return this->diskQuantity_ == nullptr && return this->enhancedNetwork_ == nullptr && return this->eniIpv6AddressQuantity_ == nullptr
+        && return this->eniPrivateIpAddressQuantity_ == nullptr && return this->eniQuantity_ == nullptr && return this->eniTotalQuantity_ == nullptr && return this->eniTrunkSupported_ == nullptr && return this->eriQuantity_ == nullptr
+        && return this->GPUAmount_ == nullptr && return this->GPUMemorySize_ == nullptr && return this->GPUSpec_ == nullptr && return this->initialCredit_ == nullptr && return this->instanceBandwidthRx_ == nullptr
+        && return this->instanceBandwidthTx_ == nullptr && return this->instanceCategory_ == nullptr && return this->instanceFamilyLevel_ == nullptr && return this->instancePpsRx_ == nullptr && return this->instancePpsTx_ == nullptr
+        && return this->instanceTypeFamily_ == nullptr && return this->instanceTypeId_ == nullptr && return this->jumboFrameSupport_ == nullptr && return this->localStorageAmount_ == nullptr && return this->localStorageCapacity_ == nullptr
+        && return this->localStorageCategory_ == nullptr && return this->maximumQueueNumberPerEni_ == nullptr && return this->memorySize_ == nullptr && return this->networkCardQuantity_ == nullptr && return this->networkCards_ == nullptr
+        && return this->networkEncryptionSupport_ == nullptr && return this->networkInfo_ == nullptr && return this->nvmeSupport_ == nullptr && return this->physicalProcessorModel_ == nullptr && return this->primaryEniQueueNumber_ == nullptr
+        && return this->queuePairNumber_ == nullptr && return this->secondaryEniQueueNumber_ == nullptr && return this->supportedBootModes_ == nullptr && return this->totalEniQueueQuantity_ == nullptr; };
     // attributes Field Functions 
     bool hasAttributes() const { return this->attributes_ != nullptr;};
     void deleteAttributes() { this->attributes_ = nullptr;};

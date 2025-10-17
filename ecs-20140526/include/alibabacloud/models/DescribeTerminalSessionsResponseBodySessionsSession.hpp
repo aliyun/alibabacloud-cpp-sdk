@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientIP_ != nullptr
-        && this->connections_ != nullptr && this->creationTime_ != nullptr && this->identityType_ != nullptr && this->portNumber_ != nullptr && this->principalId_ != nullptr
-        && this->sessionId_ != nullptr && this->targetServer_ != nullptr && this->username_ != nullptr; };
+    virtual bool empty() const override { return this->clientIP_ == nullptr
+        && return this->connections_ == nullptr && return this->creationTime_ == nullptr && return this->identityType_ == nullptr && return this->portNumber_ == nullptr && return this->principalId_ == nullptr
+        && return this->sessionId_ == nullptr && return this->targetServer_ == nullptr && return this->username_ == nullptr; };
     // clientIP Field Functions 
     bool hasClientIP() const { return this->clientIP_ != nullptr;};
     void deleteClientIP() { this->clientIP_ = nullptr;};

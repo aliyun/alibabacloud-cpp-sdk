@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->affinity_ != nullptr
-        && this->dedicatedHostClusterId_ != nullptr && this->dedicatedHostId_ != nullptr && this->deploymentSetGroupNo_ != nullptr && this->deploymentSetId_ != nullptr && this->force_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceType_ != nullptr && this->migrationType_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->regionId_ != nullptr && this->removeFromDeploymentSet_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->tenancy_ != nullptr; };
+    virtual bool empty() const override { return this->affinity_ == nullptr
+        && return this->dedicatedHostClusterId_ == nullptr && return this->dedicatedHostId_ == nullptr && return this->deploymentSetGroupNo_ == nullptr && return this->deploymentSetId_ == nullptr && return this->force_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceType_ == nullptr && return this->migrationType_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->regionId_ == nullptr && return this->removeFromDeploymentSet_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->tenancy_ == nullptr; };
     // affinity Field Functions 
     bool hasAffinity() const { return this->affinity_ != nullptr;};
     void deleteAffinity() { this->affinity_ = nullptr;};

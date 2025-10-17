@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->CPU_ != nullptr
-        && this->creationTime_ != nullptr && this->instanceId_ != nullptr && this->instanceType_ != nullptr && this->ioOptimized_ != nullptr && this->isSpot_ != nullptr
-        && this->memory_ != nullptr && this->networkType_ != nullptr && this->osType_ != nullptr && this->regionId_ != nullptr && this->status_ != nullptr
-        && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->CPU_ == nullptr
+        && return this->creationTime_ == nullptr && return this->instanceId_ == nullptr && return this->instanceType_ == nullptr && return this->ioOptimized_ == nullptr && return this->isSpot_ == nullptr
+        && return this->memory_ == nullptr && return this->networkType_ == nullptr && return this->osType_ == nullptr && return this->regionId_ == nullptr && return this->status_ == nullptr
+        && return this->zoneId_ == nullptr; };
     // CPU Field Functions 
     bool hasCPU() const { return this->CPU_ != nullptr;};
     void deleteCPU() { this->CPU_ = nullptr;};

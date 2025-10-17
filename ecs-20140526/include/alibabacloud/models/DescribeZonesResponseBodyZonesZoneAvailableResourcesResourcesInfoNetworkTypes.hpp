@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->supportedNetworkCategory_ != nullptr; };
+    virtual bool empty() const override { return this->supportedNetworkCategory_ == nullptr; };
     // supportedNetworkCategory Field Functions 
     bool hasSupportedNetworkCategory() const { return this->supportedNetworkCategory_ != nullptr;};
     void deleteSupportedNetworkCategory() { this->supportedNetworkCategory_ = nullptr;};

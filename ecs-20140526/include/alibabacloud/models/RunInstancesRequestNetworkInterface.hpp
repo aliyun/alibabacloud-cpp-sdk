@@ -64,11 +64,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deleteOnRelease_ != nullptr
-        && this->description_ != nullptr && this->instanceType_ != nullptr && this->ipv6Address_ != nullptr && this->ipv6AddressCount_ != nullptr && this->networkCardIndex_ != nullptr
-        && this->networkInterfaceId_ != nullptr && this->networkInterfaceName_ != nullptr && this->networkInterfaceTrafficMode_ != nullptr && this->primaryIpAddress_ != nullptr && this->queueNumber_ != nullptr
-        && this->queuePairNumber_ != nullptr && this->rxQueueSize_ != nullptr && this->securityGroupId_ != nullptr && this->securityGroupIds_ != nullptr && this->sourceDestCheck_ != nullptr
-        && this->txQueueSize_ != nullptr && this->vSwitchId_ != nullptr; };
+    virtual bool empty() const override { return this->deleteOnRelease_ == nullptr
+        && return this->description_ == nullptr && return this->instanceType_ == nullptr && return this->ipv6Address_ == nullptr && return this->ipv6AddressCount_ == nullptr && return this->networkCardIndex_ == nullptr
+        && return this->networkInterfaceId_ == nullptr && return this->networkInterfaceName_ == nullptr && return this->networkInterfaceTrafficMode_ == nullptr && return this->primaryIpAddress_ == nullptr && return this->queueNumber_ == nullptr
+        && return this->queuePairNumber_ == nullptr && return this->rxQueueSize_ == nullptr && return this->securityGroupId_ == nullptr && return this->securityGroupIds_ == nullptr && return this->sourceDestCheck_ == nullptr
+        && return this->txQueueSize_ == nullptr && return this->vSwitchId_ == nullptr; };
     // deleteOnRelease Field Functions 
     bool hasDeleteOnRelease() const { return this->deleteOnRelease_ != nullptr;};
     void deleteDeleteOnRelease() { this->deleteOnRelease_ = nullptr;};

@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endHour_ != nullptr
-        && this->recurrenceType_ != nullptr && this->recurrenceValue_ != nullptr && this->startHour_ != nullptr; };
+    virtual bool empty() const override { return this->endHour_ == nullptr
+        && return this->recurrenceType_ == nullptr && return this->recurrenceValue_ == nullptr && return this->startHour_ == nullptr; };
     // endHour Field Functions 
     bool hasEndHour() const { return this->endHour_ != nullptr;};
     void deleteEndHour() { this->endHour_ = nullptr;};

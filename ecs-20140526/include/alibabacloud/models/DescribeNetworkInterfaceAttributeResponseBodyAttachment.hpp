@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deviceIndex_ != nullptr
-        && this->instanceId_ != nullptr && this->memberNetworkInterfaceIds_ != nullptr && this->networkCardIndex_ != nullptr && this->trunkNetworkInterfaceId_ != nullptr; };
+    virtual bool empty() const override { return this->deviceIndex_ == nullptr
+        && return this->instanceId_ == nullptr && return this->memberNetworkInterfaceIds_ == nullptr && return this->networkCardIndex_ == nullptr && return this->trunkNetworkInterfaceId_ == nullptr; };
     // deviceIndex Field Functions 
     bool hasDeviceIndex() const { return this->deviceIndex_ != nullptr;};
     void deleteDeviceIndex() { this->deviceIndex_ = nullptr;};

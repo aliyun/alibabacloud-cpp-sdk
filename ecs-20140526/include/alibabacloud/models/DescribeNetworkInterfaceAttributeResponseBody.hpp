@@ -112,14 +112,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->associatedPublicIp_ != nullptr
-        && this->attachment_ != nullptr && this->bondInterfaceSpecification_ != nullptr && this->connectionTrackingConfiguration_ != nullptr && this->creationTime_ != nullptr && this->deleteOnRelease_ != nullptr
-        && this->description_ != nullptr && this->enhancedNetwork_ != nullptr && this->instanceId_ != nullptr && this->ipv4PrefixSets_ != nullptr && this->ipv6PrefixSets_ != nullptr
-        && this->ipv6Sets_ != nullptr && this->macAddress_ != nullptr && this->networkInterfaceId_ != nullptr && this->networkInterfaceName_ != nullptr && this->networkInterfaceTrafficConfig_ != nullptr
-        && this->networkInterfaceTrafficMode_ != nullptr && this->ownerId_ != nullptr && this->privateIpAddress_ != nullptr && this->privateIpSets_ != nullptr && this->queueNumber_ != nullptr
-        && this->queuePairNumber_ != nullptr && this->requestId_ != nullptr && this->resourceGroupId_ != nullptr && this->securityGroupIds_ != nullptr && this->serviceID_ != nullptr
-        && this->serviceManaged_ != nullptr && this->slaveInterfaceSpecification_ != nullptr && this->sourceDestCheck_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr
-        && this->tcpOptionAddressEnabled_ != nullptr && this->type_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->associatedPublicIp_ == nullptr
+        && return this->attachment_ == nullptr && return this->bondInterfaceSpecification_ == nullptr && return this->connectionTrackingConfiguration_ == nullptr && return this->creationTime_ == nullptr && return this->deleteOnRelease_ == nullptr
+        && return this->description_ == nullptr && return this->enhancedNetwork_ == nullptr && return this->instanceId_ == nullptr && return this->ipv4PrefixSets_ == nullptr && return this->ipv6PrefixSets_ == nullptr
+        && return this->ipv6Sets_ == nullptr && return this->macAddress_ == nullptr && return this->networkInterfaceId_ == nullptr && return this->networkInterfaceName_ == nullptr && return this->networkInterfaceTrafficConfig_ == nullptr
+        && return this->networkInterfaceTrafficMode_ == nullptr && return this->ownerId_ == nullptr && return this->privateIpAddress_ == nullptr && return this->privateIpSets_ == nullptr && return this->queueNumber_ == nullptr
+        && return this->queuePairNumber_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->securityGroupIds_ == nullptr && return this->serviceID_ == nullptr
+        && return this->serviceManaged_ == nullptr && return this->slaveInterfaceSpecification_ == nullptr && return this->sourceDestCheck_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr
+        && return this->tcpOptionAddressEnabled_ == nullptr && return this->type_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
     // associatedPublicIp Field Functions 
     bool hasAssociatedPublicIp() const { return this->associatedPublicIp_ != nullptr;};
     void deleteAssociatedPublicIp() { this->associatedPublicIp_ = nullptr;};

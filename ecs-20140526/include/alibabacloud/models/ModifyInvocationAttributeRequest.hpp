@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commandContent_ != nullptr
-        && this->contentEncoding_ != nullptr && this->enableParameter_ != nullptr && this->frequency_ != nullptr && this->instanceId_ != nullptr && this->invokeId_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->parameters_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->commandContent_ == nullptr
+        && return this->contentEncoding_ == nullptr && return this->enableParameter_ == nullptr && return this->frequency_ == nullptr && return this->instanceId_ == nullptr && return this->invokeId_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->parameters_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr; };
     // commandContent Field Functions 
     bool hasCommandContent() const { return this->commandContent_ != nullptr;};
     void deleteCommandContent() { this->commandContent_ = nullptr;};

@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cores_ != nullptr
-        && this->instanceChargeType_ != nullptr && this->instanceFamilyLevel_ != nullptr && this->instanceType_ != nullptr && this->instanceTypeFamily_ != nullptr && this->ioOptimized_ != nullptr
-        && this->maxPrice_ != nullptr && this->memory_ != nullptr && this->networkType_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->priorityStrategy_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->scene_ != nullptr
-        && this->spotStrategy_ != nullptr && this->systemDiskCategory_ != nullptr && this->zoneId_ != nullptr && this->zoneMatchMode_ != nullptr; };
+    virtual bool empty() const override { return this->cores_ == nullptr
+        && return this->instanceChargeType_ == nullptr && return this->instanceFamilyLevel_ == nullptr && return this->instanceType_ == nullptr && return this->instanceTypeFamily_ == nullptr && return this->ioOptimized_ == nullptr
+        && return this->maxPrice_ == nullptr && return this->memory_ == nullptr && return this->networkType_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->priorityStrategy_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->scene_ == nullptr
+        && return this->spotStrategy_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->zoneId_ == nullptr && return this->zoneMatchMode_ == nullptr; };
     // cores Field Functions 
     bool hasCores() const { return this->cores_ != nullptr;};
     void deleteCores() { this->cores_ = nullptr;};
@@ -220,12 +220,12 @@ namespace Models
     // 
     // >  If you specify both `Cores` and `Memory`, the system returns all instance types that match the values of the parameters.
     std::shared_ptr<int32_t> cores_ = nullptr;
-    // The billing method of ECS instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
+    // The billing method of the ECS instance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
     // 
-    // *   PrePaid: subscription
+    // *   PrePaid: subscription.
     // *   PostPaid: pay-as-you-go
     // 
-    // Default value: PostPaid.
+    // Default value: PostPaid
     std::shared_ptr<string> instanceChargeType_ = nullptr;
     // The level of the instance family. Valid values:
     // 
@@ -267,11 +267,11 @@ namespace Models
     std::shared_ptr<string> networkType_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
-    // The policy that is used to recommend instance types. Valid values:
+    // The policy for recommending instance types. Valid values:
     // 
     // *   InventoryFirst: recommends instance types in descending order of resource availability.
     // *   PriceFirst: recommends the most cost-effective instance types. Recommended instance types appear based on the hourly prices of vCPUs in ascending order.
-    // *   NewProductFirst: recommends the latest instance types.
+    // *   NewProductFirst: recommends the latest instance types first.
     // 
     // Default value: InventoryFirst.
     std::shared_ptr<string> priorityStrategy_ = nullptr;
@@ -281,18 +281,18 @@ namespace Models
     std::shared_ptr<string> regionId_ = nullptr;
     std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
-    // The scenario in which instance types are recommended. Valid values:
+    // Specifies the scenarios in which instance types are recommended. Valid values:
     // 
     // *   UPGRADE: instance type upgrade or downgrade
     // *   CREATE: instance creation
     // 
     // Default value: CREATE.
     std::shared_ptr<string> scene_ = nullptr;
-    // The bidding policy of spot instances. Valid values:
+    // The bidding policy of the spot instance. Valid values:
     // 
-    // *   NoSpot: The instances are regular pay-as-you-go instances.
-    // *   SpotWithPriceLimit: The instances are created as spot instances for which you can specify the maximum hourly price.
-    // *   SpotAsPriceGo: The instances are spot instances for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
+    // *   NoSpot: The instance is created as a pay-as-you-go instance.
+    // *   SpotWithPriceLimit: The instance is a spot instance that has a user-defined maximum hourly price.
+    // *   SpotAsPriceGo: The instance is a spot instance for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
     // 
     // >  If you specify `SpotStrategy`, you must set `InstanceChargeType` to `PostPaid`.
     // 

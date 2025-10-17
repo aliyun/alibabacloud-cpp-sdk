@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->supportedBootMode_ != nullptr; };
+    virtual bool empty() const override { return this->supportedBootMode_ == nullptr; };
     // supportedBootMode Field Functions 
     bool hasSupportedBootMode() const { return this->supportedBootMode_ != nullptr;};
     void deleteSupportedBootMode() { this->supportedBootMode_ = nullptr;};

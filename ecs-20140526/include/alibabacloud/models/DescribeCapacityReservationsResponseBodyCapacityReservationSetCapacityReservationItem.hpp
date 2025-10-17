@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allocatedResources_ != nullptr
-        && this->capacityReservationOwnerId_ != nullptr && this->description_ != nullptr && this->endTime_ != nullptr && this->endTimeType_ != nullptr && this->instanceChargeType_ != nullptr
-        && this->platform_ != nullptr && this->privatePoolOptionsId_ != nullptr && this->privatePoolOptionsMatchCriteria_ != nullptr && this->privatePoolOptionsName_ != nullptr && this->regionId_ != nullptr
-        && this->reservedInstanceId_ != nullptr && this->resourceGroupId_ != nullptr && this->savingPlanId_ != nullptr && this->startTime_ != nullptr && this->startTimeType_ != nullptr
-        && this->status_ != nullptr && this->tags_ != nullptr && this->timeSlot_ != nullptr; };
+    virtual bool empty() const override { return this->allocatedResources_ == nullptr
+        && return this->capacityReservationOwnerId_ == nullptr && return this->description_ == nullptr && return this->endTime_ == nullptr && return this->endTimeType_ == nullptr && return this->instanceChargeType_ == nullptr
+        && return this->platform_ == nullptr && return this->privatePoolOptionsId_ == nullptr && return this->privatePoolOptionsMatchCriteria_ == nullptr && return this->privatePoolOptionsName_ == nullptr && return this->regionId_ == nullptr
+        && return this->reservedInstanceId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->savingPlanId_ == nullptr && return this->startTime_ == nullptr && return this->startTimeType_ == nullptr
+        && return this->status_ == nullptr && return this->tags_ == nullptr && return this->timeSlot_ == nullptr; };
     // allocatedResources Field Functions 
     bool hasAllocatedResources() const { return this->allocatedResources_ != nullptr;};
     void deleteAllocatedResources() { this->allocatedResources_ = nullptr;};

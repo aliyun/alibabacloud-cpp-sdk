@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->expectedRenewDay_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->period_ != nullptr && this->priceUnit_ != nullptr && this->regionId_ != nullptr
-        && this->resourceId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->resourceType_ != nullptr; };
+    virtual bool empty() const override { return this->expectedRenewDay_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->period_ == nullptr && return this->priceUnit_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->resourceType_ == nullptr; };
     // expectedRenewDay Field Functions 
     bool hasExpectedRenewDay() const { return this->expectedRenewDay_ != nullptr;};
     void deleteExpectedRenewDay() { this->expectedRenewDay_ = nullptr;};

@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->availableSpotZones_ != nullptr
-        && this->regionId_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->availableSpotZones_ == nullptr
+        && return this->regionId_ == nullptr && return this->requestId_ == nullptr; };
     // availableSpotZones Field Functions 
     bool hasAvailableSpotZones() const { return this->availableSpotZones_ != nullptr;};
     void deleteAvailableSpotZones() { this->availableSpotZones_ = nullptr;};

@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->core_ != nullptr
-        && this->coreFactor_ != nullptr && this->hyperThreadingAdjustable_ != nullptr && this->supportedTopologyTypes_ != nullptr && this->threadsPerCore_ != nullptr; };
+    virtual bool empty() const override { return this->core_ == nullptr
+        && return this->coreFactor_ == nullptr && return this->hyperThreadingAdjustable_ == nullptr && return this->supportedTopologyTypes_ == nullptr && return this->threadsPerCore_ == nullptr; };
     // core Field Functions 
     bool hasCore() const { return this->core_ != nullptr;};
     void deleteCore() { this->core_ = nullptr;};

@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->architectures_ != nullptr
-        && this->burstablePerformance_ != nullptr && this->cores_ != nullptr && this->excludedInstanceTypes_ != nullptr && this->imageId_ != nullptr && this->instanceFamilyLevel_ != nullptr
-        && this->instanceType_ != nullptr && this->maxPrice_ != nullptr && this->maxQuantity_ != nullptr && this->memories_ != nullptr && this->priority_ != nullptr
-        && this->vSwitchId_ != nullptr && this->weightedCapacity_ != nullptr; };
+    virtual bool empty() const override { return this->architectures_ == nullptr
+        && return this->burstablePerformance_ == nullptr && return this->cores_ == nullptr && return this->excludedInstanceTypes_ == nullptr && return this->imageId_ == nullptr && return this->instanceFamilyLevel_ == nullptr
+        && return this->instanceType_ == nullptr && return this->maxPrice_ == nullptr && return this->maxQuantity_ == nullptr && return this->memories_ == nullptr && return this->priority_ == nullptr
+        && return this->vSwitchId_ == nullptr && return this->weightedCapacity_ == nullptr; };
     // architectures Field Functions 
     bool hasArchitectures() const { return this->architectures_ != nullptr;};
     void deleteArchitectures() { this->architectures_ = nullptr;};

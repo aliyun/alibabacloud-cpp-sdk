@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cores_ != nullptr
-        && this->gpuAmount_ != nullptr && this->gpuSpec_ != nullptr && this->instanceFamilyLevel_ != nullptr && this->instanceTypeFamily_ != nullptr && this->instanceTypes_ != nullptr
-        && this->memory_ != nullptr && this->minCores_ != nullptr && this->minMemory_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->cores_ == nullptr
+        && return this->gpuAmount_ == nullptr && return this->gpuSpec_ == nullptr && return this->instanceFamilyLevel_ == nullptr && return this->instanceTypeFamily_ == nullptr && return this->instanceTypes_ == nullptr
+        && return this->memory_ == nullptr && return this->minCores_ == nullptr && return this->minMemory_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->zoneId_ == nullptr; };
     // cores Field Functions 
     bool hasCores() const { return this->cores_ != nullptr;};
     void deleteCores() { this->cores_ = nullptr;};

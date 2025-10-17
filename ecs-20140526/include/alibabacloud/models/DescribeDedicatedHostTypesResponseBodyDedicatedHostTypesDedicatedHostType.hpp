@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cores_ != nullptr
-        && this->cpuOverCommitRatioRange_ != nullptr && this->dedicatedHostType_ != nullptr && this->GPUSpec_ != nullptr && this->localStorageAmount_ != nullptr && this->localStorageCapacity_ != nullptr
-        && this->localStorageCategory_ != nullptr && this->memorySize_ != nullptr && this->physicalGpus_ != nullptr && this->sockets_ != nullptr && this->supportCpuOverCommitRatio_ != nullptr
-        && this->supportedInstanceTypeFamilies_ != nullptr && this->supportedInstanceTypesList_ != nullptr && this->totalVcpus_ != nullptr && this->totalVgpus_ != nullptr; };
+    virtual bool empty() const override { return this->cores_ == nullptr
+        && return this->cpuOverCommitRatioRange_ == nullptr && return this->dedicatedHostType_ == nullptr && return this->GPUSpec_ == nullptr && return this->localStorageAmount_ == nullptr && return this->localStorageCapacity_ == nullptr
+        && return this->localStorageCategory_ == nullptr && return this->memorySize_ == nullptr && return this->physicalGpus_ == nullptr && return this->sockets_ == nullptr && return this->supportCpuOverCommitRatio_ == nullptr
+        && return this->supportedInstanceTypeFamilies_ == nullptr && return this->supportedInstanceTypesList_ == nullptr && return this->totalVcpus_ == nullptr && return this->totalVgpus_ == nullptr; };
     // cores Field Functions 
     bool hasCores() const { return this->cores_ != nullptr;};
     void deleteCores() { this->cores_ = nullptr;};

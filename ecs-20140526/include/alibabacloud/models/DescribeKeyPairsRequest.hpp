@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->includePublicKey_ != nullptr
-        && this->keyPairFingerPrint_ != nullptr && this->keyPairName_ != nullptr && this->ownerId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->tag_ != nullptr; };
+    virtual bool empty() const override { return this->includePublicKey_ == nullptr
+        && return this->keyPairFingerPrint_ == nullptr && return this->keyPairName_ == nullptr && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->tag_ == nullptr; };
     // includePublicKey Field Functions 
     bool hasIncludePublicKey() const { return this->includePublicKey_ != nullptr;};
     void deleteIncludePublicKey() { this->includePublicKey_ = nullptr;};

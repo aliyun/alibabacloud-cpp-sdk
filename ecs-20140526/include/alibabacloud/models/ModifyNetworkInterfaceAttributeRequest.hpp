@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->connectionTrackingConfiguration_ != nullptr
-        && this->deleteOnRelease_ != nullptr && this->description_ != nullptr && this->enhancedNetwork_ != nullptr && this->networkInterfaceId_ != nullptr && this->networkInterfaceName_ != nullptr
-        && this->networkInterfaceTrafficConfig_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->queueNumber_ != nullptr && this->regionId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->rxQueueSize_ != nullptr && this->securityGroupId_ != nullptr && this->sourceDestCheck_ != nullptr
-        && this->txQueueSize_ != nullptr; };
+    virtual bool empty() const override { return this->connectionTrackingConfiguration_ == nullptr
+        && return this->deleteOnRelease_ == nullptr && return this->description_ == nullptr && return this->enhancedNetwork_ == nullptr && return this->networkInterfaceId_ == nullptr && return this->networkInterfaceName_ == nullptr
+        && return this->networkInterfaceTrafficConfig_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->queueNumber_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->rxQueueSize_ == nullptr && return this->securityGroupId_ == nullptr && return this->sourceDestCheck_ == nullptr
+        && return this->txQueueSize_ == nullptr; };
     // connectionTrackingConfiguration Field Functions 
     bool hasConnectionTrackingConfiguration() const { return this->connectionTrackingConfiguration_ != nullptr;};
     void deleteConnectionTrackingConfiguration() { this->connectionTrackingConfiguration_ = nullptr;};

@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bootMode_ != nullptr
-        && this->description_ != nullptr && this->dryRun_ != nullptr && this->features_ != nullptr && this->imageFamily_ != nullptr && this->imageId_ != nullptr
-        && this->imageName_ != nullptr && this->licenseType_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->bootMode_ == nullptr
+        && return this->description_ == nullptr && return this->dryRun_ == nullptr && return this->features_ == nullptr && return this->imageFamily_ == nullptr && return this->imageId_ == nullptr
+        && return this->imageName_ == nullptr && return this->licenseType_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->status_ == nullptr; };
     // bootMode Field Functions 
     bool hasBootMode() const { return this->bootMode_ != nullptr;};
     void deleteBootMode() { this->bootMode_ = nullptr;};

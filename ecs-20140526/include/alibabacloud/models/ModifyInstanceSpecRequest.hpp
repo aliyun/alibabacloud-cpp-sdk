@@ -63,10 +63,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->systemDisk_ != nullptr
-        && this->temporary_ != nullptr && this->allowMigrateAcrossZone_ != nullptr && this->async_ != nullptr && this->clientToken_ != nullptr && this->disk_ != nullptr
-        && this->dryRun_ != nullptr && this->instanceId_ != nullptr && this->instanceType_ != nullptr && this->internetMaxBandwidthIn_ != nullptr && this->internetMaxBandwidthOut_ != nullptr
-        && this->modifyMode_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->systemDisk_ == nullptr
+        && return this->temporary_ == nullptr && return this->allowMigrateAcrossZone_ == nullptr && return this->async_ == nullptr && return this->clientToken_ == nullptr && return this->disk_ == nullptr
+        && return this->dryRun_ == nullptr && return this->instanceId_ == nullptr && return this->instanceType_ == nullptr && return this->internetMaxBandwidthIn_ == nullptr && return this->internetMaxBandwidthOut_ == nullptr
+        && return this->modifyMode_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // systemDisk Field Functions 
     bool hasSystemDisk() const { return this->systemDisk_ != nullptr;};
     void deleteSystemDisk() { this->systemDisk_ = nullptr;};

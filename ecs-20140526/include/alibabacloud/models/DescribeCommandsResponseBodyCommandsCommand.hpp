@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->category_ != nullptr
-        && this->commandContent_ != nullptr && this->commandId_ != nullptr && this->creationTime_ != nullptr && this->description_ != nullptr && this->enableParameter_ != nullptr
-        && this->invokeTimes_ != nullptr && this->latest_ != nullptr && this->launcher_ != nullptr && this->name_ != nullptr && this->parameterDefinitions_ != nullptr
-        && this->parameterNames_ != nullptr && this->provider_ != nullptr && this->resourceGroupId_ != nullptr && this->tags_ != nullptr && this->timeout_ != nullptr
-        && this->type_ != nullptr && this->version_ != nullptr && this->workingDir_ != nullptr; };
+    virtual bool empty() const override { return this->category_ == nullptr
+        && return this->commandContent_ == nullptr && return this->commandId_ == nullptr && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->enableParameter_ == nullptr
+        && return this->invokeTimes_ == nullptr && return this->latest_ == nullptr && return this->launcher_ == nullptr && return this->name_ == nullptr && return this->parameterDefinitions_ == nullptr
+        && return this->parameterNames_ == nullptr && return this->provider_ == nullptr && return this->resourceGroupId_ == nullptr && return this->tags_ == nullptr && return this->timeout_ == nullptr
+        && return this->type_ == nullptr && return this->version_ == nullptr && return this->workingDir_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};

@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->instanceSystemEventType_ != nullptr; };
+    virtual bool empty() const override { return this->instanceSystemEventType_ == nullptr; };
     // instanceSystemEventType Field Functions 
     bool hasInstanceSystemEventType() const { return this->instanceSystemEventType_ != nullptr;};
     void deleteInstanceSystemEventType() { this->instanceSystemEventType_ = nullptr;};

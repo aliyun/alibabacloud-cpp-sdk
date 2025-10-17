@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->httpEndpoint_ != nullptr
-        && this->httpPutResponseHopLimit_ != nullptr && this->httpTokens_ != nullptr && this->instanceId_ != nullptr && this->instanceMetadataTags_ != nullptr && this->ownerId_ != nullptr
-        && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->httpEndpoint_ == nullptr
+        && return this->httpPutResponseHopLimit_ == nullptr && return this->httpTokens_ == nullptr && return this->instanceId_ == nullptr && return this->instanceMetadataTags_ == nullptr && return this->ownerId_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // httpEndpoint Field Functions 
     bool hasHttpEndpoint() const { return this->httpEndpoint_ != nullptr;};
     void deleteHttpEndpoint() { this->httpEndpoint_ = nullptr;};

@@ -71,11 +71,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dryRun_ != nullptr
-        && this->fuzzyQuery_ != nullptr && this->isQueryEcsCount_ != nullptr && this->maxResults_ != nullptr && this->networkType_ != nullptr && this->nextToken_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->regionId_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->securityGroupId_ != nullptr && this->securityGroupIds_ != nullptr
-        && this->securityGroupName_ != nullptr && this->securityGroupType_ != nullptr && this->serviceManaged_ != nullptr && this->tag_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->dryRun_ == nullptr
+        && return this->fuzzyQuery_ == nullptr && return this->isQueryEcsCount_ == nullptr && return this->maxResults_ == nullptr && return this->networkType_ == nullptr && return this->nextToken_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->securityGroupId_ == nullptr && return this->securityGroupIds_ == nullptr
+        && return this->securityGroupName_ == nullptr && return this->securityGroupType_ == nullptr && return this->serviceManaged_ == nullptr && return this->tag_ == nullptr && return this->vpcId_ == nullptr; };
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};

@@ -124,17 +124,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->additionalAttributes_ != nullptr
-        && this->cpuArchitecture_ != nullptr && this->cpuArchitectures_ != nullptr && this->GPUSpec_ != nullptr && this->gpuSpecs_ != nullptr && this->instanceCategories_ != nullptr
-        && this->instanceCategory_ != nullptr && this->instanceFamilyLevel_ != nullptr && this->instanceTypeFamilies_ != nullptr && this->instanceTypeFamily_ != nullptr && this->instanceTypes_ != nullptr
-        && this->localStorageCategories_ != nullptr && this->localStorageCategory_ != nullptr && this->maxResults_ != nullptr && this->maximumCpuCoreCount_ != nullptr && this->maximumCpuSpeedFrequency_ != nullptr
-        && this->maximumCpuTurboFrequency_ != nullptr && this->maximumGPUAmount_ != nullptr && this->maximumMemorySize_ != nullptr && this->minimumBaselineCredit_ != nullptr && this->minimumCpuCoreCount_ != nullptr
-        && this->minimumCpuSpeedFrequency_ != nullptr && this->minimumCpuTurboFrequency_ != nullptr && this->minimumDiskQuantity_ != nullptr && this->minimumEniIpv6AddressQuantity_ != nullptr && this->minimumEniPrivateIpAddressQuantity_ != nullptr
-        && this->minimumEniQuantity_ != nullptr && this->minimumEriQuantity_ != nullptr && this->minimumGPUAmount_ != nullptr && this->minimumInitialCredit_ != nullptr && this->minimumInstanceBandwidthRx_ != nullptr
-        && this->minimumInstanceBandwidthTx_ != nullptr && this->minimumInstancePpsRx_ != nullptr && this->minimumInstancePpsTx_ != nullptr && this->minimumLocalStorageAmount_ != nullptr && this->minimumLocalStorageCapacity_ != nullptr
-        && this->minimumMemorySize_ != nullptr && this->minimumPrimaryEniQueueNumber_ != nullptr && this->minimumQueuePairNumber_ != nullptr && this->minimumSecondaryEniQueueNumber_ != nullptr && this->nextToken_ != nullptr
-        && this->nvmeSupport_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->physicalProcessorModel_ != nullptr && this->physicalProcessorModels_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->additionalAttributes_ == nullptr
+        && return this->cpuArchitecture_ == nullptr && return this->cpuArchitectures_ == nullptr && return this->GPUSpec_ == nullptr && return this->gpuSpecs_ == nullptr && return this->instanceCategories_ == nullptr
+        && return this->instanceCategory_ == nullptr && return this->instanceFamilyLevel_ == nullptr && return this->instanceTypeFamilies_ == nullptr && return this->instanceTypeFamily_ == nullptr && return this->instanceTypes_ == nullptr
+        && return this->localStorageCategories_ == nullptr && return this->localStorageCategory_ == nullptr && return this->maxResults_ == nullptr && return this->maximumCpuCoreCount_ == nullptr && return this->maximumCpuSpeedFrequency_ == nullptr
+        && return this->maximumCpuTurboFrequency_ == nullptr && return this->maximumGPUAmount_ == nullptr && return this->maximumMemorySize_ == nullptr && return this->minimumBaselineCredit_ == nullptr && return this->minimumCpuCoreCount_ == nullptr
+        && return this->minimumCpuSpeedFrequency_ == nullptr && return this->minimumCpuTurboFrequency_ == nullptr && return this->minimumDiskQuantity_ == nullptr && return this->minimumEniIpv6AddressQuantity_ == nullptr && return this->minimumEniPrivateIpAddressQuantity_ == nullptr
+        && return this->minimumEniQuantity_ == nullptr && return this->minimumEriQuantity_ == nullptr && return this->minimumGPUAmount_ == nullptr && return this->minimumInitialCredit_ == nullptr && return this->minimumInstanceBandwidthRx_ == nullptr
+        && return this->minimumInstanceBandwidthTx_ == nullptr && return this->minimumInstancePpsRx_ == nullptr && return this->minimumInstancePpsTx_ == nullptr && return this->minimumLocalStorageAmount_ == nullptr && return this->minimumLocalStorageCapacity_ == nullptr
+        && return this->minimumMemorySize_ == nullptr && return this->minimumPrimaryEniQueueNumber_ == nullptr && return this->minimumQueuePairNumber_ == nullptr && return this->minimumSecondaryEniQueueNumber_ == nullptr && return this->nextToken_ == nullptr
+        && return this->nvmeSupport_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->physicalProcessorModel_ == nullptr && return this->physicalProcessorModels_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // additionalAttributes Field Functions 
     bool hasAdditionalAttributes() const { return this->additionalAttributes_ != nullptr;};
     void deleteAdditionalAttributes() { this->additionalAttributes_ = nullptr;};

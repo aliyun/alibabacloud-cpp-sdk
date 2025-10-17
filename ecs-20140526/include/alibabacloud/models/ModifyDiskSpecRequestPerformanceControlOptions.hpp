@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->IOPS_ != nullptr
-        && this->recover_ != nullptr && this->throughput_ != nullptr; };
+    virtual bool empty() const override { return this->IOPS_ == nullptr
+        && return this->recover_ == nullptr && return this->throughput_ == nullptr; };
     // IOPS Field Functions 
     bool hasIOPS() const { return this->IOPS_ != nullptr;};
     void deleteIOPS() { this->IOPS_ = nullptr;};

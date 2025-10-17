@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->componentType_ != nullptr
-        && this->componentVersion_ != nullptr && this->imageComponentId_ != nullptr && this->maxResults_ != nullptr && this->name_ != nullptr && this->nextToken_ != nullptr
-        && this->owner_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->systemType_ != nullptr && this->tag_ != nullptr; };
+    virtual bool empty() const override { return this->componentType_ == nullptr
+        && return this->componentVersion_ == nullptr && return this->imageComponentId_ == nullptr && return this->maxResults_ == nullptr && return this->name_ == nullptr && return this->nextToken_ == nullptr
+        && return this->owner_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->systemType_ == nullptr && return this->tag_ == nullptr; };
     // componentType Field Functions 
     bool hasComponentType() const { return this->componentType_ != nullptr;};
     void deleteComponentType() { this->componentType_ = nullptr;};

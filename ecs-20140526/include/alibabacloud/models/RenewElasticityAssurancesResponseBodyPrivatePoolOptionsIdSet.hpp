@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->privatePoolOptionsId_ != nullptr; };
+    virtual bool empty() const override { return this->privatePoolOptionsId_ == nullptr; };
     // privatePoolOptionsId Field Functions 
     bool hasPrivatePoolOptionsId() const { return this->privatePoolOptionsId_ != nullptr;};
     void deletePrivatePoolOptionsId() { this->privatePoolOptionsId_ = nullptr;};

@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->eipAddress_ != nullptr; };
+    virtual bool empty() const override { return this->eipAddress_ == nullptr; };
     // eipAddress Field Functions 
     bool hasEipAddress() const { return this->eipAddress_ != nullptr;};
     void deleteEipAddress() { this->eipAddress_ = nullptr;};

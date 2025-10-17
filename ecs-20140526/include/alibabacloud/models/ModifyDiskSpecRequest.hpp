@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->destinationZoneId_ != nullptr
-        && this->diskCategory_ != nullptr && this->diskId_ != nullptr && this->dryRun_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->performanceControlOptions_ != nullptr && this->performanceLevel_ != nullptr && this->provisionedIops_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->destinationZoneId_ == nullptr
+        && return this->diskCategory_ == nullptr && return this->diskId_ == nullptr && return this->dryRun_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->performanceControlOptions_ == nullptr && return this->performanceLevel_ == nullptr && return this->provisionedIops_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // destinationZoneId Field Functions 
     bool hasDestinationZoneId() const { return this->destinationZoneId_ != nullptr;};
     void deleteDestinationZoneId() { this->destinationZoneId_ = nullptr;};

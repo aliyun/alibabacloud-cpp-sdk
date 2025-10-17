@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->supportedInstanceTypesList_ != nullptr; };
+    virtual bool empty() const override { return this->supportedInstanceTypesList_ == nullptr; };
     // supportedInstanceTypesList Field Functions 
     bool hasSupportedInstanceTypesList() const { return this->supportedInstanceTypesList_ != nullptr;};
     void deleteSupportedInstanceTypesList() { this->supportedInstanceTypesList_ = nullptr;};

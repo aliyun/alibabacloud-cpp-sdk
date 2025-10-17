@@ -130,17 +130,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attachedTime_ != nullptr
-        && this->attachments_ != nullptr && this->autoSnapshotPolicyId_ != nullptr && this->bdfId_ != nullptr && this->burstingEnabled_ != nullptr && this->category_ != nullptr
-        && this->creationTime_ != nullptr && this->deleteAutoSnapshot_ != nullptr && this->deleteWithInstance_ != nullptr && this->description_ != nullptr && this->detachedTime_ != nullptr
-        && this->device_ != nullptr && this->diskChargeType_ != nullptr && this->diskId_ != nullptr && this->diskName_ != nullptr && this->enableAutoSnapshot_ != nullptr
-        && this->enableAutomatedSnapshotPolicy_ != nullptr && this->encrypted_ != nullptr && this->expiredTime_ != nullptr && this->IOPS_ != nullptr && this->IOPSRead_ != nullptr
-        && this->IOPSWrite_ != nullptr && this->imageId_ != nullptr && this->instanceId_ != nullptr && this->KMSKeyId_ != nullptr && this->mountInstanceNum_ != nullptr
-        && this->mountInstances_ != nullptr && this->multiAttach_ != nullptr && this->operationLocks_ != nullptr && this->performanceLevel_ != nullptr && this->placement_ != nullptr
-        && this->portable_ != nullptr && this->productCode_ != nullptr && this->provisionedIops_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->serialNumber_ != nullptr && this->size_ != nullptr && this->sourceSnapshotId_ != nullptr && this->status_ != nullptr && this->storageClusterId_ != nullptr
-        && this->storageSetId_ != nullptr && this->storageSetPartitionNumber_ != nullptr && this->tags_ != nullptr && this->throughput_ != nullptr && this->throughputRead_ != nullptr
-        && this->throughputWrite_ != nullptr && this->type_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->attachedTime_ == nullptr
+        && return this->attachments_ == nullptr && return this->autoSnapshotPolicyId_ == nullptr && return this->bdfId_ == nullptr && return this->burstingEnabled_ == nullptr && return this->category_ == nullptr
+        && return this->creationTime_ == nullptr && return this->deleteAutoSnapshot_ == nullptr && return this->deleteWithInstance_ == nullptr && return this->description_ == nullptr && return this->detachedTime_ == nullptr
+        && return this->device_ == nullptr && return this->diskChargeType_ == nullptr && return this->diskId_ == nullptr && return this->diskName_ == nullptr && return this->enableAutoSnapshot_ == nullptr
+        && return this->enableAutomatedSnapshotPolicy_ == nullptr && return this->encrypted_ == nullptr && return this->expiredTime_ == nullptr && return this->IOPS_ == nullptr && return this->IOPSRead_ == nullptr
+        && return this->IOPSWrite_ == nullptr && return this->imageId_ == nullptr && return this->instanceId_ == nullptr && return this->KMSKeyId_ == nullptr && return this->mountInstanceNum_ == nullptr
+        && return this->mountInstances_ == nullptr && return this->multiAttach_ == nullptr && return this->operationLocks_ == nullptr && return this->performanceLevel_ == nullptr && return this->placement_ == nullptr
+        && return this->portable_ == nullptr && return this->productCode_ == nullptr && return this->provisionedIops_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->serialNumber_ == nullptr && return this->size_ == nullptr && return this->sourceSnapshotId_ == nullptr && return this->status_ == nullptr && return this->storageClusterId_ == nullptr
+        && return this->storageSetId_ == nullptr && return this->storageSetPartitionNumber_ == nullptr && return this->tags_ == nullptr && return this->throughput_ == nullptr && return this->throughputRead_ == nullptr
+        && return this->throughputWrite_ == nullptr && return this->type_ == nullptr && return this->zoneId_ == nullptr; };
     // attachedTime Field Functions 
     bool hasAttachedTime() const { return this->attachedTime_ != nullptr;};
     void deleteAttachedTime() { this->attachedTime_ = nullptr;};

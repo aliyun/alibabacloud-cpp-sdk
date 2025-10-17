@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->estimationResource_ != nullptr
-        && this->instanceTypeScope_ != nullptr && this->offeringType_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr && this->planType_ != nullptr
-        && this->regionId_ != nullptr && this->resourceId_ != nullptr; };
+    virtual bool empty() const override { return this->estimationResource_ == nullptr
+        && return this->instanceTypeScope_ == nullptr && return this->offeringType_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->planType_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceId_ == nullptr; };
     // estimationResource Field Functions 
     bool hasEstimationResource() const { return this->estimationResource_ != nullptr;};
     void deleteEstimationResource() { this->estimationResource_ = nullptr;};

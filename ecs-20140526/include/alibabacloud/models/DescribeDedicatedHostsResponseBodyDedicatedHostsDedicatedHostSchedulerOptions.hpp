@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->managedPrivateSpaceId_ != nullptr; };
+    virtual bool empty() const override { return this->managedPrivateSpaceId_ == nullptr; };
     // managedPrivateSpaceId Field Functions 
     bool hasManagedPrivateSpaceId() const { return this->managedPrivateSpaceId_ != nullptr;};
     void deleteManagedPrivateSpaceId() { this->managedPrivateSpaceId_ = nullptr;};

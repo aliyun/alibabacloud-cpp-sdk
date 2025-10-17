@@ -73,11 +73,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->architecture_ != nullptr
-        && this->bootMode_ != nullptr && this->clientToken_ != nullptr && this->description_ != nullptr && this->detectionStrategy_ != nullptr && this->diskDeviceMapping_ != nullptr
-        && this->dryRun_ != nullptr && this->features_ != nullptr && this->imageFamily_ != nullptr && this->imageName_ != nullptr && this->imageVersion_ != nullptr
-        && this->instanceId_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->platform_ != nullptr && this->regionId_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->snapshotId_ != nullptr && this->tag_ != nullptr; };
+    virtual bool empty() const override { return this->architecture_ == nullptr
+        && return this->bootMode_ == nullptr && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->detectionStrategy_ == nullptr && return this->diskDeviceMapping_ == nullptr
+        && return this->dryRun_ == nullptr && return this->features_ == nullptr && return this->imageFamily_ == nullptr && return this->imageName_ == nullptr && return this->imageVersion_ == nullptr
+        && return this->instanceId_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->platform_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->snapshotId_ == nullptr && return this->tag_ == nullptr; };
     // architecture Field Functions 
     bool hasArchitecture() const { return this->architecture_ != nullptr;};
     void deleteArchitecture() { this->architecture_ = nullptr;};

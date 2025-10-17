@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->availableInstanceAmount_ != nullptr
-        && this->creationTime_ != nullptr && this->description_ != nullptr && this->ecsCount_ != nullptr && this->groupToGroupRuleCount_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->ruleCount_ != nullptr && this->securityGroupId_ != nullptr && this->securityGroupName_ != nullptr && this->securityGroupType_ != nullptr && this->serviceID_ != nullptr
-        && this->serviceManaged_ != nullptr && this->tags_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->availableInstanceAmount_ == nullptr
+        && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->ecsCount_ == nullptr && return this->groupToGroupRuleCount_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->ruleCount_ == nullptr && return this->securityGroupId_ == nullptr && return this->securityGroupName_ == nullptr && return this->securityGroupType_ == nullptr && return this->serviceID_ == nullptr
+        && return this->serviceManaged_ == nullptr && return this->tags_ == nullptr && return this->vpcId_ == nullptr; };
     // availableInstanceAmount Field Functions 
     bool hasAvailableInstanceAmount() const { return this->availableInstanceAmount_ != nullptr;};
     void deleteAvailableInstanceAmount() { this->availableInstanceAmount_ = nullptr;};

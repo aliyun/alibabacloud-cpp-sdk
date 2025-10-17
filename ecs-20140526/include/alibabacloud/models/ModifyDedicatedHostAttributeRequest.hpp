@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->networkAttributes_ != nullptr
-        && this->actionOnMaintenance_ != nullptr && this->autoPlacement_ != nullptr && this->cpuOverCommitRatio_ != nullptr && this->dedicatedHostClusterId_ != nullptr && this->dedicatedHostId_ != nullptr
-        && this->dedicatedHostName_ != nullptr && this->description_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->networkAttributes_ == nullptr
+        && return this->actionOnMaintenance_ == nullptr && return this->autoPlacement_ == nullptr && return this->cpuOverCommitRatio_ == nullptr && return this->dedicatedHostClusterId_ == nullptr && return this->dedicatedHostId_ == nullptr
+        && return this->dedicatedHostName_ == nullptr && return this->description_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // networkAttributes Field Functions 
     bool hasNetworkAttributes() const { return this->networkAttributes_ != nullptr;};
     void deleteNetworkAttributes() { this->networkAttributes_ = nullptr;};

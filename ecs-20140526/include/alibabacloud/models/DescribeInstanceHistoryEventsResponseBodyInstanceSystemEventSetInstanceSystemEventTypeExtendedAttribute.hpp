@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->canAccept_ != nullptr
-        && this->code_ != nullptr && this->device_ != nullptr && this->diskId_ != nullptr && this->hostId_ != nullptr && this->hostType_ != nullptr
-        && this->inactiveDisks_ != nullptr && this->metricName_ != nullptr && this->metricValue_ != nullptr && this->migrationOptions_ != nullptr && this->onlineRepairPolicy_ != nullptr
-        && this->punishDomain_ != nullptr && this->punishType_ != nullptr && this->punishUrl_ != nullptr && this->rack_ != nullptr && this->responseResult_ != nullptr; };
+    virtual bool empty() const override { return this->canAccept_ == nullptr
+        && return this->code_ == nullptr && return this->device_ == nullptr && return this->diskId_ == nullptr && return this->hostId_ == nullptr && return this->hostType_ == nullptr
+        && return this->inactiveDisks_ == nullptr && return this->metricName_ == nullptr && return this->metricValue_ == nullptr && return this->migrationOptions_ == nullptr && return this->onlineRepairPolicy_ == nullptr
+        && return this->punishDomain_ == nullptr && return this->punishType_ == nullptr && return this->punishUrl_ == nullptr && return this->rack_ == nullptr && return this->responseResult_ == nullptr; };
     // canAccept Field Functions 
     bool hasCanAccept() const { return this->canAccept_ != nullptr;};
     void deleteCanAccept() { this->canAccept_ = nullptr;};

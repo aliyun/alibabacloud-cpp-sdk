@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowedUpgradeWindow_ != nullptr; };
+    virtual bool empty() const override { return this->allowedUpgradeWindow_ == nullptr; };
     // allowedUpgradeWindow Field Functions 
     bool hasAllowedUpgradeWindow() const { return this->allowedUpgradeWindow_ != nullptr;};
     void deleteAllowedUpgradeWindow() { this->allowedUpgradeWindow_ = nullptr;};

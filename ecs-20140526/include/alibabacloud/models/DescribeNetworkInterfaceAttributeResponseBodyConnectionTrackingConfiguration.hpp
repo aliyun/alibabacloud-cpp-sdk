@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->tcpClosedAndTimeWaitTimeout_ != nullptr
-        && this->tcpEstablishedTimeout_ != nullptr && this->udpTimeout_ != nullptr; };
+    virtual bool empty() const override { return this->tcpClosedAndTimeWaitTimeout_ == nullptr
+        && return this->tcpEstablishedTimeout_ == nullptr && return this->udpTimeout_ == nullptr; };
     // tcpClosedAndTimeWaitTimeout Field Functions 
     bool hasTcpClosedAndTimeWaitTimeout() const { return this->tcpClosedAndTimeWaitTimeout_ != nullptr;};
     void deleteTcpClosedAndTimeWaitTimeout() { this->tcpClosedAndTimeWaitTimeout_ = nullptr;};

@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->category_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->instantAccess_ != nullptr && this->regionId_ != nullptr && this->snapshotLinkId_ != nullptr
-        && this->sourceDiskId_ != nullptr && this->sourceDiskName_ != nullptr && this->sourceDiskSize_ != nullptr && this->sourceDiskType_ != nullptr && this->totalCount_ != nullptr
-        && this->totalSize_ != nullptr; };
+    virtual bool empty() const override { return this->category_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->instantAccess_ == nullptr && return this->regionId_ == nullptr && return this->snapshotLinkId_ == nullptr
+        && return this->sourceDiskId_ == nullptr && return this->sourceDiskName_ == nullptr && return this->sourceDiskSize_ == nullptr && return this->sourceDiskType_ == nullptr && return this->totalCount_ == nullptr
+        && return this->totalSize_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
