@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callBack_ != nullptr
-        && this->channelIdPrefixes_ != nullptr && this->channelIds_ != nullptr && this->createTime_ != nullptr && this->mediaEncode_ != nullptr && this->playDomain_ != nullptr
-        && this->ruleId_ != nullptr && this->ruleName_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->callBack_ == nullptr
+        && return this->channelIdPrefixes_ == nullptr && return this->channelIds_ == nullptr && return this->createTime_ == nullptr && return this->mediaEncode_ == nullptr && return this->playDomain_ == nullptr
+        && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr && return this->status_ == nullptr; };
     // callBack Field Functions 
     bool hasCallBack() const { return this->callBack_ != nullptr;};
     void deleteCallBack() { this->callBack_ = nullptr;};

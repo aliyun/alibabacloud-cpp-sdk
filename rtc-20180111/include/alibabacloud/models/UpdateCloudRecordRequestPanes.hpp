@@ -52,9 +52,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backgrounds_ != nullptr
-        && this->images_ != nullptr && this->paneCropMode_ != nullptr && this->paneId_ != nullptr && this->reservePaneForOfflineUser_ != nullptr && this->source_ != nullptr
-        && this->sourceType_ != nullptr && this->texts_ != nullptr && this->videoOrder_ != nullptr && this->whiteboard_ != nullptr; };
+    virtual bool empty() const override { return this->backgrounds_ == nullptr
+        && return this->images_ == nullptr && return this->paneCropMode_ == nullptr && return this->paneId_ == nullptr && return this->reservePaneForOfflineUser_ == nullptr && return this->source_ == nullptr
+        && return this->sourceType_ == nullptr && return this->texts_ == nullptr && return this->videoOrder_ == nullptr && return this->whiteboard_ == nullptr; };
     // backgrounds Field Functions 
     bool hasBackgrounds() const { return this->backgrounds_ != nullptr;};
     void deleteBackgrounds() { this->backgrounds_ = nullptr;};

@@ -80,12 +80,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->annotation_ != nullptr
-        && this->appId_ != nullptr && this->backgrounds_ != nullptr && this->bgColor_ != nullptr && this->channelId_ != nullptr && this->clockWidgets_ != nullptr
-        && this->cropMode_ != nullptr && this->images_ != nullptr && this->layoutSpecifiedUsersShrink_ != nullptr && this->panes_ != nullptr && this->recordMode_ != nullptr
-        && this->regionColor_ != nullptr && this->reservePaneForNoCameraUser_ != nullptr && this->showDefaultBackgroundOnMute_ != nullptr && this->singleStreamingRecordShrink_ != nullptr && this->startWithoutChannel_ != nullptr
-        && this->startWithoutChannelWaitTime_ != nullptr && this->storageConfig_ != nullptr && this->subHighResolutionStream_ != nullptr && this->taskId_ != nullptr && this->templateId_ != nullptr
-        && this->texts_ != nullptr; };
+    virtual bool empty() const override { return this->annotation_ == nullptr
+        && return this->appId_ == nullptr && return this->backgrounds_ == nullptr && return this->bgColor_ == nullptr && return this->channelId_ == nullptr && return this->clockWidgets_ == nullptr
+        && return this->cropMode_ == nullptr && return this->images_ == nullptr && return this->layoutSpecifiedUsersShrink_ == nullptr && return this->panes_ == nullptr && return this->recordMode_ == nullptr
+        && return this->regionColor_ == nullptr && return this->reservePaneForNoCameraUser_ == nullptr && return this->showDefaultBackgroundOnMute_ == nullptr && return this->singleStreamingRecordShrink_ == nullptr && return this->startWithoutChannel_ == nullptr
+        && return this->startWithoutChannelWaitTime_ == nullptr && return this->storageConfig_ == nullptr && return this->subHighResolutionStream_ == nullptr && return this->taskId_ == nullptr && return this->templateId_ == nullptr
+        && return this->texts_ == nullptr; };
     // annotation Field Functions 
     bool hasAnnotation() const { return this->annotation_ != nullptr;};
     void deleteAnnotation() { this->annotation_ = nullptr;};

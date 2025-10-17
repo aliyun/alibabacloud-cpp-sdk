@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->connAvgTime_ != nullptr
-        && this->fiveSecJoinRate_ != nullptr && this->totalAudioStuckRate_ != nullptr && this->totalVideoStuckRate_ != nullptr && this->totalVideoVagueRate_ != nullptr; };
+    virtual bool empty() const override { return this->connAvgTime_ == nullptr
+        && return this->fiveSecJoinRate_ == nullptr && return this->totalAudioStuckRate_ == nullptr && return this->totalVideoStuckRate_ == nullptr && return this->totalVideoVagueRate_ == nullptr; };
     // connAvgTime Field Functions 
     bool hasConnAvgTime() const { return this->connAvgTime_ != nullptr;};
     void deleteConnAvgTime() { this->connAvgTime_ = nullptr;};

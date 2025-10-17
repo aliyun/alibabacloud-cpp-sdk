@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->autoChaptersShrink_ != nullptr && this->channelId_ != nullptr && this->customPromptShrink_ != nullptr && this->languageHints_ != nullptr && this->meetingAssistanceShrink_ != nullptr
-        && this->realtimeSubtitleShrink_ != nullptr && this->serviceInspectionShrink_ != nullptr && this->sourceLanguage_ != nullptr && this->storageConfig_ != nullptr && this->summarizationShrink_ != nullptr
-        && this->taskId_ != nullptr && this->textPolishShrink_ != nullptr && this->transcriptionShrink_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->autoChaptersShrink_ == nullptr && return this->channelId_ == nullptr && return this->customPromptShrink_ == nullptr && return this->languageHints_ == nullptr && return this->meetingAssistanceShrink_ == nullptr
+        && return this->realtimeSubtitleShrink_ == nullptr && return this->serviceInspectionShrink_ == nullptr && return this->sourceLanguage_ == nullptr && return this->storageConfig_ == nullptr && return this->summarizationShrink_ == nullptr
+        && return this->taskId_ == nullptr && return this->textPolishShrink_ == nullptr && return this->transcriptionShrink_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};

@@ -71,11 +71,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->backgroundColor_ != nullptr && this->backgrounds_ != nullptr && this->clockWidgets_ != nullptr && this->delayStopTime_ != nullptr && this->enableM3u8DateTime_ != nullptr
-        && this->fileSplitInterval_ != nullptr && this->formats_ != nullptr && this->httpCallbackUrl_ != nullptr && this->layoutIds_ != nullptr && this->mediaEncode_ != nullptr
-        && this->mnsQueue_ != nullptr && this->name_ != nullptr && this->ossBucket_ != nullptr && this->ossEndpoint_ != nullptr && this->ossFilePrefix_ != nullptr
-        && this->ownerId_ != nullptr && this->taskProfile_ != nullptr && this->templateId_ != nullptr && this->watermarks_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->backgroundColor_ == nullptr && return this->backgrounds_ == nullptr && return this->clockWidgets_ == nullptr && return this->delayStopTime_ == nullptr && return this->enableM3u8DateTime_ == nullptr
+        && return this->fileSplitInterval_ == nullptr && return this->formats_ == nullptr && return this->httpCallbackUrl_ == nullptr && return this->layoutIds_ == nullptr && return this->mediaEncode_ == nullptr
+        && return this->mnsQueue_ == nullptr && return this->name_ == nullptr && return this->ossBucket_ == nullptr && return this->ossEndpoint_ == nullptr && return this->ossFilePrefix_ == nullptr
+        && return this->ownerId_ == nullptr && return this->taskProfile_ == nullptr && return this->templateId_ == nullptr && return this->watermarks_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};

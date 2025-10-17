@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->channelId_ != nullptr && this->cropMode_ != nullptr && this->layoutIds_ != nullptr && this->mediaEncode_ != nullptr && this->mixMode_ != nullptr
-        && this->ownerId_ != nullptr && this->sourceType_ != nullptr && this->streamType_ != nullptr && this->subSpecAudioUsers_ != nullptr && this->subSpecCameraUsers_ != nullptr
-        && this->subSpecShareScreenUsers_ != nullptr && this->subSpecUsers_ != nullptr && this->taskId_ != nullptr && this->taskProfile_ != nullptr && this->templateId_ != nullptr
-        && this->unsubSpecAudioUsers_ != nullptr && this->unsubSpecCameraUsers_ != nullptr && this->unsubSpecShareScreenUsers_ != nullptr && this->userPanes_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->channelId_ == nullptr && return this->cropMode_ == nullptr && return this->layoutIds_ == nullptr && return this->mediaEncode_ == nullptr && return this->mixMode_ == nullptr
+        && return this->ownerId_ == nullptr && return this->sourceType_ == nullptr && return this->streamType_ == nullptr && return this->subSpecAudioUsers_ == nullptr && return this->subSpecCameraUsers_ == nullptr
+        && return this->subSpecShareScreenUsers_ == nullptr && return this->subSpecUsers_ == nullptr && return this->taskId_ == nullptr && return this->taskProfile_ == nullptr && return this->templateId_ == nullptr
+        && return this->unsubSpecAudioUsers_ == nullptr && return this->unsubSpecCameraUsers_ == nullptr && return this->unsubSpecShareScreenUsers_ == nullptr && return this->userPanes_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};

@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentSilenceConfigShrink_ != nullptr
-        && this->ambientSoundConfigShrink_ != nullptr && this->appId_ != nullptr && this->asrConfigShrink_ != nullptr && this->backChannelConfigShrink_ != nullptr && this->chatMode_ != nullptr
-        && this->greeting_ != nullptr && this->id_ != nullptr && this->interruptConfigShrink_ != nullptr && this->interruptMode_ != nullptr && this->llmConfigShrink_ != nullptr
-        && this->name_ != nullptr && this->ttsConfigShrink_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->agentSilenceConfigShrink_ == nullptr
+        && return this->ambientSoundConfigShrink_ == nullptr && return this->appId_ == nullptr && return this->asrConfigShrink_ == nullptr && return this->backChannelConfigShrink_ == nullptr && return this->chatMode_ == nullptr
+        && return this->greeting_ == nullptr && return this->id_ == nullptr && return this->interruptConfigShrink_ == nullptr && return this->interruptMode_ == nullptr && return this->llmConfigShrink_ == nullptr
+        && return this->name_ == nullptr && return this->ttsConfigShrink_ == nullptr && return this->type_ == nullptr; };
     // agentSilenceConfigShrink Field Functions 
     bool hasAgentSilenceConfigShrink() const { return this->agentSilenceConfigShrink_ != nullptr;};
     void deleteAgentSilenceConfigShrink() { this->agentSilenceConfigShrink_ = nullptr;};

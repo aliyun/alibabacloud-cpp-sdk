@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->audioDelay_ != nullptr
-        && this->audioHighQualityTransmissionRate_ != nullptr && this->audioStuckRate_ != nullptr && this->callDurationRatio_ != nullptr && this->joinChannelSucFiveSecRate_ != nullptr && this->joinChannelSucRate_ != nullptr
-        && this->name_ != nullptr && this->os_ != nullptr && this->videoDelay_ != nullptr && this->videoFirstPicDuration_ != nullptr && this->videoHighQualityTransmissionRate_ != nullptr
-        && this->videoStuckRate_ != nullptr; };
+    virtual bool empty() const override { return this->audioDelay_ == nullptr
+        && return this->audioHighQualityTransmissionRate_ == nullptr && return this->audioStuckRate_ == nullptr && return this->callDurationRatio_ == nullptr && return this->joinChannelSucFiveSecRate_ == nullptr && return this->joinChannelSucRate_ == nullptr
+        && return this->name_ == nullptr && return this->os_ == nullptr && return this->videoDelay_ == nullptr && return this->videoFirstPicDuration_ == nullptr && return this->videoHighQualityTransmissionRate_ == nullptr
+        && return this->videoStuckRate_ == nullptr; };
     // audioDelay Field Functions 
     bool hasAudioDelay() const { return this->audioDelay_ != nullptr;};
     void deleteAudioDelay() { this->audioDelay_ = nullptr;};

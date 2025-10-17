@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alpha_ != nullptr
-        && this->boxAlpha_ != nullptr && this->boxBorderw_ != nullptr && this->boxColor_ != nullptr && this->font_ != nullptr && this->fontColor_ != nullptr
-        && this->fontSize_ != nullptr && this->hasBox_ != nullptr && this->layer_ != nullptr && this->texture_ != nullptr && this->x_ != nullptr
-        && this->y_ != nullptr; };
+    virtual bool empty() const override { return this->alpha_ == nullptr
+        && return this->boxAlpha_ == nullptr && return this->boxBorderw_ == nullptr && return this->boxColor_ == nullptr && return this->font_ == nullptr && return this->fontColor_ == nullptr
+        && return this->fontSize_ == nullptr && return this->hasBox_ == nullptr && return this->layer_ == nullptr && return this->texture_ == nullptr && return this->x_ == nullptr
+        && return this->y_ == nullptr; };
     // alpha Field Functions 
     bool hasAlpha() const { return this->alpha_ != nullptr;};
     void deleteAlpha() { this->alpha_ = nullptr;};

@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activeChannelPeak_ != nullptr
-        && this->activeChannelPeakTime_ != nullptr && this->timeStamp_ != nullptr; };
+    virtual bool empty() const override { return this->activeChannelPeak_ == nullptr
+        && return this->activeChannelPeakTime_ == nullptr && return this->timeStamp_ == nullptr; };
     // activeChannelPeak Field Functions 
     bool hasActiveChannelPeak() const { return this->activeChannelPeak_ != nullptr;};
     void deleteActiveChannelPeak() { this->activeChannelPeak_ = nullptr;};

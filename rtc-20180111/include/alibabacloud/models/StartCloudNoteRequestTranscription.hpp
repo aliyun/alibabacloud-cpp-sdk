@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->diarizationEnabled_ != nullptr
-        && this->phraseId_ != nullptr && this->speakerCount_ != nullptr && this->transcriptionLevel_ != nullptr; };
+    virtual bool empty() const override { return this->diarizationEnabled_ == nullptr
+        && return this->phraseId_ == nullptr && return this->speakerCount_ == nullptr && return this->transcriptionLevel_ == nullptr; };
     // diarizationEnabled Field Functions 
     bool hasDiarizationEnabled() const { return this->diarizationEnabled_ != nullptr;};
     void deleteDiarizationEnabled() { this->diarizationEnabled_ = nullptr;};

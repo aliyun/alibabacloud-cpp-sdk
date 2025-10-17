@@ -62,10 +62,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentSilenceConfig_ != nullptr
-        && this->ambientSoundConfig_ != nullptr && this->asrConfig_ != nullptr && this->backChannelConfig_ != nullptr && this->chatMode_ != nullptr && this->createTime_ != nullptr
-        && this->greeting_ != nullptr && this->id_ != nullptr && this->interruptConfig_ != nullptr && this->interruptMode_ != nullptr && this->llmConfig_ != nullptr
-        && this->name_ != nullptr && this->ttsConfig_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->agentSilenceConfig_ == nullptr
+        && return this->ambientSoundConfig_ == nullptr && return this->asrConfig_ == nullptr && return this->backChannelConfig_ == nullptr && return this->chatMode_ == nullptr && return this->createTime_ == nullptr
+        && return this->greeting_ == nullptr && return this->id_ == nullptr && return this->interruptConfig_ == nullptr && return this->interruptMode_ == nullptr && return this->llmConfig_ == nullptr
+        && return this->name_ == nullptr && return this->ttsConfig_ == nullptr && return this->type_ == nullptr; };
     // agentSilenceConfig Field Functions 
     bool hasAgentSilenceConfig() const { return this->agentSilenceConfig_ != nullptr;};
     void deleteAgentSilenceConfig() { this->agentSilenceConfig_ = nullptr;};

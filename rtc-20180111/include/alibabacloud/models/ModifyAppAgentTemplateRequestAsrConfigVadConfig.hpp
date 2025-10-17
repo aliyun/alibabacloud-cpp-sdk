@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->interruptSpeechDuration_ != nullptr; };
+    virtual bool empty() const override { return this->interruptSpeechDuration_ == nullptr; };
     // interruptSpeechDuration Field Functions 
     bool hasInterruptSpeechDuration() const { return this->interruptSpeechDuration_ != nullptr;};
     void deleteInterruptSpeechDuration() { this->interruptSpeechDuration_ = nullptr;};

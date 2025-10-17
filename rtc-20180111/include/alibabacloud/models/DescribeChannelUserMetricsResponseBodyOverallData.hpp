@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->totalBadExpNum_ != nullptr
-        && this->totalJoinFailNum_ != nullptr && this->totalPubUserNum_ != nullptr && this->totalSubUserNum_ != nullptr && this->totalUserNum_ != nullptr; };
+    virtual bool empty() const override { return this->totalBadExpNum_ == nullptr
+        && return this->totalJoinFailNum_ == nullptr && return this->totalPubUserNum_ == nullptr && return this->totalSubUserNum_ == nullptr && return this->totalUserNum_ == nullptr; };
     // totalBadExpNum Field Functions 
     bool hasTotalBadExpNum() const { return this->totalBadExpNum_ != nullptr;};
     void deleteTotalBadExpNum() { this->totalBadExpNum_ = nullptr;};

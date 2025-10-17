@@ -54,9 +54,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ASRConfig_ != nullptr
-        && this->agentSilenceConfig_ != nullptr && this->ambientSoundConfig_ != nullptr && this->backChannelConfig_ != nullptr && this->chatMode_ != nullptr && this->greeting_ != nullptr
-        && this->interruptConfig_ != nullptr && this->interruptMode_ != nullptr && this->LLMConfig_ != nullptr && this->TTSConfig_ != nullptr; };
+    virtual bool empty() const override { return this->ASRConfig_ == nullptr
+        && return this->agentSilenceConfig_ == nullptr && return this->ambientSoundConfig_ == nullptr && return this->backChannelConfig_ == nullptr && return this->chatMode_ == nullptr && return this->greeting_ == nullptr
+        && return this->interruptConfig_ == nullptr && return this->interruptMode_ == nullptr && return this->LLMConfig_ == nullptr && return this->TTSConfig_ == nullptr; };
     // ASRConfig Field Functions 
     bool hasASRConfig() const { return this->ASRConfig_ != nullptr;};
     void deleteASRConfig() { this->ASRConfig_ = nullptr;};

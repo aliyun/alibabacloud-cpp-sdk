@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoChaptersFilePath_ != nullptr
-        && this->bucket_ != nullptr && this->channelId_ != nullptr && this->customPromptFilePath_ != nullptr && this->meetingAssistanceFilePath_ != nullptr && this->region_ != nullptr
-        && this->serviceInspectionFilePath_ != nullptr && this->startTs_ != nullptr && this->summarizationFilePath_ != nullptr && this->taskId_ != nullptr && this->textPolishFilePath_ != nullptr
-        && this->transcriptionFilePath_ != nullptr && this->vendor_ != nullptr; };
+    virtual bool empty() const override { return this->autoChaptersFilePath_ == nullptr
+        && return this->bucket_ == nullptr && return this->channelId_ == nullptr && return this->customPromptFilePath_ == nullptr && return this->meetingAssistanceFilePath_ == nullptr && return this->region_ == nullptr
+        && return this->serviceInspectionFilePath_ == nullptr && return this->startTs_ == nullptr && return this->summarizationFilePath_ == nullptr && return this->taskId_ == nullptr && return this->textPolishFilePath_ == nullptr
+        && return this->transcriptionFilePath_ == nullptr && return this->vendor_ == nullptr; };
     // autoChaptersFilePath Field Functions 
     bool hasAutoChaptersFilePath() const { return this->autoChaptersFilePath_ != nullptr;};
     void deleteAutoChaptersFilePath() { this->autoChaptersFilePath_ = nullptr;};

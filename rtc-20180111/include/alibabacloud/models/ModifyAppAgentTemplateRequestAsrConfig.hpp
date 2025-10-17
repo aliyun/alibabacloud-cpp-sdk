@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxSentenceSilence_ != nullptr
-        && this->name_ != nullptr && this->vadConfig_ != nullptr && this->vocabularyId_ != nullptr && this->wordWeights_ != nullptr; };
+    virtual bool empty() const override { return this->maxSentenceSilence_ == nullptr
+        && return this->name_ == nullptr && return this->vadConfig_ == nullptr && return this->vocabularyId_ == nullptr && return this->wordWeights_ == nullptr; };
     // maxSentenceSilence Field Functions 
     bool hasMaxSentenceSilence() const { return this->maxSentenceSilence_ != nullptr;};
     void deleteMaxSentenceSilence() { this->maxSentenceSilence_ = nullptr;};

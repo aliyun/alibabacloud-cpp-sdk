@@ -64,10 +64,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->backgrounds_ != nullptr && this->bgColor_ != nullptr && this->channelId_ != nullptr && this->clockWidgets_ != nullptr && this->cropMode_ != nullptr
-        && this->images_ != nullptr && this->layoutSpecifiedUsers_ != nullptr && this->panes_ != nullptr && this->regionColor_ != nullptr && this->specMixedUserList_ != nullptr
-        && this->taskId_ != nullptr && this->templateId_ != nullptr && this->texts_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->backgrounds_ == nullptr && return this->bgColor_ == nullptr && return this->channelId_ == nullptr && return this->clockWidgets_ == nullptr && return this->cropMode_ == nullptr
+        && return this->images_ == nullptr && return this->layoutSpecifiedUsers_ == nullptr && return this->panes_ == nullptr && return this->regionColor_ == nullptr && return this->specMixedUserList_ == nullptr
+        && return this->taskId_ == nullptr && return this->templateId_ == nullptr && return this->texts_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};

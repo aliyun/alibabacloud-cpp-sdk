@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bucket_ != nullptr
-        && this->channelId_ != nullptr && this->fileCreateTs_ != nullptr && this->fileDuration_ != nullptr && this->filePath_ != nullptr && this->fileSize_ != nullptr
-        && this->region_ != nullptr && this->startTs_ != nullptr && this->taskId_ != nullptr && this->vendor_ != nullptr; };
+    virtual bool empty() const override { return this->bucket_ == nullptr
+        && return this->channelId_ == nullptr && return this->fileCreateTs_ == nullptr && return this->fileDuration_ == nullptr && return this->filePath_ == nullptr && return this->fileSize_ == nullptr
+        && return this->region_ == nullptr && return this->startTs_ == nullptr && return this->taskId_ == nullptr && return this->vendor_ == nullptr; };
     // bucket Field Functions 
     bool hasBucket() const { return this->bucket_ != nullptr;};
     void deleteBucket() { this->bucket_ = nullptr;};

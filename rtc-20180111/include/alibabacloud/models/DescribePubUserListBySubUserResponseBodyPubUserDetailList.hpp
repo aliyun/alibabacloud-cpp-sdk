@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callIdList_ != nullptr
-        && this->clientType_ != nullptr && this->createdTs_ != nullptr && this->destroyedTs_ != nullptr && this->duration_ != nullptr && this->location_ != nullptr
-        && this->network_ != nullptr && this->networkList_ != nullptr && this->onlineDuration_ != nullptr && this->onlinePeriods_ != nullptr && this->os_ != nullptr
-        && this->osList_ != nullptr && this->roles_ != nullptr && this->sdkVersion_ != nullptr && this->sdkVersionList_ != nullptr && this->userId_ != nullptr
-        && this->userIdAlias_ != nullptr; };
+    virtual bool empty() const override { return this->callIdList_ == nullptr
+        && return this->clientType_ == nullptr && return this->createdTs_ == nullptr && return this->destroyedTs_ == nullptr && return this->duration_ == nullptr && return this->location_ == nullptr
+        && return this->network_ == nullptr && return this->networkList_ == nullptr && return this->onlineDuration_ == nullptr && return this->onlinePeriods_ == nullptr && return this->os_ == nullptr
+        && return this->osList_ == nullptr && return this->roles_ == nullptr && return this->sdkVersion_ == nullptr && return this->sdkVersionList_ == nullptr && return this->userId_ == nullptr
+        && return this->userIdAlias_ == nullptr; };
     // callIdList Field Functions 
     bool hasCallIdList() const { return this->callIdList_ != nullptr;};
     void deleteCallIdList() { this->callIdList_ = nullptr;};

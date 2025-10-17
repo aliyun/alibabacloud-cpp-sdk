@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->semanticsInterrupt_ != nullptr; };
+    virtual bool empty() const override { return this->semanticsInterrupt_ == nullptr; };
     // semanticsInterrupt Field Functions 
     bool hasSemanticsInterrupt() const { return this->semanticsInterrupt_ != nullptr;};
     void deleteSemanticsInterrupt() { this->semanticsInterrupt_ = nullptr;};

@@ -16,10 +16,12 @@ namespace Models
   class StartCloudRecordRequestSingleStreamingRecord : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const StartCloudRecordRequestSingleStreamingRecord& obj) { 
+      DARABONBA_PTR_TO_JSON(AvMerge, avMerge_);
       DARABONBA_PTR_TO_JSON(SpecifiedStreams, specifiedStreams_);
       DARABONBA_PTR_TO_JSON(TranscodingParameters, transcodingParameters_);
     };
     friend void from_json(const Darabonba::Json& j, StartCloudRecordRequestSingleStreamingRecord& obj) { 
+      DARABONBA_PTR_FROM_JSON(AvMerge, avMerge_);
       DARABONBA_PTR_FROM_JSON(SpecifiedStreams, specifiedStreams_);
       DARABONBA_PTR_FROM_JSON(TranscodingParameters, transcodingParameters_);
     };
@@ -34,8 +36,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->specifiedStreams_ != nullptr
-        && this->transcodingParameters_ != nullptr; };
+    virtual bool empty() const override { return this->avMerge_ == nullptr
+        && return this->specifiedStreams_ == nullptr && return this->transcodingParameters_ == nullptr; };
+    // avMerge Field Functions 
+    bool hasAvMerge() const { return this->avMerge_ != nullptr;};
+    void deleteAvMerge() { this->avMerge_ = nullptr;};
+    inline bool avMerge() const { DARABONBA_PTR_GET_DEFAULT(avMerge_, false) };
+    inline StartCloudRecordRequestSingleStreamingRecord& setAvMerge(bool avMerge) { DARABONBA_PTR_SET_VALUE(avMerge_, avMerge) };
+
+
     // specifiedStreams Field Functions 
     bool hasSpecifiedStreams() const { return this->specifiedStreams_ != nullptr;};
     void deleteSpecifiedStreams() { this->specifiedStreams_ = nullptr;};
@@ -55,6 +64,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<bool> avMerge_ = nullptr;
     // This parameter is required.
     std::shared_ptr<vector<Models::StartCloudRecordRequestSingleStreamingRecordSpecifiedStreams>> specifiedStreams_ = nullptr;
     std::shared_ptr<Models::StartCloudRecordRequestSingleStreamingRecordTranscodingParameters> transcodingParameters_ = nullptr;

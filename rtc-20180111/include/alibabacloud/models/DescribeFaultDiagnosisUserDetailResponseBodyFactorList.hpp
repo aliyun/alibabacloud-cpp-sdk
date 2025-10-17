@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->factorId_ != nullptr
-        && this->faultSource_ != nullptr && this->relatedEventDatas_ != nullptr && this->relatedMetricDatas_ != nullptr; };
+    virtual bool empty() const override { return this->factorId_ == nullptr
+        && return this->faultSource_ == nullptr && return this->relatedEventDatas_ == nullptr && return this->relatedMetricDatas_ == nullptr; };
     // factorId Field Functions 
     bool hasFactorId() const { return this->factorId_ != nullptr;};
     void deleteFactorId() { this->factorId_ = nullptr;};
