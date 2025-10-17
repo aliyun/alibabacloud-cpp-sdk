@@ -136,17 +136,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessType_ != nullptr
-        && this->aliUid_ != nullptr && this->appId_ != nullptr && this->authMode_ != nullptr && this->categoryId_ != nullptr && this->categoryType_ != nullptr
-        && this->cdsName_ != nullptr && this->centerResourceId_ != nullptr && this->chargeType_ != nullptr && this->clients_ != nullptr && this->connectionProperties_ != nullptr
-        && this->createTime_ != nullptr && this->desktopDurationList_ != nullptr && this->desktopTimers_ != nullptr && this->expiredTime_ != nullptr && this->externalDomainId_ != nullptr
-        && this->externalUserId_ != nullptr && this->fotaUpdate_ != nullptr && this->globalStatus_ != nullptr && this->hasUpgrade_ != nullptr && this->hibernationBeta_ != nullptr
-        && this->icon_ != nullptr && this->lastStartTime_ != nullptr && this->localName_ != nullptr && this->managementStatuses_ != nullptr && this->officeSiteId_ != nullptr
-        && this->orderStatus_ != nullptr && this->os_ != nullptr && this->osDescription_ != nullptr && this->osType_ != nullptr && this->osUpdate_ != nullptr
-        && this->productType_ != nullptr && this->protocolType_ != nullptr && this->realDesktopId_ != nullptr && this->regionId_ != nullptr && this->regionLocation_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->resourceId_ != nullptr && this->resourceLevel_ != nullptr && this->resourceName_ != nullptr && this->resourceSessionStatus_ != nullptr
-        && this->resourceStatus_ != nullptr && this->resourceType_ != nullptr && this->sessionType_ != nullptr && this->sessions_ != nullptr && this->subPayType_ != nullptr
-        && this->supportHibernation_ != nullptr && this->supportedActions_ != nullptr && this->themeColor_ != nullptr && this->userCustomName_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->accessType_ == nullptr
+        && return this->aliUid_ == nullptr && return this->appId_ == nullptr && return this->authMode_ == nullptr && return this->categoryId_ == nullptr && return this->categoryType_ == nullptr
+        && return this->cdsName_ == nullptr && return this->centerResourceId_ == nullptr && return this->chargeType_ == nullptr && return this->clients_ == nullptr && return this->connectionProperties_ == nullptr
+        && return this->createTime_ == nullptr && return this->desktopDurationList_ == nullptr && return this->desktopTimers_ == nullptr && return this->expiredTime_ == nullptr && return this->externalDomainId_ == nullptr
+        && return this->externalUserId_ == nullptr && return this->fotaUpdate_ == nullptr && return this->globalStatus_ == nullptr && return this->hasUpgrade_ == nullptr && return this->hibernationBeta_ == nullptr
+        && return this->icon_ == nullptr && return this->lastStartTime_ == nullptr && return this->localName_ == nullptr && return this->managementStatuses_ == nullptr && return this->officeSiteId_ == nullptr
+        && return this->orderStatus_ == nullptr && return this->os_ == nullptr && return this->osDescription_ == nullptr && return this->osType_ == nullptr && return this->osUpdate_ == nullptr
+        && return this->productType_ == nullptr && return this->protocolType_ == nullptr && return this->realDesktopId_ == nullptr && return this->regionId_ == nullptr && return this->regionLocation_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->resourceId_ == nullptr && return this->resourceLevel_ == nullptr && return this->resourceName_ == nullptr && return this->resourceSessionStatus_ == nullptr
+        && return this->resourceStatus_ == nullptr && return this->resourceType_ == nullptr && return this->sessionType_ == nullptr && return this->sessions_ == nullptr && return this->subPayType_ == nullptr
+        && return this->supportHibernation_ == nullptr && return this->supportedActions_ == nullptr && return this->themeColor_ == nullptr && return this->userCustomName_ == nullptr && return this->version_ == nullptr; };
     // accessType Field Functions 
     bool hasAccessType() const { return this->accessType_ != nullptr;};
     void deleteAccessType() { this->accessType_ = nullptr;};

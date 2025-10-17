@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientId_ != nullptr
-        && this->desktopAccessType_ != nullptr && this->desktopId_ != nullptr && this->desktopName_ != nullptr && this->desktopStatus_ != nullptr && this->directoryId_ != nullptr
-        && this->keyword_ != nullptr && this->language_ != nullptr && this->loginRegionId_ != nullptr && this->loginToken_ != nullptr && this->maxResults_ != nullptr
-        && this->nextToken_ != nullptr && this->officeSiteId_ != nullptr && this->orderBy_ != nullptr && this->queryFotaUpdate_ != nullptr && this->regionId_ != nullptr
-        && this->searchRegionId_ != nullptr && this->sessionId_ != nullptr && this->sortType_ != nullptr && this->withoutLatency_ != nullptr; };
+    virtual bool empty() const override { return this->clientId_ == nullptr
+        && return this->desktopAccessType_ == nullptr && return this->desktopId_ == nullptr && return this->desktopName_ == nullptr && return this->desktopStatus_ == nullptr && return this->directoryId_ == nullptr
+        && return this->keyword_ == nullptr && return this->language_ == nullptr && return this->loginRegionId_ == nullptr && return this->loginToken_ == nullptr && return this->maxResults_ == nullptr
+        && return this->nextToken_ == nullptr && return this->officeSiteId_ == nullptr && return this->orderBy_ == nullptr && return this->queryFotaUpdate_ == nullptr && return this->regionId_ == nullptr
+        && return this->searchRegionId_ == nullptr && return this->sessionId_ == nullptr && return this->sortType_ == nullptr && return this->withoutLatency_ == nullptr; };
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};

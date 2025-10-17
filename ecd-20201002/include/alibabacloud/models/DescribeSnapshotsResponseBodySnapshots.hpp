@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creationTime_ != nullptr
-        && this->description_ != nullptr && this->desktopId_ != nullptr && this->progress_ != nullptr && this->remainTime_ != nullptr && this->restorePointId_ != nullptr
-        && this->restorePointName_ != nullptr && this->snapshotId_ != nullptr && this->snapshotName_ != nullptr && this->snapshotType_ != nullptr && this->sourceDiskSize_ != nullptr
-        && this->sourceDiskType_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->creationTime_ == nullptr
+        && return this->description_ == nullptr && return this->desktopId_ == nullptr && return this->progress_ == nullptr && return this->remainTime_ == nullptr && return this->restorePointId_ == nullptr
+        && return this->restorePointName_ == nullptr && return this->snapshotId_ == nullptr && return this->snapshotName_ == nullptr && return this->snapshotType_ == nullptr && return this->sourceDiskSize_ == nullptr
+        && return this->sourceDiskType_ == nullptr && return this->status_ == nullptr; };
     // creationTime Field Functions 
     bool hasCreationTime() const { return this->creationTime_ != nullptr;};
     void deleteCreationTime() { this->creationTime_ = nullptr;};

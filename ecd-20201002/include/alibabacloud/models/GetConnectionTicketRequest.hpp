@@ -15,6 +15,7 @@ namespace Models
   class GetConnectionTicketRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetConnectionTicketRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AccessType, accessType_);
       DARABONBA_PTR_TO_JSON(ClientId, clientId_);
       DARABONBA_PTR_TO_JSON(ClientOS, clientOS_);
       DARABONBA_PTR_TO_JSON(ClientType, clientType_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Uuid, uuid_);
     };
     friend void from_json(const Darabonba::Json& j, GetConnectionTicketRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccessType, accessType_);
       DARABONBA_PTR_FROM_JSON(ClientId, clientId_);
       DARABONBA_PTR_FROM_JSON(ClientOS, clientOS_);
       DARABONBA_PTR_FROM_JSON(ClientType, clientType_);
@@ -59,10 +61,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientId_ != nullptr
-        && this->clientOS_ != nullptr && this->clientType_ != nullptr && this->clientVersion_ != nullptr && this->commandContent_ != nullptr && this->desktopId_ != nullptr
-        && this->loginToken_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->sessionId_ != nullptr && this->tag_ != nullptr && this->taskId_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->accessType_ == nullptr
+        && return this->clientId_ == nullptr && return this->clientOS_ == nullptr && return this->clientType_ == nullptr && return this->clientVersion_ == nullptr && return this->commandContent_ == nullptr
+        && return this->desktopId_ == nullptr && return this->loginToken_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->sessionId_ == nullptr && return this->tag_ == nullptr && return this->taskId_ == nullptr && return this->uuid_ == nullptr; };
+    // accessType Field Functions 
+    bool hasAccessType() const { return this->accessType_ != nullptr;};
+    void deleteAccessType() { this->accessType_ = nullptr;};
+    inline string accessType() const { DARABONBA_PTR_GET_DEFAULT(accessType_, "") };
+    inline GetConnectionTicketRequest& setAccessType(string accessType) { DARABONBA_PTR_SET_VALUE(accessType_, accessType) };
+
+
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};
@@ -171,6 +180,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> accessType_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> clientId_ = nullptr;
     std::shared_ptr<string> clientOS_ = nullptr;

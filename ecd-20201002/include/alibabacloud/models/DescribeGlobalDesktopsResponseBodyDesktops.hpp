@@ -113,15 +113,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chargeType_ != nullptr
-        && this->clients_ != nullptr && this->connectionStatus_ != nullptr && this->cpu_ != nullptr && this->creationTime_ != nullptr && this->desktopGroupId_ != nullptr
-        && this->desktopId_ != nullptr && this->desktopName_ != nullptr && this->desktopStatus_ != nullptr && this->desktopTimers_ != nullptr && this->desktopType_ != nullptr
-        && this->directoryId_ != nullptr && this->disks_ != nullptr && this->endUserId_ != nullptr && this->endUserIds_ != nullptr && this->expiredTime_ != nullptr
-        && this->fotaUpdate_ != nullptr && this->gpuMemory_ != nullptr && this->hibernationBeta_ != nullptr && this->hostName_ != nullptr && this->imageId_ != nullptr
-        && this->lastStartTime_ != nullptr && this->localName_ != nullptr && this->managementFlags_ != nullptr && this->memory_ != nullptr && this->networkInterfaceIp_ != nullptr
-        && this->officeSiteId_ != nullptr && this->os_ != nullptr && this->osDescription_ != nullptr && this->osType_ != nullptr && this->platform_ != nullptr
-        && this->policyGroupId_ != nullptr && this->protocolType_ != nullptr && this->realDesktopId_ != nullptr && this->regionId_ != nullptr && this->regionLocation_ != nullptr
-        && this->sessionType_ != nullptr && this->sessions_ != nullptr && this->supportHibernation_ != nullptr && this->userCustomName_ != nullptr; };
+    virtual bool empty() const override { return this->chargeType_ == nullptr
+        && return this->clients_ == nullptr && return this->connectionStatus_ == nullptr && return this->cpu_ == nullptr && return this->creationTime_ == nullptr && return this->desktopGroupId_ == nullptr
+        && return this->desktopId_ == nullptr && return this->desktopName_ == nullptr && return this->desktopStatus_ == nullptr && return this->desktopTimers_ == nullptr && return this->desktopType_ == nullptr
+        && return this->directoryId_ == nullptr && return this->disks_ == nullptr && return this->endUserId_ == nullptr && return this->endUserIds_ == nullptr && return this->expiredTime_ == nullptr
+        && return this->fotaUpdate_ == nullptr && return this->gpuMemory_ == nullptr && return this->hibernationBeta_ == nullptr && return this->hostName_ == nullptr && return this->imageId_ == nullptr
+        && return this->lastStartTime_ == nullptr && return this->localName_ == nullptr && return this->managementFlags_ == nullptr && return this->memory_ == nullptr && return this->networkInterfaceIp_ == nullptr
+        && return this->officeSiteId_ == nullptr && return this->os_ == nullptr && return this->osDescription_ == nullptr && return this->osType_ == nullptr && return this->platform_ == nullptr
+        && return this->policyGroupId_ == nullptr && return this->protocolType_ == nullptr && return this->realDesktopId_ == nullptr && return this->regionId_ == nullptr && return this->regionLocation_ == nullptr
+        && return this->sessionType_ == nullptr && return this->sessions_ == nullptr && return this->supportHibernation_ == nullptr && return this->userCustomName_ == nullptr; };
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};

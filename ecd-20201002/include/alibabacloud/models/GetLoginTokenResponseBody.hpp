@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->email_ != nullptr
-        && this->endUserId_ != nullptr && this->industry_ != nullptr && this->keepAliveToken_ != nullptr && this->label_ != nullptr && this->loginToken_ != nullptr
-        && this->nextStage_ != nullptr && this->nickName_ != nullptr && this->passwordStrategy_ != nullptr && this->phone_ != nullptr && this->props_ != nullptr
-        && this->qrCodePng_ != nullptr && this->reason_ != nullptr && this->requestId_ != nullptr && this->riskVerifyInfo_ != nullptr && this->secret_ != nullptr
-        && this->sessionId_ != nullptr && this->tenantId_ != nullptr && this->windowDisplayMode_ != nullptr; };
+    virtual bool empty() const override { return this->email_ == nullptr
+        && return this->endUserId_ == nullptr && return this->industry_ == nullptr && return this->keepAliveToken_ == nullptr && return this->label_ == nullptr && return this->loginToken_ == nullptr
+        && return this->nextStage_ == nullptr && return this->nickName_ == nullptr && return this->passwordStrategy_ == nullptr && return this->phone_ == nullptr && return this->props_ == nullptr
+        && return this->qrCodePng_ == nullptr && return this->reason_ == nullptr && return this->requestId_ == nullptr && return this->riskVerifyInfo_ == nullptr && return this->secret_ == nullptr
+        && return this->sessionId_ == nullptr && return this->tenantId_ == nullptr && return this->windowDisplayMode_ == nullptr; };
     // email Field Functions 
     bool hasEmail() const { return this->email_ != nullptr;};
     void deleteEmail() { this->email_ = nullptr;};

@@ -13,6 +13,7 @@ namespace Models
   class GetConnectionTicketResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetConnectionTicketResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(P2PToken, p2PToken_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(TaskCode, taskCode_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Ticket, ticket_);
     };
     friend void from_json(const Darabonba::Json& j, GetConnectionTicketResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(P2PToken, p2PToken_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(TaskCode, taskCode_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
@@ -39,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->taskCode_ != nullptr && this->taskId_ != nullptr && this->taskMessage_ != nullptr && this->taskStatus_ != nullptr && this->ticket_ != nullptr; };
+    virtual bool empty() const override { return this->p2PToken_ == nullptr
+        && return this->requestId_ == nullptr && return this->taskCode_ == nullptr && return this->taskId_ == nullptr && return this->taskMessage_ == nullptr && return this->taskStatus_ == nullptr
+        && return this->ticket_ == nullptr; };
+    // p2PToken Field Functions 
+    bool hasP2PToken() const { return this->p2PToken_ != nullptr;};
+    void deleteP2PToken() { this->p2PToken_ = nullptr;};
+    inline string p2PToken() const { DARABONBA_PTR_GET_DEFAULT(p2PToken_, "") };
+    inline GetConnectionTicketResponseBody& setP2PToken(string p2PToken) { DARABONBA_PTR_SET_VALUE(p2PToken_, p2PToken) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -84,6 +94,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> p2PToken_ = nullptr;
     std::shared_ptr<string> requestId_ = nullptr;
     std::shared_ptr<string> taskCode_ = nullptr;
     std::shared_ptr<string> taskId_ = nullptr;

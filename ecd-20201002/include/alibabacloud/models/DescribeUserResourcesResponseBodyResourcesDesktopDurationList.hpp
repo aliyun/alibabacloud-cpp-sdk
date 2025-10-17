@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->orderInstanceId_ != nullptr
-        && this->packageCreationTime_ != nullptr && this->packageExpiredTime_ != nullptr && this->packageId_ != nullptr && this->packageStatus_ != nullptr && this->packageType_ != nullptr
-        && this->packageUsedUpStrategy_ != nullptr && this->periodEndTime_ != nullptr && this->periodStartTime_ != nullptr && this->postPaidLimitFee_ != nullptr && this->totalDuration_ != nullptr
-        && this->usedDuration_ != nullptr; };
+    virtual bool empty() const override { return this->orderInstanceId_ == nullptr
+        && return this->packageCreationTime_ == nullptr && return this->packageExpiredTime_ == nullptr && return this->packageId_ == nullptr && return this->packageStatus_ == nullptr && return this->packageType_ == nullptr
+        && return this->packageUsedUpStrategy_ == nullptr && return this->periodEndTime_ == nullptr && return this->periodStartTime_ == nullptr && return this->postPaidLimitFee_ == nullptr && return this->totalDuration_ == nullptr
+        && return this->usedDuration_ == nullptr; };
     // orderInstanceId Field Functions 
     bool hasOrderInstanceId() const { return this->orderInstanceId_ != nullptr;};
     void deleteOrderInstanceId() { this->orderInstanceId_ = nullptr;};

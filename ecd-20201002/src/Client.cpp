@@ -893,6 +893,10 @@ GetCloudDriveServiceMountTokenResponse Client::getCloudDriveServiceMountToken(co
 GetConnectionTicketResponse Client::getConnectionTicketWithOptions(const GetConnectionTicketRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAccessType()) {
+    query["AccessType"] = request.accessType();
+  }
+
   if (!!request.hasClientId()) {
     query["ClientId"] = request.clientId();
   }

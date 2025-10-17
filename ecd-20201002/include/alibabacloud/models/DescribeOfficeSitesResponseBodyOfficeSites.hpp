@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->desktopAccessType_ != nullptr
-        && this->desktopVpcEndpoint_ != nullptr && this->officeSiteId_ != nullptr && this->officeSiteType_ != nullptr && this->providerId_ != nullptr && this->ssoServiceUrl_ != nullptr; };
+    virtual bool empty() const override { return this->desktopAccessType_ == nullptr
+        && return this->desktopVpcEndpoint_ == nullptr && return this->officeSiteId_ == nullptr && return this->officeSiteType_ == nullptr && return this->providerId_ == nullptr && return this->ssoServiceUrl_ == nullptr; };
     // desktopAccessType Field Functions 
     bool hasDesktopAccessType() const { return this->desktopAccessType_ != nullptr;};
     void deleteDesktopAccessType() { this->desktopAccessType_ = nullptr;};

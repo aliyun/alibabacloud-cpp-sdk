@@ -84,13 +84,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessType_ != nullptr
-        && this->autoRefresh_ != nullptr && this->categoryId_ != nullptr && this->categoryType_ != nullptr && this->clientId_ != nullptr && this->clientType_ != nullptr
-        && this->clientVersion_ != nullptr && this->dualCenterForward_ != nullptr && this->language_ != nullptr && this->loginRegionId_ != nullptr && this->loginToken_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->officeSiteIds_ != nullptr && this->orderBy_ != nullptr && this->productTypes_ != nullptr
-        && this->protocolType_ != nullptr && this->queryDesktopDurationList_ != nullptr && this->queryDesktopTimers_ != nullptr && this->queryFotaUpdate_ != nullptr && this->refreshFotaUpdate_ != nullptr
-        && this->resourceIds_ != nullptr && this->resourceName_ != nullptr && this->resourceTypes_ != nullptr && this->scene_ != nullptr && this->searchRegionId_ != nullptr
-        && this->sessionId_ != nullptr && this->sortType_ != nullptr; };
+    virtual bool empty() const override { return this->accessType_ == nullptr
+        && return this->autoRefresh_ == nullptr && return this->categoryId_ == nullptr && return this->categoryType_ == nullptr && return this->clientId_ == nullptr && return this->clientType_ == nullptr
+        && return this->clientVersion_ == nullptr && return this->dualCenterForward_ == nullptr && return this->language_ == nullptr && return this->loginRegionId_ == nullptr && return this->loginToken_ == nullptr
+        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->officeSiteIds_ == nullptr && return this->orderBy_ == nullptr && return this->productTypes_ == nullptr
+        && return this->protocolType_ == nullptr && return this->queryDesktopDurationList_ == nullptr && return this->queryDesktopTimers_ == nullptr && return this->queryFotaUpdate_ == nullptr && return this->refreshFotaUpdate_ == nullptr
+        && return this->resourceIds_ == nullptr && return this->resourceName_ == nullptr && return this->resourceTypes_ == nullptr && return this->scene_ == nullptr && return this->searchRegionId_ == nullptr
+        && return this->sessionId_ == nullptr && return this->sortType_ == nullptr; };
     // accessType Field Functions 
     bool hasAccessType() const { return this->accessType_ != nullptr;};
     void deleteAccessType() { this->accessType_ = nullptr;};

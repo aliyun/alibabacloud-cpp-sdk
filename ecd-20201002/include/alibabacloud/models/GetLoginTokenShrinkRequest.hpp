@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authenticationCode_ != nullptr
-        && this->availableFeaturesShrink_ != nullptr && this->clientId_ != nullptr && this->clientName_ != nullptr && this->clientOS_ != nullptr && this->clientType_ != nullptr
-        && this->clientVersion_ != nullptr && this->currentStage_ != nullptr && this->directoryId_ != nullptr && this->endUserId_ != nullptr && this->keepAlive_ != nullptr
-        && this->keepAliveToken_ != nullptr && this->newPassword_ != nullptr && this->officeSiteId_ != nullptr && this->oldPassword_ != nullptr && this->password_ != nullptr
-        && this->regionId_ != nullptr && this->sessionId_ != nullptr && this->tokenCode_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->authenticationCode_ == nullptr
+        && return this->availableFeaturesShrink_ == nullptr && return this->clientId_ == nullptr && return this->clientName_ == nullptr && return this->clientOS_ == nullptr && return this->clientType_ == nullptr
+        && return this->clientVersion_ == nullptr && return this->currentStage_ == nullptr && return this->directoryId_ == nullptr && return this->endUserId_ == nullptr && return this->keepAlive_ == nullptr
+        && return this->keepAliveToken_ == nullptr && return this->newPassword_ == nullptr && return this->officeSiteId_ == nullptr && return this->oldPassword_ == nullptr && return this->password_ == nullptr
+        && return this->regionId_ == nullptr && return this->sessionId_ == nullptr && return this->tokenCode_ == nullptr && return this->uuid_ == nullptr; };
     // authenticationCode Field Functions 
     bool hasAuthenticationCode() const { return this->authenticationCode_ != nullptr;};
     void deleteAuthenticationCode() { this->authenticationCode_ = nullptr;};
