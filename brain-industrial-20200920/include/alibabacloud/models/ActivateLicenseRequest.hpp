@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fingerprint_ != nullptr
-        && this->id_ != nullptr && this->instanceId_ != nullptr && this->orderId_ != nullptr; };
+    virtual bool empty() const override { return this->fingerprint_ == nullptr
+        && return this->id_ == nullptr && return this->instanceId_ == nullptr && return this->orderId_ == nullptr; };
     // fingerprint Field Functions 
     bool hasFingerprint() const { return this->fingerprint_ != nullptr;};
     void deleteFingerprint() { this->fingerprint_ = nullptr;};

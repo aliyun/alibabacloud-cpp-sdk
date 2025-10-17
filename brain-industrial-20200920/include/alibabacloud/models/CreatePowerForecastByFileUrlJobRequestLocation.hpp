@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->altitude_ != nullptr
-        && this->latitude_ != nullptr && this->longitude_ != nullptr; };
+    virtual bool empty() const override { return this->altitude_ == nullptr
+        && return this->latitude_ == nullptr && return this->longitude_ == nullptr; };
     // altitude Field Functions 
     bool hasAltitude() const { return this->altitude_ != nullptr;};
     void deleteAltitude() { this->altitude_ = nullptr;};

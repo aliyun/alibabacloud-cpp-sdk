@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->businessKey_ != nullptr
-        && this->duration_ != nullptr && this->elecPriceShrink_ != nullptr && this->freq_ != nullptr && this->genPriceShrink_ != nullptr && this->locationShrink_ != nullptr
-        && this->modelVersion_ != nullptr && this->runDate_ != nullptr && this->systemDataShrink_ != nullptr && this->timeZone_ != nullptr && this->topoType_ != nullptr; };
+    virtual bool empty() const override { return this->businessKey_ == nullptr
+        && return this->duration_ == nullptr && return this->elecPriceShrink_ == nullptr && return this->freq_ == nullptr && return this->genPriceShrink_ == nullptr && return this->locationShrink_ == nullptr
+        && return this->modelVersion_ == nullptr && return this->runDate_ == nullptr && return this->systemDataShrink_ == nullptr && return this->timeZone_ == nullptr && return this->topoType_ == nullptr; };
     // businessKey Field Functions 
     bool hasBusinessKey() const { return this->businessKey_ != nullptr;};
     void deleteBusinessKey() { this->businessKey_ = nullptr;};

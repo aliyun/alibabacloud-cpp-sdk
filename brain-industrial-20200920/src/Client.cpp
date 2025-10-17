@@ -269,12 +269,20 @@ CreateLoadForecastByFileUrlJobResponse Client::createLoadForecastByFileUrlJobWit
     body["BusinessKey"] = request.businessKey();
   }
 
+  if (!!request.hasDataMode()) {
+    body["DataMode"] = request.dataMode();
+  }
+
   if (!!request.hasDeviceType()) {
     body["DeviceType"] = request.deviceType();
   }
 
   if (!!request.hasDuration()) {
     body["Duration"] = request.duration();
+  }
+
+  if (!!request.hasForecastHorizon()) {
+    body["ForecastHorizon"] = request.forecastHorizon();
   }
 
   if (!!request.hasFreq()) {
@@ -357,12 +365,20 @@ CreateLoadForecastJobResponse Client::createLoadForecastJobWithOptions(const Cre
     body["BusinessKey"] = request.businessKey();
   }
 
+  if (!!request.hasDataMode()) {
+    body["DataMode"] = request.dataMode();
+  }
+
   if (!!request.hasDeviceType()) {
     body["DeviceType"] = request.deviceType();
   }
 
   if (!!request.hasDuration()) {
     body["Duration"] = request.duration();
+  }
+
+  if (!!request.hasForecastHorizon()) {
+    body["ForecastHorizon"] = request.forecastHorizon();
   }
 
   if (!!request.hasFreq()) {
@@ -437,12 +453,20 @@ CreatePowerForecastByFileUrlJobResponse Client::createPowerForecastByFileUrlJobW
     body["BusinessKey"] = request.businessKey();
   }
 
+  if (!!request.hasDataMode()) {
+    body["DataMode"] = request.dataMode();
+  }
+
   if (!!request.hasDeviceType()) {
     body["DeviceType"] = request.deviceType();
   }
 
   if (!!request.hasDuration()) {
     body["Duration"] = request.duration();
+  }
+
+  if (!!request.hasForecastHorizon()) {
+    body["ForecastHorizon"] = request.forecastHorizon();
   }
 
   if (!!request.hasFreq()) {
@@ -533,12 +557,20 @@ CreatePowerForecastJobResponse Client::createPowerForecastJobWithOptions(const C
     body["BusinessKey"] = request.businessKey();
   }
 
+  if (!!request.hasDataMode()) {
+    body["DataMode"] = request.dataMode();
+  }
+
   if (!!request.hasDeviceType()) {
     body["DeviceType"] = request.deviceType();
   }
 
   if (!!request.hasDuration()) {
     body["Duration"] = request.duration();
+  }
+
+  if (!!request.hasForecastHorizon()) {
+    body["ForecastHorizon"] = request.forecastHorizon();
   }
 
   if (!!request.hasFreq()) {

@@ -73,12 +73,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activateRecord_ != nullptr
-        && this->activateTime_ != nullptr && this->adaptiveMachine_ != nullptr && this->allDuration_ != nullptr && this->applicableSpecs_ != nullptr && this->buyTime_ != nullptr
-        && this->cpuLimit_ != nullptr && this->description_ != nullptr && this->duration_ != nullptr && this->effectTime_ != nullptr && this->expireTime_ != nullptr
-        && this->fingerprint_ != nullptr && this->id_ != nullptr && this->instanceId_ != nullptr && this->licenseCode_ != nullptr && this->licenseSpecCode_ != nullptr
-        && this->licenseSpecName_ != nullptr && this->licenseSpecType_ != nullptr && this->memoryLimit_ != nullptr && this->proposal_ != nullptr && this->status_ != nullptr
-        && this->unActivateAllDuration_ != nullptr; };
+    virtual bool empty() const override { return this->activateRecord_ == nullptr
+        && return this->activateTime_ == nullptr && return this->adaptiveMachine_ == nullptr && return this->allDuration_ == nullptr && return this->applicableSpecs_ == nullptr && return this->buyTime_ == nullptr
+        && return this->cpuLimit_ == nullptr && return this->description_ == nullptr && return this->duration_ == nullptr && return this->effectTime_ == nullptr && return this->expireTime_ == nullptr
+        && return this->fingerprint_ == nullptr && return this->id_ == nullptr && return this->instanceId_ == nullptr && return this->licenseCode_ == nullptr && return this->licenseSpecCode_ == nullptr
+        && return this->licenseSpecName_ == nullptr && return this->licenseSpecType_ == nullptr && return this->memoryLimit_ == nullptr && return this->proposal_ == nullptr && return this->status_ == nullptr
+        && return this->unActivateAllDuration_ == nullptr; };
     // activateRecord Field Functions 
     bool hasActivateRecord() const { return this->activateRecord_ != nullptr;};
     void deleteActivateRecord() { this->activateRecord_ = nullptr;};
