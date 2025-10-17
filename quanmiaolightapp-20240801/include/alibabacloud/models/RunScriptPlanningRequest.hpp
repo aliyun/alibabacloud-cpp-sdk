@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->additionalNote_ != nullptr
-        && this->dialogueInScene_ != nullptr && this->plotConflict_ != nullptr && this->scriptName_ != nullptr && this->scriptShotCount_ != nullptr && this->scriptSummary_ != nullptr
-        && this->scriptTypeKeyword_ != nullptr; };
+    virtual bool empty() const override { return this->additionalNote_ == nullptr
+        && return this->dialogueInScene_ == nullptr && return this->plotConflict_ == nullptr && return this->scriptName_ == nullptr && return this->scriptShotCount_ == nullptr && return this->scriptSummary_ == nullptr
+        && return this->scriptTypeKeyword_ == nullptr; };
     // additionalNote Field Functions 
     bool hasAdditionalNote() const { return this->additionalNote_ != nullptr;};
     void deleteAdditionalNote() { this->additionalNote_ = nullptr;};

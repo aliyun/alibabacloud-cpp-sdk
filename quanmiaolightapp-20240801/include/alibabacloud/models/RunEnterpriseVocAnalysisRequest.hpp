@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->akProxy_ != nullptr
-        && this->apiKey_ != nullptr && this->content_ != nullptr && this->extraInfo_ != nullptr && this->filterTags_ != nullptr && this->modelId_ != nullptr
-        && this->outputFormat_ != nullptr && this->sourceTrace_ != nullptr && this->tags_ != nullptr && this->taskDescription_ != nullptr; };
+    virtual bool empty() const override { return this->akProxy_ == nullptr
+        && return this->apiKey_ == nullptr && return this->content_ == nullptr && return this->extraInfo_ == nullptr && return this->filterTags_ == nullptr && return this->modelId_ == nullptr
+        && return this->outputFormat_ == nullptr && return this->sourceTrace_ == nullptr && return this->tags_ == nullptr && return this->taskDescription_ == nullptr; };
     // akProxy Field Functions 
     bool hasAkProxy() const { return this->akProxy_ != nullptr;};
     void deleteAkProxy() { this->akProxy_ = nullptr;};

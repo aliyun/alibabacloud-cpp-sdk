@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->grade_ != nullptr
-        && this->modelId_ != nullptr && this->otherReviewPoints_ != nullptr && this->question_ != nullptr && this->subject_ != nullptr && this->tasks_ != nullptr
-        && this->totalScore_ != nullptr; };
+    virtual bool empty() const override { return this->grade_ == nullptr
+        && return this->modelId_ == nullptr && return this->otherReviewPoints_ == nullptr && return this->question_ == nullptr && return this->subject_ == nullptr && return this->tasks_ == nullptr
+        && return this->totalScore_ == nullptr; };
     // grade Field Functions 
     bool hasGrade() const { return this->grade_ != nullptr;};
     void deleteGrade() { this->grade_ = nullptr;};

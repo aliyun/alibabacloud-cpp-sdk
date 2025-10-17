@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->category_ != nullptr
-        && this->generateOptions_ != nullptr && this->hotTopicVersion_ != nullptr && this->hotTopics_ != nullptr && this->imageCount_ != nullptr && this->messages_ != nullptr
-        && this->modelCustomPromptTemplate_ != nullptr && this->modelId_ != nullptr && this->originalSessionId_ != nullptr && this->prompt_ != nullptr && this->stepForBroadcastContentConfig_ != nullptr
-        && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->category_ == nullptr
+        && return this->generateOptions_ == nullptr && return this->hotTopicVersion_ == nullptr && return this->hotTopics_ == nullptr && return this->imageCount_ == nullptr && return this->messages_ == nullptr
+        && return this->modelCustomPromptTemplate_ == nullptr && return this->modelId_ == nullptr && return this->originalSessionId_ == nullptr && return this->prompt_ == nullptr && return this->stepForBroadcastContentConfig_ == nullptr
+        && return this->taskId_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};

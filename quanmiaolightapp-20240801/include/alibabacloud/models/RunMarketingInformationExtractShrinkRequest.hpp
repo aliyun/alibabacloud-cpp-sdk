@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->customPrompt_ != nullptr
-        && this->extractType_ != nullptr && this->modelId_ != nullptr && this->sourceMaterialsShrink_ != nullptr; };
+    virtual bool empty() const override { return this->customPrompt_ == nullptr
+        && return this->extractType_ == nullptr && return this->modelId_ == nullptr && return this->sourceMaterialsShrink_ == nullptr; };
     // customPrompt Field Functions 
     bool hasCustomPrompt() const { return this->customPrompt_ != nullptr;};
     void deleteCustomPrompt() { this->customPrompt_ = nullptr;};

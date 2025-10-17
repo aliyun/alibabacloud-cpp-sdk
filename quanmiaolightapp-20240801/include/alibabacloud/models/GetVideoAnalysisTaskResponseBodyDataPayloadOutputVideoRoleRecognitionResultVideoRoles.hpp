@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->isAutoRecognition_ != nullptr
-        && this->ratio_ != nullptr && this->roleInfo_ != nullptr && this->roleName_ != nullptr && this->timeIntervals_ != nullptr; };
+    virtual bool empty() const override { return this->isAutoRecognition_ == nullptr
+        && return this->ratio_ == nullptr && return this->roleInfo_ == nullptr && return this->roleName_ == nullptr && return this->timeIntervals_ == nullptr; };
     // isAutoRecognition Field Functions 
     bool hasIsAutoRecognition() const { return this->isAutoRecognition_ != nullptr;};
     void deleteIsAutoRecognition() { this->isAutoRecognition_ = nullptr;};

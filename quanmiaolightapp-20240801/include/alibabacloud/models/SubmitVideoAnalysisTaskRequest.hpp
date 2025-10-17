@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(modelId, modelId_);
       DARABONBA_PTR_TO_JSON(snapshotInterval, snapshotInterval_);
       DARABONBA_PTR_TO_JSON(splitInterval, splitInterval_);
+      DARABONBA_PTR_TO_JSON(splitType, splitType_);
       DARABONBA_PTR_TO_JSON(textProcessTasks, textProcessTasks_);
       DARABONBA_PTR_TO_JSON(videoCaptionInfo, videoCaptionInfo_);
       DARABONBA_PTR_TO_JSON(videoExtraInfo, videoExtraInfo_);
@@ -52,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(modelId, modelId_);
       DARABONBA_PTR_FROM_JSON(snapshotInterval, snapshotInterval_);
       DARABONBA_PTR_FROM_JSON(splitInterval, splitInterval_);
+      DARABONBA_PTR_FROM_JSON(splitType, splitType_);
       DARABONBA_PTR_FROM_JSON(textProcessTasks, textProcessTasks_);
       DARABONBA_PTR_FROM_JSON(videoCaptionInfo, videoCaptionInfo_);
       DARABONBA_PTR_FROM_JSON(videoExtraInfo, videoExtraInfo_);
@@ -72,11 +74,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRoleRecognitionVideoUrl_ != nullptr
-        && this->deduplicationId_ != nullptr && this->excludeGenerateOptions_ != nullptr && this->faceIdentitySimilarityMinScore_ != nullptr && this->frameSampleMethod_ != nullptr && this->generateOptions_ != nullptr
-        && this->language_ != nullptr && this->modelCustomPromptTemplate_ != nullptr && this->modelCustomPromptTemplateId_ != nullptr && this->modelId_ != nullptr && this->snapshotInterval_ != nullptr
-        && this->splitInterval_ != nullptr && this->textProcessTasks_ != nullptr && this->videoCaptionInfo_ != nullptr && this->videoExtraInfo_ != nullptr && this->videoModelCustomPromptTemplate_ != nullptr
-        && this->videoModelId_ != nullptr && this->videoRoles_ != nullptr && this->videoShotFaceIdentityCount_ != nullptr && this->videoUrl_ != nullptr; };
+    virtual bool empty() const override { return this->autoRoleRecognitionVideoUrl_ == nullptr
+        && return this->deduplicationId_ == nullptr && return this->excludeGenerateOptions_ == nullptr && return this->faceIdentitySimilarityMinScore_ == nullptr && return this->frameSampleMethod_ == nullptr && return this->generateOptions_ == nullptr
+        && return this->language_ == nullptr && return this->modelCustomPromptTemplate_ == nullptr && return this->modelCustomPromptTemplateId_ == nullptr && return this->modelId_ == nullptr && return this->snapshotInterval_ == nullptr
+        && return this->splitInterval_ == nullptr && return this->splitType_ == nullptr && return this->textProcessTasks_ == nullptr && return this->videoCaptionInfo_ == nullptr && return this->videoExtraInfo_ == nullptr
+        && return this->videoModelCustomPromptTemplate_ == nullptr && return this->videoModelId_ == nullptr && return this->videoRoles_ == nullptr && return this->videoShotFaceIdentityCount_ == nullptr && return this->videoUrl_ == nullptr; };
     // autoRoleRecognitionVideoUrl Field Functions 
     bool hasAutoRoleRecognitionVideoUrl() const { return this->autoRoleRecognitionVideoUrl_ != nullptr;};
     void deleteAutoRoleRecognitionVideoUrl() { this->autoRoleRecognitionVideoUrl_ = nullptr;};
@@ -167,6 +169,13 @@ namespace Models
     inline SubmitVideoAnalysisTaskRequest& setSplitInterval(int32_t splitInterval) { DARABONBA_PTR_SET_VALUE(splitInterval_, splitInterval) };
 
 
+    // splitType Field Functions 
+    bool hasSplitType() const { return this->splitType_ != nullptr;};
+    void deleteSplitType() { this->splitType_ = nullptr;};
+    inline string splitType() const { DARABONBA_PTR_GET_DEFAULT(splitType_, "") };
+    inline SubmitVideoAnalysisTaskRequest& setSplitType(string splitType) { DARABONBA_PTR_SET_VALUE(splitType_, splitType) };
+
+
     // textProcessTasks Field Functions 
     bool hasTextProcessTasks() const { return this->textProcessTasks_ != nullptr;};
     void deleteTextProcessTasks() { this->textProcessTasks_ = nullptr;};
@@ -242,6 +251,7 @@ namespace Models
     std::shared_ptr<string> modelId_ = nullptr;
     std::shared_ptr<double> snapshotInterval_ = nullptr;
     std::shared_ptr<int32_t> splitInterval_ = nullptr;
+    std::shared_ptr<string> splitType_ = nullptr;
     std::shared_ptr<vector<SubmitVideoAnalysisTaskRequestTextProcessTasks>> textProcessTasks_ = nullptr;
     std::shared_ptr<SubmitVideoAnalysisTaskRequestVideoCaptionInfo> videoCaptionInfo_ = nullptr;
     std::shared_ptr<string> videoExtraInfo_ = nullptr;

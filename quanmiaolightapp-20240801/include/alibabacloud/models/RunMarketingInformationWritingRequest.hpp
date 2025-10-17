@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiKey_ != nullptr
-        && this->customLimitation_ != nullptr && this->customPrompt_ != nullptr && this->inputExample_ != nullptr && this->modelId_ != nullptr && this->outputExample_ != nullptr
-        && this->sourceMaterial_ != nullptr && this->writingType_ != nullptr; };
+    virtual bool empty() const override { return this->apiKey_ == nullptr
+        && return this->customLimitation_ == nullptr && return this->customPrompt_ == nullptr && return this->inputExample_ == nullptr && return this->modelId_ == nullptr && return this->outputExample_ == nullptr
+        && return this->sourceMaterial_ == nullptr && return this->writingType_ == nullptr; };
     // apiKey Field Functions 
     bool hasApiKey() const { return this->apiKey_ != nullptr;};
     void deleteApiKey() { this->apiKey_ = nullptr;};

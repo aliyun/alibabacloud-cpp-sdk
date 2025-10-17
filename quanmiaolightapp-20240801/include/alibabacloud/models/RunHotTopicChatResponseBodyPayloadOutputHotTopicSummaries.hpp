@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->customHotValue_ != nullptr
-        && this->customTextSummary_ != nullptr && this->hotTopic_ != nullptr && this->hotTopicVersion_ != nullptr && this->hotValue_ != nullptr && this->images_ != nullptr
-        && this->news_ != nullptr && this->pubTime_ != nullptr && this->textSummary_ != nullptr && this->url_ != nullptr; };
+    virtual bool empty() const override { return this->customHotValue_ == nullptr
+        && return this->customTextSummary_ == nullptr && return this->hotTopic_ == nullptr && return this->hotTopicVersion_ == nullptr && return this->hotValue_ == nullptr && return this->images_ == nullptr
+        && return this->news_ == nullptr && return this->pubTime_ == nullptr && return this->textSummary_ == nullptr && return this->url_ == nullptr; };
     // customHotValue Field Functions 
     bool hasCustomHotValue() const { return this->customHotValue_ != nullptr;};
     void deleteCustomHotValue() { this->customHotValue_ = nullptr;};

@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->concurrentChargeEnable_ != nullptr
-        && this->responseTime_ != nullptr; };
+    virtual bool empty() const override { return this->concurrentChargeEnable_ == nullptr
+        && return this->responseTime_ == nullptr; };
     // concurrentChargeEnable Field Functions 
     bool hasConcurrentChargeEnable() const { return this->concurrentChargeEnable_ != nullptr;};
     void deleteConcurrentChargeEnable() { this->concurrentChargeEnable_ = nullptr;};

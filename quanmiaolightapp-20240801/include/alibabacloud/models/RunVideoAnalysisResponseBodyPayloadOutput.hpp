@@ -54,9 +54,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->resultJsonFileUrl_ != nullptr
-        && this->videoAnalysisResult_ != nullptr && this->videoCaptionResult_ != nullptr && this->videoGenerateResult_ != nullptr && this->videoGenerateResults_ != nullptr && this->videoMindMappingGenerateResult_ != nullptr
-        && this->videoRoleRecognitionResult_ != nullptr && this->videoShotSnapshotResult_ != nullptr && this->videoTitleGenerateResult_ != nullptr; };
+    virtual bool empty() const override { return this->resultJsonFileUrl_ == nullptr
+        && return this->videoAnalysisResult_ == nullptr && return this->videoCaptionResult_ == nullptr && return this->videoGenerateResult_ == nullptr && return this->videoGenerateResults_ == nullptr && return this->videoMindMappingGenerateResult_ == nullptr
+        && return this->videoRoleRecognitionResult_ == nullptr && return this->videoShotSnapshotResult_ == nullptr && return this->videoTitleGenerateResult_ == nullptr; };
     // resultJsonFileUrl Field Functions 
     bool hasResultJsonFileUrl() const { return this->resultJsonFileUrl_ != nullptr;};
     void deleteResultJsonFileUrl() { this->resultJsonFileUrl_ = nullptr;};
