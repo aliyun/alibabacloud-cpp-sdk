@@ -1,0 +1,58 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DELETEDSENTITYRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_DELETEDSENTITYRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Chatbot20220408
+{
+namespace Models
+{
+  class DeleteDSEntityResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DeleteDSEntityResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(EntityId, entityId_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+    };
+    friend void from_json(const Darabonba::Json& j, DeleteDSEntityResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(EntityId, entityId_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+    };
+    DeleteDSEntityResponseBody() = default ;
+    DeleteDSEntityResponseBody(const DeleteDSEntityResponseBody &) = default ;
+    DeleteDSEntityResponseBody(DeleteDSEntityResponseBody &&) = default ;
+    DeleteDSEntityResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DeleteDSEntityResponseBody() = default ;
+    DeleteDSEntityResponseBody& operator=(const DeleteDSEntityResponseBody &) = default ;
+    DeleteDSEntityResponseBody& operator=(DeleteDSEntityResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->entityId_ == nullptr
+        && return this->requestId_ == nullptr; };
+    // entityId Field Functions 
+    bool hasEntityId() const { return this->entityId_ != nullptr;};
+    void deleteEntityId() { this->entityId_ = nullptr;};
+    inline int64_t entityId() const { DARABONBA_PTR_GET_DEFAULT(entityId_, 0L) };
+    inline DeleteDSEntityResponseBody& setEntityId(int64_t entityId) { DARABONBA_PTR_SET_VALUE(entityId_, entityId) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline DeleteDSEntityResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+  protected:
+    std::shared_ptr<int64_t> entityId_ = nullptr;
+    std::shared_ptr<string> requestId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Chatbot20220408
+#endif

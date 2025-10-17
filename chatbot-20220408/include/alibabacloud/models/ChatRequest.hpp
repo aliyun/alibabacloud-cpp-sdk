@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentKey_ != nullptr
-        && this->instanceId_ != nullptr && this->intentName_ != nullptr && this->knowledgeId_ != nullptr && this->perspective_ != nullptr && this->sandBox_ != nullptr
-        && this->senderId_ != nullptr && this->senderNick_ != nullptr && this->sessionId_ != nullptr && this->utterance_ != nullptr && this->vendorParam_ != nullptr; };
+    virtual bool empty() const override { return this->agentKey_ == nullptr
+        && return this->instanceId_ == nullptr && return this->intentName_ == nullptr && return this->knowledgeId_ == nullptr && return this->perspective_ == nullptr && return this->sandBox_ == nullptr
+        && return this->senderId_ == nullptr && return this->senderNick_ == nullptr && return this->sessionId_ == nullptr && return this->utterance_ == nullptr && return this->vendorParam_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};

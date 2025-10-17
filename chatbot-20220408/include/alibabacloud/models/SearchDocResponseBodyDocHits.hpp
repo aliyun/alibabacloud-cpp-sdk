@@ -71,11 +71,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizCode_ != nullptr
-        && this->categoryId_ != nullptr && this->config_ != nullptr && this->createTime_ != nullptr && this->createUserId_ != nullptr && this->createUserName_ != nullptr
-        && this->docName_ != nullptr && this->docTags_ != nullptr && this->effectStatus_ != nullptr && this->endDate_ != nullptr && this->knowledgeId_ != nullptr
-        && this->meta_ != nullptr && this->modifyTime_ != nullptr && this->modifyUserId_ != nullptr && this->modifyUserName_ != nullptr && this->processCanRetry_ != nullptr
-        && this->processMessage_ != nullptr && this->processStatus_ != nullptr && this->startDate_ != nullptr && this->status_ != nullptr && this->url_ != nullptr; };
+    virtual bool empty() const override { return this->bizCode_ == nullptr
+        && return this->categoryId_ == nullptr && return this->config_ == nullptr && return this->createTime_ == nullptr && return this->createUserId_ == nullptr && return this->createUserName_ == nullptr
+        && return this->docName_ == nullptr && return this->docTags_ == nullptr && return this->effectStatus_ == nullptr && return this->endDate_ == nullptr && return this->knowledgeId_ == nullptr
+        && return this->meta_ == nullptr && return this->modifyTime_ == nullptr && return this->modifyUserId_ == nullptr && return this->modifyUserName_ == nullptr && return this->processCanRetry_ == nullptr
+        && return this->processMessage_ == nullptr && return this->processStatus_ == nullptr && return this->startDate_ == nullptr && return this->status_ == nullptr && return this->url_ == nullptr; };
     // bizCode Field Functions 
     bool hasBizCode() const { return this->bizCode_ != nullptr;};
     void deleteBizCode() { this->bizCode_ = nullptr;};

@@ -159,13 +159,23 @@ BeginSessionResponse Client::beginSessionWithOptions(const BeginSessionRequest &
     query["AgentKey"] = request.agentKey();
   }
 
+  json body = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasSandBox()) {
+    body["SandBox"] = request.sandBox();
+  }
+
+  if (!!request.hasVendorParam()) {
+    body["VendorParam"] = request.vendorParam();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "BeginSession"},
     {"version" , "2022-04-08"},

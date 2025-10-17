@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->asrMaxEndSilence_ != nullptr
-        && this->interruptible_ != nullptr && this->requestId_ != nullptr && this->silenceReplyTimeout_ != nullptr && this->welcomeMessage_ != nullptr; };
+    virtual bool empty() const override { return this->asrMaxEndSilence_ == nullptr
+        && return this->interruptible_ == nullptr && return this->requestId_ == nullptr && return this->silenceReplyTimeout_ == nullptr && return this->welcomeMessage_ == nullptr; };
     // asrMaxEndSilence Field Functions 
     bool hasAsrMaxEndSilence() const { return this->asrMaxEndSilence_ != nullptr;};
     void deleteAsrMaxEndSilence() { this->asrMaxEndSilence_ = nullptr;};

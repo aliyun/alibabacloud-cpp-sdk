@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->answerSource_ != nullptr
-        && this->category_ != nullptr && this->content_ != nullptr && this->contentType_ != nullptr && this->hitStatement_ != nullptr && this->id_ != nullptr
-        && this->relatedKnowledges_ != nullptr && this->score_ != nullptr && this->summary_ != nullptr && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->answerSource_ == nullptr
+        && return this->category_ == nullptr && return this->content_ == nullptr && return this->contentType_ == nullptr && return this->hitStatement_ == nullptr && return this->id_ == nullptr
+        && return this->relatedKnowledges_ == nullptr && return this->score_ == nullptr && return this->summary_ == nullptr && return this->title_ == nullptr; };
     // answerSource Field Functions 
     bool hasAnswerSource() const { return this->answerSource_ != nullptr;};
     void deleteAnswerSource() { this->answerSource_ = nullptr;};

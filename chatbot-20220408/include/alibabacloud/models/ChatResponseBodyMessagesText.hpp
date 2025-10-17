@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->answerSource_ != nullptr
-        && this->articleTitle_ != nullptr && this->commands_ != nullptr && this->content_ != nullptr && this->contentType_ != nullptr && this->dialogName_ != nullptr
-        && this->ext_ != nullptr && this->externalFlags_ != nullptr && this->hitStatement_ != nullptr && this->intentName_ != nullptr && this->metaData_ != nullptr
-        && this->nodeId_ != nullptr && this->nodeName_ != nullptr && this->responseType_ != nullptr && this->score_ != nullptr && this->slots_ != nullptr
-        && this->userDefinedChatTitle_ != nullptr; };
+    virtual bool empty() const override { return this->answerSource_ == nullptr
+        && return this->articleTitle_ == nullptr && return this->commands_ == nullptr && return this->content_ == nullptr && return this->contentType_ == nullptr && return this->dialogName_ == nullptr
+        && return this->ext_ == nullptr && return this->externalFlags_ == nullptr && return this->hitStatement_ == nullptr && return this->intentName_ == nullptr && return this->metaData_ == nullptr
+        && return this->nodeId_ == nullptr && return this->nodeName_ == nullptr && return this->responseType_ == nullptr && return this->score_ == nullptr && return this->slots_ == nullptr
+        && return this->userDefinedChatTitle_ == nullptr; };
     // answerSource Field Functions 
     bool hasAnswerSource() const { return this->answerSource_ != nullptr;};
     void deleteAnswerSource() { this->answerSource_ = nullptr;};

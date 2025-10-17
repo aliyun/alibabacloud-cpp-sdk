@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->abilityType_ != nullptr
-        && this->categoryId_ != nullptr && this->name_ != nullptr && this->parentCategoryId_ != nullptr; };
+    virtual bool empty() const override { return this->abilityType_ == nullptr
+        && return this->categoryId_ == nullptr && return this->name_ == nullptr && return this->parentCategoryId_ == nullptr; };
     // abilityType Field Functions 
     bool hasAbilityType() const { return this->abilityType_ != nullptr;};
     void deleteAbilityType() { this->abilityType_ = nullptr;};

@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->categoryId_ != nullptr
-        && this->createTime_ != nullptr && this->createUserId_ != nullptr && this->createUserName_ != nullptr && this->effectStatus_ != nullptr && this->hitSimilarTitles_ != nullptr
-        && this->hitSolutions_ != nullptr && this->knowledgeId_ != nullptr && this->modifyTime_ != nullptr && this->modifyUserId_ != nullptr && this->modifyUserName_ != nullptr
-        && this->status_ != nullptr && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->categoryId_ == nullptr
+        && return this->createTime_ == nullptr && return this->createUserId_ == nullptr && return this->createUserName_ == nullptr && return this->effectStatus_ == nullptr && return this->hitSimilarTitles_ == nullptr
+        && return this->hitSolutions_ == nullptr && return this->knowledgeId_ == nullptr && return this->modifyTime_ == nullptr && return this->modifyUserId_ == nullptr && return this->modifyUserName_ == nullptr
+        && return this->status_ == nullptr && return this->title_ == nullptr; };
     // categoryId Field Functions 
     bool hasCategoryId() const { return this->categoryId_ != nullptr;};
     void deleteCategoryId() { this->categoryId_ = nullptr;};

@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliasName_ != nullptr
-        && this->createTime_ != nullptr && this->createUserId_ != nullptr && this->createUserName_ != nullptr && this->intentId_ != nullptr && this->intentName_ != nullptr
-        && this->modifyTime_ != nullptr && this->modifyUserId_ != nullptr && this->modifyUserName_ != nullptr && this->requestId_ != nullptr && this->slotInfos_ != nullptr; };
+    virtual bool empty() const override { return this->aliasName_ == nullptr
+        && return this->createTime_ == nullptr && return this->createUserId_ == nullptr && return this->createUserName_ == nullptr && return this->intentId_ == nullptr && return this->intentName_ == nullptr
+        && return this->modifyTime_ == nullptr && return this->modifyUserId_ == nullptr && return this->modifyUserName_ == nullptr && return this->requestId_ == nullptr && return this->slotInfos_ == nullptr; };
     // aliasName Field Functions 
     bool hasAliasName() const { return this->aliasName_ != nullptr;};
     void deleteAliasName() { this->aliasName_ = nullptr;};
