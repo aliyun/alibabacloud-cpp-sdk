@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->faceId_ != nullptr
-        && this->gmtCreate_ != nullptr && this->id_ != nullptr && this->imgOssUrl_ != nullptr && this->merchantUserId_ != nullptr && this->registrationType_ != nullptr; };
+    virtual bool empty() const override { return this->faceId_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->id_ == nullptr && return this->imgOssUrl_ == nullptr && return this->merchantUserId_ == nullptr && return this->registrationType_ == nullptr; };
     // faceId Field Functions 
     bool hasFaceId() const { return this->faceId_ != nullptr;};
     void deleteFaceId() { this->faceId_ = nullptr;};
@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Face ID.
     std::shared_ptr<string> faceId_ = nullptr;
+    // Creation time.
     std::shared_ptr<string> gmtCreate_ = nullptr;
+    // Primary key ID.
     std::shared_ptr<int64_t> id_ = nullptr;
+    // Face image URL.
     std::shared_ptr<string> imgOssUrl_ = nullptr;
+    // Merchant User ID.
     std::shared_ptr<string> merchantUserId_ = nullptr;
+    // Registration type.
     std::shared_ptr<string> registrationType_ = nullptr;
   };
 

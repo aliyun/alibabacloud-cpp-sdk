@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->duplicateFace_ != nullptr
-        && this->faceAge_ != nullptr && this->faceAttack_ != nullptr && this->faceAttackScore_ != nullptr && this->faceComparisonScore_ != nullptr && this->faceGender_ != nullptr
-        && this->facePassed_ != nullptr && this->faceRegistrationId_ != nullptr && this->faceRegistrationResult_ != nullptr && this->subCode_ != nullptr && this->transactionId_ != nullptr; };
+    virtual bool empty() const override { return this->duplicateFace_ == nullptr
+        && return this->faceAge_ == nullptr && return this->faceAttack_ == nullptr && return this->faceAttackScore_ == nullptr && return this->faceComparisonScore_ == nullptr && return this->faceGender_ == nullptr
+        && return this->facePassed_ == nullptr && return this->faceRegistrationId_ == nullptr && return this->faceRegistrationResult_ == nullptr && return this->subCode_ == nullptr && return this->transactionId_ == nullptr; };
     // duplicateFace Field Functions 
     bool hasDuplicateFace() const { return this->duplicateFace_ != nullptr;};
     void deleteDuplicateFace() { this->duplicateFace_ = nullptr;};

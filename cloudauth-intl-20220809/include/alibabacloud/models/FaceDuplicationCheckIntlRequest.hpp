@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRegistration_ != nullptr
-        && this->faceGroupCodes_ != nullptr && this->faceRegisterGroupCode_ != nullptr && this->faceVerifyThreshold_ != nullptr && this->liveness_ != nullptr && this->merchantBizId_ != nullptr
-        && this->merchantUserId_ != nullptr && this->productCode_ != nullptr && this->returnFaces_ != nullptr && this->saveFacePicture_ != nullptr && this->sceneCode_ != nullptr
-        && this->sourceFacePicture_ != nullptr && this->sourceFacePictureUrl_ != nullptr && this->targetFacePicture_ != nullptr && this->targetFacePictureUrl_ != nullptr && this->verifyModel_ != nullptr; };
+    virtual bool empty() const override { return this->autoRegistration_ == nullptr
+        && return this->faceGroupCodes_ == nullptr && return this->faceRegisterGroupCode_ == nullptr && return this->faceVerifyThreshold_ == nullptr && return this->liveness_ == nullptr && return this->merchantBizId_ == nullptr
+        && return this->merchantUserId_ == nullptr && return this->productCode_ == nullptr && return this->returnFaces_ == nullptr && return this->saveFacePicture_ == nullptr && return this->sceneCode_ == nullptr
+        && return this->sourceFacePicture_ == nullptr && return this->sourceFacePictureUrl_ == nullptr && return this->targetFacePicture_ == nullptr && return this->targetFacePictureUrl_ == nullptr && return this->verifyModel_ == nullptr; };
     // autoRegistration Field Functions 
     bool hasAutoRegistration() const { return this->autoRegistration_ != nullptr;};
     void deleteAutoRegistration() { this->autoRegistration_ = nullptr;};

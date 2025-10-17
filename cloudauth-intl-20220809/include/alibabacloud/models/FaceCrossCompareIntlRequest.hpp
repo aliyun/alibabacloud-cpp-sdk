@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->compareModel_ != nullptr
-        && this->faceVerifyThreshold_ != nullptr && this->merchantBizId_ != nullptr && this->productCode_ != nullptr && this->sceneCode_ != nullptr && this->sourceAFacePicture_ != nullptr
-        && this->sourceAFacePictureUrl_ != nullptr && this->sourceBFacePicture_ != nullptr && this->sourceBFacePictureUrl_ != nullptr && this->sourceCFacePicture_ != nullptr && this->sourceCFacePictureUrl_ != nullptr; };
+    virtual bool empty() const override { return this->compareModel_ == nullptr
+        && return this->faceVerifyThreshold_ == nullptr && return this->merchantBizId_ == nullptr && return this->productCode_ == nullptr && return this->sceneCode_ == nullptr && return this->sourceAFacePicture_ == nullptr
+        && return this->sourceAFacePictureUrl_ == nullptr && return this->sourceBFacePicture_ == nullptr && return this->sourceBFacePictureUrl_ == nullptr && return this->sourceCFacePicture_ == nullptr && return this->sourceCFacePictureUrl_ == nullptr; };
     // compareModel Field Functions 
     bool hasCompareModel() const { return this->compareModel_ != nullptr;};
     void deleteCompareModel() { this->compareModel_ = nullptr;};
@@ -130,18 +130,34 @@ namespace Models
 
 
   protected:
+    // Comparison mode
+    // - 0-Chain comparison (default): A:B and B:C
+    // - 1-Circular comparison: A:B and B:C and C:A
     std::shared_ptr<string> compareModel_ = nullptr;
+    // Face matching threshold.
     std::shared_ptr<string> faceVerifyThreshold_ = nullptr;
+    // A unique business identifier for subsequent troubleshooting. It supports a combination of 32 alphanumeric characters, please ensure its uniqueness.
+    // 
     // This parameter is required.
     std::shared_ptr<string> merchantBizId_ = nullptr;
+    // Product solution to be integrated. Value: 
+    // FACE_CROSS_COMPARE
+    // 
     // This parameter is required.
     std::shared_ptr<string> productCode_ = nullptr;
+    // Custom business scenario ID
     std::shared_ptr<string> sceneCode_ = nullptr;
+    // Base64 encoded portrait photo.
     std::shared_ptr<string> sourceAFacePicture_ = nullptr;
+    // Portrait image URL, accessible via HTTP or HTTPS on the public network.
     std::shared_ptr<string> sourceAFacePictureUrl_ = nullptr;
+    // Base64 encoded portrait photo.
     std::shared_ptr<string> sourceBFacePicture_ = nullptr;
+    // Portrait image URL, accessible via HTTP or HTTPS on the public network.
     std::shared_ptr<string> sourceBFacePictureUrl_ = nullptr;
+    // Base64 encoded portrait photo.
     std::shared_ptr<string> sourceCFacePicture_ = nullptr;
+    // Portrait image URL, accessible via HTTP or HTTPS on the public network.
     std::shared_ptr<string> sourceCFacePictureUrl_ = nullptr;
   };
 

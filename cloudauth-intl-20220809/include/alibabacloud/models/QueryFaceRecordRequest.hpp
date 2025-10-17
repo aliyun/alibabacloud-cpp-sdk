@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->currentPage_ != nullptr
-        && this->faceGroupCode_ != nullptr && this->faceId_ != nullptr && this->maxResults_ != nullptr && this->merchantUserId_ != nullptr && this->nextToken_ != nullptr
-        && this->pageSize_ != nullptr && this->registrationType_ != nullptr; };
+    virtual bool empty() const override { return this->currentPage_ == nullptr
+        && return this->faceGroupCode_ == nullptr && return this->faceId_ == nullptr && return this->maxResults_ == nullptr && return this->merchantUserId_ == nullptr && return this->nextToken_ == nullptr
+        && return this->pageSize_ == nullptr && return this->registrationType_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
@@ -103,16 +103,27 @@ namespace Models
 
 
   protected:
+    // Current Page.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> currentPage_ = nullptr;
+    // Face Group Code.
+    // 
     // This parameter is required.
     std::shared_ptr<string> faceGroupCode_ = nullptr;
+    // Face ID.
     std::shared_ptr<string> faceId_ = nullptr;
+    // Number of rows per page for paginated queries.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // Merchant User ID.
     std::shared_ptr<string> merchantUserId_ = nullptr;
+    // Used to request the next page of search results.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // Number of items per page.
+    // 
     // This parameter is required.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // Registration Type.
     std::shared_ptr<string> registrationType_ = nullptr;
   };
 

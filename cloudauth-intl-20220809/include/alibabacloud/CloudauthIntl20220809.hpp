@@ -158,7 +158,9 @@ namespace CloudauthIntl20220809
       Models::CheckVerifyLogResponse checkVerifyLog(const Models::CheckVerifyLogRequest &request);
 
       /**
-       * @summary 凭证识别查询
+       * @summary Credential Recognition Query
+       *
+       * @description After obtaining the TransactionId, you can use this interface on the server side to get the corresponding authentication result.
        *
        * @param request CredentialGetResultIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -167,7 +169,9 @@ namespace CloudauthIntl20220809
       Models::CredentialGetResultIntlResponse credentialGetResultIntlWithOptions(const Models::CredentialGetResultIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 凭证识别查询
+       * @summary Credential Recognition Query
+       *
+       * @description After obtaining the TransactionId, you can use this interface on the server side to get the corresponding authentication result.
        *
        * @param request CredentialGetResultIntlRequest
        * @return CredentialGetResultIntlResponse
@@ -196,7 +200,9 @@ namespace CloudauthIntl20220809
       Models::CredentialRecognitionIntlResponse credentialRecognitionIntl(const Models::CredentialRecognitionIntlRequest &request);
 
       /**
-       * @summary 凭证识别提交
+       * @summary Credential Recognition Submission
+       *
+       * @description Initialization interface for credential recognition OCR, through which you can obtain the transactionId.
        *
        * @param request CredentialSubmitIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -205,7 +211,9 @@ namespace CloudauthIntl20220809
       Models::CredentialSubmitIntlResponse credentialSubmitIntlWithOptions(const Models::CredentialSubmitIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 凭证识别提交
+       * @summary Credential Recognition Submission
+       *
+       * @description Initialization interface for credential recognition OCR, through which you can obtain the transactionId.
        *
        * @param request CredentialSubmitIntlRequest
        * @return CredentialSubmitIntlResponse
@@ -257,7 +265,9 @@ namespace CloudauthIntl20220809
       Models::DeepfakeDetectIntlResponse deepfakeDetectIntl(const Models::DeepfakeDetectIntlRequest &request);
 
       /**
-       * @summary deepfake文件流api
+       * @summary deepfake file stream API
+       *
+       * @description Input a face image and use the algorithm to detect if there is a risk of deepfake. This includes risk scenarios such as AIGC-generated faces, deepfake face swaps, template faces, and rephotographed faces, and outputs risk labels and confidence scores.
        *
        * @param request DeepfakeDetectIntlStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -266,7 +276,9 @@ namespace CloudauthIntl20220809
       Models::DeepfakeDetectIntlStreamResponse deepfakeDetectIntlStreamWithOptions(const Models::DeepfakeDetectIntlStreamRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary deepfake文件流api
+       * @summary deepfake file stream API
+       *
+       * @description Input a face image and use the algorithm to detect if there is a risk of deepfake. This includes risk scenarios such as AIGC-generated faces, deepfake face swaps, template faces, and rephotographed faces, and outputs risk labels and confidence scores.
        *
        * @param request DeepfakeDetectIntlStreamRequest
        * @return DeepfakeDetectIntlStreamResponse
@@ -395,7 +407,7 @@ namespace CloudauthIntl20220809
       Models::FaceCompareResponse faceCompare(const Models::FaceCompareRequest &request);
 
       /**
-       * @summary 人脸交叉比对
+       * @summary Face Cross Comparison
        *
        * @param request FaceCrossCompareIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -404,7 +416,7 @@ namespace CloudauthIntl20220809
       Models::FaceCrossCompareIntlResponse faceCrossCompareIntlWithOptions(const Models::FaceCrossCompareIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 人脸交叉比对
+       * @summary Face Cross Comparison
        *
        * @param request FaceCrossCompareIntlRequest
        * @return FaceCrossCompareIntlResponse
@@ -632,7 +644,7 @@ namespace CloudauthIntl20220809
       Models::QueryFaceGroupResponse queryFaceGroup(const Models::QueryFaceGroupRequest &request);
 
       /**
-       * @summary 查询人脸记录
+       * @summary Query Face Records
        *
        * @param request QueryFaceRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -641,7 +653,7 @@ namespace CloudauthIntl20220809
       Models::QueryFaceRecordResponse queryFaceRecordWithOptions(const Models::QueryFaceRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询人脸记录
+       * @summary Query Face Records
        *
        * @param request QueryFaceRecordRequest
        * @return QueryFaceRecordResponse
@@ -649,7 +661,7 @@ namespace CloudauthIntl20220809
       Models::QueryFaceRecordResponse queryFaceRecord(const Models::QueryFaceRecordRequest &request);
 
       /**
-       * @summary 获取临时token
+       * @summary Get Temporary Token
        *
        * @param request TempAccessTokenIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -658,7 +670,7 @@ namespace CloudauthIntl20220809
       Models::TempAccessTokenIntlResponse tempAccessTokenIntlWithOptions(const Models::TempAccessTokenIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取临时token
+       * @summary Get Temporary Token
        *
        * @param request TempAccessTokenIntlRequest
        * @return TempAccessTokenIntlResponse
@@ -666,7 +678,7 @@ namespace CloudauthIntl20220809
       Models::TempAccessTokenIntlResponse tempAccessTokenIntl(const Models::TempAccessTokenIntlRequest &request);
 
       /**
-       * @summary 获取文件临时地址
+       * @summary Get Temporary File URL
        *
        * @param request TempOssUrlIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -675,7 +687,7 @@ namespace CloudauthIntl20220809
       Models::TempOssUrlIntlResponse tempOssUrlIntlWithOptions(const Models::TempOssUrlIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取文件临时地址
+       * @summary Get Temporary File URL
        *
        * @param request TempOssUrlIntlRequest
        * @return TempOssUrlIntlResponse

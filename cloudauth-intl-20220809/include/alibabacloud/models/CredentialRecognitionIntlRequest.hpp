@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->credentialOcrPictureBase64_ != nullptr
-        && this->credentialOcrPictureUrl_ != nullptr && this->docType_ != nullptr && this->fraudCheck_ != nullptr && this->ocrArea_ != nullptr && this->productCode_ != nullptr; };
+    virtual bool empty() const override { return this->credentialOcrPictureBase64_ == nullptr
+        && return this->credentialOcrPictureUrl_ == nullptr && return this->docType_ == nullptr && return this->fraudCheck_ == nullptr && return this->ocrArea_ == nullptr && return this->productCode_ == nullptr; };
     // credentialOcrPictureBase64 Field Functions 
     bool hasCredentialOcrPictureBase64() const { return this->credentialOcrPictureBase64_ != nullptr;};
     void deleteCredentialOcrPictureBase64() { this->credentialOcrPictureBase64_ = nullptr;};

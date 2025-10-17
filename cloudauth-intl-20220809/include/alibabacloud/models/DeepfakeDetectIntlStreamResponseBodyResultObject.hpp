@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->result_ != nullptr
-        && this->riskScore_ != nullptr && this->riskTag_ != nullptr; };
+    virtual bool empty() const override { return this->result_ == nullptr
+        && return this->riskScore_ == nullptr && return this->riskTag_ == nullptr; };
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
@@ -60,8 +60,20 @@ namespace Models
 
 
   protected:
+    // Risk result:
+    // 
+    // - **0**: Low risk
+    // - **1**: High risk
+    // - **2**: Suspicious
     std::shared_ptr<string> result_ = nullptr;
+    // Risk score map.
     std::shared_ptr<map<string, string>> riskScore_ = nullptr;
+    // Risk tags. Multiple tags are separated by commas (,), including:
+    // 
+    // - SuspectDeepForgery: Suspected deep forgery
+    // - SuspectPSFace: Suspected synthetic attack
+    // - SuspectTemple: Suspected template attack
+    // - SuspectRemake: Suspected presentation attack
     std::shared_ptr<string> riskTag_ = nullptr;
   };
 

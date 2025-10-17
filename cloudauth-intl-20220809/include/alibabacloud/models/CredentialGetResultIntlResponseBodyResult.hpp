@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->extIdInfo_ != nullptr
-        && this->status_ != nullptr && this->subCode_ != nullptr; };
+    virtual bool empty() const override { return this->extIdInfo_ == nullptr
+        && return this->status_ == nullptr && return this->subCode_ == nullptr; };
     // extIdInfo Field Functions 
     bool hasExtIdInfo() const { return this->extIdInfo_ != nullptr;};
     void deleteExtIdInfo() { this->extIdInfo_ = nullptr;};
@@ -57,8 +57,14 @@ namespace Models
 
 
   protected:
+    // Identified key information, in JSON format.
     std::shared_ptr<string> extIdInfo_ = nullptr;
+    // Task status:
+    // - PROCESSING: In progress (please continue polling)
+    // - SUCCESS: Execution succeeded
+    // - FAILED: Execution failed
     std::shared_ptr<string> status_ = nullptr;
+    // Authentication result description. For more information, see ResultObject.SubCode error codes.
     std::shared_ptr<string> subCode_ = nullptr;
   };
 

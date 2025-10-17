@@ -1,7 +1,7 @@
 
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
-project(alibabacloud_cloudauth-intl_20220809 VERSION "1.0.0")
+project(alibabacloud_cloudauth-intl20220809 VERSION "1.0.0")
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< General set up >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
 set(CMAKE_CXX_STANDARD 11)
@@ -72,7 +72,7 @@ if(CMAKE_HOST_WIN32)
             _CRT_SECURE_NO_WARNINGS)
 elseif(APPLE)
   find_library(CFLIB CoreFoundation)
-  find_library(UTIL_LIB alibabacloud_cloudauth-intl_20220809 ${CMAKE_CURRENT_SOURCE_DIR}/deps/lib)
+  find_library(UTIL_LIB alibabacloud_cloudauth-intl20220809 ${CMAKE_CURRENT_SOURCE_DIR}/deps/lib)
   target_link_libraries(${PROJECT_NAME} 
       OpenSSL::SSL OpenSSL::Crypto
       ${CFLIB}
@@ -139,7 +139,7 @@ install(
         TARGETS
         ${PROJECT_NAME}
         EXPORT
-        alibabacloud_cloudauth-intl_20220809Targets
+        alibabacloud_cloudauth-intl20220809Targets
         ARCHIVE
         DESTINATION ${INSTALL_LIBDIR}
         COMPONENT lib
@@ -157,9 +157,9 @@ install(
 # Install cmake config
 install(
         EXPORT
-        alibabacloud_cloudauth-intl_20220809Targets
+        alibabacloud_cloudauth-intl20220809Targets
         NAMESPACE
-        "alibabacloud_cloudauth-intl_20220809::"
+        "alibabacloud_cloudauth-intl20220809::"
         DESTINATION
         ${INSTALL_CMAKEDIR}
         COMPONENT

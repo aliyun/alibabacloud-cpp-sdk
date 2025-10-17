@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cardSide_ != nullptr
-        && this->docType_ != nullptr && this->idFaceQuality_ != nullptr && this->idOcrPictureBase64_ != nullptr && this->idOcrPictureUrl_ != nullptr && this->idThreshold_ != nullptr
-        && this->merchantBizId_ != nullptr && this->merchantUserId_ != nullptr && this->ocr_ != nullptr && this->productCode_ != nullptr && this->spoof_ != nullptr; };
+    virtual bool empty() const override { return this->cardSide_ == nullptr
+        && return this->docType_ == nullptr && return this->idFaceQuality_ == nullptr && return this->idOcrPictureBase64_ == nullptr && return this->idOcrPictureUrl_ == nullptr && return this->idThreshold_ == nullptr
+        && return this->merchantBizId_ == nullptr && return this->merchantUserId_ == nullptr && return this->ocr_ == nullptr && return this->productCode_ == nullptr && return this->spoof_ == nullptr; };
     // cardSide Field Functions 
     bool hasCardSide() const { return this->cardSide_ != nullptr;};
     void deleteCardSide() { this->cardSide_ = nullptr;};

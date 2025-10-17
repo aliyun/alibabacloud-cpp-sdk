@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MerchantBizId, merchantBizId_);
       DARABONBA_PTR_TO_JSON(MerchantUserId, merchantUserId_);
       DARABONBA_PTR_TO_JSON(OcrModel, ocrModel_);
+      DARABONBA_PTR_TO_JSON(OcrValueStandard, ocrValueStandard_);
       DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
       DARABONBA_PTR_TO_JSON(Prompt, prompt_);
       DARABONBA_PTR_TO_JSON(SceneCode, sceneCode_);
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MerchantBizId, merchantBizId_);
       DARABONBA_PTR_FROM_JSON(MerchantUserId, merchantUserId_);
       DARABONBA_PTR_FROM_JSON(OcrModel, ocrModel_);
+      DARABONBA_PTR_FROM_JSON(OcrValueStandard, ocrValueStandard_);
       DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
       DARABONBA_PTR_FROM_JSON(Prompt, prompt_);
       DARABONBA_PTR_FROM_JSON(SceneCode, sceneCode_);
@@ -53,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->docPage_ != nullptr
-        && this->docType_ != nullptr && this->idOcrPictureBase64_ != nullptr && this->idOcrPictureUrl_ != nullptr && this->idSpoof_ != nullptr && this->idThreshold_ != nullptr
-        && this->merchantBizId_ != nullptr && this->merchantUserId_ != nullptr && this->ocrModel_ != nullptr && this->productCode_ != nullptr && this->prompt_ != nullptr
-        && this->sceneCode_ != nullptr && this->spoof_ != nullptr; };
+    virtual bool empty() const override { return this->docPage_ == nullptr
+        && return this->docType_ == nullptr && return this->idOcrPictureBase64_ == nullptr && return this->idOcrPictureUrl_ == nullptr && return this->idSpoof_ == nullptr && return this->idThreshold_ == nullptr
+        && return this->merchantBizId_ == nullptr && return this->merchantUserId_ == nullptr && return this->ocrModel_ == nullptr && return this->ocrValueStandard_ == nullptr && return this->productCode_ == nullptr
+        && return this->prompt_ == nullptr && return this->sceneCode_ == nullptr && return this->spoof_ == nullptr; };
     // docPage Field Functions 
     bool hasDocPage() const { return this->docPage_ != nullptr;};
     void deleteDocPage() { this->docPage_ = nullptr;};
@@ -118,6 +120,13 @@ namespace Models
     void deleteOcrModel() { this->ocrModel_ = nullptr;};
     inline string ocrModel() const { DARABONBA_PTR_GET_DEFAULT(ocrModel_, "") };
     inline DocOcrMaxRequest& setOcrModel(string ocrModel) { DARABONBA_PTR_SET_VALUE(ocrModel_, ocrModel) };
+
+
+    // ocrValueStandard Field Functions 
+    bool hasOcrValueStandard() const { return this->ocrValueStandard_ != nullptr;};
+    void deleteOcrValueStandard() { this->ocrValueStandard_ = nullptr;};
+    inline string ocrValueStandard() const { DARABONBA_PTR_GET_DEFAULT(ocrValueStandard_, "") };
+    inline DocOcrMaxRequest& setOcrValueStandard(string ocrValueStandard) { DARABONBA_PTR_SET_VALUE(ocrValueStandard_, ocrValueStandard) };
 
 
     // productCode Field Functions 
@@ -184,6 +193,7 @@ namespace Models
     // 0: General document mode.
     // 1: Custom mode.
     std::shared_ptr<string> ocrModel_ = nullptr;
+    std::shared_ptr<string> ocrValueStandard_ = nullptr;
     // The product solution to be integrated.
     // 
     // Value: ID_OCR_MAX

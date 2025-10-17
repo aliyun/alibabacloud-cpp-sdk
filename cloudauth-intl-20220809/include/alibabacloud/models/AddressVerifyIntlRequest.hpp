@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addressType_ != nullptr
-        && this->defaultCity_ != nullptr && this->defaultCountry_ != nullptr && this->defaultDistrict_ != nullptr && this->defaultProvince_ != nullptr && this->latitude_ != nullptr
-        && this->longitude_ != nullptr && this->mobile_ != nullptr && this->productCode_ != nullptr && this->text_ != nullptr && this->verifyType_ != nullptr; };
+    virtual bool empty() const override { return this->addressType_ == nullptr
+        && return this->defaultCity_ == nullptr && return this->defaultCountry_ == nullptr && return this->defaultDistrict_ == nullptr && return this->defaultProvince_ == nullptr && return this->latitude_ == nullptr
+        && return this->longitude_ == nullptr && return this->mobile_ == nullptr && return this->productCode_ == nullptr && return this->text_ == nullptr && return this->verifyType_ == nullptr; };
     // addressType Field Functions 
     bool hasAddressType() const { return this->addressType_ != nullptr;};
     void deleteAddressType() { this->addressType_ = nullptr;};

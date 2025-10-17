@@ -552,7 +552,9 @@ CheckVerifyLogResponse Client::checkVerifyLog(const CheckVerifyLogRequest &reque
 }
 
 /**
- * @summary 凭证识别查询
+ * @summary Credential Recognition Query
+ *
+ * @description After obtaining the TransactionId, you can use this interface on the server side to get the corresponding authentication result.
  *
  * @param request CredentialGetResultIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -583,7 +585,9 @@ CredentialGetResultIntlResponse Client::credentialGetResultIntlWithOptions(const
 }
 
 /**
- * @summary 凭证识别查询
+ * @summary Credential Recognition Query
+ *
+ * @description After obtaining the TransactionId, you can use this interface on the server side to get the corresponding authentication result.
  *
  * @param request CredentialGetResultIntlRequest
  * @return CredentialGetResultIntlResponse
@@ -662,7 +666,9 @@ CredentialRecognitionIntlResponse Client::credentialRecognitionIntl(const Creden
 }
 
 /**
- * @summary 凭证识别提交
+ * @summary Credential Recognition Submission
+ *
+ * @description Initialization interface for credential recognition OCR, through which you can obtain the transactionId.
  *
  * @param request CredentialSubmitIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -723,7 +729,9 @@ CredentialSubmitIntlResponse Client::credentialSubmitIntlWithOptions(const Crede
 }
 
 /**
- * @summary 凭证识别提交
+ * @summary Credential Recognition Submission
+ *
+ * @description Initialization interface for credential recognition OCR, through which you can obtain the transactionId.
  *
  * @param request CredentialSubmitIntlRequest
  * @return CredentialSubmitIntlResponse
@@ -952,7 +960,9 @@ DeepfakeDetectIntlResponse Client::deepfakeDetectIntl(const DeepfakeDetectIntlRe
 }
 
 /**
- * @summary deepfake文件流api
+ * @summary deepfake file stream API
+ *
+ * @description Input a face image and use the algorithm to detect if there is a risk of deepfake. This includes risk scenarios such as AIGC-generated faces, deepfake face swaps, template faces, and rephotographed faces, and outputs risk labels and confidence scores.
  *
  * @param request DeepfakeDetectIntlStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1007,7 +1017,9 @@ DeepfakeDetectIntlStreamResponse Client::deepfakeDetectIntlStreamWithOptions(con
 }
 
 /**
- * @summary deepfake文件流api
+ * @summary deepfake file stream API
+ *
+ * @description Input a face image and use the algorithm to detect if there is a risk of deepfake. This includes risk scenarios such as AIGC-generated faces, deepfake face swaps, template faces, and rephotographed faces, and outputs risk labels and confidence scores.
  *
  * @param request DeepfakeDetectIntlStreamRequest
  * @return DeepfakeDetectIntlStreamResponse
@@ -1330,6 +1342,11 @@ DocOcrResponse Client::docOcr(const DocOcrRequest &request) {
  */
 DocOcrMaxResponse Client::docOcrMaxWithOptions(const DocOcrMaxRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasOcrValueStandard()) {
+    query["OcrValueStandard"] = request.ocrValueStandard();
+  }
+
   json body = {};
   if (!!request.hasDocPage()) {
     body["DocPage"] = request.docPage();
@@ -1384,8 +1401,9 @@ DocOcrMaxResponse Client::docOcrMaxWithOptions(const DocOcrMaxRequest &request, 
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "DocOcrMax"},
     {"version" , "2022-08-09"},
@@ -1568,7 +1586,7 @@ FaceCompareResponse Client::faceCompare(const FaceCompareRequest &request) {
 }
 
 /**
- * @summary 人脸交叉比对
+ * @summary Face Cross Comparison
  *
  * @param request FaceCrossCompareIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1639,7 +1657,7 @@ FaceCrossCompareIntlResponse Client::faceCrossCompareIntlWithOptions(const FaceC
 }
 
 /**
- * @summary 人脸交叉比对
+ * @summary Face Cross Comparison
  *
  * @param request FaceCrossCompareIntlRequest
  * @return FaceCrossCompareIntlResponse
@@ -2611,7 +2629,7 @@ QueryFaceGroupResponse Client::queryFaceGroup(const QueryFaceGroupRequest &reque
 }
 
 /**
- * @summary 查询人脸记录
+ * @summary Query Face Records
  *
  * @param request QueryFaceRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2670,7 +2688,7 @@ QueryFaceRecordResponse Client::queryFaceRecordWithOptions(const QueryFaceRecord
 }
 
 /**
- * @summary 查询人脸记录
+ * @summary Query Face Records
  *
  * @param request QueryFaceRecordRequest
  * @return QueryFaceRecordResponse
@@ -2681,7 +2699,7 @@ QueryFaceRecordResponse Client::queryFaceRecord(const QueryFaceRecordRequest &re
 }
 
 /**
- * @summary 获取临时token
+ * @summary Get Temporary Token
  *
  * @param request TempAccessTokenIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2712,7 +2730,7 @@ TempAccessTokenIntlResponse Client::tempAccessTokenIntlWithOptions(const TempAcc
 }
 
 /**
- * @summary 获取临时token
+ * @summary Get Temporary Token
  *
  * @param request TempAccessTokenIntlRequest
  * @return TempAccessTokenIntlResponse
@@ -2723,7 +2741,7 @@ TempAccessTokenIntlResponse Client::tempAccessTokenIntl(const TempAccessTokenInt
 }
 
 /**
- * @summary 获取文件临时地址
+ * @summary Get Temporary File URL
  *
  * @param request TempOssUrlIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2754,7 +2772,7 @@ TempOssUrlIntlResponse Client::tempOssUrlIntlWithOptions(const TempOssUrlIntlReq
 }
 
 /**
- * @summary 获取文件临时地址
+ * @summary Get Temporary File URL
  *
  * @param request TempOssUrlIntlRequest
  * @return TempOssUrlIntlResponse

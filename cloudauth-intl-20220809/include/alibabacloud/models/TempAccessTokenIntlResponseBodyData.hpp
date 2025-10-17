@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessKeyId_ != nullptr
-        && this->accessKeySecret_ != nullptr && this->bucketName_ != nullptr && this->fileNamePrefix_ != nullptr && this->ossEndPoint_ != nullptr && this->securityToken_ != nullptr; };
+    virtual bool empty() const override { return this->accessKeyId_ == nullptr
+        && return this->accessKeySecret_ == nullptr && return this->bucketName_ == nullptr && return this->fileNamePrefix_ == nullptr && return this->ossEndPoint_ == nullptr && return this->securityToken_ == nullptr; };
     // accessKeyId Field Functions 
     bool hasAccessKeyId() const { return this->accessKeyId_ != nullptr;};
     void deleteAccessKeyId() { this->accessKeyId_ = nullptr;};
@@ -84,12 +84,17 @@ namespace Models
 
 
   protected:
+    // AccessKeyId for temporary file upload credentials.
     std::shared_ptr<string> accessKeyId_ = nullptr;
+    // Temporary authorization secret.
     std::shared_ptr<string> accessKeySecret_ = nullptr;
+    // Bucket name.
     std::shared_ptr<string> bucketName_ = nullptr;
+    // File prefix.
     std::shared_ptr<string> fileNamePrefix_ = nullptr;
-    // OssEndPoint。
+    // OSS endpoint.
     std::shared_ptr<string> ossEndPoint_ = nullptr;
+    // Security token for temporary file upload credentials.
     std::shared_ptr<string> securityToken_ = nullptr;
   };
 

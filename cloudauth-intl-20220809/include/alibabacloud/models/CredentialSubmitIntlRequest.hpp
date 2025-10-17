@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->credentialOcrPictureBase64_ != nullptr
-        && this->credentialOcrPictureUrl_ != nullptr && this->docType_ != nullptr && this->fraudCheck_ != nullptr && this->merchantBizId_ != nullptr && this->ocrArea_ != nullptr
-        && this->productCode_ != nullptr && this->sceneCode_ != nullptr; };
+    virtual bool empty() const override { return this->credentialOcrPictureBase64_ == nullptr
+        && return this->credentialOcrPictureUrl_ == nullptr && return this->docType_ == nullptr && return this->fraudCheck_ == nullptr && return this->merchantBizId_ == nullptr && return this->ocrArea_ == nullptr
+        && return this->productCode_ == nullptr && return this->sceneCode_ == nullptr; };
     // credentialOcrPictureBase64 Field Functions 
     bool hasCredentialOcrPictureBase64() const { return this->credentialOcrPictureBase64_ != nullptr;};
     void deleteCredentialOcrPictureBase64() { this->credentialOcrPictureBase64_ = nullptr;};
@@ -103,18 +103,37 @@ namespace Models
 
 
   protected:
+    // Base64 encoding of the image. If you choose to upload the photo this way, please check the photo size and avoid uploading overly large photos.
     std::shared_ptr<string> credentialOcrPictureBase64_ = nullptr;
+    // Image URL, accessible via HTTP or HTTPS on the public network.
     std::shared_ptr<string> credentialOcrPictureUrl_ = nullptr;
+    // Credential type:
+    // - 02: Vehicle registration certificate
+    // 
     // This parameter is required.
     std::shared_ptr<string> docType_ = nullptr;
+    // Whether to enable tampering detection
+    // - true: Enable
+    // - false: Disable
+    // 
     // This parameter is required.
     std::shared_ptr<string> fraudCheck_ = nullptr;
+    // A unique business identifier defined on the merchant side, used for troubleshooting issues later. Supports a combination of letters and digits, with a maximum length of 32 characters. Ensure uniqueness.
+    // 
     // This parameter is required.
     std::shared_ptr<string> merchantBizId_ = nullptr;
+    // Extraction type:
+    // 
+    // - 0201: Thai vehicle registration certificate
+    // 
     // This parameter is required.
     std::shared_ptr<string> ocrArea_ = nullptr;
+    // The product solution to be integrated. Value: CREDENTIAL_RECOGNITION.
+    // 
     // This parameter is required.
     std::shared_ptr<string> productCode_ = nullptr;
+    // Your custom authentication scenario ID, used for querying related records by entering this scenario ID in the console later. Supports a combination of 10 characters, digits, or underscores.
+    // 
     // This parameter is required.
     std::shared_ptr<string> sceneCode_ = nullptr;
   };

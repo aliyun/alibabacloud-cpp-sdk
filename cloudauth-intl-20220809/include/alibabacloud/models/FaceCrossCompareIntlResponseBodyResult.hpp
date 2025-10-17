@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->faceComparisonScoreA2B_ != nullptr
-        && this->faceComparisonScoreB2C_ != nullptr && this->faceComparisonScoreC2A_ != nullptr && this->facePassed_ != nullptr && this->transactionId_ != nullptr; };
+    virtual bool empty() const override { return this->faceComparisonScoreA2B_ == nullptr
+        && return this->faceComparisonScoreB2C_ == nullptr && return this->faceComparisonScoreC2A_ == nullptr && return this->facePassed_ == nullptr && return this->transactionId_ == nullptr; };
     // faceComparisonScoreA2B Field Functions 
     bool hasFaceComparisonScoreA2B() const { return this->faceComparisonScoreA2B_ != nullptr;};
     void deleteFaceComparisonScoreA2B() { this->faceComparisonScoreA2B_ = nullptr;};
@@ -75,10 +75,17 @@ namespace Models
 
 
   protected:
+    // A to B comparison score, range 0～100.
     std::shared_ptr<double> faceComparisonScoreA2B_ = nullptr;
+    // B to C comparison score, range 0～100.
     std::shared_ptr<double> faceComparisonScoreB2C_ = nullptr;
+    // C to A comparison score, range 0～100.
     std::shared_ptr<double> faceComparisonScoreC2A_ = nullptr;
+    // Final verification result, values:
+    // - Y: Pass
+    // - N: Fail
     std::shared_ptr<string> facePassed_ = nullptr;
+    // Unique identifier for the authentication request.
     std::shared_ptr<string> transactionId_ = nullptr;
   };
 

@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authorize_ != nullptr
-        && this->crop_ != nullptr && this->docName_ != nullptr && this->docNo_ != nullptr && this->docType_ != nullptr && this->facePictureBase64_ != nullptr
-        && this->facePictureUrl_ != nullptr && this->idOcrPictureBase64_ != nullptr && this->idOcrPictureUrl_ != nullptr && this->idThreshold_ != nullptr && this->merchantBizId_ != nullptr
-        && this->merchantUserId_ != nullptr && this->productCode_ != nullptr; };
+    virtual bool empty() const override { return this->authorize_ == nullptr
+        && return this->crop_ == nullptr && return this->docName_ == nullptr && return this->docNo_ == nullptr && return this->docType_ == nullptr && return this->facePictureBase64_ == nullptr
+        && return this->facePictureUrl_ == nullptr && return this->idOcrPictureBase64_ == nullptr && return this->idOcrPictureUrl_ == nullptr && return this->idThreshold_ == nullptr && return this->merchantBizId_ == nullptr
+        && return this->merchantUserId_ == nullptr && return this->productCode_ == nullptr; };
     // authorize Field Functions 
     bool hasAuthorize() const { return this->authorize_ != nullptr;};
     void deleteAuthorize() { this->authorize_ = nullptr;};

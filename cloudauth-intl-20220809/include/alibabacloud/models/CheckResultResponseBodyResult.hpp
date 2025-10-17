@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ekycResult_ != nullptr
-        && this->extBasicInfo_ != nullptr && this->extFaceInfo_ != nullptr && this->extIdInfo_ != nullptr && this->extInfo_ != nullptr && this->extRiskInfo_ != nullptr
-        && this->passed_ != nullptr && this->subCode_ != nullptr; };
+    virtual bool empty() const override { return this->ekycResult_ == nullptr
+        && return this->extBasicInfo_ == nullptr && return this->extFaceInfo_ == nullptr && return this->extIdInfo_ == nullptr && return this->extInfo_ == nullptr && return this->extRiskInfo_ == nullptr
+        && return this->passed_ == nullptr && return this->subCode_ == nullptr; };
     // ekycResult Field Functions 
     bool hasEkycResult() const { return this->ekycResult_ != nullptr;};
     void deleteEkycResult() { this->ekycResult_ = nullptr;};

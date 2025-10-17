@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->faceBase64_ != nullptr
-        && this->faceFile_ != nullptr && this->faceInputType_ != nullptr && this->faceUrl_ != nullptr && this->merchantBizId_ != nullptr && this->productCode_ != nullptr
-        && this->sceneCode_ != nullptr; };
+    virtual bool empty() const override { return this->faceBase64_ == nullptr
+        && return this->faceFile_ == nullptr && return this->faceInputType_ == nullptr && return this->faceUrl_ == nullptr && return this->merchantBizId_ == nullptr && return this->productCode_ == nullptr
+        && return this->sceneCode_ == nullptr; };
     // faceBase64 Field Functions 
     bool hasFaceBase64() const { return this->faceBase64_ != nullptr;};
     void deleteFaceBase64() { this->faceBase64_ = nullptr;};
@@ -94,12 +94,29 @@ namespace Models
 
 
   protected:
+    // Enter the Base64 encoded format of the face image; for video formats, it is recommended to input via stream.
     std::shared_ptr<string> faceBase64_ = nullptr;
+    // Image input stream.
     std::shared_ptr<string> faceFile_ = nullptr;
+    // Face material input type:
+    // 
+    // - IMAGE (default): Face image
+    // - VIDEO: Face video
+    // 
+    // Note: Video processing takes longer, it is recommended to set the timeout > 3S.
     std::shared_ptr<string> faceInputType_ = nullptr;
+    // Enter the URL address of the face image.
     std::shared_ptr<string> faceUrl_ = nullptr;
+    // A unique identifier for the merchant\\"s request, consisting of a 32-character alphanumeric combination.
+    // 
+    // The first few characters are composed of a custom abbreviation defined by the merchant, the middle part can include a period of time, and the latter part can use a random or incremental sequence.
     std::shared_ptr<string> merchantBizId_ = nullptr;
+    // The product solution to be integrated.
+    // Value: FACE_DEEPFAKE
     std::shared_ptr<string> productCode_ = nullptr;
+    // Your custom authentication scenario ID, used for querying related records by entering this scenario ID in the console later.
+    // 
+    // Supports a combination of 10 characters, including letters, numbers, or underscores.
     std::shared_ptr<string> sceneCode_ = nullptr;
   };
 

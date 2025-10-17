@@ -127,17 +127,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appQualityCheck_ != nullptr
-        && this->authorize_ != nullptr && this->autoRegistration_ != nullptr && this->callbackToken_ != nullptr && this->callbackUrl_ != nullptr && this->chameleonFrameEnable_ != nullptr
-        && this->crop_ != nullptr && this->dateOfBirth_ != nullptr && this->dateOfExpiry_ != nullptr && this->docName_ != nullptr && this->docNo_ != nullptr
-        && this->docPageConfigShrink_ != nullptr && this->docScanMode_ != nullptr && this->docType_ != nullptr && this->docVideo_ != nullptr && this->documentNumber_ != nullptr
-        && this->editOcrResult_ != nullptr && this->experienceCode_ != nullptr && this->faceGroupCodes_ != nullptr && this->facePictureBase64_ != nullptr && this->facePictureUrl_ != nullptr
-        && this->faceRegisterGroupCode_ != nullptr && this->faceVerifyThreshold_ != nullptr && this->idFaceQuality_ != nullptr && this->idSpoof_ != nullptr && this->idThreshold_ != nullptr
-        && this->languageConfig_ != nullptr && this->MRTDInput_ != nullptr && this->merchantBizId_ != nullptr && this->merchantUserId_ != nullptr && this->metaInfo_ != nullptr
-        && this->model_ != nullptr && this->ocr_ != nullptr && this->pages_ != nullptr && this->procedurePriority_ != nullptr && this->productCode_ != nullptr
-        && this->productFlow_ != nullptr && this->returnFaces_ != nullptr && this->returnUrl_ != nullptr && this->saveFacePicture_ != nullptr && this->sceneCode_ != nullptr
-        && this->securityLevel_ != nullptr && this->showAlbumIcon_ != nullptr && this->showGuidePage_ != nullptr && this->showOcrResult_ != nullptr && this->styleConfig_ != nullptr
-        && this->targetFacePicture_ != nullptr && this->targetFacePictureUrl_ != nullptr && this->useNFC_ != nullptr && this->verifyModel_ != nullptr; };
+    virtual bool empty() const override { return this->appQualityCheck_ == nullptr
+        && return this->authorize_ == nullptr && return this->autoRegistration_ == nullptr && return this->callbackToken_ == nullptr && return this->callbackUrl_ == nullptr && return this->chameleonFrameEnable_ == nullptr
+        && return this->crop_ == nullptr && return this->dateOfBirth_ == nullptr && return this->dateOfExpiry_ == nullptr && return this->docName_ == nullptr && return this->docNo_ == nullptr
+        && return this->docPageConfigShrink_ == nullptr && return this->docScanMode_ == nullptr && return this->docType_ == nullptr && return this->docVideo_ == nullptr && return this->documentNumber_ == nullptr
+        && return this->editOcrResult_ == nullptr && return this->experienceCode_ == nullptr && return this->faceGroupCodes_ == nullptr && return this->facePictureBase64_ == nullptr && return this->facePictureUrl_ == nullptr
+        && return this->faceRegisterGroupCode_ == nullptr && return this->faceVerifyThreshold_ == nullptr && return this->idFaceQuality_ == nullptr && return this->idSpoof_ == nullptr && return this->idThreshold_ == nullptr
+        && return this->languageConfig_ == nullptr && return this->MRTDInput_ == nullptr && return this->merchantBizId_ == nullptr && return this->merchantUserId_ == nullptr && return this->metaInfo_ == nullptr
+        && return this->model_ == nullptr && return this->ocr_ == nullptr && return this->pages_ == nullptr && return this->procedurePriority_ == nullptr && return this->productCode_ == nullptr
+        && return this->productFlow_ == nullptr && return this->returnFaces_ == nullptr && return this->returnUrl_ == nullptr && return this->saveFacePicture_ == nullptr && return this->sceneCode_ == nullptr
+        && return this->securityLevel_ == nullptr && return this->showAlbumIcon_ == nullptr && return this->showGuidePage_ == nullptr && return this->showOcrResult_ == nullptr && return this->styleConfig_ == nullptr
+        && return this->targetFacePicture_ == nullptr && return this->targetFacePictureUrl_ == nullptr && return this->useNFC_ == nullptr && return this->verifyModel_ == nullptr; };
     // appQualityCheck Field Functions 
     bool hasAppQualityCheck() const { return this->appQualityCheck_ != nullptr;};
     void deleteAppQualityCheck() { this->appQualityCheck_ = nullptr;};

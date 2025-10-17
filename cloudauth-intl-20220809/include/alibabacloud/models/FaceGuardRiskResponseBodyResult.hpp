@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->guardRiskScore_ != nullptr
-        && this->riskExtends_ != nullptr && this->riskTags_ != nullptr && this->transactionId_ != nullptr; };
+    virtual bool empty() const override { return this->guardRiskScore_ == nullptr
+        && return this->riskExtends_ == nullptr && return this->riskTags_ == nullptr && return this->transactionId_ == nullptr; };
     // guardRiskScore Field Functions 
     bool hasGuardRiskScore() const { return this->guardRiskScore_ != nullptr;};
     void deleteGuardRiskScore() { this->guardRiskScore_ = nullptr;};

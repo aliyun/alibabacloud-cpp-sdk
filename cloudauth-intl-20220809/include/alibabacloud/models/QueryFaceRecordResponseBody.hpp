@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->currentPage_ != nullptr && this->items_ != nullptr && this->maxResults_ != nullptr && this->message_ != nullptr && this->nextToken_ != nullptr
-        && this->pageSize_ != nullptr && this->requestId_ != nullptr && this->totalCount_ != nullptr && this->totalPage_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->currentPage_ == nullptr && return this->items_ == nullptr && return this->maxResults_ == nullptr && return this->message_ == nullptr && return this->nextToken_ == nullptr
+        && return this->pageSize_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr && return this->totalPage_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -125,16 +125,25 @@ namespace Models
 
 
   protected:
+    // Return code.
     std::shared_ptr<string> code_ = nullptr;
+    // Current query page number.
     std::shared_ptr<int64_t> currentPage_ = nullptr;
+    // List of returned information.
     std::shared_ptr<vector<QueryFaceRecordResponseBodyItems>> items_ = nullptr;
+    // Maximum number of data entries per page.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // Return message.
     std::shared_ptr<string> message_ = nullptr;
+    // Token for the next query start.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // Number of items per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
-    // Id of the request
+    // ID of the request
     std::shared_ptr<string> requestId_ = nullptr;
+    // Total number of records.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
+    // Total number of pages.
     std::shared_ptr<int32_t> totalPage_ = nullptr;
   };
 
