@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applicationConfigs_ != nullptr
-        && this->autoStartConfiguration_ != nullptr && this->autoStopConfiguration_ != nullptr && this->clientToken_ != nullptr && this->displayReleaseVersion_ != nullptr && this->envId_ != nullptr
-        && this->fusion_ != nullptr && this->kind_ != nullptr && this->name_ != nullptr && this->publicEndpointEnabled_ != nullptr && this->queueName_ != nullptr
-        && this->releaseVersion_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->applicationConfigs_ == nullptr
+        && return this->autoStartConfiguration_ == nullptr && return this->autoStopConfiguration_ == nullptr && return this->clientToken_ == nullptr && return this->displayReleaseVersion_ == nullptr && return this->envId_ == nullptr
+        && return this->fusion_ == nullptr && return this->kind_ == nullptr && return this->name_ == nullptr && return this->publicEndpointEnabled_ == nullptr && return this->queueName_ == nullptr
+        && return this->releaseVersion_ == nullptr && return this->regionId_ == nullptr; };
     // applicationConfigs Field Functions 
     bool hasApplicationConfigs() const { return this->applicationConfigs_ != nullptr;};
     void deleteApplicationConfigs() { this->applicationConfigs_ = nullptr;};

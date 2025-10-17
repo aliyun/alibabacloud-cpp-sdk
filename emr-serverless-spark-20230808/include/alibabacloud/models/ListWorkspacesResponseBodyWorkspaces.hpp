@@ -75,12 +75,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRenew_ != nullptr
-        && this->autoRenewPeriod_ != nullptr && this->autoRenewPeriodUnit_ != nullptr && this->createTime_ != nullptr && this->dlfCatalogId_ != nullptr && this->dlfType_ != nullptr
-        && this->duration_ != nullptr && this->endTime_ != nullptr && this->failReason_ != nullptr && this->paymentDurationUnit_ != nullptr && this->paymentStatus_ != nullptr
-        && this->paymentType_ != nullptr && this->prePaidQuota_ != nullptr && this->regionId_ != nullptr && this->releaseType_ != nullptr && this->resourceSpec_ != nullptr
-        && this->stateChangeReason_ != nullptr && this->storage_ != nullptr && this->tags_ != nullptr && this->workspaceId_ != nullptr && this->workspaceName_ != nullptr
-        && this->workspaceStatus_ != nullptr; };
+    virtual bool empty() const override { return this->autoRenew_ == nullptr
+        && return this->autoRenewPeriod_ == nullptr && return this->autoRenewPeriodUnit_ == nullptr && return this->createTime_ == nullptr && return this->dlfCatalogId_ == nullptr && return this->dlfType_ == nullptr
+        && return this->duration_ == nullptr && return this->endTime_ == nullptr && return this->failReason_ == nullptr && return this->paymentDurationUnit_ == nullptr && return this->paymentStatus_ == nullptr
+        && return this->paymentType_ == nullptr && return this->prePaidQuota_ == nullptr && return this->regionId_ == nullptr && return this->releaseType_ == nullptr && return this->resourceSpec_ == nullptr
+        && return this->stateChangeReason_ == nullptr && return this->storage_ == nullptr && return this->tags_ == nullptr && return this->workspaceId_ == nullptr && return this->workspaceName_ == nullptr
+        && return this->workspaceStatus_ == nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};

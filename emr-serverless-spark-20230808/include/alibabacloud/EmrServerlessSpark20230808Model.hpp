@@ -2,11 +2,11 @@
 #ifndef ALIBABACLOUD_EMRSERVERLESSSPARK20230808MODEL_HPP_
 #define ALIBABACLOUD_EMRSERVERLESSSPARK20230808MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/Credential.hpp>
 #include <alibabacloud/models/Artifact.hpp>
 #include <alibabacloud/models/Category.hpp>
 #include <alibabacloud/models/Configuration.hpp>
 #include <alibabacloud/models/ConfigurationOverrides.hpp>
-#include <alibabacloud/models/Credential.hpp>
 #include <alibabacloud/models/JobDriver.hpp>
 #include <alibabacloud/models/KerberosConf.hpp>
 #include <alibabacloud/models/PrincipalAction.hpp>
@@ -90,6 +90,12 @@
 #include <alibabacloud/models/GrantRoleToUsersRequest.hpp>
 #include <alibabacloud/models/GrantRoleToUsersResponseBody.hpp>
 #include <alibabacloud/models/GrantRoleToUsersResponse.hpp>
+#include <alibabacloud/models/ListCatalogsRequest.hpp>
+#include <alibabacloud/models/ListCatalogsResponseBody.hpp>
+#include <alibabacloud/models/ListCatalogsResponse.hpp>
+#include <alibabacloud/models/ListJobExecutorsRequest.hpp>
+#include <alibabacloud/models/ListJobExecutorsResponseBody.hpp>
+#include <alibabacloud/models/ListJobExecutorsResponse.hpp>
 #include <alibabacloud/models/ListJobRunsRequest.hpp>
 #include <alibabacloud/models/ListJobRunsShrinkRequest.hpp>
 #include <alibabacloud/models/ListJobRunsResponseBody.hpp>
@@ -124,6 +130,9 @@
 #include <alibabacloud/models/ListSqlStatementContentsRequest.hpp>
 #include <alibabacloud/models/ListSqlStatementContentsResponseBody.hpp>
 #include <alibabacloud/models/ListSqlStatementContentsResponse.hpp>
+#include <alibabacloud/models/ListTemplateRequest.hpp>
+#include <alibabacloud/models/ListTemplateResponseBody.hpp>
+#include <alibabacloud/models/ListTemplateResponse.hpp>
 #include <alibabacloud/models/ListWorkspaceQueuesRequest.hpp>
 #include <alibabacloud/models/ListWorkspaceQueuesResponseBody.hpp>
 #include <alibabacloud/models/ListWorkspaceQueuesResponse.hpp>
@@ -211,6 +220,8 @@
 #include <alibabacloud/models/GetSessionClusterResponseBodySessionCluster.hpp>
 #include <alibabacloud/models/GetSqlStatementResponseBodyDataSqlOutputs.hpp>
 #include <alibabacloud/models/GetSqlStatementResponseBodyData.hpp>
+#include <alibabacloud/models/ListCatalogsResponseBodyCatalogs.hpp>
+#include <alibabacloud/models/ListJobExecutorsResponseBodyExexutors.hpp>
 #include <alibabacloud/models/ListJobRunsRequestEndTime.hpp>
 #include <alibabacloud/models/ListJobRunsRequestStartTime.hpp>
 #include <alibabacloud/models/ListJobRunsRequestTags.hpp>

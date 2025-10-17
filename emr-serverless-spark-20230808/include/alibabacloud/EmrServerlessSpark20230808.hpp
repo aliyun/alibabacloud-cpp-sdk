@@ -435,6 +435,42 @@ namespace EmrServerlessSpark20230808
       Models::GrantRoleToUsersResponse grantRoleToUsers(const Models::GrantRoleToUsersRequest &request);
 
       /**
+       * @summary 查看数据目录列表
+       *
+       * @param request ListCatalogsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCatalogsResponse
+       */
+      Models::ListCatalogsResponse listCatalogsWithOptions(const string &workspaceId, const Models::ListCatalogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看数据目录列表
+       *
+       * @param request ListCatalogsRequest
+       * @return ListCatalogsResponse
+       */
+      Models::ListCatalogsResponse listCatalogs(const string &workspaceId, const Models::ListCatalogsRequest &request);
+
+      /**
+       * @summary 列出作业的executors
+       *
+       * @param request ListJobExecutorsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListJobExecutorsResponse
+       */
+      Models::ListJobExecutorsResponse listJobExecutorsWithOptions(const string &workspaceId, const string &jobRunId, const Models::ListJobExecutorsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出作业的executors
+       *
+       * @param request ListJobExecutorsRequest
+       * @return ListJobExecutorsResponse
+       */
+      Models::ListJobExecutorsResponse listJobExecutors(const string &workspaceId, const string &jobRunId, const Models::ListJobExecutorsRequest &request);
+
+      /**
        * @summary Queries a list of Spark jobs.
        *
        * @param tmpReq ListJobRunsRequest
@@ -629,6 +665,24 @@ namespace EmrServerlessSpark20230808
        * @return ListSqlStatementContentsResponse
        */
       Models::ListSqlStatementContentsResponse listSqlStatementContents(const string &workspaceId, const Models::ListSqlStatementContentsRequest &request);
+
+      /**
+       * @summary 获取任务模板列表
+       *
+       * @param request ListTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTemplateResponse
+       */
+      Models::ListTemplateResponse listTemplateWithOptions(const string &workspaceBizId, const Models::ListTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取任务模板列表
+       *
+       * @param request ListTemplateRequest
+       * @return ListTemplateResponse
+       */
+      Models::ListTemplateResponse listTemplate(const string &workspaceBizId, const Models::ListTemplateRequest &request);
 
       /**
        * @summary Queries the list of queues in a Spark workspace.

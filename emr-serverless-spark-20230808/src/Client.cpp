@@ -4,7 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <darabonba/http/URL.hpp>
+#include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -114,7 +114,7 @@ CancelJobRunResponse Client::cancelJobRunWithOptions(const string &workspaceId, 
     {"action" , "CancelJobRun"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/jobRuns/" , Darabonba::Http::URL::percentEncode(jobRunId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/jobRuns/" , Darabonba::Encode::Encoder::percentEncode(jobRunId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -177,7 +177,7 @@ CreateKyuubiTokenResponse Client::createKyuubiTokenWithOptions(const string &wor
     {"action" , "CreateKyuubiToken"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/kyuubiService/" , Darabonba::Http::URL::percentEncode(kyuubiServiceId) , "/token")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/kyuubiService/" , Darabonba::Encode::Encoder::percentEncode(kyuubiServiceId) , "/token")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -284,7 +284,7 @@ CreateLivyComputeResponse Client::createLivyComputeWithOptions(const string &wor
     {"action" , "CreateLivyCompute"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Http::URL::percentEncode(workspaceBizId) , "/livycompute")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspaceBizId) , "/livycompute")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -343,7 +343,7 @@ CreateLivyComputeTokenResponse Client::createLivyComputeTokenWithOptions(const s
     {"action" , "CreateLivyComputeToken"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Http::URL::percentEncode(workspaceBizId) , "/livycompute/" , Darabonba::Http::URL::percentEncode(livyComputeId) , "/token")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspaceBizId) , "/livycompute/" , Darabonba::Encode::Encoder::percentEncode(livyComputeId) , "/token")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -474,7 +474,7 @@ CreateProcessDefinitionWithScheduleResponse Client::createProcessDefinitionWithS
     {"action" , "CreateProcessDefinitionWithSchedule"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dolphinscheduler/projects/" , Darabonba::Http::URL::percentEncode(bizId) , "/process-definition")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dolphinscheduler/projects/" , Darabonba::Encode::Encoder::percentEncode(bizId) , "/process-definition")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -569,7 +569,7 @@ CreateSessionClusterResponse Client::createSessionClusterWithOptions(const strin
     {"action" , "CreateSessionCluster"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/sessionClusters")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/sessionClusters")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -640,7 +640,7 @@ CreateSqlStatementResponse Client::createSqlStatementWithOptions(const string &w
     {"action" , "CreateSqlStatement"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/statement")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/statement")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -796,7 +796,7 @@ DeleteKyuubiTokenResponse Client::deleteKyuubiTokenWithOptions(const string &wor
     {"action" , "DeleteKyuubiToken"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/kyuubiService/" , Darabonba::Http::URL::percentEncode(kyuubiServiceId) , "/token/" , Darabonba::Http::URL::percentEncode(tokenId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/kyuubiService/" , Darabonba::Encode::Encoder::percentEncode(kyuubiServiceId) , "/token/" , Darabonba::Encode::Encoder::percentEncode(tokenId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -841,7 +841,7 @@ DeleteLivyComputeResponse Client::deleteLivyComputeWithOptions(const string &wor
     {"action" , "DeleteLivyCompute"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Http::URL::percentEncode(workspaceBizId) , "/livycompute/" , Darabonba::Http::URL::percentEncode(livyComputeId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspaceBizId) , "/livycompute/" , Darabonba::Encode::Encoder::percentEncode(livyComputeId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -886,7 +886,7 @@ DeleteLivyComputeTokenResponse Client::deleteLivyComputeTokenWithOptions(const s
     {"action" , "DeleteLivyComputeToken"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Http::URL::percentEncode(workspaceBizId) , "/livycompute/" , Darabonba::Http::URL::percentEncode(livyComputeId) , "/token/" , Darabonba::Http::URL::percentEncode(tokenId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspaceBizId) , "/livycompute/" , Darabonba::Encode::Encoder::percentEncode(livyComputeId) , "/token/" , Darabonba::Encode::Encoder::percentEncode(tokenId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -998,7 +998,7 @@ GetCuHoursResponse Client::getCuHoursWithOptions(const string &workspaceId, cons
     {"action" , "GetCuHours"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/metric/cuHours/" , Darabonba::Http::URL::percentEncode(queue))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/metric/cuHours/" , Darabonba::Encode::Encoder::percentEncode(queue))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1051,7 +1051,7 @@ GetDoctorApplicationResponse Client::getDoctorApplicationWithOptions(const strin
     {"action" , "GetDoctorApplication"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/runs/" , Darabonba::Http::URL::percentEncode(runId) , "/action/getDoctorApplication")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/runs/" , Darabonba::Encode::Encoder::percentEncode(runId) , "/action/getDoctorApplication")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1096,7 +1096,7 @@ GetJobRunResponse Client::getJobRunWithOptions(const string &workspaceId, const 
     {"action" , "GetJobRun"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/jobRuns/" , Darabonba::Http::URL::percentEncode(jobRunId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/jobRuns/" , Darabonba::Encode::Encoder::percentEncode(jobRunId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1141,7 +1141,7 @@ GetKyuubiTokenResponse Client::getKyuubiTokenWithOptions(const string &workspace
     {"action" , "GetKyuubiToken"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/kyuubiService/" , Darabonba::Http::URL::percentEncode(kyuubiServiceId) , "/token/" , Darabonba::Http::URL::percentEncode(tokenId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/kyuubiService/" , Darabonba::Encode::Encoder::percentEncode(kyuubiServiceId) , "/token/" , Darabonba::Encode::Encoder::percentEncode(tokenId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1186,7 +1186,7 @@ GetLivyComputeResponse Client::getLivyComputeWithOptions(const string &workspace
     {"action" , "GetLivyCompute"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Http::URL::percentEncode(workspaceBizId) , "/livycompute/" , Darabonba::Http::URL::percentEncode(livyComputeId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspaceBizId) , "/livycompute/" , Darabonba::Encode::Encoder::percentEncode(livyComputeId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1231,7 +1231,7 @@ GetLivyComputeTokenResponse Client::getLivyComputeTokenWithOptions(const string 
     {"action" , "GetLivyComputeToken"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Http::URL::percentEncode(workspaceBizId) , "/livycompute/" , Darabonba::Http::URL::percentEncode(livyComputeId) , "/token/" , Darabonba::Http::URL::percentEncode(tokenId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspaceBizId) , "/livycompute/" , Darabonba::Encode::Encoder::percentEncode(livyComputeId) , "/token/" , Darabonba::Encode::Encoder::percentEncode(tokenId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1276,7 +1276,7 @@ GetSessionClusterResponse Client::getSessionClusterWithOptions(const string &wor
     {"action" , "GetSessionCluster"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/sessionClusters/" , Darabonba::Http::URL::percentEncode(sessionClusterId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/sessionClusters/" , Darabonba::Encode::Encoder::percentEncode(sessionClusterId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1321,7 +1321,7 @@ GetSqlStatementResponse Client::getSqlStatementWithOptions(const string &workspa
     {"action" , "GetSqlStatement"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/statement/" , Darabonba::Http::URL::percentEncode(statementId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/statement/" , Darabonba::Encode::Encoder::percentEncode(statementId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1374,7 +1374,7 @@ GetTemplateResponse Client::getTemplateWithOptions(const string &workspaceBizId,
     {"action" , "GetTemplate"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Http::URL::percentEncode(workspaceBizId) , "/template")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspaceBizId) , "/template")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1449,6 +1449,116 @@ GrantRoleToUsersResponse Client::grantRoleToUsers(const GrantRoleToUsersRequest 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return grantRoleToUsersWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查看数据目录列表
+ *
+ * @param request ListCatalogsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCatalogsResponse
+ */
+ListCatalogsResponse Client::listCatalogsWithOptions(const string &workspaceId, const ListCatalogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnvironment()) {
+    query["environment"] = request.environment();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCatalogs"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/catalogs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCatalogsResponse>();
+}
+
+/**
+ * @summary 查看数据目录列表
+ *
+ * @param request ListCatalogsRequest
+ * @return ListCatalogsResponse
+ */
+ListCatalogsResponse Client::listCatalogs(const string &workspaceId, const ListCatalogsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listCatalogsWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary 列出作业的executors
+ *
+ * @param request ListJobExecutorsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListJobExecutorsResponse
+ */
+ListJobExecutorsResponse Client::listJobExecutorsWithOptions(const string &workspaceId, const string &jobRunId, const ListJobExecutorsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExecutorType()) {
+    query["executorType"] = request.executorType();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.regionId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.status();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListJobExecutors"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/jobRuns/" , Darabonba::Encode::Encoder::percentEncode(jobRunId) , "/executors")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListJobExecutorsResponse>();
+}
+
+/**
+ * @summary 列出作业的executors
+ *
+ * @param request ListJobExecutorsRequest
+ * @return ListJobExecutorsResponse
+ */
+ListJobExecutorsResponse Client::listJobExecutors(const string &workspaceId, const string &jobRunId, const ListJobExecutorsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listJobExecutorsWithOptions(workspaceId, jobRunId, request, headers, runtime);
 }
 
 /**
@@ -1552,7 +1662,7 @@ ListJobRunsResponse Client::listJobRunsWithOptions(const string &workspaceId, co
     {"action" , "ListJobRuns"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/jobRuns")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/jobRuns")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1589,7 +1699,7 @@ ListKyuubiServicesResponse Client::listKyuubiServicesWithOptions(const string &w
     {"action" , "ListKyuubiServices"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/kyuubi/" , Darabonba::Http::URL::percentEncode(workspaceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/kyuubi/" , Darabonba::Encode::Encoder::percentEncode(workspaceId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1675,7 +1785,7 @@ ListKyuubiSparkApplicationsResponse Client::listKyuubiSparkApplicationsWithOptio
     {"action" , "ListKyuubiSparkApplications"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/kyuubi/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/" , Darabonba::Http::URL::percentEncode(kyuubiServiceId) , "/applications")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/kyuubi/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/" , Darabonba::Encode::Encoder::percentEncode(kyuubiServiceId) , "/applications")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1720,7 +1830,7 @@ ListKyuubiTokenResponse Client::listKyuubiTokenWithOptions(const string &workspa
     {"action" , "ListKyuubiToken"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/kyuubiService/" , Darabonba::Http::URL::percentEncode(kyuubiServiceId) , "/token")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/kyuubiService/" , Darabonba::Encode::Encoder::percentEncode(kyuubiServiceId) , "/token")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1769,7 +1879,7 @@ ListLivyComputeResponse Client::listLivyComputeWithOptions(const string &workspa
     {"action" , "ListLivyCompute"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Http::URL::percentEncode(workspaceBizId) , "/livycompute")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspaceBizId) , "/livycompute")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1814,7 +1924,7 @@ ListLivyComputeTokenResponse Client::listLivyComputeTokenWithOptions(const strin
     {"action" , "ListLivyComputeToken"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Http::URL::percentEncode(workspaceBizId) , "/livycompute/" , Darabonba::Http::URL::percentEncode(livyComputeId) , "/token")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspaceBizId) , "/livycompute/" , Darabonba::Encode::Encoder::percentEncode(livyComputeId) , "/token")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1871,7 +1981,7 @@ ListLogContentsResponse Client::listLogContentsWithOptions(const string &workspa
     {"action" , "ListLogContents"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/action/listLogContents")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/action/listLogContents")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1924,7 +2034,7 @@ ListMembersResponse Client::listMembersWithOptions(const string &workspaceId, co
     {"action" , "ListMembers"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/auth/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/members")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/auth/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/members")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2054,7 +2164,7 @@ ListSessionClustersResponse Client::listSessionClustersWithOptions(const string 
     {"action" , "ListSessionClusters"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/sessionClusters")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/sessionClusters")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2107,7 +2217,7 @@ ListSqlStatementContentsResponse Client::listSqlStatementContentsWithOptions(con
     {"action" , "ListSqlStatementContents"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/action/listSqlStatementContents")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/action/listSqlStatementContents")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2127,6 +2237,51 @@ ListSqlStatementContentsResponse Client::listSqlStatementContents(const string &
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listSqlStatementContentsWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取任务模板列表
+ *
+ * @param request ListTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTemplateResponse
+ */
+ListTemplateResponse Client::listTemplateWithOptions(const string &workspaceBizId, const ListTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTemplate"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspaceBizId) , "/template/listing")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTemplateResponse>();
+}
+
+/**
+ * @summary 获取任务模板列表
+ *
+ * @param request ListTemplateRequest
+ * @return ListTemplateResponse
+ */
+ListTemplateResponse Client::listTemplate(const string &workspaceBizId, const ListTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listTemplateWithOptions(workspaceBizId, request, headers, runtime);
 }
 
 /**
@@ -2156,7 +2311,7 @@ ListWorkspaceQueuesResponse Client::listWorkspaceQueuesWithOptions(const string 
     {"action" , "ListWorkspaceQueues"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/queues")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/queues")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2286,7 +2441,7 @@ RefreshLivyComputeTokenResponse Client::refreshLivyComputeTokenWithOptions(const
     {"action" , "RefreshLivyComputeToken"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Http::URL::percentEncode(workspaceBizId) , "/livycompute/" , Darabonba::Http::URL::percentEncode(livyComputeId) , "/token/" , Darabonba::Http::URL::percentEncode(tokenId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspaceBizId) , "/livycompute/" , Darabonba::Encode::Encoder::percentEncode(livyComputeId) , "/token/" , Darabonba::Encode::Encoder::percentEncode(tokenId))},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2381,7 +2536,7 @@ StartJobRunResponse Client::startJobRunWithOptions(const string &workspaceId, co
     {"action" , "StartJobRun"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/jobRuns")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/jobRuns")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2426,7 +2581,7 @@ StartLivyComputeResponse Client::startLivyComputeWithOptions(const string &works
     {"action" , "StartLivyCompute"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Http::URL::percentEncode(workspaceBizId) , "/livycompute/" , Darabonba::Http::URL::percentEncode(livyComputeId) , "/start")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspaceBizId) , "/livycompute/" , Darabonba::Encode::Encoder::percentEncode(livyComputeId) , "/start")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2511,7 +2666,7 @@ StartProcessInstanceResponse Client::startProcessInstanceWithOptions(const strin
     {"action" , "StartProcessInstance"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dolphinscheduler/projects/" , Darabonba::Http::URL::percentEncode(bizId) , "/executors/start-process-instance")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dolphinscheduler/projects/" , Darabonba::Encode::Encoder::percentEncode(bizId) , "/executors/start-process-instance")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2566,7 +2721,7 @@ StartSessionClusterResponse Client::startSessionClusterWithOptions(const string 
     {"action" , "StartSessionCluster"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/sessionClusters/action/startSessionCluster")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/sessionClusters/action/startSessionCluster")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2611,7 +2766,7 @@ StopLivyComputeResponse Client::stopLivyComputeWithOptions(const string &workspa
     {"action" , "StopLivyCompute"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Http::URL::percentEncode(workspaceBizId) , "/livycompute/" , Darabonba::Http::URL::percentEncode(livyComputeId) , "/stop")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspaceBizId) , "/livycompute/" , Darabonba::Encode::Encoder::percentEncode(livyComputeId) , "/stop")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2666,7 +2821,7 @@ StopSessionClusterResponse Client::stopSessionClusterWithOptions(const string &w
     {"action" , "StopSessionCluster"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/sessionClusters/action/stopSessionCluster")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/sessionClusters/action/stopSessionCluster")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2711,7 +2866,7 @@ TerminateSqlStatementResponse Client::terminateSqlStatementWithOptions(const str
     {"action" , "TerminateSqlStatement"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/statement/" , Darabonba::Http::URL::percentEncode(statementId) , "/terminate")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/statement/" , Darabonba::Encode::Encoder::percentEncode(statementId) , "/terminate")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2774,7 +2929,7 @@ UpdateKyuubiTokenResponse Client::updateKyuubiTokenWithOptions(const string &wor
     {"action" , "UpdateKyuubiToken"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/kyuubiService/" , Darabonba::Http::URL::percentEncode(kyuubiServiceId) , "/token/" , Darabonba::Http::URL::percentEncode(tokenId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/kyuubiService/" , Darabonba::Encode::Encoder::percentEncode(kyuubiServiceId) , "/token/" , Darabonba::Encode::Encoder::percentEncode(tokenId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2881,7 +3036,7 @@ UpdateLivyComputeResponse Client::updateLivyComputeWithOptions(const string &wor
     {"action" , "UpdateLivyCompute"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Http::URL::percentEncode(workspaceBizId) , "/livycompute/" , Darabonba::Http::URL::percentEncode(livyComputeId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspaceBizId) , "/livycompute/" , Darabonba::Encode::Encoder::percentEncode(livyComputeId))},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3016,7 +3171,7 @@ UpdateProcessDefinitionWithScheduleResponse Client::updateProcessDefinitionWithS
     {"action" , "UpdateProcessDefinitionWithSchedule"},
     {"version" , "2023-08-08"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dolphinscheduler/projects/" , Darabonba::Http::URL::percentEncode(bizId) , "/process-definition/" , Darabonba::Http::URL::percentEncode(code))},
+    {"pathname" , DARA_STRING_TEMPLATE("/dolphinscheduler/projects/" , Darabonba::Encode::Encoder::percentEncode(bizId) , "/process-definition/" , Darabonba::Encode::Encoder::percentEncode(code))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},

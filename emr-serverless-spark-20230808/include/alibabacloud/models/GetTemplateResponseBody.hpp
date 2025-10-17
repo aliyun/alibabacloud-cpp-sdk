@@ -40,15 +40,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->data_ != nullptr
-        && this->errorCode_ != nullptr && this->errorMessage_ != nullptr && this->httpStatusCode_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->data_ == nullptr
+        && return this->errorCode_ == nullptr && return this->errorMessage_ == nullptr && return this->httpStatusCode_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const _Template & data() const { DARABONBA_PTR_GET_CONST(data_, _Template) };
-    inline _Template data() { DARABONBA_PTR_GET(data_, _Template) };
-    inline GetTemplateResponseBody& setData(const _Template & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline GetTemplateResponseBody& setData(_Template && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const Template & data() const { DARABONBA_PTR_GET_CONST(data_, Template) };
+    inline Template data() { DARABONBA_PTR_GET(data_, Template) };
+    inline GetTemplateResponseBody& setData(const Template & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetTemplateResponseBody& setData(Template && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // errorCode Field Functions 
@@ -88,7 +88,7 @@ namespace Models
 
   protected:
     // The returned data.
-    std::shared_ptr<_Template> data_ = nullptr;
+    std::shared_ptr<Template> data_ = nullptr;
     // *   If the value of success was false, an error code was returned.
     // *   If the value of success was true, a null value was returned.
     std::shared_ptr<string> errorCode_ = nullptr;

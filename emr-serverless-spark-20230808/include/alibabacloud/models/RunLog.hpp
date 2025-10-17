@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->driverStartup_ != nullptr
-        && this->driverStdError_ != nullptr && this->driverStdOut_ != nullptr && this->driverSyslog_ != nullptr; };
+    virtual bool empty() const override { return this->driverStartup_ == nullptr
+        && return this->driverStdError_ == nullptr && return this->driverStdOut_ == nullptr && return this->driverSyslog_ == nullptr; };
     // driverStartup Field Functions 
     bool hasDriverStartup() const { return this->driverStartup_ != nullptr;};
     void deleteDriverStartup() { this->driverStartup_ = nullptr;};

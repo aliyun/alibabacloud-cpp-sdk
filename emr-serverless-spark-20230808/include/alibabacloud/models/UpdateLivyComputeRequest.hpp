@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authType_ != nullptr
-        && this->autoStartConfiguration_ != nullptr && this->autoStopConfiguration_ != nullptr && this->cpuLimit_ != nullptr && this->displayReleaseVersion_ != nullptr && this->enablePublic_ != nullptr
-        && this->environmentId_ != nullptr && this->fusion_ != nullptr && this->livyServerConf_ != nullptr && this->livyVersion_ != nullptr && this->memoryLimit_ != nullptr
-        && this->name_ != nullptr && this->networkName_ != nullptr && this->queueName_ != nullptr && this->releaseVersion_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->authType_ == nullptr
+        && return this->autoStartConfiguration_ == nullptr && return this->autoStopConfiguration_ == nullptr && return this->cpuLimit_ == nullptr && return this->displayReleaseVersion_ == nullptr && return this->enablePublic_ == nullptr
+        && return this->environmentId_ == nullptr && return this->fusion_ == nullptr && return this->livyServerConf_ == nullptr && return this->livyVersion_ == nullptr && return this->memoryLimit_ == nullptr
+        && return this->name_ == nullptr && return this->networkName_ == nullptr && return this->queueName_ == nullptr && return this->releaseVersion_ == nullptr && return this->regionId_ == nullptr; };
     // authType Field Functions 
     bool hasAuthType() const { return this->authType_ != nullptr;};
     void deleteAuthType() { this->authType_ = nullptr;};

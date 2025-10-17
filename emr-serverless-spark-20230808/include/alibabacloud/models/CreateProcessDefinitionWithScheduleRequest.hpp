@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertEmailAddress_ != nullptr
-        && this->description_ != nullptr && this->executionType_ != nullptr && this->globalParams_ != nullptr && this->name_ != nullptr && this->productNamespace_ != nullptr
-        && this->publish_ != nullptr && this->regionId_ != nullptr && this->resourceQueue_ != nullptr && this->retryTimes_ != nullptr && this->runAs_ != nullptr
-        && this->schedule_ != nullptr && this->tags_ != nullptr && this->taskDefinitionJson_ != nullptr && this->taskParallelism_ != nullptr && this->taskRelationJson_ != nullptr
-        && this->timeout_ != nullptr; };
+    virtual bool empty() const override { return this->alertEmailAddress_ == nullptr
+        && return this->description_ == nullptr && return this->executionType_ == nullptr && return this->globalParams_ == nullptr && return this->name_ == nullptr && return this->productNamespace_ == nullptr
+        && return this->publish_ == nullptr && return this->regionId_ == nullptr && return this->resourceQueue_ == nullptr && return this->retryTimes_ == nullptr && return this->runAs_ == nullptr
+        && return this->schedule_ == nullptr && return this->tags_ == nullptr && return this->taskDefinitionJson_ == nullptr && return this->taskParallelism_ == nullptr && return this->taskRelationJson_ == nullptr
+        && return this->timeout_ == nullptr; };
     // alertEmailAddress Field Functions 
     bool hasAlertEmailAddress() const { return this->alertEmailAddress_ != nullptr;};
     void deleteAlertEmailAddress() { this->alertEmailAddress_ = nullptr;};

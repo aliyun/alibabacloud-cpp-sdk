@@ -73,11 +73,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->codeType_ != nullptr
-        && this->configurationOverrides_ != nullptr && this->displayReleaseVersion_ != nullptr && this->endTime_ != nullptr && this->environmentId_ != nullptr && this->executionTimeoutSeconds_ != nullptr
-        && this->fusion_ != nullptr && this->jobDriver_ != nullptr && this->jobRunId_ != nullptr && this->log_ != nullptr && this->name_ != nullptr
-        && this->releaseVersion_ != nullptr && this->resourceOwnerId_ != nullptr && this->resourceQueueId_ != nullptr && this->state_ != nullptr && this->stateChangeReason_ != nullptr
-        && this->submitTime_ != nullptr && this->tags_ != nullptr && this->webUI_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->codeType_ == nullptr
+        && return this->configurationOverrides_ == nullptr && return this->displayReleaseVersion_ == nullptr && return this->endTime_ == nullptr && return this->environmentId_ == nullptr && return this->executionTimeoutSeconds_ == nullptr
+        && return this->fusion_ == nullptr && return this->jobDriver_ == nullptr && return this->jobRunId_ == nullptr && return this->log_ == nullptr && return this->name_ == nullptr
+        && return this->releaseVersion_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->resourceQueueId_ == nullptr && return this->state_ == nullptr && return this->stateChangeReason_ == nullptr
+        && return this->submitTime_ == nullptr && return this->tags_ == nullptr && return this->webUI_ == nullptr && return this->workspaceId_ == nullptr; };
     // codeType Field Functions 
     bool hasCodeType() const { return this->codeType_ != nullptr;};
     void deleteCodeType() { this->codeType_ = nullptr;};

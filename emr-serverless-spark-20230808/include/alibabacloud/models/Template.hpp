@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizId_ != nullptr
-        && this->creator_ != nullptr && this->displaySparkVersion_ != nullptr && this->fusion_ != nullptr && this->gmtCreated_ != nullptr && this->gmtModified_ != nullptr
-        && this->isDefault_ != nullptr && this->modifier_ != nullptr && this->name_ != nullptr && this->sparkConf_ != nullptr && this->sparkDriverCores_ != nullptr
-        && this->sparkDriverMemory_ != nullptr && this->sparkExecutorCores_ != nullptr && this->sparkExecutorMemory_ != nullptr && this->sparkLogLevel_ != nullptr && this->sparkLogPath_ != nullptr
-        && this->sparkVersion_ != nullptr && this->templateType_ != nullptr; };
+    virtual bool empty() const override { return this->bizId_ == nullptr
+        && return this->creator_ == nullptr && return this->displaySparkVersion_ == nullptr && return this->fusion_ == nullptr && return this->gmtCreated_ == nullptr && return this->gmtModified_ == nullptr
+        && return this->isDefault_ == nullptr && return this->modifier_ == nullptr && return this->name_ == nullptr && return this->sparkConf_ == nullptr && return this->sparkDriverCores_ == nullptr
+        && return this->sparkDriverMemory_ == nullptr && return this->sparkExecutorCores_ == nullptr && return this->sparkExecutorMemory_ == nullptr && return this->sparkLogLevel_ == nullptr && return this->sparkLogPath_ == nullptr
+        && return this->sparkVersion_ == nullptr && return this->templateType_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};

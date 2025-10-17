@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->computeInstance_ != nullptr
-        && this->createTime_ != nullptr && this->creator_ != nullptr && this->innerEndpoint_ != nullptr && this->kyuubiConfigs_ != nullptr && this->kyuubiReleaseVersion_ != nullptr
-        && this->kyuubiServiceId_ != nullptr && this->name_ != nullptr && this->publicEndpoint_ != nullptr && this->queue_ != nullptr && this->releaseVersion_ != nullptr
-        && this->replica_ != nullptr && this->sparkConfigs_ != nullptr && this->startTime_ != nullptr && this->state_ != nullptr; };
+    virtual bool empty() const override { return this->computeInstance_ == nullptr
+        && return this->createTime_ == nullptr && return this->creator_ == nullptr && return this->innerEndpoint_ == nullptr && return this->kyuubiConfigs_ == nullptr && return this->kyuubiReleaseVersion_ == nullptr
+        && return this->kyuubiServiceId_ == nullptr && return this->name_ == nullptr && return this->publicEndpoint_ == nullptr && return this->queue_ == nullptr && return this->releaseVersion_ == nullptr
+        && return this->replica_ == nullptr && return this->sparkConfigs_ == nullptr && return this->startTime_ == nullptr && return this->state_ == nullptr; };
     // computeInstance Field Functions 
     bool hasComputeInstance() const { return this->computeInstance_ != nullptr;};
     void deleteComputeInstance() { this->computeInstance_ = nullptr;};

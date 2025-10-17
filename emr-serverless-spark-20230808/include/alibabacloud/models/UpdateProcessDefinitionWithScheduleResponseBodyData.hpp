@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertEmailAddress_ != nullptr
-        && this->bizId_ != nullptr && this->code_ != nullptr && this->createTime_ != nullptr && this->crontab_ != nullptr && this->description_ != nullptr
-        && this->endTime_ != nullptr && this->executionType_ != nullptr && this->id_ != nullptr && this->name_ != nullptr && this->projectName_ != nullptr
-        && this->releaseState_ != nullptr && this->startTime_ != nullptr && this->timezoneId_ != nullptr && this->updateTime_ != nullptr && this->userId_ != nullptr
-        && this->userName_ != nullptr && this->version_ != nullptr && this->versionHashCode_ != nullptr; };
+    virtual bool empty() const override { return this->alertEmailAddress_ == nullptr
+        && return this->bizId_ == nullptr && return this->code_ == nullptr && return this->createTime_ == nullptr && return this->crontab_ == nullptr && return this->description_ == nullptr
+        && return this->endTime_ == nullptr && return this->executionType_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr && return this->projectName_ == nullptr
+        && return this->releaseState_ == nullptr && return this->startTime_ == nullptr && return this->timezoneId_ == nullptr && return this->updateTime_ == nullptr && return this->userId_ == nullptr
+        && return this->userName_ == nullptr && return this->version_ == nullptr && return this->versionHashCode_ == nullptr; };
     // alertEmailAddress Field Functions 
     bool hasAlertEmailAddress() const { return this->alertEmailAddress_ != nullptr;};
     void deleteAlertEmailAddress() { this->alertEmailAddress_ = nullptr;};

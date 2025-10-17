@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->communityVersion_ != nullptr
-        && this->cpuArchitectures_ != nullptr && this->displayReleaseVersion_ != nullptr && this->fusion_ != nullptr && this->gmtCreate_ != nullptr && this->iaasType_ != nullptr
-        && this->releaseVersion_ != nullptr && this->scalaVersion_ != nullptr && this->state_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->communityVersion_ == nullptr
+        && return this->cpuArchitectures_ == nullptr && return this->displayReleaseVersion_ == nullptr && return this->fusion_ == nullptr && return this->gmtCreate_ == nullptr && return this->iaasType_ == nullptr
+        && return this->releaseVersion_ == nullptr && return this->scalaVersion_ == nullptr && return this->state_ == nullptr && return this->type_ == nullptr; };
     // communityVersion Field Functions 
     bool hasCommunityVersion() const { return this->communityVersion_ != nullptr;};
     void deleteCommunityVersion() { this->communityVersion_ = nullptr;};

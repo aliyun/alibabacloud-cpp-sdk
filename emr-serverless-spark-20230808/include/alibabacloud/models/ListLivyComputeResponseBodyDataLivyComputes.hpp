@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->computeId_ != nullptr
-        && this->createdBy_ != nullptr && this->endpoint_ != nullptr && this->endpointInner_ != nullptr && this->gmtCreate_ != nullptr && this->name_ != nullptr
-        && this->queueName_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->computeId_ == nullptr
+        && return this->createdBy_ == nullptr && return this->endpoint_ == nullptr && return this->endpointInner_ == nullptr && return this->gmtCreate_ == nullptr && return this->name_ == nullptr
+        && return this->queueName_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr; };
     // computeId Field Functions 
     bool hasComputeId() const { return this->computeId_ != nullptr;};
     void deleteComputeId() { this->computeId_ = nullptr;};

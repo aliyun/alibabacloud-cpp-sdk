@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->entryPoint_ != nullptr
-        && this->entryPointArguments_ != nullptr && this->sparkSubmitParameters_ != nullptr; };
+    virtual bool empty() const override { return this->entryPoint_ == nullptr
+        && return this->entryPointArguments_ == nullptr && return this->sparkSubmitParameters_ == nullptr; };
     // entryPoint Field Functions 
     bool hasEntryPoint() const { return this->entryPoint_ != nullptr;};
     void deleteEntryPoint() { this->entryPoint_ = nullptr;};

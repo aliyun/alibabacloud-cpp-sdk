@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allocatedResource_ != nullptr
-        && this->autoRenewal_ != nullptr && this->createTime_ != nullptr && this->expireTime_ != nullptr && this->instanceId_ != nullptr && this->maxResource_ != nullptr
-        && this->orderId_ != nullptr && this->paymentStatus_ != nullptr && this->usedResource_ != nullptr; };
+    virtual bool empty() const override { return this->allocatedResource_ == nullptr
+        && return this->autoRenewal_ == nullptr && return this->createTime_ == nullptr && return this->expireTime_ == nullptr && return this->instanceId_ == nullptr && return this->maxResource_ == nullptr
+        && return this->orderId_ == nullptr && return this->paymentStatus_ == nullptr && return this->usedResource_ == nullptr; };
     // allocatedResource Field Functions 
     bool hasAllocatedResource() const { return this->allocatedResource_ != nullptr;};
     void deleteAllocatedResource() { this->allocatedResource_ = nullptr;};

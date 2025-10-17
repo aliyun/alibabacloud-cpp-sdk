@@ -119,16 +119,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->archives_ != nullptr
-        && this->artifactUrl_ != nullptr && this->bizId_ != nullptr && this->categoryBizId_ != nullptr && this->content_ != nullptr && this->creator_ != nullptr
-        && this->credential_ != nullptr && this->defaultCatalogId_ != nullptr && this->defaultDatabase_ != nullptr && this->defaultResourceQueueId_ != nullptr && this->defaultSqlComputeId_ != nullptr
-        && this->deploymentId_ != nullptr && this->environmentId_ != nullptr && this->extraArtifactIds_ != nullptr && this->extraSparkSubmitParams_ != nullptr && this->files_ != nullptr
-        && this->fusion_ != nullptr && this->gmtCreated_ != nullptr && this->gmtModified_ != nullptr && this->hasChanged_ != nullptr && this->hasCommited_ != nullptr
-        && this->isStreaming_ != nullptr && this->jars_ != nullptr && this->kernelId_ != nullptr && this->lastRunResourceQueueId_ != nullptr && this->modifier_ != nullptr
-        && this->name_ != nullptr && this->params_ != nullptr && this->pyFiles_ != nullptr && this->sessionClusterId_ != nullptr && this->sparkArgs_ != nullptr
-        && this->sparkConf_ != nullptr && this->sparkDriverCores_ != nullptr && this->sparkDriverMemory_ != nullptr && this->sparkEntrypoint_ != nullptr && this->sparkExecutorCores_ != nullptr
-        && this->sparkExecutorMemory_ != nullptr && this->sparkLogLevel_ != nullptr && this->sparkLogPath_ != nullptr && this->sparkSubmitClause_ != nullptr && this->sparkVersion_ != nullptr
-        && this->tags_ != nullptr && this->timeout_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->archives_ == nullptr
+        && return this->artifactUrl_ == nullptr && return this->bizId_ == nullptr && return this->categoryBizId_ == nullptr && return this->content_ == nullptr && return this->creator_ == nullptr
+        && return this->credential_ == nullptr && return this->defaultCatalogId_ == nullptr && return this->defaultDatabase_ == nullptr && return this->defaultResourceQueueId_ == nullptr && return this->defaultSqlComputeId_ == nullptr
+        && return this->deploymentId_ == nullptr && return this->environmentId_ == nullptr && return this->extraArtifactIds_ == nullptr && return this->extraSparkSubmitParams_ == nullptr && return this->files_ == nullptr
+        && return this->fusion_ == nullptr && return this->gmtCreated_ == nullptr && return this->gmtModified_ == nullptr && return this->hasChanged_ == nullptr && return this->hasCommited_ == nullptr
+        && return this->isStreaming_ == nullptr && return this->jars_ == nullptr && return this->kernelId_ == nullptr && return this->lastRunResourceQueueId_ == nullptr && return this->modifier_ == nullptr
+        && return this->name_ == nullptr && return this->params_ == nullptr && return this->pyFiles_ == nullptr && return this->sessionClusterId_ == nullptr && return this->sparkArgs_ == nullptr
+        && return this->sparkConf_ == nullptr && return this->sparkDriverCores_ == nullptr && return this->sparkDriverMemory_ == nullptr && return this->sparkEntrypoint_ == nullptr && return this->sparkExecutorCores_ == nullptr
+        && return this->sparkExecutorMemory_ == nullptr && return this->sparkLogLevel_ == nullptr && return this->sparkLogPath_ == nullptr && return this->sparkSubmitClause_ == nullptr && return this->sparkVersion_ == nullptr
+        && return this->tags_ == nullptr && return this->timeout_ == nullptr && return this->type_ == nullptr; };
     // archives Field Functions 
     bool hasArchives() const { return this->archives_ != nullptr;};
     void deleteArchives() { this->archives_ = nullptr;};

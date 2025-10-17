@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowActions_ != nullptr
-        && this->createTime_ != nullptr && this->creator_ != nullptr && this->environments_ != nullptr && this->maxResource_ != nullptr && this->minResource_ != nullptr
-        && this->paymentType_ != nullptr && this->properties_ != nullptr && this->queueName_ != nullptr && this->queueScope_ != nullptr && this->queueStatus_ != nullptr
-        && this->queueType_ != nullptr && this->regionId_ != nullptr && this->usedResource_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->allowActions_ == nullptr
+        && return this->createTime_ == nullptr && return this->creator_ == nullptr && return this->environments_ == nullptr && return this->maxResource_ == nullptr && return this->minResource_ == nullptr
+        && return this->paymentType_ == nullptr && return this->properties_ == nullptr && return this->queueName_ == nullptr && return this->queueScope_ == nullptr && return this->queueStatus_ == nullptr
+        && return this->queueType_ == nullptr && return this->regionId_ == nullptr && return this->usedResource_ == nullptr && return this->workspaceId_ == nullptr; };
     // allowActions Field Functions 
     bool hasAllowActions() const { return this->allowActions_ != nullptr;};
     void deleteAllowActions() { this->allowActions_ = nullptr;};

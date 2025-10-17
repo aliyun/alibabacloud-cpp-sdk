@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertEmailAddress_ != nullptr
-        && this->code_ != nullptr && this->description_ != nullptr && this->failAlertEnable_ != nullptr && this->failRetryTimes_ != nullptr && this->name_ != nullptr
-        && this->startAlertEnable_ != nullptr && this->tags_ != nullptr && this->taskParams_ != nullptr && this->taskType_ != nullptr && this->timeout_ != nullptr; };
+    virtual bool empty() const override { return this->alertEmailAddress_ == nullptr
+        && return this->code_ == nullptr && return this->description_ == nullptr && return this->failAlertEnable_ == nullptr && return this->failRetryTimes_ == nullptr && return this->name_ == nullptr
+        && return this->startAlertEnable_ == nullptr && return this->tags_ == nullptr && return this->taskParams_ == nullptr && return this->taskType_ == nullptr && return this->timeout_ == nullptr; };
     // alertEmailAddress Field Functions 
     bool hasAlertEmailAddress() const { return this->alertEmailAddress_ != nullptr;};
     void deleteAlertEmailAddress() { this->alertEmailAddress_ = nullptr;};

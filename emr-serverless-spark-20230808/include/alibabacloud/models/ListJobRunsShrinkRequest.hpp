@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applicationConfigs_ != nullptr
-        && this->creator_ != nullptr && this->endTimeShrink_ != nullptr && this->isWorkflow_ != nullptr && this->jobRunDeploymentId_ != nullptr && this->jobRunId_ != nullptr
-        && this->maxResults_ != nullptr && this->minDuration_ != nullptr && this->name_ != nullptr && this->nextToken_ != nullptr && this->regionId_ != nullptr
-        && this->resourceQueueId_ != nullptr && this->runtimeConfigs_ != nullptr && this->startTimeShrink_ != nullptr && this->statesShrink_ != nullptr && this->tagsShrink_ != nullptr; };
+    virtual bool empty() const override { return this->applicationConfigs_ == nullptr
+        && return this->creator_ == nullptr && return this->endTimeShrink_ == nullptr && return this->isWorkflow_ == nullptr && return this->jobRunDeploymentId_ == nullptr && return this->jobRunId_ == nullptr
+        && return this->maxResults_ == nullptr && return this->minDuration_ == nullptr && return this->name_ == nullptr && return this->nextToken_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceQueueId_ == nullptr && return this->runtimeConfigs_ == nullptr && return this->startTimeShrink_ == nullptr && return this->statesShrink_ == nullptr && return this->tagsShrink_ == nullptr; };
     // applicationConfigs Field Functions 
     bool hasApplicationConfigs() const { return this->applicationConfigs_ != nullptr;};
     void deleteApplicationConfigs() { this->applicationConfigs_ = nullptr;};

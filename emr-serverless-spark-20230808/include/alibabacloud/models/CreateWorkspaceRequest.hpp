@@ -64,11 +64,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRenew_ != nullptr
-        && this->autoRenewPeriod_ != nullptr && this->autoRenewPeriodUnit_ != nullptr && this->autoStartSessionCluster_ != nullptr && this->clientToken_ != nullptr && this->dlfCatalogId_ != nullptr
-        && this->dlfType_ != nullptr && this->duration_ != nullptr && this->ossBucket_ != nullptr && this->paymentDurationUnit_ != nullptr && this->paymentType_ != nullptr
-        && this->ramRoleName_ != nullptr && this->releaseType_ != nullptr && this->resourceSpec_ != nullptr && this->tag_ != nullptr && this->workspaceName_ != nullptr
-        && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->autoRenew_ == nullptr
+        && return this->autoRenewPeriod_ == nullptr && return this->autoRenewPeriodUnit_ == nullptr && return this->autoStartSessionCluster_ == nullptr && return this->clientToken_ == nullptr && return this->dlfCatalogId_ == nullptr
+        && return this->dlfType_ == nullptr && return this->duration_ == nullptr && return this->ossBucket_ == nullptr && return this->paymentDurationUnit_ == nullptr && return this->paymentType_ == nullptr
+        && return this->ramRoleName_ == nullptr && return this->releaseType_ == nullptr && return this->resourceSpec_ == nullptr && return this->tag_ == nullptr && return this->workspaceName_ == nullptr
+        && return this->regionId_ == nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};

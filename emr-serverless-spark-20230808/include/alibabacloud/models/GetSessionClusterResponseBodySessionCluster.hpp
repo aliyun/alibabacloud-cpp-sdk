@@ -82,12 +82,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applicationConfigs_ != nullptr
-        && this->autoStartConfiguration_ != nullptr && this->autoStopConfiguration_ != nullptr && this->connectionToken_ != nullptr && this->displayReleaseVersion_ != nullptr && this->domain_ != nullptr
-        && this->domainInner_ != nullptr && this->draftId_ != nullptr && this->envId_ != nullptr && this->extra_ != nullptr && this->fusion_ != nullptr
-        && this->gmtCreate_ != nullptr && this->kind_ != nullptr && this->name_ != nullptr && this->publicEndpointEnabled_ != nullptr && this->queueName_ != nullptr
-        && this->releaseVersion_ != nullptr && this->sessionClusterId_ != nullptr && this->startTime_ != nullptr && this->state_ != nullptr && this->stateChangeReason_ != nullptr
-        && this->userId_ != nullptr && this->userName_ != nullptr && this->webUI_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->applicationConfigs_ == nullptr
+        && return this->autoStartConfiguration_ == nullptr && return this->autoStopConfiguration_ == nullptr && return this->connectionToken_ == nullptr && return this->displayReleaseVersion_ == nullptr && return this->domain_ == nullptr
+        && return this->domainInner_ == nullptr && return this->draftId_ == nullptr && return this->envId_ == nullptr && return this->extra_ == nullptr && return this->fusion_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->kind_ == nullptr && return this->name_ == nullptr && return this->publicEndpointEnabled_ == nullptr && return this->queueName_ == nullptr
+        && return this->releaseVersion_ == nullptr && return this->sessionClusterId_ == nullptr && return this->startTime_ == nullptr && return this->state_ == nullptr && return this->stateChangeReason_ == nullptr
+        && return this->userId_ == nullptr && return this->userName_ == nullptr && return this->webUI_ == nullptr && return this->workspaceId_ == nullptr; };
     // applicationConfigs Field Functions 
     bool hasApplicationConfigs() const { return this->applicationConfigs_ != nullptr;};
     void deleteApplicationConfigs() { this->applicationConfigs_ = nullptr;};
