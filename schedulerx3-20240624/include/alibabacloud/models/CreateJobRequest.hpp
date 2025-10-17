@@ -78,12 +78,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appName_ != nullptr
-        && this->attemptInterval_ != nullptr && this->calendar_ != nullptr && this->childJobId_ != nullptr && this->clusterId_ != nullptr && this->description_ != nullptr
-        && this->executorBlockStrategy_ != nullptr && this->jobHandler_ != nullptr && this->jobType_ != nullptr && this->maxAttempt_ != nullptr && this->maxConcurrency_ != nullptr
-        && this->name_ != nullptr && this->noticeConfig_ != nullptr && this->noticeContacts_ != nullptr && this->parameters_ != nullptr && this->priority_ != nullptr
-        && this->routeStrategy_ != nullptr && this->script_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->timeExpression_ != nullptr
-        && this->timeType_ != nullptr && this->timezone_ != nullptr && this->weight_ != nullptr; };
+    virtual bool empty() const override { return this->appName_ == nullptr
+        && return this->attemptInterval_ == nullptr && return this->calendar_ == nullptr && return this->childJobId_ == nullptr && return this->clusterId_ == nullptr && return this->description_ == nullptr
+        && return this->executorBlockStrategy_ == nullptr && return this->jobHandler_ == nullptr && return this->jobType_ == nullptr && return this->maxAttempt_ == nullptr && return this->maxConcurrency_ == nullptr
+        && return this->name_ == nullptr && return this->noticeConfig_ == nullptr && return this->noticeContacts_ == nullptr && return this->parameters_ == nullptr && return this->priority_ == nullptr
+        && return this->routeStrategy_ == nullptr && return this->script_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->timeExpression_ == nullptr
+        && return this->timeType_ == nullptr && return this->timezone_ == nullptr && return this->weight_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};

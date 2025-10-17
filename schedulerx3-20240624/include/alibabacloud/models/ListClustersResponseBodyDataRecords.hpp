@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chargeType_ != nullptr
-        && this->clusterId_ != nullptr && this->clusterName_ != nullptr && this->clusterSpec_ != nullptr && this->createTime_ != nullptr && this->endTime_ != nullptr
-        && this->engineType_ != nullptr && this->engineVersion_ != nullptr && this->internetDomain_ != nullptr && this->intranetDomain_ != nullptr && this->productType_ != nullptr
-        && this->spInstanceId_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr && this->vSwitches_ != nullptr && this->versionLifecycle_ != nullptr
-        && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->chargeType_ == nullptr
+        && return this->clusterId_ == nullptr && return this->clusterName_ == nullptr && return this->clusterSpec_ == nullptr && return this->createTime_ == nullptr && return this->endTime_ == nullptr
+        && return this->engineType_ == nullptr && return this->engineVersion_ == nullptr && return this->internetDomain_ == nullptr && return this->intranetDomain_ == nullptr && return this->productType_ == nullptr
+        && return this->spInstanceId_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr && return this->vSwitches_ == nullptr && return this->versionLifecycle_ == nullptr
+        && return this->vpcId_ == nullptr; };
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};

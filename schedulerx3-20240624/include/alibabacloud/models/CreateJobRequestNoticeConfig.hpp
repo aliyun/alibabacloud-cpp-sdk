@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->failEnable_ != nullptr
-        && this->failLimitTimes_ != nullptr && this->missWorkerEnable_ != nullptr && this->sendChannel_ != nullptr && this->successNotice_ != nullptr && this->timeout_ != nullptr
-        && this->timeoutEnable_ != nullptr && this->timeoutKillEnable_ != nullptr; };
+    virtual bool empty() const override { return this->failEnable_ == nullptr
+        && return this->failLimitTimes_ == nullptr && return this->missWorkerEnable_ == nullptr && return this->sendChannel_ == nullptr && return this->successNotice_ == nullptr && return this->timeout_ == nullptr
+        && return this->timeoutEnable_ == nullptr && return this->timeoutKillEnable_ == nullptr; };
     // failEnable Field Functions 
     bool hasFailEnable() const { return this->failEnable_ != nullptr;};
     void deleteFailEnable() { this->failEnable_ = nullptr;};

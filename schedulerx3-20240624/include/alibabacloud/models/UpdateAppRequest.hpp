@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessToken_ != nullptr
-        && this->appName_ != nullptr && this->clusterId_ != nullptr && this->enableLog_ != nullptr && this->labelRouteStrategy_ != nullptr && this->maxConcurrency_ != nullptr
-        && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->accessToken_ == nullptr
+        && return this->appName_ == nullptr && return this->clusterId_ == nullptr && return this->enableLog_ == nullptr && return this->labelRouteStrategy_ == nullptr && return this->maxConcurrency_ == nullptr
+        && return this->title_ == nullptr; };
     // accessToken Field Functions 
     bool hasAccessToken() const { return this->accessToken_ != nullptr;};
     void deleteAccessToken() { this->accessToken_ = nullptr;};

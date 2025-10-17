@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appName_ != nullptr
-        && this->attempt_ != nullptr && this->dataTime_ != nullptr && this->duration_ != nullptr && this->endTime_ != nullptr && this->executor_ != nullptr
-        && this->jobExecutionId_ != nullptr && this->jobId_ != nullptr && this->jobName_ != nullptr && this->jobType_ != nullptr && this->parameters_ != nullptr
-        && this->result_ != nullptr && this->routeStrategy_ != nullptr && this->scheduleTime_ != nullptr && this->serverIp_ != nullptr && this->startTime_ != nullptr
-        && this->status_ != nullptr && this->timeType_ != nullptr && this->triggerType_ != nullptr; };
+    virtual bool empty() const override { return this->appName_ == nullptr
+        && return this->attempt_ == nullptr && return this->dataTime_ == nullptr && return this->duration_ == nullptr && return this->endTime_ == nullptr && return this->executor_ == nullptr
+        && return this->jobExecutionId_ == nullptr && return this->jobId_ == nullptr && return this->jobName_ == nullptr && return this->jobType_ == nullptr && return this->parameters_ == nullptr
+        && return this->result_ == nullptr && return this->routeStrategy_ == nullptr && return this->scheduleTime_ == nullptr && return this->serverIp_ == nullptr && return this->startTime_ == nullptr
+        && return this->status_ == nullptr && return this->timeType_ == nullptr && return this->triggerType_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};

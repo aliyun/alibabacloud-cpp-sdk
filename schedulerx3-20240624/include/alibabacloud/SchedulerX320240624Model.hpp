@@ -137,14 +137,14 @@
 #include <alibabacloud/models/UpdateJobScriptResponse.hpp>
 #include <alibabacloud/models/CreateAppResponseBodyData.hpp>
 #include <alibabacloud/models/CreateClusterRequestTag.hpp>
-#include <alibabacloud/models/CreateClusterRequestVswitches.hpp>
+#include <alibabacloud/models/CreateClusterRequestVSwitches.hpp>
 #include <alibabacloud/models/CreateClusterShrinkRequestTag.hpp>
 #include <alibabacloud/models/CreateClusterResponseBodyData.hpp>
 #include <alibabacloud/models/CreateJobRequestNoticeConfig.hpp>
 #include <alibabacloud/models/CreateJobRequestNoticeContacts.hpp>
 #include <alibabacloud/models/CreateJobResponseBodyData.hpp>
 #include <alibabacloud/models/GetAppResponseBodyData.hpp>
-#include <alibabacloud/models/GetClusterResponseBodyDataVswitches.hpp>
+#include <alibabacloud/models/GetClusterResponseBodyDataVSwitches.hpp>
 #include <alibabacloud/models/GetClusterResponseBodyData.hpp>
 #include <alibabacloud/models/GetDesigateInfoResponseBodyData.hpp>
 #include <alibabacloud/models/GetJobExecutionResponseBodyData.hpp>
@@ -164,7 +164,7 @@
 #include <alibabacloud/models/ListAppsResponseBodyDataRecords.hpp>
 #include <alibabacloud/models/ListAppsResponseBodyData.hpp>
 #include <alibabacloud/models/ListClustersRequestTag.hpp>
-#include <alibabacloud/models/ListClustersResponseBodyDataRecordsVswitches.hpp>
+#include <alibabacloud/models/ListClustersResponseBodyDataRecordsVSwitches.hpp>
 #include <alibabacloud/models/ListClustersResponseBodyDataRecords.hpp>
 #include <alibabacloud/models/ListClustersResponseBodyData.hpp>
 #include <alibabacloud/models/ListExecutorsResponseBodyData.hpp>

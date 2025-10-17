@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessToken_ != nullptr
-        && this->appName_ != nullptr && this->appType_ != nullptr && this->creator_ != nullptr && this->enableLog_ != nullptr && this->executorNum_ != nullptr
-        && this->id_ != nullptr && this->jobNum_ != nullptr && this->labelRouteStrategy_ != nullptr && this->leader_ != nullptr && this->maxConcurrency_ != nullptr
-        && this->maxJobs_ != nullptr && this->title_ != nullptr && this->updater_ != nullptr; };
+    virtual bool empty() const override { return this->accessToken_ == nullptr
+        && return this->appName_ == nullptr && return this->appType_ == nullptr && return this->creator_ == nullptr && return this->enableLog_ == nullptr && return this->executorNum_ == nullptr
+        && return this->id_ == nullptr && return this->jobNum_ == nullptr && return this->labelRouteStrategy_ == nullptr && return this->leader_ == nullptr && return this->maxConcurrency_ == nullptr
+        && return this->maxJobs_ == nullptr && return this->title_ == nullptr && return this->updater_ == nullptr; };
     // accessToken Field Functions 
     bool hasAccessToken() const { return this->accessToken_ != nullptr;};
     void deleteAccessToken() { this->accessToken_ = nullptr;};

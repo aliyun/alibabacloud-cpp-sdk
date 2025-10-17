@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alarmChannel_ != nullptr
-        && this->alarmContacts_ != nullptr && this->alarmMessage_ != nullptr && this->alarmStatus_ != nullptr && this->alarmType_ != nullptr && this->appName_ != nullptr
-        && this->jobName_ != nullptr && this->time_ != nullptr; };
+    virtual bool empty() const override { return this->alarmChannel_ == nullptr
+        && return this->alarmContacts_ == nullptr && return this->alarmMessage_ == nullptr && return this->alarmStatus_ == nullptr && return this->alarmType_ == nullptr && return this->appName_ == nullptr
+        && return this->jobName_ == nullptr && return this->time_ == nullptr; };
     // alarmChannel Field Functions 
     bool hasAlarmChannel() const { return this->alarmChannel_ != nullptr;};
     void deleteAlarmChannel() { this->alarmChannel_ = nullptr;};

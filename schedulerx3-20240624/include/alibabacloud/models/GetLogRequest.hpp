@@ -23,7 +23,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LogId, logId_);
       DARABONBA_PTR_TO_JSON(Offset, offset_);
       DARABONBA_PTR_TO_JSON(Reverse, reverse_);
+      DARABONBA_PTR_TO_JSON(ScheduleTime, scheduleTime_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+      DARABONBA_PTR_TO_JSON(WorkerAddr, workerAddr_);
     };
     friend void from_json(const Darabonba::Json& j, GetLogRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
@@ -36,7 +38,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LogId, logId_);
       DARABONBA_PTR_FROM_JSON(Offset, offset_);
       DARABONBA_PTR_FROM_JSON(Reverse, reverse_);
+      DARABONBA_PTR_FROM_JSON(ScheduleTime, scheduleTime_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+      DARABONBA_PTR_FROM_JSON(WorkerAddr, workerAddr_);
     };
     GetLogRequest() = default ;
     GetLogRequest(const GetLogRequest &) = default ;
@@ -49,9 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appName_ != nullptr
-        && this->clusterId_ != nullptr && this->endTime_ != nullptr && this->jobExecutionId_ != nullptr && this->keyword_ != nullptr && this->level_ != nullptr
-        && this->lineNum_ != nullptr && this->logId_ != nullptr && this->offset_ != nullptr && this->reverse_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->appName_ == nullptr
+        && return this->clusterId_ == nullptr && return this->endTime_ == nullptr && return this->jobExecutionId_ == nullptr && return this->keyword_ == nullptr && return this->level_ == nullptr
+        && return this->lineNum_ == nullptr && return this->logId_ == nullptr && return this->offset_ == nullptr && return this->reverse_ == nullptr && return this->scheduleTime_ == nullptr
+        && return this->startTime_ == nullptr && return this->workerAddr_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -122,11 +127,25 @@ namespace Models
     inline GetLogRequest& setReverse(bool reverse) { DARABONBA_PTR_SET_VALUE(reverse_, reverse) };
 
 
+    // scheduleTime Field Functions 
+    bool hasScheduleTime() const { return this->scheduleTime_ != nullptr;};
+    void deleteScheduleTime() { this->scheduleTime_ = nullptr;};
+    inline int64_t scheduleTime() const { DARABONBA_PTR_GET_DEFAULT(scheduleTime_, 0L) };
+    inline GetLogRequest& setScheduleTime(int64_t scheduleTime) { DARABONBA_PTR_SET_VALUE(scheduleTime_, scheduleTime) };
+
+
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
     inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline GetLogRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+    // workerAddr Field Functions 
+    bool hasWorkerAddr() const { return this->workerAddr_ != nullptr;};
+    void deleteWorkerAddr() { this->workerAddr_ = nullptr;};
+    inline string workerAddr() const { DARABONBA_PTR_GET_DEFAULT(workerAddr_, "") };
+    inline GetLogRequest& setWorkerAddr(string workerAddr) { DARABONBA_PTR_SET_VALUE(workerAddr_, workerAddr) };
 
 
   protected:
@@ -142,7 +161,9 @@ namespace Models
     std::shared_ptr<int64_t> logId_ = nullptr;
     std::shared_ptr<int32_t> offset_ = nullptr;
     std::shared_ptr<bool> reverse_ = nullptr;
+    std::shared_ptr<int64_t> scheduleTime_ = nullptr;
     std::shared_ptr<int64_t> startTime_ = nullptr;
+    std::shared_ptr<string> workerAddr_ = nullptr;
   };
 
   } // namespace Models
