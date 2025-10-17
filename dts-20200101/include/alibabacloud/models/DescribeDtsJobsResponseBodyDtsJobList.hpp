@@ -155,18 +155,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appName_ != nullptr
-        && this->beginTimestamp_ != nullptr && this->checkpoint_ != nullptr && this->consumptionCheckpoint_ != nullptr && this->consumptionClient_ != nullptr && this->cpuUsage_ != nullptr
-        && this->createTime_ != nullptr && this->dataCloudStatus_ != nullptr && this->dataEtlStatus_ != nullptr && this->dataInitializationStatus_ != nullptr && this->dataSynchronizationStatus_ != nullptr
-        && this->dbObject_ != nullptr && this->dedicatedClusterId_ != nullptr && this->delay_ != nullptr && this->destinationEndpoint_ != nullptr && this->dtsBisLabel_ != nullptr
-        && this->dtsInstanceID_ != nullptr && this->dtsJobClass_ != nullptr && this->dtsJobDirection_ != nullptr && this->dtsJobId_ != nullptr && this->dtsJobName_ != nullptr
-        && this->duRealUsage_ != nullptr && this->duUsage_ != nullptr && this->endTimestamp_ != nullptr && this->errorDetails_ != nullptr && this->errorMessage_ != nullptr
-        && this->etlSafeCheckpoint_ != nullptr && this->expireTime_ != nullptr && this->fullDataCheckStatus_ != nullptr && this->incDataCheckStatus_ != nullptr && this->jobType_ != nullptr
-        && this->maxDu_ != nullptr && this->memUsage_ != nullptr && this->migrationErrCode_ != nullptr && this->migrationErrHelpDocId_ != nullptr && this->migrationErrHelpDocKey_ != nullptr
-        && this->migrationErrMsg_ != nullptr && this->migrationErrType_ != nullptr && this->migrationErrWorkaround_ != nullptr && this->migrationMode_ != nullptr && this->minDu_ != nullptr
-        && this->originType_ != nullptr && this->payType_ != nullptr && this->performance_ != nullptr && this->precheckStatus_ != nullptr && this->reserved_ != nullptr
-        && this->resourceGroupDisplayName_ != nullptr && this->resourceGroupId_ != nullptr && this->retryState_ != nullptr && this->reverseJob_ != nullptr && this->sourceEndpoint_ != nullptr
-        && this->status_ != nullptr && this->structureDataCheckStatus_ != nullptr && this->structureInitializationStatus_ != nullptr && this->tagList_ != nullptr; };
+    virtual bool empty() const override { return this->appName_ == nullptr
+        && return this->beginTimestamp_ == nullptr && return this->checkpoint_ == nullptr && return this->consumptionCheckpoint_ == nullptr && return this->consumptionClient_ == nullptr && return this->cpuUsage_ == nullptr
+        && return this->createTime_ == nullptr && return this->dataCloudStatus_ == nullptr && return this->dataEtlStatus_ == nullptr && return this->dataInitializationStatus_ == nullptr && return this->dataSynchronizationStatus_ == nullptr
+        && return this->dbObject_ == nullptr && return this->dedicatedClusterId_ == nullptr && return this->delay_ == nullptr && return this->destinationEndpoint_ == nullptr && return this->dtsBisLabel_ == nullptr
+        && return this->dtsInstanceID_ == nullptr && return this->dtsJobClass_ == nullptr && return this->dtsJobDirection_ == nullptr && return this->dtsJobId_ == nullptr && return this->dtsJobName_ == nullptr
+        && return this->duRealUsage_ == nullptr && return this->duUsage_ == nullptr && return this->endTimestamp_ == nullptr && return this->errorDetails_ == nullptr && return this->errorMessage_ == nullptr
+        && return this->etlSafeCheckpoint_ == nullptr && return this->expireTime_ == nullptr && return this->fullDataCheckStatus_ == nullptr && return this->incDataCheckStatus_ == nullptr && return this->jobType_ == nullptr
+        && return this->maxDu_ == nullptr && return this->memUsage_ == nullptr && return this->migrationErrCode_ == nullptr && return this->migrationErrHelpDocId_ == nullptr && return this->migrationErrHelpDocKey_ == nullptr
+        && return this->migrationErrMsg_ == nullptr && return this->migrationErrType_ == nullptr && return this->migrationErrWorkaround_ == nullptr && return this->migrationMode_ == nullptr && return this->minDu_ == nullptr
+        && return this->originType_ == nullptr && return this->payType_ == nullptr && return this->performance_ == nullptr && return this->precheckStatus_ == nullptr && return this->reserved_ == nullptr
+        && return this->resourceGroupDisplayName_ == nullptr && return this->resourceGroupId_ == nullptr && return this->retryState_ == nullptr && return this->reverseJob_ == nullptr && return this->sourceEndpoint_ == nullptr
+        && return this->status_ == nullptr && return this->structureDataCheckStatus_ == nullptr && return this->structureInitializationStatus_ == nullptr && return this->tagList_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};

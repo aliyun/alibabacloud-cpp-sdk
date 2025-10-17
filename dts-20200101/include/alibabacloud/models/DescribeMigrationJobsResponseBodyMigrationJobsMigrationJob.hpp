@@ -68,10 +68,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataInitialization_ != nullptr
-        && this->dataSynchronization_ != nullptr && this->destinationEndpoint_ != nullptr && this->instanceCreateTime_ != nullptr && this->jobCreateTime_ != nullptr && this->migrationJobClass_ != nullptr
-        && this->migrationJobID_ != nullptr && this->migrationJobName_ != nullptr && this->migrationJobStatus_ != nullptr && this->migrationMode_ != nullptr && this->migrationObject_ != nullptr
-        && this->payType_ != nullptr && this->precheck_ != nullptr && this->sourceEndpoint_ != nullptr && this->structureInitialization_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->dataInitialization_ == nullptr
+        && return this->dataSynchronization_ == nullptr && return this->destinationEndpoint_ == nullptr && return this->instanceCreateTime_ == nullptr && return this->jobCreateTime_ == nullptr && return this->migrationJobClass_ == nullptr
+        && return this->migrationJobID_ == nullptr && return this->migrationJobName_ == nullptr && return this->migrationJobStatus_ == nullptr && return this->migrationMode_ == nullptr && return this->migrationObject_ == nullptr
+        && return this->payType_ == nullptr && return this->precheck_ == nullptr && return this->sourceEndpoint_ == nullptr && return this->structureInitialization_ == nullptr && return this->tags_ == nullptr; };
     // dataInitialization Field Functions 
     bool hasDataInitialization() const { return this->dataInitialization_ != nullptr;};
     void deleteDataInitialization() { this->dataInitialization_ = nullptr;};

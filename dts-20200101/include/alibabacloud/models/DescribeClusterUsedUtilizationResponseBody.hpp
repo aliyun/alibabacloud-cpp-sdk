@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->cpuTotal_ != nullptr && this->dedicatedClusterId_ != nullptr && this->diskTotal_ != nullptr && this->diskUsed_ != nullptr && this->duTotal_ != nullptr
-        && this->duUsed_ != nullptr && this->dynamicMessage_ != nullptr && this->errCode_ != nullptr && this->errMessage_ != nullptr && this->httpStatusCode_ != nullptr
-        && this->memoryTotal_ != nullptr && this->memoryUsed_ != nullptr && this->memoryUsedPercentage_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr
-        && this->taskRunning_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->cpuTotal_ == nullptr && return this->dedicatedClusterId_ == nullptr && return this->diskTotal_ == nullptr && return this->diskUsed_ == nullptr && return this->duTotal_ == nullptr
+        && return this->duUsed_ == nullptr && return this->dynamicMessage_ == nullptr && return this->errCode_ == nullptr && return this->errMessage_ == nullptr && return this->httpStatusCode_ == nullptr
+        && return this->memoryTotal_ == nullptr && return this->memoryUsed_ == nullptr && return this->memoryUsedPercentage_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr
+        && return this->taskRunning_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};

@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliyunUid_ != nullptr
-        && this->database_ != nullptr && this->dryRun_ != nullptr && this->dtsInstanceId_ != nullptr && this->dtsJobId_ != nullptr && this->endpoint_ != nullptr
-        && this->endpointInstanceId_ != nullptr && this->endpointInstanceType_ != nullptr && this->endpointIp_ != nullptr && this->endpointPort_ != nullptr && this->endpointRegionId_ != nullptr
-        && this->modifyAccount_ != nullptr && this->password_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->roleName_ != nullptr
-        && this->shardPassword_ != nullptr && this->shardUsername_ != nullptr && this->synchronizationDirection_ != nullptr && this->username_ != nullptr && this->zeroEtlJob_ != nullptr; };
+    virtual bool empty() const override { return this->aliyunUid_ == nullptr
+        && return this->database_ == nullptr && return this->dryRun_ == nullptr && return this->dtsInstanceId_ == nullptr && return this->dtsJobId_ == nullptr && return this->endpoint_ == nullptr
+        && return this->endpointInstanceId_ == nullptr && return this->endpointInstanceType_ == nullptr && return this->endpointIp_ == nullptr && return this->endpointPort_ == nullptr && return this->endpointRegionId_ == nullptr
+        && return this->modifyAccount_ == nullptr && return this->password_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->roleName_ == nullptr
+        && return this->shardPassword_ == nullptr && return this->shardUsername_ == nullptr && return this->synchronizationDirection_ == nullptr && return this->username_ == nullptr && return this->zeroEtlJob_ == nullptr; };
     // aliyunUid Field Functions 
     bool hasAliyunUid() const { return this->aliyunUid_ != nullptr;};
     void deleteAliyunUid() { this->aliyunUid_ = nullptr;};

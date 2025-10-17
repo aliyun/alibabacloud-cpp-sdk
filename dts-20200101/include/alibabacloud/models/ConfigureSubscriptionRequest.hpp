@@ -105,15 +105,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkpoint_ != nullptr
-        && this->dbList_ != nullptr && this->dedicatedClusterId_ != nullptr && this->delayNotice_ != nullptr && this->delayPhone_ != nullptr && this->delayRuleTime_ != nullptr
-        && this->dtsBisLabel_ != nullptr && this->dtsInstanceId_ != nullptr && this->dtsJobId_ != nullptr && this->dtsJobName_ != nullptr && this->errorNotice_ != nullptr
-        && this->errorPhone_ != nullptr && this->maxDu_ != nullptr && this->minDu_ != nullptr && this->regionId_ != nullptr && this->reserve_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->sourceEndpointDatabaseName_ != nullptr && this->sourceEndpointEngineName_ != nullptr && this->sourceEndpointIP_ != nullptr && this->sourceEndpointInstanceID_ != nullptr
-        && this->sourceEndpointInstanceType_ != nullptr && this->sourceEndpointOracleSID_ != nullptr && this->sourceEndpointOwnerID_ != nullptr && this->sourceEndpointPassword_ != nullptr && this->sourceEndpointPort_ != nullptr
-        && this->sourceEndpointRegion_ != nullptr && this->sourceEndpointRole_ != nullptr && this->sourceEndpointUserName_ != nullptr && this->srcCaCertificateOssUrl_ != nullptr && this->srcCaCertificatePassword_ != nullptr
-        && this->srcClientCertOssUrl_ != nullptr && this->srcClientKeyOssUrl_ != nullptr && this->srcClientPassword_ != nullptr && this->subscriptionDataTypeDDL_ != nullptr && this->subscriptionDataTypeDML_ != nullptr
-        && this->subscriptionInstanceNetworkType_ != nullptr && this->subscriptionInstanceVPCId_ != nullptr && this->subscriptionInstanceVSwitchId_ != nullptr; };
+    virtual bool empty() const override { return this->checkpoint_ == nullptr
+        && return this->dbList_ == nullptr && return this->dedicatedClusterId_ == nullptr && return this->delayNotice_ == nullptr && return this->delayPhone_ == nullptr && return this->delayRuleTime_ == nullptr
+        && return this->dtsBisLabel_ == nullptr && return this->dtsInstanceId_ == nullptr && return this->dtsJobId_ == nullptr && return this->dtsJobName_ == nullptr && return this->errorNotice_ == nullptr
+        && return this->errorPhone_ == nullptr && return this->maxDu_ == nullptr && return this->minDu_ == nullptr && return this->regionId_ == nullptr && return this->reserve_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->sourceEndpointDatabaseName_ == nullptr && return this->sourceEndpointEngineName_ == nullptr && return this->sourceEndpointIP_ == nullptr && return this->sourceEndpointInstanceID_ == nullptr
+        && return this->sourceEndpointInstanceType_ == nullptr && return this->sourceEndpointOracleSID_ == nullptr && return this->sourceEndpointOwnerID_ == nullptr && return this->sourceEndpointPassword_ == nullptr && return this->sourceEndpointPort_ == nullptr
+        && return this->sourceEndpointRegion_ == nullptr && return this->sourceEndpointRole_ == nullptr && return this->sourceEndpointUserName_ == nullptr && return this->srcCaCertificateOssUrl_ == nullptr && return this->srcCaCertificatePassword_ == nullptr
+        && return this->srcClientCertOssUrl_ == nullptr && return this->srcClientKeyOssUrl_ == nullptr && return this->srcClientPassword_ == nullptr && return this->subscriptionDataTypeDDL_ == nullptr && return this->subscriptionDataTypeDML_ == nullptr
+        && return this->subscriptionInstanceNetworkType_ == nullptr && return this->subscriptionInstanceVPCId_ == nullptr && return this->subscriptionInstanceVSwitchId_ == nullptr; };
     // checkpoint Field Functions 
     bool hasCheckpoint() const { return this->checkpoint_ != nullptr;};
     void deleteCheckpoint() { this->checkpoint_ = nullptr;};

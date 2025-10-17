@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoPay_ != nullptr
-        && this->buyCount_ != nullptr && this->chargeType_ != nullptr && this->dtsJobId_ != nullptr && this->instanceClass_ != nullptr && this->maxDu_ != nullptr
-        && this->minDu_ != nullptr && this->period_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr; };
+    virtual bool empty() const override { return this->autoPay_ == nullptr
+        && return this->buyCount_ == nullptr && return this->chargeType_ == nullptr && return this->dtsJobId_ == nullptr && return this->instanceClass_ == nullptr && return this->maxDu_ == nullptr
+        && return this->minDu_ == nullptr && return this->period_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};

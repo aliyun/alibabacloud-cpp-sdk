@@ -1396,6 +1396,23 @@ namespace Dts20200101
       Models::ListDedicatedClusterResponse listDedicatedCluster(const Models::ListDedicatedClusterRequest &request);
 
       /**
+       * @summary 查询JobStep列表。
+       *
+       * @param request ListJobStepRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListJobStepResponse
+       */
+      Models::ListJobStepResponse listJobStepWithOptions(const Models::ListJobStepRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询JobStep列表。
+       *
+       * @param request ListJobStepRequest
+       * @return ListJobStepResponse
+       */
+      Models::ListJobStepResponse listJobStep(const Models::ListJobStepRequest &request);
+
+      /**
        * @summary Queries the tags that are bound to specific data migration, data synchronization, or change tracking instances, or queries the instances to which specific tags are bound.
        *
        * @description ****
@@ -1660,6 +1677,23 @@ namespace Dts20200101
        * @return ModifyGadInstanceNameResponse
        */
       Models::ModifyGadInstanceNameResponse modifyGadInstanceName(const Models::ModifyGadInstanceNameRequest &request);
+
+      /**
+       * @summary 修改增量写入的位点。
+       *
+       * @param request ModifyJobStepCheckpointRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyJobStepCheckpointResponse
+       */
+      Models::ModifyJobStepCheckpointResponse modifyJobStepCheckpointWithOptions(const Models::ModifyJobStepCheckpointRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改增量写入的位点。
+       *
+       * @param request ModifyJobStepCheckpointRequest
+       * @return ModifyJobStepCheckpointResponse
+       */
+      Models::ModifyJobStepCheckpointResponse modifyJobStepCheckpoint(const Models::ModifyJobStepCheckpointRequest &request);
 
       /**
        * @summary Modifies the information about a change tracking task.

@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpuAlarmThreshold_ != nullptr
-        && this->dedicatedClusterId_ != nullptr && this->diskAlarmThreshold_ != nullptr && this->duAlarmThreshold_ != nullptr && this->errCode_ != nullptr && this->errMessage_ != nullptr
-        && this->httpStatusCode_ != nullptr && this->memAlarmThreshold_ != nullptr && this->noticeSwitch_ != nullptr && this->phones_ != nullptr && this->requestId_ != nullptr
-        && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->cpuAlarmThreshold_ == nullptr
+        && return this->dedicatedClusterId_ == nullptr && return this->diskAlarmThreshold_ == nullptr && return this->duAlarmThreshold_ == nullptr && return this->errCode_ == nullptr && return this->errMessage_ == nullptr
+        && return this->httpStatusCode_ == nullptr && return this->memAlarmThreshold_ == nullptr && return this->noticeSwitch_ == nullptr && return this->phones_ == nullptr && return this->requestId_ == nullptr
+        && return this->success_ == nullptr; };
     // cpuAlarmThreshold Field Functions 
     bool hasCpuAlarmThreshold() const { return this->cpuAlarmThreshold_ != nullptr;};
     void deleteCpuAlarmThreshold() { this->cpuAlarmThreshold_ = nullptr;};

@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpuAlarmThreshold_ != nullptr
-        && this->dedicatedClusterId_ != nullptr && this->diskAlarmThreshold_ != nullptr && this->duAlarmThreshold_ != nullptr && this->instanceId_ != nullptr && this->memAlarmThreshold_ != nullptr
-        && this->noticeSwitch_ != nullptr && this->ownerId_ != nullptr && this->phones_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr; };
+    virtual bool empty() const override { return this->cpuAlarmThreshold_ == nullptr
+        && return this->dedicatedClusterId_ == nullptr && return this->diskAlarmThreshold_ == nullptr && return this->duAlarmThreshold_ == nullptr && return this->instanceId_ == nullptr && return this->memAlarmThreshold_ == nullptr
+        && return this->noticeSwitch_ == nullptr && return this->ownerId_ == nullptr && return this->phones_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr; };
     // cpuAlarmThreshold Field Functions 
     bool hasCpuAlarmThreshold() const { return this->cpuAlarmThreshold_ != nullptr;};
     void deleteCpuAlarmThreshold() { this->cpuAlarmThreshold_ = nullptr;};

@@ -75,12 +75,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->destinationEndpointArchitecture_ != nullptr
-        && this->destinationEndpointDatabaseName_ != nullptr && this->destinationEndpointEngineName_ != nullptr && this->destinationEndpointIP_ != nullptr && this->destinationEndpointInstanceID_ != nullptr && this->destinationEndpointInstanceType_ != nullptr
-        && this->destinationEndpointOracleSID_ != nullptr && this->destinationEndpointPassword_ != nullptr && this->destinationEndpointPort_ != nullptr && this->destinationEndpointRegion_ != nullptr && this->destinationEndpointUserName_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->sourceEndpointArchitecture_ != nullptr && this->sourceEndpointDatabaseName_ != nullptr && this->sourceEndpointEngineName_ != nullptr
-        && this->sourceEndpointIP_ != nullptr && this->sourceEndpointInstanceID_ != nullptr && this->sourceEndpointInstanceType_ != nullptr && this->sourceEndpointOracleSID_ != nullptr && this->sourceEndpointPassword_ != nullptr
-        && this->sourceEndpointPort_ != nullptr && this->sourceEndpointRegion_ != nullptr && this->sourceEndpointUserName_ != nullptr; };
+    virtual bool empty() const override { return this->destinationEndpointArchitecture_ == nullptr
+        && return this->destinationEndpointDatabaseName_ == nullptr && return this->destinationEndpointEngineName_ == nullptr && return this->destinationEndpointIP_ == nullptr && return this->destinationEndpointInstanceID_ == nullptr && return this->destinationEndpointInstanceType_ == nullptr
+        && return this->destinationEndpointOracleSID_ == nullptr && return this->destinationEndpointPassword_ == nullptr && return this->destinationEndpointPort_ == nullptr && return this->destinationEndpointRegion_ == nullptr && return this->destinationEndpointUserName_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->sourceEndpointArchitecture_ == nullptr && return this->sourceEndpointDatabaseName_ == nullptr && return this->sourceEndpointEngineName_ == nullptr
+        && return this->sourceEndpointIP_ == nullptr && return this->sourceEndpointInstanceID_ == nullptr && return this->sourceEndpointInstanceType_ == nullptr && return this->sourceEndpointOracleSID_ == nullptr && return this->sourceEndpointPassword_ == nullptr
+        && return this->sourceEndpointPort_ == nullptr && return this->sourceEndpointRegion_ == nullptr && return this->sourceEndpointUserName_ == nullptr; };
     // destinationEndpointArchitecture Field Functions 
     bool hasDestinationEndpointArchitecture() const { return this->destinationEndpointArchitecture_ != nullptr;};
     void deleteDestinationEndpointArchitecture() { this->destinationEndpointArchitecture_ = nullptr;};

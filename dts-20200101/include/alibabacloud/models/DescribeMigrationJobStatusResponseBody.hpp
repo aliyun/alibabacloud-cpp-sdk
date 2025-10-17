@@ -70,11 +70,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataInitializationStatus_ != nullptr
-        && this->dataSynchronizationStatus_ != nullptr && this->destinationEndpoint_ != nullptr && this->errCode_ != nullptr && this->errMessage_ != nullptr && this->migrationJobClass_ != nullptr
-        && this->migrationJobId_ != nullptr && this->migrationJobName_ != nullptr && this->migrationJobStatus_ != nullptr && this->migrationMode_ != nullptr && this->migrationObject_ != nullptr
-        && this->payType_ != nullptr && this->precheckStatus_ != nullptr && this->requestId_ != nullptr && this->sourceEndpoint_ != nullptr && this->structureInitializationStatus_ != nullptr
-        && this->success_ != nullptr && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->dataInitializationStatus_ == nullptr
+        && return this->dataSynchronizationStatus_ == nullptr && return this->destinationEndpoint_ == nullptr && return this->errCode_ == nullptr && return this->errMessage_ == nullptr && return this->migrationJobClass_ == nullptr
+        && return this->migrationJobId_ == nullptr && return this->migrationJobName_ == nullptr && return this->migrationJobStatus_ == nullptr && return this->migrationMode_ == nullptr && return this->migrationObject_ == nullptr
+        && return this->payType_ == nullptr && return this->precheckStatus_ == nullptr && return this->requestId_ == nullptr && return this->sourceEndpoint_ == nullptr && return this->structureInitializationStatus_ == nullptr
+        && return this->success_ == nullptr && return this->taskId_ == nullptr; };
     // dataInitializationStatus Field Functions 
     bool hasDataInitializationStatus() const { return this->dataInitializationStatus_ != nullptr;};
     void deleteDataInitializationStatus() { this->dataInitializationStatus_ = nullptr;};

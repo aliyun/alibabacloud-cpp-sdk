@@ -73,12 +73,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoPay_ != nullptr
-        && this->autoStart_ != nullptr && this->computeUnit_ != nullptr && this->databaseCount_ != nullptr && this->destinationEndpointEngineName_ != nullptr && this->destinationRegion_ != nullptr
-        && this->dtsRegion_ != nullptr && this->du_ != nullptr && this->feeType_ != nullptr && this->instanceClass_ != nullptr && this->jobId_ != nullptr
-        && this->maxDu_ != nullptr && this->minDu_ != nullptr && this->payType_ != nullptr && this->period_ != nullptr && this->quantity_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->sourceEndpointEngineName_ != nullptr && this->sourceRegion_ != nullptr && this->syncArchitecture_ != nullptr
-        && this->type_ != nullptr && this->usedTime_ != nullptr; };
+    virtual bool empty() const override { return this->autoPay_ == nullptr
+        && return this->autoStart_ == nullptr && return this->computeUnit_ == nullptr && return this->databaseCount_ == nullptr && return this->destinationEndpointEngineName_ == nullptr && return this->destinationRegion_ == nullptr
+        && return this->dtsRegion_ == nullptr && return this->du_ == nullptr && return this->feeType_ == nullptr && return this->instanceClass_ == nullptr && return this->jobId_ == nullptr
+        && return this->maxDu_ == nullptr && return this->minDu_ == nullptr && return this->payType_ == nullptr && return this->period_ == nullptr && return this->quantity_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->sourceEndpointEngineName_ == nullptr && return this->sourceRegion_ == nullptr && return this->syncArchitecture_ == nullptr
+        && return this->type_ == nullptr && return this->usedTime_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};

@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->delayAlertPhone_ != nullptr
-        && this->delayAlertStatus_ != nullptr && this->delayOverSeconds_ != nullptr && this->errCode_ != nullptr && this->errMessage_ != nullptr && this->errorAlertPhone_ != nullptr
-        && this->errorAlertStatus_ != nullptr && this->requestId_ != nullptr && this->subscriptionInstanceID_ != nullptr && this->subscriptionInstanceName_ != nullptr && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->delayAlertPhone_ == nullptr
+        && return this->delayAlertStatus_ == nullptr && return this->delayOverSeconds_ == nullptr && return this->errCode_ == nullptr && return this->errMessage_ == nullptr && return this->errorAlertPhone_ == nullptr
+        && return this->errorAlertStatus_ == nullptr && return this->requestId_ == nullptr && return this->subscriptionInstanceID_ == nullptr && return this->subscriptionInstanceName_ == nullptr && return this->success_ == nullptr; };
     // delayAlertPhone Field Functions 
     bool hasDelayAlertPhone() const { return this->delayAlertPhone_ != nullptr;};
     void deleteDelayAlertPhone() { this->delayAlertPhone_ = nullptr;};

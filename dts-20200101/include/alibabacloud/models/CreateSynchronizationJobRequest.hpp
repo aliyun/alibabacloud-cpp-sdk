@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->destinationEndpoint_ != nullptr
-        && this->sourceEndpoint_ != nullptr && this->accountId_ != nullptr && this->clientToken_ != nullptr && this->DBInstanceCount_ != nullptr && this->destRegion_ != nullptr
-        && this->ownerId_ != nullptr && this->payType_ != nullptr && this->period_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->sourceRegion_ != nullptr && this->synchronizationJobClass_ != nullptr && this->topology_ != nullptr && this->usedTime_ != nullptr && this->networkType_ != nullptr; };
+    virtual bool empty() const override { return this->destinationEndpoint_ == nullptr
+        && return this->sourceEndpoint_ == nullptr && return this->accountId_ == nullptr && return this->clientToken_ == nullptr && return this->DBInstanceCount_ == nullptr && return this->destRegion_ == nullptr
+        && return this->ownerId_ == nullptr && return this->payType_ == nullptr && return this->period_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->sourceRegion_ == nullptr && return this->synchronizationJobClass_ == nullptr && return this->topology_ == nullptr && return this->usedTime_ == nullptr && return this->networkType_ == nullptr; };
     // destinationEndpoint Field Functions 
     bool hasDestinationEndpoint() const { return this->destinationEndpoint_ != nullptr;};
     void deleteDestinationEndpoint() { this->destinationEndpoint_ = nullptr;};

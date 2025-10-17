@@ -66,11 +66,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->beginTimestamp_ != nullptr
-        && this->consumptionCheckpoint_ != nullptr && this->consumptionClient_ != nullptr && this->endTimestamp_ != nullptr && this->errorMessage_ != nullptr && this->instanceCreateTime_ != nullptr
-        && this->jobCreateTime_ != nullptr && this->payType_ != nullptr && this->sourceEndpoint_ != nullptr && this->status_ != nullptr && this->subscribeTopic_ != nullptr
-        && this->subscriptionDataType_ != nullptr && this->subscriptionHost_ != nullptr && this->subscriptionInstanceID_ != nullptr && this->subscriptionInstanceName_ != nullptr && this->subscriptionObject_ != nullptr
-        && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->beginTimestamp_ == nullptr
+        && return this->consumptionCheckpoint_ == nullptr && return this->consumptionClient_ == nullptr && return this->endTimestamp_ == nullptr && return this->errorMessage_ == nullptr && return this->instanceCreateTime_ == nullptr
+        && return this->jobCreateTime_ == nullptr && return this->payType_ == nullptr && return this->sourceEndpoint_ == nullptr && return this->status_ == nullptr && return this->subscribeTopic_ == nullptr
+        && return this->subscriptionDataType_ == nullptr && return this->subscriptionHost_ == nullptr && return this->subscriptionInstanceID_ == nullptr && return this->subscriptionInstanceName_ == nullptr && return this->subscriptionObject_ == nullptr
+        && return this->tags_ == nullptr; };
     // beginTimestamp Field Functions 
     bool hasBeginTimestamp() const { return this->beginTimestamp_ != nullptr;};
     void deleteBeginTimestamp() { this->beginTimestamp_ = nullptr;};

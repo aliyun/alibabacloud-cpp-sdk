@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkType_ != nullptr
-        && this->dtsJobId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->resourceGroupId_ != nullptr && this->schemaName_ != nullptr
-        && this->status_ != nullptr && this->tableName_ != nullptr; };
+    virtual bool empty() const override { return this->checkType_ == nullptr
+        && return this->dtsJobId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->resourceGroupId_ == nullptr && return this->schemaName_ == nullptr
+        && return this->status_ == nullptr && return this->tableName_ == nullptr; };
     // checkType Field Functions 
     bool hasCheckType() const { return this->checkType_ != nullptr;};
     void deleteCheckType() { this->checkType_ = nullptr;};

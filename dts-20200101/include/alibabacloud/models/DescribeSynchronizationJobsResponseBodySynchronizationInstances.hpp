@@ -83,12 +83,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->dataInitialization_ != nullptr && this->dataInitializationStatus_ != nullptr && this->dataSynchronizationStatus_ != nullptr && this->delay_ != nullptr && this->destinationEndpoint_ != nullptr
-        && this->errorMessage_ != nullptr && this->expireTime_ != nullptr && this->instanceCreateTime_ != nullptr && this->jobCreateTime_ != nullptr && this->payType_ != nullptr
-        && this->performance_ != nullptr && this->precheckStatus_ != nullptr && this->sourceEndpoint_ != nullptr && this->status_ != nullptr && this->structureInitialization_ != nullptr
-        && this->structureInitializationStatus_ != nullptr && this->synchronizationDirection_ != nullptr && this->synchronizationJobClass_ != nullptr && this->synchronizationJobId_ != nullptr && this->synchronizationJobName_ != nullptr
-        && this->synchronizationObjects_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->dataInitialization_ == nullptr && return this->dataInitializationStatus_ == nullptr && return this->dataSynchronizationStatus_ == nullptr && return this->delay_ == nullptr && return this->destinationEndpoint_ == nullptr
+        && return this->errorMessage_ == nullptr && return this->expireTime_ == nullptr && return this->instanceCreateTime_ == nullptr && return this->jobCreateTime_ == nullptr && return this->payType_ == nullptr
+        && return this->performance_ == nullptr && return this->precheckStatus_ == nullptr && return this->sourceEndpoint_ == nullptr && return this->status_ == nullptr && return this->structureInitialization_ == nullptr
+        && return this->structureInitializationStatus_ == nullptr && return this->synchronizationDirection_ == nullptr && return this->synchronizationJobClass_ == nullptr && return this->synchronizationJobId_ == nullptr && return this->synchronizationJobName_ == nullptr
+        && return this->synchronizationObjects_ == nullptr && return this->tags_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

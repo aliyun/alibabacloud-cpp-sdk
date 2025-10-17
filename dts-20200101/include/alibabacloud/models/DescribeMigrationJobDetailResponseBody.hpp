@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataInitializationDetailList_ != nullptr
-        && this->dataSynchronizationDetailList_ != nullptr && this->errCode_ != nullptr && this->errMessage_ != nullptr && this->pageNumber_ != nullptr && this->pageRecordCount_ != nullptr
-        && this->requestId_ != nullptr && this->structureInitializationDetailList_ != nullptr && this->success_ != nullptr && this->totalRecordCount_ != nullptr; };
+    virtual bool empty() const override { return this->dataInitializationDetailList_ == nullptr
+        && return this->dataSynchronizationDetailList_ == nullptr && return this->errCode_ == nullptr && return this->errMessage_ == nullptr && return this->pageNumber_ == nullptr && return this->pageRecordCount_ == nullptr
+        && return this->requestId_ == nullptr && return this->structureInitializationDetailList_ == nullptr && return this->success_ == nullptr && return this->totalRecordCount_ == nullptr; };
     // dataInitializationDetailList Field Functions 
     bool hasDataInitializationDetailList() const { return this->dataInitializationDetailList_ != nullptr;};
     void deleteDataInitializationDetailList() { this->dataInitializationDetailList_ = nullptr;};

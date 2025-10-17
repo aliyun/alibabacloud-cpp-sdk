@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->destinationEndpoint_ != nullptr
-        && this->migrationMode_ != nullptr && this->sourceEndpoint_ != nullptr && this->accountId_ != nullptr && this->checkpoint_ != nullptr && this->migrationJobId_ != nullptr
-        && this->migrationJobName_ != nullptr && this->migrationObject_ != nullptr && this->migrationReserved_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr
-        && this->resourceGroupId_ != nullptr; };
+    virtual bool empty() const override { return this->destinationEndpoint_ == nullptr
+        && return this->migrationMode_ == nullptr && return this->sourceEndpoint_ == nullptr && return this->accountId_ == nullptr && return this->checkpoint_ == nullptr && return this->migrationJobId_ == nullptr
+        && return this->migrationJobName_ == nullptr && return this->migrationObject_ == nullptr && return this->migrationReserved_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceGroupId_ == nullptr; };
     // destinationEndpoint Field Functions 
     bool hasDestinationEndpoint() const { return this->destinationEndpoint_ != nullptr;};
     void deleteDestinationEndpoint() { this->destinationEndpoint_ = nullptr;};

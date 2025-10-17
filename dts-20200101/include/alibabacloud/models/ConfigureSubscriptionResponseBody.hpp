@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dtsInstanceId_ != nullptr
-        && this->dtsJobId_ != nullptr && this->errCode_ != nullptr && this->errMessage_ != nullptr && this->httpStatusCode_ != nullptr && this->requestId_ != nullptr
-        && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->dtsInstanceId_ == nullptr
+        && return this->dtsJobId_ == nullptr && return this->errCode_ == nullptr && return this->errMessage_ == nullptr && return this->httpStatusCode_ == nullptr && return this->requestId_ == nullptr
+        && return this->success_ == nullptr; };
     // dtsInstanceId Field Functions 
     bool hasDtsInstanceId() const { return this->dtsInstanceId_ != nullptr;};
     void deleteDtsInstanceId() { this->dtsInstanceId_ = nullptr;};

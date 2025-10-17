@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dtsEtlJobVersionInfos_ != nullptr
-        && this->dynamicCode_ != nullptr && this->dynamicMessage_ != nullptr && this->errCode_ != nullptr && this->errMessage_ != nullptr && this->httpStatusCode_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageRecordCount_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr && this->totalRecordCount_ != nullptr; };
+    virtual bool empty() const override { return this->dtsEtlJobVersionInfos_ == nullptr
+        && return this->dynamicCode_ == nullptr && return this->dynamicMessage_ == nullptr && return this->errCode_ == nullptr && return this->errMessage_ == nullptr && return this->httpStatusCode_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageRecordCount_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr && return this->totalRecordCount_ == nullptr; };
     // dtsEtlJobVersionInfos Field Functions 
     bool hasDtsEtlJobVersionInfos() const { return this->dtsEtlJobVersionInfos_ != nullptr;};
     void deleteDtsEtlJobVersionInfos() { this->dtsEtlJobVersionInfos_ = nullptr;};

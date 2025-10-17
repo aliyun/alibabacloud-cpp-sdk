@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->destRegion_ != nullptr && this->destRegionCidr_ != nullptr && this->destinationEndpointType_ != nullptr && this->errorItem_ != nullptr && this->hostRegion_ != nullptr
-        && this->jobId_ != nullptr && this->jobName_ != nullptr && this->jobProgress_ != nullptr && this->sourceEndpointType_ != nullptr && this->srcRegion_ != nullptr
-        && this->srcRegionCidr_ != nullptr && this->state_ != nullptr && this->total_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->destRegion_ == nullptr && return this->destRegionCidr_ == nullptr && return this->destinationEndpointType_ == nullptr && return this->errorItem_ == nullptr && return this->hostRegion_ == nullptr
+        && return this->jobId_ == nullptr && return this->jobName_ == nullptr && return this->jobProgress_ == nullptr && return this->sourceEndpointType_ == nullptr && return this->srcRegion_ == nullptr
+        && return this->srcRegionCidr_ == nullptr && return this->state_ == nullptr && return this->total_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};

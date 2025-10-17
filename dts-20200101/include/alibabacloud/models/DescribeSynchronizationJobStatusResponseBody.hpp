@@ -88,12 +88,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkpoint_ != nullptr
-        && this->dataInitialization_ != nullptr && this->dataInitializationStatus_ != nullptr && this->dataSynchronizationStatus_ != nullptr && this->delay_ != nullptr && this->delayMillis_ != nullptr
-        && this->destinationEndpoint_ != nullptr && this->errCode_ != nullptr && this->errMessage_ != nullptr && this->errorMessage_ != nullptr && this->expireTime_ != nullptr
-        && this->payType_ != nullptr && this->performance_ != nullptr && this->precheckStatus_ != nullptr && this->requestId_ != nullptr && this->sourceEndpoint_ != nullptr
-        && this->status_ != nullptr && this->structureInitialization_ != nullptr && this->structureInitializationStatus_ != nullptr && this->success_ != nullptr && this->synchronizationDirection_ != nullptr
-        && this->synchronizationJobClass_ != nullptr && this->synchronizationJobId_ != nullptr && this->synchronizationJobName_ != nullptr && this->synchronizationObjects_ != nullptr && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->checkpoint_ == nullptr
+        && return this->dataInitialization_ == nullptr && return this->dataInitializationStatus_ == nullptr && return this->dataSynchronizationStatus_ == nullptr && return this->delay_ == nullptr && return this->delayMillis_ == nullptr
+        && return this->destinationEndpoint_ == nullptr && return this->errCode_ == nullptr && return this->errMessage_ == nullptr && return this->errorMessage_ == nullptr && return this->expireTime_ == nullptr
+        && return this->payType_ == nullptr && return this->performance_ == nullptr && return this->precheckStatus_ == nullptr && return this->requestId_ == nullptr && return this->sourceEndpoint_ == nullptr
+        && return this->status_ == nullptr && return this->structureInitialization_ == nullptr && return this->structureInitializationStatus_ == nullptr && return this->success_ == nullptr && return this->synchronizationDirection_ == nullptr
+        && return this->synchronizationJobClass_ == nullptr && return this->synchronizationJobId_ == nullptr && return this->synchronizationJobName_ == nullptr && return this->synchronizationObjects_ == nullptr && return this->taskId_ == nullptr; };
     // checkpoint Field Functions 
     bool hasCheckpoint() const { return this->checkpoint_ != nullptr;};
     void deleteCheckpoint() { this->checkpoint_ = nullptr;};

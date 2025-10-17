@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->privateHost_ != nullptr
-        && this->publicHost_ != nullptr && this->vpcHost_ != nullptr; };
+    virtual bool empty() const override { return this->privateHost_ == nullptr
+        && return this->publicHost_ == nullptr && return this->vpcHost_ == nullptr; };
     // privateHost Field Functions 
     bool hasPrivateHost() const { return this->privateHost_ != nullptr;};
     void deletePrivateHost() { this->privateHost_ = nullptr;};

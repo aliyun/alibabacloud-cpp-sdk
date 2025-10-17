@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->delayRuleTime_ != nullptr
-        && this->dtsJobId_ != nullptr && this->noticeValue_ != nullptr && this->period_ != nullptr && this->phone_ != nullptr && this->regionId_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->state_ != nullptr && this->times_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->delayRuleTime_ == nullptr
+        && return this->dtsJobId_ == nullptr && return this->noticeValue_ == nullptr && return this->period_ == nullptr && return this->phone_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->state_ == nullptr && return this->times_ == nullptr && return this->type_ == nullptr; };
     // delayRuleTime Field Functions 
     bool hasDelayRuleTime() const { return this->delayRuleTime_ != nullptr;};
     void deleteDelayRuleTime() { this->delayRuleTime_ = nullptr;};

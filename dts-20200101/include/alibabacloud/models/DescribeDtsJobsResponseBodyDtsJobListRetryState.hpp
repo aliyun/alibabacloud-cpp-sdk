@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->errMessage_ != nullptr
-        && this->jobId_ != nullptr && this->maxRetryTime_ != nullptr && this->migrationErrCode_ != nullptr && this->migrationErrHelpDocId_ != nullptr && this->migrationErrHelpDocKey_ != nullptr
-        && this->migrationErrMsg_ != nullptr && this->migrationErrType_ != nullptr && this->migrationErrWorkaround_ != nullptr && this->module_ != nullptr && this->retryCount_ != nullptr
-        && this->retryTarget_ != nullptr && this->retryTime_ != nullptr && this->retrying_ != nullptr; };
+    virtual bool empty() const override { return this->errMessage_ == nullptr
+        && return this->jobId_ == nullptr && return this->maxRetryTime_ == nullptr && return this->migrationErrCode_ == nullptr && return this->migrationErrHelpDocId_ == nullptr && return this->migrationErrHelpDocKey_ == nullptr
+        && return this->migrationErrMsg_ == nullptr && return this->migrationErrType_ == nullptr && return this->migrationErrWorkaround_ == nullptr && return this->module_ == nullptr && return this->retryCount_ == nullptr
+        && return this->retryTarget_ == nullptr && return this->retryTime_ == nullptr && return this->retrying_ == nullptr; };
     // errMessage Field Functions 
     bool hasErrMessage() const { return this->errMessage_ != nullptr;};
     void deleteErrMessage() { this->errMessage_ = nullptr;};

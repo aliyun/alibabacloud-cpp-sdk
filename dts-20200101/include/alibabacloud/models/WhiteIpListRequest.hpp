@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->destAliyunUid_ != nullptr
-        && this->destPrimaryVswId_ != nullptr && this->destRoleName_ != nullptr && this->destSecondaryVswId_ != nullptr && this->destVpcId_ != nullptr && this->destinationRegion_ != nullptr
-        && this->region_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->srcAliyunUid_ != nullptr && this->srcPrimaryVswId_ != nullptr
-        && this->srcRoleName_ != nullptr && this->srcSecondaryVswId_ != nullptr && this->srcVpcId_ != nullptr && this->type_ != nullptr && this->zeroEtlJob_ != nullptr; };
+    virtual bool empty() const override { return this->destAliyunUid_ == nullptr
+        && return this->destPrimaryVswId_ == nullptr && return this->destRoleName_ == nullptr && return this->destSecondaryVswId_ == nullptr && return this->destVpcId_ == nullptr && return this->destinationRegion_ == nullptr
+        && return this->region_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->srcAliyunUid_ == nullptr && return this->srcPrimaryVswId_ == nullptr
+        && return this->srcRoleName_ == nullptr && return this->srcSecondaryVswId_ == nullptr && return this->srcVpcId_ == nullptr && return this->type_ == nullptr && return this->zeroEtlJob_ == nullptr; };
     // destAliyunUid Field Functions 
     bool hasDestAliyunUid() const { return this->destAliyunUid_ != nullptr;};
     void deleteDestAliyunUid() { this->destAliyunUid_ = nullptr;};

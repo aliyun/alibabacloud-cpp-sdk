@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->errMsg_ != nullptr
-        && this->jobId_ != nullptr && this->maxRetryTime_ != nullptr && this->module_ != nullptr && this->retryCount_ != nullptr && this->retryTarget_ != nullptr
-        && this->retryTime_ != nullptr && this->retrying_ != nullptr; };
+    virtual bool empty() const override { return this->errMsg_ == nullptr
+        && return this->jobId_ == nullptr && return this->maxRetryTime_ == nullptr && return this->module_ == nullptr && return this->retryCount_ == nullptr && return this->retryTarget_ == nullptr
+        && return this->retryTime_ == nullptr && return this->retrying_ == nullptr; };
     // errMsg Field Functions 
     bool hasErrMsg() const { return this->errMsg_ != nullptr;};
     void deleteErrMsg() { this->errMsg_ = nullptr;};

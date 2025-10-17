@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dbList_ != nullptr
-        && this->dtsInstanceId_ != nullptr && this->dtsJobId_ != nullptr && this->modifyType_ != nullptr && this->regionId_ != nullptr && this->reserved_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->subscriptionDataTypeDDL_ != nullptr && this->subscriptionDataTypeDML_ != nullptr; };
+    virtual bool empty() const override { return this->dbList_ == nullptr
+        && return this->dtsInstanceId_ == nullptr && return this->dtsJobId_ == nullptr && return this->modifyType_ == nullptr && return this->regionId_ == nullptr && return this->reserved_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->subscriptionDataTypeDDL_ == nullptr && return this->subscriptionDataTypeDML_ == nullptr; };
     // dbList Field Functions 
     bool hasDbList() const { return this->dbList_ != nullptr;};
     void deleteDbList() { this->dbList_ = nullptr;};

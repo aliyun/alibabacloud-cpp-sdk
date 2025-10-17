@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->analysisJobProgress_ != nullptr
-        && this->code_ != nullptr && this->errorAnalysisItem_ != nullptr && this->errorItem_ != nullptr && this->fullNetCheckJobStatus_ != nullptr && this->httpStatusCode_ != nullptr
-        && this->jobId_ != nullptr && this->jobName_ != nullptr && this->jobProgress_ != nullptr && this->networkDiagnosisResult_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageRecordCount_ != nullptr && this->requestId_ != nullptr && this->state_ != nullptr && this->subDistributedJobStatus_ != nullptr && this->success_ != nullptr
-        && this->total_ != nullptr && this->totalRecordCount_ != nullptr; };
+    virtual bool empty() const override { return this->analysisJobProgress_ == nullptr
+        && return this->code_ == nullptr && return this->errorAnalysisItem_ == nullptr && return this->errorItem_ == nullptr && return this->fullNetCheckJobStatus_ == nullptr && return this->httpStatusCode_ == nullptr
+        && return this->jobId_ == nullptr && return this->jobName_ == nullptr && return this->jobProgress_ == nullptr && return this->networkDiagnosisResult_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageRecordCount_ == nullptr && return this->requestId_ == nullptr && return this->state_ == nullptr && return this->subDistributedJobStatus_ == nullptr && return this->success_ == nullptr
+        && return this->total_ == nullptr && return this->totalRecordCount_ == nullptr; };
     // analysisJobProgress Field Functions 
     bool hasAnalysisJobProgress() const { return this->analysisJobProgress_ != nullptr;};
     void deleteAnalysisJobProgress() { this->analysisJobProgress_ = nullptr;};

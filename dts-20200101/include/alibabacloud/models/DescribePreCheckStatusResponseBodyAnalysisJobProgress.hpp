@@ -79,12 +79,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bootTime_ != nullptr
-        && this->canSkip_ != nullptr && this->current_ != nullptr && this->ddlSql_ != nullptr && this->delaySeconds_ != nullptr && this->destSchema_ != nullptr
-        && this->diffRow_ != nullptr && this->errDetail_ != nullptr && this->errMsg_ != nullptr && this->finishTime_ != nullptr && this->id_ != nullptr
-        && this->ignoreFlag_ != nullptr && this->item_ != nullptr && this->jobId_ != nullptr && this->logs_ != nullptr && this->names_ != nullptr
-        && this->orderNum_ != nullptr && this->parentObj_ != nullptr && this->repairMethod_ != nullptr && this->skip_ != nullptr && this->sourceSchema_ != nullptr
-        && this->state_ != nullptr && this->sub_ != nullptr && this->targetNames_ != nullptr && this->total_ != nullptr; };
+    virtual bool empty() const override { return this->bootTime_ == nullptr
+        && return this->canSkip_ == nullptr && return this->current_ == nullptr && return this->ddlSql_ == nullptr && return this->delaySeconds_ == nullptr && return this->destSchema_ == nullptr
+        && return this->diffRow_ == nullptr && return this->errDetail_ == nullptr && return this->errMsg_ == nullptr && return this->finishTime_ == nullptr && return this->id_ == nullptr
+        && return this->ignoreFlag_ == nullptr && return this->item_ == nullptr && return this->jobId_ == nullptr && return this->logs_ == nullptr && return this->names_ == nullptr
+        && return this->orderNum_ == nullptr && return this->parentObj_ == nullptr && return this->repairMethod_ == nullptr && return this->skip_ == nullptr && return this->sourceSchema_ == nullptr
+        && return this->state_ == nullptr && return this->sub_ == nullptr && return this->targetNames_ == nullptr && return this->total_ == nullptr; };
     // bootTime Field Functions 
     bool hasBootTime() const { return this->bootTime_ != nullptr;};
     void deleteBootTime() { this->bootTime_ = nullptr;};

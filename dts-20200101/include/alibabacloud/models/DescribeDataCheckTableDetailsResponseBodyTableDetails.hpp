@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bootTime_ != nullptr
-        && this->diffCount_ != nullptr && this->errorCode_ != nullptr && this->finishCount_ != nullptr && this->id_ != nullptr && this->sourceDbName_ != nullptr
-        && this->sourceTbName_ != nullptr && this->status_ != nullptr && this->targetDbName_ != nullptr && this->targetTbName_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->bootTime_ == nullptr
+        && return this->diffCount_ == nullptr && return this->errorCode_ == nullptr && return this->finishCount_ == nullptr && return this->id_ == nullptr && return this->sourceDbName_ == nullptr
+        && return this->sourceTbName_ == nullptr && return this->status_ == nullptr && return this->targetDbName_ == nullptr && return this->targetTbName_ == nullptr && return this->totalCount_ == nullptr; };
     // bootTime Field Functions 
     bool hasBootTime() const { return this->bootTime_ != nullptr;};
     void deleteBootTime() { this->bootTime_ = nullptr;};

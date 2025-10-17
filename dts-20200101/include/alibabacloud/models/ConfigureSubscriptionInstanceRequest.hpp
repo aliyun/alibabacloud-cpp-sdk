@@ -52,9 +52,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->sourceEndpoint_ != nullptr
-        && this->subscriptionDataType_ != nullptr && this->subscriptionInstance_ != nullptr && this->accountId_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->subscriptionInstanceId_ != nullptr && this->subscriptionInstanceName_ != nullptr && this->subscriptionInstanceNetworkType_ != nullptr && this->subscriptionObject_ != nullptr; };
+    virtual bool empty() const override { return this->sourceEndpoint_ == nullptr
+        && return this->subscriptionDataType_ == nullptr && return this->subscriptionInstance_ == nullptr && return this->accountId_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->subscriptionInstanceId_ == nullptr && return this->subscriptionInstanceName_ == nullptr && return this->subscriptionInstanceNetworkType_ == nullptr && return this->subscriptionObject_ == nullptr; };
     // sourceEndpoint Field Functions 
     bool hasSourceEndpoint() const { return this->sourceEndpoint_ != nullptr;};
     void deleteSourceEndpoint() { this->sourceEndpoint_ = nullptr;};

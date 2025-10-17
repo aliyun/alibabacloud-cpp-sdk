@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountId_ != nullptr
-        && this->delayAlertPhone_ != nullptr && this->delayAlertStatus_ != nullptr && this->delayOverSeconds_ != nullptr && this->errorAlertPhone_ != nullptr && this->errorAlertStatus_ != nullptr
-        && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->subscriptionInstanceId_ != nullptr; };
+    virtual bool empty() const override { return this->accountId_ == nullptr
+        && return this->delayAlertPhone_ == nullptr && return this->delayAlertStatus_ == nullptr && return this->delayOverSeconds_ == nullptr && return this->errorAlertPhone_ == nullptr && return this->errorAlertStatus_ == nullptr
+        && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->subscriptionInstanceId_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};

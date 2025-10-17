@@ -109,9 +109,9 @@
 #include <alibabacloud/models/DescribeConsumerGroupRequest.hpp>
 #include <alibabacloud/models/DescribeConsumerGroupResponseBody.hpp>
 #include <alibabacloud/models/DescribeConsumerGroupResponse.hpp>
-#include <alibabacloud/models/DescribeDtsiprequest.hpp>
-#include <alibabacloud/models/DescribeDtsipresponseBody.hpp>
-#include <alibabacloud/models/DescribeDtsipresponse.hpp>
+#include <alibabacloud/models/DescribeDtsipRequest.hpp>
+#include <alibabacloud/models/DescribeDtsipResponseBody.hpp>
+#include <alibabacloud/models/DescribeDtsipResponse.hpp>
 #include <alibabacloud/models/DescribeDataCheckReportUrlRequest.hpp>
 #include <alibabacloud/models/DescribeDataCheckReportUrlResponseBody.hpp>
 #include <alibabacloud/models/DescribeDataCheckReportUrlResponse.hpp>
@@ -236,6 +236,9 @@
 #include <alibabacloud/models/ListDedicatedClusterRequest.hpp>
 #include <alibabacloud/models/ListDedicatedClusterResponseBody.hpp>
 #include <alibabacloud/models/ListDedicatedClusterResponse.hpp>
+#include <alibabacloud/models/ListJobStepRequest.hpp>
+#include <alibabacloud/models/ListJobStepResponseBody.hpp>
+#include <alibabacloud/models/ListJobStepResponse.hpp>
 #include <alibabacloud/models/ListTagResourcesRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
 #include <alibabacloud/models/ListTagResourcesResponse.hpp>
@@ -280,6 +283,9 @@
 #include <alibabacloud/models/ModifyGadInstanceNameRequest.hpp>
 #include <alibabacloud/models/ModifyGadInstanceNameResponseBody.hpp>
 #include <alibabacloud/models/ModifyGadInstanceNameResponse.hpp>
+#include <alibabacloud/models/ModifyJobStepCheckpointRequest.hpp>
+#include <alibabacloud/models/ModifyJobStepCheckpointResponseBody.hpp>
+#include <alibabacloud/models/ModifyJobStepCheckpointResponse.hpp>
 #include <alibabacloud/models/ModifySubscriptionRequest.hpp>
 #include <alibabacloud/models/ModifySubscriptionResponseBody.hpp>
 #include <alibabacloud/models/ModifySubscriptionResponse.hpp>
@@ -638,6 +644,10 @@
 #include <alibabacloud/models/DescribeSynchronizationObjectModifyStatusResponseBodyStructureInitializationStatus.hpp>
 #include <alibabacloud/models/ListDedicatedClusterResponseBodyDedicatedClusterStatusListDedicatedClusterStatus.hpp>
 #include <alibabacloud/models/ListDedicatedClusterResponseBodyDedicatedClusterStatusList.hpp>
+#include <alibabacloud/models/ListJobStepResponseBodyJobStepsErrorDetails.hpp>
+#include <alibabacloud/models/ListJobStepResponseBodyJobStepsSubJobStepsErrorDetails.hpp>
+#include <alibabacloud/models/ListJobStepResponseBodyJobStepsSubJobSteps.hpp>
+#include <alibabacloud/models/ListJobStepResponseBodyJobSteps.hpp>
 #include <alibabacloud/models/ListTagResourcesRequestTag.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBodyTagResourcesTagResource.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBodyTagResources.hpp>

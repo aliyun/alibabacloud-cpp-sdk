@@ -106,14 +106,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkpoint_ != nullptr
-        && this->cpuUsage_ != nullptr && this->createTime_ != nullptr && this->dataInitializationStatus_ != nullptr && this->dataSynchronizationStatus_ != nullptr && this->dbObject_ != nullptr
-        && this->dedicatedClusterId_ != nullptr && this->delay_ != nullptr && this->destinationEndpoint_ != nullptr && this->dtsInstanceID_ != nullptr && this->dtsJobClass_ != nullptr
-        && this->dtsJobDirection_ != nullptr && this->dtsJobId_ != nullptr && this->dtsJobName_ != nullptr && this->duUsage_ != nullptr && this->errorDetails_ != nullptr
-        && this->errorMessage_ != nullptr && this->etlSafeCheckpoint_ != nullptr && this->expireTime_ != nullptr && this->fullDataCheckStatus_ != nullptr && this->incDataCheckStatus_ != nullptr
-        && this->maxDu_ != nullptr && this->memUsage_ != nullptr && this->migrationMode_ != nullptr && this->minDu_ != nullptr && this->payType_ != nullptr
-        && this->performance_ != nullptr && this->precheckStatus_ != nullptr && this->reserved_ != nullptr && this->sourceEndpoint_ != nullptr && this->status_ != nullptr
-        && this->structureDataCheckStatus_ != nullptr && this->structureInitializationStatus_ != nullptr; };
+    virtual bool empty() const override { return this->checkpoint_ == nullptr
+        && return this->cpuUsage_ == nullptr && return this->createTime_ == nullptr && return this->dataInitializationStatus_ == nullptr && return this->dataSynchronizationStatus_ == nullptr && return this->dbObject_ == nullptr
+        && return this->dedicatedClusterId_ == nullptr && return this->delay_ == nullptr && return this->destinationEndpoint_ == nullptr && return this->dtsInstanceID_ == nullptr && return this->dtsJobClass_ == nullptr
+        && return this->dtsJobDirection_ == nullptr && return this->dtsJobId_ == nullptr && return this->dtsJobName_ == nullptr && return this->duUsage_ == nullptr && return this->errorDetails_ == nullptr
+        && return this->errorMessage_ == nullptr && return this->etlSafeCheckpoint_ == nullptr && return this->expireTime_ == nullptr && return this->fullDataCheckStatus_ == nullptr && return this->incDataCheckStatus_ == nullptr
+        && return this->maxDu_ == nullptr && return this->memUsage_ == nullptr && return this->migrationMode_ == nullptr && return this->minDu_ == nullptr && return this->payType_ == nullptr
+        && return this->performance_ == nullptr && return this->precheckStatus_ == nullptr && return this->reserved_ == nullptr && return this->sourceEndpoint_ == nullptr && return this->status_ == nullptr
+        && return this->structureDataCheckStatus_ == nullptr && return this->structureInitializationStatus_ == nullptr; };
     // checkpoint Field Functions 
     bool hasCheckpoint() const { return this->checkpoint_ != nullptr;};
     void deleteCheckpoint() { this->checkpoint_ = nullptr;};

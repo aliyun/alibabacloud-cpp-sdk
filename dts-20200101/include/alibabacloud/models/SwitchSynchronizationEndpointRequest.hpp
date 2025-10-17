@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endpoint_ != nullptr
-        && this->sourceEndpoint_ != nullptr && this->accountId_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->synchronizationDirection_ != nullptr && this->synchronizationJobId_ != nullptr; };
+    virtual bool empty() const override { return this->endpoint_ == nullptr
+        && return this->sourceEndpoint_ == nullptr && return this->accountId_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->synchronizationDirection_ == nullptr && return this->synchronizationJobId_ == nullptr; };
     // endpoint Field Functions 
     bool hasEndpoint() const { return this->endpoint_ != nullptr;};
     void deleteEndpoint() { this->endpoint_ = nullptr;};

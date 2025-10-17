@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliyunUid_ != nullptr
-        && this->databaseName_ != nullptr && this->engineName_ != nullptr && this->instanceID_ != nullptr && this->instanceType_ != nullptr && this->ip_ != nullptr
-        && this->oracleSID_ != nullptr && this->port_ != nullptr && this->region_ != nullptr && this->roleName_ != nullptr && this->sslSolutionEnum_ != nullptr
-        && this->userName_ != nullptr; };
+    virtual bool empty() const override { return this->aliyunUid_ == nullptr
+        && return this->databaseName_ == nullptr && return this->engineName_ == nullptr && return this->instanceID_ == nullptr && return this->instanceType_ == nullptr && return this->ip_ == nullptr
+        && return this->oracleSID_ == nullptr && return this->port_ == nullptr && return this->region_ == nullptr && return this->roleName_ == nullptr && return this->sslSolutionEnum_ == nullptr
+        && return this->userName_ == nullptr; };
     // aliyunUid Field Functions 
     bool hasAliyunUid() const { return this->aliyunUid_ != nullptr;};
     void deleteAliyunUid() { this->aliyunUid_ = nullptr;};

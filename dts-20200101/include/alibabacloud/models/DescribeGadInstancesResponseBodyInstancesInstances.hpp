@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->dbEngineType_ != nullptr && this->dbInstanceCount_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->instanceRegion_ != nullptr
-        && this->instanceType_ != nullptr && this->masterDbInstanceId_ != nullptr && this->masterDbInstanceName_ != nullptr && this->masterDbInstanceRegion_ != nullptr && this->masterDbInstanceZoneId_ != nullptr
-        && this->masterEngineArchType_ != nullptr && this->resourceGroupId_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->dbEngineType_ == nullptr && return this->dbInstanceCount_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->instanceRegion_ == nullptr
+        && return this->instanceType_ == nullptr && return this->masterDbInstanceId_ == nullptr && return this->masterDbInstanceName_ == nullptr && return this->masterDbInstanceRegion_ == nullptr && return this->masterDbInstanceZoneId_ == nullptr
+        && return this->masterEngineArchType_ == nullptr && return this->resourceGroupId_ == nullptr && return this->status_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->destIpList_ != nullptr
-        && this->dynamicCode_ != nullptr && this->dynamicMessage_ != nullptr && this->errCode_ != nullptr && this->errMessage_ != nullptr && this->httpStatusCode_ != nullptr
-        && this->ipList_ != nullptr && this->requestId_ != nullptr && this->srcIpList_ != nullptr && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->destIpList_ == nullptr
+        && return this->dynamicCode_ == nullptr && return this->dynamicMessage_ == nullptr && return this->errCode_ == nullptr && return this->errMessage_ == nullptr && return this->httpStatusCode_ == nullptr
+        && return this->ipList_ == nullptr && return this->requestId_ == nullptr && return this->srcIpList_ == nullptr && return this->success_ == nullptr; };
     // destIpList Field Functions 
     bool hasDestIpList() const { return this->destIpList_ != nullptr;};
     void deleteDestIpList() { this->destIpList_ = nullptr;};

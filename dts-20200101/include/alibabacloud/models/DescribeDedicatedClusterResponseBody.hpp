@@ -79,12 +79,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpuUtilization_ != nullptr
-        && this->dedicatedClusterId_ != nullptr && this->dedicatedClusterName_ != nullptr && this->diskUtilization_ != nullptr && this->dtsInstanceID_ != nullptr && this->du_ != nullptr
-        && this->duUtilization_ != nullptr && this->errCode_ != nullptr && this->errMessage_ != nullptr && this->gmtCreated_ != nullptr && this->gmtFinished_ != nullptr
-        && this->httpStatusCode_ != nullptr && this->memUtilization_ != nullptr && this->nodeCount_ != nullptr && this->oversoldDu_ != nullptr && this->regionId_ != nullptr
-        && this->requestId_ != nullptr && this->state_ != nullptr && this->success_ != nullptr && this->totalCpuCore_ != nullptr && this->totalDiskGBSize_ != nullptr
-        && this->totalMemGBSize_ != nullptr && this->usedCpuCore_ != nullptr && this->usedDiskGBSize_ != nullptr && this->usedDu_ != nullptr && this->usedMemGBSize_ != nullptr; };
+    virtual bool empty() const override { return this->cpuUtilization_ == nullptr
+        && return this->dedicatedClusterId_ == nullptr && return this->dedicatedClusterName_ == nullptr && return this->diskUtilization_ == nullptr && return this->dtsInstanceID_ == nullptr && return this->du_ == nullptr
+        && return this->duUtilization_ == nullptr && return this->errCode_ == nullptr && return this->errMessage_ == nullptr && return this->gmtCreated_ == nullptr && return this->gmtFinished_ == nullptr
+        && return this->httpStatusCode_ == nullptr && return this->memUtilization_ == nullptr && return this->nodeCount_ == nullptr && return this->oversoldDu_ == nullptr && return this->regionId_ == nullptr
+        && return this->requestId_ == nullptr && return this->state_ == nullptr && return this->success_ == nullptr && return this->totalCpuCore_ == nullptr && return this->totalDiskGBSize_ == nullptr
+        && return this->totalMemGBSize_ == nullptr && return this->usedCpuCore_ == nullptr && return this->usedDiskGBSize_ == nullptr && return this->usedDu_ == nullptr && return this->usedMemGBSize_ == nullptr; };
     // cpuUtilization Field Functions 
     bool hasCpuUtilization() const { return this->cpuUtilization_ != nullptr;};
     void deleteCpuUtilization() { this->cpuUtilization_ = nullptr;};

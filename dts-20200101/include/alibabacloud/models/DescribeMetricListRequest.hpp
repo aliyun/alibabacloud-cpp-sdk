@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountId_ != nullptr
-        && this->clientToken_ != nullptr && this->dtsJobId_ != nullptr && this->endTime_ != nullptr && this->env_ != nullptr && this->metricName_ != nullptr
-        && this->metricType_ != nullptr && this->ownerID_ != nullptr && this->param_ != nullptr && this->period_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->accountId_ == nullptr
+        && return this->clientToken_ == nullptr && return this->dtsJobId_ == nullptr && return this->endTime_ == nullptr && return this->env_ == nullptr && return this->metricName_ == nullptr
+        && return this->metricType_ == nullptr && return this->ownerID_ == nullptr && return this->param_ == nullptr && return this->period_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->startTime_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};

@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->instanceId_ != nullptr
-        && this->masterDatabaseName_ != nullptr && this->masterEngineArchType_ != nullptr && this->masterShardAccountName_ != nullptr && this->masterShardAccountPassword_ != nullptr && this->ownerId_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->slaveDatabaseName_ != nullptr && this->slaveDbInstanceId_ != nullptr && this->slaveDbInstanceRegion_ != nullptr
-        && this->slaveEngineArchType_ != nullptr; };
+    virtual bool empty() const override { return this->instanceId_ == nullptr
+        && return this->masterDatabaseName_ == nullptr && return this->masterEngineArchType_ == nullptr && return this->masterShardAccountName_ == nullptr && return this->masterShardAccountPassword_ == nullptr && return this->ownerId_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->slaveDatabaseName_ == nullptr && return this->slaveDbInstanceId_ == nullptr && return this->slaveDbInstanceRegion_ == nullptr
+        && return this->slaveEngineArchType_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};

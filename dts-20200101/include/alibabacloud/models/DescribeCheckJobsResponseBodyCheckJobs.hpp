@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chargeType_ != nullptr
-        && this->checkPoint_ != nullptr && this->checkType_ != nullptr && this->diffCount_ != nullptr && this->diffSum_ != nullptr && this->dtsInstanceID_ != nullptr
-        && this->dtsJobId_ != nullptr && this->finishCount_ != nullptr && this->groupId_ != nullptr && this->instanceClass_ != nullptr && this->jobName_ != nullptr
-        && this->jobStepId_ != nullptr && this->parentJobType_ != nullptr && this->regionId_ != nullptr && this->status_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->chargeType_ == nullptr
+        && return this->checkPoint_ == nullptr && return this->checkType_ == nullptr && return this->diffCount_ == nullptr && return this->diffSum_ == nullptr && return this->dtsInstanceID_ == nullptr
+        && return this->dtsJobId_ == nullptr && return this->finishCount_ == nullptr && return this->groupId_ == nullptr && return this->instanceClass_ == nullptr && return this->jobName_ == nullptr
+        && return this->jobStepId_ == nullptr && return this->parentJobType_ == nullptr && return this->regionId_ == nullptr && return this->status_ == nullptr && return this->totalCount_ == nullptr; };
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};

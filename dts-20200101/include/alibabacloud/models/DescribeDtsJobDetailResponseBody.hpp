@@ -154,19 +154,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appName_ != nullptr
-        && this->beginTimestamp_ != nullptr && this->binlog_ != nullptr && this->binlogSite_ != nullptr && this->binlogTime_ != nullptr && this->bootTime_ != nullptr
-        && this->checkpoint_ != nullptr && this->code_ != nullptr && this->consumptionCheckpoint_ != nullptr && this->consumptionClient_ != nullptr && this->createTime_ != nullptr
-        && this->dataDeliveryChannelInfo_ != nullptr && this->dataSynchronizationStatus_ != nullptr && this->databaseCount_ != nullptr && this->dbObject_ != nullptr && this->dedicatedClusterId_ != nullptr
-        && this->delay_ != nullptr && this->demoJob_ != nullptr && this->destNetType_ != nullptr && this->destinationEndpoint_ != nullptr && this->dtsBisLabel_ != nullptr
-        && this->dtsInstanceID_ != nullptr && this->dtsJobClass_ != nullptr && this->dtsJobDirection_ != nullptr && this->dtsJobId_ != nullptr && this->dtsJobName_ != nullptr
-        && this->dynamicMessage_ != nullptr && this->endTimestamp_ != nullptr && this->errCode_ != nullptr && this->errMessage_ != nullptr && this->errorMessage_ != nullptr
-        && this->etlCalculator_ != nullptr && this->expireTime_ != nullptr && this->finishTime_ != nullptr && this->groupId_ != nullptr && this->httpStatusCode_ != nullptr
-        && this->initCheckpoint_ != nullptr && this->jobType_ != nullptr && this->lastUpdateTime_ != nullptr && this->maxDu_ != nullptr && this->migrationMode_ != nullptr
-        && this->minDu_ != nullptr && this->payType_ != nullptr && this->requestId_ != nullptr && this->reserved_ != nullptr && this->resourceGroupDisplayName_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->retryState_ != nullptr && this->sourceEndpoint_ != nullptr && this->status_ != nullptr && this->subDistributedJob_ != nullptr
-        && this->subSyncJob_ != nullptr && this->subscribeTopic_ != nullptr && this->subscriptionDataType_ != nullptr && this->subscriptionHost_ != nullptr && this->success_ != nullptr
-        && this->synchronizationDirection_ != nullptr && this->taskType_ != nullptr; };
+    virtual bool empty() const override { return this->appName_ == nullptr
+        && return this->beginTimestamp_ == nullptr && return this->binlog_ == nullptr && return this->binlogSite_ == nullptr && return this->binlogTime_ == nullptr && return this->bootTime_ == nullptr
+        && return this->checkpoint_ == nullptr && return this->code_ == nullptr && return this->consumptionCheckpoint_ == nullptr && return this->consumptionClient_ == nullptr && return this->createTime_ == nullptr
+        && return this->dataDeliveryChannelInfo_ == nullptr && return this->dataSynchronizationStatus_ == nullptr && return this->databaseCount_ == nullptr && return this->dbObject_ == nullptr && return this->dedicatedClusterId_ == nullptr
+        && return this->delay_ == nullptr && return this->demoJob_ == nullptr && return this->destNetType_ == nullptr && return this->destinationEndpoint_ == nullptr && return this->dtsBisLabel_ == nullptr
+        && return this->dtsInstanceID_ == nullptr && return this->dtsJobClass_ == nullptr && return this->dtsJobDirection_ == nullptr && return this->dtsJobId_ == nullptr && return this->dtsJobName_ == nullptr
+        && return this->dynamicMessage_ == nullptr && return this->endTimestamp_ == nullptr && return this->errCode_ == nullptr && return this->errMessage_ == nullptr && return this->errorMessage_ == nullptr
+        && return this->etlCalculator_ == nullptr && return this->expireTime_ == nullptr && return this->finishTime_ == nullptr && return this->groupId_ == nullptr && return this->httpStatusCode_ == nullptr
+        && return this->initCheckpoint_ == nullptr && return this->jobType_ == nullptr && return this->lastUpdateTime_ == nullptr && return this->maxDu_ == nullptr && return this->migrationMode_ == nullptr
+        && return this->minDu_ == nullptr && return this->payType_ == nullptr && return this->requestId_ == nullptr && return this->reserved_ == nullptr && return this->resourceGroupDisplayName_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->retryState_ == nullptr && return this->sourceEndpoint_ == nullptr && return this->status_ == nullptr && return this->subDistributedJob_ == nullptr
+        && return this->subSyncJob_ == nullptr && return this->subscribeTopic_ == nullptr && return this->subscriptionDataType_ == nullptr && return this->subscriptionHost_ == nullptr && return this->success_ == nullptr
+        && return this->synchronizationDirection_ == nullptr && return this->taskType_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
