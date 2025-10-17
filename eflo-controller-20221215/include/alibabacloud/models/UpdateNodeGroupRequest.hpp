@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fileSystemMountEnabled_ != nullptr
-        && this->imageId_ != nullptr && this->keyPairName_ != nullptr && this->loginPassword_ != nullptr && this->newNodeGroupName_ != nullptr && this->nodeGroupId_ != nullptr
-        && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->fileSystemMountEnabled_ == nullptr
+        && return this->imageId_ == nullptr && return this->keyPairName_ == nullptr && return this->loginPassword_ == nullptr && return this->newNodeGroupName_ == nullptr && return this->nodeGroupId_ == nullptr
+        && return this->userData_ == nullptr; };
     // fileSystemMountEnabled Field Functions 
     bool hasFileSystemMountEnabled() const { return this->fileSystemMountEnabled_ != nullptr;};
     void deleteFileSystemMountEnabled() { this->fileSystemMountEnabled_ = nullptr;};

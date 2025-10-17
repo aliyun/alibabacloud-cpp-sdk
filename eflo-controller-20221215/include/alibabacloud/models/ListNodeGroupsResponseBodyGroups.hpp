@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->clusterName_ != nullptr && this->createTime_ != nullptr && this->description_ != nullptr && this->fileSystemMountEnabled_ != nullptr && this->groupId_ != nullptr
-        && this->groupName_ != nullptr && this->imageId_ != nullptr && this->imageName_ != nullptr && this->machineType_ != nullptr && this->nodeCount_ != nullptr
-        && this->updateTime_ != nullptr && this->virtualGpuEnabled_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && return this->clusterName_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->fileSystemMountEnabled_ == nullptr && return this->groupId_ == nullptr
+        && return this->groupName_ == nullptr && return this->imageId_ == nullptr && return this->imageName_ == nullptr && return this->machineType_ == nullptr && return this->nodeCount_ == nullptr
+        && return this->updateTime_ == nullptr && return this->virtualGpuEnabled_ == nullptr && return this->zoneId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};

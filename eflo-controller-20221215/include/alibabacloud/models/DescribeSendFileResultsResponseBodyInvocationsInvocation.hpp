@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->content_ != nullptr
-        && this->contentType_ != nullptr && this->creationTime_ != nullptr && this->description_ != nullptr && this->fileGroup_ != nullptr && this->fileMode_ != nullptr
-        && this->fileOwner_ != nullptr && this->invocationStatus_ != nullptr && this->invokeNodes_ != nullptr && this->name_ != nullptr && this->nodeCount_ != nullptr
-        && this->overwrite_ != nullptr && this->targetDir_ != nullptr; };
+    virtual bool empty() const override { return this->content_ == nullptr
+        && return this->contentType_ == nullptr && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->fileGroup_ == nullptr && return this->fileMode_ == nullptr
+        && return this->fileOwner_ == nullptr && return this->invocationStatus_ == nullptr && return this->invokeNodes_ == nullptr && return this->name_ == nullptr && return this->nodeCount_ == nullptr
+        && return this->overwrite_ == nullptr && return this->targetDir_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};

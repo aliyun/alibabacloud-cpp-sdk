@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessType_ != nullptr
-        && this->typeName_ != nullptr; };
+    virtual bool empty() const override { return this->accessType_ == nullptr
+        && return this->typeName_ == nullptr; };
     // accessType Field Functions 
     bool hasAccessType() const { return this->accessType_ != nullptr;};
     void deleteAccessType() { this->accessType_ = nullptr;};
@@ -43,8 +43,8 @@ namespace Models
     // typeName Field Functions 
     bool hasTypeName() const { return this->typeName_ != nullptr;};
     void deleteTypeName() { this->typeName_ = nullptr;};
-    inline string _typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
-    inline ListUserClusterTypesResponseBodyClusterTypes& setTypeName(string _typeName) { DARABONBA_PTR_SET_VALUE(typeName_, _typeName) };
+    inline string typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
+    inline ListUserClusterTypesResponseBodyClusterTypes& setTypeName(string typeName) { DARABONBA_PTR_SET_VALUE(typeName_, typeName) };
 
 
   protected:

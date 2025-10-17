@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->hpnZone_ != nullptr
-        && this->machineType_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->operatingStates_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->hpnZone_ == nullptr
+        && return this->machineType_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->operatingStates_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->tags_ == nullptr; };
     // hpnZone Field Functions 
     bool hasHpnZone() const { return this->hpnZone_ != nullptr;};
     void deleteHpnZone() { this->hpnZone_ = nullptr;};

@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bondNum_ != nullptr
-        && this->cpuInfo_ != nullptr && this->diskInfo_ != nullptr && this->gpuInfo_ != nullptr && this->memoryInfo_ != nullptr && this->name_ != nullptr
-        && this->networkInfo_ != nullptr && this->nodeCount_ != nullptr && this->totalCpuCore_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->bondNum_ == nullptr
+        && return this->cpuInfo_ == nullptr && return this->diskInfo_ == nullptr && return this->gpuInfo_ == nullptr && return this->memoryInfo_ == nullptr && return this->name_ == nullptr
+        && return this->networkInfo_ == nullptr && return this->nodeCount_ == nullptr && return this->totalCpuCore_ == nullptr && return this->type_ == nullptr; };
     // bondNum Field Functions 
     bool hasBondNum() const { return this->bondNum_ != nullptr;};
     void deleteBondNum() { this->bondNum_ = nullptr;};

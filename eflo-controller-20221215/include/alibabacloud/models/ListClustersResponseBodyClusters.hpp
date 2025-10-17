@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterDescription_ != nullptr
-        && this->clusterId_ != nullptr && this->clusterName_ != nullptr && this->clusterType_ != nullptr && this->components_ != nullptr && this->computingIpVersion_ != nullptr
-        && this->createTime_ != nullptr && this->hpnZone_ != nullptr && this->nodeCount_ != nullptr && this->nodeGroupCount_ != nullptr && this->operatingState_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->tags_ != nullptr && this->taskId_ != nullptr && this->updateTime_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->clusterDescription_ == nullptr
+        && return this->clusterId_ == nullptr && return this->clusterName_ == nullptr && return this->clusterType_ == nullptr && return this->components_ == nullptr && return this->computingIpVersion_ == nullptr
+        && return this->createTime_ == nullptr && return this->hpnZone_ == nullptr && return this->nodeCount_ == nullptr && return this->nodeGroupCount_ == nullptr && return this->operatingState_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->tags_ == nullptr && return this->taskId_ == nullptr && return this->updateTime_ == nullptr && return this->vpcId_ == nullptr; };
     // clusterDescription Field Functions 
     bool hasClusterDescription() const { return this->clusterDescription_ != nullptr;};
     void deleteClusterDescription() { this->clusterDescription_ = nullptr;};

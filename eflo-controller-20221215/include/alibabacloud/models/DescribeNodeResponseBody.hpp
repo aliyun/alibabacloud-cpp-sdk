@@ -76,12 +76,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->clusterName_ != nullptr && this->createTime_ != nullptr && this->disks_ != nullptr && this->expiredTime_ != nullptr && this->fileSystemMountEnabled_ != nullptr
-        && this->hostname_ != nullptr && this->hpnZone_ != nullptr && this->hyperNodeId_ != nullptr && this->imageId_ != nullptr && this->imageName_ != nullptr
-        && this->machineType_ != nullptr && this->networks_ != nullptr && this->nodeGroupId_ != nullptr && this->nodeGroupName_ != nullptr && this->nodeId_ != nullptr
-        && this->nodeType_ != nullptr && this->operatingState_ != nullptr && this->requestId_ != nullptr && this->resourceGroupId_ != nullptr && this->sn_ != nullptr
-        && this->userData_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && return this->clusterName_ == nullptr && return this->createTime_ == nullptr && return this->disks_ == nullptr && return this->expiredTime_ == nullptr && return this->fileSystemMountEnabled_ == nullptr
+        && return this->hostname_ == nullptr && return this->hpnZone_ == nullptr && return this->hyperNodeId_ == nullptr && return this->imageId_ == nullptr && return this->imageName_ == nullptr
+        && return this->machineType_ == nullptr && return this->networks_ == nullptr && return this->nodeGroupId_ == nullptr && return this->nodeGroupName_ == nullptr && return this->nodeId_ == nullptr
+        && return this->nodeType_ == nullptr && return this->operatingState_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->sn_ == nullptr
+        && return this->userData_ == nullptr && return this->zoneId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};

@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bondDefaultSubnet_ != nullptr
-        && this->bonds_ != nullptr; };
+    virtual bool empty() const override { return this->bondDefaultSubnet_ == nullptr
+        && return this->bonds_ == nullptr; };
     // bondDefaultSubnet Field Functions 
     bool hasBondDefaultSubnet() const { return this->bondDefaultSubnet_ != nullptr;};
     void deleteBondDefaultSubnet() { this->bondDefaultSubnet_ = nullptr;};

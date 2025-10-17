@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->amount_ != nullptr
-        && this->autoRenew_ != nullptr && this->chargeType_ != nullptr && this->hostnames_ != nullptr && this->hyperNodes_ != nullptr && this->loginPassword_ != nullptr
-        && this->nodeGroupId_ != nullptr && this->nodeTag_ != nullptr && this->nodes_ != nullptr && this->period_ != nullptr && this->userData_ != nullptr
-        && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->amount_ == nullptr
+        && return this->autoRenew_ == nullptr && return this->chargeType_ == nullptr && return this->hostnames_ == nullptr && return this->hyperNodes_ == nullptr && return this->loginPassword_ == nullptr
+        && return this->nodeGroupId_ == nullptr && return this->nodeTag_ == nullptr && return this->nodes_ == nullptr && return this->period_ == nullptr && return this->userData_ == nullptr
+        && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};

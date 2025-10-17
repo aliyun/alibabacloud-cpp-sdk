@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->eniHighDenseQuantity_ != nullptr
-        && this->eniIpv6AddressQuantity_ != nullptr && this->eniPrivateIpAddressQuantity_ != nullptr && this->eniQuantity_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->eniHighDenseQuantity_ == nullptr
+        && return this->eniIpv6AddressQuantity_ == nullptr && return this->eniPrivateIpAddressQuantity_ == nullptr && return this->eniQuantity_ == nullptr && return this->requestId_ == nullptr; };
     // eniHighDenseQuantity Field Functions 
     bool hasEniHighDenseQuantity() const { return this->eniHighDenseQuantity_ != nullptr;};
     void deleteEniHighDenseQuantity() { this->eniHighDenseQuantity_ = nullptr;};

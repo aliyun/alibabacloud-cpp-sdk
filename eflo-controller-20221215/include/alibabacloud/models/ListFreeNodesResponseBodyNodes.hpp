@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commodityCode_ != nullptr
-        && this->createTime_ != nullptr && this->expiredTime_ != nullptr && this->hpnZone_ != nullptr && this->hyperNodeId_ != nullptr && this->machineType_ != nullptr
-        && this->nodeId_ != nullptr && this->operatingState_ != nullptr && this->resourceGroupId_ != nullptr && this->sn_ != nullptr && this->tags_ != nullptr
-        && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->commodityCode_ == nullptr
+        && return this->createTime_ == nullptr && return this->expiredTime_ == nullptr && return this->hpnZone_ == nullptr && return this->hyperNodeId_ == nullptr && return this->machineType_ == nullptr
+        && return this->nodeId_ == nullptr && return this->operatingState_ == nullptr && return this->resourceGroupId_ == nullptr && return this->sn_ == nullptr && return this->tags_ == nullptr
+        && return this->zoneId_ == nullptr; };
     // commodityCode Field Functions 
     bool hasCommodityCode() const { return this->commodityCode_ != nullptr;};
     void deleteCommodityCode() { this->commodityCode_ = nullptr;};

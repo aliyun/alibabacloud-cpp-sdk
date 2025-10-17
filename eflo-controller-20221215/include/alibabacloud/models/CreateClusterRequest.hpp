@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterDescription_ != nullptr
-        && this->clusterName_ != nullptr && this->clusterType_ != nullptr && this->components_ != nullptr && this->hpnZone_ != nullptr && this->ignoreFailedNodeTasks_ != nullptr
-        && this->networks_ != nullptr && this->nimizVSwitches_ != nullptr && this->nodeGroups_ != nullptr && this->openEniJumboFrame_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->tag_ != nullptr; };
+    virtual bool empty() const override { return this->clusterDescription_ == nullptr
+        && return this->clusterName_ == nullptr && return this->clusterType_ == nullptr && return this->components_ == nullptr && return this->hpnZone_ == nullptr && return this->ignoreFailedNodeTasks_ == nullptr
+        && return this->networks_ == nullptr && return this->nimizVSwitches_ == nullptr && return this->nodeGroups_ == nullptr && return this->openEniJumboFrame_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->tag_ == nullptr; };
     // clusterDescription Field Functions 
     bool hasClusterDescription() const { return this->clusterDescription_ != nullptr;};
     void deleteClusterDescription() { this->clusterDescription_ = nullptr;};

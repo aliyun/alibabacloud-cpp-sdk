@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->commandContent_ != nullptr && this->commandId_ != nullptr && this->contentEncoding_ != nullptr && this->description_ != nullptr && this->enableParameter_ != nullptr
-        && this->frequency_ != nullptr && this->launcher_ != nullptr && this->name_ != nullptr && this->nodeIdListShrink_ != nullptr && this->parametersShrink_ != nullptr
-        && this->repeatMode_ != nullptr && this->terminationMode_ != nullptr && this->timeout_ != nullptr && this->username_ != nullptr && this->workingDir_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->commandContent_ == nullptr && return this->commandId_ == nullptr && return this->contentEncoding_ == nullptr && return this->description_ == nullptr && return this->enableParameter_ == nullptr
+        && return this->frequency_ == nullptr && return this->launcher_ == nullptr && return this->name_ == nullptr && return this->nodeIdListShrink_ == nullptr && return this->parametersShrink_ == nullptr
+        && return this->repeatMode_ == nullptr && return this->terminationMode_ == nullptr && return this->timeout_ == nullptr && return this->username_ == nullptr && return this->workingDir_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};

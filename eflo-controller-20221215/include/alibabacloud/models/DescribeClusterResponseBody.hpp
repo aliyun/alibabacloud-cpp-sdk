@@ -31,8 +31,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OperatingState, operatingState_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
+      DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeClusterResponseBody& obj) { 
@@ -51,8 +53,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OperatingState, operatingState_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
+      DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
     };
     DescribeClusterResponseBody() = default ;
@@ -66,11 +70,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterDescription_ != nullptr
-        && this->clusterId_ != nullptr && this->clusterName_ != nullptr && this->clusterType_ != nullptr && this->components_ != nullptr && this->computingIpVersion_ != nullptr
-        && this->createTime_ != nullptr && this->hpnZone_ != nullptr && this->networks_ != nullptr && this->nodeCount_ != nullptr && this->nodeGroupCount_ != nullptr
-        && this->openEniJumboFrame_ != nullptr && this->operatingState_ != nullptr && this->requestId_ != nullptr && this->resourceGroupId_ != nullptr && this->taskId_ != nullptr
-        && this->updateTime_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->clusterDescription_ == nullptr
+        && return this->clusterId_ == nullptr && return this->clusterName_ == nullptr && return this->clusterType_ == nullptr && return this->components_ == nullptr && return this->computingIpVersion_ == nullptr
+        && return this->createTime_ == nullptr && return this->hpnZone_ == nullptr && return this->networks_ == nullptr && return this->nodeCount_ == nullptr && return this->nodeGroupCount_ == nullptr
+        && return this->openEniJumboFrame_ == nullptr && return this->operatingState_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->securityGroupId_ == nullptr
+        && return this->taskId_ == nullptr && return this->updateTime_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr; };
     // clusterDescription Field Functions 
     bool hasClusterDescription() const { return this->clusterDescription_ != nullptr;};
     void deleteClusterDescription() { this->clusterDescription_ = nullptr;};
@@ -180,6 +184,13 @@ namespace Models
     inline DescribeClusterResponseBody& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
+    // securityGroupId Field Functions 
+    bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
+    void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
+    inline string securityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
+    inline DescribeClusterResponseBody& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
+
+
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
@@ -192,6 +203,13 @@ namespace Models
     void deleteUpdateTime() { this->updateTime_ = nullptr;};
     inline string updateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
     inline DescribeClusterResponseBody& setUpdateTime(string updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
+
+
+    // vSwitchId Field Functions 
+    bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
+    void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
+    inline string vSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+    inline DescribeClusterResponseBody& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
     // vpcId Field Functions 
@@ -232,10 +250,12 @@ namespace Models
     std::shared_ptr<string> requestId_ = nullptr;
     // The resource group ID.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    std::shared_ptr<string> securityGroupId_ = nullptr;
     // The job ID.
     std::shared_ptr<string> taskId_ = nullptr;
     // The update time.
     std::shared_ptr<string> updateTime_ = nullptr;
+    std::shared_ptr<string> vSwitchId_ = nullptr;
     // The ID of the virtual private cloud (VPC).
     std::shared_ptr<string> vpcId_ = nullptr;
   };

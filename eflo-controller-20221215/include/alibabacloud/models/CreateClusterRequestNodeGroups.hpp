@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fileSystemMountEnabled_ != nullptr
-        && this->hyperNodes_ != nullptr && this->imageId_ != nullptr && this->keyPairName_ != nullptr && this->loginPassword_ != nullptr && this->machineType_ != nullptr
-        && this->nodeGroupDescription_ != nullptr && this->nodeGroupName_ != nullptr && this->nodes_ != nullptr && this->systemDisk_ != nullptr && this->userData_ != nullptr
-        && this->virtualGpuEnabled_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->fileSystemMountEnabled_ == nullptr
+        && return this->hyperNodes_ == nullptr && return this->imageId_ == nullptr && return this->keyPairName_ == nullptr && return this->loginPassword_ == nullptr && return this->machineType_ == nullptr
+        && return this->nodeGroupDescription_ == nullptr && return this->nodeGroupName_ == nullptr && return this->nodes_ == nullptr && return this->systemDisk_ == nullptr && return this->userData_ == nullptr
+        && return this->virtualGpuEnabled_ == nullptr && return this->zoneId_ == nullptr; };
     // fileSystemMountEnabled Field Functions 
     bool hasFileSystemMountEnabled() const { return this->fileSystemMountEnabled_ != nullptr;};
     void deleteFileSystemMountEnabled() { this->fileSystemMountEnabled_ = nullptr;};

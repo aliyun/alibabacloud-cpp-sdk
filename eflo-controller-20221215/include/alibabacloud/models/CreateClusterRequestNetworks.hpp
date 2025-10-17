@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ipAllocationPolicy_ != nullptr
-        && this->newVpdInfo_ != nullptr && this->securityGroupId_ != nullptr && this->tailIpVersion_ != nullptr && this->vSwitchId_ != nullptr && this->vSwitchZoneId_ != nullptr
-        && this->vpcId_ != nullptr && this->vpdInfo_ != nullptr; };
+    virtual bool empty() const override { return this->ipAllocationPolicy_ == nullptr
+        && return this->newVpdInfo_ == nullptr && return this->securityGroupId_ == nullptr && return this->tailIpVersion_ == nullptr && return this->vSwitchId_ == nullptr && return this->vSwitchZoneId_ == nullptr
+        && return this->vpcId_ == nullptr && return this->vpdInfo_ == nullptr; };
     // ipAllocationPolicy Field Functions 
     bool hasIpAllocationPolicy() const { return this->ipAllocationPolicy_ != nullptr;};
     void deleteIpAllocationPolicy() { this->ipAllocationPolicy_ = nullptr;};

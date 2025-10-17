@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterNet_ != nullptr
-        && this->enableJumboFrame_ != nullptr && this->hpnZone_ != nullptr && this->isDpuMode_ != nullptr && this->machineType_ != nullptr && this->netArch_ != nullptr
-        && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->clusterNet_ == nullptr
+        && return this->enableJumboFrame_ == nullptr && return this->hpnZone_ == nullptr && return this->isDpuMode_ == nullptr && return this->machineType_ == nullptr && return this->netArch_ == nullptr
+        && return this->regionId_ == nullptr; };
     // clusterNet Field Functions 
     bool hasClusterNet() const { return this->clusterNet_ != nullptr;};
     void deleteClusterNet() { this->clusterNet_ = nullptr;};

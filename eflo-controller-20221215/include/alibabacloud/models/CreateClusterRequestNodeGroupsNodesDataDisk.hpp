@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->burstingEnabled_ != nullptr
-        && this->category_ != nullptr && this->deleteWithNode_ != nullptr && this->performanceLevel_ != nullptr && this->provisionedIops_ != nullptr && this->size_ != nullptr; };
+    virtual bool empty() const override { return this->burstingEnabled_ == nullptr
+        && return this->category_ == nullptr && return this->deleteWithNode_ == nullptr && return this->performanceLevel_ == nullptr && return this->provisionedIops_ == nullptr && return this->size_ == nullptr; };
     // burstingEnabled Field Functions 
     bool hasBurstingEnabled() const { return this->burstingEnabled_ != nullptr;};
     void deleteBurstingEnabled() { this->burstingEnabled_ = nullptr;};

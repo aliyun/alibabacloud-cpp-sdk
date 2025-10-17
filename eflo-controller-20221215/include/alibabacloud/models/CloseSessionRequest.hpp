@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->sessionId_ != nullptr
-        && this->sessionToken_ != nullptr; };
+    virtual bool empty() const override { return this->sessionId_ == nullptr
+        && return this->sessionToken_ == nullptr; };
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
