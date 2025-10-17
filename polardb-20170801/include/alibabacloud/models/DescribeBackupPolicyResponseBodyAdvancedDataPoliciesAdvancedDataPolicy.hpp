@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoCreated_ != nullptr
-        && this->bakType_ != nullptr && this->destRegion_ != nullptr && this->destType_ != nullptr && this->dumpAction_ != nullptr && this->filterKey_ != nullptr
-        && this->filterType_ != nullptr && this->filterValue_ != nullptr && this->onlyPreserveOneEachDay_ != nullptr && this->onlyPreserveOneEachHour_ != nullptr && this->policyId_ != nullptr
-        && this->retentionType_ != nullptr && this->retentionValue_ != nullptr && this->srcRegion_ != nullptr && this->srcType_ != nullptr; };
+    virtual bool empty() const override { return this->autoCreated_ == nullptr
+        && return this->bakType_ == nullptr && return this->destRegion_ == nullptr && return this->destType_ == nullptr && return this->dumpAction_ == nullptr && return this->filterKey_ == nullptr
+        && return this->filterType_ == nullptr && return this->filterValue_ == nullptr && return this->onlyPreserveOneEachDay_ == nullptr && return this->onlyPreserveOneEachHour_ == nullptr && return this->policyId_ == nullptr
+        && return this->retentionType_ == nullptr && return this->retentionValue_ == nullptr && return this->srcRegion_ == nullptr && return this->srcType_ == nullptr; };
     // autoCreated Field Functions 
     bool hasAutoCreated() const { return this->autoCreated_ != nullptr;};
     void deleteAutoCreated() { this->autoCreated_ = nullptr;};

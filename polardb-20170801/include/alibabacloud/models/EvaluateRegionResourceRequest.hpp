@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->DBInstanceConnType_ != nullptr
-        && this->DBNodeClass_ != nullptr && this->DBType_ != nullptr && this->DBVersion_ != nullptr && this->dispenseMode_ != nullptr && this->needMaxScaleLink_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->subDomain_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->DBInstanceConnType_ == nullptr
+        && return this->DBNodeClass_ == nullptr && return this->DBType_ == nullptr && return this->DBVersion_ == nullptr && return this->dispenseMode_ == nullptr && return this->needMaxScaleLink_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->subDomain_ == nullptr && return this->zoneId_ == nullptr; };
     // DBInstanceConnType Field Functions 
     bool hasDBInstanceConnType() const { return this->DBInstanceConnType_ != nullptr;};
     void deleteDBInstanceConnType() { this->DBInstanceConnType_ = nullptr;};

@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountName_ != nullptr
-        && this->clientToken_ != nullptr && this->DBClusterId_ != nullptr && this->DBNames_ != nullptr && this->extensions_ != nullptr && this->ownerAccount_ != nullptr
-        && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->sourceDBName_ != nullptr && this->version_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->accountName_ == nullptr
+        && return this->clientToken_ == nullptr && return this->DBClusterId_ == nullptr && return this->DBNames_ == nullptr && return this->extensions_ == nullptr && return this->ownerAccount_ == nullptr
+        && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->sourceDBName_ == nullptr && return this->version_ == nullptr && return this->vpcId_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};

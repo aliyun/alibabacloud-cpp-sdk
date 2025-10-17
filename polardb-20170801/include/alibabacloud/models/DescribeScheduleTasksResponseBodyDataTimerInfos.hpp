@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->action_ != nullptr
-        && this->crontabJobId_ != nullptr && this->DBClusterId_ != nullptr && this->dbClusterDescription_ != nullptr && this->dbClusterStatus_ != nullptr && this->orderId_ != nullptr
-        && this->plannedEndTime_ != nullptr && this->plannedFlashingOffTime_ != nullptr && this->plannedStartTime_ != nullptr && this->plannedTime_ != nullptr && this->region_ != nullptr
-        && this->status_ != nullptr && this->taskCancel_ != nullptr && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->action_ == nullptr
+        && return this->crontabJobId_ == nullptr && return this->DBClusterId_ == nullptr && return this->dbClusterDescription_ == nullptr && return this->dbClusterStatus_ == nullptr && return this->orderId_ == nullptr
+        && return this->plannedEndTime_ == nullptr && return this->plannedFlashingOffTime_ == nullptr && return this->plannedStartTime_ == nullptr && return this->plannedTime_ == nullptr && return this->region_ == nullptr
+        && return this->status_ == nullptr && return this->taskCancel_ == nullptr && return this->taskId_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};

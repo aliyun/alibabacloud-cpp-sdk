@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->destRegion_ != nullptr
-        && this->destType_ != nullptr && this->enableLogBackup_ != nullptr && this->logRetentionType_ != nullptr && this->logRetentionValue_ != nullptr && this->policyId_ != nullptr
-        && this->srcRegion_ != nullptr && this->srcType_ != nullptr; };
+    virtual bool empty() const override { return this->destRegion_ == nullptr
+        && return this->destType_ == nullptr && return this->enableLogBackup_ == nullptr && return this->logRetentionType_ == nullptr && return this->logRetentionValue_ == nullptr && return this->policyId_ == nullptr
+        && return this->srcRegion_ == nullptr && return this->srcType_ == nullptr; };
     // destRegion Field Functions 
     bool hasDestRegion() const { return this->destRegion_ != nullptr;};
     void deleteDestRegion() { this->destRegion_ = nullptr;};

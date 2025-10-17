@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->netType_ != nullptr
-        && this->regionId_ != nullptr && this->securityGroupId_ != nullptr && this->securityGroupName_ != nullptr; };
+    virtual bool empty() const override { return this->netType_ == nullptr
+        && return this->regionId_ == nullptr && return this->securityGroupId_ == nullptr && return this->securityGroupName_ == nullptr; };
     // netType Field Functions 
     bool hasNetType() const { return this->netType_ != nullptr;};
     void deleteNetType() { this->netType_ = nullptr;};

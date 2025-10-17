@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->vpcEnabled_ != nullptr
-        && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->vpcEnabled_ == nullptr
+        && return this->zoneId_ == nullptr; };
     // vpcEnabled Field Functions 
     bool hasVpcEnabled() const { return this->vpcEnabled_ != nullptr;};
     void deleteVpcEnabled() { this->vpcEnabled_ = nullptr;};

@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->advancedLogPolicies_ != nullptr
-        && this->enableBackupLog_ != nullptr && this->logBackupAnotherRegionRegion_ != nullptr && this->logBackupAnotherRegionRetentionPeriod_ != nullptr && this->logBackupRetentionPeriod_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->advancedLogPolicies_ == nullptr
+        && return this->enableBackupLog_ == nullptr && return this->logBackupAnotherRegionRegion_ == nullptr && return this->logBackupAnotherRegionRetentionPeriod_ == nullptr && return this->logBackupRetentionPeriod_ == nullptr && return this->requestId_ == nullptr; };
     // advancedLogPolicies Field Functions 
     bool hasAdvancedLogPolicies() const { return this->advancedLogPolicies_ != nullptr;};
     void deleteAdvancedLogPolicies() { this->advancedLogPolicies_ = nullptr;};

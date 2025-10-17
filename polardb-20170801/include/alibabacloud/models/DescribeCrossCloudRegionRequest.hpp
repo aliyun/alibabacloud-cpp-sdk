@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cloudProvider_ != nullptr
-        && this->crossCloudRegionId_ != nullptr && this->DBType_ != nullptr; };
+    virtual bool empty() const override { return this->cloudProvider_ == nullptr
+        && return this->crossCloudRegionId_ == nullptr && return this->DBType_ == nullptr; };
     // cloudProvider Field Functions 
     bool hasCloudProvider() const { return this->cloudProvider_ != nullptr;};
     void deleteCloudProvider() { this->cloudProvider_ = nullptr;};

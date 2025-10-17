@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creationCategory_ != nullptr
-        && this->creationOption_ != nullptr && this->DBName_ != nullptr && this->DBType_ != nullptr && this->DBVersion_ != nullptr && this->ownerAccount_ != nullptr
-        && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->reserve_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->sourceDBClusterId_ != nullptr; };
+    virtual bool empty() const override { return this->creationCategory_ == nullptr
+        && return this->creationOption_ == nullptr && return this->DBName_ == nullptr && return this->DBType_ == nullptr && return this->DBVersion_ == nullptr && return this->ownerAccount_ == nullptr
+        && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->reserve_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->sourceDBClusterId_ == nullptr; };
     // creationCategory Field Functions 
     bool hasCreationCategory() const { return this->creationCategory_ != nullptr;};
     void deleteCreationCategory() { this->creationCategory_ = nullptr;};

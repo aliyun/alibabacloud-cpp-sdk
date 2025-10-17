@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->connections_ != nullptr
-        && this->createTime_ != nullptr && this->DBClusterId_ != nullptr && this->DBClusters_ != nullptr && this->DBType_ != nullptr && this->DBVersion_ != nullptr
-        && this->GDNDescription_ != nullptr && this->GDNId_ != nullptr && this->GDNStatus_ != nullptr && this->globalDomainName_ != nullptr && this->labels_ != nullptr
-        && this->requestId_ != nullptr && this->resourceGroupId_ != nullptr; };
+    virtual bool empty() const override { return this->connections_ == nullptr
+        && return this->createTime_ == nullptr && return this->DBClusterId_ == nullptr && return this->DBClusters_ == nullptr && return this->DBType_ == nullptr && return this->DBVersion_ == nullptr
+        && return this->GDNDescription_ == nullptr && return this->GDNId_ == nullptr && return this->GDNStatus_ == nullptr && return this->globalDomainName_ == nullptr && return this->labels_ == nullptr
+        && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr; };
     // connections Field Functions 
     bool hasConnections() const { return this->connections_ != nullptr;};
     void deleteConnections() { this->connections_ = nullptr;};

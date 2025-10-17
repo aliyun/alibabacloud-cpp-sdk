@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountLockState_ != nullptr
-        && this->accountName_ != nullptr && this->accountPasswordValidTime_ != nullptr && this->DBClusterId_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->accountLockState_ == nullptr
+        && return this->accountName_ == nullptr && return this->accountPasswordValidTime_ == nullptr && return this->DBClusterId_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // accountLockState Field Functions 
     bool hasAccountLockState() const { return this->accountLockState_ != nullptr;};
     void deleteAccountLockState() { this->accountLockState_ = nullptr;};

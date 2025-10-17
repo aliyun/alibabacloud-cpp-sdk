@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activatedCodeCount_ != nullptr
-        && this->activationCodeQuota_ != nullptr && this->aliyunOrderId_ != nullptr && this->allowEmptySystemIdentifier_ != nullptr && this->engine_ != nullptr && this->gmtCreated_ != nullptr
-        && this->gmtModified_ != nullptr && this->isVirtualOrder_ != nullptr && this->isVirtualOrderFrozen_ != nullptr && this->packageType_ != nullptr && this->packageValidity_ != nullptr
-        && this->purchaseChannel_ != nullptr && this->virtualAliyunOrderId_ != nullptr; };
+    virtual bool empty() const override { return this->activatedCodeCount_ == nullptr
+        && return this->activationCodeQuota_ == nullptr && return this->aliyunOrderId_ == nullptr && return this->allowEmptySystemIdentifier_ == nullptr && return this->engine_ == nullptr && return this->gmtCreated_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->isVirtualOrder_ == nullptr && return this->isVirtualOrderFrozen_ == nullptr && return this->packageType_ == nullptr && return this->packageValidity_ == nullptr
+        && return this->purchaseChannel_ == nullptr && return this->virtualAliyunOrderId_ == nullptr; };
     // activatedCodeCount Field Functions 
     bool hasActivatedCodeCount() const { return this->activatedCodeCount_ != nullptr;};
     void deleteActivatedCodeCount() { this->activatedCodeCount_ = nullptr;};

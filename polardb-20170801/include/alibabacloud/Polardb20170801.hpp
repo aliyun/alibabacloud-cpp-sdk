@@ -170,6 +170,23 @@ namespace Polardb20170801
       Models::CheckAccountNameResponse checkAccountName(const Models::CheckAccountNameRequest &request);
 
       /**
+       * @summary 检查PolarDB账号名称
+       *
+       * @param request CheckAccountNameZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckAccountNameZonalResponse
+       */
+      Models::CheckAccountNameZonalResponse checkAccountNameZonalWithOptions(const Models::CheckAccountNameZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 检查PolarDB账号名称
+       *
+       * @param request CheckAccountNameZonalRequest
+       * @return CheckAccountNameZonalResponse
+       */
+      Models::CheckAccountNameZonalResponse checkAccountNameZonal(const Models::CheckAccountNameZonalRequest &request);
+
+      /**
        * @summary 检查连接串
        *
        * @param request CheckConnectionStringRequest
@@ -202,6 +219,23 @@ namespace Polardb20170801
        * @return CheckDBNameResponse
        */
       Models::CheckDBNameResponse checkDBName(const Models::CheckDBNameRequest &request);
+
+      /**
+       * @summary 检查PolarDB边缘云数据库名
+       *
+       * @param request CheckDBNameZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckDBNameZonalResponse
+       */
+      Models::CheckDBNameZonalResponse checkDBNameZonalWithOptions(const Models::CheckDBNameZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 检查PolarDB边缘云数据库名
+       *
+       * @param request CheckDBNameZonalRequest
+       * @return CheckDBNameZonalResponse
+       */
+      Models::CheckDBNameZonalResponse checkDBNameZonal(const Models::CheckDBNameZonalRequest &request);
 
       /**
        * @summary Queries whether the cluster is authorized to use Key Management Service (KMS).
@@ -308,6 +342,23 @@ namespace Polardb20170801
        * @return CreateAccountResponse
        */
       Models::CreateAccountResponse createAccount(const Models::CreateAccountRequest &request);
+
+      /**
+       * @summary 创建边缘云账号
+       *
+       * @param request CreateAccountZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAccountZonalResponse
+       */
+      Models::CreateAccountZonalResponse createAccountZonalWithOptions(const Models::CreateAccountZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建边缘云账号
+       *
+       * @param request CreateAccountZonalRequest
+       * @return CreateAccountZonalResponse
+       */
+      Models::CreateAccountZonalResponse createAccountZonal(const Models::CreateAccountZonalRequest &request);
 
       /**
        * @summary Generates a lightweight license activation code.
@@ -456,6 +507,23 @@ namespace Polardb20170801
       Models::CreateDBClusterEndpointResponse createDBClusterEndpoint(const Models::CreateDBClusterEndpointRequest &request);
 
       /**
+       * @summary 边缘云创建链接地址接口
+       *
+       * @param request CreateDBClusterEndpointZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDBClusterEndpointZonalResponse
+       */
+      Models::CreateDBClusterEndpointZonalResponse createDBClusterEndpointZonalWithOptions(const Models::CreateDBClusterEndpointZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 边缘云创建链接地址接口
+       *
+       * @param request CreateDBClusterEndpointZonalRequest
+       * @return CreateDBClusterEndpointZonalResponse
+       */
+      Models::CreateDBClusterEndpointZonalResponse createDBClusterEndpointZonal(const Models::CreateDBClusterEndpointZonalRequest &request);
+
+      /**
        * @summary Creates a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
        *
        * @description > You can create a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
@@ -544,6 +612,23 @@ namespace Polardb20170801
        * @return CreateDatabaseResponse
        */
       Models::CreateDatabaseResponse createDatabase(const Models::CreateDatabaseRequest &request);
+
+      /**
+       * @summary 创建PolarDB边缘云数据库
+       *
+       * @param request CreateDatabaseZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDatabaseZonalResponse
+       */
+      Models::CreateDatabaseZonalResponse createDatabaseZonalWithOptions(const Models::CreateDatabaseZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建PolarDB边缘云数据库
+       *
+       * @param request CreateDatabaseZonalRequest
+       * @return CreateDatabaseZonalResponse
+       */
+      Models::CreateDatabaseZonalResponse createDatabaseZonal(const Models::CreateDatabaseZonalRequest &request);
 
       /**
        * @summary 创建插件
@@ -747,6 +832,23 @@ namespace Polardb20170801
       Models::DeleteAccountResponse deleteAccount(const Models::DeleteAccountRequest &request);
 
       /**
+       * @summary 删除PolarDB边缘云集群账号
+       *
+       * @param request DeleteAccountZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAccountZonalResponse
+       */
+      Models::DeleteAccountZonalResponse deleteAccountZonalWithOptions(const Models::DeleteAccountZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除PolarDB边缘云集群账号
+       *
+       * @param request DeleteAccountZonalRequest
+       * @return DeleteAccountZonalResponse
+       */
+      Models::DeleteAccountZonalResponse deleteAccountZonal(const Models::DeleteAccountZonalRequest &request);
+
+      /**
        * @summary 删除PolarDB应用
        *
        * @param request DeleteApplicationRequest
@@ -844,6 +946,23 @@ namespace Polardb20170801
       Models::DeleteDBClusterEndpointResponse deleteDBClusterEndpoint(const Models::DeleteDBClusterEndpointRequest &request);
 
       /**
+       * @summary 删除PolarDB 边缘云集群的链接地址
+       *
+       * @param request DeleteDBClusterEndpointZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDBClusterEndpointZonalResponse
+       */
+      Models::DeleteDBClusterEndpointZonalResponse deleteDBClusterEndpointZonalWithOptions(const Models::DeleteDBClusterEndpointZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除PolarDB 边缘云集群的链接地址
+       *
+       * @param request DeleteDBClusterEndpointZonalRequest
+       * @return DeleteDBClusterEndpointZonalResponse
+       */
+      Models::DeleteDBClusterEndpointZonalResponse deleteDBClusterEndpointZonal(const Models::DeleteDBClusterEndpointZonalRequest &request);
+
+      /**
        * @summary Releases the public endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, and custom cluster endpoint.
        *
        * @description > *   You can delete a public-facing or classic network endpoint of the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
@@ -922,6 +1041,23 @@ namespace Polardb20170801
        * @return DeleteDatabaseResponse
        */
       Models::DeleteDatabaseResponse deleteDatabase(const Models::DeleteDatabaseRequest &request);
+
+      /**
+       * @summary 删除PolarDB边缘云集群数据库
+       *
+       * @param request DeleteDatabaseZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDatabaseZonalResponse
+       */
+      Models::DeleteDatabaseZonalResponse deleteDatabaseZonalWithOptions(const Models::DeleteDatabaseZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除PolarDB边缘云集群数据库
+       *
+       * @param request DeleteDatabaseZonalRequest
+       * @return DeleteDatabaseZonalResponse
+       */
+      Models::DeleteDatabaseZonalResponse deleteDatabaseZonal(const Models::DeleteDatabaseZonalRequest &request);
 
       /**
        * @summary 删除角色
@@ -1189,6 +1325,23 @@ namespace Polardb20170801
       Models::DescribeAccountsResponse describeAccounts(const Models::DescribeAccountsRequest &request);
 
       /**
+       * @summary 查询PolarDB边缘云集群列表
+       *
+       * @param request DescribeAccountsZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAccountsZonalResponse
+       */
+      Models::DescribeAccountsZonalResponse describeAccountsZonalWithOptions(const Models::DescribeAccountsZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询PolarDB边缘云集群列表
+       *
+       * @param request DescribeAccountsZonalRequest
+       * @return DescribeAccountsZonalResponse
+       */
+      Models::DescribeAccountsZonalResponse describeAccountsZonal(const Models::DescribeAccountsZonalRequest &request);
+
+      /**
        * @summary Queries the details of an activation code.
        *
        * @param request DescribeActivationCodeDetailsRequest
@@ -1289,6 +1442,23 @@ namespace Polardb20170801
        * @return DescribeApplicationParametersResponse
        */
       Models::DescribeApplicationParametersResponse describeApplicationParameters(const Models::DescribeApplicationParametersRequest &request);
+
+      /**
+       * @summary 获取应用serverless配置
+       *
+       * @param request DescribeApplicationServerlessConfRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeApplicationServerlessConfResponse
+       */
+      Models::DescribeApplicationServerlessConfResponse describeApplicationServerlessConfWithOptions(const Models::DescribeApplicationServerlessConfRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取应用serverless配置
+       *
+       * @param request DescribeApplicationServerlessConfRequest
+       * @return DescribeApplicationServerlessConfResponse
+       */
+      Models::DescribeApplicationServerlessConfResponse describeApplicationServerlessConf(const Models::DescribeApplicationServerlessConfRequest &request);
 
       /**
        * @summary 获取当前地域所有PolarDB实例的应用列表
@@ -1665,6 +1835,23 @@ namespace Polardb20170801
       Models::DescribeDBClusterEndpointsResponse describeDBClusterEndpoints(const Models::DescribeDBClusterEndpointsRequest &request);
 
       /**
+       * @summary 查询PolarDB边缘集群的链接地址
+       *
+       * @param request DescribeDBClusterEndpointsZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDBClusterEndpointsZonalResponse
+       */
+      Models::DescribeDBClusterEndpointsZonalResponse describeDBClusterEndpointsZonalWithOptions(const Models::DescribeDBClusterEndpointsZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询PolarDB边缘集群的链接地址
+       *
+       * @param request DescribeDBClusterEndpointsZonalRequest
+       * @return DescribeDBClusterEndpointsZonalResponse
+       */
+      Models::DescribeDBClusterEndpointsZonalResponse describeDBClusterEndpointsZonal(const Models::DescribeDBClusterEndpointsZonalRequest &request);
+
+      /**
        * @summary The ID of the synchronous task.
        *
        * @description The ID of the request.
@@ -1861,6 +2048,23 @@ namespace Polardb20170801
       Models::DescribeDBClusterVersionResponse describeDBClusterVersion(const Models::DescribeDBClusterVersionRequest &request);
 
       /**
+       * @summary PolarDB边缘集群查询版本
+       *
+       * @param request DescribeDBClusterVersionZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDBClusterVersionZonalResponse
+       */
+      Models::DescribeDBClusterVersionZonalResponse describeDBClusterVersionZonalWithOptions(const Models::DescribeDBClusterVersionZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary PolarDB边缘集群查询版本
+       *
+       * @param request DescribeDBClusterVersionZonalRequest
+       * @return DescribeDBClusterVersionZonalResponse
+       */
+      Models::DescribeDBClusterVersionZonalResponse describeDBClusterVersionZonal(const Models::DescribeDBClusterVersionZonalRequest &request);
+
+      /**
        * @summary Queries PolarDB clusters or the clusters that can be accessed by an authorized RAM user.
        *
        * @param request DescribeDBClustersRequest
@@ -1893,6 +2097,23 @@ namespace Polardb20170801
        * @return DescribeDBClustersWithBackupsResponse
        */
       Models::DescribeDBClustersWithBackupsResponse describeDBClustersWithBackups(const Models::DescribeDBClustersWithBackupsRequest &request);
+
+      /**
+       * @summary MyBase中的PolarDB列表
+       *
+       * @param request DescribeDBClustersZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDBClustersZonalResponse
+       */
+      Models::DescribeDBClustersZonalResponse describeDBClustersZonalWithOptions(const Models::DescribeDBClustersZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary MyBase中的PolarDB列表
+       *
+       * @param request DescribeDBClustersZonalRequest
+       * @return DescribeDBClustersZonalResponse
+       */
+      Models::DescribeDBClustersZonalResponse describeDBClustersZonal(const Models::DescribeDBClustersZonalRequest &request);
 
       /**
        * @summary Queries attributes such as character sets and collations supported by a database in a PolarDB cluster.
@@ -2093,6 +2314,40 @@ namespace Polardb20170801
        * @return DescribeDatabasesResponse
        */
       Models::DescribeDatabasesResponse describeDatabases(const Models::DescribeDatabasesRequest &request);
+
+      /**
+       * @summary 查询PolarDB边缘云数据库
+       *
+       * @param request DescribeDatabasesZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDatabasesZonalResponse
+       */
+      Models::DescribeDatabasesZonalResponse describeDatabasesZonalWithOptions(const Models::DescribeDatabasesZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询PolarDB边缘云数据库
+       *
+       * @param request DescribeDatabasesZonalRequest
+       * @return DescribeDatabasesZonalResponse
+       */
+      Models::DescribeDatabasesZonalResponse describeDatabasesZonal(const Models::DescribeDatabasesZonalRequest &request);
+
+      /**
+       * @summary PolarDB的MyBase集群
+       *
+       * @param request DescribeDbClusterAttributeZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDbClusterAttributeZonalResponse
+       */
+      Models::DescribeDbClusterAttributeZonalResponse describeDbClusterAttributeZonalWithOptions(const Models::DescribeDbClusterAttributeZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary PolarDB的MyBase集群
+       *
+       * @param request DescribeDbClusterAttributeZonalRequest
+       * @return DescribeDbClusterAttributeZonalResponse
+       */
+      Models::DescribeDbClusterAttributeZonalResponse describeDbClusterAttributeZonal(const Models::DescribeDbClusterAttributeZonalRequest &request);
 
       /**
        * @summary Queries the information about the backup sets in a released PolarDB cluster.
@@ -2987,6 +3242,23 @@ namespace Polardb20170801
       Models::FailoverDBClusterResponse failoverDBCluster(const Models::FailoverDBClusterRequest &request);
 
       /**
+       * @summary 角色切换
+       *
+       * @param request FailoverDBClusterZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return FailoverDBClusterZonalResponse
+       */
+      Models::FailoverDBClusterZonalResponse failoverDBClusterZonalWithOptions(const Models::FailoverDBClusterZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 角色切换
+       *
+       * @param request FailoverDBClusterZonalRequest
+       * @return FailoverDBClusterZonalResponse
+       */
+      Models::FailoverDBClusterZonalResponse failoverDBClusterZonal(const Models::FailoverDBClusterZonalRequest &request);
+
+      /**
        * @summary 生成校验报告
        *
        * @param request GenerateUpgradeReportForSyncCloneRequest
@@ -3031,6 +3303,23 @@ namespace Polardb20170801
        * @return GrantAccountPrivilegeResponse
        */
       Models::GrantAccountPrivilegeResponse grantAccountPrivilege(const Models::GrantAccountPrivilegeRequest &request);
+
+      /**
+       * @summary 修改PolarDB边缘集群的账号权限
+       *
+       * @param request GrantAccountPrivilegeZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GrantAccountPrivilegeZonalResponse
+       */
+      Models::GrantAccountPrivilegeZonalResponse grantAccountPrivilegeZonalWithOptions(const Models::GrantAccountPrivilegeZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改PolarDB边缘集群的账号权限
+       *
+       * @param request GrantAccountPrivilegeZonalRequest
+       * @return GrantAccountPrivilegeZonalResponse
+       */
+      Models::GrantAccountPrivilegeZonalResponse grantAccountPrivilegeZonal(const Models::GrantAccountPrivilegeZonalRequest &request);
 
       /**
        * @summary 查询订单
@@ -3131,6 +3420,23 @@ namespace Polardb20170801
       Models::ModifyAccountDescriptionResponse modifyAccountDescription(const Models::ModifyAccountDescriptionRequest &request);
 
       /**
+       * @summary 修改PolarDB边缘云账号的描述
+       *
+       * @param request ModifyAccountDescriptionZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAccountDescriptionZonalResponse
+       */
+      Models::ModifyAccountDescriptionZonalResponse modifyAccountDescriptionZonalWithOptions(const Models::ModifyAccountDescriptionZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改PolarDB边缘云账号的描述
+       *
+       * @param request ModifyAccountDescriptionZonalRequest
+       * @return ModifyAccountDescriptionZonalResponse
+       */
+      Models::ModifyAccountDescriptionZonalResponse modifyAccountDescriptionZonal(const Models::ModifyAccountDescriptionZonalRequest &request);
+
+      /**
        * @param request ModifyAccountLockStateRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyAccountLockStateResponse
@@ -3159,6 +3465,23 @@ namespace Polardb20170801
        * @return ModifyAccountPasswordResponse
        */
       Models::ModifyAccountPasswordResponse modifyAccountPassword(const Models::ModifyAccountPasswordRequest &request);
+
+      /**
+       * @summary 修改PolarDB边缘的账号密码
+       *
+       * @param request ModifyAccountPasswordZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAccountPasswordZonalResponse
+       */
+      Models::ModifyAccountPasswordZonalResponse modifyAccountPasswordZonalWithOptions(const Models::ModifyAccountPasswordZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改PolarDB边缘的账号密码
+       *
+       * @param request ModifyAccountPasswordZonalRequest
+       * @return ModifyAccountPasswordZonalResponse
+       */
+      Models::ModifyAccountPasswordZonalResponse modifyAccountPasswordZonal(const Models::ModifyAccountPasswordZonalRequest &request);
 
       /**
        * @summary 配置用户的运维信息，目前包括主动运维窗口信息
@@ -3227,6 +3550,23 @@ namespace Polardb20170801
        * @return ModifyApplicationParameterResponse
        */
       Models::ModifyApplicationParameterResponse modifyApplicationParameter(const Models::ModifyApplicationParameterRequest &request);
+
+      /**
+       * @summary 修改应用serverless配置
+       *
+       * @param request ModifyApplicationServerlessConfRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyApplicationServerlessConfResponse
+       */
+      Models::ModifyApplicationServerlessConfResponse modifyApplicationServerlessConfWithOptions(const Models::ModifyApplicationServerlessConfRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改应用serverless配置
+       *
+       * @param request ModifyApplicationServerlessConfRequest
+       * @return ModifyApplicationServerlessConfResponse
+       */
+      Models::ModifyApplicationServerlessConfResponse modifyApplicationServerlessConf(const Models::ModifyApplicationServerlessConfRequest &request);
 
       /**
        * @summary 修改应用白名单
@@ -3420,6 +3760,23 @@ namespace Polardb20170801
       Models::ModifyDBClusterDescriptionResponse modifyDBClusterDescription(const Models::ModifyDBClusterDescriptionRequest &request);
 
       /**
+       * @summary 修改集群描述
+       *
+       * @param request ModifyDBClusterDescriptionZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyDBClusterDescriptionZonalResponse
+       */
+      Models::ModifyDBClusterDescriptionZonalResponse modifyDBClusterDescriptionZonalWithOptions(const Models::ModifyDBClusterDescriptionZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改集群描述
+       *
+       * @param request ModifyDBClusterDescriptionZonalRequest
+       * @return ModifyDBClusterDescriptionZonalResponse
+       */
+      Models::ModifyDBClusterDescriptionZonalResponse modifyDBClusterDescriptionZonal(const Models::ModifyDBClusterDescriptionZonalRequest &request);
+
+      /**
        * @summary Modifies the attributes of a specified PolarDB cluster endpoint. For example, you can modify the following attributes for the specified cluster endpoint: read/write mode, consistency level, transaction splitting, primary node accepts read requests, and connection pool. You can also call the operation to specify whether newly added nodes are automatically associated with the specified cluster endpoint.
        *
        * @param request ModifyDBClusterEndpointRequest
@@ -3435,6 +3792,23 @@ namespace Polardb20170801
        * @return ModifyDBClusterEndpointResponse
        */
       Models::ModifyDBClusterEndpointResponse modifyDBClusterEndpoint(const Models::ModifyDBClusterEndpointRequest &request);
+
+      /**
+       * @summary PolarDB边缘集群修改链接地址
+       *
+       * @param request ModifyDBClusterEndpointZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyDBClusterEndpointZonalResponse
+       */
+      Models::ModifyDBClusterEndpointZonalResponse modifyDBClusterEndpointZonalWithOptions(const Models::ModifyDBClusterEndpointZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary PolarDB边缘集群修改链接地址
+       *
+       * @param request ModifyDBClusterEndpointZonalRequest
+       * @return ModifyDBClusterEndpointZonalResponse
+       */
+      Models::ModifyDBClusterEndpointZonalResponse modifyDBClusterEndpointZonal(const Models::ModifyDBClusterEndpointZonalRequest &request);
 
       /**
        * @summary Modifies the maintenance window of a PolarDB cluster.
@@ -3723,6 +4097,23 @@ namespace Polardb20170801
        * @return ModifyDBDescriptionResponse
        */
       Models::ModifyDBDescriptionResponse modifyDBDescription(const Models::ModifyDBDescriptionRequest &request);
+
+      /**
+       * @summary 修改PolarDB边缘云集群数据库描述
+       *
+       * @param request ModifyDBDescriptionZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyDBDescriptionZonalResponse
+       */
+      Models::ModifyDBDescriptionZonalResponse modifyDBDescriptionZonalWithOptions(const Models::ModifyDBDescriptionZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改PolarDB边缘云集群数据库描述
+       *
+       * @param request ModifyDBDescriptionZonalRequest
+       * @return ModifyDBDescriptionZonalResponse
+       */
+      Models::ModifyDBDescriptionZonalResponse modifyDBDescriptionZonal(const Models::ModifyDBDescriptionZonalRequest &request);
 
       /**
        * @summary Modifies the endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, custom cluster endpoint, and private domain name.
@@ -4186,6 +4577,23 @@ namespace Polardb20170801
       Models::ResetAccountPasswordResponse resetAccountPassword(const Models::ResetAccountPasswordRequest &request);
 
       /**
+       * @summary 重置PolarDB边缘集群账号
+       *
+       * @param request ResetAccountZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResetAccountZonalResponse
+       */
+      Models::ResetAccountZonalResponse resetAccountZonalWithOptions(const Models::ResetAccountZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重置PolarDB边缘集群账号
+       *
+       * @param request ResetAccountZonalRequest
+       * @return ResetAccountZonalResponse
+       */
+      Models::ResetAccountZonalResponse resetAccountZonal(const Models::ResetAccountZonalRequest &request);
+
+      /**
        * @summary Rebuilds a secondary cluster in a Global Database Network (GDN).
        *
        * @param request ResetGlobalDatabaseNetworkRequest
@@ -4237,6 +4645,23 @@ namespace Polardb20170801
       Models::RestartDBNodeResponse restartDBNode(const Models::RestartDBNodeRequest &request);
 
       /**
+       * @summary 重启poalrdb边缘云集群节点
+       *
+       * @param request RestartDBNodeZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RestartDBNodeZonalResponse
+       */
+      Models::RestartDBNodeZonalResponse restartDBNodeZonalWithOptions(const Models::RestartDBNodeZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重启poalrdb边缘云集群节点
+       *
+       * @param request RestartDBNodeZonalRequest
+       * @return RestartDBNodeZonalResponse
+       */
+      Models::RestartDBNodeZonalResponse restartDBNodeZonal(const Models::RestartDBNodeZonalRequest &request);
+
+      /**
        * @summary Restores PolarDB databases and tables.
        *
        * @param request RestoreTableRequest
@@ -4269,6 +4694,23 @@ namespace Polardb20170801
        * @return RevokeAccountPrivilegeResponse
        */
       Models::RevokeAccountPrivilegeResponse revokeAccountPrivilege(const Models::RevokeAccountPrivilegeRequest &request);
+
+      /**
+       * @summary 撤销账号权限
+       *
+       * @param request RevokeAccountPrivilegeZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RevokeAccountPrivilegeZonalResponse
+       */
+      Models::RevokeAccountPrivilegeZonalResponse revokeAccountPrivilegeZonalWithOptions(const Models::RevokeAccountPrivilegeZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 撤销账号权限
+       *
+       * @param request RevokeAccountPrivilegeZonalRequest
+       * @return RevokeAccountPrivilegeZonalResponse
+       */
+      Models::RevokeAccountPrivilegeZonalResponse revokeAccountPrivilegeZonal(const Models::RevokeAccountPrivilegeZonalRequest &request);
 
       /**
        * @param request SwitchOverGlobalDatabaseNetworkRequest
@@ -4400,6 +4842,23 @@ namespace Polardb20170801
        * @return UpgradeDBClusterVersionResponse
        */
       Models::UpgradeDBClusterVersionResponse upgradeDBClusterVersion(const Models::UpgradeDBClusterVersionRequest &request);
+
+      /**
+       * @summary PolarDB边缘云集群小版本升级
+       *
+       * @param request UpgradeDBClusterVersionZonalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpgradeDBClusterVersionZonalResponse
+       */
+      Models::UpgradeDBClusterVersionZonalResponse upgradeDBClusterVersionZonalWithOptions(const Models::UpgradeDBClusterVersionZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary PolarDB边缘云集群小版本升级
+       *
+       * @param request UpgradeDBClusterVersionZonalRequest
+       * @return UpgradeDBClusterVersionZonalResponse
+       */
+      Models::UpgradeDBClusterVersionZonalResponse upgradeDBClusterVersionZonal(const Models::UpgradeDBClusterVersionZonalRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Polardb20170801

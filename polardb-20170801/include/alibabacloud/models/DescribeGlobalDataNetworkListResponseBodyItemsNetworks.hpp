@@ -42,8 +42,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->channels_ != nullptr
-        && this->createTime_ != nullptr && this->networkDescription_ != nullptr && this->networkId_ != nullptr && this->networkStatus_ != nullptr && this->networkTopology_ != nullptr; };
+    virtual bool empty() const override { return this->channels_ == nullptr
+        && return this->createTime_ == nullptr && return this->networkDescription_ == nullptr && return this->networkId_ == nullptr && return this->networkStatus_ == nullptr && return this->networkTopology_ == nullptr; };
     // channels Field Functions 
     bool hasChannels() const { return this->channels_ != nullptr;};
     void deleteChannels() { this->channels_ = nullptr;};

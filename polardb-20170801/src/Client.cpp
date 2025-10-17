@@ -660,6 +660,68 @@ CheckAccountNameResponse Client::checkAccountName(const CheckAccountNameRequest 
 }
 
 /**
+ * @summary 检查PolarDB账号名称
+ *
+ * @param request CheckAccountNameZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckAccountNameZonalResponse
+ */
+CheckAccountNameZonalResponse Client::checkAccountNameZonalWithOptions(const CheckAccountNameZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountName()) {
+    query["AccountName"] = request.accountName();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckAccountNameZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckAccountNameZonalResponse>();
+}
+
+/**
+ * @summary 检查PolarDB账号名称
+ *
+ * @param request CheckAccountNameZonalRequest
+ * @return CheckAccountNameZonalResponse
+ */
+CheckAccountNameZonalResponse Client::checkAccountNameZonal(const CheckAccountNameZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkAccountNameZonalWithOptions(request, runtime);
+}
+
+/**
  * @summary 检查连接串
  *
  * @param request CheckConnectionStringRequest
@@ -781,6 +843,68 @@ CheckDBNameResponse Client::checkDBNameWithOptions(const CheckDBNameRequest &req
 CheckDBNameResponse Client::checkDBName(const CheckDBNameRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return checkDBNameWithOptions(request, runtime);
+}
+
+/**
+ * @summary 检查PolarDB边缘云数据库名
+ *
+ * @param request CheckDBNameZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckDBNameZonalResponse
+ */
+CheckDBNameZonalResponse Client::checkDBNameZonalWithOptions(const CheckDBNameZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDBName()) {
+    query["DBName"] = request.DBName();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckDBNameZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckDBNameZonalResponse>();
+}
+
+/**
+ * @summary 检查PolarDB边缘云数据库名
+ *
+ * @param request CheckDBNameZonalRequest
+ * @return CheckDBNameZonalResponse
+ */
+CheckDBNameZonalResponse Client::checkDBNameZonal(const CheckDBNameZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkDBNameZonalWithOptions(request, runtime);
 }
 
 /**
@@ -1200,6 +1324,100 @@ CreateAccountResponse Client::createAccount(const CreateAccountRequest &request)
 }
 
 /**
+ * @summary 创建边缘云账号
+ *
+ * @param request CreateAccountZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAccountZonalResponse
+ */
+CreateAccountZonalResponse Client::createAccountZonalWithOptions(const CreateAccountZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountDescription()) {
+    query["AccountDescription"] = request.accountDescription();
+  }
+
+  if (!!request.hasAccountName()) {
+    query["AccountName"] = request.accountName();
+  }
+
+  if (!!request.hasAccountPassword()) {
+    query["AccountPassword"] = request.accountPassword();
+  }
+
+  if (!!request.hasAccountPrivilege()) {
+    query["AccountPrivilege"] = request.accountPrivilege();
+  }
+
+  if (!!request.hasAccountType()) {
+    query["AccountType"] = request.accountType();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDBName()) {
+    query["DBName"] = request.DBName();
+  }
+
+  if (!!request.hasNodeType()) {
+    query["NodeType"] = request.nodeType();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPrivForAllDB()) {
+    query["PrivForAllDB"] = request.privForAllDB();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAccountZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAccountZonalResponse>();
+}
+
+/**
+ * @summary 创建边缘云账号
+ *
+ * @param request CreateAccountZonalRequest
+ * @return CreateAccountZonalResponse
+ */
+CreateAccountZonalResponse Client::createAccountZonal(const CreateAccountZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAccountZonalWithOptions(request, runtime);
+}
+
+/**
  * @summary Generates a lightweight license activation code.
  *
  * @param request CreateActivationCodeRequest
@@ -1351,6 +1569,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
 
   if (!!request.hasVSwitchId()) {
     query["VSwitchId"] = request.vSwitchId();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.vpcId();
   }
 
   if (!!request.hasZoneId()) {
@@ -1733,6 +1955,10 @@ CreateDBClusterResponse Client::createDBClusterWithOptions(const CreateDBCluster
     query["CloneDataPoint"] = request.cloneDataPoint();
   }
 
+  if (!!request.hasCloudProvider()) {
+    query["CloudProvider"] = request.cloudProvider();
+  }
+
   if (!!request.hasClusterNetworkType()) {
     query["ClusterNetworkType"] = request.clusterNetworkType();
   }
@@ -1771,6 +1997,10 @@ CreateDBClusterResponse Client::createDBClusterWithOptions(const CreateDBCluster
 
   if (!!request.hasDefaultTimeZone()) {
     query["DefaultTimeZone"] = request.defaultTimeZone();
+  }
+
+  if (!!request.hasEnsRegionId()) {
+    query["EnsRegionId"] = request.ensRegionId();
   }
 
   if (!!request.hasGDNId()) {
@@ -2015,6 +2245,10 @@ CreateDBClusterEndpointResponse Client::createDBClusterEndpointWithOptions(const
     query["OwnerId"] = request.ownerId();
   }
 
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.polarFsInstanceId();
+  }
+
   if (!!request.hasPolarSccTimeoutAction()) {
     query["PolarSccTimeoutAction"] = request.polarSccTimeoutAction();
   }
@@ -2065,6 +2299,104 @@ CreateDBClusterEndpointResponse Client::createDBClusterEndpointWithOptions(const
 CreateDBClusterEndpointResponse Client::createDBClusterEndpoint(const CreateDBClusterEndpointRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createDBClusterEndpointWithOptions(request, runtime);
+}
+
+/**
+ * @summary 边缘云创建链接地址接口
+ *
+ * @param request CreateDBClusterEndpointZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDBClusterEndpointZonalResponse
+ */
+CreateDBClusterEndpointZonalResponse Client::createDBClusterEndpointZonalWithOptions(const CreateDBClusterEndpointZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoAddNewNodes()) {
+    query["AutoAddNewNodes"] = request.autoAddNewNodes();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDBEndpointDescription()) {
+    query["DBEndpointDescription"] = request.DBEndpointDescription();
+  }
+
+  if (!!request.hasEndpointConfig()) {
+    query["EndpointConfig"] = request.endpointConfig();
+  }
+
+  if (!!request.hasEndpointType()) {
+    query["EndpointType"] = request.endpointType();
+  }
+
+  if (!!request.hasNodes()) {
+    query["Nodes"] = request.nodes();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPolarSccTimeoutAction()) {
+    query["PolarSccTimeoutAction"] = request.polarSccTimeoutAction();
+  }
+
+  if (!!request.hasPolarSccWaitTimeout()) {
+    query["PolarSccWaitTimeout"] = request.polarSccWaitTimeout();
+  }
+
+  if (!!request.hasReadWriteMode()) {
+    query["ReadWriteMode"] = request.readWriteMode();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasSccMode()) {
+    query["SccMode"] = request.sccMode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateDBClusterEndpointZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDBClusterEndpointZonalResponse>();
+}
+
+/**
+ * @summary 边缘云创建链接地址接口
+ *
+ * @param request CreateDBClusterEndpointZonalRequest
+ * @return CreateDBClusterEndpointZonalResponse
+ */
+CreateDBClusterEndpointZonalResponse Client::createDBClusterEndpointZonal(const CreateDBClusterEndpointZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDBClusterEndpointZonalWithOptions(request, runtime);
 }
 
 /**
@@ -2283,6 +2615,10 @@ CreateDBNodesResponse Client::createDBNodesWithOptions(const CreateDBNodesReques
     query["ClientToken"] = request.clientToken();
   }
 
+  if (!!request.hasCloudProvider()) {
+    query["CloudProvider"] = request.cloudProvider();
+  }
+
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.DBClusterId();
   }
@@ -2451,6 +2787,96 @@ CreateDatabaseResponse Client::createDatabaseWithOptions(const CreateDatabaseReq
 CreateDatabaseResponse Client::createDatabase(const CreateDatabaseRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createDatabaseWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建PolarDB边缘云数据库
+ *
+ * @param request CreateDatabaseZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDatabaseZonalResponse
+ */
+CreateDatabaseZonalResponse Client::createDatabaseZonalWithOptions(const CreateDatabaseZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountName()) {
+    query["AccountName"] = request.accountName();
+  }
+
+  if (!!request.hasAccountPrivilege()) {
+    query["AccountPrivilege"] = request.accountPrivilege();
+  }
+
+  if (!!request.hasCharacterSetName()) {
+    query["CharacterSetName"] = request.characterSetName();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasCollate()) {
+    query["Collate"] = request.collate();
+  }
+
+  if (!!request.hasCtype()) {
+    query["Ctype"] = request.ctype();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDBDescription()) {
+    query["DBDescription"] = request.DBDescription();
+  }
+
+  if (!!request.hasDBName()) {
+    query["DBName"] = request.DBName();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateDatabaseZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDatabaseZonalResponse>();
+}
+
+/**
+ * @summary 创建PolarDB边缘云数据库
+ *
+ * @param request CreateDatabaseZonalRequest
+ * @return CreateDatabaseZonalResponse
+ */
+CreateDatabaseZonalResponse Client::createDatabaseZonal(const CreateDatabaseZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDatabaseZonalWithOptions(request, runtime);
 }
 
 /**
@@ -3258,6 +3684,68 @@ DeleteAccountResponse Client::deleteAccount(const DeleteAccountRequest &request)
 }
 
 /**
+ * @summary 删除PolarDB边缘云集群账号
+ *
+ * @param request DeleteAccountZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAccountZonalResponse
+ */
+DeleteAccountZonalResponse Client::deleteAccountZonalWithOptions(const DeleteAccountZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountName()) {
+    query["AccountName"] = request.accountName();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAccountZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAccountZonalResponse>();
+}
+
+/**
+ * @summary 删除PolarDB边缘云集群账号
+ *
+ * @param request DeleteAccountZonalRequest
+ * @return DeleteAccountZonalResponse
+ */
+DeleteAccountZonalResponse Client::deleteAccountZonal(const DeleteAccountZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAccountZonalWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除PolarDB应用
  *
  * @param request DeleteApplicationRequest
@@ -3511,6 +3999,10 @@ DeleteDBClusterEndpointResponse Client::deleteDBClusterEndpointWithOptions(const
     query["OwnerId"] = request.ownerId();
   }
 
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.polarFsInstanceId();
+  }
+
   if (!!request.hasResourceOwnerAccount()) {
     query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
   }
@@ -3545,6 +4037,68 @@ DeleteDBClusterEndpointResponse Client::deleteDBClusterEndpointWithOptions(const
 DeleteDBClusterEndpointResponse Client::deleteDBClusterEndpoint(const DeleteDBClusterEndpointRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteDBClusterEndpointWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除PolarDB 边缘云集群的链接地址
+ *
+ * @param request DeleteDBClusterEndpointZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDBClusterEndpointZonalResponse
+ */
+DeleteDBClusterEndpointZonalResponse Client::deleteDBClusterEndpointZonalWithOptions(const DeleteDBClusterEndpointZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDBEndpointId()) {
+    query["DBEndpointId"] = request.DBEndpointId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDBClusterEndpointZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDBClusterEndpointZonalResponse>();
+}
+
+/**
+ * @summary 删除PolarDB 边缘云集群的链接地址
+ *
+ * @param request DeleteDBClusterEndpointZonalRequest
+ * @return DeleteDBClusterEndpointZonalResponse
+ */
+DeleteDBClusterEndpointZonalResponse Client::deleteDBClusterEndpointZonal(const DeleteDBClusterEndpointZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDBClusterEndpointZonalWithOptions(request, runtime);
 }
 
 /**
@@ -3695,6 +4249,10 @@ DeleteDBNodesResponse Client::deleteDBNodesWithOptions(const DeleteDBNodesReques
     query["ClientToken"] = request.clientToken();
   }
 
+  if (!!request.hasCloudProvider()) {
+    query["CloudProvider"] = request.cloudProvider();
+  }
+
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.DBClusterId();
   }
@@ -3817,6 +4375,68 @@ DeleteDatabaseResponse Client::deleteDatabaseWithOptions(const DeleteDatabaseReq
 DeleteDatabaseResponse Client::deleteDatabase(const DeleteDatabaseRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteDatabaseWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除PolarDB边缘云集群数据库
+ *
+ * @param request DeleteDatabaseZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDatabaseZonalResponse
+ */
+DeleteDatabaseZonalResponse Client::deleteDatabaseZonalWithOptions(const DeleteDatabaseZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDBName()) {
+    query["DBName"] = request.DBName();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDatabaseZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDatabaseZonalResponse>();
+}
+
+/**
+ * @summary 删除PolarDB边缘云集群数据库
+ *
+ * @param request DeleteDatabaseZonalRequest
+ * @return DeleteDatabaseZonalResponse
+ */
+DeleteDatabaseZonalResponse Client::deleteDatabaseZonal(const DeleteDatabaseZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDatabaseZonalWithOptions(request, runtime);
 }
 
 /**
@@ -4792,6 +5412,88 @@ DescribeAccountsResponse Client::describeAccounts(const DescribeAccountsRequest 
 }
 
 /**
+ * @summary 查询PolarDB边缘云集群列表
+ *
+ * @param request DescribeAccountsZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAccountsZonalResponse
+ */
+DescribeAccountsZonalResponse Client::describeAccountsZonalWithOptions(const DescribeAccountsZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountName()) {
+    query["AccountName"] = request.accountName();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasNodeType()) {
+    query["NodeType"] = request.nodeType();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAccountsZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAccountsZonalResponse>();
+}
+
+/**
+ * @summary 查询PolarDB边缘云集群列表
+ *
+ * @param request DescribeAccountsZonalRequest
+ * @return DescribeAccountsZonalResponse
+ */
+DescribeAccountsZonalResponse Client::describeAccountsZonal(const DescribeAccountsZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAccountsZonalWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of an activation code.
  *
  * @param request DescribeActivationCodeDetailsRequest
@@ -5186,6 +5888,48 @@ DescribeApplicationParametersResponse Client::describeApplicationParameters(cons
 }
 
 /**
+ * @summary 获取应用serverless配置
+ *
+ * @param request DescribeApplicationServerlessConfRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeApplicationServerlessConfResponse
+ */
+DescribeApplicationServerlessConfResponse Client::describeApplicationServerlessConfWithOptions(const DescribeApplicationServerlessConfRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeApplicationServerlessConf"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeApplicationServerlessConfResponse>();
+}
+
+/**
+ * @summary 获取应用serverless配置
+ *
+ * @param request DescribeApplicationServerlessConfRequest
+ * @return DescribeApplicationServerlessConfResponse
+ */
+DescribeApplicationServerlessConfResponse Client::describeApplicationServerlessConf(const DescribeApplicationServerlessConfRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeApplicationServerlessConfWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取当前地域所有PolarDB实例的应用列表
  *
  * @param request DescribeApplicationsRequest
@@ -5253,6 +5997,10 @@ DescribeApplicationsResponse Client::describeApplications(const DescribeApplicat
 DescribeAutoRenewAttributeResponse Client::describeAutoRenewAttributeWithOptions(const DescribeAutoRenewAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCloudProvider()) {
+    query["CloudProvider"] = request.cloudProvider();
+  }
+
   if (!!request.hasDBClusterIds()) {
     query["DBClusterIds"] = request.DBClusterIds();
   }
@@ -6589,6 +7337,10 @@ DescribeDBClusterEndpointsResponse Client::describeDBClusterEndpointsWithOptions
     query["OwnerId"] = request.ownerId();
   }
 
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.polarFsInstanceId();
+  }
+
   if (!!request.hasResourceOwnerAccount()) {
     query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
   }
@@ -6623,6 +7375,72 @@ DescribeDBClusterEndpointsResponse Client::describeDBClusterEndpointsWithOptions
 DescribeDBClusterEndpointsResponse Client::describeDBClusterEndpoints(const DescribeDBClusterEndpointsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeDBClusterEndpointsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询PolarDB边缘集群的链接地址
+ *
+ * @param request DescribeDBClusterEndpointsZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDBClusterEndpointsZonalResponse
+ */
+DescribeDBClusterEndpointsZonalResponse Client::describeDBClusterEndpointsZonalWithOptions(const DescribeDBClusterEndpointsZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDBEndpointId()) {
+    query["DBEndpointId"] = request.DBEndpointId();
+  }
+
+  if (!!request.hasDescribeType()) {
+    query["DescribeType"] = request.describeType();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDBClusterEndpointsZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDBClusterEndpointsZonalResponse>();
+}
+
+/**
+ * @summary 查询PolarDB边缘集群的链接地址
+ *
+ * @param request DescribeDBClusterEndpointsZonalRequest
+ * @return DescribeDBClusterEndpointsZonalResponse
+ */
+DescribeDBClusterEndpointsZonalResponse Client::describeDBClusterEndpointsZonal(const DescribeDBClusterEndpointsZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDBClusterEndpointsZonalWithOptions(request, runtime);
 }
 
 /**
@@ -7260,6 +8078,68 @@ DescribeDBClusterVersionResponse Client::describeDBClusterVersion(const Describe
 }
 
 /**
+ * @summary PolarDB边缘集群查询版本
+ *
+ * @param request DescribeDBClusterVersionZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDBClusterVersionZonalResponse
+ */
+DescribeDBClusterVersionZonalResponse Client::describeDBClusterVersionZonalWithOptions(const DescribeDBClusterVersionZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDescribeType()) {
+    query["DescribeType"] = request.describeType();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDBClusterVersionZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDBClusterVersionZonalResponse>();
+}
+
+/**
+ * @summary PolarDB边缘集群查询版本
+ *
+ * @param request DescribeDBClusterVersionZonalRequest
+ * @return DescribeDBClusterVersionZonalResponse
+ */
+DescribeDBClusterVersionZonalResponse Client::describeDBClusterVersionZonal(const DescribeDBClusterVersionZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDBClusterVersionZonalWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries PolarDB clusters or the clusters that can be accessed by an authorized RAM user.
  *
  * @param request DescribeDBClustersRequest
@@ -7469,6 +8349,140 @@ DescribeDBClustersWithBackupsResponse Client::describeDBClustersWithBackupsWithO
 DescribeDBClustersWithBackupsResponse Client::describeDBClustersWithBackups(const DescribeDBClustersWithBackupsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeDBClustersWithBackupsWithOptions(request, runtime);
+}
+
+/**
+ * @summary MyBase中的PolarDB列表
+ *
+ * @param request DescribeDBClustersZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDBClustersZonalResponse
+ */
+DescribeDBClustersZonalResponse Client::describeDBClustersZonalWithOptions(const DescribeDBClustersZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCloudProvider()) {
+    query["CloudProvider"] = request.cloudProvider();
+  }
+
+  if (!!request.hasConnectionString()) {
+    query["ConnectionString"] = request.connectionString();
+  }
+
+  if (!!request.hasDBClusterDescription()) {
+    query["DBClusterDescription"] = request.DBClusterDescription();
+  }
+
+  if (!!request.hasDBClusterIds()) {
+    query["DBClusterIds"] = request.DBClusterIds();
+  }
+
+  if (!!request.hasDBClusterStatus()) {
+    query["DBClusterStatus"] = request.DBClusterStatus();
+  }
+
+  if (!!request.hasDBNodeIds()) {
+    query["DBNodeIds"] = request.DBNodeIds();
+  }
+
+  if (!!request.hasDBType()) {
+    query["DBType"] = request.DBType();
+  }
+
+  if (!!request.hasDBVersion()) {
+    query["DBVersion"] = request.DBVersion();
+  }
+
+  if (!!request.hasDescribeType()) {
+    query["DescribeType"] = request.describeType();
+  }
+
+  if (!!request.hasExpired()) {
+    query["Expired"] = request.expired();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasPayType()) {
+    query["PayType"] = request.payType();
+  }
+
+  if (!!request.hasRecentCreationInterval()) {
+    query["RecentCreationInterval"] = request.recentCreationInterval();
+  }
+
+  if (!!request.hasRecentExpirationInterval()) {
+    query["RecentExpirationInterval"] = request.recentExpirationInterval();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.tag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDBClustersZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDBClustersZonalResponse>();
+}
+
+/**
+ * @summary MyBase中的PolarDB列表
+ *
+ * @param request DescribeDBClustersZonalRequest
+ * @return DescribeDBClustersZonalResponse
+ */
+DescribeDBClustersZonalResponse Client::describeDBClustersZonal(const DescribeDBClustersZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDBClustersZonalWithOptions(request, runtime);
 }
 
 /**
@@ -8179,6 +9193,146 @@ DescribeDatabasesResponse Client::describeDatabasesWithOptions(const DescribeDat
 DescribeDatabasesResponse Client::describeDatabases(const DescribeDatabasesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeDatabasesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询PolarDB边缘云数据库
+ *
+ * @param request DescribeDatabasesZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDatabasesZonalResponse
+ */
+DescribeDatabasesZonalResponse Client::describeDatabasesZonalWithOptions(const DescribeDatabasesZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDBName()) {
+    query["DBName"] = request.DBName();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDatabasesZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDatabasesZonalResponse>();
+}
+
+/**
+ * @summary 查询PolarDB边缘云数据库
+ *
+ * @param request DescribeDatabasesZonalRequest
+ * @return DescribeDatabasesZonalResponse
+ */
+DescribeDatabasesZonalResponse Client::describeDatabasesZonal(const DescribeDatabasesZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDatabasesZonalWithOptions(request, runtime);
+}
+
+/**
+ * @summary PolarDB的MyBase集群
+ *
+ * @param request DescribeDbClusterAttributeZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDbClusterAttributeZonalResponse
+ */
+DescribeDbClusterAttributeZonalResponse Client::describeDbClusterAttributeZonalWithOptions(const DescribeDbClusterAttributeZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDescribeType()) {
+    query["DescribeType"] = request.describeType();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDbClusterAttributeZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDbClusterAttributeZonalResponse>();
+}
+
+/**
+ * @summary PolarDB的MyBase集群
+ *
+ * @param request DescribeDbClusterAttributeZonalRequest
+ * @return DescribeDbClusterAttributeZonalResponse
+ */
+DescribeDbClusterAttributeZonalResponse Client::describeDbClusterAttributeZonal(const DescribeDbClusterAttributeZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDbClusterAttributeZonalWithOptions(request, runtime);
 }
 
 /**
@@ -11781,6 +12935,80 @@ FailoverDBClusterResponse Client::failoverDBCluster(const FailoverDBClusterReque
 }
 
 /**
+ * @summary 角色切换
+ *
+ * @param request FailoverDBClusterZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return FailoverDBClusterZonalResponse
+ */
+FailoverDBClusterZonalResponse Client::failoverDBClusterZonalWithOptions(const FailoverDBClusterZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasRollBackForDisaster()) {
+    query["RollBackForDisaster"] = request.rollBackForDisaster();
+  }
+
+  if (!!request.hasTargetDBNodeId()) {
+    query["TargetDBNodeId"] = request.targetDBNodeId();
+  }
+
+  if (!!request.hasTargetZoneType()) {
+    query["TargetZoneType"] = request.targetZoneType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "FailoverDBClusterZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<FailoverDBClusterZonalResponse>();
+}
+
+/**
+ * @summary 角色切换
+ *
+ * @param request FailoverDBClusterZonalRequest
+ * @return FailoverDBClusterZonalResponse
+ */
+FailoverDBClusterZonalResponse Client::failoverDBClusterZonal(const FailoverDBClusterZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return failoverDBClusterZonalWithOptions(request, runtime);
+}
+
+/**
  * @summary 生成校验报告
  *
  * @param request GenerateUpgradeReportForSyncCloneRequest
@@ -11946,6 +13174,80 @@ GrantAccountPrivilegeResponse Client::grantAccountPrivilegeWithOptions(const Gra
 GrantAccountPrivilegeResponse Client::grantAccountPrivilege(const GrantAccountPrivilegeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return grantAccountPrivilegeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改PolarDB边缘集群的账号权限
+ *
+ * @param request GrantAccountPrivilegeZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GrantAccountPrivilegeZonalResponse
+ */
+GrantAccountPrivilegeZonalResponse Client::grantAccountPrivilegeZonalWithOptions(const GrantAccountPrivilegeZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountName()) {
+    query["AccountName"] = request.accountName();
+  }
+
+  if (!!request.hasAccountPrivilege()) {
+    query["AccountPrivilege"] = request.accountPrivilege();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDBName()) {
+    query["DBName"] = request.DBName();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GrantAccountPrivilegeZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GrantAccountPrivilegeZonalResponse>();
+}
+
+/**
+ * @summary 修改PolarDB边缘集群的账号权限
+ *
+ * @param request GrantAccountPrivilegeZonalRequest
+ * @return GrantAccountPrivilegeZonalResponse
+ */
+GrantAccountPrivilegeZonalResponse Client::grantAccountPrivilegeZonal(const GrantAccountPrivilegeZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return grantAccountPrivilegeZonalWithOptions(request, runtime);
 }
 
 /**
@@ -12353,6 +13655,76 @@ ModifyAccountDescriptionResponse Client::modifyAccountDescription(const ModifyAc
 }
 
 /**
+ * @summary 修改PolarDB边缘云账号的描述
+ *
+ * @param request ModifyAccountDescriptionZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyAccountDescriptionZonalResponse
+ */
+ModifyAccountDescriptionZonalResponse Client::modifyAccountDescriptionZonalWithOptions(const ModifyAccountDescriptionZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountDescription()) {
+    query["AccountDescription"] = request.accountDescription();
+  }
+
+  if (!!request.hasAccountName()) {
+    query["AccountName"] = request.accountName();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyAccountDescriptionZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyAccountDescriptionZonalResponse>();
+}
+
+/**
+ * @summary 修改PolarDB边缘云账号的描述
+ *
+ * @param request ModifyAccountDescriptionZonalRequest
+ * @return ModifyAccountDescriptionZonalResponse
+ */
+ModifyAccountDescriptionZonalResponse Client::modifyAccountDescriptionZonal(const ModifyAccountDescriptionZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyAccountDescriptionZonalWithOptions(request, runtime);
+}
+
+/**
  * @param request ModifyAccountLockStateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyAccountLockStateResponse
@@ -12486,6 +13858,80 @@ ModifyAccountPasswordResponse Client::modifyAccountPasswordWithOptions(const Mod
 ModifyAccountPasswordResponse Client::modifyAccountPassword(const ModifyAccountPasswordRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyAccountPasswordWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改PolarDB边缘的账号密码
+ *
+ * @param request ModifyAccountPasswordZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyAccountPasswordZonalResponse
+ */
+ModifyAccountPasswordZonalResponse Client::modifyAccountPasswordZonalWithOptions(const ModifyAccountPasswordZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountName()) {
+    query["AccountName"] = request.accountName();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasNewAccountPassword()) {
+    query["NewAccountPassword"] = request.newAccountPassword();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPasswordType()) {
+    query["PasswordType"] = request.passwordType();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyAccountPasswordZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyAccountPasswordZonalResponse>();
+}
+
+/**
+ * @summary 修改PolarDB边缘的账号密码
+ *
+ * @param request ModifyAccountPasswordZonalRequest
+ * @return ModifyAccountPasswordZonalResponse
+ */
+ModifyAccountPasswordZonalResponse Client::modifyAccountPasswordZonal(const ModifyAccountPasswordZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyAccountPasswordZonalWithOptions(request, runtime);
 }
 
 /**
@@ -12759,6 +14205,52 @@ ModifyApplicationParameterResponse Client::modifyApplicationParameter(const Modi
 }
 
 /**
+ * @summary 修改应用serverless配置
+ *
+ * @param request ModifyApplicationServerlessConfRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyApplicationServerlessConfResponse
+ */
+ModifyApplicationServerlessConfResponse Client::modifyApplicationServerlessConfWithOptions(const ModifyApplicationServerlessConfRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasServerlessConfList()) {
+    query["ServerlessConfList"] = request.serverlessConfList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyApplicationServerlessConf"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyApplicationServerlessConfResponse>();
+}
+
+/**
+ * @summary 修改应用serverless配置
+ *
+ * @param request ModifyApplicationServerlessConfRequest
+ * @return ModifyApplicationServerlessConfResponse
+ */
+ModifyApplicationServerlessConfResponse Client::modifyApplicationServerlessConf(const ModifyApplicationServerlessConfRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyApplicationServerlessConfWithOptions(request, runtime);
+}
+
+/**
  * @summary 修改应用白名单
  *
  * @param request ModifyApplicationWhitelistRequest
@@ -12830,6 +14322,10 @@ ModifyApplicationWhitelistResponse Client::modifyApplicationWhitelist(const Modi
 ModifyAutoRenewAttributeResponse Client::modifyAutoRenewAttributeWithOptions(const ModifyAutoRenewAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCloudProvider()) {
+    query["CloudProvider"] = request.cloudProvider();
+  }
+
   if (!!request.hasDBClusterIds()) {
     query["DBClusterIds"] = request.DBClusterIds();
   }
@@ -13655,6 +15151,72 @@ ModifyDBClusterDescriptionResponse Client::modifyDBClusterDescription(const Modi
 }
 
 /**
+ * @summary 修改集群描述
+ *
+ * @param request ModifyDBClusterDescriptionZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyDBClusterDescriptionZonalResponse
+ */
+ModifyDBClusterDescriptionZonalResponse Client::modifyDBClusterDescriptionZonalWithOptions(const ModifyDBClusterDescriptionZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDBClusterDescription()) {
+    query["DBClusterDescription"] = request.DBClusterDescription();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyDBClusterDescriptionZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyDBClusterDescriptionZonalResponse>();
+}
+
+/**
+ * @summary 修改集群描述
+ *
+ * @param request ModifyDBClusterDescriptionZonalRequest
+ * @return ModifyDBClusterDescriptionZonalResponse
+ */
+ModifyDBClusterDescriptionZonalResponse Client::modifyDBClusterDescriptionZonal(const ModifyDBClusterDescriptionZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyDBClusterDescriptionZonalWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the attributes of a specified PolarDB cluster endpoint. For example, you can modify the following attributes for the specified cluster endpoint: read/write mode, consistency level, transaction splitting, primary node accepts read requests, and connection pool. You can also call the operation to specify whether newly added nodes are automatically associated with the specified cluster endpoint.
  *
  * @param request ModifyDBClusterEndpointRequest
@@ -13746,6 +15308,104 @@ ModifyDBClusterEndpointResponse Client::modifyDBClusterEndpointWithOptions(const
 ModifyDBClusterEndpointResponse Client::modifyDBClusterEndpoint(const ModifyDBClusterEndpointRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyDBClusterEndpointWithOptions(request, runtime);
+}
+
+/**
+ * @summary PolarDB边缘集群修改链接地址
+ *
+ * @param request ModifyDBClusterEndpointZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyDBClusterEndpointZonalResponse
+ */
+ModifyDBClusterEndpointZonalResponse Client::modifyDBClusterEndpointZonalWithOptions(const ModifyDBClusterEndpointZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoAddNewNodes()) {
+    query["AutoAddNewNodes"] = request.autoAddNewNodes();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDBEndpointDescription()) {
+    query["DBEndpointDescription"] = request.DBEndpointDescription();
+  }
+
+  if (!!request.hasDBEndpointId()) {
+    query["DBEndpointId"] = request.DBEndpointId();
+  }
+
+  if (!!request.hasEndpointConfig()) {
+    query["EndpointConfig"] = request.endpointConfig();
+  }
+
+  if (!!request.hasNodes()) {
+    query["Nodes"] = request.nodes();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPolarSccTimeoutAction()) {
+    query["PolarSccTimeoutAction"] = request.polarSccTimeoutAction();
+  }
+
+  if (!!request.hasPolarSccWaitTimeout()) {
+    query["PolarSccWaitTimeout"] = request.polarSccWaitTimeout();
+  }
+
+  if (!!request.hasReadWriteMode()) {
+    query["ReadWriteMode"] = request.readWriteMode();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasSccMode()) {
+    query["SccMode"] = request.sccMode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyDBClusterEndpointZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyDBClusterEndpointZonalResponse>();
+}
+
+/**
+ * @summary PolarDB边缘集群修改链接地址
+ *
+ * @param request ModifyDBClusterEndpointZonalRequest
+ * @return ModifyDBClusterEndpointZonalResponse
+ */
+ModifyDBClusterEndpointZonalResponse Client::modifyDBClusterEndpointZonal(const ModifyDBClusterEndpointZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyDBClusterEndpointZonalWithOptions(request, runtime);
 }
 
 /**
@@ -14566,6 +16226,10 @@ ModifyDBClusterStorageSpaceResponse Client::modifyDBClusterStorageSpaceWithOptio
     query["ClientToken"] = request.clientToken();
   }
 
+  if (!!request.hasCloudProvider()) {
+    query["CloudProvider"] = request.cloudProvider();
+  }
+
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.DBClusterId();
   }
@@ -14851,6 +16515,76 @@ ModifyDBDescriptionResponse Client::modifyDBDescription(const ModifyDBDescriptio
 }
 
 /**
+ * @summary 修改PolarDB边缘云集群数据库描述
+ *
+ * @param request ModifyDBDescriptionZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyDBDescriptionZonalResponse
+ */
+ModifyDBDescriptionZonalResponse Client::modifyDBDescriptionZonalWithOptions(const ModifyDBDescriptionZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDBDescription()) {
+    query["DBDescription"] = request.DBDescription();
+  }
+
+  if (!!request.hasDBName()) {
+    query["DBName"] = request.DBName();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyDBDescriptionZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyDBDescriptionZonalResponse>();
+}
+
+/**
+ * @summary 修改PolarDB边缘云集群数据库描述
+ *
+ * @param request ModifyDBDescriptionZonalRequest
+ * @return ModifyDBDescriptionZonalResponse
+ */
+ModifyDBDescriptionZonalResponse Client::modifyDBDescriptionZonal(const ModifyDBDescriptionZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyDBDescriptionZonalWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, custom cluster endpoint, and private domain name.
  *
  * @param request ModifyDBEndpointAddressRequest
@@ -14944,6 +16678,10 @@ ModifyDBNodeClassResponse Client::modifyDBNodeClassWithOptions(const ModifyDBNod
   json query = {};
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasCloudProvider()) {
+    query["CloudProvider"] = request.cloudProvider();
   }
 
   if (!!request.hasDBClusterId()) {
@@ -15302,6 +17040,10 @@ ModifyDBNodesClassResponse Client::modifyDBNodesClassWithOptions(const ModifyDBN
   json query = {};
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasCloudProvider()) {
+    query["CloudProvider"] = request.cloudProvider();
   }
 
   if (!!request.hasDBClusterId()) {
@@ -16751,6 +18493,76 @@ ResetAccountPasswordResponse Client::resetAccountPassword(const ResetAccountPass
 }
 
 /**
+ * @summary 重置PolarDB边缘集群账号
+ *
+ * @param request ResetAccountZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResetAccountZonalResponse
+ */
+ResetAccountZonalResponse Client::resetAccountZonalWithOptions(const ResetAccountZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountName()) {
+    query["AccountName"] = request.accountName();
+  }
+
+  if (!!request.hasAccountPassword()) {
+    query["AccountPassword"] = request.accountPassword();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ResetAccountZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResetAccountZonalResponse>();
+}
+
+/**
+ * @summary 重置PolarDB边缘集群账号
+ *
+ * @param request ResetAccountZonalRequest
+ * @return ResetAccountZonalResponse
+ */
+ResetAccountZonalResponse Client::resetAccountZonal(const ResetAccountZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return resetAccountZonalWithOptions(request, runtime);
+}
+
+/**
  * @summary Rebuilds a secondary cluster in a Global Database Network (GDN).
  *
  * @param request ResetGlobalDatabaseNetworkRequest
@@ -16957,6 +18769,72 @@ RestartDBNodeResponse Client::restartDBNode(const RestartDBNodeRequest &request)
 }
 
 /**
+ * @summary 重启poalrdb边缘云集群节点
+ *
+ * @param request RestartDBNodeZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RestartDBNodeZonalResponse
+ */
+RestartDBNodeZonalResponse Client::restartDBNodeZonalWithOptions(const RestartDBNodeZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDBNodeId()) {
+    query["DBNodeId"] = request.DBNodeId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RestartDBNodeZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RestartDBNodeZonalResponse>();
+}
+
+/**
+ * @summary 重启poalrdb边缘云集群节点
+ *
+ * @param request RestartDBNodeZonalRequest
+ * @return RestartDBNodeZonalResponse
+ */
+RestartDBNodeZonalResponse Client::restartDBNodeZonal(const RestartDBNodeZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return restartDBNodeZonalWithOptions(request, runtime);
+}
+
+/**
  * @summary Restores PolarDB databases and tables.
  *
  * @param request RestoreTableRequest
@@ -17094,6 +18972,76 @@ RevokeAccountPrivilegeResponse Client::revokeAccountPrivilegeWithOptions(const R
 RevokeAccountPrivilegeResponse Client::revokeAccountPrivilege(const RevokeAccountPrivilegeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return revokeAccountPrivilegeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 撤销账号权限
+ *
+ * @param request RevokeAccountPrivilegeZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RevokeAccountPrivilegeZonalResponse
+ */
+RevokeAccountPrivilegeZonalResponse Client::revokeAccountPrivilegeZonalWithOptions(const RevokeAccountPrivilegeZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountName()) {
+    query["AccountName"] = request.accountName();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDBName()) {
+    query["DBName"] = request.DBName();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RevokeAccountPrivilegeZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RevokeAccountPrivilegeZonalResponse>();
+}
+
+/**
+ * @summary 撤销账号权限
+ *
+ * @param request RevokeAccountPrivilegeZonalRequest
+ * @return RevokeAccountPrivilegeZonalResponse
+ */
+RevokeAccountPrivilegeZonalResponse Client::revokeAccountPrivilegeZonal(const RevokeAccountPrivilegeZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return revokeAccountPrivilegeZonalWithOptions(request, runtime);
 }
 
 /**
@@ -17664,6 +19612,100 @@ UpgradeDBClusterVersionResponse Client::upgradeDBClusterVersionWithOptions(const
 UpgradeDBClusterVersionResponse Client::upgradeDBClusterVersion(const UpgradeDBClusterVersionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return upgradeDBClusterVersionWithOptions(request, runtime);
+}
+
+/**
+ * @summary PolarDB边缘云集群小版本升级
+ *
+ * @param request UpgradeDBClusterVersionZonalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpgradeDBClusterVersionZonalResponse
+ */
+UpgradeDBClusterVersionZonalResponse Client::upgradeDBClusterVersionZonalWithOptions(const UpgradeDBClusterVersionZonalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasFromTimeService()) {
+    query["FromTimeService"] = request.fromTimeService();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPlannedEndTime()) {
+    query["PlannedEndTime"] = request.plannedEndTime();
+  }
+
+  if (!!request.hasPlannedStartTime()) {
+    query["PlannedStartTime"] = request.plannedStartTime();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasTargetDBRevisionVersionCode()) {
+    query["TargetDBRevisionVersionCode"] = request.targetDBRevisionVersionCode();
+  }
+
+  if (!!request.hasTargetProxyRevisionVersionCode()) {
+    query["TargetProxyRevisionVersionCode"] = request.targetProxyRevisionVersionCode();
+  }
+
+  if (!!request.hasUpgradeLabel()) {
+    query["UpgradeLabel"] = request.upgradeLabel();
+  }
+
+  if (!!request.hasUpgradePolicy()) {
+    query["UpgradePolicy"] = request.upgradePolicy();
+  }
+
+  if (!!request.hasUpgradeType()) {
+    query["UpgradeType"] = request.upgradeType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpgradeDBClusterVersionZonal"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpgradeDBClusterVersionZonalResponse>();
+}
+
+/**
+ * @summary PolarDB边缘云集群小版本升级
+ *
+ * @param request UpgradeDBClusterVersionZonalRequest
+ * @return UpgradeDBClusterVersionZonalResponse
+ */
+UpgradeDBClusterVersionZonalResponse Client::upgradeDBClusterVersionZonal(const UpgradeDBClusterVersionZonalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return upgradeDBClusterVersionZonalWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Polardb20170801

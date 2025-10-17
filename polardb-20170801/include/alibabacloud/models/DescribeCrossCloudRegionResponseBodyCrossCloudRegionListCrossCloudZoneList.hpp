@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->crossCloudZoneId_ != nullptr
-        && this->crossCloudZoneName_ != nullptr; };
+    virtual bool empty() const override { return this->crossCloudZoneId_ == nullptr
+        && return this->crossCloudZoneName_ == nullptr; };
     // crossCloudZoneId Field Functions 
     bool hasCrossCloudZoneId() const { return this->crossCloudZoneId_ != nullptr;};
     void deleteCrossCloudZoneId() { this->crossCloudZoneId_ = nullptr;};

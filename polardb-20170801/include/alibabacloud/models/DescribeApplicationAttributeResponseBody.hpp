@@ -37,6 +37,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(SecurityGroups, securityGroups_);
       DARABONBA_PTR_TO_JSON(SecurityIPArrays, securityIPArrays_);
+      DARABONBA_PTR_TO_JSON(ServerlessType, serverlessType_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(UpgradeAvailable, upgradeAvailable_);
       DARABONBA_PTR_TO_JSON(VPCId, VPCId_);
@@ -64,6 +65,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(SecurityGroups, securityGroups_);
       DARABONBA_PTR_FROM_JSON(SecurityIPArrays, securityIPArrays_);
+      DARABONBA_PTR_FROM_JSON(ServerlessType, serverlessType_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(UpgradeAvailable, upgradeAvailable_);
       DARABONBA_PTR_FROM_JSON(VPCId, VPCId_);
@@ -82,12 +84,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applicationId_ != nullptr
-        && this->applicationType_ != nullptr && this->architecture_ != nullptr && this->components_ != nullptr && this->creationTime_ != nullptr && this->DBClusterId_ != nullptr
-        && this->description_ != nullptr && this->endpoints_ != nullptr && this->expireTime_ != nullptr && this->expired_ != nullptr && this->lockMode_ != nullptr
-        && this->maintainEndTime_ != nullptr && this->maintainStartTime_ != nullptr && this->payType_ != nullptr && this->polarFSInstanceId_ != nullptr && this->regionId_ != nullptr
-        && this->requestId_ != nullptr && this->securityGroups_ != nullptr && this->securityIPArrays_ != nullptr && this->status_ != nullptr && this->upgradeAvailable_ != nullptr
-        && this->VPCId_ != nullptr && this->vSwitchId_ != nullptr && this->version_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->applicationId_ == nullptr
+        && return this->applicationType_ == nullptr && return this->architecture_ == nullptr && return this->components_ == nullptr && return this->creationTime_ == nullptr && return this->DBClusterId_ == nullptr
+        && return this->description_ == nullptr && return this->endpoints_ == nullptr && return this->expireTime_ == nullptr && return this->expired_ == nullptr && return this->lockMode_ == nullptr
+        && return this->maintainEndTime_ == nullptr && return this->maintainStartTime_ == nullptr && return this->payType_ == nullptr && return this->polarFSInstanceId_ == nullptr && return this->regionId_ == nullptr
+        && return this->requestId_ == nullptr && return this->securityGroups_ == nullptr && return this->securityIPArrays_ == nullptr && return this->serverlessType_ == nullptr && return this->status_ == nullptr
+        && return this->upgradeAvailable_ == nullptr && return this->VPCId_ == nullptr && return this->vSwitchId_ == nullptr && return this->version_ == nullptr && return this->zoneId_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -229,6 +231,13 @@ namespace Models
     inline DescribeApplicationAttributeResponseBody& setSecurityIPArrays(vector<DescribeApplicationAttributeResponseBodySecurityIPArrays> && securityIPArrays) { DARABONBA_PTR_SET_RVALUE(securityIPArrays_, securityIPArrays) };
 
 
+    // serverlessType Field Functions 
+    bool hasServerlessType() const { return this->serverlessType_ != nullptr;};
+    void deleteServerlessType() { this->serverlessType_ = nullptr;};
+    inline string serverlessType() const { DARABONBA_PTR_GET_DEFAULT(serverlessType_, "") };
+    inline DescribeApplicationAttributeResponseBody& setServerlessType(string serverlessType) { DARABONBA_PTR_SET_VALUE(serverlessType_, serverlessType) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -291,6 +300,7 @@ namespace Models
     std::shared_ptr<string> requestId_ = nullptr;
     std::shared_ptr<vector<DescribeApplicationAttributeResponseBodySecurityGroups>> securityGroups_ = nullptr;
     std::shared_ptr<vector<DescribeApplicationAttributeResponseBodySecurityIPArrays>> securityIPArrays_ = nullptr;
+    std::shared_ptr<string> serverlessType_ = nullptr;
     std::shared_ptr<string> status_ = nullptr;
     std::shared_ptr<string> upgradeAvailable_ = nullptr;
     // VPC ID

@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkTime_ != nullptr
-        && this->dstVersion_ != nullptr && this->effectiveTime_ != nullptr && this->endTime_ != nullptr && this->result_ != nullptr && this->srcInsName_ != nullptr
-        && this->srcVersion_ != nullptr && this->startTime_ != nullptr && this->taskId_ != nullptr && this->upgradeMode_ != nullptr; };
+    virtual bool empty() const override { return this->checkTime_ == nullptr
+        && return this->dstVersion_ == nullptr && return this->effectiveTime_ == nullptr && return this->endTime_ == nullptr && return this->result_ == nullptr && return this->srcInsName_ == nullptr
+        && return this->srcVersion_ == nullptr && return this->startTime_ == nullptr && return this->taskId_ == nullptr && return this->upgradeMode_ == nullptr; };
     // checkTime Field Functions 
     bool hasCheckTime() const { return this->checkTime_ != nullptr;};
     void deleteCheckTime() { this->checkTime_ = nullptr;};

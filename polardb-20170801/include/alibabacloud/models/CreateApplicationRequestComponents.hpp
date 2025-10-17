@@ -17,6 +17,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ComponentMaxReplica, componentMaxReplica_);
       DARABONBA_PTR_TO_JSON(ComponentReplica, componentReplica_);
       DARABONBA_PTR_TO_JSON(ComponentType, componentType_);
+      DARABONBA_PTR_TO_JSON(ScaleMax, scaleMax_);
+      DARABONBA_PTR_TO_JSON(ScaleMin, scaleMin_);
       DARABONBA_PTR_TO_JSON(SecurityGroups, securityGroups_);
       DARABONBA_PTR_TO_JSON(SecurityIPArrayName, securityIPArrayName_);
       DARABONBA_PTR_TO_JSON(SecurityIPList, securityIPList_);
@@ -27,6 +29,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ComponentMaxReplica, componentMaxReplica_);
       DARABONBA_PTR_FROM_JSON(ComponentReplica, componentReplica_);
       DARABONBA_PTR_FROM_JSON(ComponentType, componentType_);
+      DARABONBA_PTR_FROM_JSON(ScaleMax, scaleMax_);
+      DARABONBA_PTR_FROM_JSON(ScaleMin, scaleMin_);
       DARABONBA_PTR_FROM_JSON(SecurityGroups, securityGroups_);
       DARABONBA_PTR_FROM_JSON(SecurityIPArrayName, securityIPArrayName_);
       DARABONBA_PTR_FROM_JSON(SecurityIPList, securityIPList_);
@@ -43,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->componentClass_ != nullptr
-        && this->componentMaxReplica_ != nullptr && this->componentReplica_ != nullptr && this->componentType_ != nullptr && this->securityGroups_ != nullptr && this->securityIPArrayName_ != nullptr
-        && this->securityIPList_ != nullptr && this->securityIPType_ != nullptr; };
+    virtual bool empty() const override { return this->componentClass_ == nullptr
+        && return this->componentMaxReplica_ == nullptr && return this->componentReplica_ == nullptr && return this->componentType_ == nullptr && return this->scaleMax_ == nullptr && return this->scaleMin_ == nullptr
+        && return this->securityGroups_ == nullptr && return this->securityIPArrayName_ == nullptr && return this->securityIPList_ == nullptr && return this->securityIPType_ == nullptr; };
     // componentClass Field Functions 
     bool hasComponentClass() const { return this->componentClass_ != nullptr;};
     void deleteComponentClass() { this->componentClass_ = nullptr;};
@@ -72,6 +76,20 @@ namespace Models
     void deleteComponentType() { this->componentType_ = nullptr;};
     inline string componentType() const { DARABONBA_PTR_GET_DEFAULT(componentType_, "") };
     inline CreateApplicationRequestComponents& setComponentType(string componentType) { DARABONBA_PTR_SET_VALUE(componentType_, componentType) };
+
+
+    // scaleMax Field Functions 
+    bool hasScaleMax() const { return this->scaleMax_ != nullptr;};
+    void deleteScaleMax() { this->scaleMax_ = nullptr;};
+    inline string scaleMax() const { DARABONBA_PTR_GET_DEFAULT(scaleMax_, "") };
+    inline CreateApplicationRequestComponents& setScaleMax(string scaleMax) { DARABONBA_PTR_SET_VALUE(scaleMax_, scaleMax) };
+
+
+    // scaleMin Field Functions 
+    bool hasScaleMin() const { return this->scaleMin_ != nullptr;};
+    void deleteScaleMin() { this->scaleMin_ = nullptr;};
+    inline string scaleMin() const { DARABONBA_PTR_GET_DEFAULT(scaleMin_, "") };
+    inline CreateApplicationRequestComponents& setScaleMin(string scaleMin) { DARABONBA_PTR_SET_VALUE(scaleMin_, scaleMin) };
 
 
     // securityGroups Field Functions 
@@ -107,6 +125,8 @@ namespace Models
     std::shared_ptr<int64_t> componentMaxReplica_ = nullptr;
     std::shared_ptr<int64_t> componentReplica_ = nullptr;
     std::shared_ptr<string> componentType_ = nullptr;
+    std::shared_ptr<string> scaleMax_ = nullptr;
+    std::shared_ptr<string> scaleMin_ = nullptr;
     std::shared_ptr<string> securityGroups_ = nullptr;
     std::shared_ptr<string> securityIPArrayName_ = nullptr;
     std::shared_ptr<string> securityIPList_ = nullptr;

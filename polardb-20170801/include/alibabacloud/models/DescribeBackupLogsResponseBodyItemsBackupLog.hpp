@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backupLogEndTime_ != nullptr
-        && this->backupLogId_ != nullptr && this->backupLogName_ != nullptr && this->backupLogSize_ != nullptr && this->backupLogStartTime_ != nullptr && this->downloadLink_ != nullptr
-        && this->intranetDownloadLink_ != nullptr && this->linkExpiredTime_ != nullptr; };
+    virtual bool empty() const override { return this->backupLogEndTime_ == nullptr
+        && return this->backupLogId_ == nullptr && return this->backupLogName_ == nullptr && return this->backupLogSize_ == nullptr && return this->backupLogStartTime_ == nullptr && return this->downloadLink_ == nullptr
+        && return this->intranetDownloadLink_ == nullptr && return this->linkExpiredTime_ == nullptr; };
     // backupLogEndTime Field Functions 
     bool hasBackupLogEndTime() const { return this->backupLogEndTime_ != nullptr;};
     void deleteBackupLogEndTime() { this->backupLogEndTime_ = nullptr;};

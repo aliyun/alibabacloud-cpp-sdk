@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backupEndTime_ != nullptr
-        && this->backupId_ != nullptr && this->backupMethod_ != nullptr && this->backupMode_ != nullptr && this->backupSetSize_ != nullptr && this->backupStartTime_ != nullptr
-        && this->backupStatus_ != nullptr && this->backupType_ != nullptr && this->backupsLevel_ != nullptr && this->consistentTime_ != nullptr && this->DBClusterId_ != nullptr
-        && this->isAvail_ != nullptr && this->storeStatus_ != nullptr; };
+    virtual bool empty() const override { return this->backupEndTime_ == nullptr
+        && return this->backupId_ == nullptr && return this->backupMethod_ == nullptr && return this->backupMode_ == nullptr && return this->backupSetSize_ == nullptr && return this->backupStartTime_ == nullptr
+        && return this->backupStatus_ == nullptr && return this->backupType_ == nullptr && return this->backupsLevel_ == nullptr && return this->consistentTime_ == nullptr && return this->DBClusterId_ == nullptr
+        && return this->isAvail_ == nullptr && return this->storeStatus_ == nullptr; };
     // backupEndTime Field Functions 
     bool hasBackupEndTime() const { return this->backupEndTime_ != nullptr;};
     void deleteBackupEndTime() { this->backupEndTime_ = nullptr;};

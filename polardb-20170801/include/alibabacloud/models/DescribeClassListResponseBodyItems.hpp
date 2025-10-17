@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->classCode_ != nullptr
-        && this->classGroup_ != nullptr && this->classTypeLevel_ != nullptr && this->cpu_ != nullptr && this->essdMaxStorageCapacity_ != nullptr && this->maxConnections_ != nullptr
-        && this->maxIOPS_ != nullptr && this->maxStorageCapacity_ != nullptr && this->memoryClass_ != nullptr && this->pl1MaxIOPS_ != nullptr && this->pl2MaxIOPS_ != nullptr
-        && this->pl3MaxIOPS_ != nullptr && this->polarStoreMaxStorageCapacity_ != nullptr && this->psl4MaxIOPS_ != nullptr && this->psl5MaxIOPS_ != nullptr && this->referenceExtPrice_ != nullptr
-        && this->referencePrice_ != nullptr; };
+    virtual bool empty() const override { return this->classCode_ == nullptr
+        && return this->classGroup_ == nullptr && return this->classTypeLevel_ == nullptr && return this->cpu_ == nullptr && return this->essdMaxStorageCapacity_ == nullptr && return this->maxConnections_ == nullptr
+        && return this->maxIOPS_ == nullptr && return this->maxStorageCapacity_ == nullptr && return this->memoryClass_ == nullptr && return this->pl1MaxIOPS_ == nullptr && return this->pl2MaxIOPS_ == nullptr
+        && return this->pl3MaxIOPS_ == nullptr && return this->polarStoreMaxStorageCapacity_ == nullptr && return this->psl4MaxIOPS_ == nullptr && return this->psl5MaxIOPS_ == nullptr && return this->referenceExtPrice_ == nullptr
+        && return this->referencePrice_ == nullptr; };
     // classCode Field Functions 
     bool hasClassCode() const { return this->classCode_ != nullptr;};
     void deleteClassCode() { this->classCode_ = nullptr;};

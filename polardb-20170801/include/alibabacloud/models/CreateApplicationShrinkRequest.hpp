@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(UsedTime, usedTime_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
+      DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateApplicationShrinkRequest& obj) { 
@@ -46,6 +47,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(UsedTime, usedTime_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
+      DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
       DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
     };
     CreateApplicationShrinkRequest() = default ;
@@ -59,10 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applicationType_ != nullptr
-        && this->architecture_ != nullptr && this->autoRenew_ != nullptr && this->componentsShrink_ != nullptr && this->DBClusterId_ != nullptr && this->description_ != nullptr
-        && this->dryRun_ != nullptr && this->endpointsShrink_ != nullptr && this->payType_ != nullptr && this->period_ != nullptr && this->polarFSInstanceId_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->usedTime_ != nullptr && this->vSwitchId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->applicationType_ == nullptr
+        && return this->architecture_ == nullptr && return this->autoRenew_ == nullptr && return this->componentsShrink_ == nullptr && return this->DBClusterId_ == nullptr && return this->description_ == nullptr
+        && return this->dryRun_ == nullptr && return this->endpointsShrink_ == nullptr && return this->payType_ == nullptr && return this->period_ == nullptr && return this->polarFSInstanceId_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->usedTime_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr
+        && return this->zoneId_ == nullptr; };
     // applicationType Field Functions 
     bool hasApplicationType() const { return this->applicationType_ != nullptr;};
     void deleteApplicationType() { this->applicationType_ = nullptr;};
@@ -168,6 +171,13 @@ namespace Models
     inline CreateApplicationShrinkRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
+    // vpcId Field Functions 
+    bool hasVpcId() const { return this->vpcId_ != nullptr;};
+    void deleteVpcId() { this->vpcId_ = nullptr;};
+    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline CreateApplicationShrinkRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
+
+
     // zoneId Field Functions 
     bool hasZoneId() const { return this->zoneId_ != nullptr;};
     void deleteZoneId() { this->zoneId_ = nullptr;};
@@ -193,6 +203,7 @@ namespace Models
     std::shared_ptr<string> resourceGroupId_ = nullptr;
     std::shared_ptr<string> usedTime_ = nullptr;
     std::shared_ptr<string> vSwitchId_ = nullptr;
+    std::shared_ptr<string> vpcId_ = nullptr;
     std::shared_ptr<string> zoneId_ = nullptr;
   };
 

@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creationCategory_ != nullptr
-        && this->DBType_ != nullptr && this->DBVersion_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->sourceDBClusterId_ != nullptr
-        && this->status_ != nullptr && this->taskId_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->creationCategory_ == nullptr
+        && return this->DBType_ == nullptr && return this->DBVersion_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->sourceDBClusterId_ == nullptr
+        && return this->status_ == nullptr && return this->taskId_ == nullptr && return this->type_ == nullptr; };
     // creationCategory Field Functions 
     bool hasCreationCategory() const { return this->creationCategory_ != nullptr;};
     void deleteCreationCategory() { this->creationCategory_ = nullptr;};

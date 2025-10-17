@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkingCode_ != nullptr
-        && this->forceModify_ != nullptr && this->forceRestart_ != nullptr && this->isNodeAvailable_ != nullptr && this->paramRelyRule_ != nullptr && this->parameterDescription_ != nullptr
-        && this->parameterName_ != nullptr && this->parameterValue_ != nullptr; };
+    virtual bool empty() const override { return this->checkingCode_ == nullptr
+        && return this->forceModify_ == nullptr && return this->forceRestart_ == nullptr && return this->isNodeAvailable_ == nullptr && return this->paramRelyRule_ == nullptr && return this->parameterDescription_ == nullptr
+        && return this->parameterName_ == nullptr && return this->parameterValue_ == nullptr; };
     // checkingCode Field Functions 
     bool hasCheckingCode() const { return this->checkingCode_ != nullptr;};
     void deleteCheckingCode() { this->checkingCode_ = nullptr;};

@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actionInfo_ != nullptr
-        && this->callerSource_ != nullptr && this->callerUid_ != nullptr && this->currentStepName_ != nullptr && this->dbType_ != nullptr && this->endTime_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->instanceType_ != nullptr && this->product_ != nullptr && this->progress_ != nullptr
-        && this->reasonCode_ != nullptr && this->regionId_ != nullptr && this->remainTime_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr
-        && this->taskDetail_ != nullptr && this->taskId_ != nullptr && this->taskType_ != nullptr && this->uid_ != nullptr; };
+    virtual bool empty() const override { return this->actionInfo_ == nullptr
+        && return this->callerSource_ == nullptr && return this->callerUid_ == nullptr && return this->currentStepName_ == nullptr && return this->dbType_ == nullptr && return this->endTime_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->instanceType_ == nullptr && return this->product_ == nullptr && return this->progress_ == nullptr
+        && return this->reasonCode_ == nullptr && return this->regionId_ == nullptr && return this->remainTime_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr
+        && return this->taskDetail_ == nullptr && return this->taskId_ == nullptr && return this->taskType_ == nullptr && return this->uid_ == nullptr; };
     // actionInfo Field Functions 
     bool hasActionInfo() const { return this->actionInfo_ != nullptr;};
     void deleteActionInfo() { this->actionInfo_ = nullptr;};

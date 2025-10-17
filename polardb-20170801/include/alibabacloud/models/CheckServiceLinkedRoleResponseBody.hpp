@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->hasServiceLinkedRole_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->hasServiceLinkedRole_ == nullptr
+        && return this->requestId_ == nullptr; };
     // hasServiceLinkedRole Field Functions 
     bool hasHasServiceLinkedRole() const { return this->hasServiceLinkedRole_ != nullptr;};
     void deleteHasServiceLinkedRole() { this->hasServiceLinkedRole_ = nullptr;};

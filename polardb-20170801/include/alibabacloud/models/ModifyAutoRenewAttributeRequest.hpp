@@ -13,6 +13,7 @@ namespace Models
   class ModifyAutoRenewAttributeRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyAutoRenewAttributeRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CloudProvider, cloudProvider_);
       DARABONBA_PTR_TO_JSON(DBClusterIds, DBClusterIds_);
       DARABONBA_PTR_TO_JSON(Duration, duration_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyAutoRenewAttributeRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CloudProvider, cloudProvider_);
       DARABONBA_PTR_FROM_JSON(DBClusterIds, DBClusterIds_);
       DARABONBA_PTR_FROM_JSON(Duration, duration_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
@@ -47,9 +49,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->DBClusterIds_ != nullptr
-        && this->duration_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->periodUnit_ != nullptr && this->regionId_ != nullptr
-        && this->renewalStatus_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->cloudProvider_ == nullptr
+        && return this->DBClusterIds_ == nullptr && return this->duration_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->periodUnit_ == nullptr
+        && return this->regionId_ == nullptr && return this->renewalStatus_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+    // cloudProvider Field Functions 
+    bool hasCloudProvider() const { return this->cloudProvider_ != nullptr;};
+    void deleteCloudProvider() { this->cloudProvider_ = nullptr;};
+    inline string cloudProvider() const { DARABONBA_PTR_GET_DEFAULT(cloudProvider_, "") };
+    inline ModifyAutoRenewAttributeRequest& setCloudProvider(string cloudProvider) { DARABONBA_PTR_SET_VALUE(cloudProvider_, cloudProvider) };
+
+
     // DBClusterIds Field Functions 
     bool hasDBClusterIds() const { return this->DBClusterIds_ != nullptr;};
     void deleteDBClusterIds() { this->DBClusterIds_ = nullptr;};
@@ -121,6 +130,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> cloudProvider_ = nullptr;
     // The cluster ID. If you need to specify multiple cluster IDs, separate the cluster IDs with commas (,).
     // 
     // This parameter is required.

@@ -53,9 +53,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->componentClass_ != nullptr
-        && this->componentClassDescription_ != nullptr && this->componentId_ != nullptr && this->componentMaxReplica_ != nullptr && this->componentReplica_ != nullptr && this->componentReplicaGroupName_ != nullptr
-        && this->componentType_ != nullptr && this->securityGroups_ != nullptr && this->securityIPArrays_ != nullptr && this->status_ != nullptr && this->topology_ != nullptr; };
+    virtual bool empty() const override { return this->componentClass_ == nullptr
+        && return this->componentClassDescription_ == nullptr && return this->componentId_ == nullptr && return this->componentMaxReplica_ == nullptr && return this->componentReplica_ == nullptr && return this->componentReplicaGroupName_ == nullptr
+        && return this->componentType_ == nullptr && return this->securityGroups_ == nullptr && return this->securityIPArrays_ == nullptr && return this->status_ == nullptr && return this->topology_ == nullptr; };
     // componentClass Field Functions 
     bool hasComponentClass() const { return this->componentClass_ != nullptr;};
     void deleteComponentClass() { this->componentClass_ = nullptr;};

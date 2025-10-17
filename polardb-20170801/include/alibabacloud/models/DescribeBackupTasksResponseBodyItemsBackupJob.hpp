@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backupJobId_ != nullptr
-        && this->backupProgressStatus_ != nullptr && this->jobMode_ != nullptr && this->process_ != nullptr && this->startTime_ != nullptr && this->taskAction_ != nullptr; };
+    virtual bool empty() const override { return this->backupJobId_ == nullptr
+        && return this->backupProgressStatus_ == nullptr && return this->jobMode_ == nullptr && return this->process_ == nullptr && return this->startTime_ == nullptr && return this->taskAction_ == nullptr; };
     // backupJobId Field Functions 
     bool hasBackupJobId() const { return this->backupJobId_ != nullptr;};
     void deleteBackupJobId() { this->backupJobId_ = nullptr;};

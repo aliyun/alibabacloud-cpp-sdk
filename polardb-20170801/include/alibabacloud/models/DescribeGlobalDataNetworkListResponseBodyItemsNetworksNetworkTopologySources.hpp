@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->sourceFileSystemPath_ != nullptr
-        && this->sourceId_ != nullptr && this->sourceRegion_ != nullptr && this->sourceType_ != nullptr; };
+    virtual bool empty() const override { return this->sourceFileSystemPath_ == nullptr
+        && return this->sourceId_ == nullptr && return this->sourceRegion_ == nullptr && return this->sourceType_ == nullptr; };
     // sourceFileSystemPath Field Functions 
     bool hasSourceFileSystemPath() const { return this->sourceFileSystemPath_ != nullptr;};
     void deleteSourceFileSystemPath() { this->sourceFileSystemPath_ = nullptr;};

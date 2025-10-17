@@ -52,9 +52,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->details_ != nullptr
-        && this->dstDBType_ != nullptr && this->items_ != nullptr && this->itemsSize_ != nullptr && this->requestId_ != nullptr && this->sourceDBClusterId_ != nullptr
-        && this->srcDBType_ != nullptr && this->srcDeleted_ != nullptr && this->totalSize_ != nullptr && this->type_ != nullptr && this->upgradeReportList_ != nullptr; };
+    virtual bool empty() const override { return this->details_ == nullptr
+        && return this->dstDBType_ == nullptr && return this->items_ == nullptr && return this->itemsSize_ == nullptr && return this->requestId_ == nullptr && return this->sourceDBClusterId_ == nullptr
+        && return this->srcDBType_ == nullptr && return this->srcDeleted_ == nullptr && return this->totalSize_ == nullptr && return this->type_ == nullptr && return this->upgradeReportList_ == nullptr; };
     // details Field Functions 
     bool hasDetails() const { return this->details_ != nullptr;};
     void deleteDetails() { this->details_ = nullptr;};

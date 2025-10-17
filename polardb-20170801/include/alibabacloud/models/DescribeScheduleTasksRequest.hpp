@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->DBClusterDescription_ != nullptr
-        && this->DBClusterId_ != nullptr && this->orderId_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->plannedEndTime_ != nullptr && this->plannedStartTime_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->status_ != nullptr && this->taskAction_ != nullptr; };
+    virtual bool empty() const override { return this->DBClusterDescription_ == nullptr
+        && return this->DBClusterId_ == nullptr && return this->orderId_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->plannedEndTime_ == nullptr && return this->plannedStartTime_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->status_ == nullptr && return this->taskAction_ == nullptr; };
     // DBClusterDescription Field Functions 
     bool hasDBClusterDescription() const { return this->DBClusterDescription_ != nullptr;};
     void deleteDBClusterDescription() { this->DBClusterDescription_ = nullptr;};

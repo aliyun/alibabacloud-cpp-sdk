@@ -1,0 +1,50 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBESQLRATELIMITINGRULESRESPONSEBODYDATA_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBESQLRATELIMITINGRULESRESPONSEBODYDATA_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Polardb20170801
+{
+namespace Models
+{
+  class DescribeSQLRateLimitingRulesResponseBodyData : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeSQLRateLimitingRulesResponseBodyData& obj) { 
+      DARABONBA_PTR_TO_JSON(RuleList, ruleList_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeSQLRateLimitingRulesResponseBodyData& obj) { 
+      DARABONBA_PTR_FROM_JSON(RuleList, ruleList_);
+    };
+    DescribeSQLRateLimitingRulesResponseBodyData() = default ;
+    DescribeSQLRateLimitingRulesResponseBodyData(const DescribeSQLRateLimitingRulesResponseBodyData &) = default ;
+    DescribeSQLRateLimitingRulesResponseBodyData(DescribeSQLRateLimitingRulesResponseBodyData &&) = default ;
+    DescribeSQLRateLimitingRulesResponseBodyData(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeSQLRateLimitingRulesResponseBodyData() = default ;
+    DescribeSQLRateLimitingRulesResponseBodyData& operator=(const DescribeSQLRateLimitingRulesResponseBodyData &) = default ;
+    DescribeSQLRateLimitingRulesResponseBodyData& operator=(DescribeSQLRateLimitingRulesResponseBodyData &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->ruleList_ == nullptr; };
+    // ruleList Field Functions 
+    bool hasRuleList() const { return this->ruleList_ != nullptr;};
+    void deleteRuleList() { this->ruleList_ = nullptr;};
+    inline const vector<string> & ruleList() const { DARABONBA_PTR_GET_CONST(ruleList_, vector<string>) };
+    inline vector<string> ruleList() { DARABONBA_PTR_GET(ruleList_, vector<string>) };
+    inline DescribeSQLRateLimitingRulesResponseBodyData& setRuleList(const vector<string> & ruleList) { DARABONBA_PTR_SET_VALUE(ruleList_, ruleList) };
+    inline DescribeSQLRateLimitingRulesResponseBodyData& setRuleList(vector<string> && ruleList) { DARABONBA_PTR_SET_RVALUE(ruleList_, ruleList) };
+
+
+  protected:
+    std::shared_ptr<vector<string>> ruleList_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Polardb20170801
+#endif

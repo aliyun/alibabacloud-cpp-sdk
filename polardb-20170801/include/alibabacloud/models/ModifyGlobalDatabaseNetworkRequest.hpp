@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableGlobalDomainName_ != nullptr
-        && this->GDNDescription_ != nullptr && this->GDNId_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->securityToken_ != nullptr; };
+    virtual bool empty() const override { return this->enableGlobalDomainName_ == nullptr
+        && return this->GDNDescription_ == nullptr && return this->GDNId_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->securityToken_ == nullptr; };
     // enableGlobalDomainName Field Functions 
     bool hasEnableGlobalDomainName() const { return this->enableGlobalDomainName_ != nullptr;};
     void deleteEnableGlobalDomainName() { this->enableGlobalDomainName_ = nullptr;};

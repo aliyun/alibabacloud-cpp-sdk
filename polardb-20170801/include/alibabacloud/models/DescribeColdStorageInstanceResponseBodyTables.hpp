@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->childObjects_ != nullptr
-        && this->DB_ != nullptr && this->DBName_ != nullptr && this->fieldName_ != nullptr && this->ossClusterId_ != nullptr && this->partion_ != nullptr
-        && this->size_ != nullptr && this->status_ != nullptr && this->table_ != nullptr && this->tableName_ != nullptr; };
+    virtual bool empty() const override { return this->childObjects_ == nullptr
+        && return this->DB_ == nullptr && return this->DBName_ == nullptr && return this->fieldName_ == nullptr && return this->ossClusterId_ == nullptr && return this->partion_ == nullptr
+        && return this->size_ == nullptr && return this->status_ == nullptr && return this->table_ == nullptr && return this->tableName_ == nullptr; };
     // childObjects Field Functions 
     bool hasChildObjects() const { return this->childObjects_ != nullptr;};
     void deleteChildObjects() { this->childObjects_ = nullptr;};

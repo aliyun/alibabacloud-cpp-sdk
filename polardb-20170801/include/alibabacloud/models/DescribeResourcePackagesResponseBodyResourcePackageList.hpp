@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoQuota_ != nullptr
-        && this->createTime_ != nullptr && this->expireTime_ != nullptr && this->resourcePackageId_ != nullptr && this->resourcePackageQuotaList_ != nullptr && this->resourcePackageType_ != nullptr
-        && this->status_ != nullptr && this->tags_ != nullptr && this->totalCapacity_ != nullptr && this->usedCapacity_ != nullptr; };
+    virtual bool empty() const override { return this->autoQuota_ == nullptr
+        && return this->createTime_ == nullptr && return this->expireTime_ == nullptr && return this->resourcePackageId_ == nullptr && return this->resourcePackageQuotaList_ == nullptr && return this->resourcePackageType_ == nullptr
+        && return this->status_ == nullptr && return this->tags_ == nullptr && return this->totalCapacity_ == nullptr && return this->usedCapacity_ == nullptr; };
     // autoQuota Field Functions 
     bool hasAutoQuota() const { return this->autoQuota_ != nullptr;};
     void deleteAutoQuota() { this->autoQuota_ = nullptr;};

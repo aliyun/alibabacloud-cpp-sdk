@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowShutDown_ != nullptr
-        && this->cronExpression_ != nullptr && this->DBClusterId_ != nullptr && this->endTime_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->scaleApRoNumMax_ != nullptr && this->scaleApRoNumMin_ != nullptr
-        && this->scaleMax_ != nullptr && this->scaleMin_ != nullptr && this->scaleRoNumMax_ != nullptr && this->scaleRoNumMin_ != nullptr && this->secondsUntilAutoPause_ != nullptr
-        && this->serverlessRuleCpuEnlargeThreshold_ != nullptr && this->serverlessRuleCpuShrinkThreshold_ != nullptr && this->serverlessRuleMode_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->allowShutDown_ == nullptr
+        && return this->cronExpression_ == nullptr && return this->DBClusterId_ == nullptr && return this->endTime_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->scaleApRoNumMax_ == nullptr && return this->scaleApRoNumMin_ == nullptr
+        && return this->scaleMax_ == nullptr && return this->scaleMin_ == nullptr && return this->scaleRoNumMax_ == nullptr && return this->scaleRoNumMin_ == nullptr && return this->secondsUntilAutoPause_ == nullptr
+        && return this->serverlessRuleCpuEnlargeThreshold_ == nullptr && return this->serverlessRuleCpuShrinkThreshold_ == nullptr && return this->serverlessRuleMode_ == nullptr && return this->startTime_ == nullptr; };
     // allowShutDown Field Functions 
     bool hasAllowShutDown() const { return this->allowShutDown_ != nullptr;};
     void deleteAllowShutDown() { this->allowShutDown_ = nullptr;};

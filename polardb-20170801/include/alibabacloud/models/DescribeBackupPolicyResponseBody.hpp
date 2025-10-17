@@ -62,11 +62,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->advancedDataPolicies_ != nullptr
-        && this->advancedPolicyOption_ != nullptr && this->backupFrequency_ != nullptr && this->backupPolicyLevel_ != nullptr && this->backupRetentionPolicyOnClusterDeletion_ != nullptr && this->dataLevel1BackupFrequency_ != nullptr
-        && this->dataLevel1BackupPeriod_ != nullptr && this->dataLevel1BackupRetentionPeriod_ != nullptr && this->dataLevel1BackupTime_ != nullptr && this->dataLevel2BackupAnotherRegionRegion_ != nullptr && this->dataLevel2BackupAnotherRegionRetentionPeriod_ != nullptr
-        && this->dataLevel2BackupPeriod_ != nullptr && this->dataLevel2BackupRetentionPeriod_ != nullptr && this->preferredBackupPeriod_ != nullptr && this->preferredBackupTime_ != nullptr && this->preferredNextBackupTime_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->advancedDataPolicies_ == nullptr
+        && return this->advancedPolicyOption_ == nullptr && return this->backupFrequency_ == nullptr && return this->backupPolicyLevel_ == nullptr && return this->backupRetentionPolicyOnClusterDeletion_ == nullptr && return this->dataLevel1BackupFrequency_ == nullptr
+        && return this->dataLevel1BackupPeriod_ == nullptr && return this->dataLevel1BackupRetentionPeriod_ == nullptr && return this->dataLevel1BackupTime_ == nullptr && return this->dataLevel2BackupAnotherRegionRegion_ == nullptr && return this->dataLevel2BackupAnotherRegionRetentionPeriod_ == nullptr
+        && return this->dataLevel2BackupPeriod_ == nullptr && return this->dataLevel2BackupRetentionPeriod_ == nullptr && return this->preferredBackupPeriod_ == nullptr && return this->preferredBackupTime_ == nullptr && return this->preferredNextBackupTime_ == nullptr
+        && return this->requestId_ == nullptr; };
     // advancedDataPolicies Field Functions 
     bool hasAdvancedDataPolicies() const { return this->advancedDataPolicies_ != nullptr;};
     void deleteAdvancedDataPolicies() { this->advancedDataPolicies_ = nullptr;};

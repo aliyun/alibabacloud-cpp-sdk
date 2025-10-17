@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountPrivilege_ != nullptr
-        && this->DBName_ != nullptr; };
+    virtual bool empty() const override { return this->accountPrivilege_ == nullptr
+        && return this->DBName_ == nullptr; };
     // accountPrivilege Field Functions 
     bool hasAccountPrivilege() const { return this->accountPrivilege_ != nullptr;};
     void deleteAccountPrivilege() { this->accountPrivilege_ = nullptr;};

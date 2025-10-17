@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->beginTime_ != nullptr
-        && this->currentStepName_ != nullptr && this->DBName_ != nullptr && this->expectedFinishTime_ != nullptr && this->finishTime_ != nullptr && this->progress_ != nullptr
-        && this->progressInfo_ != nullptr && this->remain_ != nullptr && this->stepProgressInfo_ != nullptr && this->stepsInfo_ != nullptr && this->taskAction_ != nullptr
-        && this->taskErrorCode_ != nullptr && this->taskErrorMessage_ != nullptr && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->beginTime_ == nullptr
+        && return this->currentStepName_ == nullptr && return this->DBName_ == nullptr && return this->expectedFinishTime_ == nullptr && return this->finishTime_ == nullptr && return this->progress_ == nullptr
+        && return this->progressInfo_ == nullptr && return this->remain_ == nullptr && return this->stepProgressInfo_ == nullptr && return this->stepsInfo_ == nullptr && return this->taskAction_ == nullptr
+        && return this->taskErrorCode_ == nullptr && return this->taskErrorMessage_ == nullptr && return this->taskId_ == nullptr; };
     // beginTime Field Functions 
     bool hasBeginTime() const { return this->beginTime_ != nullptr;};
     void deleteBeginTime() { this->beginTime_ = nullptr;};

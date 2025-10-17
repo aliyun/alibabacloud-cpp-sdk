@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxResults_ != nullptr
-        && this->nextToken_ != nullptr && this->objectType_ != nullptr && this->ossClusterEnabled_ != nullptr && this->ossClusterInfoList_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageRecordCount_ != nullptr && this->pageSize_ != nullptr && this->requestId_ != nullptr && this->supportOssCluster_ != nullptr && this->tables_ != nullptr
-        && this->totalRecord_ != nullptr; };
+    virtual bool empty() const override { return this->maxResults_ == nullptr
+        && return this->nextToken_ == nullptr && return this->objectType_ == nullptr && return this->ossClusterEnabled_ == nullptr && return this->ossClusterInfoList_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageRecordCount_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr && return this->supportOssCluster_ == nullptr && return this->tables_ == nullptr
+        && return this->totalRecord_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};

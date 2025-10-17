@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->SQLSlowLog_ != nullptr; };
+    virtual bool empty() const override { return this->SQLSlowLog_ == nullptr; };
     // SQLSlowLog Field Functions 
     bool hasSQLSlowLog() const { return this->SQLSlowLog_ != nullptr;};
     void deleteSQLSlowLog() { this->SQLSlowLog_ = nullptr;};

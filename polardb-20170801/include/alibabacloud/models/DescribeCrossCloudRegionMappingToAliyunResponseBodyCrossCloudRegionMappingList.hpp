@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliyunRegionId_ != nullptr
-        && this->cloudProvider_ != nullptr && this->crossCloudRegionId_ != nullptr; };
+    virtual bool empty() const override { return this->aliyunRegionId_ == nullptr
+        && return this->cloudProvider_ == nullptr && return this->crossCloudRegionId_ == nullptr; };
     // aliyunRegionId Field Functions 
     bool hasAliyunRegionId() const { return this->aliyunRegionId_ != nullptr;};
     void deleteAliyunRegionId() { this->aliyunRegionId_ = nullptr;};
