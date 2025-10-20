@@ -14,6 +14,7 @@ namespace Models
   class ListIntegrationPolicyDashboardsResponseBodyDashboards : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListIntegrationPolicyDashboardsResponseBodyDashboards& obj) { 
+      DARABONBA_PTR_TO_JSON(engine, engine_);
       DARABONBA_PTR_TO_JSON(folderUid, folderUid_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(region, region_);
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(url, url_);
     };
     friend void from_json(const Darabonba::Json& j, ListIntegrationPolicyDashboardsResponseBodyDashboards& obj) { 
+      DARABONBA_PTR_FROM_JSON(engine, engine_);
       DARABONBA_PTR_FROM_JSON(folderUid, folderUid_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(region, region_);
@@ -42,9 +44,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->folderUid_ == nullptr
-        && return this->name_ == nullptr && return this->region_ == nullptr && return this->tags_ == nullptr && return this->title_ == nullptr && return this->uid_ == nullptr
-        && return this->url_ == nullptr; };
+    virtual bool empty() const override { return this->engine_ == nullptr
+        && return this->folderUid_ == nullptr && return this->name_ == nullptr && return this->region_ == nullptr && return this->tags_ == nullptr && return this->title_ == nullptr
+        && return this->uid_ == nullptr && return this->url_ == nullptr; };
+    // engine Field Functions 
+    bool hasEngine() const { return this->engine_ != nullptr;};
+    void deleteEngine() { this->engine_ = nullptr;};
+    inline string engine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
+    inline ListIntegrationPolicyDashboardsResponseBodyDashboards& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
+
+
     // folderUid Field Functions 
     bool hasFolderUid() const { return this->folderUid_ != nullptr;};
     void deleteFolderUid() { this->folderUid_ = nullptr;};
@@ -97,6 +106,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> engine_ = nullptr;
     std::shared_ptr<string> folderUid_ = nullptr;
     std::shared_ptr<string> name_ = nullptr;
     std::shared_ptr<string> region_ = nullptr;

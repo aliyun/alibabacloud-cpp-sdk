@@ -1976,6 +1976,10 @@ ListIntegrationPolicyDashboardsResponse Client::listIntegrationPolicyDashboardsW
     query["addonName"] = request.addonName();
   }
 
+  if (!!request.hasLanguage()) {
+    query["language"] = request.language();
+  }
+
   if (!!request.hasScene()) {
     query["scene"] = request.scene();
   }

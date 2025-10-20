@@ -16,6 +16,8 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const AlertRuleConditionCompareList& obj) { 
       DARABONBA_PTR_TO_JSON(aggregate, aggregate_);
+      DARABONBA_PTR_TO_JSON(baseUnit, baseUnit_);
+      DARABONBA_PTR_TO_JSON(displayUnit, displayUnit_);
       DARABONBA_PTR_TO_JSON(oper, oper_);
       DARABONBA_PTR_TO_JSON(value, value_);
       DARABONBA_PTR_TO_JSON(valueLevelList, valueLevelList_);
@@ -24,6 +26,8 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, AlertRuleConditionCompareList& obj) { 
       DARABONBA_PTR_FROM_JSON(aggregate, aggregate_);
+      DARABONBA_PTR_FROM_JSON(baseUnit, baseUnit_);
+      DARABONBA_PTR_FROM_JSON(displayUnit, displayUnit_);
       DARABONBA_PTR_FROM_JSON(oper, oper_);
       DARABONBA_PTR_FROM_JSON(value, value_);
       DARABONBA_PTR_FROM_JSON(valueLevelList, valueLevelList_);
@@ -42,12 +46,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aggregate_ == nullptr
-        && return this->oper_ == nullptr && return this->value_ == nullptr && return this->valueLevelList_ == nullptr && return this->yoyTimeUnit_ == nullptr && return this->yoyTimeValue_ == nullptr; };
+        && return this->baseUnit_ == nullptr && return this->displayUnit_ == nullptr && return this->oper_ == nullptr && return this->value_ == nullptr && return this->valueLevelList_ == nullptr
+        && return this->yoyTimeUnit_ == nullptr && return this->yoyTimeValue_ == nullptr; };
     // aggregate Field Functions 
     bool hasAggregate() const { return this->aggregate_ != nullptr;};
     void deleteAggregate() { this->aggregate_ = nullptr;};
     inline string aggregate() const { DARABONBA_PTR_GET_DEFAULT(aggregate_, "") };
     inline AlertRuleConditionCompareList& setAggregate(string aggregate) { DARABONBA_PTR_SET_VALUE(aggregate_, aggregate) };
+
+
+    // baseUnit Field Functions 
+    bool hasBaseUnit() const { return this->baseUnit_ != nullptr;};
+    void deleteBaseUnit() { this->baseUnit_ = nullptr;};
+    inline string baseUnit() const { DARABONBA_PTR_GET_DEFAULT(baseUnit_, "") };
+    inline AlertRuleConditionCompareList& setBaseUnit(string baseUnit) { DARABONBA_PTR_SET_VALUE(baseUnit_, baseUnit) };
+
+
+    // displayUnit Field Functions 
+    bool hasDisplayUnit() const { return this->displayUnit_ != nullptr;};
+    void deleteDisplayUnit() { this->displayUnit_ = nullptr;};
+    inline string displayUnit() const { DARABONBA_PTR_GET_DEFAULT(displayUnit_, "") };
+    inline AlertRuleConditionCompareList& setDisplayUnit(string displayUnit) { DARABONBA_PTR_SET_VALUE(displayUnit_, displayUnit) };
 
 
     // oper Field Functions 
@@ -89,6 +108,8 @@ namespace Models
 
   protected:
     std::shared_ptr<string> aggregate_ = nullptr;
+    std::shared_ptr<string> baseUnit_ = nullptr;
+    std::shared_ptr<string> displayUnit_ = nullptr;
     std::shared_ptr<string> oper_ = nullptr;
     std::shared_ptr<double> value_ = nullptr;
     std::shared_ptr<vector<Models::AlertRuleConditionCompareListValueLevelList>> valueLevelList_ = nullptr;
