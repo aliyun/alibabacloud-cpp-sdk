@@ -32,6 +32,9 @@
 #include <alibabacloud/models/CreateApplicationTokenRequest.hpp>
 #include <alibabacloud/models/CreateApplicationTokenResponseBody.hpp>
 #include <alibabacloud/models/CreateApplicationTokenResponse.hpp>
+#include <alibabacloud/models/CreateBrandRequest.hpp>
+#include <alibabacloud/models/CreateBrandResponseBody.hpp>
+#include <alibabacloud/models/CreateBrandResponse.hpp>
 #include <alibabacloud/models/CreateConditionalAccessPolicyRequest.hpp>
 #include <alibabacloud/models/CreateConditionalAccessPolicyResponseBody.hpp>
 #include <alibabacloud/models/CreateConditionalAccessPolicyResponse.hpp>
@@ -77,6 +80,9 @@
 #include <alibabacloud/models/DeleteApplicationTokenRequest.hpp>
 #include <alibabacloud/models/DeleteApplicationTokenResponseBody.hpp>
 #include <alibabacloud/models/DeleteApplicationTokenResponse.hpp>
+#include <alibabacloud/models/DeleteBrandRequest.hpp>
+#include <alibabacloud/models/DeleteBrandResponseBody.hpp>
+#include <alibabacloud/models/DeleteBrandResponse.hpp>
 #include <alibabacloud/models/DeleteConditionalAccessPolicyRequest.hpp>
 #include <alibabacloud/models/DeleteConditionalAccessPolicyResponseBody.hpp>
 #include <alibabacloud/models/DeleteConditionalAccessPolicyResponse.hpp>
@@ -134,6 +140,9 @@
 #include <alibabacloud/models/DisableApplicationTokenRequest.hpp>
 #include <alibabacloud/models/DisableApplicationTokenResponseBody.hpp>
 #include <alibabacloud/models/DisableApplicationTokenResponse.hpp>
+#include <alibabacloud/models/DisableBrandRequest.hpp>
+#include <alibabacloud/models/DisableBrandResponseBody.hpp>
+#include <alibabacloud/models/DisableBrandResponse.hpp>
 #include <alibabacloud/models/DisableConditionalAccessPolicyRequest.hpp>
 #include <alibabacloud/models/DisableConditionalAccessPolicyResponseBody.hpp>
 #include <alibabacloud/models/DisableConditionalAccessPolicyResponse.hpp>
@@ -176,6 +185,9 @@
 #include <alibabacloud/models/EnableApplicationTokenRequest.hpp>
 #include <alibabacloud/models/EnableApplicationTokenResponseBody.hpp>
 #include <alibabacloud/models/EnableApplicationTokenResponse.hpp>
+#include <alibabacloud/models/EnableBrandRequest.hpp>
+#include <alibabacloud/models/EnableBrandResponseBody.hpp>
+#include <alibabacloud/models/EnableBrandResponse.hpp>
 #include <alibabacloud/models/EnableConditionalAccessPolicyRequest.hpp>
 #include <alibabacloud/models/EnableConditionalAccessPolicyResponseBody.hpp>
 #include <alibabacloud/models/EnableConditionalAccessPolicyResponse.hpp>
@@ -218,6 +230,9 @@
 #include <alibabacloud/models/GetApplicationTemplateRequest.hpp>
 #include <alibabacloud/models/GetApplicationTemplateResponseBody.hpp>
 #include <alibabacloud/models/GetApplicationTemplateResponse.hpp>
+#include <alibabacloud/models/GetBrandRequest.hpp>
+#include <alibabacloud/models/GetBrandResponseBody.hpp>
+#include <alibabacloud/models/GetBrandResponse.hpp>
 #include <alibabacloud/models/GetConditionalAccessPolicyRequest.hpp>
 #include <alibabacloud/models/GetConditionalAccessPolicyResponseBody.hpp>
 #include <alibabacloud/models/GetConditionalAccessPolicyResponse.hpp>
@@ -248,6 +263,9 @@
 #include <alibabacloud/models/GetInstanceLicenseRequest.hpp>
 #include <alibabacloud/models/GetInstanceLicenseResponseBody.hpp>
 #include <alibabacloud/models/GetInstanceLicenseResponse.hpp>
+#include <alibabacloud/models/GetLoginRedirectApplicationForBrandRequest.hpp>
+#include <alibabacloud/models/GetLoginRedirectApplicationForBrandResponseBody.hpp>
+#include <alibabacloud/models/GetLoginRedirectApplicationForBrandResponse.hpp>
 #include <alibabacloud/models/GetNetworkAccessEndpointRequest.hpp>
 #include <alibabacloud/models/GetNetworkAccessEndpointResponseBody.hpp>
 #include <alibabacloud/models/GetNetworkAccessEndpointResponse.hpp>
@@ -317,6 +335,9 @@
 #include <alibabacloud/models/ListApplicationsForUserRequest.hpp>
 #include <alibabacloud/models/ListApplicationsForUserResponseBody.hpp>
 #include <alibabacloud/models/ListApplicationsForUserResponse.hpp>
+#include <alibabacloud/models/ListBrandsRequest.hpp>
+#include <alibabacloud/models/ListBrandsResponseBody.hpp>
+#include <alibabacloud/models/ListBrandsResponse.hpp>
 #include <alibabacloud/models/ListConditionalAccessPoliciesRequest.hpp>
 #include <alibabacloud/models/ListConditionalAccessPoliciesResponseBody.hpp>
 #include <alibabacloud/models/ListConditionalAccessPoliciesResponse.hpp>
@@ -449,6 +470,9 @@
 #include <alibabacloud/models/SetIdentityProviderUdPullConfigurationRequest.hpp>
 #include <alibabacloud/models/SetIdentityProviderUdPullConfigurationResponseBody.hpp>
 #include <alibabacloud/models/SetIdentityProviderUdPullConfigurationResponse.hpp>
+#include <alibabacloud/models/SetLoginRedirectApplicationForBrandRequest.hpp>
+#include <alibabacloud/models/SetLoginRedirectApplicationForBrandResponseBody.hpp>
+#include <alibabacloud/models/SetLoginRedirectApplicationForBrandResponse.hpp>
 #include <alibabacloud/models/SetPasswordComplexityConfigurationRequest.hpp>
 #include <alibabacloud/models/SetPasswordComplexityConfigurationResponseBody.hpp>
 #include <alibabacloud/models/SetPasswordComplexityConfigurationResponse.hpp>
@@ -488,12 +512,18 @@
 #include <alibabacloud/models/UpdateApplicationTokenExpirationTimeRequest.hpp>
 #include <alibabacloud/models/UpdateApplicationTokenExpirationTimeResponseBody.hpp>
 #include <alibabacloud/models/UpdateApplicationTokenExpirationTimeResponse.hpp>
+#include <alibabacloud/models/UpdateBrandRequest.hpp>
+#include <alibabacloud/models/UpdateBrandResponseBody.hpp>
+#include <alibabacloud/models/UpdateBrandResponse.hpp>
 #include <alibabacloud/models/UpdateConditionalAccessPolicyRequest.hpp>
 #include <alibabacloud/models/UpdateConditionalAccessPolicyResponseBody.hpp>
 #include <alibabacloud/models/UpdateConditionalAccessPolicyResponse.hpp>
 #include <alibabacloud/models/UpdateConditionalAccessPolicyDescriptionRequest.hpp>
 #include <alibabacloud/models/UpdateConditionalAccessPolicyDescriptionResponseBody.hpp>
 #include <alibabacloud/models/UpdateConditionalAccessPolicyDescriptionResponse.hpp>
+#include <alibabacloud/models/UpdateDomainBrandRequest.hpp>
+#include <alibabacloud/models/UpdateDomainBrandResponseBody.hpp>
+#include <alibabacloud/models/UpdateDomainBrandResponse.hpp>
 #include <alibabacloud/models/UpdateDomainIcpNumberRequest.hpp>
 #include <alibabacloud/models/UpdateDomainIcpNumberResponseBody.hpp>
 #include <alibabacloud/models/UpdateDomainIcpNumberResponse.hpp>
@@ -594,6 +624,7 @@
 #include <alibabacloud/models/GetApplicationSsoConfigResponseBodyApplicationSsoConfig.hpp>
 #include <alibabacloud/models/GetApplicationTemplateResponseBodyApplicationTemplateSaleInfo.hpp>
 #include <alibabacloud/models/GetApplicationTemplateResponseBodyApplicationTemplate.hpp>
+#include <alibabacloud/models/GetBrandResponseBodyBrand.hpp>
 #include <alibabacloud/models/GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigApplications.hpp>
 #include <alibabacloud/models/GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigNetworkZones.hpp>
 #include <alibabacloud/models/GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigUsers.hpp>
@@ -637,6 +668,7 @@
 #include <alibabacloud/models/GetInstanceResponseBodyInstanceDomainConfig.hpp>
 #include <alibabacloud/models/GetInstanceResponseBodyInstance.hpp>
 #include <alibabacloud/models/GetInstanceLicenseResponseBodyLicense.hpp>
+#include <alibabacloud/models/GetLoginRedirectApplicationForBrandResponseBodyBrandLoginRedirectApplication.hpp>
 #include <alibabacloud/models/GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint.hpp>
 #include <alibabacloud/models/GetNetworkZoneResponseBodyNetworkZone.hpp>
 #include <alibabacloud/models/GetOrganizationalUnitResponseBodyOrganizationalUnit.hpp>
@@ -693,6 +725,7 @@
 #include <alibabacloud/models/ListApplicationsForNetworkZoneResponseBodyApplications.hpp>
 #include <alibabacloud/models/ListApplicationsForOrganizationalUnitResponseBodyApplications.hpp>
 #include <alibabacloud/models/ListApplicationsForUserResponseBodyApplications.hpp>
+#include <alibabacloud/models/ListBrandsResponseBodyBrands.hpp>
 #include <alibabacloud/models/ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigApplications.hpp>
 #include <alibabacloud/models/ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones.hpp>
 #include <alibabacloud/models/ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigUsers.hpp>

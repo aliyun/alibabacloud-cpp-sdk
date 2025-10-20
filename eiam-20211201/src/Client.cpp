@@ -584,6 +584,52 @@ CreateApplicationTokenResponse Client::createApplicationToken(const CreateApplic
 }
 
 /**
+ * @summary 创建品牌
+ *
+ * @param request CreateBrandRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateBrandResponse
+ */
+CreateBrandResponse Client::createBrandWithOptions(const CreateBrandRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBrandName()) {
+    query["BrandName"] = request.brandName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateBrand"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateBrandResponse>();
+}
+
+/**
+ * @summary 创建品牌
+ *
+ * @param request CreateBrandRequest
+ * @return CreateBrandResponse
+ */
+CreateBrandResponse Client::createBrand(const CreateBrandRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createBrandWithOptions(request, runtime);
+}
+
+/**
  * @summary Create Conditional Access Policy
  *
  * @description Create Conditional Access Policy
@@ -1526,6 +1572,52 @@ DeleteApplicationTokenResponse Client::deleteApplicationToken(const DeleteApplic
 }
 
 /**
+ * @summary 删除品牌
+ *
+ * @param request DeleteBrandRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteBrandResponse
+ */
+DeleteBrandResponse Client::deleteBrandWithOptions(const DeleteBrandRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBrandId()) {
+    query["BrandId"] = request.brandId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteBrand"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteBrandResponse>();
+}
+
+/**
+ * @summary 删除品牌
+ *
+ * @param request DeleteBrandRequest
+ * @return DeleteBrandResponse
+ */
+DeleteBrandResponse Client::deleteBrand(const DeleteBrandRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteBrandWithOptions(request, runtime);
+}
+
+/**
  * @summary Delete Conditional Access Policy
  *
  * @description When deleting a specified conditional access policy, please ensure that the policy is no longer in use. After deletion, all configuration data will be removed and cannot be recovered.
@@ -2424,6 +2516,52 @@ DisableApplicationTokenResponse Client::disableApplicationToken(const DisableApp
 }
 
 /**
+ * @summary 禁用品牌
+ *
+ * @param request DisableBrandRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableBrandResponse
+ */
+DisableBrandResponse Client::disableBrandWithOptions(const DisableBrandRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBrandId()) {
+    query["BrandId"] = request.brandId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableBrand"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableBrandResponse>();
+}
+
+/**
+ * @summary 禁用品牌
+ *
+ * @param request DisableBrandRequest
+ * @return DisableBrandResponse
+ */
+DisableBrandResponse Client::disableBrand(const DisableBrandRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableBrandWithOptions(request, runtime);
+}
+
+/**
  * @summary Disable Conditional Access Policy
  *
  * @description When changing a conditional access policy from an enabled state to a disabled state, the policy will no longer intercept. Please confirm that you are aware of the potential risks associated with this action.
@@ -3084,6 +3222,52 @@ EnableApplicationTokenResponse Client::enableApplicationToken(const EnableApplic
 }
 
 /**
+ * @summary 启用品牌
+ *
+ * @param request EnableBrandRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableBrandResponse
+ */
+EnableBrandResponse Client::enableBrandWithOptions(const EnableBrandRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBrandId()) {
+    query["BrandId"] = request.brandId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableBrand"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableBrandResponse>();
+}
+
+/**
+ * @summary 启用品牌
+ *
+ * @param request EnableBrandRequest
+ * @return EnableBrandResponse
+ */
+EnableBrandResponse Client::enableBrand(const EnableBrandRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableBrandWithOptions(request, runtime);
+}
+
+/**
  * @summary Enable Conditional Access Policy
  *
  * @description When changing the status of a conditional access policy from enabled to disabled, the policy will no longer intercept. Please confirm that you are aware of the potential risks associated with this action.
@@ -3732,6 +3916,52 @@ GetApplicationTemplateResponse Client::getApplicationTemplate(const GetApplicati
 }
 
 /**
+ * @summary 获取品牌详情
+ *
+ * @param request GetBrandRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetBrandResponse
+ */
+GetBrandResponse Client::getBrandWithOptions(const GetBrandRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBrandId()) {
+    query["BrandId"] = request.brandId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetBrand"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetBrandResponse>();
+}
+
+/**
+ * @summary 获取品牌详情
+ *
+ * @param request GetBrandRequest
+ * @return GetBrandResponse
+ */
+GetBrandResponse Client::getBrand(const GetBrandRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getBrandWithOptions(request, runtime);
+}
+
+/**
  * @summary Get Conditional Access Policy
  *
  * @description Query Conditional Access Policy
@@ -4185,6 +4415,52 @@ GetInstanceLicenseResponse Client::getInstanceLicenseWithOptions(const GetInstan
 GetInstanceLicenseResponse Client::getInstanceLicense(const GetInstanceLicenseRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getInstanceLicenseWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取品牌登录后跳转应用
+ *
+ * @param request GetLoginRedirectApplicationForBrandRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetLoginRedirectApplicationForBrandResponse
+ */
+GetLoginRedirectApplicationForBrandResponse Client::getLoginRedirectApplicationForBrandWithOptions(const GetLoginRedirectApplicationForBrandRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBrandId()) {
+    query["BrandId"] = request.brandId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetLoginRedirectApplicationForBrand"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetLoginRedirectApplicationForBrandResponse>();
+}
+
+/**
+ * @summary 获取品牌登录后跳转应用
+ *
+ * @param request GetLoginRedirectApplicationForBrandRequest
+ * @return GetLoginRedirectApplicationForBrandResponse
+ */
+GetLoginRedirectApplicationForBrandResponse Client::getLoginRedirectApplicationForBrand(const GetLoginRedirectApplicationForBrandRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getLoginRedirectApplicationForBrandWithOptions(request, runtime);
 }
 
 /**
@@ -5363,6 +5639,60 @@ ListApplicationsForUserResponse Client::listApplicationsForUserWithOptions(const
 ListApplicationsForUserResponse Client::listApplicationsForUser(const ListApplicationsForUserRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listApplicationsForUserWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取品牌列表
+ *
+ * @param request ListBrandsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListBrandsResponse
+ */
+ListBrandsResponse Client::listBrandsWithOptions(const ListBrandsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPreviousToken()) {
+    query["PreviousToken"] = request.previousToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListBrands"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListBrandsResponse>();
+}
+
+/**
+ * @summary 获取品牌列表
+ *
+ * @param request ListBrandsRequest
+ * @return ListBrandsResponse
+ */
+ListBrandsResponse Client::listBrands(const ListBrandsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listBrandsWithOptions(request, runtime);
 }
 
 /**
@@ -7809,6 +8139,56 @@ SetIdentityProviderUdPullConfigurationResponse Client::setIdentityProviderUdPull
 }
 
 /**
+ * @summary 为品牌设置登录后跳转应用
+ *
+ * @param request SetLoginRedirectApplicationForBrandRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetLoginRedirectApplicationForBrandResponse
+ */
+SetLoginRedirectApplicationForBrandResponse Client::setLoginRedirectApplicationForBrandWithOptions(const SetLoginRedirectApplicationForBrandRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasBrandId()) {
+    query["BrandId"] = request.brandId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetLoginRedirectApplicationForBrand"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetLoginRedirectApplicationForBrandResponse>();
+}
+
+/**
+ * @summary 为品牌设置登录后跳转应用
+ *
+ * @param request SetLoginRedirectApplicationForBrandRequest
+ * @return SetLoginRedirectApplicationForBrandResponse
+ */
+SetLoginRedirectApplicationForBrandResponse Client::setLoginRedirectApplicationForBrand(const SetLoginRedirectApplicationForBrandRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setLoginRedirectApplicationForBrandWithOptions(request, runtime);
+}
+
+/**
  * @summary Configures a password complexity policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
  *
  * @param request SetPasswordComplexityConfigurationRequest
@@ -8519,6 +8899,56 @@ UpdateApplicationTokenExpirationTimeResponse Client::updateApplicationTokenExpir
 }
 
 /**
+ * @summary 修改品牌
+ *
+ * @param request UpdateBrandRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateBrandResponse
+ */
+UpdateBrandResponse Client::updateBrandWithOptions(const UpdateBrandRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBrandId()) {
+    query["BrandId"] = request.brandId();
+  }
+
+  if (!!request.hasBrandName()) {
+    query["BrandName"] = request.brandName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateBrand"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateBrandResponse>();
+}
+
+/**
+ * @summary 修改品牌
+ *
+ * @param request UpdateBrandRequest
+ * @return UpdateBrandResponse
+ */
+UpdateBrandResponse Client::updateBrand(const UpdateBrandRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateBrandWithOptions(request, runtime);
+}
+
+/**
  * @summary Update Conditional Access Policy
  *
  * @description Update Conditional Access Policy
@@ -8648,6 +9078,56 @@ UpdateConditionalAccessPolicyDescriptionResponse Client::updateConditionalAccess
 UpdateConditionalAccessPolicyDescriptionResponse Client::updateConditionalAccessPolicyDescription(const UpdateConditionalAccessPolicyDescriptionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateConditionalAccessPolicyDescriptionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改域名关联的品牌。
+ *
+ * @param request UpdateDomainBrandRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDomainBrandResponse
+ */
+UpdateDomainBrandResponse Client::updateDomainBrandWithOptions(const UpdateDomainBrandRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBrandId()) {
+    query["BrandId"] = request.brandId();
+  }
+
+  if (!!request.hasDomainId()) {
+    query["DomainId"] = request.domainId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateDomainBrand"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDomainBrandResponse>();
+}
+
+/**
+ * @summary 修改域名关联的品牌。
+ *
+ * @param request UpdateDomainBrandRequest
+ * @return UpdateDomainBrandResponse
+ */
+UpdateDomainBrandResponse Client::updateDomainBrand(const UpdateDomainBrandRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDomainBrandWithOptions(request, runtime);
 }
 
 /**

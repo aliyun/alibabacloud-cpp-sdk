@@ -195,6 +195,23 @@ namespace Eiam20211201
       Models::CreateApplicationTokenResponse createApplicationToken(const Models::CreateApplicationTokenRequest &request);
 
       /**
+       * @summary 创建品牌
+       *
+       * @param request CreateBrandRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateBrandResponse
+       */
+      Models::CreateBrandResponse createBrandWithOptions(const Models::CreateBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建品牌
+       *
+       * @param request CreateBrandRequest
+       * @return CreateBrandResponse
+       */
+      Models::CreateBrandResponse createBrand(const Models::CreateBrandRequest &request);
+
+      /**
        * @summary Create Conditional Access Policy
        *
        * @description Create Conditional Access Policy
@@ -456,6 +473,23 @@ namespace Eiam20211201
        * @return DeleteApplicationTokenResponse
        */
       Models::DeleteApplicationTokenResponse deleteApplicationToken(const Models::DeleteApplicationTokenRequest &request);
+
+      /**
+       * @summary 删除品牌
+       *
+       * @param request DeleteBrandRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteBrandResponse
+       */
+      Models::DeleteBrandResponse deleteBrandWithOptions(const Models::DeleteBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除品牌
+       *
+       * @param request DeleteBrandRequest
+       * @return DeleteBrandResponse
+       */
+      Models::DeleteBrandResponse deleteBrand(const Models::DeleteBrandRequest &request);
 
       /**
        * @summary Delete Conditional Access Policy
@@ -793,6 +827,23 @@ namespace Eiam20211201
       Models::DisableApplicationTokenResponse disableApplicationToken(const Models::DisableApplicationTokenRequest &request);
 
       /**
+       * @summary 禁用品牌
+       *
+       * @param request DisableBrandRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableBrandResponse
+       */
+      Models::DisableBrandResponse disableBrandWithOptions(const Models::DisableBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 禁用品牌
+       *
+       * @param request DisableBrandRequest
+       * @return DisableBrandResponse
+       */
+      Models::DisableBrandResponse disableBrand(const Models::DisableBrandRequest &request);
+
+      /**
        * @summary Disable Conditional Access Policy
        *
        * @description When changing a conditional access policy from an enabled state to a disabled state, the policy will no longer intercept. Please confirm that you are aware of the potential risks associated with this action.
@@ -1033,6 +1084,23 @@ namespace Eiam20211201
        * @return EnableApplicationTokenResponse
        */
       Models::EnableApplicationTokenResponse enableApplicationToken(const Models::EnableApplicationTokenRequest &request);
+
+      /**
+       * @summary 启用品牌
+       *
+       * @param request EnableBrandRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableBrandResponse
+       */
+      Models::EnableBrandResponse enableBrandWithOptions(const Models::EnableBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启用品牌
+       *
+       * @param request EnableBrandRequest
+       * @return EnableBrandResponse
+       */
+      Models::EnableBrandResponse enableBrand(const Models::EnableBrandRequest &request);
 
       /**
        * @summary Enable Conditional Access Policy
@@ -1277,6 +1345,23 @@ namespace Eiam20211201
       Models::GetApplicationTemplateResponse getApplicationTemplate(const Models::GetApplicationTemplateRequest &request);
 
       /**
+       * @summary 获取品牌详情
+       *
+       * @param request GetBrandRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetBrandResponse
+       */
+      Models::GetBrandResponse getBrandWithOptions(const Models::GetBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取品牌详情
+       *
+       * @param request GetBrandRequest
+       * @return GetBrandResponse
+       */
+      Models::GetBrandResponse getBrand(const Models::GetBrandRequest &request);
+
+      /**
        * @summary Get Conditional Access Policy
        *
        * @description Query Conditional Access Policy
@@ -1453,6 +1538,23 @@ namespace Eiam20211201
        * @return GetInstanceLicenseResponse
        */
       Models::GetInstanceLicenseResponse getInstanceLicense(const Models::GetInstanceLicenseRequest &request);
+
+      /**
+       * @summary 获取品牌登录后跳转应用
+       *
+       * @param request GetLoginRedirectApplicationForBrandRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetLoginRedirectApplicationForBrandResponse
+       */
+      Models::GetLoginRedirectApplicationForBrandResponse getLoginRedirectApplicationForBrandWithOptions(const Models::GetLoginRedirectApplicationForBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取品牌登录后跳转应用
+       *
+       * @param request GetLoginRedirectApplicationForBrandRequest
+       * @return GetLoginRedirectApplicationForBrandResponse
+       */
+      Models::GetLoginRedirectApplicationForBrandResponse getLoginRedirectApplicationForBrand(const Models::GetLoginRedirectApplicationForBrandRequest &request);
 
       /**
        * @summary Get Network Endpoint Information
@@ -1848,6 +1950,23 @@ namespace Eiam20211201
        * @return ListApplicationsForUserResponse
        */
       Models::ListApplicationsForUserResponse listApplicationsForUser(const Models::ListApplicationsForUserRequest &request);
+
+      /**
+       * @summary 获取品牌列表
+       *
+       * @param request ListBrandsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListBrandsResponse
+       */
+      Models::ListBrandsResponse listBrandsWithOptions(const Models::ListBrandsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取品牌列表
+       *
+       * @param request ListBrandsRequest
+       * @return ListBrandsResponse
+       */
+      Models::ListBrandsResponse listBrands(const Models::ListBrandsRequest &request);
 
       /**
        * @summary List of Conditional Access Policies
@@ -2624,6 +2743,23 @@ namespace Eiam20211201
       Models::SetIdentityProviderUdPullConfigurationResponse setIdentityProviderUdPullConfiguration(const Models::SetIdentityProviderUdPullConfigurationRequest &request);
 
       /**
+       * @summary 为品牌设置登录后跳转应用
+       *
+       * @param request SetLoginRedirectApplicationForBrandRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetLoginRedirectApplicationForBrandResponse
+       */
+      Models::SetLoginRedirectApplicationForBrandResponse setLoginRedirectApplicationForBrandWithOptions(const Models::SetLoginRedirectApplicationForBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 为品牌设置登录后跳转应用
+       *
+       * @param request SetLoginRedirectApplicationForBrandRequest
+       * @return SetLoginRedirectApplicationForBrandResponse
+       */
+      Models::SetLoginRedirectApplicationForBrandResponse setLoginRedirectApplicationForBrand(const Models::SetLoginRedirectApplicationForBrandRequest &request);
+
+      /**
        * @summary Configures a password complexity policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
        *
        * @param request SetPasswordComplexityConfigurationRequest
@@ -2845,6 +2981,23 @@ namespace Eiam20211201
       Models::UpdateApplicationTokenExpirationTimeResponse updateApplicationTokenExpirationTime(const Models::UpdateApplicationTokenExpirationTimeRequest &request);
 
       /**
+       * @summary 修改品牌
+       *
+       * @param request UpdateBrandRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateBrandResponse
+       */
+      Models::UpdateBrandResponse updateBrandWithOptions(const Models::UpdateBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改品牌
+       *
+       * @param request UpdateBrandRequest
+       * @return UpdateBrandResponse
+       */
+      Models::UpdateBrandResponse updateBrand(const Models::UpdateBrandRequest &request);
+
+      /**
        * @summary Update Conditional Access Policy
        *
        * @description Update Conditional Access Policy
@@ -2885,6 +3038,23 @@ namespace Eiam20211201
        * @return UpdateConditionalAccessPolicyDescriptionResponse
        */
       Models::UpdateConditionalAccessPolicyDescriptionResponse updateConditionalAccessPolicyDescription(const Models::UpdateConditionalAccessPolicyDescriptionRequest &request);
+
+      /**
+       * @summary 修改域名关联的品牌。
+       *
+       * @param request UpdateDomainBrandRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDomainBrandResponse
+       */
+      Models::UpdateDomainBrandResponse updateDomainBrandWithOptions(const Models::UpdateDomainBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改域名关联的品牌。
+       *
+       * @param request UpdateDomainBrandRequest
+       * @return UpdateDomainBrandResponse
+       */
+      Models::UpdateDomainBrandResponse updateDomainBrand(const Models::UpdateDomainBrandRequest &request);
 
       /**
        * @summary 更新域名备案号。
