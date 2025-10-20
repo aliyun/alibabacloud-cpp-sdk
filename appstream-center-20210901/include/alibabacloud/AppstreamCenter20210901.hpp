@@ -165,6 +165,19 @@ namespace AppstreamCenter20210901
       Models::DeleteAppInstancesResponse deleteAppInstances(const Models::DeleteAppInstancesRequest &request);
 
       /**
+       * @param request DeleteImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteImageResponse
+       */
+      Models::DeleteImageResponse deleteImageWithOptions(const Models::DeleteImageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DeleteImageRequest
+       * @return DeleteImageResponse
+       */
+      Models::DeleteImageResponse deleteImage(const Models::DeleteImageRequest &request);
+
+      /**
        * @summary 删除工作站
        *
        * @param request DeleteWuyingServerRequest
@@ -738,6 +751,19 @@ namespace AppstreamCenter20210901
        * @return RestartWuyingServerResponse
        */
       Models::RestartWuyingServerResponse restartWuyingServer(const Models::RestartWuyingServerRequest &request);
+
+      /**
+       * @param request StartTaskForDistributeImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StartTaskForDistributeImageResponse
+       */
+      Models::StartTaskForDistributeImageResponse startTaskForDistributeImageWithOptions(const Models::StartTaskForDistributeImageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request StartTaskForDistributeImageRequest
+       * @return StartTaskForDistributeImageResponse
+       */
+      Models::StartTaskForDistributeImageResponse startTaskForDistributeImage(const Models::StartTaskForDistributeImageRequest &request);
 
       /**
        * @summary 启动研发主机

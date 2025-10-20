@@ -558,6 +558,10 @@ CreateWuyingServerResponse Client::createWuyingServerWithOptions(const CreateWuy
     body["ServerInstanceType"] = request.serverInstanceType();
   }
 
+  if (!!request.hasServerPortRange()) {
+    body["ServerPortRange"] = request.serverPortRange();
+  }
+
   if (!!request.hasSystemDiskCategory()) {
     body["SystemDiskCategory"] = request.systemDiskCategory();
   }
@@ -715,6 +719,44 @@ DeleteAppInstancesResponse Client::deleteAppInstancesWithOptions(const DeleteApp
 DeleteAppInstancesResponse Client::deleteAppInstances(const DeleteAppInstancesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteAppInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @param request DeleteImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteImageResponse
+ */
+DeleteImageResponse Client::deleteImageWithOptions(const DeleteImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasImageId()) {
+    body["ImageId"] = request.imageId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteImage"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteImageResponse>();
+}
+
+/**
+ * @param request DeleteImageRequest
+ * @return DeleteImageResponse
+ */
+DeleteImageResponse Client::deleteImage(const DeleteImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteImageWithOptions(request, runtime);
 }
 
 /**
@@ -2732,6 +2774,64 @@ RestartWuyingServerResponse Client::restartWuyingServerWithOptions(const Restart
 RestartWuyingServerResponse Client::restartWuyingServer(const RestartWuyingServerRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return restartWuyingServerWithOptions(request, runtime);
+}
+
+/**
+ * @param request StartTaskForDistributeImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartTaskForDistributeImageResponse
+ */
+StartTaskForDistributeImageResponse Client::startTaskForDistributeImageWithOptions(const StartTaskForDistributeImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDestinationRegionList()) {
+    body["DestinationRegionList"] = request.destinationRegionList();
+  }
+
+  if (!!request.hasImageId()) {
+    body["ImageId"] = request.imageId();
+  }
+
+  if (!!request.hasProductType()) {
+    body["ProductType"] = request.productType();
+  }
+
+  if (!!request.hasRetryType()) {
+    body["RetryType"] = request.retryType();
+  }
+
+  if (!!request.hasSourceRegion()) {
+    body["SourceRegion"] = request.sourceRegion();
+  }
+
+  if (!!request.hasVersionId()) {
+    body["VersionId"] = request.versionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "StartTaskForDistributeImage"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartTaskForDistributeImageResponse>();
+}
+
+/**
+ * @param request StartTaskForDistributeImageRequest
+ * @return StartTaskForDistributeImageResponse
+ */
+StartTaskForDistributeImageResponse Client::startTaskForDistributeImage(const StartTaskForDistributeImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return startTaskForDistributeImageWithOptions(request, runtime);
 }
 
 /**

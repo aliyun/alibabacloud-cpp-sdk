@@ -28,6 +28,9 @@
 #include <alibabacloud/models/DeleteAppInstancesRequest.hpp>
 #include <alibabacloud/models/DeleteAppInstancesResponseBody.hpp>
 #include <alibabacloud/models/DeleteAppInstancesResponse.hpp>
+#include <alibabacloud/models/DeleteImageRequest.hpp>
+#include <alibabacloud/models/DeleteImageResponseBody.hpp>
+#include <alibabacloud/models/DeleteImageResponse.hpp>
 #include <alibabacloud/models/DeleteWuyingServerRequest.hpp>
 #include <alibabacloud/models/DeleteWuyingServerResponseBody.hpp>
 #include <alibabacloud/models/DeleteWuyingServerResponse.hpp>
@@ -128,6 +131,9 @@
 #include <alibabacloud/models/RestartWuyingServerRequest.hpp>
 #include <alibabacloud/models/RestartWuyingServerResponseBody.hpp>
 #include <alibabacloud/models/RestartWuyingServerResponse.hpp>
+#include <alibabacloud/models/StartTaskForDistributeImageRequest.hpp>
+#include <alibabacloud/models/StartTaskForDistributeImageResponseBody.hpp>
+#include <alibabacloud/models/StartTaskForDistributeImageResponse.hpp>
 #include <alibabacloud/models/StartWuyingServerRequest.hpp>
 #include <alibabacloud/models/StartWuyingServerResponseBody.hpp>
 #include <alibabacloud/models/StartWuyingServerResponse.hpp>

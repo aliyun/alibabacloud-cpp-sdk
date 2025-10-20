@@ -31,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
       DARABONBA_PTR_TO_JSON(ServerInstanceType, serverInstanceType_);
+      DARABONBA_PTR_TO_JSON(ServerPortRange, serverPortRange_);
       DARABONBA_PTR_TO_JSON(SystemDiskCategory, systemDiskCategory_);
       DARABONBA_PTR_TO_JSON(SystemDiskPerformanceLevel, systemDiskPerformanceLevel_);
       DARABONBA_PTR_TO_JSON(SystemDiskSize, systemDiskSize_);
@@ -55,6 +56,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
       DARABONBA_PTR_FROM_JSON(ServerInstanceType, serverInstanceType_);
+      DARABONBA_PTR_FROM_JSON(ServerPortRange, serverPortRange_);
       DARABONBA_PTR_FROM_JSON(SystemDiskCategory, systemDiskCategory_);
       DARABONBA_PTR_FROM_JSON(SystemDiskPerformanceLevel, systemDiskPerformanceLevel_);
       DARABONBA_PTR_FROM_JSON(SystemDiskSize, systemDiskSize_);
@@ -77,8 +79,8 @@ namespace Models
         && return this->autoPay_ == nullptr && return this->autoRenew_ == nullptr && return this->bandwidth_ == nullptr && return this->bizRegionId_ == nullptr && return this->chargeType_ == nullptr
         && return this->dataDisk_ == nullptr && return this->idempotenceToken_ == nullptr && return this->imageId_ == nullptr && return this->networkStrategyType_ == nullptr && return this->officeSiteId_ == nullptr
         && return this->password_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->promotionId_ == nullptr && return this->serverInstanceType_ == nullptr
-        && return this->systemDiskCategory_ == nullptr && return this->systemDiskPerformanceLevel_ == nullptr && return this->systemDiskSize_ == nullptr && return this->vSwitchIds_ == nullptr && return this->virtualNodePoolId_ == nullptr
-        && return this->wuyingServerName_ == nullptr; };
+        && return this->serverPortRange_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->systemDiskPerformanceLevel_ == nullptr && return this->systemDiskSize_ == nullptr && return this->vSwitchIds_ == nullptr
+        && return this->virtualNodePoolId_ == nullptr && return this->wuyingServerName_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -193,6 +195,13 @@ namespace Models
     inline CreateWuyingServerRequest& setServerInstanceType(string serverInstanceType) { DARABONBA_PTR_SET_VALUE(serverInstanceType_, serverInstanceType) };
 
 
+    // serverPortRange Field Functions 
+    bool hasServerPortRange() const { return this->serverPortRange_ != nullptr;};
+    void deleteServerPortRange() { this->serverPortRange_ = nullptr;};
+    inline string serverPortRange() const { DARABONBA_PTR_GET_DEFAULT(serverPortRange_, "") };
+    inline CreateWuyingServerRequest& setServerPortRange(string serverPortRange) { DARABONBA_PTR_SET_VALUE(serverPortRange_, serverPortRange) };
+
+
     // systemDiskCategory Field Functions 
     bool hasSystemDiskCategory() const { return this->systemDiskCategory_ != nullptr;};
     void deleteSystemDiskCategory() { this->systemDiskCategory_ = nullptr;};
@@ -254,6 +263,7 @@ namespace Models
     std::shared_ptr<string> periodUnit_ = nullptr;
     std::shared_ptr<string> promotionId_ = nullptr;
     std::shared_ptr<string> serverInstanceType_ = nullptr;
+    std::shared_ptr<string> serverPortRange_ = nullptr;
     std::shared_ptr<string> systemDiskCategory_ = nullptr;
     std::shared_ptr<string> systemDiskPerformanceLevel_ = nullptr;
     std::shared_ptr<int32_t> systemDiskSize_ = nullptr;
