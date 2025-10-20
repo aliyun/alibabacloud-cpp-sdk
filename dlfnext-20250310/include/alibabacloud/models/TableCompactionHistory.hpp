@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->afterFilesCount_ != nullptr
-        && this->afterFilesSize_ != nullptr && this->beforeFilesCount_ != nullptr && this->beforeFilesLastCreationTime_ != nullptr && this->beforeFilesSize_ != nullptr && this->catalogId_ != nullptr
-        && this->commitTime_ != nullptr && this->snapshotId_ != nullptr && this->tableId_ != nullptr && this->updatedAt_ != nullptr && this->updatedBy_ != nullptr; };
+    virtual bool empty() const override { return this->afterFilesCount_ == nullptr
+        && return this->afterFilesSize_ == nullptr && return this->beforeFilesCount_ == nullptr && return this->beforeFilesLastCreationTime_ == nullptr && return this->beforeFilesSize_ == nullptr && return this->catalogId_ == nullptr
+        && return this->commitTime_ == nullptr && return this->snapshotId_ == nullptr && return this->tableId_ == nullptr && return this->updatedAt_ == nullptr && return this->updatedBy_ == nullptr; };
     // afterFilesCount Field Functions 
     bool hasAfterFilesCount() const { return this->afterFilesCount_ != nullptr;};
     void deleteAfterFilesCount() { this->afterFilesCount_ = nullptr;};

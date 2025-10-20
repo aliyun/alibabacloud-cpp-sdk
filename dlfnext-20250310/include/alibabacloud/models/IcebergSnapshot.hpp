@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addedRows_ != nullptr
-        && this->id_ != nullptr && this->operation_ != nullptr && this->parentId_ != nullptr && this->schemaId_ != nullptr && this->sequenceNumber_ != nullptr
-        && this->summary_ != nullptr && this->timestampMillis_ != nullptr; };
+    virtual bool empty() const override { return this->addedRows_ == nullptr
+        && return this->id_ == nullptr && return this->operation_ == nullptr && return this->parentId_ == nullptr && return this->schemaId_ == nullptr && return this->sequenceNumber_ == nullptr
+        && return this->summary_ == nullptr && return this->timestampMillis_ == nullptr; };
     // addedRows Field Functions 
     bool hasAddedRows() const { return this->addedRows_ != nullptr;};
     void deleteAddedRows() { this->addedRows_ = nullptr;};

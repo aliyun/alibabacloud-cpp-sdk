@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->catalogSizeLimit_ != nullptr
-        && this->receiverSizeLimit_ != nullptr && this->shareResourceSizeLimit_ != nullptr && this->shareSizeLimit_ != nullptr; };
+    virtual bool empty() const override { return this->catalogSizeLimit_ == nullptr
+        && return this->receiverSizeLimit_ == nullptr && return this->shareResourceSizeLimit_ == nullptr && return this->shareSizeLimit_ == nullptr; };
     // catalogSizeLimit Field Functions 
     bool hasCatalogSizeLimit() const { return this->catalogSizeLimit_ != nullptr;};
     void deleteCatalogSizeLimit() { this->catalogSizeLimit_ = nullptr;};

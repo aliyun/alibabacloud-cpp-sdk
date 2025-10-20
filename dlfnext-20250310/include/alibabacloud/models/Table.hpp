@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createdAt_ != nullptr
-        && this->createdBy_ != nullptr && this->id_ != nullptr && this->isExternal_ != nullptr && this->name_ != nullptr && this->owner_ != nullptr
-        && this->path_ != nullptr && this->schema_ != nullptr && this->schemaId_ != nullptr && this->storageAction_ != nullptr && this->storageActionTimestamp_ != nullptr
-        && this->storageClass_ != nullptr && this->updatedAt_ != nullptr && this->updatedBy_ != nullptr; };
+    virtual bool empty() const override { return this->createdAt_ == nullptr
+        && return this->createdBy_ == nullptr && return this->id_ == nullptr && return this->isExternal_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr
+        && return this->path_ == nullptr && return this->schema_ == nullptr && return this->schemaId_ == nullptr && return this->storageAction_ == nullptr && return this->storageActionTimestamp_ == nullptr
+        && return this->storageClass_ == nullptr && return this->updatedAt_ == nullptr && return this->updatedBy_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};

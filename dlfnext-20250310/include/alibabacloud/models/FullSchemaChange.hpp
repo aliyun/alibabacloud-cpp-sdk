@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->action_ != nullptr
-        && this->comment_ != nullptr && this->dataType_ != nullptr && this->fieldNames_ != nullptr && this->keepNullability_ != nullptr && this->key_ != nullptr
-        && this->move_ != nullptr && this->newComment_ != nullptr && this->newDataType_ != nullptr && this->newName_ != nullptr && this->newNullability_ != nullptr
-        && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->action_ == nullptr
+        && return this->comment_ == nullptr && return this->dataType_ == nullptr && return this->fieldNames_ == nullptr && return this->keepNullability_ == nullptr && return this->key_ == nullptr
+        && return this->move_ == nullptr && return this->newComment_ == nullptr && return this->newDataType_ == nullptr && return this->newName_ == nullptr && return this->newNullability_ == nullptr
+        && return this->value_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};

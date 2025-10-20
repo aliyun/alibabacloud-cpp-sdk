@@ -529,14 +529,14 @@ namespace DlfNext20250310
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetIcebergNamespaceResponse
        */
-      Models::GetIcebergNamespaceResponse getIcebergNamespaceWithOptions(const string &catalogId, const string &namespace, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetIcebergNamespaceResponse getIcebergNamespaceWithOptions(const string &catalogId, const string &_namespace, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查看iceberg数据库
        *
        * @return GetIcebergNamespaceResponse
        */
-      Models::GetIcebergNamespaceResponse getIcebergNamespace(const string &catalogId, const string &namespace);
+      Models::GetIcebergNamespaceResponse getIcebergNamespace(const string &catalogId, const string &_namespace);
 
       /**
        * @summary 查看表
@@ -545,14 +545,14 @@ namespace DlfNext20250310
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetIcebergTableResponse
        */
-      Models::GetIcebergTableResponse getIcebergTableWithOptions(const string &catalogId, const string &namespace, const string &table, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetIcebergTableResponse getIcebergTableWithOptions(const string &catalogId, const string &_namespace, const string &table, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查看表
        *
        * @return GetIcebergTableResponse
        */
-      Models::GetIcebergTableResponse getIcebergTable(const string &catalogId, const string &namespace, const string &table);
+      Models::GetIcebergTableResponse getIcebergTable(const string &catalogId, const string &_namespace, const string &table);
 
       /**
        * @summary 获取接收者
@@ -804,7 +804,7 @@ namespace DlfNext20250310
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListIcebergSnapshotsResponse
        */
-      Models::ListIcebergSnapshotsResponse listIcebergSnapshotsWithOptions(const string &catalogId, const string &namespace, const string &table, const Models::ListIcebergSnapshotsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListIcebergSnapshotsResponse listIcebergSnapshotsWithOptions(const string &catalogId, const string &_namespace, const string &table, const Models::ListIcebergSnapshotsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查看iceberg表快照列表
@@ -812,7 +812,7 @@ namespace DlfNext20250310
        * @param request ListIcebergSnapshotsRequest
        * @return ListIcebergSnapshotsResponse
        */
-      Models::ListIcebergSnapshotsResponse listIcebergSnapshots(const string &catalogId, const string &namespace, const string &table, const Models::ListIcebergSnapshotsRequest &request);
+      Models::ListIcebergSnapshotsResponse listIcebergSnapshots(const string &catalogId, const string &_namespace, const string &table, const Models::ListIcebergSnapshotsRequest &request);
 
       /**
        * @summary 查看iceberg表详情列表
@@ -822,7 +822,7 @@ namespace DlfNext20250310
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListIcebergTableDetailsResponse
        */
-      Models::ListIcebergTableDetailsResponse listIcebergTableDetailsWithOptions(const string &catalogId, const string &namespace, const Models::ListIcebergTableDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListIcebergTableDetailsResponse listIcebergTableDetailsWithOptions(const string &catalogId, const string &_namespace, const Models::ListIcebergTableDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查看iceberg表详情列表
@@ -830,7 +830,7 @@ namespace DlfNext20250310
        * @param request ListIcebergTableDetailsRequest
        * @return ListIcebergTableDetailsResponse
        */
-      Models::ListIcebergTableDetailsResponse listIcebergTableDetails(const string &catalogId, const string &namespace, const Models::ListIcebergTableDetailsRequest &request);
+      Models::ListIcebergTableDetailsResponse listIcebergTableDetails(const string &catalogId, const string &_namespace, const Models::ListIcebergTableDetailsRequest &request);
 
       /**
        * @summary 查看表
@@ -849,6 +849,24 @@ namespace DlfNext20250310
        * @return ListPartitionSummariesResponse
        */
       Models::ListPartitionSummariesResponse listPartitionSummaries(const string &catalogId, const string &database, const string &table, const Models::ListPartitionSummariesRequest &request);
+
+      /**
+       * @summary listPartitions
+       *
+       * @param request ListPartitionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPartitionsResponse
+       */
+      Models::ListPartitionsResponse listPartitionsWithOptions(const string &catalogId, const string &database, const string &table, const Models::ListPartitionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary listPartitions
+       *
+       * @param request ListPartitionsRequest
+       * @return ListPartitionsResponse
+       */
+      Models::ListPartitionsResponse listPartitions(const string &catalogId, const string &database, const string &table, const Models::ListPartitionsRequest &request);
 
       /**
        * @summary 获取指定资源或指定Principal的权限信息

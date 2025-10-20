@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->headers_ != nullptr
-        && this->statusCode_ != nullptr && this->body_ != nullptr; };
+    virtual bool empty() const override { return this->headers_ == nullptr
+        && return this->statusCode_ == nullptr && return this->body_ == nullptr; };
     // headers Field Functions 
     bool hasHeaders() const { return this->headers_ != nullptr;};
     void deleteHeaders() { this->headers_ = nullptr;};
@@ -56,16 +56,16 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const _Namespace & body() const { DARABONBA_PTR_GET_CONST(body_, _Namespace) };
-    inline _Namespace body() { DARABONBA_PTR_GET(body_, _Namespace) };
-    inline GetIcebergNamespaceResponse& setBody(const _Namespace & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
-    inline GetIcebergNamespaceResponse& setBody(_Namespace && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+    inline const Namespace & body() const { DARABONBA_PTR_GET_CONST(body_, Namespace) };
+    inline Namespace body() { DARABONBA_PTR_GET(body_, Namespace) };
+    inline GetIcebergNamespaceResponse& setBody(const Namespace & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline GetIcebergNamespaceResponse& setBody(Namespace && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
     std::shared_ptr<map<string, string>> headers_ = nullptr;
     std::shared_ptr<int32_t> statusCode_ = nullptr;
-    std::shared_ptr<_Namespace> body_ = nullptr;
+    std::shared_ptr<Namespace> body_ = nullptr;
   };
 
   } // namespace Models

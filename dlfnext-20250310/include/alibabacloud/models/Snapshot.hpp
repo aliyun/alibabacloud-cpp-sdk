@@ -62,11 +62,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->baseManifestList_ != nullptr
-        && this->changelogManifestList_ != nullptr && this->changelogRecordCount_ != nullptr && this->commitIdentifier_ != nullptr && this->commitKind_ != nullptr && this->commitUser_ != nullptr
-        && this->deltaManifestList_ != nullptr && this->deltaRecordCount_ != nullptr && this->id_ != nullptr && this->indexManifest_ != nullptr && this->logOffsets_ != nullptr
-        && this->schemaId_ != nullptr && this->statistics_ != nullptr && this->timeMillis_ != nullptr && this->totalRecordCount_ != nullptr && this->version_ != nullptr
-        && this->watermark_ != nullptr; };
+    virtual bool empty() const override { return this->baseManifestList_ == nullptr
+        && return this->changelogManifestList_ == nullptr && return this->changelogRecordCount_ == nullptr && return this->commitIdentifier_ == nullptr && return this->commitKind_ == nullptr && return this->commitUser_ == nullptr
+        && return this->deltaManifestList_ == nullptr && return this->deltaRecordCount_ == nullptr && return this->id_ == nullptr && return this->indexManifest_ == nullptr && return this->logOffsets_ == nullptr
+        && return this->schemaId_ == nullptr && return this->statistics_ == nullptr && return this->timeMillis_ == nullptr && return this->totalRecordCount_ == nullptr && return this->version_ == nullptr
+        && return this->watermark_ == nullptr; };
     // baseManifestList Field Functions 
     bool hasBaseManifestList() const { return this->baseManifestList_ != nullptr;};
     void deleteBaseManifestList() { this->baseManifestList_ = nullptr;};

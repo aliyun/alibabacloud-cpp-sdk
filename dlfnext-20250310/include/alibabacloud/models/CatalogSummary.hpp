@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiVisitCountMonthly_ != nullptr
-        && this->databaseCount_ != nullptr && this->fileAccessCountMonthly_ != nullptr && this->generatedDate_ != nullptr && this->objTypeArchiveSize_ != nullptr && this->objTypeColdArchiveSize_ != nullptr
-        && this->objTypeIaSize_ != nullptr && this->objTypeStandardSize_ != nullptr && this->partitionCount_ != nullptr && this->tableCount_ != nullptr && this->throughputMonthly_ != nullptr
-        && this->totalFileCount_ != nullptr && this->totalFileSizeInBytes_ != nullptr && this->totalMetaSizeInBytes_ != nullptr; };
+    virtual bool empty() const override { return this->apiVisitCountMonthly_ == nullptr
+        && return this->databaseCount_ == nullptr && return this->fileAccessCountMonthly_ == nullptr && return this->generatedDate_ == nullptr && return this->objTypeArchiveSize_ == nullptr && return this->objTypeColdArchiveSize_ == nullptr
+        && return this->objTypeIaSize_ == nullptr && return this->objTypeStandardSize_ == nullptr && return this->partitionCount_ == nullptr && return this->tableCount_ == nullptr && return this->throughputMonthly_ == nullptr
+        && return this->totalFileCount_ == nullptr && return this->totalFileSizeInBytes_ == nullptr && return this->totalMetaSizeInBytes_ == nullptr; };
     // apiVisitCountMonthly Field Functions 
     bool hasApiVisitCountMonthly() const { return this->apiVisitCountMonthly_ != nullptr;};
     void deleteApiVisitCountMonthly() { this->apiVisitCountMonthly_ = nullptr;};

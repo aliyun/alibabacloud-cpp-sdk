@@ -4,7 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <darabonba/http/URL.hpp>
+#include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -63,7 +63,7 @@ AlterCatalogResponse Client::alterCatalogWithOptions(const string &catalog, cons
     {"action" , "AlterCatalog"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/catalogs/" , Darabonba::Http::URL::percentEncode(catalog))},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/catalogs/" , Darabonba::Encode::Encoder::percentEncode(catalog))},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -112,7 +112,7 @@ AlterDatabaseResponse Client::alterDatabaseWithOptions(const string &catalogId, 
     {"action" , "AlterDatabase"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/databases/" , Darabonba::Http::URL::percentEncode(database))},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/databases/" , Darabonba::Encode::Encoder::percentEncode(database))},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -161,7 +161,7 @@ AlterReceiverResponse Client::alterReceiverWithOptions(const string &receiver, c
     {"action" , "AlterReceiver"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/share/receivers/" , Darabonba::Http::URL::percentEncode(receiver))},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/share/receivers/" , Darabonba::Encode::Encoder::percentEncode(receiver))},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -214,7 +214,7 @@ AlterShareResponse Client::alterShareWithOptions(const string &share, const Alte
     {"action" , "AlterShare"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/share/shares/" , Darabonba::Http::URL::percentEncode(share))},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/share/shares/" , Darabonba::Encode::Encoder::percentEncode(share))},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -263,7 +263,7 @@ AlterShareReceiversResponse Client::alterShareReceiversWithOptions(const string 
     {"action" , "AlterShareReceivers"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/share/shares/" , Darabonba::Http::URL::percentEncode(share) , "/receivers")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/share/shares/" , Darabonba::Encode::Encoder::percentEncode(share) , "/receivers")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -312,7 +312,7 @@ AlterShareResourcesResponse Client::alterShareResourcesWithOptions(const string 
     {"action" , "AlterShareResources"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/share/shares/" , Darabonba::Http::URL::percentEncode(share) , "/resources")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/share/shares/" , Darabonba::Encode::Encoder::percentEncode(share) , "/resources")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -357,7 +357,7 @@ AlterTableResponse Client::alterTableWithOptions(const string &catalogId, const 
     {"action" , "AlterTable"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/databases/" , Darabonba::Http::URL::percentEncode(database) , "/tables/" , Darabonba::Http::URL::percentEncode(table))},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/databases/" , Darabonba::Encode::Encoder::percentEncode(database) , "/tables/" , Darabonba::Encode::Encoder::percentEncode(table))},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -402,7 +402,7 @@ BatchGrantPermissionsResponse Client::batchGrantPermissionsWithOptions(const str
     {"action" , "BatchGrantPermissions"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/auth/permissions/" , Darabonba::Http::URL::percentEncode(catalogId) , "/batchgrant")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/auth/permissions/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/batchgrant")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -447,7 +447,7 @@ BatchRevokePermissionsResponse Client::batchRevokePermissionsWithOptions(const s
     {"action" , "BatchRevokePermissions"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/auth/permissions/" , Darabonba::Http::URL::percentEncode(catalogId) , "/batchrevoke")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/auth/permissions/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/batchrevoke")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -557,7 +557,7 @@ CreateDatabaseResponse Client::createDatabaseWithOptions(const string &catalogId
     {"action" , "CreateDatabase"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/databases")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/databases")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -765,7 +765,7 @@ CreateTableResponse Client::createTableWithOptions(const string &catalogId, cons
     {"action" , "CreateTable"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/databases/" , Darabonba::Http::URL::percentEncode(database) , "/tables")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/databases/" , Darabonba::Encode::Encoder::percentEncode(database) , "/tables")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -883,7 +883,7 @@ DropCatalogResponse Client::dropCatalogWithOptions(const string &catalog, const 
     {"action" , "DropCatalog"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/catalogs/" , Darabonba::Http::URL::percentEncode(catalog))},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/catalogs/" , Darabonba::Encode::Encoder::percentEncode(catalog))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -919,7 +919,7 @@ DropDatabaseResponse Client::dropDatabaseWithOptions(const string &catalogId, co
     {"action" , "DropDatabase"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/databases/" , Darabonba::Http::URL::percentEncode(database))},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/databases/" , Darabonba::Encode::Encoder::percentEncode(database))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -955,7 +955,7 @@ DropReceiverResponse Client::dropReceiverWithOptions(const string &receiver, con
     {"action" , "DropReceiver"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/share/receivers/" , Darabonba::Http::URL::percentEncode(receiver))},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/share/receivers/" , Darabonba::Encode::Encoder::percentEncode(receiver))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -991,7 +991,7 @@ DropShareResponse Client::dropShareWithOptions(const string &share, const map<st
     {"action" , "DropShare"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/share/shares/" , Darabonba::Http::URL::percentEncode(share))},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/share/shares/" , Darabonba::Encode::Encoder::percentEncode(share))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1027,7 +1027,7 @@ DropTableResponse Client::dropTableWithOptions(const string &catalogId, const st
     {"action" , "DropTable"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/databases/" , Darabonba::Http::URL::percentEncode(database) , "/tables/" , Darabonba::Http::URL::percentEncode(table))},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/databases/" , Darabonba::Encode::Encoder::percentEncode(database) , "/tables/" , Darabonba::Encode::Encoder::percentEncode(table))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1063,7 +1063,7 @@ GetCatalogResponse Client::getCatalogWithOptions(const string &catalog, const ma
     {"action" , "GetCatalog"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/catalogs/" , Darabonba::Http::URL::percentEncode(catalog))},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/catalogs/" , Darabonba::Encode::Encoder::percentEncode(catalog))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1099,7 +1099,7 @@ GetCatalogByIdResponse Client::getCatalogByIdWithOptions(const string &id, const
     {"action" , "GetCatalogById"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/catalogs/id/" , Darabonba::Http::URL::percentEncode(id))},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/catalogs/id/" , Darabonba::Encode::Encoder::percentEncode(id))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1143,7 +1143,7 @@ GetCatalogSummaryResponse Client::getCatalogSummaryWithOptions(const string &cat
     {"action" , "GetCatalogSummary"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/storage-summary")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/storage-summary")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1192,7 +1192,7 @@ GetCatalogSummaryTrendResponse Client::getCatalogSummaryTrendWithOptions(const s
     {"action" , "GetCatalogSummaryTrend"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/storage-summary/trend")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/storage-summary/trend")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1229,7 +1229,7 @@ GetCatalogTokenResponse Client::getCatalogTokenWithOptions(const string &catalog
     {"action" , "GetCatalogToken"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/catalogs/" , Darabonba::Http::URL::percentEncode(catalog) , "/token")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/catalogs/" , Darabonba::Encode::Encoder::percentEncode(catalog) , "/token")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1265,7 +1265,7 @@ GetDatabaseResponse Client::getDatabaseWithOptions(const string &catalogId, cons
     {"action" , "GetDatabase"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/databases/" , Darabonba::Http::URL::percentEncode(database))},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/databases/" , Darabonba::Encode::Encoder::percentEncode(database))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1309,7 +1309,7 @@ GetDatabaseSummaryResponse Client::getDatabaseSummaryWithOptions(const string &c
     {"action" , "GetDatabaseSummary"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/databases/" , Darabonba::Http::URL::percentEncode(database) , "/storage-summary")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/databases/" , Darabonba::Encode::Encoder::percentEncode(database) , "/storage-summary")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1338,7 +1338,7 @@ GetDatabaseSummaryResponse Client::getDatabaseSummary(const string &catalogId, c
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetIcebergNamespaceResponse
  */
-GetIcebergNamespaceResponse Client::getIcebergNamespaceWithOptions(const string &catalogId, const string &namespace, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetIcebergNamespaceResponse Client::getIcebergNamespaceWithOptions(const string &catalogId, const string &_namespace, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1346,7 +1346,7 @@ GetIcebergNamespaceResponse Client::getIcebergNamespaceWithOptions(const string 
     {"action" , "GetIcebergNamespace"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/iceberg/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/namespaces/" , Darabonba::Http::URL::percentEncode(namespace))},
+    {"pathname" , DARA_STRING_TEMPLATE("/iceberg/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1361,7 +1361,7 @@ GetIcebergNamespaceResponse Client::getIcebergNamespaceWithOptions(const string 
  *
  * @return GetIcebergNamespaceResponse
  */
-GetIcebergNamespaceResponse Client::getIcebergNamespace(const string &catalogId, const string &namespace) {
+GetIcebergNamespaceResponse Client::getIcebergNamespace(const string &catalogId, const string &_namespace) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getIcebergNamespaceWithOptions(catalogId, namespace, headers, runtime);
@@ -1374,7 +1374,7 @@ GetIcebergNamespaceResponse Client::getIcebergNamespace(const string &catalogId,
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetIcebergTableResponse
  */
-GetIcebergTableResponse Client::getIcebergTableWithOptions(const string &catalogId, const string &namespace, const string &table, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetIcebergTableResponse Client::getIcebergTableWithOptions(const string &catalogId, const string &_namespace, const string &table, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1382,7 +1382,7 @@ GetIcebergTableResponse Client::getIcebergTableWithOptions(const string &catalog
     {"action" , "GetIcebergTable"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/iceberg/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/namespaces/" , Darabonba::Http::URL::percentEncode(namespace) , "/tables/" , Darabonba::Http::URL::percentEncode(table))},
+    {"pathname" , DARA_STRING_TEMPLATE("/iceberg/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/tables/" , Darabonba::Encode::Encoder::percentEncode(table))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1397,7 +1397,7 @@ GetIcebergTableResponse Client::getIcebergTableWithOptions(const string &catalog
  *
  * @return GetIcebergTableResponse
  */
-GetIcebergTableResponse Client::getIcebergTable(const string &catalogId, const string &namespace, const string &table) {
+GetIcebergTableResponse Client::getIcebergTable(const string &catalogId, const string &_namespace, const string &table) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getIcebergTableWithOptions(catalogId, namespace, table, headers, runtime);
@@ -1418,7 +1418,7 @@ GetReceiverResponse Client::getReceiverWithOptions(const string &receiver, const
     {"action" , "GetReceiver"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/share/receivers/" , Darabonba::Http::URL::percentEncode(receiver))},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/share/receivers/" , Darabonba::Encode::Encoder::percentEncode(receiver))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1535,7 +1535,7 @@ GetShareResponse Client::getShareWithOptions(const string &share, const map<stri
     {"action" , "GetShare"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/share/shares/" , Darabonba::Http::URL::percentEncode(share))},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/share/shares/" , Darabonba::Encode::Encoder::percentEncode(share))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1571,7 +1571,7 @@ GetTableResponse Client::getTableWithOptions(const string &catalogId, const stri
     {"action" , "GetTable"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/databases/" , Darabonba::Http::URL::percentEncode(database) , "/tables/" , Darabonba::Http::URL::percentEncode(table))},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/databases/" , Darabonba::Encode::Encoder::percentEncode(database) , "/tables/" , Darabonba::Encode::Encoder::percentEncode(table))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1607,7 +1607,7 @@ GetTableSnapshotResponse Client::getTableSnapshotWithOptions(const string &catal
     {"action" , "GetTableSnapshot"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/databases/" , Darabonba::Http::URL::percentEncode(database) , "/tables/" , Darabonba::Http::URL::percentEncode(table) , "/snapshot")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/databases/" , Darabonba::Encode::Encoder::percentEncode(database) , "/tables/" , Darabonba::Encode::Encoder::percentEncode(table) , "/snapshot")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1651,7 +1651,7 @@ GetTableSummaryResponse Client::getTableSummaryWithOptions(const string &catalog
     {"action" , "GetTableSummary"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/databases/" , Darabonba::Http::URL::percentEncode(database) , "/tables/" , Darabonba::Http::URL::percentEncode(table) , "/storage-summary")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/databases/" , Darabonba::Encode::Encoder::percentEncode(database) , "/tables/" , Darabonba::Encode::Encoder::percentEncode(table) , "/storage-summary")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1696,7 +1696,7 @@ GetTableTokenResponse Client::getTableTokenWithOptions(const string &catalogId, 
     {"action" , "GetTableToken"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/databases/" , Darabonba::Http::URL::percentEncode(database) , "/tables/" , Darabonba::Http::URL::percentEncode(table) , "/token")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/databases/" , Darabonba::Encode::Encoder::percentEncode(database) , "/tables/" , Darabonba::Encode::Encoder::percentEncode(table) , "/token")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1896,7 +1896,7 @@ ListDatabaseDetailsResponse Client::listDatabaseDetailsWithOptions(const string 
     {"action" , "ListDatabaseDetails"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/database-details")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/database-details")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1949,7 +1949,7 @@ ListDatabasesResponse Client::listDatabasesWithOptions(const string &catalogId, 
     {"action" , "ListDatabases"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/databases")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/databases")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2002,7 +2002,7 @@ ListIcebergNamespaceDetailsResponse Client::listIcebergNamespaceDetailsWithOptio
     {"action" , "ListIcebergNamespaceDetails"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/iceberg/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/namespace-details")},
+    {"pathname" , DARA_STRING_TEMPLATE("/iceberg/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/namespace-details")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2032,7 +2032,7 @@ ListIcebergNamespaceDetailsResponse Client::listIcebergNamespaceDetails(const st
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListIcebergSnapshotsResponse
  */
-ListIcebergSnapshotsResponse Client::listIcebergSnapshotsWithOptions(const string &catalogId, const string &namespace, const string &table, const ListIcebergSnapshotsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+ListIcebergSnapshotsResponse Client::listIcebergSnapshotsWithOptions(const string &catalogId, const string &_namespace, const string &table, const ListIcebergSnapshotsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
@@ -2051,7 +2051,7 @@ ListIcebergSnapshotsResponse Client::listIcebergSnapshotsWithOptions(const strin
     {"action" , "ListIcebergSnapshots"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/iceberg/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/namespaces/" , Darabonba::Http::URL::percentEncode(namespace) , "/tables/" , Darabonba::Http::URL::percentEncode(table) , "/snapshots")},
+    {"pathname" , DARA_STRING_TEMPLATE("/iceberg/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/tables/" , Darabonba::Encode::Encoder::percentEncode(table) , "/snapshots")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2067,7 +2067,7 @@ ListIcebergSnapshotsResponse Client::listIcebergSnapshotsWithOptions(const strin
  * @param request ListIcebergSnapshotsRequest
  * @return ListIcebergSnapshotsResponse
  */
-ListIcebergSnapshotsResponse Client::listIcebergSnapshots(const string &catalogId, const string &namespace, const string &table, const ListIcebergSnapshotsRequest &request) {
+ListIcebergSnapshotsResponse Client::listIcebergSnapshots(const string &catalogId, const string &_namespace, const string &table, const ListIcebergSnapshotsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listIcebergSnapshotsWithOptions(catalogId, namespace, table, request, headers, runtime);
@@ -2081,7 +2081,7 @@ ListIcebergSnapshotsResponse Client::listIcebergSnapshots(const string &catalogI
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListIcebergTableDetailsResponse
  */
-ListIcebergTableDetailsResponse Client::listIcebergTableDetailsWithOptions(const string &catalogId, const string &namespace, const ListIcebergTableDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+ListIcebergTableDetailsResponse Client::listIcebergTableDetailsWithOptions(const string &catalogId, const string &_namespace, const ListIcebergTableDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
@@ -2104,7 +2104,7 @@ ListIcebergTableDetailsResponse Client::listIcebergTableDetailsWithOptions(const
     {"action" , "ListIcebergTableDetails"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/iceberg/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/namespaces/" , Darabonba::Http::URL::percentEncode(namespace) , "/table-details")},
+    {"pathname" , DARA_STRING_TEMPLATE("/iceberg/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/table-details")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2120,7 +2120,7 @@ ListIcebergTableDetailsResponse Client::listIcebergTableDetailsWithOptions(const
  * @param request ListIcebergTableDetailsRequest
  * @return ListIcebergTableDetailsResponse
  */
-ListIcebergTableDetailsResponse Client::listIcebergTableDetails(const string &catalogId, const string &namespace, const ListIcebergTableDetailsRequest &request) {
+ListIcebergTableDetailsResponse Client::listIcebergTableDetails(const string &catalogId, const string &_namespace, const ListIcebergTableDetailsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listIcebergTableDetailsWithOptions(catalogId, namespace, request, headers, runtime);
@@ -2157,7 +2157,7 @@ ListPartitionSummariesResponse Client::listPartitionSummariesWithOptions(const s
     {"action" , "ListPartitionSummaries"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/databases/" , Darabonba::Http::URL::percentEncode(database) , "/tables/" , Darabonba::Http::URL::percentEncode(table) , "/partitions/storage-summary")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/databases/" , Darabonba::Encode::Encoder::percentEncode(database) , "/tables/" , Darabonba::Encode::Encoder::percentEncode(table) , "/partitions/storage-summary")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2177,6 +2177,59 @@ ListPartitionSummariesResponse Client::listPartitionSummaries(const string &cata
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listPartitionSummariesWithOptions(catalogId, database, table, request, headers, runtime);
+}
+
+/**
+ * @summary listPartitions
+ *
+ * @param request ListPartitionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPartitionsResponse
+ */
+ListPartitionsResponse Client::listPartitionsWithOptions(const string &catalogId, const string &database, const string &table, const ListPartitionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasPageToken()) {
+    query["pageToken"] = request.pageToken();
+  }
+
+  if (!!request.hasPartitionNamePattern()) {
+    query["partitionNamePattern"] = request.partitionNamePattern();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPartitions"},
+    {"version" , "2025-03-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/databases/" , Darabonba::Encode::Encoder::percentEncode(database) , "/tables/" , Darabonba::Encode::Encoder::percentEncode(table) , "/partitions")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPartitionsResponse>();
+}
+
+/**
+ * @summary listPartitions
+ *
+ * @param request ListPartitionsRequest
+ * @return ListPartitionsResponse
+ */
+ListPartitionsResponse Client::listPartitions(const string &catalogId, const string &database, const string &table, const ListPartitionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listPartitionsWithOptions(catalogId, database, table, request, headers, runtime);
 }
 
 /**
@@ -2230,7 +2283,7 @@ ListPermissionsResponse Client::listPermissionsWithOptions(const string &catalog
     {"action" , "ListPermissions"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/auth/permissions/" , Darabonba::Http::URL::percentEncode(catalogId) , "/list")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/auth/permissions/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/list")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2536,7 +2589,7 @@ ListShareReceiversResponse Client::listShareReceiversWithOptions(const string &s
     {"action" , "ListShareReceivers"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/share/shares/" , Darabonba::Http::URL::percentEncode(share) , "/receivers")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/share/shares/" , Darabonba::Encode::Encoder::percentEncode(share) , "/receivers")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2585,7 +2638,7 @@ ListShareResourcesResponse Client::listShareResourcesWithOptions(const string &s
     {"action" , "ListShareResources"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/share/shares/" , Darabonba::Http::URL::percentEncode(share) , "/resources")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/share/shares/" , Darabonba::Encode::Encoder::percentEncode(share) , "/resources")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2634,7 +2687,7 @@ ListSnapshotsResponse Client::listSnapshotsWithOptions(const string &catalogId, 
     {"action" , "ListSnapshots"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/databases/" , Darabonba::Http::URL::percentEncode(database) , "/tables/" , Darabonba::Http::URL::percentEncode(table) , "/snapshots")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/databases/" , Darabonba::Encode::Encoder::percentEncode(database) , "/tables/" , Darabonba::Encode::Encoder::percentEncode(table) , "/snapshots")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2691,7 +2744,7 @@ ListTableDetailsResponse Client::listTableDetailsWithOptions(const string &catal
     {"action" , "ListTableDetails"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/databases/" , Darabonba::Http::URL::percentEncode(database) , "/table-details")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/databases/" , Darabonba::Encode::Encoder::percentEncode(database) , "/table-details")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2744,7 +2797,7 @@ ListTablesResponse Client::listTablesWithOptions(const string &catalogId, const 
     {"action" , "ListTables"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/databases/" , Darabonba::Http::URL::percentEncode(database) , "/tables")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/databases/" , Darabonba::Encode::Encoder::percentEncode(database) , "/tables")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2984,7 +3037,7 @@ RollbackTableResponse Client::rollbackTableWithOptions(const string &catalogId, 
     {"action" , "RollbackTable"},
     {"version" , "2025-03-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Http::URL::percentEncode(catalogId) , "/databases/" , Darabonba::Http::URL::percentEncode(database) , "/tables/" , Darabonba::Http::URL::percentEncode(table) , "/rollback")},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/databases/" , Darabonba::Encode::Encoder::percentEncode(database) , "/tables/" , Darabonba::Encode::Encoder::percentEncode(table) , "/rollback")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},

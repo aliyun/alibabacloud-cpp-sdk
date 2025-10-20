@@ -33,15 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->namespaceDetails_ != nullptr
-        && this->nextPageToken_ != nullptr; };
+    virtual bool empty() const override { return this->namespaceDetails_ == nullptr
+        && return this->nextPageToken_ == nullptr; };
     // namespaceDetails Field Functions 
     bool hasNamespaceDetails() const { return this->namespaceDetails_ != nullptr;};
     void deleteNamespaceDetails() { this->namespaceDetails_ = nullptr;};
-    inline const vector<_Namespace> & namespaceDetails() const { DARABONBA_PTR_GET_CONST(namespaceDetails_, vector<_Namespace>) };
-    inline vector<_Namespace> namespaceDetails() { DARABONBA_PTR_GET(namespaceDetails_, vector<_Namespace>) };
-    inline ListIcebergNamespaceDetailsResponseBody& setNamespaceDetails(const vector<_Namespace> & namespaceDetails) { DARABONBA_PTR_SET_VALUE(namespaceDetails_, namespaceDetails) };
-    inline ListIcebergNamespaceDetailsResponseBody& setNamespaceDetails(vector<_Namespace> && namespaceDetails) { DARABONBA_PTR_SET_RVALUE(namespaceDetails_, namespaceDetails) };
+    inline const vector<Namespace> & namespaceDetails() const { DARABONBA_PTR_GET_CONST(namespaceDetails_, vector<Namespace>) };
+    inline vector<Namespace> namespaceDetails() { DARABONBA_PTR_GET(namespaceDetails_, vector<Namespace>) };
+    inline ListIcebergNamespaceDetailsResponseBody& setNamespaceDetails(const vector<Namespace> & namespaceDetails) { DARABONBA_PTR_SET_VALUE(namespaceDetails_, namespaceDetails) };
+    inline ListIcebergNamespaceDetailsResponseBody& setNamespaceDetails(vector<Namespace> && namespaceDetails) { DARABONBA_PTR_SET_RVALUE(namespaceDetails_, namespaceDetails) };
 
 
     // nextPageToken Field Functions 
@@ -52,7 +52,7 @@ namespace Models
 
 
   protected:
-    std::shared_ptr<vector<_Namespace>> namespaceDetails_ = nullptr;
+    std::shared_ptr<vector<Namespace>> namespaceDetails_ = nullptr;
     std::shared_ptr<string> nextPageToken_ = nullptr;
   };
 

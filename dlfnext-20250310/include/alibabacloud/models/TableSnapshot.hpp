@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fileCount_ != nullptr
-        && this->fileSizeInBytes_ != nullptr && this->lastFileCreationTime_ != nullptr && this->recordCount_ != nullptr && this->snapshot_ != nullptr; };
+    virtual bool empty() const override { return this->fileCount_ == nullptr
+        && return this->fileSizeInBytes_ == nullptr && return this->lastFileCreationTime_ == nullptr && return this->recordCount_ == nullptr && return this->snapshot_ == nullptr; };
     // fileCount Field Functions 
     bool hasFileCount() const { return this->fileCount_ != nullptr;};
     void deleteFileCount() { this->fileCount_ = nullptr;};

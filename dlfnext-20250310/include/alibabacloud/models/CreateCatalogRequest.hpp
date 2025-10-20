@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->isShared_ != nullptr
-        && this->name_ != nullptr && this->options_ != nullptr && this->shareId_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->isShared_ == nullptr
+        && return this->name_ == nullptr && return this->options_ == nullptr && return this->shareId_ == nullptr && return this->type_ == nullptr; };
     // isShared Field Functions 
     bool hasIsShared() const { return this->isShared_ != nullptr;};
     void deleteIsShared() { this->isShared_ = nullptr;};
