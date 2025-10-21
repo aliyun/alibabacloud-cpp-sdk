@@ -231,8 +231,16 @@ CreateMemoryResponse Client::createMemoryWithOptions(const CreateMemoryRequest &
     body["name"] = request.name();
   }
 
+  if (!!request.hasPermanent()) {
+    body["permanent"] = request.permanent();
+  }
+
   if (!!request.hasShortTtl()) {
     body["shortTtl"] = request.shortTtl();
+  }
+
+  if (!!request.hasStrategy()) {
+    body["strategy"] = request.strategy();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1460,19 +1468,27 @@ UpdateAgentRuntimeEndpointResponse Client::updateAgentRuntimeEndpoint(const stri
  */
 UpdateMemoryResponse Client::updateMemoryWithOptions(const string &memoryName, const UpdateMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
+  json body = {};
   if (!!request.hasLongTtl()) {
-    query["longTtl"] = request.longTtl();
+    body["longTtl"] = request.longTtl();
+  }
+
+  if (!!request.hasPermanent()) {
+    body["permanent"] = request.permanent();
   }
 
   if (!!request.hasShortTtl()) {
-    query["shortTtl"] = request.shortTtl();
+    body["shortTtl"] = request.shortTtl();
+  }
+
+  if (!!request.hasStrategy()) {
+    body["strategy"] = request.strategy();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "UpdateMemory"},
     {"version" , "2025-09-10"},

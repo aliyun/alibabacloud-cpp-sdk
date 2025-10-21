@@ -191,6 +191,7 @@
 #include <alibabacloud/models/UpdateMemoryRequest.hpp>
 #include <alibabacloud/models/UpdateMemoryResponseBody.hpp>
 #include <alibabacloud/models/UpdateMemoryResponse.hpp>
+#include <alibabacloud/models/CreateMemoryResponseBodyData.hpp>
 #include <alibabacloud/models/CreateMemoryEventRequestEvents.hpp>
 #include <alibabacloud/models/GetMemoryResponseBodyData.hpp>
 #include <alibabacloud/models/GetMemoryEventResponseBodyData.hpp>
@@ -200,5 +201,6 @@
 #include <alibabacloud/models/ListMemorySessionsResponseBodyData.hpp>
 #include <alibabacloud/models/RetrieveMemoryRequestQuery.hpp>
 #include <alibabacloud/models/RetrieveMemoryResponseBodyData.hpp>
+#include <alibabacloud/models/UpdateMemoryResponseBodyData.hpp>
 
 #endif

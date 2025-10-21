@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEMEMORYREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEMEMORYREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -15,12 +16,16 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateMemoryRequest& obj) { 
       DARABONBA_PTR_TO_JSON(longTtl, longTtl_);
       DARABONBA_PTR_TO_JSON(name, name_);
+      DARABONBA_PTR_TO_JSON(permanent, permanent_);
       DARABONBA_PTR_TO_JSON(shortTtl, shortTtl_);
+      DARABONBA_PTR_TO_JSON(strategy, strategy_);
     };
     friend void from_json(const Darabonba::Json& j, CreateMemoryRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(longTtl, longTtl_);
       DARABONBA_PTR_FROM_JSON(name, name_);
+      DARABONBA_PTR_FROM_JSON(permanent, permanent_);
       DARABONBA_PTR_FROM_JSON(shortTtl, shortTtl_);
+      DARABONBA_PTR_FROM_JSON(strategy, strategy_);
     };
     CreateMemoryRequest() = default ;
     CreateMemoryRequest(const CreateMemoryRequest &) = default ;
@@ -34,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->longTtl_ == nullptr
-        && return this->name_ == nullptr && return this->shortTtl_ == nullptr; };
+        && return this->name_ == nullptr && return this->permanent_ == nullptr && return this->shortTtl_ == nullptr && return this->strategy_ == nullptr; };
     // longTtl Field Functions 
     bool hasLongTtl() const { return this->longTtl_ != nullptr;};
     void deleteLongTtl() { this->longTtl_ = nullptr;};
@@ -49,6 +54,13 @@ namespace Models
     inline CreateMemoryRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // permanent Field Functions 
+    bool hasPermanent() const { return this->permanent_ != nullptr;};
+    void deletePermanent() { this->permanent_ = nullptr;};
+    inline bool permanent() const { DARABONBA_PTR_GET_DEFAULT(permanent_, false) };
+    inline CreateMemoryRequest& setPermanent(bool permanent) { DARABONBA_PTR_SET_VALUE(permanent_, permanent) };
+
+
     // shortTtl Field Functions 
     bool hasShortTtl() const { return this->shortTtl_ != nullptr;};
     void deleteShortTtl() { this->shortTtl_ = nullptr;};
@@ -56,13 +68,24 @@ namespace Models
     inline CreateMemoryRequest& setShortTtl(int32_t shortTtl) { DARABONBA_PTR_SET_VALUE(shortTtl_, shortTtl) };
 
 
+    // strategy Field Functions 
+    bool hasStrategy() const { return this->strategy_ != nullptr;};
+    void deleteStrategy() { this->strategy_ = nullptr;};
+    inline const vector<string> & strategy() const { DARABONBA_PTR_GET_CONST(strategy_, vector<string>) };
+    inline vector<string> strategy() { DARABONBA_PTR_GET(strategy_, vector<string>) };
+    inline CreateMemoryRequest& setStrategy(const vector<string> & strategy) { DARABONBA_PTR_SET_VALUE(strategy_, strategy) };
+    inline CreateMemoryRequest& setStrategy(vector<string> && strategy) { DARABONBA_PTR_SET_RVALUE(strategy_, strategy) };
+
+
   protected:
     // This parameter is required.
     std::shared_ptr<int32_t> longTtl_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> name_ = nullptr;
+    std::shared_ptr<bool> permanent_ = nullptr;
     // This parameter is required.
     std::shared_ptr<int32_t> shortTtl_ = nullptr;
+    std::shared_ptr<vector<string>> strategy_ = nullptr;
   };
 
   } // namespace Models

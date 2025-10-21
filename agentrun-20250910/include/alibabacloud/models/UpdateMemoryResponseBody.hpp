@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATEMEMORYRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_UPDATEMEMORYRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/UpdateMemoryResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,10 +15,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpdateMemoryResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(code, code_);
+      DARABONBA_PTR_TO_JSON(data, data_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateMemoryResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(code, code_);
+      DARABONBA_PTR_FROM_JSON(data, data_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
     };
     UpdateMemoryResponseBody() = default ;
@@ -32,12 +35,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && return this->data_ == nullptr && return this->requestId_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline UpdateMemoryResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // data Field Functions 
+    bool hasData() const { return this->data_ != nullptr;};
+    void deleteData() { this->data_ = nullptr;};
+    inline const UpdateMemoryResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, UpdateMemoryResponseBodyData) };
+    inline UpdateMemoryResponseBodyData data() { DARABONBA_PTR_GET(data_, UpdateMemoryResponseBodyData) };
+    inline UpdateMemoryResponseBody& setData(const UpdateMemoryResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline UpdateMemoryResponseBody& setData(UpdateMemoryResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // requestId Field Functions 
@@ -49,6 +61,7 @@ namespace Models
 
   protected:
     std::shared_ptr<string> code_ = nullptr;
+    std::shared_ptr<UpdateMemoryResponseBodyData> data_ = nullptr;
     // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;
   };
