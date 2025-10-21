@@ -515,6 +515,87 @@ GetVideoAnalysisTaskResponse Client::getVideoAnalysisTask(const string &workspac
 }
 
 /**
+ * @summary 智能拆条-获取配置
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetVideoDetectShotConfigResponse
+ */
+GetVideoDetectShotConfigResponse Client::getVideoDetectShotConfigWithOptions(const string &workspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetVideoDetectShotConfig"},
+    {"version" , "2024-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/quanmiao/lightapp/videoAnalysis/getVideoDetectShotConfig")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetVideoDetectShotConfigResponse>();
+}
+
+/**
+ * @summary 智能拆条-获取配置
+ *
+ * @return GetVideoDetectShotConfigResponse
+ */
+GetVideoDetectShotConfigResponse Client::getVideoDetectShotConfig(const string &workspaceId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getVideoDetectShotConfigWithOptions(workspaceId, headers, runtime);
+}
+
+/**
+ * @summary 轻应用-获取视频拆条异步任务结果
+ *
+ * @param request GetVideoDetectShotTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetVideoDetectShotTaskResponse
+ */
+GetVideoDetectShotTaskResponse Client::getVideoDetectShotTaskWithOptions(const string &workspaceId, const GetVideoDetectShotTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTaskId()) {
+    query["taskId"] = request.taskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetVideoDetectShotTask"},
+    {"version" , "2024-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/quanmiao/lightapp/getVideoDetectShotTask")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetVideoDetectShotTaskResponse>();
+}
+
+/**
+ * @summary 轻应用-获取视频拆条异步任务结果
+ *
+ * @param request GetVideoDetectShotTaskRequest
+ * @return GetVideoDetectShotTaskResponse
+ */
+GetVideoDetectShotTaskResponse Client::getVideoDetectShotTask(const string &workspaceId, const GetVideoDetectShotTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getVideoDetectShotTaskWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
  * @summary 热点新闻推荐
  *
  * @param request HotNewsRecommendRequest
@@ -2920,6 +3001,220 @@ RunVideoAnalysisResponse Client::runVideoAnalysis(const string &workspaceId, con
 }
 
 /**
+ * @summary 轻应用-视频拆条
+ *
+ * @param tmpReq RunVideoDetectShotRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunVideoDetectShotResponse
+ */
+FutrueGenerator<RunVideoDetectShotResponse> Client::runVideoDetectShotWithSSE(const string &workspaceId, const RunVideoDetectShotRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunVideoDetectShotShrinkRequest request = RunVideoDetectShotShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasOptions()) {
+    request.setOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.options(), "options", "json"));
+  }
+
+  if (!!tmpReq.hasRecognitionOptions()) {
+    request.setRecognitionOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.recognitionOptions(), "recognitionOptions", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasIntelliSimpPrompt()) {
+    body["intelliSimpPrompt"] = request.intelliSimpPrompt();
+  }
+
+  if (!!request.hasIntelliSimpPromptTemplateId()) {
+    body["intelliSimpPromptTemplateId"] = request.intelliSimpPromptTemplateId();
+  }
+
+  if (!!request.hasLanguage()) {
+    body["language"] = request.language();
+  }
+
+  if (!!request.hasModelCustomPromptTemplateId()) {
+    body["modelCustomPromptTemplateId"] = request.modelCustomPromptTemplateId();
+  }
+
+  if (!!request.hasModelId()) {
+    body["modelId"] = request.modelId();
+  }
+
+  if (!!request.hasModelVlCustomPromptTemplateId()) {
+    body["modelVlCustomPromptTemplateId"] = request.modelVlCustomPromptTemplateId();
+  }
+
+  if (!!request.hasOptionsShrink()) {
+    body["options"] = request.optionsShrink();
+  }
+
+  if (!!request.hasOriginalSessionId()) {
+    body["originalSessionId"] = request.originalSessionId();
+  }
+
+  if (!!request.hasPreModelId()) {
+    body["preModelId"] = request.preModelId();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["prompt"] = request.prompt();
+  }
+
+  if (!!request.hasRecognitionOptionsShrink()) {
+    body["recognitionOptions"] = request.recognitionOptionsShrink();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["taskId"] = request.taskId();
+  }
+
+  if (!!request.hasVideoUrl()) {
+    body["videoUrl"] = request.videoUrl();
+  }
+
+  if (!!request.hasVlPrompt()) {
+    body["vlPrompt"] = request.vlPrompt();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RunVideoDetectShot"},
+    {"version" , "2024-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/quanmiao/lightapp/runVideoDetectShot")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunVideoDetectShotResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
+}
+
+/**
+ * @summary 轻应用-视频拆条
+ *
+ * @param tmpReq RunVideoDetectShotRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunVideoDetectShotResponse
+ */
+RunVideoDetectShotResponse Client::runVideoDetectShotWithOptions(const string &workspaceId, const RunVideoDetectShotRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunVideoDetectShotShrinkRequest request = RunVideoDetectShotShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasOptions()) {
+    request.setOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.options(), "options", "json"));
+  }
+
+  if (!!tmpReq.hasRecognitionOptions()) {
+    request.setRecognitionOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.recognitionOptions(), "recognitionOptions", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasIntelliSimpPrompt()) {
+    body["intelliSimpPrompt"] = request.intelliSimpPrompt();
+  }
+
+  if (!!request.hasIntelliSimpPromptTemplateId()) {
+    body["intelliSimpPromptTemplateId"] = request.intelliSimpPromptTemplateId();
+  }
+
+  if (!!request.hasLanguage()) {
+    body["language"] = request.language();
+  }
+
+  if (!!request.hasModelCustomPromptTemplateId()) {
+    body["modelCustomPromptTemplateId"] = request.modelCustomPromptTemplateId();
+  }
+
+  if (!!request.hasModelId()) {
+    body["modelId"] = request.modelId();
+  }
+
+  if (!!request.hasModelVlCustomPromptTemplateId()) {
+    body["modelVlCustomPromptTemplateId"] = request.modelVlCustomPromptTemplateId();
+  }
+
+  if (!!request.hasOptionsShrink()) {
+    body["options"] = request.optionsShrink();
+  }
+
+  if (!!request.hasOriginalSessionId()) {
+    body["originalSessionId"] = request.originalSessionId();
+  }
+
+  if (!!request.hasPreModelId()) {
+    body["preModelId"] = request.preModelId();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["prompt"] = request.prompt();
+  }
+
+  if (!!request.hasRecognitionOptionsShrink()) {
+    body["recognitionOptions"] = request.recognitionOptionsShrink();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["taskId"] = request.taskId();
+  }
+
+  if (!!request.hasVideoUrl()) {
+    body["videoUrl"] = request.videoUrl();
+  }
+
+  if (!!request.hasVlPrompt()) {
+    body["vlPrompt"] = request.vlPrompt();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RunVideoDetectShot"},
+    {"version" , "2024-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/quanmiao/lightapp/runVideoDetectShot")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RunVideoDetectShotResponse>();
+}
+
+/**
+ * @summary 轻应用-视频拆条
+ *
+ * @param request RunVideoDetectShotRequest
+ * @return RunVideoDetectShotResponse
+ */
+RunVideoDetectShotResponse Client::runVideoDetectShot(const string &workspaceId, const RunVideoDetectShotRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return runVideoDetectShotWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
  * @summary 提交企业VOC异步任务
  *
  * @param tmpReq SubmitEnterpriseVocAnalysisTaskRequest
@@ -3332,6 +3627,117 @@ SubmitVideoAnalysisTaskResponse Client::submitVideoAnalysisTask(const string &wo
 }
 
 /**
+ * @summary 轻应用-提交视频拆条任务
+ *
+ * @param tmpReq SubmitVideoDetectShotTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitVideoDetectShotTaskResponse
+ */
+SubmitVideoDetectShotTaskResponse Client::submitVideoDetectShotTaskWithOptions(const string &workspaceId, const SubmitVideoDetectShotTaskRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SubmitVideoDetectShotTaskShrinkRequest request = SubmitVideoDetectShotTaskShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasOptions()) {
+    request.setOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.options(), "options", "json"));
+  }
+
+  if (!!tmpReq.hasRecognitionOptions()) {
+    request.setRecognitionOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.recognitionOptions(), "recognitionOptions", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasDeduplicationId()) {
+    body["deduplicationId"] = request.deduplicationId();
+  }
+
+  if (!!request.hasIntelliSimpPrompt()) {
+    body["intelliSimpPrompt"] = request.intelliSimpPrompt();
+  }
+
+  if (!!request.hasIntelliSimpPromptTemplateId()) {
+    body["intelliSimpPromptTemplateId"] = request.intelliSimpPromptTemplateId();
+  }
+
+  if (!!request.hasLanguage()) {
+    body["language"] = request.language();
+  }
+
+  if (!!request.hasModelCustomPromptTemplateId()) {
+    body["modelCustomPromptTemplateId"] = request.modelCustomPromptTemplateId();
+  }
+
+  if (!!request.hasModelId()) {
+    body["modelId"] = request.modelId();
+  }
+
+  if (!!request.hasModelVlCustomPromptTemplateId()) {
+    body["modelVlCustomPromptTemplateId"] = request.modelVlCustomPromptTemplateId();
+  }
+
+  if (!!request.hasOptionsShrink()) {
+    body["options"] = request.optionsShrink();
+  }
+
+  if (!!request.hasOriginalSessionId()) {
+    body["originalSessionId"] = request.originalSessionId();
+  }
+
+  if (!!request.hasPreModelId()) {
+    body["preModelId"] = request.preModelId();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["prompt"] = request.prompt();
+  }
+
+  if (!!request.hasRecognitionOptionsShrink()) {
+    body["recognitionOptions"] = request.recognitionOptionsShrink();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["taskId"] = request.taskId();
+  }
+
+  if (!!request.hasVideoUrl()) {
+    body["videoUrl"] = request.videoUrl();
+  }
+
+  if (!!request.hasVlPrompt()) {
+    body["vlPrompt"] = request.vlPrompt();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SubmitVideoDetectShotTask"},
+    {"version" , "2024-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/quanmiao/lightapp/submitVideoDetectShotTask")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitVideoDetectShotTaskResponse>();
+}
+
+/**
+ * @summary 轻应用-提交视频拆条任务
+ *
+ * @param request SubmitVideoDetectShotTaskRequest
+ * @return SubmitVideoDetectShotTaskResponse
+ */
+SubmitVideoDetectShotTaskResponse Client::submitVideoDetectShotTask(const string &workspaceId, const SubmitVideoDetectShotTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return submitVideoDetectShotTaskWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
  * @summary 视频理解-更新配置
  *
  * @param request UpdateVideoAnalysisConfigRequest
@@ -3478,6 +3884,100 @@ UpdateVideoAnalysisTasksResponse Client::updateVideoAnalysisTasks(const string &
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateVideoAnalysisTasksWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary 智能拆条-更新配置
+ *
+ * @param request UpdateVideoDetectShotConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateVideoDetectShotConfigResponse
+ */
+UpdateVideoDetectShotConfigResponse Client::updateVideoDetectShotConfigWithOptions(const string &workspaceId, const UpdateVideoDetectShotConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAsyncConcurrency()) {
+    body["asyncConcurrency"] = request.asyncConcurrency();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateVideoDetectShotConfig"},
+    {"version" , "2024-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/quanmiao/lightapp/videoAnalysis/updateVideoDetectShotConfig")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateVideoDetectShotConfigResponse>();
+}
+
+/**
+ * @summary 智能拆条-更新配置
+ *
+ * @param request UpdateVideoDetectShotConfigRequest
+ * @return UpdateVideoDetectShotConfigResponse
+ */
+UpdateVideoDetectShotConfigResponse Client::updateVideoDetectShotConfig(const string &workspaceId, const UpdateVideoDetectShotConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateVideoDetectShotConfigWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary 视频拆条-修改任务状态
+ *
+ * @param request UpdateVideoDetectShotTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateVideoDetectShotTaskResponse
+ */
+UpdateVideoDetectShotTaskResponse Client::updateVideoDetectShotTaskWithOptions(const string &workspaceId, const UpdateVideoDetectShotTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasTaskId()) {
+    body["taskId"] = request.taskId();
+  }
+
+  if (!!request.hasTaskStatus()) {
+    body["taskStatus"] = request.taskStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateVideoDetectShotTask"},
+    {"version" , "2024-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/quanmiao/lightapp/updateVideoDetectShotTask")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateVideoDetectShotTaskResponse>();
+}
+
+/**
+ * @summary 视频拆条-修改任务状态
+ *
+ * @param request UpdateVideoDetectShotTaskRequest
+ * @return UpdateVideoDetectShotTaskResponse
+ */
+UpdateVideoDetectShotTaskResponse Client::updateVideoDetectShotTask(const string &workspaceId, const UpdateVideoDetectShotTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateVideoDetectShotTaskWithOptions(workspaceId, request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace QuanMiaoLightApp20240801

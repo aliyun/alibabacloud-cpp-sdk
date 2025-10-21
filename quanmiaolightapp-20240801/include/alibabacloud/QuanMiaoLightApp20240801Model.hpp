@@ -33,6 +33,11 @@
 #include <alibabacloud/models/GetVideoAnalysisTaskRequest.hpp>
 #include <alibabacloud/models/GetVideoAnalysisTaskResponseBody.hpp>
 #include <alibabacloud/models/GetVideoAnalysisTaskResponse.hpp>
+#include <alibabacloud/models/GetVideoDetectShotConfigResponseBody.hpp>
+#include <alibabacloud/models/GetVideoDetectShotConfigResponse.hpp>
+#include <alibabacloud/models/GetVideoDetectShotTaskRequest.hpp>
+#include <alibabacloud/models/GetVideoDetectShotTaskResponseBody.hpp>
+#include <alibabacloud/models/GetVideoDetectShotTaskResponse.hpp>
 #include <alibabacloud/models/HotNewsRecommendRequest.hpp>
 #include <alibabacloud/models/HotNewsRecommendResponseBody.hpp>
 #include <alibabacloud/models/HotNewsRecommendResponse.hpp>
@@ -95,6 +100,10 @@
 #include <alibabacloud/models/RunVideoAnalysisShrinkRequest.hpp>
 #include <alibabacloud/models/RunVideoAnalysisResponseBody.hpp>
 #include <alibabacloud/models/RunVideoAnalysisResponse.hpp>
+#include <alibabacloud/models/RunVideoDetectShotRequest.hpp>
+#include <alibabacloud/models/RunVideoDetectShotShrinkRequest.hpp>
+#include <alibabacloud/models/RunVideoDetectShotResponseBody.hpp>
+#include <alibabacloud/models/RunVideoDetectShotResponse.hpp>
 #include <alibabacloud/models/SubmitEnterpriseVocAnalysisTaskRequest.hpp>
 #include <alibabacloud/models/SubmitEnterpriseVocAnalysisTaskShrinkRequest.hpp>
 #include <alibabacloud/models/SubmitEnterpriseVocAnalysisTaskResponseBody.hpp>
@@ -111,6 +120,10 @@
 #include <alibabacloud/models/SubmitVideoAnalysisTaskShrinkRequest.hpp>
 #include <alibabacloud/models/SubmitVideoAnalysisTaskResponseBody.hpp>
 #include <alibabacloud/models/SubmitVideoAnalysisTaskResponse.hpp>
+#include <alibabacloud/models/SubmitVideoDetectShotTaskRequest.hpp>
+#include <alibabacloud/models/SubmitVideoDetectShotTaskShrinkRequest.hpp>
+#include <alibabacloud/models/SubmitVideoDetectShotTaskResponseBody.hpp>
+#include <alibabacloud/models/SubmitVideoDetectShotTaskResponse.hpp>
 #include <alibabacloud/models/UpdateVideoAnalysisConfigRequest.hpp>
 #include <alibabacloud/models/UpdateVideoAnalysisConfigResponseBody.hpp>
 #include <alibabacloud/models/UpdateVideoAnalysisConfigResponse.hpp>
@@ -121,6 +134,12 @@
 #include <alibabacloud/models/UpdateVideoAnalysisTasksShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateVideoAnalysisTasksResponseBody.hpp>
 #include <alibabacloud/models/UpdateVideoAnalysisTasksResponse.hpp>
+#include <alibabacloud/models/UpdateVideoDetectShotConfigRequest.hpp>
+#include <alibabacloud/models/UpdateVideoDetectShotConfigResponseBody.hpp>
+#include <alibabacloud/models/UpdateVideoDetectShotConfigResponse.hpp>
+#include <alibabacloud/models/UpdateVideoDetectShotTaskRequest.hpp>
+#include <alibabacloud/models/UpdateVideoDetectShotTaskResponseBody.hpp>
+#include <alibabacloud/models/UpdateVideoDetectShotTaskResponse.hpp>
 #include <alibabacloud/models/GenerateBroadcastNewsResponseBodyDataHotTopicSummariesImages.hpp>
 #include <alibabacloud/models/GenerateBroadcastNewsResponseBodyDataHotTopicSummaries.hpp>
 #include <alibabacloud/models/GenerateBroadcastNewsResponseBodyDataUsage.hpp>
@@ -169,6 +188,15 @@
 #include <alibabacloud/models/GetVideoAnalysisTaskResponseBodyDataPayload.hpp>
 #include <alibabacloud/models/GetVideoAnalysisTaskResponseBodyDataTaskRunInfo.hpp>
 #include <alibabacloud/models/GetVideoAnalysisTaskResponseBodyData.hpp>
+#include <alibabacloud/models/GetVideoDetectShotConfigResponseBodyData.hpp>
+#include <alibabacloud/models/GetVideoDetectShotTaskResponseBodyDataHeader.hpp>
+#include <alibabacloud/models/GetVideoDetectShotTaskResponseBodyDataPayloadOutputVideoSplitResultVideoRecognitionResult.hpp>
+#include <alibabacloud/models/GetVideoDetectShotTaskResponseBodyDataPayloadOutputVideoSplitResult.hpp>
+#include <alibabacloud/models/GetVideoDetectShotTaskResponseBodyDataPayloadOutput.hpp>
+#include <alibabacloud/models/GetVideoDetectShotTaskResponseBodyDataPayloadUsage.hpp>
+#include <alibabacloud/models/GetVideoDetectShotTaskResponseBodyDataPayload.hpp>
+#include <alibabacloud/models/GetVideoDetectShotTaskResponseBodyDataTaskRunInfo.hpp>
+#include <alibabacloud/models/GetVideoDetectShotTaskResponseBodyData.hpp>
 #include <alibabacloud/models/HotNewsRecommendResponseBodyDataNews.hpp>
 #include <alibabacloud/models/HotNewsRecommendResponseBodyData.hpp>
 #include <alibabacloud/models/ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags.hpp>
@@ -281,6 +309,12 @@
 #include <alibabacloud/models/RunVideoAnalysisResponseBodyPayloadOutput.hpp>
 #include <alibabacloud/models/RunVideoAnalysisResponseBodyPayloadUsage.hpp>
 #include <alibabacloud/models/RunVideoAnalysisResponseBodyPayload.hpp>
+#include <alibabacloud/models/RunVideoDetectShotResponseBodyHeader.hpp>
+#include <alibabacloud/models/RunVideoDetectShotResponseBodyPayloadOutputVideoSplitResultVideoRecognitionResult.hpp>
+#include <alibabacloud/models/RunVideoDetectShotResponseBodyPayloadOutputVideoSplitResult.hpp>
+#include <alibabacloud/models/RunVideoDetectShotResponseBodyPayloadOutput.hpp>
+#include <alibabacloud/models/RunVideoDetectShotResponseBodyPayloadUsage.hpp>
+#include <alibabacloud/models/RunVideoDetectShotResponseBodyPayload.hpp>
 #include <alibabacloud/models/SubmitEnterpriseVocAnalysisTaskRequestContents.hpp>
 #include <alibabacloud/models/SubmitEnterpriseVocAnalysisTaskRequestFilterTags.hpp>
 #include <alibabacloud/models/SubmitEnterpriseVocAnalysisTaskRequestTags.hpp>
@@ -296,7 +330,9 @@
 #include <alibabacloud/models/SubmitVideoAnalysisTaskRequestVideoRolesTimeIntervals.hpp>
 #include <alibabacloud/models/SubmitVideoAnalysisTaskRequestVideoRoles.hpp>
 #include <alibabacloud/models/SubmitVideoAnalysisTaskResponseBodyData.hpp>
+#include <alibabacloud/models/SubmitVideoDetectShotTaskResponseBodyData.hpp>
 #include <alibabacloud/models/UpdateVideoAnalysisTaskResponseBodyData.hpp>
 #include <alibabacloud/models/UpdateVideoAnalysisTasksResponseBodyData.hpp>
+#include <alibabacloud/models/UpdateVideoDetectShotTaskResponseBodyData.hpp>
 
 #endif

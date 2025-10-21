@@ -199,6 +199,40 @@ namespace QuanMiaoLightApp20240801
       Models::GetVideoAnalysisTaskResponse getVideoAnalysisTask(const string &workspaceId, const Models::GetVideoAnalysisTaskRequest &request);
 
       /**
+       * @summary 智能拆条-获取配置
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetVideoDetectShotConfigResponse
+       */
+      Models::GetVideoDetectShotConfigResponse getVideoDetectShotConfigWithOptions(const string &workspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 智能拆条-获取配置
+       *
+       * @return GetVideoDetectShotConfigResponse
+       */
+      Models::GetVideoDetectShotConfigResponse getVideoDetectShotConfig(const string &workspaceId);
+
+      /**
+       * @summary 轻应用-获取视频拆条异步任务结果
+       *
+       * @param request GetVideoDetectShotTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetVideoDetectShotTaskResponse
+       */
+      Models::GetVideoDetectShotTaskResponse getVideoDetectShotTaskWithOptions(const string &workspaceId, const Models::GetVideoDetectShotTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 轻应用-获取视频拆条异步任务结果
+       *
+       * @param request GetVideoDetectShotTaskRequest
+       * @return GetVideoDetectShotTaskResponse
+       */
+      Models::GetVideoDetectShotTaskResponse getVideoDetectShotTask(const string &workspaceId, const Models::GetVideoDetectShotTaskRequest &request);
+
+      /**
        * @summary 热点新闻推荐
        *
        * @param request HotNewsRecommendRequest
@@ -673,6 +707,34 @@ namespace QuanMiaoLightApp20240801
       Models::RunVideoAnalysisResponse runVideoAnalysis(const string &workspaceId, const Models::RunVideoAnalysisRequest &request);
 
       /**
+       * @summary 轻应用-视频拆条
+       *
+       * @param tmpReq RunVideoDetectShotRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunVideoDetectShotResponse
+       */
+      FutrueGenerator<Models::RunVideoDetectShotResponse> runVideoDetectShotWithSSE(const string &workspaceId, const Models::RunVideoDetectShotRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 轻应用-视频拆条
+       *
+       * @param tmpReq RunVideoDetectShotRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunVideoDetectShotResponse
+       */
+      Models::RunVideoDetectShotResponse runVideoDetectShotWithOptions(const string &workspaceId, const Models::RunVideoDetectShotRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 轻应用-视频拆条
+       *
+       * @param request RunVideoDetectShotRequest
+       * @return RunVideoDetectShotResponse
+       */
+      Models::RunVideoDetectShotResponse runVideoDetectShot(const string &workspaceId, const Models::RunVideoDetectShotRequest &request);
+
+      /**
        * @summary 提交企业VOC异步任务
        *
        * @param tmpReq SubmitEnterpriseVocAnalysisTaskRequest
@@ -745,6 +807,24 @@ namespace QuanMiaoLightApp20240801
       Models::SubmitVideoAnalysisTaskResponse submitVideoAnalysisTask(const string &workspaceId, const Models::SubmitVideoAnalysisTaskRequest &request);
 
       /**
+       * @summary 轻应用-提交视频拆条任务
+       *
+       * @param tmpReq SubmitVideoDetectShotTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitVideoDetectShotTaskResponse
+       */
+      Models::SubmitVideoDetectShotTaskResponse submitVideoDetectShotTaskWithOptions(const string &workspaceId, const Models::SubmitVideoDetectShotTaskRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 轻应用-提交视频拆条任务
+       *
+       * @param request SubmitVideoDetectShotTaskRequest
+       * @return SubmitVideoDetectShotTaskResponse
+       */
+      Models::SubmitVideoDetectShotTaskResponse submitVideoDetectShotTask(const string &workspaceId, const Models::SubmitVideoDetectShotTaskRequest &request);
+
+      /**
        * @summary 视频理解-更新配置
        *
        * @param request UpdateVideoAnalysisConfigRequest
@@ -797,6 +877,42 @@ namespace QuanMiaoLightApp20240801
        * @return UpdateVideoAnalysisTasksResponse
        */
       Models::UpdateVideoAnalysisTasksResponse updateVideoAnalysisTasks(const string &workspaceId, const Models::UpdateVideoAnalysisTasksRequest &request);
+
+      /**
+       * @summary 智能拆条-更新配置
+       *
+       * @param request UpdateVideoDetectShotConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateVideoDetectShotConfigResponse
+       */
+      Models::UpdateVideoDetectShotConfigResponse updateVideoDetectShotConfigWithOptions(const string &workspaceId, const Models::UpdateVideoDetectShotConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 智能拆条-更新配置
+       *
+       * @param request UpdateVideoDetectShotConfigRequest
+       * @return UpdateVideoDetectShotConfigResponse
+       */
+      Models::UpdateVideoDetectShotConfigResponse updateVideoDetectShotConfig(const string &workspaceId, const Models::UpdateVideoDetectShotConfigRequest &request);
+
+      /**
+       * @summary 视频拆条-修改任务状态
+       *
+       * @param request UpdateVideoDetectShotTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateVideoDetectShotTaskResponse
+       */
+      Models::UpdateVideoDetectShotTaskResponse updateVideoDetectShotTaskWithOptions(const string &workspaceId, const Models::UpdateVideoDetectShotTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 视频拆条-修改任务状态
+       *
+       * @param request UpdateVideoDetectShotTaskRequest
+       * @return UpdateVideoDetectShotTaskResponse
+       */
+      Models::UpdateVideoDetectShotTaskResponse updateVideoDetectShotTask(const string &workspaceId, const Models::UpdateVideoDetectShotTaskRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace QuanMiaoLightApp20240801
