@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backupRetentionPeriod_ != nullptr
-        && this->backupSize_ != nullptr && this->preferredBackupPeriod_ != nullptr && this->preferredBackupTime_ != nullptr && this->requestId_ != nullptr && this->switch_ != nullptr; };
+    virtual bool empty() const override { return this->backupRetentionPeriod_ == nullptr
+        && return this->backupSize_ == nullptr && return this->preferredBackupPeriod_ == nullptr && return this->preferredBackupTime_ == nullptr && return this->requestId_ == nullptr && return this->switch_ == nullptr; };
     // backupRetentionPeriod Field Functions 
     bool hasBackupRetentionPeriod() const { return this->backupRetentionPeriod_ != nullptr;};
     void deleteBackupRetentionPeriod() { this->backupRetentionPeriod_ = nullptr;};

@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->connectionString_ != nullptr
-        && this->IPAddress_ != nullptr && this->netType_ != nullptr && this->ports_ != nullptr && this->status_ != nullptr && this->vSwitchId_ != nullptr
-        && this->vpcId_ != nullptr && this->vpcInstanceId_ != nullptr; };
+    virtual bool empty() const override { return this->connectionString_ == nullptr
+        && return this->IPAddress_ == nullptr && return this->netType_ == nullptr && return this->ports_ == nullptr && return this->status_ == nullptr && return this->vSwitchId_ == nullptr
+        && return this->vpcId_ == nullptr && return this->vpcInstanceId_ == nullptr; };
     // connectionString Field Functions 
     bool hasConnectionString() const { return this->connectionString_ != nullptr;};
     void deleteConnectionString() { this->connectionString_ = nullptr;};
