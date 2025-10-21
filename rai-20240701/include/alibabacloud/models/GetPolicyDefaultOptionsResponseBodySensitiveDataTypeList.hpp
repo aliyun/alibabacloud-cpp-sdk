@@ -1,0 +1,119 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_GETPOLICYDEFAULTOPTIONSRESPONSEBODYSENSITIVEDATATYPELIST_HPP_
+#define ALIBABACLOUD_MODELS_GETPOLICYDEFAULTOPTIONSRESPONSEBODYSENSITIVEDATATYPELIST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace RAI20240701
+{
+namespace Models
+{
+  class GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList& obj) { 
+      DARABONBA_PTR_TO_JSON(ActionType, actionType_);
+      DARABONBA_PTR_TO_JSON(DataType, dataType_);
+      DARABONBA_PTR_TO_JSON(Example, example_);
+      DARABONBA_PTR_TO_JSON(ExampleProcessed, exampleProcessed_);
+      DARABONBA_PTR_TO_JSON(IsEnabled, isEnabled_);
+      DARABONBA_PTR_TO_JSON(MatchAndReplace, matchAndReplace_);
+      DARABONBA_PTR_TO_JSON(SensitiveConfigId, sensitiveConfigId_);
+      DARABONBA_PTR_TO_JSON(SensitiveName, sensitiveName_);
+    };
+    friend void from_json(const Darabonba::Json& j, GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList& obj) { 
+      DARABONBA_PTR_FROM_JSON(ActionType, actionType_);
+      DARABONBA_PTR_FROM_JSON(DataType, dataType_);
+      DARABONBA_PTR_FROM_JSON(Example, example_);
+      DARABONBA_PTR_FROM_JSON(ExampleProcessed, exampleProcessed_);
+      DARABONBA_PTR_FROM_JSON(IsEnabled, isEnabled_);
+      DARABONBA_PTR_FROM_JSON(MatchAndReplace, matchAndReplace_);
+      DARABONBA_PTR_FROM_JSON(SensitiveConfigId, sensitiveConfigId_);
+      DARABONBA_PTR_FROM_JSON(SensitiveName, sensitiveName_);
+    };
+    GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList() = default ;
+    GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList(const GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList &) = default ;
+    GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList(GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList &&) = default ;
+    GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList() = default ;
+    GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList& operator=(const GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList &) = default ;
+    GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList& operator=(GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->actionType_ == nullptr
+        && return this->dataType_ == nullptr && return this->example_ == nullptr && return this->exampleProcessed_ == nullptr && return this->isEnabled_ == nullptr && return this->matchAndReplace_ == nullptr
+        && return this->sensitiveConfigId_ == nullptr && return this->sensitiveName_ == nullptr; };
+    // actionType Field Functions 
+    bool hasActionType() const { return this->actionType_ != nullptr;};
+    void deleteActionType() { this->actionType_ = nullptr;};
+    inline int32_t actionType() const { DARABONBA_PTR_GET_DEFAULT(actionType_, 0) };
+    inline GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList& setActionType(int32_t actionType) { DARABONBA_PTR_SET_VALUE(actionType_, actionType) };
+
+
+    // dataType Field Functions 
+    bool hasDataType() const { return this->dataType_ != nullptr;};
+    void deleteDataType() { this->dataType_ = nullptr;};
+    inline string dataType() const { DARABONBA_PTR_GET_DEFAULT(dataType_, "") };
+    inline GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList& setDataType(string dataType) { DARABONBA_PTR_SET_VALUE(dataType_, dataType) };
+
+
+    // example Field Functions 
+    bool hasExample() const { return this->example_ != nullptr;};
+    void deleteExample() { this->example_ = nullptr;};
+    inline string example() const { DARABONBA_PTR_GET_DEFAULT(example_, "") };
+    inline GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList& setExample(string example) { DARABONBA_PTR_SET_VALUE(example_, example) };
+
+
+    // exampleProcessed Field Functions 
+    bool hasExampleProcessed() const { return this->exampleProcessed_ != nullptr;};
+    void deleteExampleProcessed() { this->exampleProcessed_ = nullptr;};
+    inline string exampleProcessed() const { DARABONBA_PTR_GET_DEFAULT(exampleProcessed_, "") };
+    inline GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList& setExampleProcessed(string exampleProcessed) { DARABONBA_PTR_SET_VALUE(exampleProcessed_, exampleProcessed) };
+
+
+    // isEnabled Field Functions 
+    bool hasIsEnabled() const { return this->isEnabled_ != nullptr;};
+    void deleteIsEnabled() { this->isEnabled_ = nullptr;};
+    inline int32_t isEnabled() const { DARABONBA_PTR_GET_DEFAULT(isEnabled_, 0) };
+    inline GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList& setIsEnabled(int32_t isEnabled) { DARABONBA_PTR_SET_VALUE(isEnabled_, isEnabled) };
+
+
+    // matchAndReplace Field Functions 
+    bool hasMatchAndReplace() const { return this->matchAndReplace_ != nullptr;};
+    void deleteMatchAndReplace() { this->matchAndReplace_ = nullptr;};
+    inline string matchAndReplace() const { DARABONBA_PTR_GET_DEFAULT(matchAndReplace_, "") };
+    inline GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList& setMatchAndReplace(string matchAndReplace) { DARABONBA_PTR_SET_VALUE(matchAndReplace_, matchAndReplace) };
+
+
+    // sensitiveConfigId Field Functions 
+    bool hasSensitiveConfigId() const { return this->sensitiveConfigId_ != nullptr;};
+    void deleteSensitiveConfigId() { this->sensitiveConfigId_ = nullptr;};
+    inline int64_t sensitiveConfigId() const { DARABONBA_PTR_GET_DEFAULT(sensitiveConfigId_, 0L) };
+    inline GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList& setSensitiveConfigId(int64_t sensitiveConfigId) { DARABONBA_PTR_SET_VALUE(sensitiveConfigId_, sensitiveConfigId) };
+
+
+    // sensitiveName Field Functions 
+    bool hasSensitiveName() const { return this->sensitiveName_ != nullptr;};
+    void deleteSensitiveName() { this->sensitiveName_ = nullptr;};
+    inline string sensitiveName() const { DARABONBA_PTR_GET_DEFAULT(sensitiveName_, "") };
+    inline GetPolicyDefaultOptionsResponseBodySensitiveDataTypeList& setSensitiveName(string sensitiveName) { DARABONBA_PTR_SET_VALUE(sensitiveName_, sensitiveName) };
+
+
+  protected:
+    std::shared_ptr<int32_t> actionType_ = nullptr;
+    std::shared_ptr<string> dataType_ = nullptr;
+    std::shared_ptr<string> example_ = nullptr;
+    std::shared_ptr<string> exampleProcessed_ = nullptr;
+    std::shared_ptr<int32_t> isEnabled_ = nullptr;
+    std::shared_ptr<string> matchAndReplace_ = nullptr;
+    std::shared_ptr<int64_t> sensitiveConfigId_ = nullptr;
+    std::shared_ptr<string> sensitiveName_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace RAI20240701
+#endif
