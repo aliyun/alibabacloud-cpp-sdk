@@ -361,6 +361,23 @@ namespace Dms20250414
       Models::GetDataLakeTableResponse getDataLakeTable(const Models::GetDataLakeTableRequest &request);
 
       /**
+       * @summary 调度运行Notebook文件
+       *
+       * @param request GetNotebookAndSubmitTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetNotebookAndSubmitTaskResponse
+       */
+      Models::GetNotebookAndSubmitTaskResponse getNotebookAndSubmitTaskWithOptions(const Models::GetNotebookAndSubmitTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 调度运行Notebook文件
+       *
+       * @param request GetNotebookAndSubmitTaskRequest
+       * @return GetNotebookAndSubmitTaskResponse
+       */
+      Models::GetNotebookAndSubmitTaskResponse getNotebookAndSubmitTask(const Models::GetNotebookAndSubmitTaskRequest &request);
+
+      /**
        * @summary 列出资源Airflow
        *
        * @param request ListAirflowsRequest

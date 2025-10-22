@@ -63,10 +63,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->creatorId_ != nullptr && this->description_ != nullptr && this->lastAccessTime_ != nullptr && this->location_ != nullptr && this->modifierId_ != nullptr
-        && this->name_ != nullptr && this->owner_ != nullptr && this->ownerType_ != nullptr && this->parameters_ != nullptr && this->partitionKeys_ != nullptr
-        && this->retention_ != nullptr && this->storageDescriptor_ != nullptr && this->tableType_ != nullptr && this->viewExpandedText_ != nullptr && this->viewOriginalText_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->creatorId_ == nullptr && return this->description_ == nullptr && return this->lastAccessTime_ == nullptr && return this->location_ == nullptr && return this->modifierId_ == nullptr
+        && return this->name_ == nullptr && return this->owner_ == nullptr && return this->ownerType_ == nullptr && return this->parameters_ == nullptr && return this->partitionKeys_ == nullptr
+        && return this->retention_ == nullptr && return this->storageDescriptor_ == nullptr && return this->tableType_ == nullptr && return this->viewExpandedText_ == nullptr && return this->viewOriginalText_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

@@ -74,12 +74,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->airflowName_ != nullptr
-        && this->appSpec_ != nullptr && this->appType_ != nullptr && this->customAirflowCfg_ != nullptr && this->dagsDir_ != nullptr && this->deployErrorMsg_ != nullptr
-        && this->description_ != nullptr && this->environments_ != nullptr && this->gmtCreated_ != nullptr && this->ossBucketName_ != nullptr && this->ossPath_ != nullptr
-        && this->pluginsDir_ != nullptr && this->requirementFile_ != nullptr && this->requirements_ != nullptr && this->securityGroupId_ != nullptr && this->startupFile_ != nullptr
-        && this->status_ != nullptr && this->uuid_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr && this->workerServerlessReplicas_ != nullptr
-        && this->workspaceId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->airflowName_ == nullptr
+        && return this->appSpec_ == nullptr && return this->appType_ == nullptr && return this->customAirflowCfg_ == nullptr && return this->dagsDir_ == nullptr && return this->deployErrorMsg_ == nullptr
+        && return this->description_ == nullptr && return this->environments_ == nullptr && return this->gmtCreated_ == nullptr && return this->ossBucketName_ == nullptr && return this->ossPath_ == nullptr
+        && return this->pluginsDir_ == nullptr && return this->requirementFile_ == nullptr && return this->requirements_ == nullptr && return this->securityGroupId_ == nullptr && return this->startupFile_ == nullptr
+        && return this->status_ == nullptr && return this->uuid_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->workerServerlessReplicas_ == nullptr
+        && return this->workspaceId_ == nullptr && return this->zoneId_ == nullptr; };
     // airflowName Field Functions 
     bool hasAirflowName() const { return this->airflowName_ != nullptr;};
     void deleteAirflowName() { this->airflowName_ = nullptr;};

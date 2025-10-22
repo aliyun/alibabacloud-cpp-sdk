@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bucketCols_ != nullptr
-        && this->columns_ != nullptr && this->inputFormat_ != nullptr && this->isCompressed_ != nullptr && this->location_ != nullptr && this->numBuckets_ != nullptr
-        && this->originalColumns_ != nullptr && this->outputFormat_ != nullptr && this->parameters_ != nullptr && this->serdeInfo_ != nullptr && this->skewedInfo_ != nullptr
-        && this->sortCols_ != nullptr; };
+    virtual bool empty() const override { return this->bucketCols_ == nullptr
+        && return this->columns_ == nullptr && return this->inputFormat_ == nullptr && return this->isCompressed_ == nullptr && return this->location_ == nullptr && return this->numBuckets_ == nullptr
+        && return this->originalColumns_ == nullptr && return this->outputFormat_ == nullptr && return this->parameters_ == nullptr && return this->serdeInfo_ == nullptr && return this->skewedInfo_ == nullptr
+        && return this->sortCols_ == nullptr; };
     // bucketCols Field Functions 
     bool hasBucketCols() const { return this->bucketCols_ != nullptr;};
     void deleteBucketCols() { this->bucketCols_ = nullptr;};

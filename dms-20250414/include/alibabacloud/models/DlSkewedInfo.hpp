@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->skewedColNames_ != nullptr
-        && this->skewedColValueLocationMaps_ != nullptr && this->skewedColValues_ != nullptr; };
+    virtual bool empty() const override { return this->skewedColNames_ == nullptr
+        && return this->skewedColValueLocationMaps_ == nullptr && return this->skewedColValues_ == nullptr; };
     // skewedColNames Field Functions 
     bool hasSkewedColNames() const { return this->skewedColNames_ != nullptr;};
     void deleteSkewedColNames() { this->skewedColNames_ = nullptr;};

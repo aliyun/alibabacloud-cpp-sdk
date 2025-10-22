@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->catalogName_ != nullptr
-        && this->createTime_ != nullptr && this->dbName_ != nullptr && this->lastAccessTime_ != nullptr && this->parameters_ != nullptr && this->sd_ != nullptr
-        && this->tableName_ != nullptr && this->values_ != nullptr; };
+    virtual bool empty() const override { return this->catalogName_ == nullptr
+        && return this->createTime_ == nullptr && return this->dbName_ == nullptr && return this->lastAccessTime_ == nullptr && return this->parameters_ == nullptr && return this->sd_ == nullptr
+        && return this->tableName_ == nullptr && return this->values_ == nullptr; };
     // catalogName Field Functions 
     bool hasCatalogName() const { return this->catalogName_ != nullptr;};
     void deleteCatalogName() { this->catalogName_ = nullptr;};

@@ -1302,6 +1302,66 @@ GetDataLakeTableResponse Client::getDataLakeTable(const GetDataLakeTableRequest 
 }
 
 /**
+ * @summary 调度运行Notebook文件
+ *
+ * @param request GetNotebookAndSubmitTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetNotebookAndSubmitTaskResponse
+ */
+GetNotebookAndSubmitTaskResponse Client::getNotebookAndSubmitTaskWithOptions(const GetNotebookAndSubmitTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.workspaceId();
+  }
+
+  json body = {};
+  if (!!request.hasParams()) {
+    body["Params"] = request.params();
+  }
+
+  if (!!request.hasPath()) {
+    body["Path"] = request.path();
+  }
+
+  if (!!request.hasRetry()) {
+    body["Retry"] = request.retry();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.sessionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetNotebookAndSubmitTask"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetNotebookAndSubmitTaskResponse>();
+}
+
+/**
+ * @summary 调度运行Notebook文件
+ *
+ * @param request GetNotebookAndSubmitTaskRequest
+ * @return GetNotebookAndSubmitTaskResponse
+ */
+GetNotebookAndSubmitTaskResponse Client::getNotebookAndSubmitTask(const GetNotebookAndSubmitTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getNotebookAndSubmitTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary 列出资源Airflow
  *
  * @param request ListAirflowsRequest
