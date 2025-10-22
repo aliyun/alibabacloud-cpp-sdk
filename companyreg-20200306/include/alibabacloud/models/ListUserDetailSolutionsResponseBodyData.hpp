@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizId_ != nullptr
-        && this->bizType_ != nullptr && this->createTime_ != nullptr && this->deliveryOrderBizId_ != nullptr && this->extInfo_ != nullptr && this->intentionAssignBizId_ != nullptr
-        && this->intentionBizId_ != nullptr && this->partnerCode_ != nullptr && this->reason_ != nullptr && this->status_ != nullptr && this->updateTime_ != nullptr
-        && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->bizId_ == nullptr
+        && return this->bizType_ == nullptr && return this->createTime_ == nullptr && return this->deliveryOrderBizId_ == nullptr && return this->extInfo_ == nullptr && return this->intentionAssignBizId_ == nullptr
+        && return this->intentionBizId_ == nullptr && return this->partnerCode_ == nullptr && return this->reason_ == nullptr && return this->status_ == nullptr && return this->updateTime_ == nullptr
+        && return this->userId_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};

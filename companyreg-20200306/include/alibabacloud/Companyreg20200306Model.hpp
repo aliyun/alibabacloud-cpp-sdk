@@ -48,6 +48,9 @@
 #include <alibabacloud/models/ListUserSolutionsShrinkRequest.hpp>
 #include <alibabacloud/models/ListUserSolutionsResponseBody.hpp>
 #include <alibabacloud/models/ListUserSolutionsResponse.hpp>
+#include <alibabacloud/models/OperateCallCenterForPartnerRequest.hpp>
+#include <alibabacloud/models/OperateCallCenterForPartnerResponseBody.hpp>
+#include <alibabacloud/models/OperateCallCenterForPartnerResponse.hpp>
 #include <alibabacloud/models/OperateProduceForPartnerRequest.hpp>
 #include <alibabacloud/models/OperateProduceForPartnerResponseBody.hpp>
 #include <alibabacloud/models/OperateProduceForPartnerResponse.hpp>
@@ -77,6 +80,9 @@
 #include <alibabacloud/models/QueryPartnerProduceListResponse.hpp>
 #include <alibabacloud/models/QueryUserNeedAuthResponseBody.hpp>
 #include <alibabacloud/models/QueryUserNeedAuthResponse.hpp>
+#include <alibabacloud/models/RecordCallCenterEventForPartnerRequest.hpp>
+#include <alibabacloud/models/RecordCallCenterEventForPartnerResponseBody.hpp>
+#include <alibabacloud/models/RecordCallCenterEventForPartnerResponse.hpp>
 #include <alibabacloud/models/RecordPostBackRequest.hpp>
 #include <alibabacloud/models/RecordPostBackResponseBody.hpp>
 #include <alibabacloud/models/RecordPostBackResponse.hpp>

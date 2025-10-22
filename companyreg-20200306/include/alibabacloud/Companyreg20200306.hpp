@@ -228,6 +228,23 @@ namespace Companyreg20200306
       Models::ListUserSolutionsResponse listUserSolutions(const Models::ListUserSolutionsRequest &request);
 
       /**
+       * @summary 服务商玄坛呼叫中心操作
+       *
+       * @param request OperateCallCenterForPartnerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OperateCallCenterForPartnerResponse
+       */
+      Models::OperateCallCenterForPartnerResponse operateCallCenterForPartnerWithOptions(const Models::OperateCallCenterForPartnerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 服务商玄坛呼叫中心操作
+       *
+       * @param request OperateCallCenterForPartnerRequest
+       * @return OperateCallCenterForPartnerResponse
+       */
+      Models::OperateCallCenterForPartnerResponse operateCallCenterForPartner(const Models::OperateCallCenterForPartnerRequest &request);
+
+      /**
        * @param request OperateProduceForPartnerRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return OperateProduceForPartnerResponse
@@ -371,6 +388,23 @@ namespace Companyreg20200306
        * @return QueryUserNeedAuthResponse
        */
       Models::QueryUserNeedAuthResponse queryUserNeedAuth();
+
+      /**
+       * @summary 服务商玄坛外呼呼叫中心事件回传
+       *
+       * @param request RecordCallCenterEventForPartnerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RecordCallCenterEventForPartnerResponse
+       */
+      Models::RecordCallCenterEventForPartnerResponse recordCallCenterEventForPartnerWithOptions(const Models::RecordCallCenterEventForPartnerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 服务商玄坛外呼呼叫中心事件回传
+       *
+       * @param request RecordCallCenterEventForPartnerRequest
+       * @return RecordCallCenterEventForPartnerResponse
+       */
+      Models::RecordCallCenterEventForPartnerResponse recordCallCenterEventForPartner(const Models::RecordCallCenterEventForPartnerRequest &request);
 
       /**
        * @summary RecordPostBack
