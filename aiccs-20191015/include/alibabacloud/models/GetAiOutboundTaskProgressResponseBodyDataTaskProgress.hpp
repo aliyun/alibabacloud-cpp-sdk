@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callingCount_ != nullptr
-        && this->connectCount_ != nullptr && this->connectRate_ != nullptr && this->finishCount_ != nullptr && this->finishRate_ != nullptr && this->servicerPickupCount_ != nullptr
-        && this->servicerPickupRate_ != nullptr && this->terminateCount_ != nullptr && this->totalCount_ != nullptr && this->userPickupCount_ != nullptr && this->userPickupRate_ != nullptr
-        && this->waitingCallCount_ != nullptr && this->waitingRecallCount_ != nullptr; };
+    virtual bool empty() const override { return this->callingCount_ == nullptr
+        && return this->connectCount_ == nullptr && return this->connectRate_ == nullptr && return this->finishCount_ == nullptr && return this->finishRate_ == nullptr && return this->servicerPickupCount_ == nullptr
+        && return this->servicerPickupRate_ == nullptr && return this->terminateCount_ == nullptr && return this->totalCount_ == nullptr && return this->userPickupCount_ == nullptr && return this->userPickupRate_ == nullptr
+        && return this->waitingCallCount_ == nullptr && return this->waitingRecallCount_ == nullptr; };
     // callingCount Field Functions 
     bool hasCallingCount() const { return this->callingCount_ != nullptr;};
     void deleteCallingCount() { this->callingCount_ = nullptr;};

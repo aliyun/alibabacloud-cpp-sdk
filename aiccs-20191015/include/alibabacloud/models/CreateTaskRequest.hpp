@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callString_ != nullptr
-        && this->callStringType_ != nullptr && this->caller_ != nullptr && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->retryCount_ != nullptr && this->retryFlag_ != nullptr && this->retryInterval_ != nullptr && this->retryStatusCode_ != nullptr && this->robotId_ != nullptr
-        && this->seatCount_ != nullptr && this->startNow_ != nullptr && this->taskName_ != nullptr && this->workDay_ != nullptr && this->workTimeList_ != nullptr; };
+    virtual bool empty() const override { return this->callString_ == nullptr
+        && return this->callStringType_ == nullptr && return this->caller_ == nullptr && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->retryCount_ == nullptr && return this->retryFlag_ == nullptr && return this->retryInterval_ == nullptr && return this->retryStatusCode_ == nullptr && return this->robotId_ == nullptr
+        && return this->seatCount_ == nullptr && return this->startNow_ == nullptr && return this->taskName_ == nullptr && return this->workDay_ == nullptr && return this->workTimeList_ == nullptr; };
     // callString Field Functions 
     bool hasCallString() const { return this->callString_ != nullptr;};
     void deleteCallString() { this->callString_ = nullptr;};

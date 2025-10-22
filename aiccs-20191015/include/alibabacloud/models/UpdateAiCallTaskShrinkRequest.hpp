@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callDayShrink_ != nullptr
-        && this->callRetryInterval_ != nullptr && this->callRetryReasonShrink_ != nullptr && this->callRetryTimes_ != nullptr && this->callTimeShrink_ != nullptr && this->missCallRetry_ != nullptr
-        && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->startType_ != nullptr && this->taskId_ != nullptr
-        && this->taskName_ != nullptr && this->taskStartTime_ != nullptr && this->virtualNumber_ != nullptr; };
+    virtual bool empty() const override { return this->callDayShrink_ == nullptr
+        && return this->callRetryInterval_ == nullptr && return this->callRetryReasonShrink_ == nullptr && return this->callRetryTimes_ == nullptr && return this->callTimeShrink_ == nullptr && return this->missCallRetry_ == nullptr
+        && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->startType_ == nullptr && return this->taskId_ == nullptr
+        && return this->taskName_ == nullptr && return this->taskStartTime_ == nullptr && return this->virtualNumber_ == nullptr; };
     // callDayShrink Field Functions 
     bool hasCallDayShrink() const { return this->callDayShrink_ != nullptr;};
     void deleteCallDayShrink() { this->callDayShrink_ = nullptr;};

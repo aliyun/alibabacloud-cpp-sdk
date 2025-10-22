@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentId_ != nullptr
-        && this->agentName_ != nullptr && this->callDays_ != nullptr && this->callTimes_ != nullptr && this->callerNumber_ != nullptr && this->concurrentCount_ != nullptr
-        && this->realStartTime_ != nullptr && this->retryCount_ != nullptr && this->retryEnable_ != nullptr && this->retryInterval_ != nullptr && this->retryReasons_ != nullptr
-        && this->startTime_ != nullptr && this->startType_ != nullptr && this->taskId_ != nullptr && this->taskName_ != nullptr; };
+    virtual bool empty() const override { return this->agentId_ == nullptr
+        && return this->agentName_ == nullptr && return this->callDays_ == nullptr && return this->callTimes_ == nullptr && return this->callerNumber_ == nullptr && return this->concurrentCount_ == nullptr
+        && return this->realStartTime_ == nullptr && return this->retryCount_ == nullptr && return this->retryEnable_ == nullptr && return this->retryInterval_ == nullptr && return this->retryReasons_ == nullptr
+        && return this->startTime_ == nullptr && return this->startType_ == nullptr && return this->taskId_ == nullptr && return this->taskName_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};

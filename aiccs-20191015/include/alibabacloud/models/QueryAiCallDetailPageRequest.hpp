@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MajorIntent, majorIntent_);
       DARABONBA_PTR_TO_JSON(MaxConversationDuration, maxConversationDuration_);
       DARABONBA_PTR_TO_JSON(MinConversationDuration, minConversationDuration_);
+      DARABONBA_PTR_TO_JSON(OutId, outId_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(PageNo, pageNo_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
@@ -40,6 +41,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MajorIntent, majorIntent_);
       DARABONBA_PTR_FROM_JSON(MaxConversationDuration, maxConversationDuration_);
       DARABONBA_PTR_FROM_JSON(MinConversationDuration, minConversationDuration_);
+      DARABONBA_PTR_FROM_JSON(OutId, outId_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(PageNo, pageNo_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -61,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->batchId_ != nullptr
-        && this->callResult_ != nullptr && this->calledNumber_ != nullptr && this->endCallingTime_ != nullptr && this->endImportedTime_ != nullptr && this->majorIntent_ != nullptr
-        && this->maxConversationDuration_ != nullptr && this->minConversationDuration_ != nullptr && this->ownerId_ != nullptr && this->pageNo_ != nullptr && this->pageSize_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->startCallingTime_ != nullptr && this->startImportedTime_ != nullptr && this->status_ != nullptr
-        && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->batchId_ == nullptr
+        && return this->callResult_ == nullptr && return this->calledNumber_ == nullptr && return this->endCallingTime_ == nullptr && return this->endImportedTime_ == nullptr && return this->majorIntent_ == nullptr
+        && return this->maxConversationDuration_ == nullptr && return this->minConversationDuration_ == nullptr && return this->outId_ == nullptr && return this->ownerId_ == nullptr && return this->pageNo_ == nullptr
+        && return this->pageSize_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->startCallingTime_ == nullptr && return this->startImportedTime_ == nullptr
+        && return this->status_ == nullptr && return this->taskId_ == nullptr; };
     // batchId Field Functions 
     bool hasBatchId() const { return this->batchId_ != nullptr;};
     void deleteBatchId() { this->batchId_ = nullptr;};
@@ -120,6 +122,13 @@ namespace Models
     void deleteMinConversationDuration() { this->minConversationDuration_ = nullptr;};
     inline int64_t minConversationDuration() const { DARABONBA_PTR_GET_DEFAULT(minConversationDuration_, 0L) };
     inline QueryAiCallDetailPageRequest& setMinConversationDuration(int64_t minConversationDuration) { DARABONBA_PTR_SET_VALUE(minConversationDuration_, minConversationDuration) };
+
+
+    // outId Field Functions 
+    bool hasOutId() const { return this->outId_ != nullptr;};
+    void deleteOutId() { this->outId_ = nullptr;};
+    inline string outId() const { DARABONBA_PTR_GET_DEFAULT(outId_, "") };
+    inline QueryAiCallDetailPageRequest& setOutId(string outId) { DARABONBA_PTR_SET_VALUE(outId_, outId) };
 
 
     // ownerId Field Functions 
@@ -194,6 +203,7 @@ namespace Models
     std::shared_ptr<string> majorIntent_ = nullptr;
     std::shared_ptr<int64_t> maxConversationDuration_ = nullptr;
     std::shared_ptr<int64_t> minConversationDuration_ = nullptr;
+    std::shared_ptr<string> outId_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
     std::shared_ptr<int64_t> pageNo_ = nullptr;
     std::shared_ptr<int64_t> pageSize_ = nullptr;

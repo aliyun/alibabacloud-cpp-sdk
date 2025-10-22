@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->concurrentRate_ != nullptr
-        && this->description_ != nullptr && this->executionTime_ != nullptr && this->forecastCallRate_ != nullptr && this->handlerId_ != nullptr && this->instanceId_ != nullptr
-        && this->name_ != nullptr && this->numRepeated_ != nullptr && this->outboundNumsShrink_ != nullptr && this->recallRuleShrink_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->concurrentRate_ == nullptr
+        && return this->description_ == nullptr && return this->executionTime_ == nullptr && return this->forecastCallRate_ == nullptr && return this->handlerId_ == nullptr && return this->instanceId_ == nullptr
+        && return this->name_ == nullptr && return this->numRepeated_ == nullptr && return this->outboundNumsShrink_ == nullptr && return this->recallRuleShrink_ == nullptr && return this->type_ == nullptr; };
     // concurrentRate Field Functions 
     bool hasConcurrentRate() const { return this->concurrentRate_ != nullptr;};
     void deleteConcurrentRate() { this->concurrentRate_ = nullptr;};

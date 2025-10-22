@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->calloutProgress_ != nullptr
-        && this->taskId_ != nullptr && this->taskProgress_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->calloutProgress_ == nullptr
+        && return this->taskId_ == nullptr && return this->taskProgress_ == nullptr && return this->type_ == nullptr; };
     // calloutProgress Field Functions 
     bool hasCalloutProgress() const { return this->calloutProgress_ != nullptr;};
     void deleteCalloutProgress() { this->calloutProgress_ = nullptr;};

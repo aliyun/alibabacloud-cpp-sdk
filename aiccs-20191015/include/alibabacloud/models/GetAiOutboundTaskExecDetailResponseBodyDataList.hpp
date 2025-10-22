@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->batchVersion_ != nullptr
-        && this->bizData_ != nullptr && this->callCount_ != nullptr && this->caseId_ != nullptr && this->createTime_ != nullptr && this->lastCallResult_ != nullptr
-        && this->phoneNum_ != nullptr && this->status_ != nullptr && this->statusDesc_ != nullptr; };
+    virtual bool empty() const override { return this->batchVersion_ == nullptr
+        && return this->bizData_ == nullptr && return this->callCount_ == nullptr && return this->caseId_ == nullptr && return this->createTime_ == nullptr && return this->lastCallResult_ == nullptr
+        && return this->phoneNum_ == nullptr && return this->status_ == nullptr && return this->statusDesc_ == nullptr; };
     // batchVersion Field Functions 
     bool hasBatchVersion() const { return this->batchVersion_ != nullptr;};
     void deleteBatchVersion() { this->batchVersion_ = nullptr;};

@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ani_ != nullptr
-        && this->currentPage_ != nullptr && this->departmentIdList_ != nullptr && this->dnis_ != nullptr && this->endReasonList_ != nullptr && this->instanceId_ != nullptr
-        && this->outboundTaskId_ != nullptr && this->pageSize_ != nullptr && this->priorityList_ != nullptr && this->servicerId_ != nullptr && this->servicerName_ != nullptr
-        && this->sid_ != nullptr && this->skillGroup_ != nullptr && this->statusList_ != nullptr && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->ani_ == nullptr
+        && return this->currentPage_ == nullptr && return this->departmentIdList_ == nullptr && return this->dnis_ == nullptr && return this->endReasonList_ == nullptr && return this->instanceId_ == nullptr
+        && return this->outboundTaskId_ == nullptr && return this->pageSize_ == nullptr && return this->priorityList_ == nullptr && return this->servicerId_ == nullptr && return this->servicerName_ == nullptr
+        && return this->sid_ == nullptr && return this->skillGroup_ == nullptr && return this->statusList_ == nullptr && return this->taskId_ == nullptr; };
     // ani Field Functions 
     bool hasAni() const { return this->ani_ != nullptr;};
     void deleteAni() { this->ani_ = nullptr;};

@@ -66,11 +66,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->channelId_ != nullptr
-        && this->channelType_ != nullptr && this->closeTimeEnd_ != nullptr && this->closeTimeStart_ != nullptr && this->currentPage_ != nullptr && this->evaluationLevel_ != nullptr
-        && this->evaluationScore_ != nullptr && this->evaluationStatus_ != nullptr && this->firstTimeEnd_ != nullptr && this->firstTimeStart_ != nullptr && this->instanceId_ != nullptr
-        && this->memberId_ != nullptr && this->memberName_ != nullptr && this->pageSize_ != nullptr && this->queueId_ != nullptr && this->servicerId_ != nullptr
-        && this->servicerName_ != nullptr && this->touchId_ != nullptr && this->touchType_ != nullptr; };
+    virtual bool empty() const override { return this->channelId_ == nullptr
+        && return this->channelType_ == nullptr && return this->closeTimeEnd_ == nullptr && return this->closeTimeStart_ == nullptr && return this->currentPage_ == nullptr && return this->evaluationLevel_ == nullptr
+        && return this->evaluationScore_ == nullptr && return this->evaluationStatus_ == nullptr && return this->firstTimeEnd_ == nullptr && return this->firstTimeStart_ == nullptr && return this->instanceId_ == nullptr
+        && return this->memberId_ == nullptr && return this->memberName_ == nullptr && return this->pageSize_ == nullptr && return this->queueId_ == nullptr && return this->servicerId_ == nullptr
+        && return this->servicerName_ == nullptr && return this->touchId_ == nullptr && return this->touchType_ == nullptr; };
     // channelId Field Functions 
     bool hasChannelId() const { return this->channelId_ != nullptr;};
     void deleteChannelId() { this->channelId_ = nullptr;};

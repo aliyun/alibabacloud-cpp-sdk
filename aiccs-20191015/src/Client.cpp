@@ -6629,6 +6629,10 @@ QueryAiCallDetailPageResponse Client::queryAiCallDetailPageWithOptions(const Que
     query["MinConversationDuration"] = request.minConversationDuration();
   }
 
+  if (!!request.hasOutId()) {
+    query["OutId"] = request.outId();
+  }
+
   if (!!request.hasOwnerId()) {
     query["OwnerId"] = request.ownerId();
   }

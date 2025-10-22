@@ -462,9 +462,9 @@
 #include <alibabacloud/models/StartCallRequest.hpp>
 #include <alibabacloud/models/StartCallResponseBody.hpp>
 #include <alibabacloud/models/StartCallResponse.hpp>
-#include <alibabacloud/models/StartCallV2request.hpp>
-#include <alibabacloud/models/StartCallV2responseBody.hpp>
-#include <alibabacloud/models/StartCallV2response.hpp>
+#include <alibabacloud/models/StartCallV2Request.hpp>
+#include <alibabacloud/models/StartCallV2ResponseBody.hpp>
+#include <alibabacloud/models/StartCallV2Response.hpp>
 #include <alibabacloud/models/StartChatWorkRequest.hpp>
 #include <alibabacloud/models/StartChatWorkResponseBody.hpp>
 #include <alibabacloud/models/StartChatWorkResponse.hpp>
@@ -620,7 +620,7 @@
 #include <alibabacloud/models/QueryConversationDetailInfoResponseBodyDataOutputTags.hpp>
 #include <alibabacloud/models/QueryConversationDetailInfoResponseBodyDataVariables.hpp>
 #include <alibabacloud/models/QueryConversationDetailInfoResponseBodyData.hpp>
-#include <alibabacloud/models/QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeListGroupDolist.hpp>
+#include <alibabacloud/models/QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeListGroupDoList.hpp>
 #include <alibabacloud/models/QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeList.hpp>
 #include <alibabacloud/models/QueryHotlineNumberResponseBodyDataHotlineNumList.hpp>
 #include <alibabacloud/models/QueryHotlineNumberResponseBodyData.hpp>

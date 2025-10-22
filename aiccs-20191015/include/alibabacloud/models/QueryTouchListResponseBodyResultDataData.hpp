@@ -84,13 +84,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->buId_ != nullptr
-        && this->channelId_ != nullptr && this->channelType_ != nullptr && this->closeTime_ != nullptr && this->commonQueueName_ != nullptr && this->depId_ != nullptr
-        && this->extAttrs_ != nullptr && this->extAttrsString_ != nullptr && this->feedback_ != nullptr && this->firstTime_ != nullptr && this->fromId_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->memberId_ != nullptr && this->memberName_ != nullptr && this->parentTouchId_ != nullptr
-        && this->queueId_ != nullptr && this->servicerId_ != nullptr && this->servicerName_ != nullptr && this->status_ != nullptr && this->switchUser_ != nullptr
-        && this->toId_ != nullptr && this->touchContent_ != nullptr && this->touchEndReason_ != nullptr && this->touchId_ != nullptr && this->touchTime_ != nullptr
-        && this->touchType_ != nullptr && this->userTouchId_ != nullptr; };
+    virtual bool empty() const override { return this->buId_ == nullptr
+        && return this->channelId_ == nullptr && return this->channelType_ == nullptr && return this->closeTime_ == nullptr && return this->commonQueueName_ == nullptr && return this->depId_ == nullptr
+        && return this->extAttrs_ == nullptr && return this->extAttrsString_ == nullptr && return this->feedback_ == nullptr && return this->firstTime_ == nullptr && return this->fromId_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->memberId_ == nullptr && return this->memberName_ == nullptr && return this->parentTouchId_ == nullptr
+        && return this->queueId_ == nullptr && return this->servicerId_ == nullptr && return this->servicerName_ == nullptr && return this->status_ == nullptr && return this->switchUser_ == nullptr
+        && return this->toId_ == nullptr && return this->touchContent_ == nullptr && return this->touchEndReason_ == nullptr && return this->touchId_ == nullptr && return this->touchTime_ == nullptr
+        && return this->touchType_ == nullptr && return this->userTouchId_ == nullptr; };
     // buId Field Functions 
     bool hasBuId() const { return this->buId_ != nullptr;};
     void deleteBuId() { this->buId_ = nullptr;};

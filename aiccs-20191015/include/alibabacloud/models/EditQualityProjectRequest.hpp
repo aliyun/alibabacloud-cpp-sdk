@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->analysisIds_ != nullptr
-        && this->channelTouchType_ != nullptr && this->checkFreqType_ != nullptr && this->depList_ != nullptr && this->groupList_ != nullptr && this->instanceId_ != nullptr
-        && this->projectId_ != nullptr && this->projectName_ != nullptr && this->projectVersion_ != nullptr && this->scopeType_ != nullptr && this->servicerList_ != nullptr
-        && this->timeRangeEnd_ != nullptr && this->timeRangeStart_ != nullptr; };
+    virtual bool empty() const override { return this->analysisIds_ == nullptr
+        && return this->channelTouchType_ == nullptr && return this->checkFreqType_ == nullptr && return this->depList_ == nullptr && return this->groupList_ == nullptr && return this->instanceId_ == nullptr
+        && return this->projectId_ == nullptr && return this->projectName_ == nullptr && return this->projectVersion_ == nullptr && return this->scopeType_ == nullptr && return this->servicerList_ == nullptr
+        && return this->timeRangeEnd_ == nullptr && return this->timeRangeStart_ == nullptr; };
     // analysisIds Field Functions 
     bool hasAnalysisIds() const { return this->analysisIds_ != nullptr;};
     void deleteAnalysisIds() { this->analysisIds_ = nullptr;};

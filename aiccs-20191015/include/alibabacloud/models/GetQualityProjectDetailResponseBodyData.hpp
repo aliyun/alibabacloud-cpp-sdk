@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkFreqType_ != nullptr
-        && this->createTime_ != nullptr && this->depList_ != nullptr && this->groupList_ != nullptr && this->id_ != nullptr && this->modifyTime_ != nullptr
-        && this->projectName_ != nullptr && this->qualityRuleIds_ != nullptr && this->qualityType_ != nullptr && this->servicerList_ != nullptr && this->status_ != nullptr
-        && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->checkFreqType_ == nullptr
+        && return this->createTime_ == nullptr && return this->depList_ == nullptr && return this->groupList_ == nullptr && return this->id_ == nullptr && return this->modifyTime_ == nullptr
+        && return this->projectName_ == nullptr && return this->qualityRuleIds_ == nullptr && return this->qualityType_ == nullptr && return this->servicerList_ == nullptr && return this->status_ == nullptr
+        && return this->version_ == nullptr; };
     // checkFreqType Field Functions 
     bool hasCheckFreqType() const { return this->checkFreqType_ != nullptr;};
     void deleteCheckFreqType() { this->checkFreqType_ = nullptr;};

@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->channelType_ != nullptr
-        && this->groupIds_ != nullptr && this->hitStatus_ != nullptr && this->instanceId_ != nullptr && this->pageNo_ != nullptr && this->pageSize_ != nullptr
-        && this->projectIds_ != nullptr && this->qualityRuleIds_ != nullptr && this->touchEndTime_ != nullptr && this->touchStartTime_ != nullptr; };
+    virtual bool empty() const override { return this->channelType_ == nullptr
+        && return this->groupIds_ == nullptr && return this->hitStatus_ == nullptr && return this->instanceId_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr
+        && return this->projectIds_ == nullptr && return this->qualityRuleIds_ == nullptr && return this->touchEndTime_ == nullptr && return this->touchStartTime_ == nullptr; };
     // channelType Field Functions 
     bool hasChannelType() const { return this->channelType_ != nullptr;};
     void deleteChannelType() { this->channelType_ = nullptr;};

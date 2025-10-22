@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ani_ != nullptr
-        && this->callInfos_ != nullptr && this->departmentId_ != nullptr && this->description_ != nullptr && this->endDate_ != nullptr && this->endTime_ != nullptr
-        && this->extAttrs_ != nullptr && this->groupName_ != nullptr && this->instanceId_ != nullptr && this->model_ != nullptr && this->retryInterval_ != nullptr
-        && this->retryTime_ != nullptr && this->skillGroup_ != nullptr && this->startDate_ != nullptr && this->startTime_ != nullptr && this->taskName_ != nullptr
-        && this->taskType_ != nullptr; };
+    virtual bool empty() const override { return this->ani_ == nullptr
+        && return this->callInfos_ == nullptr && return this->departmentId_ == nullptr && return this->description_ == nullptr && return this->endDate_ == nullptr && return this->endTime_ == nullptr
+        && return this->extAttrs_ == nullptr && return this->groupName_ == nullptr && return this->instanceId_ == nullptr && return this->model_ == nullptr && return this->retryInterval_ == nullptr
+        && return this->retryTime_ == nullptr && return this->skillGroup_ == nullptr && return this->startDate_ == nullptr && return this->startTime_ == nullptr && return this->taskName_ == nullptr
+        && return this->taskType_ == nullptr; };
     // ani Field Functions 
     bool hasAni() const { return this->ani_ != nullptr;};
     void deleteAni() { this->ani_ = nullptr;};

@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ani_ != nullptr
-        && this->dnis_ != nullptr && this->evaluationLevel_ != nullptr && this->evaluationScore_ != nullptr && this->evaluationSolution_ != nullptr && this->evaluationStatus_ != nullptr
-        && this->onlineJoinRespInterval_ != nullptr && this->onlineSessionSource_ != nullptr && this->outCallRouteNumber_ != nullptr; };
+    virtual bool empty() const override { return this->ani_ == nullptr
+        && return this->dnis_ == nullptr && return this->evaluationLevel_ == nullptr && return this->evaluationScore_ == nullptr && return this->evaluationSolution_ == nullptr && return this->evaluationStatus_ == nullptr
+        && return this->onlineJoinRespInterval_ == nullptr && return this->onlineSessionSource_ == nullptr && return this->outCallRouteNumber_ == nullptr; };
     // ani Field Functions 
     bool hasAni() const { return this->ani_ != nullptr;};
     void deleteAni() { this->ani_ = nullptr;};

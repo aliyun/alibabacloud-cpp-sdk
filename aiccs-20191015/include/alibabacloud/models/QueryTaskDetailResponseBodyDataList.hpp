@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ani_ != nullptr
-        && this->buId_ != nullptr && this->departmentId_ != nullptr && this->dnis_ != nullptr && this->endReason_ != nullptr && this->extAttrs_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->id_ != nullptr && this->memberId_ != nullptr && this->memberName_ != nullptr
-        && this->outboundNum_ != nullptr && this->outboundTaskId_ != nullptr && this->priority_ != nullptr && this->retryTime_ != nullptr && this->servicerId_ != nullptr
-        && this->servicerName_ != nullptr && this->skillGroup_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->ani_ == nullptr
+        && return this->buId_ == nullptr && return this->departmentId_ == nullptr && return this->dnis_ == nullptr && return this->endReason_ == nullptr && return this->extAttrs_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->id_ == nullptr && return this->memberId_ == nullptr && return this->memberName_ == nullptr
+        && return this->outboundNum_ == nullptr && return this->outboundTaskId_ == nullptr && return this->priority_ == nullptr && return this->retryTime_ == nullptr && return this->servicerId_ == nullptr
+        && return this->servicerName_ == nullptr && return this->skillGroup_ == nullptr && return this->status_ == nullptr; };
     // ani Field Functions 
     bool hasAni() const { return this->ani_ != nullptr;};
     void deleteAni() { this->ani_ = nullptr;};

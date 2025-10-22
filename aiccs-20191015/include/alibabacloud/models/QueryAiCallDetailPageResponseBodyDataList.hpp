@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MajorIntent, majorIntent_);
       DARABONBA_PTR_TO_JSON(Options, options_);
       DARABONBA_PTR_TO_JSON(RecordingFilePath, recordingFilePath_);
+      DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
     };
     friend void from_json(const Darabonba::Json& j, QueryAiCallDetailPageResponseBodyDataList& obj) { 
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MajorIntent, majorIntent_);
       DARABONBA_PTR_FROM_JSON(Options, options_);
       DARABONBA_PTR_FROM_JSON(RecordingFilePath, recordingFilePath_);
+      DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
     };
     QueryAiCallDetailPageResponseBodyDataList() = default ;
@@ -55,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->batchId_ != nullptr
-        && this->callResult_ != nullptr && this->calledNumber_ != nullptr && this->callingTime_ != nullptr && this->conversationDuration_ != nullptr && this->conversationRecord_ != nullptr
-        && this->conversationTurnCount_ != nullptr && this->detailId_ != nullptr && this->failedReason_ != nullptr && this->importedTime_ != nullptr && this->majorIntent_ != nullptr
-        && this->options_ != nullptr && this->recordingFilePath_ != nullptr && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->batchId_ == nullptr
+        && return this->callResult_ == nullptr && return this->calledNumber_ == nullptr && return this->callingTime_ == nullptr && return this->conversationDuration_ == nullptr && return this->conversationRecord_ == nullptr
+        && return this->conversationTurnCount_ == nullptr && return this->detailId_ == nullptr && return this->failedReason_ == nullptr && return this->importedTime_ == nullptr && return this->majorIntent_ == nullptr
+        && return this->options_ == nullptr && return this->recordingFilePath_ == nullptr && return this->status_ == nullptr && return this->taskId_ == nullptr; };
     // batchId Field Functions 
     bool hasBatchId() const { return this->batchId_ != nullptr;};
     void deleteBatchId() { this->batchId_ = nullptr;};
@@ -150,6 +152,13 @@ namespace Models
     inline QueryAiCallDetailPageResponseBodyDataList& setRecordingFilePath(string recordingFilePath) { DARABONBA_PTR_SET_VALUE(recordingFilePath_, recordingFilePath) };
 
 
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline int64_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0L) };
+    inline QueryAiCallDetailPageResponseBodyDataList& setStatus(int64_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
@@ -171,6 +180,7 @@ namespace Models
     std::shared_ptr<string> majorIntent_ = nullptr;
     std::shared_ptr<string> options_ = nullptr;
     std::shared_ptr<string> recordingFilePath_ = nullptr;
+    std::shared_ptr<int64_t> status_ = nullptr;
     std::shared_ptr<string> taskId_ = nullptr;
   };
 

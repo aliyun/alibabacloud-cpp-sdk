@@ -71,12 +71,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->buId_ != nullptr
-        && this->callerNum_ != nullptr && this->creator_ != nullptr && this->departmentId_ != nullptr && this->description_ != nullptr && this->endDate_ != nullptr
-        && this->endTime_ != nullptr && this->extAttrs_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->groupName_ != nullptr
-        && this->id_ != nullptr && this->model_ != nullptr && this->modifier_ != nullptr && this->name_ != nullptr && this->retryInterval_ != nullptr
-        && this->retryTime_ != nullptr && this->skillGroup_ != nullptr && this->startDate_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->buId_ == nullptr
+        && return this->callerNum_ == nullptr && return this->creator_ == nullptr && return this->departmentId_ == nullptr && return this->description_ == nullptr && return this->endDate_ == nullptr
+        && return this->endTime_ == nullptr && return this->extAttrs_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->groupName_ == nullptr
+        && return this->id_ == nullptr && return this->model_ == nullptr && return this->modifier_ == nullptr && return this->name_ == nullptr && return this->retryInterval_ == nullptr
+        && return this->retryTime_ == nullptr && return this->skillGroup_ == nullptr && return this->startDate_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr
+        && return this->type_ == nullptr; };
     // buId Field Functions 
     bool hasBuId() const { return this->buId_ != nullptr;};
     void deleteBuId() { this->buId_ = nullptr;};

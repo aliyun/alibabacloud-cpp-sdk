@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callDay_ != nullptr
-        && this->callRetryInterval_ != nullptr && this->callRetryReason_ != nullptr && this->callRetryTimes_ != nullptr && this->callTime_ != nullptr && this->missCallRetry_ != nullptr
-        && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->startType_ != nullptr && this->taskId_ != nullptr
-        && this->taskName_ != nullptr && this->taskStartTime_ != nullptr && this->virtualNumber_ != nullptr; };
+    virtual bool empty() const override { return this->callDay_ == nullptr
+        && return this->callRetryInterval_ == nullptr && return this->callRetryReason_ == nullptr && return this->callRetryTimes_ == nullptr && return this->callTime_ == nullptr && return this->missCallRetry_ == nullptr
+        && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->startType_ == nullptr && return this->taskId_ == nullptr
+        && return this->taskName_ == nullptr && return this->taskStartTime_ == nullptr && return this->virtualNumber_ == nullptr; };
     // callDay Field Functions 
     bool hasCallDay() const { return this->callDay_ != nullptr;};
     void deleteCallDay() { this->callDay_ = nullptr;};

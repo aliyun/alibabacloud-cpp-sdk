@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applicationCode_ != nullptr
-        && this->bizParamShrink_ != nullptr && this->calledNumber_ != nullptr && this->callerNumber_ != nullptr && this->customerLineCode_ != nullptr && this->extension_ != nullptr
-        && this->outId_ != nullptr && this->promptParamShrink_ != nullptr && this->sessionTimeout_ != nullptr && this->startWordParamShrink_ != nullptr && this->ttsSpeed_ != nullptr
-        && this->ttsVoiceCode_ != nullptr && this->ttsVolume_ != nullptr; };
+    virtual bool empty() const override { return this->applicationCode_ == nullptr
+        && return this->bizParamShrink_ == nullptr && return this->calledNumber_ == nullptr && return this->callerNumber_ == nullptr && return this->customerLineCode_ == nullptr && return this->extension_ == nullptr
+        && return this->outId_ == nullptr && return this->promptParamShrink_ == nullptr && return this->sessionTimeout_ == nullptr && return this->startWordParamShrink_ == nullptr && return this->ttsSpeed_ == nullptr
+        && return this->ttsVoiceCode_ == nullptr && return this->ttsVolume_ == nullptr; };
     // applicationCode Field Functions 
     bool hasApplicationCode() const { return this->applicationCode_ != nullptr;};
     void deleteApplicationCode() { this->applicationCode_ = nullptr;};

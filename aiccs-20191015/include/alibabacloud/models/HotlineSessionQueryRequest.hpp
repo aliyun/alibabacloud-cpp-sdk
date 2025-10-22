@@ -82,13 +82,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acid_ != nullptr
-        && this->acidList_ != nullptr && this->callResult_ != nullptr && this->callResultList_ != nullptr && this->callType_ != nullptr && this->callTypeList_ != nullptr
-        && this->calledNumber_ != nullptr && this->calledNumberList_ != nullptr && this->callingNumber_ != nullptr && this->callingNumberList_ != nullptr && this->groupId_ != nullptr
-        && this->groupIdList_ != nullptr && this->groupName_ != nullptr && this->id_ != nullptr && this->instanceId_ != nullptr && this->memberId_ != nullptr
-        && this->memberIdList_ != nullptr && this->memberName_ != nullptr && this->pageNo_ != nullptr && this->pageSize_ != nullptr && this->params_ != nullptr
-        && this->queryEndTime_ != nullptr && this->queryStartTime_ != nullptr && this->requestId_ != nullptr && this->servicerId_ != nullptr && this->servicerIdList_ != nullptr
-        && this->servicerName_ != nullptr; };
+    virtual bool empty() const override { return this->acid_ == nullptr
+        && return this->acidList_ == nullptr && return this->callResult_ == nullptr && return this->callResultList_ == nullptr && return this->callType_ == nullptr && return this->callTypeList_ == nullptr
+        && return this->calledNumber_ == nullptr && return this->calledNumberList_ == nullptr && return this->callingNumber_ == nullptr && return this->callingNumberList_ == nullptr && return this->groupId_ == nullptr
+        && return this->groupIdList_ == nullptr && return this->groupName_ == nullptr && return this->id_ == nullptr && return this->instanceId_ == nullptr && return this->memberId_ == nullptr
+        && return this->memberIdList_ == nullptr && return this->memberName_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->params_ == nullptr
+        && return this->queryEndTime_ == nullptr && return this->queryStartTime_ == nullptr && return this->requestId_ == nullptr && return this->servicerId_ == nullptr && return this->servicerIdList_ == nullptr
+        && return this->servicerName_ == nullptr; };
     // acid Field Functions 
     bool hasAcid() const { return this->acid_ != nullptr;};
     void deleteAcid() { this->acid_ = nullptr;};

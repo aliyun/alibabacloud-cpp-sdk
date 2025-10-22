@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->calloutAllDepartment_ != nullptr
-        && this->calloutRangeList_ != nullptr && this->description_ != nullptr && this->evaluationStatus_ != nullptr && this->flowId_ != nullptr && this->flowName_ != nullptr
-        && this->hotlineNumber_ != nullptr && this->inBoundEnabled_ != nullptr && this->location_ != nullptr && this->outboundEnabled_ != nullptr && this->sp_ != nullptr; };
+    virtual bool empty() const override { return this->calloutAllDepartment_ == nullptr
+        && return this->calloutRangeList_ == nullptr && return this->description_ == nullptr && return this->evaluationStatus_ == nullptr && return this->flowId_ == nullptr && return this->flowName_ == nullptr
+        && return this->hotlineNumber_ == nullptr && return this->inBoundEnabled_ == nullptr && return this->location_ == nullptr && return this->outboundEnabled_ == nullptr && return this->sp_ == nullptr; };
     // calloutAllDepartment Field Functions 
     bool hasCalloutAllDepartment() const { return this->calloutAllDepartment_ != nullptr;};
     void deleteCalloutAllDepartment() { this->calloutAllDepartment_ = nullptr;};

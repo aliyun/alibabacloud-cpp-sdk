@@ -85,13 +85,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acid_ != nullptr
-        && this->activeTransferId_ != nullptr && this->callContinueTime_ != nullptr && this->callResult_ != nullptr && this->callType_ != nullptr && this->calledNumber_ != nullptr
-        && this->callingNumber_ != nullptr && this->createTime_ != nullptr && this->evaluationLevel_ != nullptr && this->evaluationScore_ != nullptr && this->groupId_ != nullptr
-        && this->groupName_ != nullptr && this->hangUpRole_ != nullptr && this->hangUpTime_ != nullptr && this->id_ != nullptr && this->inQueueTime_ != nullptr
-        && this->memberId_ != nullptr && this->memberName_ != nullptr && this->outQueueTime_ != nullptr && this->passiveTransferId_ != nullptr && this->passiveTransferIdType_ != nullptr
-        && this->pickUpTime_ != nullptr && this->queueUpContinueTime_ != nullptr && this->ringContinueTime_ != nullptr && this->ringEndTime_ != nullptr && this->ringStartTime_ != nullptr
-        && this->servicerId_ != nullptr && this->servicerName_ != nullptr && this->trunkCall_ != nullptr; };
+    virtual bool empty() const override { return this->acid_ == nullptr
+        && return this->activeTransferId_ == nullptr && return this->callContinueTime_ == nullptr && return this->callResult_ == nullptr && return this->callType_ == nullptr && return this->calledNumber_ == nullptr
+        && return this->callingNumber_ == nullptr && return this->createTime_ == nullptr && return this->evaluationLevel_ == nullptr && return this->evaluationScore_ == nullptr && return this->groupId_ == nullptr
+        && return this->groupName_ == nullptr && return this->hangUpRole_ == nullptr && return this->hangUpTime_ == nullptr && return this->id_ == nullptr && return this->inQueueTime_ == nullptr
+        && return this->memberId_ == nullptr && return this->memberName_ == nullptr && return this->outQueueTime_ == nullptr && return this->passiveTransferId_ == nullptr && return this->passiveTransferIdType_ == nullptr
+        && return this->pickUpTime_ == nullptr && return this->queueUpContinueTime_ == nullptr && return this->ringContinueTime_ == nullptr && return this->ringEndTime_ == nullptr && return this->ringStartTime_ == nullptr
+        && return this->servicerId_ == nullptr && return this->servicerName_ == nullptr && return this->trunkCall_ == nullptr; };
     // acid Field Functions 
     bool hasAcid() const { return this->acid_ != nullptr;};
     void deleteAcid() { this->acid_ = nullptr;};

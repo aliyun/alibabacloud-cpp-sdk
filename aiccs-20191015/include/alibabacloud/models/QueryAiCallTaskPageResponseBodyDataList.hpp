@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentId_ != nullptr
-        && this->agentName_ != nullptr && this->callingCount_ != nullptr && this->completeRate_ != nullptr && this->concurrentCount_ != nullptr && this->createTime_ != nullptr
-        && this->dayCallCount_ != nullptr && this->dayConnectRate_ != nullptr && this->dayImportCount_ != nullptr && this->failedCount_ != nullptr && this->historyConnectRate_ != nullptr
-        && this->realStartTime_ != nullptr && this->startFailedReason_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->succeedCount_ != nullptr
-        && this->taskId_ != nullptr && this->taskName_ != nullptr && this->totalCallCount_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->agentId_ == nullptr
+        && return this->agentName_ == nullptr && return this->callingCount_ == nullptr && return this->completeRate_ == nullptr && return this->concurrentCount_ == nullptr && return this->createTime_ == nullptr
+        && return this->dayCallCount_ == nullptr && return this->dayConnectRate_ == nullptr && return this->dayImportCount_ == nullptr && return this->failedCount_ == nullptr && return this->historyConnectRate_ == nullptr
+        && return this->realStartTime_ == nullptr && return this->startFailedReason_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->succeedCount_ == nullptr
+        && return this->taskId_ == nullptr && return this->taskName_ == nullptr && return this->totalCallCount_ == nullptr && return this->totalCount_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};

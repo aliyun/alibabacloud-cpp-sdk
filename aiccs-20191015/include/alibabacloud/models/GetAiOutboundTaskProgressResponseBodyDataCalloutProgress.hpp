@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callLossCount_ != nullptr
-        && this->callLossRate_ != nullptr && this->callOutConnectCount_ != nullptr && this->callOutConnectRate_ != nullptr && this->callOutCount_ != nullptr && this->callOutServicerPickupCount_ != nullptr
-        && this->callOutServicerPickupRate_ != nullptr && this->callOutUserPickupCount_ != nullptr && this->callOutUserPickupRate_ != nullptr; };
+    virtual bool empty() const override { return this->callLossCount_ == nullptr
+        && return this->callLossRate_ == nullptr && return this->callOutConnectCount_ == nullptr && return this->callOutConnectRate_ == nullptr && return this->callOutCount_ == nullptr && return this->callOutServicerPickupCount_ == nullptr
+        && return this->callOutServicerPickupRate_ == nullptr && return this->callOutUserPickupCount_ == nullptr && return this->callOutUserPickupRate_ == nullptr; };
     // callLossCount Field Functions 
     bool hasCallLossCount() const { return this->callLossCount_ != nullptr;};
     void deleteCallLossCount() { this->callLossCount_ = nullptr;};

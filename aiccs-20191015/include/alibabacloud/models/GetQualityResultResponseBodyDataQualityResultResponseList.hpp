@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->channelType_ != nullptr
-        && this->channelTypeName_ != nullptr && this->groupId_ != nullptr && this->groupName_ != nullptr && this->hitDetail_ != nullptr && this->hitStatus_ != nullptr
-        && this->instanceName_ != nullptr && this->memberName_ != nullptr && this->projectId_ != nullptr && this->projectName_ != nullptr && this->ruleId_ != nullptr
-        && this->ruleName_ != nullptr && this->servicerId_ != nullptr && this->servicerName_ != nullptr && this->touchId_ != nullptr && this->touchStartTime_ != nullptr; };
+    virtual bool empty() const override { return this->channelType_ == nullptr
+        && return this->channelTypeName_ == nullptr && return this->groupId_ == nullptr && return this->groupName_ == nullptr && return this->hitDetail_ == nullptr && return this->hitStatus_ == nullptr
+        && return this->instanceName_ == nullptr && return this->memberName_ == nullptr && return this->projectId_ == nullptr && return this->projectName_ == nullptr && return this->ruleId_ == nullptr
+        && return this->ruleName_ == nullptr && return this->servicerId_ == nullptr && return this->servicerName_ == nullptr && return this->touchId_ == nullptr && return this->touchStartTime_ == nullptr; };
     // channelType Field Functions 
     bool hasChannelType() const { return this->channelType_ != nullptr;};
     void deleteChannelType() { this->channelType_ = nullptr;};

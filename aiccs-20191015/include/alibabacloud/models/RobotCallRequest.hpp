@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->calledNumber_ != nullptr
-        && this->calledShowNumber_ != nullptr && this->earlyMediaAsr_ != nullptr && this->outId_ != nullptr && this->ownerId_ != nullptr && this->params_ != nullptr
-        && this->recordFlag_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->robotId_ != nullptr; };
+    virtual bool empty() const override { return this->calledNumber_ == nullptr
+        && return this->calledShowNumber_ == nullptr && return this->earlyMediaAsr_ == nullptr && return this->outId_ == nullptr && return this->ownerId_ == nullptr && return this->params_ == nullptr
+        && return this->recordFlag_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->robotId_ == nullptr; };
     // calledNumber Field Functions 
     bool hasCalledNumber() const { return this->calledNumber_ != nullptr;};
     void deleteCalledNumber() { this->calledNumber_ = nullptr;};

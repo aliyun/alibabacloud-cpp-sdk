@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actionId_ != nullptr
-        && this->buId_ != nullptr && this->calloutId_ != nullptr && this->calloutName_ != nullptr && this->caseId_ != nullptr && this->channelId_ != nullptr
-        && this->channelType_ != nullptr && this->depId_ != nullptr && this->isTransfer_ != nullptr && this->memberId_ != nullptr && this->memberList_ != nullptr
-        && this->memberName_ != nullptr && this->servicerId_ != nullptr && this->servicerName_ != nullptr && this->subTouchId_ != nullptr && this->taskId_ != nullptr
-        && this->touchId_ != nullptr; };
+    virtual bool empty() const override { return this->actionId_ == nullptr
+        && return this->buId_ == nullptr && return this->calloutId_ == nullptr && return this->calloutName_ == nullptr && return this->caseId_ == nullptr && return this->channelId_ == nullptr
+        && return this->channelType_ == nullptr && return this->depId_ == nullptr && return this->isTransfer_ == nullptr && return this->memberId_ == nullptr && return this->memberList_ == nullptr
+        && return this->memberName_ == nullptr && return this->servicerId_ == nullptr && return this->servicerName_ == nullptr && return this->subTouchId_ == nullptr && return this->taskId_ == nullptr
+        && return this->touchId_ == nullptr; };
     // actionId Field Functions 
     bool hasActionId() const { return this->actionId_ != nullptr;};
     void deleteActionId() { this->actionId_ = nullptr;};

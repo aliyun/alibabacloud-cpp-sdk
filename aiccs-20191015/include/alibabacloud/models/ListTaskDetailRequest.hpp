@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->called_ != nullptr
-        && this->id_ != nullptr && this->ownerId_ != nullptr && this->pageNo_ != nullptr && this->pageSize_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->status_ != nullptr && this->statusCode_ != nullptr && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->called_ == nullptr
+        && return this->id_ == nullptr && return this->ownerId_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->status_ == nullptr && return this->statusCode_ == nullptr && return this->taskId_ == nullptr; };
     // called Field Functions 
     bool hasCalled() const { return this->called_ != nullptr;};
     void deleteCalled() { this->called_ = nullptr;};

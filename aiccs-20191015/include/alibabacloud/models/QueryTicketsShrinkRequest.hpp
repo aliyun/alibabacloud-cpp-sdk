@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->caseId_ != nullptr
-        && this->caseStatus_ != nullptr && this->caseType_ != nullptr && this->channelId_ != nullptr && this->channelType_ != nullptr && this->currentPage_ != nullptr
-        && this->dealId_ != nullptr && this->extraShrink_ != nullptr && this->instanceId_ != nullptr && this->pageSize_ != nullptr && this->srType_ != nullptr
-        && this->taskStatus_ != nullptr && this->touchId_ != nullptr; };
+    virtual bool empty() const override { return this->caseId_ == nullptr
+        && return this->caseStatus_ == nullptr && return this->caseType_ == nullptr && return this->channelId_ == nullptr && return this->channelType_ == nullptr && return this->currentPage_ == nullptr
+        && return this->dealId_ == nullptr && return this->extraShrink_ == nullptr && return this->instanceId_ == nullptr && return this->pageSize_ == nullptr && return this->srType_ == nullptr
+        && return this->taskStatus_ == nullptr && return this->touchId_ == nullptr; };
     // caseId Field Functions 
     bool hasCaseId() const { return this->caseId_ != nullptr;};
     void deleteCaseId() { this->caseId_ = nullptr;};

@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->batchVersion_ != nullptr
-        && this->details_ != nullptr && this->instanceId_ != nullptr && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->batchVersion_ == nullptr
+        && return this->details_ == nullptr && return this->instanceId_ == nullptr && return this->taskId_ == nullptr; };
     // batchVersion Field Functions 
     bool hasBatchVersion() const { return this->batchVersion_ != nullptr;};
     void deleteBatchVersion() { this->batchVersion_ = nullptr;};

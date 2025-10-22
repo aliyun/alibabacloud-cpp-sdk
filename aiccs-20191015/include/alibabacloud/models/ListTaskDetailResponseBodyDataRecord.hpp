@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->called_ != nullptr
-        && this->caller_ != nullptr && this->direction_ != nullptr && this->duration_ != nullptr && this->endTime_ != nullptr && this->id_ != nullptr
-        && this->retryCurTimes_ != nullptr && this->retryTimes_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->statusCode_ != nullptr
-        && this->statusCodeDesc_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->called_ == nullptr
+        && return this->caller_ == nullptr && return this->direction_ == nullptr && return this->duration_ == nullptr && return this->endTime_ == nullptr && return this->id_ == nullptr
+        && return this->retryCurTimes_ == nullptr && return this->retryTimes_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->statusCode_ == nullptr
+        && return this->statusCodeDesc_ == nullptr && return this->tags_ == nullptr; };
     // called Field Functions 
     bool hasCalled() const { return this->called_ != nullptr;};
     void deleteCalled() { this->called_ = nullptr;};
