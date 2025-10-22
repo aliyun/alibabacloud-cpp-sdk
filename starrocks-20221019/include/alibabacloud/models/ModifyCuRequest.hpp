@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fastMode_ != nullptr
-        && this->instanceId_ != nullptr && this->nodeGroupId_ != nullptr && this->promotionOptionNo_ != nullptr && this->target_ != nullptr; };
+    virtual bool empty() const override { return this->fastMode_ == nullptr
+        && return this->instanceId_ == nullptr && return this->nodeGroupId_ == nullptr && return this->promotionOptionNo_ == nullptr && return this->target_ == nullptr; };
     // fastMode Field Functions 
     bool hasFastMode() const { return this->fastMode_ != nullptr;};
     void deleteFastMode() { this->fastMode_ = nullptr;};

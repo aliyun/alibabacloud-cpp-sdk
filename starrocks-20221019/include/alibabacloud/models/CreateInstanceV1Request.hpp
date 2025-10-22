@@ -86,12 +86,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adminPassword_ != nullptr
-        && this->agentNodeGroup_ != nullptr && this->autoPay_ != nullptr && this->autoRenew_ != nullptr && this->backendNodeGroups_ != nullptr && this->clientToken_ != nullptr
-        && this->duration_ != nullptr && this->encrypted_ != nullptr && this->frontendNodeGroups_ != nullptr && this->gatewayType_ != nullptr && this->instanceName_ != nullptr
-        && this->kmsKeyId_ != nullptr && this->observerNodeGroups_ != nullptr && this->ossAccessingRoleName_ != nullptr && this->packageType_ != nullptr && this->payType_ != nullptr
-        && this->pricingCycle_ != nullptr && this->promotionOptionNo_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->runMode_ != nullptr
-        && this->tags_ != nullptr && this->vSwitches_ != nullptr && this->version_ != nullptr && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->adminPassword_ == nullptr
+        && return this->agentNodeGroup_ == nullptr && return this->autoPay_ == nullptr && return this->autoRenew_ == nullptr && return this->backendNodeGroups_ == nullptr && return this->clientToken_ == nullptr
+        && return this->duration_ == nullptr && return this->encrypted_ == nullptr && return this->frontendNodeGroups_ == nullptr && return this->gatewayType_ == nullptr && return this->instanceName_ == nullptr
+        && return this->kmsKeyId_ == nullptr && return this->observerNodeGroups_ == nullptr && return this->ossAccessingRoleName_ == nullptr && return this->packageType_ == nullptr && return this->payType_ == nullptr
+        && return this->pricingCycle_ == nullptr && return this->promotionOptionNo_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->runMode_ == nullptr
+        && return this->tags_ == nullptr && return this->vSwitches_ == nullptr && return this->version_ == nullptr && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
     // adminPassword Field Functions 
     bool hasAdminPassword() const { return this->adminPassword_ != nullptr;};
     void deleteAdminPassword() { this->adminPassword_ = nullptr;};

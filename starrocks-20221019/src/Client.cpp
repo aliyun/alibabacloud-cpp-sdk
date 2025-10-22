@@ -353,6 +353,81 @@ DescribeInstancesResponse Client::describeInstances(const DescribeInstancesReque
 }
 
 /**
+ * @summary 获取节点组信息
+ *
+ * @param request DescribeNodeGroupsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeNodeGroupsResponse
+ */
+DescribeNodeGroupsResponse Client::describeNodeGroupsWithOptions(const DescribeNodeGroupsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  json body = {};
+  if (!!request.hasComponentType()) {
+    body["componentType"] = request.componentType();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["instanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasNodeGroupIds()) {
+    body["nodeGroupIds"] = request.nodeGroupIds();
+  }
+
+  if (!!request.hasNodeGroupName()) {
+    body["nodeGroupName"] = request.nodeGroupName();
+  }
+
+  if (!!request.hasStatus()) {
+    body["status"] = request.status();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DescribeNodeGroups"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/nodegroup/describeNodeGroups")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeNodeGroupsResponse>();
+}
+
+/**
+ * @summary 获取节点组信息
+ *
+ * @param request DescribeNodeGroupsRequest
+ * @return DescribeNodeGroupsResponse
+ */
+DescribeNodeGroupsResponse Client::describeNodeGroups(const DescribeNodeGroupsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return describeNodeGroupsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Modifies the number of CUs for a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
  *
  * @description Before you call this operation, make sure that you understand the billing methods and [billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of EMR Serverless StarRocks instances.

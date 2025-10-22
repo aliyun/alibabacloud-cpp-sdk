@@ -91,6 +91,24 @@ namespace Starrocks20221019
       Models::DescribeInstancesResponse describeInstances(const Models::DescribeInstancesRequest &request);
 
       /**
+       * @summary 获取节点组信息
+       *
+       * @param request DescribeNodeGroupsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeNodeGroupsResponse
+       */
+      Models::DescribeNodeGroupsResponse describeNodeGroupsWithOptions(const Models::DescribeNodeGroupsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取节点组信息
+       *
+       * @param request DescribeNodeGroupsRequest
+       * @return DescribeNodeGroupsResponse
+       */
+      Models::DescribeNodeGroupsResponse describeNodeGroups(const Models::DescribeNodeGroupsRequest &request);
+
+      /**
        * @summary Modifies the number of CUs for a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
        *
        * @description Before you call this operation, make sure that you understand the billing methods and [billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of EMR Serverless StarRocks instances.
