@@ -32,6 +32,7 @@
 #include <alibabacloud/models/ImageItem.hpp>
 #include <alibabacloud/models/JobDebuggerConfig.hpp>
 #include <alibabacloud/models/JobElasticSpec.hpp>
+#include <alibabacloud/models/JobReplicaStatus.hpp>
 #include <alibabacloud/models/LocalMountSpec.hpp>
 #include <alibabacloud/models/ResourceConfig.hpp>
 #include <alibabacloud/models/ServiceSpec.hpp>

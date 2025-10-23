@@ -8,6 +8,7 @@
 #include <alibabacloud/models/GetJobResponseBodyDataSources.hpp>
 #include <alibabacloud/models/JobElasticSpec.hpp>
 #include <map>
+#include <alibabacloud/models/JobReplicaStatus.hpp>
 #include <alibabacloud/models/JobSpec.hpp>
 #include <alibabacloud/models/GetJobResponseBodyPods.hpp>
 #include <alibabacloud/models/GetJobResponseBodyRestartRecord.hpp>
@@ -43,6 +44,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GmtSubmittedTime, gmtSubmittedTime_);
       DARABONBA_PTR_TO_JSON(GmtSuccessedTime, gmtSuccessedTime_);
       DARABONBA_PTR_TO_JSON(JobId, jobId_);
+      DARABONBA_PTR_TO_JSON(JobReplicaStatuses, jobReplicaStatuses_);
       DARABONBA_PTR_TO_JSON(JobSpecs, jobSpecs_);
       DARABONBA_PTR_TO_JSON(JobType, jobType_);
       DARABONBA_PTR_TO_JSON(Pods, pods_);
@@ -87,6 +89,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GmtSubmittedTime, gmtSubmittedTime_);
       DARABONBA_PTR_FROM_JSON(GmtSuccessedTime, gmtSuccessedTime_);
       DARABONBA_PTR_FROM_JSON(JobId, jobId_);
+      DARABONBA_PTR_FROM_JSON(JobReplicaStatuses, jobReplicaStatuses_);
       DARABONBA_PTR_FROM_JSON(JobSpecs, jobSpecs_);
       DARABONBA_PTR_FROM_JSON(JobType, jobType_);
       DARABONBA_PTR_FROM_JSON(Pods, pods_);
@@ -127,12 +130,12 @@ namespace Models
         && return this->clusterId_ == nullptr && return this->codeSource_ == nullptr && return this->credentialConfig_ == nullptr && return this->dataSources_ == nullptr && return this->displayName_ == nullptr
         && return this->duration_ == nullptr && return this->elasticSpec_ == nullptr && return this->enabledDebugger_ == nullptr && return this->envs_ == nullptr && return this->gmtCreateTime_ == nullptr
         && return this->gmtFailedTime_ == nullptr && return this->gmtFinishTime_ == nullptr && return this->gmtRunningTime_ == nullptr && return this->gmtStoppedTime_ == nullptr && return this->gmtSubmittedTime_ == nullptr
-        && return this->gmtSuccessedTime_ == nullptr && return this->jobId_ == nullptr && return this->jobSpecs_ == nullptr && return this->jobType_ == nullptr && return this->pods_ == nullptr
-        && return this->priority_ == nullptr && return this->reasonCode_ == nullptr && return this->reasonMessage_ == nullptr && return this->requestId_ == nullptr && return this->resourceId_ == nullptr
-        && return this->resourceLevel_ == nullptr && return this->resourceType_ == nullptr && return this->restartRecord_ == nullptr && return this->restartTimes_ == nullptr && return this->settings_ == nullptr
-        && return this->status_ == nullptr && return this->statusHistory_ == nullptr && return this->subStatus_ == nullptr && return this->tenantId_ == nullptr && return this->thirdpartyLibDir_ == nullptr
-        && return this->thirdpartyLibs_ == nullptr && return this->userCommand_ == nullptr && return this->userId_ == nullptr && return this->userVpc_ == nullptr && return this->workspaceId_ == nullptr
-        && return this->workspaceName_ == nullptr; };
+        && return this->gmtSuccessedTime_ == nullptr && return this->jobId_ == nullptr && return this->jobReplicaStatuses_ == nullptr && return this->jobSpecs_ == nullptr && return this->jobType_ == nullptr
+        && return this->pods_ == nullptr && return this->priority_ == nullptr && return this->reasonCode_ == nullptr && return this->reasonMessage_ == nullptr && return this->requestId_ == nullptr
+        && return this->resourceId_ == nullptr && return this->resourceLevel_ == nullptr && return this->resourceType_ == nullptr && return this->restartRecord_ == nullptr && return this->restartTimes_ == nullptr
+        && return this->settings_ == nullptr && return this->status_ == nullptr && return this->statusHistory_ == nullptr && return this->subStatus_ == nullptr && return this->tenantId_ == nullptr
+        && return this->thirdpartyLibDir_ == nullptr && return this->thirdpartyLibs_ == nullptr && return this->userCommand_ == nullptr && return this->userId_ == nullptr && return this->userVpc_ == nullptr
+        && return this->workspaceId_ == nullptr && return this->workspaceName_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -267,6 +270,15 @@ namespace Models
     void deleteJobId() { this->jobId_ = nullptr;};
     inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline GetJobResponseBody& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
+
+
+    // jobReplicaStatuses Field Functions 
+    bool hasJobReplicaStatuses() const { return this->jobReplicaStatuses_ != nullptr;};
+    void deleteJobReplicaStatuses() { this->jobReplicaStatuses_ = nullptr;};
+    inline const vector<JobReplicaStatus> & jobReplicaStatuses() const { DARABONBA_PTR_GET_CONST(jobReplicaStatuses_, vector<JobReplicaStatus>) };
+    inline vector<JobReplicaStatus> jobReplicaStatuses() { DARABONBA_PTR_GET(jobReplicaStatuses_, vector<JobReplicaStatus>) };
+    inline GetJobResponseBody& setJobReplicaStatuses(const vector<JobReplicaStatus> & jobReplicaStatuses) { DARABONBA_PTR_SET_VALUE(jobReplicaStatuses_, jobReplicaStatuses) };
+    inline GetJobResponseBody& setJobReplicaStatuses(vector<JobReplicaStatus> && jobReplicaStatuses) { DARABONBA_PTR_SET_RVALUE(jobReplicaStatuses_, jobReplicaStatuses) };
 
 
     // jobSpecs Field Functions 
@@ -491,6 +503,7 @@ namespace Models
     std::shared_ptr<string> gmtSuccessedTime_ = nullptr;
     // The job ID.
     std::shared_ptr<string> jobId_ = nullptr;
+    std::shared_ptr<vector<JobReplicaStatus>> jobReplicaStatuses_ = nullptr;
     // The node configuration of the job, which is **JobSpecs** in the CreateJob operation.
     std::shared_ptr<vector<JobSpec>> jobSpecs_ = nullptr;
     // The job type. Specified by the JobType parameter of the [CreateJob](https://help.aliyun.com/document_detail/459672.html) operation.

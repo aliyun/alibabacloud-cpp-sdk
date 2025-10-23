@@ -8,6 +8,7 @@
 #include <alibabacloud/models/JobItemDataSources.hpp>
 #include <alibabacloud/models/JobElasticSpec.hpp>
 #include <map>
+#include <alibabacloud/models/JobReplicaStatus.hpp>
 #include <alibabacloud/models/JobSpec.hpp>
 #include <alibabacloud/models/PodItem.hpp>
 #include <alibabacloud/models/JobSettings.hpp>
@@ -46,6 +47,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IsDeleted, isDeleted_);
       DARABONBA_PTR_TO_JSON(JobId, jobId_);
       DARABONBA_PTR_TO_JSON(JobMaxRunningTimeMinutes, jobMaxRunningTimeMinutes_);
+      DARABONBA_PTR_TO_JSON(JobReplicaStatuses, jobReplicaStatuses_);
       DARABONBA_PTR_TO_JSON(JobSpecs, jobSpecs_);
       DARABONBA_PTR_TO_JSON(JobType, jobType_);
       DARABONBA_PTR_TO_JSON(NodeCount, nodeCount_);
@@ -104,6 +106,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IsDeleted, isDeleted_);
       DARABONBA_PTR_FROM_JSON(JobId, jobId_);
       DARABONBA_PTR_FROM_JSON(JobMaxRunningTimeMinutes, jobMaxRunningTimeMinutes_);
+      DARABONBA_PTR_FROM_JSON(JobReplicaStatuses, jobReplicaStatuses_);
       DARABONBA_PTR_FROM_JSON(JobSpecs, jobSpecs_);
       DARABONBA_PTR_FROM_JSON(JobType, jobType_);
       DARABONBA_PTR_FROM_JSON(NodeCount, nodeCount_);
@@ -155,13 +158,14 @@ namespace Models
         && return this->duration_ == nullptr && return this->elasticSpec_ == nullptr && return this->enablePreemptibleJob_ == nullptr && return this->enabledDebugger_ == nullptr && return this->envs_ == nullptr
         && return this->gmtCreateTime_ == nullptr && return this->gmtFailedTime_ == nullptr && return this->gmtFinishTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->gmtRunningTime_ == nullptr
         && return this->gmtStoppedTime_ == nullptr && return this->gmtSubmittedTime_ == nullptr && return this->gmtSuccessedTime_ == nullptr && return this->isDeleted_ == nullptr && return this->jobId_ == nullptr
-        && return this->jobMaxRunningTimeMinutes_ == nullptr && return this->jobSpecs_ == nullptr && return this->jobType_ == nullptr && return this->nodeCount_ == nullptr && return this->nodeNames_ == nullptr
-        && return this->pods_ == nullptr && return this->priority_ == nullptr && return this->reasonCode_ == nullptr && return this->reasonMessage_ == nullptr && return this->requestCPU_ == nullptr
-        && return this->requestGPU_ == nullptr && return this->requestMemory_ == nullptr && return this->resourceId_ == nullptr && return this->resourceLevel_ == nullptr && return this->resourceName_ == nullptr
-        && return this->resourceQuotaName_ == nullptr && return this->resourceType_ == nullptr && return this->restartTimes_ == nullptr && return this->settings_ == nullptr && return this->status_ == nullptr
-        && return this->statusHistory_ == nullptr && return this->subStatus_ == nullptr && return this->systemEnvs_ == nullptr && return this->tenantId_ == nullptr && return this->thirdpartyLibDir_ == nullptr
-        && return this->thirdpartyLibs_ == nullptr && return this->useOversoldResource_ == nullptr && return this->userCommand_ == nullptr && return this->userId_ == nullptr && return this->userScript_ == nullptr
-        && return this->userVpc_ == nullptr && return this->username_ == nullptr && return this->workingDir_ == nullptr && return this->workspaceId_ == nullptr && return this->workspaceName_ == nullptr; };
+        && return this->jobMaxRunningTimeMinutes_ == nullptr && return this->jobReplicaStatuses_ == nullptr && return this->jobSpecs_ == nullptr && return this->jobType_ == nullptr && return this->nodeCount_ == nullptr
+        && return this->nodeNames_ == nullptr && return this->pods_ == nullptr && return this->priority_ == nullptr && return this->reasonCode_ == nullptr && return this->reasonMessage_ == nullptr
+        && return this->requestCPU_ == nullptr && return this->requestGPU_ == nullptr && return this->requestMemory_ == nullptr && return this->resourceId_ == nullptr && return this->resourceLevel_ == nullptr
+        && return this->resourceName_ == nullptr && return this->resourceQuotaName_ == nullptr && return this->resourceType_ == nullptr && return this->restartTimes_ == nullptr && return this->settings_ == nullptr
+        && return this->status_ == nullptr && return this->statusHistory_ == nullptr && return this->subStatus_ == nullptr && return this->systemEnvs_ == nullptr && return this->tenantId_ == nullptr
+        && return this->thirdpartyLibDir_ == nullptr && return this->thirdpartyLibs_ == nullptr && return this->useOversoldResource_ == nullptr && return this->userCommand_ == nullptr && return this->userId_ == nullptr
+        && return this->userScript_ == nullptr && return this->userVpc_ == nullptr && return this->username_ == nullptr && return this->workingDir_ == nullptr && return this->workspaceId_ == nullptr
+        && return this->workspaceName_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -324,6 +328,15 @@ namespace Models
     void deleteJobMaxRunningTimeMinutes() { this->jobMaxRunningTimeMinutes_ = nullptr;};
     inline int64_t jobMaxRunningTimeMinutes() const { DARABONBA_PTR_GET_DEFAULT(jobMaxRunningTimeMinutes_, 0L) };
     inline JobItem& setJobMaxRunningTimeMinutes(int64_t jobMaxRunningTimeMinutes) { DARABONBA_PTR_SET_VALUE(jobMaxRunningTimeMinutes_, jobMaxRunningTimeMinutes) };
+
+
+    // jobReplicaStatuses Field Functions 
+    bool hasJobReplicaStatuses() const { return this->jobReplicaStatuses_ != nullptr;};
+    void deleteJobReplicaStatuses() { this->jobReplicaStatuses_ = nullptr;};
+    inline const JobReplicaStatus & jobReplicaStatuses() const { DARABONBA_PTR_GET_CONST(jobReplicaStatuses_, JobReplicaStatus) };
+    inline JobReplicaStatus jobReplicaStatuses() { DARABONBA_PTR_GET(jobReplicaStatuses_, JobReplicaStatus) };
+    inline JobItem& setJobReplicaStatuses(const JobReplicaStatus & jobReplicaStatuses) { DARABONBA_PTR_SET_VALUE(jobReplicaStatuses_, jobReplicaStatuses) };
+    inline JobItem& setJobReplicaStatuses(JobReplicaStatus && jobReplicaStatuses) { DARABONBA_PTR_SET_RVALUE(jobReplicaStatuses_, jobReplicaStatuses) };
 
 
     // jobSpecs Field Functions 
@@ -603,6 +616,7 @@ namespace Models
     std::shared_ptr<bool> isDeleted_ = nullptr;
     std::shared_ptr<string> jobId_ = nullptr;
     std::shared_ptr<int64_t> jobMaxRunningTimeMinutes_ = nullptr;
+    std::shared_ptr<JobReplicaStatus> jobReplicaStatuses_ = nullptr;
     std::shared_ptr<vector<JobSpec>> jobSpecs_ = nullptr;
     std::shared_ptr<string> jobType_ = nullptr;
     std::shared_ptr<string> nodeCount_ = nullptr;
