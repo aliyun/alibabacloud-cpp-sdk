@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attuPort_ != nullptr
-        && this->internetUrl_ != nullptr && this->intranetUrl_ != nullptr && this->milvusResourceInfoList_ != nullptr && this->proxyPort_ != nullptr && this->totalCuNum_ != nullptr
-        && this->totalDiskSize_ != nullptr; };
+    virtual bool empty() const override { return this->attuPort_ == nullptr
+        && return this->internetUrl_ == nullptr && return this->intranetUrl_ == nullptr && return this->milvusResourceInfoList_ == nullptr && return this->proxyPort_ == nullptr && return this->totalCuNum_ == nullptr
+        && return this->totalDiskSize_ == nullptr; };
     // attuPort Field Functions 
     bool hasAttuPort() const { return this->attuPort_ != nullptr;};
     void deleteAttuPort() { this->attuPort_ = nullptr;};

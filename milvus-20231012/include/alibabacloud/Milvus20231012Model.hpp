@@ -34,6 +34,7 @@
 #include <alibabacloud/models/GetInstanceDetailResponseBodyDataClusterInfo.hpp>
 #include <alibabacloud/models/GetInstanceDetailResponseBodyDataMeasureConfig.hpp>
 #include <alibabacloud/models/GetInstanceDetailResponseBodyDataTags.hpp>
+#include <alibabacloud/models/GetInstanceDetailResponseBodyDataVSwitches.hpp>
 #include <alibabacloud/models/GetInstanceDetailResponseBodyData.hpp>
 #include <alibabacloud/models/ListInstancesRequestTag.hpp>
 #include <alibabacloud/models/ListInstancesResponseBodyDataClusterInfoMilvusResourceInfoList.hpp>

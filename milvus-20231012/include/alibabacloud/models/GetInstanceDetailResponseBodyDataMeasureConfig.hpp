@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataNodeCuNum_ != nullptr
-        && this->dataNodeReplica_ != nullptr && this->indexNodeCuNum_ != nullptr && this->indexNodeReplica_ != nullptr && this->mixCoodinatorNodeCuNum_ != nullptr && this->mixCoodinatorNodeReplica_ != nullptr
-        && this->proxyNodeCuNum_ != nullptr && this->proxyNodeReplica_ != nullptr && this->queryNodeCuNum_ != nullptr && this->queryNodeReplica_ != nullptr; };
+    virtual bool empty() const override { return this->dataNodeCuNum_ == nullptr
+        && return this->dataNodeReplica_ == nullptr && return this->indexNodeCuNum_ == nullptr && return this->indexNodeReplica_ == nullptr && return this->mixCoodinatorNodeCuNum_ == nullptr && return this->mixCoodinatorNodeReplica_ == nullptr
+        && return this->proxyNodeCuNum_ == nullptr && return this->proxyNodeReplica_ == nullptr && return this->queryNodeCuNum_ == nullptr && return this->queryNodeReplica_ == nullptr; };
     // dataNodeCuNum Field Functions 
     bool hasDataNodeCuNum() const { return this->dataNodeCuNum_ != nullptr;};
     void deleteDataNodeCuNum() { this->dataNodeCuNum_ = nullptr;};

@@ -70,11 +70,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoBackup_ != nullptr
-        && this->beginTime_ != nullptr && this->clusterInfo_ != nullptr && this->clusterName_ != nullptr && this->expireTime_ != nullptr && this->instanceId_ != nullptr
-        && this->instanceStatus_ != nullptr && this->nodeType_ != nullptr && this->openPublicNet_ != nullptr && this->packageType_ != nullptr && this->payType_ != nullptr
-        && this->productCode_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->runningTime_ != nullptr && this->sgId_ != nullptr
-        && this->tags_ != nullptr && this->vpcId_ != nullptr && this->vswId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->autoBackup_ == nullptr
+        && return this->beginTime_ == nullptr && return this->clusterInfo_ == nullptr && return this->clusterName_ == nullptr && return this->expireTime_ == nullptr && return this->instanceId_ == nullptr
+        && return this->instanceStatus_ == nullptr && return this->nodeType_ == nullptr && return this->openPublicNet_ == nullptr && return this->packageType_ == nullptr && return this->payType_ == nullptr
+        && return this->productCode_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->runningTime_ == nullptr && return this->sgId_ == nullptr
+        && return this->tags_ == nullptr && return this->vpcId_ == nullptr && return this->vswId_ == nullptr && return this->zoneId_ == nullptr; };
     // autoBackup Field Functions 
     bool hasAutoBackup() const { return this->autoBackup_ != nullptr;};
     void deleteAutoBackup() { this->autoBackup_ = nullptr;};
