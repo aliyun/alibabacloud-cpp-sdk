@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activeReduction_ != nullptr
-        && this->benchmarkEmission_ != nullptr && this->benchmarkName_ != nullptr && this->carbonEmission_ != nullptr && this->name_ != nullptr && this->percent_ != nullptr; };
+    virtual bool empty() const override { return this->activeReduction_ == nullptr
+        && return this->benchmarkEmission_ == nullptr && return this->benchmarkName_ == nullptr && return this->carbonEmission_ == nullptr && return this->name_ == nullptr && return this->percent_ == nullptr; };
     // activeReduction Field Functions 
     bool hasActiveReduction() const { return this->activeReduction_ != nullptr;};
     void deleteActiveReduction() { this->activeReduction_ = nullptr;};

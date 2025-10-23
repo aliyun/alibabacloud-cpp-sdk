@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actualEmissionRatio_ != nullptr
-        && this->carbonSaveConversion_ != nullptr && this->currentPeriodCarbonEmissionData_ != nullptr && this->isWeighting_ != nullptr && this->lastPeriodCarbonEmissionData_ != nullptr && this->lastPeriodWeightingCarbonEmissionData_ != nullptr
-        && this->ratio_ != nullptr && this->totalCarbonEmissionData_ != nullptr && this->weightingCarbonEmissionData_ != nullptr && this->weightingRatio_ != nullptr; };
+    virtual bool empty() const override { return this->actualEmissionRatio_ == nullptr
+        && return this->carbonSaveConversion_ == nullptr && return this->currentPeriodCarbonEmissionData_ == nullptr && return this->isWeighting_ == nullptr && return this->lastPeriodCarbonEmissionData_ == nullptr && return this->lastPeriodWeightingCarbonEmissionData_ == nullptr
+        && return this->ratio_ == nullptr && return this->totalCarbonEmissionData_ == nullptr && return this->weightingCarbonEmissionData_ == nullptr && return this->weightingRatio_ == nullptr; };
     // actualEmissionRatio Field Functions 
     bool hasActualEmissionRatio() const { return this->actualEmissionRatio_ != nullptr;};
     void deleteActualEmissionRatio() { this->actualEmissionRatio_ = nullptr;};

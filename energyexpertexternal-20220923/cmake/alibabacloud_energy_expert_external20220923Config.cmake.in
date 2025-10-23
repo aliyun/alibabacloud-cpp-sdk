@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_energy_expert_external20220923Targets.cmake")
+check_required_components("alibabacloud_energy_expert_external20220923")

@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->currentLevel_ != nullptr
-        && this->docCount_ != nullptr && this->folderDefault_ != nullptr && this->folderId_ != nullptr && this->folderName_ != nullptr && this->folderNum_ != nullptr
-        && this->ossDomain_ != nullptr && this->ossPath_ != nullptr && this->ossUpdateBy_ != nullptr && this->parentFolderId_ != nullptr && this->resourcePath_ != nullptr
-        && this->storageType_ != nullptr && this->subFolderList_ != nullptr && this->syncParsingStatus_ != nullptr && this->syncStatus_ != nullptr && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->currentLevel_ == nullptr
+        && return this->docCount_ == nullptr && return this->folderDefault_ == nullptr && return this->folderId_ == nullptr && return this->folderName_ == nullptr && return this->folderNum_ == nullptr
+        && return this->ossDomain_ == nullptr && return this->ossPath_ == nullptr && return this->ossUpdateBy_ == nullptr && return this->parentFolderId_ == nullptr && return this->resourcePath_ == nullptr
+        && return this->storageType_ == nullptr && return this->subFolderList_ == nullptr && return this->syncParsingStatus_ == nullptr && return this->syncStatus_ == nullptr && return this->taskId_ == nullptr; };
     // currentLevel Field Functions 
     bool hasCurrentLevel() const { return this->currentLevel_ != nullptr;};
     void deleteCurrentLevel() { this->currentLevel_ = nullptr;};

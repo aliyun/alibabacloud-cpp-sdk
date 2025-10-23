@@ -4,19 +4,20 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/CarbonEmissionElecSummaryItem.hpp>
 #include <alibabacloud/models/ChatDocumentPageNum.hpp>
-#include <alibabacloud/models/ChatFolderItem.hpp>
-#include <alibabacloud/models/ChatItem.hpp>
+#include <alibabacloud/models/ChatRefDocPageInfo.hpp>
 #include <alibabacloud/models/ChatRefDocInfo.hpp>
 #include <alibabacloud/models/ChatRefDocItem.hpp>
-#include <alibabacloud/models/ChatRefDocPageInfo.hpp>
+#include <alibabacloud/models/ChatItem.hpp>
+#include <alibabacloud/models/ChatFolderItem.hpp>
 #include <alibabacloud/models/ChatRefDocPageNum.hpp>
 #include <alibabacloud/models/ChatRefDocPostion.hpp>
 #include <alibabacloud/models/ConstituteItem.hpp>
 #include <alibabacloud/models/ContentItem.hpp>
+#include <alibabacloud/models/DocumentDetailItem.hpp>
 #include <alibabacloud/models/EpdInventoryConstituteItem.hpp>
 #include <alibabacloud/models/FolderItem.hpp>
-#include <alibabacloud/models/GwpInventoryConstitute.hpp>
 #include <alibabacloud/models/GwpResourceConstitute.hpp>
+#include <alibabacloud/models/GwpInventoryConstitute.hpp>
 #include <alibabacloud/models/OrgEmission.hpp>
 #include <alibabacloud/models/AddFolderRequest.hpp>
 #include <alibabacloud/models/AddFolderResponseBody.hpp>
@@ -46,6 +47,9 @@
 #include <alibabacloud/models/DeleteFolderRequest.hpp>
 #include <alibabacloud/models/DeleteFolderResponseBody.hpp>
 #include <alibabacloud/models/DeleteFolderResponse.hpp>
+#include <alibabacloud/models/DetailDocumentRequest.hpp>
+#include <alibabacloud/models/DetailDocumentResponseBody.hpp>
+#include <alibabacloud/models/DetailDocumentResponse.hpp>
 #include <alibabacloud/models/EditProhibitedDevicesRequest.hpp>
 #include <alibabacloud/models/EditProhibitedDevicesResponseBody.hpp>
 #include <alibabacloud/models/EditProhibitedDevicesResponse.hpp>
@@ -140,9 +144,9 @@
 #include <alibabacloud/models/GetReductionProposalRequest.hpp>
 #include <alibabacloud/models/GetReductionProposalResponseBody.hpp>
 #include <alibabacloud/models/GetReductionProposalResponse.hpp>
-#include <alibabacloud/models/GetVlextractionResultRequest.hpp>
-#include <alibabacloud/models/GetVlextractionResultResponseBody.hpp>
-#include <alibabacloud/models/GetVlextractionResultResponse.hpp>
+#include <alibabacloud/models/GetVlExtractionResultRequest.hpp>
+#include <alibabacloud/models/GetVlExtractionResultResponseBody.hpp>
+#include <alibabacloud/models/GetVlExtractionResultResponse.hpp>
 #include <alibabacloud/models/IsCompletedRequest.hpp>
 #include <alibabacloud/models/IsCompletedResponseBody.hpp>
 #include <alibabacloud/models/IsCompletedResponse.hpp>
@@ -173,10 +177,10 @@
 #include <alibabacloud/models/SubmitDocumentAnalyzeJobAdvanceRequest.hpp>
 #include <alibabacloud/models/SubmitDocumentAnalyzeJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitDocumentAnalyzeJobResponse.hpp>
-#include <alibabacloud/models/SubmitVlextractionTaskRequest.hpp>
-#include <alibabacloud/models/SubmitVlextractionTaskAdvanceRequest.hpp>
-#include <alibabacloud/models/SubmitVlextractionTaskResponseBody.hpp>
-#include <alibabacloud/models/SubmitVlextractionTaskResponse.hpp>
+#include <alibabacloud/models/SubmitVlExtractionTaskRequest.hpp>
+#include <alibabacloud/models/SubmitVlExtractionTaskAdvanceRequest.hpp>
+#include <alibabacloud/models/SubmitVlExtractionTaskResponseBody.hpp>
+#include <alibabacloud/models/SubmitVlExtractionTaskResponse.hpp>
 #include <alibabacloud/models/ConstituteItemEnvGasEmissions.hpp>
 #include <alibabacloud/models/ContentItemExtInfoPos.hpp>
 #include <alibabacloud/models/ContentItemExtInfo.hpp>
@@ -186,8 +190,8 @@
 #include <alibabacloud/models/AnalyzeVlRealtimeResponseBodyDataKvListInfo.hpp>
 #include <alibabacloud/models/AnalyzeVlRealtimeResponseBodyData.hpp>
 #include <alibabacloud/models/CreateChatSessionResponseBodyData.hpp>
-#include <alibabacloud/models/EditProhibitedDevicesRequestHvacDeviceConfigVolist.hpp>
-#include <alibabacloud/models/EditUnfavorableAreaDevicesRequestHvacDeviceConfigVolist.hpp>
+#include <alibabacloud/models/EditProhibitedDevicesRequestHvacDeviceConfigVoList.hpp>
+#include <alibabacloud/models/EditUnfavorableAreaDevicesRequestHvacDeviceConfigVoList.hpp>
 #include <alibabacloud/models/GetAreaElecConstituteResponseBodyData.hpp>
 #include <alibabacloud/models/GetCarbonEmissionTrendResponseBodyDataActualEmissionListItems.hpp>
 #include <alibabacloud/models/GetCarbonEmissionTrendResponseBodyDataActualEmissionList.hpp>
@@ -252,10 +256,10 @@
 #include <alibabacloud/models/GetOrgAndFactoryResponseBodyData.hpp>
 #include <alibabacloud/models/GetPcrInfoResponseBodyData.hpp>
 #include <alibabacloud/models/GetReductionProposalResponseBodyData.hpp>
-#include <alibabacloud/models/GetVlextractionResultResponseBodyDataKvListInfoContextConfidence.hpp>
-#include <alibabacloud/models/GetVlextractionResultResponseBodyDataKvListInfoContext.hpp>
-#include <alibabacloud/models/GetVlextractionResultResponseBodyDataKvListInfo.hpp>
-#include <alibabacloud/models/GetVlextractionResultResponseBodyData.hpp>
+#include <alibabacloud/models/GetVlExtractionResultResponseBodyDataKvListInfoContextConfidence.hpp>
+#include <alibabacloud/models/GetVlExtractionResultResponseBodyDataKvListInfoContext.hpp>
+#include <alibabacloud/models/GetVlExtractionResultResponseBodyDataKvListInfo.hpp>
+#include <alibabacloud/models/GetVlExtractionResultResponseBodyData.hpp>
 #include <alibabacloud/models/IsCompletedResponseBodyData.hpp>
 #include <alibabacloud/models/PushDeviceDataRequestDevices.hpp>
 #include <alibabacloud/models/PushItemDataRequestItems.hpp>
@@ -263,6 +267,6 @@
 #include <alibabacloud/models/SubmitDocExtractionTaskResponseBodyData.hpp>
 #include <alibabacloud/models/SubmitDocParsingTaskResponseBodyData.hpp>
 #include <alibabacloud/models/SubmitDocumentAnalyzeJobResponseBodyData.hpp>
-#include <alibabacloud/models/SubmitVlextractionTaskResponseBodyData.hpp>
+#include <alibabacloud/models/SubmitVlExtractionTaskResponseBodyData.hpp>
 
 #endif

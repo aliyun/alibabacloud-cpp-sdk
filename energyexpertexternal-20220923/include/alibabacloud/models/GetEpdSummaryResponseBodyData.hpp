@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->carbonEmission_ != nullptr
-        && this->indicator_ != nullptr && this->key_ != nullptr && this->method_ != nullptr && this->name_ != nullptr && this->num_ != nullptr
-        && this->preUnit_ != nullptr && this->state_ != nullptr; };
+    virtual bool empty() const override { return this->carbonEmission_ == nullptr
+        && return this->indicator_ == nullptr && return this->key_ == nullptr && return this->method_ == nullptr && return this->name_ == nullptr && return this->num_ == nullptr
+        && return this->preUnit_ == nullptr && return this->state_ == nullptr; };
     // carbonEmission Field Functions 
     bool hasCarbonEmission() const { return this->carbonEmission_ != nullptr;};
     void deleteCarbonEmission() { this->carbonEmission_ = nullptr;};

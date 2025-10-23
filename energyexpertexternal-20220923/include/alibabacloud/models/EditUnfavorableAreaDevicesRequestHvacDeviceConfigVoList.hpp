@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->buildingId_ != nullptr
-        && this->deviceId_ != nullptr && this->deviceName_ != nullptr && this->deviceType_ != nullptr && this->fenceId_ != nullptr && this->floorId_ != nullptr
-        && this->isForbidden_ != nullptr && this->isUnfavorableArea_ != nullptr; };
+    virtual bool empty() const override { return this->buildingId_ == nullptr
+        && return this->deviceId_ == nullptr && return this->deviceName_ == nullptr && return this->deviceType_ == nullptr && return this->fenceId_ == nullptr && return this->floorId_ == nullptr
+        && return this->isForbidden_ == nullptr && return this->isUnfavorableArea_ == nullptr; };
     // buildingId Field Functions 
     bool hasBuildingId() const { return this->buildingId_ != nullptr;};
     void deleteBuildingId() { this->buildingId_ = nullptr;};

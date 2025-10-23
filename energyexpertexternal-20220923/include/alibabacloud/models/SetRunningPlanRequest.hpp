@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->controlType_ != nullptr
-        && this->dateType_ != nullptr && this->earliestStartupTime_ != nullptr && this->endTime_ != nullptr && this->factoryId_ != nullptr && this->latestShutdownTime_ != nullptr
-        && this->maxCarbonDioxide_ != nullptr && this->maxTem_ != nullptr && this->minTem_ != nullptr && this->pKey_ != nullptr && this->seasonMode_ != nullptr
-        && this->startTime_ != nullptr && this->statisticsTime_ != nullptr && this->systemId_ != nullptr && this->workingEndTime_ != nullptr && this->workingStartTime_ != nullptr; };
+    virtual bool empty() const override { return this->controlType_ == nullptr
+        && return this->dateType_ == nullptr && return this->earliestStartupTime_ == nullptr && return this->endTime_ == nullptr && return this->factoryId_ == nullptr && return this->latestShutdownTime_ == nullptr
+        && return this->maxCarbonDioxide_ == nullptr && return this->maxTem_ == nullptr && return this->minTem_ == nullptr && return this->pKey_ == nullptr && return this->seasonMode_ == nullptr
+        && return this->startTime_ == nullptr && return this->statisticsTime_ == nullptr && return this->systemId_ == nullptr && return this->workingEndTime_ == nullptr && return this->workingStartTime_ == nullptr; };
     // controlType Field Functions 
     bool hasControlType() const { return this->controlType_ != nullptr;};
     void deleteControlType() { this->controlType_ = nullptr;};

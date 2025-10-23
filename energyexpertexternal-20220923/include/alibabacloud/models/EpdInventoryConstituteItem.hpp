@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->carbonEmission_ != nullptr
-        && this->factor_ != nullptr && this->factorDataset_ != nullptr && this->factorId_ != nullptr && this->factorType_ != nullptr && this->factorUnit_ != nullptr
-        && this->inventoryId_ != nullptr && this->inventoryUnit_ != nullptr && this->inventoryValue_ != nullptr && this->inventoryValuePerProduct_ != nullptr && this->inventoryValuePerProductUnit_ != nullptr
-        && this->items_ != nullptr && this->name_ != nullptr && this->num_ != nullptr && this->percent_ != nullptr && this->quantity_ != nullptr
-        && this->resourceType_ != nullptr && this->state_ != nullptr && this->unit_ != nullptr; };
+    virtual bool empty() const override { return this->carbonEmission_ == nullptr
+        && return this->factor_ == nullptr && return this->factorDataset_ == nullptr && return this->factorId_ == nullptr && return this->factorType_ == nullptr && return this->factorUnit_ == nullptr
+        && return this->inventoryId_ == nullptr && return this->inventoryUnit_ == nullptr && return this->inventoryValue_ == nullptr && return this->inventoryValuePerProduct_ == nullptr && return this->inventoryValuePerProductUnit_ == nullptr
+        && return this->items_ == nullptr && return this->name_ == nullptr && return this->num_ == nullptr && return this->percent_ == nullptr && return this->quantity_ == nullptr
+        && return this->resourceType_ == nullptr && return this->state_ == nullptr && return this->unit_ == nullptr; };
     // carbonEmission Field Functions 
     bool hasCarbonEmission() const { return this->carbonEmission_ != nullptr;};
     void deleteCarbonEmission() { this->carbonEmission_ = nullptr;};

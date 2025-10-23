@@ -220,6 +220,24 @@ namespace EnergyExpertExternal20220923
       Models::DeleteFolderResponse deleteFolder(const Models::DeleteFolderRequest &request);
 
       /**
+       * @summary 获取文档detail
+       *
+       * @param request DetailDocumentRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DetailDocumentResponse
+       */
+      Models::DetailDocumentResponse detailDocumentWithOptions(const Models::DetailDocumentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取文档detail
+       *
+       * @param request DetailDocumentRequest
+       * @return DetailDocumentResponse
+       */
+      Models::DetailDocumentResponse detailDocument(const Models::DetailDocumentRequest &request);
+
+      /**
        * @summary 编辑禁用设备
        *
        * @param request EditProhibitedDevicesRequest

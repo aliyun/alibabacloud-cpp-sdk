@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->inventory_ != nullptr
-        && this->uncertaintyContribution_ != nullptr; };
+    virtual bool empty() const override { return this->inventory_ == nullptr
+        && return this->uncertaintyContribution_ == nullptr; };
     // inventory Field Functions 
     bool hasInventory() const { return this->inventory_ != nullptr;};
     void deleteInventory() { this->inventory_ = nullptr;};

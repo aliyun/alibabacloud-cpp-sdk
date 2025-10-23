@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->amount_ != nullptr
-        && this->authStatus_ != nullptr && this->checkEndTime_ != nullptr && this->checkStartTime_ != nullptr && this->code_ != nullptr && this->createdBy_ != nullptr
-        && this->id_ != nullptr && this->isDemoModel_ != nullptr && this->lifeCycle_ != nullptr && this->lifeCycleType_ != nullptr && this->name_ != nullptr
-        && this->type_ != nullptr && this->unit_ != nullptr; };
+    virtual bool empty() const override { return this->amount_ == nullptr
+        && return this->authStatus_ == nullptr && return this->checkEndTime_ == nullptr && return this->checkStartTime_ == nullptr && return this->code_ == nullptr && return this->createdBy_ == nullptr
+        && return this->id_ == nullptr && return this->isDemoModel_ == nullptr && return this->lifeCycle_ == nullptr && return this->lifeCycleType_ == nullptr && return this->name_ == nullptr
+        && return this->type_ == nullptr && return this->unit_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};

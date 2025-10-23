@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->angle_ != nullptr
-        && this->excelParseResult_ != nullptr && this->imageHeight_ != nullptr && this->imageUrl_ != nullptr && this->imageWidth_ != nullptr && this->pageIdCurDoc_ != nullptr
-        && this->pdfParseResult_ != nullptr && this->wordParseResult_ != nullptr; };
+    virtual bool empty() const override { return this->angle_ == nullptr
+        && return this->excelParseResult_ == nullptr && return this->imageHeight_ == nullptr && return this->imageUrl_ == nullptr && return this->imageWidth_ == nullptr && return this->pageIdCurDoc_ == nullptr
+        && return this->pdfParseResult_ == nullptr && return this->wordParseResult_ == nullptr; };
     // angle Field Functions 
     bool hasAngle() const { return this->angle_ != nullptr;};
     void deleteAngle() { this->angle_ = nullptr;};
