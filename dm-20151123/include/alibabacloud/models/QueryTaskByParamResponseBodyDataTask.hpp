@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addressType_ != nullptr
-        && this->configSetId_ != nullptr && this->configSetName_ != nullptr && this->createTime_ != nullptr && this->ipPoolId_ != nullptr && this->ipPoolName_ != nullptr
-        && this->receiversName_ != nullptr && this->requestCount_ != nullptr && this->tagName_ != nullptr && this->taskId_ != nullptr && this->taskStatus_ != nullptr
-        && this->templateName_ != nullptr && this->utcCreateTime_ != nullptr; };
+    virtual bool empty() const override { return this->addressType_ == nullptr
+        && return this->configSetId_ == nullptr && return this->configSetName_ == nullptr && return this->createTime_ == nullptr && return this->ipPoolId_ == nullptr && return this->ipPoolName_ == nullptr
+        && return this->receiversName_ == nullptr && return this->requestCount_ == nullptr && return this->tagName_ == nullptr && return this->taskId_ == nullptr && return this->taskStatus_ == nullptr
+        && return this->templateName_ == nullptr && return this->utcCreateTime_ == nullptr; };
     // addressType Field Functions 
     bool hasAddressType() const { return this->addressType_ != nullptr;};
     void deleteAddressType() { this->addressType_ = nullptr;};

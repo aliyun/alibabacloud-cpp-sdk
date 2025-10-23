@@ -13,6 +13,7 @@ namespace Models
   class SaveReceiverDetailRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SaveReceiverDetailRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CustomDetail, customDetail_);
       DARABONBA_PTR_TO_JSON(Detail, detail_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(ReceiverId, receiverId_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
     };
     friend void from_json(const Darabonba::Json& j, SaveReceiverDetailRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CustomDetail, customDetail_);
       DARABONBA_PTR_FROM_JSON(Detail, detail_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(ReceiverId, receiverId_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->detail_ != nullptr
-        && this->ownerId_ != nullptr && this->receiverId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->customDetail_ == nullptr
+        && return this->detail_ == nullptr && return this->ownerId_ == nullptr && return this->receiverId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+    // customDetail Field Functions 
+    bool hasCustomDetail() const { return this->customDetail_ != nullptr;};
+    void deleteCustomDetail() { this->customDetail_ = nullptr;};
+    inline string customDetail() const { DARABONBA_PTR_GET_DEFAULT(customDetail_, "") };
+    inline SaveReceiverDetailRequest& setCustomDetail(string customDetail) { DARABONBA_PTR_SET_VALUE(customDetail_, customDetail) };
+
+
     // detail Field Functions 
     bool hasDetail() const { return this->detail_ != nullptr;};
     void deleteDetail() { this->detail_ = nullptr;};
@@ -75,6 +84,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> customDetail_ = nullptr;
     // Content, supports uploading multiple recipients at once, with a limit of 500 records per upload. Each record is separated by {} and commas, example:
     // 
     // [{ },{ },{ }...], the format within {} is as follows:
@@ -82,8 +92,6 @@ namespace Models
     // [{"b":"birthday","e":"xxx@example.net","g":"gender","m":"mobile","n":"nickname","u":"name"}], when passing values, pass it as a string, not a list.
     // 
     // If a duplicate recipient address is inserted, it will return "ErrorCount": 1
-    // 
-    // This parameter is required.
     std::shared_ptr<string> detail_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
     // Recipient list ID

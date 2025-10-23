@@ -348,6 +348,48 @@ ChangeDomainDkimRecordResponse Client::changeDomainDkimRecord(const ChangeDomain
 }
 
 /**
+ * @summary 检查地址是否为一次性邮箱
+ *
+ * @param request CheckDisposableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckDisposableResponse
+ */
+CheckDisposableResponse Client::checkDisposableWithOptions(const CheckDisposableRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEmail()) {
+    query["Email"] = request.email();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckDisposable"},
+    {"version" , "2015-11-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckDisposableResponse>();
+}
+
+/**
+ * @summary 检查地址是否为一次性邮箱
+ *
+ * @param request CheckDisposableRequest
+ * @return CheckDisposableResponse
+ */
+CheckDisposableResponse Client::checkDisposable(const CheckDisposableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkDisposableWithOptions(request, runtime);
+}
+
+/**
  * @summary Check Domain Status
  *
  * @param request CheckDomainRequest
@@ -461,6 +503,344 @@ CheckReplyToMailAddressResponse Client::checkReplyToMailAddressWithOptions(const
 CheckReplyToMailAddressResponse Client::checkReplyToMailAddress(const CheckReplyToMailAddressRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return checkReplyToMailAddressWithOptions(request, runtime);
+}
+
+/**
+ * @summary 配置集取消关联发信地址
+ *
+ * @param request ConfigSetCancelRelationFromAddressRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ConfigSetCancelRelationFromAddressResponse
+ */
+ConfigSetCancelRelationFromAddressResponse Client::configSetCancelRelationFromAddressWithOptions(const ConfigSetCancelRelationFromAddressRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFromAddress()) {
+    query["FromAddress"] = request.fromAddress();
+  }
+
+  if (!!request.hasId()) {
+    query["Id"] = request.id();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ConfigSetCancelRelationFromAddress"},
+    {"version" , "2015-11-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ConfigSetCancelRelationFromAddressResponse>();
+}
+
+/**
+ * @summary 配置集取消关联发信地址
+ *
+ * @param request ConfigSetCancelRelationFromAddressRequest
+ * @return ConfigSetCancelRelationFromAddressResponse
+ */
+ConfigSetCancelRelationFromAddressResponse Client::configSetCancelRelationFromAddress(const ConfigSetCancelRelationFromAddressRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return configSetCancelRelationFromAddressWithOptions(request, runtime);
+}
+
+/**
+ * @summary 配置集创建
+ *
+ * @param request ConfigSetCreateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ConfigSetCreateResponse
+ */
+ConfigSetCreateResponse Client::configSetCreateWithOptions(const ConfigSetCreateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
+  if (!!request.hasIpPoolId()) {
+    query["IpPoolId"] = request.ipPoolId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.name();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ConfigSetCreate"},
+    {"version" , "2015-11-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ConfigSetCreateResponse>();
+}
+
+/**
+ * @summary 配置集创建
+ *
+ * @param request ConfigSetCreateRequest
+ * @return ConfigSetCreateResponse
+ */
+ConfigSetCreateResponse Client::configSetCreate(const ConfigSetCreateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return configSetCreateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除配置集
+ *
+ * @param request ConfigSetDeleteRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ConfigSetDeleteResponse
+ */
+ConfigSetDeleteResponse Client::configSetDeleteWithOptions(const ConfigSetDeleteRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIds()) {
+    query["Ids"] = request.ids();
+  }
+
+  if (!!request.hasIsForce()) {
+    query["IsForce"] = request.isForce();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ConfigSetDelete"},
+    {"version" , "2015-11-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ConfigSetDeleteResponse>();
+}
+
+/**
+ * @summary 删除配置集
+ *
+ * @param request ConfigSetDeleteRequest
+ * @return ConfigSetDeleteResponse
+ */
+ConfigSetDeleteResponse Client::configSetDelete(const ConfigSetDeleteRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return configSetDeleteWithOptions(request, runtime);
+}
+
+/**
+ * @summary 配置集详情
+ *
+ * @param request ConfigSetDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ConfigSetDetailResponse
+ */
+ConfigSetDetailResponse Client::configSetDetailWithOptions(const ConfigSetDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.id();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ConfigSetDetail"},
+    {"version" , "2015-11-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ConfigSetDetailResponse>();
+}
+
+/**
+ * @summary 配置集详情
+ *
+ * @param request ConfigSetDetailRequest
+ * @return ConfigSetDetailResponse
+ */
+ConfigSetDetailResponse Client::configSetDetail(const ConfigSetDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return configSetDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary 配置集列表
+ *
+ * @param request ConfigSetListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ConfigSetListResponse
+ */
+ConfigSetListResponse Client::configSetListWithOptions(const ConfigSetListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAll()) {
+    query["All"] = request.all();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.keyword();
+  }
+
+  if (!!request.hasPageIndex()) {
+    query["PageIndex"] = request.pageIndex();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ConfigSetList"},
+    {"version" , "2015-11-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ConfigSetListResponse>();
+}
+
+/**
+ * @summary 配置集列表
+ *
+ * @param request ConfigSetListRequest
+ * @return ConfigSetListResponse
+ */
+ConfigSetListResponse Client::configSetList(const ConfigSetListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return configSetListWithOptions(request, runtime);
+}
+
+/**
+ * @summary 配置集关联发信地址
+ *
+ * @param request ConfigSetRelationFromAddressRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ConfigSetRelationFromAddressResponse
+ */
+ConfigSetRelationFromAddressResponse Client::configSetRelationFromAddressWithOptions(const ConfigSetRelationFromAddressRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFromAddress()) {
+    query["FromAddress"] = request.fromAddress();
+  }
+
+  if (!!request.hasId()) {
+    query["Id"] = request.id();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ConfigSetRelationFromAddress"},
+    {"version" , "2015-11-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ConfigSetRelationFromAddressResponse>();
+}
+
+/**
+ * @summary 配置集关联发信地址
+ *
+ * @param request ConfigSetRelationFromAddressRequest
+ * @return ConfigSetRelationFromAddressResponse
+ */
+ConfigSetRelationFromAddressResponse Client::configSetRelationFromAddress(const ConfigSetRelationFromAddressRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return configSetRelationFromAddressWithOptions(request, runtime);
+}
+
+/**
+ * @summary 配置集更新
+ *
+ * @param request ConfigSetUpdateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ConfigSetUpdateResponse
+ */
+ConfigSetUpdateResponse Client::configSetUpdateWithOptions(const ConfigSetUpdateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
+  if (!!request.hasId()) {
+    query["Id"] = request.id();
+  }
+
+  if (!!request.hasIpPoolId()) {
+    query["IpPoolId"] = request.ipPoolId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.name();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ConfigSetUpdate"},
+    {"version" , "2015-11-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ConfigSetUpdateResponse>();
+}
+
+/**
+ * @summary 配置集更新
+ *
+ * @param request ConfigSetUpdateRequest
+ * @return ConfigSetUpdateResponse
+ */
+ConfigSetUpdateResponse Client::configSetUpdate(const ConfigSetUpdateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return configSetUpdateWithOptions(request, runtime);
 }
 
 /**
@@ -1511,6 +1891,48 @@ DeleteTagResponse Client::deleteTag(const DeleteTagRequest &request) {
 }
 
 /**
+ * @summary 删除批量校验任务的结果文件
+ *
+ * @param request DeleteValidateFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteValidateFileResponse
+ */
+DeleteValidateFileResponse Client::deleteValidateFileWithOptions(const DeleteValidateFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileId()) {
+    query["FileId"] = request.fileId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteValidateFile"},
+    {"version" , "2015-11-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteValidateFileResponse>();
+}
+
+/**
+ * @summary 删除批量校验任务的结果文件
+ *
+ * @param request DeleteValidateFileRequest
+ * @return DeleteValidateFileResponse
+ */
+DeleteValidateFileResponse Client::deleteValidateFile(const DeleteValidateFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteValidateFileWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieve account information.
  *
  * @param request DescAccountSummaryRequest
@@ -1616,6 +2038,64 @@ DescDomainResponse Client::descDomainWithOptions(const DescDomainRequest &reques
 DescDomainResponse Client::descDomain(const DescDomainRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return descDomainWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查看模板信息
+ *
+ * @param request DescTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescTemplateResponse
+ */
+DescTemplateResponse Client::descTemplateWithOptions(const DescTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFromType()) {
+    query["FromType"] = request.fromType();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.templateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescTemplate"},
+    {"version" , "2015-11-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescTemplateResponse>();
+}
+
+/**
+ * @summary 查看模板信息
+ *
+ * @param request DescTemplateRequest
+ * @return DescTemplateResponse
+ */
+DescTemplateResponse Client::descTemplate(const DescTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return descTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -2107,6 +2587,123 @@ GetUserResponse Client::getUserWithOptions(const Darabonba::RuntimeOptions &runt
 GetUserResponse Client::getUser() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getUserWithOptions(runtime);
+}
+
+/**
+ * @summary 获取批量校验任务的结果文件
+ *
+ * @param request GetValidateFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetValidateFileResponse
+ */
+GetValidateFileResponse Client::getValidateFileWithOptions(const GetValidateFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileId()) {
+    query["FileId"] = request.fileId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetValidateFile"},
+    {"version" , "2015-11-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetValidateFileResponse>();
+}
+
+/**
+ * @summary 获取批量校验任务的结果文件
+ *
+ * @param request GetValidateFileRequest
+ * @return GetValidateFileResponse
+ */
+GetValidateFileResponse Client::getValidateFile(const GetValidateFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getValidateFileWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取批量校验任务的状态
+ *
+ * @param request GetValidateFileStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetValidateFileStatusResponse
+ */
+GetValidateFileStatusResponse Client::getValidateFileStatusWithOptions(const GetValidateFileStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileId()) {
+    query["FileId"] = request.fileId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetValidateFileStatus"},
+    {"version" , "2015-11-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetValidateFileStatusResponse>();
+}
+
+/**
+ * @summary 获取批量校验任务的状态
+ *
+ * @param request GetValidateFileStatusRequest
+ * @return GetValidateFileStatusResponse
+ */
+GetValidateFileStatusResponse Client::getValidateFileStatus(const GetValidateFileStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getValidateFileStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取电子邮件校验额度
+ *
+ * @param request GetValidationQuotaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetValidationQuotaResponse
+ */
+GetValidationQuotaResponse Client::getValidationQuotaWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetValidationQuota"},
+    {"version" , "2015-11-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetValidationQuotaResponse>();
+}
+
+/**
+ * @summary 获取电子邮件校验额度
+ *
+ * @return GetValidationQuotaResponse
+ */
+GetValidationQuotaResponse Client::getValidationQuota() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getValidationQuotaWithOptions(runtime);
 }
 
 /**
@@ -2902,6 +3499,76 @@ QueryTaskByParamResponse Client::queryTaskByParam(const QueryTaskByParamRequest 
 }
 
 /**
+ * @summary 查询模板信息
+ *
+ * @param request QueryTemplateByParamRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryTemplateByParamResponse
+ */
+QueryTemplateByParamResponse Client::queryTemplateByParamWithOptions(const QueryTemplateByParamRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFromType()) {
+    query["FromType"] = request.fromType();
+  }
+
+  if (!!request.hasKeyWord()) {
+    query["KeyWord"] = request.keyWord();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.pageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryTemplateByParam"},
+    {"version" , "2015-11-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryTemplateByParamResponse>();
+}
+
+/**
+ * @summary 查询模板信息
+ *
+ * @param request QueryTemplateByParamRequest
+ * @return QueryTemplateByParamResponse
+ */
+QueryTemplateByParamResponse Client::queryTemplateByParam(const QueryTemplateByParamRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryTemplateByParamWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除用户无效地址
  *
  * @param request RemoveUserSuppressionRequest
@@ -2965,6 +3632,10 @@ RemoveUserSuppressionResponse Client::removeUserSuppression(const RemoveUserSupp
 SaveReceiverDetailResponse Client::saveReceiverDetailWithOptions(const SaveReceiverDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCustomDetail()) {
+    query["CustomDetail"] = request.customDetail();
+  }
+
   if (!!request.hasDetail()) {
     query["Detail"] = request.detail();
   }
@@ -3063,6 +3734,10 @@ SendTestByTemplateResponse Client::sendTestByTemplateWithOptions(const SendTestB
     query["TemplateId"] = request.templateId();
   }
 
+  if (!!request.hasTemplateParams()) {
+    query["TemplateParams"] = request.templateParams();
+  }
+
   if (!!request.hasUserName()) {
     query["UserName"] = request.userName();
   }
@@ -3093,6 +3768,150 @@ SendTestByTemplateResponse Client::sendTestByTemplateWithOptions(const SendTestB
 SendTestByTemplateResponse Client::sendTestByTemplate(const SendTestByTemplateRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return sendTestByTemplateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 提交批量校验任务
+ *
+ * @param request SendValidateFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SendValidateFileResponse
+ */
+SendValidateFileResponse Client::sendValidateFileWithOptions(const SendValidateFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAddressColumn()) {
+    query["AddressColumn"] = request.addressColumn();
+  }
+
+  if (!!request.hasFileName()) {
+    query["FileName"] = request.fileName();
+  }
+
+  if (!!request.hasFileUrl()) {
+    query["FileUrl"] = request.fileUrl();
+  }
+
+  if (!!request.hasHasHeaderRow()) {
+    query["HasHeaderRow"] = request.hasHeaderRow();
+  }
+
+  if (!!request.hasRemoveDuplicate()) {
+    query["RemoveDuplicate"] = request.removeDuplicate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SendValidateFile"},
+    {"version" , "2015-11-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SendValidateFileResponse>();
+}
+
+/**
+ * @summary 提交批量校验任务
+ *
+ * @param request SendValidateFileRequest
+ * @return SendValidateFileResponse
+ */
+SendValidateFileResponse Client::sendValidateFile(const SendValidateFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return sendValidateFileWithOptions(request, runtime);
+}
+
+SendValidateFileResponse Client::sendValidateFileAdvance(const SendValidateFileAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  // Step 0: init client
+  if (Darabonba::isNull(_credential)) {
+    throw ClientException(json({
+      {"code" , "InvalidCredentials"},
+      {"message" , "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
+    }).get<map<string, string>>());
+  }
+
+  CredentialModel credentialModel = _credential->getCredential();
+  string accessKeyId = credentialModel.accessKeyId();
+  string accessKeySecret = credentialModel.accessKeySecret();
+  string securityToken = credentialModel.securityToken();
+  string credentialType = credentialModel.type();
+  string openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+    openPlatformEndpoint = "openplatform.aliyuncs.com";
+  }
+
+  if (Darabonba::isNull(credentialType)) {
+    credentialType = "access_key";
+  }
+
+  AlibabaCloud::OpenApi::Utils::Models::Config authConfig = AlibabaCloud::OpenApi::Utils::Models::Config(json({
+    {"accessKeyId" , accessKeyId},
+    {"accessKeySecret" , accessKeySecret},
+    {"securityToken" , securityToken},
+    {"type" , credentialType},
+    {"endpoint" , openPlatformEndpoint},
+    {"protocol" , _protocol},
+    {"regionId" , _regionId}
+  }).get<map<string, string>>());
+  shared_ptr<OpenApiClient> authClient = make_shared<OpenApiClient>(authConfig);
+  map<string, string> authRequest = json({
+    {"Product" , "Dm"},
+    {"RegionId" , _regionId}
+  }).get<map<string, string>>();
+  OpenApiRequest authReq = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(authRequest)}
+  }).get<map<string, map<string, string>>>());
+  Params authParams = Params(json({
+    {"action" , "AuthorizeFileUpload"},
+    {"version" , "2019-12-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  json authResponse = {};
+  Darabonba::Http::FileField fileObj = FileField();
+  json ossHeader = {};
+  json tmpBody = {};
+  bool useAccelerate = false;
+  map<string, string> authResponseBody = {};
+  SendValidateFileRequest sendValidateFileReq = SendValidateFileRequest();
+  Utils::Utils::convert(request, sendValidateFileReq);
+  if (!!request.hasFileUrlObject()) {
+    authResponse = authClient->callApi(authParams, authReq, runtime);
+    tmpBody = json(authResponse.at("body"));
+    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
+    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
+    fileObj = FileField(json({
+      {"filename" , authResponseBody.at("ObjectKey")},
+      {"content" , request.fileUrlObject()},
+      {"contentType" , ""}
+    }));
+    ossHeader = json({
+      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
+      {"policy" , authResponseBody.at("EncodedPolicy")},
+      {"Signature" , authResponseBody.at("Signature")},
+      {"key" , authResponseBody.at("ObjectKey")},
+      {"file" , fileObj},
+      {"success_action_status" , "201"}
+    });
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    sendValidateFileReq.setFileUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
+  }
+
+  SendValidateFileResponse sendValidateFileResp = sendValidateFileWithOptions(sendValidateFileReq, runtime);
+  return sendValidateFileResp;
 }
 
 /**
@@ -3320,12 +4139,18 @@ SetSuppressionListLevelResponse Client::setSuppressionListLevel(const SetSuppres
 /**
  * @summary API for Sending Emails
  *
- * @param request SingleSendMailRequest
+ * @param tmpReq SingleSendMailRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SingleSendMailResponse
  */
-SingleSendMailResponse Client::singleSendMailWithOptions(const SingleSendMailRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+SingleSendMailResponse Client::singleSendMailWithOptions(const SingleSendMailRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SingleSendMailShrinkRequest request = SingleSendMailShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTemplate()) {
+    request.setTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq._template(), "Template", "json"));
+  }
+
   json query = {};
   if (!!request.hasOwnerId()) {
     query["OwnerId"] = request.ownerId();
@@ -3390,6 +4215,10 @@ SingleSendMailResponse Client::singleSendMailWithOptions(const SingleSendMailReq
 
   if (!!request.hasTagName()) {
     body["TagName"] = request.tagName();
+  }
+
+  if (!!request.hasTemplateShrink()) {
+    body["Template"] = request.templateShrink();
   }
 
   if (!!request.hasTextBody()) {
@@ -3681,6 +4510,52 @@ UpdateUserResponse Client::updateUserWithOptions(const UpdateUserRequest &tmpReq
 UpdateUserResponse Client::updateUser(const UpdateUserRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateUserWithOptions(request, runtime);
+}
+
+/**
+ * @summary 校验电子邮件地址
+ *
+ * @param request ValidateEmailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ValidateEmailResponse
+ */
+ValidateEmailResponse Client::validateEmailWithOptions(const ValidateEmailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEmail()) {
+    query["Email"] = request.email();
+  }
+
+  if (!!request.hasTimeout()) {
+    query["Timeout"] = request.timeout();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ValidateEmail"},
+    {"version" , "2015-11-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ValidateEmailResponse>();
+}
+
+/**
+ * @summary 校验电子邮件地址
+ *
+ * @param request ValidateEmailRequest
+ * @return ValidateEmailResponse
+ */
+ValidateEmailResponse Client::validateEmail(const ValidateEmailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return validateEmailWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Dm20151123

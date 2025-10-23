@@ -91,6 +91,23 @@ namespace Dm20151123
       Models::ChangeDomainDkimRecordResponse changeDomainDkimRecord(const Models::ChangeDomainDkimRecordRequest &request);
 
       /**
+       * @summary 检查地址是否为一次性邮箱
+       *
+       * @param request CheckDisposableRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckDisposableResponse
+       */
+      Models::CheckDisposableResponse checkDisposableWithOptions(const Models::CheckDisposableRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 检查地址是否为一次性邮箱
+       *
+       * @param request CheckDisposableRequest
+       * @return CheckDisposableResponse
+       */
+      Models::CheckDisposableResponse checkDisposable(const Models::CheckDisposableRequest &request);
+
+      /**
        * @summary Check Domain Status
        *
        * @param request CheckDomainRequest
@@ -123,6 +140,125 @@ namespace Dm20151123
        * @return CheckReplyToMailAddressResponse
        */
       Models::CheckReplyToMailAddressResponse checkReplyToMailAddress(const Models::CheckReplyToMailAddressRequest &request);
+
+      /**
+       * @summary 配置集取消关联发信地址
+       *
+       * @param request ConfigSetCancelRelationFromAddressRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ConfigSetCancelRelationFromAddressResponse
+       */
+      Models::ConfigSetCancelRelationFromAddressResponse configSetCancelRelationFromAddressWithOptions(const Models::ConfigSetCancelRelationFromAddressRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 配置集取消关联发信地址
+       *
+       * @param request ConfigSetCancelRelationFromAddressRequest
+       * @return ConfigSetCancelRelationFromAddressResponse
+       */
+      Models::ConfigSetCancelRelationFromAddressResponse configSetCancelRelationFromAddress(const Models::ConfigSetCancelRelationFromAddressRequest &request);
+
+      /**
+       * @summary 配置集创建
+       *
+       * @param request ConfigSetCreateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ConfigSetCreateResponse
+       */
+      Models::ConfigSetCreateResponse configSetCreateWithOptions(const Models::ConfigSetCreateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 配置集创建
+       *
+       * @param request ConfigSetCreateRequest
+       * @return ConfigSetCreateResponse
+       */
+      Models::ConfigSetCreateResponse configSetCreate(const Models::ConfigSetCreateRequest &request);
+
+      /**
+       * @summary 删除配置集
+       *
+       * @param request ConfigSetDeleteRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ConfigSetDeleteResponse
+       */
+      Models::ConfigSetDeleteResponse configSetDeleteWithOptions(const Models::ConfigSetDeleteRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除配置集
+       *
+       * @param request ConfigSetDeleteRequest
+       * @return ConfigSetDeleteResponse
+       */
+      Models::ConfigSetDeleteResponse configSetDelete(const Models::ConfigSetDeleteRequest &request);
+
+      /**
+       * @summary 配置集详情
+       *
+       * @param request ConfigSetDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ConfigSetDetailResponse
+       */
+      Models::ConfigSetDetailResponse configSetDetailWithOptions(const Models::ConfigSetDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 配置集详情
+       *
+       * @param request ConfigSetDetailRequest
+       * @return ConfigSetDetailResponse
+       */
+      Models::ConfigSetDetailResponse configSetDetail(const Models::ConfigSetDetailRequest &request);
+
+      /**
+       * @summary 配置集列表
+       *
+       * @param request ConfigSetListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ConfigSetListResponse
+       */
+      Models::ConfigSetListResponse configSetListWithOptions(const Models::ConfigSetListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 配置集列表
+       *
+       * @param request ConfigSetListRequest
+       * @return ConfigSetListResponse
+       */
+      Models::ConfigSetListResponse configSetList(const Models::ConfigSetListRequest &request);
+
+      /**
+       * @summary 配置集关联发信地址
+       *
+       * @param request ConfigSetRelationFromAddressRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ConfigSetRelationFromAddressResponse
+       */
+      Models::ConfigSetRelationFromAddressResponse configSetRelationFromAddressWithOptions(const Models::ConfigSetRelationFromAddressRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 配置集关联发信地址
+       *
+       * @param request ConfigSetRelationFromAddressRequest
+       * @return ConfigSetRelationFromAddressResponse
+       */
+      Models::ConfigSetRelationFromAddressResponse configSetRelationFromAddress(const Models::ConfigSetRelationFromAddressRequest &request);
+
+      /**
+       * @summary 配置集更新
+       *
+       * @param request ConfigSetUpdateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ConfigSetUpdateResponse
+       */
+      Models::ConfigSetUpdateResponse configSetUpdateWithOptions(const Models::ConfigSetUpdateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 配置集更新
+       *
+       * @param request ConfigSetUpdateRequest
+       * @return ConfigSetUpdateResponse
+       */
+      Models::ConfigSetUpdateResponse configSetUpdate(const Models::ConfigSetUpdateRequest &request);
 
       /**
        * @summary Create Domain
@@ -464,6 +600,23 @@ namespace Dm20151123
       Models::DeleteTagResponse deleteTag(const Models::DeleteTagRequest &request);
 
       /**
+       * @summary 删除批量校验任务的结果文件
+       *
+       * @param request DeleteValidateFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteValidateFileResponse
+       */
+      Models::DeleteValidateFileResponse deleteValidateFileWithOptions(const Models::DeleteValidateFileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除批量校验任务的结果文件
+       *
+       * @param request DeleteValidateFileRequest
+       * @return DeleteValidateFileResponse
+       */
+      Models::DeleteValidateFileResponse deleteValidateFile(const Models::DeleteValidateFileRequest &request);
+
+      /**
        * @summary Retrieve account information.
        *
        * @param request DescAccountSummaryRequest
@@ -496,6 +649,23 @@ namespace Dm20151123
        * @return DescDomainResponse
        */
       Models::DescDomainResponse descDomain(const Models::DescDomainRequest &request);
+
+      /**
+       * @summary 查看模板信息
+       *
+       * @param request DescTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescTemplateResponse
+       */
+      Models::DescTemplateResponse descTemplateWithOptions(const Models::DescTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看模板信息
+       *
+       * @param request DescTemplateRequest
+       * @return DescTemplateResponse
+       */
+      Models::DescTemplateResponse descTemplate(const Models::DescTemplateRequest &request);
 
       /**
        * @summary 获取专属ip的预热详情信息
@@ -631,6 +801,56 @@ namespace Dm20151123
        * @return GetUserResponse
        */
       Models::GetUserResponse getUser();
+
+      /**
+       * @summary 获取批量校验任务的结果文件
+       *
+       * @param request GetValidateFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetValidateFileResponse
+       */
+      Models::GetValidateFileResponse getValidateFileWithOptions(const Models::GetValidateFileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取批量校验任务的结果文件
+       *
+       * @param request GetValidateFileRequest
+       * @return GetValidateFileResponse
+       */
+      Models::GetValidateFileResponse getValidateFile(const Models::GetValidateFileRequest &request);
+
+      /**
+       * @summary 获取批量校验任务的状态
+       *
+       * @param request GetValidateFileStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetValidateFileStatusResponse
+       */
+      Models::GetValidateFileStatusResponse getValidateFileStatusWithOptions(const Models::GetValidateFileStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取批量校验任务的状态
+       *
+       * @param request GetValidateFileStatusRequest
+       * @return GetValidateFileStatusResponse
+       */
+      Models::GetValidateFileStatusResponse getValidateFileStatus(const Models::GetValidateFileStatusRequest &request);
+
+      /**
+       * @summary 获取电子邮件校验额度
+       *
+       * @param request GetValidationQuotaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetValidationQuotaResponse
+       */
+      Models::GetValidationQuotaResponse getValidationQuotaWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取电子邮件校验额度
+       *
+       * @return GetValidationQuotaResponse
+       */
+      Models::GetValidationQuotaResponse getValidationQuota();
 
       /**
        * @summary 获取发信的黑名单列表
@@ -841,6 +1061,23 @@ namespace Dm20151123
       Models::QueryTaskByParamResponse queryTaskByParam(const Models::QueryTaskByParamRequest &request);
 
       /**
+       * @summary 查询模板信息
+       *
+       * @param request QueryTemplateByParamRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryTemplateByParamResponse
+       */
+      Models::QueryTemplateByParamResponse queryTemplateByParamWithOptions(const Models::QueryTemplateByParamRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询模板信息
+       *
+       * @param request QueryTemplateByParamRequest
+       * @return QueryTemplateByParamResponse
+       */
+      Models::QueryTemplateByParamResponse queryTemplateByParam(const Models::QueryTemplateByParamRequest &request);
+
+      /**
        * @summary 删除用户无效地址
        *
        * @param request RemoveUserSuppressionRequest
@@ -890,6 +1127,25 @@ namespace Dm20151123
        * @return SendTestByTemplateResponse
        */
       Models::SendTestByTemplateResponse sendTestByTemplate(const Models::SendTestByTemplateRequest &request);
+
+      /**
+       * @summary 提交批量校验任务
+       *
+       * @param request SendValidateFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SendValidateFileResponse
+       */
+      Models::SendValidateFileResponse sendValidateFileWithOptions(const Models::SendValidateFileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交批量校验任务
+       *
+       * @param request SendValidateFileRequest
+       * @return SendValidateFileResponse
+       */
+      Models::SendValidateFileResponse sendValidateFile(const Models::SendValidateFileRequest &request);
+
+      Models::SendValidateFileResponse sendValidateFileAdvance(const Models::SendValidateFileAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Retrieve Sending Data under Specified Conditions
@@ -945,11 +1201,11 @@ namespace Dm20151123
       /**
        * @summary API for Sending Emails
        *
-       * @param request SingleSendMailRequest
+       * @param tmpReq SingleSendMailRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SingleSendMailResponse
        */
-      Models::SingleSendMailResponse singleSendMailWithOptions(const Models::SingleSendMailRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::SingleSendMailResponse singleSendMailWithOptions(const Models::SingleSendMailRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary API for Sending Emails
@@ -1011,6 +1267,23 @@ namespace Dm20151123
        * @return UpdateUserResponse
        */
       Models::UpdateUserResponse updateUser(const Models::UpdateUserRequest &request);
+
+      /**
+       * @summary 校验电子邮件地址
+       *
+       * @param request ValidateEmailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ValidateEmailResponse
+       */
+      Models::ValidateEmailResponse validateEmailWithOptions(const Models::ValidateEmailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 校验电子邮件地址
+       *
+       * @param request ValidateEmailRequest
+       * @return ValidateEmailResponse
+       */
+      Models::ValidateEmailResponse validateEmail(const Models::ValidateEmailRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Dm20151123

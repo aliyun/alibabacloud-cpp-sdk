@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountName_ != nullptr
-        && this->accountStatus_ != nullptr && this->configSetId_ != nullptr && this->configSetName_ != nullptr && this->createTime_ != nullptr && this->dailyCount_ != nullptr
-        && this->dailyReqCount_ != nullptr && this->domainStatus_ != nullptr && this->mailAddressId_ != nullptr && this->monthCount_ != nullptr && this->monthReqCount_ != nullptr
-        && this->replyAddress_ != nullptr && this->replyStatus_ != nullptr && this->sendtype_ != nullptr; };
+    virtual bool empty() const override { return this->accountName_ == nullptr
+        && return this->accountStatus_ == nullptr && return this->configSetId_ == nullptr && return this->configSetName_ == nullptr && return this->createTime_ == nullptr && return this->dailyCount_ == nullptr
+        && return this->dailyReqCount_ == nullptr && return this->domainStatus_ == nullptr && return this->mailAddressId_ == nullptr && return this->monthCount_ == nullptr && return this->monthReqCount_ == nullptr
+        && return this->replyAddress_ == nullptr && return this->replyStatus_ == nullptr && return this->sendtype_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};

@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountName_ != nullptr
-        && this->configSetId_ != nullptr && this->configSetName_ != nullptr && this->errorClassification_ != nullptr && this->ipPoolId_ != nullptr && this->ipPoolName_ != nullptr
-        && this->lastUpdateTime_ != nullptr && this->message_ != nullptr && this->status_ != nullptr && this->subject_ != nullptr && this->toAddress_ != nullptr
-        && this->utcLastUpdateTime_ != nullptr; };
+    virtual bool empty() const override { return this->accountName_ == nullptr
+        && return this->configSetId_ == nullptr && return this->configSetName_ == nullptr && return this->errorClassification_ == nullptr && return this->ipPoolId_ == nullptr && return this->ipPoolName_ == nullptr
+        && return this->lastUpdateTime_ == nullptr && return this->message_ == nullptr && return this->status_ == nullptr && return this->subject_ == nullptr && return this->toAddress_ == nullptr
+        && return this->utcLastUpdateTime_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};

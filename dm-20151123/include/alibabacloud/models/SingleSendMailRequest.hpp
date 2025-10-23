@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/SingleSendMailRequestAttachments.hpp>
+#include <alibabacloud/models/SingleSendMailRequestTemplate.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(Subject, subject_);
       DARABONBA_PTR_TO_JSON(TagName, tagName_);
+      DARABONBA_PTR_TO_JSON(Template, template_);
       DARABONBA_PTR_TO_JSON(TextBody, textBody_);
       DARABONBA_PTR_TO_JSON(ToAddress, toAddress_);
       DARABONBA_PTR_TO_JSON(UnSubscribeFilterLevel, unSubscribeFilterLevel_);
@@ -53,6 +55,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(Subject, subject_);
       DARABONBA_PTR_FROM_JSON(TagName, tagName_);
+      DARABONBA_PTR_FROM_JSON(Template, template_);
       DARABONBA_PTR_FROM_JSON(TextBody, textBody_);
       DARABONBA_PTR_FROM_JSON(ToAddress, toAddress_);
       DARABONBA_PTR_FROM_JSON(UnSubscribeFilterLevel, unSubscribeFilterLevel_);
@@ -69,11 +72,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountName_ != nullptr
-        && this->addressType_ != nullptr && this->attachments_ != nullptr && this->clickTrace_ != nullptr && this->fromAlias_ != nullptr && this->headers_ != nullptr
-        && this->htmlBody_ != nullptr && this->ipPoolId_ != nullptr && this->ownerId_ != nullptr && this->replyAddress_ != nullptr && this->replyAddressAlias_ != nullptr
-        && this->replyToAddress_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->subject_ != nullptr && this->tagName_ != nullptr
-        && this->textBody_ != nullptr && this->toAddress_ != nullptr && this->unSubscribeFilterLevel_ != nullptr && this->unSubscribeLinkType_ != nullptr; };
+    virtual bool empty() const override { return this->accountName_ == nullptr
+        && return this->addressType_ == nullptr && return this->attachments_ == nullptr && return this->clickTrace_ == nullptr && return this->fromAlias_ == nullptr && return this->headers_ == nullptr
+        && return this->htmlBody_ == nullptr && return this->ipPoolId_ == nullptr && return this->ownerId_ == nullptr && return this->replyAddress_ == nullptr && return this->replyAddressAlias_ == nullptr
+        && return this->replyToAddress_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->subject_ == nullptr && return this->tagName_ == nullptr
+        && return this->template_ == nullptr && return this->textBody_ == nullptr && return this->toAddress_ == nullptr && return this->unSubscribeFilterLevel_ == nullptr && return this->unSubscribeLinkType_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
@@ -188,6 +191,15 @@ namespace Models
     inline SingleSendMailRequest& setTagName(string tagName) { DARABONBA_PTR_SET_VALUE(tagName_, tagName) };
 
 
+    // template Field Functions 
+    bool hasTemplate() const { return this->template_ != nullptr;};
+    void deleteTemplate() { this->template_ = nullptr;};
+    inline const SingleSendMailRequestTemplate & _template() const { DARABONBA_PTR_GET_CONST(template_, SingleSendMailRequestTemplate) };
+    inline SingleSendMailRequestTemplate _template() { DARABONBA_PTR_GET(template_, SingleSendMailRequestTemplate) };
+    inline SingleSendMailRequest& setTemplate(const SingleSendMailRequestTemplate & _template) { DARABONBA_PTR_SET_VALUE(template_, _template) };
+    inline SingleSendMailRequest& setTemplate(SingleSendMailRequestTemplate && _template) { DARABONBA_PTR_SET_RVALUE(template_, _template) };
+
+
     // textBody Field Functions 
     bool hasTextBody() const { return this->textBody_ != nullptr;};
     void deleteTextBody() { this->textBody_ = nullptr;};
@@ -237,6 +249,7 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> subject_ = nullptr;
     std::shared_ptr<string> tagName_ = nullptr;
+    std::shared_ptr<SingleSendMailRequestTemplate> template_ = nullptr;
     std::shared_ptr<string> textBody_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> toAddress_ = nullptr;

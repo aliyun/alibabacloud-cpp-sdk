@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountName_ != nullptr
-        && this->addressType_ != nullptr && this->clickTrace_ != nullptr && this->headers_ != nullptr && this->ipPoolId_ != nullptr && this->ownerId_ != nullptr
-        && this->receiversName_ != nullptr && this->replyAddress_ != nullptr && this->replyAddressAlias_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->tagName_ != nullptr && this->templateName_ != nullptr && this->unSubscribeFilterLevel_ != nullptr && this->unSubscribeLinkType_ != nullptr; };
+    virtual bool empty() const override { return this->accountName_ == nullptr
+        && return this->addressType_ == nullptr && return this->clickTrace_ == nullptr && return this->headers_ == nullptr && return this->ipPoolId_ == nullptr && return this->ownerId_ == nullptr
+        && return this->receiversName_ == nullptr && return this->replyAddress_ == nullptr && return this->replyAddressAlias_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->tagName_ == nullptr && return this->templateName_ == nullptr && return this->unSubscribeFilterLevel_ == nullptr && return this->unSubscribeLinkType_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};

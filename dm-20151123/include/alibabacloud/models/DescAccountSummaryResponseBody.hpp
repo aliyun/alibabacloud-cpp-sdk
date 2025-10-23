@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dailyQuota_ != nullptr
-        && this->dailyRemainFreeQuota_ != nullptr && this->dayuStatus_ != nullptr && this->domains_ != nullptr && this->enableTimes_ != nullptr && this->ipChannelType_ != nullptr
-        && this->mailAddresses_ != nullptr && this->maxQuotaLevel_ != nullptr && this->monthQuota_ != nullptr && this->quotaLevel_ != nullptr && this->receivers_ != nullptr
-        && this->remainFreeQuota_ != nullptr && this->requestId_ != nullptr && this->smsRecord_ != nullptr && this->smsSign_ != nullptr && this->smsTemplates_ != nullptr
-        && this->tags_ != nullptr && this->templates_ != nullptr && this->userStatus_ != nullptr; };
+    virtual bool empty() const override { return this->dailyQuota_ == nullptr
+        && return this->dailyRemainFreeQuota_ == nullptr && return this->dayuStatus_ == nullptr && return this->domains_ == nullptr && return this->enableTimes_ == nullptr && return this->ipChannelType_ == nullptr
+        && return this->mailAddresses_ == nullptr && return this->maxQuotaLevel_ == nullptr && return this->monthQuota_ == nullptr && return this->quotaLevel_ == nullptr && return this->receivers_ == nullptr
+        && return this->remainFreeQuota_ == nullptr && return this->requestId_ == nullptr && return this->smsRecord_ == nullptr && return this->smsSign_ == nullptr && return this->smsTemplates_ == nullptr
+        && return this->tags_ == nullptr && return this->templates_ == nullptr && return this->userStatus_ == nullptr; };
     // dailyQuota Field Functions 
     bool hasDailyQuota() const { return this->dailyQuota_ != nullptr;};
     void deleteDailyQuota() { this->dailyQuota_ = nullptr;};

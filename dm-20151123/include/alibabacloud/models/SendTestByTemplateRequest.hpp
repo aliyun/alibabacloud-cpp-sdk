@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
+      DARABONBA_PTR_TO_JSON(TemplateParams, templateParams_);
       DARABONBA_PTR_TO_JSON(UserName, userName_);
     };
     friend void from_json(const Darabonba::Json& j, SendTestByTemplateRequest& obj) { 
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
+      DARABONBA_PTR_FROM_JSON(TemplateParams, templateParams_);
       DARABONBA_PTR_FROM_JSON(UserName, userName_);
     };
     SendTestByTemplateRequest() = default ;
@@ -49,9 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountName_ != nullptr
-        && this->birthday_ != nullptr && this->email_ != nullptr && this->gender_ != nullptr && this->mobile_ != nullptr && this->nickName_ != nullptr
-        && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->templateId_ != nullptr && this->userName_ != nullptr; };
+    virtual bool empty() const override { return this->accountName_ == nullptr
+        && return this->birthday_ == nullptr && return this->email_ == nullptr && return this->gender_ == nullptr && return this->mobile_ == nullptr && return this->nickName_ == nullptr
+        && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->templateId_ == nullptr && return this->templateParams_ == nullptr
+        && return this->userName_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
@@ -122,6 +125,13 @@ namespace Models
     inline SendTestByTemplateRequest& setTemplateId(int32_t templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
+    // templateParams Field Functions 
+    bool hasTemplateParams() const { return this->templateParams_ != nullptr;};
+    void deleteTemplateParams() { this->templateParams_ = nullptr;};
+    inline string templateParams() const { DARABONBA_PTR_GET_DEFAULT(templateParams_, "") };
+    inline SendTestByTemplateRequest& setTemplateParams(string templateParams) { DARABONBA_PTR_SET_VALUE(templateParams_, templateParams) };
+
+
     // userName Field Functions 
     bool hasUserName() const { return this->userName_ != nullptr;};
     void deleteUserName() { this->userName_ = nullptr;};
@@ -153,6 +163,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<int32_t> templateId_ = nullptr;
+    std::shared_ptr<string> templateParams_ = nullptr;
     // UserName, with a maximum length of 30 characters
     std::shared_ptr<string> userName_ = nullptr;
   };

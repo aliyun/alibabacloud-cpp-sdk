@@ -14,9 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const SaveReceiverDetailResponseBodyDataDetail& obj) { 
       DARABONBA_PTR_TO_JSON(Email, email_);
+      DARABONBA_PTR_TO_JSON(ErrMessage, errMessage_);
     };
     friend void from_json(const Darabonba::Json& j, SaveReceiverDetailResponseBodyDataDetail& obj) { 
       DARABONBA_PTR_FROM_JSON(Email, email_);
+      DARABONBA_PTR_FROM_JSON(ErrMessage, errMessage_);
     };
     SaveReceiverDetailResponseBodyDataDetail() = default ;
     SaveReceiverDetailResponseBodyDataDetail(const SaveReceiverDetailResponseBodyDataDetail &) = default ;
@@ -29,7 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->email_ != nullptr; };
+    virtual bool empty() const override { return this->email_ == nullptr
+        && return this->errMessage_ == nullptr; };
     // email Field Functions 
     bool hasEmail() const { return this->email_ != nullptr;};
     void deleteEmail() { this->email_ = nullptr;};
@@ -37,9 +40,17 @@ namespace Models
     inline SaveReceiverDetailResponseBodyDataDetail& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
 
 
+    // errMessage Field Functions 
+    bool hasErrMessage() const { return this->errMessage_ != nullptr;};
+    void deleteErrMessage() { this->errMessage_ = nullptr;};
+    inline string errMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
+    inline SaveReceiverDetailResponseBodyDataDetail& setErrMessage(string errMessage) { DARABONBA_PTR_SET_VALUE(errMessage_, errMessage) };
+
+
   protected:
     // Recipient address.
     std::shared_ptr<string> email_ = nullptr;
+    std::shared_ptr<string> errMessage_ = nullptr;
   };
 
   } // namespace Models

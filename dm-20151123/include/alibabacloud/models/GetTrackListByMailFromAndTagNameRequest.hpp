@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountName_ != nullptr
-        && this->configSetId_ != nullptr && this->dedicatedIp_ != nullptr && this->dedicatedIpPoolId_ != nullptr && this->endTime_ != nullptr && this->esp_ != nullptr
-        && this->offset_ != nullptr && this->offsetCreateTime_ != nullptr && this->offsetCreateTimeDesc_ != nullptr && this->ownerId_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->startTime_ != nullptr && this->tagName_ != nullptr
-        && this->total_ != nullptr; };
+    virtual bool empty() const override { return this->accountName_ == nullptr
+        && return this->configSetId_ == nullptr && return this->dedicatedIp_ == nullptr && return this->dedicatedIpPoolId_ == nullptr && return this->endTime_ == nullptr && return this->esp_ == nullptr
+        && return this->offset_ == nullptr && return this->offsetCreateTime_ == nullptr && return this->offsetCreateTimeDesc_ == nullptr && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->startTime_ == nullptr && return this->tagName_ == nullptr
+        && return this->total_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};

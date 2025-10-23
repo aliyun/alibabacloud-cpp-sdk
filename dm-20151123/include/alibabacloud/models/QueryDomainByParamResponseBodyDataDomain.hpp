@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cnameAuthStatus_ != nullptr
-        && this->confirmStatus_ != nullptr && this->createTime_ != nullptr && this->domainId_ != nullptr && this->domainName_ != nullptr && this->domainRecord_ != nullptr
-        && this->domainStatus_ != nullptr && this->icpStatus_ != nullptr && this->mxAuthStatus_ != nullptr && this->spfAuthStatus_ != nullptr && this->utcCreateTime_ != nullptr; };
+    virtual bool empty() const override { return this->cnameAuthStatus_ == nullptr
+        && return this->confirmStatus_ == nullptr && return this->createTime_ == nullptr && return this->domainId_ == nullptr && return this->domainName_ == nullptr && return this->domainRecord_ == nullptr
+        && return this->domainStatus_ == nullptr && return this->icpStatus_ == nullptr && return this->mxAuthStatus_ == nullptr && return this->spfAuthStatus_ == nullptr && return this->utcCreateTime_ == nullptr; };
     // cnameAuthStatus Field Functions 
     bool hasCnameAuthStatus() const { return this->cnameAuthStatus_ != nullptr;};
     void deleteCnameAuthStatus() { this->cnameAuthStatus_ = nullptr;};

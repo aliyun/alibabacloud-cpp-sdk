@@ -87,13 +87,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cnameAuthStatus_ != nullptr
-        && this->cnameConfirmStatus_ != nullptr && this->cnameRecord_ != nullptr && this->createTime_ != nullptr && this->defaultDomain_ != nullptr && this->dkimAuthStatus_ != nullptr
-        && this->dkimPublicKey_ != nullptr && this->dkimRR_ != nullptr && this->dkimRsaLength_ != nullptr && this->dmarcAuthStatus_ != nullptr && this->dmarcHostRecord_ != nullptr
-        && this->dmarcRecord_ != nullptr && this->dnsDmarc_ != nullptr && this->dnsMx_ != nullptr && this->dnsSpf_ != nullptr && this->dnsTxt_ != nullptr
-        && this->domainId_ != nullptr && this->domainName_ != nullptr && this->domainStatus_ != nullptr && this->domainType_ != nullptr && this->hostRecord_ != nullptr
-        && this->icpStatus_ != nullptr && this->mxAuthStatus_ != nullptr && this->mxRecord_ != nullptr && this->requestId_ != nullptr && this->spfAuthStatus_ != nullptr
-        && this->spfRecord_ != nullptr && this->spfRecordV2_ != nullptr && this->tlDomainName_ != nullptr && this->tracefRecord_ != nullptr; };
+    virtual bool empty() const override { return this->cnameAuthStatus_ == nullptr
+        && return this->cnameConfirmStatus_ == nullptr && return this->cnameRecord_ == nullptr && return this->createTime_ == nullptr && return this->defaultDomain_ == nullptr && return this->dkimAuthStatus_ == nullptr
+        && return this->dkimPublicKey_ == nullptr && return this->dkimRR_ == nullptr && return this->dkimRsaLength_ == nullptr && return this->dmarcAuthStatus_ == nullptr && return this->dmarcHostRecord_ == nullptr
+        && return this->dmarcRecord_ == nullptr && return this->dnsDmarc_ == nullptr && return this->dnsMx_ == nullptr && return this->dnsSpf_ == nullptr && return this->dnsTxt_ == nullptr
+        && return this->domainId_ == nullptr && return this->domainName_ == nullptr && return this->domainStatus_ == nullptr && return this->domainType_ == nullptr && return this->hostRecord_ == nullptr
+        && return this->icpStatus_ == nullptr && return this->mxAuthStatus_ == nullptr && return this->mxRecord_ == nullptr && return this->requestId_ == nullptr && return this->spfAuthStatus_ == nullptr
+        && return this->spfRecord_ == nullptr && return this->spfRecordV2_ == nullptr && return this->tlDomainName_ == nullptr && return this->tracefRecord_ == nullptr; };
     // cnameAuthStatus Field Functions 
     bool hasCnameAuthStatus() const { return this->cnameAuthStatus_ != nullptr;};
     void deleteCnameAuthStatus() { this->cnameAuthStatus_ = nullptr;};
