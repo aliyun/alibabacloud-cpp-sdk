@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->continents_ != nullptr
-        && this->continentsValue_ != nullptr && this->cpu_ != nullptr && this->createTimestamp_ != nullptr && this->customName_ != nullptr && this->groupId_ != nullptr
-        && this->groupName_ != nullptr && this->groupType_ != nullptr && this->hostName_ != nullptr && this->ip_ != nullptr && this->jobStatus_ != nullptr
-        && this->mac_ != nullptr && this->memory_ != nullptr && this->mid_ != nullptr && this->operator_ != nullptr && this->operatorValue_ != nullptr
-        && this->regionCode_ != nullptr && this->regionCodeValue_ != nullptr && this->status_ != nullptr && this->updateTimestamp_ != nullptr; };
+    virtual bool empty() const override { return this->continents_ == nullptr
+        && return this->continentsValue_ == nullptr && return this->cpu_ == nullptr && return this->createTimestamp_ == nullptr && return this->customName_ == nullptr && return this->groupId_ == nullptr
+        && return this->groupName_ == nullptr && return this->groupType_ == nullptr && return this->hostName_ == nullptr && return this->ip_ == nullptr && return this->jobStatus_ == nullptr
+        && return this->mac_ == nullptr && return this->memory_ == nullptr && return this->mid_ == nullptr && return this->operator_ == nullptr && return this->operatorValue_ == nullptr
+        && return this->regionCode_ == nullptr && return this->regionCodeValue_ == nullptr && return this->status_ == nullptr && return this->updateTimestamp_ == nullptr; };
     // continents Field Functions 
     bool hasContinents() const { return this->continents_ != nullptr;};
     void deleteContinents() { this->continents_ = nullptr;};

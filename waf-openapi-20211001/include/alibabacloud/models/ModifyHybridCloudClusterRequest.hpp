@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessMode_ != nullptr
-        && this->accessRegion_ != nullptr && this->clusterName_ != nullptr && this->httpPorts_ != nullptr && this->httpsPorts_ != nullptr && this->id_ != nullptr
-        && this->instanceId_ != nullptr && this->logFieldsNotReturned_ != nullptr && this->protectionServerCount_ != nullptr && this->proxyStatus_ != nullptr && this->proxyType_ != nullptr
-        && this->regionId_ != nullptr && this->remark_ != nullptr && this->resourceManagerResourceGroupId_ != nullptr && this->ruleConfig_ != nullptr && this->ruleStatus_ != nullptr
-        && this->ruleType_ != nullptr; };
+    virtual bool empty() const override { return this->accessMode_ == nullptr
+        && return this->accessRegion_ == nullptr && return this->clusterName_ == nullptr && return this->httpPorts_ == nullptr && return this->httpsPorts_ == nullptr && return this->id_ == nullptr
+        && return this->instanceId_ == nullptr && return this->logFieldsNotReturned_ == nullptr && return this->protectionServerCount_ == nullptr && return this->proxyStatus_ == nullptr && return this->proxyType_ == nullptr
+        && return this->regionId_ == nullptr && return this->remark_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr && return this->ruleConfig_ == nullptr && return this->ruleStatus_ == nullptr
+        && return this->ruleType_ == nullptr; };
     // accessMode Field Functions 
     bool hasAccessMode() const { return this->accessMode_ != nullptr;};
     void deleteAccessMode() { this->accessMode_ = nullptr;};

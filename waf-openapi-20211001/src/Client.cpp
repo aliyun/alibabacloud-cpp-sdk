@@ -1156,6 +1156,76 @@ CreateMajorProtectionBlackIpResponse Client::createMajorProtectionBlackIp(const 
 }
 
 /**
+ * @summary 添加重保场景黑IP
+ *
+ * @param request CreateMajorProtectionBlackIpV2Request
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMajorProtectionBlackIpV2Response
+ */
+CreateMajorProtectionBlackIpV2Response Client::createMajorProtectionBlackIpV2WithOptions(const CreateMajorProtectionBlackIpV2Request &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
+  if (!!request.hasExpiredTime()) {
+    query["ExpiredTime"] = request.expiredTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasIpList()) {
+    query["IpList"] = request.ipList();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  if (!!request.hasRuleId()) {
+    query["RuleId"] = request.ruleId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.templateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateMajorProtectionBlackIpV2"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMajorProtectionBlackIpV2Response>();
+}
+
+/**
+ * @summary 添加重保场景黑IP
+ *
+ * @param request CreateMajorProtectionBlackIpV2Request
+ * @return CreateMajorProtectionBlackIpV2Response
+ */
+CreateMajorProtectionBlackIpV2Response Client::createMajorProtectionBlackIpV2(const CreateMajorProtectionBlackIpV2Request &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createMajorProtectionBlackIpV2WithOptions(request, runtime);
+}
+
+/**
  * @summary Adds members to use the multi-account management feature of Web Application Firewall (WAF).
  *
  * @param request CreateMemberAccountsRequest
@@ -1211,6 +1281,60 @@ CreateMemberAccountsResponse Client::createMemberAccountsWithOptions(const Creat
 CreateMemberAccountsResponse Client::createMemberAccounts(const CreateMemberAccountsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createMemberAccountsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 开启防护功能POC
+ *
+ * @param request CreatePocFunctionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePocFunctionResponse
+ */
+CreatePocFunctionResponse Client::createPocFunctionWithOptions(const CreatePocFunctionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.type();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreatePocFunction"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePocFunctionResponse>();
+}
+
+/**
+ * @summary 开启防护功能POC
+ *
+ * @param request CreatePocFunctionRequest
+ * @return CreatePocFunctionResponse
+ */
+CreatePocFunctionResponse Client::createPocFunction(const CreatePocFunctionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createPocFunctionWithOptions(request, runtime);
 }
 
 /**
@@ -3681,6 +3805,114 @@ DescribeCertsResponse Client::describeCertsWithOptions(const DescribeCertsReques
 DescribeCertsResponse Client::describeCerts(const DescribeCertsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeCertsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询WAF计价模块信息
+ *
+ * @param request DescribeChargeModuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeChargeModuleResponse
+ */
+DescribeChargeModuleResponse Client::describeChargeModuleWithOptions(const DescribeChargeModuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPayType()) {
+    query["PayType"] = request.payType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeChargeModule"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeChargeModuleResponse>();
+}
+
+/**
+ * @summary 查询WAF计价模块信息
+ *
+ * @param request DescribeChargeModuleRequest
+ * @return DescribeChargeModuleResponse
+ */
+DescribeChargeModuleResponse Client::describeChargeModule(const DescribeChargeModuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeChargeModuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询WAF计价模块的计价结果
+ *
+ * @param request DescribeChargeResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeChargeResultResponse
+ */
+DescribeChargeResultResponse Client::describeChargeResultWithOptions(const DescribeChargeResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasChargeCycle()) {
+    query["ChargeCycle"] = request.chargeCycle();
+  }
+
+  if (!!request.hasChargeModules()) {
+    query["ChargeModules"] = request.chargeModules();
+  }
+
+  if (!!request.hasPayType()) {
+    query["PayType"] = request.payType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeChargeResult"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeChargeResultResponse>();
+}
+
+/**
+ * @summary 查询WAF计价模块的计价结果
+ *
+ * @param request DescribeChargeResultRequest
+ * @return DescribeChargeResultResponse
+ */
+DescribeChargeResultResponse Client::describeChargeResult(const DescribeChargeResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeChargeResultWithOptions(request, runtime);
 }
 
 /**
@@ -7264,6 +7496,56 @@ DescribePeakTrendResponse Client::describePeakTrend(const DescribePeakTrendReque
 }
 
 /**
+ * @summary 查询开启POC的功能信息
+ *
+ * @param request DescribePocFunctionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePocFunctionsResponse
+ */
+DescribePocFunctionsResponse Client::describePocFunctionsWithOptions(const DescribePocFunctionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePocFunctions"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePocFunctionsResponse>();
+}
+
+/**
+ * @summary 查询开启POC的功能信息
+ *
+ * @param request DescribePocFunctionsRequest
+ * @return DescribePocFunctionsResponse
+ */
+DescribePocFunctionsResponse Client::describePocFunctions(const DescribePocFunctionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePocFunctionsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the cloud service instances to be added to Web Application Firewall (WAF) in transparent proxy mode.
  *
  * @param request DescribeProductInstancesRequest
@@ -9845,6 +10127,56 @@ DescribeUserWafLogStatusResponse Client::describeUserWafLogStatusWithOptions(con
 DescribeUserWafLogStatusResponse Client::describeUserWafLogStatus(const DescribeUserWafLogStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeUserWafLogStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询归属校验内容
+ *
+ * @param request DescribeVerifyContentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVerifyContentResponse
+ */
+DescribeVerifyContentResponse Client::describeVerifyContentWithOptions(const DescribeVerifyContentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccessOrigin()) {
+    query["AccessOrigin"] = request.accessOrigin();
+  }
+
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.domainName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVerifyContent"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVerifyContentResponse>();
+}
+
+/**
+ * @summary 查询归属校验内容
+ *
+ * @param request DescribeVerifyContentRequest
+ * @return DescribeVerifyContentResponse
+ */
+DescribeVerifyContentResponse Client::describeVerifyContent(const DescribeVerifyContentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVerifyContentWithOptions(request, runtime);
 }
 
 /**
@@ -12701,6 +13033,60 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return untagResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Verifies the ownership of a domain name.
+ *
+ * @param request VerifyDomainOwnerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return VerifyDomainOwnerResponse
+ */
+VerifyDomainOwnerResponse Client::verifyDomainOwnerWithOptions(const VerifyDomainOwnerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.domainName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasProtocol()) {
+    query["Protocol"] = request.protocol();
+  }
+
+  if (!!request.hasVerifyType()) {
+    query["VerifyType"] = request.verifyType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "VerifyDomainOwner"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<VerifyDomainOwnerResponse>();
+}
+
+/**
+ * @summary Verifies the ownership of a domain name.
+ *
+ * @param request VerifyDomainOwnerRequest
+ * @return VerifyDomainOwnerResponse
+ */
+VerifyDomainOwnerResponse Client::verifyDomainOwner(const VerifyDomainOwnerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return verifyDomainOwnerWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace WafOpenapi20211001

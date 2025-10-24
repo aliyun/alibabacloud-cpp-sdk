@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acwCookieStatus_ != nullptr
-        && this->acwSecureStatus_ != nullptr && this->acwV3SecureStatus_ != nullptr && this->customHeaders_ != nullptr && this->description_ != nullptr && this->detail_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->ownerUserId_ != nullptr && this->pattern_ != nullptr && this->product_ != nullptr
-        && this->resource_ != nullptr && this->resourceGroup_ != nullptr && this->resourceManagerResourceGroupId_ != nullptr && this->resourceOrigin_ != nullptr && this->responseHeaders_ != nullptr
-        && this->xffStatus_ != nullptr; };
+    virtual bool empty() const override { return this->acwCookieStatus_ == nullptr
+        && return this->acwSecureStatus_ == nullptr && return this->acwV3SecureStatus_ == nullptr && return this->customHeaders_ == nullptr && return this->description_ == nullptr && return this->detail_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->ownerUserId_ == nullptr && return this->pattern_ == nullptr && return this->product_ == nullptr
+        && return this->resource_ == nullptr && return this->resourceGroup_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr && return this->resourceOrigin_ == nullptr && return this->responseHeaders_ == nullptr
+        && return this->xffStatus_ == nullptr; };
     // acwCookieStatus Field Functions 
     bool hasAcwCookieStatus() const { return this->acwCookieStatus_ != nullptr;};
     void deleteAcwCookieStatus() { this->acwCookieStatus_ = nullptr;};

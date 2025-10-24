@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appliedType_ != nullptr
-        && this->certName_ != nullptr && this->code_ != nullptr && this->commonName_ != nullptr && this->expireTime_ != nullptr && this->productCertId_ != nullptr
-        && this->productCertName_ != nullptr && this->productDomainExtension_ != nullptr; };
+    virtual bool empty() const override { return this->appliedType_ == nullptr
+        && return this->certName_ == nullptr && return this->code_ == nullptr && return this->commonName_ == nullptr && return this->expireTime_ == nullptr && return this->productCertId_ == nullptr
+        && return this->productCertName_ == nullptr && return this->productDomainExtension_ == nullptr; };
     // appliedType Field Functions 
     bool hasAppliedType() const { return this->appliedType_ != nullptr;};
     void deleteAppliedType() { this->appliedType_ = nullptr;};

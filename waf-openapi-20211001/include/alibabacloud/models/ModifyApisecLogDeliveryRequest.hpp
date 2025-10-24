@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assertKey_ != nullptr
-        && this->instanceId_ != nullptr && this->logRegionId_ != nullptr && this->logStoreName_ != nullptr && this->projectName_ != nullptr && this->regionId_ != nullptr
-        && this->resourceManagerResourceGroupId_ != nullptr; };
+    virtual bool empty() const override { return this->assertKey_ == nullptr
+        && return this->instanceId_ == nullptr && return this->logRegionId_ == nullptr && return this->logStoreName_ == nullptr && return this->projectName_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceManagerResourceGroupId_ == nullptr; };
     // assertKey Field Functions 
     bool hasAssertKey() const { return this->assertKey_ != nullptr;};
     void deleteAssertKey() { this->assertKey_ = nullptr;};

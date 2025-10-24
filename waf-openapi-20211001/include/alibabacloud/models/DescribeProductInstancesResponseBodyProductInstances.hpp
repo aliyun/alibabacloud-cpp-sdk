@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessInstanceId_ != nullptr
-        && this->accessPortAndProtocols_ != nullptr && this->accessPorts_ != nullptr && this->ownerUserId_ != nullptr && this->resourceInstanceAccessStatus_ != nullptr && this->resourceInstanceEdition_ != nullptr
-        && this->resourceInstanceId_ != nullptr && this->resourceInstanceIp_ != nullptr && this->resourceInstanceName_ != nullptr && this->resourceIp_ != nullptr && this->resourceName_ != nullptr
-        && this->resourcePorts_ != nullptr && this->resourceProduct_ != nullptr && this->resourceRegionId_ != nullptr; };
+    virtual bool empty() const override { return this->accessInstanceId_ == nullptr
+        && return this->accessPortAndProtocols_ == nullptr && return this->accessPorts_ == nullptr && return this->ownerUserId_ == nullptr && return this->resourceInstanceAccessStatus_ == nullptr && return this->resourceInstanceEdition_ == nullptr
+        && return this->resourceInstanceId_ == nullptr && return this->resourceInstanceIp_ == nullptr && return this->resourceInstanceName_ == nullptr && return this->resourceIp_ == nullptr && return this->resourceName_ == nullptr
+        && return this->resourcePorts_ == nullptr && return this->resourceProduct_ == nullptr && return this->resourceRegionId_ == nullptr; };
     // accessInstanceId Field Functions 
     bool hasAccessInstanceId() const { return this->accessInstanceId_ != nullptr;};
     void deleteAccessInstanceId() { this->accessInstanceId_ = nullptr;};

@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->afterDate_ != nullptr
-        && this->beforeDate_ != nullptr && this->certIdentifier_ != nullptr && this->certName_ != nullptr && this->commonName_ != nullptr && this->domain_ != nullptr
-        && this->sans_ != nullptr; };
+    virtual bool empty() const override { return this->afterDate_ == nullptr
+        && return this->beforeDate_ == nullptr && return this->certIdentifier_ == nullptr && return this->certName_ == nullptr && return this->commonName_ == nullptr && return this->domain_ == nullptr
+        && return this->sans_ == nullptr; };
     // afterDate Field Functions 
     bool hasAfterDate() const { return this->afterDate_ != nullptr;};
     void deleteAfterDate() { this->afterDate_ = nullptr;};

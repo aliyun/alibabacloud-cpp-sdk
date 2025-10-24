@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backends_ != nullptr
-        && this->cnameEnabled_ != nullptr && this->connectTimeout_ != nullptr && this->focusHttpBackend_ != nullptr && this->keepalive_ != nullptr && this->keepaliveRequests_ != nullptr
-        && this->keepaliveTimeout_ != nullptr && this->loadbalance_ != nullptr && this->readTimeout_ != nullptr && this->requestHeaders_ != nullptr && this->retry_ != nullptr
-        && this->routingRules_ != nullptr && this->sniEnabled_ != nullptr && this->sniHost_ != nullptr && this->writeTimeout_ != nullptr; };
+    virtual bool empty() const override { return this->backends_ == nullptr
+        && return this->cnameEnabled_ == nullptr && return this->connectTimeout_ == nullptr && return this->focusHttpBackend_ == nullptr && return this->keepalive_ == nullptr && return this->keepaliveRequests_ == nullptr
+        && return this->keepaliveTimeout_ == nullptr && return this->loadbalance_ == nullptr && return this->readTimeout_ == nullptr && return this->requestHeaders_ == nullptr && return this->retry_ == nullptr
+        && return this->routingRules_ == nullptr && return this->sniEnabled_ == nullptr && return this->sniHost_ == nullptr && return this->writeTimeout_ == nullptr; };
     // backends Field Functions 
     bool hasBackends() const { return this->backends_ != nullptr;};
     void deleteBackends() { this->backends_ = nullptr;};

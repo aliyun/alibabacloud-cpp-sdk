@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cveId_ != nullptr
-        && this->description_ != nullptr && this->detectType_ != nullptr && this->riskLevel_ != nullptr && this->ruleAction_ != nullptr && this->ruleId_ != nullptr
-        && this->ruleName_ != nullptr && this->ruleStatus_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->cveId_ == nullptr
+        && return this->description_ == nullptr && return this->detectType_ == nullptr && return this->riskLevel_ == nullptr && return this->ruleAction_ == nullptr && return this->ruleId_ == nullptr
+        && return this->ruleName_ == nullptr && return this->ruleStatus_ == nullptr && return this->updateTime_ == nullptr; };
     // cveId Field Functions 
     bool hasCveId() const { return this->cveId_ != nullptr;};
     void deleteCveId() { this->cveId_ = nullptr;};

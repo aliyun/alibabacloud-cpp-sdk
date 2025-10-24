@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acwCookieStatus_ != nullptr
-        && this->acwSecureStatus_ != nullptr && this->acwV3SecureStatus_ != nullptr && this->customHeaders_ != nullptr && this->instanceId_ != nullptr && this->regionId_ != nullptr
-        && this->resource_ != nullptr && this->resourceManagerResourceGroupId_ != nullptr && this->responseHeaders_ != nullptr && this->xffStatus_ != nullptr; };
+    virtual bool empty() const override { return this->acwCookieStatus_ == nullptr
+        && return this->acwSecureStatus_ == nullptr && return this->acwV3SecureStatus_ == nullptr && return this->customHeaders_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr
+        && return this->resource_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr && return this->responseHeaders_ == nullptr && return this->xffStatus_ == nullptr; };
     // acwCookieStatus Field Functions 
     bool hasAcwCookieStatus() const { return this->acwCookieStatus_ != nullptr;};
     void deleteAcwCookieStatus() { this->acwCookieStatus_ = nullptr;};

@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiFormat_ != nullptr
-        && this->clientIP_ != nullptr && this->clusterId_ != nullptr && this->endTime_ != nullptr && this->instanceId_ != nullptr && this->matchedHost_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->regionId_ != nullptr && this->resourceManagerResourceGroupId_ != nullptr && this->sensitiveCode_ != nullptr
-        && this->sensitiveData_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->apiFormat_ == nullptr
+        && return this->clientIP_ == nullptr && return this->clusterId_ == nullptr && return this->endTime_ == nullptr && return this->instanceId_ == nullptr && return this->matchedHost_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr && return this->sensitiveCode_ == nullptr
+        && return this->sensitiveData_ == nullptr && return this->startTime_ == nullptr; };
     // apiFormat Field Functions 
     bool hasApiFormat() const { return this->apiFormat_ != nullptr;};
     void deleteApiFormat() { this->apiFormat_ = nullptr;};

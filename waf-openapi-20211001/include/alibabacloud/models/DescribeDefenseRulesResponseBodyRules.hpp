@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actionExternal_ != nullptr
-        && this->config_ != nullptr && this->defenseOrigin_ != nullptr && this->defenseScene_ != nullptr && this->defenseType_ != nullptr && this->description_ != nullptr
-        && this->detailRuleIds_ != nullptr && this->externalInfo_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->resource_ != nullptr
-        && this->ruleId_ != nullptr && this->ruleName_ != nullptr && this->ruleType_ != nullptr && this->status_ != nullptr && this->templateId_ != nullptr; };
+    virtual bool empty() const override { return this->actionExternal_ == nullptr
+        && return this->config_ == nullptr && return this->defenseOrigin_ == nullptr && return this->defenseScene_ == nullptr && return this->defenseType_ == nullptr && return this->description_ == nullptr
+        && return this->detailRuleIds_ == nullptr && return this->externalInfo_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->resource_ == nullptr
+        && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr && return this->ruleType_ == nullptr && return this->status_ == nullptr && return this->templateId_ == nullptr; };
     // actionExternal Field Functions 
     bool hasActionExternal() const { return this->actionExternal_ != nullptr;};
     void deleteActionExternal() { this->actionExternal_ = nullptr;};

@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->levle_ != nullptr
-        && this->processName_ != nullptr && this->processStatus_ != nullptr; };
+    virtual bool empty() const override { return this->levle_ == nullptr
+        && return this->processName_ == nullptr && return this->processStatus_ == nullptr; };
     // levle Field Functions 
     bool hasLevle() const { return this->levle_ != nullptr;};
     void deleteLevle() { this->levle_ = nullptr;};

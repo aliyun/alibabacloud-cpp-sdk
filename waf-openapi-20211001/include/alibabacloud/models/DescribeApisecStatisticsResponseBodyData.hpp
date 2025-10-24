@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actioned_ != nullptr
-        && this->api_ != nullptr && this->confirmed_ != nullptr && this->domain_ != nullptr && this->fixed_ != nullptr && this->high_ != nullptr
-        && this->ignore_ != nullptr && this->low_ != nullptr && this->medium_ != nullptr && this->notFixed_ != nullptr && this->systemFixed_ != nullptr
-        && this->toBeConfirmed_ != nullptr && this->toBeFixed_ != nullptr && this->toBeVerified_ != nullptr && this->todayHigh_ != nullptr && this->todayLow_ != nullptr
-        && this->todayMedium_ != nullptr && this->todayTotal_ != nullptr && this->total_ != nullptr; };
+    virtual bool empty() const override { return this->actioned_ == nullptr
+        && return this->api_ == nullptr && return this->confirmed_ == nullptr && return this->domain_ == nullptr && return this->fixed_ == nullptr && return this->high_ == nullptr
+        && return this->ignore_ == nullptr && return this->low_ == nullptr && return this->medium_ == nullptr && return this->notFixed_ == nullptr && return this->systemFixed_ == nullptr
+        && return this->toBeConfirmed_ == nullptr && return this->toBeFixed_ == nullptr && return this->toBeVerified_ == nullptr && return this->todayHigh_ == nullptr && return this->todayLow_ == nullptr
+        && return this->todayMedium_ == nullptr && return this->todayTotal_ == nullptr && return this->total_ == nullptr; };
     // actioned Field Functions 
     bool hasActioned() const { return this->actioned_ != nullptr;};
     void deleteActioned() { this->actioned_ = nullptr;};

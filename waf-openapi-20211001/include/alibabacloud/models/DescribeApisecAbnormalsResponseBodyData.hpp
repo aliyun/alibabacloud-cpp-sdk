@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->abnormalEventNumber_ != nullptr
-        && this->abnormalId_ != nullptr && this->abnormalInfo_ != nullptr && this->abnormalLevel_ != nullptr && this->abnormalTag_ != nullptr && this->abnromalStatus_ != nullptr
-        && this->apiFormat_ != nullptr && this->apiId_ != nullptr && this->apiTag_ != nullptr && this->discoverTime_ != nullptr && this->examples_ != nullptr
-        && this->firstTime_ != nullptr && this->follow_ != nullptr && this->ignoreTime_ != nullptr && this->lastestTime_ != nullptr && this->latestDiscoverTime_ != nullptr
-        && this->matchedHost_ != nullptr && this->note_ != nullptr && this->origin_ != nullptr && this->userStatus_ != nullptr; };
+    virtual bool empty() const override { return this->abnormalEventNumber_ == nullptr
+        && return this->abnormalId_ == nullptr && return this->abnormalInfo_ == nullptr && return this->abnormalLevel_ == nullptr && return this->abnormalTag_ == nullptr && return this->abnromalStatus_ == nullptr
+        && return this->apiFormat_ == nullptr && return this->apiId_ == nullptr && return this->apiTag_ == nullptr && return this->discoverTime_ == nullptr && return this->examples_ == nullptr
+        && return this->firstTime_ == nullptr && return this->follow_ == nullptr && return this->ignoreTime_ == nullptr && return this->lastestTime_ == nullptr && return this->latestDiscoverTime_ == nullptr
+        && return this->matchedHost_ == nullptr && return this->note_ == nullptr && return this->origin_ == nullptr && return this->userStatus_ == nullptr; };
     // abnormalEventNumber Field Functions 
     bool hasAbnormalEventNumber() const { return this->abnormalEventNumber_ != nullptr;};
     void deleteAbnormalEventNumber() { this->abnormalEventNumber_ = nullptr;};

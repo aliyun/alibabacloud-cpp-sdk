@@ -76,12 +76,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allCnt_ != nullptr
-        && this->apiFormat_ != nullptr && this->apiId_ != nullptr && this->apiTag_ != nullptr && this->attackClient_ != nullptr && this->attackCntInfo_ != nullptr
-        && this->attackIp_ != nullptr && this->attackIpInfo_ != nullptr && this->attackIps_ != nullptr && this->endTs_ != nullptr && this->eventId_ != nullptr
-        && this->eventInfo_ != nullptr && this->eventLevel_ != nullptr && this->eventTag_ != nullptr && this->follow_ != nullptr && this->matchedHost_ != nullptr
-        && this->note_ != nullptr && this->origin_ != nullptr && this->remoteCountry_ != nullptr && this->remoteRegion_ != nullptr && this->requestData_ != nullptr
-        && this->responseData_ != nullptr && this->startTs_ != nullptr && this->userStatus_ != nullptr; };
+    virtual bool empty() const override { return this->allCnt_ == nullptr
+        && return this->apiFormat_ == nullptr && return this->apiId_ == nullptr && return this->apiTag_ == nullptr && return this->attackClient_ == nullptr && return this->attackCntInfo_ == nullptr
+        && return this->attackIp_ == nullptr && return this->attackIpInfo_ == nullptr && return this->attackIps_ == nullptr && return this->endTs_ == nullptr && return this->eventId_ == nullptr
+        && return this->eventInfo_ == nullptr && return this->eventLevel_ == nullptr && return this->eventTag_ == nullptr && return this->follow_ == nullptr && return this->matchedHost_ == nullptr
+        && return this->note_ == nullptr && return this->origin_ == nullptr && return this->remoteCountry_ == nullptr && return this->remoteRegion_ == nullptr && return this->requestData_ == nullptr
+        && return this->responseData_ == nullptr && return this->startTs_ == nullptr && return this->userStatus_ == nullptr; };
     // allCnt Field Functions 
     bool hasAllCnt() const { return this->allCnt_ != nullptr;};
     void deleteAllCnt() { this->allCnt_ = nullptr;};

@@ -280,6 +280,23 @@ namespace WafOpenapi20211001
       Models::CreateMajorProtectionBlackIpResponse createMajorProtectionBlackIp(const Models::CreateMajorProtectionBlackIpRequest &request);
 
       /**
+       * @summary 添加重保场景黑IP
+       *
+       * @param request CreateMajorProtectionBlackIpV2Request
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMajorProtectionBlackIpV2Response
+       */
+      Models::CreateMajorProtectionBlackIpV2Response createMajorProtectionBlackIpV2WithOptions(const Models::CreateMajorProtectionBlackIpV2Request &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加重保场景黑IP
+       *
+       * @param request CreateMajorProtectionBlackIpV2Request
+       * @return CreateMajorProtectionBlackIpV2Response
+       */
+      Models::CreateMajorProtectionBlackIpV2Response createMajorProtectionBlackIpV2(const Models::CreateMajorProtectionBlackIpV2Request &request);
+
+      /**
        * @summary Adds members to use the multi-account management feature of Web Application Firewall (WAF).
        *
        * @param request CreateMemberAccountsRequest
@@ -295,6 +312,23 @@ namespace WafOpenapi20211001
        * @return CreateMemberAccountsResponse
        */
       Models::CreateMemberAccountsResponse createMemberAccounts(const Models::CreateMemberAccountsRequest &request);
+
+      /**
+       * @summary 开启防护功能POC
+       *
+       * @param request CreatePocFunctionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePocFunctionResponse
+       */
+      Models::CreatePocFunctionResponse createPocFunctionWithOptions(const Models::CreatePocFunctionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开启防护功能POC
+       *
+       * @param request CreatePocFunctionRequest
+       * @return CreatePocFunctionResponse
+       */
+      Models::CreatePocFunctionResponse createPocFunction(const Models::CreatePocFunctionRequest &request);
 
       /**
        * @summary Creates a pay-as-you-go Web Application Firewall (WAF) 3.0 instance.
@@ -924,6 +958,40 @@ namespace WafOpenapi20211001
        * @return DescribeCertsResponse
        */
       Models::DescribeCertsResponse describeCerts(const Models::DescribeCertsRequest &request);
+
+      /**
+       * @summary 查询WAF计价模块信息
+       *
+       * @param request DescribeChargeModuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeChargeModuleResponse
+       */
+      Models::DescribeChargeModuleResponse describeChargeModuleWithOptions(const Models::DescribeChargeModuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询WAF计价模块信息
+       *
+       * @param request DescribeChargeModuleRequest
+       * @return DescribeChargeModuleResponse
+       */
+      Models::DescribeChargeModuleResponse describeChargeModule(const Models::DescribeChargeModuleRequest &request);
+
+      /**
+       * @summary 查询WAF计价模块的计价结果
+       *
+       * @param request DescribeChargeResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeChargeResultResponse
+       */
+      Models::DescribeChargeResultResponse describeChargeResultWithOptions(const Models::DescribeChargeResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询WAF计价模块的计价结果
+       *
+       * @param request DescribeChargeResultRequest
+       * @return DescribeChargeResultResponse
+       */
+      Models::DescribeChargeResultResponse describeChargeResult(const Models::DescribeChargeResultRequest &request);
 
       /**
        * @summary Queries a port of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
@@ -1929,6 +1997,23 @@ namespace WafOpenapi20211001
       Models::DescribePeakTrendResponse describePeakTrend(const Models::DescribePeakTrendRequest &request);
 
       /**
+       * @summary 查询开启POC的功能信息
+       *
+       * @param request DescribePocFunctionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePocFunctionsResponse
+       */
+      Models::DescribePocFunctionsResponse describePocFunctionsWithOptions(const Models::DescribePocFunctionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询开启POC的功能信息
+       *
+       * @param request DescribePocFunctionsRequest
+       * @return DescribePocFunctionsResponse
+       */
+      Models::DescribePocFunctionsResponse describePocFunctions(const Models::DescribePocFunctionsRequest &request);
+
+      /**
        * @summary Queries the cloud service instances to be added to Web Application Firewall (WAF) in transparent proxy mode.
        *
        * @param request DescribeProductInstancesRequest
@@ -2637,6 +2722,23 @@ namespace WafOpenapi20211001
        * @return DescribeUserWafLogStatusResponse
        */
       Models::DescribeUserWafLogStatusResponse describeUserWafLogStatus(const Models::DescribeUserWafLogStatusRequest &request);
+
+      /**
+       * @summary 查询归属校验内容
+       *
+       * @param request DescribeVerifyContentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVerifyContentResponse
+       */
+      Models::DescribeVerifyContentResponse describeVerifyContentWithOptions(const Models::DescribeVerifyContentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询归属校验内容
+       *
+       * @param request DescribeVerifyContentRequest
+       * @return DescribeVerifyContentResponse
+       */
+      Models::DescribeVerifyContentResponse describeVerifyContent(const Models::DescribeVerifyContentRequest &request);
 
       /**
        * @summary Queries the top 10 IP addresses from which requests are sent.
@@ -3406,6 +3508,23 @@ namespace WafOpenapi20211001
        * @return UntagResourcesResponse
        */
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
+
+      /**
+       * @summary Verifies the ownership of a domain name.
+       *
+       * @param request VerifyDomainOwnerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return VerifyDomainOwnerResponse
+       */
+      Models::VerifyDomainOwnerResponse verifyDomainOwnerWithOptions(const Models::VerifyDomainOwnerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Verifies the ownership of a domain name.
+       *
+       * @param request VerifyDomainOwnerRequest
+       * @return VerifyDomainOwnerResponse
+       */
+      Models::VerifyDomainOwnerResponse verifyDomainOwner(const Models::VerifyDomainOwnerRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace WafOpenapi20211001

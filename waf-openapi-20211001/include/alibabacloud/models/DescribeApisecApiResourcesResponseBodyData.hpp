@@ -74,12 +74,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->abnormalNum_ != nullptr
-        && this->allCnt_ != nullptr && this->apiFormat_ != nullptr && this->apiId_ != nullptr && this->apiInfo_ != nullptr && this->apiMethod_ != nullptr
-        && this->apiSensitive_ != nullptr && this->apiSensitiveRequest_ != nullptr && this->apiSensitiveResponse_ != nullptr && this->apiStatus_ != nullptr && this->apiTag_ != nullptr
-        && this->apiType_ != nullptr && this->authFlag_ != nullptr && this->botCnt_ != nullptr && this->crossBorderCnt_ != nullptr && this->eventNum_ != nullptr
-        && this->examples_ != nullptr && this->farthestTs_ != nullptr && this->follow_ != nullptr && this->lastestTs_ != nullptr && this->matchedHost_ != nullptr
-        && this->note_ != nullptr && this->resources_ != nullptr; };
+    virtual bool empty() const override { return this->abnormalNum_ == nullptr
+        && return this->allCnt_ == nullptr && return this->apiFormat_ == nullptr && return this->apiId_ == nullptr && return this->apiInfo_ == nullptr && return this->apiMethod_ == nullptr
+        && return this->apiSensitive_ == nullptr && return this->apiSensitiveRequest_ == nullptr && return this->apiSensitiveResponse_ == nullptr && return this->apiStatus_ == nullptr && return this->apiTag_ == nullptr
+        && return this->apiType_ == nullptr && return this->authFlag_ == nullptr && return this->botCnt_ == nullptr && return this->crossBorderCnt_ == nullptr && return this->eventNum_ == nullptr
+        && return this->examples_ == nullptr && return this->farthestTs_ == nullptr && return this->follow_ == nullptr && return this->lastestTs_ == nullptr && return this->matchedHost_ == nullptr
+        && return this->note_ == nullptr && return this->resources_ == nullptr; };
     // abnormalNum Field Functions 
     bool hasAbnormalNum() const { return this->abnormalNum_ != nullptr;};
     void deleteAbnormalNum() { this->abnormalNum_ = nullptr;};

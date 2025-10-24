@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->basicMonitors_ != nullptr
-        && this->requestId_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->basicMonitors_ == nullptr
+        && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
     // basicMonitors Field Functions 
     bool hasBasicMonitors() const { return this->basicMonitors_ != nullptr;};
     void deleteBasicMonitors() { this->basicMonitors_ = nullptr;};

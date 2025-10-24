@@ -73,12 +73,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiFormat_ != nullptr
-        && this->apiId_ != nullptr && this->apiMethod_ != nullptr && this->apiStatus_ != nullptr && this->apiTag_ != nullptr && this->apiType_ != nullptr
-        && this->authFlag_ != nullptr && this->clusterId_ != nullptr && this->endTime_ != nullptr && this->follow_ != nullptr && this->instanceId_ != nullptr
-        && this->matchedHost_ != nullptr && this->note_ != nullptr && this->orderKey_ != nullptr && this->orderWay_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->regionId_ != nullptr && this->requestSensitiveType_ != nullptr && this->resourceManagerResourceGroupId_ != nullptr && this->sensitiveLevel_ != nullptr
-        && this->sensitiveType_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->apiFormat_ == nullptr
+        && return this->apiId_ == nullptr && return this->apiMethod_ == nullptr && return this->apiStatus_ == nullptr && return this->apiTag_ == nullptr && return this->apiType_ == nullptr
+        && return this->authFlag_ == nullptr && return this->clusterId_ == nullptr && return this->endTime_ == nullptr && return this->follow_ == nullptr && return this->instanceId_ == nullptr
+        && return this->matchedHost_ == nullptr && return this->note_ == nullptr && return this->orderKey_ == nullptr && return this->orderWay_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->requestSensitiveType_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr && return this->sensitiveLevel_ == nullptr
+        && return this->sensitiveType_ == nullptr && return this->startTime_ == nullptr; };
     // apiFormat Field Functions 
     bool hasApiFormat() const { return this->apiFormat_ != nullptr;};
     void deleteApiFormat() { this->apiFormat_ = nullptr;};

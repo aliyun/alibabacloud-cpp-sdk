@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->logRegionId_ != nullptr
-        && this->logStatus_ != nullptr && this->requestId_ != nullptr && this->statusUpdateTime_ != nullptr; };
+    virtual bool empty() const override { return this->logRegionId_ == nullptr
+        && return this->logStatus_ == nullptr && return this->requestId_ == nullptr && return this->statusUpdateTime_ == nullptr; };
     // logRegionId Field Functions 
     bool hasLogRegionId() const { return this->logRegionId_ != nullptr;};
     void deleteLogRegionId() { this->logRegionId_ = nullptr;};

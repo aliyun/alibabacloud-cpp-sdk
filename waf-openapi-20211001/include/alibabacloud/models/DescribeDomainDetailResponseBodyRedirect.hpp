@@ -76,12 +76,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backUpBackendList_ != nullptr
-        && this->backendList_ != nullptr && this->backendPorts_ != nullptr && this->backends_ != nullptr && this->backupBackends_ != nullptr && this->connectTimeout_ != nullptr
-        && this->focusHttpBackend_ != nullptr && this->keepalive_ != nullptr && this->keepaliveRequests_ != nullptr && this->keepaliveTimeout_ != nullptr && this->loadbalance_ != nullptr
-        && this->readTimeout_ != nullptr && this->requestHeaders_ != nullptr && this->retry_ != nullptr && this->sniEnabled_ != nullptr && this->sniHost_ != nullptr
-        && this->WLProxyClientIp_ != nullptr && this->webServerType_ != nullptr && this->writeTimeout_ != nullptr && this->XClientIp_ != nullptr && this->XTrueIp_ != nullptr
-        && this->xffProto_ != nullptr; };
+    virtual bool empty() const override { return this->backUpBackendList_ == nullptr
+        && return this->backendList_ == nullptr && return this->backendPorts_ == nullptr && return this->backends_ == nullptr && return this->backupBackends_ == nullptr && return this->connectTimeout_ == nullptr
+        && return this->focusHttpBackend_ == nullptr && return this->keepalive_ == nullptr && return this->keepaliveRequests_ == nullptr && return this->keepaliveTimeout_ == nullptr && return this->loadbalance_ == nullptr
+        && return this->readTimeout_ == nullptr && return this->requestHeaders_ == nullptr && return this->retry_ == nullptr && return this->sniEnabled_ == nullptr && return this->sniHost_ == nullptr
+        && return this->WLProxyClientIp_ == nullptr && return this->webServerType_ == nullptr && return this->writeTimeout_ == nullptr && return this->XClientIp_ == nullptr && return this->XTrueIp_ == nullptr
+        && return this->xffProto_ == nullptr; };
     // backUpBackendList Field Functions 
     bool hasBackUpBackendList() const { return this->backUpBackendList_ != nullptr;};
     void deleteBackUpBackendList() { this->backUpBackendList_ = nullptr;};

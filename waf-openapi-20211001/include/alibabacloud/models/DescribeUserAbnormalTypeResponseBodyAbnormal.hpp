@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->abnormalCode_ != nullptr
-        && this->abnormalCount_ != nullptr && this->abnormalParentType_ != nullptr && this->abnormalType_ != nullptr; };
+    virtual bool empty() const override { return this->abnormalCode_ == nullptr
+        && return this->abnormalCount_ == nullptr && return this->abnormalParentType_ == nullptr && return this->abnormalType_ == nullptr; };
     // abnormalCode Field Functions 
     bool hasAbnormalCode() const { return this->abnormalCode_ != nullptr;};
     void deleteAbnormalCode() { this->abnormalCode_ = nullptr;};

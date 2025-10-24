@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->defenseScene_ != nullptr
-        && this->defenseSubScene_ != nullptr && this->instanceId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->regionId_ != nullptr
-        && this->resource_ != nullptr && this->resourceManagerResourceGroupId_ != nullptr && this->resourceType_ != nullptr && this->templateId_ != nullptr && this->templateIds_ != nullptr
-        && this->templateName_ != nullptr && this->templateType_ != nullptr; };
+    virtual bool empty() const override { return this->defenseScene_ == nullptr
+        && return this->defenseSubScene_ == nullptr && return this->instanceId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr
+        && return this->resource_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr && return this->resourceType_ == nullptr && return this->templateId_ == nullptr && return this->templateIds_ == nullptr
+        && return this->templateName_ == nullptr && return this->templateType_ == nullptr; };
     // defenseScene Field Functions 
     bool hasDefenseScene() const { return this->defenseScene_ != nullptr;};
     void deleteDefenseScene() { this->defenseScene_ = nullptr;};

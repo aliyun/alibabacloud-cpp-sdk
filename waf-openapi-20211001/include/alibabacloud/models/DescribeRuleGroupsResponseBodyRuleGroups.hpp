@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->gmtModified_ != nullptr
-        && this->isSubscribe_ != nullptr && this->parentRuleGroupId_ != nullptr && this->ruleGroupId_ != nullptr && this->ruleGroupName_ != nullptr && this->ruleTotalCount_ != nullptr; };
+    virtual bool empty() const override { return this->gmtModified_ == nullptr
+        && return this->isSubscribe_ == nullptr && return this->parentRuleGroupId_ == nullptr && return this->ruleGroupId_ == nullptr && return this->ruleGroupName_ == nullptr && return this->ruleTotalCount_ == nullptr; };
     // gmtModified Field Functions 
     bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
     void deleteGmtModified() { this->gmtModified_ = nullptr;};

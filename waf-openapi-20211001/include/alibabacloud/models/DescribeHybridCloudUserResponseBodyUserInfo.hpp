@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->httpPorts_ != nullptr
-        && this->httpsPorts_ != nullptr; };
+    virtual bool empty() const override { return this->httpPorts_ == nullptr
+        && return this->httpsPorts_ == nullptr; };
     // httpPorts Field Functions 
     bool hasHttpPorts() const { return this->httpPorts_ != nullptr;};
     void deleteHttpPorts() { this->httpPorts_ = nullptr;};

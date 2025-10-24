@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bindAssets_ != nullptr
-        && this->bindResourceGroups_ != nullptr && this->bindResources_ != nullptr && this->instanceId_ != nullptr && this->regionId_ != nullptr && this->resourceManagerResourceGroupId_ != nullptr
-        && this->templateId_ != nullptr && this->unbindAssets_ != nullptr && this->unbindResourceGroups_ != nullptr && this->unbindResources_ != nullptr; };
+    virtual bool empty() const override { return this->bindAssets_ == nullptr
+        && return this->bindResourceGroups_ == nullptr && return this->bindResources_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr
+        && return this->templateId_ == nullptr && return this->unbindAssets_ == nullptr && return this->unbindResourceGroups_ == nullptr && return this->unbindResources_ == nullptr; };
     // bindAssets Field Functions 
     bool hasBindAssets() const { return this->bindAssets_ != nullptr;};
     void deleteBindAssets() { this->bindAssets_ = nullptr;};

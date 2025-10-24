@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->keepalive_ != nullptr
-        && this->keepaliveRequests_ != nullptr && this->keepaliveTimeout_ != nullptr && this->readTimeout_ != nullptr && this->requestHeaders_ != nullptr && this->writeTimeout_ != nullptr
-        && this->xffHeaderMode_ != nullptr && this->xffHeaders_ != nullptr && this->xffProto_ != nullptr; };
+    virtual bool empty() const override { return this->keepalive_ == nullptr
+        && return this->keepaliveRequests_ == nullptr && return this->keepaliveTimeout_ == nullptr && return this->readTimeout_ == nullptr && return this->requestHeaders_ == nullptr && return this->writeTimeout_ == nullptr
+        && return this->xffHeaderMode_ == nullptr && return this->xffHeaders_ == nullptr && return this->xffProto_ == nullptr; };
     // keepalive Field Functions 
     bool hasKeepalive() const { return this->keepalive_ != nullptr;};
     void deleteKeepalive() { this->keepalive_ = nullptr;};

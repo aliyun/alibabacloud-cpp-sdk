@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aggregateInterval_ != nullptr
-        && this->dateRange_ != nullptr && this->units_ != nullptr; };
+    virtual bool empty() const override { return this->aggregateInterval_ == nullptr
+        && return this->dateRange_ == nullptr && return this->units_ == nullptr; };
     // aggregateInterval Field Functions 
     bool hasAggregateInterval() const { return this->aggregateInterval_ != nullptr;};
     void deleteAggregateInterval() { this->aggregateInterval_ = nullptr;};

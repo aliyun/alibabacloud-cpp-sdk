@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiFormat_ != nullptr
-        && this->apiId_ != nullptr && this->apiTag_ != nullptr && this->attackIp_ != nullptr && this->clusterId_ != nullptr && this->endTs_ != nullptr
-        && this->eventId_ != nullptr && this->eventLevel_ != nullptr && this->eventTag_ != nullptr && this->instanceId_ != nullptr && this->matchedHost_ != nullptr
-        && this->orderKey_ != nullptr && this->orderWay_ != nullptr && this->origin_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->regionId_ != nullptr && this->resourceManagerResourceGroupId_ != nullptr && this->startTs_ != nullptr && this->userStatus_ != nullptr; };
+    virtual bool empty() const override { return this->apiFormat_ == nullptr
+        && return this->apiId_ == nullptr && return this->apiTag_ == nullptr && return this->attackIp_ == nullptr && return this->clusterId_ == nullptr && return this->endTs_ == nullptr
+        && return this->eventId_ == nullptr && return this->eventLevel_ == nullptr && return this->eventTag_ == nullptr && return this->instanceId_ == nullptr && return this->matchedHost_ == nullptr
+        && return this->orderKey_ == nullptr && return this->orderWay_ == nullptr && return this->origin_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr && return this->startTs_ == nullptr && return this->userStatus_ == nullptr; };
     // apiFormat Field Functions 
     bool hasApiFormat() const { return this->apiFormat_ != nullptr;};
     void deleteApiFormat() { this->apiFormat_ = nullptr;};

@@ -1,0 +1,124 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_CREATEMAJORPROTECTIONBLACKIPV2REQUEST_HPP_
+#define ALIBABACLOUD_MODELS_CREATEMAJORPROTECTIONBLACKIPV2REQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace WafOpenapi20211001
+{
+namespace Models
+{
+  class CreateMajorProtectionBlackIpV2Request : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const CreateMajorProtectionBlackIpV2Request& obj) { 
+      DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(ExpiredTime, expiredTime_);
+      DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(IpList, ipList_);
+      DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
+      DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
+      DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
+    };
+    friend void from_json(const Darabonba::Json& j, CreateMajorProtectionBlackIpV2Request& obj) { 
+      DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(ExpiredTime, expiredTime_);
+      DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(IpList, ipList_);
+      DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
+      DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
+    };
+    CreateMajorProtectionBlackIpV2Request() = default ;
+    CreateMajorProtectionBlackIpV2Request(const CreateMajorProtectionBlackIpV2Request &) = default ;
+    CreateMajorProtectionBlackIpV2Request(CreateMajorProtectionBlackIpV2Request &&) = default ;
+    CreateMajorProtectionBlackIpV2Request(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateMajorProtectionBlackIpV2Request() = default ;
+    CreateMajorProtectionBlackIpV2Request& operator=(const CreateMajorProtectionBlackIpV2Request &) = default ;
+    CreateMajorProtectionBlackIpV2Request& operator=(CreateMajorProtectionBlackIpV2Request &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && return this->expiredTime_ == nullptr && return this->instanceId_ == nullptr && return this->ipList_ == nullptr && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr
+        && return this->ruleId_ == nullptr && return this->templateId_ == nullptr; };
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline CreateMajorProtectionBlackIpV2Request& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // expiredTime Field Functions 
+    bool hasExpiredTime() const { return this->expiredTime_ != nullptr;};
+    void deleteExpiredTime() { this->expiredTime_ = nullptr;};
+    inline int64_t expiredTime() const { DARABONBA_PTR_GET_DEFAULT(expiredTime_, 0L) };
+    inline CreateMajorProtectionBlackIpV2Request& setExpiredTime(int64_t expiredTime) { DARABONBA_PTR_SET_VALUE(expiredTime_, expiredTime) };
+
+
+    // instanceId Field Functions 
+    bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+    void deleteInstanceId() { this->instanceId_ = nullptr;};
+    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline CreateMajorProtectionBlackIpV2Request& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // ipList Field Functions 
+    bool hasIpList() const { return this->ipList_ != nullptr;};
+    void deleteIpList() { this->ipList_ = nullptr;};
+    inline string ipList() const { DARABONBA_PTR_GET_DEFAULT(ipList_, "") };
+    inline CreateMajorProtectionBlackIpV2Request& setIpList(string ipList) { DARABONBA_PTR_SET_VALUE(ipList_, ipList) };
+
+
+    // regionId Field Functions 
+    bool hasRegionId() const { return this->regionId_ != nullptr;};
+    void deleteRegionId() { this->regionId_ = nullptr;};
+    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline CreateMajorProtectionBlackIpV2Request& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+    // resourceManagerResourceGroupId Field Functions 
+    bool hasResourceManagerResourceGroupId() const { return this->resourceManagerResourceGroupId_ != nullptr;};
+    void deleteResourceManagerResourceGroupId() { this->resourceManagerResourceGroupId_ = nullptr;};
+    inline string resourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
+    inline CreateMajorProtectionBlackIpV2Request& setResourceManagerResourceGroupId(string resourceManagerResourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceManagerResourceGroupId_, resourceManagerResourceGroupId) };
+
+
+    // ruleId Field Functions 
+    bool hasRuleId() const { return this->ruleId_ != nullptr;};
+    void deleteRuleId() { this->ruleId_ = nullptr;};
+    inline int64_t ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
+    inline CreateMajorProtectionBlackIpV2Request& setRuleId(int64_t ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
+
+
+    // templateId Field Functions 
+    bool hasTemplateId() const { return this->templateId_ != nullptr;};
+    void deleteTemplateId() { this->templateId_ = nullptr;};
+    inline int64_t templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, 0L) };
+    inline CreateMajorProtectionBlackIpV2Request& setTemplateId(int64_t templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
+
+
+  protected:
+    std::shared_ptr<string> description_ = nullptr;
+    // This parameter is required.
+    std::shared_ptr<int64_t> expiredTime_ = nullptr;
+    // This parameter is required.
+    std::shared_ptr<string> instanceId_ = nullptr;
+    // This parameter is required.
+    std::shared_ptr<string> ipList_ = nullptr;
+    std::shared_ptr<string> regionId_ = nullptr;
+    std::shared_ptr<string> resourceManagerResourceGroupId_ = nullptr;
+    // This parameter is required.
+    std::shared_ptr<int64_t> ruleId_ = nullptr;
+    // This parameter is required.
+    std::shared_ptr<int64_t> templateId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace WafOpenapi20211001
+#endif

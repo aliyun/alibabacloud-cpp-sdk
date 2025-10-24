@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->defenseScene_ != nullptr
-        && this->defenseType_ != nullptr && this->instanceId_ != nullptr && this->regionId_ != nullptr && this->resource_ != nullptr && this->resourceManagerResourceGroupId_ != nullptr
-        && this->rules_ != nullptr && this->templateId_ != nullptr; };
+    virtual bool empty() const override { return this->defenseScene_ == nullptr
+        && return this->defenseType_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr && return this->resource_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr
+        && return this->rules_ == nullptr && return this->templateId_ == nullptr; };
     // defenseScene Field Functions 
     bool hasDefenseScene() const { return this->defenseScene_ != nullptr;};
     void deleteDefenseScene() { this->defenseScene_ = nullptr;};

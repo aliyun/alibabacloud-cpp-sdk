@@ -75,12 +75,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aclCustomBlockSum_ != nullptr
-        && this->aclCustomReportsSum_ != nullptr && this->antiScanBlockSum_ != nullptr && this->antibotBlockSum_ != nullptr && this->antibotReportSum_ != nullptr && this->antiscanReportsSum_ != nullptr
-        && this->blacklistBlockSum_ != nullptr && this->blacklistReportsSum_ != nullptr && this->ccCustomBlockSum_ != nullptr && this->ccCustomReportsSum_ != nullptr && this->ccSystemBlocksSum_ != nullptr
-        && this->ccSystemReportsSum_ != nullptr && this->count_ != nullptr && this->inBytes_ != nullptr && this->index_ != nullptr && this->maxPv_ != nullptr
-        && this->outBytes_ != nullptr && this->ratelimitBlockSum_ != nullptr && this->ratelimitReportSum_ != nullptr && this->regionBlockBlocksSum_ != nullptr && this->regionBlockReportsSum_ != nullptr
-        && this->robotCount_ != nullptr && this->wafBlockSum_ != nullptr && this->wafReportSum_ != nullptr; };
+    virtual bool empty() const override { return this->aclCustomBlockSum_ == nullptr
+        && return this->aclCustomReportsSum_ == nullptr && return this->antiScanBlockSum_ == nullptr && return this->antibotBlockSum_ == nullptr && return this->antibotReportSum_ == nullptr && return this->antiscanReportsSum_ == nullptr
+        && return this->blacklistBlockSum_ == nullptr && return this->blacklistReportsSum_ == nullptr && return this->ccCustomBlockSum_ == nullptr && return this->ccCustomReportsSum_ == nullptr && return this->ccSystemBlocksSum_ == nullptr
+        && return this->ccSystemReportsSum_ == nullptr && return this->count_ == nullptr && return this->inBytes_ == nullptr && return this->index_ == nullptr && return this->maxPv_ == nullptr
+        && return this->outBytes_ == nullptr && return this->ratelimitBlockSum_ == nullptr && return this->ratelimitReportSum_ == nullptr && return this->regionBlockBlocksSum_ == nullptr && return this->regionBlockReportsSum_ == nullptr
+        && return this->robotCount_ == nullptr && return this->wafBlockSum_ == nullptr && return this->wafReportSum_ == nullptr; };
     // aclCustomBlockSum Field Functions 
     bool hasAclCustomBlockSum() const { return this->aclCustomBlockSum_ != nullptr;};
     void deleteAclCustomBlockSum() { this->aclCustomBlockSum_ = nullptr;};

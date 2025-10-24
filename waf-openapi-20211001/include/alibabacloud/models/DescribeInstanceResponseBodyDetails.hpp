@@ -129,17 +129,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aclRuleMaxIpCount_ != nullptr
-        && this->antiScan_ != nullptr && this->antiScanTemplateMaxCount_ != nullptr && this->backendMaxCount_ != nullptr && this->baseWafGroup_ != nullptr && this->baseWafGroupRuleInTemplateMaxCount_ != nullptr
-        && this->baseWafGroupRuleTemplateMaxCount_ != nullptr && this->bot_ != nullptr && this->botApp_ != nullptr && this->botTemplateMaxCount_ != nullptr && this->botWeb_ != nullptr
-        && this->cnameResourceMaxCount_ != nullptr && this->customResponse_ != nullptr && this->customResponseRuleInTemplateMaxCount_ != nullptr && this->customResponseTemplateMaxCount_ != nullptr && this->customRule_ != nullptr
-        && this->customRuleAction_ != nullptr && this->customRuleCondition_ != nullptr && this->customRuleInTemplateMaxCount_ != nullptr && this->customRuleRatelimitor_ != nullptr && this->customRuleTemplateMaxCount_ != nullptr
-        && this->defenseGroupMaxCount_ != nullptr && this->defenseObjectInGroupMaxCount_ != nullptr && this->defenseObjectInTemplateMaxCount_ != nullptr && this->defenseObjectMaxCount_ != nullptr && this->dlp_ != nullptr
-        && this->dlpRuleInTemplateMaxCount_ != nullptr && this->dlpTemplateMaxCount_ != nullptr && this->exclusiveIp_ != nullptr && this->gslb_ != nullptr && this->httpPorts_ != nullptr
-        && this->httpsPorts_ != nullptr && this->ipBlacklist_ != nullptr && this->ipBlacklistIpInRuleMaxCount_ != nullptr && this->ipBlacklistRuleInTemplateMaxCount_ != nullptr && this->ipBlacklistTemplateMaxCount_ != nullptr
-        && this->ipv6_ != nullptr && this->logService_ != nullptr && this->majorProtection_ != nullptr && this->majorProtectionTemplateMaxCount_ != nullptr && this->tamperproof_ != nullptr
-        && this->tamperproofRuleInTemplateMaxCount_ != nullptr && this->tamperproofTemplateMaxCount_ != nullptr && this->vastIpBlacklistInFileMaxCount_ != nullptr && this->vastIpBlacklistInOperationMaxCount_ != nullptr && this->vastIpBlacklistMaxCount_ != nullptr
-        && this->whitelist_ != nullptr && this->whitelistLogical_ != nullptr && this->whitelistRuleCondition_ != nullptr && this->whitelistRuleInTemplateMaxCount_ != nullptr && this->whitelistTemplateMaxCount_ != nullptr; };
+    virtual bool empty() const override { return this->aclRuleMaxIpCount_ == nullptr
+        && return this->antiScan_ == nullptr && return this->antiScanTemplateMaxCount_ == nullptr && return this->backendMaxCount_ == nullptr && return this->baseWafGroup_ == nullptr && return this->baseWafGroupRuleInTemplateMaxCount_ == nullptr
+        && return this->baseWafGroupRuleTemplateMaxCount_ == nullptr && return this->bot_ == nullptr && return this->botApp_ == nullptr && return this->botTemplateMaxCount_ == nullptr && return this->botWeb_ == nullptr
+        && return this->cnameResourceMaxCount_ == nullptr && return this->customResponse_ == nullptr && return this->customResponseRuleInTemplateMaxCount_ == nullptr && return this->customResponseTemplateMaxCount_ == nullptr && return this->customRule_ == nullptr
+        && return this->customRuleAction_ == nullptr && return this->customRuleCondition_ == nullptr && return this->customRuleInTemplateMaxCount_ == nullptr && return this->customRuleRatelimitor_ == nullptr && return this->customRuleTemplateMaxCount_ == nullptr
+        && return this->defenseGroupMaxCount_ == nullptr && return this->defenseObjectInGroupMaxCount_ == nullptr && return this->defenseObjectInTemplateMaxCount_ == nullptr && return this->defenseObjectMaxCount_ == nullptr && return this->dlp_ == nullptr
+        && return this->dlpRuleInTemplateMaxCount_ == nullptr && return this->dlpTemplateMaxCount_ == nullptr && return this->exclusiveIp_ == nullptr && return this->gslb_ == nullptr && return this->httpPorts_ == nullptr
+        && return this->httpsPorts_ == nullptr && return this->ipBlacklist_ == nullptr && return this->ipBlacklistIpInRuleMaxCount_ == nullptr && return this->ipBlacklistRuleInTemplateMaxCount_ == nullptr && return this->ipBlacklistTemplateMaxCount_ == nullptr
+        && return this->ipv6_ == nullptr && return this->logService_ == nullptr && return this->majorProtection_ == nullptr && return this->majorProtectionTemplateMaxCount_ == nullptr && return this->tamperproof_ == nullptr
+        && return this->tamperproofRuleInTemplateMaxCount_ == nullptr && return this->tamperproofTemplateMaxCount_ == nullptr && return this->vastIpBlacklistInFileMaxCount_ == nullptr && return this->vastIpBlacklistInOperationMaxCount_ == nullptr && return this->vastIpBlacklistMaxCount_ == nullptr
+        && return this->whitelist_ == nullptr && return this->whitelistLogical_ == nullptr && return this->whitelistRuleCondition_ == nullptr && return this->whitelistRuleInTemplateMaxCount_ == nullptr && return this->whitelistTemplateMaxCount_ == nullptr; };
     // aclRuleMaxIpCount Field Functions 
     bool hasAclRuleMaxIpCount() const { return this->aclRuleMaxIpCount_ != nullptr;};
     void deleteAclRuleMaxIpCount() { this->aclRuleMaxIpCount_ = nullptr;};

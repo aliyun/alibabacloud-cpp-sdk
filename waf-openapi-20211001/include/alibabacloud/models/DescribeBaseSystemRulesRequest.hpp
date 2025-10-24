@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->detectType_ != nullptr
-        && this->instanceId_ != nullptr && this->lang_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->regionId_ != nullptr
-        && this->resourceManagerResourceGroupId_ != nullptr && this->riskLevel_ != nullptr && this->ruleAction_ != nullptr && this->ruleId_ != nullptr && this->ruleName_ != nullptr
-        && this->ruleStatus_ != nullptr && this->templateId_ != nullptr; };
+    virtual bool empty() const override { return this->detectType_ == nullptr
+        && return this->instanceId_ == nullptr && return this->lang_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceManagerResourceGroupId_ == nullptr && return this->riskLevel_ == nullptr && return this->ruleAction_ == nullptr && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr
+        && return this->ruleStatus_ == nullptr && return this->templateId_ == nullptr; };
     // detectType Field Functions 
     bool hasDetectType() const { return this->detectType_ != nullptr;};
     void deleteDetectType() { this->detectType_ = nullptr;};

@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->customHeadersShrink_ != nullptr
-        && this->description_ != nullptr && this->detail_ != nullptr && this->instanceId_ != nullptr && this->ownerUserId_ != nullptr && this->pattern_ != nullptr
-        && this->product_ != nullptr && this->regionId_ != nullptr && this->resource_ != nullptr && this->resourceGroup_ != nullptr && this->resourceManagerResourceGroupId_ != nullptr
-        && this->resourceOrigin_ != nullptr && this->tag_ != nullptr && this->xffStatus_ != nullptr; };
+    virtual bool empty() const override { return this->customHeadersShrink_ == nullptr
+        && return this->description_ == nullptr && return this->detail_ == nullptr && return this->instanceId_ == nullptr && return this->ownerUserId_ == nullptr && return this->pattern_ == nullptr
+        && return this->product_ == nullptr && return this->regionId_ == nullptr && return this->resource_ == nullptr && return this->resourceGroup_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr
+        && return this->resourceOrigin_ == nullptr && return this->tag_ == nullptr && return this->xffStatus_ == nullptr; };
     // customHeadersShrink Field Functions 
     bool hasCustomHeadersShrink() const { return this->customHeadersShrink_ != nullptr;};
     void deleteCustomHeadersShrink() { this->customHeadersShrink_ = nullptr;};

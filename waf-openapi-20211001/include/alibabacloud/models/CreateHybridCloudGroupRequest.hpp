@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backSourceMark_ != nullptr
-        && this->clusterId_ != nullptr && this->groupName_ != nullptr && this->groupType_ != nullptr && this->instanceId_ != nullptr && this->loadBalanceIp_ != nullptr
-        && this->locationCode_ != nullptr && this->regionId_ != nullptr && this->remark_ != nullptr && this->resourceManagerResourceGroupId_ != nullptr; };
+    virtual bool empty() const override { return this->backSourceMark_ == nullptr
+        && return this->clusterId_ == nullptr && return this->groupName_ == nullptr && return this->groupType_ == nullptr && return this->instanceId_ == nullptr && return this->loadBalanceIp_ == nullptr
+        && return this->locationCode_ == nullptr && return this->regionId_ == nullptr && return this->remark_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr; };
     // backSourceMark Field Functions 
     bool hasBackSourceMark() const { return this->backSourceMark_ != nullptr;};
     void deleteBackSourceMark() { this->backSourceMark_ = nullptr;};

@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->httpPortCount_ != nullptr
-        && this->httpsPortCount_ != nullptr && this->ownerUserId_ != nullptr && this->resourceDomain_ != nullptr && this->resourceFunction_ != nullptr && this->resourceInstance_ != nullptr
-        && this->resourceInstanceId_ != nullptr && this->resourceInstanceIp_ != nullptr && this->resourceInstanceName_ != nullptr && this->resourceName_ != nullptr && this->resourceProduct_ != nullptr
-        && this->resourceRegionId_ != nullptr && this->resourceRouteName_ != nullptr && this->resourceService_ != nullptr; };
+    virtual bool empty() const override { return this->httpPortCount_ == nullptr
+        && return this->httpsPortCount_ == nullptr && return this->ownerUserId_ == nullptr && return this->resourceDomain_ == nullptr && return this->resourceFunction_ == nullptr && return this->resourceInstance_ == nullptr
+        && return this->resourceInstanceId_ == nullptr && return this->resourceInstanceIp_ == nullptr && return this->resourceInstanceName_ == nullptr && return this->resourceName_ == nullptr && return this->resourceProduct_ == nullptr
+        && return this->resourceRegionId_ == nullptr && return this->resourceRouteName_ == nullptr && return this->resourceService_ == nullptr; };
     // httpPortCount Field Functions 
     bool hasHttpPortCount() const { return this->httpPortCount_ != nullptr;};
     void deleteHttpPortCount() { this->httpPortCount_ = nullptr;};

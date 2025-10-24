@@ -73,11 +73,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->certificates_ != nullptr
-        && this->cipherSuite_ != nullptr && this->customCiphers_ != nullptr && this->enableTLSv3_ != nullptr && this->http2Enabled_ != nullptr && this->keepalive_ != nullptr
-        && this->keepaliveRequests_ != nullptr && this->keepaliveTimeout_ != nullptr && this->logHeaders_ != nullptr && this->ownerUserId_ != nullptr && this->port_ != nullptr
-        && this->protocol_ != nullptr && this->readTimeout_ != nullptr && this->status_ != nullptr && this->subStatus_ != nullptr && this->subStatusDetails_ != nullptr
-        && this->TLSVersion_ != nullptr && this->writeTimeout_ != nullptr && this->xffHeaderMode_ != nullptr && this->xffHeaders_ != nullptr && this->xffProto_ != nullptr; };
+    virtual bool empty() const override { return this->certificates_ == nullptr
+        && return this->cipherSuite_ == nullptr && return this->customCiphers_ == nullptr && return this->enableTLSv3_ == nullptr && return this->http2Enabled_ == nullptr && return this->keepalive_ == nullptr
+        && return this->keepaliveRequests_ == nullptr && return this->keepaliveTimeout_ == nullptr && return this->logHeaders_ == nullptr && return this->ownerUserId_ == nullptr && return this->port_ == nullptr
+        && return this->protocol_ == nullptr && return this->readTimeout_ == nullptr && return this->status_ == nullptr && return this->subStatus_ == nullptr && return this->subStatusDetails_ == nullptr
+        && return this->TLSVersion_ == nullptr && return this->writeTimeout_ == nullptr && return this->xffHeaderMode_ == nullptr && return this->xffHeaders_ == nullptr && return this->xffProto_ == nullptr; };
     // certificates Field Functions 
     bool hasCertificates() const { return this->certificates_ != nullptr;};
     void deleteCertificates() { this->certificates_ = nullptr;};

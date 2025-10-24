@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->http_ != nullptr
-        && this->https_ != nullptr; };
+    virtual bool empty() const override { return this->http_ == nullptr
+        && return this->https_ == nullptr; };
     // http Field Functions 
     bool hasHttp() const { return this->http_ != nullptr;};
     void deleteHttp() { this->http_ = nullptr;};

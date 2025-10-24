@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->abnormalCount_ != nullptr
-        && this->apiFormat_ != nullptr && this->apiId_ != nullptr && this->clientIP_ != nullptr && this->detectionResult_ != nullptr && this->eventCount_ != nullptr
-        && this->infoCount_ != nullptr && this->matchedHost_ != nullptr && this->sensitiveList_ != nullptr; };
+    virtual bool empty() const override { return this->abnormalCount_ == nullptr
+        && return this->apiFormat_ == nullptr && return this->apiId_ == nullptr && return this->clientIP_ == nullptr && return this->detectionResult_ == nullptr && return this->eventCount_ == nullptr
+        && return this->infoCount_ == nullptr && return this->matchedHost_ == nullptr && return this->sensitiveList_ == nullptr; };
     // abnormalCount Field Functions 
     bool hasAbnormalCount() const { return this->abnormalCount_ != nullptr;};
     void deleteAbnormalCount() { this->abnormalCount_ = nullptr;};

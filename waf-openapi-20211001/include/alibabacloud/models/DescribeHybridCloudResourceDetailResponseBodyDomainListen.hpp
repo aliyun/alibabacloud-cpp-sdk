@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->certId_ != nullptr
-        && this->cipherSuite_ != nullptr && this->customCiphers_ != nullptr && this->enableTLSv3_ != nullptr && this->exclusiveIp_ != nullptr && this->focusHttps_ != nullptr
-        && this->http2Enabled_ != nullptr && this->httpPorts_ != nullptr && this->httpsPorts_ != nullptr && this->IPv6Enabled_ != nullptr && this->protectionResource_ != nullptr
-        && this->TLSVersion_ != nullptr && this->xffHeaderMode_ != nullptr && this->xffHeaders_ != nullptr; };
+    virtual bool empty() const override { return this->certId_ == nullptr
+        && return this->cipherSuite_ == nullptr && return this->customCiphers_ == nullptr && return this->enableTLSv3_ == nullptr && return this->exclusiveIp_ == nullptr && return this->focusHttps_ == nullptr
+        && return this->http2Enabled_ == nullptr && return this->httpPorts_ == nullptr && return this->httpsPorts_ == nullptr && return this->IPv6Enabled_ == nullptr && return this->protectionResource_ == nullptr
+        && return this->TLSVersion_ == nullptr && return this->xffHeaderMode_ == nullptr && return this->xffHeaders_ == nullptr; };
     // certId Field Functions 
     bool hasCertId() const { return this->certId_ != nullptr;};
     void deleteCertId() { this->certId_ = nullptr;};
