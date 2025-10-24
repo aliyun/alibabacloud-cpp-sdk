@@ -1,8 +1,7 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_UPDATEFAQREQUEST_HPP_
-#define ALIBABACLOUD_MODELS_UPDATEFAQREQUEST_HPP_
+#ifndef ALIBABACLOUD_MODELS_UPDATEFAQSHRINKREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_UPDATEFAQSHRINKREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -11,89 +10,87 @@ namespace Chatbot20220408
 {
 namespace Models
 {
-  class UpdateFaqRequest : public Darabonba::Model {
+  class UpdateFaqShrinkRequest : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const UpdateFaqRequest& obj) { 
+    friend void to_json(Darabonba::Json& j, const UpdateFaqShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AgentKey, agentKey_);
       DARABONBA_PTR_TO_JSON(CategoryId, categoryId_);
       DARABONBA_PTR_TO_JSON(EndDate, endDate_);
       DARABONBA_PTR_TO_JSON(KnowledgeId, knowledgeId_);
       DARABONBA_PTR_TO_JSON(StartDate, startDate_);
-      DARABONBA_PTR_TO_JSON(TagIdList, tagIdList_);
+      DARABONBA_PTR_TO_JSON(TagIdList, tagIdListShrink_);
       DARABONBA_PTR_TO_JSON(Title, title_);
     };
-    friend void from_json(const Darabonba::Json& j, UpdateFaqRequest& obj) { 
+    friend void from_json(const Darabonba::Json& j, UpdateFaqShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentKey, agentKey_);
       DARABONBA_PTR_FROM_JSON(CategoryId, categoryId_);
       DARABONBA_PTR_FROM_JSON(EndDate, endDate_);
       DARABONBA_PTR_FROM_JSON(KnowledgeId, knowledgeId_);
       DARABONBA_PTR_FROM_JSON(StartDate, startDate_);
-      DARABONBA_PTR_FROM_JSON(TagIdList, tagIdList_);
+      DARABONBA_PTR_FROM_JSON(TagIdList, tagIdListShrink_);
       DARABONBA_PTR_FROM_JSON(Title, title_);
     };
-    UpdateFaqRequest() = default ;
-    UpdateFaqRequest(const UpdateFaqRequest &) = default ;
-    UpdateFaqRequest(UpdateFaqRequest &&) = default ;
-    UpdateFaqRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~UpdateFaqRequest() = default ;
-    UpdateFaqRequest& operator=(const UpdateFaqRequest &) = default ;
-    UpdateFaqRequest& operator=(UpdateFaqRequest &&) = default ;
+    UpdateFaqShrinkRequest() = default ;
+    UpdateFaqShrinkRequest(const UpdateFaqShrinkRequest &) = default ;
+    UpdateFaqShrinkRequest(UpdateFaqShrinkRequest &&) = default ;
+    UpdateFaqShrinkRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~UpdateFaqShrinkRequest() = default ;
+    UpdateFaqShrinkRequest& operator=(const UpdateFaqShrinkRequest &) = default ;
+    UpdateFaqShrinkRequest& operator=(UpdateFaqShrinkRequest &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->categoryId_ == nullptr && return this->endDate_ == nullptr && return this->knowledgeId_ == nullptr && return this->startDate_ == nullptr && return this->tagIdList_ == nullptr
+        && return this->categoryId_ == nullptr && return this->endDate_ == nullptr && return this->knowledgeId_ == nullptr && return this->startDate_ == nullptr && return this->tagIdListShrink_ == nullptr
         && return this->title_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
     inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
-    inline UpdateFaqRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
+    inline UpdateFaqShrinkRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // categoryId Field Functions 
     bool hasCategoryId() const { return this->categoryId_ != nullptr;};
     void deleteCategoryId() { this->categoryId_ = nullptr;};
     inline int64_t categoryId() const { DARABONBA_PTR_GET_DEFAULT(categoryId_, 0L) };
-    inline UpdateFaqRequest& setCategoryId(int64_t categoryId) { DARABONBA_PTR_SET_VALUE(categoryId_, categoryId) };
+    inline UpdateFaqShrinkRequest& setCategoryId(int64_t categoryId) { DARABONBA_PTR_SET_VALUE(categoryId_, categoryId) };
 
 
     // endDate Field Functions 
     bool hasEndDate() const { return this->endDate_ != nullptr;};
     void deleteEndDate() { this->endDate_ = nullptr;};
     inline string endDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
-    inline UpdateFaqRequest& setEndDate(string endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
+    inline UpdateFaqShrinkRequest& setEndDate(string endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
 
 
     // knowledgeId Field Functions 
     bool hasKnowledgeId() const { return this->knowledgeId_ != nullptr;};
     void deleteKnowledgeId() { this->knowledgeId_ = nullptr;};
     inline int64_t knowledgeId() const { DARABONBA_PTR_GET_DEFAULT(knowledgeId_, 0L) };
-    inline UpdateFaqRequest& setKnowledgeId(int64_t knowledgeId) { DARABONBA_PTR_SET_VALUE(knowledgeId_, knowledgeId) };
+    inline UpdateFaqShrinkRequest& setKnowledgeId(int64_t knowledgeId) { DARABONBA_PTR_SET_VALUE(knowledgeId_, knowledgeId) };
 
 
     // startDate Field Functions 
     bool hasStartDate() const { return this->startDate_ != nullptr;};
     void deleteStartDate() { this->startDate_ = nullptr;};
     inline string startDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
-    inline UpdateFaqRequest& setStartDate(string startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
+    inline UpdateFaqShrinkRequest& setStartDate(string startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
 
 
-    // tagIdList Field Functions 
-    bool hasTagIdList() const { return this->tagIdList_ != nullptr;};
-    void deleteTagIdList() { this->tagIdList_ = nullptr;};
-    inline const vector<int64_t> & tagIdList() const { DARABONBA_PTR_GET_CONST(tagIdList_, vector<int64_t>) };
-    inline vector<int64_t> tagIdList() { DARABONBA_PTR_GET(tagIdList_, vector<int64_t>) };
-    inline UpdateFaqRequest& setTagIdList(const vector<int64_t> & tagIdList) { DARABONBA_PTR_SET_VALUE(tagIdList_, tagIdList) };
-    inline UpdateFaqRequest& setTagIdList(vector<int64_t> && tagIdList) { DARABONBA_PTR_SET_RVALUE(tagIdList_, tagIdList) };
+    // tagIdListShrink Field Functions 
+    bool hasTagIdListShrink() const { return this->tagIdListShrink_ != nullptr;};
+    void deleteTagIdListShrink() { this->tagIdListShrink_ = nullptr;};
+    inline string tagIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(tagIdListShrink_, "") };
+    inline UpdateFaqShrinkRequest& setTagIdListShrink(string tagIdListShrink) { DARABONBA_PTR_SET_VALUE(tagIdListShrink_, tagIdListShrink) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
     inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
-    inline UpdateFaqRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
+    inline UpdateFaqShrinkRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
   protected:
@@ -104,7 +101,7 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<int64_t> knowledgeId_ = nullptr;
     std::shared_ptr<string> startDate_ = nullptr;
-    std::shared_ptr<vector<int64_t>> tagIdList_ = nullptr;
+    std::shared_ptr<string> tagIdListShrink_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> title_ = nullptr;
   };

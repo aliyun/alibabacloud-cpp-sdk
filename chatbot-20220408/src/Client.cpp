@@ -762,12 +762,18 @@ CreateDocResponse Client::createDoc(const CreateDocRequest &request) {
 /**
  * @summary 新建FAQ
  *
- * @param request CreateFaqRequest
+ * @param tmpReq CreateFaqRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateFaqResponse
  */
-CreateFaqResponse Client::createFaqWithOptions(const CreateFaqRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+CreateFaqResponse Client::createFaqWithOptions(const CreateFaqRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateFaqShrinkRequest request = CreateFaqShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTagIdList()) {
+    request.setTagIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tagIdList(), "TagIdList", "json"));
+  }
+
   json query = {};
   if (!!request.hasAgentKey()) {
     query["AgentKey"] = request.agentKey();
@@ -792,6 +798,10 @@ CreateFaqResponse Client::createFaqWithOptions(const CreateFaqRequest &request, 
 
   if (!!request.hasStartDate()) {
     body["StartDate"] = request.startDate();
+  }
+
+  if (!!request.hasTagIdListShrink()) {
+    body["TagIdList"] = request.tagIdListShrink();
   }
 
   if (!!request.hasTitle()) {
@@ -1204,12 +1214,18 @@ CreateSimQuestionResponse Client::createSimQuestion(const CreateSimQuestionReque
 /**
  * @summary 新建FAQ答案
  *
- * @param request CreateSolutionRequest
+ * @param tmpReq CreateSolutionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateSolutionResponse
  */
-CreateSolutionResponse Client::createSolutionWithOptions(const CreateSolutionRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+CreateSolutionResponse Client::createSolutionWithOptions(const CreateSolutionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateSolutionShrinkRequest request = CreateSolutionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTagIdList()) {
+    request.setTagIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tagIdList(), "TagIdList", "json"));
+  }
+
   json query = {};
   if (!!request.hasAgentKey()) {
     query["AgentKey"] = request.agentKey();
@@ -1231,9 +1247,15 @@ CreateSolutionResponse Client::createSolutionWithOptions(const CreateSolutionReq
     query["PerspectiveCodes"] = request.perspectiveCodes();
   }
 
+  json body = {};
+  if (!!request.hasTagIdListShrink()) {
+    body["TagIdList"] = request.tagIdListShrink();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "CreateSolution"},
     {"version" , "2022-04-08"},
@@ -1257,6 +1279,114 @@ CreateSolutionResponse Client::createSolutionWithOptions(const CreateSolutionReq
 CreateSolutionResponse Client::createSolution(const CreateSolutionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createSolutionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 标签创建
+ *
+ * @param request CreateTagRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTagResponse
+ */
+CreateTagResponse Client::createTagWithOptions(const CreateTagRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentKey()) {
+    query["AgentKey"] = request.agentKey();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  json body = {};
+  if (!!request.hasGroupId()) {
+    body["GroupId"] = request.groupId();
+  }
+
+  if (!!request.hasTagName()) {
+    body["TagName"] = request.tagName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateTag"},
+    {"version" , "2022-04-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTagResponse>();
+}
+
+/**
+ * @summary 标签创建
+ *
+ * @param request CreateTagRequest
+ * @return CreateTagResponse
+ */
+CreateTagResponse Client::createTag(const CreateTagRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createTagWithOptions(request, runtime);
+}
+
+/**
+ * @summary 标签组创建
+ *
+ * @param request CreateTagGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTagGroupResponse
+ */
+CreateTagGroupResponse Client::createTagGroupWithOptions(const CreateTagGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentKey()) {
+    query["AgentKey"] = request.agentKey();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  json body = {};
+  if (!!request.hasGroupName()) {
+    body["GroupName"] = request.groupName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateTagGroup"},
+    {"version" , "2022-04-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTagGroupResponse>();
+}
+
+/**
+ * @summary 标签组创建
+ *
+ * @param request CreateTagGroupRequest
+ * @return CreateTagGroupResponse
+ */
+CreateTagGroupResponse Client::createTagGroup(const CreateTagGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createTagGroupWithOptions(request, runtime);
 }
 
 /**
@@ -1902,6 +2032,114 @@ DeleteSolutionResponse Client::deleteSolution(const DeleteSolutionRequest &reque
 }
 
 /**
+ * @summary 标签删除
+ *
+ * @param request DeleteTagRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteTagResponse
+ */
+DeleteTagResponse Client::deleteTagWithOptions(const DeleteTagRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentKey()) {
+    query["AgentKey"] = request.agentKey();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  json body = {};
+  if (!!request.hasGroupId()) {
+    body["GroupId"] = request.groupId();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.id();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteTag"},
+    {"version" , "2022-04-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteTagResponse>();
+}
+
+/**
+ * @summary 标签删除
+ *
+ * @param request DeleteTagRequest
+ * @return DeleteTagResponse
+ */
+DeleteTagResponse Client::deleteTag(const DeleteTagRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteTagWithOptions(request, runtime);
+}
+
+/**
+ * @summary 标签组删除
+ *
+ * @param request DeleteTagGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteTagGroupResponse
+ */
+DeleteTagGroupResponse Client::deleteTagGroupWithOptions(const DeleteTagGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentKey()) {
+    query["AgentKey"] = request.agentKey();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.id();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteTagGroup"},
+    {"version" , "2022-04-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteTagGroupResponse>();
+}
+
+/**
+ * @summary 标签组删除
+ *
+ * @param request DeleteTagGroupRequest
+ * @return DeleteTagGroupResponse
+ */
+DeleteTagGroupResponse Client::deleteTagGroup(const DeleteTagGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteTagGroupWithOptions(request, runtime);
+}
+
+/**
  * @summary 意图-用户话术-删除
  *
  * @param request DeleteUserSayRequest
@@ -2293,6 +2531,114 @@ DescribePerspectiveResponse Client::describePerspectiveWithOptions(const Describ
 DescribePerspectiveResponse Client::describePerspective(const DescribePerspectiveRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describePerspectiveWithOptions(request, runtime);
+}
+
+/**
+ * @summary 标签详情
+ *
+ * @param request DescribeTagRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeTagResponse
+ */
+DescribeTagResponse Client::describeTagWithOptions(const DescribeTagRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentKey()) {
+    query["AgentKey"] = request.agentKey();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  json body = {};
+  if (!!request.hasGroupId()) {
+    body["GroupId"] = request.groupId();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.id();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DescribeTag"},
+    {"version" , "2022-04-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeTagResponse>();
+}
+
+/**
+ * @summary 标签详情
+ *
+ * @param request DescribeTagRequest
+ * @return DescribeTagResponse
+ */
+DescribeTagResponse Client::describeTag(const DescribeTagRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeTagWithOptions(request, runtime);
+}
+
+/**
+ * @summary 标签组详情
+ *
+ * @param request DescribeTagGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeTagGroupResponse
+ */
+DescribeTagGroupResponse Client::describeTagGroupWithOptions(const DescribeTagGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentKey()) {
+    query["AgentKey"] = request.agentKey();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.id();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DescribeTagGroup"},
+    {"version" , "2022-04-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeTagGroupResponse>();
+}
+
+/**
+ * @summary 标签组详情
+ *
+ * @param request DescribeTagGroupRequest
+ * @return DescribeTagGroupResponse
+ */
+DescribeTagGroupResponse Client::describeTagGroup(const DescribeTagGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeTagGroupWithOptions(request, runtime);
 }
 
 /**
@@ -3418,6 +3764,130 @@ ListSolutionResponse Client::listSolution(const ListSolutionRequest &request) {
 }
 
 /**
+ * @summary 标签查询
+ *
+ * @param request ListTagRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTagResponse
+ */
+ListTagResponse Client::listTagWithOptions(const ListTagRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentKey()) {
+    query["AgentKey"] = request.agentKey();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  json body = {};
+  if (!!request.hasGroupId()) {
+    body["GroupId"] = request.groupId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasTagName()) {
+    body["TagName"] = request.tagName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListTag"},
+    {"version" , "2022-04-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTagResponse>();
+}
+
+/**
+ * @summary 标签查询
+ *
+ * @param request ListTagRequest
+ * @return ListTagResponse
+ */
+ListTagResponse Client::listTag(const ListTagRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listTagWithOptions(request, runtime);
+}
+
+/**
+ * @summary 标签组查询
+ *
+ * @param request ListTagGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTagGroupResponse
+ */
+ListTagGroupResponse Client::listTagGroupWithOptions(const ListTagGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentKey()) {
+    query["AgentKey"] = request.agentKey();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  json body = {};
+  if (!!request.hasGroupName()) {
+    body["GroupName"] = request.groupName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListTagGroup"},
+    {"version" , "2022-04-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTagGroupResponse>();
+}
+
+/**
+ * @summary 标签组查询
+ *
+ * @param request ListTagGroupRequest
+ * @return ListTagGroupResponse
+ */
+ListTagGroupResponse Client::listTagGroup(const ListTagGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listTagGroupWithOptions(request, runtime);
+}
+
+/**
  * @summary Tongyi对话明细查询接口
  *
  * @param request ListTongyiChatHistorysRequest
@@ -4348,12 +4818,18 @@ UpdateDocResponse Client::updateDoc(const UpdateDocRequest &request) {
 /**
  * @summary 更新FAQ
  *
- * @param request UpdateFaqRequest
+ * @param tmpReq UpdateFaqRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateFaqResponse
  */
-UpdateFaqResponse Client::updateFaqWithOptions(const UpdateFaqRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+UpdateFaqResponse Client::updateFaqWithOptions(const UpdateFaqRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateFaqShrinkRequest request = UpdateFaqShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTagIdList()) {
+    request.setTagIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tagIdList(), "TagIdList", "json"));
+  }
+
   json query = {};
   if (!!request.hasAgentKey()) {
     query["AgentKey"] = request.agentKey();
@@ -4374,6 +4850,10 @@ UpdateFaqResponse Client::updateFaqWithOptions(const UpdateFaqRequest &request, 
 
   if (!!request.hasStartDate()) {
     body["StartDate"] = request.startDate();
+  }
+
+  if (!!request.hasTagIdListShrink()) {
+    body["TagIdList"] = request.tagIdListShrink();
   }
 
   if (!!request.hasTitle()) {
@@ -4688,12 +5168,18 @@ UpdateSimQuestionResponse Client::updateSimQuestion(const UpdateSimQuestionReque
 /**
  * @summary 更新FAQ答案
  *
- * @param request UpdateSolutionRequest
+ * @param tmpReq UpdateSolutionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateSolutionResponse
  */
-UpdateSolutionResponse Client::updateSolutionWithOptions(const UpdateSolutionRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+UpdateSolutionResponse Client::updateSolutionWithOptions(const UpdateSolutionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateSolutionShrinkRequest request = UpdateSolutionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTagIdList()) {
+    request.setTagIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tagIdList(), "TagIdList", "json"));
+  }
+
   json query = {};
   if (!!request.hasAgentKey()) {
     query["AgentKey"] = request.agentKey();
@@ -4714,6 +5200,10 @@ UpdateSolutionResponse Client::updateSolutionWithOptions(const UpdateSolutionReq
 
   if (!!request.hasSolutionId()) {
     body["SolutionId"] = request.solutionId();
+  }
+
+  if (!!request.hasTagIdListShrink()) {
+    body["TagIdList"] = request.tagIdListShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4743,6 +5233,122 @@ UpdateSolutionResponse Client::updateSolutionWithOptions(const UpdateSolutionReq
 UpdateSolutionResponse Client::updateSolution(const UpdateSolutionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateSolutionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 标签编辑
+ *
+ * @param request UpdateTagRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateTagResponse
+ */
+UpdateTagResponse Client::updateTagWithOptions(const UpdateTagRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentKey()) {
+    query["AgentKey"] = request.agentKey();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  json body = {};
+  if (!!request.hasGroupId()) {
+    body["GroupId"] = request.groupId();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.id();
+  }
+
+  if (!!request.hasTagName()) {
+    body["TagName"] = request.tagName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateTag"},
+    {"version" , "2022-04-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateTagResponse>();
+}
+
+/**
+ * @summary 标签编辑
+ *
+ * @param request UpdateTagRequest
+ * @return UpdateTagResponse
+ */
+UpdateTagResponse Client::updateTag(const UpdateTagRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateTagWithOptions(request, runtime);
+}
+
+/**
+ * @summary 标签组编辑
+ *
+ * @param request UpdateTagGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateTagGroupResponse
+ */
+UpdateTagGroupResponse Client::updateTagGroupWithOptions(const UpdateTagGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentKey()) {
+    query["AgentKey"] = request.agentKey();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  json body = {};
+  if (!!request.hasGroupName()) {
+    body["GroupName"] = request.groupName();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.id();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateTagGroup"},
+    {"version" , "2022-04-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateTagGroupResponse>();
+}
+
+/**
+ * @summary 标签组编辑
+ *
+ * @param request UpdateTagGroupRequest
+ * @return UpdateTagGroupResponse
+ */
+UpdateTagGroupResponse Client::updateTagGroup(const UpdateTagGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateTagGroupWithOptions(request, runtime);
 }
 
 /**

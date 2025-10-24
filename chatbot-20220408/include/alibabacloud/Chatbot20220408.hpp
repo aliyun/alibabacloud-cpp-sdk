@@ -227,11 +227,11 @@ namespace Chatbot20220408
       /**
        * @summary 新建FAQ
        *
-       * @param request CreateFaqRequest
+       * @param tmpReq CreateFaqRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateFaqResponse
        */
-      Models::CreateFaqResponse createFaqWithOptions(const Models::CreateFaqRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::CreateFaqResponse createFaqWithOptions(const Models::CreateFaqRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 新建FAQ
@@ -363,11 +363,11 @@ namespace Chatbot20220408
       /**
        * @summary 新建FAQ答案
        *
-       * @param request CreateSolutionRequest
+       * @param tmpReq CreateSolutionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateSolutionResponse
        */
-      Models::CreateSolutionResponse createSolutionWithOptions(const Models::CreateSolutionRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::CreateSolutionResponse createSolutionWithOptions(const Models::CreateSolutionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 新建FAQ答案
@@ -376,6 +376,40 @@ namespace Chatbot20220408
        * @return CreateSolutionResponse
        */
       Models::CreateSolutionResponse createSolution(const Models::CreateSolutionRequest &request);
+
+      /**
+       * @summary 标签创建
+       *
+       * @param request CreateTagRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTagResponse
+       */
+      Models::CreateTagResponse createTagWithOptions(const Models::CreateTagRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 标签创建
+       *
+       * @param request CreateTagRequest
+       * @return CreateTagResponse
+       */
+      Models::CreateTagResponse createTag(const Models::CreateTagRequest &request);
+
+      /**
+       * @summary 标签组创建
+       *
+       * @param request CreateTagGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTagGroupResponse
+       */
+      Models::CreateTagGroupResponse createTagGroupWithOptions(const Models::CreateTagGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 标签组创建
+       *
+       * @param request CreateTagGroupRequest
+       * @return CreateTagGroupResponse
+       */
+      Models::CreateTagGroupResponse createTagGroup(const Models::CreateTagGroupRequest &request);
 
       /**
        * @summary 意图-话术-创建
@@ -599,6 +633,40 @@ namespace Chatbot20220408
       Models::DeleteSolutionResponse deleteSolution(const Models::DeleteSolutionRequest &request);
 
       /**
+       * @summary 标签删除
+       *
+       * @param request DeleteTagRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteTagResponse
+       */
+      Models::DeleteTagResponse deleteTagWithOptions(const Models::DeleteTagRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 标签删除
+       *
+       * @param request DeleteTagRequest
+       * @return DeleteTagResponse
+       */
+      Models::DeleteTagResponse deleteTag(const Models::DeleteTagRequest &request);
+
+      /**
+       * @summary 标签组删除
+       *
+       * @param request DeleteTagGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteTagGroupResponse
+       */
+      Models::DeleteTagGroupResponse deleteTagGroupWithOptions(const Models::DeleteTagGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 标签组删除
+       *
+       * @param request DeleteTagGroupRequest
+       * @return DeleteTagGroupResponse
+       */
+      Models::DeleteTagGroupResponse deleteTagGroup(const Models::DeleteTagGroupRequest &request);
+
+      /**
        * @summary 意图-用户话术-删除
        *
        * @param request DeleteUserSayRequest
@@ -733,6 +801,40 @@ namespace Chatbot20220408
        * @return DescribePerspectiveResponse
        */
       Models::DescribePerspectiveResponse describePerspective(const Models::DescribePerspectiveRequest &request);
+
+      /**
+       * @summary 标签详情
+       *
+       * @param request DescribeTagRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeTagResponse
+       */
+      Models::DescribeTagResponse describeTagWithOptions(const Models::DescribeTagRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 标签详情
+       *
+       * @param request DescribeTagRequest
+       * @return DescribeTagResponse
+       */
+      Models::DescribeTagResponse describeTag(const Models::DescribeTagRequest &request);
+
+      /**
+       * @summary 标签组详情
+       *
+       * @param request DescribeTagGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeTagGroupResponse
+       */
+      Models::DescribeTagGroupResponse describeTagGroupWithOptions(const Models::DescribeTagGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 标签组详情
+       *
+       * @param request DescribeTagGroupRequest
+       * @return DescribeTagGroupResponse
+       */
+      Models::DescribeTagGroupResponse describeTagGroup(const Models::DescribeTagGroupRequest &request);
 
       /**
        * @summary 问答点赞、点踩API
@@ -1092,6 +1194,40 @@ namespace Chatbot20220408
       Models::ListSolutionResponse listSolution(const Models::ListSolutionRequest &request);
 
       /**
+       * @summary 标签查询
+       *
+       * @param request ListTagRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTagResponse
+       */
+      Models::ListTagResponse listTagWithOptions(const Models::ListTagRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 标签查询
+       *
+       * @param request ListTagRequest
+       * @return ListTagResponse
+       */
+      Models::ListTagResponse listTag(const Models::ListTagRequest &request);
+
+      /**
+       * @summary 标签组查询
+       *
+       * @param request ListTagGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTagGroupResponse
+       */
+      Models::ListTagGroupResponse listTagGroupWithOptions(const Models::ListTagGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 标签组查询
+       *
+       * @param request ListTagGroupRequest
+       * @return ListTagGroupResponse
+       */
+      Models::ListTagGroupResponse listTagGroup(const Models::ListTagGroupRequest &request);
+
+      /**
        * @summary Tongyi对话明细查询接口
        *
        * @param request ListTongyiChatHistorysRequest
@@ -1332,11 +1468,11 @@ namespace Chatbot20220408
       /**
        * @summary 更新FAQ
        *
-       * @param request UpdateFaqRequest
+       * @param tmpReq UpdateFaqRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateFaqResponse
        */
-      Models::UpdateFaqResponse updateFaqWithOptions(const Models::UpdateFaqRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::UpdateFaqResponse updateFaqWithOptions(const Models::UpdateFaqRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 更新FAQ
@@ -1434,11 +1570,11 @@ namespace Chatbot20220408
       /**
        * @summary 更新FAQ答案
        *
-       * @param request UpdateSolutionRequest
+       * @param tmpReq UpdateSolutionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateSolutionResponse
        */
-      Models::UpdateSolutionResponse updateSolutionWithOptions(const Models::UpdateSolutionRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::UpdateSolutionResponse updateSolutionWithOptions(const Models::UpdateSolutionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 更新FAQ答案
@@ -1447,6 +1583,40 @@ namespace Chatbot20220408
        * @return UpdateSolutionResponse
        */
       Models::UpdateSolutionResponse updateSolution(const Models::UpdateSolutionRequest &request);
+
+      /**
+       * @summary 标签编辑
+       *
+       * @param request UpdateTagRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateTagResponse
+       */
+      Models::UpdateTagResponse updateTagWithOptions(const Models::UpdateTagRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 标签编辑
+       *
+       * @param request UpdateTagRequest
+       * @return UpdateTagResponse
+       */
+      Models::UpdateTagResponse updateTag(const Models::UpdateTagRequest &request);
+
+      /**
+       * @summary 标签组编辑
+       *
+       * @param request UpdateTagGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateTagGroupResponse
+       */
+      Models::UpdateTagGroupResponse updateTagGroupWithOptions(const Models::UpdateTagGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 标签组编辑
+       *
+       * @param request UpdateTagGroupRequest
+       * @return UpdateTagGroupResponse
+       */
+      Models::UpdateTagGroupResponse updateTagGroup(const Models::UpdateTagGroupRequest &request);
 
       /**
        * @summary 意图-话术-更新

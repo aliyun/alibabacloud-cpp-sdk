@@ -31,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Solutions, solutions_);
       DARABONBA_PTR_TO_JSON(StartDate, startDate_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(TagIdList, tagIdList_);
       DARABONBA_PTR_TO_JSON(Title, title_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeFaqResponseBody& obj) { 
@@ -48,6 +49,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Solutions, solutions_);
       DARABONBA_PTR_FROM_JSON(StartDate, startDate_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(TagIdList, tagIdList_);
       DARABONBA_PTR_FROM_JSON(Title, title_);
     };
     DescribeFaqResponseBody() = default ;
@@ -64,7 +66,7 @@ namespace Models
     virtual bool empty() const override { return this->categoryId_ == nullptr
         && return this->createTime_ == nullptr && return this->createUserName_ == nullptr && return this->effectStatus_ == nullptr && return this->endDate_ == nullptr && return this->knowledgeId_ == nullptr
         && return this->modifyTime_ == nullptr && return this->modifyUserName_ == nullptr && return this->outlines_ == nullptr && return this->requestId_ == nullptr && return this->simQuestions_ == nullptr
-        && return this->solutions_ == nullptr && return this->startDate_ == nullptr && return this->status_ == nullptr && return this->title_ == nullptr; };
+        && return this->solutions_ == nullptr && return this->startDate_ == nullptr && return this->status_ == nullptr && return this->tagIdList_ == nullptr && return this->title_ == nullptr; };
     // categoryId Field Functions 
     bool hasCategoryId() const { return this->categoryId_ != nullptr;};
     void deleteCategoryId() { this->categoryId_ = nullptr;};
@@ -169,6 +171,15 @@ namespace Models
     inline DescribeFaqResponseBody& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // tagIdList Field Functions 
+    bool hasTagIdList() const { return this->tagIdList_ != nullptr;};
+    void deleteTagIdList() { this->tagIdList_ = nullptr;};
+    inline const vector<int64_t> & tagIdList() const { DARABONBA_PTR_GET_CONST(tagIdList_, vector<int64_t>) };
+    inline vector<int64_t> tagIdList() { DARABONBA_PTR_GET(tagIdList_, vector<int64_t>) };
+    inline DescribeFaqResponseBody& setTagIdList(const vector<int64_t> & tagIdList) { DARABONBA_PTR_SET_VALUE(tagIdList_, tagIdList) };
+    inline DescribeFaqResponseBody& setTagIdList(vector<int64_t> && tagIdList) { DARABONBA_PTR_SET_RVALUE(tagIdList_, tagIdList) };
+
+
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
@@ -191,6 +202,7 @@ namespace Models
     std::shared_ptr<vector<DescribeFaqResponseBodySolutions>> solutions_ = nullptr;
     std::shared_ptr<string> startDate_ = nullptr;
     std::shared_ptr<int32_t> status_ = nullptr;
+    std::shared_ptr<vector<int64_t>> tagIdList_ = nullptr;
     std::shared_ptr<string> title_ = nullptr;
   };
 
