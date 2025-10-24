@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->androidInstanceId_ != nullptr
-        && this->androidInstanceName_ != nullptr && this->backupAll_ != nullptr && this->backupFileId_ != nullptr && this->backupFileName_ != nullptr && this->backupFilePath_ != nullptr
-        && this->description_ != nullptr && this->endUserId_ != nullptr && this->fileSize_ != nullptr && this->gmtCreated_ != nullptr && this->gmtModified_ != nullptr
-        && this->instanceGroupId_ != nullptr && this->regionId_ != nullptr && this->sourceAppInfoList_ != nullptr && this->sourceFilePathList_ != nullptr && this->status_ != nullptr
-        && this->systemVersion_ != nullptr && this->taskId_ != nullptr && this->uploadEndpoint_ != nullptr && this->uploadType_ != nullptr; };
+    virtual bool empty() const override { return this->androidInstanceId_ == nullptr
+        && return this->androidInstanceName_ == nullptr && return this->backupAll_ == nullptr && return this->backupFileId_ == nullptr && return this->backupFileName_ == nullptr && return this->backupFilePath_ == nullptr
+        && return this->description_ == nullptr && return this->endUserId_ == nullptr && return this->fileSize_ == nullptr && return this->gmtCreated_ == nullptr && return this->gmtModified_ == nullptr
+        && return this->instanceGroupId_ == nullptr && return this->regionId_ == nullptr && return this->sourceAppInfoList_ == nullptr && return this->sourceFilePathList_ == nullptr && return this->status_ == nullptr
+        && return this->systemVersion_ == nullptr && return this->taskId_ == nullptr && return this->uploadEndpoint_ == nullptr && return this->uploadType_ == nullptr; };
     // androidInstanceId Field Functions 
     bool hasAndroidInstanceId() const { return this->androidInstanceId_ != nullptr;};
     void deleteAndroidInstanceId() { this->androidInstanceId_ = nullptr;};

@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->instanceId_ != nullptr
-        && this->instanceName_ != nullptr && this->invokeId_ != nullptr && this->level_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr
-        && this->param_ != nullptr && this->parentTaskId_ != nullptr && this->resourceIds_ != nullptr && this->taskIds_ != nullptr && this->taskStatus_ != nullptr
-        && this->taskStatuses_ != nullptr && this->taskType_ != nullptr && this->taskTypes_ != nullptr; };
+    virtual bool empty() const override { return this->instanceId_ == nullptr
+        && return this->instanceName_ == nullptr && return this->invokeId_ == nullptr && return this->level_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr
+        && return this->param_ == nullptr && return this->parentTaskId_ == nullptr && return this->resourceIds_ == nullptr && return this->taskIds_ == nullptr && return this->taskStatus_ == nullptr
+        && return this->taskStatuses_ == nullptr && return this->taskType_ == nullptr && return this->taskTypes_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};

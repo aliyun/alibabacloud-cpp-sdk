@@ -41,6 +41,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ServerType, serverType_);
       DARABONBA_PTR_TO_JSON(ShareDataVolume, shareDataVolume_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(SwapSize, swapSize_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeCloudPhoneNodesResponseBodyNodeModel& obj) { 
@@ -68,6 +69,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ServerType, serverType_);
       DARABONBA_PTR_FROM_JSON(ShareDataVolume, shareDataVolume_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(SwapSize, swapSize_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
     };
     DescribeCloudPhoneNodesResponseBodyNodeModel() = default ;
@@ -81,12 +83,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandwidthPackageId_ != nullptr
-        && this->bandwidthPackageStatus_ != nullptr && this->bandwidthPackageType_ != nullptr && this->bizTags_ != nullptr && this->chargeType_ != nullptr && this->cpu_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtExpired_ != nullptr && this->gmtModified_ != nullptr && this->instanceType_ != nullptr && this->memory_ != nullptr
-        && this->networkId_ != nullptr && this->networkInfos_ != nullptr && this->networkType_ != nullptr && this->nodeId_ != nullptr && this->nodeName_ != nullptr
-        && this->phoneCount_ != nullptr && this->phoneDataInfo_ != nullptr && this->regionId_ != nullptr && this->resolutionHeight_ != nullptr && this->resolutionWidth_ != nullptr
-        && this->serverType_ != nullptr && this->shareDataVolume_ != nullptr && this->status_ != nullptr && this->vSwitchId_ != nullptr; };
+    virtual bool empty() const override { return this->bandwidthPackageId_ == nullptr
+        && return this->bandwidthPackageStatus_ == nullptr && return this->bandwidthPackageType_ == nullptr && return this->bizTags_ == nullptr && return this->chargeType_ == nullptr && return this->cpu_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->gmtExpired_ == nullptr && return this->gmtModified_ == nullptr && return this->instanceType_ == nullptr && return this->memory_ == nullptr
+        && return this->networkId_ == nullptr && return this->networkInfos_ == nullptr && return this->networkType_ == nullptr && return this->nodeId_ == nullptr && return this->nodeName_ == nullptr
+        && return this->phoneCount_ == nullptr && return this->phoneDataInfo_ == nullptr && return this->regionId_ == nullptr && return this->resolutionHeight_ == nullptr && return this->resolutionWidth_ == nullptr
+        && return this->serverType_ == nullptr && return this->shareDataVolume_ == nullptr && return this->status_ == nullptr && return this->swapSize_ == nullptr && return this->vSwitchId_ == nullptr; };
     // bandwidthPackageId Field Functions 
     bool hasBandwidthPackageId() const { return this->bandwidthPackageId_ != nullptr;};
     void deleteBandwidthPackageId() { this->bandwidthPackageId_ = nullptr;};
@@ -261,6 +263,13 @@ namespace Models
     inline DescribeCloudPhoneNodesResponseBodyNodeModel& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // swapSize Field Functions 
+    bool hasSwapSize() const { return this->swapSize_ != nullptr;};
+    void deleteSwapSize() { this->swapSize_ = nullptr;};
+    inline int32_t swapSize() const { DARABONBA_PTR_GET_DEFAULT(swapSize_, 0) };
+    inline DescribeCloudPhoneNodesResponseBodyNodeModel& setSwapSize(int32_t swapSize) { DARABONBA_PTR_SET_VALUE(swapSize_, swapSize) };
+
+
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
@@ -309,6 +318,7 @@ namespace Models
     std::shared_ptr<int32_t> shareDataVolume_ = nullptr;
     // The matrix status.
     std::shared_ptr<string> status_ = nullptr;
+    std::shared_ptr<int32_t> swapSize_ = nullptr;
     // The vSwitch ID.
     std::shared_ptr<string> vSwitchId_ = nullptr;
   };

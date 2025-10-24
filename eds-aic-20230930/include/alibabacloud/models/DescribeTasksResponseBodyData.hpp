@@ -71,12 +71,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->errorCode_ != nullptr
-        && this->errorMsg_ != nullptr && this->failedChildCount_ != nullptr && this->finishTime_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr
-        && this->instanceStatus_ != nullptr && this->invokeId_ != nullptr && this->level_ != nullptr && this->operator_ != nullptr && this->param_ != nullptr
-        && this->parentTaskId_ != nullptr && this->regionId_ != nullptr && this->resourceId_ != nullptr && this->result_ != nullptr && this->runningChildCount_ != nullptr
-        && this->startTime_ != nullptr && this->successChildCount_ != nullptr && this->taskId_ != nullptr && this->taskStatus_ != nullptr && this->taskType_ != nullptr
-        && this->totalChildCount_ != nullptr; };
+    virtual bool empty() const override { return this->errorCode_ == nullptr
+        && return this->errorMsg_ == nullptr && return this->failedChildCount_ == nullptr && return this->finishTime_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr
+        && return this->instanceStatus_ == nullptr && return this->invokeId_ == nullptr && return this->level_ == nullptr && return this->operator_ == nullptr && return this->param_ == nullptr
+        && return this->parentTaskId_ == nullptr && return this->regionId_ == nullptr && return this->resourceId_ == nullptr && return this->result_ == nullptr && return this->runningChildCount_ == nullptr
+        && return this->startTime_ == nullptr && return this->successChildCount_ == nullptr && return this->taskId_ == nullptr && return this->taskStatus_ == nullptr && return this->taskType_ == nullptr
+        && return this->totalChildCount_ == nullptr; };
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};

@@ -63,10 +63,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliUid_ != nullptr
-        && this->description_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->imageBizTags_ != nullptr && this->imageId_ != nullptr
-        && this->imageName_ != nullptr && this->imageRegionDistributeMap_ != nullptr && this->imageRegionList_ != nullptr && this->imageType_ != nullptr && this->imageVersion_ != nullptr
-        && this->language_ != nullptr && this->releaseTime_ != nullptr && this->renderingType_ != nullptr && this->status_ != nullptr && this->systemType_ != nullptr; };
+    virtual bool empty() const override { return this->aliUid_ == nullptr
+        && return this->description_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->imageBizTags_ == nullptr && return this->imageId_ == nullptr
+        && return this->imageName_ == nullptr && return this->imageRegionDistributeMap_ == nullptr && return this->imageRegionList_ == nullptr && return this->imageType_ == nullptr && return this->imageVersion_ == nullptr
+        && return this->language_ == nullptr && return this->releaseTime_ == nullptr && return this->renderingType_ == nullptr && return this->status_ == nullptr && return this->systemType_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};

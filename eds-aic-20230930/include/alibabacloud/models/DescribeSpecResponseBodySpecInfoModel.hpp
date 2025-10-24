@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->core_ != nullptr
-        && this->maxPhoneCount_ != nullptr && this->memory_ != nullptr && this->minPhoneCount_ != nullptr && this->phoneCount_ != nullptr && this->resolution_ != nullptr
-        && this->specId_ != nullptr && this->specStatus_ != nullptr && this->specType_ != nullptr && this->systemDiskSize_ != nullptr; };
+    virtual bool empty() const override { return this->core_ == nullptr
+        && return this->maxPhoneCount_ == nullptr && return this->memory_ == nullptr && return this->minPhoneCount_ == nullptr && return this->phoneCount_ == nullptr && return this->resolution_ == nullptr
+        && return this->specId_ == nullptr && return this->specStatus_ == nullptr && return this->specType_ == nullptr && return this->systemDiskSize_ == nullptr; };
     // core Field Functions 
     bool hasCore() const { return this->core_ != nullptr;};
     void deleteCore() { this->core_ = nullptr;};

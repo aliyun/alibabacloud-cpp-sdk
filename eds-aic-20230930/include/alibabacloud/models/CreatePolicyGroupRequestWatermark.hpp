@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->watermarkColor_ != nullptr
-        && this->watermarkCustomText_ != nullptr && this->watermarkFontSize_ != nullptr && this->watermarkSwitch_ != nullptr && this->watermarkTransparencyValue_ != nullptr && this->watermarkTypes_ != nullptr; };
+    virtual bool empty() const override { return this->watermarkColor_ == nullptr
+        && return this->watermarkCustomText_ == nullptr && return this->watermarkFontSize_ == nullptr && return this->watermarkSwitch_ == nullptr && return this->watermarkTransparencyValue_ == nullptr && return this->watermarkTypes_ == nullptr; };
     // watermarkColor Field Functions 
     bool hasWatermarkColor() const { return this->watermarkColor_ != nullptr;};
     void deleteWatermarkColor() { this->watermarkColor_ = nullptr;};

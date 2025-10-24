@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->customPropertyInfos_ != nullptr
-        && this->roBootloader_ != nullptr && this->roBuildDisplayId_ != nullptr && this->roBuildFingerprint_ != nullptr && this->roBuildHost_ != nullptr && this->roBuildId_ != nullptr
-        && this->roBuildProduct_ != nullptr && this->roBuildTags_ != nullptr && this->roBuildType_ != nullptr && this->roBuildUser_ != nullptr && this->roProductBoard_ != nullptr
-        && this->roProductBrand_ != nullptr && this->roProductDevice_ != nullptr && this->roProductManufacturer_ != nullptr && this->roProductModel_ != nullptr && this->rwRoSerialNo_ != nullptr; };
+    virtual bool empty() const override { return this->customPropertyInfos_ == nullptr
+        && return this->roBootloader_ == nullptr && return this->roBuildDisplayId_ == nullptr && return this->roBuildFingerprint_ == nullptr && return this->roBuildHost_ == nullptr && return this->roBuildId_ == nullptr
+        && return this->roBuildProduct_ == nullptr && return this->roBuildTags_ == nullptr && return this->roBuildType_ == nullptr && return this->roBuildUser_ == nullptr && return this->roProductBoard_ == nullptr
+        && return this->roProductBrand_ == nullptr && return this->roProductDevice_ == nullptr && return this->roProductManufacturer_ == nullptr && return this->roProductModel_ == nullptr && return this->rwRoSerialNo_ == nullptr; };
     // customPropertyInfos Field Functions 
     bool hasCustomPropertyInfos() const { return this->customPropertyInfos_ != nullptr;};
     void deleteCustomPropertyInfos() { this->customPropertyInfos_ = nullptr;};

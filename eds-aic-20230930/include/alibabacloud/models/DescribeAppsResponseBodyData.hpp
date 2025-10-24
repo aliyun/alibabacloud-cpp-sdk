@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->androidAppVersion_ != nullptr
-        && this->apkSize_ != nullptr && this->appId_ != nullptr && this->appName_ != nullptr && this->appType_ != nullptr && this->bizRegionId_ != nullptr
-        && this->description_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->iconUrl_ != nullptr && this->installationStatus_ != nullptr
-        && this->instanceGroupList_ != nullptr && this->MD5_ != nullptr && this->packageName_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->androidAppVersion_ == nullptr
+        && return this->apkSize_ == nullptr && return this->appId_ == nullptr && return this->appName_ == nullptr && return this->appType_ == nullptr && return this->bizRegionId_ == nullptr
+        && return this->description_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->iconUrl_ == nullptr && return this->installationStatus_ == nullptr
+        && return this->instanceGroupList_ == nullptr && return this->MD5_ == nullptr && return this->packageName_ == nullptr && return this->status_ == nullptr; };
     // androidAppVersion Field Functions 
     bool hasAndroidAppVersion() const { return this->androidAppVersion_ != nullptr;};
     void deleteAndroidAppVersion() { this->androidAppVersion_ = nullptr;};

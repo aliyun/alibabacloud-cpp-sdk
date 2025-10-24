@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizRegionId_ != nullptr
-        && this->chargeType_ != nullptr && this->instanceGroupIds_ != nullptr && this->instanceGroupName_ != nullptr && this->keyPairId_ != nullptr && this->maxResults_ != nullptr
-        && this->nextToken_ != nullptr && this->policyGroupId_ != nullptr && this->saleMode_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->bizRegionId_ == nullptr
+        && return this->chargeType_ == nullptr && return this->instanceGroupIds_ == nullptr && return this->instanceGroupName_ == nullptr && return this->keyPairId_ == nullptr && return this->maxResults_ == nullptr
+        && return this->nextToken_ == nullptr && return this->policyGroupId_ == nullptr && return this->saleMode_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr; };
     // bizRegionId Field Functions 
     bool hasBizRegionId() const { return this->bizRegionId_ != nullptr;};
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};

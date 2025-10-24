@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appInstanceGroupId_ != nullptr
-        && this->appInstanceId_ != nullptr && this->errorCode_ != nullptr && this->instanceId_ != nullptr && this->persistentAppInstanceId_ != nullptr && this->taskId_ != nullptr
-        && this->taskStatus_ != nullptr && this->ticket_ != nullptr; };
+    virtual bool empty() const override { return this->appInstanceGroupId_ == nullptr
+        && return this->appInstanceId_ == nullptr && return this->errorCode_ == nullptr && return this->instanceId_ == nullptr && return this->persistentAppInstanceId_ == nullptr && return this->taskId_ == nullptr
+        && return this->taskStatus_ == nullptr && return this->ticket_ == nullptr; };
     // appInstanceGroupId Field Functions 
     bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
     void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};

@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apkSize_ != nullptr
-        && this->downloadUrl_ != nullptr && this->md5_ != nullptr && this->packageName_ != nullptr && this->version_ != nullptr && this->versionCode_ != nullptr; };
+    virtual bool empty() const override { return this->apkSize_ == nullptr
+        && return this->downloadUrl_ == nullptr && return this->md5_ == nullptr && return this->packageName_ == nullptr && return this->version_ == nullptr && return this->versionCode_ == nullptr; };
     // apkSize Field Functions 
     bool hasApkSize() const { return this->apkSize_ != nullptr;};
     void deleteApkSize() { this->apkSize_ = nullptr;};

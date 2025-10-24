@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->androidInstanceId_ != nullptr
-        && this->androidInstanceName_ != nullptr && this->backupAll_ != nullptr && this->backupFileId_ != nullptr && this->backupFileName_ != nullptr && this->description_ != nullptr
-        && this->endTime_ != nullptr && this->endUserId_ != nullptr && this->instanceGroupId_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr
-        && this->startTime_ != nullptr && this->statusList_ != nullptr; };
+    virtual bool empty() const override { return this->androidInstanceId_ == nullptr
+        && return this->androidInstanceName_ == nullptr && return this->backupAll_ == nullptr && return this->backupFileId_ == nullptr && return this->backupFileName_ == nullptr && return this->description_ == nullptr
+        && return this->endTime_ == nullptr && return this->endUserId_ == nullptr && return this->instanceGroupId_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr
+        && return this->startTime_ == nullptr && return this->statusList_ == nullptr; };
     // androidInstanceId Field Functions 
     bool hasAndroidInstanceId() const { return this->androidInstanceId_ != nullptr;};
     void deleteAndroidInstanceId() { this->androidInstanceId_ = nullptr;};

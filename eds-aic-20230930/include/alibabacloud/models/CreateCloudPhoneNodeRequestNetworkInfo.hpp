@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandwidthPackageName_ != nullptr
-        && this->cidrBlock_ != nullptr && this->internetChargeType_ != nullptr && this->ipRatio_ != nullptr && this->isp_ != nullptr && this->limitedBandwidth_ != nullptr
-        && this->payType_ != nullptr && this->visibleType_ != nullptr; };
+    virtual bool empty() const override { return this->bandwidthPackageName_ == nullptr
+        && return this->cidrBlock_ == nullptr && return this->internetChargeType_ == nullptr && return this->ipRatio_ == nullptr && return this->isp_ == nullptr && return this->limitedBandwidth_ == nullptr
+        && return this->payType_ == nullptr && return this->visibleType_ == nullptr; };
     // bandwidthPackageName Field Functions 
     bool hasBandwidthPackageName() const { return this->bandwidthPackageName_ != nullptr;};
     void deleteBandwidthPackageName() { this->bandwidthPackageName_ = nullptr;};

@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cameraRedirect_ != nullptr
-        && this->clipboard_ != nullptr && this->html5FileTransfer_ != nullptr && this->localDrive_ != nullptr && this->lockResolution_ != nullptr && this->netRedirectPolicyShrink_ != nullptr
-        && this->policyGroupName_ != nullptr && this->policyType_ != nullptr && this->resolutionHeight_ != nullptr && this->resolutionWidth_ != nullptr && this->watermarkShrink_ != nullptr; };
+    virtual bool empty() const override { return this->cameraRedirect_ == nullptr
+        && return this->clipboard_ == nullptr && return this->html5FileTransfer_ == nullptr && return this->localDrive_ == nullptr && return this->lockResolution_ == nullptr && return this->netRedirectPolicyShrink_ == nullptr
+        && return this->policyGroupName_ == nullptr && return this->policyType_ == nullptr && return this->resolutionHeight_ == nullptr && return this->resolutionWidth_ == nullptr && return this->watermarkShrink_ == nullptr; };
     // cameraRedirect Field Functions 
     bool hasCameraRedirect() const { return this->cameraRedirect_ != nullptr;};
     void deleteCameraRedirect() { this->cameraRedirect_ = nullptr;};

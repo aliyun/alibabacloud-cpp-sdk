@@ -134,17 +134,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->androidInstanceGroupId_ != nullptr
-        && this->androidInstanceGroupName_ != nullptr && this->androidInstanceId_ != nullptr && this->androidInstanceName_ != nullptr && this->androidInstanceStatus_ != nullptr && this->appInstanceGroupId_ != nullptr
-        && this->appInstanceId_ != nullptr && this->appManagePolicy_ != nullptr && this->authorizedUserId_ != nullptr && this->bandwidthPackageId_ != nullptr && this->bandwidthPackageType_ != nullptr
-        && this->bindUserId_ != nullptr && this->bizTags_ != nullptr && this->chargeType_ != nullptr && this->cpu_ != nullptr && this->disks_ != nullptr
-        && this->displayConfig_ != nullptr && this->downBandwidthLimit_ != nullptr && this->errorCode_ != nullptr && this->gmtCreate_ != nullptr && this->gmtExpired_ != nullptr
-        && this->gmtModified_ != nullptr && this->imageId_ != nullptr && this->imageVersion_ != nullptr && this->instanceType_ != nullptr && this->internetStatus_ != nullptr
-        && this->keyPairId_ != nullptr && this->memory_ != nullptr && this->networkInterfaceIp_ != nullptr && this->networkInterfaceIpv6Address_ != nullptr && this->networkType_ != nullptr
-        && this->officeSiteId_ != nullptr && this->persistentAppInstanceId_ != nullptr && this->phoneDataInfo_ != nullptr && this->policyGroupId_ != nullptr && this->publicIpAddress_ != nullptr
-        && this->publicIpv6Address_ != nullptr && this->qosRuleId_ != nullptr && this->rate_ != nullptr && this->regionId_ != nullptr && this->renderingType_ != nullptr
-        && this->serverStatus_ != nullptr && this->serverType_ != nullptr && this->sessionStatus_ != nullptr && this->streamMode_ != nullptr && this->systemVersion_ != nullptr
-        && this->tags_ != nullptr && this->upBandwidthLimit_ != nullptr && this->vSwitchId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->androidInstanceGroupId_ == nullptr
+        && return this->androidInstanceGroupName_ == nullptr && return this->androidInstanceId_ == nullptr && return this->androidInstanceName_ == nullptr && return this->androidInstanceStatus_ == nullptr && return this->appInstanceGroupId_ == nullptr
+        && return this->appInstanceId_ == nullptr && return this->appManagePolicy_ == nullptr && return this->authorizedUserId_ == nullptr && return this->bandwidthPackageId_ == nullptr && return this->bandwidthPackageType_ == nullptr
+        && return this->bindUserId_ == nullptr && return this->bizTags_ == nullptr && return this->chargeType_ == nullptr && return this->cpu_ == nullptr && return this->disks_ == nullptr
+        && return this->displayConfig_ == nullptr && return this->downBandwidthLimit_ == nullptr && return this->errorCode_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtExpired_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->imageId_ == nullptr && return this->imageVersion_ == nullptr && return this->instanceType_ == nullptr && return this->internetStatus_ == nullptr
+        && return this->keyPairId_ == nullptr && return this->memory_ == nullptr && return this->networkInterfaceIp_ == nullptr && return this->networkInterfaceIpv6Address_ == nullptr && return this->networkType_ == nullptr
+        && return this->officeSiteId_ == nullptr && return this->persistentAppInstanceId_ == nullptr && return this->phoneDataInfo_ == nullptr && return this->policyGroupId_ == nullptr && return this->publicIpAddress_ == nullptr
+        && return this->publicIpv6Address_ == nullptr && return this->qosRuleId_ == nullptr && return this->rate_ == nullptr && return this->regionId_ == nullptr && return this->renderingType_ == nullptr
+        && return this->serverStatus_ == nullptr && return this->serverType_ == nullptr && return this->sessionStatus_ == nullptr && return this->streamMode_ == nullptr && return this->systemVersion_ == nullptr
+        && return this->tags_ == nullptr && return this->upBandwidthLimit_ == nullptr && return this->vSwitchId_ == nullptr && return this->zoneId_ == nullptr; };
     // androidInstanceGroupId Field Functions 
     bool hasAndroidInstanceGroupId() const { return this->androidInstanceGroupId_ != nullptr;};
     void deleteAndroidInstanceGroupId() { this->androidInstanceGroupId_ = nullptr;};

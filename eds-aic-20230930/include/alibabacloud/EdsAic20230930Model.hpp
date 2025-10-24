@@ -87,6 +87,9 @@
 #include <alibabacloud/models/DescribeBackupFilesRequest.hpp>
 #include <alibabacloud/models/DescribeBackupFilesResponseBody.hpp>
 #include <alibabacloud/models/DescribeBackupFilesResponse.hpp>
+#include <alibabacloud/models/DescribeBucketsRequest.hpp>
+#include <alibabacloud/models/DescribeBucketsResponseBody.hpp>
+#include <alibabacloud/models/DescribeBucketsResponse.hpp>
 #include <alibabacloud/models/DescribeCloudPhoneNodesRequest.hpp>
 #include <alibabacloud/models/DescribeCloudPhoneNodesResponseBody.hpp>
 #include <alibabacloud/models/DescribeCloudPhoneNodesResponse.hpp>
@@ -156,6 +159,9 @@
 #include <alibabacloud/models/InstallMonitorAgentRequest.hpp>
 #include <alibabacloud/models/InstallMonitorAgentResponseBody.hpp>
 #include <alibabacloud/models/InstallMonitorAgentResponse.hpp>
+#include <alibabacloud/models/InstanceHealerRequest.hpp>
+#include <alibabacloud/models/InstanceHealerResponseBody.hpp>
+#include <alibabacloud/models/InstanceHealerResponse.hpp>
 #include <alibabacloud/models/ListPolicyGroupsRequest.hpp>
 #include <alibabacloud/models/ListPolicyGroupsResponseBody.hpp>
 #include <alibabacloud/models/ListPolicyGroupsResponse.hpp>
@@ -293,6 +299,9 @@
 #include <alibabacloud/models/DescribeAndroidInstancesResponseBodyInstanceModel.hpp>
 #include <alibabacloud/models/DescribeAppsResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeBackupFilesResponseBodyData.hpp>
+#include <alibabacloud/models/DescribeBucketsResponseBodyDataOssObjectListOwner.hpp>
+#include <alibabacloud/models/DescribeBucketsResponseBodyDataOssObjectList.hpp>
+#include <alibabacloud/models/DescribeBucketsResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeCloudPhoneNodesResponseBodyNodeModelBizTags.hpp>
 #include <alibabacloud/models/DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos.hpp>
 #include <alibabacloud/models/DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo.hpp>
@@ -317,6 +326,7 @@
 #include <alibabacloud/models/FetchFileResponseBodyData.hpp>
 #include <alibabacloud/models/GetInstancePropertiesResponseBodyPropertyTemplateModel.hpp>
 #include <alibabacloud/models/ImportKeyPairResponseBodyData.hpp>
+#include <alibabacloud/models/InstanceHealerResponseBodyInstanceHealerModel.hpp>
 #include <alibabacloud/models/ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyRules.hpp>
 #include <alibabacloud/models/ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy.hpp>
 #include <alibabacloud/models/ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources.hpp>

@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeMetricLastRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AndroidInstanceIds, androidInstanceIds_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+      DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(Length, length_);
       DARABONBA_PTR_TO_JSON(MetricNames, metricNames_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
@@ -25,6 +26,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeMetricLastRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AndroidInstanceIds, androidInstanceIds_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+      DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(Length, length_);
       DARABONBA_PTR_FROM_JSON(MetricNames, metricNames_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
@@ -42,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->androidInstanceIds_ != nullptr
-        && this->endTime_ != nullptr && this->length_ != nullptr && this->metricNames_ != nullptr && this->nextToken_ != nullptr && this->period_ != nullptr
-        && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->androidInstanceIds_ == nullptr
+        && return this->endTime_ == nullptr && return this->instanceIds_ == nullptr && return this->length_ == nullptr && return this->metricNames_ == nullptr && return this->nextToken_ == nullptr
+        && return this->period_ == nullptr && return this->startTime_ == nullptr; };
     // androidInstanceIds Field Functions 
     bool hasAndroidInstanceIds() const { return this->androidInstanceIds_ != nullptr;};
     void deleteAndroidInstanceIds() { this->androidInstanceIds_ = nullptr;};
@@ -59,6 +61,15 @@ namespace Models
     void deleteEndTime() { this->endTime_ = nullptr;};
     inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeMetricLastRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+    // instanceIds Field Functions 
+    bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
+    void deleteInstanceIds() { this->instanceIds_ = nullptr;};
+    inline const vector<string> & instanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
+    inline vector<string> instanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
+    inline DescribeMetricLastRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
+    inline DescribeMetricLastRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
 
 
     // length Field Functions 
@@ -101,6 +112,7 @@ namespace Models
   protected:
     std::shared_ptr<vector<string>> androidInstanceIds_ = nullptr;
     std::shared_ptr<string> endTime_ = nullptr;
+    std::shared_ptr<vector<string>> instanceIds_ = nullptr;
     std::shared_ptr<string> length_ = nullptr;
     // This parameter is required.
     std::shared_ptr<vector<string>> metricNames_ = nullptr;

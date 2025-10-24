@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->androidInstanceIdList_ != nullptr
-        && this->backupAll_ != nullptr && this->backupFileId_ != nullptr && this->backupFilePath_ != nullptr && this->uploadEndpoint_ != nullptr && this->uploadType_ != nullptr; };
+    virtual bool empty() const override { return this->androidInstanceIdList_ == nullptr
+        && return this->backupAll_ == nullptr && return this->backupFileId_ == nullptr && return this->backupFilePath_ == nullptr && return this->uploadEndpoint_ == nullptr && return this->uploadType_ == nullptr; };
     // androidInstanceIdList Field Functions 
     bool hasAndroidInstanceIdList() const { return this->androidInstanceIdList_ != nullptr;};
     void deleteAndroidInstanceIdList() { this->androidInstanceIdList_ = nullptr;};

@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->customProxy_ != nullptr
-        && this->hostAddr_ != nullptr && this->netRedirect_ != nullptr && this->port_ != nullptr && this->proxyPassword_ != nullptr && this->proxyType_ != nullptr
-        && this->proxyUserName_ != nullptr && this->rules_ != nullptr; };
+    virtual bool empty() const override { return this->customProxy_ == nullptr
+        && return this->hostAddr_ == nullptr && return this->netRedirect_ == nullptr && return this->port_ == nullptr && return this->proxyPassword_ == nullptr && return this->proxyType_ == nullptr
+        && return this->proxyUserName_ == nullptr && return this->rules_ == nullptr; };
     // customProxy Field Functions 
     bool hasCustomProxy() const { return this->customProxy_ != nullptr;};
     void deleteCustomProxy() { this->customProxy_ = nullptr;};

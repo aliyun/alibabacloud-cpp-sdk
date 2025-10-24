@@ -42,6 +42,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ServerShareDataVolume, serverShareDataVolume_);
       DARABONBA_PTR_TO_JSON(ServerType, serverType_);
       DARABONBA_PTR_TO_JSON(StreamMode, streamMode_);
+      DARABONBA_PTR_TO_JSON(SwapSize, swapSize_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(UpBandwidthLimit, upBandwidthLimit_);
       DARABONBA_PTR_TO_JSON(UseTemplate, useTemplate_);
@@ -73,6 +74,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ServerShareDataVolume, serverShareDataVolume_);
       DARABONBA_PTR_FROM_JSON(ServerType, serverType_);
       DARABONBA_PTR_FROM_JSON(StreamMode, streamMode_);
+      DARABONBA_PTR_FROM_JSON(SwapSize, swapSize_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(UpBandwidthLimit, upBandwidthLimit_);
       DARABONBA_PTR_FROM_JSON(UseTemplate, useTemplate_);
@@ -89,13 +91,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoPay_ != nullptr
-        && this->autoRenew_ != nullptr && this->bandwidthPackageId_ != nullptr && this->bandwidthPackageType_ != nullptr && this->bizRegionId_ != nullptr && this->chargeType_ != nullptr
-        && this->count_ != nullptr && this->displayConfig_ != nullptr && this->downBandwidthLimit_ != nullptr && this->imageId_ != nullptr && this->instanceType_ != nullptr
-        && this->networkId_ != nullptr && this->networkInfo_ != nullptr && this->networkType_ != nullptr && this->nodeName_ != nullptr && this->period_ != nullptr
-        && this->periodUnit_ != nullptr && this->phoneCount_ != nullptr && this->phoneDataVolume_ != nullptr && this->promotionId_ != nullptr && this->resolutionHeight_ != nullptr
-        && this->resolutionWidth_ != nullptr && this->serverShareDataVolume_ != nullptr && this->serverType_ != nullptr && this->streamMode_ != nullptr && this->tag_ != nullptr
-        && this->upBandwidthLimit_ != nullptr && this->useTemplate_ != nullptr && this->vSwitchId_ != nullptr; };
+    virtual bool empty() const override { return this->autoPay_ == nullptr
+        && return this->autoRenew_ == nullptr && return this->bandwidthPackageId_ == nullptr && return this->bandwidthPackageType_ == nullptr && return this->bizRegionId_ == nullptr && return this->chargeType_ == nullptr
+        && return this->count_ == nullptr && return this->displayConfig_ == nullptr && return this->downBandwidthLimit_ == nullptr && return this->imageId_ == nullptr && return this->instanceType_ == nullptr
+        && return this->networkId_ == nullptr && return this->networkInfo_ == nullptr && return this->networkType_ == nullptr && return this->nodeName_ == nullptr && return this->period_ == nullptr
+        && return this->periodUnit_ == nullptr && return this->phoneCount_ == nullptr && return this->phoneDataVolume_ == nullptr && return this->promotionId_ == nullptr && return this->resolutionHeight_ == nullptr
+        && return this->resolutionWidth_ == nullptr && return this->serverShareDataVolume_ == nullptr && return this->serverType_ == nullptr && return this->streamMode_ == nullptr && return this->swapSize_ == nullptr
+        && return this->tag_ == nullptr && return this->upBandwidthLimit_ == nullptr && return this->useTemplate_ == nullptr && return this->vSwitchId_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -275,6 +277,13 @@ namespace Models
     inline CreateCloudPhoneNodeRequest& setStreamMode(int32_t streamMode) { DARABONBA_PTR_SET_VALUE(streamMode_, streamMode) };
 
 
+    // swapSize Field Functions 
+    bool hasSwapSize() const { return this->swapSize_ != nullptr;};
+    void deleteSwapSize() { this->swapSize_ = nullptr;};
+    inline int32_t swapSize() const { DARABONBA_PTR_GET_DEFAULT(swapSize_, 0) };
+    inline CreateCloudPhoneNodeRequest& setSwapSize(int32_t swapSize) { DARABONBA_PTR_SET_VALUE(swapSize_, swapSize) };
+
+
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
@@ -378,6 +387,7 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> serverType_ = nullptr;
     std::shared_ptr<int32_t> streamMode_ = nullptr;
+    std::shared_ptr<int32_t> swapSize_ = nullptr;
     // The resource tags.
     std::shared_ptr<vector<CreateCloudPhoneNodeRequestTag>> tag_ = nullptr;
     std::shared_ptr<int32_t> upBandwidthLimit_ = nullptr;

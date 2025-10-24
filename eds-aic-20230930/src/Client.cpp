@@ -321,6 +321,14 @@ ChangeCloudPhoneNodeResponse Client::changeCloudPhoneNodeWithOptions(const Chang
     query["PromotionId"] = request.promotionId();
   }
 
+  if (!!request.hasShareDataVolume()) {
+    query["ShareDataVolume"] = request.shareDataVolume();
+  }
+
+  if (!!request.hasSwapSize()) {
+    query["SwapSize"] = request.swapSize();
+  }
+
   if (!!request.hasUpBandwidthLimit()) {
     query["UpBandwidthLimit"] = request.upBandwidthLimit();
   }
@@ -785,6 +793,10 @@ CreateCloudPhoneNodeResponse Client::createCloudPhoneNodeWithOptions(const Creat
 
   if (!!request.hasStreamMode()) {
     query["StreamMode"] = request.streamMode();
+  }
+
+  if (!!request.hasSwapSize()) {
+    query["SwapSize"] = request.swapSize();
   }
 
   if (!!request.hasTag()) {
@@ -1876,6 +1888,48 @@ DescribeBackupFilesResponse Client::describeBackupFiles(const DescribeBackupFile
 }
 
 /**
+ * @summary 查询bucket信息
+ *
+ * @param request DescribeBucketsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeBucketsResponse
+ */
+DescribeBucketsResponse Client::describeBucketsWithOptions(const DescribeBucketsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileType()) {
+    query["FileType"] = request.fileType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeBuckets"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeBucketsResponse>();
+}
+
+/**
+ * @summary 查询bucket信息
+ *
+ * @param request DescribeBucketsRequest
+ * @return DescribeBucketsResponse
+ */
+DescribeBucketsResponse Client::describeBuckets(const DescribeBucketsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeBucketsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of a cloud phone matrix.
  *
  * @param request DescribeCloudPhoneNodesRequest
@@ -2176,6 +2230,11 @@ DescribeKeyPairsResponse Client::describeKeyPairs(const DescribeKeyPairsRequest 
  */
 DescribeMetricLastResponse Client::describeMetricLastWithOptions(const DescribeMetricLastRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.instanceIds();
+  }
+
   json body = {};
   if (!!request.hasAndroidInstanceIds()) {
     body["AndroidInstanceIds"] = request.androidInstanceIds();
@@ -2206,8 +2265,9 @@ DescribeMetricLastResponse Client::describeMetricLastWithOptions(const DescribeM
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "DescribeMetricLast"},
     {"version" , "2023-09-30"},
@@ -3181,6 +3241,56 @@ InstallMonitorAgentResponse Client::installMonitorAgentWithOptions(const Install
 InstallMonitorAgentResponse Client::installMonitorAgent(const InstallMonitorAgentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return installMonitorAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 实例诊断
+ *
+ * @param request InstanceHealerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InstanceHealerResponse
+ */
+InstanceHealerResponse Client::instanceHealerWithOptions(const InstanceHealerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceIdList()) {
+    query["InstanceIdList"] = request.instanceIdList();
+  }
+
+  if (!!request.hasStrategy()) {
+    query["Strategy"] = request.strategy();
+  }
+
+  if (!!request.hasTimeout()) {
+    query["Timeout"] = request.timeout();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "InstanceHealer"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InstanceHealerResponse>();
+}
+
+/**
+ * @summary 实例诊断
+ *
+ * @param request InstanceHealerRequest
+ * @return InstanceHealerResponse
+ */
+InstanceHealerResponse Client::instanceHealer(const InstanceHealerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return instanceHealerWithOptions(request, runtime);
 }
 
 /**

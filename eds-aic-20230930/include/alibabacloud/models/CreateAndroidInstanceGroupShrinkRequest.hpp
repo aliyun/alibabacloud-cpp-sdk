@@ -79,12 +79,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->amount_ != nullptr
-        && this->autoPay_ != nullptr && this->autoRenew_ != nullptr && this->bandwidthPackageId_ != nullptr && this->bandwidthPackageType_ != nullptr && this->bizRegionId_ != nullptr
-        && this->chargeType_ != nullptr && this->clientToken_ != nullptr && this->enableIpv6_ != nullptr && this->gpuAcceleration_ != nullptr && this->imageId_ != nullptr
-        && this->instanceGroupName_ != nullptr && this->instanceGroupSpec_ != nullptr && this->ipv6Bandwidth_ != nullptr && this->keyPairId_ != nullptr && this->networkInfoShrink_ != nullptr
-        && this->networkType_ != nullptr && this->numberOfInstances_ != nullptr && this->officeSiteId_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr
-        && this->policyGroupId_ != nullptr && this->promotionId_ != nullptr && this->tag_ != nullptr && this->vSwitchId_ != nullptr; };
+    virtual bool empty() const override { return this->amount_ == nullptr
+        && return this->autoPay_ == nullptr && return this->autoRenew_ == nullptr && return this->bandwidthPackageId_ == nullptr && return this->bandwidthPackageType_ == nullptr && return this->bizRegionId_ == nullptr
+        && return this->chargeType_ == nullptr && return this->clientToken_ == nullptr && return this->enableIpv6_ == nullptr && return this->gpuAcceleration_ == nullptr && return this->imageId_ == nullptr
+        && return this->instanceGroupName_ == nullptr && return this->instanceGroupSpec_ == nullptr && return this->ipv6Bandwidth_ == nullptr && return this->keyPairId_ == nullptr && return this->networkInfoShrink_ == nullptr
+        && return this->networkType_ == nullptr && return this->numberOfInstances_ == nullptr && return this->officeSiteId_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr
+        && return this->policyGroupId_ == nullptr && return this->promotionId_ == nullptr && return this->tag_ == nullptr && return this->vSwitchId_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};

@@ -545,6 +545,23 @@ namespace EdsAic20230930
       Models::DescribeBackupFilesResponse describeBackupFiles(const Models::DescribeBackupFilesRequest &request);
 
       /**
+       * @summary 查询bucket信息
+       *
+       * @param request DescribeBucketsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeBucketsResponse
+       */
+      Models::DescribeBucketsResponse describeBucketsWithOptions(const Models::DescribeBucketsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询bucket信息
+       *
+       * @param request DescribeBucketsRequest
+       * @return DescribeBucketsResponse
+       */
+      Models::DescribeBucketsResponse describeBuckets(const Models::DescribeBucketsRequest &request);
+
+      /**
        * @summary Queries the details of a cloud phone matrix.
        *
        * @param request DescribeCloudPhoneNodesRequest
@@ -974,6 +991,23 @@ namespace EdsAic20230930
        * @return InstallMonitorAgentResponse
        */
       Models::InstallMonitorAgentResponse installMonitorAgent(const Models::InstallMonitorAgentRequest &request);
+
+      /**
+       * @summary 实例诊断
+       *
+       * @param request InstanceHealerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InstanceHealerResponse
+       */
+      Models::InstanceHealerResponse instanceHealerWithOptions(const Models::InstanceHealerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 实例诊断
+       *
+       * @param request InstanceHealerRequest
+       * @return InstanceHealerResponse
+       */
+      Models::InstanceHealerResponse instanceHealer(const Models::InstanceHealerRequest &request);
 
       /**
        * @summary Queries policies.

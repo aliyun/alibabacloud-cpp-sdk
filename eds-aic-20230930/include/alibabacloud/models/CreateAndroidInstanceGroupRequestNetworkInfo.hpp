@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoPay_ != nullptr
-        && this->autoRenew_ != nullptr && this->bandwidthPackageName_ != nullptr && this->cidrBlock_ != nullptr && this->internetChargeType_ != nullptr && this->ipRatio_ != nullptr
-        && this->isp_ != nullptr && this->limitedBandwidth_ != nullptr && this->payType_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr
-        && this->visibleType_ != nullptr; };
+    virtual bool empty() const override { return this->autoPay_ == nullptr
+        && return this->autoRenew_ == nullptr && return this->bandwidthPackageName_ == nullptr && return this->cidrBlock_ == nullptr && return this->internetChargeType_ == nullptr && return this->ipRatio_ == nullptr
+        && return this->isp_ == nullptr && return this->limitedBandwidth_ == nullptr && return this->payType_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr
+        && return this->visibleType_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};

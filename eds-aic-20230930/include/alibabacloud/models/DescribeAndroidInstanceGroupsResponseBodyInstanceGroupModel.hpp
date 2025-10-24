@@ -102,14 +102,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appInstanceGroupId_ != nullptr
-        && this->architectureType_ != nullptr && this->availableInstanceAmount_ != nullptr && this->bandwidthPackageId_ != nullptr && this->bandwidthPackageStatus_ != nullptr && this->bandwidthPackageType_ != nullptr
-        && this->chargeType_ != nullptr && this->cpu_ != nullptr && this->disks_ != nullptr && this->enableIpv6_ != nullptr && this->errorCode_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtExpired_ != nullptr && this->gmtModified_ != nullptr && this->imageId_ != nullptr && this->imageVersion_ != nullptr
-        && this->installedAppList_ != nullptr && this->instanceGroupId_ != nullptr && this->instanceGroupName_ != nullptr && this->instanceGroupSpec_ != nullptr && this->instanceGroupSpecDescribe_ != nullptr
-        && this->instanceGroupStatus_ != nullptr && this->ipv6Bandwidth_ != nullptr && this->memory_ != nullptr && this->networkType_ != nullptr && this->numberOfInstances_ != nullptr
-        && this->officeSiteId_ != nullptr && this->policyGroupId_ != nullptr && this->regionId_ != nullptr && this->renderingType_ != nullptr && this->resolutionHeight_ != nullptr
-        && this->resolutionWidth_ != nullptr && this->saleMode_ != nullptr && this->systemVersion_ != nullptr && this->tags_ != nullptr && this->vSwitchId_ != nullptr; };
+    virtual bool empty() const override { return this->appInstanceGroupId_ == nullptr
+        && return this->architectureType_ == nullptr && return this->availableInstanceAmount_ == nullptr && return this->bandwidthPackageId_ == nullptr && return this->bandwidthPackageStatus_ == nullptr && return this->bandwidthPackageType_ == nullptr
+        && return this->chargeType_ == nullptr && return this->cpu_ == nullptr && return this->disks_ == nullptr && return this->enableIpv6_ == nullptr && return this->errorCode_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->gmtExpired_ == nullptr && return this->gmtModified_ == nullptr && return this->imageId_ == nullptr && return this->imageVersion_ == nullptr
+        && return this->installedAppList_ == nullptr && return this->instanceGroupId_ == nullptr && return this->instanceGroupName_ == nullptr && return this->instanceGroupSpec_ == nullptr && return this->instanceGroupSpecDescribe_ == nullptr
+        && return this->instanceGroupStatus_ == nullptr && return this->ipv6Bandwidth_ == nullptr && return this->memory_ == nullptr && return this->networkType_ == nullptr && return this->numberOfInstances_ == nullptr
+        && return this->officeSiteId_ == nullptr && return this->policyGroupId_ == nullptr && return this->regionId_ == nullptr && return this->renderingType_ == nullptr && return this->resolutionHeight_ == nullptr
+        && return this->resolutionWidth_ == nullptr && return this->saleMode_ == nullptr && return this->systemVersion_ == nullptr && return this->tags_ == nullptr && return this->vSwitchId_ == nullptr; };
     // appInstanceGroupId Field Functions 
     bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
     void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};

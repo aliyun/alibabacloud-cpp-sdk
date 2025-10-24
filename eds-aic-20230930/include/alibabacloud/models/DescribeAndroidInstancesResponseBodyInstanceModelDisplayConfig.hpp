@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dpi_ != nullptr
-        && this->fps_ != nullptr && this->lockResolution_ != nullptr && this->resolutionHeight_ != nullptr && this->resolutionWidth_ != nullptr; };
+    virtual bool empty() const override { return this->dpi_ == nullptr
+        && return this->fps_ == nullptr && return this->lockResolution_ == nullptr && return this->resolutionHeight_ == nullptr && return this->resolutionWidth_ == nullptr; };
     // dpi Field Functions 
     bool hasDpi() const { return this->dpi_ != nullptr;};
     void deleteDpi() { this->dpi_ = nullptr;};

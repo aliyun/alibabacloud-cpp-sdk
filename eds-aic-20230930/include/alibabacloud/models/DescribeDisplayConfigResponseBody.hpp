@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->displayConfigModel_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->displayConfigModel_ == nullptr
+        && return this->requestId_ == nullptr; };
     // displayConfigModel Field Functions 
     bool hasDisplayConfigModel() const { return this->displayConfigModel_ != nullptr;};
     void deleteDisplayConfigModel() { this->displayConfigModel_ = nullptr;};
