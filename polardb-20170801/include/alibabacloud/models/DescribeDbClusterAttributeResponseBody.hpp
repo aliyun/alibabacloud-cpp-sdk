@@ -66,6 +66,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RestoreType, restoreType_);
       DARABONBA_PTR_TO_JSON(RowCompression, rowCompression_);
       DARABONBA_PTR_TO_JSON(SQLSize, SQLSize_);
+      DARABONBA_PTR_TO_JSON(SearchClusterStatus, searchClusterStatus_);
       DARABONBA_PTR_TO_JSON(SearchCompressStorageUsed, searchCompressStorageUsed_);
       DARABONBA_PTR_TO_JSON(SearchStorageUsed, searchStorageUsed_);
       DARABONBA_PTR_TO_JSON(ServerlessType, serverlessType_);
@@ -136,6 +137,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RestoreType, restoreType_);
       DARABONBA_PTR_FROM_JSON(RowCompression, rowCompression_);
       DARABONBA_PTR_FROM_JSON(SQLSize, SQLSize_);
+      DARABONBA_PTR_FROM_JSON(SearchClusterStatus, searchClusterStatus_);
       DARABONBA_PTR_FROM_JSON(SearchCompressStorageUsed, searchCompressStorageUsed_);
       DARABONBA_PTR_FROM_JSON(SearchStorageUsed, searchStorageUsed_);
       DARABONBA_PTR_FROM_JSON(ServerlessType, serverlessType_);
@@ -176,11 +178,11 @@ namespace Models
         && return this->isLatestVersion_ == nullptr && return this->isProxyLatestVersion_ == nullptr && return this->lockMode_ == nullptr && return this->maintainTime_ == nullptr && return this->orca_ == nullptr
         && return this->payType_ == nullptr && return this->provisionedIops_ == nullptr && return this->proxyCpuCores_ == nullptr && return this->proxyServerlessType_ == nullptr && return this->proxyStandardCpuCores_ == nullptr
         && return this->proxyStatus_ == nullptr && return this->proxyType_ == nullptr && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->restoreDataPoint_ == nullptr && return this->restoreType_ == nullptr && return this->rowCompression_ == nullptr && return this->SQLSize_ == nullptr && return this->searchCompressStorageUsed_ == nullptr
-        && return this->searchStorageUsed_ == nullptr && return this->serverlessType_ == nullptr && return this->sourceDBCluster_ == nullptr && return this->sourceRegionId_ == nullptr && return this->standbyHAMode_ == nullptr
-        && return this->storageMax_ == nullptr && return this->storagePayType_ == nullptr && return this->storageSpace_ == nullptr && return this->storageType_ == nullptr && return this->storageUsed_ == nullptr
-        && return this->strictConsistency_ == nullptr && return this->subCategory_ == nullptr && return this->supportInstantSwitchWithImci_ == nullptr && return this->tags_ == nullptr && return this->VPCId_ == nullptr
-        && return this->vSwitchId_ == nullptr && return this->zoneIds_ == nullptr; };
+        && return this->restoreDataPoint_ == nullptr && return this->restoreType_ == nullptr && return this->rowCompression_ == nullptr && return this->SQLSize_ == nullptr && return this->searchClusterStatus_ == nullptr
+        && return this->searchCompressStorageUsed_ == nullptr && return this->searchStorageUsed_ == nullptr && return this->serverlessType_ == nullptr && return this->sourceDBCluster_ == nullptr && return this->sourceRegionId_ == nullptr
+        && return this->standbyHAMode_ == nullptr && return this->storageMax_ == nullptr && return this->storagePayType_ == nullptr && return this->storageSpace_ == nullptr && return this->storageType_ == nullptr
+        && return this->storageUsed_ == nullptr && return this->strictConsistency_ == nullptr && return this->subCategory_ == nullptr && return this->supportInstantSwitchWithImci_ == nullptr && return this->tags_ == nullptr
+        && return this->VPCId_ == nullptr && return this->vSwitchId_ == nullptr && return this->zoneIds_ == nullptr; };
     // aiCreatingTime Field Functions 
     bool hasAiCreatingTime() const { return this->aiCreatingTime_ != nullptr;};
     void deleteAiCreatingTime() { this->aiCreatingTime_ = nullptr;};
@@ -533,6 +535,13 @@ namespace Models
     inline DescribeDBClusterAttributeResponseBody& setSQLSize(int64_t SQLSize) { DARABONBA_PTR_SET_VALUE(SQLSize_, SQLSize) };
 
 
+    // searchClusterStatus Field Functions 
+    bool hasSearchClusterStatus() const { return this->searchClusterStatus_ != nullptr;};
+    void deleteSearchClusterStatus() { this->searchClusterStatus_ = nullptr;};
+    inline string searchClusterStatus() const { DARABONBA_PTR_GET_DEFAULT(searchClusterStatus_, "") };
+    inline DescribeDBClusterAttributeResponseBody& setSearchClusterStatus(string searchClusterStatus) { DARABONBA_PTR_SET_VALUE(searchClusterStatus_, searchClusterStatus) };
+
+
     // searchCompressStorageUsed Field Functions 
     bool hasSearchCompressStorageUsed() const { return this->searchCompressStorageUsed_ != nullptr;};
     void deleteSearchCompressStorageUsed() { this->searchCompressStorageUsed_ = nullptr;};
@@ -840,6 +849,7 @@ namespace Models
     std::shared_ptr<string> rowCompression_ = nullptr;
     // Storage amount of SQL, in bytes. If the value is -1, it indicates no data.
     std::shared_ptr<int64_t> SQLSize_ = nullptr;
+    std::shared_ptr<string> searchClusterStatus_ = nullptr;
     std::shared_ptr<int64_t> searchCompressStorageUsed_ = nullptr;
     std::shared_ptr<int64_t> searchStorageUsed_ = nullptr;
     // Serverless type. Valid values are as follows:
