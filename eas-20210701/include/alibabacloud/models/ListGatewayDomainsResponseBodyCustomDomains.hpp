@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->certificateEndDate_ != nullptr
-        && this->certificateId_ != nullptr && this->certificateName_ != nullptr && this->certificateStartDate_ != nullptr && this->certificateStatus_ != nullptr && this->createTime_ != nullptr
-        && this->domain_ != nullptr && this->type_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->certificateEndDate_ == nullptr
+        && return this->certificateId_ == nullptr && return this->certificateName_ == nullptr && return this->certificateStartDate_ == nullptr && return this->certificateStatus_ == nullptr && return this->createTime_ == nullptr
+        && return this->domain_ == nullptr && return this->type_ == nullptr && return this->updateTime_ == nullptr; };
     // certificateEndDate Field Functions 
     bool hasCertificateEndDate() const { return this->certificateEndDate_ != nullptr;};
     void deleteCertificateEndDate() { this->certificateEndDate_ = nullptr;};

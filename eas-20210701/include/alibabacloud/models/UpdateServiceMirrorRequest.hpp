@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ratio_ != nullptr
-        && this->target_ != nullptr; };
+    virtual bool empty() const override { return this->ratio_ == nullptr
+        && return this->target_ == nullptr; };
     // ratio Field Functions 
     bool hasRatio() const { return this->ratio_ != nullptr;};
     void deleteRatio() { this->ratio_ = nullptr;};

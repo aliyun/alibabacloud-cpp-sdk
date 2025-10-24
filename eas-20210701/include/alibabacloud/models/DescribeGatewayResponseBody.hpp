@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chargeType_ != nullptr
-        && this->createTime_ != nullptr && this->externalClusterId_ != nullptr && this->gatewayId_ != nullptr && this->gatewayName_ != nullptr && this->instanceType_ != nullptr
-        && this->internetDomain_ != nullptr && this->internetEnabled_ != nullptr && this->internetStatus_ != nullptr && this->intranetDomain_ != nullptr && this->intranetEnabled_ != nullptr
-        && this->isDefault_ != nullptr && this->replicas_ != nullptr && this->requestId_ != nullptr && this->SSLRedirectionEnabled_ != nullptr && this->status_ != nullptr
-        && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->chargeType_ == nullptr
+        && return this->createTime_ == nullptr && return this->externalClusterId_ == nullptr && return this->gatewayId_ == nullptr && return this->gatewayName_ == nullptr && return this->instanceType_ == nullptr
+        && return this->internetDomain_ == nullptr && return this->internetEnabled_ == nullptr && return this->internetStatus_ == nullptr && return this->intranetDomain_ == nullptr && return this->intranetEnabled_ == nullptr
+        && return this->isDefault_ == nullptr && return this->replicas_ == nullptr && return this->requestId_ == nullptr && return this->SSLRedirectionEnabled_ == nullptr && return this->status_ == nullptr
+        && return this->updateTime_ == nullptr; };
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};

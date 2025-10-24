@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->quotaId_ != nullptr
-        && this->workspaceId_ != nullptr && this->appType_ != nullptr && this->appVersion_ != nullptr && this->config_ != nullptr && this->replicas_ != nullptr
-        && this->serviceName_ != nullptr && this->serviceSpec_ != nullptr; };
+    virtual bool empty() const override { return this->quotaId_ == nullptr
+        && return this->workspaceId_ == nullptr && return this->appType_ == nullptr && return this->appVersion_ == nullptr && return this->config_ == nullptr && return this->replicas_ == nullptr
+        && return this->serviceName_ == nullptr && return this->serviceSpec_ == nullptr; };
     // quotaId Field Functions 
     bool hasQuotaId() const { return this->quotaId_ != nullptr;};
     void deleteQuotaId() { this->quotaId_ = nullptr;};

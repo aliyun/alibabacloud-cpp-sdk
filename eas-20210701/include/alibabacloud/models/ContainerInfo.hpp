@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->currentReaon_ != nullptr
-        && this->currentStatus_ != nullptr && this->currentTimestamp_ != nullptr && this->image_ != nullptr && this->lastReason_ != nullptr && this->lastStatus_ != nullptr
-        && this->lastTimestamp_ != nullptr && this->name_ != nullptr && this->port_ != nullptr && this->ready_ != nullptr && this->restartCount_ != nullptr; };
+    virtual bool empty() const override { return this->currentReaon_ == nullptr
+        && return this->currentStatus_ == nullptr && return this->currentTimestamp_ == nullptr && return this->image_ == nullptr && return this->lastReason_ == nullptr && return this->lastStatus_ == nullptr
+        && return this->lastTimestamp_ == nullptr && return this->name_ == nullptr && return this->port_ == nullptr && return this->ready_ == nullptr && return this->restartCount_ == nullptr; };
     // currentReaon Field Functions 
     bool hasCurrentReaon() const { return this->currentReaon_ != nullptr;};
     void deleteCurrentReaon() { this->currentReaon_ = nullptr;};

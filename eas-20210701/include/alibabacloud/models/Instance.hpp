@@ -80,12 +80,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->currentAmount_ != nullptr
-        && this->externalIP_ != nullptr && this->externalInstancePort_ != nullptr && this->hostIP_ != nullptr && this->hostName_ != nullptr && this->innerIP_ != nullptr
-        && this->instanceName_ != nullptr && this->instancePort_ != nullptr && this->instanceType_ != nullptr && this->isSpot_ != nullptr && this->isolated_ != nullptr
-        && this->lastState_ != nullptr && this->namespace_ != nullptr && this->originalAmount_ != nullptr && this->readyProcesses_ != nullptr && this->reason_ != nullptr
-        && this->resourceType_ != nullptr && this->restartCount_ != nullptr && this->role_ != nullptr && this->startAt_ != nullptr && this->startTime_ != nullptr
-        && this->status_ != nullptr && this->tenantHostIP_ != nullptr && this->tenantInstanceIP_ != nullptr && this->totalProcesses_ != nullptr && this->zone_ != nullptr; };
+    virtual bool empty() const override { return this->currentAmount_ == nullptr
+        && return this->externalIP_ == nullptr && return this->externalInstancePort_ == nullptr && return this->hostIP_ == nullptr && return this->hostName_ == nullptr && return this->innerIP_ == nullptr
+        && return this->instanceName_ == nullptr && return this->instancePort_ == nullptr && return this->instanceType_ == nullptr && return this->isSpot_ == nullptr && return this->isolated_ == nullptr
+        && return this->lastState_ == nullptr && return this->namespace_ == nullptr && return this->originalAmount_ == nullptr && return this->readyProcesses_ == nullptr && return this->reason_ == nullptr
+        && return this->resourceType_ == nullptr && return this->restartCount_ == nullptr && return this->role_ == nullptr && return this->startAt_ == nullptr && return this->startTime_ == nullptr
+        && return this->status_ == nullptr && return this->tenantHostIP_ == nullptr && return this->tenantInstanceIP_ == nullptr && return this->totalProcesses_ == nullptr && return this->zone_ == nullptr; };
     // currentAmount Field Functions 
     bool hasCurrentAmount() const { return this->currentAmount_ != nullptr;};
     void deleteCurrentAmount() { this->currentAmount_ = nullptr;};

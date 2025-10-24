@@ -81,8 +81,8 @@
 #include <alibabacloud/models/DeleteGatewayIntranetLinkedVpcPeerResponse.hpp>
 #include <alibabacloud/models/DeleteResourceResponseBody.hpp>
 #include <alibabacloud/models/DeleteResourceResponse.hpp>
-#include <alibabacloud/models/DeleteResourceDlinkResponseBody.hpp>
-#include <alibabacloud/models/DeleteResourceDlinkResponse.hpp>
+#include <alibabacloud/models/DeleteResourceDLinkResponseBody.hpp>
+#include <alibabacloud/models/DeleteResourceDLinkResponse.hpp>
 #include <alibabacloud/models/DeleteResourceInstanceLabelRequest.hpp>
 #include <alibabacloud/models/DeleteResourceInstanceLabelShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteResourceInstanceLabelResponseBody.hpp>
@@ -127,8 +127,8 @@
 #include <alibabacloud/models/DescribeRegionsResponse.hpp>
 #include <alibabacloud/models/DescribeResourceResponseBody.hpp>
 #include <alibabacloud/models/DescribeResourceResponse.hpp>
-#include <alibabacloud/models/DescribeResourceDlinkResponseBody.hpp>
-#include <alibabacloud/models/DescribeResourceDlinkResponse.hpp>
+#include <alibabacloud/models/DescribeResourceDLinkResponseBody.hpp>
+#include <alibabacloud/models/DescribeResourceDLinkResponse.hpp>
 #include <alibabacloud/models/DescribeResourceLogResponseBody.hpp>
 #include <alibabacloud/models/DescribeResourceLogResponse.hpp>
 #include <alibabacloud/models/DescribeServiceResponse.hpp>
@@ -246,9 +246,9 @@
 #include <alibabacloud/models/UpdateResourceRequest.hpp>
 #include <alibabacloud/models/UpdateResourceResponseBody.hpp>
 #include <alibabacloud/models/UpdateResourceResponse.hpp>
-#include <alibabacloud/models/UpdateResourceDlinkRequest.hpp>
-#include <alibabacloud/models/UpdateResourceDlinkResponseBody.hpp>
-#include <alibabacloud/models/UpdateResourceDlinkResponse.hpp>
+#include <alibabacloud/models/UpdateResourceDLinkRequest.hpp>
+#include <alibabacloud/models/UpdateResourceDLinkResponseBody.hpp>
+#include <alibabacloud/models/UpdateResourceDLinkResponse.hpp>
 #include <alibabacloud/models/UpdateResourceInstanceRequest.hpp>
 #include <alibabacloud/models/UpdateResourceInstanceResponseBody.hpp>
 #include <alibabacloud/models/UpdateResourceInstanceResponse.hpp>

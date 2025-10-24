@@ -134,18 +134,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessToken_ != nullptr
-        && this->appConfig_ != nullptr && this->appSpecName_ != nullptr && this->appType_ != nullptr && this->appVersion_ != nullptr && this->autoscalerEnabled_ != nullptr
-        && this->callerUid_ != nullptr && this->cpu_ != nullptr && this->createTime_ != nullptr && this->cronscalerEnabled_ != nullptr && this->currentVersion_ != nullptr
-        && this->extraData_ != nullptr && this->GPUCorePercentage_ != nullptr && this->GPUMemory_ != nullptr && this->gateway_ != nullptr && this->gpu_ != nullptr
-        && this->image_ != nullptr && this->instanceCountInResource_ != nullptr && this->internetEndpoint_ != nullptr && this->intranetEndpoint_ != nullptr && this->labels_ != nullptr
-        && this->latestVersion_ != nullptr && this->memory_ != nullptr && this->message_ != nullptr && this->namespace_ != nullptr && this->parentUid_ != nullptr
-        && this->pendingInstance_ != nullptr && this->quotaId_ != nullptr && this->reason_ != nullptr && this->region_ != nullptr && this->requestId_ != nullptr
-        && this->resource_ != nullptr && this->resourceAlias_ != nullptr && this->resourceBurstable_ != nullptr && this->role_ != nullptr && this->roleAttrs_ != nullptr
-        && this->runningInstance_ != nullptr && this->safetyLock_ != nullptr && this->secondaryInternetEndpoint_ != nullptr && this->secondaryIntranetEndpoint_ != nullptr && this->serviceConfig_ != nullptr
-        && this->serviceGroup_ != nullptr && this->serviceId_ != nullptr && this->serviceName_ != nullptr && this->serviceUid_ != nullptr && this->source_ != nullptr
-        && this->status_ != nullptr && this->totalInstance_ != nullptr && this->trafficState_ != nullptr && this->updateTime_ != nullptr && this->weight_ != nullptr
-        && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->accessToken_ == nullptr
+        && return this->appConfig_ == nullptr && return this->appSpecName_ == nullptr && return this->appType_ == nullptr && return this->appVersion_ == nullptr && return this->autoscalerEnabled_ == nullptr
+        && return this->callerUid_ == nullptr && return this->cpu_ == nullptr && return this->createTime_ == nullptr && return this->cronscalerEnabled_ == nullptr && return this->currentVersion_ == nullptr
+        && return this->extraData_ == nullptr && return this->GPUCorePercentage_ == nullptr && return this->GPUMemory_ == nullptr && return this->gateway_ == nullptr && return this->gpu_ == nullptr
+        && return this->image_ == nullptr && return this->instanceCountInResource_ == nullptr && return this->internetEndpoint_ == nullptr && return this->intranetEndpoint_ == nullptr && return this->labels_ == nullptr
+        && return this->latestVersion_ == nullptr && return this->memory_ == nullptr && return this->message_ == nullptr && return this->namespace_ == nullptr && return this->parentUid_ == nullptr
+        && return this->pendingInstance_ == nullptr && return this->quotaId_ == nullptr && return this->reason_ == nullptr && return this->region_ == nullptr && return this->requestId_ == nullptr
+        && return this->resource_ == nullptr && return this->resourceAlias_ == nullptr && return this->resourceBurstable_ == nullptr && return this->role_ == nullptr && return this->roleAttrs_ == nullptr
+        && return this->runningInstance_ == nullptr && return this->safetyLock_ == nullptr && return this->secondaryInternetEndpoint_ == nullptr && return this->secondaryIntranetEndpoint_ == nullptr && return this->serviceConfig_ == nullptr
+        && return this->serviceGroup_ == nullptr && return this->serviceId_ == nullptr && return this->serviceName_ == nullptr && return this->serviceUid_ == nullptr && return this->source_ == nullptr
+        && return this->status_ == nullptr && return this->totalInstance_ == nullptr && return this->trafficState_ == nullptr && return this->updateTime_ == nullptr && return this->weight_ == nullptr
+        && return this->workspaceId_ == nullptr; };
     // accessToken Field Functions 
     bool hasAccessToken() const { return this->accessToken_ != nullptr;};
     void deleteAccessToken() { this->accessToken_ = nullptr;};

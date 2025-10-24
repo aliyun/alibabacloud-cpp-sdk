@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessToken_ != nullptr
-        && this->clusterId_ != nullptr && this->createTime_ != nullptr && this->internetEndpoint_ != nullptr && this->intranetEndpoint_ != nullptr && this->name_ != nullptr
-        && this->queueService_ != nullptr && this->trafficMode_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->accessToken_ == nullptr
+        && return this->clusterId_ == nullptr && return this->createTime_ == nullptr && return this->internetEndpoint_ == nullptr && return this->intranetEndpoint_ == nullptr && return this->name_ == nullptr
+        && return this->queueService_ == nullptr && return this->trafficMode_ == nullptr && return this->updateTime_ == nullptr; };
     // accessToken Field Functions 
     bool hasAccessToken() const { return this->accessToken_ != nullptr;};
     void deleteAccessToken() { this->accessToken_ = nullptr;};

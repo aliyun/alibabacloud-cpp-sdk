@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chargeType_ != nullptr
-        && this->gatewayId_ != nullptr && this->gatewayName_ != nullptr && this->gatewayType_ != nullptr && this->internetEnabled_ != nullptr && this->order_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->resourceName_ != nullptr && this->sort_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->chargeType_ == nullptr
+        && return this->gatewayId_ == nullptr && return this->gatewayName_ == nullptr && return this->gatewayType_ == nullptr && return this->internetEnabled_ == nullptr && return this->order_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->resourceName_ == nullptr && return this->sort_ == nullptr && return this->status_ == nullptr; };
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};

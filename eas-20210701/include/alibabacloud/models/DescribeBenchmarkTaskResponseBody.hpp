@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->availableAgent_ != nullptr
-        && this->callerUid_ != nullptr && this->desiredAgent_ != nullptr && this->endpoint_ != nullptr && this->message_ != nullptr && this->parentUid_ != nullptr
-        && this->reason_ != nullptr && this->requestId_ != nullptr && this->serviceName_ != nullptr && this->status_ != nullptr && this->taskId_ != nullptr
-        && this->taskName_ != nullptr && this->token_ != nullptr; };
+    virtual bool empty() const override { return this->availableAgent_ == nullptr
+        && return this->callerUid_ == nullptr && return this->desiredAgent_ == nullptr && return this->endpoint_ == nullptr && return this->message_ == nullptr && return this->parentUid_ == nullptr
+        && return this->reason_ == nullptr && return this->requestId_ == nullptr && return this->serviceName_ == nullptr && return this->status_ == nullptr && return this->taskId_ == nullptr
+        && return this->taskName_ == nullptr && return this->token_ == nullptr; };
     // availableAgent Field Functions 
     bool hasAvailableAgent() const { return this->availableAgent_ != nullptr;};
     void deleteAvailableAgent() { this->availableAgent_ = nullptr;};

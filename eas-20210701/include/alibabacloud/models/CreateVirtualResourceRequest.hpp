@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->disableSpotProtectionPeriod_ != nullptr
-        && this->resources_ != nullptr && this->virtualResourceName_ != nullptr; };
+    virtual bool empty() const override { return this->disableSpotProtectionPeriod_ == nullptr
+        && return this->resources_ == nullptr && return this->virtualResourceName_ == nullptr; };
     // disableSpotProtectionPeriod Field Functions 
     bool hasDisableSpotProtectionPeriod() const { return this->disableSpotProtectionPeriod_ != nullptr;};
     void deleteDisableSpotProtectionPeriod() { this->disableSpotProtectionPeriod_ = nullptr;};

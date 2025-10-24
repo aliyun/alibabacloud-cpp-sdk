@@ -77,12 +77,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoscalerEnabled_ != nullptr
-        && this->cronscalerEnabled_ != nullptr && this->filter_ != nullptr && this->gateway_ != nullptr && this->groupName_ != nullptr && this->includeNoWorkspace_ != nullptr
-        && this->labelShrink_ != nullptr && this->order_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->parentServiceUid_ != nullptr
-        && this->quotaId_ != nullptr && this->resourceAliasName_ != nullptr && this->resourceBurstable_ != nullptr && this->resourceId_ != nullptr && this->resourceName_ != nullptr
-        && this->resourceType_ != nullptr && this->role_ != nullptr && this->serviceName_ != nullptr && this->serviceStatus_ != nullptr && this->serviceType_ != nullptr
-        && this->serviceUid_ != nullptr && this->sort_ != nullptr && this->trafficState_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->autoscalerEnabled_ == nullptr
+        && return this->cronscalerEnabled_ == nullptr && return this->filter_ == nullptr && return this->gateway_ == nullptr && return this->groupName_ == nullptr && return this->includeNoWorkspace_ == nullptr
+        && return this->labelShrink_ == nullptr && return this->order_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->parentServiceUid_ == nullptr
+        && return this->quotaId_ == nullptr && return this->resourceAliasName_ == nullptr && return this->resourceBurstable_ == nullptr && return this->resourceId_ == nullptr && return this->resourceName_ == nullptr
+        && return this->resourceType_ == nullptr && return this->role_ == nullptr && return this->serviceName_ == nullptr && return this->serviceStatus_ == nullptr && return this->serviceType_ == nullptr
+        && return this->serviceUid_ == nullptr && return this->sort_ == nullptr && return this->trafficState_ == nullptr && return this->workspaceId_ == nullptr; };
     // autoscalerEnabled Field Functions 
     bool hasAutoscalerEnabled() const { return this->autoscalerEnabled_ != nullptr;};
     void deleteAutoscalerEnabled() { this->autoscalerEnabled_ = nullptr;};

@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->availableAgent_ != nullptr
-        && this->createTime_ != nullptr && this->message_ != nullptr && this->region_ != nullptr && this->serviceName_ != nullptr && this->status_ != nullptr
-        && this->taskId_ != nullptr && this->taskName_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->availableAgent_ == nullptr
+        && return this->createTime_ == nullptr && return this->message_ == nullptr && return this->region_ == nullptr && return this->serviceName_ == nullptr && return this->status_ == nullptr
+        && return this->taskId_ == nullptr && return this->taskName_ == nullptr && return this->updateTime_ == nullptr; };
     // availableAgent Field Functions 
     bool hasAvailableAgent() const { return this->availableAgent_ != nullptr;};
     void deleteAvailableAgent() { this->availableAgent_ = nullptr;};

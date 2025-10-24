@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->scaleDownGracePeriodSeconds_ != nullptr
-        && this->scaleUpActivationReplicas_ != nullptr; };
+    virtual bool empty() const override { return this->scaleDownGracePeriodSeconds_ == nullptr
+        && return this->scaleUpActivationReplicas_ == nullptr; };
     // scaleDownGracePeriodSeconds Field Functions 
     bool hasScaleDownGracePeriodSeconds() const { return this->scaleDownGracePeriodSeconds_ != nullptr;};
     void deleteScaleDownGracePeriodSeconds() { this->scaleDownGracePeriodSeconds_ = nullptr;};

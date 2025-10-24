@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->trafficMode_ != nullptr; };
+    virtual bool empty() const override { return this->trafficMode_ == nullptr; };
     // trafficMode Field Functions 
     bool hasTrafficMode() const { return this->trafficMode_ != nullptr;};
     void deleteTrafficMode() { this->trafficMode_ = nullptr;};

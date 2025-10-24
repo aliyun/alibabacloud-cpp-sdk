@@ -77,12 +77,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->arch_ != nullptr
-        && this->autoRenewal_ != nullptr && this->chargeType_ != nullptr && this->createTime_ != nullptr && this->expiredTime_ != nullptr && this->instanceCpuCount_ != nullptr
-        && this->instanceGpuCount_ != nullptr && this->instanceGpuMemory_ != nullptr && this->instanceId_ != nullptr && this->instanceIp_ != nullptr && this->instanceMemory_ != nullptr
-        && this->instanceName_ != nullptr && this->instanceStatus_ != nullptr && this->instanceSystemDiskSize_ != nullptr && this->instanceTenantIp_ != nullptr && this->instanceType_ != nullptr
-        && this->instanceUsedCpu_ != nullptr && this->instanceUsedGpu_ != nullptr && this->instanceUsedGpuMemory_ != nullptr && this->instanceUsedMemory_ != nullptr && this->labels_ != nullptr
-        && this->region_ != nullptr && this->resourceId_ != nullptr && this->zone_ != nullptr; };
+    virtual bool empty() const override { return this->arch_ == nullptr
+        && return this->autoRenewal_ == nullptr && return this->chargeType_ == nullptr && return this->createTime_ == nullptr && return this->expiredTime_ == nullptr && return this->instanceCpuCount_ == nullptr
+        && return this->instanceGpuCount_ == nullptr && return this->instanceGpuMemory_ == nullptr && return this->instanceId_ == nullptr && return this->instanceIp_ == nullptr && return this->instanceMemory_ == nullptr
+        && return this->instanceName_ == nullptr && return this->instanceStatus_ == nullptr && return this->instanceSystemDiskSize_ == nullptr && return this->instanceTenantIp_ == nullptr && return this->instanceType_ == nullptr
+        && return this->instanceUsedCpu_ == nullptr && return this->instanceUsedGpu_ == nullptr && return this->instanceUsedGpuMemory_ == nullptr && return this->instanceUsedMemory_ == nullptr && return this->labels_ == nullptr
+        && return this->region_ == nullptr && return this->resourceId_ == nullptr && return this->zone_ == nullptr; };
     // arch Field Functions 
     bool hasArch() const { return this->arch_ != nullptr;};
     void deleteArch() { this->arch_ = nullptr;};

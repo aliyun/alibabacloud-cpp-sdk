@@ -74,12 +74,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->cpuCount_ != nullptr && this->cpuUsed_ != nullptr && this->createTime_ != nullptr && this->extraData_ != nullptr && this->features_ != nullptr
-        && this->gpuCount_ != nullptr && this->gpuUsed_ != nullptr && this->instanceCount_ != nullptr && this->instanceMaxAllocatableCPU_ != nullptr && this->instanceMaxAllocatableGPU_ != nullptr
-        && this->instanceMaxAllocatableMemory_ != nullptr && this->memory_ != nullptr && this->memoryUsed_ != nullptr && this->message_ != nullptr && this->postPaidInstanceCount_ != nullptr
-        && this->prePaidInstanceCount_ != nullptr && this->resourceId_ != nullptr && this->resourceName_ != nullptr && this->resourceType_ != nullptr && this->status_ != nullptr
-        && this->updateTime_ != nullptr && this->vendor_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && return this->cpuCount_ == nullptr && return this->cpuUsed_ == nullptr && return this->createTime_ == nullptr && return this->extraData_ == nullptr && return this->features_ == nullptr
+        && return this->gpuCount_ == nullptr && return this->gpuUsed_ == nullptr && return this->instanceCount_ == nullptr && return this->instanceMaxAllocatableCPU_ == nullptr && return this->instanceMaxAllocatableGPU_ == nullptr
+        && return this->instanceMaxAllocatableMemory_ == nullptr && return this->memory_ == nullptr && return this->memoryUsed_ == nullptr && return this->message_ == nullptr && return this->postPaidInstanceCount_ == nullptr
+        && return this->prePaidInstanceCount_ == nullptr && return this->resourceId_ == nullptr && return this->resourceName_ == nullptr && return this->resourceType_ == nullptr && return this->status_ == nullptr
+        && return this->updateTime_ == nullptr && return this->vendor_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};

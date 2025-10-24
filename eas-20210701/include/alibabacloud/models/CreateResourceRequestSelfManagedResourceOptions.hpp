@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->externalClusterId_ != nullptr
-        && this->nodeMatchLabels_ != nullptr && this->nodeTolerations_ != nullptr && this->roleName_ != nullptr; };
+    virtual bool empty() const override { return this->externalClusterId_ == nullptr
+        && return this->nodeMatchLabels_ == nullptr && return this->nodeTolerations_ == nullptr && return this->roleName_ == nullptr; };
     // externalClusterId Field Functions 
     bool hasExternalClusterId() const { return this->externalClusterId_ != nullptr;};
     void deleteExternalClusterId() { this->externalClusterId_ = nullptr;};
