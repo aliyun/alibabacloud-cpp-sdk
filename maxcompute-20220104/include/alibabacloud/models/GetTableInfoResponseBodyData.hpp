@@ -97,14 +97,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRefreshEnabled_ != nullptr
-        && this->clusterInfo_ != nullptr && this->comment_ != nullptr && this->createTableDDL_ != nullptr && this->creationTime_ != nullptr && this->displayName_ != nullptr
-        && this->fileNum_ != nullptr && this->isExternalTable_ != nullptr && this->isOutdated_ != nullptr && this->lastAccessTime_ != nullptr && this->lastDDLTime_ != nullptr
-        && this->lastModifiedTime_ != nullptr && this->lifecycle_ != nullptr && this->location_ != nullptr && this->materializedView_ != nullptr && this->name_ != nullptr
-        && this->nativeColumns_ != nullptr && this->odpsPropertiesRolearn_ != nullptr && this->odpsSqlTextOptionFlushHeader_ != nullptr && this->odpsTextOptionHeaderLinesCount_ != nullptr && this->owner_ != nullptr
-        && this->partitionColumns_ != nullptr && this->physicalSize_ != nullptr && this->projectName_ != nullptr && this->rewriteEnabled_ != nullptr && this->schema_ != nullptr
-        && this->size_ != nullptr && this->storageHandler_ != nullptr && this->tableLabel_ != nullptr && this->tablesotreTableName_ != nullptr && this->tablestoreColumnsMapping_ != nullptr
-        && this->type_ != nullptr && this->viewText_ != nullptr; };
+    virtual bool empty() const override { return this->autoRefreshEnabled_ == nullptr
+        && return this->clusterInfo_ == nullptr && return this->comment_ == nullptr && return this->createTableDDL_ == nullptr && return this->creationTime_ == nullptr && return this->displayName_ == nullptr
+        && return this->fileNum_ == nullptr && return this->isExternalTable_ == nullptr && return this->isOutdated_ == nullptr && return this->lastAccessTime_ == nullptr && return this->lastDDLTime_ == nullptr
+        && return this->lastModifiedTime_ == nullptr && return this->lifecycle_ == nullptr && return this->location_ == nullptr && return this->materializedView_ == nullptr && return this->name_ == nullptr
+        && return this->nativeColumns_ == nullptr && return this->odpsPropertiesRolearn_ == nullptr && return this->odpsSqlTextOptionFlushHeader_ == nullptr && return this->odpsTextOptionHeaderLinesCount_ == nullptr && return this->owner_ == nullptr
+        && return this->partitionColumns_ == nullptr && return this->physicalSize_ == nullptr && return this->projectName_ == nullptr && return this->rewriteEnabled_ == nullptr && return this->schema_ == nullptr
+        && return this->size_ == nullptr && return this->storageHandler_ == nullptr && return this->tableLabel_ == nullptr && return this->tablesotreTableName_ == nullptr && return this->tablestoreColumnsMapping_ == nullptr
+        && return this->type_ == nullptr && return this->viewText_ == nullptr; };
     // autoRefreshEnabled Field Functions 
     bool hasAutoRefreshEnabled() const { return this->autoRefreshEnabled_ != nullptr;};
     void deleteAutoRefreshEnabled() { this->autoRefreshEnabled_ = nullptr;};

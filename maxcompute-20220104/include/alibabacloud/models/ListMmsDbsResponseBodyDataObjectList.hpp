@@ -16,6 +16,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(createTime, createTime_);
       DARABONBA_PTR_TO_JSON(deleted, deleted_);
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(dstName, dstName_);
+      DARABONBA_PTR_TO_JSON(dstProjectName, dstProjectName_);
       DARABONBA_PTR_TO_JSON(extra, extra_);
       DARABONBA_PTR_TO_JSON(id, id_);
       DARABONBA_PTR_TO_JSON(lastDdlTime, lastDdlTime_);
@@ -43,6 +45,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(createTime, createTime_);
       DARABONBA_PTR_FROM_JSON(deleted, deleted_);
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(dstName, dstName_);
+      DARABONBA_PTR_FROM_JSON(dstProjectName, dstProjectName_);
       DARABONBA_PTR_FROM_JSON(extra, extra_);
       DARABONBA_PTR_FROM_JSON(id, id_);
       DARABONBA_PTR_FROM_JSON(lastDdlTime, lastDdlTime_);
@@ -77,12 +81,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->deleted_ != nullptr && this->description_ != nullptr && this->extra_ != nullptr && this->id_ != nullptr && this->lastDdlTime_ != nullptr
-        && this->location_ != nullptr && this->name_ != nullptr && this->numRows_ != nullptr && this->owner_ != nullptr && this->partitions_ != nullptr
-        && this->partitionsDoing_ != nullptr && this->partitionsDone_ != nullptr && this->partitionsFailed_ != nullptr && this->size_ != nullptr && this->sourceId_ != nullptr
-        && this->sourceName_ != nullptr && this->status_ != nullptr && this->tables_ != nullptr && this->tablesDoing_ != nullptr && this->tablesDone_ != nullptr
-        && this->tablesFailed_ != nullptr && this->tablesPartDone_ != nullptr && this->updateTime_ != nullptr && this->updated_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->deleted_ == nullptr && return this->description_ == nullptr && return this->dstName_ == nullptr && return this->dstProjectName_ == nullptr && return this->extra_ == nullptr
+        && return this->id_ == nullptr && return this->lastDdlTime_ == nullptr && return this->location_ == nullptr && return this->name_ == nullptr && return this->numRows_ == nullptr
+        && return this->owner_ == nullptr && return this->partitions_ == nullptr && return this->partitionsDoing_ == nullptr && return this->partitionsDone_ == nullptr && return this->partitionsFailed_ == nullptr
+        && return this->size_ == nullptr && return this->sourceId_ == nullptr && return this->sourceName_ == nullptr && return this->status_ == nullptr && return this->tables_ == nullptr
+        && return this->tablesDoing_ == nullptr && return this->tablesDone_ == nullptr && return this->tablesFailed_ == nullptr && return this->tablesPartDone_ == nullptr && return this->updateTime_ == nullptr
+        && return this->updated_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -102,6 +107,20 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ListMmsDbsResponseBodyDataObjectList& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // dstName Field Functions 
+    bool hasDstName() const { return this->dstName_ != nullptr;};
+    void deleteDstName() { this->dstName_ = nullptr;};
+    inline string dstName() const { DARABONBA_PTR_GET_DEFAULT(dstName_, "") };
+    inline ListMmsDbsResponseBodyDataObjectList& setDstName(string dstName) { DARABONBA_PTR_SET_VALUE(dstName_, dstName) };
+
+
+    // dstProjectName Field Functions 
+    bool hasDstProjectName() const { return this->dstProjectName_ != nullptr;};
+    void deleteDstProjectName() { this->dstProjectName_ = nullptr;};
+    inline string dstProjectName() const { DARABONBA_PTR_GET_DEFAULT(dstProjectName_, "") };
+    inline ListMmsDbsResponseBodyDataObjectList& setDstProjectName(string dstProjectName) { DARABONBA_PTR_SET_VALUE(dstProjectName_, dstProjectName) };
 
 
     // extra Field Functions 
@@ -262,6 +281,8 @@ namespace Models
     std::shared_ptr<string> createTime_ = nullptr;
     std::shared_ptr<bool> deleted_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
+    std::shared_ptr<string> dstName_ = nullptr;
+    std::shared_ptr<string> dstProjectName_ = nullptr;
     std::shared_ptr<string> extra_ = nullptr;
     std::shared_ptr<int64_t> id_ = nullptr;
     // Last DDL Time

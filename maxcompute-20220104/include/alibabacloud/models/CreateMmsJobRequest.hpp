@@ -18,6 +18,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(columnMapping, columnMapping_);
       DARABONBA_PTR_TO_JSON(dstDbName, dstDbName_);
       DARABONBA_PTR_TO_JSON(dstSchemaName, dstSchemaName_);
+      DARABONBA_PTR_TO_JSON(enableDataMigration, enableDataMigration_);
+      DARABONBA_PTR_TO_JSON(enableSchemaMigration, enableSchemaMigration_);
       DARABONBA_PTR_TO_JSON(enableVerification, enableVerification_);
       DARABONBA_PTR_TO_JSON(eta, eta_);
       DARABONBA_PTR_TO_JSON(increment, increment_);
@@ -40,6 +42,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(columnMapping, columnMapping_);
       DARABONBA_PTR_FROM_JSON(dstDbName, dstDbName_);
       DARABONBA_PTR_FROM_JSON(dstSchemaName, dstSchemaName_);
+      DARABONBA_PTR_FROM_JSON(enableDataMigration, enableDataMigration_);
+      DARABONBA_PTR_FROM_JSON(enableSchemaMigration, enableSchemaMigration_);
       DARABONBA_PTR_FROM_JSON(enableVerification, enableVerification_);
       DARABONBA_PTR_FROM_JSON(eta, eta_);
       DARABONBA_PTR_FROM_JSON(increment, increment_);
@@ -69,11 +73,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->columnMapping_ != nullptr
-        && this->dstDbName_ != nullptr && this->dstSchemaName_ != nullptr && this->enableVerification_ != nullptr && this->eta_ != nullptr && this->increment_ != nullptr
-        && this->name_ != nullptr && this->others_ != nullptr && this->partitionFilters_ != nullptr && this->partitions_ != nullptr && this->schemaOnly_ != nullptr
-        && this->sourceId_ != nullptr && this->sourceName_ != nullptr && this->srcDbName_ != nullptr && this->srcSchemaName_ != nullptr && this->tableBlackList_ != nullptr
-        && this->tableMapping_ != nullptr && this->tableWhiteList_ != nullptr && this->tables_ != nullptr && this->taskType_ != nullptr; };
+    virtual bool empty() const override { return this->columnMapping_ == nullptr
+        && return this->dstDbName_ == nullptr && return this->dstSchemaName_ == nullptr && return this->enableDataMigration_ == nullptr && return this->enableSchemaMigration_ == nullptr && return this->enableVerification_ == nullptr
+        && return this->eta_ == nullptr && return this->increment_ == nullptr && return this->name_ == nullptr && return this->others_ == nullptr && return this->partitionFilters_ == nullptr
+        && return this->partitions_ == nullptr && return this->schemaOnly_ == nullptr && return this->sourceId_ == nullptr && return this->sourceName_ == nullptr && return this->srcDbName_ == nullptr
+        && return this->srcSchemaName_ == nullptr && return this->tableBlackList_ == nullptr && return this->tableMapping_ == nullptr && return this->tableWhiteList_ == nullptr && return this->tables_ == nullptr
+        && return this->taskType_ == nullptr; };
     // columnMapping Field Functions 
     bool hasColumnMapping() const { return this->columnMapping_ != nullptr;};
     void deleteColumnMapping() { this->columnMapping_ = nullptr;};
@@ -95,6 +100,20 @@ namespace Models
     void deleteDstSchemaName() { this->dstSchemaName_ = nullptr;};
     inline string dstSchemaName() const { DARABONBA_PTR_GET_DEFAULT(dstSchemaName_, "") };
     inline CreateMmsJobRequest& setDstSchemaName(string dstSchemaName) { DARABONBA_PTR_SET_VALUE(dstSchemaName_, dstSchemaName) };
+
+
+    // enableDataMigration Field Functions 
+    bool hasEnableDataMigration() const { return this->enableDataMigration_ != nullptr;};
+    void deleteEnableDataMigration() { this->enableDataMigration_ = nullptr;};
+    inline bool enableDataMigration() const { DARABONBA_PTR_GET_DEFAULT(enableDataMigration_, false) };
+    inline CreateMmsJobRequest& setEnableDataMigration(bool enableDataMigration) { DARABONBA_PTR_SET_VALUE(enableDataMigration_, enableDataMigration) };
+
+
+    // enableSchemaMigration Field Functions 
+    bool hasEnableSchemaMigration() const { return this->enableSchemaMigration_ != nullptr;};
+    void deleteEnableSchemaMigration() { this->enableSchemaMigration_ = nullptr;};
+    inline bool enableSchemaMigration() const { DARABONBA_PTR_GET_DEFAULT(enableSchemaMigration_, false) };
+    inline CreateMmsJobRequest& setEnableSchemaMigration(bool enableSchemaMigration) { DARABONBA_PTR_SET_VALUE(enableSchemaMigration_, enableSchemaMigration) };
 
 
     // enableVerification Field Functions 
@@ -234,6 +253,8 @@ namespace Models
     std::shared_ptr<map<string, string>> columnMapping_ = nullptr;
     std::shared_ptr<string> dstDbName_ = nullptr;
     std::shared_ptr<string> dstSchemaName_ = nullptr;
+    std::shared_ptr<bool> enableDataMigration_ = nullptr;
+    std::shared_ptr<bool> enableSchemaMigration_ = nullptr;
     std::shared_ptr<bool> enableVerification_ = nullptr;
     std::shared_ptr<string> eta_ = nullptr;
     std::shared_ptr<bool> increment_ = nullptr;

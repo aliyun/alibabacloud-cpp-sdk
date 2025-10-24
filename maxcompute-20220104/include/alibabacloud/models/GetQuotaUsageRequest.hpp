@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aggMethod_ != nullptr
-        && this->from_ != nullptr && this->plotTypes_ != nullptr && this->productId_ != nullptr && this->region_ != nullptr && this->subQuotaNickname_ != nullptr
-        && this->tenantId_ != nullptr && this->to_ != nullptr && this->yAxisTypes_ != nullptr; };
+    virtual bool empty() const override { return this->aggMethod_ == nullptr
+        && return this->from_ == nullptr && return this->plotTypes_ == nullptr && return this->productId_ == nullptr && return this->region_ == nullptr && return this->subQuotaNickname_ == nullptr
+        && return this->tenantId_ == nullptr && return this->to_ == nullptr && return this->yAxisTypes_ == nullptr; };
     // aggMethod Field Functions 
     bool hasAggMethod() const { return this->aggMethod_ != nullptr;};
     void deleteAggMethod() { this->aggMethod_ = nullptr;};

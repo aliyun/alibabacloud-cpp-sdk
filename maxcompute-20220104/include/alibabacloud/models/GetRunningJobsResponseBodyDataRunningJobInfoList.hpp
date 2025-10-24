@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cuSnapshot_ != nullptr
-        && this->instanceId_ != nullptr && this->jobOwner_ != nullptr && this->memorySnapshot_ != nullptr && this->progress_ != nullptr && this->project_ != nullptr
-        && this->quotaNickname_ != nullptr && this->runningAtTime_ != nullptr && this->submittedAtTime_ != nullptr; };
+    virtual bool empty() const override { return this->cuSnapshot_ == nullptr
+        && return this->instanceId_ == nullptr && return this->jobOwner_ == nullptr && return this->memorySnapshot_ == nullptr && return this->progress_ == nullptr && return this->project_ == nullptr
+        && return this->quotaNickname_ == nullptr && return this->runningAtTime_ == nullptr && return this->submittedAtTime_ == nullptr; };
     // cuSnapshot Field Functions 
     bool hasCuSnapshot() const { return this->cuSnapshot_ != nullptr;};
     void deleteCuSnapshot() { this->cuSnapshot_ = nullptr;};

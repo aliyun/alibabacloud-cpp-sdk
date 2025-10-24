@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->listSystemCatalog_ != nullptr
-        && this->marker_ != nullptr && this->maxItem_ != nullptr && this->prefix_ != nullptr && this->quotaName_ != nullptr && this->quotaNickName_ != nullptr
-        && this->region_ != nullptr && this->saleTags_ != nullptr && this->tenantId_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->listSystemCatalog_ == nullptr
+        && return this->marker_ == nullptr && return this->maxItem_ == nullptr && return this->prefix_ == nullptr && return this->quotaName_ == nullptr && return this->quotaNickName_ == nullptr
+        && return this->region_ == nullptr && return this->saleTags_ == nullptr && return this->tenantId_ == nullptr && return this->type_ == nullptr; };
     // listSystemCatalog Field Functions 
     bool hasListSystemCatalog() const { return this->listSystemCatalog_ != nullptr;};
     void deleteListSystemCatalog() { this->listSystemCatalog_ = nullptr;};

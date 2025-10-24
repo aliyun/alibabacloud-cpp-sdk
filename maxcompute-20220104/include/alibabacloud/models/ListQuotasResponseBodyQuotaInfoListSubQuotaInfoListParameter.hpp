@@ -13,22 +13,30 @@ namespace Models
   class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter& obj) { 
+      DARABONBA_PTR_TO_JSON(adhocSlot, adhocSlot_);
       DARABONBA_PTR_TO_JSON(elasticReservedCU, elasticReservedCU_);
       DARABONBA_PTR_TO_JSON(enablePriority, enablePriority_);
       DARABONBA_PTR_TO_JSON(forceReservedMin, forceReservedMin_);
       DARABONBA_PTR_TO_JSON(maxCU, maxCU_);
+      DARABONBA_PTR_TO_JSON(maxGu, maxGu_);
       DARABONBA_PTR_TO_JSON(minCU, minCU_);
+      DARABONBA_PTR_TO_JSON(minGu, minGu_);
       DARABONBA_PTR_TO_JSON(schedulerType, schedulerType_);
       DARABONBA_PTR_TO_JSON(singleJobCULimit, singleJobCULimit_);
+      DARABONBA_PTR_TO_JSON(slotNum, slotNum_);
     };
     friend void from_json(const Darabonba::Json& j, ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter& obj) { 
+      DARABONBA_PTR_FROM_JSON(adhocSlot, adhocSlot_);
       DARABONBA_PTR_FROM_JSON(elasticReservedCU, elasticReservedCU_);
       DARABONBA_PTR_FROM_JSON(enablePriority, enablePriority_);
       DARABONBA_PTR_FROM_JSON(forceReservedMin, forceReservedMin_);
       DARABONBA_PTR_FROM_JSON(maxCU, maxCU_);
+      DARABONBA_PTR_FROM_JSON(maxGu, maxGu_);
       DARABONBA_PTR_FROM_JSON(minCU, minCU_);
+      DARABONBA_PTR_FROM_JSON(minGu, minGu_);
       DARABONBA_PTR_FROM_JSON(schedulerType, schedulerType_);
       DARABONBA_PTR_FROM_JSON(singleJobCULimit, singleJobCULimit_);
+      DARABONBA_PTR_FROM_JSON(slotNum, slotNum_);
     };
     ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter() = default ;
     ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter(const ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter &) = default ;
@@ -41,9 +49,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->elasticReservedCU_ != nullptr
-        && this->enablePriority_ != nullptr && this->forceReservedMin_ != nullptr && this->maxCU_ != nullptr && this->minCU_ != nullptr && this->schedulerType_ != nullptr
-        && this->singleJobCULimit_ != nullptr; };
+    virtual bool empty() const override { return this->adhocSlot_ == nullptr
+        && return this->elasticReservedCU_ == nullptr && return this->enablePriority_ == nullptr && return this->forceReservedMin_ == nullptr && return this->maxCU_ == nullptr && return this->maxGu_ == nullptr
+        && return this->minCU_ == nullptr && return this->minGu_ == nullptr && return this->schedulerType_ == nullptr && return this->singleJobCULimit_ == nullptr && return this->slotNum_ == nullptr; };
+    // adhocSlot Field Functions 
+    bool hasAdhocSlot() const { return this->adhocSlot_ != nullptr;};
+    void deleteAdhocSlot() { this->adhocSlot_ = nullptr;};
+    inline int64_t adhocSlot() const { DARABONBA_PTR_GET_DEFAULT(adhocSlot_, 0L) };
+    inline ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter& setAdhocSlot(int64_t adhocSlot) { DARABONBA_PTR_SET_VALUE(adhocSlot_, adhocSlot) };
+
+
     // elasticReservedCU Field Functions 
     bool hasElasticReservedCU() const { return this->elasticReservedCU_ != nullptr;};
     void deleteElasticReservedCU() { this->elasticReservedCU_ = nullptr;};
@@ -72,11 +87,25 @@ namespace Models
     inline ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter& setMaxCU(int64_t maxCU) { DARABONBA_PTR_SET_VALUE(maxCU_, maxCU) };
 
 
+    // maxGu Field Functions 
+    bool hasMaxGu() const { return this->maxGu_ != nullptr;};
+    void deleteMaxGu() { this->maxGu_ = nullptr;};
+    inline int64_t maxGu() const { DARABONBA_PTR_GET_DEFAULT(maxGu_, 0L) };
+    inline ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter& setMaxGu(int64_t maxGu) { DARABONBA_PTR_SET_VALUE(maxGu_, maxGu) };
+
+
     // minCU Field Functions 
     bool hasMinCU() const { return this->minCU_ != nullptr;};
     void deleteMinCU() { this->minCU_ = nullptr;};
     inline int64_t minCU() const { DARABONBA_PTR_GET_DEFAULT(minCU_, 0L) };
     inline ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter& setMinCU(int64_t minCU) { DARABONBA_PTR_SET_VALUE(minCU_, minCU) };
+
+
+    // minGu Field Functions 
+    bool hasMinGu() const { return this->minGu_ != nullptr;};
+    void deleteMinGu() { this->minGu_ = nullptr;};
+    inline int64_t minGu() const { DARABONBA_PTR_GET_DEFAULT(minGu_, 0L) };
+    inline ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter& setMinGu(int64_t minGu) { DARABONBA_PTR_SET_VALUE(minGu_, minGu) };
 
 
     // schedulerType Field Functions 
@@ -93,16 +122,27 @@ namespace Models
     inline ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter& setSingleJobCULimit(int64_t singleJobCULimit) { DARABONBA_PTR_SET_VALUE(singleJobCULimit_, singleJobCULimit) };
 
 
+    // slotNum Field Functions 
+    bool hasSlotNum() const { return this->slotNum_ != nullptr;};
+    void deleteSlotNum() { this->slotNum_ = nullptr;};
+    inline int64_t slotNum() const { DARABONBA_PTR_GET_DEFAULT(slotNum_, 0L) };
+    inline ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter& setSlotNum(int64_t slotNum) { DARABONBA_PTR_SET_VALUE(slotNum_, slotNum) };
+
+
   protected:
+    std::shared_ptr<int64_t> adhocSlot_ = nullptr;
     std::shared_ptr<int64_t> elasticReservedCU_ = nullptr;
     std::shared_ptr<bool> enablePriority_ = nullptr;
     std::shared_ptr<bool> forceReservedMin_ = nullptr;
     // This parameter is required.
     std::shared_ptr<int64_t> maxCU_ = nullptr;
+    std::shared_ptr<int64_t> maxGu_ = nullptr;
     // This parameter is required.
     std::shared_ptr<int64_t> minCU_ = nullptr;
+    std::shared_ptr<int64_t> minGu_ = nullptr;
     std::shared_ptr<string> schedulerType_ = nullptr;
     std::shared_ptr<int64_t> singleJobCULimit_ = nullptr;
+    std::shared_ptr<int64_t> slotNum_ = nullptr;
   };
 
   } // namespace Models

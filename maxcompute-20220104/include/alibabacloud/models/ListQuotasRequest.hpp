@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->billingType_ != nullptr
-        && this->marker_ != nullptr && this->maxItem_ != nullptr && this->productId_ != nullptr && this->region_ != nullptr && this->saleTags_ != nullptr
-        && this->tenantId_ != nullptr; };
+    virtual bool empty() const override { return this->billingType_ == nullptr
+        && return this->marker_ == nullptr && return this->maxItem_ == nullptr && return this->productId_ == nullptr && return this->region_ == nullptr && return this->saleTags_ == nullptr
+        && return this->tenantId_ == nullptr; };
     // billingType Field Functions 
     bool hasBillingType() const { return this->billingType_ != nullptr;};
     void deleteBillingType() { this->billingType_ = nullptr;};

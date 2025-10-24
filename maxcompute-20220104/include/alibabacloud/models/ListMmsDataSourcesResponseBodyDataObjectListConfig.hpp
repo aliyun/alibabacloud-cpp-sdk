@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->desc_ != nullptr
-        && this->enums_ != nullptr && this->group_ != nullptr && this->key_ != nullptr && this->name_ != nullptr && this->placeHolder_ != nullptr
-        && this->required_ != nullptr && this->subType_ != nullptr && this->type_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->desc_ == nullptr
+        && return this->enums_ == nullptr && return this->group_ == nullptr && return this->key_ == nullptr && return this->name_ == nullptr && return this->placeHolder_ == nullptr
+        && return this->required_ == nullptr && return this->subType_ == nullptr && return this->type_ == nullptr && return this->value_ == nullptr; };
     // desc Field Functions 
     bool hasDesc() const { return this->desc_ != nullptr;};
     void deleteDesc() { this->desc_ = nullptr;};

@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ascOrder_ != nullptr
-        && this->extNodeIdList_ != nullptr && this->from_ != nullptr && this->instanceIdList_ != nullptr && this->jobOwnerList_ != nullptr && this->priorityList_ != nullptr
-        && this->projectList_ != nullptr && this->quotaNickname_ != nullptr && this->sceneTagList_ != nullptr && this->signatureList_ != nullptr && this->sortByList_ != nullptr
-        && this->sortOrderList_ != nullptr && this->statusList_ != nullptr && this->to_ != nullptr && this->typeList_ != nullptr && this->orderColumn_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->region_ != nullptr && this->tenantId_ != nullptr; };
+    virtual bool empty() const override { return this->ascOrder_ == nullptr
+        && return this->extNodeIdList_ == nullptr && return this->from_ == nullptr && return this->instanceIdList_ == nullptr && return this->jobOwnerList_ == nullptr && return this->priorityList_ == nullptr
+        && return this->projectList_ == nullptr && return this->quotaNickname_ == nullptr && return this->sceneTagList_ == nullptr && return this->signatureList_ == nullptr && return this->sortByList_ == nullptr
+        && return this->sortOrderList_ == nullptr && return this->statusList_ == nullptr && return this->to_ == nullptr && return this->typeList_ == nullptr && return this->orderColumn_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->region_ == nullptr && return this->tenantId_ == nullptr; };
     // ascOrder Field Functions 
     bool hasAscOrder() const { return this->ascOrder_ != nullptr;};
     void deleteAscOrder() { this->ascOrder_ = nullptr;};

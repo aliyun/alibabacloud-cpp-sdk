@@ -17,6 +17,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(sorter, sorter_);
       DARABONBA_PTR_TO_JSON(dbId, dbId_);
       DARABONBA_PTR_TO_JSON(dbName, dbName_);
+      DARABONBA_PTR_TO_JSON(dstName, dstName_);
+      DARABONBA_PTR_TO_JSON(dstProjectName, dstProjectName_);
+      DARABONBA_PTR_TO_JSON(dstSchemaName, dstSchemaName_);
       DARABONBA_PTR_TO_JSON(hasPartitions, hasPartitions_);
       DARABONBA_PTR_TO_JSON(lastDdlTimeEnd, lastDdlTimeEnd_);
       DARABONBA_PTR_TO_JSON(lastDdlTimeStart, lastDdlTimeStart_);
@@ -31,6 +34,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(sorter, sorter_);
       DARABONBA_PTR_FROM_JSON(dbId, dbId_);
       DARABONBA_PTR_FROM_JSON(dbName, dbName_);
+      DARABONBA_PTR_FROM_JSON(dstName, dstName_);
+      DARABONBA_PTR_FROM_JSON(dstProjectName, dstProjectName_);
+      DARABONBA_PTR_FROM_JSON(dstSchemaName, dstSchemaName_);
       DARABONBA_PTR_FROM_JSON(hasPartitions, hasPartitions_);
       DARABONBA_PTR_FROM_JSON(lastDdlTimeEnd, lastDdlTimeEnd_);
       DARABONBA_PTR_FROM_JSON(lastDdlTimeStart, lastDdlTimeStart_);
@@ -52,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->sorter_ != nullptr
-        && this->dbId_ != nullptr && this->dbName_ != nullptr && this->hasPartitions_ != nullptr && this->lastDdlTimeEnd_ != nullptr && this->lastDdlTimeStart_ != nullptr
-        && this->name_ != nullptr && this->onlyName_ != nullptr && this->pageNum_ != nullptr && this->pageSize_ != nullptr && this->statusShrink_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->sorter_ == nullptr
+        && return this->dbId_ == nullptr && return this->dbName_ == nullptr && return this->dstName_ == nullptr && return this->dstProjectName_ == nullptr && return this->dstSchemaName_ == nullptr
+        && return this->hasPartitions_ == nullptr && return this->lastDdlTimeEnd_ == nullptr && return this->lastDdlTimeStart_ == nullptr && return this->name_ == nullptr && return this->onlyName_ == nullptr
+        && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr && return this->statusShrink_ == nullptr && return this->type_ == nullptr; };
     // sorter Field Functions 
     bool hasSorter() const { return this->sorter_ != nullptr;};
     void deleteSorter() { this->sorter_ = nullptr;};
@@ -77,6 +83,27 @@ namespace Models
     void deleteDbName() { this->dbName_ = nullptr;};
     inline string dbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
     inline ListMmsTablesShrinkRequest& setDbName(string dbName) { DARABONBA_PTR_SET_VALUE(dbName_, dbName) };
+
+
+    // dstName Field Functions 
+    bool hasDstName() const { return this->dstName_ != nullptr;};
+    void deleteDstName() { this->dstName_ = nullptr;};
+    inline string dstName() const { DARABONBA_PTR_GET_DEFAULT(dstName_, "") };
+    inline ListMmsTablesShrinkRequest& setDstName(string dstName) { DARABONBA_PTR_SET_VALUE(dstName_, dstName) };
+
+
+    // dstProjectName Field Functions 
+    bool hasDstProjectName() const { return this->dstProjectName_ != nullptr;};
+    void deleteDstProjectName() { this->dstProjectName_ = nullptr;};
+    inline string dstProjectName() const { DARABONBA_PTR_GET_DEFAULT(dstProjectName_, "") };
+    inline ListMmsTablesShrinkRequest& setDstProjectName(string dstProjectName) { DARABONBA_PTR_SET_VALUE(dstProjectName_, dstProjectName) };
+
+
+    // dstSchemaName Field Functions 
+    bool hasDstSchemaName() const { return this->dstSchemaName_ != nullptr;};
+    void deleteDstSchemaName() { this->dstSchemaName_ = nullptr;};
+    inline string dstSchemaName() const { DARABONBA_PTR_GET_DEFAULT(dstSchemaName_, "") };
+    inline ListMmsTablesShrinkRequest& setDstSchemaName(string dstSchemaName) { DARABONBA_PTR_SET_VALUE(dstSchemaName_, dstSchemaName) };
 
 
     // hasPartitions Field Functions 
@@ -146,6 +173,9 @@ namespace Models
     std::shared_ptr<ListMmsTablesShrinkRequestSorter> sorter_ = nullptr;
     std::shared_ptr<int64_t> dbId_ = nullptr;
     std::shared_ptr<string> dbName_ = nullptr;
+    std::shared_ptr<string> dstName_ = nullptr;
+    std::shared_ptr<string> dstProjectName_ = nullptr;
+    std::shared_ptr<string> dstSchemaName_ = nullptr;
     std::shared_ptr<bool> hasPartitions_ = nullptr;
     std::shared_ptr<string> lastDdlTimeEnd_ = nullptr;
     std::shared_ptr<string> lastDdlTimeStart_ = nullptr;

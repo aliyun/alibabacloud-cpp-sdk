@@ -72,11 +72,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowFullScan_ != nullptr
-        && this->autoMvQuotaGb_ != nullptr && this->elderTunnelQuota_ != nullptr && this->enableAutoMv_ != nullptr && this->enableDecimal2_ != nullptr && this->enableDr_ != nullptr
-        && this->enableFdcCacheForce_ != nullptr && this->enableTieredStorage_ != nullptr && this->enableTunnelQuotaRoute_ != nullptr && this->encryption_ != nullptr && this->externalProjectProperties_ != nullptr
-        && this->fdcQuota_ != nullptr && this->retentionDays_ != nullptr && this->sqlMeteringMax_ != nullptr && this->storageTierInfo_ != nullptr && this->tableLifecycle_ != nullptr
-        && this->tableLifecycleConfig_ != nullptr && this->timezone_ != nullptr && this->tunnelQuota_ != nullptr && this->typeSystem_ != nullptr; };
+    virtual bool empty() const override { return this->allowFullScan_ == nullptr
+        && return this->autoMvQuotaGb_ == nullptr && return this->elderTunnelQuota_ == nullptr && return this->enableAutoMv_ == nullptr && return this->enableDecimal2_ == nullptr && return this->enableDr_ == nullptr
+        && return this->enableFdcCacheForce_ == nullptr && return this->enableTieredStorage_ == nullptr && return this->enableTunnelQuotaRoute_ == nullptr && return this->encryption_ == nullptr && return this->externalProjectProperties_ == nullptr
+        && return this->fdcQuota_ == nullptr && return this->retentionDays_ == nullptr && return this->sqlMeteringMax_ == nullptr && return this->storageTierInfo_ == nullptr && return this->tableLifecycle_ == nullptr
+        && return this->tableLifecycleConfig_ == nullptr && return this->timezone_ == nullptr && return this->tunnelQuota_ == nullptr && return this->typeSystem_ == nullptr; };
     // allowFullScan Field Functions 
     bool hasAllowFullScan() const { return this->allowFullScan_ != nullptr;};
     void deleteAllowFullScan() { this->allowFullScan_ = nullptr;};

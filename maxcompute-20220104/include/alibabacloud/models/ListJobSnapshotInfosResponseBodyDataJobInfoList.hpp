@@ -87,13 +87,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpuRequest_ != nullptr
-        && this->cpuUsage_ != nullptr && this->cpuUsageToRequestRatio_ != nullptr && this->extNodeId_ != nullptr && this->extNodeOnDuty_ != nullptr && this->extPlantFrom_ != nullptr
-        && this->instanceId_ != nullptr && this->jobOwner_ != nullptr && this->jobType_ != nullptr && this->maxCpuPct_ != nullptr && this->maxMemoryPct_ != nullptr
-        && this->memoryRequest_ != nullptr && this->memoryUsage_ != nullptr && this->memoryUsageToRequestRatio_ != nullptr && this->minCpuPct_ != nullptr && this->minMemoryPct_ != nullptr
-        && this->priority_ != nullptr && this->project_ != nullptr && this->quotaNickname_ != nullptr && this->quotaType_ != nullptr && this->region_ != nullptr
-        && this->runningAtTime_ != nullptr && this->runningTime_ != nullptr && this->signature_ != nullptr && this->snapshotTime_ != nullptr && this->status_ != nullptr
-        && this->submittedAtTime_ != nullptr && this->tenantId_ != nullptr && this->totalTime_ != nullptr && this->waitingTime_ != nullptr; };
+    virtual bool empty() const override { return this->cpuRequest_ == nullptr
+        && return this->cpuUsage_ == nullptr && return this->cpuUsageToRequestRatio_ == nullptr && return this->extNodeId_ == nullptr && return this->extNodeOnDuty_ == nullptr && return this->extPlantFrom_ == nullptr
+        && return this->instanceId_ == nullptr && return this->jobOwner_ == nullptr && return this->jobType_ == nullptr && return this->maxCpuPct_ == nullptr && return this->maxMemoryPct_ == nullptr
+        && return this->memoryRequest_ == nullptr && return this->memoryUsage_ == nullptr && return this->memoryUsageToRequestRatio_ == nullptr && return this->minCpuPct_ == nullptr && return this->minMemoryPct_ == nullptr
+        && return this->priority_ == nullptr && return this->project_ == nullptr && return this->quotaNickname_ == nullptr && return this->quotaType_ == nullptr && return this->region_ == nullptr
+        && return this->runningAtTime_ == nullptr && return this->runningTime_ == nullptr && return this->signature_ == nullptr && return this->snapshotTime_ == nullptr && return this->status_ == nullptr
+        && return this->submittedAtTime_ == nullptr && return this->tenantId_ == nullptr && return this->totalTime_ == nullptr && return this->waitingTime_ == nullptr; };
     // cpuRequest Field Functions 
     bool hasCpuRequest() const { return this->cpuRequest_ != nullptr;};
     void deleteCpuRequest() { this->cpuRequest_ = nullptr;};

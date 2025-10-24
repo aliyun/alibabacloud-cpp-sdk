@@ -62,11 +62,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->config_ != nullptr
-        && this->createTime_ != nullptr && this->dbId_ != nullptr && this->dstDbName_ != nullptr && this->dstSchemaName_ != nullptr && this->eta_ != nullptr
-        && this->id_ != nullptr && this->name_ != nullptr && this->sourceId_ != nullptr && this->sourceName_ != nullptr && this->srcDbName_ != nullptr
-        && this->srcSchemaName_ != nullptr && this->status_ != nullptr && this->stopped_ != nullptr && this->taskDone_ != nullptr && this->taskNum_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->config_ == nullptr
+        && return this->createTime_ == nullptr && return this->dbId_ == nullptr && return this->dstDbName_ == nullptr && return this->dstSchemaName_ == nullptr && return this->eta_ == nullptr
+        && return this->id_ == nullptr && return this->name_ == nullptr && return this->sourceId_ == nullptr && return this->sourceName_ == nullptr && return this->srcDbName_ == nullptr
+        && return this->srcSchemaName_ == nullptr && return this->status_ == nullptr && return this->stopped_ == nullptr && return this->taskDone_ == nullptr && return this->taskNum_ == nullptr
+        && return this->type_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};

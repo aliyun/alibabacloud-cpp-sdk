@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(pageNum, pageNum_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(status, statusShrink_);
+      DARABONBA_PTR_TO_JSON(tableId, tableId_);
       DARABONBA_PTR_TO_JSON(tableName, tableName_);
       DARABONBA_PTR_TO_JSON(updated, updated_);
       DARABONBA_PTR_TO_JSON(value, value_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(pageNum, pageNum_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(status, statusShrink_);
+      DARABONBA_PTR_FROM_JSON(tableId, tableId_);
       DARABONBA_PTR_FROM_JSON(tableName, tableName_);
       DARABONBA_PTR_FROM_JSON(updated, updated_);
       DARABONBA_PTR_FROM_JSON(value, value_);
@@ -50,9 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->sorter_ != nullptr
-        && this->dbId_ != nullptr && this->dbName_ != nullptr && this->lastDdlTimeEnd_ != nullptr && this->lastDdlTimeStart_ != nullptr && this->pageNum_ != nullptr
-        && this->pageSize_ != nullptr && this->statusShrink_ != nullptr && this->tableName_ != nullptr && this->updated_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->sorter_ == nullptr
+        && return this->dbId_ == nullptr && return this->dbName_ == nullptr && return this->lastDdlTimeEnd_ == nullptr && return this->lastDdlTimeStart_ == nullptr && return this->pageNum_ == nullptr
+        && return this->pageSize_ == nullptr && return this->statusShrink_ == nullptr && return this->tableId_ == nullptr && return this->tableName_ == nullptr && return this->updated_ == nullptr
+        && return this->value_ == nullptr; };
     // sorter Field Functions 
     bool hasSorter() const { return this->sorter_ != nullptr;};
     void deleteSorter() { this->sorter_ = nullptr;};
@@ -111,6 +114,13 @@ namespace Models
     inline ListMmsPartitionsShrinkRequest& setStatusShrink(string statusShrink) { DARABONBA_PTR_SET_VALUE(statusShrink_, statusShrink) };
 
 
+    // tableId Field Functions 
+    bool hasTableId() const { return this->tableId_ != nullptr;};
+    void deleteTableId() { this->tableId_ = nullptr;};
+    inline int64_t tableId() const { DARABONBA_PTR_GET_DEFAULT(tableId_, 0L) };
+    inline ListMmsPartitionsShrinkRequest& setTableId(int64_t tableId) { DARABONBA_PTR_SET_VALUE(tableId_, tableId) };
+
+
     // tableName Field Functions 
     bool hasTableName() const { return this->tableName_ != nullptr;};
     void deleteTableName() { this->tableName_ = nullptr;};
@@ -141,6 +151,7 @@ namespace Models
     std::shared_ptr<int32_t> pageNum_ = nullptr;
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     std::shared_ptr<string> statusShrink_ = nullptr;
+    std::shared_ptr<int64_t> tableId_ = nullptr;
     std::shared_ptr<string> tableName_ = nullptr;
     std::shared_ptr<bool> updated_ = nullptr;
     std::shared_ptr<string> value_ = nullptr;

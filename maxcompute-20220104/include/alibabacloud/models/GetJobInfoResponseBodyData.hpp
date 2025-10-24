@@ -80,12 +80,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cuUsage_ != nullptr
-        && this->endAtTime_ != nullptr && this->extNodeId_ != nullptr && this->extNodeOnDuty_ != nullptr && this->extPlantFrom_ != nullptr && this->inputBytes_ != nullptr
-        && this->instanceId_ != nullptr && this->jobOwner_ != nullptr && this->jobSubStatusList_ != nullptr && this->jobType_ != nullptr && this->memoryUsage_ != nullptr
-        && this->priority_ != nullptr && this->project_ != nullptr && this->quotaNickname_ != nullptr && this->quotaType_ != nullptr && this->region_ != nullptr
-        && this->runningAtTime_ != nullptr && this->runningTime_ != nullptr && this->sceneResults_ != nullptr && this->signature_ != nullptr && this->status_ != nullptr
-        && this->submittedAtTime_ != nullptr && this->tenantId_ != nullptr && this->totalTime_ != nullptr && this->waitingTime_ != nullptr; };
+    virtual bool empty() const override { return this->cuUsage_ == nullptr
+        && return this->endAtTime_ == nullptr && return this->extNodeId_ == nullptr && return this->extNodeOnDuty_ == nullptr && return this->extPlantFrom_ == nullptr && return this->inputBytes_ == nullptr
+        && return this->instanceId_ == nullptr && return this->jobOwner_ == nullptr && return this->jobSubStatusList_ == nullptr && return this->jobType_ == nullptr && return this->memoryUsage_ == nullptr
+        && return this->priority_ == nullptr && return this->project_ == nullptr && return this->quotaNickname_ == nullptr && return this->quotaType_ == nullptr && return this->region_ == nullptr
+        && return this->runningAtTime_ == nullptr && return this->runningTime_ == nullptr && return this->sceneResults_ == nullptr && return this->signature_ == nullptr && return this->status_ == nullptr
+        && return this->submittedAtTime_ == nullptr && return this->tenantId_ == nullptr && return this->totalTime_ == nullptr && return this->waitingTime_ == nullptr; };
     // cuUsage Field Functions 
     bool hasCuUsage() const { return this->cuUsage_ != nullptr;};
     void deleteCuUsage() { this->cuUsage_ = nullptr;};

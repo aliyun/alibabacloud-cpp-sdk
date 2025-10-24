@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->date_ != nullptr
-        && this->longTermStorage_ != nullptr && this->longTermStorageUnit_ != nullptr && this->lowFreqStorage_ != nullptr && this->lowFreqStorageUnit_ != nullptr && this->projectName_ != nullptr
-        && this->rate_ != nullptr && this->recycleBinStorage_ != nullptr && this->recycleBinStorageUnit_ != nullptr && this->standardStorage_ != nullptr && this->standardStorageUnit_ != nullptr
-        && this->timestamp_ != nullptr && this->totalStorage_ != nullptr && this->totalStorageUnit_ != nullptr; };
+    virtual bool empty() const override { return this->date_ == nullptr
+        && return this->longTermStorage_ == nullptr && return this->longTermStorageUnit_ == nullptr && return this->lowFreqStorage_ == nullptr && return this->lowFreqStorageUnit_ == nullptr && return this->projectName_ == nullptr
+        && return this->rate_ == nullptr && return this->recycleBinStorage_ == nullptr && return this->recycleBinStorageUnit_ == nullptr && return this->standardStorage_ == nullptr && return this->standardStorageUnit_ == nullptr
+        && return this->timestamp_ == nullptr && return this->totalStorage_ == nullptr && return this->totalStorageUnit_ == nullptr; };
     // date Field Functions 
     bool hasDate() const { return this->date_ != nullptr;};
     void deleteDate() { this->date_ = nullptr;};

@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->comment_ != nullptr
-        && this->costStorage_ != nullptr && this->createdTime_ != nullptr && this->defaultQuota_ != nullptr && this->ipWhiteList_ != nullptr && this->name_ != nullptr
-        && this->owner_ != nullptr && this->properties_ != nullptr && this->regionId_ != nullptr && this->saleTag_ != nullptr && this->securityProperties_ != nullptr
-        && this->status_ != nullptr && this->threeTierModel_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->comment_ == nullptr
+        && return this->costStorage_ == nullptr && return this->createdTime_ == nullptr && return this->defaultQuota_ == nullptr && return this->ipWhiteList_ == nullptr && return this->name_ == nullptr
+        && return this->owner_ == nullptr && return this->properties_ == nullptr && return this->regionId_ == nullptr && return this->saleTag_ == nullptr && return this->securityProperties_ == nullptr
+        && return this->status_ == nullptr && return this->threeTierModel_ == nullptr && return this->type_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};

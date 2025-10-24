@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enablePriority_ != nullptr
-        && this->forceReservedMin_ != nullptr && this->maxCU_ != nullptr && this->minCU_ != nullptr && this->schedulerType_ != nullptr && this->singleJobCULimit_ != nullptr; };
+    virtual bool empty() const override { return this->enablePriority_ == nullptr
+        && return this->forceReservedMin_ == nullptr && return this->maxCU_ == nullptr && return this->minCU_ == nullptr && return this->schedulerType_ == nullptr && return this->singleJobCULimit_ == nullptr; };
     // enablePriority Field Functions 
     bool hasEnablePriority() const { return this->enablePriority_ != nullptr;};
     void deleteEnablePriority() { this->enablePriority_ = nullptr;};

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTSTORAGEPROJECTSINFORESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/ListStorageProjectsInfoResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -34,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->headers_ != nullptr
-        && this->statusCode_ != nullptr && this->body_ != nullptr; };
+    virtual bool empty() const override { return this->headers_ == nullptr
+        && return this->statusCode_ == nullptr && return this->body_ == nullptr; };
     // headers Field Functions 
     bool hasHeaders() const { return this->headers_ != nullptr;};
     void deleteHeaders() { this->headers_ = nullptr;};

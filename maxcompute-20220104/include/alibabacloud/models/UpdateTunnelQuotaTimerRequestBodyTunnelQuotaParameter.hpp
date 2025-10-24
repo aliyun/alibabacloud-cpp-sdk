@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->elasticReservedSlotNum_ != nullptr
-        && this->slotNum_ != nullptr; };
+    virtual bool empty() const override { return this->elasticReservedSlotNum_ == nullptr
+        && return this->slotNum_ == nullptr; };
     // elasticReservedSlotNum Field Functions 
     bool hasElasticReservedSlotNum() const { return this->elasticReservedSlotNum_ != nullptr;};
     void deleteElasticReservedSlotNum() { this->elasticReservedSlotNum_ = nullptr;};

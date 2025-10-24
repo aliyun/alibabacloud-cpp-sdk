@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ascOrder_ != nullptr
-        && this->groupList_ != nullptr && this->limit_ != nullptr && this->operationList_ != nullptr && this->orderColumn_ != nullptr && this->project_ != nullptr
-        && this->quotaNickname_ != nullptr && this->tableList_ != nullptr && this->endTime_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->ascOrder_ == nullptr
+        && return this->groupList_ == nullptr && return this->limit_ == nullptr && return this->operationList_ == nullptr && return this->orderColumn_ == nullptr && return this->project_ == nullptr
+        && return this->quotaNickname_ == nullptr && return this->tableList_ == nullptr && return this->endTime_ == nullptr && return this->startTime_ == nullptr; };
     // ascOrder Field Functions 
     bool hasAscOrder() const { return this->ascOrder_ != nullptr;};
     void deleteAscOrder() { this->ascOrder_ = nullptr;};

@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->sorter_ != nullptr
-        && this->dstDbName_ != nullptr && this->dstTableName_ != nullptr && this->name_ != nullptr && this->pageNum_ != nullptr && this->pageSize_ != nullptr
-        && this->srcDbName_ != nullptr && this->srcTableName_ != nullptr && this->status_ != nullptr && this->stopped_ != nullptr; };
+    virtual bool empty() const override { return this->sorter_ == nullptr
+        && return this->dstDbName_ == nullptr && return this->dstTableName_ == nullptr && return this->name_ == nullptr && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr
+        && return this->srcDbName_ == nullptr && return this->srcTableName_ == nullptr && return this->status_ == nullptr && return this->stopped_ == nullptr; };
     // sorter Field Functions 
     bool hasSorter() const { return this->sorter_ != nullptr;};
     void deleteSorter() { this->sorter_ = nullptr;};

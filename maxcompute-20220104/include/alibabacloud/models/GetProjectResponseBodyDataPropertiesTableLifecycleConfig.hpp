@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->tierToLongterm_ != nullptr
-        && this->tierToLowFrequency_ != nullptr; };
+    virtual bool empty() const override { return this->tierToLongterm_ == nullptr
+        && return this->tierToLowFrequency_ == nullptr; };
     // tierToLongterm Field Functions 
     bool hasTierToLongterm() const { return this->tierToLongterm_ != nullptr;};
     void deleteTierToLongterm() { this->tierToLongterm_ = nullptr;};

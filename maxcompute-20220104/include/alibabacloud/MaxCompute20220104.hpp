@@ -1227,6 +1227,24 @@ namespace MaxCompute20220104
       Models::QueryQuotaResponse queryQuota(const string &nickname, const Models::QueryQuotaRequest &request);
 
       /**
+       * @summary 查询quota的资源使用信息
+       *
+       * @param request QueryQuotaMetricRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryQuotaMetricResponse
+       */
+      Models::QueryQuotaMetricResponse queryQuotaMetricWithOptions(const string &metric, const Models::QueryQuotaMetricRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询quota的资源使用信息
+       *
+       * @param request QueryQuotaMetricRequest
+       * @return QueryQuotaMetricResponse
+       */
+      Models::QueryQuotaMetricResponse queryQuotaMetric(const string &metric, const Models::QueryQuotaMetricRequest &request);
+
+      /**
        * @summary 查看存储数据的时序指标
        *
        * @param request QueryStorageMetricRequest

@@ -19,6 +19,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(config, config_);
       DARABONBA_PTR_TO_JSON(createTime, createTime_);
       DARABONBA_PTR_TO_JSON(dbNum, dbNum_);
+      DARABONBA_PTR_TO_JSON(dstProject, dstProject_);
+      DARABONBA_PTR_TO_JSON(dstProjects, dstProjects_);
       DARABONBA_PTR_TO_JSON(errMsg, errMsg_);
       DARABONBA_PTR_TO_JSON(id, id_);
       DARABONBA_PTR_TO_JSON(lastUpdateTime, lastUpdateTime_);
@@ -43,6 +45,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(config, config_);
       DARABONBA_PTR_FROM_JSON(createTime, createTime_);
       DARABONBA_PTR_FROM_JSON(dbNum, dbNum_);
+      DARABONBA_PTR_FROM_JSON(dstProject, dstProject_);
+      DARABONBA_PTR_FROM_JSON(dstProjects, dstProjects_);
       DARABONBA_PTR_FROM_JSON(errMsg, errMsg_);
       DARABONBA_PTR_FROM_JSON(id, id_);
       DARABONBA_PTR_FROM_JSON(lastUpdateTime, lastUpdateTime_);
@@ -73,12 +77,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentIsOnline_ != nullptr
-        && this->config_ != nullptr && this->createTime_ != nullptr && this->dbNum_ != nullptr && this->errMsg_ != nullptr && this->id_ != nullptr
-        && this->lastUpdateTime_ != nullptr && this->name_ != nullptr && this->networklink_ != nullptr && this->partitionNum_ != nullptr && this->partitionsDoingNum_ != nullptr
-        && this->partitionsDoneNum_ != nullptr && this->partitionsFailedNum_ != nullptr && this->region_ != nullptr && this->scanId_ != nullptr && this->status_ != nullptr
-        && this->tableNum_ != nullptr && this->tablesDoingNum_ != nullptr && this->tablesDoneNum_ != nullptr && this->tablesFailedNum_ != nullptr && this->tablesPartDoneNum_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->agentIsOnline_ == nullptr
+        && return this->config_ == nullptr && return this->createTime_ == nullptr && return this->dbNum_ == nullptr && return this->dstProject_ == nullptr && return this->dstProjects_ == nullptr
+        && return this->errMsg_ == nullptr && return this->id_ == nullptr && return this->lastUpdateTime_ == nullptr && return this->name_ == nullptr && return this->networklink_ == nullptr
+        && return this->partitionNum_ == nullptr && return this->partitionsDoingNum_ == nullptr && return this->partitionsDoneNum_ == nullptr && return this->partitionsFailedNum_ == nullptr && return this->region_ == nullptr
+        && return this->scanId_ == nullptr && return this->status_ == nullptr && return this->tableNum_ == nullptr && return this->tablesDoingNum_ == nullptr && return this->tablesDoneNum_ == nullptr
+        && return this->tablesFailedNum_ == nullptr && return this->tablesPartDoneNum_ == nullptr && return this->type_ == nullptr; };
     // agentIsOnline Field Functions 
     bool hasAgentIsOnline() const { return this->agentIsOnline_ != nullptr;};
     void deleteAgentIsOnline() { this->agentIsOnline_ = nullptr;};
@@ -107,6 +111,22 @@ namespace Models
     void deleteDbNum() { this->dbNum_ = nullptr;};
     inline int32_t dbNum() const { DARABONBA_PTR_GET_DEFAULT(dbNum_, 0) };
     inline ListMmsDataSourcesResponseBodyDataObjectList& setDbNum(int32_t dbNum) { DARABONBA_PTR_SET_VALUE(dbNum_, dbNum) };
+
+
+    // dstProject Field Functions 
+    bool hasDstProject() const { return this->dstProject_ != nullptr;};
+    void deleteDstProject() { this->dstProject_ = nullptr;};
+    inline string dstProject() const { DARABONBA_PTR_GET_DEFAULT(dstProject_, "") };
+    inline ListMmsDataSourcesResponseBodyDataObjectList& setDstProject(string dstProject) { DARABONBA_PTR_SET_VALUE(dstProject_, dstProject) };
+
+
+    // dstProjects Field Functions 
+    bool hasDstProjects() const { return this->dstProjects_ != nullptr;};
+    void deleteDstProjects() { this->dstProjects_ = nullptr;};
+    inline const vector<string> & dstProjects() const { DARABONBA_PTR_GET_CONST(dstProjects_, vector<string>) };
+    inline vector<string> dstProjects() { DARABONBA_PTR_GET(dstProjects_, vector<string>) };
+    inline ListMmsDataSourcesResponseBodyDataObjectList& setDstProjects(const vector<string> & dstProjects) { DARABONBA_PTR_SET_VALUE(dstProjects_, dstProjects) };
+    inline ListMmsDataSourcesResponseBodyDataObjectList& setDstProjects(vector<string> && dstProjects) { DARABONBA_PTR_SET_RVALUE(dstProjects_, dstProjects) };
 
 
     // errMsg Field Functions 
@@ -240,6 +260,8 @@ namespace Models
     std::shared_ptr<vector<Models::ListMmsDataSourcesResponseBodyDataObjectListConfig>> config_ = nullptr;
     std::shared_ptr<string> createTime_ = nullptr;
     std::shared_ptr<int32_t> dbNum_ = nullptr;
+    std::shared_ptr<string> dstProject_ = nullptr;
+    std::shared_ptr<vector<string>> dstProjects_ = nullptr;
     std::shared_ptr<string> errMsg_ = nullptr;
     std::shared_ptr<int64_t> id_ = nullptr;
     std::shared_ptr<string> lastUpdateTime_ = nullptr;

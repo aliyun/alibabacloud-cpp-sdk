@@ -73,12 +73,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->date_ != nullptr
-        && this->isPartitioned_ != nullptr && this->lastAccessTime_ != nullptr && this->longTermStorage_ != nullptr && this->longTermStorageFileCount_ != nullptr && this->longTermStorageUnit_ != nullptr
-        && this->lowFreqStorage_ != nullptr && this->lowFreqStorageFileCount_ != nullptr && this->lowFreqStorageUnit_ != nullptr && this->projectName_ != nullptr && this->rate_ != nullptr
-        && this->schemaName_ != nullptr && this->standardStorage_ != nullptr && this->standardStorageFileCount_ != nullptr && this->standardStorageUnit_ != nullptr && this->storageType_ != nullptr
-        && this->tableName_ != nullptr && this->totalFrequency_ != nullptr && this->totalInputAmount_ != nullptr && this->totalInputAmountUnit_ != nullptr && this->totalStorage_ != nullptr
-        && this->totalStorageFileCount_ != nullptr && this->totalStorageUnit_ != nullptr; };
+    virtual bool empty() const override { return this->date_ == nullptr
+        && return this->isPartitioned_ == nullptr && return this->lastAccessTime_ == nullptr && return this->longTermStorage_ == nullptr && return this->longTermStorageFileCount_ == nullptr && return this->longTermStorageUnit_ == nullptr
+        && return this->lowFreqStorage_ == nullptr && return this->lowFreqStorageFileCount_ == nullptr && return this->lowFreqStorageUnit_ == nullptr && return this->projectName_ == nullptr && return this->rate_ == nullptr
+        && return this->schemaName_ == nullptr && return this->standardStorage_ == nullptr && return this->standardStorageFileCount_ == nullptr && return this->standardStorageUnit_ == nullptr && return this->storageType_ == nullptr
+        && return this->tableName_ == nullptr && return this->totalFrequency_ == nullptr && return this->totalInputAmount_ == nullptr && return this->totalInputAmountUnit_ == nullptr && return this->totalStorage_ == nullptr
+        && return this->totalStorageFileCount_ == nullptr && return this->totalStorageUnit_ == nullptr; };
     // date Field Functions 
     bool hasDate() const { return this->date_ != nullptr;};
     void deleteDate() { this->date_ = nullptr;};

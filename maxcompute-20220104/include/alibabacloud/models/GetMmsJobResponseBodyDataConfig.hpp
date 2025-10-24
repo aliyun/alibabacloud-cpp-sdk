@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->columnMapping_ != nullptr
-        && this->enableVerification_ != nullptr && this->increment_ != nullptr && this->others_ != nullptr && this->partitionFilters_ != nullptr && this->partitions_ != nullptr
-        && this->schemaOnly_ != nullptr && this->tableBlackList_ != nullptr && this->tableMapping_ != nullptr && this->tableWhiteList_ != nullptr && this->tables_ != nullptr
-        && this->taskType_ != nullptr && this->tunnelQuota_ != nullptr; };
+    virtual bool empty() const override { return this->columnMapping_ == nullptr
+        && return this->enableVerification_ == nullptr && return this->increment_ == nullptr && return this->others_ == nullptr && return this->partitionFilters_ == nullptr && return this->partitions_ == nullptr
+        && return this->schemaOnly_ == nullptr && return this->tableBlackList_ == nullptr && return this->tableMapping_ == nullptr && return this->tableWhiteList_ == nullptr && return this->tables_ == nullptr
+        && return this->taskType_ == nullptr && return this->tunnelQuota_ == nullptr; };
     // columnMapping Field Functions 
     bool hasColumnMapping() const { return this->columnMapping_ != nullptr;};
     void deleteColumnMapping() { this->columnMapping_ = nullptr;};

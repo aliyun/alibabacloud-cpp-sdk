@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->externalCatalogId_ != nullptr
-        && this->foreignServerName_ != nullptr && this->foreignServerType_ != nullptr && this->isExternalCatalogBound_ != nullptr && this->tableFormat_ != nullptr && this->warehouse_ != nullptr; };
+    virtual bool empty() const override { return this->externalCatalogId_ == nullptr
+        && return this->foreignServerName_ == nullptr && return this->foreignServerType_ == nullptr && return this->isExternalCatalogBound_ == nullptr && return this->tableFormat_ == nullptr && return this->warehouse_ == nullptr; };
     // externalCatalogId Field Functions 
     bool hasExternalCatalogId() const { return this->externalCatalogId_ != nullptr;};
     void deleteExternalCatalogId() { this->externalCatalogId_ = nullptr;};

@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fileCount_ != nullptr
-        && this->fileSize_ != nullptr && this->fileSizeUnit_ != nullptr && this->isPartitioned_ != nullptr && this->lastAccessTime_ != nullptr && this->partition_ != nullptr
-        && this->projectName_ != nullptr && this->rate_ != nullptr && this->schemaName_ != nullptr && this->storageType_ != nullptr && this->tableName_ != nullptr
-        && this->totalFrequency_ != nullptr && this->totalInputAmount_ != nullptr && this->totalInputAmountUnit_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->fileCount_ == nullptr
+        && return this->fileSize_ == nullptr && return this->fileSizeUnit_ == nullptr && return this->isPartitioned_ == nullptr && return this->lastAccessTime_ == nullptr && return this->partition_ == nullptr
+        && return this->projectName_ == nullptr && return this->rate_ == nullptr && return this->schemaName_ == nullptr && return this->storageType_ == nullptr && return this->tableName_ == nullptr
+        && return this->totalFrequency_ == nullptr && return this->totalInputAmount_ == nullptr && return this->totalInputAmountUnit_ == nullptr && return this->type_ == nullptr; };
     // fileCount Field Functions 
     bool hasFileCount() const { return this->fileCount_ != nullptr;};
     void deleteFileCount() { this->fileCount_ = nullptr;};

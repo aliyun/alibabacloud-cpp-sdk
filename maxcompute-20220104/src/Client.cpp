@@ -4,7 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <darabonba/http/URL.hpp>
+#include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -74,7 +74,7 @@ AlibabaCloud::MaxCompute20220104::Client::Client(Config &config): OpenApiClient(
     {"rus-west-1-pop" , "maxcompute.aliyuncs.com"},
     {"us-east-1" , "maxcompute.aliyuncs.com"},
     {"us-west-1" , "maxcompute.aliyuncs.com"}
-  });
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("maxcompute", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -105,18 +105,18 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 ApplyComputeQuotaPlanResponse Client::applyComputeQuotaPlanWithOptions(const string &nickname, const string &planName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ApplyComputeQuotaPlan"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(nickname) , "/computeQuotaPlan/" , Darabonba::Http::URL::percentEncode(planName) , "/apply")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(nickname) , "/computeQuotaPlan/" , Darabonba::Encode::Encoder::percentEncode(planName) , "/apply")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ApplyComputeQuotaPlanResponse>();
 }
 
@@ -164,13 +164,13 @@ CreateComputeQuotaPlanResponse Client::createComputeQuotaPlanWithOptions(const s
     {"action" , "CreateComputeQuotaPlan"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(nickname) , "/computeQuotaPlan")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(nickname) , "/computeQuotaPlan")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateComputeQuotaPlanResponse>();
 }
 
@@ -230,7 +230,7 @@ CreateMmsDataSourceResponse Client::createMmsDataSourceWithOptions(const CreateM
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMmsDataSourceResponse>();
 }
 
@@ -256,18 +256,18 @@ CreateMmsDataSourceResponse Client::createMmsDataSource(const CreateMmsDataSourc
 CreateMmsFetchMetadataJobResponse Client::createMmsFetchMetadataJobWithOptions(const string &sourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateMmsFetchMetadataJob"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId) , "/scans")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/scans")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMmsFetchMetadataJobResponse>();
 }
 
@@ -303,6 +303,14 @@ CreateMmsJobResponse Client::createMmsJobWithOptions(const string &sourceId, con
 
   if (!!request.hasDstSchemaName()) {
     body["dstSchemaName"] = request.dstSchemaName();
+  }
+
+  if (!!request.hasEnableDataMigration()) {
+    body["enableDataMigration"] = request.enableDataMigration();
+  }
+
+  if (!!request.hasEnableSchemaMigration()) {
+    body["enableSchemaMigration"] = request.enableSchemaMigration();
   }
 
   if (!!request.hasEnableVerification()) {
@@ -381,13 +389,13 @@ CreateMmsJobResponse Client::createMmsJobWithOptions(const string &sourceId, con
     {"action" , "CreateMmsJob"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId) , "/jobs")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/jobs")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMmsJobResponse>();
 }
 
@@ -427,13 +435,13 @@ CreatePackageResponse Client::createPackageWithOptions(const string &projectName
     {"action" , "CreatePackage"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Http::URL::percentEncode(projectName) , "/packages")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/packages")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreatePackageResponse>();
 }
 
@@ -473,7 +481,7 @@ CreateProjectResponse Client::createProjectWithOptions(const CreateProjectReques
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateProjectResponse>();
 }
 
@@ -517,13 +525,13 @@ CreateQuotaPlanResponse Client::createQuotaPlanWithOptions(const string &nicknam
     {"action" , "CreateQuotaPlan"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(nickname) , "/plans")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(nickname) , "/plans")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateQuotaPlanResponse>();
 }
 
@@ -557,13 +565,13 @@ CreateRoleResponse Client::createRoleWithOptions(const string &projectName, cons
     {"action" , "CreateRole"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Http::URL::percentEncode(projectName) , "/roles")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/roles")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateRoleResponse>();
 }
 
@@ -589,18 +597,18 @@ CreateRoleResponse Client::createRole(const string &projectName, const CreateRol
 DeleteComputeQuotaPlanResponse Client::deleteComputeQuotaPlanWithOptions(const string &nickname, const string &planName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteComputeQuotaPlan"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(nickname) , "/computeQuotaPlan/" , Darabonba::Http::URL::percentEncode(planName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(nickname) , "/computeQuotaPlan/" , Darabonba::Encode::Encoder::percentEncode(planName))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteComputeQuotaPlanResponse>();
 }
 
@@ -625,18 +633,18 @@ DeleteComputeQuotaPlanResponse Client::deleteComputeQuotaPlan(const string &nick
 DeleteMmsDataSourceResponse Client::deleteMmsDataSourceWithOptions(const string &sourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteMmsDataSource"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMmsDataSourceResponse>();
 }
 
@@ -661,18 +669,18 @@ DeleteMmsDataSourceResponse Client::deleteMmsDataSource(const string &sourceId) 
 DeleteMmsJobResponse Client::deleteMmsJobWithOptions(const string &sourceId, const string &jobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteMmsJob"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId) , "/jobs/" , Darabonba::Http::URL::percentEncode(jobId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/jobs/" , Darabonba::Encode::Encoder::percentEncode(jobId))},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMmsJobResponse>();
 }
 
@@ -709,18 +717,18 @@ DeleteQuotaPlanResponse Client::deleteQuotaPlanWithOptions(const string &nicknam
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteQuotaPlan"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(nickname) , "/plans/" , Darabonba::Http::URL::percentEncode(planName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(nickname) , "/plans/" , Darabonba::Encode::Encoder::percentEncode(planName))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteQuotaPlanResponse>();
 }
 
@@ -746,18 +754,18 @@ DeleteQuotaPlanResponse Client::deleteQuotaPlan(const string &nickname, const st
 GetComputeEffectivePlanResponse Client::getComputeEffectivePlanWithOptions(const string &nickname, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetComputeEffectivePlan"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(nickname) , "/computeEffectivePlan/")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(nickname) , "/computeEffectivePlan/")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetComputeEffectivePlanResponse>();
 }
 
@@ -782,18 +790,18 @@ GetComputeEffectivePlanResponse Client::getComputeEffectivePlan(const string &ni
 GetComputeQuotaPlanResponse Client::getComputeQuotaPlanWithOptions(const string &nickname, const string &planName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetComputeQuotaPlan"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(nickname) , "/computeQuotaPlan/" , Darabonba::Http::URL::percentEncode(planName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(nickname) , "/computeQuotaPlan/" , Darabonba::Encode::Encoder::percentEncode(planName))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetComputeQuotaPlanResponse>();
 }
 
@@ -826,18 +834,18 @@ GetComputeQuotaScheduleResponse Client::getComputeQuotaScheduleWithOptions(const
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetComputeQuotaSchedule"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(nickname) , "/computeQuotaSchedule")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(nickname) , "/computeQuotaSchedule")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetComputeQuotaScheduleResponse>();
 }
 
@@ -863,18 +871,18 @@ GetComputeQuotaScheduleResponse Client::getComputeQuotaSchedule(const string &ni
 GetJobInfoResponse Client::getJobInfoWithOptions(const string &instanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetJobInfo"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Http::URL::percentEncode(instanceId) , "/info")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/info")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetJobInfoResponse>();
 }
 
@@ -933,7 +941,7 @@ GetJobResourceUsageResponse Client::getJobResourceUsageWithOptions(const GetJobR
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetJobResourceUsage"},
     {"version" , "2022-01-04"},
@@ -944,7 +952,7 @@ GetJobResourceUsageResponse Client::getJobResourceUsageWithOptions(const GetJobR
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetJobResourceUsageResponse>();
 }
 
@@ -970,18 +978,18 @@ GetJobResourceUsageResponse Client::getJobResourceUsage(const GetJobResourceUsag
 GetMmsAsyncTaskResponse Client::getMmsAsyncTaskWithOptions(const string &sourceId, const string &asyncTaskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetMmsAsyncTask"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId) , "/asyncTasks/" , Darabonba::Http::URL::percentEncode(asyncTaskId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/asyncTasks/" , Darabonba::Encode::Encoder::percentEncode(asyncTaskId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMmsAsyncTaskResponse>();
 }
 
@@ -1018,18 +1026,18 @@ GetMmsDataSourceResponse Client::getMmsDataSourceWithOptions(const string &sourc
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetMmsDataSource"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMmsDataSourceResponse>();
 }
 
@@ -1055,18 +1063,18 @@ GetMmsDataSourceResponse Client::getMmsDataSource(const string &sourceId, const 
 GetMmsDbResponse Client::getMmsDbWithOptions(const string &sourceId, const string &dbId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetMmsDb"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId) , "/dbs/" , Darabonba::Http::URL::percentEncode(dbId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/dbs/" , Darabonba::Encode::Encoder::percentEncode(dbId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMmsDbResponse>();
 }
 
@@ -1091,18 +1099,18 @@ GetMmsDbResponse Client::getMmsDb(const string &sourceId, const string &dbId) {
 GetMmsFetchMetadataJobResponse Client::getMmsFetchMetadataJobWithOptions(const string &sourceId, const string &scanId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetMmsFetchMetadataJob"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId) , "/scans/" , Darabonba::Http::URL::percentEncode(scanId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/scans/" , Darabonba::Encode::Encoder::percentEncode(scanId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMmsFetchMetadataJobResponse>();
 }
 
@@ -1127,18 +1135,18 @@ GetMmsFetchMetadataJobResponse Client::getMmsFetchMetadataJob(const string &sour
 GetMmsJobResponse Client::getMmsJobWithOptions(const string &sourceId, const string &jobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetMmsJob"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId) , "/jobs/" , Darabonba::Http::URL::percentEncode(jobId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/jobs/" , Darabonba::Encode::Encoder::percentEncode(jobId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMmsJobResponse>();
 }
 
@@ -1163,18 +1171,18 @@ GetMmsJobResponse Client::getMmsJob(const string &sourceId, const string &jobId)
 GetMmsPartitionResponse Client::getMmsPartitionWithOptions(const string &sourceId, const string &partitionId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetMmsPartition"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId) , "/partitions/" , Darabonba::Http::URL::percentEncode(partitionId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/partitions/" , Darabonba::Encode::Encoder::percentEncode(partitionId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMmsPartitionResponse>();
 }
 
@@ -1199,18 +1207,18 @@ GetMmsPartitionResponse Client::getMmsPartition(const string &sourceId, const st
 GetMmsTableResponse Client::getMmsTableWithOptions(const string &sourceId, const string &tableId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetMmsTable"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId) , "/tables/" , Darabonba::Http::URL::percentEncode(tableId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/tables/" , Darabonba::Encode::Encoder::percentEncode(tableId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMmsTableResponse>();
 }
 
@@ -1235,18 +1243,18 @@ GetMmsTableResponse Client::getMmsTable(const string &sourceId, const string &ta
 GetMmsTaskResponse Client::getMmsTaskWithOptions(const string &sourceId, const string &taskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetMmsTask"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId) , "/tasks/" , Darabonba::Http::URL::percentEncode(taskId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/tasks/" , Darabonba::Encode::Encoder::percentEncode(taskId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMmsTaskResponse>();
 }
 
@@ -1279,18 +1287,18 @@ GetPackageResponse Client::getPackageWithOptions(const string &projectName, cons
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetPackage"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Http::URL::percentEncode(projectName) , "/packages/" , Darabonba::Http::URL::percentEncode(packageName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/packages/" , Darabonba::Encode::Encoder::percentEncode(packageName))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetPackageResponse>();
 }
 
@@ -1324,18 +1332,18 @@ GetProjectResponse Client::getProjectWithOptions(const string &projectName, cons
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetProject"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Http::URL::percentEncode(projectName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetProjectResponse>();
 }
 
@@ -1381,18 +1389,18 @@ GetQuotaResponse Client::getQuotaWithOptions(const string &nickname, const GetQu
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetQuota"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(nickname))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(nickname))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetQuotaResponse>();
 }
 
@@ -1430,18 +1438,18 @@ GetQuotaPlanResponse Client::getQuotaPlanWithOptions(const string &nickname, con
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetQuotaPlan"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(nickname) , "/plans/" , Darabonba::Http::URL::percentEncode(planName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(nickname) , "/plans/" , Darabonba::Encode::Encoder::percentEncode(planName))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetQuotaPlanResponse>();
 }
 
@@ -1483,18 +1491,18 @@ GetQuotaScheduleResponse Client::getQuotaScheduleWithOptions(const string &nickn
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetQuotaSchedule"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(nickname) , "/schedule")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(nickname) , "/schedule")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetQuotaScheduleResponse>();
 }
 
@@ -1570,18 +1578,18 @@ GetQuotaUsageResponse Client::getQuotaUsageWithOptions(const string &nickname, c
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetQuotaUsage"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(nickname) , "/usage")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(nickname) , "/usage")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetQuotaUsageResponse>();
 }
 
@@ -1607,18 +1615,18 @@ GetQuotaUsageResponse Client::getQuotaUsage(const string &nickname, const GetQuo
 GetRoleAclResponse Client::getRoleAclWithOptions(const string &projectName, const string &roleName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetRoleAcl"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Http::URL::percentEncode(projectName) , "/roles/" , Darabonba::Http::URL::percentEncode(roleName) , "/roleAcl")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/roles/" , Darabonba::Encode::Encoder::percentEncode(roleName) , "/roleAcl")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetRoleAclResponse>();
 }
 
@@ -1655,18 +1663,18 @@ GetRoleAclOnObjectResponse Client::getRoleAclOnObjectWithOptions(const string &p
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetRoleAclOnObject"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Http::URL::percentEncode(projectName) , "/roles/" , Darabonba::Http::URL::percentEncode(roleName) , "/acl")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/roles/" , Darabonba::Encode::Encoder::percentEncode(roleName) , "/acl")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetRoleAclOnObjectResponse>();
 }
 
@@ -1692,18 +1700,18 @@ GetRoleAclOnObjectResponse Client::getRoleAclOnObject(const string &projectName,
 GetRolePolicyResponse Client::getRolePolicyWithOptions(const string &projectName, const string &roleName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetRolePolicy"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Http::URL::percentEncode(projectName) , "/roles/" , Darabonba::Http::URL::percentEncode(roleName) , "/policy")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/roles/" , Darabonba::Encode::Encoder::percentEncode(roleName) , "/policy")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetRolePolicyResponse>();
 }
 
@@ -1766,7 +1774,7 @@ GetRunningJobsResponse Client::getRunningJobsWithOptions(const GetRunningJobsReq
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetRunningJobs"},
     {"version" , "2022-01-04"},
@@ -1777,7 +1785,7 @@ GetRunningJobsResponse Client::getRunningJobsWithOptions(const GetRunningJobsReq
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetRunningJobsResponse>();
 }
 
@@ -1817,7 +1825,7 @@ GetStorageAmountSummaryResponse Client::getStorageAmountSummaryWithOptions(const
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetStorageAmountSummary"},
     {"version" , "2022-01-04"},
@@ -1828,7 +1836,7 @@ GetStorageAmountSummaryResponse Client::getStorageAmountSummaryWithOptions(const
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetStorageAmountSummaryResponse>();
 }
 
@@ -1866,7 +1874,7 @@ GetStorageSizeSummaryResponse Client::getStorageSizeSummaryWithOptions(const Get
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetStorageSizeSummary"},
     {"version" , "2022-01-04"},
@@ -1877,7 +1885,7 @@ GetStorageSizeSummaryResponse Client::getStorageSizeSummaryWithOptions(const Get
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetStorageSizeSummaryResponse>();
 }
 
@@ -1929,18 +1937,18 @@ GetStorageSummaryComparedResponse Client::getStorageSummaryComparedWithOptions(c
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetStorageSummaryCompared"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/observations/analysis/storage/" , Darabonba::Http::URL::percentEncode(type) , "/compared")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/observations/analysis/storage/" , Darabonba::Encode::Encoder::percentEncode(type) , "/compared")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetStorageSummaryComparedResponse>();
 }
 
@@ -1976,18 +1984,18 @@ GetTableInfoResponse Client::getTableInfoWithOptions(const string &projectName, 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetTableInfo"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Http::URL::percentEncode(projectName) , "/tables/" , Darabonba::Http::URL::percentEncode(tableName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/tables/" , Darabonba::Encode::Encoder::percentEncode(tableName))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetTableInfoResponse>();
 }
 
@@ -2013,18 +2021,18 @@ GetTableInfoResponse Client::getTableInfo(const string &projectName, const strin
 GetTrustedProjectsResponse Client::getTrustedProjectsWithOptions(const string &projectName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetTrustedProjects"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Http::URL::percentEncode(projectName) , "/trustedProjects")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/trustedProjects")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetTrustedProjectsResponse>();
 }
 
@@ -2073,7 +2081,7 @@ KillJobsResponse Client::killJobsWithOptions(const KillJobsRequest &request, con
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<KillJobsResponse>();
 }
 
@@ -2158,7 +2166,7 @@ ListComputeMetricsByInstanceResponse Client::listComputeMetricsByInstanceWithOpt
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListComputeMetricsByInstanceResponse>();
 }
 
@@ -2184,18 +2192,18 @@ ListComputeMetricsByInstanceResponse Client::listComputeMetricsByInstance(const 
 ListComputeQuotaPlanResponse Client::listComputeQuotaPlanWithOptions(const string &nickname, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListComputeQuotaPlan"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(nickname) , "/computeQuotaPlan")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(nickname) , "/computeQuotaPlan")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListComputeQuotaPlanResponse>();
 }
 
@@ -2240,18 +2248,18 @@ ListFunctionsResponse Client::listFunctionsWithOptions(const string &projectName
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListFunctions"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Http::URL::percentEncode(projectName) , "/functions")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/functions")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListFunctionsResponse>();
 }
 
@@ -2374,7 +2382,7 @@ ListJobInfosResponse Client::listJobInfosWithOptions(const ListJobInfosRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListJobInfosResponse>();
 }
 
@@ -2449,7 +2457,7 @@ ListJobMetricResponse Client::listJobMetricWithOptions(const ListJobMetricReques
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListJobMetricResponse>();
 }
 
@@ -2568,7 +2576,7 @@ ListJobSnapshotInfosResponse Client::listJobSnapshotInfosWithOptions(const ListJ
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListJobSnapshotInfosResponse>();
 }
 
@@ -2618,7 +2626,7 @@ ListMmsDataSourcesResponse Client::listMmsDataSourcesWithOptions(const ListMmsDa
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListMmsDataSources"},
     {"version" , "2022-01-04"},
@@ -2629,7 +2637,7 @@ ListMmsDataSourcesResponse Client::listMmsDataSourcesWithOptions(const ListMmsDa
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMmsDataSourcesResponse>();
 }
 
@@ -2685,18 +2693,18 @@ ListMmsDbsResponse Client::listMmsDbsWithOptions(const string &sourceId, const L
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListMmsDbs"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId) , "/dbs")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/dbs")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMmsDbsResponse>();
 }
 
@@ -2766,18 +2774,18 @@ ListMmsJobsResponse Client::listMmsJobsWithOptions(const string &sourceId, const
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListMmsJobs"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId) , "/jobs")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/jobs")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMmsJobsResponse>();
 }
 
@@ -2838,6 +2846,10 @@ ListMmsPartitionsResponse Client::listMmsPartitionsWithOptions(const string &sou
     query["status"] = request.statusShrink();
   }
 
+  if (!!request.hasTableId()) {
+    query["tableId"] = request.tableId();
+  }
+
   if (!!request.hasTableName()) {
     query["tableName"] = request.tableName();
   }
@@ -2857,18 +2869,18 @@ ListMmsPartitionsResponse Client::listMmsPartitionsWithOptions(const string &sou
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListMmsPartitions"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId) , "/partitions")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/partitions")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMmsPartitionsResponse>();
 }
 
@@ -2907,6 +2919,18 @@ ListMmsTablesResponse Client::listMmsTablesWithOptions(const string &sourceId, c
 
   if (!!request.hasDbName()) {
     query["dbName"] = request.dbName();
+  }
+
+  if (!!request.hasDstName()) {
+    query["dstName"] = request.dstName();
+  }
+
+  if (!!request.hasDstProjectName()) {
+    query["dstProjectName"] = request.dstProjectName();
+  }
+
+  if (!!request.hasDstSchemaName()) {
+    query["dstSchemaName"] = request.dstSchemaName();
   }
 
   if (!!request.hasHasPartitions()) {
@@ -2952,18 +2976,18 @@ ListMmsTablesResponse Client::listMmsTablesWithOptions(const string &sourceId, c
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListMmsTables"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId) , "/tables")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/tables")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMmsTablesResponse>();
 }
 
@@ -2989,18 +3013,18 @@ ListMmsTablesResponse Client::listMmsTables(const string &sourceId, const ListMm
 ListMmsTaskLogsResponse Client::listMmsTaskLogsWithOptions(const string &sourceId, const string &taskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListMmsTaskLogs"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId) , "/tasks/" , Darabonba::Http::URL::percentEncode(taskId) , "/logs")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/tasks/" , Darabonba::Encode::Encoder::percentEncode(taskId) , "/logs")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMmsTaskLogsResponse>();
 }
 
@@ -3073,18 +3097,18 @@ ListMmsTasksResponse Client::listMmsTasksWithOptions(const string &sourceId, con
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListMmsTasks"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId) , "/tasks")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/tasks")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMmsTasksResponse>();
 }
 
@@ -3110,18 +3134,18 @@ ListMmsTasksResponse Client::listMmsTasks(const string &sourceId, const ListMmsT
 ListPackagesResponse Client::listPackagesWithOptions(const string &projectName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListPackages"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Http::URL::percentEncode(projectName) , "/packages")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/packages")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListPackagesResponse>();
 }
 
@@ -3146,18 +3170,18 @@ ListPackagesResponse Client::listPackages(const string &projectName) {
 ListProjectUsersResponse Client::listProjectUsersWithOptions(const string &projectName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListProjectUsers"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Http::URL::percentEncode(projectName) , "/users")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/users")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListProjectUsersResponse>();
 }
 
@@ -3226,7 +3250,7 @@ ListProjectsResponse Client::listProjectsWithOptions(const ListProjectsRequest &
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListProjects"},
     {"version" , "2022-01-04"},
@@ -3237,7 +3261,7 @@ ListProjectsResponse Client::listProjectsWithOptions(const ListProjectsRequest &
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListProjectsResponse>();
 }
 
@@ -3295,7 +3319,7 @@ ListQuotasResponse Client::listQuotasWithOptions(const ListQuotasRequest &reques
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListQuotas"},
     {"version" , "2022-01-04"},
@@ -3306,7 +3330,7 @@ ListQuotasResponse Client::listQuotasWithOptions(const ListQuotasRequest &reques
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListQuotasResponse>();
 }
 
@@ -3344,18 +3368,18 @@ ListQuotasPlansResponse Client::listQuotasPlansWithOptions(const string &nicknam
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListQuotasPlans"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(nickname) , "/plans")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(nickname) , "/plans")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListQuotasPlansResponse>();
 }
 
@@ -3401,18 +3425,18 @@ ListResourcesResponse Client::listResourcesWithOptions(const string &projectName
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListResources"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Http::URL::percentEncode(projectName) , "/resources")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/resources")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListResourcesResponse>();
 }
 
@@ -3438,18 +3462,18 @@ ListResourcesResponse Client::listResources(const string &projectName, const Lis
 ListRolesResponse Client::listRolesWithOptions(const string &projectName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListRoles"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Http::URL::percentEncode(projectName) , "/roles")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/roles")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListRolesResponse>();
 }
 
@@ -3524,18 +3548,18 @@ ListStoragePartitionsInfoResponse Client::listStoragePartitionsInfoWithOptions(c
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListStoragePartitionsInfo"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/observations/analysis/storage/projects/" , Darabonba::Http::URL::percentEncode(project) , "/tables/" , Darabonba::Http::URL::percentEncode(table) , "/partitionsInfo")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/observations/analysis/storage/projects/" , Darabonba::Encode::Encoder::percentEncode(project) , "/tables/" , Darabonba::Encode::Encoder::percentEncode(table) , "/partitionsInfo")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListStoragePartitionsInfoResponse>();
 }
 
@@ -3599,7 +3623,7 @@ ListStorageProjectsInfoResponse Client::listStorageProjectsInfoWithOptions(const
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListStorageProjectsInfo"},
     {"version" , "2022-01-04"},
@@ -3610,7 +3634,7 @@ ListStorageProjectsInfoResponse Client::listStorageProjectsInfoWithOptions(const
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListStorageProjectsInfoResponse>();
 }
 
@@ -3688,18 +3712,18 @@ ListStorageTablesInfoResponse Client::listStorageTablesInfoWithOptions(const str
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListStorageTablesInfo"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/observations/analysis/storage/projects/" , Darabonba::Http::URL::percentEncode(project) , "/tablesInfo")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/observations/analysis/storage/projects/" , Darabonba::Encode::Encoder::percentEncode(project) , "/tablesInfo")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListStorageTablesInfoResponse>();
 }
 
@@ -3749,18 +3773,18 @@ ListTablesResponse Client::listTablesWithOptions(const string &projectName, cons
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListTables"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Http::URL::percentEncode(projectName) , "/tables")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/tables")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTablesResponse>();
 }
 
@@ -3786,18 +3810,18 @@ ListTablesResponse Client::listTables(const string &projectName, const ListTable
 ListTunnelQuotaTimerResponse Client::listTunnelQuotaTimerWithOptions(const string &nickname, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListTunnelQuotaTimer"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tunnel/" , Darabonba::Http::URL::percentEncode(nickname) , "/timers")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tunnel/" , Darabonba::Encode::Encoder::percentEncode(nickname) , "/timers")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTunnelQuotaTimerResponse>();
 }
 
@@ -3834,7 +3858,7 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListUsers"},
     {"version" , "2022-01-04"},
@@ -3845,7 +3869,7 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListUsersResponse>();
 }
 
@@ -3871,18 +3895,18 @@ ListUsersResponse Client::listUsers(const ListUsersRequest &request) {
 ListUsersByRoleResponse Client::listUsersByRoleWithOptions(const string &projectName, const string &roleName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListUsersByRole"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Http::URL::percentEncode(projectName) , "/roles/" , Darabonba::Http::URL::percentEncode(roleName) , "/users")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/roles/" , Darabonba::Encode::Encoder::percentEncode(roleName) , "/users")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListUsersByRoleResponse>();
 }
 
@@ -3927,18 +3951,18 @@ QueryQuotaResponse Client::queryQuotaWithOptions(const string &nickname, const Q
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "QueryQuota"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(nickname) , "/query")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(nickname) , "/query")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryQuotaResponse>();
 }
 
@@ -3952,6 +3976,73 @@ QueryQuotaResponse Client::queryQuota(const string &nickname, const QueryQuotaRe
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return queryQuotaWithOptions(nickname, request, headers, runtime);
+}
+
+/**
+ * @summary 查询quota的资源使用信息
+ *
+ * @param request QueryQuotaMetricRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryQuotaMetricResponse
+ */
+QueryQuotaMetricResponse Client::queryQuotaMetricWithOptions(const string &metric, const QueryQuotaMetricRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["endTime"] = request.endTime();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["startTime"] = request.startTime();
+  }
+
+  if (!!request.hasStrategy()) {
+    query["strategy"] = request.strategy();
+  }
+
+  json body = {};
+  if (!!request.hasInterval()) {
+    body["interval"] = request.interval();
+  }
+
+  if (!!request.hasNickname()) {
+    body["nickname"] = request.nickname();
+  }
+
+  if (!!request.hasSubQuotaNickname()) {
+    body["subQuotaNickname"] = request.subQuotaNickname();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "QueryQuotaMetric"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/observations/quota/" , Darabonba::Encode::Encoder::percentEncode(metric))},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryQuotaMetricResponse>();
+}
+
+/**
+ * @summary 查询quota的资源使用信息
+ *
+ * @param request QueryQuotaMetricRequest
+ * @return QueryQuotaMetricResponse
+ */
+QueryQuotaMetricResponse Client::queryQuotaMetric(const string &metric, const QueryQuotaMetricRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return queryQuotaMetricWithOptions(metric, request, headers, runtime);
 }
 
 /**
@@ -3991,13 +4082,13 @@ QueryStorageMetricResponse Client::queryStorageMetricWithOptions(const string &m
     {"action" , "QueryStorageMetric"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/observations/storage/" , Darabonba::Http::URL::percentEncode(metric))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/observations/storage/" , Darabonba::Encode::Encoder::percentEncode(metric))},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryStorageMetricResponse>();
 }
 
@@ -4074,13 +4165,13 @@ QueryTunnelMetricResponse Client::queryTunnelMetricWithOptions(const string &met
     {"action" , "QueryTunnelMetric"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/observations/tunnel/" , Darabonba::Http::URL::percentEncode(metric))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/observations/tunnel/" , Darabonba::Encode::Encoder::percentEncode(metric))},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryTunnelMetricResponse>();
 }
 
@@ -4157,13 +4248,13 @@ QueryTunnelMetricDetailResponse Client::queryTunnelMetricDetailWithOptions(const
     {"action" , "QueryTunnelMetricDetail"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/observations/tunnel/" , Darabonba::Http::URL::percentEncode(metric) , "/detail")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/observations/tunnel/" , Darabonba::Encode::Encoder::percentEncode(metric) , "/detail")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryTunnelMetricDetailResponse>();
 }
 
@@ -4189,18 +4280,18 @@ QueryTunnelMetricDetailResponse Client::queryTunnelMetricDetail(const string &me
 RetryMmsJobResponse Client::retryMmsJobWithOptions(const string &sourceId, const string &jobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "RetryMmsJob"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId) , "/jobs/" , Darabonba::Http::URL::percentEncode(jobId) , "/retry")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/jobs/" , Darabonba::Encode::Encoder::percentEncode(jobId) , "/retry")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RetryMmsJobResponse>();
 }
 
@@ -4225,18 +4316,18 @@ RetryMmsJobResponse Client::retryMmsJob(const string &sourceId, const string &jo
 StartMmsJobResponse Client::startMmsJobWithOptions(const string &sourceId, const string &jobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StartMmsJob"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId) , "/jobs/" , Darabonba::Http::URL::percentEncode(jobId) , "/start")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/jobs/" , Darabonba::Encode::Encoder::percentEncode(jobId) , "/start")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StartMmsJobResponse>();
 }
 
@@ -4261,18 +4352,18 @@ StartMmsJobResponse Client::startMmsJob(const string &sourceId, const string &jo
 StopMmsJobResponse Client::stopMmsJobWithOptions(const string &sourceId, const string &jobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StopMmsJob"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId) , "/jobs/" , Darabonba::Http::URL::percentEncode(jobId) , "/stop")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/jobs/" , Darabonba::Encode::Encoder::percentEncode(jobId) , "/stop")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StopMmsJobResponse>();
 }
 
@@ -4334,7 +4425,7 @@ SumStorageMetricsByDateResponse Client::sumStorageMetricsByDateWithOptions(const
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SumStorageMetricsByDateResponse>();
 }
 
@@ -4378,13 +4469,13 @@ UpdateComputeQuotaPlanResponse Client::updateComputeQuotaPlanWithOptions(const s
     {"action" , "UpdateComputeQuotaPlan"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(nickname) , "/computeQuotaPlan")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(nickname) , "/computeQuotaPlan")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateComputeQuotaPlanResponse>();
 }
 
@@ -4430,13 +4521,13 @@ UpdateComputeQuotaScheduleResponse Client::updateComputeQuotaScheduleWithOptions
     {"action" , "UpdateComputeQuotaSchedule"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(nickname) , "/computeQuotaSchedule")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(nickname) , "/computeQuotaSchedule")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateComputeQuotaScheduleResponse>();
 }
 
@@ -4478,13 +4569,13 @@ UpdateComputeSubQuotaResponse Client::updateComputeSubQuotaWithOptions(const str
     {"action" , "UpdateComputeSubQuota"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(nickname) , "/computeSubQuota")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(nickname) , "/computeSubQuota")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateComputeSubQuotaResponse>();
 }
 
@@ -4535,13 +4626,13 @@ UpdateMmsDataSourceResponse Client::updateMmsDataSourceWithOptions(const string 
     {"action" , "UpdateMmsDataSource"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Http::URL::percentEncode(sourceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateMmsDataSourceResponse>();
 }
 
@@ -4575,13 +4666,13 @@ UpdatePackageResponse Client::updatePackageWithOptions(const string &projectName
     {"action" , "UpdatePackage"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Http::URL::percentEncode(projectName) , "/packages/" , Darabonba::Http::URL::percentEncode(packageName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/packages/" , Darabonba::Encode::Encoder::percentEncode(packageName))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdatePackageResponse>();
 }
 
@@ -4624,13 +4715,13 @@ UpdateProjectBasicMetaResponse Client::updateProjectBasicMetaWithOptions(const s
     {"action" , "UpdateProjectBasicMeta"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Http::URL::percentEncode(projectName) , "/meta")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/meta")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateProjectBasicMetaResponse>();
 }
 
@@ -4669,13 +4760,13 @@ UpdateProjectDefaultQuotaResponse Client::updateProjectDefaultQuotaWithOptions(c
     {"action" , "UpdateProjectDefaultQuota"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Http::URL::percentEncode(projectName) , "/quota")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/quota")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateProjectDefaultQuotaResponse>();
 }
 
@@ -4709,13 +4800,13 @@ UpdateProjectIpWhiteListResponse Client::updateProjectIpWhiteListWithOptions(con
     {"action" , "UpdateProjectIpWhiteList"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Http::URL::percentEncode(projectName) , "/ipWhiteList")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/ipWhiteList")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateProjectIpWhiteListResponse>();
 }
 
@@ -4759,13 +4850,13 @@ UpdateQuotaPlanResponse Client::updateQuotaPlanWithOptions(const string &nicknam
     {"action" , "UpdateQuotaPlan"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(nickname) , "/plans/" , Darabonba::Http::URL::percentEncode(planName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(nickname) , "/plans/" , Darabonba::Encode::Encoder::percentEncode(planName))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateQuotaPlanResponse>();
 }
 
@@ -4809,13 +4900,13 @@ UpdateQuotaScheduleResponse Client::updateQuotaScheduleWithOptions(const string 
     {"action" , "UpdateQuotaSchedule"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Http::URL::percentEncode(nickname) , "/schedule")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/quotas/" , Darabonba::Encode::Encoder::percentEncode(nickname) , "/schedule")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateQuotaScheduleResponse>();
 }
 
@@ -4857,13 +4948,13 @@ UpdateTunnelQuotaTimerResponse Client::updateTunnelQuotaTimerWithOptions(const s
     {"action" , "UpdateTunnelQuotaTimer"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tunnel/" , Darabonba::Http::URL::percentEncode(nickname) , "/timers")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tunnel/" , Darabonba::Encode::Encoder::percentEncode(nickname) , "/timers")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateTunnelQuotaTimerResponse>();
 }
 
@@ -4908,13 +4999,13 @@ UpdateUsersToRoleResponse Client::updateUsersToRoleWithOptions(const string &pro
     {"action" , "UpdateUsersToRole"},
     {"version" , "2022-01-04"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Http::URL::percentEncode(projectName) , "/roles/" , Darabonba::Http::URL::percentEncode(roleName) , "/users")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/roles/" , Darabonba::Encode::Encoder::percentEncode(roleName) , "/users")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateUsersToRoleResponse>();
 }
 

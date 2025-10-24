@@ -13,8 +13,12 @@ namespace Models
   class GetMmsPartitionResponseBodyData : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetMmsPartitionResponseBodyData& obj) { 
-      DARABONBA_PTR_TO_JSON(DbId, dbId_);
+      DARABONBA_PTR_TO_JSON(dbId, dbId_);
       DARABONBA_PTR_TO_JSON(dbName, dbName_);
+      DARABONBA_PTR_TO_JSON(dstProjectName, dstProjectName_);
+      DARABONBA_PTR_TO_JSON(dstSchemaName, dstSchemaName_);
+      DARABONBA_PTR_TO_JSON(dstTableName, dstTableName_);
+      DARABONBA_PTR_TO_JSON(dstValue, dstValue_);
       DARABONBA_PTR_TO_JSON(id, id_);
       DARABONBA_PTR_TO_JSON(lastDdlTime, lastDdlTime_);
       DARABONBA_PTR_TO_JSON(numRows, numRows_);
@@ -28,8 +32,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(value, value_);
     };
     friend void from_json(const Darabonba::Json& j, GetMmsPartitionResponseBodyData& obj) { 
-      DARABONBA_PTR_FROM_JSON(DbId, dbId_);
+      DARABONBA_PTR_FROM_JSON(dbId, dbId_);
       DARABONBA_PTR_FROM_JSON(dbName, dbName_);
+      DARABONBA_PTR_FROM_JSON(dstProjectName, dstProjectName_);
+      DARABONBA_PTR_FROM_JSON(dstSchemaName, dstSchemaName_);
+      DARABONBA_PTR_FROM_JSON(dstTableName, dstTableName_);
+      DARABONBA_PTR_FROM_JSON(dstValue, dstValue_);
       DARABONBA_PTR_FROM_JSON(id, id_);
       DARABONBA_PTR_FROM_JSON(lastDdlTime, lastDdlTime_);
       DARABONBA_PTR_FROM_JSON(numRows, numRows_);
@@ -53,10 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dbId_ != nullptr
-        && this->dbName_ != nullptr && this->id_ != nullptr && this->lastDdlTime_ != nullptr && this->numRows_ != nullptr && this->size_ != nullptr
-        && this->sourceId_ != nullptr && this->sourceName_ != nullptr && this->status_ != nullptr && this->tableId_ != nullptr && this->tableName_ != nullptr
-        && this->updated_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->dbId_ == nullptr
+        && return this->dbName_ == nullptr && return this->dstProjectName_ == nullptr && return this->dstSchemaName_ == nullptr && return this->dstTableName_ == nullptr && return this->dstValue_ == nullptr
+        && return this->id_ == nullptr && return this->lastDdlTime_ == nullptr && return this->numRows_ == nullptr && return this->size_ == nullptr && return this->sourceId_ == nullptr
+        && return this->sourceName_ == nullptr && return this->status_ == nullptr && return this->tableId_ == nullptr && return this->tableName_ == nullptr && return this->updated_ == nullptr
+        && return this->value_ == nullptr; };
     // dbId Field Functions 
     bool hasDbId() const { return this->dbId_ != nullptr;};
     void deleteDbId() { this->dbId_ = nullptr;};
@@ -69,6 +78,34 @@ namespace Models
     void deleteDbName() { this->dbName_ = nullptr;};
     inline string dbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
     inline GetMmsPartitionResponseBodyData& setDbName(string dbName) { DARABONBA_PTR_SET_VALUE(dbName_, dbName) };
+
+
+    // dstProjectName Field Functions 
+    bool hasDstProjectName() const { return this->dstProjectName_ != nullptr;};
+    void deleteDstProjectName() { this->dstProjectName_ = nullptr;};
+    inline string dstProjectName() const { DARABONBA_PTR_GET_DEFAULT(dstProjectName_, "") };
+    inline GetMmsPartitionResponseBodyData& setDstProjectName(string dstProjectName) { DARABONBA_PTR_SET_VALUE(dstProjectName_, dstProjectName) };
+
+
+    // dstSchemaName Field Functions 
+    bool hasDstSchemaName() const { return this->dstSchemaName_ != nullptr;};
+    void deleteDstSchemaName() { this->dstSchemaName_ = nullptr;};
+    inline string dstSchemaName() const { DARABONBA_PTR_GET_DEFAULT(dstSchemaName_, "") };
+    inline GetMmsPartitionResponseBodyData& setDstSchemaName(string dstSchemaName) { DARABONBA_PTR_SET_VALUE(dstSchemaName_, dstSchemaName) };
+
+
+    // dstTableName Field Functions 
+    bool hasDstTableName() const { return this->dstTableName_ != nullptr;};
+    void deleteDstTableName() { this->dstTableName_ = nullptr;};
+    inline string dstTableName() const { DARABONBA_PTR_GET_DEFAULT(dstTableName_, "") };
+    inline GetMmsPartitionResponseBodyData& setDstTableName(string dstTableName) { DARABONBA_PTR_SET_VALUE(dstTableName_, dstTableName) };
+
+
+    // dstValue Field Functions 
+    bool hasDstValue() const { return this->dstValue_ != nullptr;};
+    void deleteDstValue() { this->dstValue_ = nullptr;};
+    inline string dstValue() const { DARABONBA_PTR_GET_DEFAULT(dstValue_, "") };
+    inline GetMmsPartitionResponseBodyData& setDstValue(string dstValue) { DARABONBA_PTR_SET_VALUE(dstValue_, dstValue) };
 
 
     // id Field Functions 
@@ -151,6 +188,10 @@ namespace Models
   protected:
     std::shared_ptr<int64_t> dbId_ = nullptr;
     std::shared_ptr<string> dbName_ = nullptr;
+    std::shared_ptr<string> dstProjectName_ = nullptr;
+    std::shared_ptr<string> dstSchemaName_ = nullptr;
+    std::shared_ptr<string> dstTableName_ = nullptr;
+    std::shared_ptr<string> dstValue_ = nullptr;
     std::shared_ptr<int64_t> id_ = nullptr;
     // lastDdlTime
     std::shared_ptr<string> lastDdlTime_ = nullptr;

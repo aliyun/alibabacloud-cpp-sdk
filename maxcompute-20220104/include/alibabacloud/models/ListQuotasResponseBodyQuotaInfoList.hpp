@@ -71,11 +71,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->tags_ != nullptr
-        && this->billingPolicy_ != nullptr && this->cluster_ != nullptr && this->createTime_ != nullptr && this->creatorId_ != nullptr && this->id_ != nullptr
-        && this->name_ != nullptr && this->nickName_ != nullptr && this->parameter_ != nullptr && this->parentId_ != nullptr && this->regionId_ != nullptr
-        && this->saleTag_ != nullptr && this->scheduleInfo_ != nullptr && this->status_ != nullptr && this->subQuotaInfoList_ != nullptr && this->tag_ != nullptr
-        && this->tenantId_ != nullptr && this->type_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->tags_ == nullptr
+        && return this->billingPolicy_ == nullptr && return this->cluster_ == nullptr && return this->createTime_ == nullptr && return this->creatorId_ == nullptr && return this->id_ == nullptr
+        && return this->name_ == nullptr && return this->nickName_ == nullptr && return this->parameter_ == nullptr && return this->parentId_ == nullptr && return this->regionId_ == nullptr
+        && return this->saleTag_ == nullptr && return this->scheduleInfo_ == nullptr && return this->status_ == nullptr && return this->subQuotaInfoList_ == nullptr && return this->tag_ == nullptr
+        && return this->tenantId_ == nullptr && return this->type_ == nullptr && return this->version_ == nullptr; };
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};

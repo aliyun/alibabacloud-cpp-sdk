@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableDownloadPrivilege_ != nullptr
-        && this->labelSecurity_ != nullptr && this->objectCreatorHasAccessPermission_ != nullptr && this->objectCreatorHasGrantPermission_ != nullptr && this->projectProtection_ != nullptr && this->usingAcl_ != nullptr
-        && this->usingPolicy_ != nullptr; };
+    virtual bool empty() const override { return this->enableDownloadPrivilege_ == nullptr
+        && return this->labelSecurity_ == nullptr && return this->objectCreatorHasAccessPermission_ == nullptr && return this->objectCreatorHasGrantPermission_ == nullptr && return this->projectProtection_ == nullptr && return this->usingAcl_ == nullptr
+        && return this->usingPolicy_ == nullptr; };
     // enableDownloadPrivilege Field Functions 
     bool hasEnableDownloadPrivilege() const { return this->enableDownloadPrivilege_ != nullptr;};
     void deleteEnableDownloadPrivilege() { this->enableDownloadPrivilege_ = nullptr;};

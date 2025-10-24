@@ -196,6 +196,9 @@
 #include <alibabacloud/models/QueryQuotaRequest.hpp>
 #include <alibabacloud/models/QueryQuotaResponseBody.hpp>
 #include <alibabacloud/models/QueryQuotaResponse.hpp>
+#include <alibabacloud/models/QueryQuotaMetricRequest.hpp>
+#include <alibabacloud/models/QueryQuotaMetricResponseBody.hpp>
+#include <alibabacloud/models/QueryQuotaMetricResponse.hpp>
 #include <alibabacloud/models/QueryStorageMetricRequest.hpp>
 #include <alibabacloud/models/QueryStorageMetricResponseBody.hpp>
 #include <alibabacloud/models/QueryStorageMetricResponse.hpp>
@@ -470,6 +473,8 @@
 #include <alibabacloud/models/QueryQuotaResponseBodyDataSubQuotaInfoListScheduleInfo.hpp>
 #include <alibabacloud/models/QueryQuotaResponseBodyDataSubQuotaInfoList.hpp>
 #include <alibabacloud/models/QueryQuotaResponseBodyData.hpp>
+#include <alibabacloud/models/QueryQuotaMetricResponseBodyDataMetrics.hpp>
+#include <alibabacloud/models/QueryQuotaMetricResponseBodyData.hpp>
 #include <alibabacloud/models/QueryStorageMetricResponseBodyDataMetrics.hpp>
 #include <alibabacloud/models/QueryStorageMetricResponseBodyData.hpp>
 #include <alibabacloud/models/QueryTunnelMetricResponseBodyDataMetrics.hpp>

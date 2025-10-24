@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endDate_ != nullptr
-        && this->instanceId_ != nullptr && this->jobOwner_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->projectNames_ != nullptr
-        && this->region_ != nullptr && this->signature_ != nullptr && this->specCodes_ != nullptr && this->startDate_ != nullptr && this->types_ != nullptr; };
+    virtual bool empty() const override { return this->endDate_ == nullptr
+        && return this->instanceId_ == nullptr && return this->jobOwner_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->projectNames_ == nullptr
+        && return this->region_ == nullptr && return this->signature_ == nullptr && return this->specCodes_ == nullptr && return this->startDate_ == nullptr && return this->types_ == nullptr; };
     // endDate Field Functions 
     bool hasEndDate() const { return this->endDate_ != nullptr;};
     void deleteEndDate() { this->endDate_ = nullptr;};

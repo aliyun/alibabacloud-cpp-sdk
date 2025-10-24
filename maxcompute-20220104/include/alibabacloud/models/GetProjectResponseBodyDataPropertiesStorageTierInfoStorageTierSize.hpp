@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->longTermSize_ != nullptr
-        && this->lowFrequencySize_ != nullptr && this->standardSize_ != nullptr; };
+    virtual bool empty() const override { return this->longTermSize_ == nullptr
+        && return this->lowFrequencySize_ == nullptr && return this->standardSize_ == nullptr; };
     // longTermSize Field Functions 
     bool hasLongTermSize() const { return this->longTermSize_ != nullptr;};
     void deleteLongTermSize() { this->longTermSize_ = nullptr;};
