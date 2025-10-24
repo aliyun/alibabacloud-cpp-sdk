@@ -21,6 +21,7 @@ namespace Models
   class DescribeDesktopsResponseBodyDesktops : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeDesktopsResponseBodyDesktops& obj) { 
+      DARABONBA_PTR_TO_JSON(AccountType, accountType_);
       DARABONBA_PTR_TO_JSON(BindAmount, bindAmount_);
       DARABONBA_PTR_TO_JSON(BundleId, bundleId_);
       DARABONBA_PTR_TO_JSON(BundleName, bundleName_);
@@ -43,6 +44,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DowngradeQuota, downgradeQuota_);
       DARABONBA_PTR_TO_JSON(DowngradedTimes, downgradedTimes_);
       DARABONBA_PTR_TO_JSON(EndUserIds, endUserIds_);
+      DARABONBA_PTR_TO_JSON(EntraDomainName, entraDomainName_);
       DARABONBA_PTR_TO_JSON(ExpiredTime, expiredTime_);
       DARABONBA_PTR_TO_JSON(FotaUpdate, fotaUpdate_);
       DARABONBA_PTR_TO_JSON(GpuCategory, gpuCategory_);
@@ -89,6 +91,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ZoneType, zoneType_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDesktopsResponseBodyDesktops& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccountType, accountType_);
       DARABONBA_PTR_FROM_JSON(BindAmount, bindAmount_);
       DARABONBA_PTR_FROM_JSON(BundleId, bundleId_);
       DARABONBA_PTR_FROM_JSON(BundleName, bundleName_);
@@ -111,6 +114,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DowngradeQuota, downgradeQuota_);
       DARABONBA_PTR_FROM_JSON(DowngradedTimes, downgradedTimes_);
       DARABONBA_PTR_FROM_JSON(EndUserIds, endUserIds_);
+      DARABONBA_PTR_FROM_JSON(EntraDomainName, entraDomainName_);
       DARABONBA_PTR_FROM_JSON(ExpiredTime, expiredTime_);
       DARABONBA_PTR_FROM_JSON(FotaUpdate, fotaUpdate_);
       DARABONBA_PTR_FROM_JSON(GpuCategory, gpuCategory_);
@@ -167,20 +171,28 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->bindAmount_ == nullptr
-        && return this->bundleId_ == nullptr && return this->bundleName_ == nullptr && return this->chargeType_ == nullptr && return this->connectionStatus_ == nullptr && return this->cpu_ == nullptr
-        && return this->creationTime_ == nullptr && return this->dataDiskCategory_ == nullptr && return this->dataDiskSize_ == nullptr && return this->desktopDurationList_ == nullptr && return this->desktopGroupId_ == nullptr
-        && return this->desktopId_ == nullptr && return this->desktopName_ == nullptr && return this->desktopStatus_ == nullptr && return this->desktopType_ == nullptr && return this->directoryId_ == nullptr
-        && return this->directoryType_ == nullptr && return this->disks_ == nullptr && return this->domainType_ == nullptr && return this->downgradeQuota_ == nullptr && return this->downgradedTimes_ == nullptr
-        && return this->endUserIds_ == nullptr && return this->expiredTime_ == nullptr && return this->fotaUpdate_ == nullptr && return this->gpuCategory_ == nullptr && return this->gpuCount_ == nullptr
-        && return this->gpuDriverVersion_ == nullptr && return this->gpuSpec_ == nullptr && return this->hibernationBeta_ == nullptr && return this->hibernationOptionsConfigured_ == nullptr && return this->hostName_ == nullptr
-        && return this->imageId_ == nullptr && return this->isLdap_ == nullptr && return this->managementFlag_ == nullptr && return this->managementFlags_ == nullptr && return this->memory_ == nullptr
-        && return this->networkInterfaceId_ == nullptr && return this->networkInterfaceIp_ == nullptr && return this->officeSiteId_ == nullptr && return this->officeSiteName_ == nullptr && return this->officeSiteType_ == nullptr
-        && return this->officeSiteVpcType_ == nullptr && return this->osType_ == nullptr && return this->osUpdate_ == nullptr && return this->platform_ == nullptr && return this->policyGroupId_ == nullptr
-        && return this->policyGroupIdList_ == nullptr && return this->policyGroupName_ == nullptr && return this->policyGroupNameList_ == nullptr && return this->progress_ == nullptr && return this->protocolType_ == nullptr
-        && return this->resourceGroups_ == nullptr && return this->serialNumber_ == nullptr && return this->sessionType_ == nullptr && return this->sessions_ == nullptr && return this->snapshotPolicyId_ == nullptr
-        && return this->snapshotPolicyName_ == nullptr && return this->standardStartTime_ == nullptr && return this->startTime_ == nullptr && return this->supportHibernation_ == nullptr && return this->systemDiskCategory_ == nullptr
-        && return this->systemDiskSize_ == nullptr && return this->tags_ == nullptr && return this->volumeEncryptionEnabled_ == nullptr && return this->volumeEncryptionKey_ == nullptr && return this->zoneType_ == nullptr; };
+    virtual bool empty() const override { return this->accountType_ == nullptr
+        && return this->bindAmount_ == nullptr && return this->bundleId_ == nullptr && return this->bundleName_ == nullptr && return this->chargeType_ == nullptr && return this->connectionStatus_ == nullptr
+        && return this->cpu_ == nullptr && return this->creationTime_ == nullptr && return this->dataDiskCategory_ == nullptr && return this->dataDiskSize_ == nullptr && return this->desktopDurationList_ == nullptr
+        && return this->desktopGroupId_ == nullptr && return this->desktopId_ == nullptr && return this->desktopName_ == nullptr && return this->desktopStatus_ == nullptr && return this->desktopType_ == nullptr
+        && return this->directoryId_ == nullptr && return this->directoryType_ == nullptr && return this->disks_ == nullptr && return this->domainType_ == nullptr && return this->downgradeQuota_ == nullptr
+        && return this->downgradedTimes_ == nullptr && return this->endUserIds_ == nullptr && return this->entraDomainName_ == nullptr && return this->expiredTime_ == nullptr && return this->fotaUpdate_ == nullptr
+        && return this->gpuCategory_ == nullptr && return this->gpuCount_ == nullptr && return this->gpuDriverVersion_ == nullptr && return this->gpuSpec_ == nullptr && return this->hibernationBeta_ == nullptr
+        && return this->hibernationOptionsConfigured_ == nullptr && return this->hostName_ == nullptr && return this->imageId_ == nullptr && return this->isLdap_ == nullptr && return this->managementFlag_ == nullptr
+        && return this->managementFlags_ == nullptr && return this->memory_ == nullptr && return this->networkInterfaceId_ == nullptr && return this->networkInterfaceIp_ == nullptr && return this->officeSiteId_ == nullptr
+        && return this->officeSiteName_ == nullptr && return this->officeSiteType_ == nullptr && return this->officeSiteVpcType_ == nullptr && return this->osType_ == nullptr && return this->osUpdate_ == nullptr
+        && return this->platform_ == nullptr && return this->policyGroupId_ == nullptr && return this->policyGroupIdList_ == nullptr && return this->policyGroupName_ == nullptr && return this->policyGroupNameList_ == nullptr
+        && return this->progress_ == nullptr && return this->protocolType_ == nullptr && return this->resourceGroups_ == nullptr && return this->serialNumber_ == nullptr && return this->sessionType_ == nullptr
+        && return this->sessions_ == nullptr && return this->snapshotPolicyId_ == nullptr && return this->snapshotPolicyName_ == nullptr && return this->standardStartTime_ == nullptr && return this->startTime_ == nullptr
+        && return this->supportHibernation_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->systemDiskSize_ == nullptr && return this->tags_ == nullptr && return this->volumeEncryptionEnabled_ == nullptr
+        && return this->volumeEncryptionKey_ == nullptr && return this->zoneType_ == nullptr; };
+    // accountType Field Functions 
+    bool hasAccountType() const { return this->accountType_ != nullptr;};
+    void deleteAccountType() { this->accountType_ = nullptr;};
+    inline string accountType() const { DARABONBA_PTR_GET_DEFAULT(accountType_, "") };
+    inline DescribeDesktopsResponseBodyDesktops& setAccountType(string accountType) { DARABONBA_PTR_SET_VALUE(accountType_, accountType) };
+
+
     // bindAmount Field Functions 
     bool hasBindAmount() const { return this->bindAmount_ != nullptr;};
     void deleteBindAmount() { this->bindAmount_ = nullptr;};
@@ -339,6 +351,13 @@ namespace Models
     inline vector<string> endUserIds() { DARABONBA_PTR_GET(endUserIds_, vector<string>) };
     inline DescribeDesktopsResponseBodyDesktops& setEndUserIds(const vector<string> & endUserIds) { DARABONBA_PTR_SET_VALUE(endUserIds_, endUserIds) };
     inline DescribeDesktopsResponseBodyDesktops& setEndUserIds(vector<string> && endUserIds) { DARABONBA_PTR_SET_RVALUE(endUserIds_, endUserIds) };
+
+
+    // entraDomainName Field Functions 
+    bool hasEntraDomainName() const { return this->entraDomainName_ != nullptr;};
+    void deleteEntraDomainName() { this->entraDomainName_ = nullptr;};
+    inline string entraDomainName() const { DARABONBA_PTR_GET_DEFAULT(entraDomainName_, "") };
+    inline DescribeDesktopsResponseBodyDesktops& setEntraDomainName(string entraDomainName) { DARABONBA_PTR_SET_VALUE(entraDomainName_, entraDomainName) };
 
 
     // expiredTime Field Functions 
@@ -666,6 +685,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> accountType_ = nullptr;
     // The number of concurrent sessions of each cloud computer in a multi-session cloud computer pool.
     std::shared_ptr<int32_t> bindAmount_ = nullptr;
     // The ID of the template used to create the cloud computer.
@@ -739,6 +759,7 @@ namespace Models
     std::shared_ptr<int64_t> downgradedTimes_ = nullptr;
     // The end user IDs.
     std::shared_ptr<vector<string>> endUserIds_ = nullptr;
+    std::shared_ptr<string> entraDomainName_ = nullptr;
     // The time when a subscription cloud computer expired.
     std::shared_ptr<string> expiredTime_ = nullptr;
     // The information about the image version of the cloud computer.

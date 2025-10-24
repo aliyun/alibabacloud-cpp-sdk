@@ -19,13 +19,17 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeOfficeSitesResponseBodyOfficeSites& obj) { 
       DARABONBA_PTR_TO_JSON(ADConnectors, ADConnectors_);
       DARABONBA_PTR_TO_JSON(AcceleratorId, acceleratorId_);
+      DARABONBA_PTR_TO_JSON(AccountType, accountType_);
       DARABONBA_PTR_TO_JSON(AdHostname, adHostname_);
+      DARABONBA_PTR_TO_JSON(AuthorityHost, authorityHost_);
       DARABONBA_PTR_TO_JSON(BackupDCHostname, backupDCHostname_);
       DARABONBA_PTR_TO_JSON(BackupDns, backupDns_);
       DARABONBA_PTR_TO_JSON(Bandwidth, bandwidth_);
       DARABONBA_PTR_TO_JSON(CenAttachStatus, cenAttachStatus_);
       DARABONBA_PTR_TO_JSON(CenId, cenId_);
       DARABONBA_PTR_TO_JSON(CidrBlock, cidrBlock_);
+      DARABONBA_PTR_TO_JSON(ClientId, clientId_);
+      DARABONBA_PTR_TO_JSON(ClientSecret, clientSecret_);
       DARABONBA_PTR_TO_JSON(CloudBoxOfficeSite, cloudBoxOfficeSite_);
       DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_TO_JSON(CustomAccessPoint, customAccessPoint_);
@@ -68,6 +72,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SubDnsAddress, subDnsAddress_);
       DARABONBA_PTR_TO_JSON(SubDomainName, subDomainName_);
       DARABONBA_PTR_TO_JSON(SubnetMode, subnetMode_);
+      DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
       DARABONBA_PTR_TO_JSON(TotalEdsCount, totalEdsCount_);
       DARABONBA_PTR_TO_JSON(TotalEdsCountForGroup, totalEdsCountForGroup_);
       DARABONBA_PTR_TO_JSON(TotalResourceAmount, totalResourceAmount_);
@@ -79,13 +84,17 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeOfficeSitesResponseBodyOfficeSites& obj) { 
       DARABONBA_PTR_FROM_JSON(ADConnectors, ADConnectors_);
       DARABONBA_PTR_FROM_JSON(AcceleratorId, acceleratorId_);
+      DARABONBA_PTR_FROM_JSON(AccountType, accountType_);
       DARABONBA_PTR_FROM_JSON(AdHostname, adHostname_);
+      DARABONBA_PTR_FROM_JSON(AuthorityHost, authorityHost_);
       DARABONBA_PTR_FROM_JSON(BackupDCHostname, backupDCHostname_);
       DARABONBA_PTR_FROM_JSON(BackupDns, backupDns_);
       DARABONBA_PTR_FROM_JSON(Bandwidth, bandwidth_);
       DARABONBA_PTR_FROM_JSON(CenAttachStatus, cenAttachStatus_);
       DARABONBA_PTR_FROM_JSON(CenId, cenId_);
       DARABONBA_PTR_FROM_JSON(CidrBlock, cidrBlock_);
+      DARABONBA_PTR_FROM_JSON(ClientId, clientId_);
+      DARABONBA_PTR_FROM_JSON(ClientSecret, clientSecret_);
       DARABONBA_PTR_FROM_JSON(CloudBoxOfficeSite, cloudBoxOfficeSite_);
       DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_FROM_JSON(CustomAccessPoint, customAccessPoint_);
@@ -128,6 +137,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SubDnsAddress, subDnsAddress_);
       DARABONBA_PTR_FROM_JSON(SubDomainName, subDomainName_);
       DARABONBA_PTR_FROM_JSON(SubnetMode, subnetMode_);
+      DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
       DARABONBA_PTR_FROM_JSON(TotalEdsCount, totalEdsCount_);
       DARABONBA_PTR_FROM_JSON(TotalEdsCountForGroup, totalEdsCountForGroup_);
       DARABONBA_PTR_FROM_JSON(TotalResourceAmount, totalResourceAmount_);
@@ -148,16 +158,17 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ADConnectors_ == nullptr
-        && return this->acceleratorId_ == nullptr && return this->adHostname_ == nullptr && return this->backupDCHostname_ == nullptr && return this->backupDns_ == nullptr && return this->bandwidth_ == nullptr
-        && return this->cenAttachStatus_ == nullptr && return this->cenId_ == nullptr && return this->cidrBlock_ == nullptr && return this->cloudBoxOfficeSite_ == nullptr && return this->creationTime_ == nullptr
-        && return this->customAccessPoint_ == nullptr && return this->customDnsAddress_ == nullptr && return this->customSecurityGroupId_ == nullptr && return this->desktopAccessType_ == nullptr && return this->desktopCount_ == nullptr
-        && return this->desktopVpcEndpoint_ == nullptr && return this->dnsAddress_ == nullptr && return this->dnsUserName_ == nullptr && return this->domainName_ == nullptr && return this->domainPassword_ == nullptr
-        && return this->domainUserName_ == nullptr && return this->enableAdminAccess_ == nullptr && return this->enableCrossDesktopAccess_ == nullptr && return this->enableInternetAccess_ == nullptr && return this->enableServiceRoute_ == nullptr
-        && return this->fileSystemIds_ == nullptr && return this->isLdap_ == nullptr && return this->ldapUrl_ == nullptr && return this->logs_ == nullptr && return this->mfaEnabled_ == nullptr
-        && return this->name_ == nullptr && return this->needVerifyLoginRisk_ == nullptr && return this->needVerifyZeroDevice_ == nullptr && return this->networkPackageId_ == nullptr && return this->nmVersion_ == nullptr
-        && return this->officeSiteId_ == nullptr && return this->officeSiteType_ == nullptr && return this->ouName_ == nullptr && return this->protocolType_ == nullptr && return this->rdsLicenseAddress_ == nullptr
-        && return this->rdsLicenseDomainName_ == nullptr && return this->rdsLicenseStatus_ == nullptr && return this->resourceAmounts_ == nullptr && return this->securityProtection_ == nullptr && return this->ssoEnabled_ == nullptr
-        && return this->ssoType_ == nullptr && return this->status_ == nullptr && return this->subDnsAddress_ == nullptr && return this->subDomainName_ == nullptr && return this->subnetMode_ == nullptr
+        && return this->acceleratorId_ == nullptr && return this->accountType_ == nullptr && return this->adHostname_ == nullptr && return this->authorityHost_ == nullptr && return this->backupDCHostname_ == nullptr
+        && return this->backupDns_ == nullptr && return this->bandwidth_ == nullptr && return this->cenAttachStatus_ == nullptr && return this->cenId_ == nullptr && return this->cidrBlock_ == nullptr
+        && return this->clientId_ == nullptr && return this->clientSecret_ == nullptr && return this->cloudBoxOfficeSite_ == nullptr && return this->creationTime_ == nullptr && return this->customAccessPoint_ == nullptr
+        && return this->customDnsAddress_ == nullptr && return this->customSecurityGroupId_ == nullptr && return this->desktopAccessType_ == nullptr && return this->desktopCount_ == nullptr && return this->desktopVpcEndpoint_ == nullptr
+        && return this->dnsAddress_ == nullptr && return this->dnsUserName_ == nullptr && return this->domainName_ == nullptr && return this->domainPassword_ == nullptr && return this->domainUserName_ == nullptr
+        && return this->enableAdminAccess_ == nullptr && return this->enableCrossDesktopAccess_ == nullptr && return this->enableInternetAccess_ == nullptr && return this->enableServiceRoute_ == nullptr && return this->fileSystemIds_ == nullptr
+        && return this->isLdap_ == nullptr && return this->ldapUrl_ == nullptr && return this->logs_ == nullptr && return this->mfaEnabled_ == nullptr && return this->name_ == nullptr
+        && return this->needVerifyLoginRisk_ == nullptr && return this->needVerifyZeroDevice_ == nullptr && return this->networkPackageId_ == nullptr && return this->nmVersion_ == nullptr && return this->officeSiteId_ == nullptr
+        && return this->officeSiteType_ == nullptr && return this->ouName_ == nullptr && return this->protocolType_ == nullptr && return this->rdsLicenseAddress_ == nullptr && return this->rdsLicenseDomainName_ == nullptr
+        && return this->rdsLicenseStatus_ == nullptr && return this->resourceAmounts_ == nullptr && return this->securityProtection_ == nullptr && return this->ssoEnabled_ == nullptr && return this->ssoType_ == nullptr
+        && return this->status_ == nullptr && return this->subDnsAddress_ == nullptr && return this->subDomainName_ == nullptr && return this->subnetMode_ == nullptr && return this->tenantId_ == nullptr
         && return this->totalEdsCount_ == nullptr && return this->totalEdsCountForGroup_ == nullptr && return this->totalResourceAmount_ == nullptr && return this->trustPassword_ == nullptr && return this->vSwitchIds_ == nullptr
         && return this->vpcId_ == nullptr && return this->vpcType_ == nullptr; };
     // ADConnectors Field Functions 
@@ -176,11 +187,25 @@ namespace Models
     inline DescribeOfficeSitesResponseBodyOfficeSites& setAcceleratorId(string acceleratorId) { DARABONBA_PTR_SET_VALUE(acceleratorId_, acceleratorId) };
 
 
+    // accountType Field Functions 
+    bool hasAccountType() const { return this->accountType_ != nullptr;};
+    void deleteAccountType() { this->accountType_ = nullptr;};
+    inline string accountType() const { DARABONBA_PTR_GET_DEFAULT(accountType_, "") };
+    inline DescribeOfficeSitesResponseBodyOfficeSites& setAccountType(string accountType) { DARABONBA_PTR_SET_VALUE(accountType_, accountType) };
+
+
     // adHostname Field Functions 
     bool hasAdHostname() const { return this->adHostname_ != nullptr;};
     void deleteAdHostname() { this->adHostname_ = nullptr;};
     inline string adHostname() const { DARABONBA_PTR_GET_DEFAULT(adHostname_, "") };
     inline DescribeOfficeSitesResponseBodyOfficeSites& setAdHostname(string adHostname) { DARABONBA_PTR_SET_VALUE(adHostname_, adHostname) };
+
+
+    // authorityHost Field Functions 
+    bool hasAuthorityHost() const { return this->authorityHost_ != nullptr;};
+    void deleteAuthorityHost() { this->authorityHost_ = nullptr;};
+    inline string authorityHost() const { DARABONBA_PTR_GET_DEFAULT(authorityHost_, "") };
+    inline DescribeOfficeSitesResponseBodyOfficeSites& setAuthorityHost(string authorityHost) { DARABONBA_PTR_SET_VALUE(authorityHost_, authorityHost) };
 
 
     // backupDCHostname Field Functions 
@@ -223,6 +248,20 @@ namespace Models
     void deleteCidrBlock() { this->cidrBlock_ = nullptr;};
     inline string cidrBlock() const { DARABONBA_PTR_GET_DEFAULT(cidrBlock_, "") };
     inline DescribeOfficeSitesResponseBodyOfficeSites& setCidrBlock(string cidrBlock) { DARABONBA_PTR_SET_VALUE(cidrBlock_, cidrBlock) };
+
+
+    // clientId Field Functions 
+    bool hasClientId() const { return this->clientId_ != nullptr;};
+    void deleteClientId() { this->clientId_ = nullptr;};
+    inline string clientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
+    inline DescribeOfficeSitesResponseBodyOfficeSites& setClientId(string clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
+
+
+    // clientSecret Field Functions 
+    bool hasClientSecret() const { return this->clientSecret_ != nullptr;};
+    void deleteClientSecret() { this->clientSecret_ = nullptr;};
+    inline string clientSecret() const { DARABONBA_PTR_GET_DEFAULT(clientSecret_, "") };
+    inline DescribeOfficeSitesResponseBodyOfficeSites& setClientSecret(string clientSecret) { DARABONBA_PTR_SET_VALUE(clientSecret_, clientSecret) };
 
 
     // cloudBoxOfficeSite Field Functions 
@@ -531,6 +570,13 @@ namespace Models
     inline DescribeOfficeSitesResponseBodyOfficeSites& setSubnetMode(string subnetMode) { DARABONBA_PTR_SET_VALUE(subnetMode_, subnetMode) };
 
 
+    // tenantId Field Functions 
+    bool hasTenantId() const { return this->tenantId_ != nullptr;};
+    void deleteTenantId() { this->tenantId_ = nullptr;};
+    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline DescribeOfficeSitesResponseBodyOfficeSites& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
+
+
     // totalEdsCount Field Functions 
     bool hasTotalEdsCount() const { return this->totalEdsCount_ != nullptr;};
     void deleteTotalEdsCount() { this->totalEdsCount_ = nullptr;};
@@ -587,8 +633,10 @@ namespace Models
     std::shared_ptr<vector<Models::DescribeOfficeSitesResponseBodyOfficeSitesADConnectors>> ADConnectors_ = nullptr;
     // The ID of the GA instance.
     std::shared_ptr<string> acceleratorId_ = nullptr;
+    std::shared_ptr<string> accountType_ = nullptr;
     // The hostname of the domain controller. The hostname must comply with the hostname naming convention of Windows.
     std::shared_ptr<string> adHostname_ = nullptr;
+    std::shared_ptr<string> authorityHost_ = nullptr;
     // The hostname of the secondary domain controller.
     std::shared_ptr<string> backupDCHostname_ = nullptr;
     // The DNS address of the secondary domain controller.
@@ -602,6 +650,8 @@ namespace Models
     std::shared_ptr<string> cenId_ = nullptr;
     // The IPv4 CIDR block of the VPC that the office network uses.
     std::shared_ptr<string> cidrBlock_ = nullptr;
+    std::shared_ptr<string> clientId_ = nullptr;
+    std::shared_ptr<string> clientSecret_ = nullptr;
     // Indicates whether the CloudBox-based office network is created.
     // 
     // Valid values:
@@ -748,6 +798,7 @@ namespace Models
     // *   0: disabled.
     // *   1: enabled.
     std::shared_ptr<string> subnetMode_ = nullptr;
+    std::shared_ptr<string> tenantId_ = nullptr;
     // The total number of cloud computers.
     std::shared_ptr<int64_t> totalEdsCount_ = nullptr;
     // The number of cloud computers in the cloud computer share.

@@ -13,22 +13,32 @@ namespace Models
   class ModifyOfficeSiteAttributeRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyOfficeSiteAttributeRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AuthorityHost, authorityHost_);
+      DARABONBA_PTR_TO_JSON(ClientId, clientId_);
+      DARABONBA_PTR_TO_JSON(ClientSecret, clientSecret_);
       DARABONBA_PTR_TO_JSON(DesktopAccessType, desktopAccessType_);
+      DARABONBA_PTR_TO_JSON(DomainName, domainName_);
       DARABONBA_PTR_TO_JSON(EnableAdminAccess, enableAdminAccess_);
       DARABONBA_PTR_TO_JSON(NeedVerifyLoginRisk, needVerifyLoginRisk_);
       DARABONBA_PTR_TO_JSON(NeedVerifyZeroDevice, needVerifyZeroDevice_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(OfficeSiteName, officeSiteName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyOfficeSiteAttributeRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AuthorityHost, authorityHost_);
+      DARABONBA_PTR_FROM_JSON(ClientId, clientId_);
+      DARABONBA_PTR_FROM_JSON(ClientSecret, clientSecret_);
       DARABONBA_PTR_FROM_JSON(DesktopAccessType, desktopAccessType_);
+      DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
       DARABONBA_PTR_FROM_JSON(EnableAdminAccess, enableAdminAccess_);
       DARABONBA_PTR_FROM_JSON(NeedVerifyLoginRisk, needVerifyLoginRisk_);
       DARABONBA_PTR_FROM_JSON(NeedVerifyZeroDevice, needVerifyZeroDevice_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteName, officeSiteName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
     };
     ModifyOfficeSiteAttributeRequest() = default ;
     ModifyOfficeSiteAttributeRequest(const ModifyOfficeSiteAttributeRequest &) = default ;
@@ -41,14 +51,43 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->desktopAccessType_ == nullptr
-        && return this->enableAdminAccess_ == nullptr && return this->needVerifyLoginRisk_ == nullptr && return this->needVerifyZeroDevice_ == nullptr && return this->officeSiteId_ == nullptr && return this->officeSiteName_ == nullptr
-        && return this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->authorityHost_ == nullptr
+        && return this->clientId_ == nullptr && return this->clientSecret_ == nullptr && return this->desktopAccessType_ == nullptr && return this->domainName_ == nullptr && return this->enableAdminAccess_ == nullptr
+        && return this->needVerifyLoginRisk_ == nullptr && return this->needVerifyZeroDevice_ == nullptr && return this->officeSiteId_ == nullptr && return this->officeSiteName_ == nullptr && return this->regionId_ == nullptr
+        && return this->tenantId_ == nullptr; };
+    // authorityHost Field Functions 
+    bool hasAuthorityHost() const { return this->authorityHost_ != nullptr;};
+    void deleteAuthorityHost() { this->authorityHost_ = nullptr;};
+    inline string authorityHost() const { DARABONBA_PTR_GET_DEFAULT(authorityHost_, "") };
+    inline ModifyOfficeSiteAttributeRequest& setAuthorityHost(string authorityHost) { DARABONBA_PTR_SET_VALUE(authorityHost_, authorityHost) };
+
+
+    // clientId Field Functions 
+    bool hasClientId() const { return this->clientId_ != nullptr;};
+    void deleteClientId() { this->clientId_ = nullptr;};
+    inline string clientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
+    inline ModifyOfficeSiteAttributeRequest& setClientId(string clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
+
+
+    // clientSecret Field Functions 
+    bool hasClientSecret() const { return this->clientSecret_ != nullptr;};
+    void deleteClientSecret() { this->clientSecret_ = nullptr;};
+    inline string clientSecret() const { DARABONBA_PTR_GET_DEFAULT(clientSecret_, "") };
+    inline ModifyOfficeSiteAttributeRequest& setClientSecret(string clientSecret) { DARABONBA_PTR_SET_VALUE(clientSecret_, clientSecret) };
+
+
     // desktopAccessType Field Functions 
     bool hasDesktopAccessType() const { return this->desktopAccessType_ != nullptr;};
     void deleteDesktopAccessType() { this->desktopAccessType_ = nullptr;};
     inline string desktopAccessType() const { DARABONBA_PTR_GET_DEFAULT(desktopAccessType_, "") };
     inline ModifyOfficeSiteAttributeRequest& setDesktopAccessType(string desktopAccessType) { DARABONBA_PTR_SET_VALUE(desktopAccessType_, desktopAccessType) };
+
+
+    // domainName Field Functions 
+    bool hasDomainName() const { return this->domainName_ != nullptr;};
+    void deleteDomainName() { this->domainName_ = nullptr;};
+    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline ModifyOfficeSiteAttributeRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // enableAdminAccess Field Functions 
@@ -93,7 +132,17 @@ namespace Models
     inline ModifyOfficeSiteAttributeRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // tenantId Field Functions 
+    bool hasTenantId() const { return this->tenantId_ != nullptr;};
+    void deleteTenantId() { this->tenantId_ = nullptr;};
+    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline ModifyOfficeSiteAttributeRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
+
+
   protected:
+    std::shared_ptr<string> authorityHost_ = nullptr;
+    std::shared_ptr<string> clientId_ = nullptr;
+    std::shared_ptr<string> clientSecret_ = nullptr;
     // The method to connect to cloud computers from Alibaba Cloud Workspace clients.
     // 
     // >  VPC connection relies on the Alibaba Cloud PrivateLink service. You can use PrivateLink for free. When you set this parameter to `VPC` or `Any`, the system automatically activates PrivateLink.
@@ -104,6 +153,7 @@ namespace Models
     // *   VPC: allows end users to connect to cloud computers over VPCs.
     // *   ANY: allows end users to connect to cloud computers over the Internet and VPCs. When end users connect to cloud computers from Elastic Desktop Service, you can choose a connection method based on your business requirements.
     std::shared_ptr<string> desktopAccessType_ = nullptr;
+    std::shared_ptr<string> domainName_ = nullptr;
     // Specifies whether to grant the local administrator permissions to users that are authorized to use cloud computers in the office network.
     // 
     // Valid values:
@@ -126,6 +176,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
+    std::shared_ptr<string> tenantId_ = nullptr;
   };
 
   } // namespace Models

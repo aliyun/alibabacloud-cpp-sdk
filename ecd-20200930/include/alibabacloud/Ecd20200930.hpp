@@ -2240,6 +2240,23 @@ namespace Ecd20200930
       Models::DescribeFotaTasksResponse describeFotaTasks(const Models::DescribeFotaTasksRequest &request);
 
       /**
+       * @summary 查询全局桌面记录
+       *
+       * @param request DescribeGlobalDesktopRecordsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeGlobalDesktopRecordsResponse
+       */
+      Models::DescribeGlobalDesktopRecordsResponse describeGlobalDesktopRecordsWithOptions(const Models::DescribeGlobalDesktopRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询全局桌面记录
+       *
+       * @param request DescribeGlobalDesktopRecordsRequest
+       * @return DescribeGlobalDesktopRecordsResponse
+       */
+      Models::DescribeGlobalDesktopRecordsResponse describeGlobalDesktopRecords(const Models::DescribeGlobalDesktopRecordsRequest &request);
+
+      /**
        * @summary Queries the applications and their processes of an end user.
        *
        * @param request DescribeGuestApplicationsRequest

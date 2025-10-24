@@ -4737,6 +4737,14 @@ CreateRouteTableResponse Client::createRouteTable(const CreateRouteTableRequest 
 CreateSimpleOfficeSiteResponse Client::createSimpleOfficeSiteWithOptions(const CreateSimpleOfficeSiteRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAccountType()) {
+    query["AccountType"] = request.accountType();
+  }
+
+  if (!!request.hasAuthorityHost()) {
+    query["AuthorityHost"] = request.authorityHost();
+  }
+
   if (!!request.hasBandwidth()) {
     query["Bandwidth"] = request.bandwidth();
   }
@@ -4753,12 +4761,24 @@ CreateSimpleOfficeSiteResponse Client::createSimpleOfficeSiteWithOptions(const C
     query["CidrBlock"] = request.cidrBlock();
   }
 
+  if (!!request.hasClientId()) {
+    query["ClientId"] = request.clientId();
+  }
+
+  if (!!request.hasClientSecret()) {
+    query["ClientSecret"] = request.clientSecret();
+  }
+
   if (!!request.hasCloudBoxOfficeSite()) {
     query["CloudBoxOfficeSite"] = request.cloudBoxOfficeSite();
   }
 
   if (!!request.hasDesktopAccessType()) {
     query["DesktopAccessType"] = request.desktopAccessType();
+  }
+
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.domainName();
   }
 
   if (!!request.hasEnableAdminAccess()) {
@@ -4779,6 +4799,10 @@ CreateSimpleOfficeSiteResponse Client::createSimpleOfficeSiteWithOptions(const C
 
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.tenantId();
   }
 
   if (!!request.hasVSwitchId()) {
@@ -8831,6 +8855,104 @@ DescribeFotaTasksResponse Client::describeFotaTasksWithOptions(const DescribeFot
 DescribeFotaTasksResponse Client::describeFotaTasks(const DescribeFotaTasksRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeFotaTasksWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询全局桌面记录
+ *
+ * @param request DescribeGlobalDesktopRecordsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeGlobalDesktopRecordsResponse
+ */
+DescribeGlobalDesktopRecordsResponse Client::describeGlobalDesktopRecordsWithOptions(const DescribeGlobalDesktopRecordsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDesktopId()) {
+    query["DesktopId"] = request.desktopId();
+  }
+
+  if (!!request.hasDesktopName()) {
+    query["DesktopName"] = request.desktopName();
+  }
+
+  if (!!request.hasDesktopType()) {
+    query["DesktopType"] = request.desktopType();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasEndUserId()) {
+    query["EndUserId"] = request.endUserId();
+  }
+
+  if (!!request.hasOfficeSiteId()) {
+    query["OfficeSiteId"] = request.officeSiteId();
+  }
+
+  if (!!request.hasOrderBy()) {
+    query["OrderBy"] = request.orderBy();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasScope()) {
+    query["Scope"] = request.scope();
+  }
+
+  if (!!request.hasSortType()) {
+    query["SortType"] = request.sortType();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasSubPayType()) {
+    query["SubPayType"] = request.subPayType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeGlobalDesktopRecords"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeGlobalDesktopRecordsResponse>();
+}
+
+/**
+ * @summary 查询全局桌面记录
+ *
+ * @param request DescribeGlobalDesktopRecordsRequest
+ * @return DescribeGlobalDesktopRecordsResponse
+ */
+DescribeGlobalDesktopRecordsResponse Client::describeGlobalDesktopRecords(const DescribeGlobalDesktopRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeGlobalDesktopRecordsWithOptions(request, runtime);
 }
 
 /**
@@ -15503,8 +15625,24 @@ ModifyNetworkPackageEnabledResponse Client::modifyNetworkPackageEnabled(const Mo
 ModifyOfficeSiteAttributeResponse Client::modifyOfficeSiteAttributeWithOptions(const ModifyOfficeSiteAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthorityHost()) {
+    query["AuthorityHost"] = request.authorityHost();
+  }
+
+  if (!!request.hasClientId()) {
+    query["ClientId"] = request.clientId();
+  }
+
+  if (!!request.hasClientSecret()) {
+    query["ClientSecret"] = request.clientSecret();
+  }
+
   if (!!request.hasDesktopAccessType()) {
     query["DesktopAccessType"] = request.desktopAccessType();
+  }
+
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.domainName();
   }
 
   if (!!request.hasEnableAdminAccess()) {
@@ -15529,6 +15667,10 @@ ModifyOfficeSiteAttributeResponse Client::modifyOfficeSiteAttributeWithOptions(c
 
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.tenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

@@ -16,6 +16,7 @@ namespace Models
   class DescribeDesktopGroupsResponseBodyDesktopGroups : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeDesktopGroupsResponseBodyDesktopGroups& obj) { 
+      DARABONBA_PTR_TO_JSON(AccountType, accountType_);
       DARABONBA_PTR_TO_JSON(BindAmount, bindAmount_);
       DARABONBA_PTR_TO_JSON(BuyDesktopsCount, buyDesktopsCount_);
       DARABONBA_PTR_TO_JSON(Comments, comments_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DesktopGroupName, desktopGroupName_);
       DARABONBA_PTR_TO_JSON(DesktopType, desktopType_);
       DARABONBA_PTR_TO_JSON(EndUserCount, endUserCount_);
+      DARABONBA_PTR_TO_JSON(EntraDomainName, entraDomainName_);
       DARABONBA_PTR_TO_JSON(ExpiredTime, expiredTime_);
       DARABONBA_PTR_TO_JSON(ExpiredTimes, expiredTimes_);
       DARABONBA_PTR_TO_JSON(GpuCount, gpuCount_);
@@ -73,6 +75,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VolumeEncryptionKey, volumeEncryptionKey_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDesktopGroupsResponseBodyDesktopGroups& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccountType, accountType_);
       DARABONBA_PTR_FROM_JSON(BindAmount, bindAmount_);
       DARABONBA_PTR_FROM_JSON(BuyDesktopsCount, buyDesktopsCount_);
       DARABONBA_PTR_FROM_JSON(Comments, comments_);
@@ -88,6 +91,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DesktopGroupName, desktopGroupName_);
       DARABONBA_PTR_FROM_JSON(DesktopType, desktopType_);
       DARABONBA_PTR_FROM_JSON(EndUserCount, endUserCount_);
+      DARABONBA_PTR_FROM_JSON(EntraDomainName, entraDomainName_);
       DARABONBA_PTR_FROM_JSON(ExpiredTime, expiredTime_);
       DARABONBA_PTR_FROM_JSON(ExpiredTimes, expiredTimes_);
       DARABONBA_PTR_FROM_JSON(GpuCount, gpuCount_);
@@ -140,18 +144,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->bindAmount_ == nullptr
-        && return this->buyDesktopsCount_ == nullptr && return this->comments_ == nullptr && return this->connectDuration_ == nullptr && return this->countPerStatus_ == nullptr && return this->cpu_ == nullptr
-        && return this->createTime_ == nullptr && return this->creator_ == nullptr && return this->dataDiskCategory_ == nullptr && return this->dataDiskSize_ == nullptr && return this->desktopCount_ == nullptr
-        && return this->desktopGroupId_ == nullptr && return this->desktopGroupName_ == nullptr && return this->desktopType_ == nullptr && return this->endUserCount_ == nullptr && return this->expiredTime_ == nullptr
-        && return this->expiredTimes_ == nullptr && return this->gpuCount_ == nullptr && return this->gpuDriverVersion_ == nullptr && return this->gpuSpec_ == nullptr && return this->idleDisconnectDuration_ == nullptr
-        && return this->imageId_ == nullptr && return this->isLdap_ == nullptr && return this->keepDuration_ == nullptr && return this->loadPolicy_ == nullptr && return this->maxDesktopsCount_ == nullptr
-        && return this->memory_ == nullptr && return this->minDesktopsCount_ == nullptr && return this->officeSiteId_ == nullptr && return this->officeSiteName_ == nullptr && return this->officeSiteType_ == nullptr
-        && return this->osType_ == nullptr && return this->ownBundleId_ == nullptr && return this->ownBundleName_ == nullptr && return this->ownType_ == nullptr && return this->payType_ == nullptr
-        && return this->policyGroupId_ == nullptr && return this->policyGroupIdList_ == nullptr && return this->policyGroupName_ == nullptr && return this->policyGroupNameList_ == nullptr && return this->protocolType_ == nullptr
-        && return this->ratioThreshold_ == nullptr && return this->resetType_ == nullptr && return this->simpleUserGroupId_ == nullptr && return this->status_ == nullptr && return this->stopDuration_ == nullptr
-        && return this->subnetId_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->systemDiskSize_ == nullptr && return this->tags_ == nullptr && return this->userGroupName_ == nullptr
-        && return this->userOuPath_ == nullptr && return this->version_ == nullptr && return this->volumeEncryptionEnabled_ == nullptr && return this->volumeEncryptionKey_ == nullptr; };
+    virtual bool empty() const override { return this->accountType_ == nullptr
+        && return this->bindAmount_ == nullptr && return this->buyDesktopsCount_ == nullptr && return this->comments_ == nullptr && return this->connectDuration_ == nullptr && return this->countPerStatus_ == nullptr
+        && return this->cpu_ == nullptr && return this->createTime_ == nullptr && return this->creator_ == nullptr && return this->dataDiskCategory_ == nullptr && return this->dataDiskSize_ == nullptr
+        && return this->desktopCount_ == nullptr && return this->desktopGroupId_ == nullptr && return this->desktopGroupName_ == nullptr && return this->desktopType_ == nullptr && return this->endUserCount_ == nullptr
+        && return this->entraDomainName_ == nullptr && return this->expiredTime_ == nullptr && return this->expiredTimes_ == nullptr && return this->gpuCount_ == nullptr && return this->gpuDriverVersion_ == nullptr
+        && return this->gpuSpec_ == nullptr && return this->idleDisconnectDuration_ == nullptr && return this->imageId_ == nullptr && return this->isLdap_ == nullptr && return this->keepDuration_ == nullptr
+        && return this->loadPolicy_ == nullptr && return this->maxDesktopsCount_ == nullptr && return this->memory_ == nullptr && return this->minDesktopsCount_ == nullptr && return this->officeSiteId_ == nullptr
+        && return this->officeSiteName_ == nullptr && return this->officeSiteType_ == nullptr && return this->osType_ == nullptr && return this->ownBundleId_ == nullptr && return this->ownBundleName_ == nullptr
+        && return this->ownType_ == nullptr && return this->payType_ == nullptr && return this->policyGroupId_ == nullptr && return this->policyGroupIdList_ == nullptr && return this->policyGroupName_ == nullptr
+        && return this->policyGroupNameList_ == nullptr && return this->protocolType_ == nullptr && return this->ratioThreshold_ == nullptr && return this->resetType_ == nullptr && return this->simpleUserGroupId_ == nullptr
+        && return this->status_ == nullptr && return this->stopDuration_ == nullptr && return this->subnetId_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->systemDiskSize_ == nullptr
+        && return this->tags_ == nullptr && return this->userGroupName_ == nullptr && return this->userOuPath_ == nullptr && return this->version_ == nullptr && return this->volumeEncryptionEnabled_ == nullptr
+        && return this->volumeEncryptionKey_ == nullptr; };
+    // accountType Field Functions 
+    bool hasAccountType() const { return this->accountType_ != nullptr;};
+    void deleteAccountType() { this->accountType_ = nullptr;};
+    inline string accountType() const { DARABONBA_PTR_GET_DEFAULT(accountType_, "") };
+    inline DescribeDesktopGroupsResponseBodyDesktopGroups& setAccountType(string accountType) { DARABONBA_PTR_SET_VALUE(accountType_, accountType) };
+
+
     // bindAmount Field Functions 
     bool hasBindAmount() const { return this->bindAmount_ != nullptr;};
     void deleteBindAmount() { this->bindAmount_ = nullptr;};
@@ -257,6 +269,13 @@ namespace Models
     void deleteEndUserCount() { this->endUserCount_ = nullptr;};
     inline int32_t endUserCount() const { DARABONBA_PTR_GET_DEFAULT(endUserCount_, 0) };
     inline DescribeDesktopGroupsResponseBodyDesktopGroups& setEndUserCount(int32_t endUserCount) { DARABONBA_PTR_SET_VALUE(endUserCount_, endUserCount) };
+
+
+    // entraDomainName Field Functions 
+    bool hasEntraDomainName() const { return this->entraDomainName_ != nullptr;};
+    void deleteEntraDomainName() { this->entraDomainName_ = nullptr;};
+    inline string entraDomainName() const { DARABONBA_PTR_GET_DEFAULT(entraDomainName_, "") };
+    inline DescribeDesktopGroupsResponseBodyDesktopGroups& setEntraDomainName(string entraDomainName) { DARABONBA_PTR_SET_VALUE(entraDomainName_, entraDomainName) };
 
 
     // expiredTime Field Functions 
@@ -548,6 +567,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> accountType_ = nullptr;
     // The number of concurrent sessions allowed for each cloud computer within the multi-session many-to-many share.
     std::shared_ptr<int64_t> bindAmount_ = nullptr;
     // This parameter is applicable only to subscription cloud computer shares. It defines the initial number of cloud computers that are purchased. Valid values: 0 to 200.
@@ -584,6 +604,7 @@ namespace Models
     std::shared_ptr<string> desktopType_ = nullptr;
     // The number of users who can access the cloud computer share.
     std::shared_ptr<int32_t> endUserCount_ = nullptr;
+    std::shared_ptr<string> entraDomainName_ = nullptr;
     // The expiration date of the subscription cloud computer share.
     std::shared_ptr<string> expiredTime_ = nullptr;
     std::shared_ptr<vector<string>> expiredTimes_ = nullptr;

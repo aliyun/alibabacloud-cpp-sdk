@@ -14,33 +14,45 @@ namespace Models
   class CreateSimpleOfficeSiteRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateSimpleOfficeSiteRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AccountType, accountType_);
+      DARABONBA_PTR_TO_JSON(AuthorityHost, authorityHost_);
       DARABONBA_PTR_TO_JSON(Bandwidth, bandwidth_);
       DARABONBA_PTR_TO_JSON(CenId, cenId_);
       DARABONBA_PTR_TO_JSON(CenOwnerId, cenOwnerId_);
       DARABONBA_PTR_TO_JSON(CidrBlock, cidrBlock_);
+      DARABONBA_PTR_TO_JSON(ClientId, clientId_);
+      DARABONBA_PTR_TO_JSON(ClientSecret, clientSecret_);
       DARABONBA_PTR_TO_JSON(CloudBoxOfficeSite, cloudBoxOfficeSite_);
       DARABONBA_PTR_TO_JSON(DesktopAccessType, desktopAccessType_);
+      DARABONBA_PTR_TO_JSON(DomainName, domainName_);
       DARABONBA_PTR_TO_JSON(EnableAdminAccess, enableAdminAccess_);
       DARABONBA_PTR_TO_JSON(EnableInternetAccess, enableInternetAccess_);
       DARABONBA_PTR_TO_JSON(NeedVerifyZeroDevice, needVerifyZeroDevice_);
       DARABONBA_PTR_TO_JSON(OfficeSiteName, officeSiteName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(VerifyCode, verifyCode_);
       DARABONBA_PTR_TO_JSON(VpcType, vpcType_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSimpleOfficeSiteRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccountType, accountType_);
+      DARABONBA_PTR_FROM_JSON(AuthorityHost, authorityHost_);
       DARABONBA_PTR_FROM_JSON(Bandwidth, bandwidth_);
       DARABONBA_PTR_FROM_JSON(CenId, cenId_);
       DARABONBA_PTR_FROM_JSON(CenOwnerId, cenOwnerId_);
       DARABONBA_PTR_FROM_JSON(CidrBlock, cidrBlock_);
+      DARABONBA_PTR_FROM_JSON(ClientId, clientId_);
+      DARABONBA_PTR_FROM_JSON(ClientSecret, clientSecret_);
       DARABONBA_PTR_FROM_JSON(CloudBoxOfficeSite, cloudBoxOfficeSite_);
       DARABONBA_PTR_FROM_JSON(DesktopAccessType, desktopAccessType_);
+      DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
       DARABONBA_PTR_FROM_JSON(EnableAdminAccess, enableAdminAccess_);
       DARABONBA_PTR_FROM_JSON(EnableInternetAccess, enableInternetAccess_);
       DARABONBA_PTR_FROM_JSON(NeedVerifyZeroDevice, needVerifyZeroDevice_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteName, officeSiteName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(VerifyCode, verifyCode_);
       DARABONBA_PTR_FROM_JSON(VpcType, vpcType_);
@@ -56,10 +68,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->bandwidth_ == nullptr
-        && return this->cenId_ == nullptr && return this->cenOwnerId_ == nullptr && return this->cidrBlock_ == nullptr && return this->cloudBoxOfficeSite_ == nullptr && return this->desktopAccessType_ == nullptr
+    virtual bool empty() const override { return this->accountType_ == nullptr
+        && return this->authorityHost_ == nullptr && return this->bandwidth_ == nullptr && return this->cenId_ == nullptr && return this->cenOwnerId_ == nullptr && return this->cidrBlock_ == nullptr
+        && return this->clientId_ == nullptr && return this->clientSecret_ == nullptr && return this->cloudBoxOfficeSite_ == nullptr && return this->desktopAccessType_ == nullptr && return this->domainName_ == nullptr
         && return this->enableAdminAccess_ == nullptr && return this->enableInternetAccess_ == nullptr && return this->needVerifyZeroDevice_ == nullptr && return this->officeSiteName_ == nullptr && return this->regionId_ == nullptr
-        && return this->vSwitchId_ == nullptr && return this->verifyCode_ == nullptr && return this->vpcType_ == nullptr; };
+        && return this->tenantId_ == nullptr && return this->vSwitchId_ == nullptr && return this->verifyCode_ == nullptr && return this->vpcType_ == nullptr; };
+    // accountType Field Functions 
+    bool hasAccountType() const { return this->accountType_ != nullptr;};
+    void deleteAccountType() { this->accountType_ = nullptr;};
+    inline string accountType() const { DARABONBA_PTR_GET_DEFAULT(accountType_, "") };
+    inline CreateSimpleOfficeSiteRequest& setAccountType(string accountType) { DARABONBA_PTR_SET_VALUE(accountType_, accountType) };
+
+
+    // authorityHost Field Functions 
+    bool hasAuthorityHost() const { return this->authorityHost_ != nullptr;};
+    void deleteAuthorityHost() { this->authorityHost_ = nullptr;};
+    inline string authorityHost() const { DARABONBA_PTR_GET_DEFAULT(authorityHost_, "") };
+    inline CreateSimpleOfficeSiteRequest& setAuthorityHost(string authorityHost) { DARABONBA_PTR_SET_VALUE(authorityHost_, authorityHost) };
+
+
     // bandwidth Field Functions 
     bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
     void deleteBandwidth() { this->bandwidth_ = nullptr;};
@@ -88,6 +115,20 @@ namespace Models
     inline CreateSimpleOfficeSiteRequest& setCidrBlock(string cidrBlock) { DARABONBA_PTR_SET_VALUE(cidrBlock_, cidrBlock) };
 
 
+    // clientId Field Functions 
+    bool hasClientId() const { return this->clientId_ != nullptr;};
+    void deleteClientId() { this->clientId_ = nullptr;};
+    inline string clientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
+    inline CreateSimpleOfficeSiteRequest& setClientId(string clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
+
+
+    // clientSecret Field Functions 
+    bool hasClientSecret() const { return this->clientSecret_ != nullptr;};
+    void deleteClientSecret() { this->clientSecret_ = nullptr;};
+    inline string clientSecret() const { DARABONBA_PTR_GET_DEFAULT(clientSecret_, "") };
+    inline CreateSimpleOfficeSiteRequest& setClientSecret(string clientSecret) { DARABONBA_PTR_SET_VALUE(clientSecret_, clientSecret) };
+
+
     // cloudBoxOfficeSite Field Functions 
     bool hasCloudBoxOfficeSite() const { return this->cloudBoxOfficeSite_ != nullptr;};
     void deleteCloudBoxOfficeSite() { this->cloudBoxOfficeSite_ = nullptr;};
@@ -100,6 +141,13 @@ namespace Models
     void deleteDesktopAccessType() { this->desktopAccessType_ = nullptr;};
     inline string desktopAccessType() const { DARABONBA_PTR_GET_DEFAULT(desktopAccessType_, "") };
     inline CreateSimpleOfficeSiteRequest& setDesktopAccessType(string desktopAccessType) { DARABONBA_PTR_SET_VALUE(desktopAccessType_, desktopAccessType) };
+
+
+    // domainName Field Functions 
+    bool hasDomainName() const { return this->domainName_ != nullptr;};
+    void deleteDomainName() { this->domainName_ = nullptr;};
+    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline CreateSimpleOfficeSiteRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // enableAdminAccess Field Functions 
@@ -137,6 +185,13 @@ namespace Models
     inline CreateSimpleOfficeSiteRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // tenantId Field Functions 
+    bool hasTenantId() const { return this->tenantId_ != nullptr;};
+    void deleteTenantId() { this->tenantId_ = nullptr;};
+    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline CreateSimpleOfficeSiteRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
+
+
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
@@ -161,6 +216,8 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> accountType_ = nullptr;
+    std::shared_ptr<string> authorityHost_ = nullptr;
     // The maximum public bandwidth. Value range: 10 to 200. Unit: Mbit/s. This parameter is available if you set `EnableInternetAccess` to `true`.
     std::shared_ptr<int32_t> bandwidth_ = nullptr;
     // The Cloud Enterprise Network (CEN) instance ID.
@@ -178,6 +235,8 @@ namespace Models
     // *   `172.16.0.0/12` (subnet mask range: 12 to 24 bits)
     // *   `192.168.0.0/16` (subnet mask range: 16 to 24 bits)
     std::shared_ptr<string> cidrBlock_ = nullptr;
+    std::shared_ptr<string> clientId_ = nullptr;
+    std::shared_ptr<string> clientSecret_ = nullptr;
     // Specifies whether to create a CloudBox-based office network.
     // 
     // Valid values:
@@ -202,6 +261,7 @@ namespace Models
     // 
     // >  The VPC connection depends on Alibaba Cloud PrivateLink. You can use PrivateLink for free. When you set this parameter to VPC or Any, PrivateLink is automatically activated.````
     std::shared_ptr<string> desktopAccessType_ = nullptr;
+    std::shared_ptr<string> domainName_ = nullptr;
     // Specifies whether to grant the local administrator permissions to users that are authorized to use cloud computers in the office network.
     // 
     // Valid values:
@@ -237,6 +297,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
+    std::shared_ptr<string> tenantId_ = nullptr;
     // The IDs of the vSwitches that you want to specify in VPCs. This parameter is required only when you create CloudBox-based office networks.
     std::shared_ptr<vector<string>> vSwitchId_ = nullptr;
     // The verification code. If the CEN instance that you specify for the CenId parameter belongs to another Alibaba Cloud account, you must call the [SendVerifyCode](https://help.aliyun.com/document_detail/335132.html) operation to obtain the verification code.
