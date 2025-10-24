@@ -13,15 +13,19 @@ namespace Models
   class ExtendClusterRequestNodeGroupsHyperNodesDataDisk : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ExtendClusterRequestNodeGroupsHyperNodesDataDisk& obj) { 
+      DARABONBA_PTR_TO_JSON(BurstingEnabled, burstingEnabled_);
       DARABONBA_PTR_TO_JSON(Category, category_);
       DARABONBA_PTR_TO_JSON(DeleteWithNode, deleteWithNode_);
       DARABONBA_PTR_TO_JSON(PerformanceLevel, performanceLevel_);
+      DARABONBA_PTR_TO_JSON(ProvisionedIops, provisionedIops_);
       DARABONBA_PTR_TO_JSON(Size, size_);
     };
     friend void from_json(const Darabonba::Json& j, ExtendClusterRequestNodeGroupsHyperNodesDataDisk& obj) { 
+      DARABONBA_PTR_FROM_JSON(BurstingEnabled, burstingEnabled_);
       DARABONBA_PTR_FROM_JSON(Category, category_);
       DARABONBA_PTR_FROM_JSON(DeleteWithNode, deleteWithNode_);
       DARABONBA_PTR_FROM_JSON(PerformanceLevel, performanceLevel_);
+      DARABONBA_PTR_FROM_JSON(ProvisionedIops, provisionedIops_);
       DARABONBA_PTR_FROM_JSON(Size, size_);
     };
     ExtendClusterRequestNodeGroupsHyperNodesDataDisk() = default ;
@@ -35,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->category_ == nullptr
-        && return this->deleteWithNode_ == nullptr && return this->performanceLevel_ == nullptr && return this->size_ == nullptr; };
+    virtual bool empty() const override { return this->burstingEnabled_ == nullptr
+        && return this->category_ == nullptr && return this->deleteWithNode_ == nullptr && return this->performanceLevel_ == nullptr && return this->provisionedIops_ == nullptr && return this->size_ == nullptr; };
+    // burstingEnabled Field Functions 
+    bool hasBurstingEnabled() const { return this->burstingEnabled_ != nullptr;};
+    void deleteBurstingEnabled() { this->burstingEnabled_ = nullptr;};
+    inline bool burstingEnabled() const { DARABONBA_PTR_GET_DEFAULT(burstingEnabled_, false) };
+    inline ExtendClusterRequestNodeGroupsHyperNodesDataDisk& setBurstingEnabled(bool burstingEnabled) { DARABONBA_PTR_SET_VALUE(burstingEnabled_, burstingEnabled) };
+
+
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
@@ -58,6 +69,13 @@ namespace Models
     inline ExtendClusterRequestNodeGroupsHyperNodesDataDisk& setPerformanceLevel(string performanceLevel) { DARABONBA_PTR_SET_VALUE(performanceLevel_, performanceLevel) };
 
 
+    // provisionedIops Field Functions 
+    bool hasProvisionedIops() const { return this->provisionedIops_ != nullptr;};
+    void deleteProvisionedIops() { this->provisionedIops_ = nullptr;};
+    inline int64_t provisionedIops() const { DARABONBA_PTR_GET_DEFAULT(provisionedIops_, 0L) };
+    inline ExtendClusterRequestNodeGroupsHyperNodesDataDisk& setProvisionedIops(int64_t provisionedIops) { DARABONBA_PTR_SET_VALUE(provisionedIops_, provisionedIops) };
+
+
     // size Field Functions 
     bool hasSize() const { return this->size_ != nullptr;};
     void deleteSize() { this->size_ = nullptr;};
@@ -66,9 +84,11 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<bool> burstingEnabled_ = nullptr;
     std::shared_ptr<string> category_ = nullptr;
     std::shared_ptr<bool> deleteWithNode_ = nullptr;
     std::shared_ptr<string> performanceLevel_ = nullptr;
+    std::shared_ptr<int64_t> provisionedIops_ = nullptr;
     std::shared_ptr<int32_t> size_ = nullptr;
   };
 

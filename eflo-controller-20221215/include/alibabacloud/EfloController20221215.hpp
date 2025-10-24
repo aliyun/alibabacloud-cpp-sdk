@@ -38,6 +38,23 @@ namespace EfloController20221215
       Models::ApproveOperationResponse approveOperation(const Models::ApproveOperationRequest &request);
 
       /**
+       * @summary 修改节点的节点组
+       *
+       * @param tmpReq ChangeNodeGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChangeNodeGroupResponse
+       */
+      Models::ChangeNodeGroupResponse changeNodeGroupWithOptions(const Models::ChangeNodeGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改节点的节点组
+       *
+       * @param request ChangeNodeGroupRequest
+       * @return ChangeNodeGroupResponse
+       */
+      Models::ChangeNodeGroupResponse changeNodeGroup(const Models::ChangeNodeGroupRequest &request);
+
+      /**
        * @summary Moves a resource from one resource group to another.
        *
        * @param request ChangeResourceGroupRequest
@@ -458,6 +475,40 @@ namespace EfloController20221215
       Models::ExtendClusterResponse extendCluster(const Models::ExtendClusterRequest &request);
 
       /**
+       * @summary 查询节点列表
+       *
+       * @param request GetHyperNodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetHyperNodeResponse
+       */
+      Models::GetHyperNodeResponse getHyperNodeWithOptions(const Models::GetHyperNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询节点列表
+       *
+       * @param request GetHyperNodeRequest
+       * @return GetHyperNodeResponse
+       */
+      Models::GetHyperNodeResponse getHyperNode(const Models::GetHyperNodeRequest &request);
+
+      /**
+       * @summary 集群下的主机分组列表，分组下的主机列表
+       *
+       * @param request ListClusterHyperNodesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListClusterHyperNodesResponse
+       */
+      Models::ListClusterHyperNodesResponse listClusterHyperNodesWithOptions(const Models::ListClusterHyperNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 集群下的主机分组列表，分组下的主机列表
+       *
+       * @param request ListClusterHyperNodesRequest
+       * @return ListClusterHyperNodesResponse
+       */
+      Models::ListClusterHyperNodesResponse listClusterHyperNodes(const Models::ListClusterHyperNodesRequest &request);
+
+      /**
        * @summary Queries a list of nodes in a cluster.
        *
        * @param request ListClusterNodesRequest
@@ -509,6 +560,23 @@ namespace EfloController20221215
       Models::ListDiagnosticResultsResponse listDiagnosticResults(const Models::ListDiagnosticResultsRequest &request);
 
       /**
+       * @summary 可用rack物理机列表
+       *
+       * @param request ListFreeHyperNodesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListFreeHyperNodesResponse
+       */
+      Models::ListFreeHyperNodesResponse listFreeHyperNodesWithOptions(const Models::ListFreeHyperNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 可用rack物理机列表
+       *
+       * @param request ListFreeHyperNodesRequest
+       * @return ListFreeHyperNodesResponse
+       */
+      Models::ListFreeHyperNodesResponse listFreeHyperNodes(const Models::ListFreeHyperNodesRequest &request);
+
+      /**
        * @summary Queries a list of nodes that are not used.
        *
        * @param request ListFreeNodesRequest
@@ -524,6 +592,23 @@ namespace EfloController20221215
        * @return ListFreeNodesResponse
        */
       Models::ListFreeNodesResponse listFreeNodes(const Models::ListFreeNodesRequest &request);
+
+      /**
+       * @summary 机器列表
+       *
+       * @param request ListHyperNodesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListHyperNodesResponse
+       */
+      Models::ListHyperNodesResponse listHyperNodesWithOptions(const Models::ListHyperNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 机器列表
+       *
+       * @param request ListHyperNodesRequest
+       * @return ListHyperNodesResponse
+       */
+      Models::ListHyperNodesResponse listHyperNodes(const Models::ListHyperNodesRequest &request);
 
       /**
        * @summary Lists available images.
@@ -697,6 +782,23 @@ namespace EfloController20221215
        * @return ReimageNodesResponse
        */
       Models::ReimageNodesResponse reimageNodes(const Models::ReimageNodesRequest &request);
+
+      /**
+       * @summary 节点异常问题上报
+       *
+       * @param tmpReq ReportNodesStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ReportNodesStatusResponse
+       */
+      Models::ReportNodesStatusResponse reportNodesStatusWithOptions(const Models::ReportNodesStatusRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 节点异常问题上报
+       *
+       * @param request ReportNodesStatusRequest
+       * @return ReportNodesStatusResponse
+       */
+      Models::ReportNodesStatusResponse reportNodesStatus(const Models::ReportNodesStatusRequest &request);
 
       /**
        * @summary Runs a Shell script on one or more Lingjun nodes.
