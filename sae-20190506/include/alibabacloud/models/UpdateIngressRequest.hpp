@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CorsConfig, corsConfig_);
       DARABONBA_PTR_TO_JSON(DefaultRule, defaultRule_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(EnableGzip, enableGzip_);
       DARABONBA_PTR_TO_JSON(EnableXForwardedFor, enableXForwardedFor_);
       DARABONBA_PTR_TO_JSON(EnableXForwardedForClientSrcPort, enableXForwardedForClientSrcPort_);
       DARABONBA_PTR_TO_JSON(EnableXForwardedForProto, enableXForwardedForProto_);
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CorsConfig, corsConfig_);
       DARABONBA_PTR_FROM_JSON(DefaultRule, defaultRule_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(EnableGzip, enableGzip_);
       DARABONBA_PTR_FROM_JSON(EnableXForwardedFor, enableXForwardedFor_);
       DARABONBA_PTR_FROM_JSON(EnableXForwardedForClientSrcPort, enableXForwardedForClientSrcPort_);
       DARABONBA_PTR_FROM_JSON(EnableXForwardedForProto, enableXForwardedForProto_);
@@ -64,10 +66,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certId_ == nullptr
-        && return this->certIds_ == nullptr && return this->corsConfig_ == nullptr && return this->defaultRule_ == nullptr && return this->description_ == nullptr && return this->enableXForwardedFor_ == nullptr
-        && return this->enableXForwardedForClientSrcPort_ == nullptr && return this->enableXForwardedForProto_ == nullptr && return this->enableXForwardedForSlbId_ == nullptr && return this->enableXForwardedForSlbPort_ == nullptr && return this->idleTimeout_ == nullptr
-        && return this->ingressId_ == nullptr && return this->listenerPort_ == nullptr && return this->listenerProtocol_ == nullptr && return this->loadBalanceType_ == nullptr && return this->requestTimeout_ == nullptr
-        && return this->rules_ == nullptr && return this->securityPolicyId_ == nullptr; };
+        && return this->certIds_ == nullptr && return this->corsConfig_ == nullptr && return this->defaultRule_ == nullptr && return this->description_ == nullptr && return this->enableGzip_ == nullptr
+        && return this->enableXForwardedFor_ == nullptr && return this->enableXForwardedForClientSrcPort_ == nullptr && return this->enableXForwardedForProto_ == nullptr && return this->enableXForwardedForSlbId_ == nullptr && return this->enableXForwardedForSlbPort_ == nullptr
+        && return this->idleTimeout_ == nullptr && return this->ingressId_ == nullptr && return this->listenerPort_ == nullptr && return this->listenerProtocol_ == nullptr && return this->loadBalanceType_ == nullptr
+        && return this->requestTimeout_ == nullptr && return this->rules_ == nullptr && return this->securityPolicyId_ == nullptr; };
     // certId Field Functions 
     bool hasCertId() const { return this->certId_ != nullptr;};
     void deleteCertId() { this->certId_ = nullptr;};
@@ -101,6 +103,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateIngressRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // enableGzip Field Functions 
+    bool hasEnableGzip() const { return this->enableGzip_ != nullptr;};
+    void deleteEnableGzip() { this->enableGzip_ = nullptr;};
+    inline bool enableGzip() const { DARABONBA_PTR_GET_DEFAULT(enableGzip_, false) };
+    inline UpdateIngressRequest& setEnableGzip(bool enableGzip) { DARABONBA_PTR_SET_VALUE(enableGzip_, enableGzip) };
 
 
     // enableXForwardedFor Field Functions 
@@ -216,6 +225,7 @@ namespace Models
     std::shared_ptr<string> defaultRule_ = nullptr;
     // The name of the routing rule.
     std::shared_ptr<string> description_ = nullptr;
+    std::shared_ptr<bool> enableGzip_ = nullptr;
     std::shared_ptr<bool> enableXForwardedFor_ = nullptr;
     std::shared_ptr<bool> enableXForwardedForClientSrcPort_ = nullptr;
     std::shared_ptr<bool> enableXForwardedForProto_ = nullptr;

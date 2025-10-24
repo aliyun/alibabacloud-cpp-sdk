@@ -1089,6 +1089,10 @@ CreateIngressResponse Client::createIngressWithOptions(const CreateIngressReques
     query["Description"] = request.description();
   }
 
+  if (!!request.hasEnableGzip()) {
+    query["EnableGzip"] = request.enableGzip();
+  }
+
   if (!!request.hasEnableXForwardedFor()) {
     query["EnableXForwardedFor"] = request.enableXForwardedFor();
   }
@@ -2639,6 +2643,14 @@ DeployApplicationResponse Client::deployApplicationWithOptions(const DeployAppli
 
   if (!!request.hasLiveness()) {
     query["Liveness"] = request.liveness();
+  }
+
+  if (!!request.hasMaxSurgeInstanceRatio()) {
+    query["MaxSurgeInstanceRatio"] = request.maxSurgeInstanceRatio();
+  }
+
+  if (!!request.hasMaxSurgeInstances()) {
+    query["MaxSurgeInstances"] = request.maxSurgeInstances();
   }
 
   if (!!request.hasMemory()) {
@@ -8277,6 +8289,10 @@ UpdateIngressResponse Client::updateIngressWithOptions(const UpdateIngressReques
 
   if (!!request.hasDescription()) {
     query["Description"] = request.description();
+  }
+
+  if (!!request.hasEnableGzip()) {
+    query["EnableGzip"] = request.enableGzip();
   }
 
   if (!!request.hasEnableXForwardedFor()) {
