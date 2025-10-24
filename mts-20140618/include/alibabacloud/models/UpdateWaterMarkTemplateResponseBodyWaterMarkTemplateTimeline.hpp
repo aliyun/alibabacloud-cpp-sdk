@@ -1,0 +1,63 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_UPDATEWATERMARKTEMPLATERESPONSEBODYWATERMARKTEMPLATETIMELINE_HPP_
+#define ALIBABACLOUD_MODELS_UPDATEWATERMARKTEMPLATERESPONSEBODYWATERMARKTEMPLATETIMELINE_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Mts20140618
+{
+namespace Models
+{
+  class UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline& obj) { 
+      DARABONBA_PTR_TO_JSON(Duration, duration_);
+      DARABONBA_PTR_TO_JSON(Start, start_);
+    };
+    friend void from_json(const Darabonba::Json& j, UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline& obj) { 
+      DARABONBA_PTR_FROM_JSON(Duration, duration_);
+      DARABONBA_PTR_FROM_JSON(Start, start_);
+    };
+    UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline() = default ;
+    UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline(const UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline &) = default ;
+    UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline(UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline &&) = default ;
+    UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline() = default ;
+    UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline& operator=(const UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline &) = default ;
+    UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline& operator=(UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->duration_ == nullptr
+        && return this->start_ == nullptr; };
+    // duration Field Functions 
+    bool hasDuration() const { return this->duration_ != nullptr;};
+    void deleteDuration() { this->duration_ = nullptr;};
+    inline string duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, "") };
+    inline UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline& setDuration(string duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
+
+
+    // start Field Functions 
+    bool hasStart() const { return this->start_ != nullptr;};
+    void deleteStart() { this->start_ = nullptr;};
+    inline string start() const { DARABONBA_PTR_GET_DEFAULT(start_, "") };
+    inline UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline& setStart(string start) { DARABONBA_PTR_SET_VALUE(start_, start) };
+
+
+  protected:
+    // The display duration of the watermark. Default value: **ToEND**. The default value indicates that the watermark is displayed until the video ends.
+    std::shared_ptr<string> duration_ = nullptr;
+    // The beginning of the time range during which the watermark is displayed.
+    // 
+    // *   Unit: seconds.
+    // *   Default value: **0**.
+    std::shared_ptr<string> start_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Mts20140618
+#endif
