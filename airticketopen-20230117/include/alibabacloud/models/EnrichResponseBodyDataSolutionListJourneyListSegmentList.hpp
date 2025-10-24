@@ -232,13 +232,13 @@ namespace Models
 
 
   protected:
-    // arrival airport code (capitalized)
+    // arrival airport code
     std::shared_ptr<string> arrivalAirport_ = nullptr;
-    // arrival city code (capitalized)
+    // arrival city code
     std::shared_ptr<string> arrivalCity_ = nullptr;
     // arrival terminal
     std::shared_ptr<string> arrivalTerminal_ = nullptr;
-    // arrival time in string format (yyyy-MM-dd HH:mm:ss)
+    // arrival time (yyyy-MM-dd HH:mm:ss)
     std::shared_ptr<string> arrivalTime_ = nullptr;
     // available seats (for reference only)
     std::shared_ptr<string> availability_ = nullptr;
@@ -248,13 +248,13 @@ namespace Models
     std::shared_ptr<string> cabinClass_ = nullptr;
     // code share or not
     std::shared_ptr<bool> codeShare_ = nullptr;
-    // departure airport code (capitalized)
+    // departure airport code
     std::shared_ptr<string> departureAirport_ = nullptr;
-    // departure city code (capitalized)
+    // departure city code
     std::shared_ptr<string> departureCity_ = nullptr;
     // departure terminal
     std::shared_ptr<string> departureTerminal_ = nullptr;
-    // departure time in string format (yyyy-MM-dd HH:mm:ss)
+    // departure time (yyyy-MM-dd HH:mm:ss)
     std::shared_ptr<string> departureTime_ = nullptr;
     // equipment type
     std::shared_ptr<string> equipType_ = nullptr;
@@ -270,7 +270,7 @@ namespace Models
     std::shared_ptr<string> operatingAirline_ = nullptr;
     // operating airline flight no. (eg: CX601)
     std::shared_ptr<string> operatingFlightNo_ = nullptr;
-    // segment ID format: flight no.+departure airport[IATA airport code]+arrival airport[IATA airport code]+departure time(MMdd)
+    // segment ID: flight no+departure airport+arrival airport+departure time(MMdd)
     std::shared_ptr<string> segmentId_ = nullptr;
     // stop city list. 
     // when stop_quantity > 1 , use “,” for seperation

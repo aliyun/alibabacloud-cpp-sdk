@@ -61,7 +61,7 @@ namespace Models
     std::shared_ptr<string> document_ = nullptr;
     // first name
     std::shared_ptr<string> firstName_ = nullptr;
-    // first name
+    // last name
     std::shared_ptr<string> lastName_ = nullptr;
   };
 

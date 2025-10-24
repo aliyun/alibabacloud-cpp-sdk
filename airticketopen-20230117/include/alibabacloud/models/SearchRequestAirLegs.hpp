@@ -83,14 +83,10 @@ namespace Models
     // arrival airport [IATA airport code] list
     std::shared_ptr<vector<string>> arrivalAirportList_ = nullptr;
     // arrival city code
-    // 
-    // This parameter is required.
     std::shared_ptr<string> arrivalCity_ = nullptr;
     // departure airport [IATA airport code] list
     std::shared_ptr<vector<string>> departureAirportList_ = nullptr;
     // departure city code
-    // 
-    // This parameter is required.
     std::shared_ptr<string> departureCity_ = nullptr;
     // departure date (eg: yyyyMMdd)
     // 

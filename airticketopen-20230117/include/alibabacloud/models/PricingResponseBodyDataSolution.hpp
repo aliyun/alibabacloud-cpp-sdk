@@ -7,6 +7,7 @@
 #include <alibabacloud/models/PricingResponseBodyDataSolutionSegmentBaggageCheckInInfoList.hpp>
 #include <alibabacloud/models/PricingResponseBodyDataSolutionSegmentBaggageMappingList.hpp>
 #include <alibabacloud/models/PricingResponseBodyDataSolutionSegmentRefundChangeRuleMappingList.hpp>
+#include <alibabacloud/models/PricingResponseBodyDataSolutionSolutionAttribute.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(segment_baggage_check_in_info_list, segmentBaggageCheckInInfoList_);
       DARABONBA_PTR_TO_JSON(segment_baggage_mapping_list, segmentBaggageMappingList_);
       DARABONBA_PTR_TO_JSON(segment_refund_change_rule_mapping_list, segmentRefundChangeRuleMappingList_);
+      DARABONBA_PTR_TO_JSON(solution_attribute, solutionAttribute_);
       DARABONBA_PTR_TO_JSON(solution_id, solutionId_);
     };
     friend void from_json(const Darabonba::Json& j, PricingResponseBodyDataSolution& obj) { 
@@ -45,6 +47,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(segment_baggage_check_in_info_list, segmentBaggageCheckInInfoList_);
       DARABONBA_PTR_FROM_JSON(segment_baggage_mapping_list, segmentBaggageMappingList_);
       DARABONBA_PTR_FROM_JSON(segment_refund_change_rule_mapping_list, segmentRefundChangeRuleMappingList_);
+      DARABONBA_PTR_FROM_JSON(solution_attribute, solutionAttribute_);
       DARABONBA_PTR_FROM_JSON(solution_id, solutionId_);
     };
     PricingResponseBodyDataSolution() = default ;
@@ -61,7 +64,7 @@ namespace Models
     virtual bool empty() const override { return this->adultPrice_ == nullptr
         && return this->adultTax_ == nullptr && return this->childPrice_ == nullptr && return this->childTax_ == nullptr && return this->infantPrice_ == nullptr && return this->infantTax_ == nullptr
         && return this->journeyList_ == nullptr && return this->productTypeDescription_ == nullptr && return this->refundTicketCouponDescription_ == nullptr && return this->segmentBaggageCheckInInfoList_ == nullptr && return this->segmentBaggageMappingList_ == nullptr
-        && return this->segmentRefundChangeRuleMappingList_ == nullptr && return this->solutionId_ == nullptr; };
+        && return this->segmentRefundChangeRuleMappingList_ == nullptr && return this->solutionAttribute_ == nullptr && return this->solutionId_ == nullptr; };
     // adultPrice Field Functions 
     bool hasAdultPrice() const { return this->adultPrice_ != nullptr;};
     void deleteAdultPrice() { this->adultPrice_ = nullptr;};
@@ -154,6 +157,15 @@ namespace Models
     inline PricingResponseBodyDataSolution& setSegmentRefundChangeRuleMappingList(vector<Models::PricingResponseBodyDataSolutionSegmentRefundChangeRuleMappingList> && segmentRefundChangeRuleMappingList) { DARABONBA_PTR_SET_RVALUE(segmentRefundChangeRuleMappingList_, segmentRefundChangeRuleMappingList) };
 
 
+    // solutionAttribute Field Functions 
+    bool hasSolutionAttribute() const { return this->solutionAttribute_ != nullptr;};
+    void deleteSolutionAttribute() { this->solutionAttribute_ = nullptr;};
+    inline const Models::PricingResponseBodyDataSolutionSolutionAttribute & solutionAttribute() const { DARABONBA_PTR_GET_CONST(solutionAttribute_, Models::PricingResponseBodyDataSolutionSolutionAttribute) };
+    inline Models::PricingResponseBodyDataSolutionSolutionAttribute solutionAttribute() { DARABONBA_PTR_GET(solutionAttribute_, Models::PricingResponseBodyDataSolutionSolutionAttribute) };
+    inline PricingResponseBodyDataSolution& setSolutionAttribute(const Models::PricingResponseBodyDataSolutionSolutionAttribute & solutionAttribute) { DARABONBA_PTR_SET_VALUE(solutionAttribute_, solutionAttribute) };
+    inline PricingResponseBodyDataSolution& setSolutionAttribute(Models::PricingResponseBodyDataSolutionSolutionAttribute && solutionAttribute) { DARABONBA_PTR_SET_RVALUE(solutionAttribute_, solutionAttribute) };
+
+
     // solutionId Field Functions 
     bool hasSolutionId() const { return this->solutionId_ != nullptr;};
     void deleteSolutionId() { this->solutionId_ = nullptr;};
@@ -186,6 +198,7 @@ namespace Models
     std::shared_ptr<vector<Models::PricingResponseBodyDataSolutionSegmentBaggageMappingList>> segmentBaggageMappingList_ = nullptr;
     // change and refund policy
     std::shared_ptr<vector<Models::PricingResponseBodyDataSolutionSegmentRefundChangeRuleMappingList>> segmentRefundChangeRuleMappingList_ = nullptr;
+    std::shared_ptr<Models::PricingResponseBodyDataSolutionSolutionAttribute> solutionAttribute_ = nullptr;
     // solution_id, equals to solution_id in request
     std::shared_ptr<string> solutionId_ = nullptr;
   };

@@ -99,6 +99,7 @@ namespace Models
 
 
   protected:
+    // RequestId
     std::shared_ptr<string> requestId_ = nullptr;
     // data
     std::shared_ptr<RefundDetailResponseBodyData> data_ = nullptr;

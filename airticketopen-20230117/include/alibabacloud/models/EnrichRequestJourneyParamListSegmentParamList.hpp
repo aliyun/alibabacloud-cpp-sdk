@@ -103,21 +103,17 @@ namespace Models
 
 
   protected:
-    // arrival airport code (capitalized)
+    // arrival airport code
     std::shared_ptr<string> arrivalAirport_ = nullptr;
-    // arrival city code (capitalized)
-    // 
-    // This parameter is required.
+    // arrival city code
     std::shared_ptr<string> arrivalCity_ = nullptr;
     // RBD
     std::shared_ptr<string> cabin_ = nullptr;
     // child RBD
     std::shared_ptr<string> childCabin_ = nullptr;
-    // departure airport code (capitalized)
+    // departure airport code
     std::shared_ptr<string> departureAirport_ = nullptr;
-    // departure city code (capitalized)
-    // 
-    // This parameter is required.
+    // departure city code
     std::shared_ptr<string> departureCity_ = nullptr;
     // departure time in string format (yyyy-MM-dd HH:mm:ss)
     // 

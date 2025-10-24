@@ -199,6 +199,7 @@
 #include <alibabacloud/models/EnrichResponseBodyDataSolutionListSegmentBaggageCheckInInfoList.hpp>
 #include <alibabacloud/models/EnrichResponseBodyDataSolutionListSegmentBaggageMappingList.hpp>
 #include <alibabacloud/models/EnrichResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList.hpp>
+#include <alibabacloud/models/EnrichResponseBodyDataSolutionListSolutionAttributeIssueTimeInfo.hpp>
 #include <alibabacloud/models/EnrichResponseBodyDataSolutionListSolutionAttribute.hpp>
 #include <alibabacloud/models/EnrichResponseBodyDataSolutionList.hpp>
 #include <alibabacloud/models/EnrichResponseBodyData.hpp>
@@ -225,6 +226,8 @@
 #include <alibabacloud/models/OrderDetailResponseBodyDataSolutionSegmentBaggageCheckInInfoList.hpp>
 #include <alibabacloud/models/OrderDetailResponseBodyDataSolutionSegmentBaggageMappingList.hpp>
 #include <alibabacloud/models/OrderDetailResponseBodyDataSolutionSegmentRefundChangeRuleMappingList.hpp>
+#include <alibabacloud/models/OrderDetailResponseBodyDataSolutionSolutionAttributeIssueTimeInfo.hpp>
+#include <alibabacloud/models/OrderDetailResponseBodyDataSolutionSolutionAttribute.hpp>
 #include <alibabacloud/models/OrderDetailResponseBodyDataSolution.hpp>
 #include <alibabacloud/models/OrderDetailResponseBodyData.hpp>
 #include <alibabacloud/models/OrderListResponseBodyDataListPassengerListCredential.hpp>
@@ -239,6 +242,8 @@
 #include <alibabacloud/models/PricingResponseBodyDataSolutionSegmentBaggageCheckInInfoList.hpp>
 #include <alibabacloud/models/PricingResponseBodyDataSolutionSegmentBaggageMappingList.hpp>
 #include <alibabacloud/models/PricingResponseBodyDataSolutionSegmentRefundChangeRuleMappingList.hpp>
+#include <alibabacloud/models/PricingResponseBodyDataSolutionSolutionAttributeIssueTimeInfo.hpp>
+#include <alibabacloud/models/PricingResponseBodyDataSolutionSolutionAttribute.hpp>
 #include <alibabacloud/models/PricingResponseBodyDataSolution.hpp>
 #include <alibabacloud/models/PricingResponseBodyData.hpp>
 #include <alibabacloud/models/RefundApplyRequestRefundJourneysSegmentList.hpp>
@@ -267,6 +272,7 @@
 #include <alibabacloud/models/SearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList.hpp>
 #include <alibabacloud/models/SearchResponseBodyDataSolutionListSegmentBaggageMappingList.hpp>
 #include <alibabacloud/models/SearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList.hpp>
+#include <alibabacloud/models/SearchResponseBodyDataSolutionListSolutionAttributeIssueTimeInfo.hpp>
 #include <alibabacloud/models/SearchResponseBodyDataSolutionListSolutionAttribute.hpp>
 #include <alibabacloud/models/SearchResponseBodyDataSolutionList.hpp>
 #include <alibabacloud/models/SearchResponseBodyData.hpp>

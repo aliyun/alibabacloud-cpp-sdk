@@ -70,11 +70,11 @@ namespace Models
 
 
   protected:
-    // arrival city code (capitalized)
+    // arrival city code
     // 
     // This parameter is required.
     std::shared_ptr<string> arrivalCity_ = nullptr;
-    // departure city code (capitalized)
+    // departure city code
     // 
     // This parameter is required.
     std::shared_ptr<string> departureCity_ = nullptr;

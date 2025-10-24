@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> xAcsAirticketAccessToken_ = nullptr;
-    // language code(refer to ISO_639), defaults to the buyer\\"s account configuration
+    // language code, defaults to the buyer\\"s account configuration
     std::shared_ptr<string> xAcsAirticketLanguage_ = nullptr;
   };
 

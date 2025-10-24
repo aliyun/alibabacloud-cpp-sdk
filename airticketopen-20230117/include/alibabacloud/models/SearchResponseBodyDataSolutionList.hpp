@@ -26,8 +26,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(infant_price, infantPrice_);
       DARABONBA_PTR_TO_JSON(infant_tax, infantTax_);
       DARABONBA_PTR_TO_JSON(journey_list, journeyList_);
-      DARABONBA_PTR_TO_JSON(product_type_description, productTypeDescription_);
-      DARABONBA_PTR_TO_JSON(refund_ticket_coupon_description, refundTicketCouponDescription_);
       DARABONBA_PTR_TO_JSON(segment_baggage_check_in_info_list, segmentBaggageCheckInInfoList_);
       DARABONBA_PTR_TO_JSON(segment_baggage_mapping_list, segmentBaggageMappingList_);
       DARABONBA_PTR_TO_JSON(segment_refund_change_rule_mapping_list, segmentRefundChangeRuleMappingList_);
@@ -42,8 +40,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(infant_price, infantPrice_);
       DARABONBA_PTR_FROM_JSON(infant_tax, infantTax_);
       DARABONBA_PTR_FROM_JSON(journey_list, journeyList_);
-      DARABONBA_PTR_FROM_JSON(product_type_description, productTypeDescription_);
-      DARABONBA_PTR_FROM_JSON(refund_ticket_coupon_description, refundTicketCouponDescription_);
       DARABONBA_PTR_FROM_JSON(segment_baggage_check_in_info_list, segmentBaggageCheckInInfoList_);
       DARABONBA_PTR_FROM_JSON(segment_baggage_mapping_list, segmentBaggageMappingList_);
       DARABONBA_PTR_FROM_JSON(segment_refund_change_rule_mapping_list, segmentRefundChangeRuleMappingList_);
@@ -63,8 +59,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->adultPrice_ == nullptr
         && return this->adultTax_ == nullptr && return this->childPrice_ == nullptr && return this->childTax_ == nullptr && return this->infantPrice_ == nullptr && return this->infantTax_ == nullptr
-        && return this->journeyList_ == nullptr && return this->productTypeDescription_ == nullptr && return this->refundTicketCouponDescription_ == nullptr && return this->segmentBaggageCheckInInfoList_ == nullptr && return this->segmentBaggageMappingList_ == nullptr
-        && return this->segmentRefundChangeRuleMappingList_ == nullptr && return this->solutionAttribute_ == nullptr && return this->solutionId_ == nullptr; };
+        && return this->journeyList_ == nullptr && return this->segmentBaggageCheckInInfoList_ == nullptr && return this->segmentBaggageMappingList_ == nullptr && return this->segmentRefundChangeRuleMappingList_ == nullptr && return this->solutionAttribute_ == nullptr
+        && return this->solutionId_ == nullptr; };
     // adultPrice Field Functions 
     bool hasAdultPrice() const { return this->adultPrice_ != nullptr;};
     void deleteAdultPrice() { this->adultPrice_ = nullptr;};
@@ -114,20 +110,6 @@ namespace Models
     inline vector<Models::SearchResponseBodyDataSolutionListJourneyList> journeyList() { DARABONBA_PTR_GET(journeyList_, vector<Models::SearchResponseBodyDataSolutionListJourneyList>) };
     inline SearchResponseBodyDataSolutionList& setJourneyList(const vector<Models::SearchResponseBodyDataSolutionListJourneyList> & journeyList) { DARABONBA_PTR_SET_VALUE(journeyList_, journeyList) };
     inline SearchResponseBodyDataSolutionList& setJourneyList(vector<Models::SearchResponseBodyDataSolutionListJourneyList> && journeyList) { DARABONBA_PTR_SET_RVALUE(journeyList_, journeyList) };
-
-
-    // productTypeDescription Field Functions 
-    bool hasProductTypeDescription() const { return this->productTypeDescription_ != nullptr;};
-    void deleteProductTypeDescription() { this->productTypeDescription_ = nullptr;};
-    inline string productTypeDescription() const { DARABONBA_PTR_GET_DEFAULT(productTypeDescription_, "") };
-    inline SearchResponseBodyDataSolutionList& setProductTypeDescription(string productTypeDescription) { DARABONBA_PTR_SET_VALUE(productTypeDescription_, productTypeDescription) };
-
-
-    // refundTicketCouponDescription Field Functions 
-    bool hasRefundTicketCouponDescription() const { return this->refundTicketCouponDescription_ != nullptr;};
-    void deleteRefundTicketCouponDescription() { this->refundTicketCouponDescription_ = nullptr;};
-    inline string refundTicketCouponDescription() const { DARABONBA_PTR_GET_DEFAULT(refundTicketCouponDescription_, "") };
-    inline SearchResponseBodyDataSolutionList& setRefundTicketCouponDescription(string refundTicketCouponDescription) { DARABONBA_PTR_SET_VALUE(refundTicketCouponDescription_, refundTicketCouponDescription) };
 
 
     // segmentBaggageCheckInInfoList Field Functions 
@@ -188,10 +170,6 @@ namespace Models
     std::shared_ptr<double> infantTax_ = nullptr;
     // segment list
     std::shared_ptr<vector<Models::SearchResponseBodyDataSolutionListJourneyList>> journeyList_ = nullptr;
-    // product type description
-    std::shared_ptr<string> productTypeDescription_ = nullptr;
-    // refund airline coupon description
-    std::shared_ptr<string> refundTicketCouponDescription_ = nullptr;
     // through check-in baggage policy
     std::shared_ptr<vector<Models::SearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList>> segmentBaggageCheckInInfoList_ = nullptr;
     // baggage rule
