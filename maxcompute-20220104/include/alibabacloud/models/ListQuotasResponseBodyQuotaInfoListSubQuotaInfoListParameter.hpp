@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter& obj) { 
       DARABONBA_PTR_TO_JSON(adhocSlot, adhocSlot_);
+      DARABONBA_PTR_TO_JSON(autoScaleCPULimit, autoScaleCPULimit_);
       DARABONBA_PTR_TO_JSON(elasticReservedCU, elasticReservedCU_);
       DARABONBA_PTR_TO_JSON(enablePriority, enablePriority_);
       DARABONBA_PTR_TO_JSON(forceReservedMin, forceReservedMin_);
@@ -27,6 +28,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter& obj) { 
       DARABONBA_PTR_FROM_JSON(adhocSlot, adhocSlot_);
+      DARABONBA_PTR_FROM_JSON(autoScaleCPULimit, autoScaleCPULimit_);
       DARABONBA_PTR_FROM_JSON(elasticReservedCU, elasticReservedCU_);
       DARABONBA_PTR_FROM_JSON(enablePriority, enablePriority_);
       DARABONBA_PTR_FROM_JSON(forceReservedMin, forceReservedMin_);
@@ -50,13 +52,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->adhocSlot_ == nullptr
-        && return this->elasticReservedCU_ == nullptr && return this->enablePriority_ == nullptr && return this->forceReservedMin_ == nullptr && return this->maxCU_ == nullptr && return this->maxGu_ == nullptr
-        && return this->minCU_ == nullptr && return this->minGu_ == nullptr && return this->schedulerType_ == nullptr && return this->singleJobCULimit_ == nullptr && return this->slotNum_ == nullptr; };
+        && return this->autoScaleCPULimit_ == nullptr && return this->elasticReservedCU_ == nullptr && return this->enablePriority_ == nullptr && return this->forceReservedMin_ == nullptr && return this->maxCU_ == nullptr
+        && return this->maxGu_ == nullptr && return this->minCU_ == nullptr && return this->minGu_ == nullptr && return this->schedulerType_ == nullptr && return this->singleJobCULimit_ == nullptr
+        && return this->slotNum_ == nullptr; };
     // adhocSlot Field Functions 
     bool hasAdhocSlot() const { return this->adhocSlot_ != nullptr;};
     void deleteAdhocSlot() { this->adhocSlot_ = nullptr;};
     inline int64_t adhocSlot() const { DARABONBA_PTR_GET_DEFAULT(adhocSlot_, 0L) };
     inline ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter& setAdhocSlot(int64_t adhocSlot) { DARABONBA_PTR_SET_VALUE(adhocSlot_, adhocSlot) };
+
+
+    // autoScaleCPULimit Field Functions 
+    bool hasAutoScaleCPULimit() const { return this->autoScaleCPULimit_ != nullptr;};
+    void deleteAutoScaleCPULimit() { this->autoScaleCPULimit_ = nullptr;};
+    inline int64_t autoScaleCPULimit() const { DARABONBA_PTR_GET_DEFAULT(autoScaleCPULimit_, 0L) };
+    inline ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter& setAutoScaleCPULimit(int64_t autoScaleCPULimit) { DARABONBA_PTR_SET_VALUE(autoScaleCPULimit_, autoScaleCPULimit) };
 
 
     // elasticReservedCU Field Functions 
@@ -131,6 +141,7 @@ namespace Models
 
   protected:
     std::shared_ptr<int64_t> adhocSlot_ = nullptr;
+    std::shared_ptr<int64_t> autoScaleCPULimit_ = nullptr;
     std::shared_ptr<int64_t> elasticReservedCU_ = nullptr;
     std::shared_ptr<bool> enablePriority_ = nullptr;
     std::shared_ptr<bool> forceReservedMin_ = nullptr;
