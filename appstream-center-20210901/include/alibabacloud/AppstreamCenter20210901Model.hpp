@@ -104,6 +104,10 @@
 #include <alibabacloud/models/ModifyAppPolicyShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyAppPolicyResponseBody.hpp>
 #include <alibabacloud/models/ModifyAppPolicyResponse.hpp>
+#include <alibabacloud/models/ModifyBrowserInstanceGroupRequest.hpp>
+#include <alibabacloud/models/ModifyBrowserInstanceGroupShrinkRequest.hpp>
+#include <alibabacloud/models/ModifyBrowserInstanceGroupResponseBody.hpp>
+#include <alibabacloud/models/ModifyBrowserInstanceGroupResponse.hpp>
 #include <alibabacloud/models/ModifyNodePoolAmountRequest.hpp>
 #include <alibabacloud/models/ModifyNodePoolAmountShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyNodePoolAmountResponseBody.hpp>
@@ -228,6 +232,15 @@
 #include <alibabacloud/models/ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfileFollow.hpp>
 #include <alibabacloud/models/ModifyAppInstanceGroupAttributeRequestStoragePolicy.hpp>
 #include <alibabacloud/models/ModifyAppPolicyRequestVideoPolicy.hpp>
+#include <alibabacloud/models/ModifyBrowserInstanceGroupRequestBrowserConfigBookmarks.hpp>
+#include <alibabacloud/models/ModifyBrowserInstanceGroupRequestBrowserConfig.hpp>
+#include <alibabacloud/models/ModifyBrowserInstanceGroupRequestNetworkRestrictedUrLs.hpp>
+#include <alibabacloud/models/ModifyBrowserInstanceGroupRequestNetwork.hpp>
+#include <alibabacloud/models/ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy.hpp>
+#include <alibabacloud/models/ModifyBrowserInstanceGroupRequestPolicyVideoPolicy.hpp>
+#include <alibabacloud/models/ModifyBrowserInstanceGroupRequestPolicyWatermarkPolicy.hpp>
+#include <alibabacloud/models/ModifyBrowserInstanceGroupRequestPolicy.hpp>
+#include <alibabacloud/models/ModifyBrowserInstanceGroupRequestTimers.hpp>
 #include <alibabacloud/models/ModifyNodePoolAmountRequestNodePool.hpp>
 #include <alibabacloud/models/ModifyNodePoolAmountResponseBodyData.hpp>
 #include <alibabacloud/models/ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTimerPeriods.hpp>

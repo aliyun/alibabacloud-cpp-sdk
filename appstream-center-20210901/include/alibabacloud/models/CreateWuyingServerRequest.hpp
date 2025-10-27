@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
+      DARABONBA_PTR_TO_JSON(SavingPlanId, savingPlanId_);
       DARABONBA_PTR_TO_JSON(ServerInstanceType, serverInstanceType_);
       DARABONBA_PTR_TO_JSON(ServerPortRange, serverPortRange_);
       DARABONBA_PTR_TO_JSON(SystemDiskCategory, systemDiskCategory_);
@@ -55,6 +56,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
+      DARABONBA_PTR_FROM_JSON(SavingPlanId, savingPlanId_);
       DARABONBA_PTR_FROM_JSON(ServerInstanceType, serverInstanceType_);
       DARABONBA_PTR_FROM_JSON(ServerPortRange, serverPortRange_);
       DARABONBA_PTR_FROM_JSON(SystemDiskCategory, systemDiskCategory_);
@@ -78,9 +80,9 @@ namespace Models
     virtual bool empty() const override { return this->amount_ == nullptr
         && return this->autoPay_ == nullptr && return this->autoRenew_ == nullptr && return this->bandwidth_ == nullptr && return this->bizRegionId_ == nullptr && return this->chargeType_ == nullptr
         && return this->dataDisk_ == nullptr && return this->idempotenceToken_ == nullptr && return this->imageId_ == nullptr && return this->networkStrategyType_ == nullptr && return this->officeSiteId_ == nullptr
-        && return this->password_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->promotionId_ == nullptr && return this->serverInstanceType_ == nullptr
-        && return this->serverPortRange_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->systemDiskPerformanceLevel_ == nullptr && return this->systemDiskSize_ == nullptr && return this->vSwitchIds_ == nullptr
-        && return this->virtualNodePoolId_ == nullptr && return this->wuyingServerName_ == nullptr; };
+        && return this->password_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->promotionId_ == nullptr && return this->savingPlanId_ == nullptr
+        && return this->serverInstanceType_ == nullptr && return this->serverPortRange_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->systemDiskPerformanceLevel_ == nullptr && return this->systemDiskSize_ == nullptr
+        && return this->vSwitchIds_ == nullptr && return this->virtualNodePoolId_ == nullptr && return this->wuyingServerName_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -188,6 +190,13 @@ namespace Models
     inline CreateWuyingServerRequest& setPromotionId(string promotionId) { DARABONBA_PTR_SET_VALUE(promotionId_, promotionId) };
 
 
+    // savingPlanId Field Functions 
+    bool hasSavingPlanId() const { return this->savingPlanId_ != nullptr;};
+    void deleteSavingPlanId() { this->savingPlanId_ = nullptr;};
+    inline string savingPlanId() const { DARABONBA_PTR_GET_DEFAULT(savingPlanId_, "") };
+    inline CreateWuyingServerRequest& setSavingPlanId(string savingPlanId) { DARABONBA_PTR_SET_VALUE(savingPlanId_, savingPlanId) };
+
+
     // serverInstanceType Field Functions 
     bool hasServerInstanceType() const { return this->serverInstanceType_ != nullptr;};
     void deleteServerInstanceType() { this->serverInstanceType_ = nullptr;};
@@ -262,6 +271,7 @@ namespace Models
     std::shared_ptr<int32_t> period_ = nullptr;
     std::shared_ptr<string> periodUnit_ = nullptr;
     std::shared_ptr<string> promotionId_ = nullptr;
+    std::shared_ptr<string> savingPlanId_ = nullptr;
     std::shared_ptr<string> serverInstanceType_ = nullptr;
     std::shared_ptr<string> serverPortRange_ = nullptr;
     std::shared_ptr<string> systemDiskCategory_ = nullptr;

@@ -492,6 +492,11 @@ CreateImageFromAppInstanceGroupResponse Client::createImageFromAppInstanceGroup(
  */
 CreateWuyingServerResponse Client::createWuyingServerWithOptions(const CreateWuyingServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasSavingPlanId()) {
+    query["SavingPlanId"] = request.savingPlanId();
+  }
+
   json body = {};
   if (!!request.hasAmount()) {
     body["Amount"] = request.amount();
@@ -590,8 +595,9 @@ CreateWuyingServerResponse Client::createWuyingServerWithOptions(const CreateWuy
     Utils::Utils::query(bodyFlat)
   );
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "CreateWuyingServer"},
     {"version" , "2021-09-01"},
@@ -2308,6 +2314,88 @@ ModifyAppPolicyResponse Client::modifyAppPolicyWithOptions(const ModifyAppPolicy
 ModifyAppPolicyResponse Client::modifyAppPolicy(const ModifyAppPolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyAppPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改浏览器交付组
+ *
+ * @param tmpReq ModifyBrowserInstanceGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyBrowserInstanceGroupResponse
+ */
+ModifyBrowserInstanceGroupResponse Client::modifyBrowserInstanceGroupWithOptions(const ModifyBrowserInstanceGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyBrowserInstanceGroupShrinkRequest request = ModifyBrowserInstanceGroupShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBrowserConfig()) {
+    request.setBrowserConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.browserConfig(), "BrowserConfig", "json"));
+  }
+
+  if (!!tmpReq.hasNetwork()) {
+    request.setNetworkShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.network(), "Network", "json"));
+  }
+
+  if (!!tmpReq.hasPolicy()) {
+    request.setPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.policy(), "Policy", "json"));
+  }
+
+  if (!!tmpReq.hasTimers()) {
+    request.setTimersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.timers(), "Timers", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasBrowserConfigShrink()) {
+    query["BrowserConfig"] = request.browserConfigShrink();
+  }
+
+  if (!!request.hasBrowserInstanceGroupId()) {
+    query["BrowserInstanceGroupId"] = request.browserInstanceGroupId();
+  }
+
+  if (!!request.hasPolicyShrink()) {
+    query["Policy"] = request.policyShrink();
+  }
+
+  if (!!request.hasTimersShrink()) {
+    query["Timers"] = request.timersShrink();
+  }
+
+  json body = {};
+  if (!!request.hasCloudBrowserName()) {
+    body["CloudBrowserName"] = request.cloudBrowserName();
+  }
+
+  if (!!request.hasNetworkShrink()) {
+    body["Network"] = request.networkShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModifyBrowserInstanceGroup"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyBrowserInstanceGroupResponse>();
+}
+
+/**
+ * @summary 修改浏览器交付组
+ *
+ * @param request ModifyBrowserInstanceGroupRequest
+ * @return ModifyBrowserInstanceGroupResponse
+ */
+ModifyBrowserInstanceGroupResponse Client::modifyBrowserInstanceGroup(const ModifyBrowserInstanceGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyBrowserInstanceGroupWithOptions(request, runtime);
 }
 
 /**

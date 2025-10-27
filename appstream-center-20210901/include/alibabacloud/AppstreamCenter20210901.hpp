@@ -601,6 +601,23 @@ namespace AppstreamCenter20210901
       Models::ModifyAppPolicyResponse modifyAppPolicy(const Models::ModifyAppPolicyRequest &request);
 
       /**
+       * @summary 修改浏览器交付组
+       *
+       * @param tmpReq ModifyBrowserInstanceGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyBrowserInstanceGroupResponse
+       */
+      Models::ModifyBrowserInstanceGroupResponse modifyBrowserInstanceGroupWithOptions(const Models::ModifyBrowserInstanceGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改浏览器交付组
+       *
+       * @param request ModifyBrowserInstanceGroupRequest
+       * @return ModifyBrowserInstanceGroupResponse
+       */
+      Models::ModifyBrowserInstanceGroupResponse modifyBrowserInstanceGroup(const Models::ModifyBrowserInstanceGroupRequest &request);
+
+      /**
        * @summary Changes the number of nodes in a subscription delivery group.
        *
        * @param tmpReq ModifyNodePoolAmountRequest
