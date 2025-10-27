@@ -952,6 +952,100 @@ CreateNatFirewallPreCheckResponse Client::createNatFirewallPreCheck(const Create
 }
 
 /**
+ * @summary 创建私网DNS终端节点
+ *
+ * @param request CreatePrivateDnsEndpointRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePrivateDnsEndpointResponse
+ */
+CreatePrivateDnsEndpointResponse Client::createPrivateDnsEndpointWithOptions(const CreatePrivateDnsEndpointRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccessInstanceName()) {
+    query["AccessInstanceName"] = request.accessInstanceName();
+  }
+
+  if (!!request.hasFirewallType()) {
+    query["FirewallType"] = request.firewallType();
+  }
+
+  if (!!request.hasIpProtocol()) {
+    query["IpProtocol"] = request.ipProtocol();
+  }
+
+  if (!!request.hasMemberUid()) {
+    query["MemberUid"] = request.memberUid();
+  }
+
+  if (!!request.hasPort()) {
+    query["Port"] = request.port();
+  }
+
+  if (!!request.hasPrimaryDns()) {
+    query["PrimaryDns"] = request.primaryDns();
+  }
+
+  if (!!request.hasPrimaryVSwitchId()) {
+    query["PrimaryVSwitchId"] = request.primaryVSwitchId();
+  }
+
+  if (!!request.hasPrimaryVSwitchIp()) {
+    query["PrimaryVSwitchIp"] = request.primaryVSwitchIp();
+  }
+
+  if (!!request.hasPrivateDnsType()) {
+    query["PrivateDnsType"] = request.privateDnsType();
+  }
+
+  if (!!request.hasRegionNo()) {
+    query["RegionNo"] = request.regionNo();
+  }
+
+  if (!!request.hasStandbyDns()) {
+    query["StandbyDns"] = request.standbyDns();
+  }
+
+  if (!!request.hasStandbyVSwitchId()) {
+    query["StandbyVSwitchId"] = request.standbyVSwitchId();
+  }
+
+  if (!!request.hasStandbyVSwitchIp()) {
+    query["StandbyVSwitchIp"] = request.standbyVSwitchIp();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.vpcId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreatePrivateDnsEndpoint"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePrivateDnsEndpointResponse>();
+}
+
+/**
+ * @summary 创建私网DNS终端节点
+ *
+ * @param request CreatePrivateDnsEndpointRequest
+ * @return CreatePrivateDnsEndpointResponse
+ */
+CreatePrivateDnsEndpointResponse Client::createPrivateDnsEndpoint(const CreatePrivateDnsEndpointRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createPrivateDnsEndpointWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a NAT firewall.
  *
  * @param request CreateSecurityProxyRequest
@@ -5125,6 +5219,10 @@ DescribeInvadeEventListResponse Client::describeInvadeEventListWithOptions(const
     query["Lang"] = request.lang();
   }
 
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
   if (!!request.hasMemberUid()) {
     query["MemberUid"] = request.memberUid();
   }
@@ -5794,6 +5892,14 @@ DescribeNetworkInstanceRelationListResponse Client::describeNetworkInstanceRelat
 
   if (!!request.hasLang()) {
     query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasNetworkInstanceId()) {
+    query["NetworkInstanceId"] = request.networkInstanceId();
+  }
+
+  if (!!request.hasPeerNetworkInstanceId()) {
+    query["PeerNetworkInstanceId"] = request.peerNetworkInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6899,6 +7005,44 @@ DescribePostpayUserNatStatusResponse Client::describePostpayUserNatStatus(const 
 }
 
 /**
+ * @summary Queries the status of the virtual private cloud (VPC) Firewall feature in Cloud Firewall that uses the pay-as-you-go billing method.
+ *
+ * @param request DescribePostpayUserVpcStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePostpayUserVpcStatusResponse
+ */
+DescribePostpayUserVpcStatusResponse Client::describePostpayUserVpcStatusWithOptions(const DescribePostpayUserVpcStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePostpayUserVpcStatus"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePostpayUserVpcStatusResponse>();
+}
+
+/**
+ * @summary Queries the status of the virtual private cloud (VPC) Firewall feature in Cloud Firewall that uses the pay-as-you-go billing method.
+ *
+ * @param request DescribePostpayUserVpcStatusRequest
+ * @return DescribePostpayUserVpcStatusResponse
+ */
+DescribePostpayUserVpcStatusResponse Client::describePostpayUserVpcStatus(const DescribePostpayUserVpcStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePostpayUserVpcStatusWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries prefix lists.
  *
  * @param request DescribePrefixListsRequest
@@ -7557,6 +7701,88 @@ DescribeSecurityModeResponse Client::describeSecurityMode(const DescribeSecurity
 }
 
 /**
+ * @summary 获取正向代理
+ *
+ * @param request DescribeSecurityProxyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSecurityProxyResponse
+ */
+DescribeSecurityProxyResponse Client::describeSecurityProxyWithOptions(const DescribeSecurityProxyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasMemberUid()) {
+    query["MemberUid"] = request.memberUid();
+  }
+
+  if (!!request.hasNatGatewayId()) {
+    query["NatGatewayId"] = request.natGatewayId();
+  }
+
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.pageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasProxyId()) {
+    query["ProxyId"] = request.proxyId();
+  }
+
+  if (!!request.hasProxyName()) {
+    query["ProxyName"] = request.proxyName();
+  }
+
+  if (!!request.hasRegionNo()) {
+    query["RegionNo"] = request.regionNo();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.vpcId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSecurityProxy"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSecurityProxyResponse>();
+}
+
+/**
+ * @summary 获取正向代理
+ *
+ * @param request DescribeSecurityProxyRequest
+ * @return DescribeSecurityProxyResponse
+ */
+DescribeSecurityProxyResponse Client::describeSecurityProxy(const DescribeSecurityProxyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSecurityProxyWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the information about signature library versions.
  *
  * @param request DescribeSignatureLibVersionRequest
@@ -7629,6 +7855,39 @@ DescribeSlsAnalyzeOpenStatusResponse Client::describeSlsAnalyzeOpenStatusWithOpt
 DescribeSlsAnalyzeOpenStatusResponse Client::describeSlsAnalyzeOpenStatus(const DescribeSlsAnalyzeOpenStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeSlsAnalyzeOpenStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询威胁情报配置的信息
+ *
+ * @param request DescribeThreatIntelligenceSwitchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeThreatIntelligenceSwitchResponse
+ */
+DescribeThreatIntelligenceSwitchResponse Client::describeThreatIntelligenceSwitchWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "DescribeThreatIntelligenceSwitch"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeThreatIntelligenceSwitchResponse>();
+}
+
+/**
+ * @summary 查询威胁情报配置的信息
+ *
+ * @return DescribeThreatIntelligenceSwitchResponse
+ */
+DescribeThreatIntelligenceSwitchResponse Client::describeThreatIntelligenceSwitch() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeThreatIntelligenceSwitchWithOptions(runtime);
 }
 
 /**
@@ -9317,6 +9576,98 @@ EnableSdlProtectedAssetResponse Client::enableSdlProtectedAssetWithOptions(const
 EnableSdlProtectedAssetResponse Client::enableSdlProtectedAsset(const EnableSdlProtectedAssetRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return enableSdlProtectedAssetWithOptions(request, runtime);
+}
+
+/**
+ * @summary 下载TLS证书
+ *
+ * @param request GetTlsInspectCertificateDownloadUrlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTlsInspectCertificateDownloadUrlResponse
+ */
+GetTlsInspectCertificateDownloadUrlResponse Client::getTlsInspectCertificateDownloadUrlWithOptions(const GetTlsInspectCertificateDownloadUrlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCaCertId()) {
+    query["CaCertId"] = request.caCertId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTlsInspectCertificateDownloadUrl"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTlsInspectCertificateDownloadUrlResponse>();
+}
+
+/**
+ * @summary 下载TLS证书
+ *
+ * @param request GetTlsInspectCertificateDownloadUrlRequest
+ * @return GetTlsInspectCertificateDownloadUrlResponse
+ */
+GetTlsInspectCertificateDownloadUrlResponse Client::getTlsInspectCertificateDownloadUrl(const GetTlsInspectCertificateDownloadUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTlsInspectCertificateDownloadUrlWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询TLS检查证书
+ *
+ * @param request ListTlsInspectCACertificatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTlsInspectCACertificatesResponse
+ */
+ListTlsInspectCACertificatesResponse Client::listTlsInspectCACertificatesWithOptions(const ListTlsInspectCACertificatesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCaCertId()) {
+    query["CaCertId"] = request.caCertId();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTlsInspectCACertificates"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTlsInspectCACertificatesResponse>();
+}
+
+/**
+ * @summary 查询TLS检查证书
+ *
+ * @param request ListTlsInspectCACertificatesRequest
+ * @return ListTlsInspectCACertificatesResponse
+ */
+ListTlsInspectCACertificatesResponse Client::listTlsInspectCACertificates(const ListTlsInspectCACertificatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listTlsInspectCACertificatesWithOptions(request, runtime);
 }
 
 /**
@@ -12135,6 +12486,106 @@ UpdatePostpayUserInternetStatusResponse Client::updatePostpayUserInternetStatusW
 UpdatePostpayUserInternetStatusResponse Client::updatePostpayUserInternetStatus(const UpdatePostpayUserInternetStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updatePostpayUserInternetStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the status of the NAT Firewall feature for Cloud Firewall that uses the pay-as-you-go billing method.
+ *
+ * @param request UpdatePostpayUserNatStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdatePostpayUserNatStatusResponse
+ */
+UpdatePostpayUserNatStatusResponse Client::updatePostpayUserNatStatusWithOptions(const UpdatePostpayUserNatStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasOperate()) {
+    query["Operate"] = request.operate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdatePostpayUserNatStatus"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdatePostpayUserNatStatusResponse>();
+}
+
+/**
+ * @summary Updates the status of the NAT Firewall feature for Cloud Firewall that uses the pay-as-you-go billing method.
+ *
+ * @param request UpdatePostpayUserNatStatusRequest
+ * @return UpdatePostpayUserNatStatusResponse
+ */
+UpdatePostpayUserNatStatusResponse Client::updatePostpayUserNatStatus(const UpdatePostpayUserNatStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updatePostpayUserNatStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the status of the virtual private cloud (VPC) Firewall feature for Cloud Firewall that uses the pay-as-you-go billing method.
+ *
+ * @param request UpdatePostpayUserVpcStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdatePostpayUserVpcStatusResponse
+ */
+UpdatePostpayUserVpcStatusResponse Client::updatePostpayUserVpcStatusWithOptions(const UpdatePostpayUserVpcStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasOperate()) {
+    query["Operate"] = request.operate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdatePostpayUserVpcStatus"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdatePostpayUserVpcStatusResponse>();
+}
+
+/**
+ * @summary Updates the status of the virtual private cloud (VPC) Firewall feature for Cloud Firewall that uses the pay-as-you-go billing method.
+ *
+ * @param request UpdatePostpayUserVpcStatusRequest
+ * @return UpdatePostpayUserVpcStatusResponse
+ */
+UpdatePostpayUserVpcStatusResponse Client::updatePostpayUserVpcStatus(const UpdatePostpayUserVpcStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updatePostpayUserVpcStatusWithOptions(request, runtime);
 }
 
 /**

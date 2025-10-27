@@ -267,6 +267,23 @@ namespace Cloudfw20171207
       Models::CreateNatFirewallPreCheckResponse createNatFirewallPreCheck(const Models::CreateNatFirewallPreCheckRequest &request);
 
       /**
+       * @summary 创建私网DNS终端节点
+       *
+       * @param request CreatePrivateDnsEndpointRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePrivateDnsEndpointResponse
+       */
+      Models::CreatePrivateDnsEndpointResponse createPrivateDnsEndpointWithOptions(const Models::CreatePrivateDnsEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建私网DNS终端节点
+       *
+       * @param request CreatePrivateDnsEndpointRequest
+       * @return CreatePrivateDnsEndpointResponse
+       */
+      Models::CreatePrivateDnsEndpointResponse createPrivateDnsEndpoint(const Models::CreatePrivateDnsEndpointRequest &request);
+
+      /**
        * @summary Creates a NAT firewall.
        *
        * @param request CreateSecurityProxyRequest
@@ -2105,6 +2122,23 @@ namespace Cloudfw20171207
       Models::DescribePostpayUserNatStatusResponse describePostpayUserNatStatus(const Models::DescribePostpayUserNatStatusRequest &request);
 
       /**
+       * @summary Queries the status of the virtual private cloud (VPC) Firewall feature in Cloud Firewall that uses the pay-as-you-go billing method.
+       *
+       * @param request DescribePostpayUserVpcStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePostpayUserVpcStatusResponse
+       */
+      Models::DescribePostpayUserVpcStatusResponse describePostpayUserVpcStatusWithOptions(const Models::DescribePostpayUserVpcStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the status of the virtual private cloud (VPC) Firewall feature in Cloud Firewall that uses the pay-as-you-go billing method.
+       *
+       * @param request DescribePostpayUserVpcStatusRequest
+       * @return DescribePostpayUserVpcStatusResponse
+       */
+      Models::DescribePostpayUserVpcStatusResponse describePostpayUserVpcStatus(const Models::DescribePostpayUserVpcStatusRequest &request);
+
+      /**
        * @summary Queries prefix lists.
        *
        * @param request DescribePrefixListsRequest
@@ -2300,6 +2334,23 @@ namespace Cloudfw20171207
       Models::DescribeSecurityModeResponse describeSecurityMode(const Models::DescribeSecurityModeRequest &request);
 
       /**
+       * @summary 获取正向代理
+       *
+       * @param request DescribeSecurityProxyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSecurityProxyResponse
+       */
+      Models::DescribeSecurityProxyResponse describeSecurityProxyWithOptions(const Models::DescribeSecurityProxyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取正向代理
+       *
+       * @param request DescribeSecurityProxyRequest
+       * @return DescribeSecurityProxyResponse
+       */
+      Models::DescribeSecurityProxyResponse describeSecurityProxy(const Models::DescribeSecurityProxyRequest &request);
+
+      /**
        * @summary Queries the information about signature library versions.
        *
        * @param request DescribeSignatureLibVersionRequest
@@ -2331,6 +2382,22 @@ namespace Cloudfw20171207
        * @return DescribeSlsAnalyzeOpenStatusResponse
        */
       Models::DescribeSlsAnalyzeOpenStatusResponse describeSlsAnalyzeOpenStatus(const Models::DescribeSlsAnalyzeOpenStatusRequest &request);
+
+      /**
+       * @summary 查询威胁情报配置的信息
+       *
+       * @param request DescribeThreatIntelligenceSwitchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeThreatIntelligenceSwitchResponse
+       */
+      Models::DescribeThreatIntelligenceSwitchResponse describeThreatIntelligenceSwitchWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询威胁情报配置的信息
+       *
+       * @return DescribeThreatIntelligenceSwitchResponse
+       */
+      Models::DescribeThreatIntelligenceSwitchResponse describeThreatIntelligenceSwitch();
 
       /**
        * @summary Queries information about the transit routers that are associated with a virtual private cloud (VPC) firewall created for a transit router.
@@ -2847,6 +2914,40 @@ namespace Cloudfw20171207
        * @return EnableSdlProtectedAssetResponse
        */
       Models::EnableSdlProtectedAssetResponse enableSdlProtectedAsset(const Models::EnableSdlProtectedAssetRequest &request);
+
+      /**
+       * @summary 下载TLS证书
+       *
+       * @param request GetTlsInspectCertificateDownloadUrlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTlsInspectCertificateDownloadUrlResponse
+       */
+      Models::GetTlsInspectCertificateDownloadUrlResponse getTlsInspectCertificateDownloadUrlWithOptions(const Models::GetTlsInspectCertificateDownloadUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 下载TLS证书
+       *
+       * @param request GetTlsInspectCertificateDownloadUrlRequest
+       * @return GetTlsInspectCertificateDownloadUrlResponse
+       */
+      Models::GetTlsInspectCertificateDownloadUrlResponse getTlsInspectCertificateDownloadUrl(const Models::GetTlsInspectCertificateDownloadUrlRequest &request);
+
+      /**
+       * @summary 查询TLS检查证书
+       *
+       * @param request ListTlsInspectCACertificatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTlsInspectCACertificatesResponse
+       */
+      Models::ListTlsInspectCACertificatesResponse listTlsInspectCACertificatesWithOptions(const Models::ListTlsInspectCACertificatesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询TLS检查证书
+       *
+       * @param request ListTlsInspectCACertificatesRequest
+       * @return ListTlsInspectCACertificatesResponse
+       */
+      Models::ListTlsInspectCACertificatesResponse listTlsInspectCACertificates(const Models::ListTlsInspectCACertificatesRequest &request);
 
       /**
        * @summary Modifies the address book that is specified in an access control policy.
@@ -3739,6 +3840,40 @@ namespace Cloudfw20171207
        * @return UpdatePostpayUserInternetStatusResponse
        */
       Models::UpdatePostpayUserInternetStatusResponse updatePostpayUserInternetStatus(const Models::UpdatePostpayUserInternetStatusRequest &request);
+
+      /**
+       * @summary Updates the status of the NAT Firewall feature for Cloud Firewall that uses the pay-as-you-go billing method.
+       *
+       * @param request UpdatePostpayUserNatStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePostpayUserNatStatusResponse
+       */
+      Models::UpdatePostpayUserNatStatusResponse updatePostpayUserNatStatusWithOptions(const Models::UpdatePostpayUserNatStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the status of the NAT Firewall feature for Cloud Firewall that uses the pay-as-you-go billing method.
+       *
+       * @param request UpdatePostpayUserNatStatusRequest
+       * @return UpdatePostpayUserNatStatusResponse
+       */
+      Models::UpdatePostpayUserNatStatusResponse updatePostpayUserNatStatus(const Models::UpdatePostpayUserNatStatusRequest &request);
+
+      /**
+       * @summary Updates the status of the virtual private cloud (VPC) Firewall feature for Cloud Firewall that uses the pay-as-you-go billing method.
+       *
+       * @param request UpdatePostpayUserVpcStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePostpayUserVpcStatusResponse
+       */
+      Models::UpdatePostpayUserVpcStatusResponse updatePostpayUserVpcStatusWithOptions(const Models::UpdatePostpayUserVpcStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the status of the virtual private cloud (VPC) Firewall feature for Cloud Firewall that uses the pay-as-you-go billing method.
+       *
+       * @param request UpdatePostpayUserVpcStatusRequest
+       * @return UpdatePostpayUserVpcStatusResponse
+       */
+      Models::UpdatePostpayUserVpcStatusResponse updatePostpayUserVpcStatus(const Models::UpdatePostpayUserVpcStatusRequest &request);
 
       /**
        * @summary 更新安全正向代理

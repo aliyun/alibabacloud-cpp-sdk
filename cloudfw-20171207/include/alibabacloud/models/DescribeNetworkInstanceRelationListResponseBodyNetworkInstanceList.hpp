@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBENETWORKINSTANCERELATIONLISTRESPONSEBODYNETWORKINSTANCELIST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListAssociatedCen.hpp>
 #include <alibabacloud/models/DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListPeerNetworkInstanceList.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -15,6 +16,7 @@ namespace Models
   class DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceList : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceList& obj) { 
+      DARABONBA_PTR_TO_JSON(AssociatedCen, associatedCen_);
       DARABONBA_PTR_TO_JSON(ConnectType, connectType_);
       DARABONBA_PTR_TO_JSON(NetworkInstanceId, networkInstanceId_);
       DARABONBA_PTR_TO_JSON(NetworkInstanceName, networkInstanceName_);
@@ -23,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionNo, regionNo_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceList& obj) { 
+      DARABONBA_PTR_FROM_JSON(AssociatedCen, associatedCen_);
       DARABONBA_PTR_FROM_JSON(ConnectType, connectType_);
       DARABONBA_PTR_FROM_JSON(NetworkInstanceId, networkInstanceId_);
       DARABONBA_PTR_FROM_JSON(NetworkInstanceName, networkInstanceName_);
@@ -41,8 +44,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->connectType_ == nullptr
-        && return this->networkInstanceId_ == nullptr && return this->networkInstanceName_ == nullptr && return this->networkInstanceType_ == nullptr && return this->peerNetworkInstanceList_ == nullptr && return this->regionNo_ == nullptr; };
+    virtual bool empty() const override { return this->associatedCen_ == nullptr
+        && return this->connectType_ == nullptr && return this->networkInstanceId_ == nullptr && return this->networkInstanceName_ == nullptr && return this->networkInstanceType_ == nullptr && return this->peerNetworkInstanceList_ == nullptr
+        && return this->regionNo_ == nullptr; };
+    // associatedCen Field Functions 
+    bool hasAssociatedCen() const { return this->associatedCen_ != nullptr;};
+    void deleteAssociatedCen() { this->associatedCen_ = nullptr;};
+    inline const vector<Models::DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListAssociatedCen> & associatedCen() const { DARABONBA_PTR_GET_CONST(associatedCen_, vector<Models::DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListAssociatedCen>) };
+    inline vector<Models::DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListAssociatedCen> associatedCen() { DARABONBA_PTR_GET(associatedCen_, vector<Models::DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListAssociatedCen>) };
+    inline DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceList& setAssociatedCen(const vector<Models::DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListAssociatedCen> & associatedCen) { DARABONBA_PTR_SET_VALUE(associatedCen_, associatedCen) };
+    inline DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceList& setAssociatedCen(vector<Models::DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListAssociatedCen> && associatedCen) { DARABONBA_PTR_SET_RVALUE(associatedCen_, associatedCen) };
+
+
     // connectType Field Functions 
     bool hasConnectType() const { return this->connectType_ != nullptr;};
     void deleteConnectType() { this->connectType_ = nullptr;};
@@ -88,6 +101,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<vector<Models::DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListAssociatedCen>> associatedCen_ = nullptr;
     std::shared_ptr<string> connectType_ = nullptr;
     std::shared_ptr<string> networkInstanceId_ = nullptr;
     std::shared_ptr<string> networkInstanceName_ = nullptr;
