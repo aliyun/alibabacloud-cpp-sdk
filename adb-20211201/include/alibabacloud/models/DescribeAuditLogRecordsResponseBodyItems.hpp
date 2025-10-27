@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ConnId, connId_);
       DARABONBA_PTR_TO_JSON(DBName, DBName_);
       DARABONBA_PTR_TO_JSON(ExecuteTime, executeTime_);
+      DARABONBA_PTR_TO_JSON(ExecuteTimestamp, executeTimestamp_);
       DARABONBA_PTR_TO_JSON(HostAddress, hostAddress_);
       DARABONBA_PTR_TO_JSON(ProcessID, processID_);
       DARABONBA_PTR_TO_JSON(SQLText, SQLText_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ConnId, connId_);
       DARABONBA_PTR_FROM_JSON(DBName, DBName_);
       DARABONBA_PTR_FROM_JSON(ExecuteTime, executeTime_);
+      DARABONBA_PTR_FROM_JSON(ExecuteTimestamp, executeTimestamp_);
       DARABONBA_PTR_FROM_JSON(HostAddress, hostAddress_);
       DARABONBA_PTR_FROM_JSON(ProcessID, processID_);
       DARABONBA_PTR_FROM_JSON(SQLText, SQLText_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->connId_ == nullptr
-        && return this->DBName_ == nullptr && return this->executeTime_ == nullptr && return this->hostAddress_ == nullptr && return this->processID_ == nullptr && return this->SQLText_ == nullptr
-        && return this->SQLType_ == nullptr && return this->succeed_ == nullptr && return this->totalTime_ == nullptr && return this->user_ == nullptr; };
+        && return this->DBName_ == nullptr && return this->executeTime_ == nullptr && return this->executeTimestamp_ == nullptr && return this->hostAddress_ == nullptr && return this->processID_ == nullptr
+        && return this->SQLText_ == nullptr && return this->SQLType_ == nullptr && return this->succeed_ == nullptr && return this->totalTime_ == nullptr && return this->user_ == nullptr; };
     // connId Field Functions 
     bool hasConnId() const { return this->connId_ != nullptr;};
     void deleteConnId() { this->connId_ = nullptr;};
@@ -69,6 +71,13 @@ namespace Models
     void deleteExecuteTime() { this->executeTime_ = nullptr;};
     inline string executeTime() const { DARABONBA_PTR_GET_DEFAULT(executeTime_, "") };
     inline DescribeAuditLogRecordsResponseBodyItems& setExecuteTime(string executeTime) { DARABONBA_PTR_SET_VALUE(executeTime_, executeTime) };
+
+
+    // executeTimestamp Field Functions 
+    bool hasExecuteTimestamp() const { return this->executeTimestamp_ != nullptr;};
+    void deleteExecuteTimestamp() { this->executeTimestamp_ = nullptr;};
+    inline int64_t executeTimestamp() const { DARABONBA_PTR_GET_DEFAULT(executeTimestamp_, 0L) };
+    inline DescribeAuditLogRecordsResponseBodyItems& setExecuteTimestamp(int64_t executeTimestamp) { DARABONBA_PTR_SET_VALUE(executeTimestamp_, executeTimestamp) };
 
 
     // hostAddress Field Functions 
@@ -127,6 +136,7 @@ namespace Models
     std::shared_ptr<string> DBName_ = nullptr;
     // The start time of the execution of the SQL statement. The time is displayed in the ISO 8601 standard in the yyyy-MM-dd HH:mm:ss format. The time must be in UTC.
     std::shared_ptr<string> executeTime_ = nullptr;
+    std::shared_ptr<int64_t> executeTimestamp_ = nullptr;
     // The IP address and port number of the client that is used to execute the SQL statement.
     std::shared_ptr<string> hostAddress_ = nullptr;
     // The task ID.
