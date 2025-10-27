@@ -2067,6 +2067,10 @@ DescribeImageListResponse Client::describeImageListWithOptions(const DescribeIma
     query["InstanceType"] = request.instanceType();
   }
 
+  if (!!request.hasSystemType()) {
+    query["SystemType"] = request.systemType();
+  }
+
   json body = {};
   if (!!request.hasImageId()) {
     body["ImageId"] = request.imageId();

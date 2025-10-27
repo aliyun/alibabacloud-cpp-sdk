@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(SystemType, systemType_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeImageListRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ImageBizTags, imageBizTags_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(SystemType, systemType_);
     };
     DescribeImageListRequest() = default ;
     DescribeImageListRequest(const DescribeImageListRequest &) = default ;
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageBizTags_ == nullptr
         && return this->imageId_ == nullptr && return this->imageName_ == nullptr && return this->imagePackageType_ == nullptr && return this->imageType_ == nullptr && return this->instanceType_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->status_ == nullptr; };
+        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->status_ == nullptr && return this->systemType_ == nullptr; };
     // imageBizTags Field Functions 
     bool hasImageBizTags() const { return this->imageBizTags_ != nullptr;};
     void deleteImageBizTags() { this->imageBizTags_ = nullptr;};
@@ -115,6 +117,13 @@ namespace Models
     inline DescribeImageListRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // systemType Field Functions 
+    bool hasSystemType() const { return this->systemType_ != nullptr;};
+    void deleteSystemType() { this->systemType_ = nullptr;};
+    inline string systemType() const { DARABONBA_PTR_GET_DEFAULT(systemType_, "") };
+    inline DescribeImageListRequest& setSystemType(string systemType) { DARABONBA_PTR_SET_VALUE(systemType_, systemType) };
+
+
   protected:
     std::shared_ptr<vector<DescribeImageListRequestImageBizTags>> imageBizTags_ = nullptr;
     // The ID of the image.
@@ -147,6 +156,7 @@ namespace Models
     // *   CREATE_FAILED: The image failed to be created.
     // *   CREATING: The image is being created.
     std::shared_ptr<string> status_ = nullptr;
+    std::shared_ptr<string> systemType_ = nullptr;
   };
 
   } // namespace Models
