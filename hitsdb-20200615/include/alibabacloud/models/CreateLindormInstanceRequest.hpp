@@ -121,16 +121,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->arbiterVSwitchId_ != nullptr
-        && this->arbiterZoneId_ != nullptr && this->archVersion_ != nullptr && this->autoRenewDuration_ != nullptr && this->autoRenewal_ != nullptr && this->coldStorage_ != nullptr
-        && this->coreSingleStorage_ != nullptr && this->coreSpec_ != nullptr && this->diskCategory_ != nullptr && this->duration_ != nullptr && this->filestoreNum_ != nullptr
-        && this->filestoreSpec_ != nullptr && this->instanceAlias_ != nullptr && this->instanceStorage_ != nullptr && this->lindormNum_ != nullptr && this->lindormSpec_ != nullptr
-        && this->logDiskCategory_ != nullptr && this->logNum_ != nullptr && this->logSingleStorage_ != nullptr && this->logSpec_ != nullptr && this->ltsNum_ != nullptr
-        && this->ltsSpec_ != nullptr && this->multiZoneCombination_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->payType_ != nullptr
-        && this->pricingCycle_ != nullptr && this->primaryVSwitchId_ != nullptr && this->primaryZoneId_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->securityToken_ != nullptr && this->solrNum_ != nullptr && this->solrSpec_ != nullptr
-        && this->standbyVSwitchId_ != nullptr && this->standbyZoneId_ != nullptr && this->streamNum_ != nullptr && this->streamSpec_ != nullptr && this->tag_ != nullptr
-        && this->tsdbNum_ != nullptr && this->tsdbSpec_ != nullptr && this->VPCId_ != nullptr && this->vSwitchId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->arbiterVSwitchId_ == nullptr
+        && return this->arbiterZoneId_ == nullptr && return this->archVersion_ == nullptr && return this->autoRenewDuration_ == nullptr && return this->autoRenewal_ == nullptr && return this->coldStorage_ == nullptr
+        && return this->coreSingleStorage_ == nullptr && return this->coreSpec_ == nullptr && return this->diskCategory_ == nullptr && return this->duration_ == nullptr && return this->filestoreNum_ == nullptr
+        && return this->filestoreSpec_ == nullptr && return this->instanceAlias_ == nullptr && return this->instanceStorage_ == nullptr && return this->lindormNum_ == nullptr && return this->lindormSpec_ == nullptr
+        && return this->logDiskCategory_ == nullptr && return this->logNum_ == nullptr && return this->logSingleStorage_ == nullptr && return this->logSpec_ == nullptr && return this->ltsNum_ == nullptr
+        && return this->ltsSpec_ == nullptr && return this->multiZoneCombination_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->payType_ == nullptr
+        && return this->pricingCycle_ == nullptr && return this->primaryVSwitchId_ == nullptr && return this->primaryZoneId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->securityToken_ == nullptr && return this->solrNum_ == nullptr && return this->solrSpec_ == nullptr
+        && return this->standbyVSwitchId_ == nullptr && return this->standbyZoneId_ == nullptr && return this->streamNum_ == nullptr && return this->streamSpec_ == nullptr && return this->tag_ == nullptr
+        && return this->tsdbNum_ == nullptr && return this->tsdbSpec_ == nullptr && return this->VPCId_ == nullptr && return this->vSwitchId_ == nullptr && return this->zoneId_ == nullptr; };
     // arbiterVSwitchId Field Functions 
     bool hasArbiterVSwitchId() const { return this->arbiterVSwitchId_ != nullptr;};
     void deleteArbiterVSwitchId() { this->arbiterVSwitchId_ = nullptr;};

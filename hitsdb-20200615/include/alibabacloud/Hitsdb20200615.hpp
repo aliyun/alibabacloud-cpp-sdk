@@ -437,6 +437,23 @@ namespace Hitsdb20200615
       Models::GetLindormV2InstanceResponse getLindormV2Instance(const Models::GetLindormV2InstanceRequest &request);
 
       /**
+       * @summary 查询新架构实例详情
+       *
+       * @param request GetLindormV2InstanceDetailsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetLindormV2InstanceDetailsResponse
+       */
+      Models::GetLindormV2InstanceDetailsResponse getLindormV2InstanceDetailsWithOptions(const Models::GetLindormV2InstanceDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询新架构实例详情
+       *
+       * @param request GetLindormV2InstanceDetailsRequest
+       * @return GetLindormV2InstanceDetailsResponse
+       */
+      Models::GetLindormV2InstanceDetailsResponse getLindormV2InstanceDetails(const Models::GetLindormV2InstanceDetailsRequest &request);
+
+      /**
        * @param request GetLindormV2InstanceEngineListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetLindormV2InstanceEngineListResponse
@@ -450,7 +467,7 @@ namespace Hitsdb20200615
       Models::GetLindormV2InstanceEngineListResponse getLindormV2InstanceEngineList(const Models::GetLindormV2InstanceEngineListRequest &request);
 
       /**
-       * @summary 查询实例详情
+       * @summary 查询新架构实例详情
        *
        * @param request GetLindormV2InstanceForTerraformRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -459,7 +476,7 @@ namespace Hitsdb20200615
       Models::GetLindormV2InstanceForTerraformResponse getLindormV2InstanceForTerraformWithOptions(const Models::GetLindormV2InstanceForTerraformRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询实例详情
+       * @summary 查询新架构实例详情
        *
        * @param request GetLindormV2InstanceForTerraformRequest
        * @return GetLindormV2InstanceForTerraformResponse
@@ -919,6 +936,23 @@ namespace Hitsdb20200615
        * @return UpdateLdpsComputeGroupResponse
        */
       Models::UpdateLdpsComputeGroupResponse updateLdpsComputeGroup(const Models::UpdateLdpsComputeGroupRequest &request);
+
+      /**
+       * @summary 更新实例名称或删除保护
+       *
+       * @param request UpdateLindormInstanceAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateLindormInstanceAttributeResponse
+       */
+      Models::UpdateLindormInstanceAttributeResponse updateLindormInstanceAttributeWithOptions(const Models::UpdateLindormInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新实例名称或删除保护
+       *
+       * @param request UpdateLindormInstanceAttributeRequest
+       * @return UpdateLindormInstanceAttributeResponse
+       */
+      Models::UpdateLindormInstanceAttributeResponse updateLindormInstanceAttribute(const Models::UpdateLindormInstanceAttributeRequest &request);
 
       /**
        * @summary 更新LindormV2Instance

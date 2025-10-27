@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->configName_ != nullptr
-        && this->effectiveTimeEnd_ != nullptr && this->effectiveTimeStart_ != nullptr && this->enabled_ != nullptr && this->engine_ != nullptr && this->instanceId_ != nullptr
-        && this->nodesMax_ != nullptr && this->nodesMin_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->scaleRuleList_ != nullptr && this->scaleType_ != nullptr && this->securityToken_ != nullptr && this->specId_ != nullptr; };
+    virtual bool empty() const override { return this->configName_ == nullptr
+        && return this->effectiveTimeEnd_ == nullptr && return this->effectiveTimeStart_ == nullptr && return this->enabled_ == nullptr && return this->engine_ == nullptr && return this->instanceId_ == nullptr
+        && return this->nodesMax_ == nullptr && return this->nodesMin_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->scaleRuleList_ == nullptr && return this->scaleType_ == nullptr && return this->securityToken_ == nullptr && return this->specId_ == nullptr; };
     // configName Field Functions 
     bool hasConfigName() const { return this->configName_ != nullptr;};
     void deleteConfigName() { this->configName_ = nullptr;};

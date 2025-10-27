@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessDeniedDetail_ != nullptr
-        && this->fsCapacity_ != nullptr && this->fsCapacityCold_ != nullptr && this->fsCapacityHot_ != nullptr && this->fsUsedCold_ != nullptr && this->fsUsedColdOnLindormSearch_ != nullptr
-        && this->fsUsedColdOnLindormTSDB_ != nullptr && this->fsUsedColdOnLindormTable_ != nullptr && this->fsUsedHot_ != nullptr && this->fsUsedHotOnLindormSearch_ != nullptr && this->fsUsedHotOnLindormTSDB_ != nullptr
-        && this->fsUsedHotOnLindormTable_ != nullptr && this->fsUsedOnLindormSearch_ != nullptr && this->fsUsedOnLindormTSDB_ != nullptr && this->fsUsedOnLindormTable_ != nullptr && this->fsUsedOnLindormTableData_ != nullptr
-        && this->fsUsedOnLindormTableWAL_ != nullptr && this->LStorageUsageList_ != nullptr && this->requestId_ != nullptr && this->valid_ != nullptr; };
+    virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
+        && return this->fsCapacity_ == nullptr && return this->fsCapacityCold_ == nullptr && return this->fsCapacityHot_ == nullptr && return this->fsUsedCold_ == nullptr && return this->fsUsedColdOnLindormSearch_ == nullptr
+        && return this->fsUsedColdOnLindormTSDB_ == nullptr && return this->fsUsedColdOnLindormTable_ == nullptr && return this->fsUsedHot_ == nullptr && return this->fsUsedHotOnLindormSearch_ == nullptr && return this->fsUsedHotOnLindormTSDB_ == nullptr
+        && return this->fsUsedHotOnLindormTable_ == nullptr && return this->fsUsedOnLindormSearch_ == nullptr && return this->fsUsedOnLindormTSDB_ == nullptr && return this->fsUsedOnLindormTable_ == nullptr && return this->fsUsedOnLindormTableData_ == nullptr
+        && return this->fsUsedOnLindormTableWAL_ == nullptr && return this->LStorageUsageList_ == nullptr && return this->requestId_ == nullptr && return this->valid_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};

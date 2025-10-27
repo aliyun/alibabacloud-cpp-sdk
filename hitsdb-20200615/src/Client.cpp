@@ -2210,6 +2210,68 @@ GetLindormV2InstanceResponse Client::getLindormV2Instance(const GetLindormV2Inst
 }
 
 /**
+ * @summary 查询新架构实例详情
+ *
+ * @param request GetLindormV2InstanceDetailsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetLindormV2InstanceDetailsResponse
+ */
+GetLindormV2InstanceDetailsResponse Client::getLindormV2InstanceDetailsWithOptions(const GetLindormV2InstanceDetailsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.securityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetLindormV2InstanceDetails"},
+    {"version" , "2020-06-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetLindormV2InstanceDetailsResponse>();
+}
+
+/**
+ * @summary 查询新架构实例详情
+ *
+ * @param request GetLindormV2InstanceDetailsRequest
+ * @return GetLindormV2InstanceDetailsResponse
+ */
+GetLindormV2InstanceDetailsResponse Client::getLindormV2InstanceDetails(const GetLindormV2InstanceDetailsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getLindormV2InstanceDetailsWithOptions(request, runtime);
+}
+
+/**
  * @param request GetLindormV2InstanceEngineListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetLindormV2InstanceEngineListResponse
@@ -2272,7 +2334,7 @@ GetLindormV2InstanceEngineListResponse Client::getLindormV2InstanceEngineList(co
 }
 
 /**
- * @summary 查询实例详情
+ * @summary 查询新架构实例详情
  *
  * @param request GetLindormV2InstanceForTerraformRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2323,7 +2385,7 @@ GetLindormV2InstanceForTerraformResponse Client::getLindormV2InstanceForTerrafor
 }
 
 /**
- * @summary 查询实例详情
+ * @summary 查询新架构实例详情
  *
  * @param request GetLindormV2InstanceForTerraformRequest
  * @return GetLindormV2InstanceForTerraformResponse
@@ -4373,6 +4435,76 @@ UpdateLdpsComputeGroupResponse Client::updateLdpsComputeGroupWithOptions(const U
 UpdateLdpsComputeGroupResponse Client::updateLdpsComputeGroup(const UpdateLdpsComputeGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateLdpsComputeGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新实例名称或删除保护
+ *
+ * @param request UpdateLindormInstanceAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateLindormInstanceAttributeResponse
+ */
+UpdateLindormInstanceAttributeResponse Client::updateLindormInstanceAttributeWithOptions(const UpdateLindormInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeletionProtection()) {
+    query["DeletionProtection"] = request.deletionProtection();
+  }
+
+  if (!!request.hasInstanceAlias()) {
+    query["InstanceAlias"] = request.instanceAlias();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.securityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateLindormInstanceAttribute"},
+    {"version" , "2020-06-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateLindormInstanceAttributeResponse>();
+}
+
+/**
+ * @summary 更新实例名称或删除保护
+ *
+ * @param request UpdateLindormInstanceAttributeRequest
+ * @return UpdateLindormInstanceAttributeResponse
+ */
+UpdateLindormInstanceAttributeResponse Client::updateLindormInstanceAttribute(const UpdateLindormInstanceAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateLindormInstanceAttributeWithOptions(request, runtime);
 }
 
 /**

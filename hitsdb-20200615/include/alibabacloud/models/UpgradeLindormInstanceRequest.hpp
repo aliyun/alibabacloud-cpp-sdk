@@ -81,13 +81,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterStorage_ != nullptr
-        && this->coldStorage_ != nullptr && this->coreSingleStorage_ != nullptr && this->filestoreNum_ != nullptr && this->filestoreSpec_ != nullptr && this->instanceId_ != nullptr
-        && this->lindormNum_ != nullptr && this->lindormSpec_ != nullptr && this->logNum_ != nullptr && this->logSingleStorage_ != nullptr && this->logSpec_ != nullptr
-        && this->ltsCoreNum_ != nullptr && this->ltsCoreSpec_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->securityToken_ != nullptr && this->solrNum_ != nullptr && this->solrSpec_ != nullptr
-        && this->streamNum_ != nullptr && this->streamSpec_ != nullptr && this->tsdbNum_ != nullptr && this->tsdbSpec_ != nullptr && this->upgradeType_ != nullptr
-        && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->clusterStorage_ == nullptr
+        && return this->coldStorage_ == nullptr && return this->coreSingleStorage_ == nullptr && return this->filestoreNum_ == nullptr && return this->filestoreSpec_ == nullptr && return this->instanceId_ == nullptr
+        && return this->lindormNum_ == nullptr && return this->lindormSpec_ == nullptr && return this->logNum_ == nullptr && return this->logSingleStorage_ == nullptr && return this->logSpec_ == nullptr
+        && return this->ltsCoreNum_ == nullptr && return this->ltsCoreSpec_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->securityToken_ == nullptr && return this->solrNum_ == nullptr && return this->solrSpec_ == nullptr
+        && return this->streamNum_ == nullptr && return this->streamSpec_ == nullptr && return this->tsdbNum_ == nullptr && return this->tsdbSpec_ == nullptr && return this->upgradeType_ == nullptr
+        && return this->zoneId_ == nullptr; };
     // clusterStorage Field Functions 
     bool hasClusterStorage() const { return this->clusterStorage_ != nullptr;};
     void deleteClusterStorage() { this->clusterStorage_ = nullptr;};

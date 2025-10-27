@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpuLimit_ != nullptr
-        && this->instanceId_ != nullptr && this->memoryLimit_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->securityToken_ != nullptr; };
+    virtual bool empty() const override { return this->cpuLimit_ == nullptr
+        && return this->instanceId_ == nullptr && return this->memoryLimit_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->securityToken_ == nullptr; };
     // cpuLimit Field Functions 
     bool hasCpuLimit() const { return this->cpuLimit_ != nullptr;};
     void deleteCpuLimit() { this->cpuLimit_ = nullptr;};

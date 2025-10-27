@@ -71,12 +71,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->configId_ != nullptr
-        && this->enabled_ != nullptr && this->endTime_ != nullptr && this->instanceId_ != nullptr && this->observationWindow_ != nullptr && this->operationType_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->ruleName_ != nullptr
-        && this->ruleType_ != nullptr && this->scaleInStep_ != nullptr && this->scaleOutStep_ != nullptr && this->securityToken_ != nullptr && this->silenceTime_ != nullptr
-        && this->startTime_ != nullptr && this->targetMetric_ != nullptr && this->targetNodes_ != nullptr && this->thresholdLower_ != nullptr && this->thresholdUpper_ != nullptr
-        && this->triggerCronExpr_ != nullptr; };
+    virtual bool empty() const override { return this->configId_ == nullptr
+        && return this->enabled_ == nullptr && return this->endTime_ == nullptr && return this->instanceId_ == nullptr && return this->observationWindow_ == nullptr && return this->operationType_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->ruleName_ == nullptr
+        && return this->ruleType_ == nullptr && return this->scaleInStep_ == nullptr && return this->scaleOutStep_ == nullptr && return this->securityToken_ == nullptr && return this->silenceTime_ == nullptr
+        && return this->startTime_ == nullptr && return this->targetMetric_ == nullptr && return this->targetNodes_ == nullptr && return this->thresholdLower_ == nullptr && return this->thresholdUpper_ == nullptr
+        && return this->triggerCronExpr_ == nullptr; };
     // configId Field Functions 
     bool hasConfigId() const { return this->configId_ != nullptr;};
     void deleteConfigId() { this->configId_ = nullptr;};

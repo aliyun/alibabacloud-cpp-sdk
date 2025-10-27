@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->arbiterCoreCount_ != nullptr
-        && this->coreCount_ != nullptr && this->cpuCount_ != nullptr && this->engine_ != nullptr && this->isLastVersion_ != nullptr && this->latestVersion_ != nullptr
-        && this->memorySize_ != nullptr && this->primaryCoreCount_ != nullptr && this->specification_ != nullptr && this->standbyCoreCount_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->arbiterCoreCount_ == nullptr
+        && return this->coreCount_ == nullptr && return this->cpuCount_ == nullptr && return this->engine_ == nullptr && return this->isLastVersion_ == nullptr && return this->latestVersion_ == nullptr
+        && return this->memorySize_ == nullptr && return this->primaryCoreCount_ == nullptr && return this->specification_ == nullptr && return this->standbyCoreCount_ == nullptr && return this->version_ == nullptr; };
     // arbiterCoreCount Field Functions 
     bool hasArbiterCoreCount() const { return this->arbiterCoreCount_ != nullptr;};
     void deleteArbiterCoreCount() { this->arbiterCoreCount_ = nullptr;};

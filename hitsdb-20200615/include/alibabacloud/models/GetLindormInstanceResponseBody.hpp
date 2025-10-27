@@ -143,19 +143,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliUid_ != nullptr
-        && this->arbiterVSwitchId_ != nullptr && this->arbiterZoneId_ != nullptr && this->archVersion_ != nullptr && this->archiveStorage_ != nullptr && this->autoRenew_ != nullptr
-        && this->coldStorage_ != nullptr && this->coreDiskCategory_ != nullptr && this->coreNum_ != nullptr && this->coreSingleStorage_ != nullptr && this->coreSpec_ != nullptr
-        && this->createMilliseconds_ != nullptr && this->createTime_ != nullptr && this->deletionProtection_ != nullptr && this->diskCategory_ != nullptr && this->diskThreshold_ != nullptr
-        && this->diskUsage_ != nullptr && this->enableBlob_ != nullptr && this->enableCdc_ != nullptr && this->enableCompute_ != nullptr && this->enableKms_ != nullptr
-        && this->enableLProxy_ != nullptr && this->enableLTS_ != nullptr && this->enableLsqlVersionV3_ != nullptr && this->enableMLCtrl_ != nullptr && this->enableSSL_ != nullptr
-        && this->enableShs_ != nullptr && this->enableStoreTDE_ != nullptr && this->enableStream_ != nullptr && this->engineList_ != nullptr && this->engineType_ != nullptr
-        && this->expireTime_ != nullptr && this->expiredMilliseconds_ != nullptr && this->instanceAlias_ != nullptr && this->instanceId_ != nullptr && this->instanceStatus_ != nullptr
-        && this->instanceStorage_ != nullptr && this->logDiskCategory_ != nullptr && this->logNum_ != nullptr && this->logSingleStorage_ != nullptr && this->logSpec_ != nullptr
-        && this->maintainEndTime_ != nullptr && this->maintainStartTime_ != nullptr && this->multiZoneCombination_ != nullptr && this->networkType_ != nullptr && this->payType_ != nullptr
-        && this->primaryVSwitchId_ != nullptr && this->primaryZoneId_ != nullptr && this->regionId_ != nullptr && this->requestId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->serviceType_ != nullptr && this->standbyVSwitchId_ != nullptr && this->standbyZoneId_ != nullptr && this->vpcId_ != nullptr && this->vswitchId_ != nullptr
-        && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->aliUid_ == nullptr
+        && return this->arbiterVSwitchId_ == nullptr && return this->arbiterZoneId_ == nullptr && return this->archVersion_ == nullptr && return this->archiveStorage_ == nullptr && return this->autoRenew_ == nullptr
+        && return this->coldStorage_ == nullptr && return this->coreDiskCategory_ == nullptr && return this->coreNum_ == nullptr && return this->coreSingleStorage_ == nullptr && return this->coreSpec_ == nullptr
+        && return this->createMilliseconds_ == nullptr && return this->createTime_ == nullptr && return this->deletionProtection_ == nullptr && return this->diskCategory_ == nullptr && return this->diskThreshold_ == nullptr
+        && return this->diskUsage_ == nullptr && return this->enableBlob_ == nullptr && return this->enableCdc_ == nullptr && return this->enableCompute_ == nullptr && return this->enableKms_ == nullptr
+        && return this->enableLProxy_ == nullptr && return this->enableLTS_ == nullptr && return this->enableLsqlVersionV3_ == nullptr && return this->enableMLCtrl_ == nullptr && return this->enableSSL_ == nullptr
+        && return this->enableShs_ == nullptr && return this->enableStoreTDE_ == nullptr && return this->enableStream_ == nullptr && return this->engineList_ == nullptr && return this->engineType_ == nullptr
+        && return this->expireTime_ == nullptr && return this->expiredMilliseconds_ == nullptr && return this->instanceAlias_ == nullptr && return this->instanceId_ == nullptr && return this->instanceStatus_ == nullptr
+        && return this->instanceStorage_ == nullptr && return this->logDiskCategory_ == nullptr && return this->logNum_ == nullptr && return this->logSingleStorage_ == nullptr && return this->logSpec_ == nullptr
+        && return this->maintainEndTime_ == nullptr && return this->maintainStartTime_ == nullptr && return this->multiZoneCombination_ == nullptr && return this->networkType_ == nullptr && return this->payType_ == nullptr
+        && return this->primaryVSwitchId_ == nullptr && return this->primaryZoneId_ == nullptr && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->serviceType_ == nullptr && return this->standbyVSwitchId_ == nullptr && return this->standbyZoneId_ == nullptr && return this->vpcId_ == nullptr && return this->vswitchId_ == nullptr
+        && return this->zoneId_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};

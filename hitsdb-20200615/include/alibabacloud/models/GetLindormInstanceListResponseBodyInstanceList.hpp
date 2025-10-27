@@ -81,12 +81,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliUid_ != nullptr
-        && this->createErrorCode_ != nullptr && this->createMilliseconds_ != nullptr && this->createTime_ != nullptr && this->enableColumn_ != nullptr && this->enableCompute_ != nullptr
-        && this->enableLts_ != nullptr && this->enableMessage_ != nullptr && this->enableRow_ != nullptr && this->enableStream_ != nullptr && this->enableVector_ != nullptr
-        && this->engineType_ != nullptr && this->expireTime_ != nullptr && this->expiredMilliseconds_ != nullptr && this->instanceAlias_ != nullptr && this->instanceId_ != nullptr
-        && this->instanceStatus_ != nullptr && this->instanceStorage_ != nullptr && this->networkType_ != nullptr && this->payType_ != nullptr && this->regionId_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->serviceType_ != nullptr && this->tags_ != nullptr && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->aliUid_ == nullptr
+        && return this->createErrorCode_ == nullptr && return this->createMilliseconds_ == nullptr && return this->createTime_ == nullptr && return this->enableColumn_ == nullptr && return this->enableCompute_ == nullptr
+        && return this->enableLts_ == nullptr && return this->enableMessage_ == nullptr && return this->enableRow_ == nullptr && return this->enableStream_ == nullptr && return this->enableVector_ == nullptr
+        && return this->engineType_ == nullptr && return this->expireTime_ == nullptr && return this->expiredMilliseconds_ == nullptr && return this->instanceAlias_ == nullptr && return this->instanceId_ == nullptr
+        && return this->instanceStatus_ == nullptr && return this->instanceStorage_ == nullptr && return this->networkType_ == nullptr && return this->payType_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->serviceType_ == nullptr && return this->tags_ == nullptr && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};
