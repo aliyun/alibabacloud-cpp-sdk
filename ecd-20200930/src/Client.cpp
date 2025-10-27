@@ -2451,6 +2451,10 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
     query["EndUserGroupCoordinate"] = request.endUserGroupCoordinate();
   }
 
+  if (!!request.hasExternalDrive()) {
+    query["ExternalDrive"] = request.externalDrive();
+  }
+
   if (!!request.hasFileMigrate()) {
     query["FileMigrate"] = request.fileMigrate();
   }
@@ -13773,6 +13777,10 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
 
   if (!!request.hasEndUserGroupCoordinate()) {
     query["EndUserGroupCoordinate"] = request.endUserGroupCoordinate();
+  }
+
+  if (!!request.hasExternalDrive()) {
+    query["ExternalDrive"] = request.externalDrive();
   }
 
   if (!!request.hasFileMigrate()) {
