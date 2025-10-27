@@ -7,6 +7,7 @@
 #include <alibabacloud/models/AyncTradeDocumentPackageExtractSmartAppResponseBody.hpp>
 #include <alibabacloud/models/AyncTradeDocumentPackageExtractSmartAppResponse.hpp>
 #include <alibabacloud/models/GetDocParserResultRequest.hpp>
+#include <alibabacloud/models/GetDocParserResultShrinkRequest.hpp>
 #include <alibabacloud/models/GetDocParserResultResponseBody.hpp>
 #include <alibabacloud/models/GetDocParserResultResponse.hpp>
 #include <alibabacloud/models/GetDocStructureResultRequest.hpp>

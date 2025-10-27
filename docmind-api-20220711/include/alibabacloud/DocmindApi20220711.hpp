@@ -42,11 +42,11 @@ namespace DocmindApi20220711
       /**
        * @summary 文档结构化流式接口
        *
-       * @param request GetDocParserResultRequest
+       * @param tmpReq GetDocParserResultRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetDocParserResultResponse
        */
-      Models::GetDocParserResultResponse getDocParserResultWithOptions(const Models::GetDocParserResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::GetDocParserResultResponse getDocParserResultWithOptions(const Models::GetDocParserResultRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 文档结构化流式接口

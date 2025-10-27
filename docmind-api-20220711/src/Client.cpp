@@ -208,13 +208,23 @@ AyncTradeDocumentPackageExtractSmartAppResponse Client::ayncTradeDocumentPackage
 /**
  * @summary 文档结构化流式接口
  *
- * @param request GetDocParserResultRequest
+ * @param tmpReq GetDocParserResultRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetDocParserResultResponse
  */
-GetDocParserResultResponse Client::getDocParserResultWithOptions(const GetDocParserResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+GetDocParserResultResponse Client::getDocParserResultWithOptions(const GetDocParserResultRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetDocParserResultShrinkRequest request = GetDocParserResultShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasExcludeFields()) {
+    request.setExcludeFieldsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.excludeFields(), "ExcludeFields", "simple"));
+  }
+
   json query = {};
+  if (!!request.hasExcludeFieldsShrink()) {
+    query["ExcludeFields"] = request.excludeFieldsShrink();
+  }
+
   if (!!request.hasId()) {
     query["Id"] = request.id();
   }
