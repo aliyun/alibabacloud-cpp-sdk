@@ -62,11 +62,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->DBClusterId_ != nullptr
-        && this->DBType_ != nullptr && this->delay_ != nullptr && this->deliverName_ != nullptr && this->deliverTime_ != nullptr && this->description_ != nullptr
-        && this->filterDirtyData_ != nullptr && this->logHubStores_ != nullptr && this->logStoreName_ != nullptr && this->message_ != nullptr && this->projectName_ != nullptr
-        && this->regionId_ != nullptr && this->schemaName_ != nullptr && this->syncStatus_ != nullptr && this->tableName_ != nullptr && this->userName_ != nullptr
-        && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->DBClusterId_ == nullptr
+        && return this->DBType_ == nullptr && return this->delay_ == nullptr && return this->deliverName_ == nullptr && return this->deliverTime_ == nullptr && return this->description_ == nullptr
+        && return this->filterDirtyData_ == nullptr && return this->logHubStores_ == nullptr && return this->logStoreName_ == nullptr && return this->message_ == nullptr && return this->projectName_ == nullptr
+        && return this->regionId_ == nullptr && return this->schemaName_ == nullptr && return this->syncStatus_ == nullptr && return this->tableName_ == nullptr && return this->userName_ == nullptr
+        && return this->zoneId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};

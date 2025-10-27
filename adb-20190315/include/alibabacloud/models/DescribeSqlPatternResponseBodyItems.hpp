@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessIP_ != nullptr
-        && this->avgCpuTime_ != nullptr && this->avgPeakMemory_ != nullptr && this->avgScanSize_ != nullptr && this->avgStageCount_ != nullptr && this->avgTaskCount_ != nullptr
-        && this->instanceName_ != nullptr && this->maxCpuTime_ != nullptr && this->maxPeakMemory_ != nullptr && this->maxScanSize_ != nullptr && this->maxStageCount_ != nullptr
-        && this->maxTaskCount_ != nullptr && this->pattern_ != nullptr && this->queryCount_ != nullptr && this->reportDate_ != nullptr && this->user_ != nullptr; };
+    virtual bool empty() const override { return this->accessIP_ == nullptr
+        && return this->avgCpuTime_ == nullptr && return this->avgPeakMemory_ == nullptr && return this->avgScanSize_ == nullptr && return this->avgStageCount_ == nullptr && return this->avgTaskCount_ == nullptr
+        && return this->instanceName_ == nullptr && return this->maxCpuTime_ == nullptr && return this->maxPeakMemory_ == nullptr && return this->maxScanSize_ == nullptr && return this->maxStageCount_ == nullptr
+        && return this->maxTaskCount_ == nullptr && return this->pattern_ == nullptr && return this->queryCount_ == nullptr && return this->reportDate_ == nullptr && return this->user_ == nullptr; };
     // accessIP Field Functions 
     bool hasAccessIP() const { return this->accessIP_ != nullptr;};
     void deleteAccessIP() { this->accessIP_ = nullptr;};

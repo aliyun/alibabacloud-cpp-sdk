@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->elasticNodeNum_ != nullptr
-        && this->elasticPlanType_ != nullptr && this->elasticPlanWorkerSpec_ != nullptr && this->enable_ != nullptr && this->endDay_ != nullptr && this->endTime_ != nullptr
-        && this->monthlyRepeat_ != nullptr && this->planName_ != nullptr && this->resourcePoolName_ != nullptr && this->startDay_ != nullptr && this->startTime_ != nullptr
-        && this->weeklyRepeat_ != nullptr; };
+    virtual bool empty() const override { return this->elasticNodeNum_ == nullptr
+        && return this->elasticPlanType_ == nullptr && return this->elasticPlanWorkerSpec_ == nullptr && return this->enable_ == nullptr && return this->endDay_ == nullptr && return this->endTime_ == nullptr
+        && return this->monthlyRepeat_ == nullptr && return this->planName_ == nullptr && return this->resourcePoolName_ == nullptr && return this->startDay_ == nullptr && return this->startTime_ == nullptr
+        && return this->weeklyRepeat_ == nullptr; };
     // elasticNodeNum Field Functions 
     bool hasElasticNodeNum() const { return this->elasticNodeNum_ != nullptr;};
     void deleteElasticNodeNum() { this->elasticNodeNum_ = nullptr;};

@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->day_ != nullptr
-        && this->elasticNodeNum_ != nullptr && this->elasticPlanType_ != nullptr && this->elasticPlanWorkerSpec_ != nullptr && this->endTs_ != nullptr && this->planEndTs_ != nullptr
-        && this->planName_ != nullptr && this->planStartTs_ != nullptr && this->resourcePoolName_ != nullptr && this->startTs_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->day_ == nullptr
+        && return this->elasticNodeNum_ == nullptr && return this->elasticPlanType_ == nullptr && return this->elasticPlanWorkerSpec_ == nullptr && return this->endTs_ == nullptr && return this->planEndTs_ == nullptr
+        && return this->planName_ == nullptr && return this->planStartTs_ == nullptr && return this->resourcePoolName_ == nullptr && return this->startTs_ == nullptr && return this->status_ == nullptr; };
     // day Field Functions 
     bool hasDay() const { return this->day_ != nullptr;};
     void deleteDay() { this->day_ = nullptr;};

@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adviceDate_ != nullptr
-        && this->adviceId_ != nullptr && this->adviceType_ != nullptr && this->benefit_ != nullptr && this->indexFields_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->reason_ != nullptr && this->SQL_ != nullptr && this->schemaName_ != nullptr && this->tableName_ != nullptr
-        && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->adviceDate_ == nullptr
+        && return this->adviceId_ == nullptr && return this->adviceType_ == nullptr && return this->benefit_ == nullptr && return this->indexFields_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->reason_ == nullptr && return this->SQL_ == nullptr && return this->schemaName_ == nullptr && return this->tableName_ == nullptr
+        && return this->totalCount_ == nullptr; };
     // adviceDate Field Functions 
     bool hasAdviceDate() const { return this->adviceDate_ != nullptr;};
     void deleteAdviceDate() { this->adviceDate_ = nullptr;};

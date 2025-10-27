@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->inputRows_ != nullptr
-        && this->inputSize_ != nullptr && this->operatorCost_ != nullptr && this->operatorInfo_ != nullptr && this->operatorName_ != nullptr && this->outputRows_ != nullptr
-        && this->outputSize_ != nullptr && this->peakMemory_ != nullptr && this->processId_ != nullptr && this->stageId_ != nullptr; };
+    virtual bool empty() const override { return this->inputRows_ == nullptr
+        && return this->inputSize_ == nullptr && return this->operatorCost_ == nullptr && return this->operatorInfo_ == nullptr && return this->operatorName_ == nullptr && return this->outputRows_ == nullptr
+        && return this->outputSize_ == nullptr && return this->peakMemory_ == nullptr && return this->processId_ == nullptr && return this->stageId_ == nullptr; };
     // inputRows Field Functions 
     bool hasInputRows() const { return this->inputRows_ != nullptr;};
     void deleteInputRows() { this->inputRows_ = nullptr;};

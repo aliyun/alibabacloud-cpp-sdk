@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->archiveStatus_ != nullptr
-        && this->fromStartTime_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->productId_ != nullptr && this->regionId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->securityToken_ != nullptr && this->toStartTime_ != nullptr; };
+    virtual bool empty() const override { return this->archiveStatus_ == nullptr
+        && return this->fromStartTime_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->productId_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->securityToken_ == nullptr && return this->toStartTime_ == nullptr; };
     // archiveStatus Field Functions 
     bool hasArchiveStatus() const { return this->archiveStatus_ != nullptr;};
     void deleteArchiveStatus() { this->archiveStatus_ = nullptr;};

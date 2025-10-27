@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->DBName_ != nullptr
-        && this->executionStartTime_ != nullptr && this->hostAddress_ != nullptr && this->outputSize_ != nullptr && this->parseRowCounts_ != nullptr && this->peakMemoryUsage_ != nullptr
-        && this->planningTime_ != nullptr && this->processID_ != nullptr && this->queryTime_ != nullptr && this->queueTime_ != nullptr && this->returnRowCounts_ != nullptr
-        && this->SQLText_ != nullptr && this->scanRows_ != nullptr && this->scanSize_ != nullptr && this->scanTime_ != nullptr && this->state_ != nullptr
-        && this->userName_ != nullptr && this->wallTime_ != nullptr; };
+    virtual bool empty() const override { return this->DBName_ == nullptr
+        && return this->executionStartTime_ == nullptr && return this->hostAddress_ == nullptr && return this->outputSize_ == nullptr && return this->parseRowCounts_ == nullptr && return this->peakMemoryUsage_ == nullptr
+        && return this->planningTime_ == nullptr && return this->processID_ == nullptr && return this->queryTime_ == nullptr && return this->queueTime_ == nullptr && return this->returnRowCounts_ == nullptr
+        && return this->SQLText_ == nullptr && return this->scanRows_ == nullptr && return this->scanSize_ == nullptr && return this->scanTime_ == nullptr && return this->state_ == nullptr
+        && return this->userName_ == nullptr && return this->wallTime_ == nullptr; };
     // DBName Field Functions 
     bool hasDBName() const { return this->DBName_ != nullptr;};
     void deleteDBName() { this->DBName_ = nullptr;};

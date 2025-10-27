@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->exceedMemoryException_ != nullptr
-        && this->groupName_ != nullptr && this->peakMemory_ != nullptr && this->queryTime_ != nullptr && this->targetGroupName_ != nullptr; };
+    virtual bool empty() const override { return this->exceedMemoryException_ == nullptr
+        && return this->groupName_ == nullptr && return this->peakMemory_ == nullptr && return this->queryTime_ == nullptr && return this->targetGroupName_ == nullptr; };
     // exceedMemoryException Field Functions 
     bool hasExceedMemoryException() const { return this->exceedMemoryException_ != nullptr;};
     void deleteExceedMemoryException() { this->exceedMemoryException_ = nullptr;};

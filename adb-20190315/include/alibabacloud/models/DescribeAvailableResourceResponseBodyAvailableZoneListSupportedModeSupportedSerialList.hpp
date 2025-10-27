@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->serial_ != nullptr
-        && this->supportedFlexibleResource_ != nullptr && this->supportedInstanceClassList_ != nullptr; };
+    virtual bool empty() const override { return this->serial_ == nullptr
+        && return this->supportedFlexibleResource_ == nullptr && return this->supportedInstanceClassList_ == nullptr; };
     // serial Field Functions 
     bool hasSerial() const { return this->serial_ != nullptr;};
     void deleteSerial() { this->serial_ = nullptr;};

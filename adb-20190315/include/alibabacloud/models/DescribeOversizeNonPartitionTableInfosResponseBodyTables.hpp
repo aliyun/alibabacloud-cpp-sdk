@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataSize_ != nullptr
-        && this->indexSize_ != nullptr && this->localDataSize_ != nullptr && this->primaryKeySize_ != nullptr && this->remoteDataSize_ != nullptr && this->rowCount_ != nullptr
-        && this->schemaName_ != nullptr && this->spaceRatio_ != nullptr && this->tableName_ != nullptr; };
+    virtual bool empty() const override { return this->dataSize_ == nullptr
+        && return this->indexSize_ == nullptr && return this->localDataSize_ == nullptr && return this->primaryKeySize_ == nullptr && return this->remoteDataSize_ == nullptr && return this->rowCount_ == nullptr
+        && return this->schemaName_ == nullptr && return this->spaceRatio_ == nullptr && return this->tableName_ == nullptr; };
     // dataSize Field Functions 
     bool hasDataSize() const { return this->dataSize_ != nullptr;};
     void deleteDataSize() { this->dataSize_ = nullptr;};

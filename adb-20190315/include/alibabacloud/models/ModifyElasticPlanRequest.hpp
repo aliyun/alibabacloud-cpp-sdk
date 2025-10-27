@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->DBClusterId_ != nullptr
-        && this->elasticPlanEnable_ != nullptr && this->elasticPlanEndDay_ != nullptr && this->elasticPlanMonthlyRepeat_ != nullptr && this->elasticPlanName_ != nullptr && this->elasticPlanNodeNum_ != nullptr
-        && this->elasticPlanStartDay_ != nullptr && this->elasticPlanTimeEnd_ != nullptr && this->elasticPlanTimeStart_ != nullptr && this->elasticPlanType_ != nullptr && this->elasticPlanWeeklyRepeat_ != nullptr
-        && this->elasticPlanWorkerSpec_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->resourcePoolName_ != nullptr; };
+    virtual bool empty() const override { return this->DBClusterId_ == nullptr
+        && return this->elasticPlanEnable_ == nullptr && return this->elasticPlanEndDay_ == nullptr && return this->elasticPlanMonthlyRepeat_ == nullptr && return this->elasticPlanName_ == nullptr && return this->elasticPlanNodeNum_ == nullptr
+        && return this->elasticPlanStartDay_ == nullptr && return this->elasticPlanTimeEnd_ == nullptr && return this->elasticPlanTimeStart_ == nullptr && return this->elasticPlanType_ == nullptr && return this->elasticPlanWeeklyRepeat_ == nullptr
+        && return this->elasticPlanWorkerSpec_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->resourcePoolName_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};

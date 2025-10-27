@@ -79,12 +79,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientIp_ != nullptr
-        && this->cost_ != nullptr && this->database_ != nullptr && this->etlWriteRows_ != nullptr && this->executionTime_ != nullptr && this->outputDataSize_ != nullptr
-        && this->outputRows_ != nullptr && this->patternId_ != nullptr && this->peakMemory_ != nullptr && this->processId_ != nullptr && this->queryProperties_ != nullptr
-        && this->queueTime_ != nullptr && this->rcHost_ != nullptr && this->resourceCostRank_ != nullptr && this->resourceGroup_ != nullptr && this->SQL_ != nullptr
-        && this->SQLTruncated_ != nullptr && this->SQLTruncatedThreshold_ != nullptr && this->scanRows_ != nullptr && this->scanSize_ != nullptr && this->startTime_ != nullptr
-        && this->status_ != nullptr && this->totalPlanningTime_ != nullptr && this->totalStages_ != nullptr && this->userName_ != nullptr; };
+    virtual bool empty() const override { return this->clientIp_ == nullptr
+        && return this->cost_ == nullptr && return this->database_ == nullptr && return this->etlWriteRows_ == nullptr && return this->executionTime_ == nullptr && return this->outputDataSize_ == nullptr
+        && return this->outputRows_ == nullptr && return this->patternId_ == nullptr && return this->peakMemory_ == nullptr && return this->processId_ == nullptr && return this->queryProperties_ == nullptr
+        && return this->queueTime_ == nullptr && return this->rcHost_ == nullptr && return this->resourceCostRank_ == nullptr && return this->resourceGroup_ == nullptr && return this->SQL_ == nullptr
+        && return this->SQLTruncated_ == nullptr && return this->SQLTruncatedThreshold_ == nullptr && return this->scanRows_ == nullptr && return this->scanSize_ == nullptr && return this->startTime_ == nullptr
+        && return this->status_ == nullptr && return this->totalPlanningTime_ == nullptr && return this->totalStages_ == nullptr && return this->userName_ == nullptr; };
     // clientIp Field Functions 
     bool hasClientIp() const { return this->clientIp_ != nullptr;};
     void deleteClientIp() { this->clientIp_ = nullptr;};

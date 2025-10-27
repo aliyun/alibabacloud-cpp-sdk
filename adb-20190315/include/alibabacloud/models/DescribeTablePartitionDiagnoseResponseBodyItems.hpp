@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->partitionDetail_ != nullptr
-        && this->partitionNumber_ != nullptr && this->schemaName_ != nullptr && this->spaceRatio_ != nullptr && this->tableName_ != nullptr && this->totalSize_ != nullptr; };
+    virtual bool empty() const override { return this->partitionDetail_ == nullptr
+        && return this->partitionNumber_ == nullptr && return this->schemaName_ == nullptr && return this->spaceRatio_ == nullptr && return this->tableName_ == nullptr && return this->totalSize_ == nullptr; };
     // partitionDetail Field Functions 
     bool hasPartitionDetail() const { return this->partitionDetail_ != nullptr;};
     void deletePartitionDetail() { this->partitionDetail_ = nullptr;};

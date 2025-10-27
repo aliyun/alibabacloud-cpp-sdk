@@ -82,7 +82,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 申请公网链接
+ * @summary Applies for a public endpoint for an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
  *
  * @param request AllocateClusterPublicConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -133,7 +133,7 @@ AllocateClusterPublicConnectionResponse Client::allocateClusterPublicConnectionW
 }
 
 /**
- * @summary 申请公网链接
+ * @summary Applies for a public endpoint for an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
  *
  * @param request AllocateClusterPublicConnectionRequest
  * @return AllocateClusterPublicConnectionResponse

@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxCount_ != nullptr
-        && this->minCount_ != nullptr && this->step_ != nullptr; };
+    virtual bool empty() const override { return this->maxCount_ == nullptr
+        && return this->minCount_ == nullptr && return this->step_ == nullptr; };
     // maxCount Field Functions 
     bool hasMaxCount() const { return this->maxCount_ != nullptr;};
     void deleteMaxCount() { this->maxCount_ = nullptr;};

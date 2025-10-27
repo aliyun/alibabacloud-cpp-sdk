@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->computeTimeRatio_ != nullptr
-        && this->drivers_ != nullptr && this->elapsedTime_ != nullptr && this->inputDataSize_ != nullptr && this->inputRows_ != nullptr && this->operatorCost_ != nullptr
-        && this->outputDataSize_ != nullptr && this->outputRows_ != nullptr && this->peakMemory_ != nullptr && this->queuedTime_ != nullptr && this->scanCost_ != nullptr
-        && this->scanDataSize_ != nullptr && this->scanRows_ != nullptr && this->state_ != nullptr && this->taskCreateTime_ != nullptr && this->taskEndTime_ != nullptr
-        && this->taskHost_ != nullptr && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->computeTimeRatio_ == nullptr
+        && return this->drivers_ == nullptr && return this->elapsedTime_ == nullptr && return this->inputDataSize_ == nullptr && return this->inputRows_ == nullptr && return this->operatorCost_ == nullptr
+        && return this->outputDataSize_ == nullptr && return this->outputRows_ == nullptr && return this->peakMemory_ == nullptr && return this->queuedTime_ == nullptr && return this->scanCost_ == nullptr
+        && return this->scanDataSize_ == nullptr && return this->scanRows_ == nullptr && return this->state_ == nullptr && return this->taskCreateTime_ == nullptr && return this->taskEndTime_ == nullptr
+        && return this->taskHost_ == nullptr && return this->taskId_ == nullptr; };
     // computeTimeRatio Field Functions 
     bool hasComputeTimeRatio() const { return this->computeTimeRatio_ != nullptr;};
     void deleteComputeTimeRatio() { this->computeTimeRatio_ = nullptr;};

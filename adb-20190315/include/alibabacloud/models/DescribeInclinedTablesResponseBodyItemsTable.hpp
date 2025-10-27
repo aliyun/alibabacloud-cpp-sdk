@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->isIncline_ != nullptr
-        && this->name_ != nullptr && this->rowCount_ != nullptr && this->schema_ != nullptr && this->size_ != nullptr && this->spaceRatio_ != nullptr
-        && this->totalSize_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->isIncline_ == nullptr
+        && return this->name_ == nullptr && return this->rowCount_ == nullptr && return this->schema_ == nullptr && return this->size_ == nullptr && return this->spaceRatio_ == nullptr
+        && return this->totalSize_ == nullptr && return this->type_ == nullptr; };
     // isIncline Field Functions 
     bool hasIsIncline() const { return this->isIncline_ != nullptr;};
     void deleteIsIncline() { this->isIncline_ = nullptr;};

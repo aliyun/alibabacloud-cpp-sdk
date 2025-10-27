@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterCategory_ != nullptr
-        && this->clusterMode_ != nullptr && this->nodeClass_ != nullptr && this->nodeCount_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->rdsInstanceId_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->storageType_ != nullptr; };
+    virtual bool empty() const override { return this->clusterCategory_ == nullptr
+        && return this->clusterMode_ == nullptr && return this->nodeClass_ == nullptr && return this->nodeCount_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->rdsInstanceId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->storageType_ == nullptr; };
     // clusterCategory Field Functions 
     bool hasClusterCategory() const { return this->clusterCategory_ != nullptr;};
     void deleteClusterCategory() { this->clusterCategory_ = nullptr;};

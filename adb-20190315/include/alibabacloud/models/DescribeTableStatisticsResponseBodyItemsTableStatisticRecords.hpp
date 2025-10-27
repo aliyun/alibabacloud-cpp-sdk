@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->coldDataSize_ != nullptr
-        && this->dataSize_ != nullptr && this->hotDataSize_ != nullptr && this->indexSize_ != nullptr && this->otherSize_ != nullptr && this->partitionCount_ != nullptr
-        && this->primaryKeyIndexSize_ != nullptr && this->rowCount_ != nullptr && this->schemaName_ != nullptr && this->spaceRatio_ != nullptr && this->tableName_ != nullptr
-        && this->totalSize_ != nullptr; };
+    virtual bool empty() const override { return this->coldDataSize_ == nullptr
+        && return this->dataSize_ == nullptr && return this->hotDataSize_ == nullptr && return this->indexSize_ == nullptr && return this->otherSize_ == nullptr && return this->partitionCount_ == nullptr
+        && return this->primaryKeyIndexSize_ == nullptr && return this->rowCount_ == nullptr && return this->schemaName_ == nullptr && return this->spaceRatio_ == nullptr && return this->tableName_ == nullptr
+        && return this->totalSize_ == nullptr; };
     // coldDataSize Field Functions 
     bool hasColdDataSize() const { return this->coldDataSize_ != nullptr;};
     void deleteColdDataSize() { this->coldDataSize_ = nullptr;};
