@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enable_ != nullptr
-        && this->firstDateStr_ != nullptr && this->intervalPeriod_ != nullptr && this->param_ != nullptr && this->periodUnit_ != nullptr && this->source_ != nullptr
-        && this->targetEndTime_ != nullptr && this->targetStartTime_ != nullptr && this->taskName_ != nullptr && this->taskType_ != nullptr; };
+    virtual bool empty() const override { return this->enable_ == nullptr
+        && return this->firstDateStr_ == nullptr && return this->intervalPeriod_ == nullptr && return this->param_ == nullptr && return this->periodUnit_ == nullptr && return this->source_ == nullptr
+        && return this->targetEndTime_ == nullptr && return this->targetStartTime_ == nullptr && return this->taskName_ == nullptr && return this->taskType_ == nullptr; };
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};

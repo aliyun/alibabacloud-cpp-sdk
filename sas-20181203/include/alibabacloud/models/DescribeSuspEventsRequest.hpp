@@ -100,14 +100,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alarmUniqueInfo_ != nullptr
-        && this->assetsTypeList_ != nullptr && this->clusterId_ != nullptr && this->containerFieldName_ != nullptr && this->containerFieldValue_ != nullptr && this->currentPage_ != nullptr
-        && this->dealed_ != nullptr && this->eventNames_ != nullptr && this->from_ != nullptr && this->groupId_ != nullptr && this->id_ != nullptr
-        && this->lang_ != nullptr && this->levels_ != nullptr && this->multiAccountActionType_ != nullptr && this->name_ != nullptr && this->operateErrorCodeList_ != nullptr
-        && this->operateTimeEnd_ != nullptr && this->operateTimeStart_ != nullptr && this->pageSize_ != nullptr && this->parentEventTypes_ != nullptr && this->remark_ != nullptr
-        && this->resourceDirectoryAccountId_ != nullptr && this->sortColumn_ != nullptr && this->sortType_ != nullptr && this->source_ != nullptr && this->sourceAliUids_ != nullptr
-        && this->sourceIp_ != nullptr && this->status_ != nullptr && this->strictMode_ != nullptr && this->supportOperateCodeList_ != nullptr && this->tacticId_ != nullptr
-        && this->targetType_ != nullptr && this->timeEnd_ != nullptr && this->timeStart_ != nullptr && this->uniqueInfo_ != nullptr && this->uuids_ != nullptr; };
+    virtual bool empty() const override { return this->alarmUniqueInfo_ == nullptr
+        && return this->assetsTypeList_ == nullptr && return this->clusterId_ == nullptr && return this->containerFieldName_ == nullptr && return this->containerFieldValue_ == nullptr && return this->currentPage_ == nullptr
+        && return this->dealed_ == nullptr && return this->eventNames_ == nullptr && return this->from_ == nullptr && return this->groupId_ == nullptr && return this->id_ == nullptr
+        && return this->lang_ == nullptr && return this->levels_ == nullptr && return this->multiAccountActionType_ == nullptr && return this->name_ == nullptr && return this->operateErrorCodeList_ == nullptr
+        && return this->operateTimeEnd_ == nullptr && return this->operateTimeStart_ == nullptr && return this->pageSize_ == nullptr && return this->parentEventTypes_ == nullptr && return this->remark_ == nullptr
+        && return this->resourceDirectoryAccountId_ == nullptr && return this->sortColumn_ == nullptr && return this->sortType_ == nullptr && return this->source_ == nullptr && return this->sourceAliUids_ == nullptr
+        && return this->sourceIp_ == nullptr && return this->status_ == nullptr && return this->strictMode_ == nullptr && return this->supportOperateCodeList_ == nullptr && return this->tacticId_ == nullptr
+        && return this->targetType_ == nullptr && return this->timeEnd_ == nullptr && return this->timeStart_ == nullptr && return this->uniqueInfo_ == nullptr && return this->uuids_ == nullptr; };
     // alarmUniqueInfo Field Functions 
     bool hasAlarmUniqueInfo() const { return this->alarmUniqueInfo_ != nullptr;};
     void deleteAlarmUniqueInfo() { this->alarmUniqueInfo_ = nullptr;};

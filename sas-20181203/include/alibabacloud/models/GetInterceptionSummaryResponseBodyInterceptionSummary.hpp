@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->closeClusterCount_ != nullptr
-        && this->closeRuleCount_ != nullptr && this->clusterCount_ != nullptr && this->interceptionCountInDays_ != nullptr && this->openClusterCount_ != nullptr && this->openRuleCount_ != nullptr
-        && this->riskCount180Day_ != nullptr && this->riskCount30Day_ != nullptr && this->riskCountToday_ != nullptr && this->ruleCount_ != nullptr; };
+    virtual bool empty() const override { return this->closeClusterCount_ == nullptr
+        && return this->closeRuleCount_ == nullptr && return this->clusterCount_ == nullptr && return this->interceptionCountInDays_ == nullptr && return this->openClusterCount_ == nullptr && return this->openRuleCount_ == nullptr
+        && return this->riskCount180Day_ == nullptr && return this->riskCount30Day_ == nullptr && return this->riskCountToday_ == nullptr && return this->ruleCount_ == nullptr; };
     // closeClusterCount Field Functions 
     bool hasCloseClusterCount() const { return this->closeClusterCount_ != nullptr;};
     void deleteCloseClusterCount() { this->closeClusterCount_ = nullptr;};

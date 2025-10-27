@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->exposedAsapVulCount_ != nullptr
-        && this->exposedComponentCount_ != nullptr && this->exposedDdsCount_ != nullptr && this->exposedEcsCount_ != nullptr && this->exposedInstanceCount_ != nullptr && this->exposedIpCount_ != nullptr
-        && this->exposedKvstoreCount_ != nullptr && this->exposedLaterVulCount_ != nullptr && this->exposedNntfVulCount_ != nullptr && this->exposedPortCount_ != nullptr && this->exposedRdsCount_ != nullptr
-        && this->exposedWeekPasswordMachineCount_ != nullptr && this->gatewayAssetCount_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->exposedAsapVulCount_ == nullptr
+        && return this->exposedComponentCount_ == nullptr && return this->exposedDdsCount_ == nullptr && return this->exposedEcsCount_ == nullptr && return this->exposedInstanceCount_ == nullptr && return this->exposedIpCount_ == nullptr
+        && return this->exposedKvstoreCount_ == nullptr && return this->exposedLaterVulCount_ == nullptr && return this->exposedNntfVulCount_ == nullptr && return this->exposedPortCount_ == nullptr && return this->exposedRdsCount_ == nullptr
+        && return this->exposedWeekPasswordMachineCount_ == nullptr && return this->gatewayAssetCount_ == nullptr && return this->requestId_ == nullptr; };
     // exposedAsapVulCount Field Functions 
     bool hasExposedAsapVulCount() const { return this->exposedAsapVulCount_ != nullptr;};
     void deleteExposedAsapVulCount() { this->exposedAsapVulCount_ = nullptr;};

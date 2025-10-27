@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTimestamp_ != nullptr
-        && this->installTime_ != nullptr && this->installTimeDt_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr
-        && this->intranetIp_ != nullptr && this->ip_ != nullptr && this->name_ != nullptr && this->path_ != nullptr && this->uuid_ != nullptr
-        && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->createTimestamp_ == nullptr
+        && return this->installTime_ == nullptr && return this->installTimeDt_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr
+        && return this->intranetIp_ == nullptr && return this->ip_ == nullptr && return this->name_ == nullptr && return this->path_ == nullptr && return this->uuid_ == nullptr
+        && return this->version_ == nullptr; };
     // createTimestamp Field Functions 
     bool hasCreateTimestamp() const { return this->createTimestamp_ != nullptr;};
     void deleteCreateTimestamp() { this->createTimestamp_ = nullptr;};

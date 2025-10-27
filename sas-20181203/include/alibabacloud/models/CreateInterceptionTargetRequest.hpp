@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appName_ != nullptr
-        && this->clusterId_ != nullptr && this->clusterName_ != nullptr && this->imageList_ != nullptr && this->namespace_ != nullptr && this->tagList_ != nullptr
-        && this->targetName_ != nullptr && this->targetType_ != nullptr; };
+    virtual bool empty() const override { return this->appName_ == nullptr
+        && return this->clusterId_ == nullptr && return this->clusterName_ == nullptr && return this->imageList_ == nullptr && return this->namespace_ == nullptr && return this->tagList_ == nullptr
+        && return this->targetName_ == nullptr && return this->targetType_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};

@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->raspDefendedCount_ != nullptr
-        && this->raspDefensibleCount_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->raspDefendedCount_ == nullptr
+        && return this->raspDefensibleCount_ == nullptr && return this->requestId_ == nullptr; };
     // raspDefendedCount Field Functions 
     bool hasRaspDefendedCount() const { return this->raspDefendedCount_ != nullptr;};
     void deleteRaspDefendedCount() { this->raspDefendedCount_ = nullptr;};

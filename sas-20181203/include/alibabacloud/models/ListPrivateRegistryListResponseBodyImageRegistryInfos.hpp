@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliUid_ != nullptr
-        && this->domainName_ != nullptr && this->id_ != nullptr && this->jenkinsEnv_ != nullptr && this->netType_ != nullptr && this->password_ != nullptr
-        && this->persistenceDay_ != nullptr && this->protocolType_ != nullptr && this->regionId_ != nullptr && this->registryHostIp_ != nullptr && this->registryName_ != nullptr
-        && this->registryType_ != nullptr && this->registryVersion_ != nullptr && this->token_ != nullptr && this->transPerHour_ != nullptr && this->userName_ != nullptr
-        && this->vpcId_ != nullptr && this->whiteList_ != nullptr; };
+    virtual bool empty() const override { return this->aliUid_ == nullptr
+        && return this->domainName_ == nullptr && return this->id_ == nullptr && return this->jenkinsEnv_ == nullptr && return this->netType_ == nullptr && return this->password_ == nullptr
+        && return this->persistenceDay_ == nullptr && return this->protocolType_ == nullptr && return this->regionId_ == nullptr && return this->registryHostIp_ == nullptr && return this->registryName_ == nullptr
+        && return this->registryType_ == nullptr && return this->registryVersion_ == nullptr && return this->token_ == nullptr && return this->transPerHour_ == nullptr && return this->userName_ == nullptr
+        && return this->vpcId_ == nullptr && return this->whiteList_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};

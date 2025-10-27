@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliasName_ != nullptr
-        && this->assetType_ != nullptr && this->attachTypes_ != nullptr && this->clusterId_ != nullptr && this->containerFieldName_ != nullptr && this->containerFieldValue_ != nullptr
-        && this->currentPage_ != nullptr && this->cveId_ != nullptr && this->dealed_ != nullptr && this->groupId_ != nullptr && this->lang_ != nullptr
-        && this->necessity_ != nullptr && this->pageSize_ != nullptr && this->raspDefend_ != nullptr && this->resourceDirectoryAccountId_ != nullptr && this->searchTags_ != nullptr
-        && this->targetType_ != nullptr && this->type_ != nullptr && this->uuids_ != nullptr; };
+    virtual bool empty() const override { return this->aliasName_ == nullptr
+        && return this->assetType_ == nullptr && return this->attachTypes_ == nullptr && return this->clusterId_ == nullptr && return this->containerFieldName_ == nullptr && return this->containerFieldValue_ == nullptr
+        && return this->currentPage_ == nullptr && return this->cveId_ == nullptr && return this->dealed_ == nullptr && return this->groupId_ == nullptr && return this->lang_ == nullptr
+        && return this->necessity_ == nullptr && return this->pageSize_ == nullptr && return this->raspDefend_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr && return this->searchTags_ == nullptr
+        && return this->targetType_ == nullptr && return this->type_ == nullptr && return this->uuids_ == nullptr; };
     // aliasName Field Functions 
     bool hasAliasName() const { return this->aliasName_ != nullptr;};
     void deleteAliasName() { this->aliasName_ = nullptr;};

@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bindCoreCount_ != nullptr
-        && this->bindEcsCount_ != nullptr && this->postPaidBindCoreCount_ != nullptr && this->postPaidBindEcsCount_ != nullptr && this->riskCoreCount_ != nullptr && this->riskEcsCount_ != nullptr
-        && this->totalCoreCount_ != nullptr && this->totalEcsCount_ != nullptr && this->unBindCoreCount_ != nullptr && this->unBindEcsCount_ != nullptr; };
+    virtual bool empty() const override { return this->bindCoreCount_ == nullptr
+        && return this->bindEcsCount_ == nullptr && return this->postPaidBindCoreCount_ == nullptr && return this->postPaidBindEcsCount_ == nullptr && return this->riskCoreCount_ == nullptr && return this->riskEcsCount_ == nullptr
+        && return this->totalCoreCount_ == nullptr && return this->totalEcsCount_ == nullptr && return this->unBindCoreCount_ == nullptr && return this->unBindEcsCount_ == nullptr; };
     // bindCoreCount Field Functions 
     bool hasBindCoreCount() const { return this->bindCoreCount_ != nullptr;};
     void deleteBindCoreCount() { this->bindCoreCount_ = nullptr;};

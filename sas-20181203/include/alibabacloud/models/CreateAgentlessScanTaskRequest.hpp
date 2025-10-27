@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assetSelectionType_ != nullptr
-        && this->autoDeleteDays_ != nullptr && this->releaseAfterScan_ != nullptr && this->scanDataDisk_ != nullptr && this->targetType_ != nullptr && this->uuidList_ != nullptr; };
+    virtual bool empty() const override { return this->assetSelectionType_ == nullptr
+        && return this->autoDeleteDays_ == nullptr && return this->releaseAfterScan_ == nullptr && return this->scanDataDisk_ == nullptr && return this->targetType_ == nullptr && return this->uuidList_ == nullptr; };
     // assetSelectionType Field Functions 
     bool hasAssetSelectionType() const { return this->assetSelectionType_ != nullptr;};
     void deleteAssetSelectionType() { this->assetSelectionType_ = nullptr;};

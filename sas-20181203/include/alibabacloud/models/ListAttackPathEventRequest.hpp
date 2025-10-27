@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attackPathAssetList_ != nullptr
-        && this->currentPage_ != nullptr && this->endTime_ != nullptr && this->lang_ != nullptr && this->pageSize_ != nullptr && this->pathNameDesc_ != nullptr
-        && this->pathType_ != nullptr && this->riskLevelList_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->attackPathAssetList_ == nullptr
+        && return this->currentPage_ == nullptr && return this->endTime_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr && return this->pathNameDesc_ == nullptr
+        && return this->pathType_ == nullptr && return this->riskLevelList_ == nullptr && return this->startTime_ == nullptr; };
     // attackPathAssetList Field Functions 
     bool hasAttackPathAssetList() const { return this->attackPathAssetList_ != nullptr;};
     void deleteAttackPathAssetList() { this->attackPathAssetList_ = nullptr;};

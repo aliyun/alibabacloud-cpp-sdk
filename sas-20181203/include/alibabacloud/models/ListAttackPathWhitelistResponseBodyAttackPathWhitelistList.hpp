@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attackPathWhitelistId_ != nullptr
-        && this->lastModifiedTimestamp_ != nullptr && this->pathName_ != nullptr && this->pathType_ != nullptr && this->remark_ != nullptr && this->whitelistName_ != nullptr
-        && this->whitelistType_ != nullptr; };
+    virtual bool empty() const override { return this->attackPathWhitelistId_ == nullptr
+        && return this->lastModifiedTimestamp_ == nullptr && return this->pathName_ == nullptr && return this->pathType_ == nullptr && return this->remark_ == nullptr && return this->whitelistName_ == nullptr
+        && return this->whitelistType_ == nullptr; };
     // attackPathWhitelistId Field Functions 
     bool hasAttackPathWhitelistId() const { return this->attackPathWhitelistId_ != nullptr;};
     void deleteAttackPathWhitelistId() { this->attackPathWhitelistId_ = nullptr;};

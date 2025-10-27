@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->advice_ != nullptr
-        && this->baselineClassAlias_ != nullptr && this->baselineItemAlias_ != nullptr && this->baselineItemKey_ != nullptr && this->baselineNameAlias_ != nullptr && this->description_ != nullptr
-        && this->level_ != nullptr && this->prompt_ != nullptr && this->resultId_ != nullptr; };
+    virtual bool empty() const override { return this->advice_ == nullptr
+        && return this->baselineClassAlias_ == nullptr && return this->baselineItemAlias_ == nullptr && return this->baselineItemKey_ == nullptr && return this->baselineNameAlias_ == nullptr && return this->description_ == nullptr
+        && return this->level_ == nullptr && return this->prompt_ == nullptr && return this->resultId_ == nullptr; };
     // advice Field Functions 
     bool hasAdvice() const { return this->advice_ != nullptr;};
     void deleteAdvice() { this->advice_ = nullptr;};

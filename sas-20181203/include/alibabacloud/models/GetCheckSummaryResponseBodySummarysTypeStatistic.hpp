@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->notCheckCount_ != nullptr
-        && this->notCheckHighCount_ != nullptr && this->notCheckLowCount_ != nullptr && this->notCheckMediumCount_ != nullptr && this->notPassCount_ != nullptr && this->notPassHighCount_ != nullptr
-        && this->notPassLowCount_ != nullptr && this->notPassMediumCount_ != nullptr && this->passCount_ != nullptr && this->passHighCount_ != nullptr && this->passLowCount_ != nullptr
-        && this->passMediumCount_ != nullptr; };
+    virtual bool empty() const override { return this->notCheckCount_ == nullptr
+        && return this->notCheckHighCount_ == nullptr && return this->notCheckLowCount_ == nullptr && return this->notCheckMediumCount_ == nullptr && return this->notPassCount_ == nullptr && return this->notPassHighCount_ == nullptr
+        && return this->notPassLowCount_ == nullptr && return this->notPassMediumCount_ == nullptr && return this->passCount_ == nullptr && return this->passHighCount_ == nullptr && return this->passLowCount_ == nullptr
+        && return this->passMediumCount_ == nullptr; };
     // notCheckCount Field Functions 
     bool hasNotCheckCount() const { return this->notCheckCount_ != nullptr;};
     void deleteNotCheckCount() { this->notCheckCount_ = nullptr;};

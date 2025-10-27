@@ -87,13 +87,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->containerName_ != nullptr
-        && this->createTimestamp_ != nullptr && this->domain_ != nullptr && this->endPoint_ != nullptr && this->file_ != nullptr && this->filepath_ != nullptr
-        && this->imageName_ != nullptr && this->installationPath_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr
-        && this->intranetIp_ != nullptr && this->ip_ != nullptr && this->listenProtocol_ != nullptr && this->middlewareName_ != nullptr && this->middlewareVersion_ != nullptr
-        && this->modelName_ != nullptr && this->moduleName_ != nullptr && this->path_ != nullptr && this->pathMode_ != nullptr && this->pid_ != nullptr
-        && this->port_ != nullptr && this->processStarted_ != nullptr && this->regionId_ != nullptr && this->serverType_ != nullptr && this->size_ != nullptr
-        && this->usedByCount_ != nullptr && this->user_ != nullptr && this->uuid_ != nullptr && this->webPath_ != nullptr; };
+    virtual bool empty() const override { return this->containerName_ == nullptr
+        && return this->createTimestamp_ == nullptr && return this->domain_ == nullptr && return this->endPoint_ == nullptr && return this->file_ == nullptr && return this->filepath_ == nullptr
+        && return this->imageName_ == nullptr && return this->installationPath_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr
+        && return this->intranetIp_ == nullptr && return this->ip_ == nullptr && return this->listenProtocol_ == nullptr && return this->middlewareName_ == nullptr && return this->middlewareVersion_ == nullptr
+        && return this->modelName_ == nullptr && return this->moduleName_ == nullptr && return this->path_ == nullptr && return this->pathMode_ == nullptr && return this->pid_ == nullptr
+        && return this->port_ == nullptr && return this->processStarted_ == nullptr && return this->regionId_ == nullptr && return this->serverType_ == nullptr && return this->size_ == nullptr
+        && return this->usedByCount_ == nullptr && return this->user_ == nullptr && return this->uuid_ == nullptr && return this->webPath_ == nullptr; };
     // containerName Field Functions 
     bool hasContainerName() const { return this->containerName_ != nullptr;};
     void deleteContainerName() { this->containerName_ = nullptr;};

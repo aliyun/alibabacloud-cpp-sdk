@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bucketName_ != nullptr
-        && this->currentPage_ != nullptr && this->eventName_ != nullptr && this->lang_ != nullptr && this->md5_ != nullptr && this->ossKey_ != nullptr
-        && this->pageSize_ != nullptr && this->parentEventId_ != nullptr && this->riskLevel_ != nullptr && this->source_ != nullptr && this->timeEnd_ != nullptr
-        && this->timeStart_ != nullptr; };
+    virtual bool empty() const override { return this->bucketName_ == nullptr
+        && return this->currentPage_ == nullptr && return this->eventName_ == nullptr && return this->lang_ == nullptr && return this->md5_ == nullptr && return this->ossKey_ == nullptr
+        && return this->pageSize_ == nullptr && return this->parentEventId_ == nullptr && return this->riskLevel_ == nullptr && return this->source_ == nullptr && return this->timeEnd_ == nullptr
+        && return this->timeStart_ == nullptr; };
     // bucketName Field Functions 
     bool hasBucketName() const { return this->bucketName_ != nullptr;};
     void deleteBucketName() { this->bucketName_ = nullptr;};

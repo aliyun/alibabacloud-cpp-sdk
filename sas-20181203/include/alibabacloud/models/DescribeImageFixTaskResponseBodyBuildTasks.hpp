@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->buildTaskId_ != nullptr
-        && this->finishTime_ != nullptr && this->fixTime_ != nullptr && this->newTag_ != nullptr && this->newUuid_ != nullptr && this->oldTag_ != nullptr
-        && this->oldUuid_ != nullptr && this->regionId_ != nullptr && this->repoName_ != nullptr && this->repoNamespace_ != nullptr && this->status_ != nullptr
-        && this->taskType_ != nullptr && this->vulAlias_ != nullptr; };
+    virtual bool empty() const override { return this->buildTaskId_ == nullptr
+        && return this->finishTime_ == nullptr && return this->fixTime_ == nullptr && return this->newTag_ == nullptr && return this->newUuid_ == nullptr && return this->oldTag_ == nullptr
+        && return this->oldUuid_ == nullptr && return this->regionId_ == nullptr && return this->repoName_ == nullptr && return this->repoNamespace_ == nullptr && return this->status_ == nullptr
+        && return this->taskType_ == nullptr && return this->vulAlias_ == nullptr; };
     // buildTaskId Field Functions 
     bool hasBuildTaskId() const { return this->buildTaskId_ != nullptr;};
     void deleteBuildTaskId() { this->buildTaskId_ = nullptr;};

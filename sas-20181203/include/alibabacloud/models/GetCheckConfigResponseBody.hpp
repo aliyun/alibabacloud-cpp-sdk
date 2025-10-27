@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cycleDays_ != nullptr
-        && this->enableAddCheck_ != nullptr && this->enableAutoCheck_ != nullptr && this->endTime_ != nullptr && this->requestId_ != nullptr && this->selectedChecks_ != nullptr
-        && this->standards_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->cycleDays_ == nullptr
+        && return this->enableAddCheck_ == nullptr && return this->enableAutoCheck_ == nullptr && return this->endTime_ == nullptr && return this->requestId_ == nullptr && return this->selectedChecks_ == nullptr
+        && return this->standards_ == nullptr && return this->startTime_ == nullptr; };
     // cycleDays Field Functions 
     bool hasCycleDays() const { return this->cycleDays_ != nullptr;};
     void deleteCycleDays() { this->cycleDays_ = nullptr;};

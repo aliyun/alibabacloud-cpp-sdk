@@ -79,12 +79,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->account_ != nullptr
-        && this->agentlessAll_ != nullptr && this->agentlessBaseline_ != nullptr && this->agentlessMalicious_ != nullptr && this->agentlessSensitiveFile_ != nullptr && this->agentlessVulCve_ != nullptr
-        && this->agentlessVulSca_ != nullptr && this->agentlessVulSys_ != nullptr && this->appNum_ != nullptr && this->cmsNum_ != nullptr && this->cspmHighRiskNum_ != nullptr
-        && this->cspmNum_ != nullptr && this->cveNum_ != nullptr && this->emgNum_ != nullptr && this->health_ != nullptr && this->remindSuspiciousNum_ != nullptr
-        && this->scaNum_ != nullptr && this->seriousSuspiciousNum_ != nullptr && this->suspectSuspiciousNum_ != nullptr && this->suspicious_ != nullptr && this->sysAsapVulCount_ != nullptr
-        && this->sysNum_ != nullptr && this->trojan_ != nullptr && this->uuid_ != nullptr && this->vul_ != nullptr && this->weakPWNum_ != nullptr; };
+    virtual bool empty() const override { return this->account_ == nullptr
+        && return this->agentlessAll_ == nullptr && return this->agentlessBaseline_ == nullptr && return this->agentlessMalicious_ == nullptr && return this->agentlessSensitiveFile_ == nullptr && return this->agentlessVulCve_ == nullptr
+        && return this->agentlessVulSca_ == nullptr && return this->agentlessVulSys_ == nullptr && return this->appNum_ == nullptr && return this->cmsNum_ == nullptr && return this->cspmHighRiskNum_ == nullptr
+        && return this->cspmNum_ == nullptr && return this->cveNum_ == nullptr && return this->emgNum_ == nullptr && return this->health_ == nullptr && return this->remindSuspiciousNum_ == nullptr
+        && return this->scaNum_ == nullptr && return this->seriousSuspiciousNum_ == nullptr && return this->suspectSuspiciousNum_ == nullptr && return this->suspicious_ == nullptr && return this->sysAsapVulCount_ == nullptr
+        && return this->sysNum_ == nullptr && return this->trojan_ == nullptr && return this->uuid_ == nullptr && return this->vul_ == nullptr && return this->weakPWNum_ == nullptr; };
     // account Field Functions 
     bool hasAccount() const { return this->account_ != nullptr;};
     void deleteAccount() { this->account_ = nullptr;};

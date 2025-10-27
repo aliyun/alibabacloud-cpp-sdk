@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->honeyPotAuthCount_ != nullptr
-        && this->honeyPotCount_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->honeyPotAuthCount_ == nullptr
+        && return this->honeyPotCount_ == nullptr && return this->requestId_ == nullptr; };
     // honeyPotAuthCount Field Functions 
     bool hasHoneyPotAuthCount() const { return this->honeyPotAuthCount_ != nullptr;};
     void deleteHoneyPotAuthCount() { this->honeyPotAuthCount_ = nullptr;};

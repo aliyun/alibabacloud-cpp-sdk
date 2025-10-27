@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliUid_ != nullptr
-        && this->assetSubType_ != nullptr && this->assetType_ != nullptr && this->checkId_ != nullptr && this->checkPolicies_ != nullptr && this->checkShowName_ != nullptr
-        && this->instanceSubType_ != nullptr && this->instanceType_ != nullptr && this->remark_ != nullptr && this->ruleId_ != nullptr && this->ruleType_ != nullptr
-        && this->scopeType_ != nullptr && this->vendor_ != nullptr && this->vendorName_ != nullptr; };
+    virtual bool empty() const override { return this->aliUid_ == nullptr
+        && return this->assetSubType_ == nullptr && return this->assetType_ == nullptr && return this->checkId_ == nullptr && return this->checkPolicies_ == nullptr && return this->checkShowName_ == nullptr
+        && return this->instanceSubType_ == nullptr && return this->instanceType_ == nullptr && return this->remark_ == nullptr && return this->ruleId_ == nullptr && return this->ruleType_ == nullptr
+        && return this->scopeType_ == nullptr && return this->vendor_ == nullptr && return this->vendorName_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};

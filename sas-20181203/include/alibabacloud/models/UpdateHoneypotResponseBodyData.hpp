@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->honeypotId_ != nullptr
-        && this->honeypotImageDisplayName_ != nullptr && this->honeypotImageName_ != nullptr && this->honeypotName_ != nullptr && this->nodeId_ != nullptr && this->presetId_ != nullptr
-        && this->state_ != nullptr; };
+    virtual bool empty() const override { return this->honeypotId_ == nullptr
+        && return this->honeypotImageDisplayName_ == nullptr && return this->honeypotImageName_ == nullptr && return this->honeypotName_ == nullptr && return this->nodeId_ == nullptr && return this->presetId_ == nullptr
+        && return this->state_ == nullptr; };
     // honeypotId Field Functions 
     bool hasHoneypotId() const { return this->honeypotId_ != nullptr;};
     void deleteHoneypotId() { this->honeypotId_ = nullptr;};

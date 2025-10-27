@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoUpgrade_ != nullptr
-        && this->bigCustomer_ != nullptr && this->curVersion_ != nullptr && this->forceUpgradeTime_ != nullptr && this->graySwitchStatus_ != nullptr && this->latestVersion_ != nullptr
-        && this->latestVersionCreate_ != nullptr && this->latestVersionDesc_ != nullptr && this->publishStatus_ != nullptr && this->upgradeVersion_ != nullptr; };
+    virtual bool empty() const override { return this->autoUpgrade_ == nullptr
+        && return this->bigCustomer_ == nullptr && return this->curVersion_ == nullptr && return this->forceUpgradeTime_ == nullptr && return this->graySwitchStatus_ == nullptr && return this->latestVersion_ == nullptr
+        && return this->latestVersionCreate_ == nullptr && return this->latestVersionDesc_ == nullptr && return this->publishStatus_ == nullptr && return this->upgradeVersion_ == nullptr; };
     // autoUpgrade Field Functions 
     bool hasAutoUpgrade() const { return this->autoUpgrade_ != nullptr;};
     void deleteAutoUpgrade() { this->autoUpgrade_ = nullptr;};

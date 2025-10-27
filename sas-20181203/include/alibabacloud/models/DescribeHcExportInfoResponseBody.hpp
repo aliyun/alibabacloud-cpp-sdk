@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->currentCount_ != nullptr
-        && this->fileName_ != nullptr && this->gmtCreate_ != nullptr && this->id_ != nullptr && this->link_ != nullptr && this->progress_ != nullptr
-        && this->requestId_ != nullptr && this->resultStatus_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->currentCount_ == nullptr
+        && return this->fileName_ == nullptr && return this->gmtCreate_ == nullptr && return this->id_ == nullptr && return this->link_ == nullptr && return this->progress_ == nullptr
+        && return this->requestId_ == nullptr && return this->resultStatus_ == nullptr && return this->totalCount_ == nullptr; };
     // currentCount Field Functions 
     bool hasCurrentCount() const { return this->currentCount_ != nullptr;};
     void deleteCurrentCount() { this->currentCount_ = nullptr;};

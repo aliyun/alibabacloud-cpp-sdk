@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->defenceMode_ != nullptr
-        && this->dir_ != nullptr && this->exclusiveDir_ != nullptr && this->exclusiveFile_ != nullptr && this->exclusiveFileType_ != nullptr && this->id_ != nullptr
-        && this->inclusiveFile_ != nullptr && this->inclusiveFileType_ != nullptr && this->localBackupDir_ != nullptr && this->mode_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->defenceMode_ == nullptr
+        && return this->dir_ == nullptr && return this->exclusiveDir_ == nullptr && return this->exclusiveFile_ == nullptr && return this->exclusiveFileType_ == nullptr && return this->id_ == nullptr
+        && return this->inclusiveFile_ == nullptr && return this->inclusiveFileType_ == nullptr && return this->localBackupDir_ == nullptr && return this->mode_ == nullptr && return this->uuid_ == nullptr; };
     // defenceMode Field Functions 
     bool hasDefenceMode() const { return this->defenceMode_ != nullptr;};
     void deleteDefenceMode() { this->defenceMode_ = nullptr;};

@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->criteria_ != nullptr
-        && this->currentPage_ != nullptr && this->flags_ != nullptr && this->importance_ != nullptr && this->lang_ != nullptr && this->logicalExp_ != nullptr
-        && this->machineTypes_ != nullptr && this->nextToken_ != nullptr && this->noGroupTrace_ != nullptr && this->pageSize_ != nullptr && this->regionId_ != nullptr
-        && this->resourceDirectoryAccountId_ != nullptr && this->useNextToken_ != nullptr; };
+    virtual bool empty() const override { return this->criteria_ == nullptr
+        && return this->currentPage_ == nullptr && return this->flags_ == nullptr && return this->importance_ == nullptr && return this->lang_ == nullptr && return this->logicalExp_ == nullptr
+        && return this->machineTypes_ == nullptr && return this->nextToken_ == nullptr && return this->noGroupTrace_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceDirectoryAccountId_ == nullptr && return this->useNextToken_ == nullptr; };
     // criteria Field Functions 
     bool hasCriteria() const { return this->criteria_ != nullptr;};
     void deleteCriteria() { this->criteria_ = nullptr;};

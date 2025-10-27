@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkAndRiskTypeList_ != nullptr
-        && this->checkIds_ != nullptr && this->containerItems_ != nullptr && this->lang_ != nullptr && this->reason_ != nullptr && this->source_ != nullptr
-        && this->type_ != nullptr && this->uuidList_ != nullptr; };
+    virtual bool empty() const override { return this->checkAndRiskTypeList_ == nullptr
+        && return this->checkIds_ == nullptr && return this->containerItems_ == nullptr && return this->lang_ == nullptr && return this->reason_ == nullptr && return this->source_ == nullptr
+        && return this->type_ == nullptr && return this->uuidList_ == nullptr; };
     // checkAndRiskTypeList Field Functions 
     bool hasCheckAndRiskTypeList() const { return this->checkAndRiskTypeList_ != nullptr;};
     void deleteCheckAndRiskTypeList() { this->checkAndRiskTypeList_ = nullptr;};

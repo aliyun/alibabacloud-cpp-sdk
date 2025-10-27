@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessKeyLeakList_ != nullptr
-        && this->akLeakCount_ != nullptr && this->currentPage_ != nullptr && this->gmtLast_ != nullptr && this->pageSize_ != nullptr && this->requestId_ != nullptr
-        && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->accessKeyLeakList_ == nullptr
+        && return this->akLeakCount_ == nullptr && return this->currentPage_ == nullptr && return this->gmtLast_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr
+        && return this->totalCount_ == nullptr; };
     // accessKeyLeakList Field Functions 
     bool hasAccessKeyLeakList() const { return this->accessKeyLeakList_ != nullptr;};
     void deleteAccessKeyLeakList() { this->accessKeyLeakList_ = nullptr;};

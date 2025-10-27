@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->containerFieldName_ != nullptr && this->containerFieldValue_ != nullptr && this->currentPage_ != nullptr && this->groupId_ != nullptr && this->haveRisk_ != nullptr
-        && this->lang_ != nullptr && this->machineName_ != nullptr && this->pageSize_ != nullptr && this->riskId_ != nullptr && this->sourceIp_ != nullptr
-        && this->strategyId_ != nullptr && this->targetType_ != nullptr && this->uuids_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && return this->containerFieldName_ == nullptr && return this->containerFieldValue_ == nullptr && return this->currentPage_ == nullptr && return this->groupId_ == nullptr && return this->haveRisk_ == nullptr
+        && return this->lang_ == nullptr && return this->machineName_ == nullptr && return this->pageSize_ == nullptr && return this->riskId_ == nullptr && return this->sourceIp_ == nullptr
+        && return this->strategyId_ == nullptr && return this->targetType_ == nullptr && return this->uuids_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};

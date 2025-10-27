@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentErrorMessage_ != nullptr
-        && this->agentStatus_ != nullptr && this->databaseName_ != nullptr && this->databaseType_ != nullptr && this->errorCode_ != nullptr && this->errorMessage_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->instanceStatus_ != nullptr && this->instanceUuid_ != nullptr && this->latestBackResult_ != nullptr
-        && this->latestBackupTime_ != nullptr && this->planStatus_ != nullptr && this->policyId_ != nullptr && this->policyName_ != nullptr && this->policyStatus_ != nullptr
-        && this->uniRegionId_ != nullptr; };
+    virtual bool empty() const override { return this->agentErrorMessage_ == nullptr
+        && return this->agentStatus_ == nullptr && return this->databaseName_ == nullptr && return this->databaseType_ == nullptr && return this->errorCode_ == nullptr && return this->errorMessage_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->instanceStatus_ == nullptr && return this->instanceUuid_ == nullptr && return this->latestBackResult_ == nullptr
+        && return this->latestBackupTime_ == nullptr && return this->planStatus_ == nullptr && return this->policyId_ == nullptr && return this->policyName_ == nullptr && return this->policyStatus_ == nullptr
+        && return this->uniRegionId_ == nullptr; };
     // agentErrorMessage Field Functions 
     bool hasAgentErrorMessage() const { return this->agentErrorMessage_ != nullptr;};
     void deleteAgentErrorMessage() { this->agentErrorMessage_ = nullptr;};

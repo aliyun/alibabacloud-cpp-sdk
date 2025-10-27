@@ -62,11 +62,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->baselineNameKey_ != nullptr
-        && this->clusterId_ != nullptr && this->clusterName_ != nullptr && this->containerId_ != nullptr && this->criteria_ != nullptr && this->criteriaType_ != nullptr
-        && this->currentPage_ != nullptr && this->image_ != nullptr && this->imageDigest_ != nullptr && this->lang_ != nullptr && this->namespace_ != nullptr
-        && this->pageSize_ != nullptr && this->pod_ != nullptr && this->repoInstanceId_ != nullptr && this->repoName_ != nullptr && this->repoNamespace_ != nullptr
-        && this->scanRange_ != nullptr; };
+    virtual bool empty() const override { return this->baselineNameKey_ == nullptr
+        && return this->clusterId_ == nullptr && return this->clusterName_ == nullptr && return this->containerId_ == nullptr && return this->criteria_ == nullptr && return this->criteriaType_ == nullptr
+        && return this->currentPage_ == nullptr && return this->image_ == nullptr && return this->imageDigest_ == nullptr && return this->lang_ == nullptr && return this->namespace_ == nullptr
+        && return this->pageSize_ == nullptr && return this->pod_ == nullptr && return this->repoInstanceId_ == nullptr && return this->repoName_ == nullptr && return this->repoNamespace_ == nullptr
+        && return this->scanRange_ == nullptr; };
     // baselineNameKey Field Functions 
     bool hasBaselineNameKey() const { return this->baselineNameKey_ != nullptr;};
     void deleteBaselineNameKey() { this->baselineNameKey_ = nullptr;};

@@ -54,9 +54,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allChartSubTypeList_ != nullptr
-        && this->chartDataType_ != nullptr && this->chartSubTypeList_ != nullptr && this->chartType_ != nullptr && this->coordinateData_ != nullptr && this->multipleData_ != nullptr
-        && this->propertyArrayValue_ != nullptr && this->propertyValue_ != nullptr && this->properyArrayValue_ != nullptr && this->requestId_ != nullptr && this->singleData_ != nullptr; };
+    virtual bool empty() const override { return this->allChartSubTypeList_ == nullptr
+        && return this->chartDataType_ == nullptr && return this->chartSubTypeList_ == nullptr && return this->chartType_ == nullptr && return this->coordinateData_ == nullptr && return this->multipleData_ == nullptr
+        && return this->propertyArrayValue_ == nullptr && return this->propertyValue_ == nullptr && return this->properyArrayValue_ == nullptr && return this->requestId_ == nullptr && return this->singleData_ == nullptr; };
     // allChartSubTypeList Field Functions 
     bool hasAllChartSubTypeList() const { return this->allChartSubTypeList_ != nullptr;};
     void deleteAllChartSubTypeList() { this->allChartSubTypeList_ = nullptr;};

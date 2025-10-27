@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->registryType_ != nullptr; };
+    virtual bool empty() const override { return this->registryType_ == nullptr; };
     // registryType Field Functions 
     bool hasRegistryType() const { return this->registryType_ != nullptr;};
     void deleteRegistryType() { this->registryType_ = nullptr;};

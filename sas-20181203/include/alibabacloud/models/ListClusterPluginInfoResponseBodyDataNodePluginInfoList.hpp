@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->errorCode_ != nullptr
-        && this->errorMsg_ != nullptr && this->installed_ != nullptr && this->machineInternetIp_ != nullptr && this->machineIntranetIp_ != nullptr && this->machineName_ != nullptr
-        && this->machineType_ != nullptr && this->online_ != nullptr && this->pluginName_ != nullptr && this->pluginVersion_ != nullptr && this->uuid_ != nullptr
-        && this->instanceId_ != nullptr; };
+    virtual bool empty() const override { return this->errorCode_ == nullptr
+        && return this->errorMsg_ == nullptr && return this->installed_ == nullptr && return this->machineInternetIp_ == nullptr && return this->machineIntranetIp_ == nullptr && return this->machineName_ == nullptr
+        && return this->machineType_ == nullptr && return this->online_ == nullptr && return this->pluginName_ == nullptr && return this->pluginVersion_ == nullptr && return this->uuid_ == nullptr
+        && return this->instanceId_ == nullptr; };
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};

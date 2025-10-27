@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endTime_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->intranetIp_ != nullptr && this->measureSpace_ != nullptr
-        && this->progress_ != nullptr && this->progressByProject_ != nullptr && this->reportDownloadUrl_ != nullptr && this->reportStatus_ != nullptr && this->result_ != nullptr
-        && this->startTime_ != nullptr && this->status_ != nullptr && this->targetName_ != nullptr && this->targetType_ != nullptr && this->taskId_ != nullptr
-        && this->taskName_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->endTime_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr && return this->measureSpace_ == nullptr
+        && return this->progress_ == nullptr && return this->progressByProject_ == nullptr && return this->reportDownloadUrl_ == nullptr && return this->reportStatus_ == nullptr && return this->result_ == nullptr
+        && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->targetName_ == nullptr && return this->targetType_ == nullptr && return this->taskId_ == nullptr
+        && return this->taskName_ == nullptr && return this->uuid_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};

@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentAccessKey_ != nullptr
-        && this->agentSecretKey_ != nullptr && this->argusVersion_ != nullptr && this->instanceIdList_ != nullptr && this->uuidList_ != nullptr; };
+    virtual bool empty() const override { return this->agentAccessKey_ == nullptr
+        && return this->agentSecretKey_ == nullptr && return this->argusVersion_ == nullptr && return this->instanceIdList_ == nullptr && return this->uuidList_ == nullptr; };
     // agentAccessKey Field Functions 
     bool hasAgentAccessKey() const { return this->agentAccessKey_ != nullptr;};
     void deleteAgentAccessKey() { this->agentAccessKey_ = nullptr;};

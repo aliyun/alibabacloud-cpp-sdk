@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dstContainer_ != nullptr
-        && this->dstIp_ != nullptr && this->dstPort_ != nullptr && this->firstTime_ != nullptr && this->id_ != nullptr && this->lastTime_ != nullptr
-        && this->srcContainer_ != nullptr && this->srcIp_ != nullptr && this->srcPort_ != nullptr; };
+    virtual bool empty() const override { return this->dstContainer_ == nullptr
+        && return this->dstIp_ == nullptr && return this->dstPort_ == nullptr && return this->firstTime_ == nullptr && return this->id_ == nullptr && return this->lastTime_ == nullptr
+        && return this->srcContainer_ == nullptr && return this->srcIp_ == nullptr && return this->srcPort_ == nullptr; };
     // dstContainer Field Functions 
     bool hasDstContainer() const { return this->dstContainer_ != nullptr;};
     void deleteDstContainer() { this->dstContainer_ = nullptr;};

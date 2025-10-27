@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->auditCount_ != nullptr
-        && this->blockCount_ != nullptr && this->dirCount_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->intranetIp_ != nullptr
-        && this->os_ != nullptr && this->percent_ != nullptr && this->serviceCode_ != nullptr && this->serviceDetail_ != nullptr && this->serviceStatus_ != nullptr
-        && this->status_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->auditCount_ == nullptr
+        && return this->blockCount_ == nullptr && return this->dirCount_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr
+        && return this->os_ == nullptr && return this->percent_ == nullptr && return this->serviceCode_ == nullptr && return this->serviceDetail_ == nullptr && return this->serviceStatus_ == nullptr
+        && return this->status_ == nullptr && return this->uuid_ == nullptr; };
     // auditCount Field Functions 
     bool hasAuditCount() const { return this->auditCount_ != nullptr;};
     void deleteAuditCount() { this->auditCount_ = nullptr;};

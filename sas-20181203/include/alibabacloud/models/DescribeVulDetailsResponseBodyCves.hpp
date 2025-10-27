@@ -81,12 +81,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->classify_ != nullptr
-        && this->classifys_ != nullptr && this->cnvdId_ != nullptr && this->complexity_ != nullptr && this->content_ != nullptr && this->cveId_ != nullptr
-        && this->cveLink_ != nullptr && this->cvssScore_ != nullptr && this->cvssVector_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr
-        && this->intranetIp_ != nullptr && this->otherId_ != nullptr && this->poc_ != nullptr && this->pocCreateTime_ != nullptr && this->pocDisclosureTime_ != nullptr
-        && this->product_ != nullptr && this->reference_ != nullptr && this->releaseTime_ != nullptr && this->solution_ != nullptr && this->summary_ != nullptr
-        && this->targetId_ != nullptr && this->targetName_ != nullptr && this->title_ != nullptr && this->vendor_ != nullptr && this->vulLevel_ != nullptr; };
+    virtual bool empty() const override { return this->classify_ == nullptr
+        && return this->classifys_ == nullptr && return this->cnvdId_ == nullptr && return this->complexity_ == nullptr && return this->content_ == nullptr && return this->cveId_ == nullptr
+        && return this->cveLink_ == nullptr && return this->cvssScore_ == nullptr && return this->cvssVector_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr
+        && return this->intranetIp_ == nullptr && return this->otherId_ == nullptr && return this->poc_ == nullptr && return this->pocCreateTime_ == nullptr && return this->pocDisclosureTime_ == nullptr
+        && return this->product_ == nullptr && return this->reference_ == nullptr && return this->releaseTime_ == nullptr && return this->solution_ == nullptr && return this->summary_ == nullptr
+        && return this->targetId_ == nullptr && return this->targetName_ == nullptr && return this->title_ == nullptr && return this->vendor_ == nullptr && return this->vulLevel_ == nullptr; };
     // classify Field Functions 
     bool hasClassify() const { return this->classify_ != nullptr;};
     void deleteClassify() { this->classify_ = nullptr;};

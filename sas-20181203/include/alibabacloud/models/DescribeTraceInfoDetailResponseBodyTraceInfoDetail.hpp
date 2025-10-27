@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->edgeList_ != nullptr
-        && this->entityTypeList_ != nullptr && this->relationTypeList_ != nullptr && this->vertexList_ != nullptr; };
+    virtual bool empty() const override { return this->edgeList_ == nullptr
+        && return this->entityTypeList_ == nullptr && return this->relationTypeList_ == nullptr && return this->vertexList_ == nullptr; };
     // edgeList Field Functions 
     bool hasEdgeList() const { return this->edgeList_ != nullptr;};
     void deleteEdgeList() { this->edgeList_ = nullptr;};

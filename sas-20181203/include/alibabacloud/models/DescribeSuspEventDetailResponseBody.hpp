@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alarmUniqueInfo_ != nullptr
-        && this->canBeDealOnLine_ != nullptr && this->dataSource_ != nullptr && this->details_ != nullptr && this->eventDesc_ != nullptr && this->eventName_ != nullptr
-        && this->eventStatus_ != nullptr && this->eventTypeDesc_ != nullptr && this->id_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr
-        && this->intranetIp_ != nullptr && this->lastTime_ != nullptr && this->level_ != nullptr && this->operateErrorCode_ != nullptr && this->operateMsg_ != nullptr
-        && this->requestId_ != nullptr && this->saleVersion_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->alarmUniqueInfo_ == nullptr
+        && return this->canBeDealOnLine_ == nullptr && return this->dataSource_ == nullptr && return this->details_ == nullptr && return this->eventDesc_ == nullptr && return this->eventName_ == nullptr
+        && return this->eventStatus_ == nullptr && return this->eventTypeDesc_ == nullptr && return this->id_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr
+        && return this->intranetIp_ == nullptr && return this->lastTime_ == nullptr && return this->level_ == nullptr && return this->operateErrorCode_ == nullptr && return this->operateMsg_ == nullptr
+        && return this->requestId_ == nullptr && return this->saleVersion_ == nullptr && return this->uuid_ == nullptr; };
     // alarmUniqueInfo Field Functions 
     bool hasAlarmUniqueInfo() const { return this->alarmUniqueInfo_ != nullptr;};
     void deleteAlarmUniqueInfo() { this->alarmUniqueInfo_ = nullptr;};

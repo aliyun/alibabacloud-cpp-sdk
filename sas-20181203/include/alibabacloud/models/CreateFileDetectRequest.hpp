@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->decompress_ != nullptr
-        && this->decompressMaxFileCount_ != nullptr && this->decompressMaxLayer_ != nullptr && this->downloadUrl_ != nullptr && this->hashKey_ != nullptr && this->ossKey_ != nullptr
-        && this->sourceIp_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->decompress_ == nullptr
+        && return this->decompressMaxFileCount_ == nullptr && return this->decompressMaxLayer_ == nullptr && return this->downloadUrl_ == nullptr && return this->hashKey_ == nullptr && return this->ossKey_ == nullptr
+        && return this->sourceIp_ == nullptr && return this->type_ == nullptr; };
     // decompress Field Functions 
     bool hasDecompress() const { return this->decompress_ != nullptr;};
     void deleteDecompress() { this->decompress_ = nullptr;};

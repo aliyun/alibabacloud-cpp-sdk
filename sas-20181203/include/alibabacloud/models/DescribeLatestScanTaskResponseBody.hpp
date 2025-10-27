@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->lastCheckTime_ != nullptr
-        && this->requestId_ != nullptr && this->riskNum_ != nullptr && this->targetInfo_ != nullptr && this->uuids_ != nullptr; };
+    virtual bool empty() const override { return this->lastCheckTime_ == nullptr
+        && return this->requestId_ == nullptr && return this->riskNum_ == nullptr && return this->targetInfo_ == nullptr && return this->uuids_ == nullptr; };
     // lastCheckTime Field Functions 
     bool hasLastCheckTime() const { return this->lastCheckTime_ != nullptr;};
     void deleteLastCheckTime() { this->lastCheckTime_ = nullptr;};

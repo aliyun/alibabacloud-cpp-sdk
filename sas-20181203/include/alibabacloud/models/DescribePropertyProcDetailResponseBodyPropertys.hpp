@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cmdline_ != nullptr
-        && this->createTimestamp_ != nullptr && this->euidName_ != nullptr && this->fileHash_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr
-        && this->internetIp_ != nullptr && this->intranetIp_ != nullptr && this->isPackage_ != nullptr && this->md5_ != nullptr && this->name_ != nullptr
-        && this->path_ != nullptr && this->pid_ != nullptr && this->pname_ != nullptr && this->startTime_ != nullptr && this->startTimeDt_ != nullptr
-        && this->state_ != nullptr && this->user_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->cmdline_ == nullptr
+        && return this->createTimestamp_ == nullptr && return this->euidName_ == nullptr && return this->fileHash_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr
+        && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr && return this->isPackage_ == nullptr && return this->md5_ == nullptr && return this->name_ == nullptr
+        && return this->path_ == nullptr && return this->pid_ == nullptr && return this->pname_ == nullptr && return this->startTime_ == nullptr && return this->startTimeDt_ == nullptr
+        && return this->state_ == nullptr && return this->user_ == nullptr && return this->uuid_ == nullptr; };
     // cmdline Field Functions 
     bool hasCmdline() const { return this->cmdline_ != nullptr;};
     void deleteCmdline() { this->cmdline_ = nullptr;};

@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appCount_ != nullptr
-        && this->clusterCount_ != nullptr && this->containerCount_ != nullptr && this->imageCount_ != nullptr && this->instanceCount_ != nullptr && this->namespaceCount_ != nullptr
-        && this->podCount_ != nullptr && this->riskAppCount_ != nullptr && this->riskClusterCount_ != nullptr && this->riskContainerCount_ != nullptr && this->riskImageCount_ != nullptr
-        && this->riskInstanceCount_ != nullptr && this->riskPodCount_ != nullptr; };
+    virtual bool empty() const override { return this->appCount_ == nullptr
+        && return this->clusterCount_ == nullptr && return this->containerCount_ == nullptr && return this->imageCount_ == nullptr && return this->instanceCount_ == nullptr && return this->namespaceCount_ == nullptr
+        && return this->podCount_ == nullptr && return this->riskAppCount_ == nullptr && return this->riskClusterCount_ == nullptr && return this->riskContainerCount_ == nullptr && return this->riskImageCount_ == nullptr
+        && return this->riskInstanceCount_ == nullptr && return this->riskPodCount_ == nullptr; };
     // appCount Field Functions 
     bool hasAppCount() const { return this->appCount_ != nullptr;};
     void deleteAppCount() { this->appCount_ = nullptr;};

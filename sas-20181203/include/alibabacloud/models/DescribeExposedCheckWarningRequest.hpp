@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->lang_ != nullptr
-        && this->typeName_ != nullptr && this->uuids_ != nullptr; };
+    virtual bool empty() const override { return this->lang_ == nullptr
+        && return this->typeName_ == nullptr && return this->uuids_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
@@ -45,8 +45,8 @@ namespace Models
     // typeName Field Functions 
     bool hasTypeName() const { return this->typeName_ != nullptr;};
     void deleteTypeName() { this->typeName_ = nullptr;};
-    inline string _typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
-    inline DescribeExposedCheckWarningRequest& setTypeName(string _typeName) { DARABONBA_PTR_SET_VALUE(typeName_, _typeName) };
+    inline string typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
+    inline DescribeExposedCheckWarningRequest& setTypeName(string typeName) { DARABONBA_PTR_SET_VALUE(typeName_, typeName) };
 
 
     // uuids Field Functions 

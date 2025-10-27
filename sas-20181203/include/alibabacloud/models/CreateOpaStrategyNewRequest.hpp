@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alarmDetail_ != nullptr
-        && this->clusterId_ != nullptr && this->clusterName_ != nullptr && this->description_ != nullptr && this->imageName_ != nullptr && this->label_ != nullptr
-        && this->maliciousImage_ != nullptr && this->ruleAction_ != nullptr && this->scopes_ != nullptr && this->strategyId_ != nullptr && this->strategyName_ != nullptr
-        && this->strategyTemplateId_ != nullptr && this->unScanedImage_ != nullptr && this->whiteList_ != nullptr; };
+    virtual bool empty() const override { return this->alarmDetail_ == nullptr
+        && return this->clusterId_ == nullptr && return this->clusterName_ == nullptr && return this->description_ == nullptr && return this->imageName_ == nullptr && return this->label_ == nullptr
+        && return this->maliciousImage_ == nullptr && return this->ruleAction_ == nullptr && return this->scopes_ == nullptr && return this->strategyId_ == nullptr && return this->strategyName_ == nullptr
+        && return this->strategyTemplateId_ == nullptr && return this->unScanedImage_ == nullptr && return this->whiteList_ == nullptr; };
     // alarmDetail Field Functions 
     bool hasAlarmDetail() const { return this->alarmDetail_ != nullptr;};
     void deleteAlarmDetail() { this->alarmDetail_ = nullptr;};

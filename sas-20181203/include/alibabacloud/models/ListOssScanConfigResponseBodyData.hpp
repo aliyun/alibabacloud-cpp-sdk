@@ -62,11 +62,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allKeyPrefix_ != nullptr
-        && this->bucketCount_ != nullptr && this->bucketNameList_ != nullptr && this->decompressMaxFileCount_ != nullptr && this->decompressMaxLayer_ != nullptr && this->decryptionList_ != nullptr
-        && this->enable_ != nullptr && this->endTime_ != nullptr && this->id_ != nullptr && this->keyPrefixList_ != nullptr && this->keySuffixList_ != nullptr
-        && this->lastModifiedStartTime_ != nullptr && this->lastUpdateTime_ != nullptr && this->name_ != nullptr && this->realTimeIncr_ != nullptr && this->scanDayList_ != nullptr
-        && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->allKeyPrefix_ == nullptr
+        && return this->bucketCount_ == nullptr && return this->bucketNameList_ == nullptr && return this->decompressMaxFileCount_ == nullptr && return this->decompressMaxLayer_ == nullptr && return this->decryptionList_ == nullptr
+        && return this->enable_ == nullptr && return this->endTime_ == nullptr && return this->id_ == nullptr && return this->keyPrefixList_ == nullptr && return this->keySuffixList_ == nullptr
+        && return this->lastModifiedStartTime_ == nullptr && return this->lastUpdateTime_ == nullptr && return this->name_ == nullptr && return this->realTimeIncr_ == nullptr && return this->scanDayList_ == nullptr
+        && return this->startTime_ == nullptr; };
     // allKeyPrefix Field Functions 
     bool hasAllKeyPrefix() const { return this->allKeyPrefix_ != nullptr;};
     void deleteAllKeyPrefix() { this->allKeyPrefix_ = nullptr;};

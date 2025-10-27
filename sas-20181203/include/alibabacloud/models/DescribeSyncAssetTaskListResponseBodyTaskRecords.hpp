@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assetCount_ != nullptr
-        && this->ipSegments_ != nullptr && this->processRate_ != nullptr && this->rootTaskId_ != nullptr && this->taskEndTime_ != nullptr && this->taskName_ != nullptr
-        && this->taskStartTime_ != nullptr && this->taskStatus_ != nullptr && this->taskType_ != nullptr; };
+    virtual bool empty() const override { return this->assetCount_ == nullptr
+        && return this->ipSegments_ == nullptr && return this->processRate_ == nullptr && return this->rootTaskId_ == nullptr && return this->taskEndTime_ == nullptr && return this->taskName_ == nullptr
+        && return this->taskStartTime_ == nullptr && return this->taskStatus_ == nullptr && return this->taskType_ == nullptr; };
     // assetCount Field Functions 
     bool hasAssetCount() const { return this->assetCount_ != nullptr;};
     void deleteAssetCount() { this->assetCount_ = nullptr;};

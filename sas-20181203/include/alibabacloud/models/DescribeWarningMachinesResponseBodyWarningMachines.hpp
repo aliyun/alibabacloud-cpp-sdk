@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assetType_ != nullptr
-        && this->authVersion_ != nullptr && this->bind_ != nullptr && this->containerId_ != nullptr && this->containerName_ != nullptr && this->highWarningCount_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->intranetIp_ != nullptr && this->lowWarningCount_ != nullptr
-        && this->mediumWarningCount_ != nullptr && this->online_ != nullptr && this->passCount_ != nullptr && this->portOpen_ != nullptr && this->regionId_ != nullptr
-        && this->status_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->assetType_ == nullptr
+        && return this->authVersion_ == nullptr && return this->bind_ == nullptr && return this->containerId_ == nullptr && return this->containerName_ == nullptr && return this->highWarningCount_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr && return this->lowWarningCount_ == nullptr
+        && return this->mediumWarningCount_ == nullptr && return this->online_ == nullptr && return this->passCount_ == nullptr && return this->portOpen_ == nullptr && return this->regionId_ == nullptr
+        && return this->status_ == nullptr && return this->uuid_ == nullptr; };
     // assetType Field Functions 
     bool hasAssetType() const { return this->assetType_ != nullptr;};
     void deleteAssetType() { this->assetType_ = nullptr;};

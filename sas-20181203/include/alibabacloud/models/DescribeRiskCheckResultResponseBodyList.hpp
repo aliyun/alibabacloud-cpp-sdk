@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->affectedCount_ != nullptr
-        && this->checkTime_ != nullptr && this->itemId_ != nullptr && this->remainingTime_ != nullptr && this->repairStatus_ != nullptr && this->riskAssertType_ != nullptr
-        && this->riskItemResources_ != nullptr && this->riskLevel_ != nullptr && this->sort_ != nullptr && this->startStatus_ != nullptr && this->status_ != nullptr
-        && this->taskId_ != nullptr && this->title_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->affectedCount_ == nullptr
+        && return this->checkTime_ == nullptr && return this->itemId_ == nullptr && return this->remainingTime_ == nullptr && return this->repairStatus_ == nullptr && return this->riskAssertType_ == nullptr
+        && return this->riskItemResources_ == nullptr && return this->riskLevel_ == nullptr && return this->sort_ == nullptr && return this->startStatus_ == nullptr && return this->status_ == nullptr
+        && return this->taskId_ == nullptr && return this->title_ == nullptr && return this->type_ == nullptr; };
     // affectedCount Field Functions 
     bool hasAffectedCount() const { return this->affectedCount_ != nullptr;};
     void deleteAffectedCount() { this->affectedCount_ = nullptr;};

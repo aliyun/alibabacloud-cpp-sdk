@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowHoneypotAccessInternet_ != nullptr
-        && this->lang_ != nullptr && this->nodeId_ != nullptr; };
+    virtual bool empty() const override { return this->allowHoneypotAccessInternet_ == nullptr
+        && return this->lang_ == nullptr && return this->nodeId_ == nullptr; };
     // allowHoneypotAccessInternet Field Functions 
     bool hasAllowHoneypotAccessInternet() const { return this->allowHoneypotAccessInternet_ != nullptr;};
     void deleteAllowHoneypotAccessInternet() { this->allowHoneypotAccessInternet_ = nullptr;};

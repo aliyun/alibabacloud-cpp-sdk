@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cmd_ != nullptr
-        && this->createTimestamp_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->intranetIp_ != nullptr
-        && this->ip_ != nullptr && this->md5_ != nullptr && this->period_ != nullptr && this->source_ != nullptr && this->user_ != nullptr
-        && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->cmd_ == nullptr
+        && return this->createTimestamp_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr
+        && return this->ip_ == nullptr && return this->md5_ == nullptr && return this->period_ == nullptr && return this->source_ == nullptr && return this->user_ == nullptr
+        && return this->uuid_ == nullptr; };
     // cmd Field Functions 
     bool hasCmd() const { return this->cmd_ != nullptr;};
     void deleteCmd() { this->cmd_ = nullptr;};

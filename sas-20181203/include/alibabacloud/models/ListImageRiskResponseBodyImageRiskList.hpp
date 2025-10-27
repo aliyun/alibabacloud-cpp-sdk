@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->digest_ != nullptr
-        && this->endPointList_ != nullptr && this->endpoints_ != nullptr && this->image_ != nullptr && this->imageAccessType_ != nullptr && this->imageId_ != nullptr
-        && this->internetURLs_ != nullptr && this->regionId_ != nullptr && this->registryType_ != nullptr && this->repoId_ != nullptr && this->repoName_ != nullptr
-        && this->repoNamespace_ != nullptr && this->repoType_ != nullptr && this->statistics_ != nullptr && this->tag_ != nullptr && this->tagImmutable_ != nullptr
-        && this->uuid_ != nullptr && this->vpcURLs_ != nullptr; };
+    virtual bool empty() const override { return this->digest_ == nullptr
+        && return this->endPointList_ == nullptr && return this->endpoints_ == nullptr && return this->image_ == nullptr && return this->imageAccessType_ == nullptr && return this->imageId_ == nullptr
+        && return this->internetURLs_ == nullptr && return this->regionId_ == nullptr && return this->registryType_ == nullptr && return this->repoId_ == nullptr && return this->repoName_ == nullptr
+        && return this->repoNamespace_ == nullptr && return this->repoType_ == nullptr && return this->statistics_ == nullptr && return this->tag_ == nullptr && return this->tagImmutable_ == nullptr
+        && return this->uuid_ == nullptr && return this->vpcURLs_ == nullptr; };
     // digest Field Functions 
     bool hasDigest() const { return this->digest_ != nullptr;};
     void deleteDigest() { this->digest_ = nullptr;};

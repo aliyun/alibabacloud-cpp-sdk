@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->failedNum_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtFinish_ != nullptr && this->gmtModified_ != nullptr && this->id_ != nullptr && this->name_ != nullptr
-        && this->runMode_ != nullptr && this->status_ != nullptr && this->strategyId_ != nullptr && this->successNum_ != nullptr && this->totalNum_ != nullptr; };
+    virtual bool empty() const override { return this->failedNum_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->gmtFinish_ == nullptr && return this->gmtModified_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr
+        && return this->runMode_ == nullptr && return this->status_ == nullptr && return this->strategyId_ == nullptr && return this->successNum_ == nullptr && return this->totalNum_ == nullptr; };
     // failedNum Field Functions 
     bool hasFailedNum() const { return this->failedNum_ != nullptr;};
     void deleteFailedNum() { this->failedNum_ = nullptr;};

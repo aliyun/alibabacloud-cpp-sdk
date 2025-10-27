@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->protectedDatabaseCount_ != nullptr
-        && this->regionCountList_ != nullptr && this->requestId_ != nullptr && this->restoringTaskCount_ != nullptr && this->totalRecoverableCount_ != nullptr && this->totalRestoreTaskCount_ != nullptr
-        && this->unprotectedDatabaseCount_ != nullptr; };
+    virtual bool empty() const override { return this->protectedDatabaseCount_ == nullptr
+        && return this->regionCountList_ == nullptr && return this->requestId_ == nullptr && return this->restoringTaskCount_ == nullptr && return this->totalRecoverableCount_ == nullptr && return this->totalRestoreTaskCount_ == nullptr
+        && return this->unprotectedDatabaseCount_ == nullptr; };
     // protectedDatabaseCount Field Functions 
     bool hasProtectedDatabaseCount() const { return this->protectedDatabaseCount_ != nullptr;};
     void deleteProtectedDatabaseCount() { this->protectedDatabaseCount_ = nullptr;};

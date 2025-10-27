@@ -79,12 +79,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->account_ != nullptr
-        && this->health_ != nullptr && this->healthTotal_ != nullptr && this->healthdealedTotal_ != nullptr && this->healthhighTotal_ != nullptr && this->healthlowTotal_ != nullptr
-        && this->healthmediumTotal_ != nullptr && this->healthseriousTotal_ != nullptr && this->newsuspicious_ != nullptr && this->online_ != nullptr && this->patch_ != nullptr
-        && this->requestId_ != nullptr && this->suspicious_ != nullptr && this->suspiciousTotal_ != nullptr && this->suspiciousdealedTotal_ != nullptr && this->suspicioushighTotal_ != nullptr
-        && this->suspiciouslowTotal_ != nullptr && this->suspiciousmediumTotal_ != nullptr && this->suspiciousseriousTotal_ != nullptr && this->trojan_ != nullptr && this->vul_ != nullptr
-        && this->vulAsapSum_ != nullptr && this->vulDealedTotal_ != nullptr && this->vulLaterSum_ != nullptr && this->vulNntfSum_ != nullptr && this->vulTotal_ != nullptr; };
+    virtual bool empty() const override { return this->account_ == nullptr
+        && return this->health_ == nullptr && return this->healthTotal_ == nullptr && return this->healthdealedTotal_ == nullptr && return this->healthhighTotal_ == nullptr && return this->healthlowTotal_ == nullptr
+        && return this->healthmediumTotal_ == nullptr && return this->healthseriousTotal_ == nullptr && return this->newsuspicious_ == nullptr && return this->online_ == nullptr && return this->patch_ == nullptr
+        && return this->requestId_ == nullptr && return this->suspicious_ == nullptr && return this->suspiciousTotal_ == nullptr && return this->suspiciousdealedTotal_ == nullptr && return this->suspicioushighTotal_ == nullptr
+        && return this->suspiciouslowTotal_ == nullptr && return this->suspiciousmediumTotal_ == nullptr && return this->suspiciousseriousTotal_ == nullptr && return this->trojan_ == nullptr && return this->vul_ == nullptr
+        && return this->vulAsapSum_ == nullptr && return this->vulDealedTotal_ == nullptr && return this->vulLaterSum_ == nullptr && return this->vulNntfSum_ == nullptr && return this->vulTotal_ == nullptr; };
     // account Field Functions 
     bool hasAccount() const { return this->account_ != nullptr;};
     void deleteAccount() { this->account_ = nullptr;};

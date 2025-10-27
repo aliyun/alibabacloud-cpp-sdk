@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allVulList_ != nullptr
-        && this->cspmRiskList_ != nullptr && this->exposureComponent_ != nullptr && this->exposureIp_ != nullptr && this->exposurePort_ != nullptr && this->exposureType_ != nullptr
-        && this->exposureTypeId_ != nullptr && this->groupNo_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr
-        && this->intranetIp_ != nullptr && this->realVulList_ != nullptr && this->regionId_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->allVulList_ == nullptr
+        && return this->cspmRiskList_ == nullptr && return this->exposureComponent_ == nullptr && return this->exposureIp_ == nullptr && return this->exposurePort_ == nullptr && return this->exposureType_ == nullptr
+        && return this->exposureTypeId_ == nullptr && return this->groupNo_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr
+        && return this->intranetIp_ == nullptr && return this->realVulList_ == nullptr && return this->regionId_ == nullptr && return this->uuid_ == nullptr; };
     // allVulList Field Functions 
     bool hasAllVulList() const { return this->allVulList_ != nullptr;};
     void deleteAllVulList() { this->allVulList_ = nullptr;};

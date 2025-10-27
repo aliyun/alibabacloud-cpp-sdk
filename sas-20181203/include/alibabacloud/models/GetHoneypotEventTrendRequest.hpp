@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endTimeStamp_ != nullptr
-        && this->lang_ != nullptr && this->riskLevelList_ != nullptr && this->srcIp_ != nullptr && this->startTimeStamp_ != nullptr; };
+    virtual bool empty() const override { return this->endTimeStamp_ == nullptr
+        && return this->lang_ == nullptr && return this->riskLevelList_ == nullptr && return this->srcIp_ == nullptr && return this->startTimeStamp_ == nullptr; };
     // endTimeStamp Field Functions 
     bool hasEndTimeStamp() const { return this->endTimeStamp_ != nullptr;};
     void deleteEndTimeStamp() { this->endTimeStamp_ = nullptr;};

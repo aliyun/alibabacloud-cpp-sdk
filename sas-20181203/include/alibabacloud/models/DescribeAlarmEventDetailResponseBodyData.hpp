@@ -83,13 +83,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alarmEventAliasName_ != nullptr
-        && this->alarmEventDesc_ != nullptr && this->alarmUniqueInfo_ != nullptr && this->appName_ != nullptr && this->canBeDealOnLine_ != nullptr && this->canCancelFault_ != nullptr
-        && this->causeDetails_ != nullptr && this->containHwMode_ != nullptr && this->containerId_ != nullptr && this->containerImageId_ != nullptr && this->containerImageName_ != nullptr
-        && this->dataSource_ != nullptr && this->endTime_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->intranetIp_ != nullptr
-        && this->k8sClusterId_ != nullptr && this->k8sClusterName_ != nullptr && this->k8sNamespace_ != nullptr && this->k8sNodeId_ != nullptr && this->k8sNodeName_ != nullptr
-        && this->k8sPodName_ != nullptr && this->level_ != nullptr && this->solution_ != nullptr && this->startTime_ != nullptr && this->type_ != nullptr
-        && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->alarmEventAliasName_ == nullptr
+        && return this->alarmEventDesc_ == nullptr && return this->alarmUniqueInfo_ == nullptr && return this->appName_ == nullptr && return this->canBeDealOnLine_ == nullptr && return this->canCancelFault_ == nullptr
+        && return this->causeDetails_ == nullptr && return this->containHwMode_ == nullptr && return this->containerId_ == nullptr && return this->containerImageId_ == nullptr && return this->containerImageName_ == nullptr
+        && return this->dataSource_ == nullptr && return this->endTime_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr
+        && return this->k8sClusterId_ == nullptr && return this->k8sClusterName_ == nullptr && return this->k8sNamespace_ == nullptr && return this->k8sNodeId_ == nullptr && return this->k8sNodeName_ == nullptr
+        && return this->k8sPodName_ == nullptr && return this->level_ == nullptr && return this->solution_ == nullptr && return this->startTime_ == nullptr && return this->type_ == nullptr
+        && return this->uuid_ == nullptr; };
     // alarmEventAliasName Field Functions 
     bool hasAlarmEventAliasName() const { return this->alarmEventAliasName_ != nullptr;};
     void deleteAlarmEventAliasName() { this->alarmEventAliasName_ = nullptr;};

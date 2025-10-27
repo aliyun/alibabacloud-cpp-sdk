@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backupEndTime_ != nullptr
-        && this->backupJobId_ != nullptr && this->backupPlanId_ != nullptr && this->backupStartTime_ != nullptr && this->backupStatus_ != nullptr && this->clientId_ != nullptr
-        && this->errorCode_ != nullptr && this->errorMessage_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr
-        && this->intranetIp_ != nullptr && this->ip_ != nullptr && this->regionId_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->backupEndTime_ == nullptr
+        && return this->backupJobId_ == nullptr && return this->backupPlanId_ == nullptr && return this->backupStartTime_ == nullptr && return this->backupStatus_ == nullptr && return this->clientId_ == nullptr
+        && return this->errorCode_ == nullptr && return this->errorMessage_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr
+        && return this->intranetIp_ == nullptr && return this->ip_ == nullptr && return this->regionId_ == nullptr && return this->uuid_ == nullptr; };
     // backupEndTime Field Functions 
     bool hasBackupEndTime() const { return this->backupEndTime_ != nullptr;};
     void deleteBackupEndTime() { this->backupEndTime_ = nullptr;};

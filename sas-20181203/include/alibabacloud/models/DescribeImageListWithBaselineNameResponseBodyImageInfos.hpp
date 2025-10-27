@@ -93,14 +93,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->clusterName_ != nullptr && this->containerId_ != nullptr && this->digest_ != nullptr && this->firstScanTime_ != nullptr && this->highRiskImage_ != nullptr
-        && this->image_ != nullptr && this->imageCreate_ != nullptr && this->imageId_ != nullptr && this->imageSize_ != nullptr && this->imageUpdate_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->intranetIp_ != nullptr && this->lastScanTime_ != nullptr
-        && this->lowRiskImage_ != nullptr && this->middleRiskImage_ != nullptr && this->namespace_ != nullptr && this->noRiskImage_ != nullptr && this->pod_ != nullptr
-        && this->regionId_ != nullptr && this->repoId_ != nullptr && this->repoName_ != nullptr && this->repoNamespace_ != nullptr && this->repoType_ != nullptr
-        && this->riskStatus_ != nullptr && this->tag_ != nullptr && this->targetId_ != nullptr && this->targetName_ != nullptr && this->targetType_ != nullptr
-        && this->totalItemCount_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && return this->clusterName_ == nullptr && return this->containerId_ == nullptr && return this->digest_ == nullptr && return this->firstScanTime_ == nullptr && return this->highRiskImage_ == nullptr
+        && return this->image_ == nullptr && return this->imageCreate_ == nullptr && return this->imageId_ == nullptr && return this->imageSize_ == nullptr && return this->imageUpdate_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr && return this->lastScanTime_ == nullptr
+        && return this->lowRiskImage_ == nullptr && return this->middleRiskImage_ == nullptr && return this->namespace_ == nullptr && return this->noRiskImage_ == nullptr && return this->pod_ == nullptr
+        && return this->regionId_ == nullptr && return this->repoId_ == nullptr && return this->repoName_ == nullptr && return this->repoNamespace_ == nullptr && return this->repoType_ == nullptr
+        && return this->riskStatus_ == nullptr && return this->tag_ == nullptr && return this->targetId_ == nullptr && return this->targetName_ == nullptr && return this->targetType_ == nullptr
+        && return this->totalItemCount_ == nullptr && return this->uuid_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};

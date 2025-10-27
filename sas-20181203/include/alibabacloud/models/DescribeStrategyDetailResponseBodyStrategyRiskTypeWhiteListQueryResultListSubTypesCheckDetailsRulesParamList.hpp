@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enumValue_ != nullptr
-        && this->maxValue_ != nullptr && this->minValue_ != nullptr && this->paramDefaultValue_ != nullptr && this->paramDesc_ != nullptr && this->paramName_ != nullptr
-        && this->paramType_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->enumValue_ == nullptr
+        && return this->maxValue_ == nullptr && return this->minValue_ == nullptr && return this->paramDefaultValue_ == nullptr && return this->paramDesc_ == nullptr && return this->paramName_ == nullptr
+        && return this->paramType_ == nullptr && return this->value_ == nullptr; };
     // enumValue Field Functions 
     bool hasEnumValue() const { return this->enumValue_ != nullptr;};
     void deleteEnumValue() { this->enumValue_ = nullptr;};

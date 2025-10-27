@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actionType_ != nullptr
-        && this->cmdline_ != nullptr && this->domain_ != nullptr && this->filePath_ != nullptr && this->IP_ != nullptr && this->id_ != nullptr
-        && this->md5List_ != nullptr && this->name_ != nullptr && this->newFilePath_ != nullptr && this->parentCmdline_ != nullptr && this->parentProcPath_ != nullptr
-        && this->platform_ != nullptr && this->port_ != nullptr && this->portStr_ != nullptr && this->procPath_ != nullptr && this->registryContent_ != nullptr
-        && this->registryKey_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->actionType_ == nullptr
+        && return this->cmdline_ == nullptr && return this->domain_ == nullptr && return this->filePath_ == nullptr && return this->IP_ == nullptr && return this->id_ == nullptr
+        && return this->md5List_ == nullptr && return this->name_ == nullptr && return this->newFilePath_ == nullptr && return this->parentCmdline_ == nullptr && return this->parentProcPath_ == nullptr
+        && return this->platform_ == nullptr && return this->port_ == nullptr && return this->portStr_ == nullptr && return this->procPath_ == nullptr && return this->registryContent_ == nullptr
+        && return this->registryKey_ == nullptr && return this->type_ == nullptr; };
     // actionType Field Functions 
     bool hasActionType() const { return this->actionType_ != nullptr;};
     void deleteActionType() { this->actionType_ = nullptr;};

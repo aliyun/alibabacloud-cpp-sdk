@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authKey_ != nullptr
-        && this->authKeySecret_ != nullptr && this->clientCount_ != nullptr && this->clusterName_ != nullptr && this->installCommand_ != nullptr && this->ip_ != nullptr
-        && this->lastHeartTime_ != nullptr && this->proxyCount_ != nullptr && this->remark_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->authKey_ == nullptr
+        && return this->authKeySecret_ == nullptr && return this->clientCount_ == nullptr && return this->clusterName_ == nullptr && return this->installCommand_ == nullptr && return this->ip_ == nullptr
+        && return this->lastHeartTime_ == nullptr && return this->proxyCount_ == nullptr && return this->remark_ == nullptr && return this->status_ == nullptr; };
     // authKey Field Functions 
     bool hasAuthKey() const { return this->authKey_ != nullptr;};
     void deleteAuthKey() { this->authKey_ = nullptr;};

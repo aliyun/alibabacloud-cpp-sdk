@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assetType_ != nullptr
-        && this->cspmStatus_ != nullptr && this->currentPage_ != nullptr && this->exposureComponent_ != nullptr && this->exposureComponentBizType_ != nullptr && this->exposureIp_ != nullptr
-        && this->exposurePort_ != nullptr && this->groupId_ != nullptr && this->healthStatus_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr
-        && this->pageSize_ != nullptr && this->resourceDirectoryAccountId_ != nullptr && this->vulStatus_ != nullptr; };
+    virtual bool empty() const override { return this->assetType_ == nullptr
+        && return this->cspmStatus_ == nullptr && return this->currentPage_ == nullptr && return this->exposureComponent_ == nullptr && return this->exposureComponentBizType_ == nullptr && return this->exposureIp_ == nullptr
+        && return this->exposurePort_ == nullptr && return this->groupId_ == nullptr && return this->healthStatus_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr
+        && return this->pageSize_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr && return this->vulStatus_ == nullptr; };
     // assetType Field Functions 
     bool hasAssetType() const { return this->assetType_ != nullptr;};
     void deleteAssetType() { this->assetType_ = nullptr;};

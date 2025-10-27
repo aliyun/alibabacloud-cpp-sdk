@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->groupType_ != nullptr
-        && this->memberAccountSyncFlag_ != nullptr && this->pinnedTime_ != nullptr && this->recipients_ != nullptr && this->reportDays_ != nullptr && this->reportEndDate_ != nullptr
-        && this->reportId_ != nullptr && this->reportLang_ != nullptr && this->reportSendType_ != nullptr && this->reportStartDate_ != nullptr && this->reportStatus_ != nullptr
-        && this->reportType_ != nullptr && this->reportVersion_ != nullptr && this->sendEndTime_ != nullptr && this->sendPeriodDays_ != nullptr && this->sendPeriodType_ != nullptr
-        && this->sendStartTime_ != nullptr && this->targetGroups_ != nullptr && this->targetUids_ != nullptr && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->groupType_ == nullptr
+        && return this->memberAccountSyncFlag_ == nullptr && return this->pinnedTime_ == nullptr && return this->recipients_ == nullptr && return this->reportDays_ == nullptr && return this->reportEndDate_ == nullptr
+        && return this->reportId_ == nullptr && return this->reportLang_ == nullptr && return this->reportSendType_ == nullptr && return this->reportStartDate_ == nullptr && return this->reportStatus_ == nullptr
+        && return this->reportType_ == nullptr && return this->reportVersion_ == nullptr && return this->sendEndTime_ == nullptr && return this->sendPeriodDays_ == nullptr && return this->sendPeriodType_ == nullptr
+        && return this->sendStartTime_ == nullptr && return this->targetGroups_ == nullptr && return this->targetUids_ == nullptr && return this->title_ == nullptr; };
     // groupType Field Functions 
     bool hasGroupType() const { return this->groupType_ != nullptr;};
     void deleteGroupType() { this->groupType_ = nullptr;};

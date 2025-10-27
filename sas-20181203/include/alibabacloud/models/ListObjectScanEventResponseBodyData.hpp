@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bucketName_ != nullptr
-        && this->details_ != nullptr && this->displaySandboxResult_ != nullptr && this->eventId_ != nullptr && this->eventName_ != nullptr && this->filePath_ != nullptr
-        && this->firstTime_ != nullptr && this->hasSubEvent_ != nullptr && this->lastTime_ != nullptr && this->md5_ != nullptr && this->ossKey_ != nullptr
-        && this->riskLevel_ != nullptr && this->sha1_ != nullptr && this->sha256_ != nullptr && this->source_ != nullptr; };
+    virtual bool empty() const override { return this->bucketName_ == nullptr
+        && return this->details_ == nullptr && return this->displaySandboxResult_ == nullptr && return this->eventId_ == nullptr && return this->eventName_ == nullptr && return this->filePath_ == nullptr
+        && return this->firstTime_ == nullptr && return this->hasSubEvent_ == nullptr && return this->lastTime_ == nullptr && return this->md5_ == nullptr && return this->ossKey_ == nullptr
+        && return this->riskLevel_ == nullptr && return this->sha1_ == nullptr && return this->sha256_ == nullptr && return this->source_ == nullptr; };
     // bucketName Field Functions 
     bool hasBucketName() const { return this->bucketName_ != nullptr;};
     void deleteBucketName() { this->bucketName_ = nullptr;};

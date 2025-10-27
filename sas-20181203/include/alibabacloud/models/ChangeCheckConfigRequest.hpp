@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addedCheck_ != nullptr
-        && this->configRequirementIds_ != nullptr && this->configStandardIds_ != nullptr && this->configure_ != nullptr && this->cycleDays_ != nullptr && this->enableAddCheck_ != nullptr
-        && this->enableAutoCheck_ != nullptr && this->endTime_ != nullptr && this->regionId_ != nullptr && this->removedCheck_ != nullptr && this->standardIds_ != nullptr
-        && this->startTime_ != nullptr && this->systemConfig_ != nullptr && this->vendors_ != nullptr; };
+    virtual bool empty() const override { return this->addedCheck_ == nullptr
+        && return this->configRequirementIds_ == nullptr && return this->configStandardIds_ == nullptr && return this->configure_ == nullptr && return this->cycleDays_ == nullptr && return this->enableAddCheck_ == nullptr
+        && return this->enableAutoCheck_ == nullptr && return this->endTime_ == nullptr && return this->regionId_ == nullptr && return this->removedCheck_ == nullptr && return this->standardIds_ == nullptr
+        && return this->startTime_ == nullptr && return this->systemConfig_ == nullptr && return this->vendors_ == nullptr; };
     // addedCheck Field Functions 
     bool hasAddedCheck() const { return this->addedCheck_ != nullptr;};
     void deleteAddedCheck() { this->addedCheck_ = nullptr;};

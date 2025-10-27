@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assetType_ != nullptr
-        && this->currentPage_ != nullptr && this->groupId_ != nullptr && this->itemIds_ != nullptr && this->lang_ != nullptr && this->name_ != nullptr
-        && this->pageSize_ != nullptr && this->queryFlag_ != nullptr && this->resourceOwnerId_ != nullptr && this->riskLevel_ != nullptr && this->sourceIp_ != nullptr
-        && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->assetType_ == nullptr
+        && return this->currentPage_ == nullptr && return this->groupId_ == nullptr && return this->itemIds_ == nullptr && return this->lang_ == nullptr && return this->name_ == nullptr
+        && return this->pageSize_ == nullptr && return this->queryFlag_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->riskLevel_ == nullptr && return this->sourceIp_ == nullptr
+        && return this->status_ == nullptr; };
     // assetType Field Functions 
     bool hasAssetType() const { return this->assetType_ != nullptr;};
     void deleteAssetType() { this->assetType_ = nullptr;};

@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->gmtCreate_ != nullptr
-        && this->gmtModified_ != nullptr && this->mode_ != nullptr && this->policies_ != nullptr && this->ruleDescription_ != nullptr && this->ruleId_ != nullptr
-        && this->ruleName_ != nullptr && this->ruleTemplateId_ != nullptr && this->ruleTemplateName_ != nullptr && this->selectedPolicy_ != nullptr && this->switchId_ != nullptr
-        && this->whiteImages_ != nullptr; };
+    virtual bool empty() const override { return this->gmtCreate_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->mode_ == nullptr && return this->policies_ == nullptr && return this->ruleDescription_ == nullptr && return this->ruleId_ == nullptr
+        && return this->ruleName_ == nullptr && return this->ruleTemplateId_ == nullptr && return this->ruleTemplateName_ == nullptr && return this->selectedPolicy_ == nullptr && return this->switchId_ == nullptr
+        && return this->whiteImages_ == nullptr; };
     // gmtCreate Field Functions 
     bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
     void deleteGmtCreate() { this->gmtCreate_ = nullptr;};

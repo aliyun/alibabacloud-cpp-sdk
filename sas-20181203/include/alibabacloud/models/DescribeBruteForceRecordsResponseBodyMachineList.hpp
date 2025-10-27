@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliNetOnline_ != nullptr
-        && this->blockExpireDate_ != nullptr && this->blockIp_ != nullptr && this->blockType_ != nullptr && this->errorCode_ != nullptr && this->id_ != nullptr
-        && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->intranetIp_ != nullptr && this->port_ != nullptr && this->ruleName_ != nullptr
-        && this->source_ != nullptr && this->status_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->aliNetOnline_ == nullptr
+        && return this->blockExpireDate_ == nullptr && return this->blockIp_ == nullptr && return this->blockType_ == nullptr && return this->errorCode_ == nullptr && return this->id_ == nullptr
+        && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr && return this->port_ == nullptr && return this->ruleName_ == nullptr
+        && return this->source_ == nullptr && return this->status_ == nullptr && return this->uuid_ == nullptr; };
     // aliNetOnline Field Functions 
     bool hasAliNetOnline() const { return this->aliNetOnline_ != nullptr;};
     void deleteAliNetOnline() { this->aliNetOnline_ = nullptr;};

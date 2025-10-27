@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->batchId_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->batchId_ == nullptr
+        && return this->requestId_ == nullptr; };
     // batchId Field Functions 
     bool hasBatchId() const { return this->batchId_ != nullptr;};
     void deleteBatchId() { this->batchId_ = nullptr;};

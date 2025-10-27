@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->rdp_ != nullptr
-        && this->sqlServer_ != nullptr && this->ssh_ != nullptr; };
+    virtual bool empty() const override { return this->rdp_ == nullptr
+        && return this->sqlServer_ == nullptr && return this->ssh_ == nullptr; };
     // rdp Field Functions 
     bool hasRdp() const { return this->rdp_ != nullptr;};
     void deleteRdp() { this->rdp_ = nullptr;};

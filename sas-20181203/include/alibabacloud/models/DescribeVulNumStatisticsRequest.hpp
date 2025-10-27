@@ -14,9 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeVulNumStatisticsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(From, from_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeVulNumStatisticsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(From, from_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
     };
     DescribeVulNumStatisticsRequest() = default ;
     DescribeVulNumStatisticsRequest(const DescribeVulNumStatisticsRequest &) = default ;
@@ -29,12 +31,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->from_ != nullptr; };
+    virtual bool empty() const override { return this->from_ == nullptr
+        && return this->resourceDirectoryAccountId_ == nullptr; };
     // from Field Functions 
     bool hasFrom() const { return this->from_ != nullptr;};
     void deleteFrom() { this->from_ = nullptr;};
     inline string from() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
     inline DescribeVulNumStatisticsRequest& setFrom(string from) { DARABONBA_PTR_SET_VALUE(from_, from) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t resourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline DescribeVulNumStatisticsRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
   protected:
@@ -43,6 +53,10 @@ namespace Models
     // *   If you want to query Security Center-related data, set the value to **sas**.
     // *   If you want to query Server Guard-related data, you do not need to specify this parameter.
     std::shared_ptr<string> from_ = nullptr;
+    // The Alibaba Cloud account ID of the member in the resource directory.
+    // 
+    // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+    std::shared_ptr<int64_t> resourceDirectoryAccountId_ = nullptr;
   };
 
   } // namespace Models

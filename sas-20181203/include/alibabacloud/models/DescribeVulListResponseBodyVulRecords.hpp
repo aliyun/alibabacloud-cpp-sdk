@@ -106,15 +106,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliasName_ != nullptr
-        && this->authVersion_ != nullptr && this->bind_ != nullptr && this->extendContentJson_ != nullptr && this->firstTs_ != nullptr && this->groupId_ != nullptr
-        && this->image_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->intranetIp_ != nullptr
-        && this->k8sClusterId_ != nullptr && this->k8sNamespace_ != nullptr && this->k8sNodeId_ != nullptr && this->k8sNodeName_ != nullptr && this->k8sPodName_ != nullptr
-        && this->lastTs_ != nullptr && this->modifyTs_ != nullptr && this->name_ != nullptr && this->namespace_ != nullptr && this->necessity_ != nullptr
-        && this->online_ != nullptr && this->osName_ != nullptr && this->osVersion_ != nullptr && this->primaryId_ != nullptr && this->progress_ != nullptr
-        && this->raspDefend_ != nullptr && this->raspStatus_ != nullptr && this->realRisk_ != nullptr && this->regionId_ != nullptr && this->related_ != nullptr
-        && this->repairTs_ != nullptr && this->resultCode_ != nullptr && this->resultMessage_ != nullptr && this->ruleTag_ != nullptr && this->status_ != nullptr
-        && this->tag_ != nullptr && this->type_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->aliasName_ == nullptr
+        && return this->authVersion_ == nullptr && return this->bind_ == nullptr && return this->extendContentJson_ == nullptr && return this->firstTs_ == nullptr && return this->groupId_ == nullptr
+        && return this->image_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr
+        && return this->k8sClusterId_ == nullptr && return this->k8sNamespace_ == nullptr && return this->k8sNodeId_ == nullptr && return this->k8sNodeName_ == nullptr && return this->k8sPodName_ == nullptr
+        && return this->lastTs_ == nullptr && return this->modifyTs_ == nullptr && return this->name_ == nullptr && return this->namespace_ == nullptr && return this->necessity_ == nullptr
+        && return this->online_ == nullptr && return this->osName_ == nullptr && return this->osVersion_ == nullptr && return this->primaryId_ == nullptr && return this->progress_ == nullptr
+        && return this->raspDefend_ == nullptr && return this->raspStatus_ == nullptr && return this->realRisk_ == nullptr && return this->regionId_ == nullptr && return this->related_ == nullptr
+        && return this->repairTs_ == nullptr && return this->resultCode_ == nullptr && return this->resultMessage_ == nullptr && return this->ruleTag_ == nullptr && return this->status_ == nullptr
+        && return this->tag_ == nullptr && return this->type_ == nullptr && return this->uuid_ == nullptr; };
     // aliasName Field Functions 
     bool hasAliasName() const { return this->aliasName_ != nullptr;};
     void deleteAliasName() { this->aliasName_ = nullptr;};

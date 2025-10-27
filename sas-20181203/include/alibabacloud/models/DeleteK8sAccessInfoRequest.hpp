@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliyunYundunGatewayApiName_ != nullptr
-        && this->aliyunYundunGatewayPopName_ != nullptr && this->aliyunYundunGatewayProjectName_ != nullptr && this->id_ != nullptr; };
+    virtual bool empty() const override { return this->aliyunYundunGatewayApiName_ == nullptr
+        && return this->aliyunYundunGatewayPopName_ == nullptr && return this->aliyunYundunGatewayProjectName_ == nullptr && return this->id_ == nullptr; };
     // aliyunYundunGatewayApiName Field Functions 
     bool hasAliyunYundunGatewayApiName() const { return this->aliyunYundunGatewayApiName_ != nullptr;};
     void deleteAliyunYundunGatewayApiName() { this->aliyunYundunGatewayApiName_ = nullptr;};

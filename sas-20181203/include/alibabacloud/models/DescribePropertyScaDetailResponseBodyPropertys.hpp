@@ -85,13 +85,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizType_ != nullptr
-        && this->bizTypeDispaly_ != nullptr && this->cmdline_ != nullptr && this->configPath_ != nullptr && this->containerName_ != nullptr && this->createTimestamp_ != nullptr
-        && this->imageName_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->intranetIp_ != nullptr
-        && this->ip_ != nullptr && this->listenIp_ != nullptr && this->listenProtocol_ != nullptr && this->listenStatus_ != nullptr && this->name_ != nullptr
-        && this->path_ != nullptr && this->pid_ != nullptr && this->podName_ != nullptr && this->port_ != nullptr && this->ppid_ != nullptr
-        && this->processStarted_ != nullptr && this->processUser_ != nullptr && this->proof_ != nullptr && this->runtimeEnvVersion_ != nullptr && this->type_ != nullptr
-        && this->uuid_ != nullptr && this->version_ != nullptr && this->webPath_ != nullptr; };
+    virtual bool empty() const override { return this->bizType_ == nullptr
+        && return this->bizTypeDispaly_ == nullptr && return this->cmdline_ == nullptr && return this->configPath_ == nullptr && return this->containerName_ == nullptr && return this->createTimestamp_ == nullptr
+        && return this->imageName_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr
+        && return this->ip_ == nullptr && return this->listenIp_ == nullptr && return this->listenProtocol_ == nullptr && return this->listenStatus_ == nullptr && return this->name_ == nullptr
+        && return this->path_ == nullptr && return this->pid_ == nullptr && return this->podName_ == nullptr && return this->port_ == nullptr && return this->ppid_ == nullptr
+        && return this->processStarted_ == nullptr && return this->processUser_ == nullptr && return this->proof_ == nullptr && return this->runtimeEnvVersion_ == nullptr && return this->type_ == nullptr
+        && return this->uuid_ == nullptr && return this->version_ == nullptr && return this->webPath_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};

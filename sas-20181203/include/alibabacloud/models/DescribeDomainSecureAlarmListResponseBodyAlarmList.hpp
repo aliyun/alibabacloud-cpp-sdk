@@ -83,13 +83,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alarmEventName_ != nullptr
-        && this->alarmEventNameOriginal_ != nullptr && this->alarmEventType_ != nullptr && this->alarmUniqueInfo_ != nullptr && this->autoBreaking_ != nullptr && this->canBeDealOnLine_ != nullptr
-        && this->canCancelFault_ != nullptr && this->containHwMode_ != nullptr && this->dataSource_ != nullptr && this->dealed_ != nullptr && this->description_ != nullptr
-        && this->endTime_ != nullptr && this->gmtModified_ != nullptr && this->hasTraceInfo_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr
-        && this->internetIp_ != nullptr && this->intranetIp_ != nullptr && this->level_ != nullptr && this->operateErrorCode_ != nullptr && this->operateTime_ != nullptr
-        && this->saleVersion_ != nullptr && this->securityEventIds_ != nullptr && this->solution_ != nullptr && this->stages_ != nullptr && this->startTime_ != nullptr
-        && this->suspiciousEventCount_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->alarmEventName_ == nullptr
+        && return this->alarmEventNameOriginal_ == nullptr && return this->alarmEventType_ == nullptr && return this->alarmUniqueInfo_ == nullptr && return this->autoBreaking_ == nullptr && return this->canBeDealOnLine_ == nullptr
+        && return this->canCancelFault_ == nullptr && return this->containHwMode_ == nullptr && return this->dataSource_ == nullptr && return this->dealed_ == nullptr && return this->description_ == nullptr
+        && return this->endTime_ == nullptr && return this->gmtModified_ == nullptr && return this->hasTraceInfo_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr
+        && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr && return this->level_ == nullptr && return this->operateErrorCode_ == nullptr && return this->operateTime_ == nullptr
+        && return this->saleVersion_ == nullptr && return this->securityEventIds_ == nullptr && return this->solution_ == nullptr && return this->stages_ == nullptr && return this->startTime_ == nullptr
+        && return this->suspiciousEventCount_ == nullptr && return this->uuid_ == nullptr; };
     // alarmEventName Field Functions 
     bool hasAlarmEventName() const { return this->alarmEventName_ != nullptr;};
     void deleteAlarmEventName() { this->alarmEventName_ = nullptr;};

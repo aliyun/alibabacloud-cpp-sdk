@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliasName_ != nullptr
-        && this->asapCount_ != nullptr && this->gmtFirst_ != nullptr && this->gmtLast_ != nullptr && this->handledCount_ != nullptr && this->languageType_ != nullptr
-        && this->laterCount_ != nullptr && this->name_ != nullptr && this->nntfCount_ != nullptr && this->raspDefend_ != nullptr && this->related_ != nullptr
-        && this->tags_ != nullptr && this->totalFixCount_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->aliasName_ == nullptr
+        && return this->asapCount_ == nullptr && return this->gmtFirst_ == nullptr && return this->gmtLast_ == nullptr && return this->handledCount_ == nullptr && return this->languageType_ == nullptr
+        && return this->laterCount_ == nullptr && return this->name_ == nullptr && return this->nntfCount_ == nullptr && return this->raspDefend_ == nullptr && return this->related_ == nullptr
+        && return this->tags_ == nullptr && return this->totalFixCount_ == nullptr && return this->type_ == nullptr; };
     // aliasName Field Functions 
     bool hasAliasName() const { return this->aliasName_ != nullptr;};
     void deleteAliasName() { this->aliasName_ = nullptr;};

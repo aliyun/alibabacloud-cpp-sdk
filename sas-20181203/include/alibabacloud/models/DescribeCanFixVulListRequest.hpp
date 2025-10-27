@@ -78,12 +78,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliasName_ != nullptr
-        && this->clusterId_ != nullptr && this->clusterName_ != nullptr && this->containerId_ != nullptr && this->currentPage_ != nullptr && this->dealed_ != nullptr
-        && this->digest_ != nullptr && this->image_ != nullptr && this->instanceId_ != nullptr && this->name_ != nullptr && this->namespace_ != nullptr
-        && this->necessity_ != nullptr && this->pageSize_ != nullptr && this->pod_ != nullptr && this->regionId_ != nullptr && this->repoId_ != nullptr
-        && this->repoInstanceId_ != nullptr && this->repoName_ != nullptr && this->repoNamespace_ != nullptr && this->repoRegionId_ != nullptr && this->scanRange_ != nullptr
-        && this->statusList_ != nullptr && this->tag_ != nullptr && this->type_ != nullptr && this->uuids_ != nullptr; };
+    virtual bool empty() const override { return this->aliasName_ == nullptr
+        && return this->clusterId_ == nullptr && return this->clusterName_ == nullptr && return this->containerId_ == nullptr && return this->currentPage_ == nullptr && return this->dealed_ == nullptr
+        && return this->digest_ == nullptr && return this->image_ == nullptr && return this->instanceId_ == nullptr && return this->name_ == nullptr && return this->namespace_ == nullptr
+        && return this->necessity_ == nullptr && return this->pageSize_ == nullptr && return this->pod_ == nullptr && return this->regionId_ == nullptr && return this->repoId_ == nullptr
+        && return this->repoInstanceId_ == nullptr && return this->repoName_ == nullptr && return this->repoNamespace_ == nullptr && return this->repoRegionId_ == nullptr && return this->scanRange_ == nullptr
+        && return this->statusList_ == nullptr && return this->tag_ == nullptr && return this->type_ == nullptr && return this->uuids_ == nullptr; };
     // aliasName Field Functions 
     bool hasAliasName() const { return this->aliasName_ != nullptr;};
     void deleteAliasName() { this->aliasName_ = nullptr;};

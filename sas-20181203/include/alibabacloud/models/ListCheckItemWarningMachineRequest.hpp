@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkId_ != nullptr
-        && this->containerFieldName_ != nullptr && this->containerFieldValue_ != nullptr && this->currentPage_ != nullptr && this->groupId_ != nullptr && this->lang_ != nullptr
-        && this->pageSize_ != nullptr && this->remark_ != nullptr && this->riskType_ != nullptr && this->source_ != nullptr && this->status_ != nullptr
-        && this->uuidList_ != nullptr; };
+    virtual bool empty() const override { return this->checkId_ == nullptr
+        && return this->containerFieldName_ == nullptr && return this->containerFieldValue_ == nullptr && return this->currentPage_ == nullptr && return this->groupId_ == nullptr && return this->lang_ == nullptr
+        && return this->pageSize_ == nullptr && return this->remark_ == nullptr && return this->riskType_ == nullptr && return this->source_ == nullptr && return this->status_ == nullptr
+        && return this->uuidList_ == nullptr; };
     // checkId Field Functions 
     bool hasCheckId() const { return this->checkId_ != nullptr;};
     void deleteCheckId() { this->checkId_ = nullptr;};
@@ -177,15 +177,12 @@ namespace Models
     std::shared_ptr<string> source_ = nullptr;
     // The status of the check item. Valid values:
     // 
-    // *   1: failed
-    // 
-    // *   2: verifying
-    // 
-    // *   3: passed
-    // 
-    // *   6: ignored
-    // 
-    // *   7: fixing
+    // *   **1**: failed
+    // *   **2**: verifying
+    // *   **3**: passed
+    // *   **6**: ignored
+    // *   **7**: fixing
+    // *   **8**: fixed
     std::shared_ptr<int32_t> status_ = nullptr;
     // The UUID array of the servers.
     std::shared_ptr<vector<string>> uuidList_ = nullptr;

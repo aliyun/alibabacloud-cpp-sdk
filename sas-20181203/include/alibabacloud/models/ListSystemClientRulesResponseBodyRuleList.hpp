@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aggregationName_ != nullptr
-        && this->description_ != nullptr && this->platform_ != nullptr && this->policies_ != nullptr && this->ruleId_ != nullptr && this->ruleName_ != nullptr
-        && this->ruleType_ != nullptr && this->status_ != nullptr && this->switchEnable_ != nullptr && this->switchId_ != nullptr; };
+    virtual bool empty() const override { return this->aggregationName_ == nullptr
+        && return this->description_ == nullptr && return this->platform_ == nullptr && return this->policies_ == nullptr && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr
+        && return this->ruleType_ == nullptr && return this->status_ == nullptr && return this->switchEnable_ == nullptr && return this->switchId_ == nullptr; };
     // aggregationName Field Functions 
     bool hasAggregationName() const { return this->aggregationName_ != nullptr;};
     void deleteAggregationName() { this->aggregationName_ = nullptr;};

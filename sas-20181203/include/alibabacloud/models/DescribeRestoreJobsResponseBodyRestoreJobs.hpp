@@ -109,15 +109,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actualBytes_ != nullptr
-        && this->bytesDone_ != nullptr && this->bytesTotal_ != nullptr && this->clientId_ != nullptr && this->completeTime_ != nullptr && this->createdTime_ != nullptr
-        && this->duration_ != nullptr && this->errorCount_ != nullptr && this->errorFile_ != nullptr && this->errorFileUrl_ != nullptr && this->errorType_ != nullptr
-        && this->eta_ != nullptr && this->excludes_ != nullptr && this->exitCode_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr
-        && this->includes_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->intranetIp_ != nullptr
-        && this->itemsDone_ != nullptr && this->itemsTotal_ != nullptr && this->message_ != nullptr && this->percentage_ != nullptr && this->requestId_ != nullptr
-        && this->restoreId_ != nullptr && this->restoreName_ != nullptr && this->restoreType_ != nullptr && this->snapshotHash_ != nullptr && this->snapshotId_ != nullptr
-        && this->snapshotVersion_ != nullptr && this->source_ != nullptr && this->sourceClientId_ != nullptr && this->speed_ != nullptr && this->status_ != nullptr
-        && this->target_ != nullptr && this->updatedTime_ != nullptr && this->uuid_ != nullptr && this->vaultId_ != nullptr && this->vaultRegionId_ != nullptr; };
+    virtual bool empty() const override { return this->actualBytes_ == nullptr
+        && return this->bytesDone_ == nullptr && return this->bytesTotal_ == nullptr && return this->clientId_ == nullptr && return this->completeTime_ == nullptr && return this->createdTime_ == nullptr
+        && return this->duration_ == nullptr && return this->errorCount_ == nullptr && return this->errorFile_ == nullptr && return this->errorFileUrl_ == nullptr && return this->errorType_ == nullptr
+        && return this->eta_ == nullptr && return this->excludes_ == nullptr && return this->exitCode_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr
+        && return this->includes_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr
+        && return this->itemsDone_ == nullptr && return this->itemsTotal_ == nullptr && return this->message_ == nullptr && return this->percentage_ == nullptr && return this->requestId_ == nullptr
+        && return this->restoreId_ == nullptr && return this->restoreName_ == nullptr && return this->restoreType_ == nullptr && return this->snapshotHash_ == nullptr && return this->snapshotId_ == nullptr
+        && return this->snapshotVersion_ == nullptr && return this->source_ == nullptr && return this->sourceClientId_ == nullptr && return this->speed_ == nullptr && return this->status_ == nullptr
+        && return this->target_ == nullptr && return this->updatedTime_ == nullptr && return this->uuid_ == nullptr && return this->vaultId_ == nullptr && return this->vaultRegionId_ == nullptr; };
     // actualBytes Field Functions 
     bool hasActualBytes() const { return this->actualBytes_ != nullptr;};
     void deleteActualBytes() { this->actualBytes_ = nullptr;};

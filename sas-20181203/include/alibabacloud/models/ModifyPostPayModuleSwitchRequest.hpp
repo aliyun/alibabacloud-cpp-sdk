@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->postPayInstanceId_ != nullptr
-        && this->postPayModuleSwitch_ != nullptr; };
+    virtual bool empty() const override { return this->postPayInstanceId_ == nullptr
+        && return this->postPayModuleSwitch_ == nullptr; };
     // postPayInstanceId Field Functions 
     bool hasPostPayInstanceId() const { return this->postPayInstanceId_ != nullptr;};
     void deletePostPayInstanceId() { this->postPayInstanceId_ = nullptr;};

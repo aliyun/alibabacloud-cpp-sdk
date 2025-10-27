@@ -143,18 +143,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->advanced_ != nullptr
-        && this->alarmEventName_ != nullptr && this->alarmEventNameDisplay_ != nullptr && this->alarmEventType_ != nullptr && this->alarmEventTypeDisplay_ != nullptr && this->alarmUniqueInfo_ != nullptr
-        && this->appName_ != nullptr && this->autoBreaking_ != nullptr && this->canBeDealOnLine_ != nullptr && this->canCancelFault_ != nullptr && this->containHwMode_ != nullptr
-        && this->containerId_ != nullptr && this->containerImageId_ != nullptr && this->containerImageName_ != nullptr && this->dataSource_ != nullptr && this->desc_ != nullptr
-        && this->details_ != nullptr && this->displaySandboxResult_ != nullptr && this->eventNotes_ != nullptr && this->eventStatus_ != nullptr && this->eventSubType_ != nullptr
-        && this->hasTraceInfo_ != nullptr && this->id_ != nullptr && this->imageUuid_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr
-        && this->internetIp_ != nullptr && this->intranetIp_ != nullptr && this->k8sClusterId_ != nullptr && this->k8sClusterName_ != nullptr && this->k8sNamespace_ != nullptr
-        && this->k8sNodeId_ != nullptr && this->k8sNodeName_ != nullptr && this->k8sPodName_ != nullptr && this->largeModel_ != nullptr && this->lastTime_ != nullptr
-        && this->lastTimeStamp_ != nullptr && this->level_ != nullptr && this->maliciousRuleStatus_ != nullptr && this->markList_ != nullptr && this->markMisRules_ != nullptr
-        && this->name_ != nullptr && this->occurrenceTime_ != nullptr && this->occurrenceTimeStamp_ != nullptr && this->operateErrorCode_ != nullptr && this->operateMsg_ != nullptr
-        && this->operateTime_ != nullptr && this->saleVersion_ != nullptr && this->securityEventIds_ != nullptr && this->sourceAliUid_ != nullptr && this->stages_ != nullptr
-        && this->supportOperateCode_ != nullptr && this->tacticItems_ != nullptr && this->uniqueInfo_ != nullptr && this->uuid_ != nullptr && this->clusterId_ != nullptr; };
+    virtual bool empty() const override { return this->advanced_ == nullptr
+        && return this->alarmEventName_ == nullptr && return this->alarmEventNameDisplay_ == nullptr && return this->alarmEventType_ == nullptr && return this->alarmEventTypeDisplay_ == nullptr && return this->alarmUniqueInfo_ == nullptr
+        && return this->appName_ == nullptr && return this->autoBreaking_ == nullptr && return this->canBeDealOnLine_ == nullptr && return this->canCancelFault_ == nullptr && return this->containHwMode_ == nullptr
+        && return this->containerId_ == nullptr && return this->containerImageId_ == nullptr && return this->containerImageName_ == nullptr && return this->dataSource_ == nullptr && return this->desc_ == nullptr
+        && return this->details_ == nullptr && return this->displaySandboxResult_ == nullptr && return this->eventNotes_ == nullptr && return this->eventStatus_ == nullptr && return this->eventSubType_ == nullptr
+        && return this->hasTraceInfo_ == nullptr && return this->id_ == nullptr && return this->imageUuid_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr
+        && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr && return this->k8sClusterId_ == nullptr && return this->k8sClusterName_ == nullptr && return this->k8sNamespace_ == nullptr
+        && return this->k8sNodeId_ == nullptr && return this->k8sNodeName_ == nullptr && return this->k8sPodName_ == nullptr && return this->largeModel_ == nullptr && return this->lastTime_ == nullptr
+        && return this->lastTimeStamp_ == nullptr && return this->level_ == nullptr && return this->maliciousRuleStatus_ == nullptr && return this->markList_ == nullptr && return this->markMisRules_ == nullptr
+        && return this->name_ == nullptr && return this->occurrenceTime_ == nullptr && return this->occurrenceTimeStamp_ == nullptr && return this->operateErrorCode_ == nullptr && return this->operateMsg_ == nullptr
+        && return this->operateTime_ == nullptr && return this->saleVersion_ == nullptr && return this->securityEventIds_ == nullptr && return this->sourceAliUid_ == nullptr && return this->stages_ == nullptr
+        && return this->supportOperateCode_ == nullptr && return this->tacticItems_ == nullptr && return this->uniqueInfo_ == nullptr && return this->uuid_ == nullptr && return this->clusterId_ == nullptr; };
     // advanced Field Functions 
     bool hasAdvanced() const { return this->advanced_ != nullptr;};
     void deleteAdvanced() { this->advanced_ = nullptr;};

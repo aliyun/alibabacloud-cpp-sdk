@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->action_ != nullptr
-        && this->alertLevel_ != nullptr && this->effectInstanceCount_ != nullptr && this->fileOps_ != nullptr && this->filePaths_ != nullptr && this->gmtCreate_ != nullptr
-        && this->gmtModified_ != nullptr && this->id_ != nullptr && this->platform_ != nullptr && this->procPaths_ != nullptr && this->ruleName_ != nullptr
-        && this->status_ != nullptr && this->switchId_ != nullptr; };
+    virtual bool empty() const override { return this->action_ == nullptr
+        && return this->alertLevel_ == nullptr && return this->effectInstanceCount_ == nullptr && return this->fileOps_ == nullptr && return this->filePaths_ == nullptr && return this->gmtCreate_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->id_ == nullptr && return this->platform_ == nullptr && return this->procPaths_ == nullptr && return this->ruleName_ == nullptr
+        && return this->status_ == nullptr && return this->switchId_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};

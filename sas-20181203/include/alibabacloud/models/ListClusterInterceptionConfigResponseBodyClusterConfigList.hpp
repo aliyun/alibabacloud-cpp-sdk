@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterCNNFStatus_ != nullptr
-        && this->clusterId_ != nullptr && this->clusterName_ != nullptr && this->clusterType_ != nullptr && this->interceptionSwitch_ != nullptr && this->openRuleCount_ != nullptr
-        && this->supportCNNF_ != nullptr && this->totalRuleCount_ != nullptr; };
+    virtual bool empty() const override { return this->clusterCNNFStatus_ == nullptr
+        && return this->clusterId_ == nullptr && return this->clusterName_ == nullptr && return this->clusterType_ == nullptr && return this->interceptionSwitch_ == nullptr && return this->openRuleCount_ == nullptr
+        && return this->supportCNNF_ == nullptr && return this->totalRuleCount_ == nullptr; };
     // clusterCNNFStatus Field Functions 
     bool hasClusterCNNFStatus() const { return this->clusterCNNFStatus_ != nullptr;};
     void deleteClusterCNNFStatus() { this->clusterCNNFStatus_ = nullptr;};

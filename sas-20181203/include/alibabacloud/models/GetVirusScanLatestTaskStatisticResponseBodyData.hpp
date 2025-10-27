@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->completeMachine_ != nullptr
-        && this->machineName_ != nullptr && this->progress_ != nullptr && this->riskLevel_ != nullptr && this->safeMachine_ != nullptr && this->scanMachine_ != nullptr
-        && this->scanPath_ != nullptr && this->scanTime_ != nullptr && this->scanType_ != nullptr && this->status_ != nullptr && this->suspiciousCount_ != nullptr
-        && this->suspiciousMachine_ != nullptr && this->taskId_ != nullptr && this->unCompleteMachine_ != nullptr; };
+    virtual bool empty() const override { return this->completeMachine_ == nullptr
+        && return this->machineName_ == nullptr && return this->progress_ == nullptr && return this->riskLevel_ == nullptr && return this->safeMachine_ == nullptr && return this->scanMachine_ == nullptr
+        && return this->scanPath_ == nullptr && return this->scanTime_ == nullptr && return this->scanType_ == nullptr && return this->status_ == nullptr && return this->suspiciousCount_ == nullptr
+        && return this->suspiciousMachine_ == nullptr && return this->taskId_ == nullptr && return this->unCompleteMachine_ == nullptr; };
     // completeMachine Field Functions 
     bool hasCompleteMachine() const { return this->completeMachine_ != nullptr;};
     void deleteCompleteMachine() { this->completeMachine_ = nullptr;};

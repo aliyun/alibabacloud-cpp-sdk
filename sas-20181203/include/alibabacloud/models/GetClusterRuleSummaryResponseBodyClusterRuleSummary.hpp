@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->closeRuleCount_ != nullptr
-        && this->interceptionCount7Day_ != nullptr && this->interceptionSwitch_ != nullptr && this->interceptionType_ != nullptr && this->openRuleCount_ != nullptr && this->ruleCount_ != nullptr
-        && this->suggestRuleCount_ != nullptr; };
+    virtual bool empty() const override { return this->closeRuleCount_ == nullptr
+        && return this->interceptionCount7Day_ == nullptr && return this->interceptionSwitch_ == nullptr && return this->interceptionType_ == nullptr && return this->openRuleCount_ == nullptr && return this->ruleCount_ == nullptr
+        && return this->suggestRuleCount_ == nullptr; };
     // closeRuleCount Field Functions 
     bool hasCloseRuleCount() const { return this->closeRuleCount_ != nullptr;};
     void deleteCloseRuleCount() { this->closeRuleCount_ = nullptr;};

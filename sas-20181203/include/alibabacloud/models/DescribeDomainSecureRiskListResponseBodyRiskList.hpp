@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alarmCount_ != nullptr
-        && this->domain_ != nullptr && this->sslBrand_ != nullptr && this->sslStatus_ != nullptr && this->uuidList_ != nullptr && this->vulCount_ != nullptr; };
+    virtual bool empty() const override { return this->alarmCount_ == nullptr
+        && return this->domain_ == nullptr && return this->sslBrand_ == nullptr && return this->sslStatus_ == nullptr && return this->uuidList_ == nullptr && return this->vulCount_ == nullptr; };
     // alarmCount Field Functions 
     bool hasAlarmCount() const { return this->alarmCount_ != nullptr;};
     void deleteAlarmCount() { this->alarmCount_ = nullptr;};

@@ -143,19 +143,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alarmStatus_ != nullptr
-        && this->appId_ != nullptr && this->appName_ != nullptr && this->assetType_ != nullptr && this->assetTypeName_ != nullptr && this->authModifyTime_ != nullptr
-        && this->authVersion_ != nullptr && this->authVersionName_ != nullptr && this->bind_ != nullptr && this->clientStatus_ != nullptr && this->clientSubStatus_ != nullptr
-        && this->clusterId_ != nullptr && this->clusterName_ != nullptr && this->cores_ != nullptr && this->cpuInfo_ != nullptr && this->createdTime_ != nullptr
-        && this->exposedStatus_ != nullptr && this->flag_ != nullptr && this->flagName_ != nullptr && this->groupId_ != nullptr && this->groupTrace_ != nullptr
-        && this->hasContainer_ != nullptr && this->hcStatus_ != nullptr && this->healthCheckCount_ != nullptr && this->importance_ != nullptr && this->instanceId_ != nullptr
-        && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->intranetIp_ != nullptr && this->ip_ != nullptr && this->ipListString_ != nullptr
-        && this->kernel_ != nullptr && this->lastLoginTimestamp_ != nullptr && this->macListString_ != nullptr && this->mem_ != nullptr && this->os_ != nullptr
-        && this->osName_ != nullptr && this->podCount_ != nullptr && this->postPaidFlag_ != nullptr && this->region_ != nullptr && this->regionId_ != nullptr
-        && this->regionName_ != nullptr && this->riskCount_ != nullptr && this->riskStatus_ != nullptr && this->safeEventCount_ != nullptr && this->serviceId_ != nullptr
-        && this->status_ != nullptr && this->tag_ != nullptr && this->tagId_ != nullptr && this->tagResources_ != nullptr && this->uuid_ != nullptr
-        && this->vendor_ != nullptr && this->vendorName_ != nullptr && this->vendorUid_ != nullptr && this->vendorUserName_ != nullptr && this->vpcInstanceId_ != nullptr
-        && this->vulCount_ != nullptr && this->vulStatus_ != nullptr; };
+    virtual bool empty() const override { return this->alarmStatus_ == nullptr
+        && return this->appId_ == nullptr && return this->appName_ == nullptr && return this->assetType_ == nullptr && return this->assetTypeName_ == nullptr && return this->authModifyTime_ == nullptr
+        && return this->authVersion_ == nullptr && return this->authVersionName_ == nullptr && return this->bind_ == nullptr && return this->clientStatus_ == nullptr && return this->clientSubStatus_ == nullptr
+        && return this->clusterId_ == nullptr && return this->clusterName_ == nullptr && return this->cores_ == nullptr && return this->cpuInfo_ == nullptr && return this->createdTime_ == nullptr
+        && return this->exposedStatus_ == nullptr && return this->flag_ == nullptr && return this->flagName_ == nullptr && return this->groupId_ == nullptr && return this->groupTrace_ == nullptr
+        && return this->hasContainer_ == nullptr && return this->hcStatus_ == nullptr && return this->healthCheckCount_ == nullptr && return this->importance_ == nullptr && return this->instanceId_ == nullptr
+        && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr && return this->ip_ == nullptr && return this->ipListString_ == nullptr
+        && return this->kernel_ == nullptr && return this->lastLoginTimestamp_ == nullptr && return this->macListString_ == nullptr && return this->mem_ == nullptr && return this->os_ == nullptr
+        && return this->osName_ == nullptr && return this->podCount_ == nullptr && return this->postPaidFlag_ == nullptr && return this->region_ == nullptr && return this->regionId_ == nullptr
+        && return this->regionName_ == nullptr && return this->riskCount_ == nullptr && return this->riskStatus_ == nullptr && return this->safeEventCount_ == nullptr && return this->serviceId_ == nullptr
+        && return this->status_ == nullptr && return this->tag_ == nullptr && return this->tagId_ == nullptr && return this->tagResources_ == nullptr && return this->uuid_ == nullptr
+        && return this->vendor_ == nullptr && return this->vendorName_ == nullptr && return this->vendorUid_ == nullptr && return this->vendorUserName_ == nullptr && return this->vpcInstanceId_ == nullptr
+        && return this->vulCount_ == nullptr && return this->vulStatus_ == nullptr; };
     // alarmStatus Field Functions 
     bool hasAlarmStatus() const { return this->alarmStatus_ != nullptr;};
     void deleteAlarmStatus() { this->alarmStatus_ = nullptr;};

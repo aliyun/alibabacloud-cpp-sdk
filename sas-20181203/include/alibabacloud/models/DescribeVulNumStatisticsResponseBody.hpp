@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appCnt_ != nullptr
-        && this->appNum_ != nullptr && this->cmsDealedTotalNum_ != nullptr && this->cmsNum_ != nullptr && this->cveNum_ != nullptr && this->emgNum_ != nullptr
-        && this->requestId_ != nullptr && this->scaNum_ != nullptr && this->sysNum_ != nullptr && this->vulAsapSum_ != nullptr && this->vulDealedTotalNum_ != nullptr
-        && this->vulLaterSum_ != nullptr && this->vulNntfSum_ != nullptr; };
+    virtual bool empty() const override { return this->appCnt_ == nullptr
+        && return this->appNum_ == nullptr && return this->cmsDealedTotalNum_ == nullptr && return this->cmsNum_ == nullptr && return this->cveNum_ == nullptr && return this->emgNum_ == nullptr
+        && return this->requestId_ == nullptr && return this->scaNum_ == nullptr && return this->sysNum_ == nullptr && return this->vulAsapSum_ == nullptr && return this->vulDealedTotalNum_ == nullptr
+        && return this->vulLaterSum_ == nullptr && return this->vulNntfSum_ == nullptr; };
     // appCnt Field Functions 
     bool hasAppCnt() const { return this->appCnt_ != nullptr;};
     void deleteAppCnt() { this->appCnt_ = nullptr;};

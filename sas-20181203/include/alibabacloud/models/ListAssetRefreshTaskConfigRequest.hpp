@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->refreshConfigType_ != nullptr
-        && this->regionId_ != nullptr && this->targetId_ != nullptr; };
+    virtual bool empty() const override { return this->refreshConfigType_ == nullptr
+        && return this->regionId_ == nullptr && return this->targetId_ == nullptr; };
     // refreshConfigType Field Functions 
     bool hasRefreshConfigType() const { return this->refreshConfigType_ != nullptr;};
     void deleteRefreshConfigType() { this->refreshConfigType_ = nullptr;};

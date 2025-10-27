@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertLevel_ != nullptr
-        && this->cmdLine_ != nullptr && this->filePath_ != nullptr && this->filePermission_ != nullptr && this->firstTime_ != nullptr && this->handleTime_ != nullptr
-        && this->id_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->intranetIp_ != nullptr && this->latestTime_ != nullptr
-        && this->operation_ != nullptr && this->platform_ != nullptr && this->procPath_ != nullptr && this->processId_ != nullptr && this->remark_ != nullptr
-        && this->ruleName_ != nullptr && this->status_ != nullptr && this->userId_ != nullptr && this->userName_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->alertLevel_ == nullptr
+        && return this->cmdLine_ == nullptr && return this->filePath_ == nullptr && return this->filePermission_ == nullptr && return this->firstTime_ == nullptr && return this->handleTime_ == nullptr
+        && return this->id_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr && return this->latestTime_ == nullptr
+        && return this->operation_ == nullptr && return this->platform_ == nullptr && return this->procPath_ == nullptr && return this->processId_ == nullptr && return this->remark_ == nullptr
+        && return this->ruleName_ == nullptr && return this->status_ == nullptr && return this->userId_ == nullptr && return this->userName_ == nullptr && return this->uuid_ == nullptr; };
     // alertLevel Field Functions 
     bool hasAlertLevel() const { return this->alertLevel_ != nullptr;};
     void deleteAlertLevel() { this->alertLevel_ = nullptr;};

@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->markBatch_ != nullptr
-        && this->markMissParam_ != nullptr && this->operationCode_ != nullptr && this->operationParams_ != nullptr && this->remark_ != nullptr && this->resourceDirectoryAccountId_ != nullptr
-        && this->securityEventIds_ != nullptr && this->sourceIp_ != nullptr; };
+    virtual bool empty() const override { return this->markBatch_ == nullptr
+        && return this->markMissParam_ == nullptr && return this->operationCode_ == nullptr && return this->operationParams_ == nullptr && return this->remark_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr
+        && return this->securityEventIds_ == nullptr && return this->sourceIp_ == nullptr; };
     // markBatch Field Functions 
     bool hasMarkBatch() const { return this->markBatch_ != nullptr;};
     void deleteMarkBatch() { this->markBatch_ = nullptr;};

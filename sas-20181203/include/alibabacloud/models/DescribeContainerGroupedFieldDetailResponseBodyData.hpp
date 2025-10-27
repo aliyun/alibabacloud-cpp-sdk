@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alarmCount_ != nullptr
-        && this->appName_ != nullptr && this->clusterCurrentVersion_ != nullptr && this->clusterId_ != nullptr && this->clusterName_ != nullptr && this->clusterState_ != nullptr
-        && this->clusterType_ != nullptr && this->containerCount_ != nullptr && this->createTime_ != nullptr && this->instanceCount_ != nullptr && this->namespace_ != nullptr
-        && this->nodeName_ != nullptr && this->pod_ != nullptr && this->podCount_ != nullptr && this->podIp_ != nullptr && this->regionId_ != nullptr
-        && this->vulCount_ != nullptr; };
+    virtual bool empty() const override { return this->alarmCount_ == nullptr
+        && return this->appName_ == nullptr && return this->clusterCurrentVersion_ == nullptr && return this->clusterId_ == nullptr && return this->clusterName_ == nullptr && return this->clusterState_ == nullptr
+        && return this->clusterType_ == nullptr && return this->containerCount_ == nullptr && return this->createTime_ == nullptr && return this->instanceCount_ == nullptr && return this->namespace_ == nullptr
+        && return this->nodeName_ == nullptr && return this->pod_ == nullptr && return this->podCount_ == nullptr && return this->podIp_ == nullptr && return this->regionId_ == nullptr
+        && return this->vulCount_ == nullptr; };
     // alarmCount Field Functions 
     bool hasAlarmCount() const { return this->alarmCount_ != nullptr;};
     void deleteAlarmCount() { this->alarmCount_ = nullptr;};

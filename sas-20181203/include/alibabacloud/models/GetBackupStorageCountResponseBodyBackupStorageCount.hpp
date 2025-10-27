@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->buyStorageByte_ != nullptr
-        && this->ecsUsageStorageByte_ != nullptr && this->overflow_ != nullptr && this->uniUsageStorageByte_ != nullptr && this->usageStorageByte_ != nullptr; };
+    virtual bool empty() const override { return this->buyStorageByte_ == nullptr
+        && return this->ecsUsageStorageByte_ == nullptr && return this->overflow_ == nullptr && return this->uniUsageStorageByte_ == nullptr && return this->usageStorageByte_ == nullptr; };
     // buyStorageByte Field Functions 
     bool hasBuyStorageByte() const { return this->buyStorageByte_ != nullptr;};
     void deleteBuyStorageByte() { this->buyStorageByte_ = nullptr;};

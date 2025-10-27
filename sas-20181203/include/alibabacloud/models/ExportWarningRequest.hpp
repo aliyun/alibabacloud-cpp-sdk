@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dealed_ != nullptr
-        && this->exportType_ != nullptr && this->groupId_ != nullptr && this->isCleartextPwd_ != nullptr && this->isSummaryExport_ != nullptr && this->lang_ != nullptr
-        && this->riskIds_ != nullptr && this->riskLevels_ != nullptr && this->riskName_ != nullptr && this->sourceIp_ != nullptr && this->statusList_ != nullptr
-        && this->strategyId_ != nullptr && this->subTypeNames_ != nullptr && this->typeName_ != nullptr && this->typeNames_ != nullptr && this->uuids_ != nullptr; };
+    virtual bool empty() const override { return this->dealed_ == nullptr
+        && return this->exportType_ == nullptr && return this->groupId_ == nullptr && return this->isCleartextPwd_ == nullptr && return this->isSummaryExport_ == nullptr && return this->lang_ == nullptr
+        && return this->riskIds_ == nullptr && return this->riskLevels_ == nullptr && return this->riskName_ == nullptr && return this->sourceIp_ == nullptr && return this->statusList_ == nullptr
+        && return this->strategyId_ == nullptr && return this->subTypeNames_ == nullptr && return this->typeName_ == nullptr && return this->typeNames_ == nullptr && return this->uuids_ == nullptr; };
     // dealed Field Functions 
     bool hasDealed() const { return this->dealed_ != nullptr;};
     void deleteDealed() { this->dealed_ = nullptr;};
@@ -157,8 +157,8 @@ namespace Models
     // typeName Field Functions 
     bool hasTypeName() const { return this->typeName_ != nullptr;};
     void deleteTypeName() { this->typeName_ = nullptr;};
-    inline string _typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
-    inline ExportWarningRequest& setTypeName(string _typeName) { DARABONBA_PTR_SET_VALUE(typeName_, _typeName) };
+    inline string typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
+    inline ExportWarningRequest& setTypeName(string typeName) { DARABONBA_PTR_SET_VALUE(typeName_, typeName) };
 
 
     // typeNames Field Functions 

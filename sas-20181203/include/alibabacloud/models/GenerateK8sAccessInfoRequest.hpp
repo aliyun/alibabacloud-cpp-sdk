@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliyunYundunGatewayApiName_ != nullptr
-        && this->aliyunYundunGatewayPopName_ != nullptr && this->aliyunYundunGatewayProjectName_ != nullptr && this->auditLogStore_ != nullptr && this->auditProject_ != nullptr && this->auditRegionId_ != nullptr
-        && this->clusterName_ != nullptr && this->cpuArch_ != nullptr && this->expireDate_ != nullptr && this->groupId_ != nullptr && this->vendor_ != nullptr; };
+    virtual bool empty() const override { return this->aliyunYundunGatewayApiName_ == nullptr
+        && return this->aliyunYundunGatewayPopName_ == nullptr && return this->aliyunYundunGatewayProjectName_ == nullptr && return this->auditLogStore_ == nullptr && return this->auditProject_ == nullptr && return this->auditRegionId_ == nullptr
+        && return this->clusterName_ == nullptr && return this->cpuArch_ == nullptr && return this->expireDate_ == nullptr && return this->groupId_ == nullptr && return this->vendor_ == nullptr; };
     // aliyunYundunGatewayApiName Field Functions 
     bool hasAliyunYundunGatewayApiName() const { return this->aliyunYundunGatewayApiName_ != nullptr;};
     void deleteAliyunYundunGatewayApiName() { this->aliyunYundunGatewayApiName_ = nullptr;};

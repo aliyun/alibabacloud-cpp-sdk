@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->biz_ != nullptr
-        && this->bizType_ != nullptr && this->currentPage_ != nullptr && this->lang_ != nullptr && this->name_ != nullptr && this->pageSize_ != nullptr
-        && this->pid_ != nullptr && this->port_ != nullptr && this->processStartedEnd_ != nullptr && this->processStartedStart_ != nullptr && this->remark_ != nullptr
-        && this->scaName_ != nullptr && this->scaNamePattern_ != nullptr && this->scaVersion_ != nullptr && this->searchInfo_ != nullptr && this->searchInfoSub_ != nullptr
-        && this->searchItem_ != nullptr && this->searchItemSub_ != nullptr && this->user_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->biz_ == nullptr
+        && return this->bizType_ == nullptr && return this->currentPage_ == nullptr && return this->lang_ == nullptr && return this->name_ == nullptr && return this->pageSize_ == nullptr
+        && return this->pid_ == nullptr && return this->port_ == nullptr && return this->processStartedEnd_ == nullptr && return this->processStartedStart_ == nullptr && return this->remark_ == nullptr
+        && return this->scaName_ == nullptr && return this->scaNamePattern_ == nullptr && return this->scaVersion_ == nullptr && return this->searchInfo_ == nullptr && return this->searchInfoSub_ == nullptr
+        && return this->searchItem_ == nullptr && return this->searchItemSub_ == nullptr && return this->user_ == nullptr && return this->uuid_ == nullptr; };
     // biz Field Functions 
     bool hasBiz() const { return this->biz_ != nullptr;};
     void deleteBiz() { this->biz_ = nullptr;};

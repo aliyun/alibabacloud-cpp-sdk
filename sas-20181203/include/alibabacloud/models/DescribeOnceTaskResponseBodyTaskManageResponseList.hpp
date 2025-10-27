@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->detailData_ != nullptr
-        && this->failCount_ != nullptr && this->progress_ != nullptr && this->resultInfo_ != nullptr && this->successCount_ != nullptr && this->taskEndTime_ != nullptr
-        && this->taskId_ != nullptr && this->taskName_ != nullptr && this->taskStartTime_ != nullptr && this->taskStatus_ != nullptr && this->taskStatusText_ != nullptr
-        && this->taskType_ != nullptr; };
+    virtual bool empty() const override { return this->detailData_ == nullptr
+        && return this->failCount_ == nullptr && return this->progress_ == nullptr && return this->resultInfo_ == nullptr && return this->successCount_ == nullptr && return this->taskEndTime_ == nullptr
+        && return this->taskId_ == nullptr && return this->taskName_ == nullptr && return this->taskStartTime_ == nullptr && return this->taskStatus_ == nullptr && return this->taskStatusText_ == nullptr
+        && return this->taskType_ == nullptr; };
     // detailData Field Functions 
     bool hasDetailData() const { return this->detailData_ != nullptr;};
     void deleteDetailData() { this->detailData_ = nullptr;};

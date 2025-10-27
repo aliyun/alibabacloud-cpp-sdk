@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appCriteria_ != nullptr
-        && this->authItem_ != nullptr && this->autoBind_ != nullptr && this->bindAll_ != nullptr && this->bindAppList_ != nullptr && this->bindAssetType_ != nullptr
-        && this->bindUuidList_ != nullptr && this->criteria_ != nullptr && this->logicalExp_ != nullptr && this->ntmVersion_ != nullptr && this->preBind_ != nullptr
-        && this->preBindOrderId_ != nullptr && this->resourceDirectoryUid_ != nullptr && this->unBindAppList_ != nullptr && this->unBindUuidList_ != nullptr; };
+    virtual bool empty() const override { return this->appCriteria_ == nullptr
+        && return this->authItem_ == nullptr && return this->autoBind_ == nullptr && return this->bindAll_ == nullptr && return this->bindAppList_ == nullptr && return this->bindAssetType_ == nullptr
+        && return this->bindUuidList_ == nullptr && return this->criteria_ == nullptr && return this->logicalExp_ == nullptr && return this->ntmVersion_ == nullptr && return this->preBind_ == nullptr
+        && return this->preBindOrderId_ == nullptr && return this->resourceDirectoryUid_ == nullptr && return this->unBindAppList_ == nullptr && return this->unBindUuidList_ == nullptr; };
     // appCriteria Field Functions 
     bool hasAppCriteria() const { return this->appCriteria_ != nullptr;};
     void deleteAppCriteria() { this->appCriteria_ = nullptr;};

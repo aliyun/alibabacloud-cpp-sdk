@@ -95,14 +95,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliYunInstanceCount_ != nullptr
-        && this->awsInstanceCount_ != nullptr && this->azureInstanceCount_ != nullptr && this->exposedInstanceCoreCount_ != nullptr && this->exposedInstanceCount_ != nullptr && this->generalAssetCount_ != nullptr
-        && this->googleInstanceCount_ != nullptr && this->groupCount_ != nullptr && this->huaweiInstanceCount_ != nullptr && this->idcInstanceCount_ != nullptr && this->importantAssetCount_ != nullptr
-        && this->instanceCoreCount_ != nullptr && this->instanceCount_ != nullptr && this->instanceSyncTaskCount_ != nullptr && this->newInstanceCoreCount_ != nullptr && this->newInstanceCount_ != nullptr
-        && this->noRiskInstanceCount_ != nullptr && this->notBindMachineInstanceCount_ != nullptr && this->notRunningStatusCoreCount_ != nullptr && this->notRunningStatusCount_ != nullptr && this->offlineInstanceCount_ != nullptr
-        && this->outMachineInstanceCount_ != nullptr && this->pauseInstanceCount_ != nullptr && this->regionCount_ != nullptr && this->riskInstanceCoreCount_ != nullptr && this->riskInstanceCount_ != nullptr
-        && this->tencentInstanceCount_ != nullptr && this->testAssetCount_ != nullptr && this->tripartiteInstanceCount_ != nullptr && this->unKnowStatusInstanceCount_ != nullptr && this->unprotectedInstanceCoreCount_ != nullptr
-        && this->unprotectedInstanceCount_ != nullptr && this->volcengineInstanceCount_ != nullptr && this->vpcCount_ != nullptr; };
+    virtual bool empty() const override { return this->aliYunInstanceCount_ == nullptr
+        && return this->awsInstanceCount_ == nullptr && return this->azureInstanceCount_ == nullptr && return this->exposedInstanceCoreCount_ == nullptr && return this->exposedInstanceCount_ == nullptr && return this->generalAssetCount_ == nullptr
+        && return this->googleInstanceCount_ == nullptr && return this->groupCount_ == nullptr && return this->huaweiInstanceCount_ == nullptr && return this->idcInstanceCount_ == nullptr && return this->importantAssetCount_ == nullptr
+        && return this->instanceCoreCount_ == nullptr && return this->instanceCount_ == nullptr && return this->instanceSyncTaskCount_ == nullptr && return this->newInstanceCoreCount_ == nullptr && return this->newInstanceCount_ == nullptr
+        && return this->noRiskInstanceCount_ == nullptr && return this->notBindMachineInstanceCount_ == nullptr && return this->notRunningStatusCoreCount_ == nullptr && return this->notRunningStatusCount_ == nullptr && return this->offlineInstanceCount_ == nullptr
+        && return this->outMachineInstanceCount_ == nullptr && return this->pauseInstanceCount_ == nullptr && return this->regionCount_ == nullptr && return this->riskInstanceCoreCount_ == nullptr && return this->riskInstanceCount_ == nullptr
+        && return this->tencentInstanceCount_ == nullptr && return this->testAssetCount_ == nullptr && return this->tripartiteInstanceCount_ == nullptr && return this->unKnowStatusInstanceCount_ == nullptr && return this->unprotectedInstanceCoreCount_ == nullptr
+        && return this->unprotectedInstanceCount_ == nullptr && return this->volcengineInstanceCount_ == nullptr && return this->vpcCount_ == nullptr; };
     // aliYunInstanceCount Field Functions 
     bool hasAliYunInstanceCount() const { return this->aliYunInstanceCount_ != nullptr;};
     void deleteAliYunInstanceCount() { this->aliYunInstanceCount_ = nullptr;};

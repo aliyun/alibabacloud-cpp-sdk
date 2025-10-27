@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bindIp_ != nullptr
-        && this->currentPage_ != nullptr && this->extend_ != nullptr && this->pageSize_ != nullptr && this->port_ != nullptr && this->procName_ != nullptr
-        && this->remark_ != nullptr && this->resourceDirectoryAccountId_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->bindIp_ == nullptr
+        && return this->currentPage_ == nullptr && return this->extend_ == nullptr && return this->pageSize_ == nullptr && return this->port_ == nullptr && return this->procName_ == nullptr
+        && return this->remark_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr && return this->uuid_ == nullptr; };
     // bindIp Field Functions 
     bool hasBindIp() const { return this->bindIp_ != nullptr;};
     void deleteBindIp() { this->bindIp_ = nullptr;};

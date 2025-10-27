@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->coreCount_ != nullptr && this->instanceCount_ != nullptr && this->isBind_ != nullptr && this->isPostPaid_ != nullptr && this->isServerlessPostPaidValid_ != nullptr
-        && this->postPaidModuleSwitch_ != nullptr && this->postPaidOpenTime_ != nullptr && this->postPaidStatus_ != nullptr && this->postpaidInstanceId_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->coreCount_ == nullptr && return this->instanceCount_ == nullptr && return this->isBind_ == nullptr && return this->isPostPaid_ == nullptr && return this->isServerlessPostPaidValid_ == nullptr
+        && return this->postPaidModuleSwitch_ == nullptr && return this->postPaidOpenTime_ == nullptr && return this->postPaidStatus_ == nullptr && return this->postpaidInstanceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};

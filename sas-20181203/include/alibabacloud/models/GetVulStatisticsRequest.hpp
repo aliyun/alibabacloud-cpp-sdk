@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetVulStatisticsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(GroupIdList, groupIdList_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
       DARABONBA_PTR_TO_JSON(TypeList, typeList_);
     };
     friend void from_json(const Darabonba::Json& j, GetVulStatisticsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(GroupIdList, groupIdList_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
       DARABONBA_PTR_FROM_JSON(TypeList, typeList_);
     };
@@ -33,13 +35,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->groupIdList_ != nullptr
-        && this->sourceIp_ != nullptr && this->typeList_ != nullptr; };
+    virtual bool empty() const override { return this->groupIdList_ == nullptr
+        && return this->resourceDirectoryAccountId_ == nullptr && return this->sourceIp_ == nullptr && return this->typeList_ == nullptr; };
     // groupIdList Field Functions 
     bool hasGroupIdList() const { return this->groupIdList_ != nullptr;};
     void deleteGroupIdList() { this->groupIdList_ = nullptr;};
     inline string groupIdList() const { DARABONBA_PTR_GET_DEFAULT(groupIdList_, "") };
     inline GetVulStatisticsRequest& setGroupIdList(string groupIdList) { DARABONBA_PTR_SET_VALUE(groupIdList_, groupIdList) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t resourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline GetVulStatisticsRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // sourceIp Field Functions 
@@ -63,6 +72,10 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> groupIdList_ = nullptr;
+    // The Alibaba Cloud account ID of the member in the resource directory.
+    // 
+    // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+    std::shared_ptr<int64_t> resourceDirectoryAccountId_ = nullptr;
     // The source IP address of the request.
     std::shared_ptr<string> sourceIp_ = nullptr;
     // The type of the vulnerability whose statistics you want to query. Separate multiple types with commas (,). Valid values:

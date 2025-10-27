@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dstAsset_ != nullptr
-        && this->firstTime_ != nullptr && this->lastTime_ != nullptr && this->pathDetailDesc_ != nullptr && this->pathEventEdgeList_ != nullptr && this->pathEventNodeList_ != nullptr
-        && this->pathName_ != nullptr && this->pathNameDesc_ != nullptr && this->pathType_ != nullptr && this->pathTypeDesc_ != nullptr && this->riskLevel_ != nullptr
-        && this->srcAsset_ != nullptr; };
+    virtual bool empty() const override { return this->dstAsset_ == nullptr
+        && return this->firstTime_ == nullptr && return this->lastTime_ == nullptr && return this->pathDetailDesc_ == nullptr && return this->pathEventEdgeList_ == nullptr && return this->pathEventNodeList_ == nullptr
+        && return this->pathName_ == nullptr && return this->pathNameDesc_ == nullptr && return this->pathType_ == nullptr && return this->pathTypeDesc_ == nullptr && return this->riskLevel_ == nullptr
+        && return this->srcAsset_ == nullptr; };
     // dstAsset Field Functions 
     bool hasDstAsset() const { return this->dstAsset_ != nullptr;};
     void deleteDstAsset() { this->dstAsset_ = nullptr;};

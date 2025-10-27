@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->expireTime_ != nullptr
-        && this->highRisk_ != nullptr && this->lowRisk_ != nullptr && this->mediumRisk_ != nullptr && this->noScanBucket_ != nullptr && this->remainAuth_ != nullptr
-        && this->riskBucket_ != nullptr && this->scanObject_ != nullptr && this->totalBucket_ != nullptr && this->totalObject_ != nullptr; };
+    virtual bool empty() const override { return this->expireTime_ == nullptr
+        && return this->highRisk_ == nullptr && return this->lowRisk_ == nullptr && return this->mediumRisk_ == nullptr && return this->noScanBucket_ == nullptr && return this->remainAuth_ == nullptr
+        && return this->riskBucket_ == nullptr && return this->scanObject_ == nullptr && return this->totalBucket_ == nullptr && return this->totalObject_ == nullptr; };
     // expireTime Field Functions 
     bool hasExpireTime() const { return this->expireTime_ != nullptr;};
     void deleteExpireTime() { this->expireTime_ = nullptr;};

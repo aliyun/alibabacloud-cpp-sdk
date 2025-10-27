@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->baselineClassAlias_ != nullptr
-        && this->baselineClassKey_ != nullptr && this->baselineItemAlias_ != nullptr && this->baselineItemKey_ != nullptr && this->baselineNameAlias_ != nullptr && this->baselineNameKey_ != nullptr
-        && this->status_ != nullptr && this->whiteList_ != nullptr; };
+    virtual bool empty() const override { return this->baselineClassAlias_ == nullptr
+        && return this->baselineClassKey_ == nullptr && return this->baselineItemAlias_ == nullptr && return this->baselineItemKey_ == nullptr && return this->baselineNameAlias_ == nullptr && return this->baselineNameKey_ == nullptr
+        && return this->status_ == nullptr && return this->whiteList_ == nullptr; };
     // baselineClassAlias Field Functions 
     bool hasBaselineClassAlias() const { return this->baselineClassAlias_ != nullptr;};
     void deleteBaselineClassAlias() { this->baselineClassAlias_ = nullptr;};

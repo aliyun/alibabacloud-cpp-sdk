@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RequirementIds, requirementIds_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(RiskLevels, riskLevels_);
       DARABONBA_PTR_TO_JSON(SortTypes, sortTypes_);
       DARABONBA_PTR_TO_JSON(StandardIds, standardIds_);
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RequirementIds, requirementIds_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(RiskLevels, riskLevels_);
       DARABONBA_PTR_FROM_JSON(SortTypes, sortTypes_);
       DARABONBA_PTR_FROM_JSON(StandardIds, standardIds_);
@@ -66,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkIds_ != nullptr
-        && this->checkKey_ != nullptr && this->checkTypes_ != nullptr && this->currentPage_ != nullptr && this->customParam_ != nullptr && this->instanceIds_ != nullptr
-        && this->instanceTypes_ != nullptr && this->lang_ != nullptr && this->operationTypes_ != nullptr && this->pageSize_ != nullptr && this->regionId_ != nullptr
-        && this->requirementIds_ != nullptr && this->riskLevels_ != nullptr && this->sortTypes_ != nullptr && this->standardIds_ != nullptr && this->statuses_ != nullptr
-        && this->taskSources_ != nullptr && this->types_ != nullptr && this->vendors_ != nullptr; };
+    virtual bool empty() const override { return this->checkIds_ == nullptr
+        && return this->checkKey_ == nullptr && return this->checkTypes_ == nullptr && return this->currentPage_ == nullptr && return this->customParam_ == nullptr && return this->instanceIds_ == nullptr
+        && return this->instanceTypes_ == nullptr && return this->lang_ == nullptr && return this->operationTypes_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr
+        && return this->requirementIds_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr && return this->riskLevels_ == nullptr && return this->sortTypes_ == nullptr && return this->standardIds_ == nullptr
+        && return this->statuses_ == nullptr && return this->taskSources_ == nullptr && return this->types_ == nullptr && return this->vendors_ == nullptr; };
     // checkIds Field Functions 
     bool hasCheckIds() const { return this->checkIds_ != nullptr;};
     void deleteCheckIds() { this->checkIds_ = nullptr;};
@@ -165,6 +167,13 @@ namespace Models
     inline vector<int64_t> requirementIds() { DARABONBA_PTR_GET(requirementIds_, vector<int64_t>) };
     inline ListCheckResultRequest& setRequirementIds(const vector<int64_t> & requirementIds) { DARABONBA_PTR_SET_VALUE(requirementIds_, requirementIds) };
     inline ListCheckResultRequest& setRequirementIds(vector<int64_t> && requirementIds) { DARABONBA_PTR_SET_RVALUE(requirementIds_, requirementIds) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t resourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline ListCheckResultRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // riskLevels Field Functions 
@@ -290,6 +299,10 @@ namespace Models
     std::shared_ptr<string> regionId_ = nullptr;
     // The IDs of the requirements.
     std::shared_ptr<vector<int64_t>> requirementIds_ = nullptr;
+    // The Alibaba Cloud account ID of the member in the resource directory.
+    // 
+    // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+    std::shared_ptr<int64_t> resourceDirectoryAccountId_ = nullptr;
     // The risk levels of check items. Separate multiple risk levels with commas (,). Valid values:
     // 
     // *   **HIGH**

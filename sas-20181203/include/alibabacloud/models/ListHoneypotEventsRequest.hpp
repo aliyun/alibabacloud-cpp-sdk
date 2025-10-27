@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentIdList_ != nullptr
-        && this->alarmEventId_ != nullptr && this->currentPage_ != nullptr && this->dealed_ != nullptr && this->honeypotIdList_ != nullptr && this->lang_ != nullptr
-        && this->pageSize_ != nullptr && this->portraitId_ != nullptr && this->requestId_ != nullptr && this->riskLevelList_ != nullptr && this->srcIp_ != nullptr; };
+    virtual bool empty() const override { return this->agentIdList_ == nullptr
+        && return this->alarmEventId_ == nullptr && return this->currentPage_ == nullptr && return this->dealed_ == nullptr && return this->honeypotIdList_ == nullptr && return this->lang_ == nullptr
+        && return this->pageSize_ == nullptr && return this->portraitId_ == nullptr && return this->requestId_ == nullptr && return this->riskLevelList_ == nullptr && return this->srcIp_ == nullptr; };
     // agentIdList Field Functions 
     bool hasAgentIdList() const { return this->agentIdList_ != nullptr;};
     void deleteAgentIdList() { this->agentIdList_ = nullptr;};

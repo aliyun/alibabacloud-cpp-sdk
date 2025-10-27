@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backupStorageCount_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->backupStorageCount_ == nullptr
+        && return this->requestId_ == nullptr; };
     // backupStorageCount Field Functions 
     bool hasBackupStorageCount() const { return this->backupStorageCount_ != nullptr;};
     void deleteBackupStorageCount() { this->backupStorageCount_ = nullptr;};

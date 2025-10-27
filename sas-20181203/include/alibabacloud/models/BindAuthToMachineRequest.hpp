@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authVersion_ != nullptr
-        && this->autoBind_ != nullptr && this->bind_ != nullptr && this->bindAll_ != nullptr && this->criteria_ != nullptr && this->isPreBind_ != nullptr
-        && this->logicalExp_ != nullptr && this->ntmVersion_ != nullptr && this->preBindOrderId_ != nullptr && this->unBind_ != nullptr; };
+    virtual bool empty() const override { return this->authVersion_ == nullptr
+        && return this->autoBind_ == nullptr && return this->bind_ == nullptr && return this->bindAll_ == nullptr && return this->criteria_ == nullptr && return this->isPreBind_ == nullptr
+        && return this->logicalExp_ == nullptr && return this->ntmVersion_ == nullptr && return this->preBindOrderId_ == nullptr && return this->unBind_ == nullptr; };
     // authVersion Field Functions 
     bool hasAuthVersion() const { return this->authVersion_ != nullptr;};
     void deleteAuthVersion() { this->authVersion_ = nullptr;};

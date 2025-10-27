@@ -73,12 +73,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->asapVulCount_ != nullptr
-        && this->assetType_ != nullptr && this->cloudAssetInfo_ != nullptr && this->cspmAlarmCount_ != nullptr && this->exploitHealthCount_ != nullptr && this->exposureComponent_ != nullptr
-        && this->exposureComponentList_ != nullptr && this->exposureIp_ != nullptr && this->exposurePort_ != nullptr && this->exposureType_ != nullptr && this->exposureTypeId_ != nullptr
-        && this->groupId_ != nullptr && this->groupName_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr
-        && this->intranetIp_ != nullptr && this->laterVulCount_ != nullptr && this->nntfVulCount_ != nullptr && this->regionId_ != nullptr && this->totalVulCount_ != nullptr
-        && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->asapVulCount_ == nullptr
+        && return this->assetType_ == nullptr && return this->cloudAssetInfo_ == nullptr && return this->cspmAlarmCount_ == nullptr && return this->exploitHealthCount_ == nullptr && return this->exposureComponent_ == nullptr
+        && return this->exposureComponentList_ == nullptr && return this->exposureIp_ == nullptr && return this->exposurePort_ == nullptr && return this->exposureType_ == nullptr && return this->exposureTypeId_ == nullptr
+        && return this->groupId_ == nullptr && return this->groupName_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr
+        && return this->intranetIp_ == nullptr && return this->laterVulCount_ == nullptr && return this->nntfVulCount_ == nullptr && return this->regionId_ == nullptr && return this->totalVulCount_ == nullptr
+        && return this->uuid_ == nullptr; };
     // asapVulCount Field Functions 
     bool hasAsapVulCount() const { return this->asapVulCount_ != nullptr;};
     void deleteAsapVulCount() { this->asapVulCount_ = nullptr;};

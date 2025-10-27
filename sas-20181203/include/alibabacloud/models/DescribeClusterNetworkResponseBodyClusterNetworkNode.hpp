@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cnnfSwitch_ != nullptr
-        && this->id_ != nullptr && this->interceptionType_ != nullptr && this->name_ != nullptr && this->netTopoSwitch_ != nullptr && this->riskLevel_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->cnnfSwitch_ == nullptr
+        && return this->id_ == nullptr && return this->interceptionType_ == nullptr && return this->name_ == nullptr && return this->netTopoSwitch_ == nullptr && return this->riskLevel_ == nullptr
+        && return this->type_ == nullptr; };
     // cnnfSwitch Field Functions 
     bool hasCnnfSwitch() const { return this->cnnfSwitch_ != nullptr;};
     void deleteCnnfSwitch() { this->cnnfSwitch_ = nullptr;};

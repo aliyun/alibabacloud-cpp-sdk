@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->additionType_ != nullptr
-        && this->configId_ != nullptr && this->enable_ != nullptr && this->intervalPeriod_ != nullptr && this->periodUnit_ != nullptr && this->scanPath_ != nullptr
-        && this->scanType_ != nullptr && this->selectionKey_ != nullptr && this->targetEndTime_ != nullptr && this->targetStartTime_ != nullptr && this->taskType_ != nullptr; };
+    virtual bool empty() const override { return this->additionType_ == nullptr
+        && return this->configId_ == nullptr && return this->enable_ == nullptr && return this->intervalPeriod_ == nullptr && return this->periodUnit_ == nullptr && return this->scanPath_ == nullptr
+        && return this->scanType_ == nullptr && return this->selectionKey_ == nullptr && return this->targetEndTime_ == nullptr && return this->targetStartTime_ == nullptr && return this->taskType_ == nullptr; };
     // additionType Field Functions 
     bool hasAdditionType() const { return this->additionType_ != nullptr;};
     void deleteAdditionType() { this->additionType_ = nullptr;};

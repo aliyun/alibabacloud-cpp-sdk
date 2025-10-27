@@ -10527,7 +10527,7 @@ DescribeCheckWarningSummaryResponse Client::describeCheckWarningSummaryWithOptio
   }
 
   if (!!request.hasTypeName()) {
-    query["TypeName"] = request._typeName();
+    query["TypeName"] = request.typeName();
   }
 
   if (!!request.hasUuids()) {
@@ -13605,7 +13605,7 @@ DescribeExposedCheckWarningResponse Client::describeExposedCheckWarningWithOptio
   }
 
   if (!!request.hasTypeName()) {
-    query["TypeName"] = request._typeName();
+    query["TypeName"] = request.typeName();
   }
 
   if (!!request.hasUuids()) {
@@ -23705,6 +23705,10 @@ DescribeVulNumStatisticsResponse Client::describeVulNumStatisticsWithOptions(con
     query["From"] = request.from();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -25839,7 +25843,7 @@ ExportWarningResponse Client::exportWarningWithOptions(const ExportWarningReques
   }
 
   if (!!request.hasTypeName()) {
-    query["TypeName"] = request._typeName();
+    query["TypeName"] = request.typeName();
   }
 
   if (!!request.hasTypeNames()) {
@@ -31164,6 +31168,10 @@ GetVulStatisticsResponse Client::getVulStatisticsWithOptions(const GetVulStatist
     query["GroupIdList"] = request.groupIdList();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId();
+  }
+
   if (!!request.hasSourceIp()) {
     query["SourceIp"] = request.sourceIp();
   }
@@ -33587,6 +33595,10 @@ ListCheckResultResponse Client::listCheckResultWithOptions(const ListCheckResult
 
   if (!!request.hasRequirementIds()) {
     query["RequirementIds"] = request.requirementIds();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId();
   }
 
   if (!!request.hasRiskLevels()) {

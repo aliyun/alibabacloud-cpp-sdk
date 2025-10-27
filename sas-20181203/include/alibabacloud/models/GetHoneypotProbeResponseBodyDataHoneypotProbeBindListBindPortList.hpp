@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bindPort_ != nullptr
-        && this->endPort_ != nullptr && this->err_ != nullptr && this->fixed_ != nullptr && this->id_ != nullptr && this->msg_ != nullptr
-        && this->proto_ != nullptr && this->startPort_ != nullptr && this->status_ != nullptr && this->targetPort_ != nullptr; };
+    virtual bool empty() const override { return this->bindPort_ == nullptr
+        && return this->endPort_ == nullptr && return this->err_ == nullptr && return this->fixed_ == nullptr && return this->id_ == nullptr && return this->msg_ == nullptr
+        && return this->proto_ == nullptr && return this->startPort_ == nullptr && return this->status_ == nullptr && return this->targetPort_ == nullptr; };
     // bindPort Field Functions 
     bool hasBindPort() const { return this->bindPort_ != nullptr;};
     void deleteBindPort() { this->bindPort_ = nullptr;};

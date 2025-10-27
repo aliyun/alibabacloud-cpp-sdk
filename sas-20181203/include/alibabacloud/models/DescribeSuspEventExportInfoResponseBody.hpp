@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->exportStatus_ != nullptr
-        && this->fileName_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->id_ != nullptr && this->link_ != nullptr
-        && this->progress_ != nullptr && this->properties_ != nullptr && this->requestId_ != nullptr && this->totalCount_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->exportStatus_ == nullptr
+        && return this->fileName_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->id_ == nullptr && return this->link_ == nullptr
+        && return this->progress_ == nullptr && return this->properties_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr && return this->type_ == nullptr; };
     // exportStatus Field Functions 
     bool hasExportStatus() const { return this->exportStatus_ != nullptr;};
     void deleteExportStatus() { this->exportStatus_ = nullptr;};

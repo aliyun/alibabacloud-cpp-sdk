@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ecsCount_ != nullptr
-        && this->gmtPlanSwitchTime_ != nullptr && this->regionId_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->ecsCount_ == nullptr
+        && return this->gmtPlanSwitchTime_ == nullptr && return this->regionId_ == nullptr && return this->status_ == nullptr; };
     // ecsCount Field Functions 
     bool hasEcsCount() const { return this->ecsCount_ != nullptr;};
     void deleteEcsCount() { this->ecsCount_ = nullptr;};

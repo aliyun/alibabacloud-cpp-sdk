@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->base64_ != nullptr
-        && this->currentPage_ != nullptr && this->data_ != nullptr && this->endTime_ != nullptr && this->lang_ != nullptr && this->pageSize_ != nullptr
-        && this->startTime_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->base64_ == nullptr
+        && return this->currentPage_ == nullptr && return this->data_ == nullptr && return this->endTime_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr
+        && return this->startTime_ == nullptr && return this->type_ == nullptr; };
     // base64 Field Functions 
     bool hasBase64() const { return this->base64_ != nullptr;};
     void deleteBase64() { this->base64_ = nullptr;};

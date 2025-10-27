@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->asapVulInstanceCount_ != nullptr
-        && this->authVersionCheckCount_ != nullptr && this->fieldAliasName_ != nullptr && this->groupFlag_ != nullptr && this->instanceCoreCount_ != nullptr && this->instanceCount_ != nullptr
-        && this->os_ != nullptr && this->riskInstanceCount_ != nullptr && this->unProtectedInstanceCount_ != nullptr; };
+    virtual bool empty() const override { return this->asapVulInstanceCount_ == nullptr
+        && return this->authVersionCheckCount_ == nullptr && return this->fieldAliasName_ == nullptr && return this->groupFlag_ == nullptr && return this->instanceCoreCount_ == nullptr && return this->instanceCount_ == nullptr
+        && return this->os_ == nullptr && return this->riskInstanceCount_ == nullptr && return this->unProtectedInstanceCount_ == nullptr; };
     // asapVulInstanceCount Field Functions 
     bool hasAsapVulInstanceCount() const { return this->asapVulInstanceCount_ != nullptr;};
     void deleteAsapVulInstanceCount() { this->asapVulInstanceCount_ = nullptr;};

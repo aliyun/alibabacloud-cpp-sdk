@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bucketName_ != nullptr
-        && this->configStatus_ != nullptr && this->decompressStatus_ != nullptr && this->highRisk_ != nullptr && this->lastScanEndTime_ != nullptr && this->lastScanTime_ != nullptr
-        && this->lowRisk_ != nullptr && this->mediumRisk_ != nullptr && this->message_ != nullptr && this->regionId_ != nullptr && this->scanObject_ != nullptr
-        && this->scanned_ != nullptr && this->status_ != nullptr && this->storageClass_ != nullptr && this->support_ != nullptr && this->totalObject_ != nullptr; };
+    virtual bool empty() const override { return this->bucketName_ == nullptr
+        && return this->configStatus_ == nullptr && return this->decompressStatus_ == nullptr && return this->highRisk_ == nullptr && return this->lastScanEndTime_ == nullptr && return this->lastScanTime_ == nullptr
+        && return this->lowRisk_ == nullptr && return this->mediumRisk_ == nullptr && return this->message_ == nullptr && return this->regionId_ == nullptr && return this->scanObject_ == nullptr
+        && return this->scanned_ == nullptr && return this->status_ == nullptr && return this->storageClass_ == nullptr && return this->support_ == nullptr && return this->totalObject_ == nullptr; };
     // bucketName Field Functions 
     bool hasBucketName() const { return this->bucketName_ != nullptr;};
     void deleteBucketName() { this->bucketName_ = nullptr;};

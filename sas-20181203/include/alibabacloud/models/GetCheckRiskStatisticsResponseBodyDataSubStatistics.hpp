@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alias_ != nullptr
-        && this->highWarningCount_ != nullptr && this->lowWarningCount_ != nullptr && this->mediumWarningCount_ != nullptr && this->passCount_ != nullptr && this->totalCount_ != nullptr
-        && this->typeName_ != nullptr; };
+    virtual bool empty() const override { return this->alias_ == nullptr
+        && return this->highWarningCount_ == nullptr && return this->lowWarningCount_ == nullptr && return this->mediumWarningCount_ == nullptr && return this->passCount_ == nullptr && return this->totalCount_ == nullptr
+        && return this->typeName_ == nullptr; };
     // alias Field Functions 
     bool hasAlias() const { return this->alias_ != nullptr;};
     void deleteAlias() { this->alias_ = nullptr;};
@@ -89,8 +89,8 @@ namespace Models
     // typeName Field Functions 
     bool hasTypeName() const { return this->typeName_ != nullptr;};
     void deleteTypeName() { this->typeName_ = nullptr;};
-    inline string _typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
-    inline GetCheckRiskStatisticsResponseBodyDataSubStatistics& setTypeName(string _typeName) { DARABONBA_PTR_SET_VALUE(typeName_, _typeName) };
+    inline string typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
+    inline GetCheckRiskStatisticsResponseBodyDataSubStatistics& setTypeName(string typeName) { DARABONBA_PTR_SET_VALUE(typeName_, typeName) };
 
 
   protected:

@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->configId_ != nullptr
-        && this->enable_ != nullptr && this->firstDateStr_ != nullptr && this->intervalPeriod_ != nullptr && this->lastTaskId_ != nullptr && this->nextStartTimeStr_ != nullptr
-        && this->param_ != nullptr && this->periodUnit_ != nullptr && this->targetEndTime_ != nullptr && this->targetStartTime_ != nullptr && this->taskName_ != nullptr
-        && this->taskType_ != nullptr; };
+    virtual bool empty() const override { return this->configId_ == nullptr
+        && return this->enable_ == nullptr && return this->firstDateStr_ == nullptr && return this->intervalPeriod_ == nullptr && return this->lastTaskId_ == nullptr && return this->nextStartTimeStr_ == nullptr
+        && return this->param_ == nullptr && return this->periodUnit_ == nullptr && return this->targetEndTime_ == nullptr && return this->targetStartTime_ == nullptr && return this->taskName_ == nullptr
+        && return this->taskType_ == nullptr; };
     // configId Field Functions 
     bool hasConfigId() const { return this->configId_ != nullptr;};
     void deleteConfigId() { this->configId_ = nullptr;};

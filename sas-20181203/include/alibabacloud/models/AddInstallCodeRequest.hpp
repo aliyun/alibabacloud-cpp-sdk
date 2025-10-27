@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->expiredDate_ != nullptr
-        && this->groupId_ != nullptr && this->onlyImage_ != nullptr && this->os_ != nullptr && this->privateLinkId_ != nullptr && this->proxyCluster_ != nullptr
-        && this->vendorName_ != nullptr; };
+    virtual bool empty() const override { return this->expiredDate_ == nullptr
+        && return this->groupId_ == nullptr && return this->onlyImage_ == nullptr && return this->os_ == nullptr && return this->privateLinkId_ == nullptr && return this->proxyCluster_ == nullptr
+        && return this->vendorName_ == nullptr; };
     // expiredDate Field Functions 
     bool hasExpiredDate() const { return this->expiredDate_ != nullptr;};
     void deleteExpiredDate() { this->expiredDate_ = nullptr;};

@@ -94,14 +94,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assetType_ != nullptr
-        && this->authModifyTime_ != nullptr && this->authVersion_ != nullptr && this->bind_ != nullptr && this->clientStatus_ != nullptr && this->clientVersion_ != nullptr
-        && this->cpu_ != nullptr && this->cpuInfo_ != nullptr && this->createTime_ != nullptr && this->diskInfoList_ != nullptr && this->flag_ != nullptr
-        && this->groupTrace_ != nullptr && this->hostName_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr
-        && this->intranetIp_ != nullptr && this->ip_ != nullptr && this->ipList_ != nullptr && this->kernel_ != nullptr && this->macList_ != nullptr
-        && this->mem_ != nullptr && this->memory_ != nullptr && this->os_ != nullptr && this->osDetail_ != nullptr && this->osName_ != nullptr
-        && this->region_ != nullptr && this->regionId_ != nullptr && this->regionName_ != nullptr && this->sysInfo_ != nullptr && this->tag_ != nullptr
-        && this->uuid_ != nullptr && this->vpcInstanceId_ != nullptr; };
+    virtual bool empty() const override { return this->assetType_ == nullptr
+        && return this->authModifyTime_ == nullptr && return this->authVersion_ == nullptr && return this->bind_ == nullptr && return this->clientStatus_ == nullptr && return this->clientVersion_ == nullptr
+        && return this->cpu_ == nullptr && return this->cpuInfo_ == nullptr && return this->createTime_ == nullptr && return this->diskInfoList_ == nullptr && return this->flag_ == nullptr
+        && return this->groupTrace_ == nullptr && return this->hostName_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr
+        && return this->intranetIp_ == nullptr && return this->ip_ == nullptr && return this->ipList_ == nullptr && return this->kernel_ == nullptr && return this->macList_ == nullptr
+        && return this->mem_ == nullptr && return this->memory_ == nullptr && return this->os_ == nullptr && return this->osDetail_ == nullptr && return this->osName_ == nullptr
+        && return this->region_ == nullptr && return this->regionId_ == nullptr && return this->regionName_ == nullptr && return this->sysInfo_ == nullptr && return this->tag_ == nullptr
+        && return this->uuid_ == nullptr && return this->vpcInstanceId_ == nullptr; };
     // assetType Field Functions 
     bool hasAssetType() const { return this->assetType_ != nullptr;};
     void deleteAssetType() { this->assetType_ = nullptr;};

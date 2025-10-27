@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountId_ != nullptr
-        && this->buySas_ != nullptr && this->buySasNew_ != nullptr && this->chargeType_ != nullptr && this->displayName_ != nullptr && this->folderId_ != nullptr
-        && this->instanceBuyType_ != nullptr && this->isMaAccount_ != nullptr && this->isMarked_ != nullptr && this->isSasDaAccount_ != nullptr && this->isSiemControlAccount_ != nullptr
-        && this->isSiemDaAccount_ != nullptr && this->postBasicService_ != nullptr && this->postPayModuleSwitch_ != nullptr && this->saleInstance_ != nullptr && this->sasVersion_ != nullptr; };
+    virtual bool empty() const override { return this->accountId_ == nullptr
+        && return this->buySas_ == nullptr && return this->buySasNew_ == nullptr && return this->chargeType_ == nullptr && return this->displayName_ == nullptr && return this->folderId_ == nullptr
+        && return this->instanceBuyType_ == nullptr && return this->isMaAccount_ == nullptr && return this->isMarked_ == nullptr && return this->isSasDaAccount_ == nullptr && return this->isSiemControlAccount_ == nullptr
+        && return this->isSiemDaAccount_ == nullptr && return this->postBasicService_ == nullptr && return this->postPayModuleSwitch_ == nullptr && return this->saleInstance_ == nullptr && return this->sasVersion_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};

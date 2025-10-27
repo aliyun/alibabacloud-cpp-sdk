@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alarmEventId_ != nullptr
-        && this->alarmEventName_ != nullptr && this->alarmEventType_ != nullptr && this->alarmUniqueInfo_ != nullptr && this->eventCount_ != nullptr && this->firstTime_ != nullptr
-        && this->lastTime_ != nullptr && this->mergeFieldList_ != nullptr && this->operateStatus_ != nullptr && this->riskLevel_ != nullptr; };
+    virtual bool empty() const override { return this->alarmEventId_ == nullptr
+        && return this->alarmEventName_ == nullptr && return this->alarmEventType_ == nullptr && return this->alarmUniqueInfo_ == nullptr && return this->eventCount_ == nullptr && return this->firstTime_ == nullptr
+        && return this->lastTime_ == nullptr && return this->mergeFieldList_ == nullptr && return this->operateStatus_ == nullptr && return this->riskLevel_ == nullptr; };
     // alarmEventId Field Functions 
     bool hasAlarmEventId() const { return this->alarmEventId_ != nullptr;};
     void deleteAlarmEventId() { this->alarmEventId_ = nullptr;};

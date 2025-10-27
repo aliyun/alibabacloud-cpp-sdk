@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliUid_ != nullptr
-        && this->auditLogStore_ != nullptr && this->auditProject_ != nullptr && this->auditRegionId_ != nullptr && this->clusterId_ != nullptr && this->clusterName_ != nullptr
-        && this->cpuArch_ != nullptr && this->expireDate_ != nullptr && this->groupId_ != nullptr && this->groupName_ != nullptr && this->id_ != nullptr
-        && this->installKey_ != nullptr && this->vendor_ != nullptr; };
+    virtual bool empty() const override { return this->aliUid_ == nullptr
+        && return this->auditLogStore_ == nullptr && return this->auditProject_ == nullptr && return this->auditRegionId_ == nullptr && return this->clusterId_ == nullptr && return this->clusterName_ == nullptr
+        && return this->cpuArch_ == nullptr && return this->expireDate_ == nullptr && return this->groupId_ == nullptr && return this->groupName_ == nullptr && return this->id_ == nullptr
+        && return this->installKey_ == nullptr && return this->vendor_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};

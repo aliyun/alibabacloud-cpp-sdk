@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assetSubType_ != nullptr
-        && this->assetType_ != nullptr && this->assetVendor_ != nullptr && this->checkId_ != nullptr && this->checkPolicies_ != nullptr && this->checkSaleType_ != nullptr
-        && this->checkShowName_ != nullptr && this->checkType_ != nullptr && this->instanceSubType_ != nullptr && this->instanceType_ != nullptr && this->lastCheckTime_ != nullptr
-        && this->operationType_ != nullptr && this->riskLevel_ != nullptr && this->status_ != nullptr && this->statusMessage_ != nullptr && this->taskId_ != nullptr
-        && this->trialPermission_ != nullptr && this->trialPermissionType_ != nullptr && this->vendor_ != nullptr && this->vendorShowName_ != nullptr; };
+    virtual bool empty() const override { return this->assetSubType_ == nullptr
+        && return this->assetType_ == nullptr && return this->assetVendor_ == nullptr && return this->checkId_ == nullptr && return this->checkPolicies_ == nullptr && return this->checkSaleType_ == nullptr
+        && return this->checkShowName_ == nullptr && return this->checkType_ == nullptr && return this->instanceSubType_ == nullptr && return this->instanceType_ == nullptr && return this->lastCheckTime_ == nullptr
+        && return this->operationType_ == nullptr && return this->riskLevel_ == nullptr && return this->status_ == nullptr && return this->statusMessage_ == nullptr && return this->taskId_ == nullptr
+        && return this->trialPermission_ == nullptr && return this->trialPermissionType_ == nullptr && return this->vendor_ == nullptr && return this->vendorShowName_ == nullptr; };
     // assetSubType Field Functions 
     bool hasAssetSubType() const { return this->assetSubType_ != nullptr;};
     void deleteAssetSubType() { this->assetSubType_ = nullptr;};

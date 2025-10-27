@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowPartialBuy_ != nullptr
-        && this->allowUpgradePartialBuy_ != nullptr && this->allowUserUnbind_ != nullptr && this->autoBind_ != nullptr && this->clusterNodeCheck_ != nullptr && this->defaultAuthToAll_ != nullptr
-        && this->hasPreBindSetting_ != nullptr && this->highestVersion_ != nullptr && this->invalidBindStatus_ != nullptr && this->isMultiVersion_ != nullptr && this->machine_ != nullptr
-        && this->postPaidHighestVersion_ != nullptr && this->postPaidHostAutoBind_ != nullptr && this->postPaidHostAutoBindVersion_ != nullptr && this->postPaidVersionSummary_ != nullptr && this->requestId_ != nullptr
-        && this->versionSummary_ != nullptr; };
+    virtual bool empty() const override { return this->allowPartialBuy_ == nullptr
+        && return this->allowUpgradePartialBuy_ == nullptr && return this->allowUserUnbind_ == nullptr && return this->autoBind_ == nullptr && return this->clusterNodeCheck_ == nullptr && return this->defaultAuthToAll_ == nullptr
+        && return this->hasPreBindSetting_ == nullptr && return this->highestVersion_ == nullptr && return this->invalidBindStatus_ == nullptr && return this->isMultiVersion_ == nullptr && return this->machine_ == nullptr
+        && return this->postPaidHighestVersion_ == nullptr && return this->postPaidHostAutoBind_ == nullptr && return this->postPaidHostAutoBindVersion_ == nullptr && return this->postPaidVersionSummary_ == nullptr && return this->requestId_ == nullptr
+        && return this->versionSummary_ == nullptr; };
     // allowPartialBuy Field Functions 
     bool hasAllowPartialBuy() const { return this->allowPartialBuy_ != nullptr;};
     void deleteAllowPartialBuy() { this->allowPartialBuy_ = nullptr;};

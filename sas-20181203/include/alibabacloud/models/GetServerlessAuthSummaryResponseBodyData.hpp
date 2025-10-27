@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoBind_ != nullptr
-        && this->hasPreBindSetting_ != nullptr && this->isPostPaid_ != nullptr && this->isServerlessPostPaidValid_ != nullptr && this->postPaidModuleSwitch_ != nullptr && this->postPaidOpenTime_ != nullptr
-        && this->postPaidStatus_ != nullptr && this->postpaidInstanceId_ != nullptr && this->regionId_ != nullptr && this->totalBindAppCount_ != nullptr && this->totalBindCoreCount_ != nullptr
-        && this->totalBindInstanceCount_ != nullptr && this->totalUnBindAppCount_ != nullptr && this->totalUnBindCoreCount_ != nullptr && this->totalUnBindInstanceCount_ != nullptr; };
+    virtual bool empty() const override { return this->autoBind_ == nullptr
+        && return this->hasPreBindSetting_ == nullptr && return this->isPostPaid_ == nullptr && return this->isServerlessPostPaidValid_ == nullptr && return this->postPaidModuleSwitch_ == nullptr && return this->postPaidOpenTime_ == nullptr
+        && return this->postPaidStatus_ == nullptr && return this->postpaidInstanceId_ == nullptr && return this->regionId_ == nullptr && return this->totalBindAppCount_ == nullptr && return this->totalBindCoreCount_ == nullptr
+        && return this->totalBindInstanceCount_ == nullptr && return this->totalUnBindAppCount_ == nullptr && return this->totalUnBindCoreCount_ == nullptr && return this->totalUnBindInstanceCount_ == nullptr; };
     // autoBind Field Functions 
     bool hasAutoBind() const { return this->autoBind_ != nullptr;};
     void deleteAutoBind() { this->autoBind_ = nullptr;};

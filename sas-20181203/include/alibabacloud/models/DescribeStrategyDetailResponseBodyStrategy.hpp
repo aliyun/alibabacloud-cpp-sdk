@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->customType_ != nullptr
-        && this->cycleDays_ != nullptr && this->cycleStartTime_ != nullptr && this->endTime_ != nullptr && this->id_ != nullptr && this->name_ != nullptr
-        && this->riskSubTypeName_ != nullptr && this->riskTypeWhiteListQueryResultList_ != nullptr && this->startTime_ != nullptr && this->targetType_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->customType_ == nullptr
+        && return this->cycleDays_ == nullptr && return this->cycleStartTime_ == nullptr && return this->endTime_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr
+        && return this->riskSubTypeName_ == nullptr && return this->riskTypeWhiteListQueryResultList_ == nullptr && return this->startTime_ == nullptr && return this->targetType_ == nullptr && return this->type_ == nullptr; };
     // customType Field Functions 
     bool hasCustomType() const { return this->customType_ != nullptr;};
     void deleteCustomType() { this->customType_ = nullptr;};

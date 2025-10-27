@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allKeyPrefix_ != nullptr
-        && this->bucketNameList_ != nullptr && this->decompressMaxFileCount_ != nullptr && this->decompressMaxLayer_ != nullptr && this->decryptionList_ != nullptr && this->excludeKeySuffixList_ != nullptr
-        && this->keyPrefixList_ != nullptr && this->keySuffixList_ != nullptr && this->lastModifiedStartTime_ != nullptr && this->scanMode_ != nullptr; };
+    virtual bool empty() const override { return this->allKeyPrefix_ == nullptr
+        && return this->bucketNameList_ == nullptr && return this->decompressMaxFileCount_ == nullptr && return this->decompressMaxLayer_ == nullptr && return this->decryptionList_ == nullptr && return this->excludeKeySuffixList_ == nullptr
+        && return this->keyPrefixList_ == nullptr && return this->keySuffixList_ == nullptr && return this->lastModifiedStartTime_ == nullptr && return this->scanMode_ == nullptr; };
     // allKeyPrefix Field Functions 
     bool hasAllKeyPrefix() const { return this->allKeyPrefix_ != nullptr;};
     void deleteAllKeyPrefix() { this->allKeyPrefix_ = nullptr;};

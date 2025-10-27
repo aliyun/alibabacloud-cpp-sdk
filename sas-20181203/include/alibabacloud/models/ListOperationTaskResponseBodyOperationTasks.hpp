@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkId_ != nullptr
-        && this->checkShowName_ != nullptr && this->dealTime_ != nullptr && this->errorCode_ != nullptr && this->errorMsg_ != nullptr && this->instanceFreed_ != nullptr
-        && this->instanceId_ != nullptr && this->lastCheckTime_ != nullptr && this->regionId_ != nullptr && this->repairSupportType_ != nullptr && this->riskLevel_ != nullptr
-        && this->rootTaskId_ != nullptr && this->status_ != nullptr && this->statusShowName_ != nullptr && this->supportRollBack_ != nullptr && this->taskId_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->checkId_ == nullptr
+        && return this->checkShowName_ == nullptr && return this->dealTime_ == nullptr && return this->errorCode_ == nullptr && return this->errorMsg_ == nullptr && return this->instanceFreed_ == nullptr
+        && return this->instanceId_ == nullptr && return this->lastCheckTime_ == nullptr && return this->regionId_ == nullptr && return this->repairSupportType_ == nullptr && return this->riskLevel_ == nullptr
+        && return this->rootTaskId_ == nullptr && return this->status_ == nullptr && return this->statusShowName_ == nullptr && return this->supportRollBack_ == nullptr && return this->taskId_ == nullptr
+        && return this->type_ == nullptr; };
     // checkId Field Functions 
     bool hasCheckId() const { return this->checkId_ != nullptr;};
     void deleteCheckId() { this->checkId_ = nullptr;};

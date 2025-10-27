@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dealed_ != nullptr
-        && this->fieldName_ != nullptr && this->fieldValue_ != nullptr && this->groupId_ != nullptr && this->lang_ != nullptr && this->level_ != nullptr
-        && this->necessity_ != nullptr && this->remark_ != nullptr && this->searchTags_ != nullptr && this->statusList_ != nullptr && this->tag_ != nullptr
-        && this->targetType_ != nullptr && this->type_ != nullptr && this->vpcInstanceIds_ != nullptr && this->vulNames_ != nullptr; };
+    virtual bool empty() const override { return this->dealed_ == nullptr
+        && return this->fieldName_ == nullptr && return this->fieldValue_ == nullptr && return this->groupId_ == nullptr && return this->lang_ == nullptr && return this->level_ == nullptr
+        && return this->necessity_ == nullptr && return this->remark_ == nullptr && return this->searchTags_ == nullptr && return this->statusList_ == nullptr && return this->tag_ == nullptr
+        && return this->targetType_ == nullptr && return this->type_ == nullptr && return this->vpcInstanceIds_ == nullptr && return this->vulNames_ == nullptr; };
     // dealed Field Functions 
     bool hasDealed() const { return this->dealed_ != nullptr;};
     void deleteDealed() { this->dealed_ = nullptr;};

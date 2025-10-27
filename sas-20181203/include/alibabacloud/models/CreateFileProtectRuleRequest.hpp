@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertLevel_ != nullptr
-        && this->fileOps_ != nullptr && this->filePaths_ != nullptr && this->platform_ != nullptr && this->procPaths_ != nullptr && this->ruleAction_ != nullptr
-        && this->ruleName_ != nullptr && this->status_ != nullptr && this->switchId_ != nullptr; };
+    virtual bool empty() const override { return this->alertLevel_ == nullptr
+        && return this->fileOps_ == nullptr && return this->filePaths_ == nullptr && return this->platform_ == nullptr && return this->procPaths_ == nullptr && return this->ruleAction_ == nullptr
+        && return this->ruleName_ == nullptr && return this->status_ == nullptr && return this->switchId_ == nullptr; };
     // alertLevel Field Functions 
     bool hasAlertLevel() const { return this->alertLevel_ != nullptr;};
     void deleteAlertLevel() { this->alertLevel_ = nullptr;};

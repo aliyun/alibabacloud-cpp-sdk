@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->excludeApiList_ != nullptr
-        && this->hit_ != nullptr; };
+    virtual bool empty() const override { return this->excludeApiList_ == nullptr
+        && return this->hit_ == nullptr; };
     // excludeApiList Field Functions 
     bool hasExcludeApiList() const { return this->excludeApiList_ != nullptr;};
     void deleteExcludeApiList() { this->excludeApiList_ = nullptr;};

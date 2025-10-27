@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->idcName_ != nullptr
-        && this->idcRegion_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->intervalPeriod_ != nullptr
-        && this->intranetIp_ != nullptr && this->ipSegments_ != nullptr && this->linuxPort_ != nullptr && this->periodUnit_ != nullptr && this->serviceStatus_ != nullptr
-        && this->status_ != nullptr && this->uuid_ != nullptr && this->winPort_ != nullptr; };
+    virtual bool empty() const override { return this->idcName_ == nullptr
+        && return this->idcRegion_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intervalPeriod_ == nullptr
+        && return this->intranetIp_ == nullptr && return this->ipSegments_ == nullptr && return this->linuxPort_ == nullptr && return this->periodUnit_ == nullptr && return this->serviceStatus_ == nullptr
+        && return this->status_ == nullptr && return this->uuid_ == nullptr && return this->winPort_ == nullptr; };
     // idcName Field Functions 
     bool hasIdcName() const { return this->idcName_ != nullptr;};
     void deleteIdcName() { this->idcName_ = nullptr;};

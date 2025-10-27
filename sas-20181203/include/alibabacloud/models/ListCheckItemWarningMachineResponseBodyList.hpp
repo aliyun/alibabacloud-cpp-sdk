@@ -72,11 +72,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authVersion_ != nullptr
-        && this->bind_ != nullptr && this->containerId_ != nullptr && this->containerName_ != nullptr && this->fixList_ != nullptr && this->fixStatus_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->intranetIp_ != nullptr && this->lastHandleTime_ != nullptr
-        && this->lastScanTime_ != nullptr && this->portOpen_ != nullptr && this->prompt_ != nullptr && this->regionId_ != nullptr && this->status_ != nullptr
-        && this->targetId_ != nullptr && this->targetName_ != nullptr && this->targetType_ != nullptr && this->uuid_ != nullptr && this->warningRiskList_ != nullptr; };
+    virtual bool empty() const override { return this->authVersion_ == nullptr
+        && return this->bind_ == nullptr && return this->containerId_ == nullptr && return this->containerName_ == nullptr && return this->fixList_ == nullptr && return this->fixStatus_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr && return this->lastHandleTime_ == nullptr
+        && return this->lastScanTime_ == nullptr && return this->portOpen_ == nullptr && return this->prompt_ == nullptr && return this->regionId_ == nullptr && return this->status_ == nullptr
+        && return this->targetId_ == nullptr && return this->targetName_ == nullptr && return this->targetType_ == nullptr && return this->uuid_ == nullptr && return this->warningRiskList_ == nullptr; };
     // authVersion Field Functions 
     bool hasAuthVersion() const { return this->authVersion_ != nullptr;};
     void deleteAuthVersion() { this->authVersion_ = nullptr;};
@@ -276,11 +276,12 @@ namespace Models
     std::shared_ptr<string> regionId_ = nullptr;
     // The status of the check item. Valid values:
     // 
-    // *   1: failed
-    // *   2: verifying
-    // *   3: passed
-    // *   6: ignored
-    // *   7: fixing
+    // *   **1**: failed
+    // *   **2**: verifying
+    // *   **3**: passed
+    // *   **6**: ignored
+    // *   **7**: fixing
+    // *   **8**: fixed
     std::shared_ptr<int32_t> status_ = nullptr;
     // The ID of the asset that is scanned.
     std::shared_ptr<string> targetId_ = nullptr;

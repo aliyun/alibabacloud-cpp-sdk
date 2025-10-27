@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->exposedCount_ != nullptr
-        && this->exposureComponent_ != nullptr && this->exposureIp_ != nullptr && this->exposurePort_ != nullptr && this->exposureType_ != nullptr && this->exposureTypeId_ != nullptr
-        && this->exposureTypeInstanceName_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->exposedCount_ == nullptr
+        && return this->exposureComponent_ == nullptr && return this->exposureIp_ == nullptr && return this->exposurePort_ == nullptr && return this->exposureType_ == nullptr && return this->exposureTypeId_ == nullptr
+        && return this->exposureTypeInstanceName_ == nullptr && return this->regionId_ == nullptr; };
     // exposedCount Field Functions 
     bool hasExposedCount() const { return this->exposedCount_ != nullptr;};
     void deleteExposedCount() { this->exposedCount_ = nullptr;};

@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authBindType_ != nullptr
-        && this->index_ != nullptr && this->totalCoreAuthCount_ != nullptr && this->totalCount_ != nullptr && this->totalEcsAuthCount_ != nullptr && this->unUsedCount_ != nullptr
-        && this->unusedCoreAuthCount_ != nullptr && this->unusedEcsAuthCount_ != nullptr && this->usedCoreCount_ != nullptr && this->usedEcsCount_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->authBindType_ == nullptr
+        && return this->index_ == nullptr && return this->totalCoreAuthCount_ == nullptr && return this->totalCount_ == nullptr && return this->totalEcsAuthCount_ == nullptr && return this->unUsedCount_ == nullptr
+        && return this->unusedCoreAuthCount_ == nullptr && return this->unusedEcsAuthCount_ == nullptr && return this->usedCoreCount_ == nullptr && return this->usedEcsCount_ == nullptr && return this->version_ == nullptr; };
     // authBindType Field Functions 
     bool hasAuthBindType() const { return this->authBindType_ != nullptr;};
     void deleteAuthBindType() { this->authBindType_ = nullptr;};

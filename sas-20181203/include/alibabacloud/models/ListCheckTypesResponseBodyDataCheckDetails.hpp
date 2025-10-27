@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->affiliatedRiskTypes_ != nullptr
-        && this->affiliatedRisks_ != nullptr && this->checkId_ != nullptr && this->checkItem_ != nullptr; };
+    virtual bool empty() const override { return this->affiliatedRiskTypes_ == nullptr
+        && return this->affiliatedRisks_ == nullptr && return this->checkId_ == nullptr && return this->checkItem_ == nullptr; };
     // affiliatedRiskTypes Field Functions 
     bool hasAffiliatedRiskTypes() const { return this->affiliatedRiskTypes_ != nullptr;};
     void deleteAffiliatedRiskTypes() { this->affiliatedRiskTypes_ = nullptr;};

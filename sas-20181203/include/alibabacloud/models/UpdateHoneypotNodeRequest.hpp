@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->availableProbeNum_ != nullptr
-        && this->nodeId_ != nullptr && this->nodeName_ != nullptr && this->securityGroupProbeIpList_ != nullptr; };
+    virtual bool empty() const override { return this->availableProbeNum_ == nullptr
+        && return this->nodeId_ == nullptr && return this->nodeName_ == nullptr && return this->securityGroupProbeIpList_ == nullptr; };
     // availableProbeNum Field Functions 
     bool hasAvailableProbeNum() const { return this->availableProbeNum_ != nullptr;};
     void deleteAvailableProbeNum() { this->availableProbeNum_ = nullptr;};

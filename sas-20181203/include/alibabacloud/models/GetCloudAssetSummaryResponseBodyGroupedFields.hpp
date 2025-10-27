@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cloudAssetSummaryMetas_ != nullptr
-        && this->instanceCountTotal_ != nullptr && this->instanceRiskCountTotal_ != nullptr; };
+    virtual bool empty() const override { return this->cloudAssetSummaryMetas_ == nullptr
+        && return this->instanceCountTotal_ == nullptr && return this->instanceRiskCountTotal_ == nullptr; };
     // cloudAssetSummaryMetas Field Functions 
     bool hasCloudAssetSummaryMetas() const { return this->cloudAssetSummaryMetas_ != nullptr;};
     void deleteCloudAssetSummaryMetas() { this->cloudAssetSummaryMetas_ = nullptr;};

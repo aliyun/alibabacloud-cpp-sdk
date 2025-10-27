@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->controlNodeName_ != nullptr
-        && this->honeypotImageDisplayName_ != nullptr && this->honeypotImageName_ != nullptr && this->honeypotPresetId_ != nullptr && this->nodeId_ != nullptr && this->presetName_ != nullptr
-        && this->presetType_ != nullptr; };
+    virtual bool empty() const override { return this->controlNodeName_ == nullptr
+        && return this->honeypotImageDisplayName_ == nullptr && return this->honeypotImageName_ == nullptr && return this->honeypotPresetId_ == nullptr && return this->nodeId_ == nullptr && return this->presetName_ == nullptr
+        && return this->presetType_ == nullptr; };
     // controlNodeName Field Functions 
     bool hasControlNodeName() const { return this->controlNodeName_ != nullptr;};
     void deleteControlNodeName() { this->controlNodeName_ = nullptr;};

@@ -97,14 +97,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliasName_ != nullptr
-        && this->canFix_ != nullptr && this->canUpdate_ != nullptr && this->clusterId_ != nullptr && this->clusterName_ != nullptr && this->containerId_ != nullptr
-        && this->extendContentJson_ != nullptr && this->firstTs_ != nullptr && this->image_ != nullptr && this->imageDigest_ != nullptr && this->instanceName_ != nullptr
-        && this->internetIp_ != nullptr && this->intranetIp_ != nullptr && this->lastTs_ != nullptr && this->layers_ != nullptr && this->maliciousSource_ != nullptr
-        && this->modifyTs_ != nullptr && this->name_ != nullptr && this->namespace_ != nullptr && this->necessity_ != nullptr && this->pod_ != nullptr
-        && this->primaryId_ != nullptr && this->related_ != nullptr && this->repoName_ != nullptr && this->repoNamespace_ != nullptr && this->ruleTag_ != nullptr
-        && this->scanTime_ != nullptr && this->status_ != nullptr && this->tag_ != nullptr && this->targetId_ != nullptr && this->targetName_ != nullptr
-        && this->targetType_ != nullptr && this->type_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->aliasName_ == nullptr
+        && return this->canFix_ == nullptr && return this->canUpdate_ == nullptr && return this->clusterId_ == nullptr && return this->clusterName_ == nullptr && return this->containerId_ == nullptr
+        && return this->extendContentJson_ == nullptr && return this->firstTs_ == nullptr && return this->image_ == nullptr && return this->imageDigest_ == nullptr && return this->instanceName_ == nullptr
+        && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr && return this->lastTs_ == nullptr && return this->layers_ == nullptr && return this->maliciousSource_ == nullptr
+        && return this->modifyTs_ == nullptr && return this->name_ == nullptr && return this->namespace_ == nullptr && return this->necessity_ == nullptr && return this->pod_ == nullptr
+        && return this->primaryId_ == nullptr && return this->related_ == nullptr && return this->repoName_ == nullptr && return this->repoNamespace_ == nullptr && return this->ruleTag_ == nullptr
+        && return this->scanTime_ == nullptr && return this->status_ == nullptr && return this->tag_ == nullptr && return this->targetId_ == nullptr && return this->targetName_ == nullptr
+        && return this->targetType_ == nullptr && return this->type_ == nullptr && return this->uuid_ == nullptr; };
     // aliasName Field Functions 
     bool hasAliasName() const { return this->aliasName_ != nullptr;};
     void deleteAliasName() { this->aliasName_ = nullptr;};

@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->domainName_ != nullptr
-        && this->extraParam_ != nullptr && this->netType_ != nullptr && this->password_ != nullptr && this->port_ != nullptr && this->protocolType_ != nullptr
-        && this->registryHostIp_ != nullptr && this->registryRegionId_ != nullptr && this->registryType_ != nullptr && this->registryVersion_ != nullptr && this->transPerHour_ != nullptr
-        && this->userName_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->domainName_ == nullptr
+        && return this->extraParam_ == nullptr && return this->netType_ == nullptr && return this->password_ == nullptr && return this->port_ == nullptr && return this->protocolType_ == nullptr
+        && return this->registryHostIp_ == nullptr && return this->registryRegionId_ == nullptr && return this->registryType_ == nullptr && return this->registryVersion_ == nullptr && return this->transPerHour_ == nullptr
+        && return this->userName_ == nullptr && return this->vpcId_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};

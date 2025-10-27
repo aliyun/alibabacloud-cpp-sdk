@@ -89,13 +89,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->clusterName_ != nullptr && this->containerId_ != nullptr && this->digest_ != nullptr && this->downloadUrl_ != nullptr && this->filePath_ != nullptr
-        && this->firstScanTimestamp_ != nullptr && this->highLight_ != nullptr && this->id_ != nullptr && this->image_ != nullptr && this->imageUuid_ != nullptr
-        && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->intranetIp_ != nullptr && this->latestScanTimestamp_ != nullptr && this->latestVerifyTimestamp_ != nullptr
-        && this->layer_ != nullptr && this->level_ != nullptr && this->maliciousMd5_ != nullptr && this->namespace_ != nullptr && this->pod_ != nullptr
-        && this->repoId_ != nullptr && this->repoInstanceId_ != nullptr && this->repoName_ != nullptr && this->repoRegionId_ != nullptr && this->status_ != nullptr
-        && this->tag_ != nullptr && this->targetId_ != nullptr && this->targetName_ != nullptr && this->targetType_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && return this->clusterName_ == nullptr && return this->containerId_ == nullptr && return this->digest_ == nullptr && return this->downloadUrl_ == nullptr && return this->filePath_ == nullptr
+        && return this->firstScanTimestamp_ == nullptr && return this->highLight_ == nullptr && return this->id_ == nullptr && return this->image_ == nullptr && return this->imageUuid_ == nullptr
+        && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr && return this->latestScanTimestamp_ == nullptr && return this->latestVerifyTimestamp_ == nullptr
+        && return this->layer_ == nullptr && return this->level_ == nullptr && return this->maliciousMd5_ == nullptr && return this->namespace_ == nullptr && return this->pod_ == nullptr
+        && return this->repoId_ == nullptr && return this->repoInstanceId_ == nullptr && return this->repoName_ == nullptr && return this->repoRegionId_ == nullptr && return this->status_ == nullptr
+        && return this->tag_ == nullptr && return this->targetId_ == nullptr && return this->targetName_ == nullptr && return this->targetType_ == nullptr && return this->uuid_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};

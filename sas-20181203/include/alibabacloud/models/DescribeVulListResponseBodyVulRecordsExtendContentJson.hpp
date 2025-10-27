@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->absolutePath_ != nullptr
-        && this->aliasName_ != nullptr && this->description_ != nullptr && this->emgProof_ != nullptr && this->ip_ != nullptr && this->lastTs_ != nullptr
-        && this->necessity_ != nullptr && this->os_ != nullptr && this->osRelease_ != nullptr && this->primaryId_ != nullptr && this->rpmEntityList_ != nullptr
-        && this->status_ != nullptr && this->tag_ != nullptr && this->target_ != nullptr && this->cveList_ != nullptr; };
+    virtual bool empty() const override { return this->absolutePath_ == nullptr
+        && return this->aliasName_ == nullptr && return this->description_ == nullptr && return this->emgProof_ == nullptr && return this->ip_ == nullptr && return this->lastTs_ == nullptr
+        && return this->necessity_ == nullptr && return this->os_ == nullptr && return this->osRelease_ == nullptr && return this->primaryId_ == nullptr && return this->rpmEntityList_ == nullptr
+        && return this->status_ == nullptr && return this->tag_ == nullptr && return this->target_ == nullptr && return this->cveList_ == nullptr; };
     // absolutePath Field Functions 
     bool hasAbsolutePath() const { return this->absolutePath_ != nullptr;};
     void deleteAbsolutePath() { this->absolutePath_ = nullptr;};

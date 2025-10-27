@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->digest_ != nullptr
-        && this->firstScanTime_ != nullptr && this->instanceId_ != nullptr && this->lastScanTime_ != nullptr && this->regionId_ != nullptr && this->repoName_ != nullptr
-        && this->repoNamespace_ != nullptr && this->riskLevel_ != nullptr && this->status_ != nullptr && this->tag_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->digest_ == nullptr
+        && return this->firstScanTime_ == nullptr && return this->instanceId_ == nullptr && return this->lastScanTime_ == nullptr && return this->regionId_ == nullptr && return this->repoName_ == nullptr
+        && return this->repoNamespace_ == nullptr && return this->riskLevel_ == nullptr && return this->status_ == nullptr && return this->tag_ == nullptr && return this->uuid_ == nullptr; };
     // digest Field Functions 
     bool hasDigest() const { return this->digest_ != nullptr;};
     void deleteDigest() { this->digest_ = nullptr;};

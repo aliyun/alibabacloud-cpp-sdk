@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentlessLlmService_ != nullptr
-        && this->agentlessScaAiComponent_ != nullptr && this->autorun_ != nullptr && this->cron_ != nullptr && this->database_ != nullptr && this->lkm_ != nullptr
-        && this->port_ != nullptr && this->process_ != nullptr && this->requestId_ != nullptr && this->sca_ != nullptr && this->software_ != nullptr
-        && this->user_ != nullptr && this->web_ != nullptr && this->webserver_ != nullptr; };
+    virtual bool empty() const override { return this->agentlessLlmService_ == nullptr
+        && return this->agentlessScaAiComponent_ == nullptr && return this->autorun_ == nullptr && return this->cron_ == nullptr && return this->database_ == nullptr && return this->lkm_ == nullptr
+        && return this->port_ == nullptr && return this->process_ == nullptr && return this->requestId_ == nullptr && return this->sca_ == nullptr && return this->software_ == nullptr
+        && return this->user_ == nullptr && return this->web_ == nullptr && return this->webserver_ == nullptr; };
     // agentlessLlmService Field Functions 
     bool hasAgentlessLlmService() const { return this->agentlessLlmService_ != nullptr;};
     void deleteAgentlessLlmService() { this->agentlessLlmService_ = nullptr;};

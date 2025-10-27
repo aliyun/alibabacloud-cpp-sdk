@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentId_ != nullptr
-        && this->agentName_ != nullptr && this->alarmEventId_ != nullptr && this->dstIp_ != nullptr && this->firstTime_ != nullptr && this->honeypotName_ != nullptr
-        && this->lastTime_ != nullptr && this->location_ != nullptr && this->mergeFieldList_ != nullptr && this->protocol_ != nullptr && this->riskLevel_ != nullptr
-        && this->securityEventId_ != nullptr && this->srcIp_ != nullptr; };
+    virtual bool empty() const override { return this->agentId_ == nullptr
+        && return this->agentName_ == nullptr && return this->alarmEventId_ == nullptr && return this->dstIp_ == nullptr && return this->firstTime_ == nullptr && return this->honeypotName_ == nullptr
+        && return this->lastTime_ == nullptr && return this->location_ == nullptr && return this->mergeFieldList_ == nullptr && return this->protocol_ == nullptr && return this->riskLevel_ == nullptr
+        && return this->securityEventId_ == nullptr && return this->srcIp_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};

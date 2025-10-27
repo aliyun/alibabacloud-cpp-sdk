@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->firstScanTimestamp_ != nullptr
-        && this->imageCount_ != nullptr && this->latestScanTimestamp_ != nullptr && this->level_ != nullptr && this->maliciousKey_ != nullptr && this->maliciousMd5_ != nullptr
-        && this->maliciousName_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->firstScanTimestamp_ == nullptr
+        && return this->imageCount_ == nullptr && return this->latestScanTimestamp_ == nullptr && return this->level_ == nullptr && return this->maliciousKey_ == nullptr && return this->maliciousMd5_ == nullptr
+        && return this->maliciousName_ == nullptr && return this->status_ == nullptr; };
     // firstScanTimestamp Field Functions 
     bool hasFirstScanTimestamp() const { return this->firstScanTimestamp_ != nullptr;};
     void deleteFirstScanTimestamp() { this->firstScanTimestamp_ = nullptr;};

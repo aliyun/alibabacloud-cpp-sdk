@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkCount_ != nullptr
-        && this->checkExploit_ != nullptr && this->containerRisk_ != nullptr && this->databaseRisk_ != nullptr && this->highWarningCount_ != nullptr && this->lastFoundTime_ != nullptr
-        && this->level_ != nullptr && this->lowWarningCount_ != nullptr && this->mediumWarningCount_ != nullptr && this->riskId_ != nullptr && this->riskName_ != nullptr
-        && this->subTypeAlias_ != nullptr && this->typeAlias_ != nullptr && this->warningMachineCount_ != nullptr; };
+    virtual bool empty() const override { return this->checkCount_ == nullptr
+        && return this->checkExploit_ == nullptr && return this->containerRisk_ == nullptr && return this->databaseRisk_ == nullptr && return this->highWarningCount_ == nullptr && return this->lastFoundTime_ == nullptr
+        && return this->level_ == nullptr && return this->lowWarningCount_ == nullptr && return this->mediumWarningCount_ == nullptr && return this->riskId_ == nullptr && return this->riskName_ == nullptr
+        && return this->subTypeAlias_ == nullptr && return this->typeAlias_ == nullptr && return this->warningMachineCount_ == nullptr; };
     // checkCount Field Functions 
     bool hasCheckCount() const { return this->checkCount_ != nullptr;};
     void deleteCheckCount() { this->checkCount_ = nullptr;};

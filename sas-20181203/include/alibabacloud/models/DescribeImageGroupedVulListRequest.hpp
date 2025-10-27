@@ -74,12 +74,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliasName_ != nullptr
-        && this->clusterId_ != nullptr && this->currentPage_ != nullptr && this->cveId_ != nullptr && this->groupId_ != nullptr && this->imageDigest_ != nullptr
-        && this->imageLayer_ != nullptr && this->imageTag_ != nullptr && this->isLatest_ != nullptr && this->lang_ != nullptr && this->name_ != nullptr
-        && this->necessity_ != nullptr && this->pageSize_ != nullptr && this->patchId_ != nullptr && this->repoId_ != nullptr && this->repoInstanceId_ != nullptr
-        && this->repoName_ != nullptr && this->repoNamespace_ != nullptr && this->repoRegionId_ != nullptr && this->ruleTag_ != nullptr && this->scanRange_ != nullptr
-        && this->type_ != nullptr && this->uuids_ != nullptr; };
+    virtual bool empty() const override { return this->aliasName_ == nullptr
+        && return this->clusterId_ == nullptr && return this->currentPage_ == nullptr && return this->cveId_ == nullptr && return this->groupId_ == nullptr && return this->imageDigest_ == nullptr
+        && return this->imageLayer_ == nullptr && return this->imageTag_ == nullptr && return this->isLatest_ == nullptr && return this->lang_ == nullptr && return this->name_ == nullptr
+        && return this->necessity_ == nullptr && return this->pageSize_ == nullptr && return this->patchId_ == nullptr && return this->repoId_ == nullptr && return this->repoInstanceId_ == nullptr
+        && return this->repoName_ == nullptr && return this->repoNamespace_ == nullptr && return this->repoRegionId_ == nullptr && return this->ruleTag_ == nullptr && return this->scanRange_ == nullptr
+        && return this->type_ == nullptr && return this->uuids_ == nullptr; };
     // aliasName Field Functions 
     bool hasAliasName() const { return this->aliasName_ != nullptr;};
     void deleteAliasName() { this->aliasName_ = nullptr;};

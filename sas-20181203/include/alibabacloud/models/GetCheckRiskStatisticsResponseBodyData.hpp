@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->highWarningCount_ != nullptr
-        && this->lowWarningCount_ != nullptr && this->mediumWarningCount_ != nullptr && this->passCount_ != nullptr && this->sceneName_ != nullptr && this->subStatistics_ != nullptr
-        && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->highWarningCount_ == nullptr
+        && return this->lowWarningCount_ == nullptr && return this->mediumWarningCount_ == nullptr && return this->passCount_ == nullptr && return this->sceneName_ == nullptr && return this->subStatistics_ == nullptr
+        && return this->totalCount_ == nullptr; };
     // highWarningCount Field Functions 
     bool hasHighWarningCount() const { return this->highWarningCount_ != nullptr;};
     void deleteHighWarningCount() { this->highWarningCount_ = nullptr;};

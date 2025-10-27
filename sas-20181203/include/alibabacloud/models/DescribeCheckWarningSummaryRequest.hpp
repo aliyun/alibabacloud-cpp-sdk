@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->containerFieldName_ != nullptr && this->containerFieldValue_ != nullptr && this->currentPage_ != nullptr && this->groupId_ != nullptr && this->lang_ != nullptr
-        && this->pageSize_ != nullptr && this->riskName_ != nullptr && this->riskStatus_ != nullptr && this->sourceIp_ != nullptr && this->status_ != nullptr
-        && this->strategyId_ != nullptr && this->targetType_ != nullptr && this->typeName_ != nullptr && this->uuids_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && return this->containerFieldName_ == nullptr && return this->containerFieldValue_ == nullptr && return this->currentPage_ == nullptr && return this->groupId_ == nullptr && return this->lang_ == nullptr
+        && return this->pageSize_ == nullptr && return this->riskName_ == nullptr && return this->riskStatus_ == nullptr && return this->sourceIp_ == nullptr && return this->status_ == nullptr
+        && return this->strategyId_ == nullptr && return this->targetType_ == nullptr && return this->typeName_ == nullptr && return this->uuids_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -155,8 +155,8 @@ namespace Models
     // typeName Field Functions 
     bool hasTypeName() const { return this->typeName_ != nullptr;};
     void deleteTypeName() { this->typeName_ = nullptr;};
-    inline string _typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
-    inline DescribeCheckWarningSummaryRequest& setTypeName(string _typeName) { DARABONBA_PTR_SET_VALUE(typeName_, _typeName) };
+    inline string typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
+    inline DescribeCheckWarningSummaryRequest& setTypeName(string typeName) { DARABONBA_PTR_SET_VALUE(typeName_, typeName) };
 
 
     // uuids Field Functions 

@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bindId_ != nullptr
-        && this->bindPortList_ != nullptr && this->bindType_ != nullptr && this->currentPage_ != nullptr && this->honeypotId_ != nullptr && this->id_ != nullptr
-        && this->lang_ != nullptr && this->pageSize_ != nullptr && this->ports_ != nullptr && this->probeId_ != nullptr && this->serviceIpList_ != nullptr
-        && this->setStatus_ != nullptr; };
+    virtual bool empty() const override { return this->bindId_ == nullptr
+        && return this->bindPortList_ == nullptr && return this->bindType_ == nullptr && return this->currentPage_ == nullptr && return this->honeypotId_ == nullptr && return this->id_ == nullptr
+        && return this->lang_ == nullptr && return this->pageSize_ == nullptr && return this->ports_ == nullptr && return this->probeId_ == nullptr && return this->serviceIpList_ == nullptr
+        && return this->setStatus_ == nullptr; };
     // bindId Field Functions 
     bool hasBindId() const { return this->bindId_ != nullptr;};
     void deleteBindId() { this->bindId_ = nullptr;};

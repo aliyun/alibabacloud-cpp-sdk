@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientVersion_ != nullptr
-        && this->installCode_ != nullptr && this->installMessage_ != nullptr && this->installed_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr
-        && this->intranetIp_ != nullptr && this->online_ != nullptr && this->platform_ != nullptr && this->supportFile_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->clientVersion_ == nullptr
+        && return this->installCode_ == nullptr && return this->installMessage_ == nullptr && return this->installed_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr
+        && return this->intranetIp_ == nullptr && return this->online_ == nullptr && return this->platform_ == nullptr && return this->supportFile_ == nullptr && return this->uuid_ == nullptr; };
     // clientVersion Field Functions 
     bool hasClientVersion() const { return this->clientVersion_ != nullptr;};
     void deleteClientVersion() { this->clientVersion_ = nullptr;};

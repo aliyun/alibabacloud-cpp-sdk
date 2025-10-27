@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dateArray_ != nullptr
-        && this->highCount_ != nullptr && this->highList_ != nullptr && this->levelsOn_ != nullptr && this->lowCount_ != nullptr && this->lowList_ != nullptr
-        && this->mediumCount_ != nullptr && this->mediumList_ != nullptr && this->timeArray_ != nullptr && this->totalCount_ != nullptr && this->valueArray_ != nullptr; };
+    virtual bool empty() const override { return this->dateArray_ == nullptr
+        && return this->highCount_ == nullptr && return this->highList_ == nullptr && return this->levelsOn_ == nullptr && return this->lowCount_ == nullptr && return this->lowList_ == nullptr
+        && return this->mediumCount_ == nullptr && return this->mediumList_ == nullptr && return this->timeArray_ == nullptr && return this->totalCount_ == nullptr && return this->valueArray_ == nullptr; };
     // dateArray Field Functions 
     bool hasDateArray() const { return this->dateArray_ != nullptr;};
     void deleteDateArray() { this->dateArray_ = nullptr;};

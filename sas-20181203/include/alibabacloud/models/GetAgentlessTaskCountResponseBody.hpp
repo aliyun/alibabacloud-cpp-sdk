@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->baselineCheckCount_ != nullptr
-        && this->cveVulCount_ != nullptr && this->lastTaskTime_ != nullptr && this->maliciousFile_ != nullptr && this->requestId_ != nullptr && this->riskMachine_ != nullptr
-        && this->scaVulCount_ != nullptr && this->scanMachine_ != nullptr && this->sensitiveFileCount_ != nullptr && this->sysVulCount_ != nullptr && this->vulnerability_ != nullptr; };
+    virtual bool empty() const override { return this->baselineCheckCount_ == nullptr
+        && return this->cveVulCount_ == nullptr && return this->lastTaskTime_ == nullptr && return this->maliciousFile_ == nullptr && return this->requestId_ == nullptr && return this->riskMachine_ == nullptr
+        && return this->scaVulCount_ == nullptr && return this->scanMachine_ == nullptr && return this->sensitiveFileCount_ == nullptr && return this->sysVulCount_ == nullptr && return this->vulnerability_ == nullptr; };
     // baselineCheckCount Field Functions 
     bool hasBaselineCheckCount() const { return this->baselineCheckCount_ != nullptr;};
     void deleteBaselineCheckCount() { this->baselineCheckCount_ = nullptr;};

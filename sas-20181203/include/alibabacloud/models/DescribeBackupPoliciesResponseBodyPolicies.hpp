@@ -66,11 +66,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientErrorCount_ != nullptr
-        && this->clientErrorUuidList_ != nullptr && this->clientStatus_ != nullptr && this->healthClientCount_ != nullptr && this->healthClientUuidList_ != nullptr && this->id_ != nullptr
-        && this->lastStatusSyncTime_ != nullptr && this->name_ != nullptr && this->policy_ != nullptr && this->policyRegionId_ != nullptr && this->policyVersion_ != nullptr
-        && this->preStatus_ != nullptr && this->remarkedUuidList_ != nullptr && this->serverType_ != nullptr && this->serviceErrorCount_ != nullptr && this->serviceErrorUuidList_ != nullptr
-        && this->status_ != nullptr && this->upgradeStatus_ != nullptr && this->uuidList_ != nullptr; };
+    virtual bool empty() const override { return this->clientErrorCount_ == nullptr
+        && return this->clientErrorUuidList_ == nullptr && return this->clientStatus_ == nullptr && return this->healthClientCount_ == nullptr && return this->healthClientUuidList_ == nullptr && return this->id_ == nullptr
+        && return this->lastStatusSyncTime_ == nullptr && return this->name_ == nullptr && return this->policy_ == nullptr && return this->policyRegionId_ == nullptr && return this->policyVersion_ == nullptr
+        && return this->preStatus_ == nullptr && return this->remarkedUuidList_ == nullptr && return this->serverType_ == nullptr && return this->serviceErrorCount_ == nullptr && return this->serviceErrorUuidList_ == nullptr
+        && return this->status_ == nullptr && return this->upgradeStatus_ == nullptr && return this->uuidList_ == nullptr; };
     // clientErrorCount Field Functions 
     bool hasClientErrorCount() const { return this->clientErrorCount_ != nullptr;};
     void deleteClientErrorCount() { this->clientErrorCount_ = nullptr;};

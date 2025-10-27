@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aegisUuidTargetPluginConfigList_ != nullptr
-        && this->code_ != nullptr && this->message_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->aegisUuidTargetPluginConfigList_ == nullptr
+        && return this->code_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr; };
     // aegisUuidTargetPluginConfigList Field Functions 
     bool hasAegisUuidTargetPluginConfigList() const { return this->aegisUuidTargetPluginConfigList_ != nullptr;};
     void deleteAegisUuidTargetPluginConfigList() { this->aegisUuidTargetPluginConfigList_ = nullptr;};

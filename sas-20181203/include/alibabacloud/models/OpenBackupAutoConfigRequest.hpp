@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxBatchSize_ != nullptr; };
+    virtual bool empty() const override { return this->maxBatchSize_ == nullptr; };
     // maxBatchSize Field Functions 
     bool hasMaxBatchSize() const { return this->maxBatchSize_ != nullptr;};
     void deleteMaxBatchSize() { this->maxBatchSize_ = nullptr;};

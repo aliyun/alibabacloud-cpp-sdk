@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authCount_ != nullptr
-        && this->authCountInSaleVersion_ != nullptr && this->expire_ != nullptr && this->flowRate_ != nullptr && this->invokeCount_ != nullptr && this->invokeCountInSaleVersion_ != nullptr
-        && this->remainAuthCount_ != nullptr && this->saleVersion_ != nullptr && this->timeUnit_ != nullptr; };
+    virtual bool empty() const override { return this->authCount_ == nullptr
+        && return this->authCountInSaleVersion_ == nullptr && return this->expire_ == nullptr && return this->flowRate_ == nullptr && return this->invokeCount_ == nullptr && return this->invokeCountInSaleVersion_ == nullptr
+        && return this->remainAuthCount_ == nullptr && return this->saleVersion_ == nullptr && return this->timeUnit_ == nullptr; };
     // authCount Field Functions 
     bool hasAuthCount() const { return this->authCount_ != nullptr;};
     void deleteAuthCount() { this->authCount_ = nullptr;};

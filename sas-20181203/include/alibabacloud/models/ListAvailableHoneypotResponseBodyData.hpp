@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->honeypotImageDisplayName_ != nullptr
-        && this->honeypotImageId_ != nullptr && this->honeypotImageName_ != nullptr && this->honeypotImageType_ != nullptr && this->honeypotImageVersion_ != nullptr && this->multiports_ != nullptr
-        && this->proto_ != nullptr && this->servicePort_ != nullptr && this->template_ != nullptr; };
+    virtual bool empty() const override { return this->honeypotImageDisplayName_ == nullptr
+        && return this->honeypotImageId_ == nullptr && return this->honeypotImageName_ == nullptr && return this->honeypotImageType_ == nullptr && return this->honeypotImageVersion_ == nullptr && return this->multiports_ == nullptr
+        && return this->proto_ == nullptr && return this->servicePort_ == nullptr && return this->template_ == nullptr; };
     // honeypotImageDisplayName Field Functions 
     bool hasHoneypotImageDisplayName() const { return this->honeypotImageDisplayName_ != nullptr;};
     void deleteHoneypotImageDisplayName() { this->honeypotImageDisplayName_ = nullptr;};

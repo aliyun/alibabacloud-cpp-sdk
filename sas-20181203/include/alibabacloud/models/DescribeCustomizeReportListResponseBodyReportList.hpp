@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->isDefault_ != nullptr
-        && this->pinnedTime_ != nullptr && this->reportDays_ != nullptr && this->reportEndDate_ != nullptr && this->reportId_ != nullptr && this->reportStartDate_ != nullptr
-        && this->reportStatus_ != nullptr && this->reportType_ != nullptr && this->reportVersion_ != nullptr && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->isDefault_ == nullptr
+        && return this->pinnedTime_ == nullptr && return this->reportDays_ == nullptr && return this->reportEndDate_ == nullptr && return this->reportId_ == nullptr && return this->reportStartDate_ == nullptr
+        && return this->reportStatus_ == nullptr && return this->reportType_ == nullptr && return this->reportVersion_ == nullptr && return this->title_ == nullptr; };
     // isDefault Field Functions 
     bool hasIsDefault() const { return this->isDefault_ != nullptr;};
     void deleteIsDefault() { this->isDefault_ = nullptr;};

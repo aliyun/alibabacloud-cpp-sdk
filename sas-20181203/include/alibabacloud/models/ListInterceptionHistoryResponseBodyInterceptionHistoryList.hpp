@@ -83,13 +83,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->clusterName_ != nullptr && this->dstAppName_ != nullptr && this->dstNamespace_ != nullptr && this->dstPort_ != nullptr && this->dstRuleTargetName_ != nullptr
-        && this->firstTime_ != nullptr && this->id_ != nullptr && this->interceptionName_ != nullptr && this->interceptionType_ != nullptr && this->lastTime_ != nullptr
-        && this->realDstAppName_ != nullptr && this->realDstImageName_ != nullptr && this->realDstNamespace_ != nullptr && this->realDstPodName_ != nullptr && this->realInterceptionType_ != nullptr
-        && this->realSrcAppName_ != nullptr && this->realSrcImageName_ != nullptr && this->realSrcNamespace_ != nullptr && this->realSrcPodName_ != nullptr && this->riskLevel_ != nullptr
-        && this->ruleId_ != nullptr && this->ruleName_ != nullptr && this->srcAppName_ != nullptr && this->srcNamespace_ != nullptr && this->srcRuleTargetName_ != nullptr
-        && this->status_ != nullptr && this->tryCount_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && return this->clusterName_ == nullptr && return this->dstAppName_ == nullptr && return this->dstNamespace_ == nullptr && return this->dstPort_ == nullptr && return this->dstRuleTargetName_ == nullptr
+        && return this->firstTime_ == nullptr && return this->id_ == nullptr && return this->interceptionName_ == nullptr && return this->interceptionType_ == nullptr && return this->lastTime_ == nullptr
+        && return this->realDstAppName_ == nullptr && return this->realDstImageName_ == nullptr && return this->realDstNamespace_ == nullptr && return this->realDstPodName_ == nullptr && return this->realInterceptionType_ == nullptr
+        && return this->realSrcAppName_ == nullptr && return this->realSrcImageName_ == nullptr && return this->realSrcNamespace_ == nullptr && return this->realSrcPodName_ == nullptr && return this->riskLevel_ == nullptr
+        && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr && return this->srcAppName_ == nullptr && return this->srcNamespace_ == nullptr && return this->srcRuleTargetName_ == nullptr
+        && return this->status_ == nullptr && return this->tryCount_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};

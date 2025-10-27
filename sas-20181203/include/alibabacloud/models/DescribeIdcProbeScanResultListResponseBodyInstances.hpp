@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientStatus_ != nullptr
-        && this->idcName_ != nullptr && this->ipSegment_ != nullptr && this->lastScanTime_ != nullptr && this->os_ != nullptr && this->probeInternetIp_ != nullptr
-        && this->probeIntranetIp_ != nullptr && this->probeMachineName_ != nullptr && this->probeUuid_ != nullptr && this->scanResultId_ != nullptr && this->scannedIp_ != nullptr
-        && this->validPort_ != nullptr; };
+    virtual bool empty() const override { return this->clientStatus_ == nullptr
+        && return this->idcName_ == nullptr && return this->ipSegment_ == nullptr && return this->lastScanTime_ == nullptr && return this->os_ == nullptr && return this->probeInternetIp_ == nullptr
+        && return this->probeIntranetIp_ == nullptr && return this->probeMachineName_ == nullptr && return this->probeUuid_ == nullptr && return this->scanResultId_ == nullptr && return this->scannedIp_ == nullptr
+        && return this->validPort_ == nullptr; };
     // clientStatus Field Functions 
     bool hasClientStatus() const { return this->clientStatus_ != nullptr;};
     void deleteClientStatus() { this->clientStatus_ = nullptr;};

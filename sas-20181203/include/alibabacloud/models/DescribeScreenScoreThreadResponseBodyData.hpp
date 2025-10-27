@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->socreThread_ != nullptr
-        && this->socreThreadDate_ != nullptr; };
+    virtual bool empty() const override { return this->socreThread_ == nullptr
+        && return this->socreThreadDate_ == nullptr; };
     // socreThread Field Functions 
     bool hasSocreThread() const { return this->socreThread_ != nullptr;};
     void deleteSocreThread() { this->socreThread_ = nullptr;};

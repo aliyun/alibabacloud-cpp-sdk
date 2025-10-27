@@ -117,16 +117,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentlessCapacity_ != nullptr
-        && this->allowPartialBuy_ != nullptr && this->antiRansomwareCapacity_ != nullptr && this->antiRansomwareService_ != nullptr && this->appWhiteList_ != nullptr && this->appWhiteListAuthCount_ != nullptr
-        && this->assetLevel_ != nullptr && this->cspmCapacity_ != nullptr && this->highestVersion_ != nullptr && this->honeypotCapacity_ != nullptr && this->imageScanCapacity_ != nullptr
-        && this->instanceBuyType_ != nullptr && this->instanceId_ != nullptr && this->isNewContainerVersion_ != nullptr && this->isNewMultiVersion_ != nullptr && this->isOverBalance_ != nullptr
-        && this->isPostpay_ != nullptr && this->isTrialVersion_ != nullptr && this->lastTrailEndTime_ != nullptr && this->MVAuthCount_ != nullptr && this->MVUnusedAuthCount_ != nullptr
-        && this->mergedVersion_ != nullptr && this->multiVersion_ != nullptr && this->newThreatAnalysis_ != nullptr && this->openTime_ != nullptr && this->postPayHostVersion_ != nullptr
-        && this->postPayInstanceId_ != nullptr && this->postPayModuleSwitch_ != nullptr && this->postPayOpenTime_ != nullptr && this->postPayStatus_ != nullptr && this->raspCapacity_ != nullptr
-        && this->releaseTime_ != nullptr && this->requestId_ != nullptr && this->sasLog_ != nullptr && this->sasScreen_ != nullptr && this->sdkCapacity_ != nullptr
-        && this->slsCapacity_ != nullptr && this->threatAnalysisCapacity_ != nullptr && this->threatAnalysisFlow_ != nullptr && this->userDefinedAlarms_ != nullptr && this->version_ != nullptr
-        && this->vmCores_ != nullptr && this->vulFixCapacity_ != nullptr && this->webLock_ != nullptr && this->webLockAuthCount_ != nullptr; };
+    virtual bool empty() const override { return this->agentlessCapacity_ == nullptr
+        && return this->allowPartialBuy_ == nullptr && return this->antiRansomwareCapacity_ == nullptr && return this->antiRansomwareService_ == nullptr && return this->appWhiteList_ == nullptr && return this->appWhiteListAuthCount_ == nullptr
+        && return this->assetLevel_ == nullptr && return this->cspmCapacity_ == nullptr && return this->highestVersion_ == nullptr && return this->honeypotCapacity_ == nullptr && return this->imageScanCapacity_ == nullptr
+        && return this->instanceBuyType_ == nullptr && return this->instanceId_ == nullptr && return this->isNewContainerVersion_ == nullptr && return this->isNewMultiVersion_ == nullptr && return this->isOverBalance_ == nullptr
+        && return this->isPostpay_ == nullptr && return this->isTrialVersion_ == nullptr && return this->lastTrailEndTime_ == nullptr && return this->MVAuthCount_ == nullptr && return this->MVUnusedAuthCount_ == nullptr
+        && return this->mergedVersion_ == nullptr && return this->multiVersion_ == nullptr && return this->newThreatAnalysis_ == nullptr && return this->openTime_ == nullptr && return this->postPayHostVersion_ == nullptr
+        && return this->postPayInstanceId_ == nullptr && return this->postPayModuleSwitch_ == nullptr && return this->postPayOpenTime_ == nullptr && return this->postPayStatus_ == nullptr && return this->raspCapacity_ == nullptr
+        && return this->releaseTime_ == nullptr && return this->requestId_ == nullptr && return this->sasLog_ == nullptr && return this->sasScreen_ == nullptr && return this->sdkCapacity_ == nullptr
+        && return this->slsCapacity_ == nullptr && return this->threatAnalysisCapacity_ == nullptr && return this->threatAnalysisFlow_ == nullptr && return this->userDefinedAlarms_ == nullptr && return this->version_ == nullptr
+        && return this->vmCores_ == nullptr && return this->vulFixCapacity_ == nullptr && return this->webLock_ == nullptr && return this->webLockAuthCount_ == nullptr; };
     // agentlessCapacity Field Functions 
     bool hasAgentlessCapacity() const { return this->agentlessCapacity_ != nullptr;};
     void deleteAgentlessCapacity() { this->agentlessCapacity_ = nullptr;};

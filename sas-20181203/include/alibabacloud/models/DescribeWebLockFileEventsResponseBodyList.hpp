@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->count_ != nullptr
-        && this->ds_ != nullptr && this->eventName_ != nullptr && this->eventStatus_ != nullptr && this->eventType_ != nullptr && this->gmtEvent_ != nullptr
-        && this->id_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->intranetIp_ != nullptr && this->ip_ != nullptr
-        && this->level_ != nullptr && this->path_ != nullptr && this->processName_ != nullptr && this->processPath_ != nullptr && this->status_ != nullptr
-        && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->count_ == nullptr
+        && return this->ds_ == nullptr && return this->eventName_ == nullptr && return this->eventStatus_ == nullptr && return this->eventType_ == nullptr && return this->gmtEvent_ == nullptr
+        && return this->id_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr && return this->ip_ == nullptr
+        && return this->level_ == nullptr && return this->path_ == nullptr && return this->processName_ == nullptr && return this->processPath_ == nullptr && return this->status_ == nullptr
+        && return this->uuid_ == nullptr; };
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};

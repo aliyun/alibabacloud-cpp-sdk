@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->vertexIdAndTypeList_ != nullptr; };
+    virtual bool empty() const override { return this->vertexIdAndTypeList_ == nullptr; };
     // vertexIdAndTypeList Field Functions 
     bool hasVertexIdAndTypeList() const { return this->vertexIdAndTypeList_ != nullptr;};
     void deleteVertexIdAndTypeList() { this->vertexIdAndTypeList_ = nullptr;};

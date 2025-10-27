@@ -73,11 +73,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->arp_ != nullptr
-        && this->canListenIpList_ != nullptr && this->cidrList_ != nullptr && this->controlNode_ != nullptr && this->cpuLoad_ != nullptr && this->deployTime_ != nullptr
-        && this->displayName_ != nullptr && this->honeyPotProbeScanPort_ != nullptr && this->honeypotProbeBindList_ != nullptr && this->hostIp_ != nullptr && this->listenIpList_ != nullptr
-        && this->memoryLoad_ != nullptr && this->osType_ != nullptr && this->ping_ != nullptr && this->probeId_ != nullptr && this->probeType_ != nullptr
-        && this->probeVersion_ != nullptr && this->proxyIp_ != nullptr && this->status_ != nullptr && this->uuid_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->arp_ == nullptr
+        && return this->canListenIpList_ == nullptr && return this->cidrList_ == nullptr && return this->controlNode_ == nullptr && return this->cpuLoad_ == nullptr && return this->deployTime_ == nullptr
+        && return this->displayName_ == nullptr && return this->honeyPotProbeScanPort_ == nullptr && return this->honeypotProbeBindList_ == nullptr && return this->hostIp_ == nullptr && return this->listenIpList_ == nullptr
+        && return this->memoryLoad_ == nullptr && return this->osType_ == nullptr && return this->ping_ == nullptr && return this->probeId_ == nullptr && return this->probeType_ == nullptr
+        && return this->probeVersion_ == nullptr && return this->proxyIp_ == nullptr && return this->status_ == nullptr && return this->uuid_ == nullptr && return this->vpcId_ == nullptr; };
     // arp Field Functions 
     bool hasArp() const { return this->arp_ != nullptr;};
     void deleteArp() { this->arp_ = nullptr;};

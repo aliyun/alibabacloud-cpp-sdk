@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allStrategyCount_ != nullptr
-        && this->antiBruteForceRuleCount_ != nullptr && this->customEffectiveCount_ != nullptr && this->customRecordCount_ != nullptr && this->effectiveCount_ != nullptr && this->systemEffectiveCount_ != nullptr
-        && this->systemRecordCount_ != nullptr; };
+    virtual bool empty() const override { return this->allStrategyCount_ == nullptr
+        && return this->antiBruteForceRuleCount_ == nullptr && return this->customEffectiveCount_ == nullptr && return this->customRecordCount_ == nullptr && return this->effectiveCount_ == nullptr && return this->systemEffectiveCount_ == nullptr
+        && return this->systemRecordCount_ == nullptr; };
     // allStrategyCount Field Functions 
     bool hasAllStrategyCount() const { return this->allStrategyCount_ != nullptr;};
     void deleteAllStrategyCount() { this->allStrategyCount_ = nullptr;};

@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->configTargets_ != nullptr
-        && this->customType_ != nullptr && this->cycleDays_ != nullptr && this->cycleStartTime_ != nullptr && this->ecsCount_ != nullptr && this->endTime_ != nullptr
-        && this->execStatus_ != nullptr && this->executionType_ != nullptr && this->id_ != nullptr && this->name_ != nullptr && this->passRate_ != nullptr
-        && this->percent_ != nullptr && this->processRate_ != nullptr && this->riskCount_ != nullptr && this->startTime_ != nullptr && this->type_ != nullptr
-        && this->userModifyTime_ != nullptr; };
+    virtual bool empty() const override { return this->configTargets_ == nullptr
+        && return this->customType_ == nullptr && return this->cycleDays_ == nullptr && return this->cycleStartTime_ == nullptr && return this->ecsCount_ == nullptr && return this->endTime_ == nullptr
+        && return this->execStatus_ == nullptr && return this->executionType_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr && return this->passRate_ == nullptr
+        && return this->percent_ == nullptr && return this->processRate_ == nullptr && return this->riskCount_ == nullptr && return this->startTime_ == nullptr && return this->type_ == nullptr
+        && return this->userModifyTime_ == nullptr; };
     // configTargets Field Functions 
     bool hasConfigTargets() const { return this->configTargets_ != nullptr;};
     void deleteConfigTargets() { this->configTargets_ = nullptr;};

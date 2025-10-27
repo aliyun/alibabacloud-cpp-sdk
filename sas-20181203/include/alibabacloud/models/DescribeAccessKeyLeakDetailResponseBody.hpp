@@ -71,12 +71,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accesskeyId_ != nullptr
-        && this->asset_ != nullptr && this->code_ != nullptr && this->dealTime_ != nullptr && this->dealType_ != nullptr && this->githubFileName_ != nullptr
-        && this->githubFileType_ != nullptr && this->githubFileUpdateTime_ != nullptr && this->githubFileUrl_ != nullptr && this->githubRepoName_ != nullptr && this->githubRepoUrl_ != nullptr
-        && this->githubUser_ != nullptr && this->githubUserPicUrl_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->remark_ != nullptr
-        && this->requestId_ != nullptr && this->source_ != nullptr && this->tokenValid_ != nullptr && this->type_ != nullptr && this->whitelistStatus_ != nullptr
-        && this->whitelistTime_ != nullptr; };
+    virtual bool empty() const override { return this->accesskeyId_ == nullptr
+        && return this->asset_ == nullptr && return this->code_ == nullptr && return this->dealTime_ == nullptr && return this->dealType_ == nullptr && return this->githubFileName_ == nullptr
+        && return this->githubFileType_ == nullptr && return this->githubFileUpdateTime_ == nullptr && return this->githubFileUrl_ == nullptr && return this->githubRepoName_ == nullptr && return this->githubRepoUrl_ == nullptr
+        && return this->githubUser_ == nullptr && return this->githubUserPicUrl_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->remark_ == nullptr
+        && return this->requestId_ == nullptr && return this->source_ == nullptr && return this->tokenValid_ == nullptr && return this->type_ == nullptr && return this->whitelistStatus_ == nullptr
+        && return this->whitelistTime_ == nullptr; };
     // accesskeyId Field Functions 
     bool hasAccesskeyId() const { return this->accesskeyId_ != nullptr;};
     void deleteAccesskeyId() { this->accesskeyId_ = nullptr;};

@@ -71,12 +71,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentId_ != nullptr
-        && this->agentName_ != nullptr && this->dockerId_ != nullptr && this->dstIp_ != nullptr && this->dstPort_ != nullptr && this->eventConnection_ != nullptr
-        && this->extra_ != nullptr && this->extra1_ != nullptr && this->fileOssUrl_ != nullptr && this->firstTime_ != nullptr && this->honeypotEventId_ != nullptr
-        && this->honeypotId_ != nullptr && this->honeypotName_ != nullptr && this->lastTime_ != nullptr && this->riskLevel_ != nullptr && this->securityEventId_ != nullptr
-        && this->srcIp_ != nullptr && this->srcMac_ != nullptr && this->srcPort_ != nullptr && this->status_ != nullptr && this->typeId_ != nullptr
-        && this->uid_ != nullptr; };
+    virtual bool empty() const override { return this->agentId_ == nullptr
+        && return this->agentName_ == nullptr && return this->dockerId_ == nullptr && return this->dstIp_ == nullptr && return this->dstPort_ == nullptr && return this->eventConnection_ == nullptr
+        && return this->extra_ == nullptr && return this->extra1_ == nullptr && return this->fileOssUrl_ == nullptr && return this->firstTime_ == nullptr && return this->honeypotEventId_ == nullptr
+        && return this->honeypotId_ == nullptr && return this->honeypotName_ == nullptr && return this->lastTime_ == nullptr && return this->riskLevel_ == nullptr && return this->securityEventId_ == nullptr
+        && return this->srcIp_ == nullptr && return this->srcMac_ == nullptr && return this->srcPort_ == nullptr && return this->status_ == nullptr && return this->typeId_ == nullptr
+        && return this->uid_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
@@ -220,8 +220,8 @@ namespace Models
     // typeId Field Functions 
     bool hasTypeId() const { return this->typeId_ != nullptr;};
     void deleteTypeId() { this->typeId_ = nullptr;};
-    inline string _typeId() const { DARABONBA_PTR_GET_DEFAULT(typeId_, "") };
-    inline ListHoneypotEventFlowsResponseBodyHoneypotEventFlows& setTypeId(string _typeId) { DARABONBA_PTR_SET_VALUE(typeId_, _typeId) };
+    inline string typeId() const { DARABONBA_PTR_GET_DEFAULT(typeId_, "") };
+    inline ListHoneypotEventFlowsResponseBodyHoneypotEventFlows& setTypeId(string typeId) { DARABONBA_PTR_SET_VALUE(typeId_, typeId) };
 
 
     // uid Field Functions 

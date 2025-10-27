@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deleteMarkMissParam_ != nullptr
-        && this->from_ != nullptr && this->insertMarkMissParam_ != nullptr && this->lang_ != nullptr && this->sourceIp_ != nullptr; };
+    virtual bool empty() const override { return this->deleteMarkMissParam_ == nullptr
+        && return this->from_ == nullptr && return this->insertMarkMissParam_ == nullptr && return this->lang_ == nullptr && return this->sourceIp_ == nullptr; };
     // deleteMarkMissParam Field Functions 
     bool hasDeleteMarkMissParam() const { return this->deleteMarkMissParam_ != nullptr;};
     void deleteDeleteMarkMissParam() { this->deleteMarkMissParam_ = nullptr;};

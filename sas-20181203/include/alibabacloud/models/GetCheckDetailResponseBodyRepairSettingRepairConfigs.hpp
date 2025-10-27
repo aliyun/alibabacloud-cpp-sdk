@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->consoleParamType_ != nullptr
-        && this->customFlag_ != nullptr && this->dataTransformType_ != nullptr && this->defaultValue_ != nullptr && this->emptyParamSwitch_ != nullptr && this->exclusiveName_ != nullptr
-        && this->flowId_ != nullptr && this->name_ != nullptr && this->showName_ != nullptr && this->typeDefine_ != nullptr && this->usageType_ != nullptr
-        && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->consoleParamType_ == nullptr
+        && return this->customFlag_ == nullptr && return this->dataTransformType_ == nullptr && return this->defaultValue_ == nullptr && return this->emptyParamSwitch_ == nullptr && return this->exclusiveName_ == nullptr
+        && return this->flowId_ == nullptr && return this->name_ == nullptr && return this->showName_ == nullptr && return this->typeDefine_ == nullptr && return this->usageType_ == nullptr
+        && return this->value_ == nullptr; };
     // consoleParamType Field Functions 
     bool hasConsoleParamType() const { return this->consoleParamType_ != nullptr;};
     void deleteConsoleParamType() { this->consoleParamType_ = nullptr;};

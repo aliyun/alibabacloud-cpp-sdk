@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alarmStatus_ != nullptr
-        && this->assetSubType_ != nullptr && this->assetSubTypeName_ != nullptr && this->assetType_ != nullptr && this->assetTypeName_ != nullptr && this->createdTime_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->regionId_ != nullptr && this->riskStatus_ != nullptr
-        && this->securityInfo_ != nullptr && this->tags_ != nullptr && this->vendor_ != nullptr && this->vendorUid_ != nullptr && this->vendorUserName_ != nullptr; };
+    virtual bool empty() const override { return this->alarmStatus_ == nullptr
+        && return this->assetSubType_ == nullptr && return this->assetSubTypeName_ == nullptr && return this->assetType_ == nullptr && return this->assetTypeName_ == nullptr && return this->createdTime_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->regionId_ == nullptr && return this->riskStatus_ == nullptr
+        && return this->securityInfo_ == nullptr && return this->tags_ == nullptr && return this->vendor_ == nullptr && return this->vendorUid_ == nullptr && return this->vendorUserName_ == nullptr; };
     // alarmStatus Field Functions 
     bool hasAlarmStatus() const { return this->alarmStatus_ != nullptr;};
     void deleteAlarmStatus() { this->alarmStatus_ = nullptr;};

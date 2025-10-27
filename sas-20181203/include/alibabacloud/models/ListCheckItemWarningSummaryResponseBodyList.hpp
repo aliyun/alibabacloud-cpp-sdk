@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->advice_ != nullptr
-        && this->affiliatedRiskTypes_ != nullptr && this->affiliatedRisks_ != nullptr && this->alias_ != nullptr && this->checkId_ != nullptr && this->checkItem_ != nullptr
-        && this->checkLevel_ != nullptr && this->checkType_ != nullptr && this->containerCheckItem_ != nullptr && this->description_ != nullptr && this->enableRisks_ != nullptr
-        && this->riskType_ != nullptr && this->status_ != nullptr && this->warningMachineCount_ != nullptr; };
+    virtual bool empty() const override { return this->advice_ == nullptr
+        && return this->affiliatedRiskTypes_ == nullptr && return this->affiliatedRisks_ == nullptr && return this->alias_ == nullptr && return this->checkId_ == nullptr && return this->checkItem_ == nullptr
+        && return this->checkLevel_ == nullptr && return this->checkType_ == nullptr && return this->containerCheckItem_ == nullptr && return this->description_ == nullptr && return this->enableRisks_ == nullptr
+        && return this->riskType_ == nullptr && return this->status_ == nullptr && return this->warningMachineCount_ == nullptr; };
     // advice Field Functions 
     bool hasAdvice() const { return this->advice_ != nullptr;};
     void deleteAdvice() { this->advice_ = nullptr;};
@@ -201,6 +201,7 @@ namespace Models
     // *   **1**: failed
     // *   **3**: passed
     // *   **6**: whitelisted
+    // *   **8**: fixed
     std::shared_ptr<int32_t> status_ = nullptr;
     // The number of servers that are affected by the check item.
     std::shared_ptr<int32_t> warningMachineCount_ = nullptr;

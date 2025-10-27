@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->currentPage_ != nullptr
-        && this->disposalWay_ != nullptr && this->eventName_ != nullptr && this->from_ != nullptr && this->lang_ != nullptr && this->pageSize_ != nullptr
-        && this->remark_ != nullptr && this->sourceIp_ != nullptr; };
+    virtual bool empty() const override { return this->currentPage_ == nullptr
+        && return this->disposalWay_ == nullptr && return this->eventName_ == nullptr && return this->from_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr
+        && return this->remark_ == nullptr && return this->sourceIp_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};

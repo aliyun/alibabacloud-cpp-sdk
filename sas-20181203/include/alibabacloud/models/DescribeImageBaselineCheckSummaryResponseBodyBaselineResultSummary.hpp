@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->baselineClassAlias_ != nullptr
-        && this->baselineClassKey_ != nullptr && this->baselineNameAlias_ != nullptr && this->baselineNameKey_ != nullptr && this->baselineNameLevel_ != nullptr && this->firstScanTime_ != nullptr
-        && this->highRiskImage_ != nullptr && this->lastScanTime_ != nullptr && this->lowRiskImage_ != nullptr && this->middleRiskImage_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->baselineClassAlias_ == nullptr
+        && return this->baselineClassKey_ == nullptr && return this->baselineNameAlias_ == nullptr && return this->baselineNameKey_ == nullptr && return this->baselineNameLevel_ == nullptr && return this->firstScanTime_ == nullptr
+        && return this->highRiskImage_ == nullptr && return this->lastScanTime_ == nullptr && return this->lowRiskImage_ == nullptr && return this->middleRiskImage_ == nullptr && return this->status_ == nullptr; };
     // baselineClassAlias Field Functions 
     bool hasBaselineClassAlias() const { return this->baselineClassAlias_ != nullptr;};
     void deleteBaselineClassAlias() { this->baselineClassAlias_ = nullptr;};

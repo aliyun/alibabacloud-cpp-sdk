@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->digests_ != nullptr
-        && this->instanceIds_ != nullptr && this->regionIds_ != nullptr && this->registryTypes_ != nullptr && this->repoIds_ != nullptr && this->repoNames_ != nullptr
-        && this->repoNamespaces_ != nullptr && this->sourceIp_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->digests_ == nullptr
+        && return this->instanceIds_ == nullptr && return this->regionIds_ == nullptr && return this->registryTypes_ == nullptr && return this->repoIds_ == nullptr && return this->repoNames_ == nullptr
+        && return this->repoNamespaces_ == nullptr && return this->sourceIp_ == nullptr && return this->tags_ == nullptr; };
     // digests Field Functions 
     bool hasDigests() const { return this->digests_ != nullptr;};
     void deleteDigests() { this->digests_ = nullptr;};

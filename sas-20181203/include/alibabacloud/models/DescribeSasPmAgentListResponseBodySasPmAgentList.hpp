@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliyunAssistId_ != nullptr
-        && this->aliyunMonitorId_ != nullptr && this->assistInstallResult_ != nullptr && this->assistInstallStatus_ != nullptr && this->monitorInstallResult_ != nullptr && this->monitorInstallStatus_ != nullptr
-        && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->aliyunAssistId_ == nullptr
+        && return this->aliyunMonitorId_ == nullptr && return this->assistInstallResult_ == nullptr && return this->assistInstallStatus_ == nullptr && return this->monitorInstallResult_ == nullptr && return this->monitorInstallStatus_ == nullptr
+        && return this->uuid_ == nullptr; };
     // aliyunAssistId Field Functions 
     bool hasAliyunAssistId() const { return this->aliyunAssistId_ != nullptr;};
     void deleteAliyunAssistId() { this->aliyunAssistId_ = nullptr;};

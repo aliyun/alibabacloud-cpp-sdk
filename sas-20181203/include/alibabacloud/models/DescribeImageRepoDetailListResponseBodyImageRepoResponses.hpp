@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alarmCount_ != nullptr
-        && this->alarmStatus_ != nullptr && this->endpoints_ != nullptr && this->hasRiskImageCount_ != nullptr && this->hcCount_ != nullptr && this->hcStatus_ != nullptr
-        && this->imageCount_ != nullptr && this->instanceId_ != nullptr && this->regionId_ != nullptr && this->registryType_ != nullptr && this->repoId_ != nullptr
-        && this->repoName_ != nullptr && this->repoNamespace_ != nullptr && this->riskStatus_ != nullptr && this->sourceBizTag_ != nullptr && this->vulCount_ != nullptr
-        && this->vulStatus_ != nullptr; };
+    virtual bool empty() const override { return this->alarmCount_ == nullptr
+        && return this->alarmStatus_ == nullptr && return this->endpoints_ == nullptr && return this->hasRiskImageCount_ == nullptr && return this->hcCount_ == nullptr && return this->hcStatus_ == nullptr
+        && return this->imageCount_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr && return this->registryType_ == nullptr && return this->repoId_ == nullptr
+        && return this->repoName_ == nullptr && return this->repoNamespace_ == nullptr && return this->riskStatus_ == nullptr && return this->sourceBizTag_ == nullptr && return this->vulCount_ == nullptr
+        && return this->vulStatus_ == nullptr; };
     // alarmCount Field Functions 
     bool hasAlarmCount() const { return this->alarmCount_ != nullptr;};
     void deleteAlarmCount() { this->alarmCount_ = nullptr;};

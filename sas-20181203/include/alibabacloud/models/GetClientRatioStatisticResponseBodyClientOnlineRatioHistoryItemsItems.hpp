@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assetInstallCount_ != nullptr
-        && this->calculateTime_ != nullptr && this->onlineAssetCount_ != nullptr && this->onlineRatio_ != nullptr; };
+    virtual bool empty() const override { return this->assetInstallCount_ == nullptr
+        && return this->calculateTime_ == nullptr && return this->onlineAssetCount_ == nullptr && return this->onlineRatio_ == nullptr; };
     // assetInstallCount Field Functions 
     bool hasAssetInstallCount() const { return this->assetInstallCount_ != nullptr;};
     void deleteAssetInstallCount() { this->assetInstallCount_ = nullptr;};

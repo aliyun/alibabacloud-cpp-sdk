@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->blockIp_ != nullptr
-        && this->currentPage_ != nullptr && this->instanceId_ != nullptr && this->pageSize_ != nullptr && this->remark_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->blockIp_ == nullptr
+        && return this->currentPage_ == nullptr && return this->instanceId_ == nullptr && return this->pageSize_ == nullptr && return this->remark_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->status_ == nullptr; };
     // blockIp Field Functions 
     bool hasBlockIp() const { return this->blockIp_ != nullptr;};
     void deleteBlockIp() { this->blockIp_ = nullptr;};

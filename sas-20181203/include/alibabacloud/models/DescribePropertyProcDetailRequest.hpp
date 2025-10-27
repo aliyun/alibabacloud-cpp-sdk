@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cmdline_ != nullptr
-        && this->currentPage_ != nullptr && this->extend_ != nullptr && this->name_ != nullptr && this->pageSize_ != nullptr && this->procTimeEnd_ != nullptr
-        && this->procTimeStart_ != nullptr && this->remark_ != nullptr && this->resourceDirectoryAccountId_ != nullptr && this->user_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->cmdline_ == nullptr
+        && return this->currentPage_ == nullptr && return this->extend_ == nullptr && return this->name_ == nullptr && return this->pageSize_ == nullptr && return this->procTimeEnd_ == nullptr
+        && return this->procTimeStart_ == nullptr && return this->remark_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr && return this->user_ == nullptr && return this->uuid_ == nullptr; };
     // cmdline Field Functions 
     bool hasCmdline() const { return this->cmdline_ != nullptr;};
     void deleteCmdline() { this->cmdline_ = nullptr;};

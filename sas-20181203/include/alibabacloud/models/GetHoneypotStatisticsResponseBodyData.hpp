@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->totalHoneypotCount_ != nullptr
-        && this->totalNodeStatus_ != nullptr && this->totalProbeCount_ != nullptr && this->usedHoneypotCount_ != nullptr && this->usedHostProbeCount_ != nullptr && this->usedProbeCount_ != nullptr
-        && this->usedVpcProbeCount_ != nullptr; };
+    virtual bool empty() const override { return this->totalHoneypotCount_ == nullptr
+        && return this->totalNodeStatus_ == nullptr && return this->totalProbeCount_ == nullptr && return this->usedHoneypotCount_ == nullptr && return this->usedHostProbeCount_ == nullptr && return this->usedProbeCount_ == nullptr
+        && return this->usedVpcProbeCount_ == nullptr; };
     // totalHoneypotCount Field Functions 
     bool hasTotalHoneypotCount() const { return this->totalHoneypotCount_ != nullptr;};
     void deleteTotalHoneypotCount() { this->totalHoneypotCount_ = nullptr;};

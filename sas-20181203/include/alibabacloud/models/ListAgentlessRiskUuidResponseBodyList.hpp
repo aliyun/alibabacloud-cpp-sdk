@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->baselineCount_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->intranetIp_ != nullptr && this->maliciousCount_ != nullptr
-        && this->scanTime_ != nullptr && this->targetId_ != nullptr && this->targetName_ != nullptr && this->uuid_ != nullptr && this->vulCount_ != nullptr; };
+    virtual bool empty() const override { return this->baselineCount_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr && return this->maliciousCount_ == nullptr
+        && return this->scanTime_ == nullptr && return this->targetId_ == nullptr && return this->targetName_ == nullptr && return this->uuid_ == nullptr && return this->vulCount_ == nullptr; };
     // baselineCount Field Functions 
     bool hasBaselineCount() const { return this->baselineCount_ != nullptr;};
     void deleteBaselineCount() { this->baselineCount_ = nullptr;};

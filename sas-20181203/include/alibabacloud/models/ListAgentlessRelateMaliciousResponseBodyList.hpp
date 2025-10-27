@@ -71,11 +71,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->details_ != nullptr
-        && this->downloadUrl_ != nullptr && this->filePath_ != nullptr && this->firstScanTimestamp_ != nullptr && this->highLight_ != nullptr && this->id_ != nullptr
-        && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->intranetIp_ != nullptr && this->latestScanTimestamp_ != nullptr && this->level_ != nullptr
-        && this->maliciousMd5_ != nullptr && this->maliciousName_ != nullptr && this->maliciousType_ != nullptr && this->operateResult_ != nullptr && this->operateTimestamp_ != nullptr
-        && this->partition_ != nullptr && this->targetId_ != nullptr && this->targetName_ != nullptr && this->targetType_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->details_ == nullptr
+        && return this->downloadUrl_ == nullptr && return this->filePath_ == nullptr && return this->firstScanTimestamp_ == nullptr && return this->highLight_ == nullptr && return this->id_ == nullptr
+        && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr && return this->latestScanTimestamp_ == nullptr && return this->level_ == nullptr
+        && return this->maliciousMd5_ == nullptr && return this->maliciousName_ == nullptr && return this->maliciousType_ == nullptr && return this->operateResult_ == nullptr && return this->operateTimestamp_ == nullptr
+        && return this->partition_ == nullptr && return this->targetId_ == nullptr && return this->targetName_ == nullptr && return this->targetType_ == nullptr && return this->uuid_ == nullptr; };
     // details Field Functions 
     bool hasDetails() const { return this->details_ != nullptr;};
     void deleteDetails() { this->details_ = nullptr;};

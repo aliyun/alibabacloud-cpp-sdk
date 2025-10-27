@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->eventName_ != nullptr
-        && this->eventType_ != nullptr && this->id_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr
-        && this->intranetIp_ != nullptr && this->ip_ != nullptr && this->link_ != nullptr && this->md5_ != nullptr && this->modifyTime_ != nullptr
-        && this->path_ != nullptr && this->status_ != nullptr && this->tag_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->eventName_ == nullptr
+        && return this->eventType_ == nullptr && return this->id_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr
+        && return this->intranetIp_ == nullptr && return this->ip_ == nullptr && return this->link_ == nullptr && return this->md5_ == nullptr && return this->modifyTime_ == nullptr
+        && return this->path_ == nullptr && return this->status_ == nullptr && return this->tag_ == nullptr && return this->uuid_ == nullptr; };
     // eventName Field Functions 
     bool hasEventName() const { return this->eventName_ != nullptr;};
     void deleteEventName() { this->eventName_ = nullptr;};

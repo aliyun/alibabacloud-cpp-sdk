@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->arp_ != nullptr
-        && this->businessGroupId_ != nullptr && this->controlNodeId_ != nullptr && this->displayName_ != nullptr && this->honeypotBindList_ != nullptr && this->ping_ != nullptr
-        && this->probeType_ != nullptr && this->probeVersion_ != nullptr && this->proxyIp_ != nullptr && this->uuid_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->arp_ == nullptr
+        && return this->businessGroupId_ == nullptr && return this->controlNodeId_ == nullptr && return this->displayName_ == nullptr && return this->honeypotBindList_ == nullptr && return this->ping_ == nullptr
+        && return this->probeType_ == nullptr && return this->probeVersion_ == nullptr && return this->proxyIp_ == nullptr && return this->uuid_ == nullptr && return this->vpcId_ == nullptr; };
     // arp Field Functions 
     bool hasArp() const { return this->arp_ != nullptr;};
     void deleteArp() { this->arp_ = nullptr;};

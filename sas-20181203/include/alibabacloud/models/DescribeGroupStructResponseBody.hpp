@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->groupFather_ != nullptr
-        && this->groupFlag_ != nullptr && this->groupId_ != nullptr && this->groupIndex_ != nullptr && this->groupLevel_ != nullptr && this->groupName_ != nullptr
-        && this->groups_ != nullptr && this->machineNum_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->groupFather_ == nullptr
+        && return this->groupFlag_ == nullptr && return this->groupId_ == nullptr && return this->groupIndex_ == nullptr && return this->groupLevel_ == nullptr && return this->groupName_ == nullptr
+        && return this->groups_ == nullptr && return this->machineNum_ == nullptr && return this->requestId_ == nullptr; };
     // groupFather Field Functions 
     bool hasGroupFather() const { return this->groupFather_ != nullptr;};
     void deleteGroupFather() { this->groupFather_ = nullptr;};

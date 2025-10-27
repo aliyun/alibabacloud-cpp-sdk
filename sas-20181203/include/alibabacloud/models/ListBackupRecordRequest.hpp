@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backupEndTime_ != nullptr
-        && this->backupStartTime_ != nullptr && this->currentPage_ != nullptr && this->machineRemark_ != nullptr && this->pageSize_ != nullptr && this->statusList_ != nullptr; };
+    virtual bool empty() const override { return this->backupEndTime_ == nullptr
+        && return this->backupStartTime_ == nullptr && return this->currentPage_ == nullptr && return this->machineRemark_ == nullptr && return this->pageSize_ == nullptr && return this->statusList_ == nullptr; };
     // backupEndTime Field Functions 
     bool hasBackupEndTime() const { return this->backupEndTime_ != nullptr;};
     void deleteBackupEndTime() { this->backupEndTime_ = nullptr;};

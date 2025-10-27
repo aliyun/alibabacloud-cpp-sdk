@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkItemFuzzy_ != nullptr
-        && this->checkLevel_ != nullptr && this->checkType_ != nullptr && this->checkWarningStatus_ != nullptr && this->checkWarningStatusList_ != nullptr && this->containerFieldName_ != nullptr
-        && this->containerFieldValue_ != nullptr && this->currentPage_ != nullptr && this->groupId_ != nullptr && this->lang_ != nullptr && this->pageSize_ != nullptr
-        && this->riskType_ != nullptr && this->source_ != nullptr && this->startTime_ != nullptr && this->uuidList_ != nullptr; };
+    virtual bool empty() const override { return this->checkItemFuzzy_ == nullptr
+        && return this->checkLevel_ == nullptr && return this->checkType_ == nullptr && return this->checkWarningStatus_ == nullptr && return this->checkWarningStatusList_ == nullptr && return this->containerFieldName_ == nullptr
+        && return this->containerFieldValue_ == nullptr && return this->currentPage_ == nullptr && return this->groupId_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr
+        && return this->riskType_ == nullptr && return this->source_ == nullptr && return this->startTime_ == nullptr && return this->uuidList_ == nullptr; };
     // checkItemFuzzy Field Functions 
     bool hasCheckItemFuzzy() const { return this->checkItemFuzzy_ != nullptr;};
     void deleteCheckItemFuzzy() { this->checkItemFuzzy_ = nullptr;};
@@ -186,6 +186,7 @@ namespace Models
     // *   **1**: failed
     // *   **3**: passed
     // *   **6**: whitelisted
+    // *   **8**: fixed
     std::shared_ptr<int32_t> checkWarningStatus_ = nullptr;
     // The list of risk levels. If the CheckWarningStatus parameter is specified, only it takes effect.
     std::shared_ptr<vector<int32_t>> checkWarningStatusList_ = nullptr;

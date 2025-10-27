@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->externalIp_ != nullptr
-        && this->internalIp_ != nullptr && this->realIp_ != nullptr; };
+    virtual bool empty() const override { return this->externalIp_ == nullptr
+        && return this->internalIp_ == nullptr && return this->realIp_ == nullptr; };
     // externalIp Field Functions 
     bool hasExternalIp() const { return this->externalIp_ != nullptr;};
     void deleteExternalIp() { this->externalIp_ = nullptr;};

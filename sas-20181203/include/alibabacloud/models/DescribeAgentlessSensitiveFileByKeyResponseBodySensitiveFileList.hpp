@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->filePath_ != nullptr
-        && this->firstScanTime_ != nullptr && this->id_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr && this->intranetIp_ != nullptr
-        && this->lastScanTime_ != nullptr && this->md5_ != nullptr && this->prompt_ != nullptr && this->riskLevel_ != nullptr && this->sensitiveFileKey_ != nullptr
-        && this->status_ != nullptr && this->targetName_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->filePath_ == nullptr
+        && return this->firstScanTime_ == nullptr && return this->id_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr
+        && return this->lastScanTime_ == nullptr && return this->md5_ == nullptr && return this->prompt_ == nullptr && return this->riskLevel_ == nullptr && return this->sensitiveFileKey_ == nullptr
+        && return this->status_ == nullptr && return this->targetName_ == nullptr && return this->uuid_ == nullptr; };
     // filePath Field Functions 
     bool hasFilePath() const { return this->filePath_ != nullptr;};
     void deleteFilePath() { this->filePath_ = nullptr;};

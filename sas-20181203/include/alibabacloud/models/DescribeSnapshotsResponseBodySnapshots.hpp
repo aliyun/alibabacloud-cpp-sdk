@@ -76,12 +76,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actualBytes_ != nullptr
-        && this->actualItems_ != nullptr && this->bytesDone_ != nullptr && this->bytesTotal_ != nullptr && this->clientId_ != nullptr && this->clientVersion_ != nullptr
-        && this->createdTime_ != nullptr && this->errorFile_ != nullptr && this->instanceId_ != nullptr && this->itemsDone_ != nullptr && this->itemsTotal_ != nullptr
-        && this->jobId_ != nullptr && this->parentSnapshotHash_ != nullptr && this->path_ != nullptr && this->paths_ != nullptr && this->planId_ != nullptr
-        && this->regionId_ != nullptr && this->retention_ != nullptr && this->snapshotHash_ != nullptr && this->snapshotId_ != nullptr && this->sourceType_ != nullptr
-        && this->status_ != nullptr && this->uuid_ != nullptr && this->vaultId_ != nullptr; };
+    virtual bool empty() const override { return this->actualBytes_ == nullptr
+        && return this->actualItems_ == nullptr && return this->bytesDone_ == nullptr && return this->bytesTotal_ == nullptr && return this->clientId_ == nullptr && return this->clientVersion_ == nullptr
+        && return this->createdTime_ == nullptr && return this->errorFile_ == nullptr && return this->instanceId_ == nullptr && return this->itemsDone_ == nullptr && return this->itemsTotal_ == nullptr
+        && return this->jobId_ == nullptr && return this->parentSnapshotHash_ == nullptr && return this->path_ == nullptr && return this->paths_ == nullptr && return this->planId_ == nullptr
+        && return this->regionId_ == nullptr && return this->retention_ == nullptr && return this->snapshotHash_ == nullptr && return this->snapshotId_ == nullptr && return this->sourceType_ == nullptr
+        && return this->status_ == nullptr && return this->uuid_ == nullptr && return this->vaultId_ == nullptr; };
     // actualBytes Field Functions 
     bool hasActualBytes() const { return this->actualBytes_ != nullptr;};
     void deleteActualBytes() { this->actualBytes_ = nullptr;};

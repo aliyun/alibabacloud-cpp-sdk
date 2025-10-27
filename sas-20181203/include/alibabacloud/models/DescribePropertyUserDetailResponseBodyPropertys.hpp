@@ -72,12 +72,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountsExpirationDate_ != nullptr
-        && this->createTimestamp_ != nullptr && this->groupNames_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->internetIp_ != nullptr
-        && this->intranetIp_ != nullptr && this->ip_ != nullptr && this->isCouldLogin_ != nullptr && this->isPasswdExpired_ != nullptr && this->isPasswdLocked_ != nullptr
-        && this->isRoot_ != nullptr && this->isSudoer_ != nullptr && this->isUserExpired_ != nullptr && this->lastLoginIp_ != nullptr && this->lastLoginTime_ != nullptr
-        && this->lastLoginTimeDt_ != nullptr && this->lastLoginTimestamp_ != nullptr && this->passwordExpirationDate_ != nullptr && this->status_ != nullptr && this->user_ != nullptr
-        && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->accountsExpirationDate_ == nullptr
+        && return this->createTimestamp_ == nullptr && return this->groupNames_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr
+        && return this->intranetIp_ == nullptr && return this->ip_ == nullptr && return this->isCouldLogin_ == nullptr && return this->isPasswdExpired_ == nullptr && return this->isPasswdLocked_ == nullptr
+        && return this->isRoot_ == nullptr && return this->isSudoer_ == nullptr && return this->isUserExpired_ == nullptr && return this->lastLoginIp_ == nullptr && return this->lastLoginTime_ == nullptr
+        && return this->lastLoginTimeDt_ == nullptr && return this->lastLoginTimestamp_ == nullptr && return this->passwordExpirationDate_ == nullptr && return this->status_ == nullptr && return this->user_ == nullptr
+        && return this->uuid_ == nullptr; };
     // accountsExpirationDate Field Functions 
     bool hasAccountsExpirationDate() const { return this->accountsExpirationDate_ != nullptr;};
     void deleteAccountsExpirationDate() { this->accountsExpirationDate_ = nullptr;};

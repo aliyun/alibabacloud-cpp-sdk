@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->advice_ != nullptr
-        && this->description_ != nullptr && this->filePath_ != nullptr && this->firstScanTime_ != nullptr && this->lastScanTime_ != nullptr && this->layerDigest_ != nullptr
-        && this->md5_ != nullptr && this->promt_ != nullptr && this->riskLevel_ != nullptr && this->sensitiveFileKey_ != nullptr && this->sensitiveFileName_ != nullptr; };
+    virtual bool empty() const override { return this->advice_ == nullptr
+        && return this->description_ == nullptr && return this->filePath_ == nullptr && return this->firstScanTime_ == nullptr && return this->lastScanTime_ == nullptr && return this->layerDigest_ == nullptr
+        && return this->md5_ == nullptr && return this->promt_ == nullptr && return this->riskLevel_ == nullptr && return this->sensitiveFileKey_ == nullptr && return this->sensitiveFileName_ == nullptr; };
     // advice Field Functions 
     bool hasAdvice() const { return this->advice_ != nullptr;};
     void deleteAdvice() { this->advice_ = nullptr;};

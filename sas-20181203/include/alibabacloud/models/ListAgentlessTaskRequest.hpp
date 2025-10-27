@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->currentPage_ != nullptr
-        && this->endTime_ != nullptr && this->internetIp_ != nullptr && this->intranetIp_ != nullptr && this->lang_ != nullptr && this->machineName_ != nullptr
-        && this->pageSize_ != nullptr && this->rootTask_ != nullptr && this->rootTaskId_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr
-        && this->targetName_ != nullptr && this->targetType_ != nullptr && this->taskId_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->currentPage_ == nullptr
+        && return this->endTime_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr && return this->lang_ == nullptr && return this->machineName_ == nullptr
+        && return this->pageSize_ == nullptr && return this->rootTask_ == nullptr && return this->rootTaskId_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr
+        && return this->targetName_ == nullptr && return this->targetType_ == nullptr && return this->taskId_ == nullptr && return this->uuid_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};

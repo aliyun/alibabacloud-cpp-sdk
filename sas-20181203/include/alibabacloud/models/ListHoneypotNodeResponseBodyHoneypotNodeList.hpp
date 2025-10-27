@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowHoneypotAccessInternet_ != nullptr
-        && this->createTime_ != nullptr && this->defaultNode_ != nullptr && this->ecsInstanceId_ != nullptr && this->honeypotTotalCount_ != nullptr && this->honeypotUsedCount_ != nullptr
-        && this->nodeId_ != nullptr && this->nodeIp_ != nullptr && this->nodeName_ != nullptr && this->probeTotalCount_ != nullptr && this->probeUsedCount_ != nullptr
-        && this->securityGroupProbeIpList_ != nullptr && this->totalStatus_ != nullptr && this->upgradeAvailable_ != nullptr; };
+    virtual bool empty() const override { return this->allowHoneypotAccessInternet_ == nullptr
+        && return this->createTime_ == nullptr && return this->defaultNode_ == nullptr && return this->ecsInstanceId_ == nullptr && return this->honeypotTotalCount_ == nullptr && return this->honeypotUsedCount_ == nullptr
+        && return this->nodeId_ == nullptr && return this->nodeIp_ == nullptr && return this->nodeName_ == nullptr && return this->probeTotalCount_ == nullptr && return this->probeUsedCount_ == nullptr
+        && return this->securityGroupProbeIpList_ == nullptr && return this->totalStatus_ == nullptr && return this->upgradeAvailable_ == nullptr; };
     // allowHoneypotAccessInternet Field Functions 
     bool hasAllowHoneypotAccessInternet() const { return this->allowHoneypotAccessInternet_ != nullptr;};
     void deleteAllowHoneypotAccessInternet() { this->allowHoneypotAccessInternet_ = nullptr;};
