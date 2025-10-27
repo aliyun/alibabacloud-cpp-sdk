@@ -657,6 +657,62 @@ MassPushResponse Client::massPush(const MassPushRequest &request) {
 }
 
 /**
+ * @summary 新版高级推送接口
+ *
+ * @param tmpReq MassPushV2Request
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MassPushV2Response
+ */
+MassPushV2Response Client::massPushV2WithOptions(const MassPushV2Request &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  MassPushV2ShrinkRequest request = MassPushV2ShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasPushTasks()) {
+    request.setPushTasksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.pushTasks(), "PushTasks", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAppKey()) {
+    query["AppKey"] = request.appKey();
+  }
+
+  if (!!request.hasIdempotentToken()) {
+    query["IdempotentToken"] = request.idempotentToken();
+  }
+
+  if (!!request.hasPushTasksShrink()) {
+    query["PushTasks"] = request.pushTasksShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "MassPushV2"},
+    {"version" , "2016-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MassPushV2Response>();
+}
+
+/**
+ * @summary 新版高级推送接口
+ *
+ * @param request MassPushV2Request
+ * @return MassPushV2Response
+ */
+MassPushV2Response Client::massPushV2(const MassPushV2Request &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return massPushV2WithOptions(request, runtime);
+}
+
+/**
  * @summary 高级推送接口
  *
  * @param tmpReq PushRequest
@@ -1422,6 +1478,62 @@ PushNoticeToiOSResponse Client::pushNoticeToiOSWithOptions(const PushNoticeToiOS
 PushNoticeToiOSResponse Client::pushNoticeToiOS(const PushNoticeToiOSRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return pushNoticeToiOSWithOptions(request, runtime);
+}
+
+/**
+ * @summary 新版高级推送接口
+ *
+ * @param tmpReq PushV2Request
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PushV2Response
+ */
+PushV2Response Client::pushV2WithOptions(const PushV2Request &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  PushV2ShrinkRequest request = PushV2ShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasPushTask()) {
+    request.setPushTaskShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.pushTask(), "PushTask", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAppKey()) {
+    query["AppKey"] = request.appKey();
+  }
+
+  if (!!request.hasIdempotentToken()) {
+    query["IdempotentToken"] = request.idempotentToken();
+  }
+
+  if (!!request.hasPushTaskShrink()) {
+    query["PushTask"] = request.pushTaskShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PushV2"},
+    {"version" , "2016-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PushV2Response>();
+}
+
+/**
+ * @summary 新版高级推送接口
+ *
+ * @param request PushV2Request
+ * @return PushV2Response
+ */
+PushV2Response Client::pushV2(const PushV2Request &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return pushV2WithOptions(request, runtime);
 }
 
 /**

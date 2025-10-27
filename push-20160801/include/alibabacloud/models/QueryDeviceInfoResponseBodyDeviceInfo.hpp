@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->account_ != nullptr
-        && this->alias_ != nullptr && this->brand_ != nullptr && this->deviceId_ != nullptr && this->deviceToken_ != nullptr && this->deviceType_ != nullptr
-        && this->lastOnlineTime_ != nullptr && this->model_ != nullptr && this->online_ != nullptr && this->phoneNumber_ != nullptr && this->pushEnabled_ != nullptr
-        && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->account_ == nullptr
+        && return this->alias_ == nullptr && return this->brand_ == nullptr && return this->deviceId_ == nullptr && return this->deviceToken_ == nullptr && return this->deviceType_ == nullptr
+        && return this->lastOnlineTime_ == nullptr && return this->model_ == nullptr && return this->online_ == nullptr && return this->phoneNumber_ == nullptr && return this->pushEnabled_ == nullptr
+        && return this->tags_ == nullptr; };
     // account Field Functions 
     bool hasAccount() const { return this->account_ != nullptr;};
     void deleteAccount() { this->account_ = nullptr;};

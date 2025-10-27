@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->customStyle_ != nullptr
-        && this->notifyType_ != nullptr && this->openActivity_ != nullptr && this->openType_ != nullptr && this->openUrl_ != nullptr && this->priority_ != nullptr
-        && this->threadId_ != nullptr; };
+    virtual bool empty() const override { return this->customStyle_ == nullptr
+        && return this->notifyType_ == nullptr && return this->openActivity_ == nullptr && return this->openType_ == nullptr && return this->openUrl_ == nullptr && return this->priority_ == nullptr
+        && return this->threadId_ == nullptr; };
     // customStyle Field Functions 
     bool hasCustomStyle() const { return this->customStyle_ != nullptr;};
     void deleteCustomStyle() { this->customStyle_ = nullptr;};

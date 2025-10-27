@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceptCount_ != nullptr
-        && this->deletedCount_ != nullptr && this->openedCount_ != nullptr && this->receivedCount_ != nullptr && this->sentCount_ != nullptr && this->smsFailedCount_ != nullptr
-        && this->smsReceiveFailedCount_ != nullptr && this->smsReceiveSuccessCount_ != nullptr && this->smsSentCount_ != nullptr && this->smsSkipCount_ != nullptr && this->time_ != nullptr; };
+    virtual bool empty() const override { return this->acceptCount_ == nullptr
+        && return this->deletedCount_ == nullptr && return this->openedCount_ == nullptr && return this->receivedCount_ == nullptr && return this->sentCount_ == nullptr && return this->smsFailedCount_ == nullptr
+        && return this->smsReceiveFailedCount_ == nullptr && return this->smsReceiveSuccessCount_ == nullptr && return this->smsSentCount_ == nullptr && return this->smsSkipCount_ == nullptr && return this->time_ == nullptr; };
     // acceptCount Field Functions 
     bool hasAcceptCount() const { return this->acceptCount_ != nullptr;};
     void deleteAcceptCount() { this->acceptCount_ = nullptr;};

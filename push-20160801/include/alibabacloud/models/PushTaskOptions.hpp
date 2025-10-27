@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->expireTime_ != nullptr
-        && this->jobKey_ != nullptr && this->messageId_ != nullptr && this->pushTime_ != nullptr && this->sms_ != nullptr && this->trim_ != nullptr
-        && this->useChannels_ != nullptr; };
+    virtual bool empty() const override { return this->expireTime_ == nullptr
+        && return this->jobKey_ == nullptr && return this->messageId_ == nullptr && return this->pushTime_ == nullptr && return this->sms_ == nullptr && return this->trim_ == nullptr
+        && return this->useChannels_ == nullptr; };
     // expireTime Field Functions 
     bool hasExpireTime() const { return this->expireTime_ != nullptr;};
     void deleteExpireTime() { this->expireTime_ = nullptr;};

@@ -228,6 +228,23 @@ namespace Push20160801
       Models::MassPushResponse massPush(const Models::MassPushRequest &request);
 
       /**
+       * @summary 新版高级推送接口
+       *
+       * @param tmpReq MassPushV2Request
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MassPushV2Response
+       */
+      Models::MassPushV2Response massPushV2WithOptions(const Models::MassPushV2Request &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新版高级推送接口
+       *
+       * @param request MassPushV2Request
+       * @return MassPushV2Response
+       */
+      Models::MassPushV2Response massPushV2(const Models::MassPushV2Request &request);
+
+      /**
        * @summary 高级推送接口
        *
        * @param tmpReq PushRequest
@@ -311,6 +328,23 @@ namespace Push20160801
        * @return PushNoticeToiOSResponse
        */
       Models::PushNoticeToiOSResponse pushNoticeToiOS(const Models::PushNoticeToiOSRequest &request);
+
+      /**
+       * @summary 新版高级推送接口
+       *
+       * @param tmpReq PushV2Request
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PushV2Response
+       */
+      Models::PushV2Response pushV2WithOptions(const Models::PushV2Request &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新版高级推送接口
+       *
+       * @param request PushV2Request
+       * @return PushV2Response
+       */
+      Models::PushV2Response pushV2(const Models::PushV2Request &request);
 
       /**
        * @summary 查询别名

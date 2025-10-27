@@ -252,30 +252,30 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->androidActivity_ != nullptr
-        && this->androidBadgeAddNum_ != nullptr && this->androidBadgeClass_ != nullptr && this->androidBadgeSetNum_ != nullptr && this->androidBigBody_ != nullptr && this->androidBigPictureUrl_ != nullptr
-        && this->androidBigTitle_ != nullptr && this->androidExtParameters_ != nullptr && this->androidHonorTargetUserType_ != nullptr && this->androidHuaweiLiveNotificationPayload_ != nullptr && this->androidHuaweiReceiptId_ != nullptr
-        && this->androidHuaweiTargetUserType_ != nullptr && this->androidImageUrl_ != nullptr && this->androidInboxBody_ != nullptr && this->androidMeizuNoticeMsgType_ != nullptr && this->androidMessageHuaweiCategory_ != nullptr
-        && this->androidMessageHuaweiUrgency_ != nullptr && this->androidMessageOppoCategory_ != nullptr && this->androidMessageOppoNotifyLevel_ != nullptr && this->androidMessageVivoCategory_ != nullptr && this->androidMusic_ != nullptr
-        && this->androidNotificationBarPriority_ != nullptr && this->androidNotificationBarType_ != nullptr && this->androidNotificationChannel_ != nullptr && this->androidNotificationGroup_ != nullptr && this->androidNotificationHonorChannel_ != nullptr
-        && this->androidNotificationHuaweiChannel_ != nullptr && this->androidNotificationNotifyId_ != nullptr && this->androidNotificationThreadId_ != nullptr && this->androidNotificationVivoChannel_ != nullptr && this->androidNotificationXiaomiChannel_ != nullptr
-        && this->androidNotifyType_ != nullptr && this->androidOpenType_ != nullptr && this->androidOpenUrl_ != nullptr && this->androidOppoPrivateContentParameters_ != nullptr && this->androidOppoPrivateMsgTemplateId_ != nullptr
-        && this->androidOppoPrivateTitleParameters_ != nullptr && this->androidPopupActivity_ != nullptr && this->androidPopupBody_ != nullptr && this->androidPopupTitle_ != nullptr && this->androidRemind_ != nullptr
-        && this->androidRenderStyle_ != nullptr && this->androidTargetUserType_ != nullptr && this->androidVivoPushMode_ != nullptr && this->androidVivoReceiptId_ != nullptr && this->androidXiaoMiActivity_ != nullptr
-        && this->androidXiaoMiNotifyBody_ != nullptr && this->androidXiaoMiNotifyTitle_ != nullptr && this->androidXiaomiBigPictureUrl_ != nullptr && this->androidXiaomiImageUrl_ != nullptr && this->appKey_ != nullptr
-        && this->body_ != nullptr && this->deviceType_ != nullptr && this->expireTime_ != nullptr && this->harmonyAction_ != nullptr && this->harmonyActionType_ != nullptr
-        && this->harmonyBadgeAddNum_ != nullptr && this->harmonyBadgeSetNum_ != nullptr && this->harmonyCategory_ != nullptr && this->harmonyExtParameters_ != nullptr && this->harmonyExtensionExtraData_ != nullptr
-        && this->harmonyExtensionPush_ != nullptr && this->harmonyImageUrl_ != nullptr && this->harmonyInboxContent_ != nullptr && this->harmonyLiveViewPayload_ != nullptr && this->harmonyNotificationSlotType_ != nullptr
-        && this->harmonyNotifyId_ != nullptr && this->harmonyReceiptId_ != nullptr && this->harmonyRemind_ != nullptr && this->harmonyRemindBody_ != nullptr && this->harmonyRemindTitle_ != nullptr
-        && this->harmonyRenderStyle_ != nullptr && this->harmonyTestMessage_ != nullptr && this->harmonyUri_ != nullptr && this->idempotentToken_ != nullptr && this->jobKey_ != nullptr
-        && this->pushTime_ != nullptr && this->pushType_ != nullptr && this->sendChannels_ != nullptr && this->sendSpeed_ != nullptr && this->smsDelaySecs_ != nullptr
-        && this->smsParams_ != nullptr && this->smsSendPolicy_ != nullptr && this->smsSignName_ != nullptr && this->smsTemplateName_ != nullptr && this->storeOffline_ != nullptr
-        && this->target_ != nullptr && this->targetValue_ != nullptr && this->title_ != nullptr && this->trim_ != nullptr && this->iOSApnsEnv_ != nullptr
-        && this->iOSBadge_ != nullptr && this->iOSBadgeAutoIncrement_ != nullptr && this->iOSExtParameters_ != nullptr && this->iOSInterruptionLevel_ != nullptr && this->iOSLiveActivityAttributes_ != nullptr
-        && this->iOSLiveActivityAttributesType_ != nullptr && this->iOSLiveActivityContentState_ != nullptr && this->iOSLiveActivityDismissalDate_ != nullptr && this->iOSLiveActivityEvent_ != nullptr && this->iOSLiveActivityId_ != nullptr
-        && this->iOSLiveActivityStaleDate_ != nullptr && this->iOSMusic_ != nullptr && this->iOSMutableContent_ != nullptr && this->iOSNotificationCategory_ != nullptr && this->iOSNotificationCollapseId_ != nullptr
-        && this->iOSNotificationThreadId_ != nullptr && this->iOSRelevanceScore_ != nullptr && this->iOSRemind_ != nullptr && this->iOSRemindBody_ != nullptr && this->iOSSilentNotification_ != nullptr
-        && this->iOSSubtitle_ != nullptr; };
+    virtual bool empty() const override { return this->androidActivity_ == nullptr
+        && return this->androidBadgeAddNum_ == nullptr && return this->androidBadgeClass_ == nullptr && return this->androidBadgeSetNum_ == nullptr && return this->androidBigBody_ == nullptr && return this->androidBigPictureUrl_ == nullptr
+        && return this->androidBigTitle_ == nullptr && return this->androidExtParameters_ == nullptr && return this->androidHonorTargetUserType_ == nullptr && return this->androidHuaweiLiveNotificationPayload_ == nullptr && return this->androidHuaweiReceiptId_ == nullptr
+        && return this->androidHuaweiTargetUserType_ == nullptr && return this->androidImageUrl_ == nullptr && return this->androidInboxBody_ == nullptr && return this->androidMeizuNoticeMsgType_ == nullptr && return this->androidMessageHuaweiCategory_ == nullptr
+        && return this->androidMessageHuaweiUrgency_ == nullptr && return this->androidMessageOppoCategory_ == nullptr && return this->androidMessageOppoNotifyLevel_ == nullptr && return this->androidMessageVivoCategory_ == nullptr && return this->androidMusic_ == nullptr
+        && return this->androidNotificationBarPriority_ == nullptr && return this->androidNotificationBarType_ == nullptr && return this->androidNotificationChannel_ == nullptr && return this->androidNotificationGroup_ == nullptr && return this->androidNotificationHonorChannel_ == nullptr
+        && return this->androidNotificationHuaweiChannel_ == nullptr && return this->androidNotificationNotifyId_ == nullptr && return this->androidNotificationThreadId_ == nullptr && return this->androidNotificationVivoChannel_ == nullptr && return this->androidNotificationXiaomiChannel_ == nullptr
+        && return this->androidNotifyType_ == nullptr && return this->androidOpenType_ == nullptr && return this->androidOpenUrl_ == nullptr && return this->androidOppoPrivateContentParameters_ == nullptr && return this->androidOppoPrivateMsgTemplateId_ == nullptr
+        && return this->androidOppoPrivateTitleParameters_ == nullptr && return this->androidPopupActivity_ == nullptr && return this->androidPopupBody_ == nullptr && return this->androidPopupTitle_ == nullptr && return this->androidRemind_ == nullptr
+        && return this->androidRenderStyle_ == nullptr && return this->androidTargetUserType_ == nullptr && return this->androidVivoPushMode_ == nullptr && return this->androidVivoReceiptId_ == nullptr && return this->androidXiaoMiActivity_ == nullptr
+        && return this->androidXiaoMiNotifyBody_ == nullptr && return this->androidXiaoMiNotifyTitle_ == nullptr && return this->androidXiaomiBigPictureUrl_ == nullptr && return this->androidXiaomiImageUrl_ == nullptr && return this->appKey_ == nullptr
+        && return this->body_ == nullptr && return this->deviceType_ == nullptr && return this->expireTime_ == nullptr && return this->harmonyAction_ == nullptr && return this->harmonyActionType_ == nullptr
+        && return this->harmonyBadgeAddNum_ == nullptr && return this->harmonyBadgeSetNum_ == nullptr && return this->harmonyCategory_ == nullptr && return this->harmonyExtParameters_ == nullptr && return this->harmonyExtensionExtraData_ == nullptr
+        && return this->harmonyExtensionPush_ == nullptr && return this->harmonyImageUrl_ == nullptr && return this->harmonyInboxContent_ == nullptr && return this->harmonyLiveViewPayload_ == nullptr && return this->harmonyNotificationSlotType_ == nullptr
+        && return this->harmonyNotifyId_ == nullptr && return this->harmonyReceiptId_ == nullptr && return this->harmonyRemind_ == nullptr && return this->harmonyRemindBody_ == nullptr && return this->harmonyRemindTitle_ == nullptr
+        && return this->harmonyRenderStyle_ == nullptr && return this->harmonyTestMessage_ == nullptr && return this->harmonyUri_ == nullptr && return this->idempotentToken_ == nullptr && return this->jobKey_ == nullptr
+        && return this->pushTime_ == nullptr && return this->pushType_ == nullptr && return this->sendChannels_ == nullptr && return this->sendSpeed_ == nullptr && return this->smsDelaySecs_ == nullptr
+        && return this->smsParams_ == nullptr && return this->smsSendPolicy_ == nullptr && return this->smsSignName_ == nullptr && return this->smsTemplateName_ == nullptr && return this->storeOffline_ == nullptr
+        && return this->target_ == nullptr && return this->targetValue_ == nullptr && return this->title_ == nullptr && return this->trim_ == nullptr && return this->iOSApnsEnv_ == nullptr
+        && return this->iOSBadge_ == nullptr && return this->iOSBadgeAutoIncrement_ == nullptr && return this->iOSExtParameters_ == nullptr && return this->iOSInterruptionLevel_ == nullptr && return this->iOSLiveActivityAttributes_ == nullptr
+        && return this->iOSLiveActivityAttributesType_ == nullptr && return this->iOSLiveActivityContentState_ == nullptr && return this->iOSLiveActivityDismissalDate_ == nullptr && return this->iOSLiveActivityEvent_ == nullptr && return this->iOSLiveActivityId_ == nullptr
+        && return this->iOSLiveActivityStaleDate_ == nullptr && return this->iOSMusic_ == nullptr && return this->iOSMutableContent_ == nullptr && return this->iOSNotificationCategory_ == nullptr && return this->iOSNotificationCollapseId_ == nullptr
+        && return this->iOSNotificationThreadId_ == nullptr && return this->iOSRelevanceScore_ == nullptr && return this->iOSRemind_ == nullptr && return this->iOSRemindBody_ == nullptr && return this->iOSSilentNotification_ == nullptr
+        && return this->iOSSubtitle_ == nullptr; };
     // androidActivity Field Functions 
     bool hasAndroidActivity() const { return this->androidActivity_ != nullptr;};
     void deleteAndroidActivity() { this->androidActivity_ = nullptr;};

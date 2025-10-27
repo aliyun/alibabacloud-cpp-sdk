@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appKey_ != nullptr
-        && this->body_ != nullptr && this->deviceType_ != nullptr && this->messageId_ != nullptr && this->pushTime_ != nullptr && this->pushType_ != nullptr
-        && this->source_ != nullptr && this->status_ != nullptr && this->target_ != nullptr && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->appKey_ == nullptr
+        && return this->body_ == nullptr && return this->deviceType_ == nullptr && return this->messageId_ == nullptr && return this->pushTime_ == nullptr && return this->pushType_ == nullptr
+        && return this->source_ == nullptr && return this->status_ == nullptr && return this->target_ == nullptr && return this->title_ == nullptr; };
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};

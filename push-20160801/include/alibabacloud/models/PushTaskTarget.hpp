@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->platform_ != nullptr
-        && this->type_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->platform_ == nullptr
+        && return this->type_ == nullptr && return this->value_ == nullptr; };
     // platform Field Functions 
     bool hasPlatform() const { return this->platform_ != nullptr;};
     void deletePlatform() { this->platform_ = nullptr;};

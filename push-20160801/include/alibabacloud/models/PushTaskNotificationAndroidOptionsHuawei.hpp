@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const PushTaskNotificationAndroidOptionsHuawei& obj) { 
       DARABONBA_PTR_TO_JSON(Category, category_);
       DARABONBA_PTR_TO_JSON(Importance, importance_);
+      DARABONBA_PTR_TO_JSON(LiveNotificationPayload, liveNotificationPayload_);
       DARABONBA_PTR_TO_JSON(ReceiptId, receiptId_);
       DARABONBA_PTR_TO_JSON(Urgency, urgency_);
     };
     friend void from_json(const Darabonba::Json& j, PushTaskNotificationAndroidOptionsHuawei& obj) { 
       DARABONBA_PTR_FROM_JSON(Category, category_);
       DARABONBA_PTR_FROM_JSON(Importance, importance_);
+      DARABONBA_PTR_FROM_JSON(LiveNotificationPayload, liveNotificationPayload_);
       DARABONBA_PTR_FROM_JSON(ReceiptId, receiptId_);
       DARABONBA_PTR_FROM_JSON(Urgency, urgency_);
     };
@@ -35,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->category_ != nullptr
-        && this->importance_ != nullptr && this->receiptId_ != nullptr && this->urgency_ != nullptr; };
+    virtual bool empty() const override { return this->category_ == nullptr
+        && return this->importance_ == nullptr && return this->liveNotificationPayload_ == nullptr && return this->receiptId_ == nullptr && return this->urgency_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteImportance() { this->importance_ = nullptr;};
     inline int32_t importance() const { DARABONBA_PTR_GET_DEFAULT(importance_, 0) };
     inline PushTaskNotificationAndroidOptionsHuawei& setImportance(int32_t importance) { DARABONBA_PTR_SET_VALUE(importance_, importance) };
+
+
+    // liveNotificationPayload Field Functions 
+    bool hasLiveNotificationPayload() const { return this->liveNotificationPayload_ != nullptr;};
+    void deleteLiveNotificationPayload() { this->liveNotificationPayload_ = nullptr;};
+    inline string liveNotificationPayload() const { DARABONBA_PTR_GET_DEFAULT(liveNotificationPayload_, "") };
+    inline PushTaskNotificationAndroidOptionsHuawei& setLiveNotificationPayload(string liveNotificationPayload) { DARABONBA_PTR_SET_VALUE(liveNotificationPayload_, liveNotificationPayload) };
 
 
     // receiptId Field Functions 
@@ -68,6 +77,7 @@ namespace Models
   protected:
     std::shared_ptr<string> category_ = nullptr;
     std::shared_ptr<int32_t> importance_ = nullptr;
+    std::shared_ptr<string> liveNotificationPayload_ = nullptr;
     std::shared_ptr<string> receiptId_ = nullptr;
     std::shared_ptr<string> urgency_ = nullptr;
   };

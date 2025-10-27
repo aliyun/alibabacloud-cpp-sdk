@@ -5,6 +5,7 @@
 #include <alibabacloud/models/PushTaskNotificationAndroidOptionsAccs.hpp>
 #include <alibabacloud/models/PushTaskNotificationAndroidOptionsHonor.hpp>
 #include <alibabacloud/models/PushTaskNotificationAndroidOptionsHuawei.hpp>
+#include <alibabacloud/models/PushTaskNotificationAndroidOptionsMeizu.hpp>
 #include <alibabacloud/models/PushTaskNotificationAndroidOptionsOppo.hpp>
 #include <alibabacloud/models/PushTaskNotificationAndroidOptionsVivo.hpp>
 #include <alibabacloud/models/PushTaskNotificationAndroidOptionsXiaomi.hpp>
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Accs, accs_);
       DARABONBA_PTR_TO_JSON(Honor, honor_);
       DARABONBA_PTR_TO_JSON(Huawei, huawei_);
+      DARABONBA_PTR_TO_JSON(Meizu, meizu_);
       DARABONBA_PTR_TO_JSON(Oppo, oppo_);
       DARABONBA_PTR_TO_JSON(Vivo, vivo_);
       DARABONBA_PTR_TO_JSON(Xiaomi, xiaomi_);
@@ -30,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Accs, accs_);
       DARABONBA_PTR_FROM_JSON(Honor, honor_);
       DARABONBA_PTR_FROM_JSON(Huawei, huawei_);
+      DARABONBA_PTR_FROM_JSON(Meizu, meizu_);
       DARABONBA_PTR_FROM_JSON(Oppo, oppo_);
       DARABONBA_PTR_FROM_JSON(Vivo, vivo_);
       DARABONBA_PTR_FROM_JSON(Xiaomi, xiaomi_);
@@ -45,8 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accs_ != nullptr
-        && this->honor_ != nullptr && this->huawei_ != nullptr && this->oppo_ != nullptr && this->vivo_ != nullptr && this->xiaomi_ != nullptr; };
+    virtual bool empty() const override { return this->accs_ == nullptr
+        && return this->honor_ == nullptr && return this->huawei_ == nullptr && return this->meizu_ == nullptr && return this->oppo_ == nullptr && return this->vivo_ == nullptr
+        && return this->xiaomi_ == nullptr; };
     // accs Field Functions 
     bool hasAccs() const { return this->accs_ != nullptr;};
     void deleteAccs() { this->accs_ = nullptr;};
@@ -72,6 +76,15 @@ namespace Models
     inline Models::PushTaskNotificationAndroidOptionsHuawei huawei() { DARABONBA_PTR_GET(huawei_, Models::PushTaskNotificationAndroidOptionsHuawei) };
     inline PushTaskNotificationAndroidOptions& setHuawei(const Models::PushTaskNotificationAndroidOptionsHuawei & huawei) { DARABONBA_PTR_SET_VALUE(huawei_, huawei) };
     inline PushTaskNotificationAndroidOptions& setHuawei(Models::PushTaskNotificationAndroidOptionsHuawei && huawei) { DARABONBA_PTR_SET_RVALUE(huawei_, huawei) };
+
+
+    // meizu Field Functions 
+    bool hasMeizu() const { return this->meizu_ != nullptr;};
+    void deleteMeizu() { this->meizu_ = nullptr;};
+    inline const Models::PushTaskNotificationAndroidOptionsMeizu & meizu() const { DARABONBA_PTR_GET_CONST(meizu_, Models::PushTaskNotificationAndroidOptionsMeizu) };
+    inline Models::PushTaskNotificationAndroidOptionsMeizu meizu() { DARABONBA_PTR_GET(meizu_, Models::PushTaskNotificationAndroidOptionsMeizu) };
+    inline PushTaskNotificationAndroidOptions& setMeizu(const Models::PushTaskNotificationAndroidOptionsMeizu & meizu) { DARABONBA_PTR_SET_VALUE(meizu_, meizu) };
+    inline PushTaskNotificationAndroidOptions& setMeizu(Models::PushTaskNotificationAndroidOptionsMeizu && meizu) { DARABONBA_PTR_SET_RVALUE(meizu_, meizu) };
 
 
     // oppo Field Functions 
@@ -105,6 +118,7 @@ namespace Models
     std::shared_ptr<Models::PushTaskNotificationAndroidOptionsAccs> accs_ = nullptr;
     std::shared_ptr<Models::PushTaskNotificationAndroidOptionsHonor> honor_ = nullptr;
     std::shared_ptr<Models::PushTaskNotificationAndroidOptionsHuawei> huawei_ = nullptr;
+    std::shared_ptr<Models::PushTaskNotificationAndroidOptionsMeizu> meizu_ = nullptr;
     std::shared_ptr<Models::PushTaskNotificationAndroidOptionsOppo> oppo_ = nullptr;
     std::shared_ptr<Models::PushTaskNotificationAndroidOptionsVivo> vivo_ = nullptr;
     std::shared_ptr<Models::PushTaskNotificationAndroidOptionsXiaomi> xiaomi_ = nullptr;

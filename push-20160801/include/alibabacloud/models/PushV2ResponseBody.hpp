@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_PUSHMESSAGETOIOSRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_PUSHMESSAGETOIOSRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_PUSHV2RESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_PUSHV2RESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,41 +10,41 @@ namespace Push20160801
 {
 namespace Models
 {
-  class PushMessageToiOSResponseBody : public Darabonba::Model {
+  class PushV2ResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const PushMessageToiOSResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const PushV2ResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(MessageId, messageId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
-    friend void from_json(const Darabonba::Json& j, PushMessageToiOSResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, PushV2ResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(MessageId, messageId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
-    PushMessageToiOSResponseBody() = default ;
-    PushMessageToiOSResponseBody(const PushMessageToiOSResponseBody &) = default ;
-    PushMessageToiOSResponseBody(PushMessageToiOSResponseBody &&) = default ;
-    PushMessageToiOSResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~PushMessageToiOSResponseBody() = default ;
-    PushMessageToiOSResponseBody& operator=(const PushMessageToiOSResponseBody &) = default ;
-    PushMessageToiOSResponseBody& operator=(PushMessageToiOSResponseBody &&) = default ;
+    PushV2ResponseBody() = default ;
+    PushV2ResponseBody(const PushV2ResponseBody &) = default ;
+    PushV2ResponseBody(PushV2ResponseBody &&) = default ;
+    PushV2ResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~PushV2ResponseBody() = default ;
+    PushV2ResponseBody& operator=(const PushV2ResponseBody &) = default ;
+    PushV2ResponseBody& operator=(PushV2ResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->messageId_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->messageId_ == nullptr
+        && return this->requestId_ == nullptr; };
     // messageId Field Functions 
     bool hasMessageId() const { return this->messageId_ != nullptr;};
     void deleteMessageId() { this->messageId_ = nullptr;};
     inline string messageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
-    inline PushMessageToiOSResponseBody& setMessageId(string messageId) { DARABONBA_PTR_SET_VALUE(messageId_, messageId) };
+    inline PushV2ResponseBody& setMessageId(string messageId) { DARABONBA_PTR_SET_VALUE(messageId_, messageId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline PushMessageToiOSResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline PushV2ResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:

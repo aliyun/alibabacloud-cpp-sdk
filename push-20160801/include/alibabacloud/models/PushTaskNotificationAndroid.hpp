@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->badgeActivity_ != nullptr
-        && this->badgeAddNum_ != nullptr && this->badgeSetNum_ != nullptr && this->channelId_ != nullptr && this->extParameters_ != nullptr && this->groupId_ != nullptr
-        && this->imageUrl_ != nullptr && this->inboxContent_ != nullptr && this->music_ != nullptr && this->notifyId_ != nullptr && this->options_ != nullptr
-        && this->pictureUrl_ != nullptr && this->renderStyle_ != nullptr && this->testMessage_ != nullptr && this->vendorChannelActivity_ != nullptr; };
+    virtual bool empty() const override { return this->badgeActivity_ == nullptr
+        && return this->badgeAddNum_ == nullptr && return this->badgeSetNum_ == nullptr && return this->channelId_ == nullptr && return this->extParameters_ == nullptr && return this->groupId_ == nullptr
+        && return this->imageUrl_ == nullptr && return this->inboxContent_ == nullptr && return this->music_ == nullptr && return this->notifyId_ == nullptr && return this->options_ == nullptr
+        && return this->pictureUrl_ == nullptr && return this->renderStyle_ == nullptr && return this->testMessage_ == nullptr && return this->vendorChannelActivity_ == nullptr; };
     // badgeActivity Field Functions 
     bool hasBadgeActivity() const { return this->badgeActivity_ != nullptr;};
     void deleteBadgeActivity() { this->badgeActivity_ = nullptr;};

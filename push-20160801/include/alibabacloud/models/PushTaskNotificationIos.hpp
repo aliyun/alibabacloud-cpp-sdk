@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apnsEnv_ != nullptr
-        && this->badge_ != nullptr && this->badgeAutoIncrement_ != nullptr && this->category_ != nullptr && this->collapseId_ != nullptr && this->extParameters_ != nullptr
-        && this->interruptionLevel_ != nullptr && this->liveActivity_ != nullptr && this->music_ != nullptr && this->mutable_ != nullptr && this->relevanceScore_ != nullptr
-        && this->silent_ != nullptr && this->subtitle_ != nullptr && this->threadId_ != nullptr; };
+    virtual bool empty() const override { return this->apnsEnv_ == nullptr
+        && return this->badge_ == nullptr && return this->badgeAutoIncrement_ == nullptr && return this->category_ == nullptr && return this->collapseId_ == nullptr && return this->extParameters_ == nullptr
+        && return this->interruptionLevel_ == nullptr && return this->liveActivity_ == nullptr && return this->music_ == nullptr && return this->mutable_ == nullptr && return this->relevanceScore_ == nullptr
+        && return this->silent_ == nullptr && return this->subtitle_ == nullptr && return this->threadId_ == nullptr; };
     // apnsEnv Field Functions 
     bool hasApnsEnv() const { return this->apnsEnv_ != nullptr;};
     void deleteApnsEnv() { this->apnsEnv_ = nullptr;};

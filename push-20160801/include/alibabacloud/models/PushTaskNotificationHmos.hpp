@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ExtensionPush, extensionPush_);
       DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_TO_JSON(InboxContent, inboxContent_);
+      DARABONBA_PTR_TO_JSON(LiveViewPayload, liveViewPayload_);
       DARABONBA_PTR_TO_JSON(NotifyId, notifyId_);
       DARABONBA_PTR_TO_JSON(ReceiptId, receiptId_);
       DARABONBA_PTR_TO_JSON(RenderStyle, renderStyle_);
@@ -40,6 +41,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ExtensionPush, extensionPush_);
       DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_FROM_JSON(InboxContent, inboxContent_);
+      DARABONBA_PTR_FROM_JSON(LiveViewPayload, liveViewPayload_);
       DARABONBA_PTR_FROM_JSON(NotifyId, notifyId_);
       DARABONBA_PTR_FROM_JSON(ReceiptId, receiptId_);
       DARABONBA_PTR_FROM_JSON(RenderStyle, renderStyle_);
@@ -58,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->action_ != nullptr
-        && this->badgeAddNum_ != nullptr && this->badgeSetNum_ != nullptr && this->category_ != nullptr && this->extParameters_ != nullptr && this->extensionExtraData_ != nullptr
-        && this->extensionPush_ != nullptr && this->imageUrl_ != nullptr && this->inboxContent_ != nullptr && this->notifyId_ != nullptr && this->receiptId_ != nullptr
-        && this->renderStyle_ != nullptr && this->slotType_ != nullptr && this->testMessage_ != nullptr && this->uri_ != nullptr; };
+    virtual bool empty() const override { return this->action_ == nullptr
+        && return this->badgeAddNum_ == nullptr && return this->badgeSetNum_ == nullptr && return this->category_ == nullptr && return this->extParameters_ == nullptr && return this->extensionExtraData_ == nullptr
+        && return this->extensionPush_ == nullptr && return this->imageUrl_ == nullptr && return this->inboxContent_ == nullptr && return this->liveViewPayload_ == nullptr && return this->notifyId_ == nullptr
+        && return this->receiptId_ == nullptr && return this->renderStyle_ == nullptr && return this->slotType_ == nullptr && return this->testMessage_ == nullptr && return this->uri_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};
@@ -127,6 +129,13 @@ namespace Models
     inline PushTaskNotificationHmos& setInboxContent(vector<string> && inboxContent) { DARABONBA_PTR_SET_RVALUE(inboxContent_, inboxContent) };
 
 
+    // liveViewPayload Field Functions 
+    bool hasLiveViewPayload() const { return this->liveViewPayload_ != nullptr;};
+    void deleteLiveViewPayload() { this->liveViewPayload_ = nullptr;};
+    inline string liveViewPayload() const { DARABONBA_PTR_GET_DEFAULT(liveViewPayload_, "") };
+    inline PushTaskNotificationHmos& setLiveViewPayload(string liveViewPayload) { DARABONBA_PTR_SET_VALUE(liveViewPayload_, liveViewPayload) };
+
+
     // notifyId Field Functions 
     bool hasNotifyId() const { return this->notifyId_ != nullptr;};
     void deleteNotifyId() { this->notifyId_ = nullptr;};
@@ -179,6 +188,7 @@ namespace Models
     std::shared_ptr<bool> extensionPush_ = nullptr;
     std::shared_ptr<string> imageUrl_ = nullptr;
     std::shared_ptr<vector<string>> inboxContent_ = nullptr;
+    std::shared_ptr<string> liveViewPayload_ = nullptr;
     std::shared_ptr<int32_t> notifyId_ = nullptr;
     std::shared_ptr<string> receiptId_ = nullptr;
     std::shared_ptr<string> renderStyle_ = nullptr;

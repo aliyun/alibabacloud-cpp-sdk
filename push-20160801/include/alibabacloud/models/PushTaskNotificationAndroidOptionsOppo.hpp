@@ -15,10 +15,16 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const PushTaskNotificationAndroidOptionsOppo& obj) { 
       DARABONBA_PTR_TO_JSON(Category, category_);
       DARABONBA_PTR_TO_JSON(NotifyLevel, notifyLevel_);
+      DARABONBA_PTR_TO_JSON(PrivateContentParameters, privateContentParameters_);
+      DARABONBA_PTR_TO_JSON(PrivateMsgTemplateId, privateMsgTemplateId_);
+      DARABONBA_PTR_TO_JSON(PrivateTitleParameters, privateTitleParameters_);
     };
     friend void from_json(const Darabonba::Json& j, PushTaskNotificationAndroidOptionsOppo& obj) { 
       DARABONBA_PTR_FROM_JSON(Category, category_);
       DARABONBA_PTR_FROM_JSON(NotifyLevel, notifyLevel_);
+      DARABONBA_PTR_FROM_JSON(PrivateContentParameters, privateContentParameters_);
+      DARABONBA_PTR_FROM_JSON(PrivateMsgTemplateId, privateMsgTemplateId_);
+      DARABONBA_PTR_FROM_JSON(PrivateTitleParameters, privateTitleParameters_);
     };
     PushTaskNotificationAndroidOptionsOppo() = default ;
     PushTaskNotificationAndroidOptionsOppo(const PushTaskNotificationAndroidOptionsOppo &) = default ;
@@ -31,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->category_ != nullptr
-        && this->notifyLevel_ != nullptr; };
+    virtual bool empty() const override { return this->category_ == nullptr
+        && return this->notifyLevel_ == nullptr && return this->privateContentParameters_ == nullptr && return this->privateMsgTemplateId_ == nullptr && return this->privateTitleParameters_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
@@ -47,9 +53,33 @@ namespace Models
     inline PushTaskNotificationAndroidOptionsOppo& setNotifyLevel(int64_t notifyLevel) { DARABONBA_PTR_SET_VALUE(notifyLevel_, notifyLevel) };
 
 
+    // privateContentParameters Field Functions 
+    bool hasPrivateContentParameters() const { return this->privateContentParameters_ != nullptr;};
+    void deletePrivateContentParameters() { this->privateContentParameters_ = nullptr;};
+    inline string privateContentParameters() const { DARABONBA_PTR_GET_DEFAULT(privateContentParameters_, "") };
+    inline PushTaskNotificationAndroidOptionsOppo& setPrivateContentParameters(string privateContentParameters) { DARABONBA_PTR_SET_VALUE(privateContentParameters_, privateContentParameters) };
+
+
+    // privateMsgTemplateId Field Functions 
+    bool hasPrivateMsgTemplateId() const { return this->privateMsgTemplateId_ != nullptr;};
+    void deletePrivateMsgTemplateId() { this->privateMsgTemplateId_ = nullptr;};
+    inline string privateMsgTemplateId() const { DARABONBA_PTR_GET_DEFAULT(privateMsgTemplateId_, "") };
+    inline PushTaskNotificationAndroidOptionsOppo& setPrivateMsgTemplateId(string privateMsgTemplateId) { DARABONBA_PTR_SET_VALUE(privateMsgTemplateId_, privateMsgTemplateId) };
+
+
+    // privateTitleParameters Field Functions 
+    bool hasPrivateTitleParameters() const { return this->privateTitleParameters_ != nullptr;};
+    void deletePrivateTitleParameters() { this->privateTitleParameters_ = nullptr;};
+    inline string privateTitleParameters() const { DARABONBA_PTR_GET_DEFAULT(privateTitleParameters_, "") };
+    inline PushTaskNotificationAndroidOptionsOppo& setPrivateTitleParameters(string privateTitleParameters) { DARABONBA_PTR_SET_VALUE(privateTitleParameters_, privateTitleParameters) };
+
+
   protected:
     std::shared_ptr<string> category_ = nullptr;
     std::shared_ptr<int64_t> notifyLevel_ = nullptr;
+    std::shared_ptr<string> privateContentParameters_ = nullptr;
+    std::shared_ptr<string> privateMsgTemplateId_ = nullptr;
+    std::shared_ptr<string> privateTitleParameters_ = nullptr;
   };
 
   } // namespace Models
