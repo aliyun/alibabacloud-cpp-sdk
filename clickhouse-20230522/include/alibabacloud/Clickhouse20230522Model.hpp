@@ -2,6 +2,9 @@
 #ifndef ALIBABACLOUD_CLICKHOUSE20230522MODEL_HPP_
 #define ALIBABACLOUD_CLICKHOUSE20230522MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ChangeResourceGroupRequest.hpp>
+#include <alibabacloud/models/ChangeResourceGroupResponseBody.hpp>
+#include <alibabacloud/models/ChangeResourceGroupResponse.hpp>
 #include <alibabacloud/models/CreateAccountRequest.hpp>
 #include <alibabacloud/models/CreateAccountShrinkRequest.hpp>
 #include <alibabacloud/models/CreateAccountResponseBody.hpp>

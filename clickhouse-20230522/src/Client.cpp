@@ -82,6 +82,60 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 资源转组
+ *
+ * @param request ChangeResourceGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChangeResourceGroupResponse
+ */
+ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.resourceId();
+  }
+
+  if (!!request.hasResourceRegionId()) {
+    query["ResourceRegionId"] = request.resourceRegionId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.resourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ChangeResourceGroup"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ChangeResourceGroupResponse>();
+}
+
+/**
+ * @summary 资源转组
+ *
+ * @param request ChangeResourceGroupRequest
+ * @return ChangeResourceGroupResponse
+ */
+ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return changeResourceGroupWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a database account for an ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param tmpReq CreateAccountRequest
@@ -403,6 +457,10 @@ CreateDBInstanceResponse Client::createDBInstance(const CreateDBInstanceRequest 
 CreateEndpointResponse Client::createEndpointWithOptions(const CreateEndpointRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasComputingGroupId()) {
+    query["ComputingGroupId"] = request.computingGroupId();
+  }
+
   if (!!request.hasConnectionPrefix()) {
     query["ConnectionPrefix"] = request.connectionPrefix();
   }
@@ -653,6 +711,10 @@ DeleteDBInstanceResponse Client::deleteDBInstance(const DeleteDBInstanceRequest 
 DeleteEndpointResponse Client::deleteEndpointWithOptions(const DeleteEndpointRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasComputingGroupId()) {
+    query["ComputingGroupId"] = request.computingGroupId();
+  }
+
   if (!!request.hasConnectionString()) {
     query["ConnectionString"] = request.connectionString();
   }
@@ -1215,6 +1277,10 @@ DescribeEndpointsResponse Client::describeEndpoints(const DescribeEndpointsReque
 DescribeProcessListResponse Client::describeProcessListWithOptions(const DescribeProcessListRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasComputingGroupId()) {
+    query["ComputingGroupId"] = request.computingGroupId();
+  }
+
   if (!!request.hasDBInstanceId()) {
     query["DBInstanceId"] = request.DBInstanceId();
   }
@@ -1335,6 +1401,10 @@ DescribeSecurityIPListResponse Client::describeSecurityIPList(const DescribeSecu
 DescribeSlowLogRecordsResponse Client::describeSlowLogRecordsWithOptions(const DescribeSlowLogRecordsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasComputingGroupId()) {
+    query["ComputingGroupId"] = request.computingGroupId();
+  }
+
   if (!!request.hasDBInstanceId()) {
     query["DBInstanceId"] = request.DBInstanceId();
   }
@@ -1401,6 +1471,10 @@ DescribeSlowLogRecordsResponse Client::describeSlowLogRecords(const DescribeSlow
 DescribeSlowLogTrendResponse Client::describeSlowLogTrendWithOptions(const DescribeSlowLogTrendRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasComputingGroupId()) {
+    query["ComputingGroupId"] = request.computingGroupId();
+  }
+
   if (!!request.hasDBInstanceId()) {
     query["DBInstanceId"] = request.DBInstanceId();
   }
@@ -1463,6 +1537,10 @@ DescribeSlowLogTrendResponse Client::describeSlowLogTrend(const DescribeSlowLogT
 KillProcessResponse Client::killProcessWithOptions(const KillProcessRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasComputingGroupId()) {
+    query["ComputingGroupId"] = request.computingGroupId();
+  }
+
   if (!!request.hasDBInstanceId()) {
     query["DBInstanceId"] = request.DBInstanceId();
   }
@@ -1743,6 +1821,10 @@ ModifyDBInstanceAttributeResponse Client::modifyDBInstanceAttribute(const Modify
 ModifyDBInstanceClassResponse Client::modifyDBInstanceClassWithOptions(const ModifyDBInstanceClassRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasComputingGroupId()) {
+    query["ComputingGroupId"] = request.computingGroupId();
+  }
+
   if (!!request.hasDBInstanceId()) {
     query["DBInstanceId"] = request.DBInstanceId();
   }
@@ -1867,6 +1949,10 @@ ModifyDBInstanceConfigResponse Client::modifyDBInstanceConfig(const ModifyDBInst
 ModifyDBInstanceConnectionStringResponse Client::modifyDBInstanceConnectionStringWithOptions(const ModifyDBInstanceConnectionStringRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasComputingGroupId()) {
+    query["ComputingGroupId"] = request.computingGroupId();
+  }
+
   if (!!request.hasConnectionString()) {
     query["ConnectionString"] = request.connectionString();
   }

@@ -13,6 +13,7 @@ namespace Models
   class DescribeProcessListRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeProcessListRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ComputingGroupId, computingGroupId_);
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_TO_JSON(InitialQueryId, initialQueryId_);
       DARABONBA_PTR_TO_JSON(InitialUser, initialUser_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeProcessListRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ComputingGroupId, computingGroupId_);
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_FROM_JSON(InitialQueryId, initialQueryId_);
       DARABONBA_PTR_FROM_JSON(InitialUser, initialUser_);
@@ -45,9 +47,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && return this->initialQueryId_ == nullptr && return this->initialUser_ == nullptr && return this->keyword_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->queryDurationMs_ == nullptr && return this->queryOrder_ == nullptr && return this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->computingGroupId_ == nullptr
+        && return this->DBInstanceId_ == nullptr && return this->initialQueryId_ == nullptr && return this->initialUser_ == nullptr && return this->keyword_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->queryDurationMs_ == nullptr && return this->queryOrder_ == nullptr && return this->regionId_ == nullptr; };
+    // computingGroupId Field Functions 
+    bool hasComputingGroupId() const { return this->computingGroupId_ != nullptr;};
+    void deleteComputingGroupId() { this->computingGroupId_ = nullptr;};
+    inline string computingGroupId() const { DARABONBA_PTR_GET_DEFAULT(computingGroupId_, "") };
+    inline DescribeProcessListRequest& setComputingGroupId(string computingGroupId) { DARABONBA_PTR_SET_VALUE(computingGroupId_, computingGroupId) };
+
+
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
@@ -112,6 +121,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> computingGroupId_ = nullptr;
     // The cluster ID.
     // 
     // This parameter is required.

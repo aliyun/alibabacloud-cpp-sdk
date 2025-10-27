@@ -13,6 +13,7 @@ namespace Models
   class ModifyDBInstanceConnectionStringRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyDBInstanceConnectionStringRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ComputingGroupId, computingGroupId_);
       DARABONBA_PTR_TO_JSON(ConnectionString, connectionString_);
       DARABONBA_PTR_TO_JSON(ConnectionStringPrefix, connectionStringPrefix_);
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDBInstanceConnectionStringRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ComputingGroupId, computingGroupId_);
       DARABONBA_PTR_FROM_JSON(ConnectionString, connectionString_);
       DARABONBA_PTR_FROM_JSON(ConnectionStringPrefix, connectionStringPrefix_);
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
@@ -39,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->connectionString_ == nullptr
-        && return this->connectionStringPrefix_ == nullptr && return this->DBInstanceId_ == nullptr && return this->DBInstanceNetType_ == nullptr && return this->disablePorts_ == nullptr && return this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->computingGroupId_ == nullptr
+        && return this->connectionString_ == nullptr && return this->connectionStringPrefix_ == nullptr && return this->DBInstanceId_ == nullptr && return this->DBInstanceNetType_ == nullptr && return this->disablePorts_ == nullptr
+        && return this->regionId_ == nullptr; };
+    // computingGroupId Field Functions 
+    bool hasComputingGroupId() const { return this->computingGroupId_ != nullptr;};
+    void deleteComputingGroupId() { this->computingGroupId_ = nullptr;};
+    inline string computingGroupId() const { DARABONBA_PTR_GET_DEFAULT(computingGroupId_, "") };
+    inline ModifyDBInstanceConnectionStringRequest& setComputingGroupId(string computingGroupId) { DARABONBA_PTR_SET_VALUE(computingGroupId_, computingGroupId) };
+
+
     // connectionString Field Functions 
     bool hasConnectionString() const { return this->connectionString_ != nullptr;};
     void deleteConnectionString() { this->connectionString_ = nullptr;};
@@ -84,6 +94,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> computingGroupId_ = nullptr;
     // The endpoint of the cluster.
     std::shared_ptr<string> connectionString_ = nullptr;
     // The prefix of the endpoint that is used to connect to the database.

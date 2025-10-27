@@ -13,6 +13,7 @@ namespace Models
   class ModifyDBInstanceClassResponseBodyData : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyDBInstanceClassResponseBodyData& obj) { 
+      DARABONBA_PTR_TO_JSON(ComputingGroupId, computingGroupId_);
       DARABONBA_PTR_TO_JSON(DBInstanceID, DBInstanceID_);
       DARABONBA_PTR_TO_JSON(DBInstanceName, DBInstanceName_);
       DARABONBA_PTR_TO_JSON(ScaleMax, scaleMax_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDBInstanceClassResponseBodyData& obj) { 
+      DARABONBA_PTR_FROM_JSON(ComputingGroupId, computingGroupId_);
       DARABONBA_PTR_FROM_JSON(DBInstanceID, DBInstanceID_);
       DARABONBA_PTR_FROM_JSON(DBInstanceName, DBInstanceName_);
       DARABONBA_PTR_FROM_JSON(ScaleMax, scaleMax_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->DBInstanceID_ == nullptr
-        && return this->DBInstanceName_ == nullptr && return this->scaleMax_ == nullptr && return this->scaleMin_ == nullptr && return this->taskId_ == nullptr; };
+    virtual bool empty() const override { return this->computingGroupId_ == nullptr
+        && return this->DBInstanceID_ == nullptr && return this->DBInstanceName_ == nullptr && return this->scaleMax_ == nullptr && return this->scaleMin_ == nullptr && return this->taskId_ == nullptr; };
+    // computingGroupId Field Functions 
+    bool hasComputingGroupId() const { return this->computingGroupId_ != nullptr;};
+    void deleteComputingGroupId() { this->computingGroupId_ = nullptr;};
+    inline string computingGroupId() const { DARABONBA_PTR_GET_DEFAULT(computingGroupId_, "") };
+    inline ModifyDBInstanceClassResponseBodyData& setComputingGroupId(string computingGroupId) { DARABONBA_PTR_SET_VALUE(computingGroupId_, computingGroupId) };
+
+
     // DBInstanceID Field Functions 
     bool hasDBInstanceID() const { return this->DBInstanceID_ != nullptr;};
     void deleteDBInstanceID() { this->DBInstanceID_ = nullptr;};
@@ -75,6 +84,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> computingGroupId_ = nullptr;
     // The cluster ID.
     std::shared_ptr<int64_t> DBInstanceID_ = nullptr;
     // The cluster name.
