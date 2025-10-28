@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessibility_ != nullptr
-        && this->dataSourceTypes_ != nullptr && this->dataTypes_ != nullptr && this->edition_ != nullptr && this->label_ != nullptr && this->name_ != nullptr
-        && this->order_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->properties_ != nullptr && this->provider_ != nullptr
-        && this->shareScope_ != nullptr && this->sortBy_ != nullptr && this->sourceDatasetId_ != nullptr && this->sourceId_ != nullptr && this->sourceTypes_ != nullptr
-        && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->accessibility_ == nullptr
+        && return this->dataSourceTypes_ == nullptr && return this->dataTypes_ == nullptr && return this->edition_ == nullptr && return this->label_ == nullptr && return this->name_ == nullptr
+        && return this->order_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->properties_ == nullptr && return this->provider_ == nullptr
+        && return this->shareScope_ == nullptr && return this->sortBy_ == nullptr && return this->sourceDatasetId_ == nullptr && return this->sourceId_ == nullptr && return this->sourceTypes_ == nullptr
+        && return this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};

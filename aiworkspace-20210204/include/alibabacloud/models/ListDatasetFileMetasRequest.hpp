@@ -78,12 +78,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->datasetVersion_ != nullptr
-        && this->endFileUpdateTime_ != nullptr && this->endTagUpdateTime_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->order_ != nullptr
-        && this->pageSize_ != nullptr && this->queryContentTypeIncludeAny_ != nullptr && this->queryExpression_ != nullptr && this->queryFileDir_ != nullptr && this->queryFileName_ != nullptr
-        && this->queryFileTypeIncludeAny_ != nullptr && this->queryImage_ != nullptr && this->queryTagsExclude_ != nullptr && this->queryTagsIncludeAll_ != nullptr && this->queryTagsIncludeAny_ != nullptr
-        && this->queryText_ != nullptr && this->queryType_ != nullptr && this->scoreThreshold_ != nullptr && this->sortBy_ != nullptr && this->startFileUpdateTime_ != nullptr
-        && this->startTagUpdateTime_ != nullptr && this->thumbnailMode_ != nullptr && this->topK_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->datasetVersion_ == nullptr
+        && return this->endFileUpdateTime_ == nullptr && return this->endTagUpdateTime_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->order_ == nullptr
+        && return this->pageSize_ == nullptr && return this->queryContentTypeIncludeAny_ == nullptr && return this->queryExpression_ == nullptr && return this->queryFileDir_ == nullptr && return this->queryFileName_ == nullptr
+        && return this->queryFileTypeIncludeAny_ == nullptr && return this->queryImage_ == nullptr && return this->queryTagsExclude_ == nullptr && return this->queryTagsIncludeAll_ == nullptr && return this->queryTagsIncludeAny_ == nullptr
+        && return this->queryText_ == nullptr && return this->queryType_ == nullptr && return this->scoreThreshold_ == nullptr && return this->sortBy_ == nullptr && return this->startFileUpdateTime_ == nullptr
+        && return this->startTagUpdateTime_ == nullptr && return this->thumbnailMode_ == nullptr && return this->topK_ == nullptr && return this->workspaceId_ == nullptr; };
     // datasetVersion Field Functions 
     bool hasDatasetVersion() const { return this->datasetVersion_ != nullptr;};
     void deleteDatasetVersion() { this->datasetVersion_ = nullptr;};

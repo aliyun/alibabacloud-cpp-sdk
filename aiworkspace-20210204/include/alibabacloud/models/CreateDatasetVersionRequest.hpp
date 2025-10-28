@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataCount_ != nullptr
-        && this->dataSize_ != nullptr && this->dataSourceType_ != nullptr && this->description_ != nullptr && this->importInfo_ != nullptr && this->labels_ != nullptr
-        && this->options_ != nullptr && this->property_ != nullptr && this->sourceId_ != nullptr && this->sourceType_ != nullptr && this->uri_ != nullptr; };
+    virtual bool empty() const override { return this->dataCount_ == nullptr
+        && return this->dataSize_ == nullptr && return this->dataSourceType_ == nullptr && return this->description_ == nullptr && return this->importInfo_ == nullptr && return this->labels_ == nullptr
+        && return this->options_ == nullptr && return this->property_ == nullptr && return this->sourceId_ == nullptr && return this->sourceType_ == nullptr && return this->uri_ == nullptr; };
     // dataCount Field Functions 
     bool hasDataCount() const { return this->dataCount_ != nullptr;};
     void deleteDataCount() { this->dataCount_ = nullptr;};

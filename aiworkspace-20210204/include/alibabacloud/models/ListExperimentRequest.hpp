@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->labels_ != nullptr
-        && this->maxResults_ != nullptr && this->name_ != nullptr && this->options_ != nullptr && this->order_ != nullptr && this->orderBy_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->pageToken_ != nullptr && this->sortBy_ != nullptr && this->verbose_ != nullptr
-        && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->labels_ == nullptr
+        && return this->maxResults_ == nullptr && return this->name_ == nullptr && return this->options_ == nullptr && return this->order_ == nullptr && return this->orderBy_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->pageToken_ == nullptr && return this->sortBy_ == nullptr && return this->verbose_ == nullptr
+        && return this->workspaceId_ == nullptr; };
     // labels Field Functions 
     bool hasLabels() const { return this->labels_ != nullptr;};
     void deleteLabels() { this->labels_ = nullptr;};

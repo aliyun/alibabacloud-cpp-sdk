@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->approvalStatus_ != nullptr
-        && this->formatType_ != nullptr && this->frameworkType_ != nullptr && this->label_ != nullptr && this->order_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->sortBy_ != nullptr && this->sourceId_ != nullptr && this->sourceType_ != nullptr && this->versionName_ != nullptr; };
+    virtual bool empty() const override { return this->approvalStatus_ == nullptr
+        && return this->formatType_ == nullptr && return this->frameworkType_ == nullptr && return this->label_ == nullptr && return this->order_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->sortBy_ == nullptr && return this->sourceId_ == nullptr && return this->sourceType_ == nullptr && return this->versionName_ == nullptr; };
     // approvalStatus Field Functions 
     bool hasApprovalStatus() const { return this->approvalStatus_ != nullptr;};
     void deleteApprovalStatus() { this->approvalStatus_ = nullptr;};

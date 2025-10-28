@@ -90,13 +90,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessibility_ != nullptr
-        && this->dataSourceType_ != nullptr && this->dataType_ != nullptr && this->datasetId_ != nullptr && this->description_ != nullptr && this->edition_ != nullptr
-        && this->gmtCreateTime_ != nullptr && this->gmtModifiedTime_ != nullptr && this->importInfo_ != nullptr && this->isShared_ != nullptr && this->labels_ != nullptr
-        && this->latestVersion_ != nullptr && this->mountAccess_ != nullptr && this->mountAccessReadWriteRoleIdList_ != nullptr && this->name_ != nullptr && this->options_ != nullptr
-        && this->ownerId_ != nullptr && this->property_ != nullptr && this->providerType_ != nullptr && this->sharedFrom_ != nullptr && this->sharingConfig_ != nullptr
-        && this->sourceDatasetId_ != nullptr && this->sourceDatasetVersion_ != nullptr && this->sourceId_ != nullptr && this->sourceType_ != nullptr && this->tagTemplateType_ != nullptr
-        && this->uri_ != nullptr && this->userId_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->accessibility_ == nullptr
+        && return this->dataSourceType_ == nullptr && return this->dataType_ == nullptr && return this->datasetId_ == nullptr && return this->description_ == nullptr && return this->edition_ == nullptr
+        && return this->gmtCreateTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->importInfo_ == nullptr && return this->isShared_ == nullptr && return this->labels_ == nullptr
+        && return this->latestVersion_ == nullptr && return this->mountAccess_ == nullptr && return this->mountAccessReadWriteRoleIdList_ == nullptr && return this->name_ == nullptr && return this->options_ == nullptr
+        && return this->ownerId_ == nullptr && return this->property_ == nullptr && return this->providerType_ == nullptr && return this->sharedFrom_ == nullptr && return this->sharingConfig_ == nullptr
+        && return this->sourceDatasetId_ == nullptr && return this->sourceDatasetVersion_ == nullptr && return this->sourceId_ == nullptr && return this->sourceType_ == nullptr && return this->tagTemplateType_ == nullptr
+        && return this->uri_ == nullptr && return this->userId_ == nullptr && return this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};

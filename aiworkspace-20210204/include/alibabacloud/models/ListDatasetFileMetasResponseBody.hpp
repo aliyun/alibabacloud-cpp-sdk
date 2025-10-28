@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->datasetFileMetas_ != nullptr
-        && this->datasetId_ != nullptr && this->datasetVersion_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->pageSize_ != nullptr
-        && this->totalCount_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->datasetFileMetas_ == nullptr
+        && return this->datasetId_ == nullptr && return this->datasetVersion_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->pageSize_ == nullptr
+        && return this->totalCount_ == nullptr && return this->workspaceId_ == nullptr; };
     // datasetFileMetas Field Functions 
     bool hasDatasetFileMetas() const { return this->datasetFileMetas_ != nullptr;};
     void deleteDatasetFileMetas() { this->datasetFileMetas_ = nullptr;};

@@ -74,12 +74,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessibility_ != nullptr
-        && this->domain_ != nullptr && this->extraInfo_ != nullptr && this->gmtCreateTime_ != nullptr && this->gmtLatestVersionModifiedTime_ != nullptr && this->gmtModifiedTime_ != nullptr
-        && this->labels_ != nullptr && this->latestVersion_ != nullptr && this->modelDescription_ != nullptr && this->modelDoc_ != nullptr && this->modelId_ != nullptr
-        && this->modelName_ != nullptr && this->modelType_ != nullptr && this->orderNumber_ != nullptr && this->origin_ != nullptr && this->ownerId_ != nullptr
-        && this->parameterSize_ != nullptr && this->provider_ != nullptr && this->tags_ != nullptr && this->task_ != nullptr && this->userId_ != nullptr
-        && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->accessibility_ == nullptr
+        && return this->domain_ == nullptr && return this->extraInfo_ == nullptr && return this->gmtCreateTime_ == nullptr && return this->gmtLatestVersionModifiedTime_ == nullptr && return this->gmtModifiedTime_ == nullptr
+        && return this->labels_ == nullptr && return this->latestVersion_ == nullptr && return this->modelDescription_ == nullptr && return this->modelDoc_ == nullptr && return this->modelId_ == nullptr
+        && return this->modelName_ == nullptr && return this->modelType_ == nullptr && return this->orderNumber_ == nullptr && return this->origin_ == nullptr && return this->ownerId_ == nullptr
+        && return this->parameterSize_ == nullptr && return this->provider_ == nullptr && return this->tags_ == nullptr && return this->task_ == nullptr && return this->userId_ == nullptr
+        && return this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};

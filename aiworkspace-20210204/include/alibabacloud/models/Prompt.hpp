@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessibility_ != nullptr
-        && this->createTime_ != nullptr && this->description_ != nullptr && this->frameworkContent_ != nullptr && this->frameworkType_ != nullptr && this->modifyTime_ != nullptr
-        && this->promptId_ != nullptr && this->promptName_ != nullptr; };
+    virtual bool empty() const override { return this->accessibility_ == nullptr
+        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->frameworkContent_ == nullptr && return this->frameworkType_ == nullptr && return this->modifyTime_ == nullptr
+        && return this->promptId_ == nullptr && return this->promptName_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};

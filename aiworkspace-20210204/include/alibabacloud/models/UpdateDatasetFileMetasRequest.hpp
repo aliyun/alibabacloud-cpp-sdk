@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->datasetFileMetas_ != nullptr
-        && this->datasetVersion_ != nullptr && this->tagJobId_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->datasetFileMetas_ == nullptr
+        && return this->datasetVersion_ == nullptr && return this->tagJobId_ == nullptr && return this->workspaceId_ == nullptr; };
     // datasetFileMetas Field Functions 
     bool hasDatasetFileMetas() const { return this->datasetFileMetas_ != nullptr;};
     void deleteDatasetFileMetas() { this->datasetFileMetas_ = nullptr;};

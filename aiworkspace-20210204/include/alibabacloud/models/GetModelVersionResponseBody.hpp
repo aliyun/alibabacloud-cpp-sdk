@@ -73,12 +73,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->approvalStatus_ != nullptr
-        && this->compressionSpec_ != nullptr && this->distillationSpec_ != nullptr && this->evaluationSpec_ != nullptr && this->extraInfo_ != nullptr && this->formatType_ != nullptr
-        && this->frameworkType_ != nullptr && this->gmtCreateTime_ != nullptr && this->gmtModifiedTime_ != nullptr && this->inferenceSpec_ != nullptr && this->labels_ != nullptr
-        && this->metrics_ != nullptr && this->options_ != nullptr && this->ownerId_ != nullptr && this->requestId_ != nullptr && this->sourceId_ != nullptr
-        && this->sourceType_ != nullptr && this->trainingSpec_ != nullptr && this->uri_ != nullptr && this->userId_ != nullptr && this->versionDescription_ != nullptr
-        && this->versionName_ != nullptr; };
+    virtual bool empty() const override { return this->approvalStatus_ == nullptr
+        && return this->compressionSpec_ == nullptr && return this->distillationSpec_ == nullptr && return this->evaluationSpec_ == nullptr && return this->extraInfo_ == nullptr && return this->formatType_ == nullptr
+        && return this->frameworkType_ == nullptr && return this->gmtCreateTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->inferenceSpec_ == nullptr && return this->labels_ == nullptr
+        && return this->metrics_ == nullptr && return this->options_ == nullptr && return this->ownerId_ == nullptr && return this->requestId_ == nullptr && return this->sourceId_ == nullptr
+        && return this->sourceType_ == nullptr && return this->trainingSpec_ == nullptr && return this->uri_ == nullptr && return this->userId_ == nullptr && return this->versionDescription_ == nullptr
+        && return this->versionName_ == nullptr; };
     // approvalStatus Field Functions 
     bool hasApprovalStatus() const { return this->approvalStatus_ != nullptr;};
     void deleteApprovalStatus() { this->approvalStatus_ = nullptr;};

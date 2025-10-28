@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->collections_ != nullptr
-        && this->conditionsShrink_ != nullptr && this->domain_ != nullptr && this->label_ != nullptr && this->modelName_ != nullptr && this->modelType_ != nullptr
-        && this->order_ != nullptr && this->origin_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->provider_ != nullptr
-        && this->query_ != nullptr && this->sortBy_ != nullptr && this->tagShrink_ != nullptr && this->task_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->collections_ == nullptr
+        && return this->conditionsShrink_ == nullptr && return this->domain_ == nullptr && return this->label_ == nullptr && return this->modelName_ == nullptr && return this->modelType_ == nullptr
+        && return this->order_ == nullptr && return this->origin_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->provider_ == nullptr
+        && return this->query_ == nullptr && return this->sortBy_ == nullptr && return this->tagShrink_ == nullptr && return this->task_ == nullptr && return this->workspaceId_ == nullptr; };
     // collections Field Functions 
     bool hasCollections() const { return this->collections_ != nullptr;};
     void deleteCollections() { this->collections_ = nullptr;};

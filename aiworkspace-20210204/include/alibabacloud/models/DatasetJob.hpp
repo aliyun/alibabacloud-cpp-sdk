@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->completedFileCount_ != nullptr
-        && this->createTime_ != nullptr && this->datasetJobId_ != nullptr && this->datasetVersion_ != nullptr && this->description_ != nullptr && this->failedFileCount_ != nullptr
-        && this->finishTime_ != nullptr && this->jobAction_ != nullptr && this->jobMode_ != nullptr && this->jobSpec_ != nullptr && this->logs_ != nullptr
-        && this->status_ != nullptr && this->totalFileCount_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->completedFileCount_ == nullptr
+        && return this->createTime_ == nullptr && return this->datasetJobId_ == nullptr && return this->datasetVersion_ == nullptr && return this->description_ == nullptr && return this->failedFileCount_ == nullptr
+        && return this->finishTime_ == nullptr && return this->jobAction_ == nullptr && return this->jobMode_ == nullptr && return this->jobSpec_ == nullptr && return this->logs_ == nullptr
+        && return this->status_ == nullptr && return this->totalFileCount_ == nullptr && return this->workspaceId_ == nullptr; };
     // completedFileCount Field Functions 
     bool hasCompletedFileCount() const { return this->completedFileCount_ != nullptr;};
     void deleteCompletedFileCount() { this->completedFileCount_ = nullptr;};

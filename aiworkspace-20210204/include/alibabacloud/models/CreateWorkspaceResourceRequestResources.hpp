@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->envType_ != nullptr
-        && this->groupName_ != nullptr && this->isDefault_ != nullptr && this->labels_ != nullptr && this->name_ != nullptr && this->productType_ != nullptr
-        && this->quotas_ != nullptr && this->resourceType_ != nullptr && this->spec_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->envType_ == nullptr
+        && return this->groupName_ == nullptr && return this->isDefault_ == nullptr && return this->labels_ == nullptr && return this->name_ == nullptr && return this->productType_ == nullptr
+        && return this->quotas_ == nullptr && return this->resourceType_ == nullptr && return this->spec_ == nullptr && return this->workspaceId_ == nullptr; };
     // envType Field Functions 
     bool hasEnvType() const { return this->envType_ != nullptr;};
     void deleteEnvType() { this->envType_ = nullptr;};

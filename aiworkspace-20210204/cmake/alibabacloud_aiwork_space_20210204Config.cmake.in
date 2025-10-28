@@ -1,4 +1,0 @@
-@PACKAGE_INIT@
-
-include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_aiwork_space_20210204Targets.cmake")
-check_required_components("alibabacloud_aiwork_space_20210204")

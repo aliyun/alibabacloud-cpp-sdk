@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->connectionIds_ != nullptr
-        && this->connectionName_ != nullptr && this->connectionTypes_ != nullptr && this->creator_ != nullptr && this->encryptOption_ != nullptr && this->maxResults_ != nullptr
-        && this->model_ != nullptr && this->modelTypes_ != nullptr && this->nextToken_ != nullptr && this->order_ != nullptr && this->sortBy_ != nullptr
-        && this->toolCall_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->connectionIds_ == nullptr
+        && return this->connectionName_ == nullptr && return this->connectionTypes_ == nullptr && return this->creator_ == nullptr && return this->encryptOption_ == nullptr && return this->maxResults_ == nullptr
+        && return this->model_ == nullptr && return this->modelTypes_ == nullptr && return this->nextToken_ == nullptr && return this->order_ == nullptr && return this->sortBy_ == nullptr
+        && return this->toolCall_ == nullptr && return this->workspaceId_ == nullptr; };
     // connectionIds Field Functions 
     bool hasConnectionIds() const { return this->connectionIds_ != nullptr;};
     void deleteConnectionIds() { this->connectionIds_ = nullptr;};

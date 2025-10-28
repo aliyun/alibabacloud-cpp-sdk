@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->contentType_ != nullptr
-        && this->dataSize_ != nullptr && this->datasetFileMetaId_ != nullptr && this->downloadUrl_ != nullptr && this->fileCreateTime_ != nullptr && this->fileFingerPrint_ != nullptr
-        && this->fileName_ != nullptr && this->fileType_ != nullptr && this->fileUpdateTime_ != nullptr && this->metaAttributes_ != nullptr && this->score_ != nullptr
-        && this->semanticIndexJobId_ != nullptr && this->semanticIndexUpdateTime_ != nullptr && this->tags_ != nullptr && this->thumbnailUrl_ != nullptr && this->uri_ != nullptr; };
+    virtual bool empty() const override { return this->contentType_ == nullptr
+        && return this->dataSize_ == nullptr && return this->datasetFileMetaId_ == nullptr && return this->downloadUrl_ == nullptr && return this->fileCreateTime_ == nullptr && return this->fileFingerPrint_ == nullptr
+        && return this->fileName_ == nullptr && return this->fileType_ == nullptr && return this->fileUpdateTime_ == nullptr && return this->metaAttributes_ == nullptr && return this->score_ == nullptr
+        && return this->semanticIndexJobId_ == nullptr && return this->semanticIndexUpdateTime_ == nullptr && return this->tags_ == nullptr && return this->thumbnailUrl_ == nullptr && return this->uri_ == nullptr; };
     // contentType Field Functions 
     bool hasContentType() const { return this->contentType_ != nullptr;};
     void deleteContentType() { this->contentType_ = nullptr;};

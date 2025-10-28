@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessibility_ != nullptr
-        && this->experimentId_ != nullptr && this->gmtCreateTime_ != nullptr && this->gmtModifiedTime_ != nullptr && this->labels_ != nullptr && this->metrics_ != nullptr
-        && this->name_ != nullptr && this->ownerId_ != nullptr && this->params_ != nullptr && this->requestId_ != nullptr && this->runId_ != nullptr
-        && this->sourceId_ != nullptr && this->sourceType_ != nullptr && this->userId_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->accessibility_ == nullptr
+        && return this->experimentId_ == nullptr && return this->gmtCreateTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->labels_ == nullptr && return this->metrics_ == nullptr
+        && return this->name_ == nullptr && return this->ownerId_ == nullptr && return this->params_ == nullptr && return this->requestId_ == nullptr && return this->runId_ == nullptr
+        && return this->sourceId_ == nullptr && return this->sourceType_ == nullptr && return this->userId_ == nullptr && return this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};

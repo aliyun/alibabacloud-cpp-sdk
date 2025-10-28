@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(UserId, userId_);
       DARABONBA_PTR_TO_JSON(Verbose, verbose_);
       DARABONBA_PTR_TO_JSON(WorkspaceIds, workspaceIds_);
       DARABONBA_PTR_TO_JSON(WorkspaceName, workspaceName_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(UserId, userId_);
       DARABONBA_PTR_FROM_JSON(Verbose, verbose_);
       DARABONBA_PTR_FROM_JSON(WorkspaceIds, workspaceIds_);
       DARABONBA_PTR_FROM_JSON(WorkspaceName, workspaceName_);
@@ -51,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fields_ != nullptr
-        && this->moduleList_ != nullptr && this->option_ != nullptr && this->order_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->sortBy_ != nullptr && this->status_ != nullptr && this->verbose_ != nullptr && this->workspaceIds_ != nullptr
-        && this->workspaceName_ != nullptr; };
+    virtual bool empty() const override { return this->fields_ == nullptr
+        && return this->moduleList_ == nullptr && return this->option_ == nullptr && return this->order_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->sortBy_ == nullptr && return this->status_ == nullptr && return this->userId_ == nullptr && return this->verbose_ == nullptr
+        && return this->workspaceIds_ == nullptr && return this->workspaceName_ == nullptr; };
     // fields Field Functions 
     bool hasFields() const { return this->fields_ != nullptr;};
     void deleteFields() { this->fields_ = nullptr;};
@@ -118,6 +120,13 @@ namespace Models
     inline ListWorkspacesRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // userId Field Functions 
+    bool hasUserId() const { return this->userId_ != nullptr;};
+    void deleteUserId() { this->userId_ = nullptr;};
+    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline ListWorkspacesRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
+
+
     // verbose Field Functions 
     bool hasVerbose() const { return this->verbose_ != nullptr;};
     void deleteVerbose() { this->verbose_ = nullptr;};
@@ -174,6 +183,7 @@ namespace Models
     // *   FROZEN
     // *   UPDATING
     std::shared_ptr<string> status_ = nullptr;
+    std::shared_ptr<string> userId_ = nullptr;
     // Specifies whether to display workspace details. Valid values:
     // 
     // *   false (default)

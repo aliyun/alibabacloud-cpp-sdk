@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->experimentId_ != nullptr
-        && this->gmtCreateTime_ != nullptr && this->labels_ != nullptr && this->maxResults_ != nullptr && this->name_ != nullptr && this->order_ != nullptr
-        && this->orderBy_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->pageToken_ != nullptr && this->sortBy_ != nullptr
-        && this->sourceId_ != nullptr && this->sourceType_ != nullptr && this->verbose_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->experimentId_ == nullptr
+        && return this->gmtCreateTime_ == nullptr && return this->labels_ == nullptr && return this->maxResults_ == nullptr && return this->name_ == nullptr && return this->order_ == nullptr
+        && return this->orderBy_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->pageToken_ == nullptr && return this->sortBy_ == nullptr
+        && return this->sourceId_ == nullptr && return this->sourceType_ == nullptr && return this->verbose_ == nullptr && return this->workspaceId_ == nullptr; };
     // experimentId Field Functions 
     bool hasExperimentId() const { return this->experimentId_ != nullptr;};
     void deleteExperimentId() { this->experimentId_ = nullptr;};

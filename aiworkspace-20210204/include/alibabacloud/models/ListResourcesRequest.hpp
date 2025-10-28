@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->groupName_ != nullptr
-        && this->labels_ != nullptr && this->option_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->productTypes_ != nullptr
-        && this->quotaIds_ != nullptr && this->resourceName_ != nullptr && this->resourceTypes_ != nullptr && this->verbose_ != nullptr && this->verboseFields_ != nullptr
-        && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->groupName_ == nullptr
+        && return this->labels_ == nullptr && return this->option_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->productTypes_ == nullptr
+        && return this->quotaIds_ == nullptr && return this->resourceName_ == nullptr && return this->resourceTypes_ == nullptr && return this->verbose_ == nullptr && return this->verboseFields_ == nullptr
+        && return this->workspaceId_ == nullptr; };
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
