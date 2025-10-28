@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoEnableService_ != nullptr
-        && this->commodityProvisions_ != nullptr && this->dependentServiceNames_ != nullptr && this->enableURL_ != nullptr && this->roleProvision_ != nullptr && this->serviceName_ != nullptr
-        && this->status_ != nullptr && this->statusReason_ != nullptr; };
+    virtual bool empty() const override { return this->autoEnableService_ == nullptr
+        && return this->commodityProvisions_ == nullptr && return this->dependentServiceNames_ == nullptr && return this->enableURL_ == nullptr && return this->roleProvision_ == nullptr && return this->serviceName_ == nullptr
+        && return this->status_ == nullptr && return this->statusReason_ == nullptr; };
     // autoEnableService Field Functions 
     bool hasAutoEnableService() const { return this->autoEnableService_ != nullptr;};
     void deleteAutoEnableService() { this->autoEnableService_ = nullptr;};

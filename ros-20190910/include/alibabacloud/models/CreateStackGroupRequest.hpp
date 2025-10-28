@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->administrationRoleName_ != nullptr
-        && this->autoDeployment_ != nullptr && this->capabilities_ != nullptr && this->clientToken_ != nullptr && this->description_ != nullptr && this->executionRoleName_ != nullptr
-        && this->parameters_ != nullptr && this->permissionModel_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->stackArn_ != nullptr
-        && this->stackGroupName_ != nullptr && this->tags_ != nullptr && this->templateBody_ != nullptr && this->templateId_ != nullptr && this->templateURL_ != nullptr
-        && this->templateVersion_ != nullptr; };
+    virtual bool empty() const override { return this->administrationRoleName_ == nullptr
+        && return this->autoDeployment_ == nullptr && return this->capabilities_ == nullptr && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->executionRoleName_ == nullptr
+        && return this->parameters_ == nullptr && return this->permissionModel_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->stackArn_ == nullptr
+        && return this->stackGroupName_ == nullptr && return this->tags_ == nullptr && return this->templateBody_ == nullptr && return this->templateId_ == nullptr && return this->templateURL_ == nullptr
+        && return this->templateVersion_ == nullptr; };
     // administrationRoleName Field Functions 
     bool hasAdministrationRoleName() const { return this->administrationRoleName_ != nullptr;};
     void deleteAdministrationRoleName() { this->administrationRoleName_ = nullptr;};

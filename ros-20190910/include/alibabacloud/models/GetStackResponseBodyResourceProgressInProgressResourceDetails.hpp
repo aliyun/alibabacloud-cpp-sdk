@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->progressTargetValue_ != nullptr
-        && this->progressValue_ != nullptr && this->resourceName_ != nullptr && this->resourceType_ != nullptr; };
+    virtual bool empty() const override { return this->progressTargetValue_ == nullptr
+        && return this->progressValue_ == nullptr && return this->resourceName_ == nullptr && return this->resourceType_ == nullptr; };
     // progressTargetValue Field Functions 
     bool hasProgressTargetValue() const { return this->progressTargetValue_ != nullptr;};
     void deleteProgressTargetValue() { this->progressTargetValue_ = nullptr;};

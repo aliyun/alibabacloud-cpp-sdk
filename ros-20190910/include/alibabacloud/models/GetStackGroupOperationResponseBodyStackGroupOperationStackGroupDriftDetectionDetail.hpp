@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cancelledStackInstancesCount_ != nullptr
-        && this->driftDetectionStatus_ != nullptr && this->driftDetectionTime_ != nullptr && this->driftedStackInstancesCount_ != nullptr && this->failedStackInstancesCount_ != nullptr && this->inProgressStackInstancesCount_ != nullptr
-        && this->inSyncStackInstancesCount_ != nullptr && this->stackGroupDriftStatus_ != nullptr && this->totalStackInstancesCount_ != nullptr; };
+    virtual bool empty() const override { return this->cancelledStackInstancesCount_ == nullptr
+        && return this->driftDetectionStatus_ == nullptr && return this->driftDetectionTime_ == nullptr && return this->driftedStackInstancesCount_ == nullptr && return this->failedStackInstancesCount_ == nullptr && return this->inProgressStackInstancesCount_ == nullptr
+        && return this->inSyncStackInstancesCount_ == nullptr && return this->stackGroupDriftStatus_ == nullptr && return this->totalStackInstancesCount_ == nullptr; };
     // cancelledStackInstancesCount Field Functions 
     bool hasCancelledStackInstancesCount() const { return this->cancelledStackInstancesCount_ != nullptr;};
     void deleteCancelledStackInstancesCount() { this->cancelledStackInstancesCount_ = nullptr;};

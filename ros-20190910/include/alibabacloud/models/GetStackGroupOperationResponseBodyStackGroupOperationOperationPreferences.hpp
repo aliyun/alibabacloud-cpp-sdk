@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->failureToleranceCount_ != nullptr
-        && this->failureTolerancePercentage_ != nullptr && this->maxConcurrentCount_ != nullptr && this->maxConcurrentPercentage_ != nullptr && this->regionIdsOrder_ != nullptr; };
+    virtual bool empty() const override { return this->failureToleranceCount_ == nullptr
+        && return this->failureTolerancePercentage_ == nullptr && return this->maxConcurrentCount_ == nullptr && return this->maxConcurrentPercentage_ == nullptr && return this->regionIdsOrder_ == nullptr; };
     // failureToleranceCount Field Functions 
     bool hasFailureToleranceCount() const { return this->failureToleranceCount_ != nullptr;};
     void deleteFailureToleranceCount() { this->failureToleranceCount_ = nullptr;};

@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->resourceType_ != nullptr
-        && this->sourceResourceGroupSupported_ != nullptr && this->sourceResourcesSupported_ != nullptr && this->sourceSupported_ != nullptr && this->sourceTagSupported_ != nullptr && this->supportedTemplateScratchTypes_ != nullptr; };
+    virtual bool empty() const override { return this->resourceType_ == nullptr
+        && return this->sourceResourceGroupSupported_ == nullptr && return this->sourceResourcesSupported_ == nullptr && return this->sourceSupported_ == nullptr && return this->sourceTagSupported_ == nullptr && return this->supportedTemplateScratchTypes_ == nullptr; };
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};

@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->relatedResourceTypeFilter_ != nullptr
-        && this->resourceId_ != nullptr && this->resourceType_ != nullptr; };
+    virtual bool empty() const override { return this->relatedResourceTypeFilter_ == nullptr
+        && return this->resourceId_ == nullptr && return this->resourceType_ == nullptr; };
     // relatedResourceTypeFilter Field Functions 
     bool hasRelatedResourceTypeFilter() const { return this->relatedResourceTypeFilter_ != nullptr;};
     void deleteRelatedResourceTypeFilter() { this->relatedResourceTypeFilter_ = nullptr;};

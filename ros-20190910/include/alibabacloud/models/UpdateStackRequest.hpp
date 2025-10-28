@@ -76,12 +76,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->disableRollback_ != nullptr && this->dryRun_ != nullptr && this->dryRunOptions_ != nullptr && this->parallelism_ != nullptr && this->parameters_ != nullptr
-        && this->ramRoleName_ != nullptr && this->regionId_ != nullptr && this->replacementOption_ != nullptr && this->resourceGroupId_ != nullptr && this->stackId_ != nullptr
-        && this->stackPolicyBody_ != nullptr && this->stackPolicyDuringUpdateBody_ != nullptr && this->stackPolicyDuringUpdateURL_ != nullptr && this->stackPolicyURL_ != nullptr && this->tags_ != nullptr
-        && this->taintResources_ != nullptr && this->templateBody_ != nullptr && this->templateId_ != nullptr && this->templateURL_ != nullptr && this->templateVersion_ != nullptr
-        && this->timeoutInMinutes_ != nullptr && this->usePreviousParameters_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->disableRollback_ == nullptr && return this->dryRun_ == nullptr && return this->dryRunOptions_ == nullptr && return this->parallelism_ == nullptr && return this->parameters_ == nullptr
+        && return this->ramRoleName_ == nullptr && return this->regionId_ == nullptr && return this->replacementOption_ == nullptr && return this->resourceGroupId_ == nullptr && return this->stackId_ == nullptr
+        && return this->stackPolicyBody_ == nullptr && return this->stackPolicyDuringUpdateBody_ == nullptr && return this->stackPolicyDuringUpdateURL_ == nullptr && return this->stackPolicyURL_ == nullptr && return this->tags_ == nullptr
+        && return this->taintResources_ == nullptr && return this->templateBody_ == nullptr && return this->templateId_ == nullptr && return this->templateURL_ == nullptr && return this->templateVersion_ == nullptr
+        && return this->timeoutInMinutes_ == nullptr && return this->usePreviousParameters_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};

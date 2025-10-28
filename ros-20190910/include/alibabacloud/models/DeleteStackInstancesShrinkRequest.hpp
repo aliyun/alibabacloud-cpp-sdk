@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountIdsShrink_ != nullptr
-        && this->clientToken_ != nullptr && this->deploymentTargetsShrink_ != nullptr && this->operationDescription_ != nullptr && this->operationPreferencesShrink_ != nullptr && this->regionId_ != nullptr
-        && this->regionIdsShrink_ != nullptr && this->retainStacks_ != nullptr && this->stackGroupName_ != nullptr; };
+    virtual bool empty() const override { return this->accountIdsShrink_ == nullptr
+        && return this->clientToken_ == nullptr && return this->deploymentTargetsShrink_ == nullptr && return this->operationDescription_ == nullptr && return this->operationPreferencesShrink_ == nullptr && return this->regionId_ == nullptr
+        && return this->regionIdsShrink_ == nullptr && return this->retainStacks_ == nullptr && return this->stackGroupName_ == nullptr; };
     // accountIdsShrink Field Functions 
     bool hasAccountIdsShrink() const { return this->accountIdsShrink_ != nullptr;};
     void deleteAccountIdsShrink() { this->accountIdsShrink_ = nullptr;};

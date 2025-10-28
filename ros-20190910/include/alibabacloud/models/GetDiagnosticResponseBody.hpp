@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->diagnosticKey_ != nullptr && this->diagnosticProduct_ != nullptr && this->diagnosticResult_ != nullptr && this->diagnosticTime_ != nullptr && this->httpCode_ != nullptr
-        && this->httpStatusCode_ != nullptr && this->message_ != nullptr && this->recommends_ != nullptr && this->reportId_ != nullptr && this->requestId_ != nullptr
-        && this->status_ != nullptr && this->statusReason_ != nullptr && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->diagnosticKey_ == nullptr && return this->diagnosticProduct_ == nullptr && return this->diagnosticResult_ == nullptr && return this->diagnosticTime_ == nullptr && return this->httpCode_ == nullptr
+        && return this->httpStatusCode_ == nullptr && return this->message_ == nullptr && return this->recommends_ == nullptr && return this->reportId_ == nullptr && return this->requestId_ == nullptr
+        && return this->status_ == nullptr && return this->statusReason_ == nullptr && return this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};

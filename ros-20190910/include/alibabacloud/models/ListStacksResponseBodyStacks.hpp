@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->deletionProtection_ != nullptr && this->disableRollback_ != nullptr && this->driftDetectionTime_ != nullptr && this->operationInfo_ != nullptr && this->parentStackId_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->serviceManaged_ != nullptr && this->serviceName_ != nullptr && this->stackDriftStatus_ != nullptr
-        && this->stackId_ != nullptr && this->stackName_ != nullptr && this->stackType_ != nullptr && this->status_ != nullptr && this->statusReason_ != nullptr
-        && this->tags_ != nullptr && this->timeoutInMinutes_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->deletionProtection_ == nullptr && return this->disableRollback_ == nullptr && return this->driftDetectionTime_ == nullptr && return this->operationInfo_ == nullptr && return this->parentStackId_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->serviceManaged_ == nullptr && return this->serviceName_ == nullptr && return this->stackDriftStatus_ == nullptr
+        && return this->stackId_ == nullptr && return this->stackName_ == nullptr && return this->stackType_ == nullptr && return this->status_ == nullptr && return this->statusReason_ == nullptr
+        && return this->tags_ == nullptr && return this->timeoutInMinutes_ == nullptr && return this->updateTime_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

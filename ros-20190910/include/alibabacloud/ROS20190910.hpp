@@ -562,6 +562,39 @@ namespace ROS20190910
       Models::DetectStackResourceDriftResponse detectStackResourceDrift(const Models::DetectStackResourceDriftRequest &request);
 
       /**
+       * @summary 开启可信服务访问
+       *
+       * @param request EnableServiceAccessRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableServiceAccessResponse
+       */
+      Models::EnableServiceAccessResponse enableServiceAccessWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开启可信服务访问
+       *
+       * @return EnableServiceAccessResponse
+       */
+      Models::EnableServiceAccessResponse enableServiceAccess();
+
+      /**
+       * @summary 批量开通
+       *
+       * @param tmpReq EnableServicesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableServicesResponse
+       */
+      Models::EnableServicesResponse enableServicesWithOptions(const Models::EnableServicesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量开通
+       *
+       * @param request EnableServicesRequest
+       * @return EnableServicesResponse
+       */
+      Models::EnableServicesResponse enableServices(const Models::EnableServicesRequest &request);
+
+      /**
        * @summary Executes change sets.
        *
        * @description In this example, the change set whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is executed. The change set is created in the `China (Hangzhou)` region.
@@ -745,6 +778,22 @@ namespace ROS20190910
        * @return GetResourceTypeTemplateResponse
        */
       Models::GetResourceTypeTemplateResponse getResourceTypeTemplate(const Models::GetResourceTypeTemplateRequest &request);
+
+      /**
+       * @summary 查询可信服务
+       *
+       * @param request GetServiceAccessRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetServiceAccessResponse
+       */
+      Models::GetServiceAccessResponse getServiceAccessWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询可信服务
+       *
+       * @return GetServiceAccessResponse
+       */
+      Models::GetServiceAccessResponse getServiceAccess();
 
       /**
        * @summary Queries the activation status and the RAM roles of an Alibaba Cloud service.
@@ -1464,6 +1513,23 @@ namespace ROS20190910
        * @return ListStacksResponse
        */
       Models::ListStacksResponse listStacks(const Models::ListStacksRequest &request);
+
+      /**
+       * @summary 查询总览
+       *
+       * @param request ListSummariesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSummariesResponse
+       */
+      Models::ListSummariesResponse listSummariesWithOptions(const Models::ListSummariesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询总览
+       *
+       * @param request ListSummariesRequest
+       * @return ListSummariesResponse
+       */
+      Models::ListSummariesResponse listSummaries(const Models::ListSummariesRequest &request);
 
       /**
        * @summary Queries the tag keys that are added to resources in a template or stack in an Alibaba Cloud region.

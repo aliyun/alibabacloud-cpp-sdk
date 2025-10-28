@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->changeSetId_ != nullptr
-        && this->changeSetName_ != nullptr && this->changeSetType_ != nullptr && this->createTime_ != nullptr && this->description_ != nullptr && this->executionStatus_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->stackId_ != nullptr && this->stackName_ != nullptr && this->status_ != nullptr
-        && this->statusReason_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->changeSetId_ == nullptr
+        && return this->changeSetName_ == nullptr && return this->changeSetType_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->executionStatus_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->stackId_ == nullptr && return this->stackName_ == nullptr && return this->status_ == nullptr
+        && return this->statusReason_ == nullptr && return this->tags_ == nullptr; };
     // changeSetId Field Functions 
     bool hasChangeSetId() const { return this->changeSetId_ != nullptr;};
     void deleteChangeSetId() { this->changeSetId_ = nullptr;};

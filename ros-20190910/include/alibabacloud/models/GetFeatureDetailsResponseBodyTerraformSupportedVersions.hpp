@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->providerVersions_ != nullptr
-        && this->terraformVersion_ != nullptr && this->transform_ != nullptr && this->updateAllowedTransforms_ != nullptr; };
+    virtual bool empty() const override { return this->providerVersions_ == nullptr
+        && return this->terraformVersion_ == nullptr && return this->transform_ == nullptr && return this->updateAllowedTransforms_ == nullptr; };
     // providerVersions Field Functions 
     bool hasProviderVersions() const { return this->providerVersions_ != nullptr;};
     void deleteProviderVersions() { this->providerVersions_ = nullptr;};

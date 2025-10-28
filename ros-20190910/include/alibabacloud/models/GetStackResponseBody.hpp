@@ -109,15 +109,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkedStackResourceCount_ != nullptr
-        && this->createTime_ != nullptr && this->deletionProtection_ != nullptr && this->description_ != nullptr && this->disableRollback_ != nullptr && this->driftDetectionTime_ != nullptr
-        && this->interface_ != nullptr && this->log_ != nullptr && this->notCheckedStackResourceCount_ != nullptr && this->notificationURLs_ != nullptr && this->operationInfo_ != nullptr
-        && this->orderIds_ != nullptr && this->outputs_ != nullptr && this->parameters_ != nullptr && this->parentStackId_ != nullptr && this->ramRoleName_ != nullptr
-        && this->regionId_ != nullptr && this->requestId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceProgress_ != nullptr && this->rollbackFailedRootReason_ != nullptr
-        && this->rootStackId_ != nullptr && this->serviceManaged_ != nullptr && this->serviceName_ != nullptr && this->stackDriftStatus_ != nullptr && this->stackId_ != nullptr
-        && this->stackName_ != nullptr && this->stackType_ != nullptr && this->status_ != nullptr && this->statusReason_ != nullptr && this->tags_ != nullptr
-        && this->templateDescription_ != nullptr && this->templateId_ != nullptr && this->templateScratchId_ != nullptr && this->templateURL_ != nullptr && this->templateVersion_ != nullptr
-        && this->timeoutInMinutes_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->checkedStackResourceCount_ == nullptr
+        && return this->createTime_ == nullptr && return this->deletionProtection_ == nullptr && return this->description_ == nullptr && return this->disableRollback_ == nullptr && return this->driftDetectionTime_ == nullptr
+        && return this->interface_ == nullptr && return this->log_ == nullptr && return this->notCheckedStackResourceCount_ == nullptr && return this->notificationURLs_ == nullptr && return this->operationInfo_ == nullptr
+        && return this->orderIds_ == nullptr && return this->outputs_ == nullptr && return this->parameters_ == nullptr && return this->parentStackId_ == nullptr && return this->ramRoleName_ == nullptr
+        && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceProgress_ == nullptr && return this->rollbackFailedRootReason_ == nullptr
+        && return this->rootStackId_ == nullptr && return this->serviceManaged_ == nullptr && return this->serviceName_ == nullptr && return this->stackDriftStatus_ == nullptr && return this->stackId_ == nullptr
+        && return this->stackName_ == nullptr && return this->stackType_ == nullptr && return this->status_ == nullptr && return this->statusReason_ == nullptr && return this->tags_ == nullptr
+        && return this->templateDescription_ == nullptr && return this->templateId_ == nullptr && return this->templateScratchId_ == nullptr && return this->templateURL_ == nullptr && return this->templateVersion_ == nullptr
+        && return this->timeoutInMinutes_ == nullptr && return this->updateTime_ == nullptr; };
     // checkedStackResourceCount Field Functions 
     bool hasCheckedStackResourceCount() const { return this->checkedStackResourceCount_ != nullptr;};
     void deleteCheckedStackResourceCount() { this->checkedStackResourceCount_ = nullptr;};

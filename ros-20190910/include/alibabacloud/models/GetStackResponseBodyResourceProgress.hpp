@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->failedResourceCount_ != nullptr
-        && this->inProgressResourceCount_ != nullptr && this->inProgressResourceDetails_ != nullptr && this->pendingResourceCount_ != nullptr && this->stackActionProgress_ != nullptr && this->stackOperationProgress_ != nullptr
-        && this->successResourceCount_ != nullptr && this->totalResourceCount_ != nullptr; };
+    virtual bool empty() const override { return this->failedResourceCount_ == nullptr
+        && return this->inProgressResourceCount_ == nullptr && return this->inProgressResourceDetails_ == nullptr && return this->pendingResourceCount_ == nullptr && return this->stackActionProgress_ == nullptr && return this->stackOperationProgress_ == nullptr
+        && return this->successResourceCount_ == nullptr && return this->totalResourceCount_ == nullptr; };
     // failedResourceCount Field Functions 
     bool hasFailedResourceCount() const { return this->failedResourceCount_ != nullptr;};
     void deleteFailedResourceCount() { this->failedResourceCount_ = nullptr;};

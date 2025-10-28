@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->action_ != nullptr
-        && this->administrationRoleName_ != nullptr && this->createTime_ != nullptr && this->deploymentTargets_ != nullptr && this->endTime_ != nullptr && this->executionRoleName_ != nullptr
-        && this->operationDescription_ != nullptr && this->operationId_ != nullptr && this->operationPreferences_ != nullptr && this->retainStacks_ != nullptr && this->stackGroupDriftDetectionDetail_ != nullptr
-        && this->stackGroupId_ != nullptr && this->stackGroupName_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->action_ == nullptr
+        && return this->administrationRoleName_ == nullptr && return this->createTime_ == nullptr && return this->deploymentTargets_ == nullptr && return this->endTime_ == nullptr && return this->executionRoleName_ == nullptr
+        && return this->operationDescription_ == nullptr && return this->operationId_ == nullptr && return this->operationPreferences_ == nullptr && return this->retainStacks_ == nullptr && return this->stackGroupDriftDetectionDetail_ == nullptr
+        && return this->stackGroupId_ == nullptr && return this->stackGroupName_ == nullptr && return this->status_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};

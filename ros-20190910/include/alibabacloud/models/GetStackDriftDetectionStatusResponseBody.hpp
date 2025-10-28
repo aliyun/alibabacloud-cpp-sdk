@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->driftDetectionId_ != nullptr
-        && this->driftDetectionStatus_ != nullptr && this->driftDetectionStatusReason_ != nullptr && this->driftDetectionTime_ != nullptr && this->driftedStackResourceCount_ != nullptr && this->requestId_ != nullptr
-        && this->stackDriftStatus_ != nullptr && this->stackId_ != nullptr; };
+    virtual bool empty() const override { return this->driftDetectionId_ == nullptr
+        && return this->driftDetectionStatus_ == nullptr && return this->driftDetectionStatusReason_ == nullptr && return this->driftDetectionTime_ == nullptr && return this->driftedStackResourceCount_ == nullptr && return this->requestId_ == nullptr
+        && return this->stackDriftStatus_ == nullptr && return this->stackId_ == nullptr; };
     // driftDetectionId Field Functions 
     bool hasDriftDetectionId() const { return this->driftDetectionId_ != nullptr;};
     void deleteDriftDetectionId() { this->driftDetectionId_ = nullptr;};

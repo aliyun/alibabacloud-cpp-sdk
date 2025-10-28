@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->description_ != nullptr && this->failedCode_ != nullptr && this->logicalIdStrategy_ != nullptr && this->preferenceParameters_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->sourceResourceGroup_ != nullptr && this->sourceResources_ != nullptr && this->sourceTag_ != nullptr && this->stackProvision_ != nullptr && this->stacks_ != nullptr
-        && this->status_ != nullptr && this->statusReason_ != nullptr && this->templateScratchData_ != nullptr && this->templateScratchId_ != nullptr && this->templateScratchType_ != nullptr
-        && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->description_ == nullptr && return this->failedCode_ == nullptr && return this->logicalIdStrategy_ == nullptr && return this->preferenceParameters_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->sourceResourceGroup_ == nullptr && return this->sourceResources_ == nullptr && return this->sourceTag_ == nullptr && return this->stackProvision_ == nullptr && return this->stacks_ == nullptr
+        && return this->status_ == nullptr && return this->statusReason_ == nullptr && return this->templateScratchData_ == nullptr && return this->templateScratchId_ == nullptr && return this->templateScratchType_ == nullptr
+        && return this->updateTime_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

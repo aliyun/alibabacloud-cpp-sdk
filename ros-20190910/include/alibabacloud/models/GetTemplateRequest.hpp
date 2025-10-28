@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->changeSetId_ != nullptr
-        && this->includePermission_ != nullptr && this->includeTags_ != nullptr && this->regionId_ != nullptr && this->stackGroupName_ != nullptr && this->stackId_ != nullptr
-        && this->templateId_ != nullptr && this->templateStage_ != nullptr && this->templateVersion_ != nullptr; };
+    virtual bool empty() const override { return this->changeSetId_ == nullptr
+        && return this->includePermission_ == nullptr && return this->includeTags_ == nullptr && return this->regionId_ == nullptr && return this->stackGroupName_ == nullptr && return this->stackId_ == nullptr
+        && return this->templateId_ == nullptr && return this->templateStage_ == nullptr && return this->templateVersion_ == nullptr; };
     // changeSetId Field Functions 
     bool hasChangeSetId() const { return this->changeSetId_ != nullptr;};
     void deleteChangeSetId() { this->changeSetId_ = nullptr;};

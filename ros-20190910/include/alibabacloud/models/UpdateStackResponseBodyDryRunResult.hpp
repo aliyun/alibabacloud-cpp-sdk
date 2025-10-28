@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->parametersAllowedToBeModified_ != nullptr
-        && this->parametersCauseInterruptionIfModified_ != nullptr && this->parametersCauseReplacementIfModified_ != nullptr && this->parametersConditionallyAllowedToBeModified_ != nullptr && this->parametersConditionallyCauseInterruptionIfModified_ != nullptr && this->parametersConditionallyCauseReplacementIfModified_ != nullptr
-        && this->parametersNotAllowedToBeModified_ != nullptr && this->parametersUncertainlyAllowedToBeModified_ != nullptr && this->parametersUncertainlyCauseInterruptionIfModified_ != nullptr && this->parametersUncertainlyCauseReplacementIfModified_ != nullptr; };
+    virtual bool empty() const override { return this->parametersAllowedToBeModified_ == nullptr
+        && return this->parametersCauseInterruptionIfModified_ == nullptr && return this->parametersCauseReplacementIfModified_ == nullptr && return this->parametersConditionallyAllowedToBeModified_ == nullptr && return this->parametersConditionallyCauseInterruptionIfModified_ == nullptr && return this->parametersConditionallyCauseReplacementIfModified_ == nullptr
+        && return this->parametersNotAllowedToBeModified_ == nullptr && return this->parametersUncertainlyAllowedToBeModified_ == nullptr && return this->parametersUncertainlyCauseInterruptionIfModified_ == nullptr && return this->parametersUncertainlyCauseReplacementIfModified_ == nullptr; };
     // parametersAllowedToBeModified Field Functions 
     bool hasParametersAllowedToBeModified() const { return this->parametersAllowedToBeModified_ != nullptr;};
     void deleteParametersAllowedToBeModified() { this->parametersAllowedToBeModified_ = nullptr;};

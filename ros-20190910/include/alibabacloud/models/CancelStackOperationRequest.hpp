@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowedStackOperations_ != nullptr
-        && this->cancelType_ != nullptr && this->regionId_ != nullptr && this->stackId_ != nullptr; };
+    virtual bool empty() const override { return this->allowedStackOperations_ == nullptr
+        && return this->cancelType_ == nullptr && return this->regionId_ == nullptr && return this->stackId_ == nullptr; };
     // allowedStackOperations Field Functions 
     bool hasAllowedStackOperations() const { return this->allowedStackOperations_ != nullptr;};
     void deleteAllowedStackOperations() { this->allowedStackOperations_ = nullptr;};

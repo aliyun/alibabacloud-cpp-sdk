@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actualProperties_ != nullptr
-        && this->driftDetectionTime_ != nullptr && this->expectedProperties_ != nullptr && this->logicalResourceId_ != nullptr && this->physicalResourceId_ != nullptr && this->propertyDifferences_ != nullptr
-        && this->requestId_ != nullptr && this->resourceDriftStatus_ != nullptr && this->resourceType_ != nullptr && this->stackId_ != nullptr; };
+    virtual bool empty() const override { return this->actualProperties_ == nullptr
+        && return this->driftDetectionTime_ == nullptr && return this->expectedProperties_ == nullptr && return this->logicalResourceId_ == nullptr && return this->physicalResourceId_ == nullptr && return this->propertyDifferences_ == nullptr
+        && return this->requestId_ == nullptr && return this->resourceDriftStatus_ == nullptr && return this->resourceType_ == nullptr && return this->stackId_ == nullptr; };
     // actualProperties Field Functions 
     bool hasActualProperties() const { return this->actualProperties_ != nullptr;};
     void deleteActualProperties() { this->actualProperties_ = nullptr;};

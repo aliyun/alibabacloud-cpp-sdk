@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acsResourceType_ != nullptr
-        && this->action_ != nullptr && this->description_ != nullptr && this->logicalResourceId_ != nullptr && this->physicalResourceId_ != nullptr && this->properties_ != nullptr
-        && this->replacement_ != nullptr && this->requiredBy_ != nullptr && this->resourceType_ != nullptr && this->stack_ != nullptr; };
+    virtual bool empty() const override { return this->acsResourceType_ == nullptr
+        && return this->action_ == nullptr && return this->description_ == nullptr && return this->logicalResourceId_ == nullptr && return this->physicalResourceId_ == nullptr && return this->properties_ == nullptr
+        && return this->replacement_ == nullptr && return this->requiredBy_ == nullptr && return this->resourceType_ == nullptr && return this->stack_ == nullptr; };
     // acsResourceType Field Functions 
     bool hasAcsResourceType() const { return this->acsResourceType_ != nullptr;};
     void deleteAcsResourceType() { this->acsResourceType_ = nullptr;};

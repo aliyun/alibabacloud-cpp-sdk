@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endTime_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->parentStackId_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->showNestedStack_ != nullptr && this->stackId_ != nullptr && this->stackIds_ != nullptr && this->stackName_ != nullptr && this->startTime_ != nullptr
-        && this->status_ != nullptr && this->tag_ != nullptr; };
+    virtual bool empty() const override { return this->endTime_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->parentStackId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->showNestedStack_ == nullptr && return this->stackId_ == nullptr && return this->stackIds_ == nullptr && return this->stackName_ == nullptr && return this->startTime_ == nullptr
+        && return this->status_ == nullptr && return this->tag_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};

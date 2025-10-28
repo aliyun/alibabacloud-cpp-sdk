@@ -1796,6 +1796,91 @@ DetectStackResourceDriftResponse Client::detectStackResourceDrift(const DetectSt
 }
 
 /**
+ * @summary 开启可信服务访问
+ *
+ * @param request EnableServiceAccessRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableServiceAccessResponse
+ */
+EnableServiceAccessResponse Client::enableServiceAccessWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "EnableServiceAccess"},
+    {"version" , "2019-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableServiceAccessResponse>();
+}
+
+/**
+ * @summary 开启可信服务访问
+ *
+ * @return EnableServiceAccessResponse
+ */
+EnableServiceAccessResponse Client::enableServiceAccess() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableServiceAccessWithOptions(runtime);
+}
+
+/**
+ * @summary 批量开通
+ *
+ * @param tmpReq EnableServicesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableServicesResponse
+ */
+EnableServicesResponse Client::enableServicesWithOptions(const EnableServicesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  EnableServicesShrinkRequest request = EnableServicesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasServiceNames()) {
+    request.setServiceNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.serviceNames(), "ServiceNames", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasServiceNamesShrink()) {
+    query["ServiceNames"] = request.serviceNamesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableServices"},
+    {"version" , "2019-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableServicesResponse>();
+}
+
+/**
+ * @summary 批量开通
+ *
+ * @param request EnableServicesRequest
+ * @return EnableServicesResponse
+ */
+EnableServicesResponse Client::enableServices(const EnableServicesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableServicesWithOptions(request, runtime);
+}
+
+/**
  * @summary Executes change sets.
  *
  * @description In this example, the change set whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is executed. The change set is created in the `China (Hangzhou)` region.
@@ -2263,6 +2348,39 @@ GetResourceTypeTemplateResponse Client::getResourceTypeTemplateWithOptions(const
 GetResourceTypeTemplateResponse Client::getResourceTypeTemplate(const GetResourceTypeTemplateRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getResourceTypeTemplateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询可信服务
+ *
+ * @param request GetServiceAccessRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetServiceAccessResponse
+ */
+GetServiceAccessResponse Client::getServiceAccessWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetServiceAccess"},
+    {"version" , "2019-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetServiceAccessResponse>();
+}
+
+/**
+ * @summary 查询可信服务
+ *
+ * @return GetServiceAccessResponse
+ */
+GetServiceAccessResponse Client::getServiceAccess() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getServiceAccessWithOptions(runtime);
 }
 
 /**
@@ -4373,6 +4491,48 @@ ListStacksResponse Client::listStacksWithOptions(const ListStacksRequest &reques
 ListStacksResponse Client::listStacks(const ListStacksRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listStacksWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询总览
+ *
+ * @param request ListSummariesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSummariesResponse
+ */
+ListSummariesResponse Client::listSummariesWithOptions(const ListSummariesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOption()) {
+    query["Option"] = request.option();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSummaries"},
+    {"version" , "2019-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSummariesResponse>();
+}
+
+/**
+ * @summary 查询总览
+ *
+ * @param request ListSummariesRequest
+ * @return ListSummariesResponse
+ */
+ListSummariesResponse Client::listSummaries(const ListSummariesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSummariesWithOptions(request, runtime);
 }
 
 /**

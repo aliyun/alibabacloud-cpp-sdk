@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attributes_ != nullptr
-        && this->createTime_ != nullptr && this->defaultVersionId_ != nullptr && this->description_ != nullptr && this->entityType_ != nullptr && this->isDefaultVersion_ != nullptr
-        && this->latestVersionId_ != nullptr && this->properties_ != nullptr && this->provider_ != nullptr && this->requestId_ != nullptr && this->resourceType_ != nullptr
-        && this->supportDriftDetection_ != nullptr && this->supportScratchDetection_ != nullptr && this->templateBody_ != nullptr && this->totalVersionCount_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->attributes_ == nullptr
+        && return this->createTime_ == nullptr && return this->defaultVersionId_ == nullptr && return this->description_ == nullptr && return this->entityType_ == nullptr && return this->isDefaultVersion_ == nullptr
+        && return this->latestVersionId_ == nullptr && return this->properties_ == nullptr && return this->provider_ == nullptr && return this->requestId_ == nullptr && return this->resourceType_ == nullptr
+        && return this->supportDriftDetection_ == nullptr && return this->supportScratchDetection_ == nullptr && return this->templateBody_ == nullptr && return this->totalVersionCount_ == nullptr && return this->updateTime_ == nullptr; };
     // attributes Field Functions 
     bool hasAttributes() const { return this->attributes_ != nullptr;};
     void deleteAttributes() { this->attributes_ = nullptr;};

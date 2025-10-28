@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->additionalInfo_ != nullptr
-        && this->createTime_ != nullptr && this->description_ != nullptr && this->ownerId_ != nullptr && this->resourceGroupId_ != nullptr && this->shareType_ != nullptr
-        && this->tags_ != nullptr && this->templateARN_ != nullptr && this->templateId_ != nullptr && this->templateName_ != nullptr && this->templateUrl_ != nullptr
-        && this->templateVersion_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->additionalInfo_ == nullptr
+        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->ownerId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->shareType_ == nullptr
+        && return this->tags_ == nullptr && return this->templateARN_ == nullptr && return this->templateId_ == nullptr && return this->templateName_ == nullptr && return this->templateUrl_ == nullptr
+        && return this->templateVersion_ == nullptr && return this->updateTime_ == nullptr; };
     // additionalInfo Field Functions 
     bool hasAdditionalInfo() const { return this->additionalInfo_ != nullptr;};
     void deleteAdditionalInfo() { this->additionalInfo_ = nullptr;};

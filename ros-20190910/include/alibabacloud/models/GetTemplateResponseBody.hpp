@@ -70,11 +70,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->additionalInfo_ != nullptr
-        && this->changeSetId_ != nullptr && this->createTime_ != nullptr && this->description_ != nullptr && this->interface_ != nullptr && this->ownerId_ != nullptr
-        && this->permissions_ != nullptr && this->regionId_ != nullptr && this->requestId_ != nullptr && this->resourceGroupId_ != nullptr && this->shareType_ != nullptr
-        && this->stackGroupName_ != nullptr && this->stackId_ != nullptr && this->tags_ != nullptr && this->templateARN_ != nullptr && this->templateBody_ != nullptr
-        && this->templateId_ != nullptr && this->templateName_ != nullptr && this->templateVersion_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->additionalInfo_ == nullptr
+        && return this->changeSetId_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->interface_ == nullptr && return this->ownerId_ == nullptr
+        && return this->permissions_ == nullptr && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->shareType_ == nullptr
+        && return this->stackGroupName_ == nullptr && return this->stackId_ == nullptr && return this->tags_ == nullptr && return this->templateARN_ == nullptr && return this->templateBody_ == nullptr
+        && return this->templateId_ == nullptr && return this->templateName_ == nullptr && return this->templateVersion_ == nullptr && return this->updateTime_ == nullptr; };
     // additionalInfo Field Functions 
     bool hasAdditionalInfo() const { return this->additionalInfo_ != nullptr;};
     void deleteAdditionalInfo() { this->additionalInfo_ = nullptr;};

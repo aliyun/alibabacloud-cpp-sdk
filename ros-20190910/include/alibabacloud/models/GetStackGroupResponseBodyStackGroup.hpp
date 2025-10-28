@@ -63,10 +63,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->administrationRoleName_ != nullptr
-        && this->autoDeployment_ != nullptr && this->createTime_ != nullptr && this->description_ != nullptr && this->executionRoleName_ != nullptr && this->parameters_ != nullptr
-        && this->permissionModel_ != nullptr && this->rdFolderIds_ != nullptr && this->resourceGroupId_ != nullptr && this->stackGroupDriftDetectionDetail_ != nullptr && this->stackGroupId_ != nullptr
-        && this->stackGroupName_ != nullptr && this->status_ != nullptr && this->templateBody_ != nullptr && this->templateContent_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->administrationRoleName_ == nullptr
+        && return this->autoDeployment_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->executionRoleName_ == nullptr && return this->parameters_ == nullptr
+        && return this->permissionModel_ == nullptr && return this->rdFolderIds_ == nullptr && return this->resourceGroupId_ == nullptr && return this->stackGroupDriftDetectionDetail_ == nullptr && return this->stackGroupId_ == nullptr
+        && return this->stackGroupName_ == nullptr && return this->status_ == nullptr && return this->templateBody_ == nullptr && return this->templateContent_ == nullptr && return this->updateTime_ == nullptr; };
     // administrationRoleName Field Functions 
     bool hasAdministrationRoleName() const { return this->administrationRoleName_ != nullptr;};
     void deleteAdministrationRoleName() { this->administrationRoleName_ = nullptr;};

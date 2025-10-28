@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->logicalIdHierarchy_ != nullptr
-        && this->typeHierarchy_ != nullptr; };
+    virtual bool empty() const override { return this->logicalIdHierarchy_ == nullptr
+        && return this->typeHierarchy_ == nullptr; };
     // logicalIdHierarchy Field Functions 
     bool hasLogicalIdHierarchy() const { return this->logicalIdHierarchy_ != nullptr;};
     void deleteLogicalIdHierarchy() { this->logicalIdHierarchy_ = nullptr;};
