@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // List of deleted policy details.
     std::shared_ptr<vector<DeleteCheckPolicyResponseBodyPolicys>> policys_ = nullptr;
+    // The unique ID of the request, which is used to locate and troubleshoot issues.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

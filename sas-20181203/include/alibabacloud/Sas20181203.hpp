@@ -1804,7 +1804,7 @@ namespace Sas20181203
       Models::DeleteBinarySecurityPolicyResponse deleteBinarySecurityPolicy(const Models::DeleteBinarySecurityPolicyRequest &request);
 
       /**
-       * @summary 删除自定义策略
+       * @summary Delete custom scope directories in Cloud Security Posture Management (CSPM) custom checks. You can remove assigned standards, requirements, or sections.
        *
        * @param request DeleteCheckPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1813,7 +1813,7 @@ namespace Sas20181203
       Models::DeleteCheckPolicyResponse deleteCheckPolicyWithOptions(const Models::DeleteCheckPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除自定义策略
+       * @summary Delete custom scope directories in Cloud Security Posture Management (CSPM) custom checks. You can remove assigned standards, requirements, or sections.
        *
        * @param request DeleteCheckPolicyRequest
        * @return DeleteCheckPolicyResponse

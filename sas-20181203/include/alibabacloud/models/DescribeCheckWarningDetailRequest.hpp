@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeCheckWarningDetailRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CheckId, checkId_);
       DARABONBA_PTR_TO_JSON(CheckWarningId, checkWarningId_);
+      DARABONBA_PTR_TO_JSON(ContainerName, containerName_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
@@ -23,6 +24,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeCheckWarningDetailRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CheckId, checkId_);
       DARABONBA_PTR_FROM_JSON(CheckWarningId, checkWarningId_);
+      DARABONBA_PTR_FROM_JSON(ContainerName, containerName_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkId_ == nullptr
-        && return this->checkWarningId_ == nullptr && return this->lang_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr && return this->sourceIp_ == nullptr && return this->uuid_ == nullptr; };
+        && return this->checkWarningId_ == nullptr && return this->containerName_ == nullptr && return this->lang_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr && return this->sourceIp_ == nullptr
+        && return this->uuid_ == nullptr; };
     // checkId Field Functions 
     bool hasCheckId() const { return this->checkId_ != nullptr;};
     void deleteCheckId() { this->checkId_ = nullptr;};
@@ -53,6 +56,13 @@ namespace Models
     void deleteCheckWarningId() { this->checkWarningId_ = nullptr;};
     inline int64_t checkWarningId() const { DARABONBA_PTR_GET_DEFAULT(checkWarningId_, 0L) };
     inline DescribeCheckWarningDetailRequest& setCheckWarningId(int64_t checkWarningId) { DARABONBA_PTR_SET_VALUE(checkWarningId_, checkWarningId) };
+
+
+    // containerName Field Functions 
+    bool hasContainerName() const { return this->containerName_ != nullptr;};
+    void deleteContainerName() { this->containerName_ = nullptr;};
+    inline string containerName() const { DARABONBA_PTR_GET_DEFAULT(containerName_, "") };
+    inline DescribeCheckWarningDetailRequest& setContainerName(string containerName) { DARABONBA_PTR_SET_VALUE(containerName_, containerName) };
 
 
     // lang Field Functions 
@@ -92,6 +102,7 @@ namespace Models
     // 
     // >  To query the details of a check item, you must provide the ID of the alert that is triggered by the check item. You can call the [DescribeCheckWarnings](~~DescribeCheckWarnings~~) operation to query the IDs of alerts.
     std::shared_ptr<int64_t> checkWarningId_ = nullptr;
+    std::shared_ptr<string> containerName_ = nullptr;
     // The language of the content within the request and response. Valid values:
     // 
     // *   **zh**: Chinese

@@ -6074,7 +6074,7 @@ DeleteBinarySecurityPolicyResponse Client::deleteBinarySecurityPolicy(const Dele
 }
 
 /**
- * @summary 删除自定义策略
+ * @summary Delete custom scope directories in Cloud Security Posture Management (CSPM) custom checks. You can remove assigned standards, requirements, or sections.
  *
  * @param request DeleteCheckPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6109,7 +6109,7 @@ DeleteCheckPolicyResponse Client::deleteCheckPolicyWithOptions(const DeleteCheck
 }
 
 /**
- * @summary 删除自定义策略
+ * @summary Delete custom scope directories in Cloud Security Posture Management (CSPM) custom checks. You can remove assigned standards, requirements, or sections.
  *
  * @param request DeleteCheckPolicyRequest
  * @return DeleteCheckPolicyResponse
@@ -10340,6 +10340,10 @@ DescribeCheckWarningDetailResponse Client::describeCheckWarningDetailWithOptions
 
   if (!!request.hasCheckWarningId()) {
     query["CheckWarningId"] = request.checkWarningId();
+  }
+
+  if (!!request.hasContainerName()) {
+    query["ContainerName"] = request.containerName();
   }
 
   if (!!request.hasLang()) {

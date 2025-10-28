@@ -57,8 +57,15 @@ namespace Models
 
 
   protected:
+    // Deleted policy ID.
     std::shared_ptr<int64_t> policyId_ = nullptr;
+    // The name of the custom policy.
     std::shared_ptr<string> policyShowName_ = nullptr;
+    // Policy type for custom check rule:
+    // 
+    // *   **STANDARD**: Standard-level policy
+    // *   **REQUIREMENT**: Requirement-level policy
+    // *   **SECTION**: Section-level policy
     std::shared_ptr<string> policyType_ = nullptr;
   };
 

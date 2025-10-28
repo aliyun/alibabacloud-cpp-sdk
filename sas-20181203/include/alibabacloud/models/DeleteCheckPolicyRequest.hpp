@@ -51,8 +51,16 @@ namespace Models
 
 
   protected:
+    // Array of policies to delete
+    // 
     // This parameter is required.
     std::shared_ptr<vector<int64_t>> policyIds_ = nullptr;
+    // Policy type for custom check rule:
+    // 
+    // *   **STANDARD**: Standard-level policy
+    // *   **REQUIREMENT**: Requirement-level policy
+    // *   **SECTION**: Section-level policy
+    // 
     // This parameter is required.
     std::shared_ptr<string> policyType_ = nullptr;
   };
