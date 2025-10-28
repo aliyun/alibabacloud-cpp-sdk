@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(InstancePort, instancePort_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
+      DARABONBA_PTR_TO_JSON(IsLatest, isLatest_);
       DARABONBA_PTR_TO_JSON(IsSpot, isSpot_);
       DARABONBA_PTR_TO_JSON(Isolated, isolated_);
       DARABONBA_PTR_TO_JSON(LastState, lastState_);
@@ -51,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(InstancePort, instancePort_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
+      DARABONBA_PTR_FROM_JSON(IsLatest, isLatest_);
       DARABONBA_PTR_FROM_JSON(IsSpot, isSpot_);
       DARABONBA_PTR_FROM_JSON(Isolated, isolated_);
       DARABONBA_PTR_FROM_JSON(LastState, lastState_);
@@ -82,10 +84,11 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentAmount_ == nullptr
         && return this->externalIP_ == nullptr && return this->externalInstancePort_ == nullptr && return this->hostIP_ == nullptr && return this->hostName_ == nullptr && return this->innerIP_ == nullptr
-        && return this->instanceName_ == nullptr && return this->instancePort_ == nullptr && return this->instanceType_ == nullptr && return this->isSpot_ == nullptr && return this->isolated_ == nullptr
-        && return this->lastState_ == nullptr && return this->namespace_ == nullptr && return this->originalAmount_ == nullptr && return this->readyProcesses_ == nullptr && return this->reason_ == nullptr
-        && return this->resourceType_ == nullptr && return this->restartCount_ == nullptr && return this->role_ == nullptr && return this->startAt_ == nullptr && return this->startTime_ == nullptr
-        && return this->status_ == nullptr && return this->tenantHostIP_ == nullptr && return this->tenantInstanceIP_ == nullptr && return this->totalProcesses_ == nullptr && return this->zone_ == nullptr; };
+        && return this->instanceName_ == nullptr && return this->instancePort_ == nullptr && return this->instanceType_ == nullptr && return this->isLatest_ == nullptr && return this->isSpot_ == nullptr
+        && return this->isolated_ == nullptr && return this->lastState_ == nullptr && return this->namespace_ == nullptr && return this->originalAmount_ == nullptr && return this->readyProcesses_ == nullptr
+        && return this->reason_ == nullptr && return this->resourceType_ == nullptr && return this->restartCount_ == nullptr && return this->role_ == nullptr && return this->startAt_ == nullptr
+        && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->tenantHostIP_ == nullptr && return this->tenantInstanceIP_ == nullptr && return this->totalProcesses_ == nullptr
+        && return this->zone_ == nullptr; };
     // currentAmount Field Functions 
     bool hasCurrentAmount() const { return this->currentAmount_ != nullptr;};
     void deleteCurrentAmount() { this->currentAmount_ = nullptr;};
@@ -147,6 +150,13 @@ namespace Models
     void deleteInstanceType() { this->instanceType_ = nullptr;};
     inline string instanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline Instance& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
+
+
+    // isLatest Field Functions 
+    bool hasIsLatest() const { return this->isLatest_ != nullptr;};
+    void deleteIsLatest() { this->isLatest_ = nullptr;};
+    inline bool isLatest() const { DARABONBA_PTR_GET_DEFAULT(isLatest_, false) };
+    inline Instance& setIsLatest(bool isLatest) { DARABONBA_PTR_SET_VALUE(isLatest_, isLatest) };
 
 
     // isSpot Field Functions 
@@ -280,6 +290,7 @@ namespace Models
     std::shared_ptr<string> instanceName_ = nullptr;
     std::shared_ptr<int32_t> instancePort_ = nullptr;
     std::shared_ptr<string> instanceType_ = nullptr;
+    std::shared_ptr<bool> isLatest_ = nullptr;
     std::shared_ptr<bool> isSpot_ = nullptr;
     std::shared_ptr<bool> isolated_ = nullptr;
     std::shared_ptr<vector<Darabonba::Json>> lastState_ = nullptr;
