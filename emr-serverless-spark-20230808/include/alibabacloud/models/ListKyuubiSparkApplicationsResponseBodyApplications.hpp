@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTKYUUBISPARKAPPLICATIONSRESPONSEBODYAPPLICATIONS_HPP_
 #define ALIBABACLOUD_MODELS_LISTKYUUBISPARKAPPLICATIONSRESPONSEBODYAPPLICATIONS_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/RunLog.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -18,9 +19,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(cuHours, cuHours_);
       DARABONBA_PTR_TO_JSON(endTime, endTime_);
       DARABONBA_PTR_TO_JSON(exitReason, exitReason_);
+      DARABONBA_PTR_TO_JSON(kyuubiServiceId, kyuubiServiceId_);
       DARABONBA_PTR_TO_JSON(latestSqlStatementStatus, latestSqlStatementStatus_);
       DARABONBA_PTR_TO_JSON(mbSeconds, mbSeconds_);
       DARABONBA_PTR_TO_JSON(resourceQueueId, resourceQueueId_);
+      DARABONBA_PTR_TO_JSON(runLog, runLog_);
       DARABONBA_PTR_TO_JSON(startTime, startTime_);
       DARABONBA_PTR_TO_JSON(state, state_);
       DARABONBA_PTR_TO_JSON(vcoreSeconds, vcoreSeconds_);
@@ -32,9 +35,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(cuHours, cuHours_);
       DARABONBA_PTR_FROM_JSON(endTime, endTime_);
       DARABONBA_PTR_FROM_JSON(exitReason, exitReason_);
+      DARABONBA_PTR_FROM_JSON(kyuubiServiceId, kyuubiServiceId_);
       DARABONBA_PTR_FROM_JSON(latestSqlStatementStatus, latestSqlStatementStatus_);
       DARABONBA_PTR_FROM_JSON(mbSeconds, mbSeconds_);
       DARABONBA_PTR_FROM_JSON(resourceQueueId, resourceQueueId_);
+      DARABONBA_PTR_FROM_JSON(runLog, runLog_);
       DARABONBA_PTR_FROM_JSON(startTime, startTime_);
       DARABONBA_PTR_FROM_JSON(state, state_);
       DARABONBA_PTR_FROM_JSON(vcoreSeconds, vcoreSeconds_);
@@ -52,9 +57,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && return this->applicationName_ == nullptr && return this->cuHours_ == nullptr && return this->endTime_ == nullptr && return this->exitReason_ == nullptr && return this->latestSqlStatementStatus_ == nullptr
-        && return this->mbSeconds_ == nullptr && return this->resourceQueueId_ == nullptr && return this->startTime_ == nullptr && return this->state_ == nullptr && return this->vcoreSeconds_ == nullptr
-        && return this->webUI_ == nullptr; };
+        && return this->applicationName_ == nullptr && return this->cuHours_ == nullptr && return this->endTime_ == nullptr && return this->exitReason_ == nullptr && return this->kyuubiServiceId_ == nullptr
+        && return this->latestSqlStatementStatus_ == nullptr && return this->mbSeconds_ == nullptr && return this->resourceQueueId_ == nullptr && return this->runLog_ == nullptr && return this->startTime_ == nullptr
+        && return this->state_ == nullptr && return this->vcoreSeconds_ == nullptr && return this->webUI_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -90,6 +95,13 @@ namespace Models
     inline ListKyuubiSparkApplicationsResponseBodyApplications& setExitReason(string exitReason) { DARABONBA_PTR_SET_VALUE(exitReason_, exitReason) };
 
 
+    // kyuubiServiceId Field Functions 
+    bool hasKyuubiServiceId() const { return this->kyuubiServiceId_ != nullptr;};
+    void deleteKyuubiServiceId() { this->kyuubiServiceId_ = nullptr;};
+    inline string kyuubiServiceId() const { DARABONBA_PTR_GET_DEFAULT(kyuubiServiceId_, "") };
+    inline ListKyuubiSparkApplicationsResponseBodyApplications& setKyuubiServiceId(string kyuubiServiceId) { DARABONBA_PTR_SET_VALUE(kyuubiServiceId_, kyuubiServiceId) };
+
+
     // latestSqlStatementStatus Field Functions 
     bool hasLatestSqlStatementStatus() const { return this->latestSqlStatementStatus_ != nullptr;};
     void deleteLatestSqlStatementStatus() { this->latestSqlStatementStatus_ = nullptr;};
@@ -109,6 +121,15 @@ namespace Models
     void deleteResourceQueueId() { this->resourceQueueId_ = nullptr;};
     inline string resourceQueueId() const { DARABONBA_PTR_GET_DEFAULT(resourceQueueId_, "") };
     inline ListKyuubiSparkApplicationsResponseBodyApplications& setResourceQueueId(string resourceQueueId) { DARABONBA_PTR_SET_VALUE(resourceQueueId_, resourceQueueId) };
+
+
+    // runLog Field Functions 
+    bool hasRunLog() const { return this->runLog_ != nullptr;};
+    void deleteRunLog() { this->runLog_ = nullptr;};
+    inline const Models::RunLog & runLog() const { DARABONBA_PTR_GET_CONST(runLog_, Models::RunLog) };
+    inline Models::RunLog runLog() { DARABONBA_PTR_GET(runLog_, Models::RunLog) };
+    inline ListKyuubiSparkApplicationsResponseBodyApplications& setRunLog(const Models::RunLog & runLog) { DARABONBA_PTR_SET_VALUE(runLog_, runLog) };
+    inline ListKyuubiSparkApplicationsResponseBodyApplications& setRunLog(Models::RunLog && runLog) { DARABONBA_PTR_SET_RVALUE(runLog_, runLog) };
 
 
     // startTime Field Functions 
@@ -149,11 +170,13 @@ namespace Models
     // The time when the task ended.
     std::shared_ptr<string> endTime_ = nullptr;
     std::shared_ptr<string> exitReason_ = nullptr;
+    std::shared_ptr<string> kyuubiServiceId_ = nullptr;
     std::shared_ptr<string> latestSqlStatementStatus_ = nullptr;
     // The total amount of memory allocated to the job multiplied by the running duration (seconds).
     std::shared_ptr<int64_t> mbSeconds_ = nullptr;
     // The name of the resource queue on which the Spark jobs run.
     std::shared_ptr<string> resourceQueueId_ = nullptr;
+    std::shared_ptr<Models::RunLog> runLog_ = nullptr;
     // The time when the task started.
     std::shared_ptr<string> startTime_ = nullptr;
     // The status of the Spark application.

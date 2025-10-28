@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(maxResource, maxResource_);
       DARABONBA_PTR_TO_JSON(minResource, minResource_);
       DARABONBA_PTR_TO_JSON(paymentType, paymentType_);
+      DARABONBA_PTR_TO_JSON(preheat, preheat_);
       DARABONBA_PTR_TO_JSON(properties, properties_);
       DARABONBA_PTR_TO_JSON(queueName, queueName_);
       DARABONBA_PTR_TO_JSON(queueScope, queueScope_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(maxResource, maxResource_);
       DARABONBA_PTR_FROM_JSON(minResource, minResource_);
       DARABONBA_PTR_FROM_JSON(paymentType, paymentType_);
+      DARABONBA_PTR_FROM_JSON(preheat, preheat_);
       DARABONBA_PTR_FROM_JSON(properties, properties_);
       DARABONBA_PTR_FROM_JSON(queueName, queueName_);
       DARABONBA_PTR_FROM_JSON(queueScope, queueScope_);
@@ -61,8 +63,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allowActions_ == nullptr
         && return this->createTime_ == nullptr && return this->creator_ == nullptr && return this->environments_ == nullptr && return this->maxResource_ == nullptr && return this->minResource_ == nullptr
-        && return this->paymentType_ == nullptr && return this->properties_ == nullptr && return this->queueName_ == nullptr && return this->queueScope_ == nullptr && return this->queueStatus_ == nullptr
-        && return this->queueType_ == nullptr && return this->regionId_ == nullptr && return this->usedResource_ == nullptr && return this->workspaceId_ == nullptr; };
+        && return this->paymentType_ == nullptr && return this->preheat_ == nullptr && return this->properties_ == nullptr && return this->queueName_ == nullptr && return this->queueScope_ == nullptr
+        && return this->queueStatus_ == nullptr && return this->queueType_ == nullptr && return this->regionId_ == nullptr && return this->usedResource_ == nullptr && return this->workspaceId_ == nullptr; };
     // allowActions Field Functions 
     bool hasAllowActions() const { return this->allowActions_ != nullptr;};
     void deleteAllowActions() { this->allowActions_ = nullptr;};
@@ -114,6 +116,13 @@ namespace Models
     void deletePaymentType() { this->paymentType_ = nullptr;};
     inline string paymentType() const { DARABONBA_PTR_GET_DEFAULT(paymentType_, "") };
     inline ListWorkspaceQueuesResponseBodyQueues& setPaymentType(string paymentType) { DARABONBA_PTR_SET_VALUE(paymentType_, paymentType) };
+
+
+    // preheat Field Functions 
+    bool hasPreheat() const { return this->preheat_ != nullptr;};
+    void deletePreheat() { this->preheat_ = nullptr;};
+    inline bool preheat() const { DARABONBA_PTR_GET_DEFAULT(preheat_, false) };
+    inline ListWorkspaceQueuesResponseBodyQueues& setPreheat(bool preheat) { DARABONBA_PTR_SET_VALUE(preheat_, preheat) };
 
 
     // properties Field Functions 
@@ -190,6 +199,7 @@ namespace Models
     // *   PayAsYouGo
     // *   Pre
     std::shared_ptr<string> paymentType_ = nullptr;
+    std::shared_ptr<bool> preheat_ = nullptr;
     // The queue label.
     std::shared_ptr<string> properties_ = nullptr;
     // The name of the queue.

@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(jobRunId, jobRunId_);
       DARABONBA_PTR_TO_JSON(log, log_);
       DARABONBA_PTR_TO_JSON(name, name_);
+      DARABONBA_PTR_TO_JSON(notebookAccessUrl, notebookAccessUrl_);
       DARABONBA_PTR_TO_JSON(releaseVersion, releaseVersion_);
       DARABONBA_PTR_TO_JSON(resourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(resourceQueueId, resourceQueueId_);
@@ -52,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(jobRunId, jobRunId_);
       DARABONBA_PTR_FROM_JSON(log, log_);
       DARABONBA_PTR_FROM_JSON(name, name_);
+      DARABONBA_PTR_FROM_JSON(notebookAccessUrl, notebookAccessUrl_);
       DARABONBA_PTR_FROM_JSON(releaseVersion, releaseVersion_);
       DARABONBA_PTR_FROM_JSON(resourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(resourceQueueId, resourceQueueId_);
@@ -76,8 +78,8 @@ namespace Models
     virtual bool empty() const override { return this->codeType_ == nullptr
         && return this->configurationOverrides_ == nullptr && return this->displayReleaseVersion_ == nullptr && return this->endTime_ == nullptr && return this->environmentId_ == nullptr && return this->executionTimeoutSeconds_ == nullptr
         && return this->fusion_ == nullptr && return this->jobDriver_ == nullptr && return this->jobRunId_ == nullptr && return this->log_ == nullptr && return this->name_ == nullptr
-        && return this->releaseVersion_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->resourceQueueId_ == nullptr && return this->state_ == nullptr && return this->stateChangeReason_ == nullptr
-        && return this->submitTime_ == nullptr && return this->tags_ == nullptr && return this->webUI_ == nullptr && return this->workspaceId_ == nullptr; };
+        && return this->notebookAccessUrl_ == nullptr && return this->releaseVersion_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->resourceQueueId_ == nullptr && return this->state_ == nullptr
+        && return this->stateChangeReason_ == nullptr && return this->submitTime_ == nullptr && return this->tags_ == nullptr && return this->webUI_ == nullptr && return this->workspaceId_ == nullptr; };
     // codeType Field Functions 
     bool hasCodeType() const { return this->codeType_ != nullptr;};
     void deleteCodeType() { this->codeType_ = nullptr;};
@@ -159,6 +161,13 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline GetJobRunResponseBodyJobRun& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // notebookAccessUrl Field Functions 
+    bool hasNotebookAccessUrl() const { return this->notebookAccessUrl_ != nullptr;};
+    void deleteNotebookAccessUrl() { this->notebookAccessUrl_ = nullptr;};
+    inline string notebookAccessUrl() const { DARABONBA_PTR_GET_DEFAULT(notebookAccessUrl_, "") };
+    inline GetJobRunResponseBodyJobRun& setNotebookAccessUrl(string notebookAccessUrl) { DARABONBA_PTR_SET_VALUE(notebookAccessUrl_, notebookAccessUrl) };
 
 
     // releaseVersion Field Functions 
@@ -255,6 +264,7 @@ namespace Models
     std::shared_ptr<Models::RunLog> log_ = nullptr;
     // The job name.
     std::shared_ptr<string> name_ = nullptr;
+    std::shared_ptr<string> notebookAccessUrl_ = nullptr;
     // The version of the Spark engine on which the job runs.
     std::shared_ptr<string> releaseVersion_ = nullptr;
     // The ID of the user who created the job.

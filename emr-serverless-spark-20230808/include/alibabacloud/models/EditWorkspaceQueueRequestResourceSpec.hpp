@@ -14,9 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const EditWorkspaceQueueRequestResourceSpec& obj) { 
       DARABONBA_PTR_TO_JSON(cu, cu_);
+      DARABONBA_PTR_TO_JSON(maxCu, maxCu_);
     };
     friend void from_json(const Darabonba::Json& j, EditWorkspaceQueueRequestResourceSpec& obj) { 
       DARABONBA_PTR_FROM_JSON(cu, cu_);
+      DARABONBA_PTR_FROM_JSON(maxCu, maxCu_);
     };
     EditWorkspaceQueueRequestResourceSpec() = default ;
     EditWorkspaceQueueRequestResourceSpec(const EditWorkspaceQueueRequestResourceSpec &) = default ;
@@ -29,7 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->cu_ == nullptr; };
+    virtual bool empty() const override { return this->cu_ == nullptr
+        && return this->maxCu_ == nullptr; };
     // cu Field Functions 
     bool hasCu() const { return this->cu_ != nullptr;};
     void deleteCu() { this->cu_ = nullptr;};
@@ -37,8 +40,16 @@ namespace Models
     inline EditWorkspaceQueueRequestResourceSpec& setCu(int64_t cu) { DARABONBA_PTR_SET_VALUE(cu_, cu) };
 
 
+    // maxCu Field Functions 
+    bool hasMaxCu() const { return this->maxCu_ != nullptr;};
+    void deleteMaxCu() { this->maxCu_ = nullptr;};
+    inline int64_t maxCu() const { DARABONBA_PTR_GET_DEFAULT(maxCu_, 0L) };
+    inline EditWorkspaceQueueRequestResourceSpec& setMaxCu(int64_t maxCu) { DARABONBA_PTR_SET_VALUE(maxCu_, maxCu) };
+
+
   protected:
     std::shared_ptr<int64_t> cu_ = nullptr;
+    std::shared_ptr<int64_t> maxCu_ = nullptr;
   };
 
   } // namespace Models
