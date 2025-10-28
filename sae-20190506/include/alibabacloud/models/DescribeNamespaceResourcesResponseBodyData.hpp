@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NamespaceName, namespaceName_);
       DARABONBA_PTR_TO_JSON(NotificationExpired, notificationExpired_);
       DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
+      DARABONBA_PTR_TO_JSON(SlsConfigs, slsConfigs_);
       DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
       DARABONBA_PTR_TO_JSON(UserId, userId_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NamespaceName, namespaceName_);
       DARABONBA_PTR_FROM_JSON(NotificationExpired, notificationExpired_);
       DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
+      DARABONBA_PTR_FROM_JSON(SlsConfigs, slsConfigs_);
       DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
       DARABONBA_PTR_FROM_JSON(UserId, userId_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
@@ -68,8 +70,8 @@ namespace Models
     virtual bool empty() const override { return this->appCount_ == nullptr
         && return this->belongRegion_ == nullptr && return this->description_ == nullptr && return this->jumpServerAppId_ == nullptr && return this->jumpServerIp_ == nullptr && return this->lastChangeOrderId_ == nullptr
         && return this->lastChangeOrderRunning_ == nullptr && return this->lastChangeOrderStatus_ == nullptr && return this->nameSpaceShortId_ == nullptr && return this->namespaceId_ == nullptr && return this->namespaceName_ == nullptr
-        && return this->notificationExpired_ == nullptr && return this->securityGroupId_ == nullptr && return this->tenantId_ == nullptr && return this->userId_ == nullptr && return this->vSwitchId_ == nullptr
-        && return this->vSwitchName_ == nullptr && return this->vpcId_ == nullptr && return this->vpcName_ == nullptr; };
+        && return this->notificationExpired_ == nullptr && return this->securityGroupId_ == nullptr && return this->slsConfigs_ == nullptr && return this->tenantId_ == nullptr && return this->userId_ == nullptr
+        && return this->vSwitchId_ == nullptr && return this->vSwitchName_ == nullptr && return this->vpcId_ == nullptr && return this->vpcName_ == nullptr; };
     // appCount Field Functions 
     bool hasAppCount() const { return this->appCount_ != nullptr;};
     void deleteAppCount() { this->appCount_ = nullptr;};
@@ -161,6 +163,13 @@ namespace Models
     inline DescribeNamespaceResourcesResponseBodyData& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
 
 
+    // slsConfigs Field Functions 
+    bool hasSlsConfigs() const { return this->slsConfigs_ != nullptr;};
+    void deleteSlsConfigs() { this->slsConfigs_ = nullptr;};
+    inline string slsConfigs() const { DARABONBA_PTR_GET_DEFAULT(slsConfigs_, "") };
+    inline DescribeNamespaceResourcesResponseBodyData& setSlsConfigs(string slsConfigs) { DARABONBA_PTR_SET_VALUE(slsConfigs_, slsConfigs) };
+
+
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
@@ -246,6 +255,7 @@ namespace Models
     std::shared_ptr<bool> notificationExpired_ = nullptr;
     // The ID of the security group.
     std::shared_ptr<string> securityGroupId_ = nullptr;
+    std::shared_ptr<string> slsConfigs_ = nullptr;
     // The ID of the tenant in the SAE namespace.
     std::shared_ptr<string> tenantId_ = nullptr;
     // The ID of the user.
