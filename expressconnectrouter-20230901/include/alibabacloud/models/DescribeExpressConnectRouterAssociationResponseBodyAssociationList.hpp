@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowedPrefixes_ != nullptr
-        && this->allowedPrefixesMode_ != nullptr && this->associationId_ != nullptr && this->associationNodeType_ != nullptr && this->cenId_ != nullptr && this->description_ != nullptr
-        && this->ecrId_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr
-        && this->status_ != nullptr && this->transitRouterId_ != nullptr && this->transitRouterOwnerId_ != nullptr && this->vpcId_ != nullptr && this->vpcOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->allowedPrefixes_ == nullptr
+        && return this->allowedPrefixesMode_ == nullptr && return this->associationId_ == nullptr && return this->associationNodeType_ == nullptr && return this->cenId_ == nullptr && return this->description_ == nullptr
+        && return this->ecrId_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr
+        && return this->status_ == nullptr && return this->transitRouterId_ == nullptr && return this->transitRouterOwnerId_ == nullptr && return this->vpcId_ == nullptr && return this->vpcOwnerId_ == nullptr; };
     // allowedPrefixes Field Functions 
     bool hasAllowedPrefixes() const { return this->allowedPrefixes_ != nullptr;};
     void deleteAllowedPrefixes() { this->allowedPrefixes_ = nullptr;};

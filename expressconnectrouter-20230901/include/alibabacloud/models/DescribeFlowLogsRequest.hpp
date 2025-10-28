@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->dryRun_ != nullptr && this->ecrId_ != nullptr && this->flowLogId_ != nullptr && this->flowLogName_ != nullptr && this->instanceId_ != nullptr
-        && this->logStoreName_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->projectName_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->tag_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->dryRun_ == nullptr && return this->ecrId_ == nullptr && return this->flowLogId_ == nullptr && return this->flowLogName_ == nullptr && return this->instanceId_ == nullptr
+        && return this->logStoreName_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->projectName_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->tag_ == nullptr && return this->version_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};

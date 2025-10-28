@@ -449,6 +449,10 @@ CreateFlowLogResponse Client::createFlowLogWithOptions(const CreateFlowLogReques
     query["Tag"] = request.tag();
   }
 
+  if (!!request.hasTargetSlsRegionId()) {
+    query["TargetSlsRegionId"] = request.targetSlsRegionId();
+  }
+
   if (!!request.hasVersion()) {
     query["Version"] = request.version();
   }

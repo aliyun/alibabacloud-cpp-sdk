@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callerType_ != nullptr
-        && this->clientToken_ != nullptr && this->dryRun_ != nullptr && this->ecrId_ != nullptr && this->instanceId_ != nullptr && this->instanceOwnerId_ != nullptr
-        && this->instanceRegionId_ != nullptr && this->instanceType_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->tagModels_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->callerType_ == nullptr
+        && return this->clientToken_ == nullptr && return this->dryRun_ == nullptr && return this->ecrId_ == nullptr && return this->instanceId_ == nullptr && return this->instanceOwnerId_ == nullptr
+        && return this->instanceRegionId_ == nullptr && return this->instanceType_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->tagModels_ == nullptr && return this->version_ == nullptr; };
     // callerType Field Functions 
     bool hasCallerType() const { return this->callerType_ != nullptr;};
     void deleteCallerType() { this->callerType_ = nullptr;};

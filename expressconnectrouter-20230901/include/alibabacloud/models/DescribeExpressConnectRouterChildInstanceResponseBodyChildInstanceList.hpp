@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->associationId_ != nullptr
-        && this->childInstanceId_ != nullptr && this->childInstanceOwnerId_ != nullptr && this->childInstanceRegionId_ != nullptr && this->childInstanceType_ != nullptr && this->description_ != nullptr
-        && this->ecrId_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr
-        && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->associationId_ == nullptr
+        && return this->childInstanceId_ == nullptr && return this->childInstanceOwnerId_ == nullptr && return this->childInstanceRegionId_ == nullptr && return this->childInstanceType_ == nullptr && return this->description_ == nullptr
+        && return this->ecrId_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr
+        && return this->status_ == nullptr; };
     // associationId Field Functions 
     bool hasAssociationId() const { return this->associationId_ != nullptr;};
     void deleteAssociationId() { this->associationId_ = nullptr;};

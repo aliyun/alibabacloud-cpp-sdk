@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(SamplingRate, samplingRate_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
+      DARABONBA_PTR_TO_JSON(TargetSlsRegionId, targetSlsRegionId_);
       DARABONBA_PTR_TO_JSON(Version, version_);
     };
     friend void from_json(const Darabonba::Json& j, CreateFlowLogRequest& obj) { 
@@ -44,6 +45,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(SamplingRate, samplingRate_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
+      DARABONBA_PTR_FROM_JSON(TargetSlsRegionId, targetSlsRegionId_);
       DARABONBA_PTR_FROM_JSON(Version, version_);
     };
     CreateFlowLogRequest() = default ;
@@ -57,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->description_ != nullptr && this->dryRun_ != nullptr && this->ecrId_ != nullptr && this->flowLogName_ != nullptr && this->instanceId_ != nullptr
-        && this->instanceType_ != nullptr && this->interval_ != nullptr && this->logStoreName_ != nullptr && this->projectName_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->samplingRate_ != nullptr && this->tag_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->description_ == nullptr && return this->dryRun_ == nullptr && return this->ecrId_ == nullptr && return this->flowLogName_ == nullptr && return this->instanceId_ == nullptr
+        && return this->instanceType_ == nullptr && return this->interval_ == nullptr && return this->logStoreName_ == nullptr && return this->projectName_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->samplingRate_ == nullptr && return this->tag_ == nullptr && return this->targetSlsRegionId_ == nullptr && return this->version_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -154,6 +156,13 @@ namespace Models
     inline CreateFlowLogRequest& setTag(vector<CreateFlowLogRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
+    // targetSlsRegionId Field Functions 
+    bool hasTargetSlsRegionId() const { return this->targetSlsRegionId_ != nullptr;};
+    void deleteTargetSlsRegionId() { this->targetSlsRegionId_ = nullptr;};
+    inline string targetSlsRegionId() const { DARABONBA_PTR_GET_DEFAULT(targetSlsRegionId_, "") };
+    inline CreateFlowLogRequest& setTargetSlsRegionId(string targetSlsRegionId) { DARABONBA_PTR_SET_VALUE(targetSlsRegionId_, targetSlsRegionId) };
+
+
     // version Field Functions 
     bool hasVersion() const { return this->version_ != nullptr;};
     void deleteVersion() { this->version_ = nullptr;};
@@ -238,6 +247,7 @@ namespace Models
     // Default value: **1:4096**.
     std::shared_ptr<string> samplingRate_ = nullptr;
     std::shared_ptr<vector<CreateFlowLogRequestTag>> tag_ = nullptr;
+    std::shared_ptr<string> targetSlsRegionId_ = nullptr;
     std::shared_ptr<string> version_ = nullptr;
   };
 

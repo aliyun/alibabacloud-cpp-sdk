@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ecrId_ != nullptr
-        && this->ecrOwnerAliUid_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->grantId_ != nullptr && this->nodeId_ != nullptr
-        && this->nodeOwnerBid_ != nullptr && this->nodeOwnerUid_ != nullptr && this->nodeRegionId_ != nullptr && this->nodeType_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->ecrId_ == nullptr
+        && return this->ecrOwnerAliUid_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->grantId_ == nullptr && return this->nodeId_ == nullptr
+        && return this->nodeOwnerBid_ == nullptr && return this->nodeOwnerUid_ == nullptr && return this->nodeRegionId_ == nullptr && return this->nodeType_ == nullptr && return this->status_ == nullptr; };
     // ecrId Field Functions 
     bool hasEcrId() const { return this->ecrId_ != nullptr;};
     void deleteEcrId() { this->ecrId_ = nullptr;};

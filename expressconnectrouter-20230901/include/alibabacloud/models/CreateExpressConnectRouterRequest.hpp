@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alibabaSideAsn_ != nullptr
-        && this->clientToken_ != nullptr && this->description_ != nullptr && this->dryRun_ != nullptr && this->name_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->tag_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->alibabaSideAsn_ == nullptr
+        && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->dryRun_ == nullptr && return this->name_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->tag_ == nullptr && return this->version_ == nullptr; };
     // alibabaSideAsn Field Functions 
     bool hasAlibabaSideAsn() const { return this->alibabaSideAsn_ != nullptr;};
     void deleteAlibabaSideAsn() { this->alibabaSideAsn_ = nullptr;};

@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alibabaSideAsn_ != nullptr
-        && this->bizStatus_ != nullptr && this->description_ != nullptr && this->ecrId_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr
-        && this->name_ != nullptr && this->ownerId_ != nullptr && this->resourceGroupId_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->alibabaSideAsn_ == nullptr
+        && return this->bizStatus_ == nullptr && return this->description_ == nullptr && return this->ecrId_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr
+        && return this->name_ == nullptr && return this->ownerId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr; };
     // alibabaSideAsn Field Functions 
     bool hasAlibabaSideAsn() const { return this->alibabaSideAsn_ != nullptr;};
     void deleteAlibabaSideAsn() { this->alibabaSideAsn_ = nullptr;};

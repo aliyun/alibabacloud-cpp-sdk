@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowedPrefixes_ != nullptr
-        && this->allowedPrefixesMode_ != nullptr && this->associationId_ != nullptr && this->clientToken_ != nullptr && this->dryRun_ != nullptr && this->ecrId_ != nullptr
-        && this->ownerAccount_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->allowedPrefixes_ == nullptr
+        && return this->allowedPrefixesMode_ == nullptr && return this->associationId_ == nullptr && return this->clientToken_ == nullptr && return this->dryRun_ == nullptr && return this->ecrId_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->version_ == nullptr; };
     // allowedPrefixes Field Functions 
     bool hasAllowedPrefixes() const { return this->allowedPrefixes_ != nullptr;};
     void deleteAllowedPrefixes() { this->allowedPrefixes_ = nullptr;};

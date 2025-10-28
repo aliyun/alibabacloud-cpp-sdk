@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creationTime_ != nullptr
-        && this->description_ != nullptr && this->ecrId_ != nullptr && this->flowLogId_ != nullptr && this->flowLogName_ != nullptr && this->instanceId_ != nullptr
-        && this->instanceType_ != nullptr && this->interval_ != nullptr && this->logStoreName_ != nullptr && this->projectName_ != nullptr && this->regionId_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->samplingRate_ != nullptr && this->slsRegionId_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->creationTime_ == nullptr
+        && return this->description_ == nullptr && return this->ecrId_ == nullptr && return this->flowLogId_ == nullptr && return this->flowLogName_ == nullptr && return this->instanceId_ == nullptr
+        && return this->instanceType_ == nullptr && return this->interval_ == nullptr && return this->logStoreName_ == nullptr && return this->projectName_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->samplingRate_ == nullptr && return this->slsRegionId_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr; };
     // creationTime Field Functions 
     bool hasCreationTime() const { return this->creationTime_ != nullptr;};
     void deleteCreationTime() { this->creationTime_ = nullptr;};

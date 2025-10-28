@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessDeniedDetail_ != nullptr
-        && this->anyCrossBorderLink_ != nullptr && this->anyInterRegionLink_ != nullptr && this->code_ != nullptr && this->dynamicCode_ != nullptr && this->dynamicMessage_ != nullptr
-        && this->httpStatusCode_ != nullptr && this->isCdtCrossBorderEnabled_ != nullptr && this->isCdtInterRegionEnabled_ != nullptr && this->isUserAllowedToCreateCrossBorderLink_ != nullptr && this->message_ != nullptr
-        && this->requestId_ != nullptr && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
+        && return this->anyCrossBorderLink_ == nullptr && return this->anyInterRegionLink_ == nullptr && return this->code_ == nullptr && return this->dynamicCode_ == nullptr && return this->dynamicMessage_ == nullptr
+        && return this->httpStatusCode_ == nullptr && return this->isCdtCrossBorderEnabled_ == nullptr && return this->isCdtInterRegionEnabled_ == nullptr && return this->isUserAllowedToCreateCrossBorderLink_ == nullptr && return this->message_ == nullptr
+        && return this->requestId_ == nullptr && return this->success_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
