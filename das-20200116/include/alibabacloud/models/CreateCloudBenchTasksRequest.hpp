@@ -81,13 +81,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->amount_ != nullptr
-        && this->backupId_ != nullptr && this->backupTime_ != nullptr && this->clientType_ != nullptr && this->description_ != nullptr && this->dstConnectionString_ != nullptr
-        && this->dstInstanceId_ != nullptr && this->dstPort_ != nullptr && this->dstSuperAccount_ != nullptr && this->dstSuperPassword_ != nullptr && this->dstType_ != nullptr
-        && this->dtsJobClass_ != nullptr && this->dtsJobId_ != nullptr && this->endState_ != nullptr && this->gatewayVpcId_ != nullptr && this->gatewayVpcIp_ != nullptr
-        && this->rate_ != nullptr && this->requestDuration_ != nullptr && this->requestEndTime_ != nullptr && this->requestStartTime_ != nullptr && this->smartPressureTime_ != nullptr
-        && this->srcInstanceId_ != nullptr && this->srcPublicIp_ != nullptr && this->srcSuperAccount_ != nullptr && this->srcSuperPassword_ != nullptr && this->taskType_ != nullptr
-        && this->workDir_ != nullptr; };
+    virtual bool empty() const override { return this->amount_ == nullptr
+        && return this->backupId_ == nullptr && return this->backupTime_ == nullptr && return this->clientType_ == nullptr && return this->description_ == nullptr && return this->dstConnectionString_ == nullptr
+        && return this->dstInstanceId_ == nullptr && return this->dstPort_ == nullptr && return this->dstSuperAccount_ == nullptr && return this->dstSuperPassword_ == nullptr && return this->dstType_ == nullptr
+        && return this->dtsJobClass_ == nullptr && return this->dtsJobId_ == nullptr && return this->endState_ == nullptr && return this->gatewayVpcId_ == nullptr && return this->gatewayVpcIp_ == nullptr
+        && return this->rate_ == nullptr && return this->requestDuration_ == nullptr && return this->requestEndTime_ == nullptr && return this->requestStartTime_ == nullptr && return this->smartPressureTime_ == nullptr
+        && return this->srcInstanceId_ == nullptr && return this->srcPublicIp_ == nullptr && return this->srcSuperAccount_ == nullptr && return this->srcSuperPassword_ == nullptr && return this->taskType_ == nullptr
+        && return this->workDir_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};

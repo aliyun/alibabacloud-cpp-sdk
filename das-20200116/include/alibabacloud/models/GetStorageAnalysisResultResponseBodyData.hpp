@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->analyzedDbCount_ != nullptr
-        && this->storageAnalysisResult_ != nullptr && this->taskFinish_ != nullptr && this->taskId_ != nullptr && this->taskProgress_ != nullptr && this->taskState_ != nullptr
-        && this->taskSuccess_ != nullptr && this->totalDbCount_ != nullptr; };
+    virtual bool empty() const override { return this->analyzedDbCount_ == nullptr
+        && return this->storageAnalysisResult_ == nullptr && return this->taskFinish_ == nullptr && return this->taskId_ == nullptr && return this->taskProgress_ == nullptr && return this->taskState_ == nullptr
+        && return this->taskSuccess_ == nullptr && return this->totalDbCount_ == nullptr; };
     // analyzedDbCount Field Functions 
     bool hasAnalyzedDbCount() const { return this->analyzedDbCount_ != nullptr;};
     void deleteAnalyzedDbCount() { this->analyzedDbCount_ = nullptr;};

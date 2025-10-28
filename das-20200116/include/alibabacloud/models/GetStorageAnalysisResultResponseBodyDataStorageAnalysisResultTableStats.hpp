@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->avgRowLength_ != nullptr
-        && this->dataFree_ != nullptr && this->dataSize_ != nullptr && this->dbName_ != nullptr && this->engine_ != nullptr && this->fragmentSize_ != nullptr
-        && this->indexSize_ != nullptr && this->phyTotalSize_ != nullptr && this->physicalFileSize_ != nullptr && this->tableName_ != nullptr && this->tableRows_ != nullptr
-        && this->tableType_ != nullptr && this->totalSize_ != nullptr; };
+    virtual bool empty() const override { return this->avgRowLength_ == nullptr
+        && return this->dataFree_ == nullptr && return this->dataSize_ == nullptr && return this->dbName_ == nullptr && return this->engine_ == nullptr && return this->fragmentSize_ == nullptr
+        && return this->indexSize_ == nullptr && return this->phyTotalSize_ == nullptr && return this->physicalFileSize_ == nullptr && return this->tableName_ == nullptr && return this->tableRows_ == nullptr
+        && return this->tableType_ == nullptr && return this->totalSize_ == nullptr; };
     // avgRowLength Field Functions 
     bool hasAvgRowLength() const { return this->avgRowLength_ != nullptr;};
     void deleteAvgRowLength() { this->avgRowLength_ = nullptr;};

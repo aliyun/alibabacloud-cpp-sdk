@@ -66,6 +66,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Rt, rt_);
       DARABONBA_PTR_TO_JSON(Scnt, scnt_);
       DARABONBA_PTR_TO_JSON(Total, total_);
+      DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
       DARABONBA_PTR_TO_JSON(Ts, ts_);
       DARABONBA_PTR_TO_JSON(TsEnd, tsEnd_);
     };
@@ -121,6 +122,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Rt, rt_);
       DARABONBA_PTR_FROM_JSON(Scnt, scnt_);
       DARABONBA_PTR_FROM_JSON(Total, total_);
+      DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
       DARABONBA_PTR_FROM_JSON(Ts, ts_);
       DARABONBA_PTR_FROM_JSON(TsEnd, tsEnd_);
     };
@@ -135,18 +137,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->avgCPUTime_ != nullptr
-        && this->avgDocExamined_ != nullptr && this->avgFrows_ != nullptr && this->avgIOWrites_ != nullptr && this->avgKeysExamined_ != nullptr && this->avgLastRowsCountAffected_ != nullptr
-        && this->avgLockTime_ != nullptr && this->avgLogicalIOReads_ != nullptr && this->avgPhysicalIOReads_ != nullptr && this->avgReturnNum_ != nullptr && this->avgRows_ != nullptr
-        && this->avgRowsCountAffected_ != nullptr && this->avgRowsExamined_ != nullptr && this->avgRowsSent_ != nullptr && this->avgRt_ != nullptr && this->avgScnt_ != nullptr
-        && this->CPUTime_ != nullptr && this->count_ != nullptr && this->docExamined_ != nullptr && this->frows_ != nullptr && this->IOWrites_ != nullptr
-        && this->item_ != nullptr && this->keysExamined_ != nullptr && this->lastRowsCountAffected_ != nullptr && this->lockTime_ != nullptr && this->logicalIOReads_ != nullptr
-        && this->maxCPUTime_ != nullptr && this->maxDocExamined_ != nullptr && this->maxFrows_ != nullptr && this->maxIOWrites_ != nullptr && this->maxKeysExamined_ != nullptr
-        && this->maxLastRowsCountAffected_ != nullptr && this->maxLockTime_ != nullptr && this->maxLogicalIOReads_ != nullptr && this->maxPhysicalIOReads_ != nullptr && this->maxReturnNum_ != nullptr
-        && this->maxRows_ != nullptr && this->maxRowsCountAffected_ != nullptr && this->maxRowsExamined_ != nullptr && this->maxRowsSent_ != nullptr && this->maxRt_ != nullptr
-        && this->maxScnt_ != nullptr && this->physicalIOReads_ != nullptr && this->returnNum_ != nullptr && this->rows_ != nullptr && this->rowsCountAffected_ != nullptr
-        && this->rowsExamined_ != nullptr && this->rowsSent_ != nullptr && this->rt_ != nullptr && this->scnt_ != nullptr && this->total_ != nullptr
-        && this->ts_ != nullptr && this->tsEnd_ != nullptr; };
+    virtual bool empty() const override { return this->avgCPUTime_ == nullptr
+        && return this->avgDocExamined_ == nullptr && return this->avgFrows_ == nullptr && return this->avgIOWrites_ == nullptr && return this->avgKeysExamined_ == nullptr && return this->avgLastRowsCountAffected_ == nullptr
+        && return this->avgLockTime_ == nullptr && return this->avgLogicalIOReads_ == nullptr && return this->avgPhysicalIOReads_ == nullptr && return this->avgReturnNum_ == nullptr && return this->avgRows_ == nullptr
+        && return this->avgRowsCountAffected_ == nullptr && return this->avgRowsExamined_ == nullptr && return this->avgRowsSent_ == nullptr && return this->avgRt_ == nullptr && return this->avgScnt_ == nullptr
+        && return this->CPUTime_ == nullptr && return this->count_ == nullptr && return this->docExamined_ == nullptr && return this->frows_ == nullptr && return this->IOWrites_ == nullptr
+        && return this->item_ == nullptr && return this->keysExamined_ == nullptr && return this->lastRowsCountAffected_ == nullptr && return this->lockTime_ == nullptr && return this->logicalIOReads_ == nullptr
+        && return this->maxCPUTime_ == nullptr && return this->maxDocExamined_ == nullptr && return this->maxFrows_ == nullptr && return this->maxIOWrites_ == nullptr && return this->maxKeysExamined_ == nullptr
+        && return this->maxLastRowsCountAffected_ == nullptr && return this->maxLockTime_ == nullptr && return this->maxLogicalIOReads_ == nullptr && return this->maxPhysicalIOReads_ == nullptr && return this->maxReturnNum_ == nullptr
+        && return this->maxRows_ == nullptr && return this->maxRowsCountAffected_ == nullptr && return this->maxRowsExamined_ == nullptr && return this->maxRowsSent_ == nullptr && return this->maxRt_ == nullptr
+        && return this->maxScnt_ == nullptr && return this->physicalIOReads_ == nullptr && return this->returnNum_ == nullptr && return this->rows_ == nullptr && return this->rowsCountAffected_ == nullptr
+        && return this->rowsExamined_ == nullptr && return this->rowsSent_ == nullptr && return this->rt_ == nullptr && return this->scnt_ == nullptr && return this->total_ == nullptr
+        && return this->totalCount_ == nullptr && return this->ts_ == nullptr && return this->tsEnd_ == nullptr; };
     // avgCPUTime Field Functions 
     bool hasAvgCPUTime() const { return this->avgCPUTime_ != nullptr;};
     void deleteAvgCPUTime() { this->avgCPUTime_ = nullptr;};
@@ -604,6 +606,13 @@ namespace Models
     inline DescribeSlowLogHistogramAsyncResponseBodyDataData& setTotal(int64_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
 
 
+    // totalCount Field Functions 
+    bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+    void deleteTotalCount() { this->totalCount_ = nullptr;};
+    inline int64_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+    inline DescribeSlowLogHistogramAsyncResponseBodyDataData& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
     // ts Field Functions 
     bool hasTs() const { return this->ts_ != nullptr;};
     void deleteTs() { this->ts_ = nullptr;};
@@ -674,6 +683,7 @@ namespace Models
     std::shared_ptr<vector<double>> rt_ = nullptr;
     std::shared_ptr<vector<int64_t>> scnt_ = nullptr;
     std::shared_ptr<int64_t> total_ = nullptr;
+    std::shared_ptr<int64_t> totalCount_ = nullptr;
     std::shared_ptr<vector<int64_t>> ts_ = nullptr;
     std::shared_ptr<vector<int64_t>> tsEnd_ = nullptr;
   };

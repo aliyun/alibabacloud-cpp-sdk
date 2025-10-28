@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountId_ != nullptr
-        && this->category_ != nullptr && this->cpu_ != nullptr && this->engine_ != nullptr && this->engineVersion_ != nullptr && this->instanceAlias_ != nullptr
-        && this->instanceArea_ != nullptr && this->instanceClass_ != nullptr && this->instanceId_ != nullptr && this->memory_ != nullptr && this->networkType_ != nullptr
-        && this->nodeId_ != nullptr && this->region_ != nullptr && this->storage_ != nullptr && this->uuid_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->accountId_ == nullptr
+        && return this->category_ == nullptr && return this->cpu_ == nullptr && return this->engine_ == nullptr && return this->engineVersion_ == nullptr && return this->instanceAlias_ == nullptr
+        && return this->instanceArea_ == nullptr && return this->instanceClass_ == nullptr && return this->instanceId_ == nullptr && return this->memory_ == nullptr && return this->networkType_ == nullptr
+        && return this->nodeId_ == nullptr && return this->region_ == nullptr && return this->storage_ == nullptr && return this->uuid_ == nullptr && return this->vpcId_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};

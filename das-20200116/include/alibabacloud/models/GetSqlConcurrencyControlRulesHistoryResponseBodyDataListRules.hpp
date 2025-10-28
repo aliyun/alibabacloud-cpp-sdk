@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->concurrencyControlTime_ != nullptr
-        && this->instanceId_ != nullptr && this->itemId_ != nullptr && this->keywordsHash_ != nullptr && this->maxConcurrency_ != nullptr && this->sqlKeywords_ != nullptr
-        && this->sqlType_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->concurrencyControlTime_ == nullptr
+        && return this->instanceId_ == nullptr && return this->itemId_ == nullptr && return this->keywordsHash_ == nullptr && return this->maxConcurrency_ == nullptr && return this->sqlKeywords_ == nullptr
+        && return this->sqlType_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->userId_ == nullptr; };
     // concurrencyControlTime Field Functions 
     bool hasConcurrencyControlTime() const { return this->concurrencyControlTime_ != nullptr;};
     void deleteConcurrencyControlTime() { this->concurrencyControlTime_ = nullptr;};

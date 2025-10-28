@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commodityInstanceId_ != nullptr
-        && this->engine_ != nullptr && this->expireTime_ != nullptr && this->instanceAlias_ != nullptr && this->instanceId_ != nullptr && this->ip_ != nullptr
-        && this->isSpare_ != nullptr && this->migrationPredictRemainingTime_ != nullptr && this->port_ != nullptr && this->region_ != nullptr && this->serviceUnitId_ != nullptr
-        && this->sqlRetention_ != nullptr && this->startTime_ != nullptr && this->storageFreeQuotaInMB_ != nullptr && this->storageUsed_ != nullptr && this->userId_ != nullptr
-        && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->commodityInstanceId_ == nullptr
+        && return this->engine_ == nullptr && return this->expireTime_ == nullptr && return this->instanceAlias_ == nullptr && return this->instanceId_ == nullptr && return this->ip_ == nullptr
+        && return this->isSpare_ == nullptr && return this->migrationPredictRemainingTime_ == nullptr && return this->port_ == nullptr && return this->region_ == nullptr && return this->serviceUnitId_ == nullptr
+        && return this->sqlRetention_ == nullptr && return this->startTime_ == nullptr && return this->storageFreeQuotaInMB_ == nullptr && return this->storageUsed_ == nullptr && return this->userId_ == nullptr
+        && return this->vpcId_ == nullptr; };
     // commodityInstanceId Field Functions 
     bool hasCommodityInstanceId() const { return this->commodityInstanceId_ != nullptr;};
     void deleteCommodityInstanceId() { this->commodityInstanceId_ = nullptr;};

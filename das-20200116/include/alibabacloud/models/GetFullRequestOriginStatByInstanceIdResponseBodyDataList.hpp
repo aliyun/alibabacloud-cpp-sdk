@@ -91,14 +91,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->avgExaminedRows_ != nullptr
-        && this->avgFetchRows_ != nullptr && this->avgLockWaitTime_ != nullptr && this->avgLogicalRead_ != nullptr && this->avgPhysicalAsyncRead_ != nullptr && this->avgPhysicalSyncRead_ != nullptr
-        && this->avgReturnedRows_ != nullptr && this->avgRows_ != nullptr && this->avgRt_ != nullptr && this->avgSqlCount_ != nullptr && this->avgUpdatedRows_ != nullptr
-        && this->count_ != nullptr && this->countRate_ != nullptr && this->database_ != nullptr && this->errorCount_ != nullptr && this->examinedRows_ != nullptr
-        && this->fetchRows_ != nullptr && this->ip_ != nullptr && this->key_ != nullptr && this->lockWaitTime_ != nullptr && this->logicalRead_ != nullptr
-        && this->originHost_ != nullptr && this->physicalAsyncRead_ != nullptr && this->physicalSyncRead_ != nullptr && this->port_ != nullptr && this->rows_ != nullptr
-        && this->rtGreaterThanOneSecondCount_ != nullptr && this->rtRate_ != nullptr && this->sqlCount_ != nullptr && this->sumUpdatedRows_ != nullptr && this->version_ != nullptr
-        && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->avgExaminedRows_ == nullptr
+        && return this->avgFetchRows_ == nullptr && return this->avgLockWaitTime_ == nullptr && return this->avgLogicalRead_ == nullptr && return this->avgPhysicalAsyncRead_ == nullptr && return this->avgPhysicalSyncRead_ == nullptr
+        && return this->avgReturnedRows_ == nullptr && return this->avgRows_ == nullptr && return this->avgRt_ == nullptr && return this->avgSqlCount_ == nullptr && return this->avgUpdatedRows_ == nullptr
+        && return this->count_ == nullptr && return this->countRate_ == nullptr && return this->database_ == nullptr && return this->errorCount_ == nullptr && return this->examinedRows_ == nullptr
+        && return this->fetchRows_ == nullptr && return this->ip_ == nullptr && return this->key_ == nullptr && return this->lockWaitTime_ == nullptr && return this->logicalRead_ == nullptr
+        && return this->originHost_ == nullptr && return this->physicalAsyncRead_ == nullptr && return this->physicalSyncRead_ == nullptr && return this->port_ == nullptr && return this->rows_ == nullptr
+        && return this->rtGreaterThanOneSecondCount_ == nullptr && return this->rtRate_ == nullptr && return this->sqlCount_ == nullptr && return this->sumUpdatedRows_ == nullptr && return this->version_ == nullptr
+        && return this->vpcId_ == nullptr; };
     // avgExaminedRows Field Functions 
     bool hasAvgExaminedRows() const { return this->avgExaminedRows_ != nullptr;};
     void deleteAvgExaminedRows() { this->avgExaminedRows_ = nullptr;};

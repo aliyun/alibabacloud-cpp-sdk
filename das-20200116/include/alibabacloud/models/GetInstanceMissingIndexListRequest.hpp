@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->avgTotalUserCost_ != nullptr
-        && this->avgUserImpact_ != nullptr && this->endTime_ != nullptr && this->indexCount_ != nullptr && this->instanceId_ != nullptr && this->objectName_ != nullptr
-        && this->pageNo_ != nullptr && this->pageSize_ != nullptr && this->reservedPages_ != nullptr && this->reservedSize_ != nullptr && this->rowCount_ != nullptr
-        && this->startTime_ != nullptr && this->uniqueCompiles_ != nullptr && this->userScans_ != nullptr && this->userSeeks_ != nullptr; };
+    virtual bool empty() const override { return this->avgTotalUserCost_ == nullptr
+        && return this->avgUserImpact_ == nullptr && return this->endTime_ == nullptr && return this->indexCount_ == nullptr && return this->instanceId_ == nullptr && return this->objectName_ == nullptr
+        && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->reservedPages_ == nullptr && return this->reservedSize_ == nullptr && return this->rowCount_ == nullptr
+        && return this->startTime_ == nullptr && return this->uniqueCompiles_ == nullptr && return this->userScans_ == nullptr && return this->userSeeks_ == nullptr; };
     // avgTotalUserCost Field Functions 
     bool hasAvgTotalUserCost() const { return this->avgTotalUserCost_ != nullptr;};
     void deleteAvgTotalUserCost() { this->avgTotalUserCost_ = nullptr;};

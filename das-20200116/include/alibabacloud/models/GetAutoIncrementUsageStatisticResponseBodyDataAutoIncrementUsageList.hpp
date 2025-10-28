@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoIncrementCurrentValue_ != nullptr
-        && this->autoIncrementRatio_ != nullptr && this->columnName_ != nullptr && this->dbName_ != nullptr && this->maximumValue_ != nullptr && this->tableName_ != nullptr; };
+    virtual bool empty() const override { return this->autoIncrementCurrentValue_ == nullptr
+        && return this->autoIncrementRatio_ == nullptr && return this->columnName_ == nullptr && return this->dbName_ == nullptr && return this->maximumValue_ == nullptr && return this->tableName_ == nullptr; };
     // autoIncrementCurrentValue Field Functions 
     bool hasAutoIncrementCurrentValue() const { return this->autoIncrementCurrentValue_ != nullptr;};
     void deleteAutoIncrementCurrentValue() { this->autoIncrementCurrentValue_ = nullptr;};

@@ -91,14 +91,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTmpDiskTables_ != nullptr
-        && this->createTmpTables_ != nullptr && this->db_ != nullptr && this->endEventId_ != nullptr && this->errors_ != nullptr && this->eventId_ != nullptr
-        && this->eventName_ != nullptr && this->instanceId_ != nullptr && this->latency_ != nullptr && this->lockLatency_ != nullptr && this->logicId_ != nullptr
-        && this->noGoodIndexUsed_ != nullptr && this->noIndexUsed_ != nullptr && this->nodeId_ != nullptr && this->rowsAffected_ != nullptr && this->rowsExamined_ != nullptr
-        && this->rowsSent_ != nullptr && this->selectFullJoin_ != nullptr && this->selectFullRangeJoin_ != nullptr && this->selectRange_ != nullptr && this->selectRangeCheck_ != nullptr
-        && this->selectScan_ != nullptr && this->sortMergePasses_ != nullptr && this->sortRange_ != nullptr && this->sortRows_ != nullptr && this->sortScan_ != nullptr
-        && this->sql_ != nullptr && this->sqlId_ != nullptr && this->threadId_ != nullptr && this->timestamp_ != nullptr && this->userId_ != nullptr
-        && this->warnings_ != nullptr; };
+    virtual bool empty() const override { return this->createTmpDiskTables_ == nullptr
+        && return this->createTmpTables_ == nullptr && return this->db_ == nullptr && return this->endEventId_ == nullptr && return this->errors_ == nullptr && return this->eventId_ == nullptr
+        && return this->eventName_ == nullptr && return this->instanceId_ == nullptr && return this->latency_ == nullptr && return this->lockLatency_ == nullptr && return this->logicId_ == nullptr
+        && return this->noGoodIndexUsed_ == nullptr && return this->noIndexUsed_ == nullptr && return this->nodeId_ == nullptr && return this->rowsAffected_ == nullptr && return this->rowsExamined_ == nullptr
+        && return this->rowsSent_ == nullptr && return this->selectFullJoin_ == nullptr && return this->selectFullRangeJoin_ == nullptr && return this->selectRange_ == nullptr && return this->selectRangeCheck_ == nullptr
+        && return this->selectScan_ == nullptr && return this->sortMergePasses_ == nullptr && return this->sortRange_ == nullptr && return this->sortRows_ == nullptr && return this->sortScan_ == nullptr
+        && return this->sql_ == nullptr && return this->sqlId_ == nullptr && return this->threadId_ == nullptr && return this->timestamp_ == nullptr && return this->userId_ == nullptr
+        && return this->warnings_ == nullptr; };
     // createTmpDiskTables Field Functions 
     bool hasCreateTmpDiskTables() const { return this->createTmpDiskTables_ != nullptr;};
     void deleteCreateTmpDiskTables() { this->createTmpDiskTables_ = nullptr;};

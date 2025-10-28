@@ -17,11 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Count, count_);
       DARABONBA_PTR_TO_JSON(InsId, insId_);
       DARABONBA_PTR_TO_JSON(InsRole, insRole_);
+      DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems& obj) { 
       DARABONBA_PTR_FROM_JSON(Count, count_);
       DARABONBA_PTR_FROM_JSON(InsId, insId_);
       DARABONBA_PTR_FROM_JSON(InsRole, insRole_);
+      DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
     };
     DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems() = default ;
     DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems(const DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems &) = default ;
@@ -34,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->count_ != nullptr
-        && this->insId_ != nullptr && this->insRole_ != nullptr; };
+    virtual bool empty() const override { return this->count_ == nullptr
+        && return this->insId_ == nullptr && return this->insRole_ == nullptr && return this->totalCount_ == nullptr; };
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
@@ -59,10 +61,18 @@ namespace Models
     inline DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems& setInsRole(string insRole) { DARABONBA_PTR_SET_VALUE(insRole_, insRole) };
 
 
+    // totalCount Field Functions 
+    bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+    void deleteTotalCount() { this->totalCount_ = nullptr;};
+    inline int64_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+    inline DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
   protected:
     std::shared_ptr<vector<int64_t>> count_ = nullptr;
     std::shared_ptr<string> insId_ = nullptr;
     std::shared_ptr<string> insRole_ = nullptr;
+    std::shared_ptr<int64_t> totalCount_ = nullptr;
   };
 
   } // namespace Models

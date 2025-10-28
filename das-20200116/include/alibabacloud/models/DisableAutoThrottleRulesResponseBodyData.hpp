@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->configFailInstanceCount_ != nullptr
-        && this->configFailInstanceList_ != nullptr && this->configSuccessInstanceCount_ != nullptr && this->configSuccessInstanceList_ != nullptr && this->totalInstanceCount_ != nullptr; };
+    virtual bool empty() const override { return this->configFailInstanceCount_ == nullptr
+        && return this->configFailInstanceList_ == nullptr && return this->configSuccessInstanceCount_ == nullptr && return this->configSuccessInstanceList_ == nullptr && return this->totalInstanceCount_ == nullptr; };
     // configFailInstanceCount Field Functions 
     bool hasConfigFailInstanceCount() const { return this->configFailInstanceCount_ != nullptr;};
     void deleteConfigFailInstanceCount() { this->configFailInstanceCount_ = nullptr;};

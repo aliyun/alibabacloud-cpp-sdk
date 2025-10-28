@@ -42,8 +42,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandwidth_ != nullptr
-        && this->resource_ != nullptr && this->shard_ != nullptr && this->spec_ != nullptr && this->storage_ != nullptr; };
+    virtual bool empty() const override { return this->bandwidth_ == nullptr
+        && return this->resource_ == nullptr && return this->shard_ == nullptr && return this->spec_ == nullptr && return this->storage_ == nullptr; };
     // bandwidth Field Functions 
     bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
     void deleteBandwidth() { this->bandwidth_ = nullptr;};

@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->analysisErrorType_ != nullptr
-        && this->analysisSuccess_ != nullptr && this->dailyIncrement_ != nullptr && this->estimateAvailableDays_ != nullptr && this->needOptimizeItemList_ != nullptr && this->tableStats_ != nullptr
-        && this->totalFreeStorageSize_ != nullptr && this->totalStorageSize_ != nullptr && this->totalUsedStorageSize_ != nullptr; };
+    virtual bool empty() const override { return this->analysisErrorType_ == nullptr
+        && return this->analysisSuccess_ == nullptr && return this->dailyIncrement_ == nullptr && return this->estimateAvailableDays_ == nullptr && return this->needOptimizeItemList_ == nullptr && return this->tableStats_ == nullptr
+        && return this->totalFreeStorageSize_ == nullptr && return this->totalStorageSize_ == nullptr && return this->totalUsedStorageSize_ == nullptr; };
     // analysisErrorType Field Functions 
     bool hasAnalysisErrorType() const { return this->analysisErrorType_ != nullptr;};
     void deleteAnalysisErrorType() { this->analysisErrorType_ = nullptr;};

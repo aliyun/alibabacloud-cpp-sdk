@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTaskSuccess_ != nullptr
-        && this->errorMessage_ != nullptr && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->createTaskSuccess_ == nullptr
+        && return this->errorMessage_ == nullptr && return this->taskId_ == nullptr; };
     // createTaskSuccess Field Functions 
     bool hasCreateTaskSuccess() const { return this->createTaskSuccess_ != nullptr;};
     void deleteCreateTaskSuccess() { this->createTaskSuccess_ = nullptr;};

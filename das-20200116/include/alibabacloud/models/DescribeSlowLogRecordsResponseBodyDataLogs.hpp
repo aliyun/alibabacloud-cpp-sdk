@@ -128,17 +128,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountName_ != nullptr
-        && this->applicationName_ != nullptr && this->CPUTime_ != nullptr && this->CPUTimeSeconds_ != nullptr && this->clientIp_ != nullptr && this->cmd_ != nullptr
-        && this->command_ != nullptr && this->DBName_ != nullptr && this->dbId_ != nullptr && this->dbInstanceName_ != nullptr && this->docsExamined_ != nullptr
-        && this->frows_ != nullptr && this->hostAddress_ != nullptr && this->IOWrites_ != nullptr && this->insName_ != nullptr && this->keysExamined_ != nullptr
-        && this->lastRowsCountAffected_ != nullptr && this->lockTime_ != nullptr && this->lockTimeSeconds_ != nullptr && this->logicalIOReads_ != nullptr && this->namespace_ != nullptr
-        && this->nodeId_ != nullptr && this->originTime_ != nullptr && this->physicalIOReads_ != nullptr && this->psql_ != nullptr && this->queryId_ != nullptr
-        && this->queryStartTime_ != nullptr && this->queryTime_ != nullptr && this->queryTimeSeconds_ != nullptr && this->requestSize_ != nullptr && this->responseSize_ != nullptr
-        && this->returnItemNumbers_ != nullptr && this->returnNum_ != nullptr && this->rows_ != nullptr && this->rowsCountAffected_ != nullptr && this->rowsExamined_ != nullptr
-        && this->rowsSent_ != nullptr && this->rt_ != nullptr && this->SQLText_ != nullptr && this->scheme_ != nullptr && this->scnt_ != nullptr
-        && this->sqlId_ != nullptr && this->sqlTag_ != nullptr && this->sqlType_ != nullptr && this->subInstanceId_ != nullptr && this->tableName_ != nullptr
-        && this->templateId_ != nullptr && this->threadId_ != nullptr && this->timestamp_ != nullptr && this->traceId_ != nullptr; };
+    virtual bool empty() const override { return this->accountName_ == nullptr
+        && return this->applicationName_ == nullptr && return this->CPUTime_ == nullptr && return this->CPUTimeSeconds_ == nullptr && return this->clientIp_ == nullptr && return this->cmd_ == nullptr
+        && return this->command_ == nullptr && return this->DBName_ == nullptr && return this->dbId_ == nullptr && return this->dbInstanceName_ == nullptr && return this->docsExamined_ == nullptr
+        && return this->frows_ == nullptr && return this->hostAddress_ == nullptr && return this->IOWrites_ == nullptr && return this->insName_ == nullptr && return this->keysExamined_ == nullptr
+        && return this->lastRowsCountAffected_ == nullptr && return this->lockTime_ == nullptr && return this->lockTimeSeconds_ == nullptr && return this->logicalIOReads_ == nullptr && return this->namespace_ == nullptr
+        && return this->nodeId_ == nullptr && return this->originTime_ == nullptr && return this->physicalIOReads_ == nullptr && return this->psql_ == nullptr && return this->queryId_ == nullptr
+        && return this->queryStartTime_ == nullptr && return this->queryTime_ == nullptr && return this->queryTimeSeconds_ == nullptr && return this->requestSize_ == nullptr && return this->responseSize_ == nullptr
+        && return this->returnItemNumbers_ == nullptr && return this->returnNum_ == nullptr && return this->rows_ == nullptr && return this->rowsCountAffected_ == nullptr && return this->rowsExamined_ == nullptr
+        && return this->rowsSent_ == nullptr && return this->rt_ == nullptr && return this->SQLText_ == nullptr && return this->scheme_ == nullptr && return this->scnt_ == nullptr
+        && return this->sqlId_ == nullptr && return this->sqlTag_ == nullptr && return this->sqlType_ == nullptr && return this->subInstanceId_ == nullptr && return this->tableName_ == nullptr
+        && return this->templateId_ == nullptr && return this->threadId_ == nullptr && return this->timestamp_ == nullptr && return this->traceId_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};

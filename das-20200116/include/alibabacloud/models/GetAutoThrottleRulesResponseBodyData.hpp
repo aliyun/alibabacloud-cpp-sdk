@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableAutoThrottleCount_ != nullptr
-        && this->enableAutoThrottleList_ != nullptr && this->neverEnableAutoThrottleOrReleasedInstanceCount_ != nullptr && this->neverEnableAutoThrottleOrReleasedInstanceIdList_ != nullptr && this->totalAutoThrottleRulesCount_ != nullptr && this->turnOffAutoThrottleCount_ != nullptr
-        && this->turnOffAutoThrottleList_ != nullptr; };
+    virtual bool empty() const override { return this->enableAutoThrottleCount_ == nullptr
+        && return this->enableAutoThrottleList_ == nullptr && return this->neverEnableAutoThrottleOrReleasedInstanceCount_ == nullptr && return this->neverEnableAutoThrottleOrReleasedInstanceIdList_ == nullptr && return this->totalAutoThrottleRulesCount_ == nullptr && return this->turnOffAutoThrottleCount_ == nullptr
+        && return this->turnOffAutoThrottleList_ == nullptr; };
     // enableAutoThrottleCount Field Functions 
     bool hasEnableAutoThrottleCount() const { return this->enableAutoThrottleCount_ != nullptr;};
     void deleteEnableAutoThrottleCount() { this->enableAutoThrottleCount_ = nullptr;};

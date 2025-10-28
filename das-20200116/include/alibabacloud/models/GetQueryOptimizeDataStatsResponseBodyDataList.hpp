@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->avgLockTime_ != nullptr
-        && this->avgQueryTime_ != nullptr && this->avgRowsAffected_ != nullptr && this->avgRowsExamined_ != nullptr && this->avgRowsSent_ != nullptr && this->count_ != nullptr
-        && this->dbname_ != nullptr && this->instanceId_ != nullptr && this->maxLockTime_ != nullptr && this->maxQueryTime_ != nullptr && this->maxRowsAffected_ != nullptr
-        && this->maxRowsExamined_ != nullptr && this->maxRowsSent_ != nullptr && this->psql_ != nullptr && this->ruleList_ != nullptr && this->sqlId_ != nullptr
-        && this->sqlSample_ != nullptr && this->sqlType_ != nullptr && this->user_ != nullptr; };
+    virtual bool empty() const override { return this->avgLockTime_ == nullptr
+        && return this->avgQueryTime_ == nullptr && return this->avgRowsAffected_ == nullptr && return this->avgRowsExamined_ == nullptr && return this->avgRowsSent_ == nullptr && return this->count_ == nullptr
+        && return this->dbname_ == nullptr && return this->instanceId_ == nullptr && return this->maxLockTime_ == nullptr && return this->maxQueryTime_ == nullptr && return this->maxRowsAffected_ == nullptr
+        && return this->maxRowsExamined_ == nullptr && return this->maxRowsSent_ == nullptr && return this->psql_ == nullptr && return this->ruleList_ == nullptr && return this->sqlId_ == nullptr
+        && return this->sqlSample_ == nullptr && return this->sqlType_ == nullptr && return this->user_ == nullptr; };
     // avgLockTime Field Functions 
     bool hasAvgLockTime() const { return this->avgLockTime_ != nullptr;};
     void deleteAvgLockTime() { this->avgLockTime_ = nullptr;};

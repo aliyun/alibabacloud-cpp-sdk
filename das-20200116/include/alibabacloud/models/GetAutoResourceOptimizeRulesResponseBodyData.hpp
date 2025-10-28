@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableAutoResourceOptimizeCount_ != nullptr
-        && this->enableAutoResourceOptimizeList_ != nullptr && this->hasEnableRuleButNotDasProCount_ != nullptr && this->hasEnableRuleButNotDasProList_ != nullptr && this->neverEnableAutoResourceOptimizeOrReleasedInstanceCount_ != nullptr && this->neverEnableAutoResourceOptimizeOrReleasedInstanceIdList_ != nullptr
-        && this->totalAutoResourceOptimizeRulesCount_ != nullptr && this->turnOffAutoResourceOptimizeCount_ != nullptr && this->turnOffAutoResourceOptimizeList_ != nullptr; };
+    virtual bool empty() const override { return this->enableAutoResourceOptimizeCount_ == nullptr
+        && return this->enableAutoResourceOptimizeList_ == nullptr && return this->hasEnableRuleButNotDasProCount_ == nullptr && return this->hasEnableRuleButNotDasProList_ == nullptr && return this->neverEnableAutoResourceOptimizeOrReleasedInstanceCount_ == nullptr && return this->neverEnableAutoResourceOptimizeOrReleasedInstanceIdList_ == nullptr
+        && return this->totalAutoResourceOptimizeRulesCount_ == nullptr && return this->turnOffAutoResourceOptimizeCount_ == nullptr && return this->turnOffAutoResourceOptimizeList_ == nullptr; };
     // enableAutoResourceOptimizeCount Field Functions 
     bool hasEnableAutoResourceOptimizeCount() const { return this->enableAutoResourceOptimizeCount_ != nullptr;};
     void deleteEnableAutoResourceOptimizeCount() { this->enableAutoResourceOptimizeCount_ = nullptr;};

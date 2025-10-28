@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->asc_ != nullptr
-        && this->end_ != nullptr && this->instanceId_ != nullptr && this->nodeId_ != nullptr && this->orderBy_ != nullptr && this->pageNo_ != nullptr
-        && this->pageSize_ != nullptr && this->role_ != nullptr && this->sqlType_ != nullptr && this->start_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->asc_ == nullptr
+        && return this->end_ == nullptr && return this->instanceId_ == nullptr && return this->nodeId_ == nullptr && return this->orderBy_ == nullptr && return this->pageNo_ == nullptr
+        && return this->pageSize_ == nullptr && return this->role_ == nullptr && return this->sqlType_ == nullptr && return this->start_ == nullptr && return this->userId_ == nullptr; };
     // asc Field Functions 
     bool hasAsc() const { return this->asc_ != nullptr;};
     void deleteAsc() { this->asc_ = nullptr;};

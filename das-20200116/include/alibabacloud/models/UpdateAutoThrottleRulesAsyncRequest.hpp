@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->abnormalDuration_ != nullptr
-        && this->activeSessions_ != nullptr && this->allowThrottleEndTime_ != nullptr && this->allowThrottleStartTime_ != nullptr && this->autoKillSession_ != nullptr && this->consoleContext_ != nullptr
-        && this->cpuSessionRelation_ != nullptr && this->cpuUsage_ != nullptr && this->instanceIds_ != nullptr && this->maxThrottleTime_ != nullptr && this->resultId_ != nullptr; };
+    virtual bool empty() const override { return this->abnormalDuration_ == nullptr
+        && return this->activeSessions_ == nullptr && return this->allowThrottleEndTime_ == nullptr && return this->allowThrottleStartTime_ == nullptr && return this->autoKillSession_ == nullptr && return this->consoleContext_ == nullptr
+        && return this->cpuSessionRelation_ == nullptr && return this->cpuUsage_ == nullptr && return this->instanceIds_ == nullptr && return this->maxThrottleTime_ == nullptr && return this->resultId_ == nullptr; };
     // abnormalDuration Field Functions 
     bool hasAbnormalDuration() const { return this->abnormalDuration_ != nullptr;};
     void deleteAbnormalDuration() { this->abnormalDuration_ = nullptr;};

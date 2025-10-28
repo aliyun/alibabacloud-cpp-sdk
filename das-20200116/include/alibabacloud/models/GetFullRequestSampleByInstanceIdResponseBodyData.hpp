@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->database_ != nullptr
-        && this->frows_ != nullptr && this->lockWaitTime_ != nullptr && this->logicalRead_ != nullptr && this->originHost_ != nullptr && this->physicalAsyncRead_ != nullptr
-        && this->physicalSyncRead_ != nullptr && this->rows_ != nullptr && this->rowsExamined_ != nullptr && this->rowsReturned_ != nullptr && this->rt_ != nullptr
-        && this->scanRows_ != nullptr && this->scnt_ != nullptr && this->sql_ != nullptr && this->sqlId_ != nullptr && this->sqlType_ != nullptr
-        && this->timestamp_ != nullptr && this->updateRows_ != nullptr && this->user_ != nullptr; };
+    virtual bool empty() const override { return this->database_ == nullptr
+        && return this->frows_ == nullptr && return this->lockWaitTime_ == nullptr && return this->logicalRead_ == nullptr && return this->originHost_ == nullptr && return this->physicalAsyncRead_ == nullptr
+        && return this->physicalSyncRead_ == nullptr && return this->rows_ == nullptr && return this->rowsExamined_ == nullptr && return this->rowsReturned_ == nullptr && return this->rt_ == nullptr
+        && return this->scanRows_ == nullptr && return this->scnt_ == nullptr && return this->sql_ == nullptr && return this->sqlId_ == nullptr && return this->sqlType_ == nullptr
+        && return this->timestamp_ == nullptr && return this->updateRows_ == nullptr && return this->user_ == nullptr; };
     // database Field Functions 
     bool hasDatabase() const { return this->database_ != nullptr;};
     void deleteDatabase() { this->database_ = nullptr;};

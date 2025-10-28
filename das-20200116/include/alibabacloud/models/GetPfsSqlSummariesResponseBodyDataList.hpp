@@ -154,20 +154,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->avgLatency_ != nullptr
-        && this->count_ != nullptr && this->countRate_ != nullptr && this->cpuRate_ != nullptr && this->cpuTime_ != nullptr && this->dataReadTime_ != nullptr
-        && this->dataReads_ != nullptr && this->dataWriteTime_ != nullptr && this->dataWrites_ != nullptr && this->db_ != nullptr && this->elapsedTime_ != nullptr
-        && this->errCount_ != nullptr && this->firstTime_ != nullptr && this->fullScan_ != nullptr && this->id_ != nullptr && this->instanceId_ != nullptr
-        && this->lastTime_ != nullptr && this->lockLatencyAvg_ != nullptr && this->logicId_ != nullptr && this->logicReads_ != nullptr && this->maxLatency_ != nullptr
-        && this->mutexSpins_ != nullptr && this->mutexWaits_ != nullptr && this->nodeId_ != nullptr && this->physicalAsyncReads_ != nullptr && this->physicalReads_ != nullptr
-        && this->psql_ != nullptr && this->redoWrites_ != nullptr && this->rowsAffected_ != nullptr && this->rowsAffectedAvg_ != nullptr && this->rowsExamined_ != nullptr
-        && this->rowsExaminedAvg_ != nullptr && this->rowsSendAvg_ != nullptr && this->rowsSent_ != nullptr && this->rowsSentAvg_ != nullptr && this->rowsSorted_ != nullptr
-        && this->rtRate_ != nullptr && this->rwlockOsWaits_ != nullptr && this->rwlockSpinRounds_ != nullptr && this->rwlockSpinWaits_ != nullptr && this->selectFullJoinAvg_ != nullptr
-        && this->selectFullRangeJoinAvg_ != nullptr && this->selectRangeAvg_ != nullptr && this->selectScanAvg_ != nullptr && this->semisyncDelayTime_ != nullptr && this->serverLockTime_ != nullptr
-        && this->sortMergePasses_ != nullptr && this->sortRangeAvg_ != nullptr && this->sortRowsAvg_ != nullptr && this->sortScanAvg_ != nullptr && this->sqlId_ != nullptr
-        && this->sqlType_ != nullptr && this->tables_ != nullptr && this->timerWaitAvg_ != nullptr && this->timestamp_ != nullptr && this->tmpDiskTables_ != nullptr
-        && this->tmpDiskTablesAvg_ != nullptr && this->tmpTables_ != nullptr && this->tmpTablesAvg_ != nullptr && this->totalLatency_ != nullptr && this->transactionLockTime_ != nullptr
-        && this->userId_ != nullptr && this->warnCount_ != nullptr; };
+    virtual bool empty() const override { return this->avgLatency_ == nullptr
+        && return this->count_ == nullptr && return this->countRate_ == nullptr && return this->cpuRate_ == nullptr && return this->cpuTime_ == nullptr && return this->dataReadTime_ == nullptr
+        && return this->dataReads_ == nullptr && return this->dataWriteTime_ == nullptr && return this->dataWrites_ == nullptr && return this->db_ == nullptr && return this->elapsedTime_ == nullptr
+        && return this->errCount_ == nullptr && return this->firstTime_ == nullptr && return this->fullScan_ == nullptr && return this->id_ == nullptr && return this->instanceId_ == nullptr
+        && return this->lastTime_ == nullptr && return this->lockLatencyAvg_ == nullptr && return this->logicId_ == nullptr && return this->logicReads_ == nullptr && return this->maxLatency_ == nullptr
+        && return this->mutexSpins_ == nullptr && return this->mutexWaits_ == nullptr && return this->nodeId_ == nullptr && return this->physicalAsyncReads_ == nullptr && return this->physicalReads_ == nullptr
+        && return this->psql_ == nullptr && return this->redoWrites_ == nullptr && return this->rowsAffected_ == nullptr && return this->rowsAffectedAvg_ == nullptr && return this->rowsExamined_ == nullptr
+        && return this->rowsExaminedAvg_ == nullptr && return this->rowsSendAvg_ == nullptr && return this->rowsSent_ == nullptr && return this->rowsSentAvg_ == nullptr && return this->rowsSorted_ == nullptr
+        && return this->rtRate_ == nullptr && return this->rwlockOsWaits_ == nullptr && return this->rwlockSpinRounds_ == nullptr && return this->rwlockSpinWaits_ == nullptr && return this->selectFullJoinAvg_ == nullptr
+        && return this->selectFullRangeJoinAvg_ == nullptr && return this->selectRangeAvg_ == nullptr && return this->selectScanAvg_ == nullptr && return this->semisyncDelayTime_ == nullptr && return this->serverLockTime_ == nullptr
+        && return this->sortMergePasses_ == nullptr && return this->sortRangeAvg_ == nullptr && return this->sortRowsAvg_ == nullptr && return this->sortScanAvg_ == nullptr && return this->sqlId_ == nullptr
+        && return this->sqlType_ == nullptr && return this->tables_ == nullptr && return this->timerWaitAvg_ == nullptr && return this->timestamp_ == nullptr && return this->tmpDiskTables_ == nullptr
+        && return this->tmpDiskTablesAvg_ == nullptr && return this->tmpTables_ == nullptr && return this->tmpTablesAvg_ == nullptr && return this->totalLatency_ == nullptr && return this->transactionLockTime_ == nullptr
+        && return this->userId_ == nullptr && return this->warnCount_ == nullptr; };
     // avgLatency Field Functions 
     bool hasAvgLatency() const { return this->avgLatency_ != nullptr;};
     void deleteAvgLatency() { this->avgLatency_ = nullptr;};

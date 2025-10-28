@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->batchId_ != nullptr
-        && this->clientAppName_ != nullptr && this->currentCollectionTime_ != nullptr && this->dataBase_ != nullptr && this->hostName_ != nullptr && this->loginId_ != nullptr
-        && this->queryHash_ != nullptr && this->spid_ != nullptr && this->sqlText_ != nullptr && this->startTime_ != nullptr && this->waitTimeMs_ != nullptr
-        && this->waitType_ != nullptr; };
+    virtual bool empty() const override { return this->batchId_ == nullptr
+        && return this->clientAppName_ == nullptr && return this->currentCollectionTime_ == nullptr && return this->dataBase_ == nullptr && return this->hostName_ == nullptr && return this->loginId_ == nullptr
+        && return this->queryHash_ == nullptr && return this->spid_ == nullptr && return this->sqlText_ == nullptr && return this->startTime_ == nullptr && return this->waitTimeMs_ == nullptr
+        && return this->waitType_ == nullptr; };
     // batchId Field Functions 
     bool hasBatchId() const { return this->batchId_ != nullptr;};
     void deleteBatchId() { this->batchId_ = nullptr;};

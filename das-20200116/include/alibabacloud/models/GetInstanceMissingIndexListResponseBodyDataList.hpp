@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->avgTotalUserCost_ != nullptr
-        && this->avgUserImpact_ != nullptr && this->createIndex_ != nullptr && this->databaseName_ != nullptr && this->equalityColumns_ != nullptr && this->includedColumns_ != nullptr
-        && this->indexCount_ != nullptr && this->inequalityColumns_ != nullptr && this->lastUserSeek_ != nullptr && this->objectName_ != nullptr && this->reservedPages_ != nullptr
-        && this->reservedSize_ != nullptr && this->rowCount_ != nullptr && this->schemaName_ != nullptr && this->systemScans_ != nullptr && this->systemSeeks_ != nullptr
-        && this->uniqueCompiles_ != nullptr && this->userScans_ != nullptr && this->userSeeks_ != nullptr; };
+    virtual bool empty() const override { return this->avgTotalUserCost_ == nullptr
+        && return this->avgUserImpact_ == nullptr && return this->createIndex_ == nullptr && return this->databaseName_ == nullptr && return this->equalityColumns_ == nullptr && return this->includedColumns_ == nullptr
+        && return this->indexCount_ == nullptr && return this->inequalityColumns_ == nullptr && return this->lastUserSeek_ == nullptr && return this->objectName_ == nullptr && return this->reservedPages_ == nullptr
+        && return this->reservedSize_ == nullptr && return this->rowCount_ == nullptr && return this->schemaName_ == nullptr && return this->systemScans_ == nullptr && return this->systemSeeks_ == nullptr
+        && return this->uniqueCompiles_ == nullptr && return this->userScans_ == nullptr && return this->userSeeks_ == nullptr; };
     // avgTotalUserCost Field Functions 
     bool hasAvgTotalUserCost() const { return this->avgTotalUserCost_ != nullptr;};
     void deleteAvgTotalUserCost() { this->avgTotalUserCost_ = nullptr;};

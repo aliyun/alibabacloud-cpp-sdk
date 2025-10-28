@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->archiveFolder_ != nullptr
-        && this->benchCmd_ != nullptr && this->clientJarPath_ != nullptr && this->jarOnOss_ != nullptr && this->loadCmd_ != nullptr && this->metaFileName_ != nullptr
-        && this->metaFileOnOss_ != nullptr && this->metaFilePath_ != nullptr && this->parseCmd_ != nullptr && this->parseFilePath_ != nullptr && this->rocksDbPath_ != nullptr
-        && this->sqlFileName_ != nullptr && this->sqlFileOnOss_ != nullptr && this->sqlFilePath_ != nullptr && this->taskId_ != nullptr && this->userId_ != nullptr
-        && this->workDir_ != nullptr; };
+    virtual bool empty() const override { return this->archiveFolder_ == nullptr
+        && return this->benchCmd_ == nullptr && return this->clientJarPath_ == nullptr && return this->jarOnOss_ == nullptr && return this->loadCmd_ == nullptr && return this->metaFileName_ == nullptr
+        && return this->metaFileOnOss_ == nullptr && return this->metaFilePath_ == nullptr && return this->parseCmd_ == nullptr && return this->parseFilePath_ == nullptr && return this->rocksDbPath_ == nullptr
+        && return this->sqlFileName_ == nullptr && return this->sqlFileOnOss_ == nullptr && return this->sqlFilePath_ == nullptr && return this->taskId_ == nullptr && return this->userId_ == nullptr
+        && return this->workDir_ == nullptr; };
     // archiveFolder Field Functions 
     bool hasArchiveFolder() const { return this->archiveFolder_ != nullptr;};
     void deleteArchiveFolder() { this->archiveFolder_ = nullptr;};

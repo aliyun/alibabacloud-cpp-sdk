@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->kpi_ != nullptr
-        && this->timestamp_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->kpi_ == nullptr
+        && return this->timestamp_ == nullptr && return this->value_ == nullptr; };
     // kpi Field Functions 
     bool hasKpi() const { return this->kpi_ != nullptr;};
     void deleteKpi() { this->kpi_ = nullptr;};

@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->asc_ != nullptr
-        && this->dbNames_ != nullptr && this->engine_ != nullptr && this->instanceIds_ != nullptr && this->keywords_ != nullptr && this->logicalOperator_ != nullptr
-        && this->onlyOptimizedSql_ != nullptr && this->orderBy_ != nullptr && this->pageNo_ != nullptr && this->pageSize_ != nullptr && this->region_ != nullptr
-        && this->rules_ != nullptr && this->sqlIds_ != nullptr && this->tagNames_ != nullptr && this->time_ != nullptr && this->user_ != nullptr; };
+    virtual bool empty() const override { return this->asc_ == nullptr
+        && return this->dbNames_ == nullptr && return this->engine_ == nullptr && return this->instanceIds_ == nullptr && return this->keywords_ == nullptr && return this->logicalOperator_ == nullptr
+        && return this->onlyOptimizedSql_ == nullptr && return this->orderBy_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->region_ == nullptr
+        && return this->rules_ == nullptr && return this->sqlIds_ == nullptr && return this->tagNames_ == nullptr && return this->time_ == nullptr && return this->user_ == nullptr; };
     // asc Field Functions 
     bool hasAsc() const { return this->asc_ != nullptr;};
     void deleteAsc() { this->asc_ = nullptr;};

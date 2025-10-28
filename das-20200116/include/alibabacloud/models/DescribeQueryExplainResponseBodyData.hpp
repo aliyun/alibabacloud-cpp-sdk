@@ -90,13 +90,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->argument_ != nullptr
-        && this->avgRowSize_ != nullptr && this->definedValues_ != nullptr && this->estimateCPU_ != nullptr && this->estimateExecutions_ != nullptr && this->estimateIO_ != nullptr
-        && this->estimateRows_ != nullptr && this->extra_ != nullptr && this->id_ != nullptr && this->indexList_ != nullptr && this->key_ != nullptr
-        && this->keyLen_ != nullptr && this->logicalOp_ != nullptr && this->logicalPlanList_ != nullptr && this->nodeId_ != nullptr && this->outputList_ != nullptr
-        && this->parallel_ != nullptr && this->parent_ != nullptr && this->physicalOp_ != nullptr && this->possibleKeys_ != nullptr && this->queryPlan_ != nullptr
-        && this->ref_ != nullptr && this->rows_ != nullptr && this->selectType_ != nullptr && this->stmtId_ != nullptr && this->stmtText_ != nullptr
-        && this->table_ != nullptr && this->tableList_ != nullptr && this->totalSubtreeCost_ != nullptr && this->type_ != nullptr && this->warnings_ != nullptr; };
+    virtual bool empty() const override { return this->argument_ == nullptr
+        && return this->avgRowSize_ == nullptr && return this->definedValues_ == nullptr && return this->estimateCPU_ == nullptr && return this->estimateExecutions_ == nullptr && return this->estimateIO_ == nullptr
+        && return this->estimateRows_ == nullptr && return this->extra_ == nullptr && return this->id_ == nullptr && return this->indexList_ == nullptr && return this->key_ == nullptr
+        && return this->keyLen_ == nullptr && return this->logicalOp_ == nullptr && return this->logicalPlanList_ == nullptr && return this->nodeId_ == nullptr && return this->outputList_ == nullptr
+        && return this->parallel_ == nullptr && return this->parent_ == nullptr && return this->physicalOp_ == nullptr && return this->possibleKeys_ == nullptr && return this->queryPlan_ == nullptr
+        && return this->ref_ == nullptr && return this->rows_ == nullptr && return this->selectType_ == nullptr && return this->stmtId_ == nullptr && return this->stmtText_ == nullptr
+        && return this->table_ == nullptr && return this->tableList_ == nullptr && return this->totalSubtreeCost_ == nullptr && return this->type_ == nullptr && return this->warnings_ == nullptr; };
     // argument Field Functions 
     bool hasArgument() const { return this->argument_ != nullptr;};
     void deleteArgument() { this->argument_ = nullptr;};

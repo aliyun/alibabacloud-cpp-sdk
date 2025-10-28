@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->coldSqlSize_ != nullptr
-        && this->freeColdSqlSize_ != nullptr && this->freeHotSqlSize_ != nullptr && this->hotSqlSize_ != nullptr && this->importSqlSize_ != nullptr && this->timestamp_ != nullptr
-        && this->totalSqlSize_ != nullptr; };
+    virtual bool empty() const override { return this->coldSqlSize_ == nullptr
+        && return this->freeColdSqlSize_ == nullptr && return this->freeHotSqlSize_ == nullptr && return this->hotSqlSize_ == nullptr && return this->importSqlSize_ == nullptr && return this->timestamp_ == nullptr
+        && return this->totalSqlSize_ == nullptr; };
     // coldSqlSize Field Functions 
     bool hasColdSqlSize() const { return this->coldSqlSize_ != nullptr;};
     void deleteColdSqlSize() { this->coldSqlSize_ = nullptr;};

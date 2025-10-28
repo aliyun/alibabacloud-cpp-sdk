@@ -17,12 +17,16 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeSlowLogHistogramAsyncResponseBodyDataDataItem& obj) { 
       DARABONBA_PTR_TO_JSON(Count, count_);
       DARABONBA_PTR_TO_JSON(InsItems, insItems_);
+      DARABONBA_PTR_TO_JSON(InsRole, insRole_);
       DARABONBA_PTR_TO_JSON(NodeId, nodeId_);
+      DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeSlowLogHistogramAsyncResponseBodyDataDataItem& obj) { 
       DARABONBA_PTR_FROM_JSON(Count, count_);
       DARABONBA_PTR_FROM_JSON(InsItems, insItems_);
+      DARABONBA_PTR_FROM_JSON(InsRole, insRole_);
       DARABONBA_PTR_FROM_JSON(NodeId, nodeId_);
+      DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
     };
     DescribeSlowLogHistogramAsyncResponseBodyDataDataItem() = default ;
     DescribeSlowLogHistogramAsyncResponseBodyDataDataItem(const DescribeSlowLogHistogramAsyncResponseBodyDataDataItem &) = default ;
@@ -35,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->count_ != nullptr
-        && this->insItems_ != nullptr && this->nodeId_ != nullptr; };
+    virtual bool empty() const override { return this->count_ == nullptr
+        && return this->insItems_ == nullptr && return this->insRole_ == nullptr && return this->nodeId_ == nullptr && return this->totalCount_ == nullptr; };
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
@@ -55,6 +59,13 @@ namespace Models
     inline DescribeSlowLogHistogramAsyncResponseBodyDataDataItem& setInsItems(vector<Models::DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems> && insItems) { DARABONBA_PTR_SET_RVALUE(insItems_, insItems) };
 
 
+    // insRole Field Functions 
+    bool hasInsRole() const { return this->insRole_ != nullptr;};
+    void deleteInsRole() { this->insRole_ = nullptr;};
+    inline string insRole() const { DARABONBA_PTR_GET_DEFAULT(insRole_, "") };
+    inline DescribeSlowLogHistogramAsyncResponseBodyDataDataItem& setInsRole(string insRole) { DARABONBA_PTR_SET_VALUE(insRole_, insRole) };
+
+
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
@@ -62,10 +73,19 @@ namespace Models
     inline DescribeSlowLogHistogramAsyncResponseBodyDataDataItem& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
+    // totalCount Field Functions 
+    bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+    void deleteTotalCount() { this->totalCount_ = nullptr;};
+    inline int64_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+    inline DescribeSlowLogHistogramAsyncResponseBodyDataDataItem& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
   protected:
     std::shared_ptr<vector<int64_t>> count_ = nullptr;
     std::shared_ptr<vector<Models::DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems>> insItems_ = nullptr;
+    std::shared_ptr<string> insRole_ = nullptr;
     std::shared_ptr<string> nodeId_ = nullptr;
+    std::shared_ptr<int64_t> totalCount_ = nullptr;
   };
 
   } // namespace Models

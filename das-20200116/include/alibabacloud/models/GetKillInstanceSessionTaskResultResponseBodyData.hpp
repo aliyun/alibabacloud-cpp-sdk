@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ignoredUserSessionCount_ != nullptr
-        && this->instanceId_ != nullptr && this->killFailCount_ != nullptr && this->killSuccessCount_ != nullptr && this->nodeId_ != nullptr && this->result_ != nullptr
-        && this->sessions_ != nullptr && this->taskId_ != nullptr && this->taskState_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->ignoredUserSessionCount_ == nullptr
+        && return this->instanceId_ == nullptr && return this->killFailCount_ == nullptr && return this->killSuccessCount_ == nullptr && return this->nodeId_ == nullptr && return this->result_ == nullptr
+        && return this->sessions_ == nullptr && return this->taskId_ == nullptr && return this->taskState_ == nullptr && return this->userId_ == nullptr; };
     // ignoredUserSessionCount Field Functions 
     bool hasIgnoredUserSessionCount() const { return this->ignoredUserSessionCount_ != nullptr;};
     void deleteIgnoredUserSessionCount() { this->ignoredUserSessionCount_ = nullptr;};

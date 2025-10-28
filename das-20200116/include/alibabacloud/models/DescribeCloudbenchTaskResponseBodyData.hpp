@@ -109,15 +109,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->archiveJobId_ != nullptr
-        && this->archiveOssTableName_ != nullptr && this->archiveState_ != nullptr && this->backupId_ != nullptr && this->backupType_ != nullptr && this->benchStep_ != nullptr
-        && this->benchStepStatus_ != nullptr && this->clientGatewayId_ != nullptr && this->clientType_ != nullptr && this->description_ != nullptr && this->dstInstanceUuid_ != nullptr
-        && this->dstIp_ != nullptr && this->dstPort_ != nullptr && this->dstType_ != nullptr && this->dtsJobClass_ != nullptr && this->dtsJobId_ != nullptr
-        && this->dtsJobName_ != nullptr && this->dtsJobState_ != nullptr && this->dtsJobStatus_ != nullptr && this->ecsInstanceId_ != nullptr && this->endState_ != nullptr
-        && this->errorCode_ != nullptr && this->errorMessage_ != nullptr && this->external_ != nullptr && this->rate_ != nullptr && this->requestDuration_ != nullptr
-        && this->smartPressureTime_ != nullptr && this->source_ != nullptr && this->sqlCompleteReuse_ != nullptr && this->srcInstanceArea_ != nullptr && this->srcInstanceUuid_ != nullptr
-        && this->srcPublicIp_ != nullptr && this->state_ != nullptr && this->status_ != nullptr && this->tableSchema_ != nullptr && this->taskId_ != nullptr
-        && this->taskType_ != nullptr && this->topic_ != nullptr && this->userId_ != nullptr && this->version_ != nullptr && this->workDir_ != nullptr; };
+    virtual bool empty() const override { return this->archiveJobId_ == nullptr
+        && return this->archiveOssTableName_ == nullptr && return this->archiveState_ == nullptr && return this->backupId_ == nullptr && return this->backupType_ == nullptr && return this->benchStep_ == nullptr
+        && return this->benchStepStatus_ == nullptr && return this->clientGatewayId_ == nullptr && return this->clientType_ == nullptr && return this->description_ == nullptr && return this->dstInstanceUuid_ == nullptr
+        && return this->dstIp_ == nullptr && return this->dstPort_ == nullptr && return this->dstType_ == nullptr && return this->dtsJobClass_ == nullptr && return this->dtsJobId_ == nullptr
+        && return this->dtsJobName_ == nullptr && return this->dtsJobState_ == nullptr && return this->dtsJobStatus_ == nullptr && return this->ecsInstanceId_ == nullptr && return this->endState_ == nullptr
+        && return this->errorCode_ == nullptr && return this->errorMessage_ == nullptr && return this->external_ == nullptr && return this->rate_ == nullptr && return this->requestDuration_ == nullptr
+        && return this->smartPressureTime_ == nullptr && return this->source_ == nullptr && return this->sqlCompleteReuse_ == nullptr && return this->srcInstanceArea_ == nullptr && return this->srcInstanceUuid_ == nullptr
+        && return this->srcPublicIp_ == nullptr && return this->state_ == nullptr && return this->status_ == nullptr && return this->tableSchema_ == nullptr && return this->taskId_ == nullptr
+        && return this->taskType_ == nullptr && return this->topic_ == nullptr && return this->userId_ == nullptr && return this->version_ == nullptr && return this->workDir_ == nullptr; };
     // archiveJobId Field Functions 
     bool hasArchiveJobId() const { return this->archiveJobId_ != nullptr;};
     void deleteArchiveJobId() { this->archiveJobId_ = nullptr;};

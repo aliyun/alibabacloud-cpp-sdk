@@ -95,14 +95,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountName_ != nullptr
-        && this->collection_ != nullptr && this->consume_ != nullptr && this->cpuTime_ != nullptr && this->DBName_ != nullptr && this->executeTime_ != nullptr
-        && this->ext_ != nullptr && this->frows_ != nullptr && this->hostAddress_ != nullptr && this->lockTime_ != nullptr && this->logicRead_ != nullptr
-        && this->nodeId_ != nullptr && this->originTime_ != nullptr && this->parallelDegree_ != nullptr && this->parallelQueueTime_ != nullptr && this->physicAsyncRead_ != nullptr
-        && this->physicRead_ != nullptr && this->physicSyncRead_ != nullptr && this->returnRows_ != nullptr && this->rows_ != nullptr && this->scanRows_ != nullptr
-        && this->scnt_ != nullptr && this->sqlCommand_ != nullptr && this->sqlId_ != nullptr && this->sqlText_ != nullptr && this->sqlType_ != nullptr
-        && this->state_ != nullptr && this->threadId_ != nullptr && this->traceId_ != nullptr && this->trxId_ != nullptr && this->updateRows_ != nullptr
-        && this->useImciEngine_ != nullptr && this->vip_ != nullptr && this->writes_ != nullptr; };
+    virtual bool empty() const override { return this->accountName_ == nullptr
+        && return this->collection_ == nullptr && return this->consume_ == nullptr && return this->cpuTime_ == nullptr && return this->DBName_ == nullptr && return this->executeTime_ == nullptr
+        && return this->ext_ == nullptr && return this->frows_ == nullptr && return this->hostAddress_ == nullptr && return this->lockTime_ == nullptr && return this->logicRead_ == nullptr
+        && return this->nodeId_ == nullptr && return this->originTime_ == nullptr && return this->parallelDegree_ == nullptr && return this->parallelQueueTime_ == nullptr && return this->physicAsyncRead_ == nullptr
+        && return this->physicRead_ == nullptr && return this->physicSyncRead_ == nullptr && return this->returnRows_ == nullptr && return this->rows_ == nullptr && return this->scanRows_ == nullptr
+        && return this->scnt_ == nullptr && return this->sqlCommand_ == nullptr && return this->sqlId_ == nullptr && return this->sqlText_ == nullptr && return this->sqlType_ == nullptr
+        && return this->state_ == nullptr && return this->threadId_ == nullptr && return this->traceId_ == nullptr && return this->trxId_ == nullptr && return this->updateRows_ == nullptr
+        && return this->useImciEngine_ == nullptr && return this->vip_ == nullptr && return this->writes_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};

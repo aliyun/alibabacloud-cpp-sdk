@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dingtalkHook_ != nullptr
-        && this->email_ != nullptr && this->groups_ != nullptr && this->isCmsReduplicated_ != nullptr && this->name_ != nullptr && this->phone_ != nullptr
-        && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->dingtalkHook_ == nullptr
+        && return this->email_ == nullptr && return this->groups_ == nullptr && return this->isCmsReduplicated_ == nullptr && return this->name_ == nullptr && return this->phone_ == nullptr
+        && return this->userId_ == nullptr; };
     // dingtalkHook Field Functions 
     bool hasDingtalkHook() const { return this->dingtalkHook_ != nullptr;};
     void deleteDingtalkHook() { this->dingtalkHook_ = nullptr;};

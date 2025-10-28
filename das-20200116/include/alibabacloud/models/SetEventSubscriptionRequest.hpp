@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->active_ != nullptr
-        && this->channelType_ != nullptr && this->contactGroupName_ != nullptr && this->contactName_ != nullptr && this->dispatchRule_ != nullptr && this->eventContext_ != nullptr
-        && this->instanceId_ != nullptr && this->lang_ != nullptr && this->level_ != nullptr && this->minInterval_ != nullptr && this->severity_ != nullptr; };
+    virtual bool empty() const override { return this->active_ == nullptr
+        && return this->channelType_ == nullptr && return this->contactGroupName_ == nullptr && return this->contactName_ == nullptr && return this->dispatchRule_ == nullptr && return this->eventContext_ == nullptr
+        && return this->instanceId_ == nullptr && return this->lang_ == nullptr && return this->level_ == nullptr && return this->minInterval_ == nullptr && return this->severity_ == nullptr; };
     // active Field Functions 
     bool hasActive() const { return this->active_ != nullptr;};
     void deleteActive() { this->active_ = nullptr;};

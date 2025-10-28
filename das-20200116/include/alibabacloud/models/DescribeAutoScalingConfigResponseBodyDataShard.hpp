@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->downgrade_ != nullptr
-        && this->downgradeObservationWindowSize_ != nullptr && this->maxShards_ != nullptr && this->memUsageLowerThreshold_ != nullptr && this->memUsageUpperThreshold_ != nullptr && this->minShards_ != nullptr
-        && this->upgrade_ != nullptr && this->upgradeObservationWindowSize_ != nullptr; };
+    virtual bool empty() const override { return this->downgrade_ == nullptr
+        && return this->downgradeObservationWindowSize_ == nullptr && return this->maxShards_ == nullptr && return this->memUsageLowerThreshold_ == nullptr && return this->memUsageUpperThreshold_ == nullptr && return this->minShards_ == nullptr
+        && return this->upgrade_ == nullptr && return this->upgradeObservationWindowSize_ == nullptr; };
     // downgrade Field Functions 
     bool hasDowngrade() const { return this->downgrade_ != nullptr;};
     void deleteDowngrade() { this->downgrade_ = nullptr;};

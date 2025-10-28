@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->coldEnable_ != nullptr
-        && this->coldRetention_ != nullptr && this->coldStartTime_ != nullptr && this->collectorVersion_ != nullptr && this->hotEnable_ != nullptr && this->hotRetention_ != nullptr
-        && this->hotStartTime_ != nullptr && this->logFilter_ != nullptr && this->requestEnable_ != nullptr && this->requestStartTime_ != nullptr && this->requestStopTime_ != nullptr
-        && this->retention_ != nullptr && this->sqlLogEnable_ != nullptr && this->sqlLogSource_ != nullptr && this->sqlLogState_ != nullptr && this->sqlLogVisibleTime_ != nullptr
-        && this->supportVersion_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->coldEnable_ == nullptr
+        && return this->coldRetention_ == nullptr && return this->coldStartTime_ == nullptr && return this->collectorVersion_ == nullptr && return this->hotEnable_ == nullptr && return this->hotRetention_ == nullptr
+        && return this->hotStartTime_ == nullptr && return this->logFilter_ == nullptr && return this->requestEnable_ == nullptr && return this->requestStartTime_ == nullptr && return this->requestStopTime_ == nullptr
+        && return this->retention_ == nullptr && return this->sqlLogEnable_ == nullptr && return this->sqlLogSource_ == nullptr && return this->sqlLogState_ == nullptr && return this->sqlLogVisibleTime_ == nullptr
+        && return this->supportVersion_ == nullptr && return this->version_ == nullptr; };
     // coldEnable Field Functions 
     bool hasColdEnable() const { return this->coldEnable_ != nullptr;};
     void deleteColdEnable() { this->coldEnable_ = nullptr;};

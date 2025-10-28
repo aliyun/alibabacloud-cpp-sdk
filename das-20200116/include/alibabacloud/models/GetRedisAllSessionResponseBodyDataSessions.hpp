@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addr_ != nullptr
-        && this->age_ != nullptr && this->client_ != nullptr && this->clientDesc_ != nullptr && this->cmd_ != nullptr && this->db_ != nullptr
-        && this->events_ != nullptr && this->fd_ != nullptr && this->flags_ != nullptr && this->id_ != nullptr && this->idle_ != nullptr
-        && this->multi_ != nullptr && this->name_ != nullptr && this->nodeId_ != nullptr && this->obl_ != nullptr && this->oll_ != nullptr
-        && this->omem_ != nullptr && this->psub_ != nullptr && this->qbuf_ != nullptr && this->qbufFree_ != nullptr && this->sub_ != nullptr; };
+    virtual bool empty() const override { return this->addr_ == nullptr
+        && return this->age_ == nullptr && return this->client_ == nullptr && return this->clientDesc_ == nullptr && return this->cmd_ == nullptr && return this->db_ == nullptr
+        && return this->events_ == nullptr && return this->fd_ == nullptr && return this->flags_ == nullptr && return this->id_ == nullptr && return this->idle_ == nullptr
+        && return this->multi_ == nullptr && return this->name_ == nullptr && return this->nodeId_ == nullptr && return this->obl_ == nullptr && return this->oll_ == nullptr
+        && return this->omem_ == nullptr && return this->psub_ == nullptr && return this->qbuf_ == nullptr && return this->qbufFree_ == nullptr && return this->sub_ == nullptr; };
     // addr Field Functions 
     bool hasAddr() const { return this->addr_ != nullptr;};
     void deleteAddr() { this->addr_ = nullptr;};

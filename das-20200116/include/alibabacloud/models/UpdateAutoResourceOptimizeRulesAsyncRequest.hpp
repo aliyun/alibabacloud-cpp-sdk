@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->consoleContext_ != nullptr
-        && this->instanceIds_ != nullptr && this->resultId_ != nullptr && this->tableFragmentationRatio_ != nullptr && this->tableSpaceSize_ != nullptr; };
+    virtual bool empty() const override { return this->consoleContext_ == nullptr
+        && return this->instanceIds_ == nullptr && return this->resultId_ == nullptr && return this->tableFragmentationRatio_ == nullptr && return this->tableSpaceSize_ == nullptr; };
     // consoleContext Field Functions 
     bool hasConsoleContext() const { return this->consoleContext_ != nullptr;};
     void deleteConsoleContext() { this->consoleContext_ = nullptr;};

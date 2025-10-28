@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->batchId_ != nullptr
-        && this->blockProcessList_ != nullptr && this->clientApp_ != nullptr && this->databaseName_ != nullptr && this->hostName_ != nullptr && this->lastTranStarted_ != nullptr
-        && this->lockMode_ != nullptr && this->logUsed_ != nullptr && this->loginName_ != nullptr && this->objectOwned_ != nullptr && this->objectRequested_ != nullptr
-        && this->ownMode_ != nullptr && this->spid_ != nullptr && this->sqlText_ != nullptr && this->status_ != nullptr && this->victim_ != nullptr
-        && this->waitMode_ != nullptr && this->waitResource_ != nullptr && this->waitResourceDescription_ != nullptr; };
+    virtual bool empty() const override { return this->batchId_ == nullptr
+        && return this->blockProcessList_ == nullptr && return this->clientApp_ == nullptr && return this->databaseName_ == nullptr && return this->hostName_ == nullptr && return this->lastTranStarted_ == nullptr
+        && return this->lockMode_ == nullptr && return this->logUsed_ == nullptr && return this->loginName_ == nullptr && return this->objectOwned_ == nullptr && return this->objectRequested_ == nullptr
+        && return this->ownMode_ == nullptr && return this->spid_ == nullptr && return this->sqlText_ == nullptr && return this->status_ == nullptr && return this->victim_ == nullptr
+        && return this->waitMode_ == nullptr && return this->waitResource_ == nullptr && return this->waitResourceDescription_ == nullptr; };
     // batchId Field Functions 
     bool hasBatchId() const { return this->batchId_ != nullptr;};
     void deleteBatchId() { this->batchId_ = nullptr;};

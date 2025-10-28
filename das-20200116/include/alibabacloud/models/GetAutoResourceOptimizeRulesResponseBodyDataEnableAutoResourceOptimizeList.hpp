@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoDefragment_ != nullptr
-        && this->dasProOn_ != nullptr && this->instanceId_ != nullptr && this->tableFragmentationRatio_ != nullptr && this->tableSpaceSize_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->autoDefragment_ == nullptr
+        && return this->dasProOn_ == nullptr && return this->instanceId_ == nullptr && return this->tableFragmentationRatio_ == nullptr && return this->tableSpaceSize_ == nullptr && return this->userId_ == nullptr; };
     // autoDefragment Field Functions 
     bool hasAutoDefragment() const { return this->autoDefragment_ != nullptr;};
     void deleteAutoDefragment() { this->autoDefragment_ = nullptr;};

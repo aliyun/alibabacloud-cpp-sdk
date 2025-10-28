@@ -62,10 +62,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->active_ != nullptr
-        && this->channelType_ != nullptr && this->contactGroupName_ != nullptr && this->contactGroups_ != nullptr && this->contactName_ != nullptr && this->contacts_ != nullptr
-        && this->eventContext_ != nullptr && this->eventSendGroup_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->id_ != nullptr
-        && this->instanceId_ != nullptr && this->lang_ != nullptr && this->level_ != nullptr && this->minInterval_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->active_ == nullptr
+        && return this->channelType_ == nullptr && return this->contactGroupName_ == nullptr && return this->contactGroups_ == nullptr && return this->contactName_ == nullptr && return this->contacts_ == nullptr
+        && return this->eventContext_ == nullptr && return this->eventSendGroup_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->id_ == nullptr
+        && return this->instanceId_ == nullptr && return this->lang_ == nullptr && return this->level_ == nullptr && return this->minInterval_ == nullptr && return this->userId_ == nullptr; };
     // active Field Functions 
     bool hasActive() const { return this->active_ != nullptr;};
     void deleteActive() { this->active_ = nullptr;};

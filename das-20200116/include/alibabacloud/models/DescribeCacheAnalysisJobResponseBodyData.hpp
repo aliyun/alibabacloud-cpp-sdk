@@ -55,9 +55,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bigKeys_ != nullptr
-        && this->bigKeysOfNum_ != nullptr && this->expiryKeysLevelCount_ != nullptr && this->instanceId_ != nullptr && this->jobId_ != nullptr && this->keyPrefixes_ != nullptr
-        && this->message_ != nullptr && this->nodeId_ != nullptr && this->taskState_ != nullptr && this->unexBigKeysOfBytes_ != nullptr && this->unexBigKeysOfNum_ != nullptr; };
+    virtual bool empty() const override { return this->bigKeys_ == nullptr
+        && return this->bigKeysOfNum_ == nullptr && return this->expiryKeysLevelCount_ == nullptr && return this->instanceId_ == nullptr && return this->jobId_ == nullptr && return this->keyPrefixes_ == nullptr
+        && return this->message_ == nullptr && return this->nodeId_ == nullptr && return this->taskState_ == nullptr && return this->unexBigKeysOfBytes_ == nullptr && return this->unexBigKeysOfNum_ == nullptr; };
     // bigKeys Field Functions 
     bool hasBigKeys() const { return this->bigKeys_ != nullptr;};
     void deleteBigKeys() { this->bigKeys_ = nullptr;};
