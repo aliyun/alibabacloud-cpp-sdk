@@ -439,6 +439,9 @@
 #include <alibabacloud/models/DescribeRouteTableListRequest.hpp>
 #include <alibabacloud/models/DescribeRouteTableListResponseBody.hpp>
 #include <alibabacloud/models/DescribeRouteTableListResponse.hpp>
+#include <alibabacloud/models/DescribeSecurityGroupAttributeRequest.hpp>
+#include <alibabacloud/models/DescribeSecurityGroupAttributeResponseBody.hpp>
+#include <alibabacloud/models/DescribeSecurityGroupAttributeResponse.hpp>
 #include <alibabacloud/models/DescribeSessionStatisticRequest.hpp>
 #include <alibabacloud/models/DescribeSessionStatisticResponseBody.hpp>
 #include <alibabacloud/models/DescribeSessionStatisticResponse.hpp>

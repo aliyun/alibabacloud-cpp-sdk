@@ -2681,6 +2681,23 @@ namespace Ecd20200930
       Models::DescribeRouteTableListResponse describeRouteTableList(const Models::DescribeRouteTableListRequest &request);
 
       /**
+       * @summary 查询办公网络维度安全组策略
+       *
+       * @param request DescribeSecurityGroupAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSecurityGroupAttributeResponse
+       */
+      Models::DescribeSecurityGroupAttributeResponse describeSecurityGroupAttributeWithOptions(const Models::DescribeSecurityGroupAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询办公网络维度安全组策略
+       *
+       * @param request DescribeSecurityGroupAttributeRequest
+       * @return DescribeSecurityGroupAttributeResponse
+       */
+      Models::DescribeSecurityGroupAttributeResponse describeSecurityGroupAttribute(const Models::DescribeSecurityGroupAttributeRequest &request);
+
+      /**
        * @summary Queries the session statistics of a region.
        *
        * @description *   This is a central operation and can be called only by using services in the China (Shanghai) region.

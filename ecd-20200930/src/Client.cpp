@@ -10524,6 +10524,52 @@ DescribeRouteTableListResponse Client::describeRouteTableList(const DescribeRout
 }
 
 /**
+ * @summary 查询办公网络维度安全组策略
+ *
+ * @param request DescribeSecurityGroupAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSecurityGroupAttributeResponse
+ */
+DescribeSecurityGroupAttributeResponse Client::describeSecurityGroupAttributeWithOptions(const DescribeSecurityGroupAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOfficeSiteId()) {
+    query["OfficeSiteId"] = request.officeSiteId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSecurityGroupAttribute"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSecurityGroupAttributeResponse>();
+}
+
+/**
+ * @summary 查询办公网络维度安全组策略
+ *
+ * @param request DescribeSecurityGroupAttributeRequest
+ * @return DescribeSecurityGroupAttributeResponse
+ */
+DescribeSecurityGroupAttributeResponse Client::describeSecurityGroupAttribute(const DescribeSecurityGroupAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSecurityGroupAttributeWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the session statistics of a region.
  *
  * @description *   This is a central operation and can be called only by using services in the China (Shanghai) region.
