@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_IMAGEMODERATIONRESPONSEBODYDATAEXT_HPP_
 #define ALIBABACLOUD_MODELS_IMAGEMODERATIONRESPONSEBODYDATAEXT_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ImageModerationResponseBodyDataExtAigcData.hpp>
 #include <vector>
 #include <alibabacloud/models/ImageModerationResponseBodyDataExtCustomImage.hpp>
 #include <alibabacloud/models/ImageModerationResponseBodyDataExtFaceData.hpp>
@@ -22,6 +23,7 @@ namespace Models
   class ImageModerationResponseBodyDataExt : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ImageModerationResponseBodyDataExt& obj) { 
+      DARABONBA_PTR_TO_JSON(AigcData, aigcData_);
       DARABONBA_PTR_TO_JSON(CustomImage, customImage_);
       DARABONBA_PTR_TO_JSON(FaceData, faceData_);
       DARABONBA_PTR_TO_JSON(LogoData, logoData_);
@@ -32,6 +34,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VlContent, vlContent_);
     };
     friend void from_json(const Darabonba::Json& j, ImageModerationResponseBodyDataExt& obj) { 
+      DARABONBA_PTR_FROM_JSON(AigcData, aigcData_);
       DARABONBA_PTR_FROM_JSON(CustomImage, customImage_);
       DARABONBA_PTR_FROM_JSON(FaceData, faceData_);
       DARABONBA_PTR_FROM_JSON(LogoData, logoData_);
@@ -52,9 +55,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->customImage_ != nullptr
-        && this->faceData_ != nullptr && this->logoData_ != nullptr && this->ocrResult_ != nullptr && this->publicFigure_ != nullptr && this->recognition_ != nullptr
-        && this->textInImage_ != nullptr && this->vlContent_ != nullptr; };
+    virtual bool empty() const override { return this->aigcData_ == nullptr
+        && return this->customImage_ == nullptr && return this->faceData_ == nullptr && return this->logoData_ == nullptr && return this->ocrResult_ == nullptr && return this->publicFigure_ == nullptr
+        && return this->recognition_ == nullptr && return this->textInImage_ == nullptr && return this->vlContent_ == nullptr; };
+    // aigcData Field Functions 
+    bool hasAigcData() const { return this->aigcData_ != nullptr;};
+    void deleteAigcData() { this->aigcData_ = nullptr;};
+    inline const Models::ImageModerationResponseBodyDataExtAigcData & aigcData() const { DARABONBA_PTR_GET_CONST(aigcData_, Models::ImageModerationResponseBodyDataExtAigcData) };
+    inline Models::ImageModerationResponseBodyDataExtAigcData aigcData() { DARABONBA_PTR_GET(aigcData_, Models::ImageModerationResponseBodyDataExtAigcData) };
+    inline ImageModerationResponseBodyDataExt& setAigcData(const Models::ImageModerationResponseBodyDataExtAigcData & aigcData) { DARABONBA_PTR_SET_VALUE(aigcData_, aigcData) };
+    inline ImageModerationResponseBodyDataExt& setAigcData(Models::ImageModerationResponseBodyDataExtAigcData && aigcData) { DARABONBA_PTR_SET_RVALUE(aigcData_, aigcData) };
+
+
     // customImage Field Functions 
     bool hasCustomImage() const { return this->customImage_ != nullptr;};
     void deleteCustomImage() { this->customImage_ = nullptr;};
@@ -128,6 +140,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<Models::ImageModerationResponseBodyDataExtAigcData> aigcData_ = nullptr;
     // If a custom image library is hit, information about the hit custom image library is returned.
     std::shared_ptr<vector<Models::ImageModerationResponseBodyDataExtCustomImage>> customImage_ = nullptr;
     // The returned face attribute information

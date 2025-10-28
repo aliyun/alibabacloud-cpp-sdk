@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->advice_ != nullptr
-        && this->attackLevel_ != nullptr && this->attackResult_ != nullptr && this->dataId_ != nullptr && this->detectedLanguage_ != nullptr && this->manualTaskId_ != nullptr
-        && this->result_ != nullptr && this->riskLevel_ != nullptr && this->score_ != nullptr && this->sensitiveLevel_ != nullptr && this->sensitiveResult_ != nullptr
-        && this->translatedContent_ != nullptr; };
+    virtual bool empty() const override { return this->advice_ == nullptr
+        && return this->attackLevel_ == nullptr && return this->attackResult_ == nullptr && return this->dataId_ == nullptr && return this->detectedLanguage_ == nullptr && return this->manualTaskId_ == nullptr
+        && return this->result_ == nullptr && return this->riskLevel_ == nullptr && return this->score_ == nullptr && return this->sensitiveLevel_ == nullptr && return this->sensitiveResult_ == nullptr
+        && return this->translatedContent_ == nullptr; };
     // advice Field Functions 
     bool hasAdvice() const { return this->advice_ != nullptr;};
     void deleteAdvice() { this->advice_ = nullptr;};

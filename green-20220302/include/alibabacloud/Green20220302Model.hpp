@@ -122,6 +122,8 @@
 #include <alibabacloud/models/ImageBatchModerationResponseBodyDataResultsResult.hpp>
 #include <alibabacloud/models/ImageBatchModerationResponseBodyDataResults.hpp>
 #include <alibabacloud/models/ImageBatchModerationResponseBodyData.hpp>
+#include <alibabacloud/models/ImageModerationResponseBodyDataExtAigcDataAigc.hpp>
+#include <alibabacloud/models/ImageModerationResponseBodyDataExtAigcData.hpp>
 #include <alibabacloud/models/ImageModerationResponseBodyDataExtCustomImage.hpp>
 #include <alibabacloud/models/ImageModerationResponseBodyDataExtFaceDataBang.hpp>
 #include <alibabacloud/models/ImageModerationResponseBodyDataExtFaceDataGender.hpp>

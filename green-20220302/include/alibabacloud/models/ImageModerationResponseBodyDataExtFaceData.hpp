@@ -57,9 +57,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->age_ != nullptr
-        && this->bang_ != nullptr && this->gender_ != nullptr && this->glasses_ != nullptr && this->hairstyle_ != nullptr && this->hat_ != nullptr
-        && this->location_ != nullptr && this->mask_ != nullptr && this->mustache_ != nullptr && this->quality_ != nullptr && this->smile_ != nullptr; };
+    virtual bool empty() const override { return this->age_ == nullptr
+        && return this->bang_ == nullptr && return this->gender_ == nullptr && return this->glasses_ == nullptr && return this->hairstyle_ == nullptr && return this->hat_ == nullptr
+        && return this->location_ == nullptr && return this->mask_ == nullptr && return this->mustache_ == nullptr && return this->quality_ == nullptr && return this->smile_ == nullptr; };
     // age Field Functions 
     bool hasAge() const { return this->age_ != nullptr;};
     void deleteAge() { this->age_ = nullptr;};
