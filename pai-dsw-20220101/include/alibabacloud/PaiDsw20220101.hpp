@@ -21,6 +21,24 @@ namespace PaiDsw20220101
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 诊断问题
+       *
+       * @param request CreateDiagnosisRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDiagnosisResponse
+       */
+      Models::CreateDiagnosisResponse createDiagnosisWithOptions(const Models::CreateDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 诊断问题
+       *
+       * @param request CreateDiagnosisRequest
+       * @return CreateDiagnosisResponse
+       */
+      Models::CreateDiagnosisResponse createDiagnosis(const Models::CreateDiagnosisRequest &request);
+
+      /**
        * @summary Creates an automatic stop policy for a specific Data Science Workshop (DSW) instance. When the conditions are met, the instance is automatically stopped. You can create only one automatic stop policy for an idle DSW instance. If the specific instance has an automatic stop policy, call DeleteIdleInstanceCuller to delete it first.
        *
        * @param request CreateIdleInstanceCullerRequest

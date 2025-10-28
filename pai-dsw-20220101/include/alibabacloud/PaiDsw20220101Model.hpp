@@ -9,6 +9,9 @@
 #include <alibabacloud/models/DynamicMount.hpp>
 #include <alibabacloud/models/ForwardInfo.hpp>
 #include <alibabacloud/models/ForwardInfoResponse.hpp>
+#include <alibabacloud/models/CreateDiagnosisRequest.hpp>
+#include <alibabacloud/models/CreateDiagnosisResponseBody.hpp>
+#include <alibabacloud/models/CreateDiagnosisResponse.hpp>
 #include <alibabacloud/models/CreateIdleInstanceCullerRequest.hpp>
 #include <alibabacloud/models/CreateIdleInstanceCullerResponseBody.hpp>
 #include <alibabacloud/models/CreateIdleInstanceCullerResponse.hpp>

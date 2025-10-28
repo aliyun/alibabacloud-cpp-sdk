@@ -37,6 +37,59 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 诊断问题
+ *
+ * @param request CreateDiagnosisRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDiagnosisResponse
+ */
+CreateDiagnosisResponse Client::createDiagnosisWithOptions(const CreateDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasGmtFailureTime()) {
+    body["GmtFailureTime"] = request.gmtFailureTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasProblemCategory()) {
+    body["ProblemCategory"] = request.problemCategory();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateDiagnosis"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/diagnoses")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDiagnosisResponse>();
+}
+
+/**
+ * @summary 诊断问题
+ *
+ * @param request CreateDiagnosisRequest
+ * @return CreateDiagnosisResponse
+ */
+CreateDiagnosisResponse Client::createDiagnosis(const CreateDiagnosisRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createDiagnosisWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Creates an automatic stop policy for a specific Data Science Workshop (DSW) instance. When the conditions are met, the instance is automatically stopped. You can create only one automatic stop policy for an idle DSW instance. If the specific instance has an automatic stop policy, call DeleteIdleInstanceCuller to delete it first.
  *
  * @param request CreateIdleInstanceCullerRequest
