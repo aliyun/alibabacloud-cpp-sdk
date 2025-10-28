@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->sessionConcurrencyPerInstance_ != nullptr
-        && this->sessionIdleTimeoutInSeconds_ != nullptr && this->sessionTTLInSeconds_ != nullptr; };
+    virtual bool empty() const override { return this->sessionConcurrencyPerInstance_ == nullptr
+        && return this->sessionIdleTimeoutInSeconds_ == nullptr && return this->sessionTTLInSeconds_ == nullptr; };
     // sessionConcurrencyPerInstance Field Functions 
     bool hasSessionConcurrencyPerInstance() const { return this->sessionConcurrencyPerInstance_ != nullptr;};
     void deleteSessionConcurrencyPerInstance() { this->sessionConcurrencyPerInstance_ = nullptr;};

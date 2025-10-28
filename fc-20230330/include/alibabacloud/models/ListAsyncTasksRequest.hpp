@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->includePayload_ != nullptr
-        && this->limit_ != nullptr && this->nextToken_ != nullptr && this->prefix_ != nullptr && this->qualifier_ != nullptr && this->sortOrderByTime_ != nullptr
-        && this->startedTimeBegin_ != nullptr && this->startedTimeEnd_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->includePayload_ == nullptr
+        && return this->limit_ == nullptr && return this->nextToken_ == nullptr && return this->prefix_ == nullptr && return this->qualifier_ == nullptr && return this->sortOrderByTime_ == nullptr
+        && return this->startedTimeBegin_ == nullptr && return this->startedTimeEnd_ == nullptr && return this->status_ == nullptr; };
     // includePayload Field Functions 
     bool hasIncludePayload() const { return this->includePayload_ != nullptr;};
     void deleteIncludePayload() { this->includePayload_ = nullptr;};

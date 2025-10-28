@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authType_ != nullptr
-        && this->filterType_ != nullptr && this->groupID_ != nullptr && this->instanceEndpoint_ != nullptr && this->instanceId_ != nullptr && this->instanceNetwork_ != nullptr
-        && this->instancePassword_ != nullptr && this->instanceSecurityGroupId_ != nullptr && this->instanceType_ != nullptr && this->instanceUsername_ != nullptr && this->instanceVSwitchIds_ != nullptr
-        && this->instanceVpcId_ != nullptr && this->offset_ != nullptr && this->regionId_ != nullptr && this->tag_ != nullptr && this->timestamp_ != nullptr
-        && this->topic_ != nullptr; };
+    virtual bool empty() const override { return this->authType_ == nullptr
+        && return this->filterType_ == nullptr && return this->groupID_ == nullptr && return this->instanceEndpoint_ == nullptr && return this->instanceId_ == nullptr && return this->instanceNetwork_ == nullptr
+        && return this->instancePassword_ == nullptr && return this->instanceSecurityGroupId_ == nullptr && return this->instanceType_ == nullptr && return this->instanceUsername_ == nullptr && return this->instanceVSwitchIds_ == nullptr
+        && return this->instanceVpcId_ == nullptr && return this->offset_ == nullptr && return this->regionId_ == nullptr && return this->tag_ == nullptr && return this->timestamp_ == nullptr
+        && return this->topic_ == nullptr; };
     // authType Field Functions 
     bool hasAuthType() const { return this->authType_ != nullptr;};
     void deleteAuthType() { this->authType_ = nullptr;};

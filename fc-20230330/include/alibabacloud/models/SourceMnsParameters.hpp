@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->isBase64Decode_ != nullptr
-        && this->queueName_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->isBase64Decode_ == nullptr
+        && return this->queueName_ == nullptr && return this->regionId_ == nullptr; };
     // isBase64Decode Field Functions 
     bool hasIsBase64Decode() const { return this->isBase64Decode_ != nullptr;};
     void deleteIsBase64Decode() { this->isBase64Decode_ = nullptr;};

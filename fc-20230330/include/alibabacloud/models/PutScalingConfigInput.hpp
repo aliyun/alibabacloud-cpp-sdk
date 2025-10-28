@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->horizontalScalingPolicies_ != nullptr
-        && this->minInstances_ != nullptr && this->residentPoolId_ != nullptr && this->scheduledPolicies_ != nullptr; };
+    virtual bool empty() const override { return this->horizontalScalingPolicies_ == nullptr
+        && return this->minInstances_ == nullptr && return this->residentPoolId_ == nullptr && return this->scheduledPolicies_ == nullptr; };
     // horizontalScalingPolicies Field Functions 
     bool hasHorizontalScalingPolicies() const { return this->horizontalScalingPolicies_ != nullptr;};
     void deleteHorizontalScalingPolicies() { this->horizontalScalingPolicies_ = nullptr;};

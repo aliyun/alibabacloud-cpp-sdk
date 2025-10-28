@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commonHeaders_ != nullptr
-        && this->xFcAsyncTaskId_ != nullptr && this->xFcInvocationType_ != nullptr && this->xFcLogType_ != nullptr; };
+    virtual bool empty() const override { return this->commonHeaders_ == nullptr
+        && return this->xFcAsyncTaskId_ == nullptr && return this->xFcInvocationType_ == nullptr && return this->xFcLogType_ == nullptr; };
     // commonHeaders Field Functions 
     bool hasCommonHeaders() const { return this->commonHeaders_ != nullptr;};
     void deleteCommonHeaders() { this->commonHeaders_ = nullptr;};

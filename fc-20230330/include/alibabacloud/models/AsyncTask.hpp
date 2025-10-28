@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alreadyRetriedTimes_ != nullptr
-        && this->destinationStatus_ != nullptr && this->durationMs_ != nullptr && this->endTime_ != nullptr && this->events_ != nullptr && this->functionArn_ != nullptr
-        && this->instanceId_ != nullptr && this->qualifier_ != nullptr && this->requestId_ != nullptr && this->returnPayload_ != nullptr && this->startedTime_ != nullptr
-        && this->status_ != nullptr && this->taskErrorMessage_ != nullptr && this->taskId_ != nullptr && this->taskPayload_ != nullptr; };
+    virtual bool empty() const override { return this->alreadyRetriedTimes_ == nullptr
+        && return this->destinationStatus_ == nullptr && return this->durationMs_ == nullptr && return this->endTime_ == nullptr && return this->events_ == nullptr && return this->functionArn_ == nullptr
+        && return this->instanceId_ == nullptr && return this->qualifier_ == nullptr && return this->requestId_ == nullptr && return this->returnPayload_ == nullptr && return this->startedTime_ == nullptr
+        && return this->status_ == nullptr && return this->taskErrorMessage_ == nullptr && return this->taskId_ == nullptr && return this->taskPayload_ == nullptr; };
     // alreadyRetriedTimes Field Functions 
     bool hasAlreadyRetriedTimes() const { return this->alreadyRetriedTimes_ != nullptr;};
     void deleteAlreadyRetriedTimes() { this->alreadyRetriedTimes_ = nullptr;};

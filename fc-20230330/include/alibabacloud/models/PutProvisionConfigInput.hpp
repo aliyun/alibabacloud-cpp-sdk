@@ -42,8 +42,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alwaysAllocateCPU_ != nullptr
-        && this->alwaysAllocateGPU_ != nullptr && this->defaultTarget_ != nullptr && this->scheduledActions_ != nullptr && this->target_ != nullptr && this->targetTrackingPolicies_ != nullptr; };
+    virtual bool empty() const override { return this->alwaysAllocateCPU_ == nullptr
+        && return this->alwaysAllocateGPU_ == nullptr && return this->defaultTarget_ == nullptr && return this->scheduledActions_ == nullptr && return this->target_ == nullptr && return this->targetTrackingPolicies_ == nullptr; };
     // alwaysAllocateCPU Field Functions 
     bool hasAlwaysAllocateCPU() const { return this->alwaysAllocateCPU_ != nullptr;};
     void deleteAlwaysAllocateCPU() { this->alwaysAllocateCPU_ = nullptr;};

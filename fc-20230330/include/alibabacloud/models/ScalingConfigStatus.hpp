@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->currentError_ != nullptr
-        && this->currentInstances_ != nullptr && this->functionArn_ != nullptr && this->horizontalScalingPolicies_ != nullptr && this->minInstances_ != nullptr && this->residentPoolId_ != nullptr
-        && this->scheduledPolicies_ != nullptr && this->targetInstances_ != nullptr; };
+    virtual bool empty() const override { return this->currentError_ == nullptr
+        && return this->currentInstances_ == nullptr && return this->functionArn_ == nullptr && return this->horizontalScalingPolicies_ == nullptr && return this->minInstances_ == nullptr && return this->residentPoolId_ == nullptr
+        && return this->scheduledPolicies_ == nullptr && return this->targetInstances_ == nullptr; };
     // currentError Field Functions 
     bool hasCurrentError() const { return this->currentError_ != nullptr;};
     void deleteCurrentError() { this->currentError_ = nullptr;};

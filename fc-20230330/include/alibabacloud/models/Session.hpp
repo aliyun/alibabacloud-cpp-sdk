@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->containerId_ != nullptr
-        && this->createdTime_ != nullptr && this->functionName_ != nullptr && this->lastModifiedTime_ != nullptr && this->nasConfig_ != nullptr && this->qualifier_ != nullptr
-        && this->sessionAffinityType_ != nullptr && this->sessionId_ != nullptr && this->sessionIdleTimeoutInSeconds_ != nullptr && this->sessionStatus_ != nullptr && this->sessionTTLInSeconds_ != nullptr; };
+    virtual bool empty() const override { return this->containerId_ == nullptr
+        && return this->createdTime_ == nullptr && return this->functionName_ == nullptr && return this->lastModifiedTime_ == nullptr && return this->nasConfig_ == nullptr && return this->qualifier_ == nullptr
+        && return this->sessionAffinityType_ == nullptr && return this->sessionId_ == nullptr && return this->sessionIdleTimeoutInSeconds_ == nullptr && return this->sessionStatus_ == nullptr && return this->sessionTTLInSeconds_ == nullptr; };
     // containerId Field Functions 
     bool hasContainerId() const { return this->containerId_ != nullptr;};
     void deleteContainerId() { this->containerId_ = nullptr;};

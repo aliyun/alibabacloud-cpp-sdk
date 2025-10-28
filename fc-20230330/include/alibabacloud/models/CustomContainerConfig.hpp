@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accelerationInfo_ != nullptr
-        && this->accelerationType_ != nullptr && this->acrInstanceId_ != nullptr && this->command_ != nullptr && this->entrypoint_ != nullptr && this->healthCheckConfig_ != nullptr
-        && this->image_ != nullptr && this->port_ != nullptr && this->registryConfig_ != nullptr && this->resolvedImageUri_ != nullptr; };
+    virtual bool empty() const override { return this->accelerationInfo_ == nullptr
+        && return this->accelerationType_ == nullptr && return this->acrInstanceId_ == nullptr && return this->command_ == nullptr && return this->entrypoint_ == nullptr && return this->healthCheckConfig_ == nullptr
+        && return this->image_ == nullptr && return this->port_ == nullptr && return this->registryConfig_ == nullptr && return this->resolvedImageUri_ == nullptr; };
     // accelerationInfo Field Functions 
     bool hasAccelerationInfo() const { return this->accelerationInfo_ != nullptr;};
     void deleteAccelerationInfo() { this->accelerationInfo_ = nullptr;};

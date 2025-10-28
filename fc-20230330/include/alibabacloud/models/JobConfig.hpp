@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxRetryTime_ != nullptr
-        && this->triggerInterval_ != nullptr; };
+    virtual bool empty() const override { return this->maxRetryTime_ == nullptr
+        && return this->triggerInterval_ == nullptr; };
     // maxRetryTime Field Functions 
     bool hasMaxRetryTime() const { return this->maxRetryTime_ != nullptr;};
     void deleteMaxRetryTime() { this->maxRetryTime_ = nullptr;};

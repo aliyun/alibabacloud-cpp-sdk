@@ -103,13 +103,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->cpu_ != nullptr && this->customContainerConfig_ != nullptr && this->customDNS_ != nullptr && this->customRuntimeConfig_ != nullptr && this->description_ != nullptr
-        && this->disableInjectCredentials_ != nullptr && this->disableOndemand_ != nullptr && this->diskSize_ != nullptr && this->enableLongLiving_ != nullptr && this->environmentVariables_ != nullptr
-        && this->gpuConfig_ != nullptr && this->handler_ != nullptr && this->idleTimeout_ != nullptr && this->instanceConcurrency_ != nullptr && this->instanceIsolationMode_ != nullptr
-        && this->instanceLifecycleConfig_ != nullptr && this->internetAccess_ != nullptr && this->layers_ != nullptr && this->logConfig_ != nullptr && this->memorySize_ != nullptr
-        && this->nasConfig_ != nullptr && this->ossMountConfig_ != nullptr && this->polarFsConfig_ != nullptr && this->role_ != nullptr && this->runtime_ != nullptr
-        && this->sessionAffinity_ != nullptr && this->sessionAffinityConfig_ != nullptr && this->timeout_ != nullptr && this->tracingConfig_ != nullptr && this->vpcConfig_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->cpu_ == nullptr && return this->customContainerConfig_ == nullptr && return this->customDNS_ == nullptr && return this->customRuntimeConfig_ == nullptr && return this->description_ == nullptr
+        && return this->disableInjectCredentials_ == nullptr && return this->disableOndemand_ == nullptr && return this->diskSize_ == nullptr && return this->enableLongLiving_ == nullptr && return this->environmentVariables_ == nullptr
+        && return this->gpuConfig_ == nullptr && return this->handler_ == nullptr && return this->idleTimeout_ == nullptr && return this->instanceConcurrency_ == nullptr && return this->instanceIsolationMode_ == nullptr
+        && return this->instanceLifecycleConfig_ == nullptr && return this->internetAccess_ == nullptr && return this->layers_ == nullptr && return this->logConfig_ == nullptr && return this->memorySize_ == nullptr
+        && return this->nasConfig_ == nullptr && return this->ossMountConfig_ == nullptr && return this->polarFsConfig_ == nullptr && return this->role_ == nullptr && return this->runtime_ == nullptr
+        && return this->sessionAffinity_ == nullptr && return this->sessionAffinityConfig_ == nullptr && return this->timeout_ == nullptr && return this->tracingConfig_ == nullptr && return this->vpcConfig_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};

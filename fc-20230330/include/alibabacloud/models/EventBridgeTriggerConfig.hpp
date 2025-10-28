@@ -42,8 +42,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->asyncInvocationType_ != nullptr
-        && this->eventRuleFilterPattern_ != nullptr && this->eventSinkConfig_ != nullptr && this->eventSourceConfig_ != nullptr && this->runOptions_ != nullptr && this->triggerEnable_ != nullptr; };
+    virtual bool empty() const override { return this->asyncInvocationType_ == nullptr
+        && return this->eventRuleFilterPattern_ == nullptr && return this->eventSinkConfig_ == nullptr && return this->eventSourceConfig_ == nullptr && return this->runOptions_ == nullptr && return this->triggerEnable_ == nullptr; };
     // asyncInvocationType Field Functions 
     bool hasAsyncInvocationType() const { return this->asyncInvocationType_ != nullptr;};
     void deleteAsyncInvocationType() { this->asyncInvocationType_ = nullptr;};

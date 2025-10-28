@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createdTime_ != nullptr
-        && this->description_ != nullptr && this->httpTrigger_ != nullptr && this->invocationRole_ != nullptr && this->lastModifiedTime_ != nullptr && this->qualifier_ != nullptr
-        && this->sourceArn_ != nullptr && this->status_ != nullptr && this->targetArn_ != nullptr && this->triggerConfig_ != nullptr && this->triggerId_ != nullptr
-        && this->triggerName_ != nullptr && this->triggerType_ != nullptr; };
+    virtual bool empty() const override { return this->createdTime_ == nullptr
+        && return this->description_ == nullptr && return this->httpTrigger_ == nullptr && return this->invocationRole_ == nullptr && return this->lastModifiedTime_ == nullptr && return this->qualifier_ == nullptr
+        && return this->sourceArn_ == nullptr && return this->status_ == nullptr && return this->targetArn_ == nullptr && return this->triggerConfig_ == nullptr && return this->triggerId_ == nullptr
+        && return this->triggerName_ == nullptr && return this->triggerType_ == nullptr; };
     // createdTime Field Functions 
     bool hasCreatedTime() const { return this->createdTime_ != nullptr;};
     void deleteCreatedTime() { this->createdTime_ = nullptr;};
