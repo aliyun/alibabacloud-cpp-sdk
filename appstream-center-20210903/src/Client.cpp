@@ -861,6 +861,10 @@ UnbindResponse Client::unbindWithOptions(const UnbindRequest &request, const Dar
     body["AppInstanceId"] = request.appInstanceId();
   }
 
+  if (!!request.hasAppInstancePersistentId()) {
+    body["AppInstancePersistentId"] = request.appInstancePersistentId();
+  }
+
   if (!!request.hasClientId()) {
     body["ClientId"] = request.clientId();
   }

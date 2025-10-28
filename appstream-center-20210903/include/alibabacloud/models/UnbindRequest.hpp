@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppId, appId_);
       DARABONBA_PTR_TO_JSON(AppInstanceGroupId, appInstanceGroupId_);
       DARABONBA_PTR_TO_JSON(AppInstanceId, appInstanceId_);
+      DARABONBA_PTR_TO_JSON(AppInstancePersistentId, appInstancePersistentId_);
       DARABONBA_PTR_TO_JSON(ClientId, clientId_);
       DARABONBA_PTR_TO_JSON(ClientIp, clientIp_);
       DARABONBA_PTR_TO_JSON(ClientOS, clientOS_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
       DARABONBA_PTR_FROM_JSON(AppInstanceGroupId, appInstanceGroupId_);
       DARABONBA_PTR_FROM_JSON(AppInstanceId, appInstanceId_);
+      DARABONBA_PTR_FROM_JSON(AppInstancePersistentId, appInstancePersistentId_);
       DARABONBA_PTR_FROM_JSON(ClientId, clientId_);
       DARABONBA_PTR_FROM_JSON(ClientIp, clientIp_);
       DARABONBA_PTR_FROM_JSON(ClientOS, clientOS_);
@@ -54,9 +56,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->appInstanceGroupId_ == nullptr && return this->appInstanceId_ == nullptr && return this->clientId_ == nullptr && return this->clientIp_ == nullptr && return this->clientOS_ == nullptr
-        && return this->clientVersion_ == nullptr && return this->endUserId_ == nullptr && return this->loginRegionId_ == nullptr && return this->loginToken_ == nullptr && return this->productType_ == nullptr
-        && return this->sessionId_ == nullptr && return this->tenantId_ == nullptr; };
+        && return this->appInstanceGroupId_ == nullptr && return this->appInstanceId_ == nullptr && return this->appInstancePersistentId_ == nullptr && return this->clientId_ == nullptr && return this->clientIp_ == nullptr
+        && return this->clientOS_ == nullptr && return this->clientVersion_ == nullptr && return this->endUserId_ == nullptr && return this->loginRegionId_ == nullptr && return this->loginToken_ == nullptr
+        && return this->productType_ == nullptr && return this->sessionId_ == nullptr && return this->tenantId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -76,6 +78,13 @@ namespace Models
     void deleteAppInstanceId() { this->appInstanceId_ = nullptr;};
     inline string appInstanceId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceId_, "") };
     inline UnbindRequest& setAppInstanceId(string appInstanceId) { DARABONBA_PTR_SET_VALUE(appInstanceId_, appInstanceId) };
+
+
+    // appInstancePersistentId Field Functions 
+    bool hasAppInstancePersistentId() const { return this->appInstancePersistentId_ != nullptr;};
+    void deleteAppInstancePersistentId() { this->appInstancePersistentId_ = nullptr;};
+    inline string appInstancePersistentId() const { DARABONBA_PTR_GET_DEFAULT(appInstancePersistentId_, "") };
+    inline UnbindRequest& setAppInstancePersistentId(string appInstancePersistentId) { DARABONBA_PTR_SET_VALUE(appInstancePersistentId_, appInstancePersistentId) };
 
 
     // clientId Field Functions 
@@ -153,6 +162,7 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> appInstanceGroupId_ = nullptr;
     std::shared_ptr<string> appInstanceId_ = nullptr;
+    std::shared_ptr<string> appInstancePersistentId_ = nullptr;
     std::shared_ptr<string> clientId_ = nullptr;
     std::shared_ptr<string> clientIp_ = nullptr;
     std::shared_ptr<string> clientOS_ = nullptr;
