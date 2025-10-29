@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_TO_JSON(TerminateSubscription, terminateSubscription_);
     };
     friend void from_json(const Darabonba::Json& j, ReleaseDedicatedHostRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DedicatedHostId, dedicatedHostId_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_FROM_JSON(TerminateSubscription, terminateSubscription_);
     };
     ReleaseDedicatedHostRequest() = default ;
     ReleaseDedicatedHostRequest(const ReleaseDedicatedHostRequest &) = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dedicatedHostId_ == nullptr
-        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->terminateSubscription_ == nullptr; };
     // dedicatedHostId Field Functions 
     bool hasDedicatedHostId() const { return this->dedicatedHostId_ != nullptr;};
     void deleteDedicatedHostId() { this->dedicatedHostId_ = nullptr;};
@@ -83,6 +86,13 @@ namespace Models
     inline ReleaseDedicatedHostRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
+    // terminateSubscription Field Functions 
+    bool hasTerminateSubscription() const { return this->terminateSubscription_ != nullptr;};
+    void deleteTerminateSubscription() { this->terminateSubscription_ = nullptr;};
+    inline bool terminateSubscription() const { DARABONBA_PTR_GET_DEFAULT(terminateSubscription_, false) };
+    inline ReleaseDedicatedHostRequest& setTerminateSubscription(bool terminateSubscription) { DARABONBA_PTR_SET_VALUE(terminateSubscription_, terminateSubscription) };
+
+
   protected:
     // The ID of the dedicated host.
     // 
@@ -96,6 +106,7 @@ namespace Models
     std::shared_ptr<string> regionId_ = nullptr;
     std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    std::shared_ptr<bool> terminateSubscription_ = nullptr;
   };
 
   } // namespace Models

@@ -30529,6 +30529,10 @@ ReleaseDedicatedHostResponse Client::releaseDedicatedHostWithOptions(const Relea
     query["ResourceOwnerId"] = request.resourceOwnerId();
   }
 
+  if (!!request.hasTerminateSubscription()) {
+    query["TerminateSubscription"] = request.terminateSubscription();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
