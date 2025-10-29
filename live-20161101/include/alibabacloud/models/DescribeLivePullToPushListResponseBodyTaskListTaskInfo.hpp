@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callbackURL_ != nullptr
-        && this->dstUrl_ != nullptr && this->endTime_ != nullptr && this->fileIndex_ != nullptr && this->offset_ != nullptr && this->repeatNumber_ != nullptr
-        && this->retryCount_ != nullptr && this->retryInterval_ != nullptr && this->sourceProtocol_ != nullptr && this->sourceType_ != nullptr && this->sourceUrls_ != nullptr
-        && this->startTime_ != nullptr && this->taskId_ != nullptr && this->taskName_ != nullptr; };
+    virtual bool empty() const override { return this->callbackURL_ == nullptr
+        && return this->dstUrl_ == nullptr && return this->endTime_ == nullptr && return this->fileIndex_ == nullptr && return this->offset_ == nullptr && return this->repeatNumber_ == nullptr
+        && return this->retryCount_ == nullptr && return this->retryInterval_ == nullptr && return this->sourceProtocol_ == nullptr && return this->sourceType_ == nullptr && return this->sourceUrls_ == nullptr
+        && return this->startTime_ == nullptr && return this->taskId_ == nullptr && return this->taskName_ == nullptr; };
     // callbackURL Field Functions 
     bool hasCallbackURL() const { return this->callbackURL_ != nullptr;};
     void deleteCallbackURL() { this->callbackURL_ = nullptr;};

@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoCompose_ != nullptr
-        && this->composeVodTranscodeGroupId_ != nullptr && this->storageLocation_ != nullptr && this->vodTranscodeGroupId_ != nullptr; };
+    virtual bool empty() const override { return this->autoCompose_ == nullptr
+        && return this->composeVodTranscodeGroupId_ == nullptr && return this->storageLocation_ == nullptr && return this->vodTranscodeGroupId_ == nullptr; };
     // autoCompose Field Functions 
     bool hasAutoCompose() const { return this->autoCompose_ != nullptr;};
     void deleteAutoCompose() { this->autoCompose_ = nullptr;};

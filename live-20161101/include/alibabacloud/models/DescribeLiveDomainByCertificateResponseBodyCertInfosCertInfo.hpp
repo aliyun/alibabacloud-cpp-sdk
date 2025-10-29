@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->certCaIsLegacy_ != nullptr
-        && this->certExpireTime_ != nullptr && this->certExpired_ != nullptr && this->certStartTime_ != nullptr && this->certSubjectCommonName_ != nullptr && this->certType_ != nullptr
-        && this->domainList_ != nullptr && this->domainNames_ != nullptr && this->issuer_ != nullptr; };
+    virtual bool empty() const override { return this->certCaIsLegacy_ == nullptr
+        && return this->certExpireTime_ == nullptr && return this->certExpired_ == nullptr && return this->certStartTime_ == nullptr && return this->certSubjectCommonName_ == nullptr && return this->certType_ == nullptr
+        && return this->domainList_ == nullptr && return this->domainNames_ == nullptr && return this->issuer_ == nullptr; };
     // certCaIsLegacy Field Functions 
     bool hasCertCaIsLegacy() const { return this->certCaIsLegacy_ != nullptr;};
     void deleteCertCaIsLegacy() { this->certCaIsLegacy_ = nullptr;};

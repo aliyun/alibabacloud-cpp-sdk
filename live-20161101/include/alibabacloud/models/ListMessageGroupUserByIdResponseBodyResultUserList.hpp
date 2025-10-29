@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->isMute_ != nullptr
-        && this->muteBy_ != nullptr && this->userAvatar_ != nullptr && this->userExtension_ != nullptr && this->userId_ != nullptr && this->userNick_ != nullptr; };
+    virtual bool empty() const override { return this->isMute_ == nullptr
+        && return this->muteBy_ == nullptr && return this->userAvatar_ == nullptr && return this->userExtension_ == nullptr && return this->userId_ == nullptr && return this->userNick_ == nullptr; };
     // isMute Field Functions 
     bool hasIsMute() const { return this->isMute_ != nullptr;};
     void deleteIsMute() { this->isMute_ = nullptr;};

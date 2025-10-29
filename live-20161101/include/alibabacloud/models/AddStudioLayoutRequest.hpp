@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bgImageConfig_ != nullptr
-        && this->casterId_ != nullptr && this->commonConfig_ != nullptr && this->layerOrderConfigList_ != nullptr && this->layoutName_ != nullptr && this->layoutType_ != nullptr
-        && this->mediaInputConfigList_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->screenInputConfigList_ != nullptr; };
+    virtual bool empty() const override { return this->bgImageConfig_ == nullptr
+        && return this->casterId_ == nullptr && return this->commonConfig_ == nullptr && return this->layerOrderConfigList_ == nullptr && return this->layoutName_ == nullptr && return this->layoutType_ == nullptr
+        && return this->mediaInputConfigList_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->screenInputConfigList_ == nullptr; };
     // bgImageConfig Field Functions 
     bool hasBgImageConfig() const { return this->bgImageConfig_ != nullptr;};
     void deleteBgImageConfig() { this->bgImageConfig_ = nullptr;};

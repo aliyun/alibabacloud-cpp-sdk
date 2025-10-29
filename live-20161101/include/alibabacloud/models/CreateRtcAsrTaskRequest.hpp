@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authKey_ != nullptr
-        && this->autoTerminateDelay_ != nullptr && this->autoTerminateEnabled_ != nullptr && this->callbackURL_ != nullptr && this->channelID_ != nullptr && this->language_ != nullptr
-        && this->mode_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->reportInterval_ != nullptr && this->rtcUserId_ != nullptr
-        && this->SDKAppID_ != nullptr && this->streamURL_ != nullptr && this->targetLanguages_ != nullptr && this->translateEnabled_ != nullptr; };
+    virtual bool empty() const override { return this->authKey_ == nullptr
+        && return this->autoTerminateDelay_ == nullptr && return this->autoTerminateEnabled_ == nullptr && return this->callbackURL_ == nullptr && return this->channelID_ == nullptr && return this->language_ == nullptr
+        && return this->mode_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->reportInterval_ == nullptr && return this->rtcUserId_ == nullptr
+        && return this->SDKAppID_ == nullptr && return this->streamURL_ == nullptr && return this->targetLanguages_ == nullptr && return this->translateEnabled_ == nullptr; };
     // authKey Field Functions 
     bool hasAuthKey() const { return this->authKey_ != nullptr;};
     void deleteAuthKey() { this->authKey_ = nullptr;};

@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->mixBackground_ != nullptr
-        && this->userPanes_ != nullptr; };
+    virtual bool empty() const override { return this->mixBackground_ == nullptr
+        && return this->userPanes_ == nullptr; };
     // mixBackground Field Functions 
     bool hasMixBackground() const { return this->mixBackground_ != nullptr;};
     void deleteMixBackground() { this->mixBackground_ = nullptr;};

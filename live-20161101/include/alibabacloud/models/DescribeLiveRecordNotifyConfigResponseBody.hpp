@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->liveRecordNotifyConfig_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->liveRecordNotifyConfig_ == nullptr
+        && return this->requestId_ == nullptr; };
     // liveRecordNotifyConfig Field Functions 
     bool hasLiveRecordNotifyConfig() const { return this->liveRecordNotifyConfig_ != nullptr;};
     void deleteLiveRecordNotifyConfig() { this->liveRecordNotifyConfig_ = nullptr;};

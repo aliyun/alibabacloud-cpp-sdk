@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->offset_ != nullptr
-        && this->ownerId_ != nullptr && this->programId_ != nullptr && this->regionId_ != nullptr && this->resumeMode_ != nullptr && this->startItemId_ != nullptr; };
+    virtual bool empty() const override { return this->offset_ == nullptr
+        && return this->ownerId_ == nullptr && return this->programId_ == nullptr && return this->regionId_ == nullptr && return this->resumeMode_ == nullptr && return this->startItemId_ == nullptr; };
     // offset Field Functions 
     bool hasOffset() const { return this->offset_ != nullptr;};
     void deleteOffset() { this->offset_ = nullptr;};

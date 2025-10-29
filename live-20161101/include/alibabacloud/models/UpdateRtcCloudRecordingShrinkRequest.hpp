@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->mixLayoutParamsShrink_ != nullptr
-        && this->subscribeParamsShrink_ != nullptr && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->mixLayoutParamsShrink_ == nullptr
+        && return this->subscribeParamsShrink_ == nullptr && return this->taskId_ == nullptr; };
     // mixLayoutParamsShrink Field Functions 
     bool hasMixLayoutParamsShrink() const { return this->mixLayoutParamsShrink_ != nullptr;};
     void deleteMixLayoutParamsShrink() { this->mixLayoutParamsShrink_ = nullptr;};

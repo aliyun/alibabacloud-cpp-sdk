@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AudioProfile, audioProfile_);
       DARABONBA_PTR_TO_JSON(AudioRate, audioRate_);
       DARABONBA_PTR_TO_JSON(BitrateWithSource, bitrateWithSource_);
+      DARABONBA_PTR_TO_JSON(DeInterlaced, deInterlaced_);
       DARABONBA_PTR_TO_JSON(Domain, domain_);
       DARABONBA_PTR_TO_JSON(EncryptParameters, encryptParameters_);
       DARABONBA_PTR_TO_JSON(ExtWithSource, extWithSource_);
@@ -45,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AudioProfile, audioProfile_);
       DARABONBA_PTR_FROM_JSON(AudioRate, audioRate_);
       DARABONBA_PTR_FROM_JSON(BitrateWithSource, bitrateWithSource_);
+      DARABONBA_PTR_FROM_JSON(DeInterlaced, deInterlaced_);
       DARABONBA_PTR_FROM_JSON(Domain, domain_);
       DARABONBA_PTR_FROM_JSON(EncryptParameters, encryptParameters_);
       DARABONBA_PTR_FROM_JSON(ExtWithSource, extWithSource_);
@@ -73,12 +75,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->app_ != nullptr
-        && this->audioBitrate_ != nullptr && this->audioChannelNum_ != nullptr && this->audioCodec_ != nullptr && this->audioProfile_ != nullptr && this->audioRate_ != nullptr
-        && this->bitrateWithSource_ != nullptr && this->domain_ != nullptr && this->encryptParameters_ != nullptr && this->extWithSource_ != nullptr && this->FPS_ != nullptr
-        && this->fpsWithSource_ != nullptr && this->gop_ != nullptr && this->height_ != nullptr && this->lazy_ != nullptr && this->ownerId_ != nullptr
-        && this->profile_ != nullptr && this->regionId_ != nullptr && this->resWithSource_ != nullptr && this->template_ != nullptr && this->templateType_ != nullptr
-        && this->videoBitrate_ != nullptr && this->width_ != nullptr; };
+    virtual bool empty() const override { return this->app_ == nullptr
+        && return this->audioBitrate_ == nullptr && return this->audioChannelNum_ == nullptr && return this->audioCodec_ == nullptr && return this->audioProfile_ == nullptr && return this->audioRate_ == nullptr
+        && return this->bitrateWithSource_ == nullptr && return this->deInterlaced_ == nullptr && return this->domain_ == nullptr && return this->encryptParameters_ == nullptr && return this->extWithSource_ == nullptr
+        && return this->FPS_ == nullptr && return this->fpsWithSource_ == nullptr && return this->gop_ == nullptr && return this->height_ == nullptr && return this->lazy_ == nullptr
+        && return this->ownerId_ == nullptr && return this->profile_ == nullptr && return this->regionId_ == nullptr && return this->resWithSource_ == nullptr && return this->template_ == nullptr
+        && return this->templateType_ == nullptr && return this->videoBitrate_ == nullptr && return this->width_ == nullptr; };
     // app Field Functions 
     bool hasApp() const { return this->app_ != nullptr;};
     void deleteApp() { this->app_ = nullptr;};
@@ -126,6 +128,13 @@ namespace Models
     void deleteBitrateWithSource() { this->bitrateWithSource_ = nullptr;};
     inline string bitrateWithSource() const { DARABONBA_PTR_GET_DEFAULT(bitrateWithSource_, "") };
     inline UpdateCustomLiveStreamTranscodeRequest& setBitrateWithSource(string bitrateWithSource) { DARABONBA_PTR_SET_VALUE(bitrateWithSource_, bitrateWithSource) };
+
+
+    // deInterlaced Field Functions 
+    bool hasDeInterlaced() const { return this->deInterlaced_ != nullptr;};
+    void deleteDeInterlaced() { this->deInterlaced_ = nullptr;};
+    inline bool deInterlaced() const { DARABONBA_PTR_GET_DEFAULT(deInterlaced_, false) };
+    inline UpdateCustomLiveStreamTranscodeRequest& setDeInterlaced(bool deInterlaced) { DARABONBA_PTR_SET_VALUE(deInterlaced_, deInterlaced) };
 
 
     // domain Field Functions 
@@ -270,6 +279,7 @@ namespace Models
     // *   **LowerLimit**: the minimum bitrate. Set this field to an integer from 128 to 10000. The value must be smaller than the maximum bitrate.
     // *   **Factor**: the ratio of the output bitrate to the source bitrate. Valid values: 0.1 to 1. The value is accurate to one decimal place. A value of 1 indicates that the output video has the same bitrate as the source video.
     std::shared_ptr<string> bitrateWithSource_ = nullptr;
+    std::shared_ptr<bool> deInterlaced_ = nullptr;
     // Streamer domain name, unmodifiable.
     // 
     // This parameter is required.

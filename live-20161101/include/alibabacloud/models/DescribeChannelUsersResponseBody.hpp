@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->interactiveUserList_ != nullptr
-        && this->interactiveUserNumber_ != nullptr && this->isChannelExists_ != nullptr && this->liveUserList_ != nullptr && this->liveUserNumber_ != nullptr && this->requestId_ != nullptr
-        && this->timestamp_ != nullptr; };
+    virtual bool empty() const override { return this->interactiveUserList_ == nullptr
+        && return this->interactiveUserNumber_ == nullptr && return this->isChannelExists_ == nullptr && return this->liveUserList_ == nullptr && return this->liveUserNumber_ == nullptr && return this->requestId_ == nullptr
+        && return this->timestamp_ == nullptr; };
     // interactiveUserList Field Functions 
     bool hasInteractiveUserList() const { return this->interactiveUserList_ != nullptr;};
     void deleteInteractiveUserList() { this->interactiveUserList_ = nullptr;};

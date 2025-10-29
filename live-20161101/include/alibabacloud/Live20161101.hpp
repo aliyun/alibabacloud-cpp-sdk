@@ -8642,6 +8642,37 @@ namespace Live20161101
       Models::PublishLiveStagingConfigToProductionResponse publishLiveStagingConfigToProduction(const Models::PublishLiveStagingConfigToProductionRequest &request);
 
       /**
+       * @summary 用于修改指定直播流的录制文件存储时长。
+       *
+       * @description ## 请求说明
+       * - 该接口允许用户为一个或多个指定的直播流设置新的录制文件存储期限。
+       * - `Tag` 字段必须符合格式 `[0-9]+days`，表示直播结束后录制内容将被保存的天数。
+       * - 如果对某个流的存储时间修改失败，错误信息会被记录在返回结果中。对于失败的情况，调用方应重试最多3次；如果超过重试次数仍失败，则视为最终失败。
+       * - 为了支持未来可能的需求变化（如更长的存储周期），请确保您的系统能够处理不同的时间段值。
+       * - 成功执行后，供应商会通过异步回调的方式通知调用方所有操作的结果。若回调失败，将按照1小时、2小时、4小时的时间间隔尝试重新发送，直至成功或达到最大重试次数。
+       *
+       * @param tmpReq PutRecordStorageLifeCycleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PutRecordStorageLifeCycleResponse
+       */
+      Models::PutRecordStorageLifeCycleResponse putRecordStorageLifeCycleWithOptions(const Models::PutRecordStorageLifeCycleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用于修改指定直播流的录制文件存储时长。
+       *
+       * @description ## 请求说明
+       * - 该接口允许用户为一个或多个指定的直播流设置新的录制文件存储期限。
+       * - `Tag` 字段必须符合格式 `[0-9]+days`，表示直播结束后录制内容将被保存的天数。
+       * - 如果对某个流的存储时间修改失败，错误信息会被记录在返回结果中。对于失败的情况，调用方应重试最多3次；如果超过重试次数仍失败，则视为最终失败。
+       * - 为了支持未来可能的需求变化（如更长的存储周期），请确保您的系统能够处理不同的时间段值。
+       * - 成功执行后，供应商会通过异步回调的方式通知调用方所有操作的结果。若回调失败，将按照1小时、2小时、4小时的时间间隔尝试重新发送，直至成功或达到最大重试次数。
+       *
+       * @param request PutRecordStorageLifeCycleRequest
+       * @return PutRecordStorageLifeCycleResponse
+       */
+      Models::PutRecordStorageLifeCycleResponse putRecordStorageLifeCycle(const Models::PutRecordStorageLifeCycleRequest &request);
+
+      /**
        * @summary Queries the dual-stream disaster recovery records of online streams.
        *
        * @param request QueryLiveDomainMultiStreamListRequest
@@ -10047,6 +10078,8 @@ namespace Live20161101
       Models::TagLiveResourcesResponse tagLiveResources(const Models::TagLiveResourcesRequest &request);
 
       /**
+       * @summary 解绑标签
+       *
        * @param request UnTagLiveResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UnTagLiveResourcesResponse
@@ -10054,6 +10087,8 @@ namespace Live20161101
       Models::UnTagLiveResourcesResponse unTagLiveResourcesWithOptions(const Models::UnTagLiveResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 解绑标签
+       *
        * @param request UnTagLiveResourcesRequest
        * @return UnTagLiveResourcesResponse
        */

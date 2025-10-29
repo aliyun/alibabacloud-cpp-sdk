@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->audioConfig_ != nullptr
-        && this->channelId_ != nullptr && this->color_ != nullptr && this->heightNormalized_ != nullptr && this->id_ != nullptr && this->index_ != nullptr
-        && this->onlyAudio_ != nullptr && this->portraitType_ != nullptr && this->positionX_ != nullptr && this->positionY_ != nullptr && this->videoResourceId_ != nullptr; };
+    virtual bool empty() const override { return this->audioConfig_ == nullptr
+        && return this->channelId_ == nullptr && return this->color_ == nullptr && return this->heightNormalized_ == nullptr && return this->id_ == nullptr && return this->index_ == nullptr
+        && return this->onlyAudio_ == nullptr && return this->portraitType_ == nullptr && return this->positionX_ == nullptr && return this->positionY_ == nullptr && return this->videoResourceId_ == nullptr; };
     // audioConfig Field Functions 
     bool hasAudioConfig() const { return this->audioConfig_ != nullptr;};
     void deleteAudioConfig() { this->audioConfig_ = nullptr;};

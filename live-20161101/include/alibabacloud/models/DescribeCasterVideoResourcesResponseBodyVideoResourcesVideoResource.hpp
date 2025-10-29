@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->beginOffset_ != nullptr
-        && this->endOffset_ != nullptr && this->flvUrl_ != nullptr && this->imageId_ != nullptr && this->imageUrl_ != nullptr && this->liveStreamUrl_ != nullptr
-        && this->locationId_ != nullptr && this->materialId_ != nullptr && this->ptsCallbackInterval_ != nullptr && this->repeatNum_ != nullptr && this->resourceId_ != nullptr
-        && this->resourceName_ != nullptr && this->vodUrl_ != nullptr; };
+    virtual bool empty() const override { return this->beginOffset_ == nullptr
+        && return this->endOffset_ == nullptr && return this->flvUrl_ == nullptr && return this->imageId_ == nullptr && return this->imageUrl_ == nullptr && return this->liveStreamUrl_ == nullptr
+        && return this->locationId_ == nullptr && return this->materialId_ == nullptr && return this->ptsCallbackInterval_ == nullptr && return this->repeatNum_ == nullptr && return this->resourceId_ == nullptr
+        && return this->resourceName_ == nullptr && return this->vodUrl_ == nullptr; };
     // beginOffset Field Functions 
     bool hasBeginOffset() const { return this->beginOffset_ != nullptr;};
     void deleteBeginOffset() { this->beginOffset_ = nullptr;};

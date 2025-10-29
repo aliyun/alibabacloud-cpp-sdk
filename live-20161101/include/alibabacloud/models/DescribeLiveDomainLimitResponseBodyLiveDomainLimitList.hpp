@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->liveDomainLimit_ != nullptr; };
+    virtual bool empty() const override { return this->liveDomainLimit_ == nullptr; };
     // liveDomainLimit Field Functions 
     bool hasLiveDomainLimit() const { return this->liveDomainLimit_ != nullptr;};
     void deleteLiveDomainLimit() { this->liveDomainLimit_ = nullptr;};

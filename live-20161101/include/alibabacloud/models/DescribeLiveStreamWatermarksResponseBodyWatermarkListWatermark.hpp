@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->description_ != nullptr
-        && this->height_ != nullptr && this->name_ != nullptr && this->offsetCorner_ != nullptr && this->pictureUrl_ != nullptr && this->refHeight_ != nullptr
-        && this->refWidth_ != nullptr && this->ruleCount_ != nullptr && this->templateId_ != nullptr && this->transparency_ != nullptr && this->type_ != nullptr
-        && this->XOffset_ != nullptr && this->YOffset_ != nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && return this->height_ == nullptr && return this->name_ == nullptr && return this->offsetCorner_ == nullptr && return this->pictureUrl_ == nullptr && return this->refHeight_ == nullptr
+        && return this->refWidth_ == nullptr && return this->ruleCount_ == nullptr && return this->templateId_ == nullptr && return this->transparency_ == nullptr && return this->type_ == nullptr
+        && return this->XOffset_ == nullptr && return this->YOffset_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};

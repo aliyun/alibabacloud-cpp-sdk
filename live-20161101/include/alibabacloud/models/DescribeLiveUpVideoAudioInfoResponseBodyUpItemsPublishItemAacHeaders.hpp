@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aacHeaders_ != nullptr; };
+    virtual bool empty() const override { return this->aacHeaders_ == nullptr; };
     // aacHeaders Field Functions 
     bool hasAacHeaders() const { return this->aacHeaders_ != nullptr;};
     void deleteAacHeaders() { this->aacHeaders_ = nullptr;};

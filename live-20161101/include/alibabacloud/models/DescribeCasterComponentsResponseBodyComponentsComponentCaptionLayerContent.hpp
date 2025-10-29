@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->borderColor_ != nullptr
-        && this->borderWidthNormalized_ != nullptr && this->color_ != nullptr && this->fontName_ != nullptr && this->lineSpaceNormalized_ != nullptr && this->locationId_ != nullptr
-        && this->ptsOffset_ != nullptr && this->showSourceLan_ != nullptr && this->sizeNormalized_ != nullptr && this->sourceLan_ != nullptr && this->targetLan_ != nullptr
-        && this->wordCountPerLine_ != nullptr && this->wordSpaceNormalized_ != nullptr && this->wordsCount_ != nullptr; };
+    virtual bool empty() const override { return this->borderColor_ == nullptr
+        && return this->borderWidthNormalized_ == nullptr && return this->color_ == nullptr && return this->fontName_ == nullptr && return this->lineSpaceNormalized_ == nullptr && return this->locationId_ == nullptr
+        && return this->ptsOffset_ == nullptr && return this->showSourceLan_ == nullptr && return this->sizeNormalized_ == nullptr && return this->sourceLan_ == nullptr && return this->targetLan_ == nullptr
+        && return this->wordCountPerLine_ == nullptr && return this->wordSpaceNormalized_ == nullptr && return this->wordsCount_ == nullptr; };
     // borderColor Field Functions 
     bool hasBorderColor() const { return this->borderColor_ != nullptr;};
     void deleteBorderColor() { this->borderColor_ = nullptr;};

@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callbackUrl_ != nullptr
-        && this->endTime_ != nullptr && this->fileIndex_ != nullptr && this->offset_ != nullptr && this->ownerId_ != nullptr && this->region_ != nullptr
-        && this->regionId_ != nullptr && this->repeatNumber_ != nullptr && this->sourceUrls_ != nullptr && this->startTime_ != nullptr && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->callbackUrl_ == nullptr
+        && return this->endTime_ == nullptr && return this->fileIndex_ == nullptr && return this->offset_ == nullptr && return this->ownerId_ == nullptr && return this->region_ == nullptr
+        && return this->regionId_ == nullptr && return this->repeatNumber_ == nullptr && return this->sourceUrls_ == nullptr && return this->startTime_ == nullptr && return this->taskId_ == nullptr; };
     // callbackUrl Field Functions 
     bool hasCallbackUrl() const { return this->callbackUrl_ != nullptr;};
     void deleteCallbackUrl() { this->callbackUrl_ = nullptr;};

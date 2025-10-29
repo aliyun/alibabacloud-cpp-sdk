@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->describeUpPeakPublishStreamData_ != nullptr; };
+    virtual bool empty() const override { return this->describeUpPeakPublishStreamData_ == nullptr; };
     // describeUpPeakPublishStreamData Field Functions 
     bool hasDescribeUpPeakPublishStreamData() const { return this->describeUpPeakPublishStreamData_ != nullptr;};
     void deleteDescribeUpPeakPublishStreamData() { this->describeUpPeakPublishStreamData_ = nullptr;};

@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->customTranscodeParameters_ != nullptr
-        && this->encryptParameters_ != nullptr && this->isLazy_ != nullptr && this->transcodeApp_ != nullptr && this->transcodeName_ != nullptr && this->transcodeTemplate_ != nullptr; };
+    virtual bool empty() const override { return this->customTranscodeParameters_ == nullptr
+        && return this->encryptParameters_ == nullptr && return this->isLazy_ == nullptr && return this->transcodeApp_ == nullptr && return this->transcodeName_ == nullptr && return this->transcodeTemplate_ == nullptr; };
     // customTranscodeParameters Field Functions 
     bool hasCustomTranscodeParameters() const { return this->customTranscodeParameters_ != nullptr;};
     void deleteCustomTranscodeParameters() { this->customTranscodeParameters_ = nullptr;};

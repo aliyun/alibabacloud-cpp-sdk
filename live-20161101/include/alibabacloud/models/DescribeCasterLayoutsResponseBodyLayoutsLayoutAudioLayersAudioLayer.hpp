@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fixedDelayDuration_ != nullptr
-        && this->validChannel_ != nullptr && this->volumeRate_ != nullptr; };
+    virtual bool empty() const override { return this->fixedDelayDuration_ == nullptr
+        && return this->validChannel_ == nullptr && return this->volumeRate_ == nullptr; };
     // fixedDelayDuration Field Functions 
     bool hasFixedDelayDuration() const { return this->fixedDelayDuration_ != nullptr;};
     void deleteFixedDelayDuration() { this->fixedDelayDuration_ = nullptr;};

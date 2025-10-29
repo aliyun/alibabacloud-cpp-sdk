@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->casterId_ != nullptr
-        && this->casterName_ != nullptr && this->casterTemplate_ != nullptr && this->channelEnable_ != nullptr && this->chargeType_ != nullptr && this->clientTokenId_ != nullptr
-        && this->createTime_ != nullptr && this->duration_ != nullptr && this->expireTime_ != nullptr && this->lastModified_ != nullptr && this->normType_ != nullptr
-        && this->purchaseTime_ != nullptr && this->resourceGroupId_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->casterId_ == nullptr
+        && return this->casterName_ == nullptr && return this->casterTemplate_ == nullptr && return this->channelEnable_ == nullptr && return this->chargeType_ == nullptr && return this->clientTokenId_ == nullptr
+        && return this->createTime_ == nullptr && return this->duration_ == nullptr && return this->expireTime_ == nullptr && return this->lastModified_ == nullptr && return this->normType_ == nullptr
+        && return this->purchaseTime_ == nullptr && return this->resourceGroupId_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr; };
     // casterId Field Functions 
     bool hasCasterId() const { return this->casterId_ != nullptr;};
     void deleteCasterId() { this->casterId_ = nullptr;};

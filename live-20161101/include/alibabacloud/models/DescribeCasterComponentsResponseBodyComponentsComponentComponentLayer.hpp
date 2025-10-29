@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->heightNormalized_ != nullptr
-        && this->positionNormalizeds_ != nullptr && this->positionRefer_ != nullptr && this->transparency_ != nullptr && this->widthNormalized_ != nullptr; };
+    virtual bool empty() const override { return this->heightNormalized_ == nullptr
+        && return this->positionNormalizeds_ == nullptr && return this->positionRefer_ == nullptr && return this->transparency_ == nullptr && return this->widthNormalized_ == nullptr; };
     // heightNormalized Field Functions 
     bool hasHeightNormalized() const { return this->heightNormalized_ != nullptr;};
     void deleteHeightNormalized() { this->heightNormalized_ = nullptr;};

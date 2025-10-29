@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->mixLayoutParams_ != nullptr
-        && this->subscribeParams_ != nullptr && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->mixLayoutParams_ == nullptr
+        && return this->subscribeParams_ == nullptr && return this->taskId_ == nullptr; };
     // mixLayoutParams Field Functions 
     bool hasMixLayoutParams() const { return this->mixLayoutParams_ != nullptr;};
     void deleteMixLayoutParams() { this->mixLayoutParams_ = nullptr;};

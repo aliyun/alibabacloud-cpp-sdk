@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alreadyDelete_ != nullptr
-        && this->alreadyExists_ != nullptr && this->groupId_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->alreadyDelete_ == nullptr
+        && return this->alreadyExists_ == nullptr && return this->groupId_ == nullptr && return this->requestId_ == nullptr; };
     // alreadyDelete Field Functions 
     bool hasAlreadyDelete() const { return this->alreadyDelete_ != nullptr;};
     void deleteAlreadyDelete() { this->alreadyDelete_ = nullptr;};

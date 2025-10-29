@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoSwitchUrgentConfig_ != nullptr
-        && this->autoSwitchUrgentOn_ != nullptr && this->callbackUrl_ != nullptr && this->casterId_ != nullptr && this->casterName_ != nullptr && this->channelEnable_ != nullptr
-        && this->delay_ != nullptr && this->domainName_ != nullptr && this->ownerId_ != nullptr && this->programEffect_ != nullptr && this->programName_ != nullptr
-        && this->recordConfig_ != nullptr && this->regionId_ != nullptr && this->sideOutputUrl_ != nullptr && this->sideOutputUrlList_ != nullptr && this->syncGroupsConfig_ != nullptr
-        && this->transcodeConfig_ != nullptr && this->urgentImageId_ != nullptr && this->urgentImageUrl_ != nullptr && this->urgentLiveStreamUrl_ != nullptr && this->urgentMaterialId_ != nullptr; };
+    virtual bool empty() const override { return this->autoSwitchUrgentConfig_ == nullptr
+        && return this->autoSwitchUrgentOn_ == nullptr && return this->callbackUrl_ == nullptr && return this->casterId_ == nullptr && return this->casterName_ == nullptr && return this->channelEnable_ == nullptr
+        && return this->delay_ == nullptr && return this->domainName_ == nullptr && return this->ownerId_ == nullptr && return this->programEffect_ == nullptr && return this->programName_ == nullptr
+        && return this->recordConfig_ == nullptr && return this->regionId_ == nullptr && return this->sideOutputUrl_ == nullptr && return this->sideOutputUrlList_ == nullptr && return this->syncGroupsConfig_ == nullptr
+        && return this->transcodeConfig_ == nullptr && return this->urgentImageId_ == nullptr && return this->urgentImageUrl_ == nullptr && return this->urgentLiveStreamUrl_ == nullptr && return this->urgentMaterialId_ == nullptr; };
     // autoSwitchUrgentConfig Field Functions 
     bool hasAutoSwitchUrgentConfig() const { return this->autoSwitchUrgentConfig_ != nullptr;};
     void deleteAutoSwitchUrgentConfig() { this->autoSwitchUrgentConfig_ = nullptr;};

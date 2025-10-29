@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->audioFrom_ != nullptr
-        && this->callbackUrl_ != nullptr && this->dingTalkWebHookUrl_ != nullptr && this->domain_ != nullptr && this->inputList_ != nullptr && this->monitorConfig_ != nullptr
-        && this->monitorId_ != nullptr && this->monitorName_ != nullptr && this->outputTemplate_ != nullptr && this->outputUrls_ != nullptr && this->region_ != nullptr
-        && this->startTime_ != nullptr && this->status_ != nullptr && this->stopTime_ != nullptr; };
+    virtual bool empty() const override { return this->audioFrom_ == nullptr
+        && return this->callbackUrl_ == nullptr && return this->dingTalkWebHookUrl_ == nullptr && return this->domain_ == nullptr && return this->inputList_ == nullptr && return this->monitorConfig_ == nullptr
+        && return this->monitorId_ == nullptr && return this->monitorName_ == nullptr && return this->outputTemplate_ == nullptr && return this->outputUrls_ == nullptr && return this->region_ == nullptr
+        && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->stopTime_ == nullptr; };
     // audioFrom Field Functions 
     bool hasAudioFrom() const { return this->audioFrom_ != nullptr;};
     void deleteAudioFrom() { this->audioFrom_ = nullptr;};

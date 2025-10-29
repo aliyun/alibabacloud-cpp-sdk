@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->describeUpPeakTraffic_ != nullptr; };
+    virtual bool empty() const override { return this->describeUpPeakTraffic_ == nullptr; };
     // describeUpPeakTraffic Field Functions 
     bool hasDescribeUpPeakTraffic() const { return this->describeUpPeakTraffic_ != nullptr;};
     void deleteDescribeUpPeakTraffic() { this->describeUpPeakTraffic_ = nullptr;};

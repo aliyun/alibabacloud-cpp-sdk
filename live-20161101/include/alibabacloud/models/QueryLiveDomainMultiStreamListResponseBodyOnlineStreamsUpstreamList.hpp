@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->masterFlag_ != nullptr
-        && this->upstreamIp_ != nullptr && this->upstreamSequence_ != nullptr && this->upstreamTime_ != nullptr; };
+    virtual bool empty() const override { return this->masterFlag_ == nullptr
+        && return this->upstreamIp_ == nullptr && return this->upstreamSequence_ == nullptr && return this->upstreamTime_ == nullptr; };
     // masterFlag Field Functions 
     bool hasMasterFlag() const { return this->masterFlag_ != nullptr;};
     void deleteMasterFlag() { this->masterFlag_ = nullptr;};

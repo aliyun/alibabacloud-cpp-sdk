@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->liveLazyPullConfig_ != nullptr; };
+    virtual bool empty() const override { return this->liveLazyPullConfig_ == nullptr; };
     // liveLazyPullConfig Field Functions 
     bool hasLiveLazyPullConfig() const { return this->liveLazyPullConfig_ != nullptr;};
     void deleteLiveLazyPullConfig() { this->liveLazyPullConfig_ = nullptr;};

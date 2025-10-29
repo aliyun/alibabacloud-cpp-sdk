@@ -719,6 +719,10 @@ AddCustomLiveStreamTranscodeResponse Client::addCustomLiveStreamTranscodeWithOpt
     query["BitrateWithSource"] = request.bitrateWithSource();
   }
 
+  if (!!request.hasDeInterlaced()) {
+    query["DeInterlaced"] = request.deInterlaced();
+  }
+
   if (!!request.hasDomain()) {
     query["Domain"] = request.domain();
   }
@@ -23575,6 +23579,76 @@ PublishLiveStagingConfigToProductionResponse Client::publishLiveStagingConfigToP
 }
 
 /**
+ * @summary 用于修改指定直播流的录制文件存储时长。
+ *
+ * @description ## 请求说明
+ * - 该接口允许用户为一个或多个指定的直播流设置新的录制文件存储期限。
+ * - `Tag` 字段必须符合格式 `[0-9]+days`，表示直播结束后录制内容将被保存的天数。
+ * - 如果对某个流的存储时间修改失败，错误信息会被记录在返回结果中。对于失败的情况，调用方应重试最多3次；如果超过重试次数仍失败，则视为最终失败。
+ * - 为了支持未来可能的需求变化（如更长的存储周期），请确保您的系统能够处理不同的时间段值。
+ * - 成功执行后，供应商会通过异步回调的方式通知调用方所有操作的结果。若回调失败，将按照1小时、2小时、4小时的时间间隔尝试重新发送，直至成功或达到最大重试次数。
+ *
+ * @param tmpReq PutRecordStorageLifeCycleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PutRecordStorageLifeCycleResponse
+ */
+PutRecordStorageLifeCycleResponse Client::putRecordStorageLifeCycleWithOptions(const PutRecordStorageLifeCycleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  PutRecordStorageLifeCycleShrinkRequest request = PutRecordStorageLifeCycleShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasStreamIds()) {
+    request.setStreamIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.streamIds(), "StreamIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasStreamIdsShrink()) {
+    body["StreamIds"] = request.streamIdsShrink();
+  }
+
+  if (!!request.hasTag()) {
+    body["Tag"] = request.tag();
+  }
+
+  if (!!request.hasUnixTimestamp()) {
+    body["UnixTimestamp"] = request.unixTimestamp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "PutRecordStorageLifeCycle"},
+    {"version" , "2016-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PutRecordStorageLifeCycleResponse>();
+}
+
+/**
+ * @summary 用于修改指定直播流的录制文件存储时长。
+ *
+ * @description ## 请求说明
+ * - 该接口允许用户为一个或多个指定的直播流设置新的录制文件存储期限。
+ * - `Tag` 字段必须符合格式 `[0-9]+days`，表示直播结束后录制内容将被保存的天数。
+ * - 如果对某个流的存储时间修改失败，错误信息会被记录在返回结果中。对于失败的情况，调用方应重试最多3次；如果超过重试次数仍失败，则视为最终失败。
+ * - 为了支持未来可能的需求变化（如更长的存储周期），请确保您的系统能够处理不同的时间段值。
+ * - 成功执行后，供应商会通过异步回调的方式通知调用方所有操作的结果。若回调失败，将按照1小时、2小时、4小时的时间间隔尝试重新发送，直至成功或达到最大重试次数。
+ *
+ * @param request PutRecordStorageLifeCycleRequest
+ * @return PutRecordStorageLifeCycleResponse
+ */
+PutRecordStorageLifeCycleResponse Client::putRecordStorageLifeCycle(const PutRecordStorageLifeCycleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return putRecordStorageLifeCycleWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the dual-stream disaster recovery records of online streams.
  *
  * @param request QueryLiveDomainMultiStreamListRequest
@@ -27291,6 +27365,8 @@ TagLiveResourcesResponse Client::tagLiveResources(const TagLiveResourcesRequest 
 }
 
 /**
+ * @summary 解绑标签
+ *
  * @param request UnTagLiveResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UnTagLiveResourcesResponse
@@ -27340,6 +27416,8 @@ UnTagLiveResourcesResponse Client::unTagLiveResourcesWithOptions(const UnTagLive
 }
 
 /**
+ * @summary 解绑标签
+ *
  * @param request UnTagLiveResourcesRequest
  * @return UnTagLiveResourcesResponse
  */
@@ -27661,6 +27739,10 @@ UpdateCustomLiveStreamTranscodeResponse Client::updateCustomLiveStreamTranscodeW
 
   if (!!request.hasBitrateWithSource()) {
     query["BitrateWithSource"] = request.bitrateWithSource();
+  }
+
+  if (!!request.hasDeInterlaced()) {
+    query["DeInterlaced"] = request.deInterlaced();
   }
 
   if (!!request.hasDomain()) {

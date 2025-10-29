@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->casterId_ != nullptr
-        && this->casterName_ != nullptr && this->chargeType_ != nullptr && this->endTime_ != nullptr && this->normType_ != nullptr && this->orderByModifyAsc_ != nullptr
-        && this->ownerId_ != nullptr && this->pageNum_ != nullptr && this->pageSize_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->startTime_ != nullptr && this->status_ != nullptr && this->tag_ != nullptr; };
+    virtual bool empty() const override { return this->casterId_ == nullptr
+        && return this->casterName_ == nullptr && return this->chargeType_ == nullptr && return this->endTime_ == nullptr && return this->normType_ == nullptr && return this->orderByModifyAsc_ == nullptr
+        && return this->ownerId_ == nullptr && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->tag_ == nullptr; };
     // casterId Field Functions 
     bool hasCasterId() const { return this->casterId_ != nullptr;};
     void deleteCasterId() { this->casterId_ = nullptr;};

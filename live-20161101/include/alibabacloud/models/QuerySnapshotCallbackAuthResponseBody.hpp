@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callbackAuthKey_ != nullptr
-        && this->callbackReqAuth_ != nullptr && this->domainName_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->callbackAuthKey_ == nullptr
+        && return this->callbackReqAuth_ == nullptr && return this->domainName_ == nullptr && return this->requestId_ == nullptr; };
     // callbackAuthKey Field Functions 
     bool hasCallbackAuthKey() const { return this->callbackAuthKey_ != nullptr;};
     void deleteCallbackAuthKey() { this->callbackAuthKey_ = nullptr;};

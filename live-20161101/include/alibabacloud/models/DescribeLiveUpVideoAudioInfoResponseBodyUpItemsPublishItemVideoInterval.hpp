@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->videoInterval_ != nullptr; };
+    virtual bool empty() const override { return this->videoInterval_ == nullptr; };
     // videoInterval Field Functions 
     bool hasVideoInterval() const { return this->videoInterval_ != nullptr;};
     void deleteVideoInterval() { this->videoInterval_ = nullptr;};

@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->background_ != nullptr
-        && this->currentShowId_ != nullptr && this->highPriorityShowId_ != nullptr && this->highPriorityShowStartTime_ != nullptr && this->showList_ != nullptr && this->showListRepeatTimes_ != nullptr
-        && this->totalShowListRepeatTimes_ != nullptr; };
+    virtual bool empty() const override { return this->background_ == nullptr
+        && return this->currentShowId_ == nullptr && return this->highPriorityShowId_ == nullptr && return this->highPriorityShowStartTime_ == nullptr && return this->showList_ == nullptr && return this->showListRepeatTimes_ == nullptr
+        && return this->totalShowListRepeatTimes_ == nullptr; };
     // background Field Functions 
     bool hasBackground() const { return this->background_ != nullptr;};
     void deleteBackground() { this->background_ = nullptr;};

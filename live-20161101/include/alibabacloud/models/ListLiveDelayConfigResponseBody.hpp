@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->delayConfigList_ != nullptr
-        && this->requestId_ != nullptr && this->total_ != nullptr; };
+    virtual bool empty() const override { return this->delayConfigList_ == nullptr
+        && return this->requestId_ == nullptr && return this->total_ == nullptr; };
     // delayConfigList Field Functions 
     bool hasDelayConfigList() const { return this->delayConfigList_ != nullptr;};
     void deleteDelayConfigList() { this->delayConfigList_ = nullptr;};

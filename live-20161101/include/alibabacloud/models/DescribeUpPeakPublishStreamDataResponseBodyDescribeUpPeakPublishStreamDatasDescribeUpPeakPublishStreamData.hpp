@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandWidth_ != nullptr
-        && this->peakTime_ != nullptr && this->publishStreamNum_ != nullptr && this->queryTime_ != nullptr && this->statName_ != nullptr; };
+    virtual bool empty() const override { return this->bandWidth_ == nullptr
+        && return this->peakTime_ == nullptr && return this->publishStreamNum_ == nullptr && return this->queryTime_ == nullptr && return this->statName_ == nullptr; };
     // bandWidth Field Functions 
     bool hasBandWidth() const { return this->bandWidth_ != nullptr;};
     void deleteBandWidth() { this->bandWidth_ = nullptr;};

@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accelerationArea_ != nullptr
-        && this->accelerationType_ != nullptr && this->appName_ != nullptr && this->domainName_ != nullptr && this->instanceId_ != nullptr && this->maxBandwidth_ != nullptr
-        && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->reuse_ != nullptr && this->streamName_ != nullptr && this->videoCenter_ != nullptr; };
+    virtual bool empty() const override { return this->accelerationArea_ == nullptr
+        && return this->accelerationType_ == nullptr && return this->appName_ == nullptr && return this->domainName_ == nullptr && return this->instanceId_ == nullptr && return this->maxBandwidth_ == nullptr
+        && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->reuse_ == nullptr && return this->streamName_ == nullptr && return this->videoCenter_ == nullptr; };
     // accelerationArea Field Functions 
     bool hasAccelerationArea() const { return this->accelerationArea_ != nullptr;};
     void deleteAccelerationArea() { this->accelerationArea_ = nullptr;};

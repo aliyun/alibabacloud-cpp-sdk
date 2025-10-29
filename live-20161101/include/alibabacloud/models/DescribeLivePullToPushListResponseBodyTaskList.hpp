@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->currentFileIndex_ != nullptr
-        && this->currentOffset_ != nullptr && this->taskExitReason_ != nullptr && this->taskExitTime_ != nullptr && this->taskId_ != nullptr && this->taskInfo_ != nullptr
-        && this->taskInvalidReason_ != nullptr && this->taskStatus_ != nullptr; };
+    virtual bool empty() const override { return this->currentFileIndex_ == nullptr
+        && return this->currentOffset_ == nullptr && return this->taskExitReason_ == nullptr && return this->taskExitTime_ == nullptr && return this->taskId_ == nullptr && return this->taskInfo_ == nullptr
+        && return this->taskInvalidReason_ == nullptr && return this->taskStatus_ == nullptr; };
     // currentFileIndex Field Functions 
     bool hasCurrentFileIndex() const { return this->currentFileIndex_ != nullptr;};
     void deleteCurrentFileIndex() { this->currentFileIndex_ = nullptr;};

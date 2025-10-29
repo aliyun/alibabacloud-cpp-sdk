@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bannedUserList_ != nullptr
-        && this->groupId_ != nullptr && this->isbannedAll_ != nullptr && this->requestId_ != nullptr && this->unbannedUserList_ != nullptr; };
+    virtual bool empty() const override { return this->bannedUserList_ == nullptr
+        && return this->groupId_ == nullptr && return this->isbannedAll_ == nullptr && return this->requestId_ == nullptr && return this->unbannedUserList_ == nullptr; };
     // bannedUserList Field Functions 
     bool hasBannedUserList() const { return this->bannedUserList_ != nullptr;};
     void deleteBannedUserList() { this->bannedUserList_ = nullptr;};

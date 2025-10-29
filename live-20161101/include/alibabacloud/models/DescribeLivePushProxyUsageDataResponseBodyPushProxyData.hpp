@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->pushProxyDataItem_ != nullptr; };
+    virtual bool empty() const override { return this->pushProxyDataItem_ == nullptr; };
     // pushProxyDataItem Field Functions 
     bool hasPushProxyDataItem() const { return this->pushProxyDataItem_ != nullptr;};
     void deletePushProxyDataItem() { this->pushProxyDataItem_ = nullptr;};

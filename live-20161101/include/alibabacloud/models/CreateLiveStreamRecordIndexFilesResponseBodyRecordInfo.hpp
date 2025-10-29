@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appName_ != nullptr
-        && this->createTime_ != nullptr && this->domainName_ != nullptr && this->duration_ != nullptr && this->endTime_ != nullptr && this->height_ != nullptr
-        && this->ossBucket_ != nullptr && this->ossEndpoint_ != nullptr && this->ossObject_ != nullptr && this->recordId_ != nullptr && this->recordUrl_ != nullptr
-        && this->startTime_ != nullptr && this->streamName_ != nullptr && this->width_ != nullptr; };
+    virtual bool empty() const override { return this->appName_ == nullptr
+        && return this->createTime_ == nullptr && return this->domainName_ == nullptr && return this->duration_ == nullptr && return this->endTime_ == nullptr && return this->height_ == nullptr
+        && return this->ossBucket_ == nullptr && return this->ossEndpoint_ == nullptr && return this->ossObject_ == nullptr && return this->recordId_ == nullptr && return this->recordUrl_ == nullptr
+        && return this->startTime_ == nullptr && return this->streamName_ == nullptr && return this->width_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};

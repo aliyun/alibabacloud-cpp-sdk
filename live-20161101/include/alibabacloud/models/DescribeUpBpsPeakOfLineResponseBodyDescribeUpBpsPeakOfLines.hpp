@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->describeUpBpsPeakOfLine_ != nullptr; };
+    virtual bool empty() const override { return this->describeUpBpsPeakOfLine_ == nullptr; };
     // describeUpBpsPeakOfLine Field Functions 
     bool hasDescribeUpBpsPeakOfLine() const { return this->describeUpBpsPeakOfLine_ != nullptr;};
     void deleteDescribeUpBpsPeakOfLine() { this->describeUpBpsPeakOfLine_ = nullptr;};

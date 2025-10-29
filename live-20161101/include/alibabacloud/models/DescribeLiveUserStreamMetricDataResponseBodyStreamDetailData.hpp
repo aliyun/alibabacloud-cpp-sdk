@@ -71,12 +71,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appName_ != nullptr
-        && this->bps_ != nullptr && this->count_ != nullptr && this->flvBps_ != nullptr && this->flvCount_ != nullptr && this->flvTraffic_ != nullptr
-        && this->hlsBps_ != nullptr && this->hlsCount_ != nullptr && this->hlsTraffic_ != nullptr && this->newConns_ != nullptr && this->p2pBps_ != nullptr
-        && this->p2pCount_ != nullptr && this->p2pTraffic_ != nullptr && this->rtmpBps_ != nullptr && this->rtmpCount_ != nullptr && this->rtmpTraffic_ != nullptr
-        && this->rtsBps_ != nullptr && this->rtsCount_ != nullptr && this->rtsTraffic_ != nullptr && this->streamName_ != nullptr && this->timeStamp_ != nullptr
-        && this->traffic_ != nullptr; };
+    virtual bool empty() const override { return this->appName_ == nullptr
+        && return this->bps_ == nullptr && return this->count_ == nullptr && return this->flvBps_ == nullptr && return this->flvCount_ == nullptr && return this->flvTraffic_ == nullptr
+        && return this->hlsBps_ == nullptr && return this->hlsCount_ == nullptr && return this->hlsTraffic_ == nullptr && return this->newConns_ == nullptr && return this->p2pBps_ == nullptr
+        && return this->p2pCount_ == nullptr && return this->p2pTraffic_ == nullptr && return this->rtmpBps_ == nullptr && return this->rtmpCount_ == nullptr && return this->rtmpTraffic_ == nullptr
+        && return this->rtsBps_ == nullptr && return this->rtsCount_ == nullptr && return this->rtsTraffic_ == nullptr && return this->streamName_ == nullptr && return this->timeStamp_ == nullptr
+        && return this->traffic_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};

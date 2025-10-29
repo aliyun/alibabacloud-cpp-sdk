@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxFileDuration_ != nullptr
-        && this->recordMode_ != nullptr && this->streamType_ != nullptr; };
+    virtual bool empty() const override { return this->maxFileDuration_ == nullptr
+        && return this->recordMode_ == nullptr && return this->streamType_ == nullptr; };
     // maxFileDuration Field Functions 
     bool hasMaxFileDuration() const { return this->maxFileDuration_ != nullptr;};
     void deleteMaxFileDuration() { this->maxFileDuration_ = nullptr;};

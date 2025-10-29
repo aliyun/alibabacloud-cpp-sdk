@@ -83,12 +83,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aacHeaders_ != nullptr
-        && this->appName_ != nullptr && this->audioBitRate_ != nullptr && this->audioFrames_ != nullptr && this->audioInterval_ != nullptr && this->audioStamps_ != nullptr
-        && this->avcHeaders_ != nullptr && this->codecInfo_ != nullptr && this->domainName_ != nullptr && this->errorFlags_ != nullptr && this->publishInterval_ != nullptr
-        && this->publishIp_ != nullptr && this->publishStatus_ != nullptr && this->publishTime_ != nullptr && this->stopTime_ != nullptr && this->streamName_ != nullptr
-        && this->uniqueId_ != nullptr && this->videoAndAudioStamp_ != nullptr && this->videoBitRate_ != nullptr && this->videoFrames_ != nullptr && this->videoInterval_ != nullptr
-        && this->videoStamps_ != nullptr; };
+    virtual bool empty() const override { return this->aacHeaders_ == nullptr
+        && return this->appName_ == nullptr && return this->audioBitRate_ == nullptr && return this->audioFrames_ == nullptr && return this->audioInterval_ == nullptr && return this->audioStamps_ == nullptr
+        && return this->avcHeaders_ == nullptr && return this->codecInfo_ == nullptr && return this->domainName_ == nullptr && return this->errorFlags_ == nullptr && return this->publishInterval_ == nullptr
+        && return this->publishIp_ == nullptr && return this->publishStatus_ == nullptr && return this->publishTime_ == nullptr && return this->stopTime_ == nullptr && return this->streamName_ == nullptr
+        && return this->uniqueId_ == nullptr && return this->videoAndAudioStamp_ == nullptr && return this->videoBitRate_ == nullptr && return this->videoFrames_ == nullptr && return this->videoInterval_ == nullptr
+        && return this->videoStamps_ == nullptr; };
     // aacHeaders Field Functions 
     bool hasAacHeaders() const { return this->aacHeaders_ != nullptr;};
     void deleteAacHeaders() { this->aacHeaders_ = nullptr;};

@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appName_ != nullptr
-        && this->audioCodecId_ != nullptr && this->audioDataRate_ != nullptr && this->clientIp_ != nullptr && this->domainName_ != nullptr && this->frameRate_ != nullptr
-        && this->height_ != nullptr && this->publishDomain_ != nullptr && this->publishTime_ != nullptr && this->publishType_ != nullptr && this->publishUrl_ != nullptr
-        && this->serverIp_ != nullptr && this->streamName_ != nullptr && this->transcoded_ != nullptr && this->videoCodecId_ != nullptr && this->videoDataRate_ != nullptr
-        && this->width_ != nullptr; };
+    virtual bool empty() const override { return this->appName_ == nullptr
+        && return this->audioCodecId_ == nullptr && return this->audioDataRate_ == nullptr && return this->clientIp_ == nullptr && return this->domainName_ == nullptr && return this->frameRate_ == nullptr
+        && return this->height_ == nullptr && return this->publishDomain_ == nullptr && return this->publishTime_ == nullptr && return this->publishType_ == nullptr && return this->publishUrl_ == nullptr
+        && return this->serverIp_ == nullptr && return this->streamName_ == nullptr && return this->transcoded_ == nullptr && return this->videoCodecId_ == nullptr && return this->videoDataRate_ == nullptr
+        && return this->width_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};

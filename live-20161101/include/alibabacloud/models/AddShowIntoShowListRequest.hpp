@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->casterId_ != nullptr
-        && this->duration_ != nullptr && this->liveInputType_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->repeatTimes_ != nullptr
-        && this->resourceId_ != nullptr && this->resourceType_ != nullptr && this->resourceUrl_ != nullptr && this->showName_ != nullptr && this->spot_ != nullptr
-        && this->isBatchMode_ != nullptr && this->showList_ != nullptr; };
+    virtual bool empty() const override { return this->casterId_ == nullptr
+        && return this->duration_ == nullptr && return this->liveInputType_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->repeatTimes_ == nullptr
+        && return this->resourceId_ == nullptr && return this->resourceType_ == nullptr && return this->resourceUrl_ == nullptr && return this->showName_ == nullptr && return this->spot_ == nullptr
+        && return this->isBatchMode_ == nullptr && return this->showList_ == nullptr; };
     // casterId Field Functions 
     bool hasCasterId() const { return this->casterId_ != nullptr;};
     void deleteCasterId() { this->casterId_ = nullptr;};

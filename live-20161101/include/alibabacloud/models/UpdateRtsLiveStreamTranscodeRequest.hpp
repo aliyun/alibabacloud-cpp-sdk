@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->app_ != nullptr
-        && this->audioBitrate_ != nullptr && this->audioChannelNum_ != nullptr && this->audioCodec_ != nullptr && this->audioProfile_ != nullptr && this->audioRate_ != nullptr
-        && this->deleteBframes_ != nullptr && this->domain_ != nullptr && this->FPS_ != nullptr && this->gop_ != nullptr && this->height_ != nullptr
-        && this->lazy_ != nullptr && this->opus_ != nullptr && this->ownerId_ != nullptr && this->profile_ != nullptr && this->regionId_ != nullptr
-        && this->template_ != nullptr && this->templateType_ != nullptr && this->videoBitrate_ != nullptr && this->width_ != nullptr; };
+    virtual bool empty() const override { return this->app_ == nullptr
+        && return this->audioBitrate_ == nullptr && return this->audioChannelNum_ == nullptr && return this->audioCodec_ == nullptr && return this->audioProfile_ == nullptr && return this->audioRate_ == nullptr
+        && return this->deleteBframes_ == nullptr && return this->domain_ == nullptr && return this->FPS_ == nullptr && return this->gop_ == nullptr && return this->height_ == nullptr
+        && return this->lazy_ == nullptr && return this->opus_ == nullptr && return this->ownerId_ == nullptr && return this->profile_ == nullptr && return this->regionId_ == nullptr
+        && return this->template_ == nullptr && return this->templateType_ == nullptr && return this->videoBitrate_ == nullptr && return this->width_ == nullptr; };
     // app Field Functions 
     bool hasApp() const { return this->app_ != nullptr;};
     void deleteApp() { this->app_ = nullptr;};

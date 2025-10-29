@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliInnerErrorFlags_ != nullptr
-        && this->appName_ != nullptr && this->clientAddr_ != nullptr && this->domainName_ != nullptr && this->edgeNodeAddr_ != nullptr && this->publishDomain_ != nullptr
-        && this->publishTime_ != nullptr && this->publishType_ != nullptr && this->publishUrl_ != nullptr && this->stopTime_ != nullptr && this->streamName_ != nullptr
-        && this->streamUrl_ != nullptr && this->transcodeId_ != nullptr && this->transcoded_ != nullptr; };
+    virtual bool empty() const override { return this->aliInnerErrorFlags_ == nullptr
+        && return this->appName_ == nullptr && return this->clientAddr_ == nullptr && return this->domainName_ == nullptr && return this->edgeNodeAddr_ == nullptr && return this->publishDomain_ == nullptr
+        && return this->publishTime_ == nullptr && return this->publishType_ == nullptr && return this->publishUrl_ == nullptr && return this->stopTime_ == nullptr && return this->streamName_ == nullptr
+        && return this->streamUrl_ == nullptr && return this->transcodeId_ == nullptr && return this->transcoded_ == nullptr; };
     // aliInnerErrorFlags Field Functions 
     bool hasAliInnerErrorFlags() const { return this->aliInnerErrorFlags_ != nullptr;};
     void deleteAliInnerErrorFlags() { this->aliInnerErrorFlags_ = nullptr;};

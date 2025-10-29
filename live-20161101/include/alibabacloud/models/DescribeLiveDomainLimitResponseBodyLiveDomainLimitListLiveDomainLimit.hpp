@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->currentNum_ != nullptr
-        && this->currentTranscodeNum_ != nullptr && this->currentTransferNum_ != nullptr && this->domainName_ != nullptr && this->limitNum_ != nullptr && this->limitTranscodeNum_ != nullptr
-        && this->limitTransferNum_ != nullptr; };
+    virtual bool empty() const override { return this->currentNum_ == nullptr
+        && return this->currentTranscodeNum_ == nullptr && return this->currentTransferNum_ == nullptr && return this->domainName_ == nullptr && return this->limitNum_ == nullptr && return this->limitTranscodeNum_ == nullptr
+        && return this->limitTransferNum_ == nullptr; };
     // currentNum Field Functions 
     bool hasCurrentNum() const { return this->currentNum_ != nullptr;};
     void deleteCurrentNum() { this->currentNum_ = nullptr;};

@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->lazyTranscodedNumber_ != nullptr
-        && this->requestId_ != nullptr && this->total_ != nullptr && this->transcodeStreamCountDetails_ != nullptr && this->transcodedNumber_ != nullptr && this->untranscodeNumber_ != nullptr; };
+    virtual bool empty() const override { return this->lazyTranscodedNumber_ == nullptr
+        && return this->requestId_ == nullptr && return this->total_ == nullptr && return this->transcodeStreamCountDetails_ == nullptr && return this->transcodedNumber_ == nullptr && return this->untranscodeNumber_ == nullptr; };
     // lazyTranscodedNumber Field Functions 
     bool hasLazyTranscodedNumber() const { return this->lazyTranscodedNumber_ != nullptr;};
     void deleteLazyTranscodedNumber() { this->lazyTranscodedNumber_ = nullptr;};

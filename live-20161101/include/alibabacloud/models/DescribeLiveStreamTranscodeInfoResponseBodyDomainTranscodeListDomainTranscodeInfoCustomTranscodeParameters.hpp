@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AudioRate, audioRate_);
       DARABONBA_PTR_TO_JSON(Bframes, bframes_);
       DARABONBA_ANY_TO_JSON(BitrateWithSource, bitrateWithSource_);
+      DARABONBA_PTR_TO_JSON(DeInterlaced, deInterlaced_);
       DARABONBA_ANY_TO_JSON(ExtWithSource, extWithSource_);
       DARABONBA_PTR_TO_JSON(FPS, FPS_);
       DARABONBA_ANY_TO_JSON(FpsWithSource, fpsWithSource_);
@@ -40,6 +41,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AudioRate, audioRate_);
       DARABONBA_PTR_FROM_JSON(Bframes, bframes_);
       DARABONBA_ANY_FROM_JSON(BitrateWithSource, bitrateWithSource_);
+      DARABONBA_PTR_FROM_JSON(DeInterlaced, deInterlaced_);
       DARABONBA_ANY_FROM_JSON(ExtWithSource, extWithSource_);
       DARABONBA_PTR_FROM_JSON(FPS, FPS_);
       DARABONBA_ANY_FROM_JSON(FpsWithSource, fpsWithSource_);
@@ -63,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->audioBitrate_ != nullptr
-        && this->audioChannelNum_ != nullptr && this->audioCodec_ != nullptr && this->audioProfile_ != nullptr && this->audioRate_ != nullptr && this->bframes_ != nullptr
-        && this->bitrateWithSource_ != nullptr && this->extWithSource_ != nullptr && this->FPS_ != nullptr && this->fpsWithSource_ != nullptr && this->gop_ != nullptr
-        && this->height_ != nullptr && this->resWithSource_ != nullptr && this->rtsFlag_ != nullptr && this->templateType_ != nullptr && this->videoBitrate_ != nullptr
-        && this->videoProfile_ != nullptr && this->width_ != nullptr; };
+    virtual bool empty() const override { return this->audioBitrate_ == nullptr
+        && return this->audioChannelNum_ == nullptr && return this->audioCodec_ == nullptr && return this->audioProfile_ == nullptr && return this->audioRate_ == nullptr && return this->bframes_ == nullptr
+        && return this->bitrateWithSource_ == nullptr && return this->deInterlaced_ == nullptr && return this->extWithSource_ == nullptr && return this->FPS_ == nullptr && return this->fpsWithSource_ == nullptr
+        && return this->gop_ == nullptr && return this->height_ == nullptr && return this->resWithSource_ == nullptr && return this->rtsFlag_ == nullptr && return this->templateType_ == nullptr
+        && return this->videoBitrate_ == nullptr && return this->videoProfile_ == nullptr && return this->width_ == nullptr; };
     // audioBitrate Field Functions 
     bool hasAudioBitrate() const { return this->audioBitrate_ != nullptr;};
     void deleteAudioBitrate() { this->audioBitrate_ = nullptr;};
@@ -117,6 +119,13 @@ namespace Models
     Darabonba::Json & bitrateWithSource() { DARABONBA_GET(bitrateWithSource_) };
     inline DescribeLiveStreamTranscodeInfoResponseBodyDomainTranscodeListDomainTranscodeInfoCustomTranscodeParameters& setBitrateWithSource(const Darabonba::Json & bitrateWithSource) { DARABONBA_SET_VALUE(bitrateWithSource_, bitrateWithSource) };
     inline DescribeLiveStreamTranscodeInfoResponseBodyDomainTranscodeListDomainTranscodeInfoCustomTranscodeParameters& setBitrateWithSource(Darabonba::Json & bitrateWithSource) { DARABONBA_SET_RVALUE(bitrateWithSource_, bitrateWithSource) };
+
+
+    // deInterlaced Field Functions 
+    bool hasDeInterlaced() const { return this->deInterlaced_ != nullptr;};
+    void deleteDeInterlaced() { this->deInterlaced_ = nullptr;};
+    inline bool deInterlaced() const { DARABONBA_PTR_GET_DEFAULT(deInterlaced_, false) };
+    inline DescribeLiveStreamTranscodeInfoResponseBodyDomainTranscodeListDomainTranscodeInfoCustomTranscodeParameters& setDeInterlaced(bool deInterlaced) { DARABONBA_PTR_SET_VALUE(deInterlaced_, deInterlaced) };
 
 
     // extWithSource Field Functions 
@@ -227,6 +236,7 @@ namespace Models
     std::shared_ptr<string> bframes_ = nullptr;
     // The source-based bitrate settings.
     Darabonba::Json bitrateWithSource_ = nullptr;
+    std::shared_ptr<bool> deInterlaced_ = nullptr;
     // Other source-based settings.
     Darabonba::Json extWithSource_ = nullptr;
     // The frame rate of the output video. Unit: frames per second (FPS).

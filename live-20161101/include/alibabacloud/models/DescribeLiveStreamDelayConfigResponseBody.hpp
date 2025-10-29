@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->liveStreamFlvDelayConfig_ != nullptr
-        && this->liveStreamHlsDelayConfig_ != nullptr && this->liveStreamRtmpDelayConfig_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->liveStreamFlvDelayConfig_ == nullptr
+        && return this->liveStreamHlsDelayConfig_ == nullptr && return this->liveStreamRtmpDelayConfig_ == nullptr && return this->requestId_ == nullptr; };
     // liveStreamFlvDelayConfig Field Functions 
     bool hasLiveStreamFlvDelayConfig() const { return this->liveStreamFlvDelayConfig_ != nullptr;};
     void deleteLiveStreamFlvDelayConfig() { this->liveStreamFlvDelayConfig_ = nullptr;};

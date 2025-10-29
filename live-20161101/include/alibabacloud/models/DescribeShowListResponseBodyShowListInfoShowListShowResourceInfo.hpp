@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->liveInputType_ != nullptr
-        && this->resourceId_ != nullptr && this->resourceType_ != nullptr && this->resourceUrl_ != nullptr; };
+    virtual bool empty() const override { return this->liveInputType_ == nullptr
+        && return this->resourceId_ == nullptr && return this->resourceType_ == nullptr && return this->resourceUrl_ == nullptr; };
     // liveInputType Field Functions 
     bool hasLiveInputType() const { return this->liveInputType_ != nullptr;};
     void deleteLiveInputType() { this->liveInputType_ = nullptr;};

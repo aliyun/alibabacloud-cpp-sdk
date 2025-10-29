@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->captionLayerContent_ != nullptr
-        && this->componentId_ != nullptr && this->componentLayer_ != nullptr && this->componentName_ != nullptr && this->componentType_ != nullptr && this->effect_ != nullptr
-        && this->imageLayerContent_ != nullptr && this->locationId_ != nullptr && this->textLayerContent_ != nullptr; };
+    virtual bool empty() const override { return this->captionLayerContent_ == nullptr
+        && return this->componentId_ == nullptr && return this->componentLayer_ == nullptr && return this->componentName_ == nullptr && return this->componentType_ == nullptr && return this->effect_ == nullptr
+        && return this->imageLayerContent_ == nullptr && return this->locationId_ == nullptr && return this->textLayerContent_ == nullptr; };
     // captionLayerContent Field Functions 
     bool hasCaptionLayerContent() const { return this->captionLayerContent_ != nullptr;};
     void deleteCaptionLayerContent() { this->captionLayerContent_ = nullptr;};

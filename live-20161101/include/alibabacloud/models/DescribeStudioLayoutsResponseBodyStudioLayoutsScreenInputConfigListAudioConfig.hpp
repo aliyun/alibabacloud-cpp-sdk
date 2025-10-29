@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->validChannel_ != nullptr
-        && this->volumeRate_ != nullptr; };
+    virtual bool empty() const override { return this->validChannel_ == nullptr
+        && return this->volumeRate_ == nullptr; };
     // validChannel Field Functions 
     bool hasValidChannel() const { return this->validChannel_ != nullptr;};
     void deleteValidChannel() { this->validChannel_ = nullptr;};

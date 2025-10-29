@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->connectDur_ != nullptr
-        && this->connectFailedCount_ != nullptr && this->count_ != nullptr && this->firstDataDur_ != nullptr && this->firstDataFailedCount_ != nullptr && this->firstFrameDur_ != nullptr
-        && this->firstFrameSuccessCount_ != nullptr && this->statusCode2Xx_ != nullptr && this->statusCode3Xx_ != nullptr && this->statusCode4Xx_ != nullptr && this->statusCode5Xx_ != nullptr
-        && this->timestamp_ != nullptr; };
+    virtual bool empty() const override { return this->connectDur_ == nullptr
+        && return this->connectFailedCount_ == nullptr && return this->count_ == nullptr && return this->firstDataDur_ == nullptr && return this->firstDataFailedCount_ == nullptr && return this->firstFrameDur_ == nullptr
+        && return this->firstFrameSuccessCount_ == nullptr && return this->statusCode2Xx_ == nullptr && return this->statusCode3Xx_ == nullptr && return this->statusCode4Xx_ == nullptr && return this->statusCode5Xx_ == nullptr
+        && return this->timestamp_ == nullptr; };
     // connectDur Field Functions 
     bool hasConnectDur() const { return this->connectDur_ != nullptr;};
     void deleteConnectDur() { this->connectDur_ = nullptr;};

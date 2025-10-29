@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->liveStreamSnapshotConfig_ != nullptr; };
+    virtual bool empty() const override { return this->liveStreamSnapshotConfig_ == nullptr; };
     // liveStreamSnapshotConfig Field Functions 
     bool hasLiveStreamSnapshotConfig() const { return this->liveStreamSnapshotConfig_ != nullptr;};
     void deleteLiveStreamSnapshotConfig() { this->liveStreamSnapshotConfig_ = nullptr;};

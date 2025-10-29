@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->delay_ != nullptr
-        && this->level_ != nullptr; };
+    virtual bool empty() const override { return this->delay_ == nullptr
+        && return this->level_ == nullptr; };
     // delay Field Functions 
     bool hasDelay() const { return this->delay_ != nullptr;};
     void deleteDelay() { this->delay_ = nullptr;};

@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->app_ != nullptr
-        && this->bitrate_ != nullptr && this->bwDiff_ != nullptr && this->cdnName_ != nullptr && this->domain_ != nullptr && this->flr_ != nullptr
-        && this->fps_ != nullptr && this->streamName_ != nullptr && this->timestamp_ != nullptr; };
+    virtual bool empty() const override { return this->app_ == nullptr
+        && return this->bitrate_ == nullptr && return this->bwDiff_ == nullptr && return this->cdnName_ == nullptr && return this->domain_ == nullptr && return this->flr_ == nullptr
+        && return this->fps_ == nullptr && return this->streamName_ == nullptr && return this->timestamp_ == nullptr; };
     // app Field Functions 
     bool hasApp() const { return this->app_ != nullptr;};
     void deleteApp() { this->app_ = nullptr;};
